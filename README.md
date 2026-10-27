@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 20:59 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 38.8 %** · frozen statements proved: 1 / 22 · **17,895 lines of Lean** of an estimated ≈ 125,000
+> **Last updated: 2026-10-27 21:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 38.8 %** · frozen statements proved: 1 / 22 · **17,895 lines of Lean** of an estimated ≈ 125,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 20:59 UTC from `main` at `2676c3c` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 21:00 UTC from `main` at `7f03a9d` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K: 120/453 graph nodes proved and audited. G1/G2 proof campaign started: Lean design audited (PASS, no corrected signatures); wave 1 running (P2-1a carrier, P2-1b standing/constants); I-P1C running; Zohar's I-STRIP-3 (cohomological equation) gates wave 5. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -279,9 +279,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **prover-P2-3** `worktree /root/code/KAM-w-p2-3` | Lean prover (G1 design wave 2) | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package P2-3 (docs/campaign/briefs/P2-3.md) | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P: additions (D25, D28 frozen), blueprints, dependency graphs, proof campaigns | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P: additions (D25, D28 frozen), blueprints, dependency graphs, proof campaigns | — | — |
 | **bpN-p12** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N Part 12: N-AVERAGING blueprint (D28) | — | — |
 | **graphN-ext** | graph extractors (subagents) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N dependency graph: slice extraction (Parts 4-7 now) | — | — |
 | **grev-1** `inp-grev-1` | graph delta review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: delta reviews (I-p67a, I-p7b, I-p1, I-p3) | — | — |
