@@ -114,3 +114,30 @@ REASON: imported node (track K): its statement is proved, or is an external inpu
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
+
+ITEM: K:bp:p1:averages
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages@L665-L669
+DISPOSITION: NODE K:bp:p1:averages
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:cauchy-open
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L474-L479
+DISPOSITION: NODE K:bp:p1:cauchy-open
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:ext-measure
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L100-L109
+DISPOSITION: NODE K:bp:p1:ext-measure
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -

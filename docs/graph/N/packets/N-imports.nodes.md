@@ -335,3 +335,81 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p1:uniform-limits; shared Lean provider. There: KIND lemma, contract bp:p1:uniform-limits v1. Cited as \Kref{bp:p1:uniform-limits}.
+
+NODE: K:bp:p1:averages
+KIND: external
+TITLE: [K] Averages
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages@L665-L669
+PROOF_SOURCE: -
+CONTRACT_ID: K:bp:p1:averages
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: v holomorphic, bounded and 1-periodic on T_rho; scalar, C^p or C^{pxq} valued
+SOURCE_QUANTIFIERS: rho, v; ell; omega
+SOURCE_CONCLUSION: <d_theta_ell v>=0, <Dv omega>=0, |avg(v)| <= ||v||_rho
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-K graph, node bp:p1:averages; shared Lean provider. There: KIND lemma, contract bp:p1:averages v1. Cited as \Kref{bp:p1:averages}.
+
+NODE: K:bp:p1:cauchy-open
+KIND: external
+TITLE: [K] Cauchy estimate on open sets
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L474-L479
+PROOF_SOURCE: -
+CONTRACT_ID: K:bp:p1:cauchy-open
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: f holomorphic on open U in C^m with |f|<=A on U; closed polydisc of radius delta>0 around z lies in U
+SOURCE_QUANTIFIERS: U,f,A,delta>0,z; l; c(m,j) depends only on m and j
+SOURCE_CONCLUSION: |d_l f(z)|<=A/delta; |D^j f(z)|<=c(m,j) A delta^-j for j=1,2,3 (iterated Frechet derivative, operator norm)
+CONSTANT_SCOPE: c(m,j) depends only on m,j
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-K graph, node bp:p1:cauchy-open; shared Lean provider. There: KIND lemma, contract bp:p1:cauchy-open v1. Cited as \Kref{bp:p1:cauchy-open}.
+
+NODE: K:bp:p1:ext-measure
+KIND: external
+TITLE: [K] (E11) Lebesgue measure on products and boxes
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L100-L109
+PROOF_SOURCE: -
+CONTRACT_ID: K:bp:p1:ext-measure
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: finite dimensions d1, d2 >= 0; A, B, E measurable; E_1 subset E_2 subset ... measurable; a box prod_i [a_i,b_i]
+SOURCE_QUANTIFIERS: for all measurable A, B, E and increasing measurable sequences E_j, and all boxes
+SOURCE_CONCLUSION: Lebesgue measure on R^{d1} x R^{d2} = R^{d1+d2} is the product measure: meas(A x B) = meas A meas B and meas E = int meas(E_x) dx (Tonelli); meas(union E_j) = lim meas E_j; closed and open boxes with the same corners have measure prod (b_i - a_i), so box boundaries are null
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-measure (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bp:p1:ext-measure v1. Cited as \Kref{bp:p1:ext-measure}.
