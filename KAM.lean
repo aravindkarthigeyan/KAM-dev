@@ -185,6 +185,7 @@ public import KAM.Head.Normalize
 public import KAM.Head.Parameters
 public import KAM.Head.PhaseAverage
 public import KAM.Head.PreimageMeasure
+public import KAM.Head.RealTorus
 public import KAM.Head.Shift
 public import KAM.Head.Stab
 public import KAM.Head.StabFrame
