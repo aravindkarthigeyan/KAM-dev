@@ -18,6 +18,15 @@
    "session": "kam-zohar",
    "assignment": "Planetary KAM, open-region stability (2 DOF, Nekhoroshev) and follow-up headline candidates, from the collaborator's comments",
    "state": "running"
+  },
+  {
+   "id": "zohar",
+   "kind": "collaborator",
+   "model": "—",
+   "account": "GitHub zkomargo",
+   "session": null,
+   "assignment": "Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine), pushed to main",
+   "state": "active"
   }
  ],
  "queued": [
@@ -33,12 +42,12 @@
    [
     "ALG",
     "Weighted ℓ¹ Fourier–Taylor algebras<br/>products, derivatives, composition",
-    "todo"
+    "progress"
    ],
    [
     "DIOPH",
     "Diophantine vectors<br/>cohomological equation",
-    "todo"
+    "progress"
    ],
    [
     "NEWTON",

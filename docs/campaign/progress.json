@@ -6,7 +6,7 @@
   "H": 4,
   "VH": 8
  },
- "reviewed": "2026-10-27 15:45 UTC",
+ "reviewed": "2026-10-27 15:25 UTC",
  "items": [
   {
    "group": "Statement and planning",
@@ -109,8 +109,8 @@
    "id": "F.ALG",
    "title": "Weighted ℓ¹ Fourier algebra on ℤⁿ: Banach algebra, exp, derivatives, averages",
    "difficulty": "H",
-   "done": 0.0,
-   "note": ""
+   "done": 0.3,
+   "note": "Zohar: weighted norm, derivative bound (period one), convolution summability and submultiplicativity (KAM/Fourier)"
   },
   {
    "group": "Analytic infrastructure",
@@ -149,8 +149,8 @@
    "id": "F.DIOPH",
    "title": "Diophantine vectors; cohomological equation with Rüssmann's exponent",
    "difficulty": "M",
-   "done": 0.0,
-   "note": ""
+   "done": 0.6,
+   "note": "Zohar: zero-average cohomological solver, uniqueness, small-divisor estimate, Lipschitz in ω (KAM/Diophantine); bridge to frozen KAM.IsDiophantine still to add"
   },
   {
    "group": "Analytic infrastructure",
