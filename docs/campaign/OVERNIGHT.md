@@ -19,6 +19,15 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   - If an audit forces a proof change, dependents re-merge; signatures are fixed by the audited design.
   - P2-7 proves exactness and the cohomology-free geometry steps now, and holds the `geometry` assembly for
     I-STRIP-3.
+- **22:05. I-STRIP-3 collision resolved in Zohar's favour.** Zohar landed his own I-STRIP-3 (43a8dd5) at about the
+  time of our overnight claim. It is built on our design §2.4 interface (`cohSolution`, `cohConst`), so his file is
+  kept unchanged.
+  - Our prover's branch `k/strip3` is kept, unmerged, for reference.
+  - Its non-overlapping parts are ported onto Zohar's names as I-STRIP-3b:
+    - the operator-norm node `bp:p1:cohomological-operator`;
+    - the real C¹ form of `fourier-basic` (a);
+    - the Appendix A corollary `KAM.Apost.cohomological`.
+  - Reversal: none needed.
 - **22:10. Part 4 Lean design adopted, subject to its signature audit.** One design decision is for the owner to
   confirm: G1, G2 and G3 enter Part 4 through a premise `GValid`.
   - Its fields are verbatim copies of the frozen G1/G2 bodies at the blueprint's parameter tuples, plus G3's
@@ -67,12 +76,3 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **21:30. Next proof package: a Lean design with exact signatures for the shared ODE layer (blueprint-N Part 3),
   audited by Sol before any prover starts** (K lesson). Alternatives: start provers directly from the blueprint.
   Reversal: none needed.
-- **22:05. I-STRIP-3 collision resolved in Zohar's favour.** Zohar landed his own I-STRIP-3 (43a8dd5) at about the
-  time of our overnight claim. It is built on our design §2.4 interface (`cohSolution`, `cohConst`), so his file is
-  kept unchanged.
-  - Our prover's branch `k/strip3` is kept, unmerged, for reference.
-  - Its non-overlapping parts are ported onto Zohar's names as I-STRIP-3b:
-    - the operator-norm node `bp:p1:cohomological-operator`;
-    - the real C¹ form of `fourier-basic` (a);
-    - the Appendix A corollary `KAM.Apost.cohomological`.
-  - Reversal: none needed.
