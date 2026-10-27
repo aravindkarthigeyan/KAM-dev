@@ -30,7 +30,7 @@ The proofs go through the namespace `KAM.Head.Parameters`:
 
 * a pack of positivity and monotonicity lemmas for the constants (`Fconst_pos`, `Mconst_pos`,
   `cT_pos`, `etaStar_pos`, `etaStar_mono`, ...);
-* `cStar_pos` and the eight inequalities `cStar_le_one`, ..., `cStar_le_last` (one for each entry
+* `cStar_pos` and the eight inequalities `cStar_le_1`, ..., `cStar_le_8` (one for each entry
   of the minimum defining `c_*`);
 * the item lemmas `smallness_s1`, ..., `smallness_s7`, each reduced to the abstract inequality
   `mul_le_of_le_cStar` (`ε ≤ c x` and `c ≤ P / Q` give `Q ε ≤ P x`).
