@@ -140,9 +140,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L280-L280 
 EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L281-L281 | H^R3_0
 EDGE: stepI:p7:h0-formula | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L285-L285 | proof step
 EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L280-L281 | H^K is defined as E(q,p) - Gamma(q,p)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
-REVIEWER: -
+REVIEWER: sol-delta-I-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -155,22 +155,23 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L28
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285
 CONTRACT_ID: stepI:p7:h0-formula
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: q_1 p_0 - q_0 p_1 = -Gamma(q,p)
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: H^K is defined on q!=0 by E(q,p)-Gamma(q,p); for the first claim (ell,g,L,G) in D_R; for the second z is collision-free at mu=0
+SOURCE_QUANTIFIERS: For every (ell,g,L,G) in D_R for the composition identity; separately for every z collision-free at mu=0
 SOURCE_CONCLUSION: H^K = E - Gamma, equal to -1/(2L^2) - G along Q; at mu = 0 H^R3_0 has (1-0)/r_1 = 1/|q| and 0/r_2 = 0
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:orbit-identities, bpI:p0:restricted#restrictedHamiltonian, bpI:p7:elements
+DEPS: bpI:p7:orbit-identities, bpI:p0:restricted#restrictedHamiltonian, bpI:p7:elements, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285 | (b),(c): Gamma = G, E = -1/(2L^2)
 EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285 | H^R3_0
 EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285 | H^K is defined as E(q,p) - Gamma(q,p)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285 | Q,D_R and its action parameters occur directly in the formula
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -217,8 +218,8 @@ PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L345-L345
 CONTRACT_ID: stepI:p7:cd-uc
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K as in section data
-SOURCE_QUANTIFIERS: as in the enclosing result
-SOURCE_CONCLUSION: (L,G) -> G^2/L^2 is uniformly continuous on the compact set {dist_inf((L,G),K) <= min{delta_K,m_L,m_G}/2} on which |L| >= m_L/2, so some delta_1 exists with Re L > m_L/2 and reality assertions (G > m_G/2 > 0 at real points)
+SOURCE_QUANTIFIERS: For the fixed nonempty compact K, first choose delta_1>0 in the stated range depending only on K, then for every (L,G) in K_{delta_1} and nearest (L_prime,G_prime) in K
+SOURCE_CONCLUSION: There exists delta_1 in (0,min{delta_K,m_L,m_G}/2], depending only on K, such that for every (L,G) in K_{delta_1} with nearest (L_prime,G_prime) in K, Re L>m_L/2, L!=0 and |G^2/L^2-G_prime^2/L_prime^2|<min{e_-^2/2,e_- delta_E}; at real points the positivity conclusions used for L,G also hold
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -231,7 +232,7 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L345-L345 | delta_K
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L345-L345 | the closed bounded neighbourhood of compact K is compact in the finite-dimensional real carrier
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -396,15 +397,15 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386
 CONTRACT_ID: stepI:p7:sh-div
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps sh-pos, sh-bound
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: 0<r_min<=rho_max<1; choose epsilon_0>0 satisfying the two inequalities in L363, then mu_2=epsilon_0/2, c_* and O as in L365-368; Psi,w,Xi are the shift potential definitions
+SOURCE_QUANTIFIERS: For fixed r_min,rho_max and an admissible epsilon_0, define mu_2,c_*,O; construct f on O x D(0,mu_2), then for every (q,mu) there, including mu=0
 SOURCE_CONCLUSION: f(q,mu) = -int_0^1 d_mu Psi(q,t mu) dt is holomorphic on O x D(0,mu_2), mu f = g_q, and |f| <= 6/(eps_0 sqrt(c_*)) (by continuity at mu = 0)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:shift-def, stepI:p7:sh-pos, stepI:p7:sh-bound, bpI:p7:x-param, bpI:p7:x-schwarz
+DEPS: bpI:p7:shift-def, stepI:p7:sh-pos, stepI:p7:sh-bound, bpI:p7:x-param, bpI:p7:x-schwarz, K:bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | Psi
@@ -412,13 +413,14 @@ EDGE: stepI:p7:sh-pos | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L
 EDGE: stepI:p7:sh-bound | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | ¦g_q¦ <= 3 c_*^{-1/2}, g_q(0) = 0
 EDGE: bpI:p7:x-param | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | holomorphy of the parameter integral
 EDGE: bpI:p7:x-schwarz | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | Schwarz lemma bound
+EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | the existing FTC clause applied to t -> Psi(q,t mu) gives mu f(q,mu)=w(q)-Psi(q,mu)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: the fundamental theorem of calculus for t -> Psi(q,t mu) is used to obtain mu f = w - Psi. It is not proved in this blueprint and is not one of the listed track-I externals or existing imports used here. x-param pays holomorphy of the integral, not this identity. No new external or import is authorized.
+NOTE: The fundamental theorem of calculus invoked at L386 is the clause int_a^b phi_prime=phi(b)-phi(a) of the already imported K:bp:p1:ext-integral. On t in [0,1], (q,t mu) lies in Xi, where Psi is holomorphic; the curve is C^1 and its derivative is mu partial_mu Psi(q,t mu). This adds a direct use of an existing permitted input, not a new import or an invented proof.
 
 NODE: stepI:p7:sh-zero
 KIND: step
@@ -535,9 +537,9 @@ ROUTE_FOR: -
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L413-L413 | (a): L^2(1-e) <= r <= L^2(1+e)
 EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L413-L413 | r_min and rho_max
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L413-L413 | Q or its position component is used directly in this step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
-REVIEWER: -
+REVIEWER: sol-delta-I-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -550,8 +552,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L416
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L416
 CONTRACT_ID: stepI:p7:eh-delta
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps eh-shell; delta_* = delta_1/2
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: K is a nonempty compact subset of C_0, rho_max<1; the section data and shift constants r_min,epsilon_0,mu_2,c_*,C_sh are selected as in exact-ham L394; delta_1 is the complex-domain radius; delta_*=delta_1/2
+SOURCE_QUANTIFIERS: After fixed K and the selected shift/complex-domain constants, choose 0<delta_2<=delta_1/2 independent of w,mu; for every w in U(delta_2), choose real w_prime with actions in K as at L415
 SOURCE_CONCLUSION: there is 0 < delta_2 <= delta_* = delta_1/2, depending only on K, such that for every w in U(delta_2) there is a real w' = (Re ell, Re g, L', G') with (L',G') in K and Euclidean distance of the position parts q(w), q(w') less than eps_0/2; hence q(w) in O
 CONSTANT_SCOPE: delta_2 depends only on K
 FROZEN_FILE: -
@@ -568,7 +570,7 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-de
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L415 | the closure of the bounded fundamental-domain tube is compact
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L415 | Q and its position component q(w)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -582,15 +584,15 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418
 CONTRACT_ID: stepI:p7:eh-hol
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps eh-delta; Lemma shift
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: K is a nonempty compact subset of C_0, rho_max<1; the section data and shift constants r_min,epsilon_0,mu_2,c_*,C_sh are selected as in exact-ham L394; delta_1 is the complex-domain radius; delta_2 is the radius selected at L415-416; F_mu(w) is defined by f(q(w),mu)
+SOURCE_QUANTIFIERS: For fixed K and chosen delta_2,mu_2,C_sh, define F on U(delta_2) x D(0,mu_2); all w and mu in this domain, with reality at real pairs
 SOURCE_CONCLUSION: F_mu(w) = f(q(w),mu) holomorphic with |F| <= C_sh: (i); periodicity of q(.) and reality of f and Q give (ii); (iv): delta_2 > 0 and K subset K_{delta_2}
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p7:eh-delta, bpI:p7:shift, bpI:p7:complex-domain, bpI:p7:orbit-maps, bpI:p7:sec-complex#data
+DEPS: stepI:p7:eh-delta, bpI:p7:shift, bpI:p7:complex-domain, bpI:p7:orbit-maps, bpI:p7:sec-complex#data, bpI:p7:x-hol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:eh-delta | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | q(w) in O
@@ -598,8 +600,9 @@ EDGE: bpI:p7:shift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418
 EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | holomorphy and periodicity of Q on U(delta_1)
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | reality of Q on real points
 EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | U(delta_2) and K subset K_delta2 are the section-defined sets
+EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | compose the holomorphic f and the position component of Q
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -613,15 +616,15 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L422
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L422
 CONTRACT_ID: stepI:p7:eh-exact
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: real w in U(delta_2), real |mu| < mu_2; Lemma h0; Lemma shift
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: K is a nonempty compact subset of C_0, rho_max<1; the section data and shift constants r_min,epsilon_0,mu_2,c_*,C_sh are selected as in exact-ham L394; delta_1 is the complex-domain radius; delta_2 is selected at L415-416; w is real in U(delta_2), mu real with |mu|<mu_2
+SOURCE_QUANTIFIERS: For every real w in U(delta_2) and every real mu with |mu|<mu_2, after the common constants are chosen
 SOURCE_CONCLUSION: (L,G) in C_0, Q(w) collision free and H^R3_mu(Q(w)) = H^R3_0(q,p) + [w(q) - Psi(q,mu)] = -1/(2L^2) - G + mu f(q,mu)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:complex-domain, stepI:p7:eh-delta, bpI:p7:shift, bpI:p7:shift-def, bpI:p7:h0, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:primaries#CollisionFree, bpI:p0:primaries#radius, bpI:p0:primaries#radiusSq, bpI:p7:orbit-maps
+DEPS: bpI:p7:complex-domain, stepI:p7:eh-delta, bpI:p7:shift, bpI:p7:shift-def, bpI:p7:h0, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:primaries#CollisionFree, bpI:p0:primaries#radius, bpI:p0:primaries#radiusSq, bpI:p7:orbit-maps, bpI:p7:sec-complex#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | (L,G) in C_0 for real w in U(delta_1)
@@ -634,8 +637,9 @@ EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#stepI:p
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | rad(q - a_j(mu))
 EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | radiusSq
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L422 | Q or its position component is used directly in this step
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | w in U(delta_2), its action carrier and complex-domain radii are the section data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -670,9 +674,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-
 EDGE: stepI:p7:po-dom | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L441-L441 | proof step
 EDGE: stepI:p7:po-prop | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L443-L443 | proof step
 EDGE: stepI:p7:po-exact | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L445-L445 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
-REVIEWER: -
+REVIEWER: sol-delta-I-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -717,15 +721,15 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443
 CONTRACT_ID: stepI:p7:po-prop
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step po-dom; Proposition exact-ham (i),(ii); Lemma conversion (b)
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain
+SOURCE_QUANTIFIERS: For fixed K and common analytic constants, every B subset 2 pi K and every real mu with |mu|<mu_2; all (theta,I) in the associated complex domain, with reality at real pairs
 SOURCE_CONCLUSION: (b) h~ holomorphic on B_{r_0}, Re I_1 > pi m_L, real at real I; (c) f~_mu holomorphic, 1-periodic in theta, real, bounded by |mu| C_F
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p6:conversion, bpI:p6:nondeg, stepI:p7:po-dom, bpI:p7:exact-ham, bpI:p6:conversion-map, bpI:p6:kep-ham
+DEPS: bpI:p6:conversion, stepI:p7:po-dom, bpI:p7:exact-ham, bpI:p6:conversion-map, bpI:p6:kep-ham, bpI:p7:sec-complex#data, bpI:p6:nondeg
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | (b): h~ = h_{(2pi)^2, 1/(2pi)} holomorphic where I_1 != 0, real at real I
@@ -733,14 +737,15 @@ EDGE: stepI:p7:po-dom | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-
 EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | (i),(ii): bound, periodicity, reality of F
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | periodicity: theta -> theta + k becomes (ell,g) -> (ell,g) + 2 pi k
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
-EDGE: bpI:p6:nondeg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | the source explicitly cites this corollary's domain argument; the conditional-premise discharge is exposed in SOURCE_GAP below
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | m_L is the section-defined positive minimum used in Re I_1>pi m_L
+EDGE: bpI:p6:nondeg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | the explicitly cited domain proof argument is reused with nonvanishing already supplied by po-dom; this is not application of the full conditional corollary
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: L443 invokes the domain argument of bpI:p6:nondeg, whose stated hypotheses include B subset {I_1 > 0} and 0 < r_0 <= inf_B I_1/2. The source does not explicitly discharge those hypotheses for arbitrary B (including empty B). The cited dependency is retained conservatively as a use of its proof argument; it must not be read as a verified application of the full conditional corollary. po-dom separately gives nonvanishing on B_r0. The writer must distinguish this argument reuse from a theorem application; no missing premise is silently added here.
+NOTE: L443 recalls the domain proof argument of Part 6; L441 already supplied Re(I_1/(2 pi))>m_L/2 and nonvanishing on B_{r_0} directly from complex-domain. Together with conversion(b), this proves holomorphy and reality. The source-explicit nondeg edge is retained as reuse of that proof argument, not an application of the full corollary with its infimum-radius premises. For empty B the domain claims are vacuous. No SOURCE_GAP is established here.
 
 NODE: stepI:p7:po-exact
 KIND: step
@@ -749,8 +754,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445
 CONTRACT_ID: stepI:p7:po-exact
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Proposition exact-ham (iii); Lemma conversion (a),(b) with kappa = Omega = 1
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; theta real and I real in B_{r_0} for the exact Hamiltonian identity
+SOURCE_QUANTIFIERS: For every real mu with |mu|<mu_2, every real theta and real I in B_{r_0}; symplecticity on the corresponding real domain
 SOURCE_CONCLUSION: H^R3_mu(Q(S(theta,I))) = h~(I) + f~_mu = realHamiltonian h~ f~_mu; Q o S symplectic
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -769,7 +774,7 @@ EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L4
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | S
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | Q or its position component is used directly in this step
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -805,9 +810,9 @@ EDGE: stepI:p7:tr-open | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L457-
 EDGE: stepI:p7:tr-chain | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L459-L459 | proof step
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L450 | the Hamiltonian is expressed using the converted Kepler h~
 EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L450 | the setting uses K or the common complex-domain data fixed in the section
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
-REVIEWER: -
+REVIEWER: sol-delta-I-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -820,15 +825,15 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455
 CONTRACT_ID: stepI:p7:tr-cf
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: t in J; z~(t)_2 in B
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; J subset R and z_tilde:R->R^2 x R^2 satisfies Sol(realHamiltonian h_tilde f_tilde_mu,B,J,z_tilde); z=Q o S o z_tilde; t in J
+SOURCE_QUANTIFIERS: For every period-one datum, mu,J,z_tilde satisfying transfer, and every t in J
 SOURCE_CONCLUSION: S z~(t) is real with (L,G) in K, lies in U(delta_2); z(t) = Q(S z~(t)) is collision free, i.e. in W_mu
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:exact-ham, bpI:p7:sec-ham#data, bpI:p6:conversion-map, bpI:p7:sec-complex#data, bpI:p7:orbit-maps
+DEPS: bpI:p7:exact-ham, bpI:p7:sec-ham#data, bpI:p6:conversion-map, bpI:p7:sec-complex#data, bpI:p7:orbit-maps, bpI:p0:hamsol#IsHamiltonianSolutionOn
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | (iv) and (iii): U(delta_2) contains the real points over K, collision freedom
@@ -836,8 +841,9 @@ EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L45
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | S
 EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | the setting uses K or the common complex-domain data fixed in the section
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | Q or its position component is used directly in this step
+EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | the Sol premise supplies I=z_tilde(t)_2 in B for t in J
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -851,8 +857,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457
 CONTRACT_ID: stepI:p7:tr-open
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: V = {(theta,I) in R^4 : exists J in B, |I - J| < r_0} open
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; J subset R and z_tilde:R->R^2 x R^2 satisfies Sol(realHamiltonian h_tilde f_tilde_mu,B,J,z_tilde); z=Q o S o z_tilde; t in J; V is defined to be the real r_0-neighbourhood cylinder of B
+SOURCE_QUANTIFIERS: For every period-one datum, mu,J,z_tilde satisfying transfer, and every t in J; define V from B,r_0 and establish agreement on all of V before evaluating derivatives at z_tilde(t)
 SOURCE_CONCLUSION: realHamiltonian h~ f~_mu = H^R3_mu o Q o S on V; both sides real-analytic, so real derivatives and Hamiltonian fields coincide at z~(t)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -871,7 +877,7 @@ EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open
 EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | the setting uses K or the common complex-domain data fixed in the section
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | Q or its position component is used directly in this step
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -885,8 +891,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459
 CONTRACT_ID: stepI:p7:tr-chain
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps tr-cf, tr-open; Proposition symplectic; Lemma conversion (a); Lemma ham-eq
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; J subset R and z_tilde:R->R^2 x R^2 satisfies Sol(realHamiltonian h_tilde f_tilde_mu,B,J,z_tilde); z=Q o S o z_tilde; t in J
+SOURCE_QUANTIFIERS: For every period-one datum, mu,J,z_tilde satisfying transfer, and every t in J; J need not be open or an interval
 SOURCE_CONCLUSION: z~'(t) = X_{realHamiltonian h~ f~_mu}(z~(t)) = X_{H o Q o S}(z~(t)); d/dt z = D(Q o S) z~' = X_{H^R3_mu}(z(t)) = V_mu(z(t)); the formulas for rad(q) and the energy
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -909,7 +915,7 @@ EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chai
 EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | the setting uses K or the common complex-domain data fixed in the section
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | Q or its position component is used directly in this step
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -923,8 +929,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L465-L469
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L470-L473
 CONTRACT_ID: bpI:p7:nondeg
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the setting of Corollary period-one; real I in B_{r_0}
-SOURCE_QUANTIFIERS: the data of period-one, then real I
+SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain
+SOURCE_QUANTIFIERS: For the period-one data, every real I with I_1>0 has the displayed determinant; in particular every real I in B_{r_0}, for every B subset 2 pi K; conventional variables have every (L,G) with L>0
 SOURCE_CONCLUSION: det borderedHessian h~ I = 3/I_1^4 > 0 for every real I in B_{r_0}, indeed for every real I with I_1 > 0; in conventional variables B_{h_{1,1}}(L,G) = K_{1,1}(L) with det = 3/L^4; h~ satisfies the nondegeneracy hypothesis of I-HEAD on all real points of B_{r_0}, for every B subset 2 pi K
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -942,7 +948,7 @@ EDGE: stepI:p7:nd-det | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L472-L47
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L466-L467 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
 EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L466-L467 | the setting uses K or the common complex-domain data fixed in the section
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -956,22 +962,21 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471
 CONTRACT_ID: stepI:p7:nd-dom
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Corollary period-one (b); real I in B_{r_0}
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; I is real and lies in B_{r_0}
+SOURCE_QUANTIFIERS: For every period-one datum and every real I in B_{r_0}
 SOURCE_CONCLUSION: real I in B_{r_0} has I_1 > 0 (Re I_1/(2 pi) > m_L/2 > 0)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:period-one, bpI:p6:kep-ham, bpI:p7:sec-complex#data
+DEPS: bpI:p7:period-one, bpI:p7:sec-complex#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471 | (b): Re I_1 > pi m_L on B_{r_0}
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
 EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471 | the setting uses K or the common complex-domain data fixed in the section
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -985,9 +990,9 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472
 CONTRACT_ID: stepI:p7:nd-det
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step nd-dom; kappa = Omega = 1
-SOURCE_QUANTIFIERS: as in the enclosing result
-SOURCE_CONCLUSION: det borderedHessian h~ I = 3/I_1^4 for real I with I_1 > 0 (Lemma kep-border and Lemma conversion (d)); the conventional statement is Lemma kep-border at kappa = Omega = 1
+SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; kappa=Omega=1; I real with I_1>0 for the general determinant formula, specializing to real I in B_{r_0}
+SOURCE_QUANTIFIERS: For fixed kappa=Omega=1, every real I with I_1>0; specialize to real I in B_{r_0} using nd-dom; for the conventional matrix every L>0
+SOURCE_CONCLUSION: For every real I with I_1>0, det borderedHessian h_tilde I=3/I_1^4>0; using nd-dom the same holds on real I in B_{r_0}; conventionally B_{h_{1,1}}(L,G)=K_{1,1}(L) and det=3/L^4 for L>0
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1001,7 +1006,7 @@ EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472
 EDGE: stepI:p7:nd-dom | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472 | I_1 > 0 on real I in B_{r_0}
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1029,9 +1034,9 @@ ROUTE_FOR: -
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex#data@L327-L327 | minima and maxima of continuous functions on the nonempty compact K exist and are attained, so e_- > 0, e_1 < 1, m_L, m_G, r_min > 0
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex#data@L332-L332 | delta_K(e_1) and P(e_1)
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex@L325-L332 | e(L,G) = sqrt(1-G^2/L^2) on the cone C_0 supplies the continuous functions whose extrema define the data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
-REVIEWER: -
+REVIEWER: sol-delta-I-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
