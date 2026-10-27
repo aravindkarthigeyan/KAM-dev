@@ -1,5 +1,5 @@
 {
- "current_phase": "Phase 0 complete: the headline (rate and qualitative), G1, G2, G3 and 20 definitions are approved and frozen (D11). Phase 1 next: blueprint and source-level dependency graph anchored to the frozen statements; infrastructure (weighted Fourier algebras) can start in parallel.",
+ "current_phase": "Phase 1: blueprint (LaTeX, blueprint/) and dependency graph. p0 (conventions, frozen statements) and the p1 interface are written; Opus writers draft p2 (G1, HL19 §4–5), p3 (G2, uniqueness for flows) and p4 (measure layer, HEAD, HEAD-Q, G3). Infrastructure packages are open on docs/campaign/PACKAGES.md.",
  "workers": [
   {
    "id": "orchestrator",
@@ -27,14 +27,44 @@
    "session": null,
    "assignment": "Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine), pushed to main",
    "state": "active"
+  },
+  {
+   "id": "bp-g1",
+   "kind": "blueprint writer",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Blueprint part 2: G1 from HL19 §4–5 and App. B (d = n, canonical, primary, uniform constants)",
+   "state": "running"
+  },
+  {
+   "id": "bp-g2",
+   "kind": "blueprint writer",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Blueprint part 3: G2, local uniqueness for flows (adapting GJLV05 §6, §8)",
+   "state": "running"
+  },
+  {
+   "id": "bp-meas",
+   "kind": "blueprint writer",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Blueprint part 4: G3, APPLY, STAB, LIP, McShane and measure, HEAD, HEAD-Q",
+   "state": "running"
   }
  ],
  "queued": [
   {
-   "title": "Blueprint and dependency graph (Phase 1)"
+   "title": "Blueprint part 1 proofs"
   },
   {
-   "title": "Infrastructure: weighted ℓ¹ Fourier algebra (F.ALG)"
+   "title": "Independent review of each blueprint part"
+  },
+  {
+   "title": "Dependency graph extraction"
   }
  ],
  "graph": {

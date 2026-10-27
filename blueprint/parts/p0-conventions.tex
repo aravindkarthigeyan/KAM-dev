@@ -1,0 +1,157 @@
+\section{Conventions, definitions and the frozen statements}\label{bp:p0}
+
+This part fixes notation and restates, in mathematical form, the five frozen theorems and the
+twenty frozen definitions of the formalization (owner approval D11, 27 October 2026). The Lean
+declarations in \texttt{KAM/Frozen/} are authoritative; the statements below are their faithful
+transcriptions, for use by the proofs in Parts~\ref{bp:p1}--\ref{bp:p4}.
+
+\subsection{Conventions}\label{bp:p0:conventions}
+
+\begin{itemize}
+\item $n\ge 2$ is the number of degrees of freedom (ruling Q5). Angles $\theta\in\R^n$, actions
+  $I\in\R^n$, phase points $z=(\theta,I)$. Functions are $1$-periodic in each angle, so
+  $\T^n=\R^n/\Z^n$ (ruling Q2).
+\item On $\R^m$ and $\C^m$ we use the max norm $\abs{v}=\max_i\abs{v_i}$; on $\C^n\times\C^n$ the
+  max of the two components. Linear and multilinear maps carry the induced operator norms; for a
+  matrix this is $\abs{M}=\max_i\sum_j\abs{M_{ij}}$ (HL19 \S2.1). Sup norms over a set $U$ are
+  written $\norm{f}_U=\sup_U\abs{f}$; on a strip, $\norm{f}_\rho=\norm{f}_{T_\rho}$.
+\item The complex strip of width $\rho>0$ is $T_\rho=\{\theta\in\C^n:\abs{\operatorname{Im}\theta_i}<\rho\ \forall i\}$
+  (HL19 \S2.1); it is invariant under translations by $\Z^n$ (and by $\R^n$).
+\item Fourier characters are $e^{2\pi i k\cdot\theta}$, $k\in\Z^n$, with $\hat u_k=\int_{[0,1]^n}u(\theta)e^{-2\pi ik\cdot\theta}\,d\theta$
+  and average $\avg{u}=\hat u_0$ (HL19 \S2.1). Weighted coefficient norms
+  $\sum_k\abs{\hat u_k}e^{\abs{k}_1 s}$ use a \emph{coefficient radius} $s=2\pi\rho$
+  (\texttt{docs/fourier-conventions.md}).
+\item Working norms (decision D12). Sup norms on complex domains are the working norms of
+  Parts~\ref{bp:p2}--\ref{bp:p4}, as in HL19 and GJLV05. Weighted coefficient norms enter only
+  through the cohomological equation and Fourier-coefficient arguments of Part~\ref{bp:p1}.
+\end{itemize}
+
+\subsection{Definitions}\label{bp:p0:defs}
+
+\begin{definition}[Diophantine vectors]\label{bp:p0:diophantine}
+For $\gamma,\tau\in\R$, a vector $\omega\in\R^n$ is \emph{$(\gamma,\tau)$-Diophantine},
+$\omega\in\Dio_{\gamma,\tau}$, if $\gamma/\abs{k}_1^{\tau}\le\abs{k\cdot\omega}$ for every
+$k\in\Z^n\setminus\{0\}$, where $\abs{k}_1=\sum_i\abs{k_i}$.
+\frozen{KAM.IsDiophantine}
+\source{HL19 (3.1), p.~14; Pos01 (1), p.~5.}
+\end{definition}
+
+\begin{definition}[Complex neighbourhoods and the fundamental domain]\label{bp:p0:domains}
+For $B\subset\R^n$ and $r>0$, $B_r=\{I\in\C^n:\exists J\in B,\ \abs{I-J}<r\}$; the phase domain
+of HEAD is $D(s_0,r_0)=T_{s_0}\times B_{r_0}$. The fundamental domain of $\T^n\times B$ is
+$F_B=[0,1)^n\times B$, with product Lebesgue measure.
+\frozen{KAM.complexStrip, KAM.actionNbhd, KAM.fundamentalDomain}
+\end{definition}
+
+\begin{definition}[Hamiltonian vector fields, symplectic form]\label{bp:p0:hamiltonian}
+For $H:\R^n\times\R^n\to\R$, $X_H(z)=(\partial_I H(z),-\partial_\theta H(z))$; for holomorphic
+$h$ on an open subset of $\C^n\times\C^n$, $X_h$ is defined by the same formula with complex
+derivatives. The standard symplectic form is
+$\omega_0((a,b),(c,d))=\sum_i(b_ic_i-a_id_i)$, i.e.\ $\omega_0=\sum_i dI_i\wedge d\theta_i$, and
+$\Omega_0(a,b)=(-b,a)$ is its matrix $\left(\begin{smallmatrix}0&-I\\ I&0\end{smallmatrix}\right)$.
+\frozen{KAM.hamiltonianVectorField, KAM.hamiltonianVectorFieldℂ, KAM.symplecticForm, KAM.omegaZero}
+\source{HL19 Rem.~2.1 and \S2.2, p.~6.}
+\end{definition}
+
+\begin{remark}[Lean totality]\label{bp:p0:totality}
+The frozen definitions use \Lean{fderiv}, which is $0$ where a function is not differentiable,
+the matrix inverse, which is $0$ for a singular matrix, and the Bochner integral, which is $0$ for
+a non-integrable function. Every frozen theorem guards these by hypotheses (differentiability on
+the relevant open set, invertibility, integrability through continuity); the proofs below must
+establish the guarded facts before using the defining formulas.
+\end{remark}
+
+\begin{definition}[The integrable part, the perturbation, the frequency map]\label{bp:p0:nearlyintegrable}
+For $h:\C^n\to\C$ and $f:\C^n\times\C^n\to\C$, the real Hamiltonian is
+$H(\theta,I)=\operatorname{Re}\bigl(h(I)+f(\theta,I)\bigr)$ at real points, and the frequency map
+is $\nabla h(I)$, the real gradient of $I\mapsto\operatorname{Re}h(I)$ at real $I$.
+\frozen{KAM.realHamiltonian, KAM.frequencyMap}
+\source{Pos01, Classical KAM Theorem, p.~6.}
+\end{definition}
+
+\begin{definition}[Invariant Lagrangian torus]\label{bp:p0:torus}
+A map $K:\R^n\to\R^n\times\R^n$ is an \emph{invariant Lagrangian torus of $H$ with frequency
+$\omega$} if (i) $K$ is real-analytic; (ii) $K(\theta+k)=K(\theta)+(k,0)$ for $k\in\Z^n$
+(primary torus); (iii) $K(\theta')=K(\theta)+(k,0)$ implies $\theta'=\theta+k$; (iv) $DK(\theta)$
+is injective; (v) $\omega_0(DK(\theta)u,DK(\theta)v)=0$ for all $u,v$; (vi) for all $\theta$ and
+$t$, $\frac{d}{dt}K(\theta+t\omega)=X_H(K(\theta+t\omega))$.
+\frozen{KAM.IsInvariantLagrangianTorus}
+\source{HL19 (2.1), (2.3), Rem.~2.2--2.3, pp.~6--7; ruling Q3.}
+\end{definition}
+
+\begin{definition}[The KAM cover]\label{bp:p0:cover}
+Given $h,f,B,r_0,\tau,\delta$, the set $\mathcal{K}(\delta)$ consists of the points $z\in K(\R^n)$
+for some $K,\omega,\gamma,I_0$ with: $\gamma>0$; $\omega\in\Dio_{\gamma,\tau}$; $K$ an invariant
+Lagrangian torus of $H$ with frequency $\omega$; every action $K(\theta)_2$ within $r_0$ of $B$;
+$I_0\in B$ and $\nabla h(I_0)=\omega$; and $\abs{K(\theta)-(\theta,I_0)}\le\delta$ for all $\theta$.
+\frozen{KAM.kamCover}
+\end{definition}
+
+\begin{definition}[Torus data on strips]\label{bp:p0:stripdata}
+Let $K:\C^n\to\C^n\times\C^n$, $h$ holomorphic, $\omega\in\R^n$. $K$ is \emph{primary on $T_\rho$}
+if $K(\theta+k)=K(\theta)+(k,0)$ for $\theta\in T_\rho$, $k\in\Z^n$, and \emph{real on reals} if
+$K(\R^n)\subset\R^n\times\R^n$. The invariance error is $E(\theta)=X_h(K(\theta))-DK(\theta)\omega$.
+With $L=DK$ (a $2n\times n$ matrix) and the bilinear transpose, the Gram matrix is $L^\top L$,
+$B=(L^\top L)^{-1}$, the normal frame is $N=\Omega_0LB$, $X_N=DX_h(K)N-DN[\omega]$, the torsion is
+$T=N^\top\Omega_0X_N$, and $\avg{T}=\int_{[0,1]^n}T(\theta)\,d\theta$.
+\frozen{KAM.IsPrimaryOnStrip, KAM.IsRealOnReals, KAM.invarianceError, KAM.dotℂ, KAM.gramMatrix,
+KAM.normalFrame, KAM.torsion, KAM.torsionAverage}
+\source{HL19 (2.2), (3.2)--(3.9), pp.~7, 16--17; Rem.~2.3, 3.3 (canonical Case III, $A=0$).}
+\end{definition}
+
+\subsection{The frozen theorems}\label{bp:p0:theorems}
+
+\begin{theorem}[HEAD: positive-measure KAM with rate]\label{bp:p0:head}
+Let $n\ge2$, $\tau>n-1$, $s_0,r_0>0$, and $B\subset\R^n$ open and bounded with
+$\meas\{I\in B:\dist(I,B^c)<\delta\}\le C_B\delta$ for all $\delta>0$. Let $h$ be holomorphic on
+$B_{r_0}$, real on real points, with $\abs{I-J}\le L\abs{\nabla h(I)-\nabla h(J)}$ on $\bar B$.
+Then there are $C,\varepsilon_0>0$ such that for every $f$ holomorphic on $D(s_0,r_0)$,
+$1$-periodic in $\theta$, real on real points, and every $\varepsilon\le\varepsilon_0$ with
+$\abs{f}\le\varepsilon$ on $D(s_0,r_0)$:
+\[\meas\bigl(F_B\setminus\mathcal{K}(C\sqrt\varepsilon)\bigr)\le C\varepsilon^{1/4}.\]
+\frozen{KAM.kam\_positive\_measure}
+\source{Pos01, Classical KAM Theorem, p.~6, at the rate of decision D8 (ledger D-MEAS-1).}
+\end{theorem}
+
+\begin{theorem}[HEAD-Q: qualitative form]\label{bp:p0:headq}
+Same data as Theorem~\ref{bp:p0:head} without the boundary condition. For every $\kappa>0$ there is
+$\varepsilon_0>0$ such that, for $f,\varepsilon$ as there with $\varepsilon\le\varepsilon_0$,
+$\meas(F_B\setminus\mathcal{K}(\kappa))\le\kappa\meas(F_B)$.
+\frozen{KAM.kam\_positive\_measure\_qualitative}
+\end{theorem}
+
+\begin{theorem}[G1: a-posteriori KAM at fixed frequency]\label{bp:p0:g1}
+Let $n\ge2$, $\tau\ge n-1$, $0<\rho_\infty<\rho$, $M,\sigma_K,\sigma_B,\sigma_T,\mu,\bar\gamma>0$.
+There are $C_1,C_2>0$ such that the following holds for all $\mathfrak{B},h,K,\omega,\gamma,e$.
+Hypotheses: $\mathfrak{B}\subset\C^n\times\C^n$ open and invariant under $\theta\mapsto\theta+k$;
+$h$ holomorphic on $\mathfrak{B}$, $1$-periodic in $\theta$, real on real points, with
+$\abs{Dh},\abs{X_h},\abs{DX_h},\abs{D^2X_h}\le M$ on $\mathfrak{B}$; $K$ holomorphic on $T_\rho$,
+primary, real on reals, with $B_\mu(K(\theta))\subset\mathfrak{B}$ and $\abs{DK(\theta)}\le\sigma_K-\mu$
+on $T_\rho$; $L^\top L$ invertible with $\abs{B}\le\sigma_B-\mu$ on $T_\rho$; $\avg{T}$ invertible
+with $\abs{\avg{T}^{-1}}\le\sigma_T-\mu$; $0<\gamma\le\bar\gamma$ and $\omega\in\Dio_{\gamma,\tau}$;
+$\abs{E}\le e$ on $T_\rho$ and $C_1e/(\gamma^4\rho^{4\tau})<1$.
+Conclusion: there is $K_\infty$, holomorphic on $T_{\rho_\infty}$, primary, real on reals, with
+$E_\infty=0$ on $T_{\rho_\infty}$, $B_{\mu/2}(K_\infty(\theta))\subset\mathfrak{B}$,
+$\abs{DK_\infty}\le\sigma_K-\mu/2$, and $\abs{K_\infty-K}\le C_2e/(\gamma^2\rho^{2\tau})$ on
+$T_{\rho_\infty}$.
+\frozen{KAM.aposteriori\_kam}
+\source{HL19 Theorem 3.1, pp.~16--18 (ledger D-G1-1).}
+\end{theorem}
+
+\begin{theorem}[G2: local uniqueness for flows]\label{bp:p0:g2}
+Let $n\ge2$, $\tau\ge n-1$, $\rho>0$, $M,\sigma_K,\sigma_B,\sigma_T,\mu>0$. There is $c>0$ such that:
+if $\mathfrak{B},h$ are as in G1, $\omega\in\Dio_{\gamma,\tau}$ with $\gamma>0$, $K_1$ satisfies the
+hypotheses of G1 on $T_\rho$ (with these constants) and $E_1=0$, $K_2$ is holomorphic on $T_\rho$,
+primary, real on reals, $K_2(T_\rho)\subset\mathfrak{B}$, $E_2=0$, and
+$\abs{K_1-K_2}\le c\gamma^2\rho^{2\tau}$ on $T_\rho$, then $K_2(\theta)=K_1(\theta+\varphi)$ on
+$T_{\rho/2}$ for some $\varphi\in\R^n$.
+\frozen{KAM.local\_uniqueness\_flow}
+\source{Our own result (ledger D-UNIQ-1); template GJLV05 Theorem 2, p.~862.}
+\end{theorem}
+
+\begin{theorem}[G3: measure of the non-Diophantine set]\label{bp:p0:g3}
+Let $\tau>n-1$ and $\Omega\subset\R^n$ bounded. There is $C$ such that
+$\meas\{\omega\in\Omega:\omega\notin\Dio_{\alpha,\tau}\}\le C\alpha$ for every $\alpha>0$.
+\frozen{KAM.volume\_not\_diophantine\_le}
+\source{Pos01 \S1d, p.~5.}
+\end{theorem}

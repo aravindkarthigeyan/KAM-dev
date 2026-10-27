@@ -50,4 +50,16 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   hashed in `manifest/frozen-anchors.json` (file, prefix/suffix and elaborated ABI hashes). Providers:
   `KAM/Provider/<Name>.lean`, quarantined until sealing. Draft and audit evidence, including the Lean refutation of
   draft G1 v0.1, archived at `/mnt/HC_Volume_106379410/kam-evidence/2026-10-27-statements-v0.2/`.
+- **D12 (2026-10-27) Working norms** (orchestrator; refines D2). The frozen G1 hypotheses are sup-norm bounds of a
+  Hamiltonian on an arbitrary open domain, so G1, G2 and the measure layer are proved in sup norms on complex
+  domains, as in HL19 and GJLV05. Products and compositions are then immediate, and Cauchy estimates are
+  one-variable. Weighted coefficient norms enter only through the cohomological equation and Fourier-coefficient
+  arguments, joined to sup norms by the strip bridge (blueprint Part 1).
+  - The cruder small-divisor exponent τ + n replaces Rüssmann's τ. This is harmless: G1's constants may depend
+    on ρ, and only the γ-dependence matters downstream.
+- **D13 (2026-10-27) Phase 1 and packages.** *(Scott: "start Phase 1, and coordinate Zohar's work as packages.
+  Just fix his code if you don't like it")*
+  - Phase 1 runs as in `docs/PHASE1.md`: blueprint parts p0–p4, then the dependency graph.
+  - Collaborators pick work from `docs/campaign/PACKAGES.md`.
+  - The orchestrator may change collaborators' code directly; it reviews and fixes such code as it lands.
 

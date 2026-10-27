@@ -1,0 +1,40 @@
+% Shared preamble of the KAM blueprint. Every result carries a \label of the form
+% bp:<part>:<slug>; substantive proof steps use \proofstep with a \label step:<part>:<slug>.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools,enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{xcolor}
+\DeclareUnicodeCharacter{2102}{\ensuremath{\mathbb{C}}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Standing assumption}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\Dio}{\mathcal{D}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\avg}[1]{\langle #1\rangle}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\meas}{\operatorname{meas}}
+\newcommand{\Lean}[1]{\texttt{#1}}
+% \frozen{Lean name}: the result is (or its object is) a frozen declaration.
+\newcommand{\frozen}[1]{\par\noindent{\small\textsf{Frozen Lean declaration:} \Lean{#1}}\par}
+% \source{text}: pinned source location (see docs/sources.json for versions and hashes).
+\newcommand{\source}[1]{\par\noindent{\small\textsf{Source:} #1}\par}
+% \proofstep{title}: a substantive proof step; follow it with \label{step:...}.
+\newcommand{\proofstep}[1]{\par\medskip\noindent\textbf{Step: #1.}\ }
+% \sourcegap{text}: the source asserts or needs this bridge without proving it.
+\newcommand{\sourcegap}[1]{\par\noindent{\small\textsf{Source gap:} #1}\par}

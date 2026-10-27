@@ -53,8 +53,8 @@
    "id": "S.BP",
    "title": "Blueprint: every proof step written out against the pinned sources",
    "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
+   "done": 0.1,
+   "note": "p0 and the p1 interface written; p2, p3, p4 being drafted"
   },
   {
    "group": "Statement and planning",

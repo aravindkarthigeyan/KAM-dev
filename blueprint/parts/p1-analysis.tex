@@ -1,0 +1,73 @@
+\section{Analysis on strips and complex domains}\label{bp:p1}
+
+\emph{Status: interface fixed by the orchestrator (27 Oct 2026); proofs to be written.} The other
+parts cite only the labels below. A writer of another part who needs a further infrastructure
+lemma states it in that part, as a lemma of its own, and lists it for transfer here.
+
+Throughout, functions on strips are holomorphic on the open strip and bounded there, and norms are
+sup norms (Part~\ref{bp:p0}). Constants called $c(\cdot)$ depend only on the displayed quantities.
+
+\subsection{Cauchy estimates}
+
+\begin{lemma}[Cauchy estimate on strips]\label{bp:p1:cauchy-strip}
+Let $u$ be holomorphic and bounded on $T_\rho$ and $0<\delta<\rho$. Then for every $\ell$,
+$\norm{\partial_{\theta_\ell}u}_{\rho-\delta}\le\delta^{-1}\norm{u}_\rho$, hence
+$\norm{Du}_{\rho-\delta}\le n\delta^{-1}\norm{u}_\rho$; the same holds for vector- and matrix-valued
+$u$ with the norms of Part~\ref{bp:p0}.
+\source{HL19 \S3.1, p.~15.}
+\end{lemma}
+
+\begin{lemma}[Cauchy estimate on open sets]\label{bp:p1:cauchy-open}
+Let $f$ be holomorphic on an open $U\subset\C^m$ with $\abs f\le A$ on $U$, and let the closed
+polydisc of radius $\delta$ around $z$ lie in $U$. Then $\abs{\partial_\ell f(z)}\le A/\delta$, and
+$\abs{D^jf(z)}\le c(m,j)A\delta^{-j}$ for $j=1,2,3$.
+\end{lemma}
+
+\subsection{Fourier coefficients of periodic holomorphic functions}
+
+\begin{lemma}[Coefficient decay]\label{bp:p1:decay}
+Let $u$ be holomorphic, bounded and $1$-periodic on $T_\rho$. Then
+$\abs{\hat u_k}\le e^{-2\pi\abs{k}_1\rho'}\norm{u}_\rho$ for every $k\in\Z^n$ and $0\le\rho'<\rho$.
+\end{lemma}
+
+\begin{lemma}[Summation]\label{bp:p1:summation}
+If $\sum_k\abs{a_k}e^{2\pi\abs{k}_1\rho}<\infty$, then $u(\theta)=\sum_ka_ke^{2\pi ik\cdot\theta}$ is
+holomorphic and $1$-periodic on $T_\rho$, $\hat u_k=a_k$, and
+$\norm{u}_\rho\le\sum_k\abs{a_k}e^{2\pi\abs{k}_1\rho}$. Conversely, for $u$ as in
+Lemma~\ref{bp:p1:decay} and $0<\delta<\rho$,
+$\sum_k\abs{\hat u_k}e^{2\pi\abs{k}_1(\rho-\delta)}\le\coth(\pi\delta)^n\norm{u}_\rho$, and $u$ equals
+its Fourier series on $T_{\rho}$.
+\end{lemma}
+
+\subsection{The cohomological equation}
+
+\begin{lemma}[Cohomological equation on strips]\label{bp:p1:cohomological}
+Let $\omega\in\Dio_{\gamma,\tau}$ with $\gamma>0$, $\tau\ge0$, and let $g$ be holomorphic, bounded
+and $1$-periodic on $T_\rho$ with $\avg g=0$. For $0<\delta<\rho$ there is a unique $u$,
+holomorphic and $1$-periodic on $T_{\rho-\delta}$, with $\avg u=0$ and
+$Du(\theta)\omega=g(\theta)$, and
+\[\norm{u}_{\rho-\delta}\le c(n,\tau)\,\gamma^{-1}\delta^{-(\tau+n)}\norm{g}_\rho.\]
+If $g$ is real on real points, so is $u$. The same holds componentwise for vector- and
+matrix-valued $g$.
+\source{HL19 \S4.1 (with Rüssmann's sharper exponent $\tau$; the cruder exponent $\tau+n$ suffices,
+decision D12). Coefficient form: \texttt{docs/cohomological-equation.md}, Lean \Lean{KAM.Diophantine}.}
+\end{lemma}
+
+\begin{lemma}[Averages]\label{bp:p1:averages}
+For $v$ holomorphic, bounded and $1$-periodic on $T_\rho$: $\avg{\partial_{\theta_\ell}v}=0$,
+$\avg{Dv\,\omega}=0$, and $\abs{\avg v}\le\norm{v}_\rho$.
+\end{lemma}
+
+\subsection{Matrices}
+
+\begin{lemma}[Neumann series]\label{bp:p1:neumann}
+If $A$ is invertible and $\abs{A^{-1}}\abs{\Delta}\le\frac12$, then $A+\Delta$ is invertible with
+$\abs{(A+\Delta)^{-1}}\le2\abs{A^{-1}}$ and $\abs{(A+\Delta)^{-1}-A^{-1}}\le2\abs{A^{-1}}^2\abs{\Delta}$.
+The same holds pointwise for matrix-valued functions, with sup norms.
+\end{lemma}
+
+\subsection{Diophantine frequencies}
+
+\begin{lemma}[Measure of the resonant set]\label{bp:p1:dmeas}
+This is Theorem~\ref{bp:p0:g3}; its proof is written in Part~\ref{bp:p4}.
+\end{lemma}

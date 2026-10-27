@@ -132,6 +132,8 @@ AREAS = [
     ('Frozen', 'Owner-approved frozen statements and definitions (one per file, manifest-bound)'),
     ('Fourier', 'Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates'),
     ('Diophantine', 'Diophantine vectors, cohomological equation, measure of the Diophantine set'),
+    ('Strip', 'Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation'),
+    ('Matrix', 'Matrix-valued functions: Neumann series and inverse bounds'),
     ('Newton', 'Abstract Newton/KAM convergence on analytic scales'),
     ('Hamiltonian', 'Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits'),
     ('APosteriori', 'A-posteriori KAM theorem at fixed frequency and local uniqueness'),
