@@ -1086,11 +1086,11 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:ham-eq, N:bpN:p3:newton-reduction, N:bpN:p3:gen-sol, N:bpN:p3:gen-uniqueness, stepI:p8:pf-sol, stepI:p8:pf-coord, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:restricted#restrictedVectorField, bpI:p0:primaries#CollisionFree
+DEPS: bpI:p7:ham-eq, bpN:p3:newton-reduction, N:bpN:p3:gen-sol, N:bpN:p3:gen-uniqueness, stepI:p8:pf-sol, stepI:p8:pf-coord, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:restricted#restrictedVectorField, bpI:p0:primaries#CollisionFree
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:ham-eq | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | RSol iff z(t) in W_mu and z_pr = X_Ham; shared ODE layer
-EDGE: N:bpN:p3:newton-reduction | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | IsRestrictedSolutionOn iff IsSolIn for V_mu on W_mu
+EDGE: bpN:p3:newton-reduction | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | IsRestrictedSolutionOn iff IsSolIn for V_mu on W_mu
 EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | restriction of a solution to a subinterval
 EDGE: N:bpN:p3:gen-uniqueness | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | uniqueness on arbitrary interval (a,b)
 EDGE: stepI:p8:pf-sol | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | RSol_mu(R,z) for z

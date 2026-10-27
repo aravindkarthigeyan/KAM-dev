@@ -121,7 +121,28 @@
  "I-imports": {
   "imports": true,
   "extractor": "claude-suborch-INP",
-  "nodes": 72,
-  "coverage": 72
+  "nodes": 62,
+  "coverage": 62
+ },
+ "I-nown": {
+  "ranges": [
+   {
+    "part": "blueprint-N/p3",
+    "lines": [
+     352,
+     368
+    ]
+   },
+   {
+    "part": "blueprint-N/p3",
+    "lines": [
+     434,
+     454
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-I-nown",
+  "nodes": 7,
+  "coverage": 7
  }
 }

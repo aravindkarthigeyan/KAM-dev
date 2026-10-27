@@ -457,28 +457,10 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: N:bpN:p3:gen-barrier
-KIND: external
-SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-barrier@L358-L363
-DISPOSITION: NODE N:bpN:p3:gen-barrier
-REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
 ITEM: N:bpN:p3:gen-continuation-periodic
 KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L297-L299
 DISPOSITION: NODE N:bpN:p3:gen-continuation-periodic
-REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: N:bpN:p3:gen-invariant
-KIND: external
-SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-invariant@L352-L356
-DISPOSITION: NODE N:bpN:p3:gen-invariant
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
@@ -538,11 +520,38 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: N:bpN:p3:newton-reduction
+ITEM: N:bpN:p3:gen-exit
 KIND: external
-SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L434-L449
-DISPOSITION: NODE N:bpN:p3:newton-reduction
+SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L328-L341
+DISPOSITION: NODE N:bpN:p3:gen-exit
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: N:bpN:p3:gen-symmetry
+KIND: external
+SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetry@L101-L110
+DISPOSITION: NODE N:bpN:p3:gen-symmetry
+REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: P:bpP:p0:fixedsol#IsFixedSolution
+KIND: external
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixedsol@L235-L242
+DISPOSITION: NODE P:bpP:p0:fixedsol#IsFixedSolution
+REASON: imported node (track P): its statement is proved, or is an external input, in the track-P graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: P:bpP:p0:newton#IsNewtonSolution
+KIND: external
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:newton@L226-L233
+DISPOSITION: NODE P:bpP:p0:newton#IsNewtonSolution
+REASON: imported node (track P): its statement is proved, or is an external input, in the track-P graph; not extracted here
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -

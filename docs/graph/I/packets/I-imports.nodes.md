@@ -1324,32 +1324,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node step:p4:h1-open; shared Lean provider. There: KIND step, contract step:p4:h1-open v1. Cited as \Kref{step:p4:h1-open}.
 
-NODE: N:bpN:p3:gen-barrier
-KIND: external
-TITLE: [N] Barrier
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-barrier@L358-L363
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:gen-barrier
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: E a finite-dimensional real normed space; F C^1 on the open set W; V subset E open; IsSolIn F W J z with J an interval, 0 in J, z(0) in V; G subset E with z(J) subset G; (boundary of V) cap G subset S with S invariant for (F,W) (Definition bpN:p3:gen-invariant) and z(0) not in S
-SOURCE_QUANTIFIERS: F, W, V, J, z, G, S fixed
-SOURCE_CONCLUSION: z(t) in V for all t in J (both time directions)
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-barrier; shared Lean provider. Cited as \Nref{bpN:p3:gen-barrier}.
-
 NODE: N:bpN:p3:gen-continuation-periodic
 KIND: external
 TITLE: [N] Closed sets, periodic fields
@@ -1375,32 +1349,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-continuation-periodic; shared Lean provider. Cited as \Nref{bpN:p3:gen-continuation-periodic}.
-
-NODE: N:bpN:p3:gen-invariant
-KIND: external
-TITLE: [N] Invariant sets
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-invariant@L352-L356
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:gen-invariant
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: F : E -> E; W subset E; S subset E (typing data)
-SOURCE_QUANTIFIERS: F, W, S
-SOURCE_CONCLUSION: defines: S is invariant for (F,W) iff for every interval J' and every y with IsSolIn F W J' y, if y(t1) in S for one t1 in J' then y(t) in S for all t in J'
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-invariant; shared Lean provider. Cited as \Nref{bpN:p3:gen-invariant}.
 
 NODE: N:bpN:p3:gen-maximal
 KIND: external
@@ -1558,16 +1506,16 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-reduction; shared Lean provider. Cited as \Nref{bpN:p3:ham-reduction}.
 
-NODE: N:bpN:p3:newton-reduction
+NODE: N:bpN:p3:gen-exit
 KIND: external
-TITLE: [N] Newtonian predicates
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L434-L449
+TITLE: [N] First exit
+STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L328-L341
 PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:newton-reduction
+CONTRACT_ID: N:bpN:p3:gen-exit
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: N >= 2, G in R, mass : Fin N -> R; E_N = (Fin N -> R^2) x (Fin N -> R^2) with the max norm; W_N = {(q,v) : planeLength(q_j - q_i) > 0 for all i != j} and F_N the Newtonian field; for IsFixedSolution G m0 m eps: W_N' = W_N cap {planeLength(q_i) > 0} and the field F'; for IsRestrictedSolutionOn mu J: W_mu = {(q,p) : CollisionFree mu (q,p)} and F_mu the total extension of restrictedVectorField mu
-SOURCE_QUANTIFIERS: N, G, mass (resp. G, m0, m, eps; resp. mu, J) fixed; for all Q, V : R -> (Fin N -> R^2) with x(t) = (Q(t),V(t)) (resp. all z : R -> R^2 x R^2)
-SOURCE_CONCLUSION: W_N is open, F_N is C^infinity on W_N and IsNewtonSolution G mass Q V <-> IsSolIn F_N W_N R x; likewise IsFixedSolution with (W_N', F'); IsRestrictedSolutionOn mu J z <-> IsSolIn F_mu W_mu J z; in all three cases F is C^infinity on the open set W and the general layer applies
+SOURCE_HYPOTHESES: IsSolIn F W J z with J an interval, 0 in J; V subset E open; z(0) in V; A = {t in J : t >= 0, z(t) not in V}
+SOURCE_QUANTIFIERS: F, W, J, z, V fixed
+SOURCE_CONCLUSION: exactly one holds: (i) A empty and z(t) in V for all t in J, t >= 0; (ii) A nonempty, t* = min A exists, t* > 0, t* in J, z(t) in V on [0,t*), z(t*) in boundary of V = closure(V) minus V; t* equals sup{t in J : t >= 0, z([0,t]) subset V}; the same holds backwards in time
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1582,4 +1530,82 @@ REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:newton-reduction; shared Lean provider. Cited as \Nref{bpN:p3:newton-reduction}.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-exit; shared Lean provider. Cited as \Nref{bpN:p3:gen-exit}.
+
+NODE: N:bpN:p3:gen-symmetry
+KIND: external
+TITLE: [N] Symmetries
+STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetry@L101-L110
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p3:gen-symmetry
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: IsSolIn F W J z; for (b) -F is C^1 on W if F is; for (c) v in E with W+v=W and F(x+v)=F(x) on W
+SOURCE_QUANTIFIERS: F, W, J, z, c, v
+SOURCE_CONCLUSION: (a) t -> z(t+c) is a solution on J-c; (b) t -> z(-t) is a solution of -F on -J, and -F is C^1 on W if F is; (c) t -> z(t)+v is a solution of F in W on J
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-symmetry; shared Lean provider. Cited as \Nref{bpN:p3:gen-symmetry}.
+
+NODE: P:bpP:p0:fixedsol#IsFixedSolution
+KIND: external
+TITLE: [P] Fixed-Sun solutions: KAM.Planetary.IsFixedSolution
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixedsol@L235-L242
+PROOF_SOURCE: -
+CONTRACT_ID: P:bpP:p0:fixedsol#IsFixedSolution
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: typing data: n in N, G, m_0, epsilon in R, m in R^n, Q, V : R -> (R^2)^n
+SOURCE_QUANTIFIERS: G, m_0, m, epsilon, Q, V
+SOURCE_CONCLUSION: defines IsFixedSol(G,m_0,m,epsilon,Q,V): for all t and i != j: pl(Q_i(t)) > 0, pl(Q_j(t) - Q_i(t)) > 0, Q_i has derivative V_i(t), and V_i has derivative -G m_0 Q_i(t) / pl(Q_i(t))^3 + epsilon sum_{j != i} G m_j (Q_j(t) - Q_i(t)) / pl(Q_j(t) - Q_i(t))^3; the Sun is the constant origin
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED (pending P graph): frozen definition KAM.Planetary.IsFixedSolution, anchor node bpP:p0:fixedsol#IsFixedSolution of the track-P graph; not an anchor of this graph. Cited as \frozen{KAM.Planetary.IsFixedSolution}.
+
+NODE: P:bpP:p0:newton#IsNewtonSolution
+KIND: external
+TITLE: [P] Newton solutions: KAM.Planetary.IsNewtonSolution
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:newton@L226-L233
+PROOF_SOURCE: -
+CONTRACT_ID: P:bpP:p0:newton#IsNewtonSolution
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: typing data: N in N, G in R, M in R^N, Q, V : R -> (R^2)^N
+SOURCE_QUANTIFIERS: G, M, Q, V
+SOURCE_CONCLUSION: defines IsNewton(G,M,Q,V): for all t in R and i != j (indices < N): pl(Q_j(t) - Q_i(t)) > 0; Q_i has derivative V_i(t) at t; V_i has derivative sum_{j != i} G M_j (Q_j(t) - Q_i(t)) / pl(Q_j(t) - Q_i(t))^3 at t (HasDerivAt)
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED (pending P graph): frozen definition KAM.Planetary.IsNewtonSolution, anchor node bpP:p0:newton#IsNewtonSolution of the track-P graph; not an anchor of this graph. Cited as \frozen{KAM.Planetary.IsNewtonSolution}.
