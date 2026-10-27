@@ -46,8 +46,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
+   "done": 0.03,
+   "note": "blueprint-I: Part 0 and plan written (7 parts, ~100 pp.); Part 1 being written"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -62,8 +62,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
+   "done": 0.03,
+   "note": "blueprint-N: Part 0 and plan written (11 parts, ~95 pp.); Part 3 (shared ODE) being written"
   },
   {
    "group": "Track P (planetary)",
