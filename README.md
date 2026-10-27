@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 20.1 %** · frozen statements proved: 0 / 5 · **2,384 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:23 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 21.2 %** · frozen statements proved: 0 / 5 · **2,384 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,13 +53,13 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **20.1 %**
+### Estimated completion: **21.2 %**
 
-`█████░░░░░░░░░░░░░░░░░░░░` 20.1 %
+`█████░░░░░░░░░░░░░░░░░░░░` 21.2 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
-| Statement and planning | 8 | 26 | 16.8 | `██████░░░░` 64 % |
+| Statement and planning | 8 | 26 | 18.3 | `███████░░░` 71 % |
 | Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
 | Analytic infrastructure | 8 | 24 | 2.4 | `█░░░░░░░░░` 10 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
@@ -68,7 +68,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | Track N (Nekhoroshev) | 2 | 12 | 2.0 | `██░░░░░░░░` 17 % |
 | Track P (planetary) | 3 | 20 | 2.0 | `█░░░░░░░░░` 10 % |
 | Sealing of the frozen statements | 5 | 5 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 41 | 140 | 28.1 | **20.1 %** |
+| **Total** | 41 | 140 | 29.7 | **21.2 %** |
 
 **How this is estimated.** The project is divided into 36 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -81,7 +81,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | S.ROUTE | Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency) | H | 🟨 90 % | verdict: route works; rate ε^{1/4}; flow local uniqueness must be proved by us (no published version) |
 | S.STMT | Mathematical statement of the headline theorem and the gate theorems, with owner rulings | M | ✅ 100 % | docs/statement.md draft 0.2, approved |
 | S.LEAN | Exact Lean statements (headline + gates): independent audit, owner approval, freeze | H | ✅ 100 % | approved (D11) and frozen: 5 theorem anchors + 20 definitions, manifest with file/prefix/ABI hashes |
-| S.BP | Blueprint: every proof step written out against the pinned sources | VH | 🟨 50 % | p0, p1 interface (with transfers), p2 (G1, 1323 lines), p3 (G2, 830 lines) written; p4 being written; p2, p3 in review |
+| S.BP | Blueprint: every proof step written out against the pinned sources | VH | 🟨 70 % | all parts drafted (p2, p3, p4 complete; p1 interface of 30 lemmas, proofs being written); p3 review passed with fixes; p2, p4 reviews running |
 | S.GRAPH | Source-level dependency graph anchored to the frozen statements | H | ⬜ 0 % |  |
 | S.ERRATA | Errata and deviations ledger for every formalized source (continuous) | L | 🟨 30 % | ledger: 8 candidate errata, 6 planned deviations |
 | I.REPO | Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint | L | ✅ 100 % |  |
@@ -130,9 +130,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:20 UTC from `main` at `995fe07` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:23 UTC from `main` at `073dee6` by `scripts/hq-status.py`.*
 
-**Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
+**Current phase:** Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.
 
 **Frozen statements proved: 0 / 5** · frozen definitions: 20
 
@@ -256,17 +256,17 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 |---|---|---|---|---|---|---|---|
 | **orchestrator** | lead | Claude Opus 5.5 | claude-1 | 🔄 active | Campaign lead: sources, statements, assignments, landings, owner questions, this README | — | — |
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
-| **bp-g1** | blueprint writer | Claude Opus 5.5 | claude-1 | ✅ done | Blueprint part 2 (G1) written: 1323 lines, 29 results, 91 steps; in review | — | — |
-| **bp-g2** | blueprint writer | Claude Opus 5.5 | claude-1 | ✅ done | Blueprint part 3 (G2) written: 830 lines, complete proof; in review | — | — |
-| **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 4: G3, APPLY, STAB, LIP, McShane and measure, HEAD, HEAD-Q | — | — |
+| **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | ✅ done | Blueprint part 4 (G3, HEAD, HEAD-Q) written: 1482 lines; in review | — | — |
 | **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | ✅ handed off | Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | 🔄 working | Track N revision v0.2: N-HEAD as approved plus a complex-bound variant; owner choice of headline | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | 🔄 working | Track P revision v0.2 addressing the audit (docs/tracks/P/RESPONSE-v0.1.md) | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Collaborator's research question, round 2: longer horizons for most initial conditions, one best planetary statement with proof sketch, realistic-parameter feasibility (round 1: docs/explorations/almost-every-shorter-times.md) | — | — |
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | ✅ handed off | Track N audit v0.1: approvable with changes; F-N1 (BM11 uniformity in h needs a complex Hessian bound) blocks proof-route sign-off | — | — |
 | **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ handed off | Track P audit v0.1: P-G REJECT (box vs disc region, diffeomorphism on a neighbourhood, boundary regularity); P-PLANAR, P-FIXED approvable with changes | — | — |
-| **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Refute-first statement audit of track I drafts | — | — |
+| **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Refute-first statement audit of track I drafts | — | — |
 | **review-p2** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 2 (G1) | — | — |
+| **review-p4** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 4 | — | — |
+| **bp-p1** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Proofs of the 30 part-1 interface lemmas | — | — |
 
 **Queued:** Blueprint consolidation: shared torus geometry between parts 2 and 3; part 3 copies of part 1 lemmas (review p3 F1–F3) · Blueprint part 1 proofs · Dependency graph extraction
 <!-- /AUTO:workers -->
@@ -276,6 +276,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:23 | `073dee6` | Blueprint Part 4: G3, HEAD and HEAD-Q from G1 and G2, complete proof |
 | 2026-10-27 16:15 | `ddec667` | Track N statement audit v0.1: approvable with changes; source gap F-N1 (uniformity in h needs a complex Hessian bound); revision v0.2 under way |
 | 2026-10-27 16:13 | `9fcd939` | Track P statement audit v0.1: P-G rejected as drafted (three blocking defects with counterexamples); revision v0.2 under way |
 | 2026-10-27 16:07 | `1e0a048` | Blueprint Part 3 review: ACCEPT WITH FIXES (no blocking or major findings); step labels prefixed with S |
@@ -287,7 +288,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:54 | `388f8c1` | Track P Phase 0: sources, statement draft, notes; statement audit running |
 | 2026-10-27 15:53 | `dfd5e62` | Record D18: owner rulings on track N questions 2-6, as recommended |
 | 2026-10-27 15:53 | `e4266b2` | Record D17: track N is stated for n >= 3 (owner ruling) |
-| 2026-10-27 15:52 | `f0d0bda` | Track N Phase 0: sources, statement draft 0.1, notes; statement audit running |
 <!-- /AUTO:landed -->
 
 ## Decisions
@@ -341,8 +341,8 @@ against the pinned PDF.
 | CCdlL13 | 1 candidate | 1 planned |
 | FdlLS09 | 2 candidate | 0 |
 | GJLV05 | 5 candidate | 1 planned |
-| HL19 | 7 candidate | 3 planned |
-| Pos01 | 3 candidate | 2 planned |
+| HL19 | 7 candidate | 4 planned |
+| Pos01 | 5 candidate | 2 planned |
 
 <details><summary>All ledger entries</summary>
 
@@ -357,11 +357,11 @@ against the pinned PDF.
 | E-FdlLS09-2 | erratum | FdlLS09 | §7.1, pp. 42–43 | a bi-Lipschitz map ω ↦ K_ω into a function space does not by itself give a Lipschitz inverse of (θ, ω) ↦ K_ω(θ); the measure conclusion needs the argument we supply (D-LIP-1, D-MEAS-1) | CANDIDATE |
 | E-CCdlL13-1 | erratum | CCdlL13 | pp. 31–32 (preprint mp_arc 11-188) | the two pages describe ℓ = 2 inconsistently | CANDIDATE |
 | D-ROUTE-1 | deviation | Pos01 | whole proof | Proof route: the tori are obtained from an a-posteriori fixed-frequency KAM theorem (parameterization method, no canonical changes of variables) applied at each Diophantine frequency, not by Pöschel's iteration of symplectic transformations | PLANNED |
-| D-MEAS-1 | deviation | Pos01 | Theorem (p. 6), Prop. 1–2 (p. 11) | Rate: our route proves meas(complement) ≤ C·ε^{1/4} (γ ~ ε^{1/4}), not Pöschel's O(√ε); the measure step applies the McShane extension of App. B to F̂ − id in frequency coordinates | PLANNED |
+| D-MEAS-1 | deviation | Pos01 | Theorem (p. 6), Prop. 1–2 (p. 11) | Rate: our route proves meas(complement) ≤ C·ε^{1/4} (γ ~ ε^{1/4}), not Pöschel's O(√ε); the measure step applies the McShane extension of App. B to F̂ − id in frequency coordinates; in the proof the tori are parameterized by actions (not frequencies), so ∇h(B) needs no regular boundary (blueprint Part 4, V1–V2) | PLANNED |
 | D-NORM-1 | deviation | HL19 | §3.1 (analytic functions and norms) | Estimates are carried out in weighted ℓ¹ Fourier(–Taylor) coefficient norms instead of sup norms on complex strips; hypotheses are stated for real-analytic functions and converted once at the interface | PLANNED |
 | D-COORD-1 | deviation | HL19 | §2 (Hamiltonian systems and invariant tori) | Phase space Tⁿ × B is represented in coordinates: angles in ℝⁿ with ℤⁿ-periodicity, actions in an open set of ℝⁿ (no manifold structure, no general symplectic form) | PLANNED |
 | D-UNIQ-1 | deviation | GJLV05 | Theorem 2 (maps), §6, §8 | Proof supplement: local uniqueness modulo phase for flows. No published statement exists in this framework (GJLV05 Rem. 7: 'We do not formulate such a theorem'; HL19 Rem. 3.5 asserts it without proof). We prove it by adapting the map proof of GJLV05 §6 with the flow reducibility of §8 and Prop. 18, directly for flows (not through the time-one map, which needs map-Diophantine frequencies).. Proof written in blueprint Part 3: linearization at K₁ (not K₂), the phase fixed once by ⟨BLᵀ(K₂(·+ψ) − K₁)⟩ = 0, a uniqueness constant independent of γ (∣ω∣ ≤ Γ from invariance, so γ ≤ Γ), the small-divisor exponent τ + n, and the conclusion on T_{ρ/2} | PLANNED |
-| D-LIP-1 | deviation | CCdlL13 | Cor. 29–30 | Lipschitz dependence on the frequency by re-applying the a-posteriori theorem at a nearby frequency (CCdlL13 template), with the error estimate ‖E′‖ ≲ (ε + ‖K_ω − K⁰_ω‖_{C¹})·∣ω − ω′∣ and Lipschitz defect O(ε/γ⁴) | PLANNED |
+| D-LIP-1 | deviation | CCdlL13 | Cor. 29–30 | Lipschitz dependence on the frequency by re-applying the a-posteriori theorem at a nearby frequency (CCdlL13 template), with the error estimate ‖E′‖ ≲ (ε + ‖K_ω − K⁰_ω‖_{C¹})·∣ω − ω′∣ and Lipschitz defect O(ε/γ⁴); refinements: stability always relative to the unperturbed torus, phase controlled by the average normalization, far pairs above λ_*γ² (blueprint Part 4, V3) | PLANNED |
 | E-HL19-1 | erratum | HL19 | p. 18, (3.11) | the strict inequality is false when E = 0, where it would require ‖K∞ − K‖ < 0; it should read ≤ | CANDIDATE |
 | E-HL19-2 | erratum | HL19 | p. 42, (5.66) | in the estimate for the twist term the denominator should be σ_T − ∣⟨T⟩⁻¹∣ | CANDIDATE |
 | D-G1-1 | deviation | HL19 | Theorem 3.1, pp. 16–18; App. B (5.74)–(5.77) | Uniform constants: C₁, C₂ depend only on n, τ, ρ, ρ∞, a bound M for the Hamiltonian's derivatives, σK, σB, σT, a margin μ (gaps σ − ‖·‖ and distance to the boundary) and an upper bound γbar ≥ γ (App. B's constants increase with γ; without γbar the statement is false: machine-checked counterexample). Dropped hypotheses implied up to 2n factors: σ_{Kᵀ}, c_{X_hᵀ,1}; first integrals and the estimate on ⟨c∘K∞⟩ not transcribed. Pointwise operator norms on the open strip instead of sums of sups on the closed strip. Conclusion strengthened to explicit margins (μ/2) and ≤ in the closeness bound (cf. E-HL19-1). Same uniformization in our G2, where no γbar is needed: invariance with H2–H3 bounds ∣ω∣, hence γ; note: the hypotheses bound the frequency, γ ≤ ∣ω∣ ≤ 2nσ_Kσ_B(M + e), so γ̄ is needed only because the smallness condition alone does not bound e (Part 2 uses γ̄ once, to force e ≤ 1) | PLANNED |
@@ -373,6 +373,9 @@ against the pinned PDF.
 | E-HL19-5 | erratum | HL19 | p. 42, after (5.67) | should refer to (5.13) and (5.17) | CANDIDATE |
 | E-HL19-6 | erratum | HL19 | p. 44 | should read s → ∞ | CANDIDATE |
 | E-HL19-7 | erratum | HL19 | p. 44 vs Theorem 3.1 (p. 17) | the proof establishes the margin on the real torus only, while the theorem asserts it on the complex strip; the strip margin needs an extra argument (supplied in our Part 2 via summed per-step changes) | CANDIDATE |
+| E-Pos01-4 | erratum | Pos01 | p. 6, after the definition of Ω_α | Hausdorff dimension n − 1 of the boundary does not give O(α) boundary layers. Counterexample: n = 1, Ω = (0,1) ∖ {1/k : k ≥ 1}: the boundary has dimension 0 but the inner α-layer has measure ≳ √α. The right condition is finite upper Minkowski content, or a layer bound as in our HEAD | CANDIDATE |
+| E-Pos01-5 | erratum | Pos01 | p. 11, proof of Prop. 2 | the Lipschitz constant must be raised to the power n (Lipschitz maps scale n-dimensional measure by L^n; compare BC17 footnote 32) | CANDIDATE |
+| D-LAG-1 | deviation | HL19 | §2.2, p. 7, eq. (2.3) | Proof supplement: the isotropy (Lagrangian property) of invariant tori with nonresonant frequency, asserted as well known, is proved in blueprint Part 4 (lemma lagrangian), citing GJLV05 Lemma 19 | PLANNED |
 
 </details>
 <!-- /AUTO:errata -->
