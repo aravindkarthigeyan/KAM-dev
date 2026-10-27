@@ -155,7 +155,11 @@ def section_areas():
 def pane_state(session):
     if not session:
         return None
-    r = subprocess.run(['tmux', 'capture-pane', '-p', '-t', session], capture_output=True, text=True)
+    try:
+        r = subprocess.run(['tmux', 'capture-pane', '-p', '-t', session], capture_output=True, text=True)
+    except FileNotFoundError:
+        # Collaborator checkouts may not have tmux; keep the recorded campaign state.
+        return None
     if r.returncode != 0:
         return '⚠️ session missing'
     lines = [l for l in r.stdout.splitlines() if l.strip()]
