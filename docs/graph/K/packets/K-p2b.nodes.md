@@ -27,9 +27,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:triangular@L617-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.triangular (defs triU, triXi0, triXiN, triGL, triXiL)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-8a-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:tri-first
