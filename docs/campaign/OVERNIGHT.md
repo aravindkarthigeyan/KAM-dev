@@ -92,3 +92,9 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **23:05. The shared ODE layer `KAM/ODE/*` (blueprint-N Part 3 general core, 7 packages) is proved, audited and
   landed (4e449e5).** Packages were merged into `inp` before their audits so that the next wave could branch from
   them; nothing was landed on `main` until every audit passed.
+- **00:05. Graph P roots: P-G, P-PLANAR, AMD, EXP-SAFE, SECULAR-BOX (two); P-FIXED joins by a SPEC revision once
+  Part 11a-5 passes review** (its blueprint chain Parts 11, 11a-1..5, 13 is now complete). Its frozen definitions stay in
+  the corpus meanwhile. Before extracting a P slice whose last review said REVISE, an independent closure check confirms
+  the fixes landed (Parts 1–4, 7–11b), and Part 14a gets its first review. Extraction starts on the accepted Parts 12
+  and 14b. Reversal: none needed.
+- **23:50. Graph I published** (d00e232; 450 nodes; global review PASS in round 3).
