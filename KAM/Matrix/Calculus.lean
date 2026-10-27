@@ -38,9 +38,10 @@ For instance, the product and transpose rules give
 `D (Lᵀ Ω₀ L) v = (D L v)ᵀ Ω₀ L + Lᵀ Ω₀ (D L v)`, the derivative of the Lagrangian matrix of
 Part 2.
 
-No derivative norm of a matrix-valued map is stated here: under the operator-norm scope the
-instance `Norm (E →L[ℂ] Matrix l m ℂ)` does not synthesize, so such bounds go through entries or
-through the maps of `KAM/Torus/Basic.lean`.
+The section "Instances for matrix-valued derivatives" installs `SecondCountableTopology`,
+`IsNormableSpace` and `Norm (E →L[ℂ] Matrix l m ℂ)` for matrices, so that derivative norms of
+matrix-valued maps can be written (under `open scoped Matrix.Norms.Operator` they do not
+synthesize) and the generic Part 1 results apply to them with the row-sum norm.
 -/
 
 @[expose] public noncomputable section
@@ -120,6 +121,44 @@ def matTransposeCLM : Matrix l m ℂ →L[ℂ] Matrix m l ℂ := matTransposeCLE
 
 end Maps
 
+
+/-! ### Instances for matrix-valued derivatives
+
+In this Mathlib, `fderiv` and `E →L[ℂ] F` only see the default (product) topology on
+`Matrix l m ℂ`, while the instances of `open scoped Matrix.Norms.Operator` come with a norm-derived
+topology that is equal but not reducibly so. As a result `IsNormableSpace`,
+`SecondCountableTopology` and `Norm (E →L[ℂ] Matrix l m ℂ)` do not synthesize, so a statement such
+as `‖fderiv ℂ u θ‖ ≤ B` for matrix-valued `u` does not elaborate. The three instances below repair
+this. The norm is, by definition, the operator norm of the derivative for the row-sum norm
+(`Matrix.linftyOpSeminormedAddCommGroup`) on the matrices, the one of `KAM/Matrix/Norms.lean`; so
+`KAM.cauchy_strip`, `KAM.increments`, `KAM.taylor_iteratedFDeriv` and the other generic results
+of Part 1 apply to matrix-valued maps with the row-sum norm, and their conclusions can be stated
+with `‖fderiv ℂ u θ‖`. A second derivative of a matrix-valued map is measured as
+`‖iteratedFDeriv ℂ 2 F x‖` (this elaborates), as in `KAM.taylor_iteratedFDeriv`; the norm of
+`fderiv ℂ (fderiv ℂ F) x` has no instance. -/
+
+section Instances
+
+variable {l m : Type*}
+
+/-- The space of matrices is second countable (for the default product topology). -/
+instance instSecondCountableTopologyMatrix [Finite l] [Finite m] :
+    SecondCountableTopology (Matrix l m ℂ) :=
+  inferInstanceAs (SecondCountableTopology (l → m → ℂ))
+
+/-- The topology of the matrix space is normable (it is the one of the row-sum norm). -/
+instance instIsNormableSpaceMatrix [Finite l] [Finite m] : IsNormableSpace ℂ (Matrix l m ℂ) :=
+  inferInstanceAs (IsNormableSpace ℂ (l → m → ℂ))
+
+/-- The operator norm of a continuous linear map `E →L[ℂ] Matrix l m ℂ` (such as a derivative of
+a matrix-valued map), for the row-sum norm on matrices. -/
+instance instNormContinuousLinearMapMatrix [Fintype l] [Fintype m] {E : Type*}
+    [NormedAddCommGroup E] [NormedSpace ℂ E] : Norm (E →L[ℂ] Matrix l m ℂ) :=
+  letI : SeminormedAddCommGroup (Matrix l m ℂ) := Matrix.linftyOpSeminormedAddCommGroup
+  letI : NormedSpace ℂ (Matrix l m ℂ) := Matrix.linftyOpNormedSpace
+  ContinuousLinearMap.hasOpNorm
+
+end Instances
 
 /-! ### Product, matrix-vector product, transpose and entries -/
 

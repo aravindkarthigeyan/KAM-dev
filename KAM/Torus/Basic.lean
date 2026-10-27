@@ -5,6 +5,7 @@ Authors: Scott Armstrong, Zohar Komargodski
 -/
 module
 
+public import KAM.Frozen.Defs.DotC
 public import KAM.Frozen.Defs.TorsionAverage
 public import KAM.Frozen.Defs.InvarianceError
 public import KAM.Frozen.Defs.IsPrimaryOnStrip
@@ -29,6 +30,8 @@ layer of Part 1 indexes `2n × 2n` matrices by `Fin n ⊕ Fin n`. This file fixe
 * `KAM.Torus.colMat`, `KAM.Torus.sqMat`: the matrices of a linear map `ℂ^q → ℂⁿ × ℂⁿ` and of an
   endomorphism of `ℂⁿ × ℂⁿ`, with `norm_colMat`, `norm_sqMat` (operator norm = row-sum norm) and
   `colMat_mulVec`, `sqMat_mulVec`.
+* `KAM.Torus.fderiv_sumVec_apply`, `KAM.Torus.dotℂ_eq_dotProduct_sumVec`: `sumVec` commutes with
+  `fderiv`, and the frozen bilinear dot product is the dot product of the `sumVec`-images.
 * `KAM.Torus.IsPeriodicOn`, `IsRealVec`, `IsRealMat`, `avg`: the shared hypothesis forms of
   periodicity, realness and averaging (design §1.4).
 * `KAM.Torus.cauchy_transpose_fintype`: the Cauchy estimate for the transposed Jacobian of a
@@ -178,6 +181,29 @@ theorem isRealVec_sumVec_iff {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n 
   · rintro h θ (i | i)
     · exact (h θ i).1
     · exact (h θ i).2
+
+/-! ### `sumVec` and the frozen operations -/
+
+section FrozenOps
+
+/-- The frozen bilinear dot product on `ℂⁿ × ℂⁿ` is the dot product of the `sumVec`-images. -/
+theorem dotℂ_eq_dotProduct_sumVec (u v : (Fin n → ℂ) × (Fin n → ℂ)) :
+    dotℂ u v = sumVec n u ⬝ᵥ sumVec n v := by
+  simp [dotℂ, dotProduct, Fintype.sum_sum_type, sumVec_apply, Finset.sum_add_distrib]
+
+variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E]
+
+theorem differentiableAt_sumVec_iff {f : E → (Fin n → ℂ) × (Fin n → ℂ)} {x : E} :
+    DifferentiableAt ℂ (fun y => sumVec n (f y)) x ↔ DifferentiableAt ℂ f x :=
+  (sumVecIso n).comp_differentiableAt_iff
+
+/-- `sumVec` is a linear isometry equivalence, so it commutes with the derivative:
+`D (sumVec ∘ f) v = sumVec (D f v)`, with no differentiability hypothesis. -/
+theorem fderiv_sumVec_apply (f : E → (Fin n → ℂ) × (Fin n → ℂ)) (x v : E) :
+    fderiv ℂ (fun y => sumVec n (f y)) x v = sumVec n (fderiv ℂ f x v) :=
+  congrArg (fun L => L v) ((sumVecIso n).comp_fderiv (f := f) (x := x))
+
+end FrozenOps
 
 end KAM.Torus
 
