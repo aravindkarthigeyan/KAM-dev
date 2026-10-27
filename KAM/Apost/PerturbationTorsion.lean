@@ -22,7 +22,7 @@ and the assembled node `KAM.Apost.perturbation`. Notation as in `KAM/Apost/Pertu
   `T_{r-δ}` (loss `δ`).
 * `norm_torsion_sub_le`: `T̃ - T = Ñᵀ Ω₀ (X̃_Ñ - X_N) + (Ñ - N)ᵀ Ω₀ X_N`, bounded by `C_ΔT d/δ²`
   on `T_{r-2δ}`; `|X_N| ≤ C_X/δ` is `KAM.Apost.FrameAux.norm_normalFieldMat_le`.
-* `norm_torsionAverage_sub_le`, `twist_perturb`: `T̃` is holomorphic on `T_{r-δ} ⊇ ℝⁿ`, hence
+* `norm_torsionAverage_sub_le`, `twist_neumann`: `T̃` is holomorphic on `T_{r-δ} ⊇ ℝⁿ`, hence
   continuous there; `|⟨T̃⟩ - ⟨T⟩| ≤ C_ΔT d/δ²` by the integral bound over `[0,1]ⁿ` (no
   periodicity is used), and the Neumann lemma gives (f).
 

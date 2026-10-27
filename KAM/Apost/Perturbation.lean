@@ -26,7 +26,7 @@ torsion part (items (e), (f)) and assembles the node `KAM.Apost.perturbation`.
   `p = 2n`, `KAM.Torus.cauchy_transpose_fintype`).
 * (c) `norm_gram_sub_le`, `gram_inverse_perturb`: `|G̃ - G| ≤ C_G d/δ`, then the Neumann lemma
   (`KAM.neumann_pointwise`) gives `G̃` invertible, `|B̃| ≤ 2𝔪`, `|B̃ - B| ≤ C_B d/δ`.
-* (d) `norm_normalMat_sub_le`, `norm_normalMat_le'`: `|Ñ - N| ≤ C_ΔN d/δ`, `|Ñ| ≤ 2𝔪²`.
+* (d) `norm_normalMat_sub_le`, `norm_normalMat_le_two`: `|Ñ - N| ≤ C_ΔN d/δ`, `|Ñ| ≤ 2𝔪²`.
 
 Each item is a helper lemma in the namespace `KAM.Apost.PerturbationAux`, pointwise where the
 statement is pointwise, so that the matrix algebra is elaborated once per identity. The
