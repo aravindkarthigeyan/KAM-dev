@@ -1,29 +1,13 @@
 {
  "replaced": [
-  "bp:p4:data",
-  "step:p4:db-vectorfield",
-  "bp:p4:freq-map",
-  "bp:p4:smallness"
+  "step:p4:db-vectorfield"
  ],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "step:p4:slab-fubini",
-  "step:p4:g3-union",
-  "step:p4:unp-torsion",
-  "bp:p4:parameters",
-  "step:p4:small-proof",
-  "bp:p4:apply",
-  "step:p4:apply-g1",
-  "step:p4:mn-rowsum",
-  "step:p4:tr-inverse",
-  "step:p4:tr-torsion",
-  "step:p4:tr-periodic",
-  "step:p4:stab-gram",
-  "step:p4:stab-frame",
-  "step:p4:stab-torsion",
-  "bp:p4:SA",
-  "bp:p4:SA"
+  "bp:p4:data",
+  "bp:p4:freq-map",
+  "bp:p4:smallness"
  ]
 }

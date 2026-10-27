@@ -33,7 +33,7 @@ end with a date and reason.
 
   Each is a `definition` (or `display`) node. A result that assumes a package depends on its node. Every
   application of such a result must show where the package is supplied (an EDGE or a step node at the consumer).
-- **External inputs:** exactly the ten items (E1)–(E10) of Part 1 (`bp:p1:ext-*`), as `KIND: external`,
+- **External inputs:** exactly the eleven items (E1)–(E11) of Part 1 ((E11) added after the global review) (`bp:p1:ext-*`), as `KIND: external`,
   `LEAN_STATUS: EXTERNAL`.
   - A proof that uses a fact which is neither proved in the blueprint nor one of (E1)–(E10) gets a step node whose
     NOTE begins `SOURCE_GAP:`. Never a silent edge, and never a new external.
@@ -122,3 +122,14 @@ end with a date and reason.
 - 2026-10-27, after the slice reviews: the reachability rule above is stated explicitly. The reviewers of K-p1a and
   K-p1b re-added `mixed-difference` and `cauchy-strip-2` because SPEC did not name the rule. The writer excludes them
   again: no root's proof consumes them, and Part 4 proves its own mixed-difference corollary.
+- 2026-10-27, after the global review (`reviews/GLOBAL-review.md`, finding F1: ten source gaps), the writer revised the
+  blueprint. Every Part 1/2/4 locator was remapped mechanically (`scripts/depgraph_remap_locators.py`), and
+  `CORPUS.sha256` is updated. The fixes:
+  - **New external (E11)**, `bp:p1:ext-measure`: product Lebesgue measure, Tonelli, continuity from below, and box
+    volumes and null box boundaries, with the Mathlib names verified. It pays for the product-volume, slab-Fubini,
+    exhaustion and null-boundary gaps.
+  - **McShane** states `β ≥ 0`.
+  - **Part 2 `pt-twist`** bounds the average difference by the norm-of-integral bound (E6) instead of the periodic
+    corollary.
+  - **Part 4 `ml-mixed`** proves the 1-Lipschitz property of the distance to `B^c` inline.
+  - The global review's F2–F5 replacement records are applied.

@@ -95,6 +95,16 @@ Mathlib counterpart where one exists.
 \item\label{bp:p1:ext-cramer} \emph{Cramer's rule.} If $\det M\ne0$, the square matrix $M$ is invertible
   and $M^{-1}=(\det M)^{-1}\operatorname{adj}M$. The entries of $\operatorname{adj}M$ and $\det M$ are
   polynomials with integer coefficients in the entries of $M$.
+\item\label{bp:p1:ext-measure} \emph{Lebesgue measure on products and boxes.} Lebesgue measure on
+  $\R^{d_1}\times\R^{d_2}=\R^{d_1+d_2}$ is the product of the Lebesgue measures: $\meas(A\times
+  B)=\meas A\,\meas B$ for measurable $A$, $B$, and $\meas E=\int\meas(E_x)\,dx$ for measurable $E$, with
+  slices $E_x=\{y:(x,y)\in E\}$ (Tonelli). For measurable $E_1\subset E_2\subset\cdots$,
+  $\meas\bigcup_jE_j=\lim_j\meas E_j$. A closed box $\prod_i[a_i,b_i]$ and the open box with the same
+  corners both have measure $\prod_i(b_i-a_i)$, so the boundary of a box is null.
+  (\nolinkurl{MeasureTheory.Measure.prod_prod}, \nolinkurl{MeasureTheory.Measure.prod_apply},
+  \nolinkurl{MeasureTheory.measurePreserving_sumPiEquivProdPi},
+  \nolinkurl{MeasureTheory.tendsto_measure_iUnion_atTop}, \nolinkurl{Real.volume_Icc_pi},
+  \nolinkurl{Real.volume_pi_Ioo}.)
 \end{enumerate}
 \par}
 
@@ -1105,7 +1115,8 @@ max norm.
 
 \begin{remark}[Products]\label{bp:p1:lip-image-product}
 The identification of $\R^n\times\R^n$ with $\R^{2n}$ is an isometry for the max norm of the two
-components and carries the product of the Lebesgue measures to Lebesgue measure on $\R^{2n}$.
+components and carries the product of the Lebesgue measures to Lebesgue measure on $\R^{2n}$
+(\ref{bp:p1:ext-measure}).
 \end{remark}
 
 \begin{lemma}[Lipschitz images and preimages]\label{bp:p1:lip-image}
@@ -1154,7 +1165,7 @@ previous steps.
 
 \begin{lemma}[McShane extension]\label{bp:p1:mcshane}
 A $\Lambda$-Lipschitz map from a subset of a metric space to $\R^d$ with the max norm extends to a $\Lambda$-Lipschitz map on
-the whole space; it can be clamped to keep a given sup bound. (Mathlib \Lean{LipschitzOnWith.extend\_pi}.)
+the whole space; it can be clamped to keep a given sup bound $\beta\ge0$. (Mathlib \Lean{LipschitzOnWith.extend\_pi}.)
 \end{lemma}
 
 \begin{proof}
@@ -1175,7 +1186,7 @@ $U=(U_j)_j$ is a $\Lambda$-Lipschitz extension of $\phi$ to $X$. (Mathlib:
 \nolinkurl{LipschitzOnWith.extend_pi}.)
 
 \proofstep{Clamping}\label{step:p1:mc-clamp}
-Let $\abs\phi\le\beta$ on $S$ and $\Phi_j=\max(-\beta,\min(\beta,U_j))$. Clamping to $[-\beta,\beta]$ is
+Let $\beta\ge0$ with $\abs\phi\le\beta$ on $S$, and $\Phi_j=\max(-\beta,\min(\beta,U_j))$. Clamping to $[-\beta,\beta]$ is
 $1$-Lipschitz and fixes $[-\beta,\beta]$, so $\Phi=(\Phi_j)_j$ is $\Lambda$-Lipschitz, extends $\phi$, and
 satisfies $\abs\Phi\le\beta$ on $X$.
 \end{proof}

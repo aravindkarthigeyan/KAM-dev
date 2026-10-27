@@ -12,14 +12,5 @@
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": [
-  "bp:p2:triangular",
-  "bp:p2:correction",
-  "bp:p2:newton-error",
-  "bp:p2:perturbation",
-  "bp:p2:step",
-  "bp:p2:iteration",
-  "bp:p2:limit",
-  "bp:p2:perturbation#average-applicability"
- ]
+ "passes": []
 }

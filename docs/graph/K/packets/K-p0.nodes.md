@@ -538,7 +538,7 @@ NODE: bp:p0:head
 KIND: theorem
 TITLE: HEAD: positive-measure KAM with rate
 STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:head@L105-L115
-PROOF_SOURCE: blueprint/parts/p4-measure.tex#bp:p0:head@L1200-L1230
+PROOF_SOURCE: blueprint/parts/p4-measure.tex#bp:p0:head@L1202-L1232
 CONTRACT_ID: kam.kam_positive_measure
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: n >= 2; tau > n-1; s_0, r_0 > 0; B subset R^n open and bounded with meas{I in B : dist(I,B^c) < delta} <= C_B delta for all delta > 0; h holomorphic on B_{r_0}, real on real points, with |I-J| <= L |nabla h(I) - nabla h(J)| on closure of B; f holomorphic on D(s_0,r_0)=T_{s_0} x B_{r_0}, 1-periodic in theta, real on real points; epsilon <= epsilon_0 with |f| <= epsilon on D(s_0,r_0)
@@ -552,11 +552,11 @@ FROZEN_ABI_SHA256: 4c734e37b56b161f141cf03c217a4b47c7014dac1370c1f7863676c39c7c1
 DEPS: step:p4:head-empty, step:p4:head-constants, step:p4:head-negative, step:p4:head-positive, step:p4:head-zero, bp:p0:domains#complexStrip, bp:p0:domains#actionNbhd, bp:p0:domains#fundamentalDomain, bp:p0:cover#kamCover, bp:p0:nearlyintegrable#frequencyMap
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p4:head-empty | blueprint/parts/p4-measure.tex#bp:p0:head@L1201-L1201 | proof step of this result
-EDGE: step:p4:head-constants | blueprint/parts/p4-measure.tex#bp:p0:head@L1204-L1204 | proof step of this result
-EDGE: step:p4:head-negative | blueprint/parts/p4-measure.tex#bp:p0:head@L1214-L1214 | proof step of this result
-EDGE: step:p4:head-positive | blueprint/parts/p4-measure.tex#bp:p0:head@L1218-L1218 | proof step of this result
-EDGE: step:p4:head-zero | blueprint/parts/p4-measure.tex#bp:p0:head@L1226-L1226 | proof step of this result
+EDGE: step:p4:head-empty | blueprint/parts/p4-measure.tex#bp:p0:head@L1203-L1203 | proof step of this result
+EDGE: step:p4:head-constants | blueprint/parts/p4-measure.tex#bp:p0:head@L1206-L1206 | proof step of this result
+EDGE: step:p4:head-negative | blueprint/parts/p4-measure.tex#bp:p0:head@L1216-L1216 | proof step of this result
+EDGE: step:p4:head-positive | blueprint/parts/p4-measure.tex#bp:p0:head@L1220-L1220 | proof step of this result
+EDGE: step:p4:head-zero | blueprint/parts/p4-measure.tex#bp:p0:head@L1228-L1228 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p0-conventions.tex#bp:p0:head@L109-L109 | strip T_{s_0} in D(s_0,r_0)
 EDGE: bp:p0:domains#actionNbhd | blueprint/parts/p0-conventions.tex#bp:p0:head@L108-L108 | B_{r_0} in the phase domain and in h holomorphic on B_{r_0}
 EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p0-conventions.tex#bp:p0:head@L112-L112 | F_B in the conclusion
@@ -574,7 +574,7 @@ NODE: bp:p0:headq
 KIND: theorem
 TITLE: HEAD-Q: qualitative form
 STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:headq@L117-L122
-PROOF_SOURCE: blueprint/parts/p4-measure.tex#bp:p0:headq@L1268-L1303
+PROOF_SOURCE: blueprint/parts/p4-measure.tex#bp:p0:headq@L1270-L1305
 CONTRACT_ID: kam.kam_positive_measure_qualitative
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: same data as HEAD (n >= 2; tau > n-1; s_0, r_0 > 0; B open bounded; h holomorphic on B_{r_0}, real on real points, nondegeneracy |I-J| <= L|nabla h(I)-nabla h(J)| on closure of B) but without the boundary-layer condition; f, epsilon as in HEAD with epsilon <= epsilon_0
@@ -588,12 +588,12 @@ FROZEN_ABI_SHA256: 3cac1e4650a580f08a539ba876442f6608e36106126a0d57948d4e246c090
 DEPS: step:p4:hq-trivial, step:p4:hq-approx, step:p4:hq-head, step:p4:hq-transfer, step:p4:hq-cover, bp:p0:head, bp:p0:domains#complexStrip, bp:p0:domains#actionNbhd, bp:p0:domains#fundamentalDomain, bp:p0:cover#kamCover, bp:p0:nearlyintegrable#frequencyMap
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p4:hq-trivial | blueprint/parts/p4-measure.tex#bp:p0:headq@L1269-L1269 | proof step of this result
-EDGE: step:p4:hq-approx | blueprint/parts/p4-measure.tex#bp:p0:headq@L1274-L1274 | proof step of this result
-EDGE: step:p4:hq-head | blueprint/parts/p4-measure.tex#bp:p0:headq@L1277-L1277 | proof step of this result
-EDGE: step:p4:hq-transfer | blueprint/parts/p4-measure.tex#bp:p0:headq@L1287-L1287 | proof step of this result
-EDGE: step:p4:hq-cover | blueprint/parts/p4-measure.tex#bp:p0:headq@L1295-L1295 | proof step of this result
-EDGE: bp:p0:head | blueprint/parts/p4-measure.tex#step:p4:hq-head@L1278-L1284 | HEAD applied to B-prime; its premises are supplied at L1278-L1282, with perturbation restriction at L1288-L1292
+EDGE: step:p4:hq-trivial | blueprint/parts/p4-measure.tex#bp:p0:headq@L1271-L1271 | proof step of this result
+EDGE: step:p4:hq-approx | blueprint/parts/p4-measure.tex#bp:p0:headq@L1276-L1276 | proof step of this result
+EDGE: step:p4:hq-head | blueprint/parts/p4-measure.tex#bp:p0:headq@L1279-L1279 | proof step of this result
+EDGE: step:p4:hq-transfer | blueprint/parts/p4-measure.tex#bp:p0:headq@L1289-L1289 | proof step of this result
+EDGE: step:p4:hq-cover | blueprint/parts/p4-measure.tex#bp:p0:headq@L1297-L1297 | proof step of this result
+EDGE: bp:p0:head | blueprint/parts/p4-measure.tex#step:p4:hq-head@L1280-L1286 | HEAD applied to B-prime; its premises are supplied at L1278-L1282, with perturbation restriction at L1288-L1292
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p0-conventions.tex#bp:p0:headq@L119-L119 | strip T_{s_0} in D(s_0,r_0)
 EDGE: bp:p0:domains#actionNbhd | blueprint/parts/p0-conventions.tex#bp:p0:headq@L119-L119 | B_{r_0} in the phase domain and in h holomorphic on B_{r_0}
 EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p0-conventions.tex#bp:p0:headq@L120-L120 | F_B in the conclusion
@@ -611,7 +611,7 @@ NODE: bp:p0:g1
 KIND: theorem
 TITLE: G1: a-posteriori KAM at fixed frequency
 STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:g1@L124-L140
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1109-L1142
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1110-L1143
 CONTRACT_ID: kam.aposteriori_kam
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: n >= 2; tau >= n-1; 0 < rho_inf < rho; M, sigma_K, sigma_B, sigma_T, mu, gammabar > 0; mathfrak B subset C^n x C^n open and invariant under theta -> theta+k; h holomorphic on mathfrak B, 1-periodic in theta, real on real points, |Dh|,|X_h|,|DX_h|,|D^2X_h| <= M on mathfrak B; K holomorphic on T_rho, primary, real on reals, B_mu(K(theta)) subset mathfrak B and |DK| <= sigma_K - mu on T_rho; L^T L invertible with |B| <= sigma_B - mu on T_rho; avg(T) invertible with |avg(T)^{-1}| <= sigma_T - mu; 0 < gamma <= gammabar and omega in Dio_{gamma,tau}; |E| <= e on T_rho; C_1 e/(gamma^4 rho^{4 tau}) < 1
@@ -625,7 +625,7 @@ FROZEN_ABI_SHA256: 15dbaab5a036f69e52d0659874d64abe6fdd36e0f235973db368792c615ee
 DEPS: bp:p2:g1, bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#torsionAverage
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:g1 | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1131-L1141 | the explicit-constant theorem verifies all seven clauses of the frozen G1 conclusion
+EDGE: bp:p2:g1 | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1132-L1142 | the explicit-constant theorem verifies all seven clauses of the frozen G1 conclusion
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p0-conventions.tex#bp:p0:g1@L132-L132 | omega in Dio_{gamma,tau}
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p0-conventions.tex#bp:p0:g1@L130-L130 | strips T_rho
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p0-conventions.tex#bp:p0:g1@L129-L129 | X_h bounds

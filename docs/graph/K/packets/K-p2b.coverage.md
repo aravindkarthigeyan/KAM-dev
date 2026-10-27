@@ -270,7 +270,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:pt-twist
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L873-L877
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L873-L878
 DISPOSITION: NODE step:p2:pt-twist
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -279,7 +279,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p2:step
 KIND: proposition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:step@L883-L903
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:step@L884-L904
 DISPOSITION: NODE bp:p2:step
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -288,7 +288,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:st-small
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L906-L913
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L907-L914
 DISPOSITION: NODE step:p2:st-small
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -297,7 +297,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:st-error
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L915-L919
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L916-L920
 DISPOSITION: NODE step:p2:st-error
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -306,7 +306,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:st-ball
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L921-L922
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L922-L923
 DISPOSITION: NODE step:p2:st-ball
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -315,7 +315,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:st-perturb
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L924-L928
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L925-L929
 DISPOSITION: NODE step:p2:st-perturb
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -324,7 +324,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p2:schedule
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:schedule@L934-L946
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:schedule@L935-L947
 DISPOSITION: NODE bp:p2:schedule
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -333,7 +333,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p2:error-decay
 KIND: lemma
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L951-L956
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L952-L957
 DISPOSITION: NODE bp:p2:error-decay
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -342,7 +342,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:ed-errors
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L959-L963
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L960-L964
 DISPOSITION: NODE step:p2:ed-errors
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -351,7 +351,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:ed-sums
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-sums@L965-L967
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-sums@L966-L968
 DISPOSITION: NODE step:p2:ed-sums
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -360,7 +360,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p2:iteration
 KIND: proposition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L970-L990
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L971-L991
 DISPOSITION: NODE bp:p2:iteration
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -369,7 +369,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:it-sums
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L993-L1006
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L994-L1007
 DISPOSITION: NODE step:p2:it-sums
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -378,7 +378,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:it-stepsmall
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1008-L1014
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1009-L1015
 DISPOSITION: NODE step:p2:it-stepsmall
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -387,7 +387,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:it-base
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L1016-L1018
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L1017-L1019
 DISPOSITION: NODE step:p2:it-base
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -396,7 +396,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:it-step
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1020-L1028
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1021-L1029
 DISPOSITION: NODE step:p2:it-step
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -405,7 +405,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p2:limit
 KIND: proposition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1031-L1051
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1032-L1052
 DISPOSITION: NODE bp:p2:limit
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -414,7 +414,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:lim-k
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1054-L1058
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1055-L1059
 DISPOSITION: NODE step:p2:lim-k
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -423,7 +423,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:lim-dk
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1060-L1062
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1061-L1063
 DISPOSITION: NODE step:p2:lim-dk
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -432,7 +432,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:lim-holo
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1064-L1068
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1065-L1069
 DISPOSITION: NODE step:p2:lim-holo
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -441,7 +441,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:lim-primary
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1070-L1072
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1071-L1073
 DISPOSITION: NODE step:p2:lim-primary
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -450,7 +450,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:lim-close
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1074-L1077
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1078
 DISPOSITION: NODE step:p2:lim-close
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -459,7 +459,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:lim-margins
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1079-L1082
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1080-L1083
 DISPOSITION: NODE step:p2:lim-margins
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -468,7 +468,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:lim-invariance
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1084-L1088
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1089
 DISPOSITION: NODE step:p2:lim-invariance
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -477,7 +477,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p2:g1
 KIND: theorem
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1094-L1107
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1095-L1108
 DISPOSITION: NODE bp:p2:g1
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -486,7 +486,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:g1-constants
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1110-L1113
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1111-L1114
 DISPOSITION: NODE step:p2:g1-constants
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -495,7 +495,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:g1-standing
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1115-L1119
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1116-L1120
 DISPOSITION: NODE step:p2:g1-standing
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -504,7 +504,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:g1-e
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-e@L1121-L1124
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-e@L1122-L1125
 DISPOSITION: NODE step:p2:g1-e
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -513,7 +513,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:g1-apply
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1126-L1129
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1127-L1130
 DISPOSITION: NODE step:p2:g1-apply
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -522,7 +522,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p2:g1-check
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1131-L1141
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1132-L1142
 DISPOSITION: NODE step:p2:g1-check
 REASON: labelled unit carried by this node; checked against source
 COVERAGE_STATUS: REVIEWED
@@ -531,7 +531,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p2:constants-register
 KIND: claim
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:constants-register@L1144-L1171
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:constants-register@L1145-L1172
 DISPOSITION: EXCLUDED
 REASON: administrative remark (constants register / deviation list); no proof uses it, constants are defined in bp:p2:constants
 COVERAGE_STATUS: REVIEWED
@@ -540,7 +540,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p2:deviations
 KIND: claim
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:deviations@L1173-L1211
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:deviations@L1174-L1212
 DISPOSITION: EXCLUDED
 REASON: administrative remark (constants register / deviation list); no proof uses it, constants are defined in bp:p2:constants
 COVERAGE_STATUS: REVIEWED
@@ -567,7 +567,7 @@ REVIEWER: sol-review-r3
 
 ITEM: heading:bp:p2:sec-step
 KIND: heading
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:sec-step@L881-L881
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:sec-step@L882-L882
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -576,7 +576,7 @@ REVIEWER: sol-review-r3
 
 ITEM: heading:bp:p2:sec-iteration
 KIND: heading
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:sec-iteration@L932-L932
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:sec-iteration@L933-L933
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -585,7 +585,7 @@ REVIEWER: sol-review-r3
 
 ITEM: heading:bp:p2:sec-proof
 KIND: heading
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:sec-proof@L1092-L1092
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:sec-proof@L1093-L1093
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -621,7 +621,7 @@ REVIEWER: sol-review-r3
 
 ITEM: p2:sourcegap-L1048
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#sourcegap@L1048-L1048
+SOURCE: blueprint/parts/p2-aposteriori.tex#sourcegap@L1049-L1049
 DISPOSITION: EXCLUDED
 REASON: note that HL19 omits a proof and the blueprint supplies it in the node proof; no unproved input remains, so no SOURCE_GAP node
 COVERAGE_STATUS: REVIEWED
@@ -666,7 +666,7 @@ REVIEWER: sol-review-r3
 
 ITEM: p2:source-L901
 KIND: citation
-SOURCE: blueprint/parts/p2-aposteriori.tex#source@L901-L901
+SOURCE: blueprint/parts/p2-aposteriori.tex#source@L902-L902
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint; confirmed no reliance on the cited paper for an unproved fact
 COVERAGE_STATUS: REVIEWED
@@ -675,7 +675,7 @@ REVIEWER: sol-review-r3
 
 ITEM: p2:source-L944
 KIND: citation
-SOURCE: blueprint/parts/p2-aposteriori.tex#source@L944-L944
+SOURCE: blueprint/parts/p2-aposteriori.tex#source@L945-L945
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint; confirmed no reliance on the cited paper for an unproved fact
 COVERAGE_STATUS: REVIEWED
@@ -684,7 +684,7 @@ REVIEWER: sol-review-r3
 
 ITEM: p2:source-L955
 KIND: citation
-SOURCE: blueprint/parts/p2-aposteriori.tex#source@L955-L955
+SOURCE: blueprint/parts/p2-aposteriori.tex#source@L956-L956
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint; confirmed no reliance on the cited paper for an unproved fact
 COVERAGE_STATUS: REVIEWED
@@ -693,7 +693,7 @@ REVIEWER: sol-review-r3
 
 ITEM: p2:source-L989
 KIND: citation
-SOURCE: blueprint/parts/p2-aposteriori.tex#source@L989-L989
+SOURCE: blueprint/parts/p2-aposteriori.tex#source@L990-L990
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint; confirmed no reliance on the cited paper for an unproved fact
 COVERAGE_STATUS: REVIEWED
@@ -702,7 +702,7 @@ REVIEWER: sol-review-r3
 
 ITEM: p2:source-L1047
 KIND: citation
-SOURCE: blueprint/parts/p2-aposteriori.tex#source@L1047-L1047
+SOURCE: blueprint/parts/p2-aposteriori.tex#source@L1048-L1048
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint; confirmed no reliance on the cited paper for an unproved fact
 COVERAGE_STATUS: REVIEWED
@@ -711,7 +711,7 @@ REVIEWER: sol-review-r3
 
 ITEM: p2:source-L1106
 KIND: citation
-SOURCE: blueprint/parts/p2-aposteriori.tex#source@L1106-L1106
+SOURCE: blueprint/parts/p2-aposteriori.tex#source@L1107-L1107
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint; confirmed no reliance on the cited paper for an unproved fact
 COVERAGE_STATUS: REVIEWED
@@ -720,7 +720,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p2:V1
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V1@L1180-L1182
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V1@L1181-L1183
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
 COVERAGE_STATUS: REVIEWED
@@ -729,7 +729,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V2
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V2@L1183-L1186
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V2@L1184-L1187
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
 COVERAGE_STATUS: REVIEWED
@@ -738,7 +738,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V3
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V3@L1187-L1189
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V3@L1188-L1190
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
 COVERAGE_STATUS: REVIEWED
@@ -747,7 +747,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V4
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V4@L1190-L1194
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V4@L1191-L1195
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
 COVERAGE_STATUS: REVIEWED
@@ -756,7 +756,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V5
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V5@L1195-L1197
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V5@L1196-L1198
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
 COVERAGE_STATUS: REVIEWED
@@ -765,7 +765,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V6
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V6@L1198-L1200
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V6@L1199-L1201
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
 COVERAGE_STATUS: REVIEWED
@@ -774,7 +774,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V7
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V7@L1201-L1203
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V7@L1202-L1204
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
 COVERAGE_STATUS: REVIEWED
@@ -783,7 +783,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V8
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V8@L1204-L1204
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V8@L1205-L1205
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
 COVERAGE_STATUS: REVIEWED
@@ -792,7 +792,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V9
 KIND: definition
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V9@L1205-L1207
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V9@L1206-L1208
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
 COVERAGE_STATUS: REVIEWED
@@ -801,8 +801,8 @@ REVIEWER: sol-review-r1
 
 ITEM: p2:perturbation-average-applicability
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876
-DISPOSITION: NODE bp:p2:perturbation#average-applicability
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L877
+DISPOSITION: EXCLUDED
 REASON: unsupported use of the periodic-input averages corollary under the nonperiodic perturbation hypotheses
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b

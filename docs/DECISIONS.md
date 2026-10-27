@@ -150,3 +150,19 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   - The seven idle Astra sessions of Phase 0 and the research thread were restarted on GPT-6.1-Sol at medium
     effort, resuming their conversations.
   - Auditors launched later use medium effort. This refines D21.
+- **D25 (2026-10-27) D22 additions approved: track P (all three milestones) and N-PARTIAL-CONVEX.** *(Scott: "approve P
+  additions and N-PARTIAL-CONVEX")*
+  - **Track P:** the exact v0.4 text of P-AMD-CONFINEMENT (`amdConfinement`), P-EXP-SAFE
+    (`planetaryExponentialSafety`) and P-SECULAR-BOX (`secularBoxSafety`, `secularBoxAtCitedMasses`), with 34
+    definitions. Source: `.drafts/P/Additions.lean`, sha256 `bf4b9d474e4c3fa32844af887f90851cb5bd026c101f2b5fc882b9169d5e72f0`.
+    The recommendations on Q-P-A1–A5 are adopted (all yes).
+  - **Track N:** the exact v0.4 text of N-PARTIAL-CONVEX (`partialConvex_nekhoroshev`), with 7 definitions, as in
+    `docs/tracks/N/REVIEW-additions.md`. That is the draft sha256
+    `ebef5cbca47162d83c5481726408bd4c2977375526c3579d0c791dbd1b80af4d` minus the four deferred averaging declarations.
+    The recommendations on questions 1–4 are adopted:
+    - the convex proof specialization on the enlarged domain G′;
+    - fixed-h complex-bound inputs;
+    - N-AVERAGING deferred until its primary source is pinned;
+    - E-N-ADD-1 recorded as a candidate erratum, and the specialization as a deviation.
+  - Review pages: claude.ai/artifact/7ENmWAuf34EGcwtLyBryPH (P), claude.ai/artifact/4RfC5jjTbqfgGksuQZvk1i (N).
+  - The sub-orchestrator freezes them as for D20.
