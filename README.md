@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 19:12 UTC from `main` at `e356ab5` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 19:12 UTC from `main` at `d195dc4` by `scripts/hq-status.py`.*
 
 **Current phase:** First seal: G3 (KAM.volume_not_diophantine_le) proved, audited, kernel-replayed (D26). Track K proof campaign: I-MAT landed; I-LIP in audit; I-STRIP-5 (several-variable analyticity) running. Tracks I, N, P: Opus sub-orchestrator; blueprints nearly complete (track I done), N-AVERAGING re-transcription from the pinned source.
 
