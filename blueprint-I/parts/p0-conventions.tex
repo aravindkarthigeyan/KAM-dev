@@ -1,0 +1,326 @@
+\section{Conventions, definitions and the frozen statements}\label{bpI:p0}
+
+This part fixes notation and restates, in mathematical form, the four frozen theorems of track~I and the
+frozen definitions they use: the fifteen definitions of \texttt{KAM/Frozen/Iso/Defs/} (owner approval D20,
+27 October 2026) and the definitions of \texttt{KAM/Frozen/Defs/} of track~K. The Lean declarations are
+authoritative; the statements below are faithful transcriptions, with the quantifier order and the order in
+which constants are chosen exactly as in Lean. Results of track~K's blueprint are cited as
+\Kref{bp:p1:\dots} and \Kref{bp:p2:\dots}; they are not re-proved here.
+
+\subsection{Conventions}\label{bpI:p0:conventions}
+
+\begin{itemize}
+\item Ambient spaces are $\R^m=(\mathtt{Fin}\ m\to\R)$ and $\C^m=(\mathtt{Fin}\ m\to\C)$. Angles are
+  $\theta\in\C^n$, actions $I\in\C^n$, phase points $z=(\theta,I)\in\C^n\times\C^n$. Functions of $\theta$ are
+  $1$-periodic, as in Part~0 of track~K (\Kref{bp:p0:conventions}).
+\item \emph{Norms.} $\abs{v}=\norm v=\max_i\abs{v_i}$ on $\R^m$ and $\C^m$; on a product the maximum of the two
+  component norms. This is the norm of $\Lean{Metric.ball}$, of $\Lean{dist}$ in \Lean{actionNbhd}, of $\norm{DH}$
+  (operator norm of a $\C$-linear map, \Lean{fderiv}), and of $\norm{D^2H}$ (norm of the bilinear map
+  \Lean{iteratedFDeriv}). A row-sum bound $\sum_j\abs{M_{ij}}\le c$ for every $i$ is written $\abs M\le c$.
+  The norm of a complex number is its modulus.
+\item The strip $T_\rho=\{\theta\in\C^n:\abs{\operatorname{Im}\theta_i}<\rho\ \forall i\}$ is open; it contains
+  $\R^n$ and is invariant under $\Z^n$ and $\R^n$ translations. The set $\Lean{Set.pi}\ \mathrm{univ}\
+  (\Lean{Icc}\ 0\ 1)=[0,1]^n$ carries Lebesgue measure, of total mass one; $\avg u=\int_{[0,1]^n}u(\theta)\,d\theta$
+  for a function evaluated at real angles. Averages of vectors or matrices are entrywise.
+\item A map is \emph{holomorphic on an open set $U$} if it is \Lean{DifferentiableOn}~$\C$ there. On an open
+  set all derivatives $\Lean{fderiv}$, $\Lean{iteratedFDeriv}$ used below are genuine (Lean totality,
+  Remark~\ref{bpI:p0:totality}).
+\item Real and complex points. A real vector $x\in\R^m$ is identified with $(x_i)\in\C^m$; ``$(I:\C)\in S$'' for
+  $S\subset\C^n$ means this identification lies in $S$. The real phase points of $D\subset\C^n\times\C^n$ are
+  the $(\theta,I)\in\R^n\times\R^n$ whose image lies in $D$.
+\item \emph{Two phase-space conventions.} In I-G1 and I-HEAD, a phase point is $(\theta,I)$ (angles first) and
+  $X_H=(\partial_IH,-\partial_\theta H)$. In the restricted three-body problem a phase point is $z=(q,p)$ with
+  position $q\in\R^2$ and canonical momentum $p\in\R^2$ (position first, as in the Lean carrier
+  $(\mathtt{Fin}\ 2\to\R)\times(\mathtt{Fin}\ 2\to\R)$); there $\Lean{radius}$ is the Euclidean length, not the
+  max norm. The norm $\norm{\cdot}$ of I-HEAD is the max norm; the bounds in the conclusion of I-R3BP use
+  $\operatorname{rad}$.
+\end{itemize}
+
+\subsection{Frozen definitions of track K used by track I}\label{bpI:p0:kdefs}
+
+\begin{definition}[Strip, action neighbourhood]\label{bpI:p0:domains}
+$T_\rho=\{\theta\in\C^n:\forall i,\ \abs{\operatorname{Im}\theta_i}<\rho\}$ (\Lean{complexStrip}\ $n$\ $\rho$).
+For $B\subset\R^n$ and $r\in\R$, $B_r=\{I\in\C^n:\exists J\in B,\ \norm{I-J}<r\}$ (\Lean{actionNbhd}); it is open.
+Thus for real $I$: $I\in B_r$ iff $\exists J\in B$ with $\norm{I-J}<r$.
+\frozen{KAM.complexStrip, KAM.actionNbhd}
+\source{HL19 \S2.1; see \Kref{bp:p0:domains}.}
+\end{definition}
+
+\begin{definition}[Diophantine vectors]\label{bpI:p0:diophantine}
+$\omega\in\R^n$ is $(\gamma,\tau)$-Diophantine if for every $k\in\Z^n\setminus\{0\}$
+$\gamma/\bigl(\sum_i\abs{k_i}\bigr)^{\tau}\le\abs{k\cdot\omega}$ (real power).
+\frozen{KAM.IsDiophantine}
+\source{HL19 (3.1), p.~14; see \Kref{bp:p0:diophantine}.}
+\end{definition}
+
+\begin{definition}[Hamiltonian vector fields]\label{bpI:p0:hamiltonian}
+For $H:\R^n\times\R^n\to\R$ and a real phase point $z$:
+$X_H(z)=\bigl(\,i\mapsto D H(z)(0,e_i),\ i\mapsto -DH(z)(e_i,0)\bigr)$, with $D$ the real Fr\'echet derivative.
+For $H:\C^n\times\C^n\to\C$ the same formula with the complex derivative gives $X_H:\C^n\times\C^n\to
+\C^n\times\C^n$. Thus $X_H=(\partial_IH,-\partial_\theta H)$.
+\frozen{KAM.hamiltonianVectorField, KAM.hamiltonianVectorFieldℂ}
+\source{HL19 Rem.~2.1, p.~6.}
+\end{definition}
+
+\begin{definition}[Real Hamiltonian, frequency map]\label{bpI:p0:realham}
+For $h:\C^n\to\C$ and $f:\C^n\times\C^n\to\C$ and a real phase point $(\theta,I)$,
+$\Ham_{h,f}(\theta,I)=\operatorname{Re}\bigl(h(I)+f(\theta,I)\bigr)$ (\Lean{realHamiltonian}). The frequency map is
+$\nabla h(I)_i=D\bigl(J\mapsto\operatorname{Re}h(J)\bigr)(I)\,e_i$ for real $I$ (\Lean{frequencyMap}), a real function
+$\R^n\to\R^n$.
+\frozen{KAM.realHamiltonian, KAM.frequencyMap}
+\source{see \Kref{bp:p0:nearlyintegrable}.}
+\end{definition}
+
+\begin{definition}[Torus data on strips]\label{bpI:p0:stripdata}
+Let $K:\C^n\to\C^n\times\C^n$, $H:\C^n\times\C^n\to\C$, $\omega\in\R^n$, $\theta\in\C^n$.
+\begin{itemize}
+\item $K$ is \emph{primary on $T_\rho$} if $K(\theta+k)=K(\theta)+(k,0)$ for $\theta\in T_\rho$, $k\in\Z^n$
+  (\Lean{IsPrimaryOnStrip}); \emph{real on reals} if every $K(\theta)$, $\theta\in\R^n$, is a real phase point
+  (\Lean{IsRealOnReals}).
+\item Bilinear dot product $u\cdot v=\sum_i(u_{1,i}v_{1,i}+u_{2,i}v_{2,i})$ on $\C^n\times\C^n$ (\Lean{dotℂ}),
+  $\Omega_0(a,b)=(-b,a)$ (\Lean{omegaZero}).
+\item Invariance error $E_{H,K,\omega}(\theta)=X_H(K(\theta))-DK(\theta)\omega$ (\Lean{invarianceError}).
+\item Gram matrix $G_K(\theta)_{ij}=DK(\theta)e_i\cdot DK(\theta)e_j$ (\Lean{gramMatrix}), a complex $n\times n$ matrix.
+\item Normal frame $N_K(\theta)_{\cdot j}=\sum_k(G_K^{-1})_{kj}\,\Omega_0\bigl(DK(\theta)e_k\bigr)\in\C^n\times\C^n$ (\Lean{normalFrame}),
+  with the matrix inverse of Lean.
+\item Torsion $T_{H,K,\omega}(\theta)_{ij}=N_{\cdot i}(\theta)\cdot\Omega_0\bigl(DX_H(K(\theta))N_{\cdot j}(\theta)-
+  D_\theta(N_{\cdot j})(\theta)\,\omega\bigr)$ (\Lean{torsion}); $N_{\cdot j}$ is regarded as a function of $\theta$.
+\end{itemize}
+\frozen{KAM.IsPrimaryOnStrip, KAM.IsRealOnReals, KAM.dotℂ, KAM.omegaZero, KAM.invarianceError, KAM.gramMatrix,
+KAM.normalFrame, KAM.torsion}
+\source{HL19 (2.2), (3.2)--(3.9), pp.~7, 16--17; see \Kref{bp:p0:stripdata}.}
+\end{definition}
+
+\subsection{Frozen definitions of track I}\label{bpI:p0:idefs}
+
+\begin{definition}[Energy average and extended torsion]\label{bpI:p0:extended}
+For $H:\C^n\times\C^n\to\C$, $K$ as above, $\omega\in\R^n$, $\theta\in\C^n$, with index set $\{1,\dots,n\}\sqcup\{*\}$:
+\[
+\bar E_H(K)=\int_{[0,1]^n}H\bigl(K(\theta)\bigr)\,d\theta\in\C,\qquad
+\mathsf T_H(\theta)=\begin{pmatrix}T_{H,K,\omega}(\theta)&\omega\\ \bigl(DH(K(\theta))N_{\cdot b}(\theta)\bigr)_b&0\end{pmatrix},
+\]
+the $(n+1)\times(n+1)$ complex matrix whose upper-left block is the torsion, last column $(\omega,0)$ (real entries,
+viewed in $\C$), and last row $b\mapsto DH(K(\theta))\bigl(N_{\cdot b}(\theta)\bigr)$ (complex derivative
+of $H$ applied to the normal frame), last entry $0$. The averaged extended torsion is
+$\avg{\mathsf T_H}=\bigl(\int_{[0,1]^n}\mathsf T_H(\theta)_{ij}\,d\theta\bigr)_{ij}$, the integral taken over real angles.
+\frozen{KAM.Iso.energyAverage, KAM.Iso.extendedTorsion, KAM.Iso.extendedTorsionAverage}
+\source{HL19 (3.13)--(3.14), p.~19, with $c=H$, $d=n$ (Case~III), $\hat\omega=\omega$; the last row is $DH(K)N$
+even off invariance, not $\omega^\top$ (HL19 (3.17) is the invariant case, Rem.~3.7, p.~19).}
+\end{definition}
+
+\begin{definition}[Bordered Hessian]\label{bpI:p0:bordered}
+For $h:\C^n\to\C$ and real $I$, the real $(n+1)\times(n+1)$ matrix
+\[
+\mathsf B_h(I)=\begin{pmatrix}\bigl(\partial_b(\nabla h)_a(I)\bigr)_{a,b}&\nabla h(I)\\ \nabla h(I)^\top&0\end{pmatrix},
+\]
+where $\partial_b(\nabla h)_a(I)=D(\nabla h)(I)e_b$ read at $a$, the real derivative of the frequency map
+(\Lean{borderedHessian}). No symmetry is assumed in the definition.
+\frozen{KAM.Iso.borderedHessian}
+\source{Chi05 p.~17 (display after (3.43)); HL19 Rem.~3.7, p.~19.}
+\end{definition}
+
+\begin{definition}[Hamiltonian solutions with action in $B$]\label{bpI:p0:hamsol}
+For $H:\R^n\times\R^n\to\R$, $B\subset\R^n$, $J\subset\R$ and $z:\R\to\R^n\times\R^n$, write
+$\mathrm{Sol}(H,B,J,z)$ if for all $t\in J$: $z(t)_2\in B$, $H$ is real differentiable at $z(t)$, and $z$ is
+differentiable at $t$ with $z'(t)=X_H(z(t))$ (\Lean{HasDerivAt}).
+\frozen{KAM.Iso.IsHamiltonianSolutionOn}
+\source{ours (D20); the domain $B$ and the differentiability of $H$ are part of the solution concept.}
+\end{definition}
+
+\begin{definition}[Planar Euclidean length, the primaries, collisions]\label{bpI:p0:primaries}
+For $q\in\R^2$: $\rho_2(q)^2=q_0^2+q_1^2$ (\Lean{radiusSq}) and $\operatorname{rad}(q)=\sqrt{q_0^2+q_1^2}$
+(\Lean{radius}; the radicand is nonnegative). For $\mu\in\R$: $a_1(\mu)=(-\mu,0)$, $a_2(\mu)=(1-\mu,0)$
+(\Lean{primary$_1$}, \Lean{primary$_2$}). A phase point $z=(q,p)\in\R^2\times\R^2$ is \emph{collision free}
+(\Lean{CollisionFree}\ $\mu$) if $\operatorname{rad}(q-a_1(\mu))>0$ and $\operatorname{rad}(q-a_2(\mu))>0$.
+\frozen{KAM.Iso.radiusSq, KAM.Iso.radius, KAM.Iso.primary$_1$, KAM.Iso.primary$_2$, KAM.Iso.CollisionFree}
+\source{Chi05 (3.34), (3.37), p.~12--13 (barycentric rotating frame, unit separation, total mass one); ours.}
+\end{definition}
+
+\begin{definition}[Restricted Hamiltonian and field]\label{bpI:p0:restricted}
+On collision-free points $z=(q,p)$, with $r_j=\operatorname{rad}(q-a_j(\mu))$:
+\begin{align*}
+\Ham^{\mathrm{R3}}_\mu(q,p)&=\tfrac12\abs p_2^2+q_1p_0-q_0p_1-\frac{1-\mu}{r_1}-\frac\mu{r_2},\qquad
+\abs p_2^2:=p_0^2+p_1^2,\\
+V_\mu(q,p)&=\Bigl((p_0+q_1,\ p_1-q_0),\ (p_1,-p_0)-\frac{1-\mu}{r_1^3}(q-a_1)-\frac{\mu}{r_2^3}(q-a_2)\Bigr).
+\end{align*}
+Thus $V_\mu=(\partial_p\Ham^{\mathrm{R3}}_\mu,-\partial_q\Ham^{\mathrm{R3}}_\mu)$ on the open collision-free set. A function
+$z:\R\to\R^2\times\R^2$ is a \emph{restricted solution on $J$}, $\mathrm{RSol}_\mu(J,z)$, if for every $t\in J$ the
+point $z(t)$ is collision free and $z$ is differentiable at $t$ with $z'(t)=V_\mu(z(t))$.
+\frozen{KAM.Iso.restrictedHamiltonian, KAM.Iso.restrictedVectorField, KAM.Iso.IsRestrictedSolutionOn}
+\source{Chi05 (1.2), p.~2 and (3.34)--(3.39), pp.~12--14, in barycentric rotating coordinates with canonical
+momentum (not rotating velocity); the equations $V_\mu$ are the Hamilton equations of $\Ham^{\mathrm{R3}}_\mu$ (the
+check is part of the proofs, see PLAN.md).}
+\end{definition}
+
+\begin{definition}[Near-circular region]\label{bpI:p0:nearcircular}
+For $a_-,a_+,e_-,e_+\in\R$, $\mathcal N(a_-,a_+,e_-,e_+)\subset\R^2\times\R^2$ is the set of $(q,p)$ for which
+there exist $r,a,e\in\R$ with
+\[
+r>0,\ r^2=q_0^2+q_1^2,\quad a>0,\quad 0<e<1,\quad a_-<a<a_+,\quad e_-<e<e_+,
+\]
+\[
+\tfrac12\abs p_2^2-\frac1r=-\frac1{2a},\qquad q_0p_1-q_1p_0>0,\qquad (q_0p_1-q_1p_0)^2=a(1-e^2).
+\]
+(\Lean{NearCircular}.) The three numbers $r,a,e$ are determined by $(q,p)$, so no choice is involved.
+\frozen{KAM.Iso.NearCircular}
+\source{Chi05 (2.24)--(2.26), p.~9: $E=-1/(2a)$, $\Gamma^2=a(1-e^2)$ in the units $\mu=M=1$; referred to
+$\mu=0$ (primary at the origin).}
+\end{definition}
+
+\begin{definition}[The Kepler bordered matrix]\label{bpI:p0:keplerborder}
+For $\kappa,\Omega\in\R$ and $L>0$,
+\[
+\mathsf K_{\kappa,\Omega}(L)=\begin{pmatrix}-3\kappa/L^4&0&\kappa/L^3\\0&0&-\Omega\\ \kappa/L^3&-\Omega&0\end{pmatrix}
+\in\R^{3\times3},
+\]
+the bordered Hessian $\bigl(\begin{smallmatrix}D^2h&\nabla h\\ \nabla h^\top&0\end{smallmatrix}\bigr)$ of
+$h(L,G)=-\kappa/(2L^2)-\Omega G$ (\Lean{keplerBorder}, $L$ in the subtype $\{L:\R\mid L>0\}$).
+\frozen{KAM.Iso.keplerBorder}
+\source{Chi05 p.~17 ($\kappa=\Omega=1$).}
+\end{definition}
+
+\subsection{Lean totality}
+
+\begin{remark}[Lean totality]\label{bpI:p0:totality}
+The frozen definitions use \Lean{fderiv} (zero where a function is not differentiable), the matrix inverse
+(zero for a singular matrix), the Bochner integral (zero for a nonintegrable function), division, \Lean{Real.sqrt}
+(zero for a negative argument) and real powers. The statements guard them as follows; each proof must establish the
+guarded facts before using the defining formulas.
+\begin{enumerate}[label=(T\arabic*)]
+\item \emph{Derivatives of $H$ in I-G1.} $D$ is open, $H$ is holomorphic on $D$, so $DH$, $X_H$, $DX_H$ and
+  $D^2H$ are genuine derivatives at every point of $D$; $K$ is holomorphic on the open strip $T_\rho$ and
+  $B_\mu(K(\theta))\subset D$, so $H\circ K$, $X_H\circ K$ and $DK$ are genuine on $T_\rho$.
+\item \emph{Inverses in I-G1.} The Gram matrix inverse is used only under the hypothesis $\det G_K(\theta)\in\C^\times$
+  on $T_\rho$, and the inverse of the averaged extended torsion only under $\det\avg{\mathsf T_H}\in\C^\times$. Then
+  $N_K$ is genuine and holomorphic on $T_\rho$ (by the holomorphic inverse, \Kref{bp:p1:holomorphic-inverse}),
+  so $DN_{\cdot j}$ and $T$ are genuine. For the conclusion, invertibility of the Gram determinant for $K_\infty$ must
+  be proved (it is not a hypothesis on $K_\infty$) before $E_{H,K_\infty,s_\infty\omega^*}$ is used; but note that
+  $E=0$ and $H\circ K_\infty=E_0$ use only $DK_\infty$ and $X_H$, not the frame.
+\item \emph{Integrals in I-G1.} The cube $[0,1]^n\subset\R^n\subset T_\rho$ is compact, $\rho>0$, and the integrands
+  $H\circ K$ and the entries of $\mathsf T_H$ are continuous on it by (T1)--(T2), hence integrable
+  (\Kref{bp:p1:ext-integral}). Integrability is not a hypothesis; it must be proved.
+\item \emph{Powers and division in I-G1.} $\gamma>0$ and $\rho>0$, so $\gamma^4$, $\gamma^2$, $\rho^{4\tau}$, $\rho^{2\tau}$
+  are positive and the quotients are genuine; $\gamma/(\sum\abs{k_i})^\tau$ has a positive base since $k\ne0$.
+\item \emph{I-HEAD.} $h$ is holomorphic on the open set $B_{r_0}$, so $\nabla h$ and $D(\nabla h)$ are genuine
+  at real points of $B_{r_0}$ (an open subset of $\R^2$) and $\mathsf B_h$ is genuine. The solution predicate
+  $\mathrm{Sol}$ includes differentiability of $\Ham_{h,f}$ at each visited point, which also guards $X_{\Ham}$; it holds
+  for $z(t)_2\in B\subset B_{r_0}$ and real $\theta$ because $f$ is holomorphic on $T_{s_0}\times B_{r_0}$.
+\item \emph{I-KEPLER, I-R3BP.} $L>0$ guards every denominator of $\mathsf K_{\kappa,\Omega}(L)$. Every inverse distance in
+  $\Ham^{\mathrm{R3}}_\mu$, $V_\mu$ is guarded by collision freedom, and the radicand of \Lean{radius} is a sum of squares.
+  In $\mathcal N$, $r>0$ and $a>0$ precede the energy equation.
+\end{enumerate}
+\end{remark}
+
+\subsection{The frozen theorems}\label{bpI:p0:theorems}
+
+\begin{theorem}[I-G1: isoenergetic a-posteriori KAM]\label{bpI:p0:g1}
+Let $n\ge2$ and $\tau\in\R$ with $\tau\ge n-1$; let $\rho,\rho_\infty\in\R$ with $0<\rho_\infty<\rho$; let
+$M,\sigma_K,\sigma_B,\sigma_T,\mu,\bar\gamma,\sigma_\omega,\nu\in\R$ with $M,\sigma_K,\sigma_B,\sigma_T,\mu,\bar\gamma>0$,
+$\sigma_\omega>1$, $\nu>0$; let $\omega^*\in\R^n$, $\omega^*\ne0$. Then there exist $C_1,C_2,C_3>0$ such that
+for all $D\subset\C^n\times\C^n$, $H:\C^n\times\C^n\to\C$, $K:\C^n\to\C^n\times\C^n$, and $s,\gamma,e,E_0\in\R$ satisfying
+\begin{enumerate}[label=(I\arabic*)]
+\item $D$ is open and $(\theta+k,I)\in D$ whenever $(\theta,I)\in D$, $k\in\Z^n$;
+\item $H$ is holomorphic on $D$, and $H(\theta+k,I)=H(\theta,I)$ on $D$ for $k\in\Z^n$;
+\item for every real phase point $(\theta,I)$ lying in $D$, $\operatorname{Im}H(\theta,I)=0$;
+\item for every $z\in D$: $\norm{DH(z)}\le M$, $\norm{X_H(z)}\le M$, $\norm{D(X_H)(z)}\le M$, $\norm{D^2(X_H)(z)}\le M$,
+  $\norm{D^2H(z)}\le M$;
+\item $K$ is holomorphic on $T_\rho$, primary on $T_\rho$, and real on reals;
+\item for every $\theta\in T_\rho$: $B_\mu(K(\theta))\subset D$ (open max-norm ball) and $\norm{DK(\theta)}\le\sigma_K-\mu$;
+\item for every $\theta\in T_\rho$: $\det G_K(\theta)\ne0$ and $\abs{G_K(\theta)^{-1}}\le\sigma_B-\mu$ (maximal row sum);
+\item $\det\avg{\mathsf T_H}\ne0$ with $\mathsf T_H$ built from $(H,K,\,s\omega^*)$, and $\abs{\avg{\mathsf T_H}^{-1}}\le\sigma_T-\mu$
+  (maximal row sum);
+\item $1<s<\sigma_\omega$, $\ \nu\le(s-1)\norm{\omega^*}$, $\ \nu\le(\sigma_\omega-s)\norm{\omega^*}$;
+\item $0<\gamma\le\bar\gamma$, $\ \omega^*\in\Dio_{\gamma,\tau}$, $\ 0\le e$;
+\item $\norm{E_{H,K,s\omega^*}(\theta)}\le e$ for every $\theta\in T_\rho$;
+\item $\abs{\bar E_H(K)-E_0}\le e$;
+\item $C_1e/(\gamma^4\rho^{4\tau})<1$,
+\end{enumerate}
+there are $K_\infty:\C^n\to\C^n\times\C^n$ and $s_\infty\in\R$ with $1<s_\infty<\sigma_\omega$ such that
+\begin{enumerate}[label=(O\arabic*)]
+\item $K_\infty$ is holomorphic on $T_{\rho_\infty}$, primary on $T_{\rho_\infty}$ and real on reals;
+\item $E_{H,K_\infty,s_\infty\omega^*}(\theta)=0$ for all $\theta\in T_{\rho_\infty}$;
+\item $H(K_\infty(\theta))=E_0$ for all $\theta\in T_{\rho_\infty}$ (pointwise);
+\item $B_{\mu/2}(K_\infty(\theta))\subset D$ and $\norm{DK_\infty(\theta)}\le\sigma_K-\mu/2$ for $\theta\in T_{\rho_\infty}$;
+\item $\norm{K_\infty(\theta)-K(\theta)}\le C_2e/(\gamma^2\rho^{2\tau})$ for $\theta\in T_{\rho_\infty}$;
+\item $\norm{s_\infty\omega^*-s\omega^*}\le C_3e/(\gamma^2\rho^{2\tau})$.
+\end{enumerate}
+Here $C_1,C_2,C_3$ are chosen after all of $n,\tau,\rho,\rho_\infty,M,\sigma_K,\sigma_B,\sigma_T,\mu,\bar\gamma,\sigma_\omega,\nu,\omega^*$
+and before $D,H,K,s,\gamma,e,E_0$; hence they may depend on the former, and on none of the latter.
+\frozen{KAM.Iso.isoenergetic\_kam}
+\source{HL19 Theorem 3.6 and Rem.~3.7, pp.~18--19, in the canonical case $d=n$, $c=h$; proof pp.~45--53.
+Deviations (all conservative, D-I-G1-UNIFORM, D-I-ENERGY, notes.md): ray data, $\bar\gamma$ and the margins are fixed
+first; the strict inequalities of (3.16) are replaced by $\le$ (candidate erratum: with $E_c=0$ the strict bounds
+read $0<0$); the energy conclusion is pointwise.}
+\end{theorem}
+
+\begin{remark}[Reading of I-G1]\label{bpI:p0:g1-remarks}
+(a) The frequency of the approximate torus is $\omega=s\omega^*$ on the open ray $\Theta=\{s'\omega^*:1<s'<\sigma_\omega\}$.
+The Diophantine condition is imposed on $\omega^*$, hence (by homogeneity of $k\mapsto k\cdot\omega$) $s'\omega^*$ is
+nonresonant for every $s'>0$, with constant $\gamma s'$.
+(b) $\nu$ enters only through (I9) and through the choice of $C_1,C_2,C_3$; it measures the distance of $s$ to
+$\partial\{1<s'<\sigma_\omega\}$ in the metric of $\R^n$ (HL19 H$_5'$: $\operatorname{dist}(\omega,\partial\Theta)>0$ made quantitative,
+$\operatorname{dist}(s\omega^*,\partial\Theta)\ge\nu$).
+(c) Taking $e=0$ gives the exact-torus case; then (I13) holds for every $C_1$, and (O5), (O6) force $K_\infty=K$ on $T_{\rho_\infty}$ and $s_\infty=s$.
+(d) The row-sum bound in (I7)--(I8) is the max-norm operator norm on $\C^n$, $\C^{n+1}$ respectively.
+\end{remark}
+
+\begin{theorem}[I-HEAD: all-time action confinement for two degrees of freedom]\label{bpI:p0:head}
+Let $B\subset\R^2$ be open, bounded and nonempty; $s_0,r_0>0$; $h$ holomorphic on $B_{r_0}$ with
+$\operatorname{Im}h(I)=0$ for every real $I$ with $I\in B_{r_0}$ and
+\[\det\mathsf B_h(I)\ne0\qquad\text{for every real }I\in B_{r_0}.\]
+Let $B'\subset\R^2$ be open with $\overline{B'}$ compact and $\overline{B'}\subset B$, and let $\eta>0$. Then there is
+$\varepsilon_0>0$ such that for every $f:\C^2\times\C^2\to\C$ and $\varepsilon\in\R$ with
+\begin{itemize}
+\item $f$ holomorphic on $T_{s_0}\times B_{r_0}$, $f(\theta+k,I)=f(\theta,I)$ there for $k\in\Z^2$, and $\operatorname{Im}f(\theta,I)=0$
+  for real $\theta$ and real $I\in B_{r_0}$;
+\item $0\le\varepsilon<\varepsilon_0$ and $\abs{f(z)}\le\varepsilon$ on $T_{s_0}\times B_{r_0}$,
+\end{itemize}
+and every $z_0=(\theta_0,I_0)\in\R^2\times\R^2$ with $I_0\in B'$, there is $z:\R\to\R^2\times\R^2$ with $z(0)=z_0$,
+$\mathrm{Sol}(\Ham_{h,f},B,\R,z)$, $\norm{z(t)_2-I_0}<\eta$ for all $t\in\R$, and:
+for all $a<0<b$ and all $y:\R\to\R^2\times\R^2$ with $y(0)=z_0$ and $\mathrm{Sol}(\Ham_{h,f},B,(a,b),y)$ one has
+$y(t)=z(t)$ for all $t\in(a,b)$.
+\frozen{KAM.Iso.all\_time\_confinement}
+\source{ours (D-I-CONFINEMENT): assembled from I-G1, separation in an energy cylinder (Arnold-type barriers; cf.\
+CC03 Theorem 1.1, p.~7, a numerical one-energy precedent with a truncated potential, not used) and ODE continuation.}
+\end{theorem}
+
+\begin{remark}[Reading of I-HEAD]\label{bpI:p0:head-remarks}
+(a) The constant $\varepsilon_0$ depends on $B,s_0,r_0,h,B',\eta$ only (it may not depend on $f$, $\varepsilon$, $z_0$).
+(b) $\mathsf B_h(I)$ is the matrix of Definition~\ref{bpI:p0:bordered} with $n=2$; its determinant is the
+isoenergetic nondegeneracy of HL19 H$_4'$ at the torus $\theta\mapsto(\theta,I)$: for $H=h$, $K(\theta)=(\theta,I)$,
+$\omega=\nabla h(I)$ one computes $N_{\cdot b}=(0,e_b)$, $T=D(\nabla h)(I)$, last row $\nabla h(I)^\top$, so
+$\mathsf T_h=\mathsf B_h(I)$ exactly (to be proved in part p1, see PLAN.md).
+(c) The conclusion contains global existence for all real $t$ and uniqueness among every solution on any interval
+$(a,b)\ni0$ that remains in $\{I\in B\}$; in particular it contains uniqueness of $z$ among solutions confined to $B$.
+(d) The norm $\norm{\cdot}$ is the max norm on $\R^2$.
+\end{remark}
+
+\begin{theorem}[I-KEPLER: the classical isoenergetic determinant]\label{bpI:p0:kepler}
+For all $\kappa,\Omega>0$ and $L>0$: $\det\mathsf K_{\kappa,\Omega}(L)=3\kappa\Omega^2/L^4$ and $\det\mathsf K_{\kappa,\Omega}(L)>0$.
+\frozen{KAM.Iso.kepler\_bordered\_det}
+\source{Chi05 p.~17 ($\kappa=\Omega=1$: $3/L^4$); general $\kappa,\Omega$ is the same cofactor computation (ours).}
+\end{theorem}
+
+\begin{theorem}[I-R3BP: near-circular region of the restricted three-body problem]\label{bpI:p0:r3bp}
+Let $a_-,a_+,e_-,e_+\in\R$ with $0<a_-<a_+$, $0<e_-<e_+<1/4$ and $a_+(1+e_+)<1$. Then the set
+$\mathcal N=\mathcal N(a_-,a_+,e_-,e_+)\subset\R^2\times\R^2$ is open and nonempty, and there are $\mu_0,d,R\in\R$ with
+$0<\mu_0\le1/2$, $d>0$, $R>0$ such that for every $\mu\in[0,\mu_0)$ and every $z_0\in\mathcal N$ there is
+$z:\R\to\R^2\times\R^2$ with $z(0)=z_0$, $\mathrm{RSol}_\mu(\R,z)$ and for every $t\in\R$
+\begin{gather*}
+\operatorname{rad}\bigl(q(t)-a_1(\mu)\bigr)\ge d,\quad\operatorname{rad}\bigl(q(t)-a_2(\mu)\bigr)\ge d,\\
+\operatorname{rad}(q(t))\le R,\quad\operatorname{rad}(p(t))\le R,\qquad z(t)=(q(t),p(t)),
+\end{gather*}
+and: for all $a<0<b$ and $y$ with $y(0)=z_0$ and $\mathrm{RSol}_\mu((a,b),y)$, $y(t)=z(t)$ on $(a,b)$.
+Here $\mu_0,d,R$ depend on $a_\pm,e_\pm$ only, not on $\mu$ or $z_0$.
+\frozen{KAM.Iso.restricted\_near\_circular}
+\source{ours (D-I-PHYSICAL), derived from I-HEAD, I-KEPLER and the Delaunay coordinates of Chi05 \S2--3, pp.~8--9,
+12--17; not the numerical Victoria theorem of CC03.}
+\end{theorem}
+
+\begin{remark}[Reading of I-R3BP]\label{bpI:p0:r3bp-remarks}
+(a) $\mu=0$ is included (a massless secondary at $(1,0)$). (b) The hypothesis $a_+(1+e_+)<1$ says that the
+apocentre radius $a(1+e)$ of every orbit of the region is below $1-$margin, so the orbits stay inside the orbit of the
+secondary; $e_+<1/4$ and $e_->0$ keep the orbits away from the singularities $e=0$, $e=1$ of the Delaunay chart. (c)
+The region is $\mu$-independent and referenced to $\mu=0$ (the primary at the origin); the primaries are at
+$a_1(\mu)$, $a_2(\mu)$ in the dynamics. (d) Collision exclusion for all times is part of the conclusion (distances $\ge d$).
+\end{remark}
