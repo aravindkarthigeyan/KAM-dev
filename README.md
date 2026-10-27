@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 19:57 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 34.4 %** · frozen statements proved: 1 / 20 · **14,542 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 19:58 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 34.4 %** · frozen statements proved: 1 / 20 · **14,542 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 19:57 UTC from `main` at `9cc85c1` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 19:58 UTC from `main` at `bc2331e` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.
 
@@ -300,6 +300,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 19:58 | `bc2331e` | Claim I-P1C (Taylor, increments); interface request for I-STRIP-3 from the Part 2/3 design |
 | 2026-10-27 19:57 | `9cc85c1` | Design audit brief for Parts 2/3 signatures |
 | 2026-10-27 19:56 | `ee2416e` | Land k/design into main |
 | 2026-10-27 19:51 | `38f8519` | I-STRIP-5 landed (43c6f7b): several-variable analyticity; audits PASS WITH NOTES; han-series BYPASSED (D27) |
@@ -311,7 +312,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 19:39 | `ef03b72` | Land k/p1b into main |
 | 2026-10-27 19:36 | `aec5b8b` | Blueprint Part 1 conventions: strip widths are positive (made explicit after three proof packages needed it); graph locators remapped |
 | 2026-10-27 19:35 | `5295e01` | Land inp into main |
-| 2026-10-27 19:25 | `6828730` | Land inp into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
