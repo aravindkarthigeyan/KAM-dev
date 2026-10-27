@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 20:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 34.4 %** · frozen statements proved: 1 / 20 · **15,024 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 20:01 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 35.9 %** · frozen statements proved: 1 / 20 · **15,024 lines of Lean** of an estimated ≈ 105,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,22 +53,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **34.4 %**
+### Estimated completion: **35.9 %**
 
-`█████████░░░░░░░░░░░░░░░░` 34.4 %
+`█████████░░░░░░░░░░░░░░░░` 35.9 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
 | Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
 | Statement and planning | 8 | 26 | 24.8 | `██████████` 95 % |
-| Analytic infrastructure | 8 | 24 | 4.0 | `██░░░░░░░░` 17 % |
-| A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
+| Analytic infrastructure | 8 | 24 | 6.4 | `███░░░░░░░` 27 % |
+| A-posteriori KAM at fixed frequency | 4 | 24 | 0.2 | `░░░░░░░░░░` 1 % |
 | Measure of the invariant tori | 5 | 12 | 2.0 | `██░░░░░░░░` 17 % |
 | Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 7.2 | `██████░░░░` 60 % |
 | Track N (Nekhoroshev) | 4 | 22 | 8.6 | `████░░░░░░` 39 % |
 | Track P (planetary) | 5 | 30 | 9.6 | `███░░░░░░░` 32 % |
 | Sealing of the frozen statements | 20 | 20 | 1.0 | `░░░░░░░░░░` 5 % |
-| **Total** | 60 | 175 | 60.2 | **34.4 %** |
+| **Total** | 60 | 175 | 62.8 | **35.9 %** |
 
 **How this is estimated.** The project is divided into 40 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -92,11 +92,11 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | F.FT | Fourier–Taylor algebra in (angles, actions); Cauchy estimates in the actions | H | ⬜ 0 % |  |
 | F.COMP | Composition f∘(id+u) and Taylor remainders in the weighted norms | H | ⬜ 0 % |  |
 | F.MAT | Matrix-valued functions: products, Neumann-series inverses, averages | M | 🟨 80 % | Neumann (Zohar) + operator norms, matrix norms, real/holomorphic inverses (I-MAT, audited) |
-| F.BRIDGE | Bridge between real-analytic functions on complex strips and coefficient spaces | H | ⬜ 0 % |  |
+| F.BRIDGE | Bridge between real-analytic functions on complex strips and coefficient spaces | H | 🟨 60 % | strip<->coefficient bridges: decay (W-valued), summation (Zohar), analyticity, Cauchy; cohomological on strips pending (I-STRIP-3) |
 | F.DIOPH | Diophantine vectors; cohomological equation with Rüssmann's exponent | M | 🟨 60 % | Zohar: zero-average cohomological solver, uniqueness, small-divisor estimate, Lipschitz in ω (KAM/Diophantine); bridge to frozen KAM.IsDiophantine still to add |
 | F.NEWTON | Abstract Newton/KAM convergence on a scale of analytic spaces | M | ⬜ 0 % |  |
 | F.HAM | Hamiltonian vector fields in coordinates; invariant tori; quasi-periodic orbits as ODE solutions | M | ⬜ 0 % |  |
-| K.GEOM | Approximate Lagrangian property, adapted symplectic frame, torsion matrix | H | ⬜ 0 % |  |
+| K.GEOM | Approximate Lagrangian property, adapted symplectic frame, torsion matrix | H | 🟨 5 % | Lean design done and under audit (docs/campaign/design/PART23-LEAN-DESIGN.md) |
 | K.STEP | Newton step: reduction of the linearized equation, cohomological equations, estimates | VH | ⬜ 0 % |  |
 | K.ITER | Iteration and convergence: the a-posteriori existence theorem | H | ⬜ 0 % |  |
 | K.UNIQ | Local uniqueness modulo phase for flows (no published version: adapt GJLV05 Thm 2, §6, §8) | VH | ⬜ 0 % |  |
@@ -127,16 +127,16 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 |---|---|
 | On `main` now | **15,024** (9,182 excluding blank lines and comments) · **+15,024** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
-| **Estimated total at completion** | **≈ 40,000** |
-| Estimated still to write | ≈ 25,000 |
+| **Estimated total at completion** | **≈ 105,000** |
+| Estimated still to write | ≈ 90,000 |
 
-**How the size is estimated.** The estimate is a planning figure (infrastructure ≈ 12k, a-posteriori theorem ≈ 15k, measure layer ≈ 8k, interfaces ≈ 5k lines); it switches to a rate-based estimate once 8 weight units of Lean work are done. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
+**How the size is estimated.** The estimate scales the lines per completed Lean weight unit to all Lean work items. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 20:00 UTC from `main` at `af1fbf4` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 20:01 UTC from `main` at `4efc10f` by `scripts/hq-status.py`.*
 
-**Current phase:** G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.
+**Current phase:** G3 sealed (D26). Track K: waves 1-2 landed (P-G3, I-MAT, I-LIP, I-STRIP-5, I-ZMAP, I-P1B, I-P4A): 120/453 graph nodes proved and audited. Part 2/3 (G1, G2) Lean design done (21 packages, 10 waves); its signatures under independent audit; I-P1C running; Zohar: I-STRIP-2 done, I-STRIP-3 (cohomological equation) next. Tracks I, N, P: Opus sub-orchestrator; track I graph under construction.
 
 **Frozen statements proved: 1 / 20** · frozen definitions: 120
 
@@ -278,11 +278,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
-| **prover-I-STRIP-5** `worktree /root/code/KAM-w-strip5` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md) | — | — |
-| **audit-I-STRIP-5** `kam-audit-strip5` | package audit (Codex) | GPT-6.1-Sol medium | codex-4 | ⚠️ session missing | Independent audit of package I-STRIP-5 (five explicit audit questions) | — | — |
-| **prover-I-ZMAP** `worktree /root/code/KAM-w-zmap` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-ZMAP (docs/campaign/briefs/I-ZMAP.md) | — | — |
-| **prover-I-P1B** `worktree /root/code/KAM-w-p1b` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P1B (docs/campaign/briefs/I-P1B.md) | — | — |
-| **prover-I-P4A** `worktree /root/code/KAM-w-p4a` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P4A (docs/campaign/briefs/I-P4A.md) | — | — |
+| **prover-I-P1C** `worktree /root/code/KAM-w-p1c` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P1C: Taylor (factor 1/2) and increments | — | — |
+| **design-audit-P2** `kam-dsgn-p2` | design audit (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Refute-first audit of the Part 2 (G1) Lean signatures and assembly | — | — |
+| **design-audit-P3** `kam-dsgn-p3` | design audit (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Refute-first audit of the Part 3 (G2) Lean signatures, assembly and Part 1 interfaces | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 2 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | N-AVERAGING draft v0.5 from the primary AKN06 pages (sources supplied by the owner) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: v0.4 done; idle for owner-requested changes | — | — |
@@ -300,6 +298,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 20:00 | `4efc10f` | HQ: waves 1-2 landed (120/453 nodes); Part 2/3 design under audit; I-P1C running |
 | 2026-10-27 20:00 | `af1fbf4` | I-ZMAP landed (825613e): Zohar's Part 1 results mapped onto the graph; audits PASS WITH NOTES |
 | 2026-10-27 19:59 | `825613e` | Land k/zmap into main |
 | 2026-10-27 19:58 | `bc2331e` | Claim I-P1C (Taylor, increments); interface request for I-STRIP-3 from the Part 2/3 design |
@@ -311,7 +310,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 19:47 | `672efcb` | I-P4A landed (ac75cab): audit PASS WITH NOTES; graph nodes PROVED |
 | 2026-10-27 19:45 | `ac75cab` | Land k/p4a into main |
 | 2026-10-27 19:43 | `a28a623` | I-P1B landed (ef03b72): audit PASS WITH NOTES; 20 graph nodes PROVED |
-| 2026-10-27 19:39 | `ef03b72` | Land k/p1b into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
