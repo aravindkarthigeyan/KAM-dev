@@ -47,6 +47,12 @@ only constants. Decide at the start of Part 5.
 - **Ownership:** track N owns the shared ODE layer (Part 3, written), weighted norms, Lie transform and normal forms (Parts 4-6); track I owns Kepler fundamentals and Delaunay (I p6-p7) and collision exclusion (I p8); track P owns Newtonian n-body models (P6), the Poincare chart (P7), secular averaging (P8).
 - Apply `reviews/p0-review-1.md` findings N05 (Poschel's quantitative QC is the alternative "|omega.xi| <= ell |xi|_2 implies Q[xi,xi] >= mu |xi|_2^2", never full positive definiteness), N06 (lattice norms: {|k|_1 <= K} is contained in {|k|_2 <= K}; carry the sqrt(n) factor; separate geometry and analytic cutoffs), N07 (the "Conventions inside Parts 5 to 9" paragraph below is overruled: frozen conventions throughout, conversions once in Part 1), N02 (holomorphy gives differentiability on R^n x B_s(R), angles first).
 
+- **Cutoff direction CORRECTED (Part 8, 2026-10-27; supersedes the N06 wording above).** Part 6 needs
+  nonresonance on the ℓ¹ ball Z_{K_a}; the Geometric Lemma gives it on the Euclidean ball {‖k‖₂ ≤ K_g}; since
+  Z_{K_a} ⊆ {‖k‖₂ ≤ K_a}, one needs K_a ≤ K_g. The √n enters Part 7's radius condition r ≤ α/(p√n M K_a) against
+  the covering radius r_Λ = α_Λ/(pMK_g), which holds iff K_g ≥ √n K_a. Correct compatibility: **K_g ≥ √n·K_a**
+  (Part 9: K_g = √n K_a). See `bpN:p8:direction`, `bpN:p8:cutoffs`. Parts 6–7 cutoff remarks to be corrected.
+
 ## Parts
 
 Sizes are estimates of final printed pages in the Part-0 format.

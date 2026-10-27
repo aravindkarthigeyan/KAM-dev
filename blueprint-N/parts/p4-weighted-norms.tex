@@ -122,16 +122,15 @@ $\wn{uv}Is=\sum_k\abs{c_k}e^{2\pi\abs k_1s}\le\sum_k\sum_l\abs{\hat u_{k-l}}e^{2
 \begin{lemma}[B.3]\label{bpN:p4:cauchy}
 Let $u\in\Os{r_0}{s_0}$ have finite norm, $0<r<r_0$, $0<s<s_0$. Then
 \begin{enumerate}[label=(\alph*)]
-\item $\displaystyle\sum_{j=1}^n\wn{\partial_{\theta_j}u}{r_0}{s}\le\frac1{e(s_0-s)}\wn u{r_0}{s_0}$;
+\item (pointwise in $I$) for every $I\in V_{r_0}D$: $\displaystyle\sum_{j=1}^n\wn{\partial_{\theta_j}u}{I}{s}\le\frac1{e(s_0-s)}\wn u{I}{s_0}$; consequently $\displaystyle\sup_{I\in V_{r_0}D}\sum_{j}\wn{\partial_{\theta_j}u}{I}{s}\le\frac{\wn u{r_0}{s_0}}{e(s_0-s)}$ and, for each single $j$ (global norm), $\wn{\partial_{\theta_j}u}{r_0}{s}\le\frac1{e(s_0-s)}\wn u{r_0}{s_0}$. \emph{The sum over $j$ of the global norms $\sum_j\sup_I\wn{\partial_{\theta_j}u}Is$ is not bounded by this constant} (for $D$ disconnected it can be larger by a factor up to $n$; with the norm $\sharp$ of Lemma~\ref{bpN:p4:sharp} it is bounded);
 \item $\displaystyle\max_{1\le i\le m}\wn{\partial_{I_i}u}{r}{s_0}\le\frac1{r_0-r}\wn u{r_0}{s_0}$.
 \end{enumerate}
-In particular (taking $r_0=r+\rho$, $s_0=s+\sigma$): $\sum_j\wn{\partial_{\theta_j}u}{r}{s-\sigma}\le(e\sigma)^{-1}\wn urs$ and $\max_i\wn{\partial_{I_i}u}{r-\rho}{s}\le\rho^{-1}\wn urs$ for $0<\sigma<s$, $0<\rho<r$. The same holds for vector- and matrix-valued $u$,
-componentwise.
+In particular (taking $r_0=r+\rho$, $s_0=s+\sigma$): $\sup_{I\in V_rD}\sum_j\wn{\partial_{\theta_j}u}{I}{s-\sigma}\le(e\sigma)^{-1}\wn urs$, $\wn{\partial_{\theta_j}u}{r}{s-\sigma}\le(e\sigma)^{-1}\wn urs$ for each $j$, and $\max_i\wn{\partial_{I_i}u}{r-\rho}{s}\le\rho^{-1}\wn urs$ for $0<\sigma<s$, $0<\rho<r$. The same holds for vector- and matrix-valued $u$, componentwise (and with the pointwise sum over the $\theta$-index outside, never the sum of global norms).
 \source{Pos93 pp.~213--214, Lemma~B.3 (with $s$ geometric; P\"oschel's $1/(e\sigma)$ is the same number, Remark~\ref{bpN:p4:dictionary}).}
 \end{lemma}
 \begin{proof}
 \proofstep{(a): coefficients}\label{stepN:p4:b3-a} Fix $I\in V_{r_0}D$. By Lemma~\ref{bpN:p4:coefficients}(b), $\sum_j\wn{\partial_{\theta_j}u}I{s}=\sum_k\sum_j2\pi\abs{k_j}\abs{\hat u_k}e^{2\pi\abs k_1s}=\sum_k2\pi\abs k_1e^{-2\pi\abs k_1(s_0-s)}\abs{\hat u_k}e^{2\pi\abs k_1s_0}$.
-By \Kref{bp:p1:exp-sums}(a) with $\tau=1$, $a=2\pi(s_0-s)$: $2\pi\abs k_1e^{-2\pi\abs k_1(s_0-s)}\le2\pi/(e\cdot2\pi(s_0-s))$. Hence the sum is $\le(e(s_0-s))^{-1}\wn uI{s_0}$; take the supremum over $I$.
+By \Kref{bp:p1:exp-sums}(a) with $\tau=1$, $a=2\pi(s_0-s)$: $2\pi\abs k_1e^{-2\pi\abs k_1(s_0-s)}\le2\pi/(e\cdot2\pi(s_0-s))$. Hence the sum is $\le(e(s_0-s))^{-1}\wn uI{s_0}$ for this $I$. The two global consequences follow by taking the supremum over $I$ of the left side (resp.\ of a single summand, which is at most the sum) and using $\wn uI{s_0}\le\wn u{r_0}{s_0}$.
 
 \proofstep{(b): Cauchy integral}\label{stepN:p4:b3-b} Fix $I\in V_rD$, $i$, and put $\rho'=r_0-r$. For $\abs\zeta\le\rho'$ the point $I+\zeta e_i$ lies in $V_{r_0}D$: if $I_0\in D$ with $\abs{I-I_0}<r$ then $\abs{I+\zeta e_i-I_0}<r+\rho'=r_0$.
 By Lemma~\ref{bpN:p4:coefficients}(a),(b) and \Kref{bp:p1:ext-cauchy}, $\partial_{I_i}\hat u_k(I)=\frac1{2\pi i}\oint_{\abs\zeta=\rho'}\hat u_k(I+\zeta e_i)\zeta^{-2}\,d\zeta$, so
@@ -152,14 +151,16 @@ Let $m=n$, $u\in\Os{r_0}{s_0}$, $v\in\Os rs$ with finite norms, $0<\rho<r$, $0<\
 \begin{proof}
 Write $\{u,v\}=\sum_i\partial_{\theta_i}u\,\partial_{I_i}v-\sum_i\partial_{I_i}u\,\partial_{\theta_i}v$, all terms restricted to $\Dom{r-\rho}{s-\sigma}\subset\Dom{r_0}{s_0}\cap\Dom rs$ (monotonicity).
 
-\proofstep{Four derivative bounds}\label{stepN:p4:b4-four} By Lemma~\ref{bpN:p4:cauchy} and monotonicity of the norm in both widths:
-$\sum_i\wn{\partial_{\theta_i}u}{r-\rho}{s-\sigma}\le\frac{\wn u{r_0}{s_0}}{e(s_0-s+\sigma)}$ ((a) with $s\to s-\sigma$, $r_0\to r_0$);
-$\max_i\wn{\partial_{I_i}u}{r-\rho}{s-\sigma}\le\frac{\wn u{r_0}{s_0}}{r_0-r+\rho}$ ((b) with $r\to r-\rho$);
-$\sum_i\wn{\partial_{\theta_i}v}{r-\rho}{s-\sigma}\le\frac{\wn vrs}{e\sigma}$ and $\max_i\wn{\partial_{I_i}v}{r-\rho}{s-\sigma}\le\frac{\wn vrs}\rho$.
+\proofstep{Pointwise product estimate}\label{stepN:p4:b4-four} Fix $I\in V_{r-\rho}D$ and write $\wn\cdot I\cdot=\wn\cdot I{s-\sigma}$, $t=s-\sigma$. By Lemma~\ref{bpN:p4:algebra} (pointwise in $I$) and the triangle inequality for $\wn\cdot I{t}$ (coefficients of a sum are sums),
+$\wn{\{u,v\}}{I}{t}\le\sum_i\wn{\partial_{\theta_i}u}{I}{t}\wn{\partial_{I_i}v}{I}{t}+\sum_i\wn{\partial_{I_i}u}{I}{t}\wn{\partial_{\theta_i}v}{I}{t}
+\le\Bigl(\sum_i\wn{\partial_{\theta_i}u}{I}{t}\Bigr)\max_i\wn{\partial_{I_i}v}{I}{t}+\max_i\wn{\partial_{I_i}u}{I}{t}\Bigl(\sum_i\wn{\partial_{\theta_i}v}{I}{t}\Bigr)$.
+The angular sums are kept \emph{pointwise in $I$}.
 
-\proofstep{Products}\label{stepN:p4:b4-prod} By Lemma~\ref{bpN:p4:algebra} and the triangle inequality for $\wn\cdot{I}{s-\sigma}$ (coefficients of a sum are sums),
-$\wn{\{u,v\}}{r-\rho}{s-\sigma}\le\sum_i\wn{\partial_{\theta_i}u}{}{}\wn{\partial_{I_i}v}{}{}+\sum_i\wn{\partial_{I_i}u}{}{}\wn{\partial_{\theta_i}v}{}{}$
-$\le\bigl(\sum_i\wn{\partial_{\theta_i}u}{}{}\bigr)\max_i\wn{\partial_{I_i}v}{}{}+\max_i\wn{\partial_{I_i}u}{}{}\bigl(\sum_i\wn{\partial_{\theta_i}v}{}{}\bigr)$, and inserting the four bounds gives the claim.
+\proofstep{Four derivative bounds}\label{stepN:p4:b4-prod} By Lemma~\ref{bpN:p4:cauchy}, with (a) pointwise and (b) global, and monotonicity of the norm in both widths:
+$\sum_i\wn{\partial_{\theta_i}u}{I}{t}\le\frac{\wn u{I}{s_0}}{e(s_0-s+\sigma)}\le\frac{\wn u{r_0}{s_0}}{e(s_0-s+\sigma)}$ ((a) with $s\to s-\sigma$; $I\in V_{r_0}D$ since $r-\rho<r_0$);
+$\max_i\wn{\partial_{I_i}u}{I}{t}\le\frac{\wn u{r_0}{s_0}}{r_0-r+\rho}$ ((b) with $r\to r-\rho$);
+$\sum_i\wn{\partial_{\theta_i}v}{I}{t}\le\frac{\wn vI{s}}{e\sigma}\le\frac{\wn vrs}{e\sigma}$ ((a), pointwise) and $\max_i\wn{\partial_{I_i}v}{I}{t}\le\frac{\wn vrs}\rho$ ((b)).
+Inserting the four bounds in the previous display and taking the supremum over $I\in V_{r-\rho}D$ \emph{last} gives the claim; the constant is unchanged and no factor $n$ appears.
 \end{proof}
 
 \subsection{Lemma C.1: the general Cauchy inequality}\label{bpN:p4:s-c1}
@@ -188,6 +189,27 @@ If $\Lambda\subset\Z^n$ is any set (e.g.\ a lattice, Pos93 p.~192) and $u$ is sa
 \proofstep{Class and coefficients}\label{stepN:p4:pr-class} The coefficient family $a_k=\hat u_k\mathbf 1_S(k)$ consists of holomorphic functions (Lemma~\ref{bpN:p4:coefficients}(a)) with $\sup_I\sum_k\abs{a_k}e^{2\pi\abs k_1s}\le\wn urs<\infty$; Lemma~\ref{bpN:p4:coefficients}(c) gives all claims including $\wn{P_Su}rs\le\wn urs$.
 
 \proofstep{Tail}\label{stepN:p4:pr-tail} For $\abs k_1>K$: $e^{2\pi\abs k_1(s-\sigma)}=e^{-2\pi\abs k_1\sigma}e^{2\pi\abs k_1s}\le e^{-2\pi K\sigma}e^{2\pi\abs k_1s}$. Sum over $k$ with $\abs k_1>K$ and take the supremum over $I$. Also $u=\sum_k\hat u_k\chi_k$ (Lemma~\ref{bpN:p4:coefficients}(d)) gives $u-T_Ku=P_{\{\abs k_1>K\}}u$.
+\end{proof}
+
+\subsection{The stronger norm $\sharp$ (sum of coefficient suprema)}\label{bpN:p4:s-sharp}
+
+Track~P's averaging uses $\norm f_{r,\Sigma}=\sum_k\sup_I\abs{f_k(I)}e^{\Sigma\abs k_1}$. With $s=\Sigma/(2\pi)$ this is, in our notation,
+\[\wn u{r}{s}^\sharp=\sum_{k\in\Z^n}\ \sup_{I\in V_rD}\abs{\hat u_k(I)}_\infty\,e^{2\pi\abs k_1s}\ \in[0,\infty].\]
+Always $\wn urs\le\wn urs^\sharp$; the reverse fails by an unbounded factor on disconnected $D$ (on $M$ disjoint action components carry one distinct mode each: $\wn\cdot{}{}=1$, $\wn\cdot{}{}^\sharp=M$), so the two norms are \emph{not} interchangeable and a bound for one does not give a bound for the other.
+\emph{Width conversion for track P:} every width and loss of P (including a non-loss width $\bar s$) is converted by $s=\Sigma/(2\pi)$, $\sigma=\Delta\Sigma/(2\pi)$; the action losses are unchanged. Then the angular Cauchy constant $1/(e\sigma)$ reads $2\pi/(e\,\Delta\Sigma)$, the tail factor $e^{-2\pi K\sigma}$ reads $e^{-K\Delta\Sigma}$, and the composition parameter $\eta=2\abs\phi/(\rho\sigma)$ reads $4\pi\abs\phi^\sharp/(\rho\,\Delta\Sigma)$.
+
+\begin{lemma}[Variants for $\sharp$]\label{bpN:p4:sharp}
+All of Lemma~\ref{bpN:p4:sup-weighted}(a),(b), Lemma~\ref{bpN:p4:algebra}, Lemma~\ref{bpN:p4:cauchy}, Lemma~\ref{bpN:p4:bracket} and Lemma~\ref{bpN:p4:projections} hold with $\wn\cdot{}{}$ replaced by $\wn\cdot{}{}^\sharp$, with the same constants. In Lemma~\ref{bpN:p4:cauchy}(a) the stronger \emph{global} form holds:
+$\sum_j\wn{\partial_{\theta_j}u}{r_0}{s}^\sharp\le\wn u{r_0}{s_0}^\sharp/(e(s_0-s))$. For finite-norm $u$ the series $\sum_k\hat u_k\chi_k$ of Lemma~\ref{bpN:p4:coefficients}(c) may be taken with $S^\sharp:=\sum_k\sup_I\abs{a_k}e^{2\pi\abs k_1s}<\infty$ (the hypothesis is then stronger, and implies the one used there).
+\source{Ours; the blueprint's reading of Pos93 App.~B for the norm of track P's two-scale iteration.}
+\end{lemma}
+\begin{proof}
+In every proof above the supremum over $I$ is taken of a sum over $k$; for $\sharp$ it is taken inside, coefficient by coefficient, and each step survives.
+\proofstep{B.1}\label{stepN:p4:sh-b1} (a) $\abs{u(\theta,I)}\le\sum_k\abs{\hat u_k(I)}e^{2\pi\abs k_1s}\le\wn u{r}{s}^\sharp$. (b) the decay $\sup_I\abs{\hat u_k(I)}_\infty\le e^{-2\pi\abs k_1(s+\sigma)}M$ is uniform in $I$, so $\wn urs^\sharp\le\coth(\pi\sigma)^nM$.
+\proofstep{B.2}\label{stepN:p4:sh-b2} $\sup_I\abs{\sum_l\hat u_{k-l}(I)\hat v_l(I)}\le\sum_l\sup_I\abs{\hat u_{k-l}}\sup_I\abs{\hat v_l}$, and then the weights as in Step~\ref{stepN:p4:b2-norm}.
+\proofstep{B.3}\label{stepN:p4:sh-b3} (a): $\sum_j\sup_I\abs{2\pi k_j\hat u_k(I)}=2\pi\abs k_1\sup_I\abs{\hat u_k}$ (the sum over $j$ is of the coefficient factors $\abs{k_j}$ only), then Step~\ref{stepN:p4:b3-a} coefficientwise. (b): $\sup_{I\in V_rD}\abs{\partial_{I_i}\hat u_k(I)}\le(r_0-r)^{-1}\sup_{I'\in V_{r_0}D}\abs{\hat u_k(I')}$ by the Cauchy integral of Step~\ref{stepN:p4:b3-b}; then sum over $k$.
+\proofstep{B.4}\label{stepN:p4:sh-b4} The convolution bound of the previous steps gives, coefficientwise in the suprema, $\wn{\{u,v\}}{}{}^\sharp\le\sum_i\wn{\partial_{\theta_i}u}{}{}^\sharp\wn{\partial_{I_i}v}{}{}^\sharp+\dots$, and the global forms of (a),(b) bound the four factors as in Step~\ref{stepN:p4:b4-prod}.
+\proofstep{Projections}\label{stepN:p4:sh-pr} $\wn{P_Su}{}{}^\sharp=\sum_{k\in S}\sup_I\abs{\hat u_k}e^{2\pi\abs k_1s}\le\wn u{}{}^\sharp$ and the tail estimate is the same.
 \end{proof}
 
 \begin{remark}[Dictionary with P\"oschel's normalisation and with Part~1]\label{bpN:p4:dictionary}
