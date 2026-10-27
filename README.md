@@ -134,9 +134,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 17:37 UTC from `main` at `d353460` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 17:37 UTC from `main` at `82caf9e` by `scripts/hq-status.py`.*
 
-**Current phase:** Statements frozen on all four tracks (94 anchors). Track K: blueprint consolidated (59 pages); Part 1 under refute-first review; dependency graph extraction next. Tracks I, N, P: run by the Opus sub-orchestrator (D23): D22 additions in Phase 0, blueprints starting.
+**Current phase:** Statements frozen on all four tracks (94 anchors). Track K: blueprint consolidated; Part 1 under review; dependency graph extraction running (464 draft nodes, 9 slices; 6 Sonnet extractors, Part 1 slices after its review). Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints starting.
 
 **Frozen statements proved: 0 / 15** · frozen definitions: 79
 
@@ -272,9 +272,15 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ✅ handed off | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **review-p1** `kam-k-review` | blueprint review (Codex) | GPT-6.1-Sol | codex-1 | ✅ handed off | Refute-first review of blueprint Part 1 and of the consolidation pass (67b8129) | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ✅ handed off | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 0 |
+| **extract-K-p0** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p0: confirm edges, fill source fields | — | — |
+| **extract-K-p2a** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p2a: confirm edges, fill source fields | — | — |
+| **extract-K-p2b** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p2b: confirm edges, fill source fields | — | — |
+| **extract-K-p3** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p3: confirm edges, fill source fields | — | — |
+| **extract-K-p4a** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p4a: confirm edges, fill source fields | — | — |
+| **extract-K-p4b** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p4b: confirm edges, fill source fields | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 0 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N additions Phase 0 (D22): drafted (READY additions-N, d7ad21c); draft under audit | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P additions Phase 0 (D22): drafted (READY additions-P); draft under audit | — | — |
 | **audit-add-P** `inp-audit-p` | statement audit (Codex) | GPT-6.1-Sol high | codex-1 | 🔄 working | Independent statement audit of the track-P D22 additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX) | — | — |
@@ -291,6 +297,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 17:37 | `82caf9e` | HQ: track K graph extraction running |
 | 2026-10-27 17:37 | `d353460` | Track K dependency graph: extraction spec, mechanical pre-extraction, slice packets |
 | 2026-10-27 17:35 | `3f92b9b` | Land inp into main |
 | 2026-10-27 17:35 | `d7ad21c` | Track N additions (D22), draft v0.3: N-PARTIAL-CONVEX and N-AVERAGING statements, sources, notes |
@@ -302,7 +309,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 16:56 | `7a88b9f` | HQ: blueprint complete; consolidation pass running |
 | 2026-10-27 16:55 | `f095eaa` | Blueprint Part 1: complete proofs of all interface lemmas, including several-variable holomorphic implies analytic |
 | 2026-10-27 16:53 | `f32337b` | Exploration round 3 (independent refutation): P-EXP-SAFE confirmed with corrections (Nekhoroshev 1977 Thm 12.3; source exponents), secular box and averaging correction confirmed; proposed milestones recorded |
-| 2026-10-27 16:51 | `fa8f631` | Track N delta audit v0.2: N-HEAD-C approvable; review pages for tracks I, N, P await owner approval |
 <!-- /AUTO:landed -->
 
 ## Decisions
