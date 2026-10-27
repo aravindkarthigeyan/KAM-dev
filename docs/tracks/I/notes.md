@@ -2,7 +2,7 @@
 
 2026-10-27. Phase 0 delivers exact proposed statements, not proofs or frozen
 anchors. The common brief explicitly authorizes `sorry` in this untracked draft.
-Nothing was committed, staged, pushed, frozen or changed in another track.
+This task ran no state-changing git command, froze nothing and edited no other track.
 
 ## Deliverables and approach
 
@@ -258,7 +258,33 @@ Static draft checks: 257 lines, no line over 100 characters, 15 definitions,
 four theorem declarations and four theorem-body `sorry` occurrences; no provider
 or frozen-theorem imports, resource overrides, `if`/`dite`, or `Classical.choose`.
 `git check-ignore .drafts/I/Statements.lean` prints that path; `git ls-files`
-for it is empty. `git diff --check` exits 0 with no output. Since the new docs
-are untracked, they are also checked directly for whitespace/conflict markers.
+for it is empty. `git diff --check` exits 0 with no output. The docs were also checked directly for whitespace/conflict markers. During
+this task another campaign process made the three Markdown paths tracked; this
+task did not stage or commit them. The Lean draft remains ignored and untracked.
 
-The strict elaboration / axiom receipt is recorded below after its completion.
+A second elaboration fed the identical source, with only `#print axioms` commands
+inserted before the namespace closes, to:
+
+```text
+nice -n 5 lake env lean -DautoImplicit=false -DrelaxedAutoImplicit=false --stdin
+exit 0
+```
+
+It emitted the same four `sorry` warnings and no other warnings. Every one of
+the 15 definitions printed exactly `[propext, Classical.choice, Quot.sound]`.
+The main results printed:
+
+```text
+'KAM.Iso.isoenergetic_kam' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Iso.all_time_confinement' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Iso.kepler_bordered_det' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Iso.restricted_near_circular' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+```
+
+No axiom-print commands were left in the deliverable. These receipts verify
+well-typed exact statements and placeholder isolation; they do not verify the
+mathematical truth of the unproved theorems. In particular, no root is sealed.
+
+All four deliverables are complete for Phase 0 owner/orchestrator review. The
+remaining approval, independent audit, global-guard reconciliation and proof
+work are explicitly identified above.

@@ -52,8 +52,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-1",
    "session": "kam-track-i",
-   "assignment": "Track I Phase 0: isoenergetic KAM (HL19 Thm 3.6), 2-DOF confinement, restricted three-body problem",
-   "state": "running"
+   "assignment": "Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running",
+   "state": "done"
   },
   {
    "id": "track-N",
@@ -107,6 +107,15 @@
    "account": "codex-4",
    "session": "kam-audit-p",
    "assignment": "Refute-first statement audit of track P drafts",
+   "state": "running"
+  },
+  {
+   "id": "audit-I",
+   "kind": "statement audit (Codex)",
+   "model": "GPT-6-Astra xhigh",
+   "account": "codex-1",
+   "session": "kam-audit-i",
+   "assignment": "Refute-first statement audit of track I drafts",
    "state": "running"
   }
  ],
