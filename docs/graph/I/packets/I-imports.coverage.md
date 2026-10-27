@@ -358,33 +358,6 @@ COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: sol-review-I-imports
 
-ITEM: K:step:p2:fb-holo
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L401-L406
-DISPOSITION: NODE K:step:p2:fb-holo
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
-
-ITEM: K:step:p2:geo-domegak
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-domegak@L571-L574
-DISPOSITION: NODE K:step:p2:geo-domegak
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
-
-ITEM: K:step:p2:geo-ered
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-ered@L576-L580
-DISPOSITION: NODE K:step:p2:geo-ered
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
-
 ITEM: K:step:p2:ham-real
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ham-real@L243-L246

@@ -615,9 +615,9 @@ KIND: proposition
 SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L205-L217
 DISPOSITION: NODE bpI:p7:symplectic
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-review-I-p67
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p67a+sonnet-amend-I-p1
+REVIEWER: -
 
 ITEM: stepI:p7:sy-g
 KIND: proof-region
@@ -660,9 +660,9 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
 DISPOSITION: NODE stepI:p7:sy-field
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-g
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p67a+sonnet-amend-I-p1
+REVIEWER: -
 
 ITEM: bpI:p7:chart
 KIND: theorem
