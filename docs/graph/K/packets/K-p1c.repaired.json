@@ -1,0 +1,38 @@
+{
+ "replaced": [
+  "step:p1:it-super",
+  "step:p1:it-linear",
+  "step:p1:rr-consequences",
+  "bp:p1:real-restriction-consequences",
+  "bp:p1:hamiltonian-real",
+  "step:p1:hr-derivative",
+  "step:p1:hr-components",
+  "step:p1:li-cubes",
+  "step:p1:li-image",
+  "step:p1:li-sum",
+  "step:p1:li-preimage",
+  "step:p1:li-product",
+  "step:p1:mc-components",
+  "step:p1:mc-clamp",
+  "step:p1:lipeo-zero"
+ ],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
+  "bp:p1:iteration",
+  "bp:p1:real-restriction",
+  "step:p1:rr-analytic",
+  "step:p1:rr-derivative",
+  "step:p1:hr-matrix",
+  "bp:p1:lip-image-product",
+  "bp:p1:lip-image-product#product-lebesgue",
+  "bp:p1:lip-image",
+  "bp:p1:mcshane",
+  "step:p1:mc-component",
+  "bp:p1:lipeo-fixed",
+  "bp:p1:lipeo",
+  "step:p1:lipeo-bounds",
+  "step:p1:lipeo-onto"
+ ]
+}

@@ -1,0 +1,252 @@
+{
+ "r3": {
+  "K-p0": {
+   "nodes": [
+    "bp:p0:domains#complexStrip",
+    "bp:p0:stripdata#dotC",
+    "bp:p0:stripdata#normalFrame",
+    "bp:p0:headq",
+    "bp:p0:g1"
+   ],
+   "items": []
+  },
+  "K-p1a": {
+   "nodes": [
+    "step:p1:opn-blocks",
+    "step:p1:opn-omega",
+    "step:p1:mn-products",
+    "step:p1:neu-series",
+    "step:p1:neu-inverse",
+    "step:p1:neu-difference",
+    "step:p1:ri-adjugate",
+    "step:p1:hreg-line",
+    "step:p1:hreg-integral",
+    "step:p1:hreg-differentiate",
+    "step:p1:hreg-full",
+    "step:p1:hreg-orders",
+    "step:p1:hreg-symmetry",
+    "step:p1:han-cauchy",
+    "step:p1:han-series",
+    "step:p1:han-bounds",
+    "step:p1:han-real",
+    "step:p1:ul-differences",
+    "step:p1:ul-limit",
+    "step:p1:ul-derivative",
+    "step:p1:hi-holomorphic",
+    "step:p1:hi-derivative",
+    "step:p1:io-mvt",
+    "step:p1:tay-lipschitz",
+    "step:p1:tay-integrate",
+    "step:p1:co-first",
+    "step:p1:co-second",
+    "step:p1:co-third",
+    "step:p1:co-constants"
+   ],
+   "items": [
+    "bp:p1:mixed-difference",
+    "step:p1:md-inner",
+    "step:p1:md-outer"
+   ]
+  },
+  "K-p1c": {
+   "nodes": [
+    "step:p1:it-super",
+    "step:p1:it-linear",
+    "bp:p1:real-restriction-consequences",
+    "step:p1:rr-consequences",
+    "bp:p1:hamiltonian-real",
+    "step:p1:hr-derivative",
+    "step:p1:hr-components",
+    "step:p1:li-cubes",
+    "step:p1:li-image",
+    "step:p1:li-sum",
+    "step:p1:li-preimage",
+    "step:p1:li-product",
+    "step:p1:mc-components",
+    "step:p1:mc-clamp",
+    "step:p1:lipeo-zero"
+   ],
+   "items": []
+  }
+ },
+ "r4": {
+  "K-p1b": {
+   "nodes": [
+    "bp:p1:periodic-bounded",
+    "step:p1:pb-compact",
+    "step:p1:dec-bound",
+    "step:p1:sum-converse",
+    "bp:p1:cohomological",
+    "step:p1:coh-data",
+    "step:p1:coh-coefficients",
+    "bp:p1:decay#boundary-radius"
+   ],
+   "items": [
+    "bp:p1:cauchy-strip-2",
+    "step:p1:cs2-polydisc",
+    "bp:p1:decay#boundary-radius"
+   ]
+  },
+  "K-p2a": {
+   "nodes": [
+    "bp:p2:constants",
+    "bp:p2:averages",
+    "step:p2:avg-deriv",
+    "step:p2:coh-apriori",
+    "bp:p2:objects",
+    "step:p2:per-compose",
+    "step:p2:per-real",
+    "bp:p2:frame-basic",
+    "step:p2:fb-holo",
+    "bp:p2:exactness",
+    "step:p2:ex-avg-eta",
+    "step:p2:avg-deriv#real-route",
+    "step:p2:avg-deriv#bounded-route"
+   ],
+   "items": [
+    "step:p2:avg-deriv",
+    "step:p2:avg-deriv#real-route",
+    "step:p2:avg-deriv#bounded-route"
+   ]
+  }
+ },
+ "r1": {
+  "K-p2b": {
+   "nodes": [
+    "bp:p2:triangular",
+    "bp:p2:correction",
+    "bp:p2:newton-error",
+    "step:p2:ne-expand",
+    "bp:p2:perturbation",
+    "step:p2:pt-twist",
+    "bp:p2:step",
+    "step:p2:st-ball",
+    "bp:p2:iteration",
+    "step:p2:it-stepsmall",
+    "bp:p2:limit",
+    "step:p2:lim-dk",
+    "step:p2:lim-primary",
+    "step:p2:lim-close",
+    "step:p2:lim-invariance",
+    "bp:p2:perturbation#average-applicability"
+   ],
+   "items": [
+    "bp:p2:V1",
+    "bp:p2:V2",
+    "bp:p2:V3",
+    "bp:p2:V4",
+    "bp:p2:V5",
+    "bp:p2:V6",
+    "bp:p2:V7",
+    "bp:p2:V8",
+    "bp:p2:V9",
+    "p2:perturbation-average-applicability"
+   ]
+  },
+  "K-p3": {
+   "nodes": [
+    "bp:p3:standing",
+    "step:p3:torsion-holomorphy",
+    "step:p3:phase-fixed-point",
+    "step:p3:phase-contraction",
+    "bp:p3:difference-equation",
+    "step:p3:diff-regularity",
+    "step:p3:diff-triangular",
+    "step:p3:diff-bounds",
+    "bp:p3:standing#constants"
+   ],
+   "items": [
+    "p3:setting-notation",
+    "eq:p3:Cquad",
+    "eq:p3:phase-small",
+    "eq:p3:Delta",
+    "eq:p3:c"
+   ]
+  }
+ },
+ "r2": {
+  "K-p4a": {
+   "nodes": [
+    "step:p4:slab-fubini",
+    "step:p4:g3-union",
+    "bp:p4:data",
+    "step:p4:db-vectorfield",
+    "bp:p4:freq-map",
+    "step:p4:unp-torsion",
+    "bp:p4:parameters",
+    "bp:p4:smallness",
+    "step:p4:small-proof",
+    "bp:p4:apply",
+    "step:p4:apply-g1",
+    "step:p4:mn-rowsum",
+    "step:p4:tr-inverse",
+    "step:p4:tr-torsion",
+    "step:p4:tr-periodic",
+    "step:p4:stab-gram",
+    "step:p4:stab-frame",
+    "step:p4:stab-torsion",
+    "bp:p4:SA"
+   ],
+   "items": [
+    "bp:p4:data",
+    "p4:source-L48",
+    "bp:p4:SA"
+   ]
+  },
+  "K-p4b": {
+   "nodes": [
+    "step:p4:shift-phase",
+    "bp:p4:normalized-torus",
+    "bp:p4:normalize",
+    "step:p4:normalize-proof",
+    "bp:p4:mixed-difference",
+    "step:p4:mixed-proof",
+    "bp:p4:lip-error",
+    "step:p4:le-basic",
+    "step:p4:le-h",
+    "step:p4:le-f",
+    "bp:p4:lip",
+    "step:p4:lip-far",
+    "step:p4:lip-g1",
+    "step:p4:lip-g2",
+    "step:p4:lip-phase",
+    "step:p4:lip-close",
+    "step:p4:lag-regular",
+    "step:p4:lag-exact",
+    "step:p4:lag-unique",
+    "bp:p4:real-torus",
+    "step:p4:rt-analytic",
+    "step:p4:rt-small",
+    "step:p4:rt-immersion",
+    "step:p4:rt-embedding",
+    "step:p4:rt-lagrangian",
+    "step:p4:rt-ode",
+    "step:p4:rt-cover",
+    "step:p4:pm-proof",
+    "bp:p4:good-actions",
+    "bp:p4:map-lipschitz",
+    "step:p4:ml-size",
+    "step:p4:ml-good",
+    "step:p4:ml-mixed",
+    "bp:p4:main-measure",
+    "step:p4:mm-bad",
+    "step:p4:mm-count",
+    "step:p4:head-empty",
+    "step:p4:head-negative",
+    "step:p4:dy-exhaust",
+    "step:p4:dy-open",
+    "step:p4:hq-approx",
+    "step:p4:hq-transfer",
+    "step:p4:hq-cover"
+   ],
+   "items": [
+    "p4:sourcegap-L792",
+    "p4:sourcegap-L970",
+    "p4:source-L674",
+    "p4:source-L790",
+    "p4:source-L968",
+    "p4:source-L1083"
+   ]
+  }
+ }
+}

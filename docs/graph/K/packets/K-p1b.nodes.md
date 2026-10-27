@@ -6,7 +6,7 @@ PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:periodic-bounded@L509-L517
 CONTRACT_ID: bp:p1:periodic-bounded
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: u holomorphic and 1-periodic on T_rho, values in W
-SOURCE_QUANTIFIERS: rho>0; u; 0<... rho' < rho (every rho' < rho)
+SOURCE_QUANTIFIERS: rho>0; every holomorphic 1-periodic u:T_rho -> W; every real rho'<rho, including rho'<=0
 SOURCE_CONCLUSION: u is bounded on T_rho'
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -19,7 +19,7 @@ ROUTE_FOR: -
 EDGE: step:p1:pb-compact | blueprint/parts/p1-analysis.tex#bp:p1:periodic-bounded@L510-L510 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:periodic-bounded@L505-L505 | strip T_rho used by name
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -33,9 +33,9 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pb-compact@L510-L516
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pb-compact@L510-L516
 CONTRACT_ID: step:p1:pb-compact
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: u holomorphic 1-periodic on T_rho; 0<rho'<rho
-SOURCE_QUANTIFIERS: rho, rho', u fixed
-SOURCE_CONCLUSION: sup over T_rho' of |u| <= max over compact S of |u|
+SOURCE_HYPOTHESES: u holomorphic and 1-periodic on T_rho; rho'<rho
+SOURCE_QUANTIFIERS: rho>0, u fixed; every real rho'<rho
+SOURCE_CONCLUSION: if rho'<=0 then T_rho' is empty; if 0<rho'<rho then the compact fundamental set S at L512 is contained in T_rho and sup_{T_rho'} |u| <= max_S |u|; hence boundedness in both cases
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -45,7 +45,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -72,9 +72,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:si-induction | blueprint/parts/p1-analysis.tex#bp:p1:strip-identity@L525-L525 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:strip-identity@L520-L520 | strip T_r used by name
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -99,9 +99,9 @@ DEPS: bp:p1:ext-identity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-identity | blueprint/parts/p1-analysis.tex#step:p1:si-induction@L532-L532 | one-variable identity theorem applied to coordinates of phi
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -128,9 +128,9 @@ ROUTE_FOR: -
 EDGE: step:p1:inc-mvt | blueprint/parts/p1-analysis.tex#bp:p1:increments@L546-L546 | proof step of this result
 EDGE: step:p1:inc-cauchy | blueprint/parts/p1-analysis.tex#bp:p1:increments@L551-L551 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:increments@L540-L540 | strip T_rho used by name
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -155,9 +155,9 @@ DEPS: bp:p1:ext-mvt
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:inc-mvt@L548-L548 | mean value inequality on the segment
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -182,9 +182,9 @@ DEPS: bp:p1:cauchy-strip
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:cauchy-strip | blueprint/parts/p1-analysis.tex#step:p1:inc-cauchy@L552-L552 | Cauchy estimate on strips
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -211,9 +211,9 @@ ROUTE_FOR: -
 EDGE: step:p1:cs-coordinate | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L567-L567 | proof step of this result
 EDGE: step:p1:cs-full | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L577-L577 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L557-L557 | strip T_rho used by name
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -238,9 +238,9 @@ DEPS: bp:p1:ext-cauchy
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:cs-coordinate@L572-L572 | one-variable Cauchy estimate on the circle of radius delta
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -266,9 +266,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:cs-coordinate | blueprint/parts/p1-analysis.tex#step:p1:cs-full@L578-L578 | previous step: bound on each d_ell u
 EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:cs-full@L583-L583 | operator norm equals row-sum norm of the Jacobian
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -295,9 +295,9 @@ ROUTE_FOR: -
 EDGE: step:p1:cc-transpose | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L614-L614 | proof step of this result
 EDGE: step:p1:cc-omega | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L621-L621 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L606-L606 | strip T_rho used by name
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -322,9 +322,9 @@ DEPS: step:p1:cs-coordinate
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:cs-coordinate | blueprint/parts/p1-analysis.tex#step:p1:cc-transpose@L618-L618 | coordinate Cauchy bound for d_ell f
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -349,9 +349,9 @@ DEPS: step:p1:cs-coordinate
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:cs-coordinate | blueprint/parts/p1-analysis.tex#step:p1:cc-omega@L622-L622 | coordinate Cauchy bound for d_ell f
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -377,9 +377,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:ar-one | blueprint/parts/p1-analysis.tex#bp:p1:averages-real@L640-L640 | proof step of this result
 EDGE: step:p1:ar-fubini | blueprint/parts/p1-analysis.tex#bp:p1:averages-real@L646-L646 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -404,9 +404,9 @@ DEPS: bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:ar-one@L643-L643 | fundamental theorem of calculus on [0,1]
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -432,9 +432,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:ar-fubini@L647-L647 | Fubini
 EDGE: step:p1:ar-one | blueprint/parts/p1-analysis.tex#step:p1:ar-fubini@L648-L648 | inner integral vanishes
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -461,9 +461,9 @@ ROUTE_FOR: -
 EDGE: step:p1:av-derivatives | blueprint/parts/p1-analysis.tex#bp:p1:averages@L660-L660 | proof step of this result
 EDGE: step:p1:av-bound | blueprint/parts/p1-analysis.tex#bp:p1:averages@L667-L667 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:averages@L654-L654 | strip T_rho used by name
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -489,9 +489,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:av-derivatives@L662-L662 | d_ell v holomorphic hence continuous
 EDGE: bp:p1:averages-real | blueprint/parts/p1-analysis.tex#step:p1:av-derivatives@L664-L664 | averages of derivatives on the real torus
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -516,9 +516,9 @@ DEPS: bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:av-bound@L668-L668 | norm of an integral is at most integral of the norm
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -544,9 +544,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:am-bound | blueprint/parts/p1-analysis.tex#bp:p1:averages-matrix@L680-L680 | proof step of this result
 EDGE: step:p1:am-derivative | blueprint/parts/p1-analysis.tex#bp:p1:averages-matrix@L684-L684 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -571,9 +571,9 @@ DEPS: bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:am-bound@L681-L681 | norm of an integral is at most integral of the norm
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -598,9 +598,9 @@ DEPS: bp:p1:averages-real
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:averages-real | blueprint/parts/p1-analysis.tex#step:p1:am-derivative@L686-L686 | applied to each entry
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -626,9 +626,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:pa-one | blueprint/parts/p1-analysis.tex#bp:p1:periodic-average@L694-L694 | proof step of this result
 EDGE: step:p1:pa-induction | blueprint/parts/p1-analysis.tex#bp:p1:periodic-average@L699-L699 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -653,9 +653,9 @@ DEPS: bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:pa-one@L696-L696 | differentiation of the integral in its limits
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -681,9 +681,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:pa-induction@L701-L701 | Fubini
 EDGE: step:p1:pa-one | blueprint/parts/p1-analysis.tex#step:p1:pa-induction@L702-L702 | one-variable shift invariance
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -710,9 +710,9 @@ ROUTE_FOR: -
 EDGE: step:p1:es-power | blueprint/parts/p1-analysis.tex#bp:p1:exp-sums@L725-L725 | proof step of this result
 EDGE: step:p1:es-product | blueprint/parts/p1-analysis.tex#bp:p1:exp-sums@L730-L730 | proof step of this result
 EDGE: step:p1:es-nonzero | blueprint/parts/p1-analysis.tex#bp:p1:exp-sums@L735-L735 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -736,9 +736,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -762,9 +762,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -790,9 +790,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:es-product | blueprint/parts/p1-analysis.tex#step:p1:es-nonzero@L736-L736 | part (b) with x/2
 EDGE: step:p1:es-power | blueprint/parts/p1-analysis.tex#step:p1:es-nonzero@L741-L741 | part (a) for x^n e^{-x/2}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -820,9 +820,9 @@ EDGE: step:p1:fb-derivative | blueprint/parts/p1-analysis.tex#bp:p1:fourier-basi
 EDGE: step:p1:fb-series | blueprint/parts/p1-analysis.tex#bp:p1:fourier-basic@L766-L766 | proof step of this result
 EDGE: step:p1:fb-holomorphic | blueprint/parts/p1-analysis.tex#bp:p1:fourier-basic@L769-L769 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:fourier-basic@L753-L753 | strip T_r used by name
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -847,9 +847,9 @@ DEPS: bp:p1:averages-real
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:averages-real | blueprint/parts/p1-analysis.tex#step:p1:fb-derivative@L761-L761 | <d_ell w>=0 for w=v chi_{-k}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -874,9 +874,9 @@ DEPS: bp:p1:ext-fourier
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-fourier | blueprint/parts/p1-analysis.tex#step:p1:fb-series@L767-L767 | Fourier series of a continuous periodic function with summable coefficients
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -902,9 +902,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:fb-series | blueprint/parts/p1-analysis.tex#step:p1:fb-holomorphic@L771-L771 | part (b): v=0 on R^n
 EDGE: bp:p1:strip-identity | blueprint/parts/p1-analysis.tex#step:p1:fb-holomorphic@L771-L771 | identity theorem on strips
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -931,9 +931,9 @@ ROUTE_FOR: -
 EDGE: step:p1:dec-shift | blueprint/parts/p1-analysis.tex#bp:p1:decay@L788-L788 | proof step of this result
 EDGE: step:p1:dec-bound | blueprint/parts/p1-analysis.tex#bp:p1:decay@L801-L801 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:decay@L775-L775 | strip T_rho used by name
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -959,9 +959,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-rectangle | blueprint/parts/p1-analysis.tex#step:p1:dec-shift@L794-L794 | Cauchy theorem on the rectangle
 EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:dec-shift@L799-L799 | Fubini over the remaining coordinates
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -982,12 +982,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p1:dec-shift
+DEPS: step:p1:dec-shift, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:dec-shift | blueprint/parts/p1-analysis.tex#step:p1:dec-bound@L806-L806 | hat u_k = I_0 = ... = I_n
+EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:dec-bound@L802-L806 | norm of the integral over a box of volume one bounds I_n by the displayed uniform integrand bound
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1019,9 +1020,9 @@ EDGE: step:p1:sum-converse | blueprint/parts/p1-analysis.tex#bp:p1:summation@L84
 EDGE: step:p1:sum-representation | blueprint/parts/p1-analysis.tex#bp:p1:summation@L857-L857 | proof step of this result
 EDGE: bp:p1:decay | blueprint/parts/p1-analysis.tex#bp:p1:summation@L816-L816 | converse part is stated for u as in the decay lemma
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:summation@L813-L813 | strip T_rho used by name
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1045,9 +1046,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1074,9 +1075,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:exp-sums | blueprint/parts/p1-analysis.tex#step:p1:sum-holo@L831-L831 | part (a) with tau=1 bounds D chi_k terms
 EDGE: bp:p1:uniform-limits | blueprint/parts/p1-analysis.tex#step:p1:sum-holo@L837-L837 | uniform limit of holomorphic functions with uniformly convergent derivatives
 EDGE: step:p1:sum-bound | blueprint/parts/p1-analysis.tex#step:p1:sum-holo@L837-L837 | S_N converges to u uniformly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1102,9 +1103,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:sum-coeff@L842-L842 | term-by-term integration
 EDGE: step:p1:sum-bound | blueprint/parts/p1-analysis.tex#step:p1:sum-coeff@L842-L842 | uniform convergence of the series
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1117,7 +1118,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L849-L855
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L849-L855
 CONTRACT_ID: step:p1:sum-converse
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: u holomorphic, bounded, 1-periodic on T_rho; 0<delta<rho; limit form of decay
+SOURCE_HYPOTHESES: u holomorphic, bounded and 1-periodic on T_rho; 0<delta<rho (the boundary-radius decay is a dependency, not an extra premise)
 SOURCE_QUANTIFIERS: delta
 SOURCE_CONCLUSION: sum |hat u_k| e^{2 pi |k|_1 (rho-delta)} <= coth(pi delta)^n ||u||_rho
 CONSTANT_SCOPE: none
@@ -1125,13 +1126,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:decay, bp:p1:exp-sums
+DEPS: bp:p1:decay#boundary-radius, bp:p1:exp-sums
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:decay | blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L850-L850 | limit form hat u_k <= e^{-2 pi k_1 rho}u_rho
 EDGE: bp:p1:exp-sums | blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L851-L851 | part (b) with x=2 pi delta
+EDGE: bp:p1:decay#boundary-radius | blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L850-L851 | the boundary-radius decay statement of L809-L810
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1161,9 +1162,9 @@ EDGE: step:p1:sum-bound | blueprint/parts/p1-analysis.tex#step:p1:sum-representa
 EDGE: step:p1:sum-holo | blueprint/parts/p1-analysis.tex#step:p1:sum-representation@L859-L859 | first part of the lemma: holomorphy
 EDGE: step:p1:sum-coeff | blueprint/parts/p1-analysis.tex#step:p1:sum-representation@L860-L860 | first part of the lemma: hat v_k = hat u_k
 EDGE: bp:p1:fourier-basic | blueprint/parts/p1-analysis.tex#step:p1:sum-representation@L862-L862 | part (c): vanishing coefficients imply zero
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1177,7 +1178,7 @@ PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L887-L957
 CONTRACT_ID: bp:p1:cohomological
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: omega in Dio_{gamma,tau}, gamma>0, tau>=0; g holomorphic, bounded, 1-periodic on T_rho with avg(g)=0; 0<delta<rho; g real on real points (for realness); vector/matrix valued componentwise
-SOURCE_QUANTIFIERS: gamma, tau, rho, omega, g, delta; then u; c(n,tau)
+SOURCE_QUANTIFIERS: fixed dimension n under the corpus conventions, and tau>=0; a constant c(n,tau) depending only on these; then every gamma>0, rho>0, Diophantine omega, datum g as stated and 0<delta<rho; then the unique zero-average solution u
 SOURCE_CONCLUSION: there is a unique u holomorphic and 1-periodic on T_{rho-delta} (no boundedness assumed) with avg(u)=0 and Du(theta) omega=g(theta); u is bounded and ||u||_{rho-delta} <= c(n,tau) gamma^-1 delta^-(tau+n) ||g||_rho; u real on real points if g is
 CONSTANT_SCOPE: c(n,tau) depends only on n and tau (not on gamma, rho, delta, omega, g)
 FROZEN_FILE: -
@@ -1198,7 +1199,7 @@ EDGE: step:p1:coh-vector | blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L876-L876 | omega in Dio_{gamma,tau}
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L876-L876 | strip T_rho used by name
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1220,12 +1221,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:decay
+DEPS: bp:p1:decay#boundary-radius
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:decay | blueprint/parts/p1-analysis.tex#step:p1:coh-data@L895-L895 | limit form of coefficient decay
+EDGE: bp:p1:decay#boundary-radius | blueprint/parts/p1-analysis.tex#step:p1:coh-data@L895-L896 | the boundary-radius decay statement of L809-L810
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1239,20 +1240,21 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L898-
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L898-L903
 CONTRACT_ID: step:p1:coh-coefficients
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: omega Diophantine (gamma,tau); k!=0
-SOURCE_QUANTIFIERS: k in Z^n
+SOURCE_HYPOTHESES: gamma>0, tau>=0, omega Diophantine (gamma,tau); datum g as in the enclosing lemma with hat g_0=0 from step:p1:coh-data
+SOURCE_QUANTIFIERS: define a_0=0 and a_k=hat g_k/(2 pi i k.omega) for every k!=0; coefficient identity for every k in Z^n; inverse-divisor estimate for every k!=0
 SOURCE_CONCLUSION: a_0=0, a_k=hat g_k/(2 pi i k.omega) satisfy 2 pi i (k.omega) a_k=hat g_k and |a_k| <= (2 pi gamma)^-1 |k|_1^tau |hat g_k|
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:diophantine#IsDiophantine
+DEPS: bp:p0:diophantine#IsDiophantine, step:p1:coh-data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L899-L899 | k.omega >= gamma k_1^-tau
+EDGE: step:p1:coh-data | blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L900-L901 | the all-mode coefficient identity uses hat g_0=0 at k=0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1280,9 +1282,9 @@ ROUTE_FOR: -
 EDGE: step:p1:coh-data | blueprint/parts/p1-analysis.tex#step:p1:coh-weighted@L906-L906 | decay of hat g_k
 EDGE: step:p1:coh-coefficients | blueprint/parts/p1-analysis.tex#step:p1:coh-weighted@L915-L915 | bound on a_k
 EDGE: bp:p1:exp-sums | blueprint/parts/p1-analysis.tex#step:p1:coh-weighted@L906-L906 | parts (c) and (a)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1309,9 +1311,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:summation | blueprint/parts/p1-analysis.tex#step:p1:coh-existence@L923-L923 | summation at radius rho-delta
 EDGE: step:p1:coh-weighted | blueprint/parts/p1-analysis.tex#step:p1:coh-existence@L925-L925 | weighted sum of a_k
 EDGE: step:p1:coh-coefficients | blueprint/parts/p1-analysis.tex#step:p1:coh-existence@L924-L924 | a_0=0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1339,9 +1341,9 @@ EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:coh
 EDGE: bp:p1:fourier-basic | blueprint/parts/p1-analysis.tex#step:p1:coh-equation@L930-L930 | (a) coefficients of derivative, (c) vanishing coefficients
 EDGE: step:p1:coh-existence | blueprint/parts/p1-analysis.tex#step:p1:coh-equation@L931-L931 | hat u_k=a_k
 EDGE: step:p1:coh-coefficients | blueprint/parts/p1-analysis.tex#step:p1:coh-equation@L931-L931 | 2 pi i (k.omega) a_k=hat g_k
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1368,9 +1370,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:fourier-basic | blueprint/parts/p1-analysis.tex#step:p1:coh-unique@L937-L937 | (a) and (c)
 EDGE: step:p1:coh-coefficients | blueprint/parts/p1-analysis.tex#step:p1:coh-unique@L938-L938 | hat u~_k=a_k
 EDGE: step:p1:coh-existence | blueprint/parts/p1-analysis.tex#step:p1:coh-unique@L938-L938 | compare with the constructed u
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1396,9 +1398,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:coh-coefficients | blueprint/parts/p1-analysis.tex#step:p1:coh-real@L945-L945 | a_k formula and conjugate symmetry
 EDGE: step:p1:coh-existence | blueprint/parts/p1-analysis.tex#step:p1:coh-real@L947-L947 | series representation of u
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1426,9 +1428,9 @@ EDGE: step:p1:coh-existence | blueprint/parts/p1-analysis.tex#step:p1:coh-vector
 EDGE: step:p1:coh-equation | blueprint/parts/p1-analysis.tex#step:p1:coh-vector@L951-L951 | scalar equation per component
 EDGE: step:p1:coh-unique | blueprint/parts/p1-analysis.tex#step:p1:coh-vector@L952-L952 | scalar uniqueness per component
 EDGE: step:p1:coh-real | blueprint/parts/p1-analysis.tex#step:p1:coh-vector@L951-L951 | scalar realness per component
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1457,9 +1459,9 @@ EDGE: step:p1:coo-vectors | blueprint/parts/p1-analysis.tex#bp:p1:cohomological-
 EDGE: step:p1:coo-norm | blueprint/parts/p1-analysis.tex#bp:p1:cohomological-operator@L980-L980 | proof step of this result
 EDGE: step:p1:coo-apriori | blueprint/parts/p1-analysis.tex#bp:p1:cohomological-operator@L985-L985 | proof step of this result
 EDGE: bp:p1:cohomological | blueprint/parts/p1-analysis.tex#bp:p1:cohomological-operator@L960-L960 | the lemma extended to the operator norm
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1484,9 +1486,9 @@ DEPS: bp:p1:cohomological
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:cohomological | blueprint/parts/p1-analysis.tex#step:p1:coo-entries@L969-L969 | applied to each entry
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1513,9 +1515,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:coo-vectors@L975-L975 | g v <= g v
 EDGE: step:p1:coo-entries | blueprint/parts/p1-analysis.tex#step:p1:coo-vectors@L976-L976 | uv solves the equation with data gv; uniqueness
 EDGE: bp:p1:cohomological | blueprint/parts/p1-analysis.tex#step:p1:coo-vectors@L977-L977 | uniqueness and bound for C^p-valued data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1542,9 +1544,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:coo-norm@L981-L981 | operator norm as sup over v<=1
 EDGE: step:p1:coo-vectors | blueprint/parts/p1-analysis.tex#step:p1:coo-norm@L981-L981 | bound on u(theta)v
 EDGE: step:p1:coo-entries | blueprint/parts/p1-analysis.tex#step:p1:coo-norm@L982-L982 | every solution equals u
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
+REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1572,8 +1574,35 @@ EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:coo
 EDGE: bp:p1:averages-real | blueprint/parts/p1-analysis.tex#step:p1:coo-apriori@L989-L989 | avg(g)=0 from entries of the real restriction
 EDGE: step:p1:coo-entries | blueprint/parts/p1-analysis.tex#step:p1:coo-apriori@L990-L990 | u restricted is a solution in the class
 EDGE: step:p1:coo-norm | blueprint/parts/p1-analysis.tex#step:p1:coo-apriori@L991-L991 | bound for every zero-average periodic solution
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
+REVIEWER: sol-review-r2
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: bp:p1:decay#boundary-radius
+KIND: step
+TITLE: Coefficient decay at the boundary radius
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L809-L810
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L809-L810
+CONTRACT_ID: bp:p1:decay#boundary-radius
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: u holomorphic, bounded and 1-periodic on T_rho; rho>0
+SOURCE_QUANTIFIERS: every k in Z^n
+SOURCE_CONCLUSION: |hat u_k| <= exp(-2 pi |k|_1 rho) ||u||_rho
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bp:p1:decay
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bp:p1:decay | blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L809-L810 | let rho' increase to rho in the coefficient estimate
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

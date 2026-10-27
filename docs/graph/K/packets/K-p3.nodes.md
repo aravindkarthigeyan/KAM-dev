@@ -1,7 +1,7 @@
 NODE: bp:p3:standing
 KIND: definition
 TITLE: Two invariant tori
-STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L55-L72
+STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L55-L93
 PROOF_SOURCE: -
 CONTRACT_ID: bp:p3:standing
 CONTRACT_VERSION: 1
@@ -13,7 +13,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:diophantine#IsDiophantine, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage
+DEPS: bp:p0:diophantine#IsDiophantine, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage, bp:p2:standing, bp:p2:objects
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L63-L63 | (S2) omega in Dio_{gamma,tau}
@@ -24,8 +24,10 @@ EDGE: bp:p0:stripdata#gramMatrix | blueprint/parts/p3-uniqueness.tex#bp:p3:stand
 EDGE: bp:p0:stripdata#normalFrame | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L85-L85 | N, P of the frame, B = (L^T L)^{-1}
 EDGE: bp:p0:stripdata#torsion | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L87-L87 | torsion T = N^T Omega_0 X_N
 EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L87-L87 | avg T used in (S3)
+EDGE: bp:p2:standing | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L74-L77 | S1-S2 supply the Part 2 standing package with the same n,tau,M,sigma parameters; S3 supplies the additional torus premises when a Part 2 result is applied
+EDGE: bp:p2:objects | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L77-L88 | the frame, torsion and error notation are specialized from the objects of Part 2 at K=K_1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -53,9 +55,9 @@ ROUTE_FOR: -
 EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#bp:p3:matrix-norms@L125-L125 | assumes (S3)
 EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#bp:p3:matrix-norms@L128-L128 | bounds are stated through C_P
 EDGE: step:p3:norms-frame | blueprint/parts/p3-uniqueness.tex#bp:p3:matrix-norms@L134-L134 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -82,9 +84,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:norms-frame@L136-L136 | bounds abs LBabs , abs L^Tabs , abs BL^Tabs  and the stacked-block identity
 EDGE: bp:p1:operator-norms | blueprint/parts/p3-uniqueness.tex#step:p3:norms-frame@L139-L139 | block-row bound abs Pabs <=abs Labs +abs Nabs 
 EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#step:p3:norms-frame@L137-L137 | C_P bounds the products
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -111,9 +113,9 @@ ROUTE_FOR: -
 EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#bp:p3:lagrangian@L150-L150 | assumes (S1)-(S3)
 EDGE: step:p3:lagrangian-transport | blueprint/parts/p3-uniqueness.tex#bp:p3:lagrangian@L154-L154 | proof step
 EDGE: step:p3:lagrangian-unique | blueprint/parts/p3-uniqueness.tex#bp:p3:lagrangian@L160-L160 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -140,9 +142,9 @@ ROUTE_FOR: -
 EDGE: bp:p2:frame-identities | blueprint/parts/p3-uniqueness.tex#step:p3:lagrangian-transport@L156-L156 | (d) gives d_omega Omega_{K_1}=0 for DE_1=0
 EDGE: bp:p2:periodicity | blueprint/parts/p3-uniqueness.tex#step:p3:lagrangian-transport@L157-L157 | Omega_{K_1} 1-periodic
 EDGE: bp:p2:exactness | blueprint/parts/p3-uniqueness.tex#step:p3:lagrangian-transport@L157-L157 | zero average of Omega_{K_1} for primary K_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -170,9 +172,9 @@ EDGE: bp:p1:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:lagrangian-
 EDGE: bp:p3:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:lagrangian-unique@L162-L162 | abs Labs <=sigma_K
 EDGE: bp:p1:cohomological | blueprint/parts/p3-uniqueness.tex#step:p3:lagrangian-unique@L167-L167 | uniqueness part with g=0
 EDGE: step:p3:lagrangian-transport | blueprint/parts/p3-uniqueness.tex#step:p3:lagrangian-unique@L168-L168 | entries have zero average, periodic, Du omega=0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -200,9 +202,9 @@ EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#bp:p3:frequency-bound@L
 EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#bp:p3:frequency-bound@L177-L177 | Gamma = C_P M
 EDGE: step:p3:frequency-omega | blueprint/parts/p3-uniqueness.tex#bp:p3:frequency-bound@L181-L181 | proof step
 EDGE: step:p3:frequency-gamma | blueprint/parts/p3-uniqueness.tex#bp:p3:frequency-bound@L188-L188 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -228,9 +230,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:admissible | blueprint/parts/p3-uniqueness.tex#step:p3:frequency-omega@L182-L182 | K_1 satisfies A3, A4, A6 with eps=0
 EDGE: bp:p2:frequency | blueprint/parts/p3-uniqueness.tex#step:p3:frequency-omega@L183-L183 | frequency bound with eps=0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -257,9 +259,9 @@ ROUTE_FOR: -
 EDGE: bp:p2:frequency | blueprint/parts/p3-uniqueness.tex#step:p3:frequency-gamma@L189-L189 | gamma<=abs omegaabs 
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p3-uniqueness.tex#step:p3:frequency-gamma@L190-L190 | Diophantine inequality at k=e_1
 EDGE: step:p3:frequency-omega | blueprint/parts/p3-uniqueness.tex#step:p3:frequency-gamma@L190-L190 | abs omegaabs <=Gamma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -289,9 +291,9 @@ EDGE: step:p3:red-frame | blueprint/parts/p3-uniqueness.tex#bp:p3:reducibility@L
 EDGE: step:p3:red-tangent | blueprint/parts/p3-uniqueness.tex#bp:p3:reducibility@L222-L222 | proof step
 EDGE: step:p3:red-normal | blueprint/parts/p3-uniqueness.tex#bp:p3:reducibility@L226-L226 | proof step
 EDGE: step:p3:red-assembly | blueprint/parts/p3-uniqueness.tex#bp:p3:reducibility@L231-L231 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -317,9 +319,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:red-holomorphy@L207-L207 | L=DK_1 holomorphic
 EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p3-uniqueness.tex#step:p3:red-holomorphy@L209-L209 | B holomorphic
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -346,9 +348,9 @@ ROUTE_FOR: -
 EDGE: bp:p3:lagrangian | blueprint/parts/p3-uniqueness.tex#step:p3:red-frame@L213-L213 | E_sym=0 from Omega_{K_1}=0
 EDGE: bp:p2:frame-identities | blueprint/parts/p3-uniqueness.tex#step:p3:red-frame@L214-L214 | (b) and (f): symplectic frame, QP=I
 EDGE: bp:p2:matrix | blueprint/parts/p3-uniqueness.tex#step:p3:red-frame@L216-L216 | (d): formula for Q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -373,9 +375,9 @@ DEPS: bp:p2:frame-identities
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:frame-identities | blueprint/parts/p3-uniqueness.tex#step:p3:red-tangent@L223-L223 | (c) with E_1=0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -401,9 +403,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:frame-identities | blueprint/parts/p3-uniqueness.tex#step:p3:red-normal@L227-L227 | (e): Q(X_L X_N)=Lambda
 EDGE: step:p3:red-frame | blueprint/parts/p3-uniqueness.tex#step:p3:red-normal@L229-L229 | Q^{-1}=P
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -429,9 +431,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p3:red-tangent | blueprint/parts/p3-uniqueness.tex#step:p3:red-assembly@L232-L232 | columns (X_L X_N), X_L=0
 EDGE: step:p3:red-normal | blueprint/parts/p3-uniqueness.tex#step:p3:red-assembly@L232-L232 | X_N=LT
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -459,9 +461,9 @@ EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#bp:p3:torsion-bound@L24
 EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#bp:p3:torsion-bound@L243-L243 | C_tor
 EDGE: step:p3:torsion-holomorphy | blueprint/parts/p3-uniqueness.tex#bp:p3:torsion-bound@L248-L248 | proof step
 EDGE: step:p3:torsion-bound-step | blueprint/parts/p3-uniqueness.tex#bp:p3:torsion-bound@L254-L254 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -482,13 +484,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p3:reducibility, bp:p2:hamiltonian
+DEPS: bp:p3:reducibility, bp:p2:hamiltonian, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomorphy@L249-L249 | N holomorphic; T=BL^T X_N
 EDGE: bp:p2:hamiltonian | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomorphy@L251-L251 | (a): DX_h holomorphic on B
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomorphy@L249-L251 | derivatives of N and X_h are holomorphic on the relevant open domains
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -517,9 +520,9 @@ EDGE: bp:p3:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-bou
 EDGE: bp:p1:cauchy-strip | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-bound-step@L255-L255 | Cauchy estimate with delta=rho/4
 EDGE: bp:p3:frequency-bound | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-bound-step@L257-L257 | abs omegaabs <=Gamma
 EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-bound-step@L265-L265 | T=BL^T X_N
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -550,9 +553,9 @@ EDGE: step:p3:phase-fixed-point | blueprint/parts/p3-uniqueness.tex#bp:p3:phase@
 EDGE: step:p3:phase-derivatives | blueprint/parts/p3-uniqueness.tex#bp:p3:phase@L314-L314 | proof step
 EDGE: step:p3:phase-contraction | blueprint/parts/p3-uniqueness.tex#bp:p3:phase@L322-L322 | proof step
 EDGE: step:p3:phase-conclusion | blueprint/parts/p3-uniqueness.tex#bp:p3:phase@L339-L339 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -577,9 +580,9 @@ DEPS: bp:p1:real-inverse
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:real-inverse | blueprint/parts/p3-uniqueness.tex#step:p3:phase-real@L297-L297 | B real as inverse of real matrix
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -600,11 +603,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: step:p3:phase-real
 ROUTES: -
 ROUTE_FOR: -
+EDGE: step:p3:phase-real | blueprint/parts/p3-uniqueness.tex#step:p3:phase-fixed-point@L308-L310 | the two averaged integrands are real, so Phi is a map R^n to R^n
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -631,9 +635,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:increments | blueprint/parts/p3-uniqueness.tex#step:p3:phase-derivatives@L315-L315 | increment estimate with delta=rho/2
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:phase-derivatives@L316-L316 | L holomorphic
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -654,15 +658,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p3:phase-derivatives, step:p3:phase-fixed-point, step:p3:phase-real, bp:p3:matrix-norms
+DEPS: step:p3:phase-derivatives, step:p3:phase-fixed-point, bp:p3:matrix-norms, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p3:phase-derivatives | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L328-L328 | Lipschitz bounds on W and L
 EDGE: step:p3:phase-fixed-point | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L332-L332 | definition of Phi
-EDGE: step:p3:phase-real | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L335-L335 | Phi real-valued on R^n
 EDGE: bp:p3:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L330-L330 | abs BL^Tabs <=C_P
+EDGE: bp:p1:ext-integral | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L325-L336 | fundamental theorem of calculus along the real segment and norm-of-integral bounds for the segment integral and the averages
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -690,9 +694,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:ext-banach | blueprint/parts/p3-uniqueness.tex#step:p3:phase-conclusion@L340-L340 | Banach fixed point theorem
 EDGE: step:p3:phase-fixed-point | blueprint/parts/p3-uniqueness.tex#step:p3:phase-conclusion@L341-L341 | fixed point equals normalization
 EDGE: step:p3:phase-contraction | blueprint/parts/p3-uniqueness.tex#step:p3:phase-conclusion@L340-L340 | Phi maps Y to Y, contraction
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -701,7 +705,7 @@ NOTE: -
 NODE: bp:p3:difference-equation
 KIND: lemma
 TITLE: The difference in the frame
-STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L359-L373
+STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L350-L373
 PROOF_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L375-L406
 CONTRACT_ID: bp:p3:difference-equation
 CONTRACT_VERSION: 1
@@ -723,7 +727,7 @@ EDGE: step:p3:diff-linearized | blueprint/parts/p3-uniqueness.tex#bp:p3:differen
 EDGE: step:p3:diff-triangular | blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L393-L393 | proof step
 EDGE: step:p3:diff-bounds | blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L399-L399 | proof step
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -745,13 +749,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p3:reducibility, bp:p2:periodicity
+DEPS: bp:p3:reducibility, bp:p2:periodicity, bp:p2:hamiltonian, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L382-L382 | P^{-1} holomorphic, explicit formula
 EDGE: bp:p2:periodicity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L384-L384 | L is 1-periodic
+EDGE: bp:p2:hamiltonian | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L378-L380 | S1-S2 supply the Part 2 standing package; X_h is holomorphic on B and the ball inclusion puts the composed arguments there
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L380-L380 | DX_h is holomorphic because X_h is holomorphic on the open domain, so the remainder R is holomorphic
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -776,9 +782,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -799,13 +805,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p3:reducibility, step:p3:diff-linearized
+DEPS: bp:p3:reducibility, step:p3:diff-linearized, step:p3:diff-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular@L395-L395 | triangular reduction identity
 EDGE: step:p3:diff-linearized | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular@L394-L394 | linearized equation for Delta
+EDGE: step:p3:diff-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular@L394-L394 | the established identity Delta=P xi permits substitution into the differential equation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -827,16 +834,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p3:matrix-norms, bp:p1:taylor, bp:p2:hamiltonian, step:p3:diff-regularity, bp:p1:holomorphic-regularity
+DEPS: bp:p3:matrix-norms, bp:p1:taylor, bp:p2:hamiltonian, step:p3:diff-regularity, bp:p1:holomorphic-regularity, bp:p3:reducibility
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L401-L401 | abs Pabs ,abs P^{-1}abs <=C_P
 EDGE: bp:p1:taylor | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L401-L401 | second-order Taylor bound on R
 EDGE: bp:p2:hamiltonian | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L402-L402 | (a): X_h holomorphic on B
 EDGE: step:p3:diff-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L403-L403 | segment lies in B
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L405-L405 | abs D^2X_habs =abs D(DX_h)abs 
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L405-L405 | abs D^2X_habs =abs D(DX_h)abs
+EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L400-L401 | P^{-1}=(BL^T;-L^T Omega_0), so the stacked-matrix bound of matrix-norms applies to P^{-1}
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -871,9 +879,9 @@ EDGE: step:p3:quad-normal-avg | blueprint/parts/p3-uniqueness.tex#bp:p3:quadrati
 EDGE: step:p3:quad-normal | blueprint/parts/p3-uniqueness.tex#bp:p3:quadratic@L463-L463 | proof step
 EDGE: step:p3:quad-tangent | blueprint/parts/p3-uniqueness.tex#bp:p3:quadratic@L470-L470 | proof step
 EDGE: step:p3:quad-combine | blueprint/parts/p3-uniqueness.tex#bp:p3:quadratic@L488-L488 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -898,9 +906,9 @@ DEPS: bp:p3:difference-equation
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:difference-equation | blueprint/parts/p3-uniqueness.tex#step:p3:quad-remainder@L436-L436 | (c) bound on q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -928,9 +936,9 @@ EDGE: bp:p3:difference-equation | blueprint/parts/p3-uniqueness.tex#step:p3:quad
 EDGE: bp:p1:averages | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal-osc@L441-L441 | avg of d_omega of a periodic function is 0
 EDGE: bp:p1:cohomological | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal-osc@L443-L443 | uniqueness and estimate
 EDGE: step:p3:quad-remainder | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal-osc@L447-L447 | abs abs q^Nabs abs <=(1/2)C_P Mabs abs Deltaabs abs ^2
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -959,9 +967,9 @@ EDGE: bp:p1:averages | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal-avg
 EDGE: bp:p3:torsion-bound | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal-avg@L459-L459 | abs Tabs <=C_tor
 EDGE: step:p3:quad-normal-osc | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal-avg@L453-L453 | splitting xi^N, bound on xi~^N
 EDGE: step:p3:quad-remainder | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal-avg@L461-L461 | bound on q^L
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -989,9 +997,9 @@ EDGE: step:p3:quad-normal-osc | blueprint/parts/p3-uniqueness.tex#step:p3:quad-n
 EDGE: step:p3:quad-normal-avg | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal@L464-L464 | average part
 EDGE: bp:p3:quadratic#absorb | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal@L464-L464 | absorb term without small divisor
 EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#step:p3:quad-normal@L467-L467 | C^N
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1023,9 +1031,9 @@ EDGE: step:p3:quad-remainder | blueprint/parts/p3-uniqueness.tex#step:p3:quad-ta
 EDGE: bp:p3:quadratic#absorb | blueprint/parts/p3-uniqueness.tex#step:p3:quad-tangent@L476-L476 | absorb term without small divisor
 EDGE: bp:p1:cohomological | blueprint/parts/p3-uniqueness.tex#step:p3:quad-tangent@L481-L481 | uniqueness and estimate for xi^L
 EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#step:p3:quad-tangent@L485-L485 | C^L
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1055,9 +1063,9 @@ EDGE: bp:p3:quadratic#absorb | blueprint/parts/p3-uniqueness.tex#step:p3:quad-co
 EDGE: bp:p3:difference-equation | blueprint/parts/p3-uniqueness.tex#step:p3:quad-combine@L494-L494 | Delta=P xi
 EDGE: bp:p3:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:quad-combine@L494-L494 | abs Pabs <=C_P
 EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#step:p3:quad-combine@L499-L499 | definition of C_quad
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1083,9 +1091,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:g2-constant@L520-L520 | hypotheses of G2 give the standing package
 EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#step:p3:g2-constant@L514-L514 | constants enter the definition of c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1111,9 +1119,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:frequency-bound | blueprint/parts/p3-uniqueness.tex#step:p3:g2-smallness@L527-L527 | gamma<=Gamma gives eta<=c Gamma^2 rho^{2tau}
 EDGE: step:p3:g2-constant | blueprint/parts/p3-uniqueness.tex#step:p3:g2-smallness@L528-L528 | the three terms of the minimum in (eq:p3:c)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1140,9 +1148,9 @@ ROUTE_FOR: -
 EDGE: bp:p3:phase | blueprint/parts/p3-uniqueness.tex#step:p3:g2-phase@L536-L536 | phase normalization
 EDGE: step:p3:g2-smallness | blueprint/parts/p3-uniqueness.tex#step:p3:g2-phase@L536-L536 | first smallness condition
 EDGE: step:p3:g2-constant | blueprint/parts/p3-uniqueness.tex#step:p3:g2-phase@L536-L536 | data satisfy the standing package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1169,9 +1177,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:increments-open | blueprint/parts/p3-uniqueness.tex#step:p3:g2-size@L543-L543 | K_1(theta+psi)-K_1(theta) bounded on convex T_rho
 EDGE: step:p3:g2-phase | blueprint/parts/p3-uniqueness.tex#step:p3:g2-size@L541-L541 | abs psiabs <=2C_P eta
 EDGE: step:p3:g2-smallness | blueprint/parts/p3-uniqueness.tex#step:p3:g2-size@L544-L544 | second condition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1201,9 +1209,9 @@ EDGE: step:p3:g2-phase | blueprint/parts/p3-uniqueness.tex#step:p3:g2-iteration@
 EDGE: step:p3:g2-smallness | blueprint/parts/p3-uniqueness.tex#step:p3:g2-iteration@L558-L558 | third condition gives Q 2^p y_0<=1/2
 EDGE: step:p3:g2-constant | blueprint/parts/p3-uniqueness.tex#step:p3:g2-iteration@L552-L552 | standing package for the data
 EDGE: bp:p1:iteration | blueprint/parts/p3-uniqueness.tex#step:p3:g2-iteration@L562-L562 | quadratic iteration gives y_m->0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1229,9 +1237,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p3:g2-iteration | blueprint/parts/p3-uniqueness.tex#step:p3:g2-conclusion@L566-L566 | Delta=0 on T_{rho/2}
 EDGE: step:p3:g2-phase | blueprint/parts/p3-uniqueness.tex#step:p3:g2-conclusion@L566-L566 | psi real, so phi real
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1244,9 +1252,9 @@ STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:standing#constants@L95
 PROOF_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:standing#constants@L95-L117
 CONTRACT_ID: bp:p3:standing#constants
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing package bp:p3:standing (S1)-(S4) for the data on which the constants are evaluated; bp:p1:cohomological supplies c(n,tau)
+SOURCE_HYPOTHESES: n>=2, tau>=n-1, rho>0, M,sigma_K,sigma_B,sigma_T>0; c(n,tau) is the constant of bp:p1:cohomological; no B,h,K_1,K_2,omega,gamma or package (S1)-(S4) is assumed
 SOURCE_QUANTIFIERS: n,tau,rho,M,sigma_K,sigma_B,sigma_T fixed before any data; then C_P, Gamma, C_tor, C_coh, C^N, C^L, C_quad
-SOURCE_CONCLUSION: defines C_P=2n sigma_K(1+sigma_B), Gamma=C_P M, C_tor=C_P^2 M(1+4nC_P/rho), C_coh=c(n,tau), C^N, C^L, C_quad=C_P max{C^L,Gamma rho^{tau+n} C^N} by (eq:p3:constants),(eq:p3:Cquad)
+SOURCE_CONCLUSION: defines C_P=2n sigma_K(1+sigma_B), Gamma=C_P M, C_tor=C_P^2 M(1+4n C_P/rho), C_coh=c(n,tau), C^N=(1/2)C_P M[(1+sigma_T C_tor)C_coh+sigma_T Gamma rho^{tau+n}], C^L=C_coh[C_tor C^N+(1/2)C_P M Gamma rho^{tau+n}], C_quad=C_P max{C^L,Gamma rho^{tau+n} C^N}; forward descriptions at L113-L117 add no dependencies
 CONSTANT_SCOPE: all constants depend only on n,tau,rho,M,sigma_K,sigma_B,sigma_T (C_coh only on n,tau; C_P only on n,sigma_K,sigma_B); not on gamma, mu or the data
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1257,7 +1265,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:cohomological | blueprint/parts/p3-uniqueness.tex#bp:p3:standing#constants@L104-L104 | C_coh is the constant c(n,tau) of that lemma
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1283,9 +1291,9 @@ DEPS: bp:p3:frequency-bound
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:frequency-bound | blueprint/parts/p3-uniqueness.tex#bp:p3:quadratic#absorb@L430-L430 | gamma<=Gamma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
