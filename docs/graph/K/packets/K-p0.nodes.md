@@ -565,9 +565,9 @@ EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p0-conventions.tex#b
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.kam_positive_measure (SEALED: by exact KAM.Provider.kam_positive_measure …; provider via KAM.Provider.exists_gValid + KAM.Head.head_of_gValid)
+LEAN_NOTE: SEALED 2026-10-27 (D26): provider package P4-S1 (audit docs/campaign/audits/P4-S1-audit-1.md PASS, exact-type probe) on P4-12 (audit P4-12-audit-1.md PASS); axioms propext/Classical.choice/Quot.sound; leanchecker replay of the frozen module, provider and KAM.Head.Assembly exit 0
 NOTE: -
 
 NODE: bp:p0:headq

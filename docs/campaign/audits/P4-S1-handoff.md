@@ -1,0 +1,9 @@
+# P4-S1 prover handoff (branch k/p4-s1, bb7c31c; contains k/p4-12 (in audit); merged with main) — PROVIDER PACKAGE for frozen HEAD
+
+| Item | Declaration | File |
+|---|---|---|
+| GValid discharge | KAM.Provider.exists_gValid | KAM/Provider/KamPositiveMeasure.lean |
+| HEAD provider | KAM.Provider.kam_positive_measure | same |
+
+Prover: exists_gValid (Appendix A §P1 signature) from KAM.Head.parameters, two calls of the SEALED KAM.aposteriori_kam (the two G1 tuples), one of the SEALED KAM.local_uniqueness_flow, one of the SEALED KAM.volume_not_diophantine_le with freq_map (v) (IsBounded (frequencyMap h '' B)); the closing `exact` checks G1Body/G2Body against the real anchors (a weakened copy is rejected). kam_positive_measure: obtain CB, Lh; Data from binders; gc from exists_gValid; exact head_of_gValid hD hCB hgc. Probes passed: `example : type_of% @KAM.kam_positive_measure := @KAM.Provider.kam_positive_measure` and the sealing form `by exact KAM.Provider.kam_positive_measure hn hτ hs₀ hr₀ hB_open hB_bdd hB_layer hh hh_real h_nondeg`.
+AUDIT FOCUS (HEAD seal gate; refute hard): (1) brief item 4 exact-type probe against the frozen KAM.kam_positive_measure (KAM/Frozen/Theorems/KamPositiveMeasure.lean); (2) the provider imports only SEALED frozen theorems (G1, G2, G3) and no DRAFT_SORRY anchor; check the manifest states; (3) exists_gValid: the G1 tuples are exactly those of Definition bp:p4:parameters (design §2.2), the G1/G2 hypotheses are discharged by parameters' side conditions (n−1 ≤ τ from n−1 < τ), the G3 application's Ω = ∇h(B) with the boundedness from freq_map (v); no premise smuggled; (4) kam_positive_measure uses head_of_gValid (graph predecessors), not a shortcut; (5) hygiene; nothing under KAM/Frozen or manifest changed. Audit git diff main...HEAD restricted to KAM/Provider/KamPositiveMeasure.lean (Assembly.lean is P4-12, audited separately).

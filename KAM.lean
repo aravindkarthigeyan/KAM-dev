@@ -160,6 +160,7 @@ public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
 public import KAM.Frozen.Theorems.AposterioriKam
+public import KAM.Frozen.Theorems.KamPositiveMeasure
 public import KAM.Frozen.Theorems.LocalUniquenessFlow
 public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
 public import KAM.Head.Adapters
@@ -222,6 +223,7 @@ public import KAM.ODE.UniformPeriodic
 public import KAM.ODE.Uniqueness
 public import KAM.Provider.AposterioriKam
 public import KAM.Provider.Iso.KeplerBorderedDet
+public import KAM.Provider.KamPositiveMeasure
 public import KAM.Provider.LocalUniquenessFlow
 public import KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative
 public import KAM.Provider.Nekhoroshev.ZeroPerturbation

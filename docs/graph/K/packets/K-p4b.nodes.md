@@ -1547,9 +1547,9 @@ EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p4-measure.tex#step:p4:h
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.head_empty
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-12-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:head-constants
@@ -1575,9 +1575,9 @@ EDGE: bp:p4:main-measure | blueprint/parts/p4-measure.tex#step:p4:head-constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.headC, one_le_headC, A0_mul_le_headC, Cmeas_div_le_headC
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-12-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:head-negative
@@ -1633,9 +1633,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:head-positive@L1221-L122
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-global-K
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.head_positive
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-12-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:head-zero
@@ -1663,9 +1663,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1230 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
 REVIEWER: sol-review-d4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.head_zero
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-12-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: - [final: main-measure EDGE locator set to L1230-L1231 exactly as sol-review-d4 specified; the writer verified mechanically that these lines contain the ref to bp:p4:main-measure and its bound]
 
 NODE: bp:p4:dyadic-approx
