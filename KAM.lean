@@ -10,9 +10,12 @@ public import KAM.Apost.Constants
 public import KAM.Apost.Correction
 public import KAM.Apost.Exactness
 public import KAM.Apost.Frame
+public import KAM.Apost.G1
 public import KAM.Apost.Geometry
 public import KAM.Apost.Hamiltonian
 public import KAM.Apost.Identities
+public import KAM.Apost.Iteration
+public import KAM.Apost.Limit
 public import KAM.Apost.NewtonError
 public import KAM.Apost.Periodicity
 public import KAM.Apost.Perturbation
@@ -182,6 +185,8 @@ public import KAM.Head.Parameters
 public import KAM.Head.PhaseAverage
 public import KAM.Head.PreimageMeasure
 public import KAM.Head.Shift
+public import KAM.Head.Stab
+public import KAM.Head.StabFrame
 public import KAM.Head.Standing
 public import KAM.Head.TorsionRegular
 public import KAM.Head.TorsionRegularGeneral
