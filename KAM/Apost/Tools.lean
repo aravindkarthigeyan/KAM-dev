@@ -9,6 +9,7 @@ public import KAM.Apost.Constants
 public import KAM.Torus.Basic
 public import KAM.Matrix.Norms
 public import KAM.Strip.Bridges
+public import KAM.Strip.CohomologicalNodes
 import Mathlib.Analysis.LocallyConvex.SeparatingDual
 
 /-!
@@ -36,12 +37,12 @@ This file specializes the infrastructure of Part 1 to the form used in Part 2
   `g := ∂_ω u` (holomorphic, periodic) that the a-priori bound `step:p2:coh-apriori` needs besides
   Part 1's cohomological equation; its zero average is `averages` (b).
 
-## Blocked: `bp:p2:cohomological`
+## `bp:p2:cohomological`
 
-The Part 2 corollary `KAM.Apost.cohomological` (the properties of `cohR` and the a-priori bound
-in operator norm) is *not* in this file. It needs Zohar's package I-STRIP-3 (the cohomological
-equation of Part 1, stated about `KAM.cohSolution` and `KAM.cohConst`), which is not on `main`.
-It is added to this module when I-STRIP-3 lands, with the signature of Appendix A of the design.
+`KAM.Apost.cohomological` (the properties of `cohR` and the a-priori bound in the operator norm) is
+proved from Part 1's `KAM.cohomological` and `KAM.cohomological_operator` (package I-STRIP-3),
+which use the exact constant `KAM.cohConst`; `c_R = max {1, cohConst n τ}` only enlarges it
+(`KAM.Apost.Tools.cohConst_div_le_cR`).
 -/
 
 @[expose] public noncomputable section
@@ -281,6 +282,71 @@ theorem averages {n : ℕ} :
 /-- The vector solution operator `𝓡 g` of `bp:p2:cohomological`, componentwise `cohSolution`. -/
 def cohR {n p : ℕ} (ω : Fin n → ℝ) (g : (Fin n → ℂ) → Fin p → ℂ) : (Fin n → ℂ) → Fin p → ℂ :=
   fun θ i => cohSolution ω (fun θ' => g θ' i) θ
+
+/-! ### The Part 2 corollary `bp:p2:cohomological`
+
+Part 1's `KAM.cohomological` and `KAM.cohomological_operator` (package I-STRIP-3) are stated with
+the exact constant `KAM.cohConst n τ`, in the form `cohConst n τ / (γ δ^{τ+n}) A`. Part 2 uses
+the larger `c_R = max {1, cohConst n τ}` and writes the bound as `c_R γ⁻¹ δ^{-κ}` with
+`κ = τ + n`. -/
+
+namespace Tools
+
+/-- The bound of Part 1 in the form of Part 2: `cohConst / (γ δ^{τ+n}) H ≤ c_R γ⁻¹ δ^{-κ} H`. -/
+theorem cohConst_div_le_cR {n : ℕ} {τ γ δ H : ℝ} (hγ : 0 < γ) (hδ : 0 < δ) (hH : 0 ≤ H) :
+    cohConst n τ / (γ * δ ^ (τ + n)) * H ≤ cR n τ * γ⁻¹ * δ ^ (-kappa n τ) * H := by
+  have e1 : cohConst n τ / (γ * δ ^ (τ + n)) * H =
+      cohConst n τ * (γ⁻¹ * (δ ^ (τ + n))⁻¹ * H) := by
+    rw [div_eq_mul_inv, mul_inv]
+    ring
+  have e2 : cR n τ * γ⁻¹ * δ ^ (-kappa n τ) * H = cR n τ * (γ⁻¹ * (δ ^ (τ + n))⁻¹ * H) := by
+    rw [kappa, Real.rpow_neg hδ.le]
+    ring
+  rw [e1, e2]
+  exact mul_le_mul_of_nonneg_right cohConst_le_cR (by positivity)
+
+end Tools
+
+/-- The exponent `τ` of a standing datum is nonnegative (`τ ≥ n - 1 ≥ 1`). -/
+theorem cohomological_tau_nonneg {n : ℕ} {τ M σK σB σT : ℝ}
+    {𝔅 : Set ((Fin n → ℂ) × (Fin n → ℂ))} {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ}
+    {ω : Fin n → ℝ} {γ : ℝ} (hS : Standing n τ M σK σB σT 𝔅 h ω γ) : 0 ≤ τ := by
+  have h1 := hS.tau_ge
+  have h2 : (2 : ℝ) ≤ n := by exact_mod_cast hS.two_le
+  linarith
+
+variable {n : ℕ} {τ M σK σB σT : ℝ} {𝔅 : Set ((Fin n → ℂ) × (Fin n → ℂ))}
+  {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ω : Fin n → ℝ} {γ : ℝ}
+
+/-- Blueprint `bp:p2:cohomological`, with `Γ_δ = c_R γ⁻¹ δ^{-κ}`. -/
+theorem cohomological (hS : Standing n τ M σK σB σT 𝔅 h ω γ) {r δ : ℝ} (hr : 0 < r)
+    (hδ : 0 < δ) (hδr : δ < r) :
+    (∀ {p : ℕ} (g : (Fin n → ℂ) → Fin p → ℂ) (H : ℝ), DifferentiableOn ℂ g (complexStrip n r) →
+      IsPeriodicOn g r → (∀ θ ∈ complexStrip n r, ‖g θ‖ ≤ H) → avg g = 0 →
+      DifferentiableOn ℂ (cohR ω g) (complexStrip n (r - δ)) ∧ IsPeriodicOn (cohR ω g) (r - δ) ∧
+      avg (cohR ω g) = 0 ∧
+      (∀ θ ∈ complexStrip n (r - δ), fderiv ℂ (cohR ω g) θ (fun l => (ω l : ℂ)) = g θ) ∧
+      (∀ θ ∈ complexStrip n (r - δ), ‖cohR ω g θ‖ ≤ cR n τ * γ⁻¹ * δ ^ (-kappa n τ) * H) ∧
+      (IsRealVec g → IsRealVec (cohR ω g)) ∧
+      ∀ u : (Fin n → ℂ) → Fin p → ℂ, DifferentiableOn ℂ u (complexStrip n (r - δ)) →
+        IsPeriodicOn u (r - δ) → avg u = 0 →
+        (∀ θ ∈ complexStrip n (r - δ), fderiv ℂ u θ (fun l => (ω l : ℂ)) = g θ) →
+        ∀ θ ∈ complexStrip n (r - δ), u θ = cohR ω g θ) ∧
+    (∀ {p q : ℕ} (u : (Fin n → ℂ) → Matrix (Fin p) (Fin q) ℂ) (H : ℝ),
+      DifferentiableOn ℂ u (complexStrip n r) → IsPeriodicOn u r → avg u = 0 →
+      (∀ θ ∈ complexStrip n r, ‖fderiv ℂ u θ (fun l => (ω l : ℂ))‖ ≤ H) →
+      ∀ θ ∈ complexStrip n (r - δ), ‖u θ‖ ≤ cR n τ * γ⁻¹ * δ ^ (-kappa n τ) * H) := by
+  obtain ⟨hscalar, hvec⟩ := KAM.cohomological hS.dio hS.gamma_pos (cohomological_tau_nonneg hS)
+    hδ hδr
+  obtain ⟨-, hop⟩ := KAM.cohomological_operator hS.dio hS.gamma_pos (cohomological_tau_nonneg hS)
+    hδ hδr
+  refine ⟨fun {p} g H hg hp hH h0 => ?_, fun {p q} u H hu hp h0 hH θ hθ => ?_⟩
+  · have hH0 : 0 ≤ H := (norm_nonneg _).trans (hH _ (ofReal_mem_complexStrip hr 0))
+    obtain ⟨h1, h2, h3, h4, h5, h6, h7⟩ := hvec g H hg hp hH h0
+    exact ⟨h1, h2, h3, h4,
+      fun θ hθ => (h5 θ hθ).trans (Tools.cohConst_div_le_cR hS.gamma_pos hδ hH0), h6, h7⟩
+  · have hH0 : 0 ≤ H := (norm_nonneg _).trans (hH _ (ofReal_mem_complexStrip hr 0))
+    exact (hop u H hu hp h0 hH θ hθ).trans (Tools.cohConst_div_le_cR hS.gamma_pos hδ hH0)
 
 end KAM.Apost
 
