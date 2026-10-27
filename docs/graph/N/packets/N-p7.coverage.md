@@ -840,9 +840,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#prose@L12-L13
 DISPOSITION: EXCLUDED
 REASON: conventions paragraph (frozen conventions, max norms on actions, Euclidean norm only in the convexity argument with the comparisons of p1:norm-compare, no rescaling to Pöschel, n>=1): notation; the Euclidean/max distinction is recorded in the source fields of the nodes that use ‖.‖_2 and linked to bpN:p1:norm-compare at ad-ball, p2-red, p2-t12, p2-concl and to bpN:p1:ext-norms at td-lim
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-delta2-N-d
 
 ITEM: p7:prose-L21-L22
 KIND: proof-region

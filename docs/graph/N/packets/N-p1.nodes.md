@@ -950,9 +950,9 @@ ROUTE_FOR: -
 EDGE: bpN:p1:hessian-convert | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-reg@L163-L163 | real Hessian and its Euclidean bound
 EDGE: bpN:p1:realdomain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-reg@L163-L163 | B(0,R) ⊂ 𝓑_s(R), Lemma realdomain (a)
 EDGE: bpN:p0:hess#HasComplexHessianBound | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-reg@L163-L163 | hypothesis with constant M_ℂ
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
-REVIEWER: -
+REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1193,9 +1193,9 @@ EDGE: bpN:p0:hess#HasComplexHessianBound | blueprint-N/parts/p1-interfaces.tex#s
 EDGE: bpN:p0:pert#IsAnalyticPerturbation | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-scalar@L195-L195 | premises (c),(d) on f
 EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-scalar@L195-L195 | strip of width 2πρ
 EDGE: bpN:p0:cdomain#complexDomain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-scalar@L195-L195 | domain substitution
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
-REVIEWER: -
+REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1251,9 +1251,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:decay | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | Fourier coefficient decay
 EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | strip T_ρ
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
-REVIEWER: -
+REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1444,9 +1444,9 @@ EDGE: stepN:p1:co-tubes | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-qc@L24
 EDGE: stepN:p1:co-size | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-qc@L243-L243 | r₀ ≤ ℓ/(2B_c) and A
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-qc@L243-L243 | local dictionary constants used directly
 EDGE: bpN:p4:domains | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-qc@L243-L243 | V_{r₀}P or its real slice is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
-REVIEWER: -
+REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1540,9 +1540,9 @@ EDGE: bpN:p1:period-convert | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-ti
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-time@L249-L249 | local dictionary constants used directly
 EDGE: bpN:p9:setting | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-time@L249-L249 | Ω₀ is the maximum on the closed Euclidean R₀-ball
 EDGE: stepN:p1:co-size | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-time@L249-L249 | uses R₀≤r₀ and R₀≤R/176 to place the closed frequency ball in B(0,5R/8)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
-REVIEWER: -
+REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1624,9 +1624,9 @@ DEPS: K:bp:p1:summation
 ROUTES: -
 ROUTE_FOR: bpN:p1:norm-convert
 EDGE: K:bp:p1:summation | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | the explicitly offered direct alternative; all bounded holomorphic periodic premises and 0<δ<ρ are supplied
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-delta-N-a
-REVIEWER: -
+REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1651,9 +1651,9 @@ DEPS: K:bp:p1:summation
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:summation | blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L203 | Fourier reconstruction and the forward sup bound when the full weighted sum is finite; otherwise the extended upper bound is immediate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-delta-N-a
-REVIEWER: -
+REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

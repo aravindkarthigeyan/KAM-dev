@@ -95,7 +95,7 @@ DISPOSITION: NODE stepN:p8:lb-unimod
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: sol-delta-N-e
+REVIEWER: sol-delta2-N-e
 
 ITEM: stepN:p8:lb-sub
 KIND: proof-region
@@ -104,7 +104,7 @@ DISPOSITION: NODE stepN:p8:lb-sub
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: sol-delta-N-e
+REVIEWER: sol-delta2-N-e
 
 ITEM: bpN:p8:volume-def
 KIND: definition
@@ -158,7 +158,7 @@ DISPOSITION: NODE bpN:p8:lattice-volume
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: sol-delta-N-e
+REVIEWER: sol-delta2-N-e
 
 ITEM: stepN:p8:lv-ab
 KIND: proof-region
@@ -329,7 +329,7 @@ DISPOSITION: NODE bpN:p8:geometric
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: sol-delta-N-e
+REVIEWER: sol-delta2-N-e
 
 ITEM: bpN:p8:geom-formula
 KIND: lemma
@@ -446,7 +446,7 @@ DISPOSITION: NODE bpN:p8:cutoffs
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: sol-delta-N-e
+REVIEWER: sol-delta2-N-e
 
 ITEM: stepN:p8:co-incl
 KIND: proof-region

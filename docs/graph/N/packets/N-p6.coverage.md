@@ -32,7 +32,7 @@ DISPOSITION: NODE bpN:p6:lipschitz
 REASON: labelled unit; node confirmed
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: sol-delta-N-d
+REVIEWER: sol-delta2-N-d
 
 ITEM: stepN:p6:lip-seg
 KIND: proof-region
@@ -86,7 +86,7 @@ DISPOSITION: NODE stepN:p6:hom-norm
 REASON: labelled unit; node confirmed
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: sol-delta-N-d
+REVIEWER: sol-delta2-N-d
 
 ITEM: stepN:p6:hom-eq
 KIND: proof-region

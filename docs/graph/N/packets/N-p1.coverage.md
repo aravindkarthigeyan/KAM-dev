@@ -275,7 +275,7 @@ DISPOSITION: NODE stepN:p1:qc-reg
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta-N-a
+REVIEWER: sol-delta2-N-a
 
 ITEM: stepN:p1:qc-trans
 KIND: proof-region
@@ -347,7 +347,7 @@ DISPOSITION: NODE stepN:p1:pc-scalar
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta-N-a
+REVIEWER: sol-delta2-N-a
 
 ITEM: bpN:p1:norm-convert
 KIND: lemma
@@ -365,7 +365,7 @@ DISPOSITION: NODE stepN:p1:nc-decay
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta-N-a
+REVIEWER: sol-delta2-N-a
 
 ITEM: stepN:p1:nc-sum
 KIND: proof-region
@@ -419,7 +419,7 @@ DISPOSITION: NODE stepN:p1:co-qc
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta-N-a
+REVIEWER: sol-delta2-N-a
 
 ITEM: stepN:p1:co-pert
 KIND: proof-region
@@ -446,7 +446,7 @@ DISPOSITION: NODE stepN:p1:co-time
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta-N-a
+REVIEWER: sol-delta2-N-a
 
 ITEM: stepN:p1:co-conc
 KIND: proof-region
