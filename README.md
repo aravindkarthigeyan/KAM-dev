@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:33 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 21.2 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 21.2 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:33 UTC from `main` at `2b84d71` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:40 UTC from `main` at `eb7b3f2` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.
 
@@ -262,7 +262,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P v0.2: all nine audit findings adopted (disc cylinder, diffeomorphism on W ⊇ closure V, boundary-layer guard) | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–2 done (docs/explorations/almost-every-*.md); round 3 refutation running | — | — |
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | 🔄 working | Delta audit of track N v0.2 (N-HEAD-C) | — | — |
-| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | 🔄 working | Delta audit of track P v0.2 | — | — |
+| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ handed off | Delta audit of track P v0.2 | — | — |
 | **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Track I audit v0.1: all 4 theorems and 15 definitions APPROVABLE; minor fixes applied (author header, three source locators) | — | — |
 | **review-p4** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 4 | — | — |
 | **bp-p1** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Proofs of the 30 part-1 interface lemmas | — | — |
