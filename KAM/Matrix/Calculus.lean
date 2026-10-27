@@ -38,10 +38,10 @@ For instance, the product and transpose rules give
 `D (Lᵀ Ω₀ L) v = (D L v)ᵀ Ω₀ L + Lᵀ Ω₀ (D L v)`, the derivative of the Lagrangian matrix of
 Part 2.
 
-The section "Instances for matrix-valued derivatives" installs `SecondCountableTopology`,
-`IsNormableSpace` and `Norm (E →L[ℂ] Matrix l m ℂ)` for matrices, so that derivative norms of
-matrix-valued maps can be written (under `open scoped Matrix.Norms.Operator` they do not
-synthesize) and the generic Part 1 results apply to them with the row-sum norm.
+The section "Instances for matrix-valued derivatives" installs `SecondCountableTopology` and
+`IsNormableSpace` (global) and `Norm (E →L[ℂ] Matrix l m ℂ)` (scoped to `Matrix.Norms.Operator`),
+so that derivative norms of matrix-valued maps can be written (without it they do not synthesize)
+and the generic Part 1 results apply to them with the row-sum norm.
 -/
 
 @[expose] public noncomputable section
@@ -129,13 +129,15 @@ In this Mathlib, `fderiv` and `E →L[ℂ] F` only see the default (product) top
 topology that is equal but not reducibly so. As a result `IsNormableSpace`,
 `SecondCountableTopology` and `Norm (E →L[ℂ] Matrix l m ℂ)` do not synthesize, so a statement such
 as `‖fderiv ℂ u θ‖ ≤ B` for matrix-valued `u` does not elaborate. The three instances below repair
-this. The norm is, by definition, the operator norm of the derivative for the row-sum norm
-(`Matrix.linftyOpSeminormedAddCommGroup`) on the matrices, the one of `KAM/Matrix/Norms.lean`; so
-`KAM.cauchy_strip`, `KAM.increments`, `KAM.taylor_iteratedFDeriv` and the other generic results
-of Part 1 apply to matrix-valued maps with the row-sum norm, and their conclusions can be stated
-with `‖fderiv ℂ u θ‖`. A second derivative of a matrix-valued map is measured as
-`‖iteratedFDeriv ℂ 2 F x‖` (this elaborates), as in `KAM.taylor_iteratedFDeriv`; the norm of
-`fderiv ℂ (fderiv ℂ F) x` has no instance. -/
+this. The first two are global (they only describe the topology). The norm is, by definition, the
+operator norm of the derivative for the row-sum norm (`Matrix.linftyOpSeminormedAddCommGroup`) on
+the matrices, the one of `KAM/Matrix/Norms.lean`; it is a scoped instance of
+`Matrix.Norms.Operator`, so `open scoped Matrix.Norms.Operator` activates it and no other matrix
+norm scope sees it. Hence `KAM.cauchy_strip`, `KAM.increments`, `KAM.taylor_iteratedFDeriv` and
+the other generic results of Part 1 apply to matrix-valued maps with the row-sum norm, and their
+conclusions can be stated with `‖fderiv ℂ u θ‖`. A second derivative of a matrix-valued map is
+measured as `‖iteratedFDeriv ℂ 2 F x‖` (this elaborates), as in `KAM.taylor_iteratedFDeriv`; the
+norm of `fderiv ℂ (fderiv ℂ F) x` has no instance. -/
 
 section Instances
 
@@ -151,8 +153,13 @@ instance instIsNormableSpaceMatrix [Finite l] [Finite m] : IsNormableSpace ℂ (
   inferInstanceAs (IsNormableSpace ℂ (l → m → ℂ))
 
 /-- The operator norm of a continuous linear map `E →L[ℂ] Matrix l m ℂ` (such as a derivative of
-a matrix-valued map), for the row-sum norm on matrices. -/
-instance instNormContinuousLinearMapMatrix [Fintype l] [Fintype m] {E : Type*}
+a matrix-valued map), for the row-sum norm on matrices.
+
+This is a plain `def`, not a global instance: it is registered as an instance only inside the scope
+`Matrix.Norms.Operator` (the `attribute [scoped instance]` at the end of this file), so that it is
+active exactly when the row-sum norm on matrices is, and never under another matrix-norm scope
+(for instance `Matrix.Norms.Elementwise`, whose operator norm of a derivative is different). -/
+@[instance_reducible] def instNormContinuousLinearMapMatrix [Fintype l] [Fintype m] {E : Type*}
     [NormedAddCommGroup E] [NormedSpace ℂ E] : Norm (E →L[ℂ] Matrix l m ℂ) :=
   letI : SeminormedAddCommGroup (Matrix l m ℂ) := Matrix.linftyOpSeminormedAddCommGroup
   letI : NormedSpace ℂ (Matrix l m ℂ) := Matrix.linftyOpNormedSpace
@@ -304,5 +311,13 @@ theorem fderiv_matrix_apply {A : E → Matrix l m ℂ} (hA : DifferentiableAt �
 end Rules
 
 end KAM
+
+/-! The row-sum derivative norm is active exactly under `open scoped Matrix.Norms.Operator`. -/
+
+namespace Matrix.Norms.Operator
+
+attribute [scoped instance] KAM.instNormContinuousLinearMapMatrix
+
+end Matrix.Norms.Operator
 
 end
