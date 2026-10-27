@@ -178,6 +178,7 @@ public import KAM.Nekhoroshev.ZeroPerturbation
 public import KAM.ODE.Basic
 public import KAM.ODE.Existence
 public import KAM.ODE.Exit
+public import KAM.ODE.Hamiltonian
 public import KAM.ODE.Lipschitz
 public import KAM.ODE.Maximal
 public import KAM.ODE.UniformPeriodic
