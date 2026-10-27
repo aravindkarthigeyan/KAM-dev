@@ -9,6 +9,38 @@
  "reviewed": "2026-10-27 16:05 UTC",
  "items": [
   {
+   "group": "Campaign infrastructure",
+   "id": "I.REPO",
+   "title": "Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint",
+   "difficulty": "L",
+   "done": 1.0,
+   "note": ""
+  },
+  {
+   "group": "Campaign infrastructure",
+   "id": "I.HQ",
+   "title": "Campaign HQ: this README, generator, 20-minute cron and post-commit hook",
+   "difficulty": "L",
+   "done": 0.8,
+   "note": ""
+  },
+  {
+   "group": "Campaign infrastructure",
+   "id": "I.GUARDS",
+   "title": "Freeze machinery: manifest, anchor guard, quarantine, kernel replay, mutation suite",
+   "difficulty": "M",
+   "done": 0.6,
+   "note": "anchor guard (Unicode-aware), ABI hashes, lint; manual mutation tests pass (3/3); kernel replay and mutation suite to do"
+  },
+  {
+   "group": "Campaign infrastructure",
+   "id": "I.BUILD",
+   "title": "Shared build snapshot for worktrees and machine-wide compile gate",
+   "difficulty": "L",
+   "done": 0.0,
+   "note": ""
+  },
+  {
    "group": "Statement and planning",
    "id": "S.SURVEY",
    "title": "Literature survey: candidate sources, prior formal work, Mathlib inventory",
