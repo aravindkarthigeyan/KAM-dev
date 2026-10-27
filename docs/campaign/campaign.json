@@ -1,5 +1,5 @@
 {
- "current_phase": "Track K Phase 1: blueprint complete (parts 0–4, ~5,250 lines; all reviewed or proved); consolidation pass running, then Part 1 review and dependency-graph extraction. Tracks I, N, P: statements audited, awaiting owner approval.",
+ "current_phase": "Statements frozen on all four tracks (94 anchors: K 25, I 19, N 14, P 36). Track K: blueprint complete, consolidation running, then dependency graph and the proof campaign (Sonnet provers, GPT-6.1-Sol auditors, D21). Tracks I, N, P: blueprints next.",
  "workers": [
   {
    "id": "orchestrator",
@@ -20,66 +20,12 @@
    "state": "active"
   },
   {
-   "id": "track-I",
-   "kind": "Phase 0 (Codex)",
-   "model": "GPT-6-Astra high",
-   "account": "codex-1",
-   "session": "kam-track-i",
-   "assignment": "Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running",
-   "state": "done"
-  },
-  {
-   "id": "track-N",
-   "kind": "Phase 0 (Codex)",
-   "model": "GPT-6-Astra high",
-   "account": "codex-3",
-   "session": "kam-track-n",
-   "assignment": "Track N v0.2: N-HEAD kept (F-N1 open) plus N-HEAD-C with complex Hessian bound and frequency lower bound (Poschel 1993 Thm 1)",
-   "state": "done"
-  },
-  {
-   "id": "track-P",
-   "kind": "Phase 0 (Codex)",
-   "model": "GPT-6-Astra high",
-   "account": "codex-4",
-   "session": "kam-track-p",
-   "assignment": "Track P v0.2: all nine audit findings adopted (disc cylinder, diffeomorphism on W ⊇ closure V, boundary-layer guard)",
-   "state": "done"
-  },
-  {
    "id": "zohar-shorter-times",
    "kind": "exploration (Codex)",
    "model": "GPT-6-Astra xhigh",
    "account": "codex-1",
    "session": "kam-zohar2",
    "assignment": "Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md",
-   "state": "done"
-  },
-  {
-   "id": "audit-N",
-   "kind": "statement audit (Codex)",
-   "model": "GPT-6-Astra xhigh",
-   "account": "codex-3",
-   "session": "kam-audit-n",
-   "assignment": "Track N delta audit v0.2: N-HEAD-C approvable; N-HEAD faithful with source gap F-N1 open",
-   "state": "done"
-  },
-  {
-   "id": "audit-P",
-   "kind": "statement audit (Codex)",
-   "model": "GPT-6-Astra xhigh",
-   "account": "codex-4",
-   "session": "kam-audit-p",
-   "assignment": "Track P delta audit v0.2: all statements APPROVABLE; P-G true as corrected",
-   "state": "done"
-  },
-  {
-   "id": "audit-I",
-   "kind": "statement audit (Codex)",
-   "model": "GPT-6-Astra xhigh",
-   "account": "codex-1",
-   "session": "kam-audit-i",
-   "assignment": "Track I audit v0.1: all 4 theorems and 15 definitions APPROVABLE; minor fixes applied (author header, three source locators)",
    "state": "done"
   },
   {
@@ -93,9 +39,6 @@
   }
  ],
  "queued": [
-  {
-   "title": "Owner approval: track I (claude.ai/artifact/5B9odMattAPViUVYUgNPDK), track P (claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1), track N (claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H)"
-  },
   {
    "title": "Dependency graph extraction for track K"
   }

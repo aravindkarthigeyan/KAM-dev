@@ -152,10 +152,10 @@ Four parallel tracks (decision D14; details in [`docs/TRACKS.md`](docs/TRACKS.md
 
 | Track | Headline | Stage |
 |---|---|---|
-| **K** | Positive-measure KAM for nearly-integrable analytic Hamiltonians, complement ≤ C·ε^{1/4} | statements frozen; blueprint being written |
-| **I** | All-time confinement in two degrees of freedom (isoenergetic KAM); restricted circular planar three-body problem | Phase 0: statements audited ([docs/tracks/I](docs/tracks/I)); awaiting owner approval |
+| **K** | Positive-measure KAM for nearly-integrable analytic Hamiltonians, complement ≤ C·ε^{1/4} | statements frozen; blueprint complete, being consolidated; dependency graph next |
+| **I** | All-time confinement in two degrees of freedom (isoenergetic KAM); restricted circular planar three-body problem | statements frozen (D20; [KAM/Frozen/Iso](KAM/Frozen/Iso)); blueprint next |
 | **N** | Nekhoroshev stability for quasi-convex Hamiltonians, exponents 1/(2n) | Phase 0: statement draft 0.1 ([docs/tracks/N](docs/tracks/N)); audit running |
-| **P** | Properly degenerate KAM; planar two-planet problem; n planets around a fixed Sun; spatial n-body later | Phase 0: statements audited ([docs/tracks/P](docs/tracks/P)); awaiting owner approval |
+| **P** | Properly degenerate KAM; planar two-planet problem; n planets around a fixed Sun; spatial n-body later | statements frozen (D20; [KAM/Frozen/Planetary](KAM/Frozen/Planetary)); blueprint next |
 
 The phase table below is track K's.
 
@@ -318,6 +318,8 @@ Full text: [`docs/DECISIONS.md`](docs/DECISIONS.md).
 - **D11** Statements approved and frozen: 5 theorem anchors and 20 definitions. *(Scott, 2026-10-27)*
 - **D14** Parallel tracks K, I, N, P: formalize the planetary programme too. *(Scott, 2026-10-27)*
 - **D15** Authors: Scott Armstrong and Zohar Komargodski. *(Scott)*
+- **D20** Tracks I, N (with N-HEAD-C) and P approved and frozen; 94 anchors in all. *(Scott)*
+- **D21** Proof campaign: Sonnet provers, GPT-6.1-Sol auditors (tmux, yolo, default tier), optional second Opus sub-orchestrator. *(Scott)*
 - **D8** Route verdict: rate ε^{1/4}; local uniqueness for flows is proved by us; Lipschitz dependence by
   re-application (CCdlL13); measure step by McShane extension (Pos01). *(orchestrator, 2026-10-27; revisable)*
 

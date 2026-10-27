@@ -1068,6 +1068,2897 @@
     "frozen_paths": [],
     "audit_paths": []
    }
+  },
+  {
+   "id": "iso.extendedTorsion.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.extendedTorsion",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/ExtendedTorsion.lean",
+   "export": "KAM.Iso.extendedTorsion",
+   "split_policy": {
+    "source_group": "iso.extendedTorsion",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "7185973f29ba6605872d911458233c3707ce9d85123ecc48508c16e4afb8de64",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "90b345553446147021b49d644f0c57c99925edad3476340e288212134b848bb7"
+  },
+  {
+   "id": "iso.extendedTorsionAverage.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.extendedTorsionAverage",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/ExtendedTorsionAverage.lean",
+   "export": "KAM.Iso.extendedTorsionAverage",
+   "split_policy": {
+    "source_group": "iso.extendedTorsionAverage",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "2ab0d434c6e68a7a98eec3a8c9ecddf7e8b428cb3cadaecfe075e6afcc30078d",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/ExtendedTorsion.lean",
+     "sha256": "90b345553446147021b49d644f0c57c99925edad3476340e288212134b848bb7"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "b1712eca6d09e422f4635655d9aa3111c1e026e21ef27b8c9030aba638a3c9ea"
+  },
+  {
+   "id": "iso.energyAverage.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.energyAverage",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/EnergyAverage.lean",
+   "export": "KAM.Iso.energyAverage",
+   "split_policy": {
+    "source_group": "iso.energyAverage",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "6ad218934c652835e712bbac7ccb96b5642ef3577ffde62883cc9c83969c7e62",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "9382dfcc1c81985983173109d5bab6c85184db33499639d0363cc6849881e64d"
+  },
+  {
+   "id": "iso.borderedHessian.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.borderedHessian",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/BorderedHessian.lean",
+   "export": "KAM.Iso.borderedHessian",
+   "split_policy": {
+    "source_group": "iso.borderedHessian",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "857bbb9d614fa8aac46b82c7c926cf5f06d676767abfe86d044ec5c6f3c26505",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "f8586cf89abbb9b66a24a34d15b7cb40d3914a6b6d6c8ae922baa98a1629f94f"
+  },
+  {
+   "id": "iso.IsHamiltonianSolutionOn.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.IsHamiltonianSolutionOn",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/IsHamiltonianSolutionOn.lean",
+   "export": "KAM.Iso.IsHamiltonianSolutionOn",
+   "split_policy": {
+    "source_group": "iso.IsHamiltonianSolutionOn",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "b20065362bfe0068a5eb3cfdf98a886d7ffd591bdef0464cebfbe3e171d56beb",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "79a01d5aa5b1be4c564176da35d6a69994dbaa9f5976466c7dbcb5bf8c21b7ac"
+  },
+  {
+   "id": "iso.radiusSq.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.radiusSq",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/RadiusSq.lean",
+   "export": "KAM.Iso.radiusSq",
+   "split_policy": {
+    "source_group": "iso.radiusSq",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "5311b4ff1819b9d4cf9fe59159a329131dfd4eb74ea2a6c766c1bdfe565db9f9",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "720aaf63179766a6d5412435d8e85bbe448e03c455eca7ed9d51b1333266199c"
+  },
+  {
+   "id": "iso.radius.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.radius",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/Radius.lean",
+   "export": "KAM.Iso.radius",
+   "split_policy": {
+    "source_group": "iso.radius",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "dd2efadd1fe6f1ec3222a177bb283bbe5f17c657bdbf78d4d1cceaa8c5d7c3d1",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/RadiusSq.lean",
+     "sha256": "720aaf63179766a6d5412435d8e85bbe448e03c455eca7ed9d51b1333266199c"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "6f8def66cc6f8a44e74e207f75f87d38d88ef64211bbffd3ef61a69de4b292c8"
+  },
+  {
+   "id": "iso.primary₁.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.primary₁",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/Primary1.lean",
+   "export": "KAM.Iso.primary₁",
+   "split_policy": {
+    "source_group": "iso.primary₁",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "ec076b67ffb8c1136b924761bb31caffa4832b565b5916e98e835b8d9b1b10b1",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "2fd0ad3b68333c6fcf167b9d467cf1f4fc4270c4e445d5850014a00971e265c1"
+  },
+  {
+   "id": "iso.primary₂.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.primary₂",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/Primary2.lean",
+   "export": "KAM.Iso.primary₂",
+   "split_policy": {
+    "source_group": "iso.primary₂",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "ec66ea6ca9c04594189612b9f1dd30eb5c3291cf557af7e90456eba543870c35",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "76aea4b877411f68fd0435717c5d7b1a00728aec3a43a891516a417680109e77"
+  },
+  {
+   "id": "iso.CollisionFree.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.CollisionFree",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/CollisionFree.lean",
+   "export": "KAM.Iso.CollisionFree",
+   "split_policy": {
+    "source_group": "iso.CollisionFree",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "061864862ec1f1c151c4b7bed8e0df1036987b15191542347bfe50a94263ad10",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary1.lean",
+     "sha256": "2fd0ad3b68333c6fcf167b9d467cf1f4fc4270c4e445d5850014a00971e265c1"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary2.lean",
+     "sha256": "76aea4b877411f68fd0435717c5d7b1a00728aec3a43a891516a417680109e77"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Radius.lean",
+     "sha256": "6f8def66cc6f8a44e74e207f75f87d38d88ef64211bbffd3ef61a69de4b292c8"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/RadiusSq.lean",
+     "sha256": "720aaf63179766a6d5412435d8e85bbe448e03c455eca7ed9d51b1333266199c"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "706b8ed51944186ce2d0fcae019491c85c0c06c3f2f993f39b647b72c7bd9d8d"
+  },
+  {
+   "id": "iso.restrictedHamiltonian.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.restrictedHamiltonian",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/RestrictedHamiltonian.lean",
+   "export": "KAM.Iso.restrictedHamiltonian",
+   "split_policy": {
+    "source_group": "iso.restrictedHamiltonian",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "cb461337f8575c139de5daa594ad98c79c78610a0b84977605a40e168c2365c3",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/CollisionFree.lean",
+     "sha256": "706b8ed51944186ce2d0fcae019491c85c0c06c3f2f993f39b647b72c7bd9d8d"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary1.lean",
+     "sha256": "2fd0ad3b68333c6fcf167b9d467cf1f4fc4270c4e445d5850014a00971e265c1"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary2.lean",
+     "sha256": "76aea4b877411f68fd0435717c5d7b1a00728aec3a43a891516a417680109e77"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Radius.lean",
+     "sha256": "6f8def66cc6f8a44e74e207f75f87d38d88ef64211bbffd3ef61a69de4b292c8"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/RadiusSq.lean",
+     "sha256": "720aaf63179766a6d5412435d8e85bbe448e03c455eca7ed9d51b1333266199c"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "5eb60a6bd1b061a87eb21e45ebc2f58f864867fdf27247a8f978b2101018216a"
+  },
+  {
+   "id": "iso.restrictedVectorField.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.restrictedVectorField",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/RestrictedVectorField.lean",
+   "export": "KAM.Iso.restrictedVectorField",
+   "split_policy": {
+    "source_group": "iso.restrictedVectorField",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "7f23620e590d0b874e5e94198c0e04331fa179347cb63925313f28703115520a",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/CollisionFree.lean",
+     "sha256": "706b8ed51944186ce2d0fcae019491c85c0c06c3f2f993f39b647b72c7bd9d8d"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary1.lean",
+     "sha256": "2fd0ad3b68333c6fcf167b9d467cf1f4fc4270c4e445d5850014a00971e265c1"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary2.lean",
+     "sha256": "76aea4b877411f68fd0435717c5d7b1a00728aec3a43a891516a417680109e77"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Radius.lean",
+     "sha256": "6f8def66cc6f8a44e74e207f75f87d38d88ef64211bbffd3ef61a69de4b292c8"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/RadiusSq.lean",
+     "sha256": "720aaf63179766a6d5412435d8e85bbe448e03c455eca7ed9d51b1333266199c"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "6ab545aa53ef821738fca803ef3661ba3b6b53192c9600a4c94b344f88220eac"
+  },
+  {
+   "id": "iso.IsRestrictedSolutionOn.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.IsRestrictedSolutionOn",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/IsRestrictedSolutionOn.lean",
+   "export": "KAM.Iso.IsRestrictedSolutionOn",
+   "split_policy": {
+    "source_group": "iso.IsRestrictedSolutionOn",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "f8e83a3360d7b983683d6d48e29e232ef15fc8c7a9546eede0512d09d6a00059",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/CollisionFree.lean",
+     "sha256": "706b8ed51944186ce2d0fcae019491c85c0c06c3f2f993f39b647b72c7bd9d8d"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary1.lean",
+     "sha256": "2fd0ad3b68333c6fcf167b9d467cf1f4fc4270c4e445d5850014a00971e265c1"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary2.lean",
+     "sha256": "76aea4b877411f68fd0435717c5d7b1a00728aec3a43a891516a417680109e77"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Radius.lean",
+     "sha256": "6f8def66cc6f8a44e74e207f75f87d38d88ef64211bbffd3ef61a69de4b292c8"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/RadiusSq.lean",
+     "sha256": "720aaf63179766a6d5412435d8e85bbe448e03c455eca7ed9d51b1333266199c"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/RestrictedVectorField.lean",
+     "sha256": "6ab545aa53ef821738fca803ef3661ba3b6b53192c9600a4c94b344f88220eac"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "5cdc0561b4465794ba1b202ed511326639c950bb7dfe7c305aa162e286e7b8d3"
+  },
+  {
+   "id": "iso.NearCircular.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.NearCircular",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/NearCircular.lean",
+   "export": "KAM.Iso.NearCircular",
+   "split_policy": {
+    "source_group": "iso.NearCircular",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "b0f2955780d0e1cf7caad9b8f32c05654d72320869a2c0156f3311fbfea5dbf1",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/RadiusSq.lean",
+     "sha256": "720aaf63179766a6d5412435d8e85bbe448e03c455eca7ed9d51b1333266199c"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "5cbe77acca5d297d135c5e9457c4753bf35a333e5bea445a34a258c801c0d6b8"
+  },
+  {
+   "id": "iso.keplerBorder.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "docs/tracks/I/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "iso.keplerBorder",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Defs/KeplerBorder.lean",
+   "export": "KAM.Iso.keplerBorder",
+   "split_policy": {
+    "source_group": "iso.keplerBorder",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "36e9baac00666553c4182571874d115c3f812a3679f898e30ae5679d367d4984",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "7a032e7f554bb9bf953c562484ae384c1c8f2b1c05ab339659f4d83f5957c960"
+  },
+  {
+   "id": "iso.isoenergetic_kam.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "HL19 Theorem 3.6 and Remark 3.7, pp. 18–19 (statement.md §I-G1)"
+   },
+   "contract": {
+    "id": "iso.isoenergetic_kam",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean",
+   "export": "KAM.Iso.isoenergetic_kam",
+   "split_policy": {
+    "source_group": "iso.isoenergetic_kam",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "165645ea4aeb3d278f29d2336981a4bc924803cea8eaee49efbfca9874203b16",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/EnergyAverage.lean",
+     "sha256": "9382dfcc1c81985983173109d5bab6c85184db33499639d0363cc6849881e64d"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/ExtendedTorsion.lean",
+     "sha256": "90b345553446147021b49d644f0c57c99925edad3476340e288212134b848bb7"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/ExtendedTorsionAverage.lean",
+     "sha256": "b1712eca6d09e422f4635655d9aa3111c1e026e21ef27b8c9030aba638a3c9ea"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Iso.IsoenergeticKam",
+    "export": "KAM.Provider.Iso.isoenergetic_kam"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "6384a55879e1e8e6d4e6bda3b3b52886c76dc7e8b31036a287e6276ca59b817d",
+   "suffix_sha256": "58564e44d45d3a56e328417645fb48a301bc876fbe465448299d676f30e18145",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "iso.all_time_confinement.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "statement.md §I-HEAD (our deduction: KAM tori separate the energy surface)"
+   },
+   "contract": {
+    "id": "iso.all_time_confinement",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean",
+   "export": "KAM.Iso.all_time_confinement",
+   "split_policy": {
+    "source_group": "iso.all_time_confinement",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "17ef8e0e953bbc3d0818b1ae5ddea79f637b1acfe7b9adf06e9fee74cad6907d",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/BorderedHessian.lean",
+     "sha256": "f8586cf89abbb9b66a24a34d15b7cb40d3914a6b6d6c8ae922baa98a1629f94f"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/IsHamiltonianSolutionOn.lean",
+     "sha256": "79a01d5aa5b1be4c564176da35d6a69994dbaa9f5976466c7dbcb5bf8c21b7ac"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Iso.AllTimeConfinement",
+    "export": "KAM.Provider.Iso.all_time_confinement"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "f4b1185146a954f0ac22512ac80d0dcc318890e14c7fa54f0aaf7a054a489093",
+   "suffix_sha256": "58564e44d45d3a56e328417645fb48a301bc876fbe465448299d676f30e18145",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "iso.kepler_bordered_det.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "statement.md §I-KEPLER (direct calculation)"
+   },
+   "contract": {
+    "id": "iso.kepler_bordered_det",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean",
+   "export": "KAM.Iso.kepler_bordered_det",
+   "split_policy": {
+    "source_group": "iso.kepler_bordered_det",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "3c46c0a138ba6567ea3d7a46bfdd0da666047c423b6222bda82f9cb864193cc8",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/KeplerBorder.lean",
+     "sha256": "7a032e7f554bb9bf953c562484ae384c1c8f2b1c05ab339659f4d83f5957c960"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Iso.KeplerBorderedDet",
+    "export": "KAM.Provider.Iso.kepler_bordered_det"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "1323ecbb5092452672e2fc2b599108ee755f7b5c8285b037729918f7c9f43031",
+   "suffix_sha256": "58564e44d45d3a56e328417645fb48a301bc876fbe465448299d676f30e18145",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "iso.restricted_near_circular.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track I' to the review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/I/statement.md (draft v0.1, D19) with HL19 arXiv:1711.05515v1",
+    "range": "statement.md §I-R3BP (Arnold 1963; Chierchia 2005 (3.37); our deduction)"
+   },
+   "contract": {
+    "id": "iso.restricted_near_circular",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean",
+   "export": "KAM.Iso.restricted_near_circular",
+   "split_policy": {
+    "source_group": "iso.restricted_near_circular",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "51ef78464ec9887a4af758841d92ff8ebd3a8b16d5455a50490c8df10bf6cc2e",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Iso/Defs/CollisionFree.lean",
+     "sha256": "706b8ed51944186ce2d0fcae019491c85c0c06c3f2f993f39b647b72c7bd9d8d"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/IsRestrictedSolutionOn.lean",
+     "sha256": "5cdc0561b4465794ba1b202ed511326639c950bb7dfe7c305aa162e286e7b8d3"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/NearCircular.lean",
+     "sha256": "5cbe77acca5d297d135c5e9457c4753bf35a333e5bea445a34a258c801c0d6b8"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary1.lean",
+     "sha256": "2fd0ad3b68333c6fcf167b9d467cf1f4fc4270c4e445d5850014a00971e265c1"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Primary2.lean",
+     "sha256": "76aea4b877411f68fd0435717c5d7b1a00728aec3a43a891516a417680109e77"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/Radius.lean",
+     "sha256": "6f8def66cc6f8a44e74e207f75f87d38d88ef64211bbffd3ef61a69de4b292c8"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/RadiusSq.lean",
+     "sha256": "720aaf63179766a6d5412435d8e85bbe448e03c455eca7ed9d51b1333266199c"
+    },
+    {
+     "path": "KAM/Frozen/Iso/Defs/RestrictedVectorField.lean",
+     "sha256": "6ab545aa53ef821738fca803ef3661ba3b6b53192c9600a4c94b344f88220eac"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Iso.RestrictedNearCircular",
+    "export": "KAM.Provider.Iso.restricted_near_circular"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "3b42e427b5608dece96852cc29bb1b3d2400acde7c6110bb08674fb21088b4c5",
+   "suffix_sha256": "58564e44d45d3a56e328417645fb48a301bc876fbe465448299d676f30e18145",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "nekhoroshev.actionBall.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.actionBall",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+   "export": "KAM.Nekhoroshev.actionBall",
+   "split_policy": {
+    "source_group": "nekhoroshev.actionBall",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "16237abbe0ec8f04d3d825c58c3031351b30e576407f05f897e58a1f07e4db7d",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+  },
+  {
+   "id": "nekhoroshev.realActionDomain.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.realActionDomain",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean",
+   "export": "KAM.Nekhoroshev.realActionDomain",
+   "split_policy": {
+    "source_group": "nekhoroshev.realActionDomain",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "2116729de4cde3f9801c8f12e3e93df12a1a87d115776b30419f083b004ea60f",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "858dba45a125697b4e91206cbc80064c55923f7d129466770e0636eccbcebcb5"
+  },
+  {
+   "id": "nekhoroshev.complexDomain.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.complexDomain",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/ComplexDomain.lean",
+   "export": "KAM.Nekhoroshev.complexDomain",
+   "split_policy": {
+    "source_group": "nekhoroshev.complexDomain",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "2d6523825e53ad0ef3fe09d18cce966074fd80bb6416bfe28450af7a251227e2",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "68468aed44112d7d629986cc84eec531fc1ba1ae0b6a294acaa70c1777603cf8"
+  },
+  {
+   "id": "nekhoroshev.realPart.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.realPart",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+   "export": "KAM.Nekhoroshev.realPart",
+   "split_policy": {
+    "source_group": "nekhoroshev.realPart",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "9afe9bdc91867dcdad0499d6a762bf9e9335e235245fac9a9e62d0383c31f0d3",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+  },
+  {
+   "id": "nekhoroshev.IsAnalyticIntegrable.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.IsAnalyticIntegrable",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticIntegrable.lean",
+   "export": "KAM.Nekhoroshev.IsAnalyticIntegrable",
+   "split_policy": {
+    "source_group": "nekhoroshev.IsAnalyticIntegrable",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "e55e6e109ac5ccf631158ade80456c54e4ac46235ab21af64092f79b2625e437",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean",
+     "sha256": "858dba45a125697b4e91206cbc80064c55923f7d129466770e0636eccbcebcb5"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "3ffb3341ecdc4b29627300246a9b1c5f01cec0abb931a128f9919f27fbd6bad7"
+  },
+  {
+   "id": "nekhoroshev.IsStrictlyQuasiConvex.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.IsStrictlyQuasiConvex",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/IsStrictlyQuasiConvex.lean",
+   "export": "KAM.Nekhoroshev.IsStrictlyQuasiConvex",
+   "split_policy": {
+    "source_group": "nekhoroshev.IsStrictlyQuasiConvex",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "0eecfbf6aa71f29c1dd00b30b174f4743e15844ae5b2a89549da44ad0fbab3c2",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "c26d3ca9660dcc5d35eeffd26ac391b7ac9f87917e5e8befaaef9e92fe5ab5df"
+  },
+  {
+   "id": "nekhoroshev.HasDerivativeBounds.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.HasDerivativeBounds",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/HasDerivativeBounds.lean",
+   "export": "KAM.Nekhoroshev.HasDerivativeBounds",
+   "split_policy": {
+    "source_group": "nekhoroshev.HasDerivativeBounds",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "70f1d102dd39f11e238237942b3cc6d33fbaf967c0db47d0171763f4d7589ee6",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "da53bc81b53fc409a13f6efe6dffd4adb50d4a09c6f663fc283896d0868afc87"
+  },
+  {
+   "id": "nekhoroshev.IsAnalyticPerturbation.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.IsAnalyticPerturbation",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticPerturbation.lean",
+   "export": "KAM.Nekhoroshev.IsAnalyticPerturbation",
+   "split_policy": {
+    "source_group": "nekhoroshev.IsAnalyticPerturbation",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "46a4e6d7674e6079e6e46ab247bd6bff898255962e85dbcf2b716dce8b8d23b1",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ComplexDomain.lean",
+     "sha256": "68468aed44112d7d629986cc84eec531fc1ba1ae0b6a294acaa70c1777603cf8"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean",
+     "sha256": "858dba45a125697b4e91206cbc80064c55923f7d129466770e0636eccbcebcb5"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "253dce379acf8e27cb809da4f33a82a47d3f508b31218e76330e8530f7e521d0"
+  },
+  {
+   "id": "nekhoroshev.IsSolutionOn.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.IsSolutionOn",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/IsSolutionOn.lean",
+   "export": "KAM.Nekhoroshev.IsSolutionOn",
+   "split_policy": {
+    "source_group": "nekhoroshev.IsSolutionOn",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "83307c5a783005dd77d4d859f794ae9722467d6560eb097d27cb95f23b551b59",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "ae6742b3cc3b97ed7f206e79dcb2b2f8ab7d7ab91552be61fd932a3b20bec129"
+  },
+  {
+   "id": "nekhoroshev.integrableOrbit.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.integrableOrbit",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/IntegrableOrbit.lean",
+   "export": "KAM.Nekhoroshev.integrableOrbit",
+   "split_policy": {
+    "source_group": "nekhoroshev.integrableOrbit",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "a0e2e089b0e9f0e05277a2c3481b8063ee4d0d17bd2dcaa9dddd4b60daf4ae68",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "713ef4f9a008415621d3ba53c738561c6c65ffb9a8d9e980f900e3f1432851f8"
+  },
+  {
+   "id": "nekhoroshev.HasComplexHessianBound.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "docs/tracks/N/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "nekhoroshev.HasComplexHessianBound",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/HasComplexHessianBound.lean",
+   "export": "KAM.Nekhoroshev.HasComplexHessianBound",
+   "split_policy": {
+    "source_group": "nekhoroshev.HasComplexHessianBound",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "e9de4bdac0664d3fa85ef2d0ec7b83841e46203d10145154c4cb7eeab0022bee",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "14ea3a474b0bb0f64c4bb6edf711b780c712c85c4fb5c2ee1b2798dd91f01a87"
+  },
+  {
+   "id": "nekhoroshev.quasiConvex_isoenergetic_derivative.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "BM11 Lemma 3.3, pp. 9–10 (statement.md §N-QC)"
+   },
+   "contract": {
+    "id": "nekhoroshev.quasiConvex_isoenergetic_derivative",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexIsoenergeticDerivative.lean",
+   "export": "KAM.Nekhoroshev.quasiConvex_isoenergetic_derivative",
+   "split_policy": {
+    "source_group": "nekhoroshev.quasiConvex_isoenergetic_derivative",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "89dc295a0bcb7229fb9769fbbea5db19485226123ece025096253a82835f0534",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsStrictlyQuasiConvex.lean",
+     "sha256": "c26d3ca9660dcc5d35eeffd26ac391b7ac9f87917e5e8befaaef9e92fe5ab5df"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative",
+    "export": "KAM.Provider.Nekhoroshev.quasiConvex_isoenergetic_derivative"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "c09e4645fa481a76a7fb8dcb78605a62764b31edc702259f248df4555601fa67",
+   "suffix_sha256": "1efcbce496c3a865046e94018aa1cc8bdafb0b9454c6939e2353d83cc98b6da8",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "nekhoroshev.zero_perturbation.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "statement.md §N-ZERO (our supplement; BM11 p. 1)"
+   },
+   "contract": {
+    "id": "nekhoroshev.zero_perturbation",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Theorems/ZeroPerturbation.lean",
+   "export": "KAM.Nekhoroshev.zero_perturbation",
+   "split_policy": {
+    "source_group": "nekhoroshev.zero_perturbation",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "882b36b751430682e0b8147660bb5190a3e2b297ab75e58cfc0a91bed63637e5",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ComplexDomain.lean",
+     "sha256": "68468aed44112d7d629986cc84eec531fc1ba1ae0b6a294acaa70c1777603cf8"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IntegrableOrbit.lean",
+     "sha256": "713ef4f9a008415621d3ba53c738561c6c65ffb9a8d9e980f900e3f1432851f8"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticIntegrable.lean",
+     "sha256": "3ffb3341ecdc4b29627300246a9b1c5f01cec0abb931a128f9919f27fbd6bad7"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticPerturbation.lean",
+     "sha256": "253dce379acf8e27cb809da4f33a82a47d3f508b31218e76330e8530f7e521d0"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsSolutionOn.lean",
+     "sha256": "ae6742b3cc3b97ed7f206e79dcb2b2f8ab7d7ab91552be61fd932a3b20bec129"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean",
+     "sha256": "858dba45a125697b4e91206cbc80064c55923f7d129466770e0636eccbcebcb5"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Nekhoroshev.ZeroPerturbation",
+    "export": "KAM.Provider.Nekhoroshev.zero_perturbation"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "7d687fe46db8fe83e8c8c89f5d7a1c4cd1f07d9db9c087efd4aef7b4c9c1bcd0",
+   "suffix_sha256": "1efcbce496c3a865046e94018aa1cc8bdafb0b9454c6939e2353d83cc98b6da8",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "nekhoroshev.quasiConvex_nekhoroshev_complexBound.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track N with N-HEAD-C' to the review page claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H; docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/N/statement.md (draft v0.2, D17, D18) with BM11 arXiv:1004.1014v2 and Pöschel 1993",
+    "range": "Pöschel 1993 Theorem 1, pp. 190–191, via BM11 Theorem 2.1, p. 5 (statement.md §N-HEAD-C)"
+   },
+   "contract": {
+    "id": "nekhoroshev.quasiConvex_nekhoroshev_complexBound",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean",
+   "export": "KAM.Nekhoroshev.quasiConvex_nekhoroshev_complexBound",
+   "split_policy": {
+    "source_group": "nekhoroshev.quasiConvex_nekhoroshev_complexBound",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "84213dab8a417152e6978dcf693b1a826e7d5f1ee5e626c03a99581c6c439091",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ComplexDomain.lean",
+     "sha256": "68468aed44112d7d629986cc84eec531fc1ba1ae0b6a294acaa70c1777603cf8"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/HasComplexHessianBound.lean",
+     "sha256": "14ea3a474b0bb0f64c4bb6edf711b780c712c85c4fb5c2ee1b2798dd91f01a87"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/HasDerivativeBounds.lean",
+     "sha256": "da53bc81b53fc409a13f6efe6dffd4adb50d4a09c6f663fc283896d0868afc87"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticIntegrable.lean",
+     "sha256": "3ffb3341ecdc4b29627300246a9b1c5f01cec0abb931a128f9919f27fbd6bad7"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticPerturbation.lean",
+     "sha256": "253dce379acf8e27cb809da4f33a82a47d3f508b31218e76330e8530f7e521d0"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsSolutionOn.lean",
+     "sha256": "ae6742b3cc3b97ed7f206e79dcb2b2f8ab7d7ab91552be61fd932a3b20bec129"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsStrictlyQuasiConvex.lean",
+     "sha256": "c26d3ca9660dcc5d35eeffd26ac391b7ac9f87917e5e8befaaef9e92fe5ab5df"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean",
+     "sha256": "858dba45a125697b4e91206cbc80064c55923f7d129466770e0636eccbcebcb5"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Nekhoroshev.QuasiConvexNekhoroshevComplexBound",
+    "export": "KAM.Provider.Nekhoroshev.quasiConvex_nekhoroshev_complexBound"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "c1ff5891ac98e56c72636b9d552cd7e28faa75db411c9fcb3715197606f9dc70",
+   "suffix_sha256": "1efcbce496c3a865046e94018aa1cc8bdafb0b9454c6939e2353d83cc98b6da8",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "planetary.Phase.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.Phase",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+   "export": "KAM.Planetary.Phase",
+   "split_policy": {
+    "source_group": "planetary.Phase",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "0b8db62a1a83c34b9c3562bd1bb6043b1db7174c9222df403355844422056af8",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+  },
+  {
+   "id": "planetary.fast.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.fast",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/Fast.lean",
+   "export": "KAM.Planetary.fast",
+   "split_policy": {
+    "source_group": "planetary.fast",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "592a25e5b4ec439e42bd78bc02e0dfd989b1d261387db6319bca10c6d17c1067",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "ae0fbd48f355c86b05676ad477986320a3310b7b9e25ffadb0312667020dccec"
+  },
+  {
+   "id": "planetary.slow.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.slow",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/Slow.lean",
+   "export": "KAM.Planetary.slow",
+   "split_policy": {
+    "source_group": "planetary.slow",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "ae34da51fbaf5eb81f8a1436fe5e53cd0413d280bf280221ca79639b92661332",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "66799ce70ae917a7ce7f37c15be7eb7267bcddbeed05ea0a341567107194e78a"
+  },
+  {
+   "id": "planetary.assemble.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.assemble",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/Assemble.lean",
+   "export": "KAM.Planetary.assemble",
+   "split_policy": {
+    "source_group": "planetary.assemble",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "e68095f14a537fe2d147c6127a51ac3755b9a5d71ebbacbb2f316d3aaafdbd80",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "5fb91fae233faaacc05768cc1385404cad353c72c9a4bd3cef913af635a23c58"
+  },
+  {
+   "id": "planetary.cylinder.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.cylinder",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/Cylinder.lean",
+   "export": "KAM.Planetary.cylinder",
+   "split_policy": {
+    "source_group": "planetary.cylinder",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "2b886daef9e82b3f00e219775145a57d7bb5062e9297e931e6776018bcc25090",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Fast.lean",
+     "sha256": "ae0fbd48f355c86b05676ad477986320a3310b7b9e25ffadb0312667020dccec"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Slow.lean",
+     "sha256": "66799ce70ae917a7ce7f37c15be7eb7267bcddbeed05ea0a341567107194e78a"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "60dc715ee48c44885670753d12f4aaf9ef6f339fc52994858bcbbcf87b65ed0f"
+  },
+  {
+   "id": "planetary.cylinderCell.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.cylinderCell",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/CylinderCell.lean",
+   "export": "KAM.Planetary.cylinderCell",
+   "split_policy": {
+    "source_group": "planetary.cylinderCell",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "cf3b19044d5505dc3df6123c3e3a050db55f59c5174c2aaab9d0118e3ad4fc32",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Cylinder.lean",
+     "sha256": "60dc715ee48c44885670753d12f4aaf9ef6f339fc52994858bcbbcf87b65ed0f"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Fast.lean",
+     "sha256": "ae0fbd48f355c86b05676ad477986320a3310b7b9e25ffadb0312667020dccec"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Slow.lean",
+     "sha256": "66799ce70ae917a7ce7f37c15be7eb7267bcddbeed05ea0a341567107194e78a"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "b0e2ed27ab9b6e0a924c53c68f8d8f1f8a317513ea65bc78afaaa52cea6fbb58"
+  },
+  {
+   "id": "planetary.secularAverage.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.secularAverage",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/SecularAverage.lean",
+   "export": "KAM.Planetary.secularAverage",
+   "split_policy": {
+    "source_group": "planetary.secularAverage",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "a08f4d400b04c055d8ab2b4fd85c1f584be0216f0c80fa9dd84b78a88e36171c",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Assemble.lean",
+     "sha256": "5fb91fae233faaacc05768cc1385404cad353c72c9a4bd3cef913af635a23c58"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "a3253e903b9633874d317d9a791467ee31e49724baa9b64e57f3c96d562bc7d6"
+  },
+  {
+   "id": "planetary.oscillatorAction.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.oscillatorAction",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/OscillatorAction.lean",
+   "export": "KAM.Planetary.oscillatorAction",
+   "split_policy": {
+    "source_group": "planetary.oscillatorAction",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "b37f7928355c64fc3555d65704a95ecdb67fe55bdd7bb2471ac609553f2a962a",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "ad724cd5e19a4d4d420c5e30fbcd9f656107affaefa62e9e76c82fa66a4447c5"
+  },
+  {
+   "id": "planetary.HasSecularBirkhoffForm.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.HasSecularBirkhoffForm",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/HasSecularBirkhoffForm.lean",
+   "export": "KAM.Planetary.HasSecularBirkhoffForm",
+   "split_policy": {
+    "source_group": "planetary.HasSecularBirkhoffForm",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "23c3c24aeeabeff49e172e319b46b6a0794586af9def232fcfe9b3c981542d5d",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Assemble.lean",
+     "sha256": "5fb91fae233faaacc05768cc1385404cad353c72c9a4bd3cef913af635a23c58"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/OscillatorAction.lean",
+     "sha256": "ad724cd5e19a4d4d420c5e30fbcd9f656107affaefa62e9e76c82fa66a4447c5"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/SecularAverage.lean",
+     "sha256": "a3253e903b9633874d317d9a791467ee31e49724baa9b64e57f3c96d562bc7d6"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "600b7e17bdb3acdd5af656c6c0bb8e23c63428db51e8fcaa987c5aa199a43e5c"
+  },
+  {
+   "id": "planetary.fastFrequency.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.fastFrequency",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/FastFrequency.lean",
+   "export": "KAM.Planetary.fastFrequency",
+   "split_policy": {
+    "source_group": "planetary.fastFrequency",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "d0081126e210d1039ca9367456c22dba50e4760d8c9196e28ca66bc83aa11494",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "dc5ec92ec3cd334dec351d7a8f3c0a112689cc653ae1fbedc37230c5af05f4fc"
+  },
+  {
+   "id": "planetary.HasFastDiffeomorphism.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.HasFastDiffeomorphism",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/HasFastDiffeomorphism.lean",
+   "export": "KAM.Planetary.HasFastDiffeomorphism",
+   "split_policy": {
+    "source_group": "planetary.HasFastDiffeomorphism",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "91718a20f82c0046ed31c76db7aeaf5bc53257ab286e32d58ae1b57f548333c0",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/FastFrequency.lean",
+     "sha256": "dc5ec92ec3cd334dec351d7a8f3c0a112689cc653ae1fbedc37230c5af05f4fc"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "3ab358cc07ee0d4edf053ffc14f7e07d1cb4192478808576b78066773300bd43"
+  },
+  {
+   "id": "planetary.degenerateHamiltonian.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.degenerateHamiltonian",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/DegenerateHamiltonian.lean",
+   "export": "KAM.Planetary.degenerateHamiltonian",
+   "split_policy": {
+    "source_group": "planetary.degenerateHamiltonian",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "331c8377743700e4a9163dbc7e9b05d210b63657fbfc42851bf92ee8731f02a6",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Fast.lean",
+     "sha256": "ae0fbd48f355c86b05676ad477986320a3310b7b9e25ffadb0312667020dccec"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "1773577e0c19e679ac9654e4c0527ac7e15a3d2b57e86e96d1cb0c0ccb33e522"
+  },
+  {
+   "id": "planetary.fastShift.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.fastShift",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/FastShift.lean",
+   "export": "KAM.Planetary.fastShift",
+   "split_policy": {
+    "source_group": "planetary.fastShift",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "8b53f2de2ba13a01ff80cdf95a405e5d5a39eaa40db32a87062c077ddf0775a5",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "a937f8886e11b4dac282f8a98ceaaedc096ff633e9cde2708501721d741d2527"
+  },
+  {
+   "id": "planetary.IsCylinderTorus.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.IsCylinderTorus",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/IsCylinderTorus.lean",
+   "export": "KAM.Planetary.IsCylinderTorus",
+   "split_policy": {
+    "source_group": "planetary.IsCylinderTorus",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "893a9c95428e4164d60643242685c4a3fe7279646423770a6bec4d0b24af625d",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/FastShift.lean",
+     "sha256": "a937f8886e11b4dac282f8a98ceaaedc096ff633e9cde2708501721d741d2527"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "cb77c0f0b579a52b77932b3001576792c1dba91f6e308d26e267187b0025fbef"
+  },
+  {
+   "id": "planetary.IsCylinderKolmogorovSet.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.IsCylinderKolmogorovSet",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/IsCylinderKolmogorovSet.lean",
+   "export": "KAM.Planetary.IsCylinderKolmogorovSet",
+   "split_policy": {
+    "source_group": "planetary.IsCylinderKolmogorovSet",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "cd61045edccdb765913328f48142744df56c9a03a533171b60f77ff40f5a93b6",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Cylinder.lean",
+     "sha256": "60dc715ee48c44885670753d12f4aaf9ef6f339fc52994858bcbbcf87b65ed0f"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Fast.lean",
+     "sha256": "ae0fbd48f355c86b05676ad477986320a3310b7b9e25ffadb0312667020dccec"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/FastShift.lean",
+     "sha256": "a937f8886e11b4dac282f8a98ceaaedc096ff633e9cde2708501721d741d2527"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsCylinderTorus.lean",
+     "sha256": "cb77c0f0b579a52b77932b3001576792c1dba91f6e308d26e267187b0025fbef"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Slow.lean",
+     "sha256": "66799ce70ae917a7ce7f37c15be7eb7267bcddbeed05ea0a341567107194e78a"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "0a6ab146bd1566eef244dc11ff5a0beb9663bc591eb15f1cec52c448a5d4c6a1"
+  },
+  {
+   "id": "planetary.bodyVector.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.bodyVector",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+   "export": "KAM.Planetary.bodyVector",
+   "split_policy": {
+    "source_group": "planetary.bodyVector",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "09f09ead30448301bb78763192f9a9c6ca3edcf4d3d2a771d616c548347661b4",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+  },
+  {
+   "id": "planetary.planeSq.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.planeSq",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+   "export": "KAM.Planetary.planeSq",
+   "split_policy": {
+    "source_group": "planetary.planeSq",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "b0de2d3150c6c723a7af40b0f9ef8d6849b211bf81ab6685ebd870b7aa618d5e",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+  },
+  {
+   "id": "planetary.planeLength.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.planeLength",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+   "export": "KAM.Planetary.planeLength",
+   "split_policy": {
+    "source_group": "planetary.planeLength",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "385b5a3f2a85cef8e532266e97df0d7f79ac00c08d2c9b635dafa0f3c3ccc6f9",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+  },
+  {
+   "id": "planetary.planeDot.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.planeDot",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/PlaneDot.lean",
+   "export": "KAM.Planetary.planeDot",
+   "split_policy": {
+    "source_group": "planetary.planeDot",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "8cf08c43a712bf1c8d3e6fd5426b13d34d07a93597447a35b7b671e1126ae661",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "5246eb02678ad47d5d8834c2491683f1687a1061119f47e0a5cd0ed9c0636e37"
+  },
+  {
+   "id": "planetary.NoCollision.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.NoCollision",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/NoCollision.lean",
+   "export": "KAM.Planetary.NoCollision",
+   "split_policy": {
+    "source_group": "planetary.NoCollision",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "31e597095beb23bba20a6793288094acda1208d7d884eb456886c2787f7d244b",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+     "sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "e3b4034f6fbfab6741a31b38d33370165e5a9e79cef36773e35398d3534dd964"
+  },
+  {
+   "id": "planetary.movingHamiltonian.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.movingHamiltonian",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/MovingHamiltonian.lean",
+   "export": "KAM.Planetary.movingHamiltonian",
+   "split_policy": {
+    "source_group": "planetary.movingHamiltonian",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "8286a501cf934fd5f341976b5390802b17da25398fc9059edc35fd65d3ab79d8",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+     "sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneDot.lean",
+     "sha256": "5246eb02678ad47d5d8834c2491683f1687a1061119f47e0a5cd0ed9c0636e37"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "5e6f6ccead36136143259e9e7d6adaea922bf11a8e74c394d7535b60a73d702e"
+  },
+  {
+   "id": "planetary.fixedHamiltonian.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.fixedHamiltonian",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/FixedHamiltonian.lean",
+   "export": "KAM.Planetary.fixedHamiltonian",
+   "split_policy": {
+    "source_group": "planetary.fixedHamiltonian",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "60485f51ed52fdf21458b60ec11010aa47658aa6ddb09a132faf7e83e33d99f3",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+     "sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "e74b8e853e71e09583d07f91a385a891ae8ca5d11ee920fe75c1a575034fc70b"
+  },
+  {
+   "id": "planetary.circularPoint.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.circularPoint",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/CircularPoint.lean",
+   "export": "KAM.Planetary.circularPoint",
+   "split_policy": {
+    "source_group": "planetary.circularPoint",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "f098aa87920dcac584bb1679a00460099740cfd59c2b2d8a97abc988f607b476",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "5fcc80f847f60ece50542c9ae0536cbed3babd1a00bf34f1287a70fc796aa43c"
+  },
+  {
+   "id": "planetary.circularTube.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.circularTube",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/CircularTube.lean",
+   "export": "KAM.Planetary.circularTube",
+   "split_policy": {
+    "source_group": "planetary.circularTube",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "60ddb9bd5c857d511be9a8751354ff2855097972776a8e31b586f90dd0fbb01e",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CircularPoint.lean",
+     "sha256": "5fcc80f847f60ece50542c9ae0536cbed3babd1a00bf34f1287a70fc796aa43c"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "ba626b0175a5507a47d2c7a9cd26ce36a6811244b373b2d8c93b1e5db3e18522"
+  },
+  {
+   "id": "planetary.IsPhysicalTorus.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.IsPhysicalTorus",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/IsPhysicalTorus.lean",
+   "export": "KAM.Planetary.IsPhysicalTorus",
+   "split_policy": {
+    "source_group": "planetary.IsPhysicalTorus",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "2411bc7f3bfda703f06e8078c56064502ffbd88a21145dd36cf2cba1d399badf",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "3fa4c1f819a81dfce052deae9310e56b983020878ef18b9c98bfad8e43f7b4b3"
+  },
+  {
+   "id": "planetary.actualMasses.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.actualMasses",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/ActualMasses.lean",
+   "export": "KAM.Planetary.actualMasses",
+   "split_policy": {
+    "source_group": "planetary.actualMasses",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "37d0c6b0a92ae0e0c839d24e591536f697c601419b11cc5c864150814a680b60",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "ddf2eaebbcbe5af8923f2df1662c791a2fa6c5b6ea6c6aa4d389582988b960fc"
+  },
+  {
+   "id": "planetary.barycentricPositions.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.barycentricPositions",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/BarycentricPositions.lean",
+   "export": "KAM.Planetary.barycentricPositions",
+   "split_policy": {
+    "source_group": "planetary.barycentricPositions",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "222cb379298aba4da485faf152163725857fac2c6578168946b7d79fc09910d1",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+     "sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "f6e65bcca58b0293604c06397e62b3c9709bce036138dd82a5a89343e52b1833"
+  },
+  {
+   "id": "planetary.barycentricVelocities.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.barycentricVelocities",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/BarycentricVelocities.lean",
+   "export": "KAM.Planetary.barycentricVelocities",
+   "split_policy": {
+    "source_group": "planetary.barycentricVelocities",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "f0bb61447643e18562ffdde5d8ddbd4bc7ed46d52985b4fabaeab4a657a15480",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+     "sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "34a12290bff2365e791648ab86f074401956aa95c07e54884058e9fce2da1deb"
+  },
+  {
+   "id": "planetary.IsNewtonSolution.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.IsNewtonSolution",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/IsNewtonSolution.lean",
+   "export": "KAM.Planetary.IsNewtonSolution",
+   "split_policy": {
+    "source_group": "planetary.IsNewtonSolution",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "8402f230d795a683f6ad950f3be88f5af078b355ff661cbdd9c85ed215b5675e",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "90f1d14761f9c1a5dc9705849ae933b7d232e522e75158fdb0c268fd69b72e1a"
+  },
+  {
+   "id": "planetary.IsFixedSolution.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.IsFixedSolution",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/IsFixedSolution.lean",
+   "export": "KAM.Planetary.IsFixedSolution",
+   "split_policy": {
+    "source_group": "planetary.IsFixedSolution",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "6af3b94b20194109c8fa7add7b37df97b99d75e798ffbe8c6d5edc188df0ad80",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "4be8c90d157c840085ce292687835f4bc961de24c05cc62e7104807f0c8c08ca"
+  },
+  {
+   "id": "planetary.PairBounds.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.PairBounds",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/PairBounds.lean",
+   "export": "KAM.Planetary.PairBounds",
+   "split_policy": {
+    "source_group": "planetary.PairBounds",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "5cbec024474835d4c12fff797b2f2b21ebd9701e058b18573159de21d56ada16",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "6b30c158bcfe8553ac4d1863819fd3bba0f9cc200ad1ece2b8bb07f63992deef"
+  },
+  {
+   "id": "planetary.MovingKolmogorovSet.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.MovingKolmogorovSet",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/MovingKolmogorovSet.lean",
+   "export": "KAM.Planetary.MovingKolmogorovSet",
+   "split_policy": {
+    "source_group": "planetary.MovingKolmogorovSet",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "2f6ca8e426b3436532e15e8e5946808d686bd351b4dddf6c1ef2e89294654dad",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/ActualMasses.lean",
+     "sha256": "ddf2eaebbcbe5af8923f2df1662c791a2fa6c5b6ea6c6aa4d389582988b960fc"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BarycentricPositions.lean",
+     "sha256": "f6e65bcca58b0293604c06397e62b3c9709bce036138dd82a5a89343e52b1833"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BarycentricVelocities.lean",
+     "sha256": "34a12290bff2365e791648ab86f074401956aa95c07e54884058e9fce2da1deb"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+     "sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CircularPoint.lean",
+     "sha256": "5fcc80f847f60ece50542c9ae0536cbed3babd1a00bf34f1287a70fc796aa43c"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CircularTube.lean",
+     "sha256": "ba626b0175a5507a47d2c7a9cd26ce36a6811244b373b2d8c93b1e5db3e18522"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsNewtonSolution.lean",
+     "sha256": "90f1d14761f9c1a5dc9705849ae933b7d232e522e75158fdb0c268fd69b72e1a"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsPhysicalTorus.lean",
+     "sha256": "3fa4c1f819a81dfce052deae9310e56b983020878ef18b9c98bfad8e43f7b4b3"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/MovingHamiltonian.lean",
+     "sha256": "5e6f6ccead36136143259e9e7d6adaea922bf11a8e74c394d7535b60a73d702e"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/NoCollision.lean",
+     "sha256": "e3b4034f6fbfab6741a31b38d33370165e5a9e79cef36773e35398d3534dd964"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PairBounds.lean",
+     "sha256": "6b30c158bcfe8553ac4d1863819fd3bba0f9cc200ad1ece2b8bb07f63992deef"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneDot.lean",
+     "sha256": "5246eb02678ad47d5d8834c2491683f1687a1061119f47e0a5cd0ed9c0636e37"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "a62a269c68b80408afdaae03a3058bb1d1196b267caabedcbc895d0a72c1c3aa"
+  },
+  {
+   "id": "planetary.FixedKolmogorovSet.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "docs/tracks/P/statement.md, definitions (see the declaration docstring)"
+   },
+   "contract": {
+    "id": "planetary.FixedKolmogorovSet",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Defs/FixedKolmogorovSet.lean",
+   "export": "KAM.Planetary.FixedKolmogorovSet",
+   "split_policy": {
+    "source_group": "planetary.FixedKolmogorovSet",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "52da59adfe14308434550d0b0436813de09bfc89b46c325cd3cbb46201acc460",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+     "sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CircularPoint.lean",
+     "sha256": "5fcc80f847f60ece50542c9ae0536cbed3babd1a00bf34f1287a70fc796aa43c"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CircularTube.lean",
+     "sha256": "ba626b0175a5507a47d2c7a9cd26ce36a6811244b373b2d8c93b1e5db3e18522"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/FixedHamiltonian.lean",
+     "sha256": "e74b8e853e71e09583d07f91a385a891ae8ca5d11ee920fe75c1a575034fc70b"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsFixedSolution.lean",
+     "sha256": "4be8c90d157c840085ce292687835f4bc961de24c05cc62e7104807f0c8c08ca"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsPhysicalTorus.lean",
+     "sha256": "3fa4c1f819a81dfce052deae9310e56b983020878ef18b9c98bfad8e43f7b4b3"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/NoCollision.lean",
+     "sha256": "e3b4034f6fbfab6741a31b38d33370165e5a9e79cef36773e35398d3534dd964"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PairBounds.lean",
+     "sha256": "6b30c158bcfe8553ac4d1863819fd3bba0f9cc200ad1ece2b8bb07f63992deef"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "a5d7108e10d7dbd95aa980ffdc45c73950905179398a2057101f2b5b2159e8f9"
+  },
+  {
+   "id": "planetary.properlyDegenerateKAM.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "CP11 Theorem 11.1, pp. 50–51, and CP10 Theorem 1.3, as the corrected specialization of Q-P1 (statement.md §P-G)"
+   },
+   "contract": {
+    "id": "planetary.properlyDegenerateKAM",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean",
+   "export": "KAM.Planetary.properlyDegenerateKAM",
+   "split_policy": {
+    "source_group": "planetary.properlyDegenerateKAM",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "d347498b8bc8935acd3895d5fd5316822593add37c2eff43f9d7f66bfa63d001",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Assemble.lean",
+     "sha256": "5fb91fae233faaacc05768cc1385404cad353c72c9a4bd3cef913af635a23c58"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Cylinder.lean",
+     "sha256": "60dc715ee48c44885670753d12f4aaf9ef6f339fc52994858bcbbcf87b65ed0f"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CylinderCell.lean",
+     "sha256": "b0e2ed27ab9b6e0a924c53c68f8d8f1f8a317513ea65bc78afaaa52cea6fbb58"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/DegenerateHamiltonian.lean",
+     "sha256": "1773577e0c19e679ac9654e4c0527ac7e15a3d2b57e86e96d1cb0c0ccb33e522"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Fast.lean",
+     "sha256": "ae0fbd48f355c86b05676ad477986320a3310b7b9e25ffadb0312667020dccec"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/FastFrequency.lean",
+     "sha256": "dc5ec92ec3cd334dec351d7a8f3c0a112689cc653ae1fbedc37230c5af05f4fc"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/FastShift.lean",
+     "sha256": "a937f8886e11b4dac282f8a98ceaaedc096ff633e9cde2708501721d741d2527"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/HasFastDiffeomorphism.lean",
+     "sha256": "3ab358cc07ee0d4edf053ffc14f7e07d1cb4192478808576b78066773300bd43"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/HasSecularBirkhoffForm.lean",
+     "sha256": "600b7e17bdb3acdd5af656c6c0bb8e23c63428db51e8fcaa987c5aa199a43e5c"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsCylinderKolmogorovSet.lean",
+     "sha256": "0a6ab146bd1566eef244dc11ff5a0beb9663bc591eb15f1cec52c448a5d4c6a1"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsCylinderTorus.lean",
+     "sha256": "cb77c0f0b579a52b77932b3001576792c1dba91f6e308d26e267187b0025fbef"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/OscillatorAction.lean",
+     "sha256": "ad724cd5e19a4d4d420c5e30fbcd9f656107affaefa62e9e76c82fa66a4447c5"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/SecularAverage.lean",
+     "sha256": "a3253e903b9633874d317d9a791467ee31e49724baa9b64e57f3c96d562bc7d6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Slow.lean",
+     "sha256": "66799ce70ae917a7ce7f37c15be7eb7267bcddbeed05ea0a341567107194e78a"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Planetary.ProperlyDegenerateKAM",
+    "export": "KAM.Provider.Planetary.properlyDegenerateKAM"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "72d988c639e071fbc7f90f51d99ba4e47a88e6493a9d16389723c3474ec54c43",
+   "suffix_sha256": "07466f17ee232d164cac7cefa7bd845d2b646f9df4393c885c76678df8ec4475",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "planetary.planarTwoPlanetKAM.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "Féjoz 2004 Proposition 77 and CP09 Theorem 4 (statement.md §P-PLANAR)"
+   },
+   "contract": {
+    "id": "planetary.planarTwoPlanetKAM",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean",
+   "export": "KAM.Planetary.planarTwoPlanetKAM",
+   "split_policy": {
+    "source_group": "planetary.planarTwoPlanetKAM",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "53360f66c8f0dfa90319b671830d07e0f10087b394eab73dce5a2bded2651fba",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/ActualMasses.lean",
+     "sha256": "ddf2eaebbcbe5af8923f2df1662c791a2fa6c5b6ea6c6aa4d389582988b960fc"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BarycentricPositions.lean",
+     "sha256": "f6e65bcca58b0293604c06397e62b3c9709bce036138dd82a5a89343e52b1833"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BarycentricVelocities.lean",
+     "sha256": "34a12290bff2365e791648ab86f074401956aa95c07e54884058e9fce2da1deb"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+     "sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CircularPoint.lean",
+     "sha256": "5fcc80f847f60ece50542c9ae0536cbed3babd1a00bf34f1287a70fc796aa43c"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CircularTube.lean",
+     "sha256": "ba626b0175a5507a47d2c7a9cd26ce36a6811244b373b2d8c93b1e5db3e18522"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsNewtonSolution.lean",
+     "sha256": "90f1d14761f9c1a5dc9705849ae933b7d232e522e75158fdb0c268fd69b72e1a"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsPhysicalTorus.lean",
+     "sha256": "3fa4c1f819a81dfce052deae9310e56b983020878ef18b9c98bfad8e43f7b4b3"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/MovingHamiltonian.lean",
+     "sha256": "5e6f6ccead36136143259e9e7d6adaea922bf11a8e74c394d7535b60a73d702e"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/MovingKolmogorovSet.lean",
+     "sha256": "a62a269c68b80408afdaae03a3058bb1d1196b267caabedcbc895d0a72c1c3aa"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/NoCollision.lean",
+     "sha256": "e3b4034f6fbfab6741a31b38d33370165e5a9e79cef36773e35398d3534dd964"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PairBounds.lean",
+     "sha256": "6b30c158bcfe8553ac4d1863819fd3bba0f9cc200ad1ece2b8bb07f63992deef"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneDot.lean",
+     "sha256": "5246eb02678ad47d5d8834c2491683f1687a1061119f47e0a5cd0ed9c0636e37"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Planetary.PlanarTwoPlanetKAM",
+    "export": "KAM.Provider.Planetary.planarTwoPlanetKAM"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "572b671056fc6c1460193aa6de0ac1af7a053075dbef683e043ce881c2fa55b0",
+   "suffix_sha256": "07466f17ee232d164cac7cefa7bd845d2b646f9df4393c885c76678df8ec4475",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "planetary.fixedSunPlanetaryKAM.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve track P' to the review page claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1 (v0.2, implementing the recommendations on Q-P1–Q-P7); docs/DECISIONS.md D20",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@b1422e0 docs/tracks/P/statement.md (draft v0.2) with CP11 doi:10.1007/s00222-011-0313-z and Fej04",
+    "range": "statement.md §P-FIXED (our deduction; Féjoz Lemma 64, Proposition 77; CP09 Theorem 4)"
+   },
+   "contract": {
+    "id": "planetary.fixedSunPlanetaryKAM",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean",
+   "export": "KAM.Planetary.fixedSunPlanetaryKAM",
+   "split_policy": {
+    "source_group": "planetary.fixedSunPlanetaryKAM",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D20"
+   },
+   "abi_sha256": "a710d06469f0efa43a0eede7aa23e7e13216737ac0895ff11757e256903b2eec",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Planetary/Defs/BodyVector.lean",
+     "sha256": "95ba8e91c4aaa15aea50f32aa99cd047a794b1cfcbd4193cf4f4ed217a113c5e"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CircularPoint.lean",
+     "sha256": "5fcc80f847f60ece50542c9ae0536cbed3babd1a00bf34f1287a70fc796aa43c"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/CircularTube.lean",
+     "sha256": "ba626b0175a5507a47d2c7a9cd26ce36a6811244b373b2d8c93b1e5db3e18522"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/FixedHamiltonian.lean",
+     "sha256": "e74b8e853e71e09583d07f91a385a891ae8ca5d11ee920fe75c1a575034fc70b"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/FixedKolmogorovSet.lean",
+     "sha256": "a5d7108e10d7dbd95aa980ffdc45c73950905179398a2057101f2b5b2159e8f9"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsFixedSolution.lean",
+     "sha256": "4be8c90d157c840085ce292687835f4bc961de24c05cc62e7104807f0c8c08ca"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/IsPhysicalTorus.lean",
+     "sha256": "3fa4c1f819a81dfce052deae9310e56b983020878ef18b9c98bfad8e43f7b4b3"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/NoCollision.lean",
+     "sha256": "e3b4034f6fbfab6741a31b38d33370165e5a9e79cef36773e35398d3534dd964"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PairBounds.lean",
+     "sha256": "6b30c158bcfe8553ac4d1863819fd3bba0f9cc200ad1ece2b8bb07f63992deef"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/Phase.lean",
+     "sha256": "ce1c7a4127866a19c0ec6dcc0f3588dc059cd0ce08ef97a06f4d91901cb11a47"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneLength.lean",
+     "sha256": "b276e6a53172b5388f8c292f1b9f98b9cdc37b818c24b06585b4d123a396add6"
+    },
+    {
+     "path": "KAM/Frozen/Planetary/Defs/PlaneSq.lean",
+     "sha256": "d1328ceeca7d91bfaec0c7b3a869c0ca4d6714017f537c76e3c97019149e2082"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Planetary.FixedSunPlanetaryKAM",
+    "export": "KAM.Provider.Planetary.fixedSunPlanetaryKAM"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "433008517470c4a05ac8c1df920d35fb6c3f9e7d0be2ceab3c3a30582e79bb82",
+   "suffix_sha256": "07466f17ee232d164cac7cefa7bd845d2b646f9df4393c885c76678df8ec4475",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
   }
  ]
 }

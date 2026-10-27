@@ -467,8 +467,9 @@ class Guard:
             return
         if actual_export != expected_export:
             self.fail(f"{label}: lexically resolved declaration name does not match fully qualified export")
-        if expected_kind and actual_kind != expected_kind:
-            self.fail(f"{label}: definition anchor must use literal `def`")
+        # Repository change: `abbrev` is a reducible `def` with the same body, so it is accepted too.
+        if expected_kind and actual_kind not in (expected_kind, "abbrev"):
+            self.fail(f"{label}: definition anchor must use literal `def` or `abbrev`")
         if kind == "theorem" and actual_kind not in {"theorem", "lemma"}:
             self.fail(f"{label}: theorem anchor must declare theorem or lemma")
 

@@ -35,7 +35,21 @@ check_pattern '(^|[^[:alnum:]_])unsafe([^[:alnum:]_]|$)' 'unsafe'
 check_pattern '(^|[^[:alnum:]_])opaque([^[:alnum:]_]|$)' 'opaque'
 check_pattern 'set_option[[:space:]]+(maxHeartbeats|maxRecDepth|synthInstance\.maxHeartbeats)' \
   'resource-limit override'
-check_pattern 'EuclideanSpace' 'EuclideanSpace (use `Fin n → ℝ`; see AGENTS.md)'
+# EuclideanSpace is banned in code (comments and strings may mention it).
+euclid=$(lean_files | python3 -I -c '
+import sys, re, importlib.util
+spec = importlib.util.spec_from_file_location("m", sys.argv[1]); m = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(m)
+for f in sys.stdin.read().split():
+    code = m.code_mask(open(f, encoding="utf-8").read())
+    for i, line in enumerate(code.splitlines(), 1):
+        if re.search(r"\bEuclideanSpace\b", line):
+            print(f"{f}:{i}")
+' "$project_root/scripts/check_lean_modules.py")
+if [ -n "$euclid" ]; then
+  printf '%s\n%s\n' 'forbidden EuclideanSpace in code (use `Fin n → ℝ`; see AGENTS.md):' "$euclid" >&2
+  status=1
+fi
 
 # Count Unicode characters consistently: some awk versions count UTF-8 bytes.
 overlong_lines=$(python3 -I - "$project_root" <<'PY'

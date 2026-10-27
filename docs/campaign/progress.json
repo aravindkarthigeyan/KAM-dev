@@ -245,8 +245,8 @@
    "id": "I.PHASE0",
    "title": "Sources, statements, owner approval, freeze",
    "difficulty": "H",
-   "done": 0.8,
-   "note": "statements audited approvable; review page published; awaiting owner approval and freeze"
+   "done": 1.0,
+   "note": "approved and frozen (D20)"
   },
   {
    "group": "Track I (isoenergetic, confinement, R3BP)",
@@ -261,8 +261,8 @@
    "id": "N.PHASE0",
    "title": "Sources, statements, owner approval, freeze",
    "difficulty": "H",
-   "done": 0.8,
-   "note": "statements audited approvable; review page published; awaiting owner approval and freeze"
+   "done": 1.0,
+   "note": "approved and frozen (D20)"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -277,8 +277,8 @@
    "id": "P.PHASE0",
    "title": "Sources, statements, owner approval, freeze",
    "difficulty": "H",
-   "done": 0.8,
-   "note": "statements audited approvable; review page published; awaiting owner approval and freeze"
+   "done": 1.0,
+   "note": "approved and frozen (D20)"
   },
   {
    "group": "Track P (planetary)",

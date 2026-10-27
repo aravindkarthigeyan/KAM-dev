@@ -109,3 +109,22 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
 
   These rulings fix the shape. The exact Lean text still needs the owner's line-by-line approval after the
   statement audit.
+- **D20 (2026-10-27) Tracks I, N and P approved and frozen.** *(Scott: "approve track I; approve track N with N-HEAD-C;
+  approve track P")*
+  - **Track I:** 4 theorem anchors (I-G1 isoenergetic KAM, I-HEAD confinement, I-R3BP, I-KEPLER) and 15
+    definitions, in `KAM/Frozen/Iso/`.
+  - **Track N:** N-HEAD-C (the complex-Hessian-bound headline), N-ZERO, N-QC and 11 definitions, in
+    `KAM/Frozen/Nekhoroshev/`. N-HEAD (real bounds only) is not frozen; it stays a recorded open question (source gap
+    F-N1).
+  - **Track P:** the exact v0.2 text, which implements the recommendations on Q-P1–Q-P7. That is 3 theorem anchors
+    (P-G corrected, P-PLANAR, P-FIXED) and 33 definitions, in `KAM/Frozen/Planetary/`.
+  - All 69 declarations are byte-identical to the approved drafts. The manifest now holds 94 anchors.
+  - The anchor guard now also accepts `abbrev` for definition anchors, and the `EuclideanSpace` lint ignores
+    comments.
+  - Drafts and audit scratch are archived at `/mnt/HC_Volume_106379410/kam-evidence/2026-10-27-tracks-INP/`.
+- **D21 (2026-10-27) Model policy for the proof campaign.** *(Scott: "for the proof writing campaign you should use
+  Sonnet agents and use GPT 6.1 sol (in tmux, yolo mode, not fast mode) as auditors. You can also use a second
+  Opus 5.5 suborchestrator in a tmux with its own sonnet if you want")*
+  - Proof writers are Sonnet agents.
+  - Auditors are Codex GPT-6.1-Sol sessions in tmux, in yolo mode, on the default service tier (not fast mode).
+  - Optionally, a second Opus 5.5 sub-orchestrator runs in tmux with its own Sonnet workers.
