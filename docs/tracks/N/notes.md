@@ -779,3 +779,268 @@ independent review before exact-text approval. The subsequent Lean proof campaig
 source normal-form/parameter-selection arguments. Both averaging candidates remain deferred until the
 listed primary statement and quantitative proof are pinned. P still owes the actual chart and uniform
 larger-domain/collar construction. E-N-ADD-1 is a reported ledger candidate, not an edit to the public ledger.
+
+## N-AVERAGING, draft v0.5 — primary-source revision
+
+Current draft: `/root/code/KAM-inp/.drafts/N/Averaging.lean`. Only that new file and the N mathematical
+packet are authored, together with the newly acquired original PDF in this worktree's incoming-N source
+directory. D25's frozen partial theorem and `/root/code/KAM-inp/.drafts/N/Additions.lean` are read-only.
+The historical v0.3/v0.4 deferral records above explain the former evidence state; this section supersedes
+them for the two averaging candidates. Neither candidate is approved, frozen or proved by this revision.
+
+Lean hard rules (verbatim):
+
+1. Never use set_option maxHeartbeats (or any heartbeat-budget override). A default-heartbeat elaboration failure is a design signal to refactor or split the proof, not something to mask with a larger budget.
+2. No Lean file may exceed 1500 lines of code.
+
+### Change log and audit disposition
+
+- **F-NADD-2:** read the complete primary AKN06 §6.1.9, the book-wide smoothness convention p.3 footnote 1,
+  constants convention p.207, standard/averaged definitions pp.208–209, continuability Remark 6.4
+  pp.217–218 and bibliography entries [66], [305], [451]. Obtain, pin and read all of [451], the original
+  Neishtadt 1976 pp.1295–1298, including its hypotheses and proof. The former primary-acquisition hold is
+  addressed. No analytic assumption from a different AKN subsection is imported into Theorem 6.11.
+- **F-NADD-3:** retain `averaging_most`. The primary original's definition of Φ on p.1296 includes exact
+  solution existence throughout [0,1/ε]; H includes data that exit. Theorem 2 bounds H. The explicit
+  stopped proof plan below replaces the v0.4 proposed cutoff route; it needs no analytic or smooth
+  action cutoff and does not delete the mean theorem's supplied-flow premise.
+- **New E-NAVG-NEI-17:** the original printed proof has an unjustified exchange of supremum and integral
+  at (17). Do not claim that finding the original PDF certifies its proof. The Fourier-envelope repair
+  below proves the maximum-error estimate required by both candidates without that exchange. This is an
+  explicit proof-specialization obligation for independent audit, not a theorem premise.
+- The two non-frozen definitions and two theorem types retain the v0.4 mathematical contracts. The new
+  file uses explicit products `(Fin n → ℝ) × (Fin n → ℝ)` instead of the definitionally equal planetary
+  `Phase` abbreviation, avoiding planetary imports. The scalar h,f analytic predicates, real Hamiltonian,
+  frequency and ODE semantics are imported from frozen definitions. No body of a frozen definition is
+  redefined. `HasAveragingFrequencyRank` and `averagingError` were excluded from D25 and are drafted here.
+- No new numerical nondegeneracy bound, nonzero frequency component, full-horizon flow premise for
+  `averaging_most`, error hypothesis or exceptional-set hypothesis is introduced. Constants remain after
+  fixed h,f,K and before ε, tolerances and the supplied mean-theorem family.
+- Both are reactivated as **unapproved v0.5 candidates for independent statement/proof-route audit**.
+  The previous missing-source objections are addressed at the statement stage, while the new proof
+  repair is visible rather than reported as a completed Lean proof.
+
+### Primary hypotheses mapped to the analytic Hamiltonian setting
+
+Write Ω=2πω and φ=2πθ when using the original radian convention. For Hε=h(I)+εf(θ,I), the source action
+field a is −∂θf evaluated at θ=φ/(2π), and its angular correction b is 2π∂If. Their smooth ε-dependence
+is immediate; no dependence on ε inside the fixed f is needed. Smoothness is on a neighborhood of a
+compact real source region, so all finite derivative bounds used below are finite and may enter constants.
+Analyticity of the frozen classes implies these real smoothness and high angular regularity properties.
+The average of a is zero by periodic differentiation/integration, hence the exact averaged action orbit is
+J(t)=I₀. Its analyticity is not a prerequisite of AKN Theorem 6.11; smoothness suffices.
+
+Choose the compact source action region G=closedBall∞(0,3R/4) and the measurable initial region
+G₁=closedBall∞(0,R/2). All data are smooth on a neighborhood of G, which lies strictly inside B(R).
+For example take ρ₁=R/8. The constant averaged orbit from G₁ stays at Euclidean distance at least R/4
+from ∂G, so it discharges the original 4° and AKN Remark 6.4 with room. Pick η₀=ρ₁/4=R/32 (or smaller):
+then every allowed η≤η₀ is strictly below the original Theorem 2 threshold ρ₁/2, and η₀≤R/4 as drafted.
+The auxiliary choices are proof data, not additional inputs to the public theorem. Shrink ε₀ below the
+source ε₁ and below 1/16 so κ=√ε lies in its required (0,1/2).
+
+The draft K need not be a product. Its angular projection is compact, so cover it by finitely many integer
+translates of the unit cell. Work on G₁×Tⁿ, restrict the nonnegative integral/exception to K and sum over
+those finitely many cells. Boundary overlaps have zero phase volume; null or empty K are harmless.
+The factor from dφ=(2π)ⁿdθ and the number of cells enter A. The norm change is Euclidean-to-maximum on
+finite coordinates and also changes constants only. No normalized probability or invariant-density law
+has been inserted. For the actual Hamiltonian, Liouville volume is preserved; the original general-ODE
+argument needs only a bounded Jacobian distortion independent of ε, from div X=O(ε) over time 1/ε.
+
+### Rank geometry: no hidden global frequency chart
+
+Neishtadt's original 3° uses a nonzero **first component** for its ratio chart. AKN p.243 uses the intrinsic
+projective map. The draft follows AKN. Do not silently deduce ω₁≠0 from ω≠0 or choose a single chart on
+all of G. A coordinate-free version of the source's resonance-integral estimate suffices.
+
+On the compact G, full rank of DΩ gives a uniform positive least singular value. In the projective branch,
+surjectivity of (v,c)↦DΩ(I)v+cΩ(I) gives a uniform positive least singular value for its adjoint as well.
+Thus there is λ>0 with, for every Euclidean unit e and I∈G,
+
+    |(DΩ(I))ᵀe|₂² + |e·Ω(I)|² ≥ λ²
+
+in the projective case; the full-rank case has the first term alone bounded below. Consequently the
+normalized resonance function e·Ω has gradient bounded below near its zero set, uniformly in e.
+Compactness of G×S^(n−1) supplies a finite coordinate cover with uniformly transverse derivatives there;
+the rest is bounded away from resonance. Fubini/one-dimensional change of variables on these charts gives,
+for integer k≠0 and small u>0, the uniform estimate
+
+    volume{ I∈G : |k·Ω(I)|≤u } ≤ C u/|k|₂,
+
+together with the corresponding integrals of the regularized reciprocal and its derivative. This is the
+specific rank-to-volume lemma to formalize. The coordinate cover is used for integrals over action space,
+not an assumption that each entire trajectory stays in one chart. It verifies the intrinsic-to-chart
+translation of the original corrector proof. Constants depend on this fixed frequency map and compact G;
+no lower singular-value parameter is silently fixed before h.
+
+### Explicit maximum-error proof plan, repairing E-NAVG-NEI-17
+
+Use a,b for the standard-system vector fields and a₀=average(a)=0 here. The plan also explains the
+source method with a general a₀. On the compact G, take the angular Fourier coefficients a_k(I) of
+ã=a(I,φ,0)−a₀(I). Analyticity in φ and smoothness in I imply uniform summability of all coefficients and
+the finite list of I/φ derivatives used here. Choose a truncation with tail ≤κ, 0<κ<1/2, as in §4 p.1298.
+Use a reciprocal regularization θκ equal to 1/y outside |y|≥κ with
+
+    |θκ|≤C/κ,   |θκ′|≤C/κ²,
+    |1−yθκ(y)|≤C and supported in |y|≤κ.
+
+The original C¹ piecewise cubic suffices for first-derivative calculations; a C∞ interpolation with the
+same scale bounds is an equally explicit option. Set
+
+    wκ(I,φ)=Σ_{0<|k|≤N} a_k(I) θκ(k·Ω(I)) exp(i k·φ)/i,
+    Wκ(I)=Σ_{0<|k|≤N}|a_k(I) θκ(k·Ω(I))|,
+    Bκ(I)=Σ_{0<|k|≤N}|D_I[a_k(I) θκ(k·Ω(I))]|.
+
+A fixed harmless Fourier factor can be included in θκ if period-one coordinates are used directly.
+The rank-to-volume estimates, uniform Fourier summability and triangle inequality yield the **phase
+supremum envelope bounds**, uniformly in the truncation N:
+
+    ∫_G Wκ ≤ C(1+|logκ|),        ∫_G Bκ ≤ C/κ,
+    ∫_G supφ|ã−Dφwκ·Ω| ≤ Cκ,
+    ∫_G supφ|Dφwκ| ≤ C(1+|logκ|).
+
+These strengthen the four integral estimates (11) in the direction needed for a time maximum. They must
+be proved from the actual Fourier construction, not inferred by moving a supremum through an integral.
+Finite sums make Wκ locally Lipschitz with directional variation bounded by Bκ; no derivative of an
+absolute value at zero is assumed. The original assumption 2° ensures sufficient summability; our analytic
+class has more angular regularity, which also controls the factor |k| in Dφwκ uniformly.
+
+For a fixed measurable cohort A of initial points whose exact solutions remain in G through a common
+T≤1/ε, bounded action velocity |İ|≤εC_a implies
+
+    sup_{0≤t≤T}|wκ(I(t),φ(t))|
+       ≤ Wκ(I₀)+ε C_a ∫_0^T Bκ(I(s)) ds.
+
+Integrate over A, use the flow Jacobian bound at each **fixed** s and Tonelli to obtain
+
+    ∫_A sup_{t≤T}|wκ(I(t),φ(t))|
+       ≤ C(1+|logκ|+κ⁻¹).
+
+This is the missing estimate for the time-dependent corrector term in (12). Apply the corrector identity
+(12)–(13), take the time maximum **before** integrating initial data, and use
+M_A(t)=∫_A sup_{u≤t}|I(u)−J(u)|. The Lipschitz averaged field, the residual bound, bounded vector fields,
+and the corrector derivative bounds give
+
+    M_A(t) ≤ εL₀∫_0^t M_A(s)ds
+               + C[κ+ε/κ+ε(1+|logκ|)],      t≤T≤1/ε.
+
+Gronwall with κ=√ε yields M_A(T)≤C√ε, uniformly over the cohort and its common duration. All constants
+are independent of ε,κ,T and A; they depend on the fixed compact source data. Smooth dependence and
+uniqueness make the error functions measurable on the cohorts; no arbitrary supplied family can change
+the true curves there. This replaces the invalid equality (17), rather than treating sup∫ as ∫sup.
+
+### Exiting data and actual existence: why `averaging_most` is retained
+
+Reproduce the explicit p.1298 cohort argument with the corrected M_A bound. Let Φτ be initial data for
+which the exact solution is defined up to τ and |I(t)−J(t)|≤ρ₁/2 through τ. Since J stays ρ₁ away from
+∂G, each such solution is at least ρ₁/2 inside G at τ. Bounded action speed and ODE continuation extend
+it through τ+δ inside G, with δ=ρ₁/(4C_a ε) when C_a>0. If C_a=0, actions are constant and continuation
+is immediate. Bounded angular speed on compact actions and the torus also prevents finite-time blowup
+of the lift. Each finite endpoint extends slightly, matching `IsSolutionOn`'s two-sided derivative semantics.
+
+The number of steps to reach 1/ε is at most ceil(4C_a/ρ₁)+1, independent of ε. On each surviving cohort,
+the corrected mean-of-maximum bound through the extended duration and Markov give loss measure at most
+C√ε/(ρ₁/2). A finite union therefore bounds U″=H(ρ₁/2,ε) by C√ε. The cohort U′ surviving the entire
+interval has ∫_{U′}h≤C√ε. Both are exactly the two claims of source Theorem 1 (7), now with the missing
+maximum step supplied as an explicit obligation.
+
+For 0<η≤η₀<ρ₁/2, put in E all of U″ plus the data in U′ with h>η, then intersect with K and transport
+period cells. Its volume is ≤C√ε+C√ε/η≤A√ε/η after a fixed constant enlargement. Every point outside E
+has a genuine full-window solution and error ≤η. Thus `averaging_most` has no supplied-flow or confinement
+premise. The bad set explicitly includes failed continuability, as it does in Nei76's definition of H.
+Measurable cohorts/exceptional sets come from smooth flow dependence and stopped-domain exit sets.
+
+For the public **mean theorem**, every supplied Φ exists on [0,1/ε] in B(R). On K∩U′ it agrees with the
+unique source trajectory, so the corrected good-data mean bound applies. On K∩U″ its error is bounded
+by 3R/2, since its action is in B(R) and its initial action is in B(R/2); multiplying by volume(U″) gives
+another O(√ε) contribution. Hence the whole mean is O(√ε), with integrability from continuity of the
+maximum on compact K. Markov at A√ε/κ supplies the κ clause for every κ>0. This proves why this type
+can quantify over any supplied family on K without making a nonexistent full flow a premise of the local
+existence theorem. It also explains why a boundary assumption about averaged trajectories alone is enough.
+
+This is an explicit mathematical proof plan, not a Lean proof receipt. The principal remaining obligations
+are the rank-to-volume lemma, Fourier envelope bounds, smooth flow/Jacobian infrastructure and measurable
+cohort construction. They are proof obligations to discharge below a future frozen statement; none appears
+as a conclusion-shaped assumption in the draft. The prior rough averaging estimate remains about 6k–12k
+lines for the quantitative averaging core plus 2k–4k for measure/local-flow assembly, with shared analysis
+and ODE infrastructure counted separately. These are uncertain planning ranges, not measured inventories.
+
+### Errata and deviations for the orchestrator
+
+- **E-NAVG-NEI-17, CANDIDATE source-proof gap.** Nei76 p.1298 (17), together with z(t)'s definition on
+  p.1297 and h's definition p.1295 (4): the printed equality sup_t z(t)=∫_{U′}h interchanges a time
+  supremum and an initial-data integral. Only the opposite inequality is automatic, so the displayed
+  fixed-time Gronwall estimate does not by itself prove the maximum-error conclusion. The following
+  exit argument also uses that stronger conclusion. Rendered original pages were checked. Proposed
+  repair: prove the Fourier-envelope bound and apply Gronwall to M_A(t)=∫_A sup_{u≤t}|I(u)−J(u)|,
+  as above. This is not a counterexample to either dynamical theorem. Independent audit is required.
+- **No AKN06 mathematical erratum identified.** Its p.243 mean formula is a mean of a maximum; it does
+  not itself print the erroneous supremum/integral equality. Its smoothness and continuability assumptions
+  are supplied by earlier explicit conventions, not missing hypotheses silently invented here.
+- **Regularization caution.** Nei76 p.1298's θ is C¹, not C² at ±κ. Use precisely its first-derivative
+  regularity or an explicit C∞ interpolation; do not cite the cubic as C∞. No separate erratum is claimed.
+- **D-NAVG-1:** analytic Hamiltonian specialization, equal action/angle dimension n≥2, fixed h,f,K before
+  constants, period-one coordinates, maximum norms, actual ODE solutions and positive parameters. These
+  are explicit conservative conventions/specializations; frozen analytic classes impose stronger boundary
+  continuity than the compact-interior proof needs.
+- **D-NAVG-2:** intrinsic projective-rank geometry replaces the original single nonzero-component chart
+  in the corrector integral estimates; AKN p.243 already states the intrinsic alternative. The quantitative
+  compactness/transversality argument is above, not a hidden global-chart assumption.
+- **D-NAVG-3:** explicit maximum-error repair and actual-exit cohort argument. This replaces the previous
+  unaudited cutoff deduction and must be included in the proof-route review. A supplied family is still
+  required only for the mean expression; `averaging_most` concludes existence.
+- **Pagination observation, not source erratum:** the owner's +11 page map holds on the inspected chapter-6
+  pages. The book-wide smoothness footnote is printed p.3/PDF p.16 and bibliography [451] is printed
+  p.497/PDF p.505. Those locators were checked individually rather than extending +11 globally.
+
+The orchestrator owns the ledger; this task reports candidates and does not edit it. Existing E-N-ADD-1
+and the approved N-PARTIAL-CONVEX deviation remain historical and are not reopened by averaging v0.5.
+
+### Validation receipt — averaging v0.5
+
+Checks were run serially in `/root/code/KAM-inp`; the exact requested command was
+`nice -n 5 lake env lean .drafts/N/Averaging.lean`. **Exit 0**, only these two warnings:
+
+```text
+.drafts/N/Averaging.lean:65:8: warning: declaration uses `sorry`
+.drafts/N/Averaging.lean:93:8: warning: declaration uses `sorry`
+'KAM.Nekhoroshev.averaging_mean' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Nekhoroshev.averaging_most' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+```
+
+Final draft SHA-256: **`6b8bf1941fd1c30f3d8ca1e81b304873d31959eae85809b52f39c9e6e132ff62`**.
+The module has **116 lines**, no line above 100 characters, two definitions and exactly two theorem-body
+`sorry` placeholders. Its header names Scott Armstrong and Zohar Komargodski, with `module`, public imports,
+module docstring and exposed public noncomputable section. Direct code-mask checks passed: no prohibited
+proof escape, ambient type or resource override. `git ls-files .drafts/N/Averaging.lean` has no output:
+the new draft remains untracked/ignored. Exact full-module inclusion in statement.md was checked byte for byte.
+Successful elaboration is statement validation, not theorem or proof-route closure.
+
+`PYTHONDONTWRITEBYTECODE=1 /root/code/KAM-inp/scripts/lint_sources.sh` — **exit 0**:
+
+```text
+check_lean_modules: PASS (175 Lean files, 0 comparator configurations)
+FROZEN-ANCHOR GUARD OK
+ABI HASHES OK (140 frozen declarations)
+```
+
+The lint excludes drafts, so its pass is paired with the direct draft elaboration and rule checks above.
+The frozen guard and ABI check include D25. No whole-library rebuild or budget override was used.
+Owned-path `git diff --check` passes. The owner AKN06 PDF hash was checked against `docs/sources.json`
+and recomputed; the original Nei76 PDF hash was recomputed. The exact Crossref book record was rechecked
+for title, all registered ISBNs and publication year. New source data is confined to the incoming-N folder.
+
+Preservation checks:
+
+- `/root/code/KAM-inp/.drafts/N/Additions.lean` remains SHA-256
+  `ebef5cbca47162d83c5481726408bd4c2977375526c3579d0c791dbd1b80af4d`, unchanged.
+- The entire N-PARTIAL-CONVEX mathematical section, including its exact Lean block and consumer contract,
+  remains byte-identical, SHA-256 `2fa010501b094967e5be90b7ae5dd72085077e10f37fefa741f5a89962e3a372`.
+- Frozen files and manifests were not edited. Historical v0.4 tables/questions are labelled historical;
+  the current averaging section and its owner questions are v0.5. Files in `/root/code/KAM` were not edited.
+- No state-changing git command was run; unrelated blueprint activity was left alone.
+
+Handoff: new averaging module and updated N statement/source/notes, plus the pinned original quantitative
+paper. Primary hypotheses and the actual-existence good-set definition are now available. Both theorem
+candidates remain unproved and await a fresh independent audit of the exact statements, rank-chart
+translation, maximum-error repair and exit-cohort proof plan. E-NAVG-NEI-17 is a reported ledger candidate;
+no AKN06 mathematical erratum is asserted and no ledger is edited by this task.

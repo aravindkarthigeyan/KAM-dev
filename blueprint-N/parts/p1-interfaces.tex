@@ -34,8 +34,7 @@ Track-K results used: \Kref{bp:p1:holomorphic-regularity}, \Kref{bp:p1:real-rest
 
 \begin{lemma}[Norm and lattice comparisons]\label{bpN:p1:norm-compare}
 (a) For $x\in\R^n$ (or $\C^n$), every $n\ge0$ (all norms are $0$ when $n=0$): $\abs x_\infty\le\abs x_2\le\sqrt n\,\abs x_\infty$, i.e.\ $\abs x_2^2\le n\abs x_\infty^2$; for $n>0$ this gives $\abs x_\infty^2\ge\abs x_2^2/n$. (b) For $k\in\Z^n$: $\abs k_2\le\abs k_1\le\sqrt n\abs k_2$. Consequently $\{\abs k_1\le K\}\subset\{\abs k_2\le K\}$ and
-$\{\abs k_2\le K\}\subset\{\abs k_1\le\sqrt nK\}$; so a geometric cutoff $K_g$ in the Euclidean norm and an analytic cutoff $K_a$ in $\abs\cdot_1$ are compatible when
-$\sqrt n\,K_g\le K_a$. (c) The bilinear bound: if $\abs{Q_{ij}}\le M_0$ for a matrix $Q$ then $\abs{x^{\!\top}Qy}\le nM_0\abs x_2\abs y_2$ for $x,y\in\C^n$.
+$\{\abs k_2\le K\}\subset\{\abs k_1\le\sqrt nK\}$; so nonresonance known on the Euclidean ball $\{\abs k_2\le K_g\}$ (geometric cutoff $K_g$) holds on the $\ell^1$ ball $\{\abs k_1\le K_a\}$ (analytic cutoff $K_a$) as soon as $K_a\le K_g$ (the first inclusion); the factor $\sqrt n$ enters only where the max-norm Lipschitz constant of $\omega$ is compared with the Euclidean covering radius, giving the compatibility $K_g\ge\sqrt n\,K_a$ (Part~\ref{bpN:p8}, Remark~\ref{bpN:p8:direction}, Corollary~\ref{bpN:p8:cutoffs}). (c) The bilinear bound: if $\abs{Q_{ij}}\le M_0$ for a matrix $Q$ then $\abs{x^{\!\top}Qy}\le nM_0\abs x_2\abs y_2$ for $x,y\in\C^n$.
 \source{Standard (\ref{bpN:p1:ext-norms}); the lattice inclusions correct the direction stated in \texttt{PLAN.md} (review N06).}
 \end{lemma}
 \begin{proof}
@@ -214,22 +213,22 @@ Conversely $\norm u_{\rho}\le\sum_k\abs{\hat u_k}e^{2\pi\abs k_1\rho}$. For $I$-
 \begin{lemma}[Constants dictionary for N-HEAD-C]\label{bpN:p1:constants}
 Let $n\ge3$ (only $n\ge2$ is used by P\"oschel) and $R,s,M,m,M_\C,\omega_{\min}>0$, $a=\frac1{2n}$. Define successively
 \begin{align*}
-&q=\tfrac mn,\ B_c=nM_\C+q,\ \mu=\tfrac q2,\ \ell=\tfrac{\omega_{\min}q}{8(B_c+q)},\qquad r_0=\min\Bigl(\tfrac s2,\tfrac R8,\tfrac{2\ell}\mu,\tfrac{4\omega_{\min}}\mu\Bigr),\qquad A=\tfrac{11B_c}\mu,\\
+&q=\tfrac mn,\ B_c=nM_\C+q,\ \mu=\tfrac q2,\ \ell=\tfrac{\omega_{\min}q}{8(B_c+q)},\qquad r_0=\min\Bigl(\tfrac s2,\tfrac R8,\tfrac{\ell}{2B_c},\tfrac{4\omega_{\min}}\mu\Bigr),\qquad A=\tfrac{11B_c}\mu,\\
 &s_0=\pi s,\quad\sigma=\tfrac{\pi s}4,\quad F=2\pi\coth^n\bigl(\tfrac{\pi s}4\bigr),\quad\varepsilon_*=\frac{2\pi\mu\,r_0^2}{2^{10}A^{2n}},\\
-&C=\tfrac{r_0}A\Bigl(\tfrac F{\varepsilon_*}\Bigr)^a,\quad c=\tfrac{s_0}6\Bigl(\tfrac{\varepsilon_*}F\Bigr)^a,\quad T=\frac{A^2s_0}{4\pi nM},\\
+&C=\tfrac{r_0}A\Bigl(\tfrac F{\varepsilon_*}\Bigr)^a,\quad c=\tfrac{s_0}{6\sqrt n}\Bigl(\tfrac{\varepsilon_*}F\Bigr)^a,\quad T=\frac{A^2s_0}{4\pi nM},\\
 &\varepsilon_0=\min\Bigl(\tfrac{\varepsilon_*}F,\ \bigl(\tfrac R{4C}\bigr)^{2n}\Bigr).
 \end{align*}
 P\"oschel's data (his normalisation, for $\tilde h=2\pi h$): $m_P=2\pi\mu$, $\ell_P=2\pi\ell$, $M_P=2\pi B_c$, $A_P=11M_P/m_P=A$, $\varepsilon_{0,P}=m_Pr_0^2/(2^{10}A_P^{2n})=\varepsilon_*$, $R_0=r_0/A$, and the set $P=\{J\in\R^n:\abs J\le R/2\}$.
 Then:
 \begin{enumerate}[label=(\alph*)]
 \item All constants are positive and finite and depend only on $(n,R,s,M,m,M_\C,\omega_{\min})$ --- not on $h,f,\varepsilon,\theta_0,I_0$, nor on the bound $A$ of Definition~\ref{bpN:p0:integrable}(iii). Order of choice: $q,B_c,\mu,\ell,r_0,A$; then $s_0,\sigma,F$; $\varepsilon_*$; $C,c$; $T$; $\varepsilon_0$. And $C\varepsilon_0^{a}\le R/4$, $0<\varepsilon_0\le\varepsilon_*/F$.
-\item $r_0\le4\ell_P/m_P$ ($=4\ell/\mu$); $A\ge22$; $R_0=r_0/A\le r_0/22\le R/176$.
+\item $r_0\le\ell_P/(2M_P)$ ($=\ell/(2B_c)$, hypothesis \ref{bpN:p9:s-r} of Definition~\ref{bpN:p9:setting}); consequently $r_0\le4\ell_P/m_P$ ($=4\ell/\mu$); $A\ge22$; $R_0=r_0/A\le r_0/22\le R/176$.
 \item (Tubes) With $V_{r_0}P=\{I\in\C^n:\exists J\in P,\ \abs{I-J}_2<r_0\}$ and $U_{r_0}P=V_{r_0}P\cap\R^n$: $V_{r_0}P\subset B(0,R)_s$ and $U_{r_0}P\subset B(0,5R/8)\subset B(0,R)$.
-\item (Hypotheses of Theorem~1) If $h$ satisfies (H1)--(H5) of Theorem~\ref{bpN:p0:head}, then for $I\in U_{r_0}P$: $\tilde h$ is $\ell_P,\mu_P$-quasi-convex (Lemma~\ref{bpN:p1:qc-convert}) with $\mu_P=2\pi\mu$; the complex Hessian operator norm (Euclidean) of $\tilde h$ on $V_{r_0}P$ is $\le M_P$ (Lemma~\ref{bpN:p1:hessian-convert}); P\"oschel's $m,M$ are $m_P,M_P$ and his hypothesis $r_0\le4\ell_P/m_P$ holds.
+\item (Hypotheses of Theorem~1) If $h$ satisfies (H1)--(H5) of Theorem~\ref{bpN:p0:head}, then for $I\in U_{r_0}P$: $\tilde h$ is $\ell_P,\mu_P$-quasi-convex (Lemma~\ref{bpN:p1:qc-convert}) with $\mu_P=2\pi\mu$; the complex Hessian operator norm (Euclidean) of $\tilde h$ on $V_{r_0}P$ is $\le M_P$ (Lemma~\ref{bpN:p1:hessian-convert}); P\"oschel's $m,M$ are $m_P,M_P$ and his hypothesis $r_0\le4\ell_P/m_P$ holds, together with the added hypothesis $r_0\le\ell_P/(2M_P)$ of Part~\ref{bpN:p9} (needed on the block $\Z^n$, Remark~\ref{bpN:p9:errata}(1)).
 \item (Perturbation) If $f$ satisfies (H6) with $\varepsilon$, then P\"oschel's norm of $\tilde f$ on $V_{r_0}P\times$(strip of width $s_0$) is $\le F\varepsilon$; and $F\varepsilon\le\varepsilon_{0,P}$ if $\varepsilon\le\varepsilon_0$.
 \item (Exceptional branch is empty) For $I_0\in B(0,R/2)$: $\abs{\tilde\omega(I_0)}_2\ge2\pi\omega_{\min}>\pi\omega_{\min}\ge m_Pr_0/8$.
 \item (Time prefactor) For $I_0\in B(0,R/2)$, $0<2\pi\omega_{\min}\le\Omega_0=\sup_{\abs{I-I_0}_2\le R_0}\abs{\tilde\omega(I)}_2\le2\pi\sqrt nM\le2\pi nM$, so P\"oschel's $T_0=A_P^2s_0/\Omega_0\ge2T$.
-\item (Conclusion shape, for $\varepsilon>0$; $\varepsilon=0$ is N-ZERO) P\"oschel's $R_0(\varepsilon_P/\varepsilon_{0,P})^a$ and $T_0\exp\bigl(\frac{s_0}6(\varepsilon_{0,P}/\varepsilon_P)^a\bigr)$ with $\varepsilon_P=F\varepsilon$ are $C\varepsilon^a$ and $T_0\exp(c\varepsilon^{-a})$, and $T\exp(c\varepsilon^{-a})\le\tfrac12T_0\exp(c\varepsilon^{-a})$.
+\item (Conclusion shape, for $\varepsilon>0$; $\varepsilon=0$ is N-ZERO) P\"oschel's $R_0(\varepsilon_P/\varepsilon_{0,P})^a$ (the radius of Theorem~\ref{bpN:p9:thm1}(a) is half of it, in the max norm, hence $\le C\varepsilon^a$) and the time scale $T_0\exp\bigl(\frac{s_0}{6\sqrt n}(\varepsilon_{0,P}/\varepsilon_P)^a\bigr)$ with $\varepsilon_P=F\varepsilon$ are $C\varepsilon^a$ and $T_0\exp(c\varepsilon^{-a})$ (the $\sqrt n$ in the exponent is that of Theorem~\ref{bpN:p9:thm1}(a), Remark~\ref{bpN:p9:dictionary}(ii)), and $T\exp(c\varepsilon^{-a})\le\tfrac12T_0\exp(c\varepsilon^{-a})$.
 \end{enumerate}
 \source{\texttt{docs/tracks/N/sources.md} ``Uniform conversion'' (all constants), checked against Pos93 p.~190 (hypotheses, $A=11M/m$, $\varepsilon_0=mr_0^2/(2^{10}A^{2n})$, $r_0\le4\ell/m$), p.~191 (parameters $a,R_0,T_0$, exceptional branch) and p.~204 (assembly: $K=(\varepsilon_0/\varepsilon)^a$). Pos93 requires $\|f_\varepsilon\|\le\varepsilon$ (p.~190) with $\varepsilon\le\varepsilon_{0,P}$.}
 \sourcegap{Pos93 states no theorem about the $\omega_{\min}$-conversion and the frozen-to-source dictionary: it exists only in \texttt{sources.md} and here (Part~0 \texttt{bpN:p0:head}). The choice of $T$ with the factor $1/2$ is slack, not needed by the source.}
@@ -237,11 +236,11 @@ Then:
 \begin{proof}
 \proofstep{Positivity and dependence}\label{stepN:p1:co-pos} Each constant is a positive finite expression in earlier ones (denominators: $n,\mu,8(B_c+q),A,F,\varepsilon_*,4C,4\pi nM$, all $>0$); $\varepsilon_0>0$ as a minimum of positive numbers, and $C\varepsilon_0^a\le C\cdot\frac R{4C}=R/4$ since $((R/4C)^{2n})^{1/(2n)}=R/(4C)$. The list of inputs in each formula contains only $n,R,s,M,m,M_\C,\omega_{\min}$. This is (a).
 
-\proofstep{Size relations}\label{stepN:p1:co-size} $B_c=nM_\C+q\ge q=2\mu$ so $A=11B_c/\mu\ge22$. $4\ell_P/m_P=4\ell/\mu\ge2\ell/\mu\ge r_0$, and $R_0=r_0/A\le r_0/22\le R/176$. This is (b).
+\proofstep{Size relations}\label{stepN:p1:co-size} $B_c=nM_\C+q\ge q=2\mu$ so $A=11B_c/\mu\ge22$. $r_0\le\ell/(2B_c)$ by definition, i.e.\ $r_0\le\ell_P/(2M_P)$ (the factors $2\pi$ cancel); since $B_c\ge2\mu$, $r_0\le\ell/(4\mu)\le4\ell/\mu=4\ell_P/m_P$; and $R_0=r_0/A\le r_0/22\le R/176$. This is (b).
 
 \proofstep{Tubes}\label{stepN:p1:co-tubes} $r_0\le\min(s/2,R/8)$: Lemma~\ref{bpN:p1:realdomain}(c) gives (c).
 
-\proofstep{Quasi-convexity and Hessian}\label{stepN:p1:co-qc} For (d): $U_{r_0}P\subset B(0,R)$ by (c), so Lemma~\ref{bpN:p1:qc-convert}(b) applies at every point of $U_{r_0}P$ and, after Lemma~\ref{bpN:p1:period-convert}(b), gives the $(\ell_P,\mu_P)$-alternative for $\tilde h$. For $I\in V_{r_0}P\subset B(0,R)_s$ the Euclidean operator norm of $\tilde Q(I)$ is $\le2\pi nM_\C\le2\pi B_c=M_P$ (Lemma~\ref{bpN:p1:hessian-convert}). P\"oschel's $A=11M/m$ with $M=M_P$ and $m=\mu_P=m_P$ is $11B_c/\mu=A$.
+\proofstep{Quasi-convexity and Hessian}\label{stepN:p1:co-qc} For (d): $U_{r_0}P\subset B(0,R)$ by (c), so Lemma~\ref{bpN:p1:qc-convert}(b) applies at every point of $U_{r_0}P$ and, after Lemma~\ref{bpN:p1:period-convert}(b), gives the $(\ell_P,\mu_P)$-alternative for $\tilde h$. For $I\in V_{r_0}P\subset B(0,R)_s$ the Euclidean operator norm of $\tilde Q(I)$ is $\le2\pi nM_\C\le2\pi B_c=M_P$ (Lemma~\ref{bpN:p1:hessian-convert}). P\"oschel's $A=11M/m$ with $M=M_P$ and $m=\mu_P=m_P$ is $11B_c/\mu=A$. The hypothesis \ref{bpN:p9:s-r} of Part~\ref{bpN:p9} is $r_0\le\ell_P/(2M_P)=\ell/(2B_c)$, the third entry of the minimum defining $r_0$.
 
 \proofstep{Perturbation}\label{stepN:p1:co-pert} By (H6) $\abs f\le\varepsilon$ on $D_s(R)\supset T_{3s/4}\times V_{r_0}P$ ($V_{r_0}P\subset B(0,R)_s$, (c)). For each fixed $I\in V_{r_0}P$ apply Lemma~\ref{bpN:p1:norm-convert} to $u=f(\cdot,I)$ with $\rho=3s/4$, $\delta=s/4$: $\sum_k\abs{\hat f_k(I)}e^{2\pi\abs k_1s/2}\le\coth(\pi s/4)^n\varepsilon$. Multiplying by $2\pi$ (Lemma~\ref{bpN:p1:period-convert}(f); $f$ satisfies (H6), so (c), (e) apply) and noting $2\pi\cdot s/2=\pi s=s_0$ gives $\le F\varepsilon$. (In P\"oschel's terms $s_0+2\sigma=3\pi s/2=2\pi\cdot\frac{3s}4$.) $\varepsilon\le\varepsilon_*/F$ gives $F\varepsilon\le\varepsilon_*=\varepsilon_{0,P}$. This is (e).
 
@@ -249,11 +248,11 @@ Then:
 
 \proofstep{Time}\label{stepN:p1:co-time} The Euclidean ball $\{\abs{I-I_0}_2\le R_0\}$ with $R_0\le r_0$ lies in $\{\abs I_\infty<R/2+R_0\}\subset B(0,5R/8)$ ($\abs{I-I_0}_\infty\le\abs{I-I_0}_2$), inside $\mathcal B_s(R)$ where Lemma~\ref{bpN:p1:partials} gives $\abs{\omega(I)}_2\le\sqrt nM$. So $\Omega_0\le2\pi\sqrt nM\le2\pi nM$ (finite); also $I_0$ belongs to the closed ball, $I_0\in B(0,R)$, so $\Omega_0\ge\abs{\tilde\omega(I_0)}_2\ge2\pi\omega_{\min}>0$ (Lemma~\ref{bpN:p1:qc-convert}(c)). Inverting the positive quantities, $T_0=A^2s_0/\Omega_0\ge A^2s_0/(2\pi nM)=2T$. (g).
 
-\proofstep{Exponent and constants}\label{stepN:p1:co-conc} $R_0(F\varepsilon/\varepsilon_*)^a=\frac{r_0}A(F/\varepsilon_*)^a\varepsilon^a=C\varepsilon^a$ and $\frac{s_0}6(\varepsilon_*/(F\varepsilon))^a=c\varepsilon^{-a}$. (h) follows from $T\le T_0/2$.
+\proofstep{Exponent and constants}\label{stepN:p1:co-conc} $R_0(F\varepsilon/\varepsilon_*)^a=\frac{r_0}A(F/\varepsilon_*)^a\varepsilon^a=C\varepsilon^a$ and $\frac{s_0}{6\sqrt n}(\varepsilon_*/(F\varepsilon))^a=c\varepsilon^{-a}$ (the exponent of Theorem~\ref{bpN:p9:thm1}(a) is $\frac{\pi s'}{3\sqrt n}(\varepsilon_0/\varepsilon')^a$ with geometric width $s'=s/2$, i.e.\ $\frac{s_0}{6\sqrt n}$, $\varepsilon'=\coth^n(\pi s/4)\varepsilon$, $\varepsilon_0^{\mathrm{fr}}=\varepsilon_*/2\pi$, so $(\varepsilon_0^{\mathrm{fr}}/\varepsilon')^a=(\varepsilon_*/F\varepsilon)^a$; Remark~\ref{bpN:p9:dictionary}). The radius of Theorem~\ref{bpN:p9:thm1}(a) is $\frac12R_0(F\varepsilon/\varepsilon_*)^a=\frac12C\varepsilon^a\le C\varepsilon^a$ in the max norm. (h) follows from $T\le T_0/2$.
 \end{proof}
 
 \begin{remark}[Forward use and an unused constant]\label{bpN:p1:constants-use}
-Part~10 chooses $C,T,c,\varepsilon_0$ as in Lemma~\ref{bpN:p1:constants}, verifies Pos93's hypotheses by (d),(e) and excludes the exceptional branch by (f). The time prefactor $T$ enters only through (g); the remaining slack
+Part~10 chooses $C,T,c,\varepsilon_0$ as in Lemma~\ref{bpN:p1:constants}, verifies the hypotheses of Theorem~\ref{bpN:p9:thm1} (Pos93's, plus $r_0\le\ell/(2B_c)$) by (b),(d),(e) and excludes the exceptional branch by (f). (Corrections relative to the first draft, from Part~\ref{bpN:p9}, Remark~\ref{bpN:p9:errata}(1),(2): the entry $2\ell/\mu$ of $r_0$ became $\ell/(2B_c)$; $c$ became $\frac{s_0}{6\sqrt n}(\varepsilon_*/F)^a$. Then $\varepsilon_*$, $C$, $\varepsilon_0$ change through $r_0$ only, and $T$, $F$, $A$ are unchanged.) The time prefactor $T$ enters only through (g); the remaining slack
 $\varepsilon_0\le(R/4C)^{2n}$ gives $C\varepsilon^a\le R/4$ so that the a-priori confinement keeps $I(t)\in B(0,R/2+R/4)=B(0,3R/4)$ (continuation, \Nref{bpN:p3:continuation}). The value $M_\C$ enters only through $B_c$; $M$ only through $T$.
 \end{remark}
 \endgroup

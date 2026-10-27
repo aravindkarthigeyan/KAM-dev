@@ -5,7 +5,7 @@ track~N (\Nref{bpN:p3:gen-uniqueness}, \Nref{bpN:p3:gen-barrier}, \Nref{bpN:p3:g
 \Nref{bpN:p3:ham-energy}, \Nref{bpN:p3:ham-periodic}, \Nref{bpN:p3:ham-reduction}).
 
 \paragraph{Idea.} A solution with initial point $z_0=(\theta_0,I_0)$ stays on the energy level $\{\Ham_{h,f}=E\}$, $E=\Ham_{h,f}(z_0)$. Part~\ref{bpI:p3}
-supplies two invariant tori $\mathcal T_\pm$ of exact energy $E$, one on each side of $I_0$ along the energy curve of the
+supplies two invariant tori $\mathcal T_\pm$ of exact energy $E$, one on each side of $I_0$ in the slope coordinate along the energy curve of the
 unperturbed problem. We do not invoke a Jordan-type separation theorem. Instead, near $I_0$ we use the coordinate $m_c$ of the
 energy chart (Definition~\ref{bpI:p3:coordinates}) as a continuous function, and we describe each torus as a graph $I=Y_\pm(\varphi)$ over
 \emph{all} real angles $\varphi\in\R^2$ (Lemma~\ref{bpI:p5:graph}). The set
@@ -52,8 +52,8 @@ $\texttt{IsHamiltonianSolutionOn}\,H_\R\,B\,J\,z\iff\texttt{IsSolIn}\,X_\R\,W_B\
 \paragraph{External facts used in this part.}
 \begin{enumerate}[label=(Z\arabic*),ref=(Z\arabic*)]
 \item\label{bpI:p5:ext-banach} Banach's fixed point theorem: \Kref{bp:p1:ext-banach}; mean value inequality \Kref{bp:p1:ext-mvt}.
-\item\label{bpI:p5:ext-top} \emph{Topology.} A continuous image of a compact set is compact, hence closed; a compact set and a disjoint closed set have positive distance; a continuous real function on a compact set attains its maximum;
-the closure of a subset of a closed set lies in it; for $A$ open, $\partial A=\overline A\setminus A$. (Mathlib: \Lean{IsCompact.exists\_forall\_ge}, \Lean{IsCompact.isClosed}, \Lean{IsCompact.exists\_infDist\_eq\_dist}, \Lean{closure\_minimal}.)
+\item\label{bpI:p5:ext-top} \emph{Topology.} A continuous image of a compact set is compact, hence closed; a nonempty compact set and a disjoint nonempty closed set have positive distance (the guards, nonempty compact set and nonempty complement, are checked at each application); a continuous real function on a nonempty compact set attains its maximum and its minimum (the nonemptiness is verified at each use);
+the closure of a subset of a closed set lies in it; for $A$ open, $\partial A=\overline A\setminus A$. (Mathlib: \Lean{IsCompact.exists\_isMaxOn} and \Lean{IsCompact.exists\_isMinOn} (nonempty compact set, \Lean{ContinuousOn}), \Lean{IsCompact.isClosed}, \Lean{IsCompact.exists\_infDist\_eq\_dist}, \Lean{closure\_minimal}.)
 \item\label{bpI:p5:ext-ift} Inverse function theorem in the form used in Part~\ref{bpI:p3} (\ref{bpI:p3:ext-ift}): $\Phi_c|_W$ is a homeomorphism onto the open set $V$ with $C^1$ inverse.
 \end{enumerate}
 No Jordan curve/surface theorem and no theorem on connected components is used.

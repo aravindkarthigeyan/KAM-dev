@@ -14,8 +14,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.3,
-   "note": "blueprint-I complete (Parts 0-3, 5-8: proofs of I-G1, I-HEAD, I-KEPLER, I-R3BP); review fix rounds in progress; next: dependency graph"
+   "done": 0.35,
+   "note": "blueprint-I complete (Parts 0-3, 5-8); final consolidation round, then dependency graph"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -30,8 +30,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.3,
-   "note": "blueprint-N: Parts 0-8 written (shared ODE, norms, Lie maps, normal form, stability, resonance geometry); Part 9 (Poschel Thm 1) being written"
+   "done": 0.38,
+   "note": "blueprint-N complete for D20 (Parts 0-10: N-HEAD-C, N-ZERO, N-QC proved in the blueprint); reviews and consolidation in progress; next: dependency graph"
   },
   {
    "group": "Track P (planetary)",
@@ -46,8 +46,8 @@
    "id": "P.PROOF.PDKAM",
    "title": "Properly degenerate KAM: blueprint, graph, proofs",
    "difficulty": "VH",
-   "done": 0.15,
-   "note": "blueprint-P: Parts 0-3 written and revised (two-scale averaging and KAM); Parts 4-5 next"
+   "done": 0.22,
+   "note": "blueprint-P: Parts 0-4, 6 written (two-scale averaging, KAM, measure); Part 5 (P-G assembly) being written"
   },
   {
    "group": "Track P (planetary)",
@@ -55,7 +55,7 @@
    "title": "Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy",
    "difficulty": "VH",
    "done": 0.01,
-   "note": "route decided: P-PLANAR via P-G + CP11 planar torsion; P-FIXED KAM gate blocked on pinning Russmann 2001"
+   "note": "route: P-PLANAR via P-G + CP11 planar torsion; P-FIXED via a maximal analytic weak-KAM theorem from Rus01/Rus05 (sources pinned); Part 7 being written"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -63,7 +63,7 @@
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
    "difficulty": "M",
    "done": 0.8,
-   "note": "N-PARTIAL-CONVEX approved and frozen (D25, 8 anchors); N-AVERAGING deferred pending the AKN source"
+   "note": "N-PARTIAL-CONVEX frozen (D25); N-AVERAGING v0.5 being re-transcribed from AKN06 (primary source now pinned)"
   },
   {
    "group": "Track N (Nekhoroshev)",
