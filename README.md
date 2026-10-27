@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 21:44 UTC from `main` at `f6ff6f7` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 21:44 UTC from `main` at `abe638d` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -279,8 +279,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29) | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29) | — | — |
 | **bpP-p11a2** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track P Part 11a-2: cutoff, homological equation, KAM step (Russmann route for P-FIXED) | — | — |
 | **graphN-ext** | graph extractor (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N dependency graph: slices N-p11ab, N-p11c (N-PARTIAL-CONVEX) | — | — |
 | **design-N3** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design with exact signatures for blueprint-N Part 3 (shared Hamiltonian ODE layer) | — | — |
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 21:44 | `abe638d` | Briefs for P2-8a, P3-1 and P4-0 |
 | 2026-10-27 21:44 | `f6ff6f7` | Part 4 Lean design: signature audit PASS WITH NOTES (GValid legitimate under rule 6; adapters needed for the landed I-P4B forms) |
 | 2026-10-27 21:41 | `1676390` | P3-0 landed: Part 3 standing data and constants; audit PASS WITH NOTES |
 | 2026-10-27 21:40 | `8074600` | Land k/p3-0 into main |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 21:35 | `79cc339` | I-STRIP-3 done by Zohar; I-STRIP-3b ports the operator node and the Part 2 corollary onto his names (overnight log) |
 | 2026-10-27 21:34 | `2a79542` | Land inp into main |
 | 2026-10-27 21:34 | `ee902e2` | P2-5 (frequency, frame bounds) and P2-6 (frame identities) landed; audits PASS WITH NOTES / PASS |
-| 2026-10-27 21:33 | `8b096f5` | Land k/p2-6 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
