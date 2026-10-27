@@ -203,3 +203,11 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
     - the audit-first condition is already satisfied by v0.5.
   - Review page: claude.ai/artifact/2QX93h35t62Fmb49UGamrm.
   - The sub-orchestrator freezes it as for D25.
+- **D29 (2026-10-27, 21:00) Overnight mode.** *(Scott: "ok we go into overnight mode, defer approvals and requests and
+  go with your best recommendation and i see in the morning. formalize as much of this as you can!" and "please keep
+  the agents active and going and get the code written")*
+  - Until the owner returns, decisions that normally need the owner are taken by the orchestrators' best
+    recommendation.
+  - Each such decision is logged in `docs/campaign/OVERNIGHT.md` for morning review.
+  - No new statement is frozen: approvals of exact Lean text are deferred to the morning. Source requests wait too.
+  - Proof work runs at full throughput.
