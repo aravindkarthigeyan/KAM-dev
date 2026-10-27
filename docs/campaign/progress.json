@@ -6,7 +6,7 @@
   "H": 4,
   "VH": 8
  },
- "reviewed": "2026-10-27 15:30 UTC",
+ "reviewed": "2026-10-27 13:55 UTC",
  "items": [
   {
    "group": "Statement and planning",
@@ -21,16 +21,16 @@
    "id": "S.SOURCES",
    "title": "Pinned source library: PDFs with SHA-256, bibliographic data checked against arXiv and Crossref",
    "difficulty": "L",
-   "done": 0.8,
-   "note": "42 PDFs pinned in sources/SHA256SUMS; per-paper summaries still to write"
+   "done": 0.85,
+   "note": "50 PDFs pinned in sources/SHA256SUMS; 20 in the registry; per-paper summaries still to write"
   },
   {
    "group": "Statement and planning",
    "id": "S.ROUTE",
    "title": "Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency)",
    "difficulty": "H",
-   "done": 0.3,
-   "note": "source-pinning research running"
+   "done": 0.9,
+   "note": "verdict: route works; rate ε^{1/4}; flow local uniqueness must be proved by us (no published version)"
   },
   {
    "group": "Statement and planning",
@@ -69,8 +69,8 @@
    "id": "S.ERRATA",
    "title": "Errata and deviations ledger for every formalized source (continuous)",
    "difficulty": "L",
-   "done": 0.2,
-   "note": "ledger opened; literature-reported candidates imported"
+   "done": 0.3,
+   "note": "ledger: 8 candidate errata, 6 planned deviations"
   },
   {
    "group": "Campaign infrastructure",
@@ -195,8 +195,8 @@
   {
    "group": "A-posteriori KAM at fixed frequency",
    "id": "K.UNIQ",
-   "title": "Local uniqueness of the invariant torus modulo phase",
-   "difficulty": "H",
+   "title": "Local uniqueness modulo phase for flows (no published version: adapt GJLV05 Thm 2, §6, §8)",
+   "difficulty": "VH",
    "done": 0.0,
    "note": ""
   },
@@ -211,7 +211,7 @@
   {
    "group": "Measure of the invariant tori",
    "id": "M.LIP",
-   "title": "Lipschitz dependence of the tori on the frequency",
+   "title": "Lipschitz dependence of the tori on the frequency (re-application; defect O(ε/γ⁴))",
    "difficulty": "H",
    "done": 0.0,
    "note": ""
@@ -227,7 +227,7 @@
   {
    "group": "Measure of the invariant tori",
    "id": "M.IMAGE",
-   "title": "Measure of images under maps Lipschitz-close to a bi-Lipschitz map",
+   "title": "McShane extension of F̂ − id and the lipeomorphism: the complement is the image of the complement",
    "difficulty": "M",
    "done": 0.0,
    "note": ""

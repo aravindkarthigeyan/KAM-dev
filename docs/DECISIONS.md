@@ -23,4 +23,9 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   `by exact`, independent audits; Lean module system everywhere.
 - **D6 (2026-10-27) HQ and errata.** The README is the campaign HQ, regenerated at least every 20 minutes and
   after every commit; an errata and deviations ledger is kept for every source we formalize. *(Scott)*
+- **D8 (2026-10-27) Route verdict for the measure layer** (orchestrator; revisable). Rate ε^{1/4}, with
+  γ ~ ε^{1/4}. Local uniqueness for flows is proved by us, adapting GJLV05 Thm 2 (§6, §8); no source states it.
+  Lipschitz dependence on the frequency comes from re-applying the a-posteriori theorem (CCdlL13, Cor. 29–30); the
+  defect is O(ε/γ⁴). The measure step uses a McShane extension and a lipeomorphism (Pos01, Prop. 1–2, App. B;
+  BC17, §6.5–6.6). Details in `docs/PLAN.md`, "Route verdict".
 - **D7 (2026-10-27) Hosting.** Private GitHub repository `scottnarmstrong/KAM-dev`. *(Scott: "commit and push")*

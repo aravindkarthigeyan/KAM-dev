@@ -16,9 +16,10 @@ neighbourhood of B̄, with frequency map ∇h a diffeomorphism of B onto its ima
 κ > 0 there is ε₀ > 0 such that, for every f real-analytic on a fixed complex neighbourhood of Tⁿ × B̄ with
 sup norm ≤ ε₀ there, the points of Tⁿ × B that lie on invariant tori of H = h + f have Lebesgue measure at
 least (1 − κ)·|Tⁿ × B|. Each such torus is a real-analytic embedded Lagrangian torus close to {I = const}, and
-the flow of H on it is conjugate to the linear flow θ ↦ θ + tω with a Diophantine frequency ω. Target
-quantitative form: the complement has measure ≤ C·ε₀^a for an explicit a > 0 (owner question Q1). The exact
-statement will be transcribed from the pinned sources, approved by the owner as Lean code, and frozen.
+the flow of H on it is conjugate to the linear flow θ ↦ θ + tω with a Diophantine frequency ω. Quantitative form
+that the route delivers: the complement has measure ≤ C·ε^{1/4}, where ε = sup |f| (owner question Q1; the optimal
+ε^{1/2} needs canonical-transformation methods). The exact statement will be transcribed from the pinned sources,
+approved by the owner as Lean code, and frozen.
 
 **Route** (decision D2). No canonical changes of variables and no action-angle normal forms:
 1. **A-posteriori KAM at fixed frequency** ([HL19, Thm 3.1](https://arxiv.org/abs/1711.05515v1) with d = n;
@@ -28,9 +29,12 @@ statement will be transcribed from the pinned sources, approved by the owner as 
    cohomological equations, Neumann-series inverses.
 2. **One torus per Diophantine frequency.** Apply 1 to the unperturbed torus (θ, (∇h)⁻¹ω) of the nearly-integrable
    system; the invariance error is the size of the perturbation.
-3. **Measure.** Local uniqueness gives Lipschitz dependence of the tori on the frequency. The union of tori is then
-   the image of a map Lipschitz-close to the bi-Lipschitz unperturbed map, on the Diophantine set, whose complement
-   has measure O(γ).
+3. **Measure.** Local uniqueness for flows, which no source states (we prove it, adapting
+   [GJLV05](https://doi.org/10.1088/0951-7715/18/2/020) Thm 2), and re-application of step 1 at nearby
+   frequencies ([CCdlL13](https://doi.org/10.1016/j.jde.2013.05.001), Cor. 29–30) make the tori depend on the
+   frequency with Lipschitz defect O(ε/γ⁴). A McShane extension ([Pos01](https://arxiv.org/abs/0908.2234v1),
+   Prop. 1–2 and App. B) turns this into a lipeomorphism. The complement of the tori is then the image of the
+   non-Diophantine set, of measure O(γ). Taking γ ~ ε^{1/4} gives the rate.
 4. **Framework.** Internally everything is coefficient arithmetic in weighted ℓ¹ Fourier(–Taylor) norms
    ‖f‖ = Σ |f̂ₖₘ| e^{|k|s} r^{|m|} (a Banach algebra: derivative, composition and cohomological estimates are
    termwise). Hypotheses are stated for real-analytic functions and converted once at the interface.
@@ -245,15 +249,19 @@ Full text: [`docs/DECISIONS.md`](docs/DECISIONS.md).
   `by exact Provider.<name>`; Lean module system everywhere.
 - **D6** This README is regenerated at least every 20 minutes and after every commit; an errata and deviations
   ledger is kept for every formalized source. *(Scott, 2026-10-27)*
+- **D7** Hosting: private GitHub repository `scottnarmstrong/KAM-dev`. *(Scott)*
+- **D8** Route verdict: rate ε^{1/4}; local uniqueness for flows is proved by us; Lipschitz dependence by
+  re-application (CCdlL13); measure step by McShane extension (Pos01). *(orchestrator, 2026-10-27; revisable)*
 
 ## Owner questions (open)
 
 | | Question | Recommendation |
 |---|---|---|
-| Q1 | Should the frozen headline carry an explicit rate, meas(complement) ≤ C·ε^a, or only the qualitative (1 − κ) form? | Explicit rate, if the route delivers it at little extra cost; otherwise the qualitative form plus a separate rate theorem. Decided after the measure-layer source is pinned. |
+| Q1 | Should the frozen headline carry the explicit rate meas(complement) ≤ C·ε^{1/4}, or only the qualitative (1 − κ) form? | The rate ε^{1/4}: the route delivers it, and no Lean KAM theorem has a rate. It needs ∂B regular; the qualitative form needs no boundary condition, so it can be a corollary. |
 | Q2 | Angle period: 1 (Tⁿ = ℝⁿ/ℤⁿ, as in HL19, FHL17 and Mathlib's `UnitAddTorus`) or 2π (as in Pöschel, Arnold)? | Period 1. |
 | Q3 | What must the conclusion say about each torus: invariance with the linear flow and a Diophantine frequency (minimum); also Lagrangian, real-analytic embedding, closeness to the unperturbed torus? | All of them; the Lagrangian property comes for free in the a-posteriori framework. |
-| Q4 | Gate theorems to freeze besides the headline: the fixed-frequency a-posteriori theorem, local uniqueness, measure of the Diophantine set? | Freeze the a-posteriori theorem and the Diophantine-measure theorem as gates; keep the rest internal. |
+| Q4 | Gate theorems to freeze besides the headline: the fixed-frequency a-posteriori theorem, local uniqueness for flows, measure of the Diophantine set? | Freeze all three: the a-posteriori theorem is the main reusable result, uniqueness for flows is new (no source states it), and the Diophantine measure is classical. |
+| Q5 | Standing assumptions: n ≥ 2; B bounded with regular (e.g. C² or Lipschitz) boundary; ∇h a bi-Lipschitz diffeomorphism of B̄ onto its image; h + f real-analytic on a uniform complex neighbourhood of Tⁿ × B̄? | Yes to all; the boundary condition only for the rate form. |
 
 ## Errata and deviations
 

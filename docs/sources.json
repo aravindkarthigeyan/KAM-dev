@@ -19,7 +19,17 @@
    "doi": "10.1088/0951-7715/18/2/020",
    "pdf": "gjlv.pdf",
    "sha256": "eec921dc45889c6a7148d12653d84f6994d395811ccf40f2bdfd6057d119a9ee",
-   "role": "A-posteriori theorem for flows (Thm 5) and maps (Thm 1); local uniqueness; cross-check of the Newton step"
+   "role": "A-posteriori theorem for flows (Thm 5, p. 865) and maps (Thm 1); local uniqueness for maps (Thm 2, p. 862; proof §6, pp. 883–885), the template for our flow version; automatic Lagrangian property (Lemma 19 / Prop. 18)"
+  },
+  {
+   "key": "CCdlL13",
+   "tier": "core",
+   "citation": "R. Calleja, A. Celletti, R. de la Llave, *A KAM theory for conformally symplectic systems: efficient algorithms and their validation*, J. Differential Equations 255 (2013) 978–1049",
+   "arxiv": null,
+   "doi": "10.1016/j.jde.2013.05.001",
+   "pdf": "ccdll_conformally_symplectic_mparc11-188.pdf",
+   "sha256": "3e9226d24d59c97795261033796faf3a1fc1199cc966be501058e304845e1034",
+   "role": "Lipschitz dependence on the frequency by re-applying the a-posteriori theorem (Cor. 29–30, normalization (5.3)); pinned preprint mp_arc 11-188"
   },
   {
    "key": "Pos01",
@@ -29,7 +39,17 @@
    "doi": null,
    "pdf": "arxiv_0908.2234.pdf",
    "sha256": "95503c181ede41948041b65963390244680457ab9d8d24b1a4716c81c5735d35",
-   "role": "Measure layer (Thm A, App. B) and measure of Diophantine vectors (§1); pinned arXiv text is Version 1.3 (2009)"
+   "role": "Measure assembly: Prop. 1–2 (p. 11) with the Lipschitz (McShane) extension of App. B (p. 31); measure of Diophantine vectors (§1d, p. 5); pinned arXiv text is Version 1.3 (2009)"
+  },
+  {
+   "key": "BC17",
+   "tier": "cross-check",
+   "citation": "L. Biasco, L. Chierchia, *Explicit estimates on the measure of primary KAM tori*, Ann. Mat. Pura Appl. (2018)",
+   "arxiv": "1612.01903v1",
+   "doi": "10.1007/s10231-017-0678-8",
+   "pdf": "arxiv_1612.01903.pdf",
+   "sha256": "08f112e22bebdc642763a0fbe211aba88169e0b7fd19a3c1d33f63c422cb9555",
+   "role": "Measure assembly in phase space: §6.5–6.6, Lemmas 5–6 (arXiv pp. 15–18)"
   },
   {
    "key": "FHL17",
@@ -42,6 +62,26 @@
    "role": "Explicit a-posteriori constants (Thm 2.5, maps); measure of Diophantine vectors (§4.1); Rüssmann estimates (§4.2)"
   },
   {
+   "key": "FdlLS09",
+   "tier": "cross-check",
+   "citation": "E. Fontich, R. de la Llave, Y. Sire, *Construction of invariant whiskered tori by a parameterization method. Part I: Maps and flows in finite dimensions*, J. Differential Equations 246 (2009) 3136–3213",
+   "arxiv": "0903.0311v1",
+   "doi": "10.1016/j.jde.2009.01.037",
+   "pdf": "arxiv_0903.0311_FdlLS_whiskered_I.pdf",
+   "sha256": "de8fa578f211187d781c500f0b92fca3a403269908f8d3a70359475a5773c4f3",
+   "role": "Local uniqueness (Thm 3.14) and dependence on the frequency (§7.1)"
+  },
+  {
+   "key": "Vil17",
+   "tier": "cross-check",
+   "citation": "J. Villanueva, *A new approach to the parameterization method for Lagrangian tori of Hamiltonian systems*, J. Nonlinear Sci. 27 (2017) 495–530",
+   "arxiv": null,
+   "doi": "10.1007/s00332-016-9342-5",
+   "pdf": "villanueva_param.pdf",
+   "sha256": "8c3fc690c0220b6254cf15316e277964de5e6c7f0e470278bed93884ad00399b",
+   "role": "Sharper a-posteriori theorem (Thm 2.6) with split error terms; pinned author copy"
+  },
+  {
    "key": "CK21",
    "tier": "cross-check",
    "citation": "L. Chierchia, C. E. Koudjinan, *V. I. Arnold's \"global\" KAM theorem and geometric measure estimates*, Regul. Chaotic Dyn. 26 (2021)",
@@ -50,16 +90,6 @@
    "pdf": "arxiv_2010.13243.pdf",
    "sha256": "a0e746bae78b59393aae5f8a90d16391f4751530f159dc318076aec96a9b6b69",
    "role": "Explicit measure estimates (cross-check of exponents and constants)"
-  },
-  {
-   "key": "BC17",
-   "tier": "cross-check",
-   "citation": "L. Biasco, L. Chierchia, *Explicit estimates on the measure of primary KAM tori*, Ann. Mat. Pura Appl. (2018)",
-   "arxiv": "1612.01903v1",
-   "doi": "10.1007/s10231-017-0678-8",
-   "pdf": "arxiv_1612.01903.pdf",
-   "sha256": "08f112e22bebdc642763a0fbe211aba88169e0b7fd19a3c1d33f63c422cb9555",
-   "role": "Explicit measure estimates (cross-check)"
   },
   {
    "key": "Sal04",
@@ -92,6 +122,36 @@
    "role": "Faithful restatement of Kolmogorov's 1954 theorems (statement fidelity)"
   },
   {
+   "key": "Vil08",
+   "tier": "reference",
+   "citation": "J. Villanueva, *Kolmogorov theorem revisited*, J. Differential Equations 244 (2008) 2251–2276",
+   "arxiv": null,
+   "doi": "10.1016/j.jde.2008.02.010",
+   "pdf": "villanueva_kolmogorov_revisited_JDE2008.pdf",
+   "sha256": "806714e1eabbf4f05df8f718fa66101207d371ef882057e7fa8d83a0792a44b9",
+   "role": "Benchmarks γ ~ ε^{1/2} and action displacement O(ε/γ) (canonical route)"
+  },
+  {
+   "key": "FHL20",
+   "tier": "reference",
+   "citation": "J.-Ll. Figueras, A. Haro, A. Luque, *Effective bounds for the measure of rotations*, Nonlinearity 33 (2020) 700–741",
+   "arxiv": "1806.05517v1",
+   "doi": "10.1088/1361-6544/ab500d",
+   "pdf": "arxiv_1806.05517_FHL_measure_rotations.pdf",
+   "sha256": "1d5b1cffd4f623018b3a236ca7033666a5b3fb08464b48c050c6a599307d9d33",
+   "role": "Lipschitz tracking through the Newton scheme (Lemma 2.2, Thm 4.1); one-dimensional template"
+  },
+  {
+   "key": "Bou20b",
+   "tier": "reference",
+   "citation": "A. Bounemoura, *Positive measure of KAM tori for finitely differentiable Hamiltonians*, J. Éc. polytech. Math. 7 (2020) 1113–1132",
+   "arxiv": "1812.03067v2",
+   "doi": "10.5802/jep.137",
+   "pdf": "bounemoura_JEP2020_jep137.pdf",
+   "sha256": "fbc7c96cc691d05c71093a1c97888a83ba312240582325b5f8ad4e2d5a6ec048",
+   "role": "Graph-Lipschitz viewpoint for the measure step (Thm B)"
+  },
+  {
    "key": "Bou20",
    "tier": "errata",
    "citation": "A. Bounemoura, *Some remarks on the classical KAM theorem, following Pöschel*, arXiv preprint (2020)",
@@ -110,6 +170,16 @@
    "pdf": "arxiv_1904.13062.pdf",
    "sha256": "daae2113f4a59b39130d2908ffea505679c802c2ac358ae775c806507b5d46aa",
    "role": "Corrected version of Pöschel's argument; sharp measure estimates"
+  },
+  {
+   "key": "Vano02",
+   "tier": "reference",
+   "citation": "J. Vano, *A Whitney–Zehnder implicit function theorem*, PhD thesis, University of Texas at Austin (2002)",
+   "arxiv": null,
+   "doi": null,
+   "pdf": "vano_thesis_2002_IFT.pdf",
+   "sha256": "9998a94a412fd7d36d9d8885f8fe11177769cc96ea864f6ef60a65ff4774c9f1",
+   "role": "Abstract Whitney-regularity implicit function theorem (mp_arc 02-276)"
   },
   {
    "key": "Arn63",

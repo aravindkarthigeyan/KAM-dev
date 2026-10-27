@@ -1,5 +1,5 @@
 {
- "current_phase": "Phase 0: sources and statements. Headline chosen by the owner (positive-measure KAM for nearly-integrable real-analytic Hamiltonians); route chosen (a-posteriori KAM without action-angle changes of variables, weighted ℓ¹ norms); pinning the source for the measure layer; next: mathematical statement, then exact Lean statements for approval.",
+ "current_phase": "Phase 0: sources and statements. Route verdict in: the a-posteriori route gives the positive-measure theorem with complement O(ε^{1/4}); local uniqueness for flows must be proved by us. Next: mathematical statement and owner questions Q1–Q5, then exact Lean statements for approval.",
  "workers": [
   {
    "id": "orchestrator",
@@ -9,18 +9,13 @@
    "session": null,
    "assignment": "Campaign lead: sources, statements, assignments, landings, owner questions, this README",
    "state": "active"
-  },
-  {
-   "id": "measure-source",
-   "kind": "research subagent",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1",
-   "session": null,
-   "assignment": "Pin the source(s) for the measure layer and check the Lipschitz-in-frequency route",
-   "state": "running"
   }
  ],
- "queued": [],
+ "queued": [
+  {
+   "title": "Mathematical statement of the headline and gates (docs/statement.md), after Q1–Q5"
+  }
+ ],
  "graph": {
   "nodes": [
    [
@@ -55,7 +50,7 @@
    ],
    [
     "UNIQ",
-    "Local uniqueness<br/>modulo phase",
+    "Local uniqueness for flows<br/>(to be proved: adapt GJLV05 Thm 2)",
     "todo"
    ],
    [
@@ -65,22 +60,22 @@
    ],
    [
     "LIP",
-    "Lipschitz dependence<br/>on the frequency",
+    "Lipschitz in ω: defect O(ε/γ⁴)<br/>[CCdlL13, Cor. 29–30]",
     "todo"
    ],
    [
     "DMEAS",
-    "Measure of the<br/>non-Diophantine frequencies",
+    "Measure of the<br/>non-Diophantine frequencies [Pos01 §1d]",
     "todo"
    ],
    [
     "IMAGE",
-    "Measure of images of<br/>near-bi-Lipschitz maps",
+    "McShane extension, lipeomorphism<br/>[Pos01, Prop. 1–2, App. B]",
     "todo"
    ],
    [
     "HEAD",
-    "Headline: positive-measure KAM<br/>for nearly-integrable H = h + f",
+    "Headline: positive-measure KAM<br/>complement ≤ C·ε^{1/4}",
     "anchor"
    ]
   ],

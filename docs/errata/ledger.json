@@ -18,7 +18,7 @@
    "id": "E-Pos01-1",
    "type": "erratum",
    "source": "Pos01",
-   "location": "p. 29 (arXiv v1.3), footnote to the proof of Lemma A.3 / estimates of Appendix A",
+   "location": "p. 29 (arXiv v1.3), footnote to Lemma A.2",
    "printed": "(print version, PSPUM 69) condition Kσ ≥ 1 absent",
    "claim": "missing hypothesis: the condition Kσ ≥ 1 is missing in the printed version; the author's own footnote in arXiv v1.3 says so and the pinned arXiv version contains it",
    "kind": "missing hypothesis",
@@ -31,14 +31,92 @@
    "id": "E-Pos01-2",
    "type": "erratum",
    "source": "Pos01",
-   "location": "p. 23 (arXiv v1.3), choice of h₀ and K₀ in the proof of the main theorem",
+   "location": "p. 23 (arXiv v1.3), choice of h₀ and K₀ in the proof of Theorem A",
    "printed": "(to be quoted from the pinned PDF)",
-   "claim": "reported flaw in the choice of h₀, K₀ (Bounemoura, arXiv:2006.04453, 'Some remarks on the Classical KAM Theorem, following Pöschel'); corrected in Koudjinan's thesis",
+   "claim": "the choices of h₀ and K₀ violate h₀ ≤ α(2K₀^ν)⁻¹ (Bou20, footnote 1); Kou19 Rem. 2.1.5(4), p. 28: 'Theorem A and B are not valid for ν = τ+1' with that proof; Bou20 restores Theorem A as stated by Rüssmann approximation and a linear scheme",
    "kind": "gap",
-   "evidence": "Bounemoura arXiv:2006.04453 (pinned as Bou20)",
+   "evidence": "Bou20 (arXiv:2006.04453v1) footnote 1; Kou19 (arXiv:1904.13062v1) Rem. 2.1.5(4)",
    "status": "CANDIDATE",
    "checked_by": "research survey 2026-10-27 (unverified)",
    "effect": "relevant only if the measure layer follows Pöschel's proof"
+  },
+  {
+   "id": "E-Pos01-3",
+   "type": "erratum",
+   "source": "Pos01",
+   "location": "p. 13 (arXiv v1.3), measure statement after Theorem A",
+   "printed": "\"measure of Ωα × Tn\"",
+   "claim": "should be the measure of (Ω ∖ Ωα) × Tⁿ",
+   "kind": "typo",
+   "evidence": "context of the measure estimate",
+   "status": "CANDIDATE",
+   "checked_by": "measure-layer research 2026-10-27 (unverified by writer/verifier)",
+   "effect": "none"
+  },
+  {
+   "id": "E-GJLV05-1",
+   "type": "erratum",
+   "source": "GJLV05",
+   "location": "p. 862, Theorem 3 (closeness bound)",
+   "printed": "cγ²δ^{−2σ}",
+   "claim": "presumably cγ^{−2}δ^{−2σ}, as in Theorems 1 and 5",
+   "kind": "typo",
+   "evidence": "comparison with Theorems 1, 5 and the proof",
+   "status": "CANDIDATE",
+   "checked_by": "measure-layer research 2026-10-27 (unverified)",
+   "effect": "none if confirmed as a typo"
+  },
+  {
+   "id": "E-GJLV05-2",
+   "type": "erratum",
+   "source": "GJLV05",
+   "location": "p. 865, Theorem 5",
+   "printed": "‖e₀‖_{ρ₀}",
+   "claim": "ρ₀ is not defined in the statement (presumably ρ)",
+   "kind": "typo",
+   "evidence": "statement of Theorem 5",
+   "status": "CANDIDATE",
+   "checked_by": "measure-layer research 2026-10-27 (unverified)",
+   "effect": "none"
+  },
+  {
+   "id": "E-FdlLS09-1",
+   "type": "erratum",
+   "source": "FdlLS09",
+   "location": "p. 13, Theorem 3.14",
+   "printed": "ρ^{−2ν} with δ = ρ/4",
+   "claim": "δ is introduced but unused; the bound presumably involves δ",
+   "kind": "typo",
+   "evidence": "statement of Theorem 3.14",
+   "status": "CANDIDATE",
+   "checked_by": "measure-layer research 2026-10-27 (unverified)",
+   "effect": "none"
+  },
+  {
+   "id": "E-FdlLS09-2",
+   "type": "erratum",
+   "source": "FdlLS09",
+   "location": "§7.1, pp. 42–43",
+   "printed": "(measure conclusion of §7.1)",
+   "claim": "a bi-Lipschitz map ω ↦ K_ω into a function space does not by itself give a Lipschitz inverse of (θ, ω) ↦ K_ω(θ); the measure conclusion needs the argument we supply (D-LIP-1, D-MEAS-1)",
+   "kind": "gap",
+   "evidence": "the Lipschitz constant ~γ⁻² of ω ↦ K_ω is not small relative to the unperturbed map",
+   "status": "CANDIDATE",
+   "checked_by": "measure-layer research 2026-10-27 (unverified)",
+   "effect": "none on our statements; we do not use §7.1's conclusion"
+  },
+  {
+   "id": "E-CCdlL13-1",
+   "type": "erratum",
+   "source": "CCdlL13",
+   "location": "pp. 31–32 (preprint mp_arc 11-188)",
+   "printed": "(meaning of ℓ = 2)",
+   "claim": "the two pages describe ℓ = 2 inconsistently",
+   "kind": "typo",
+   "evidence": "pp. 31 vs 32",
+   "status": "CANDIDATE",
+   "checked_by": "measure-layer research 2026-10-27 (unverified)",
+   "effect": "none"
   },
   {
    "id": "D-ROUTE-1",
@@ -50,6 +128,16 @@
    "status": "PLANNED",
    "effect": "no effect on the statement; recorded for readers comparing the proofs",
    "evidence": ""
+  },
+  {
+   "id": "D-MEAS-1",
+   "type": "deviation",
+   "source": "Pos01",
+   "location": "Theorem (p. 6), Prop. 1–2 (p. 11)",
+   "claim": "Rate: our route proves meas(complement) ≤ C·ε^{1/4} (γ ~ ε^{1/4}), not Pöschel's O(√ε); the measure step applies the McShane extension of App. B to F̂ − id in frequency coordinates",
+   "kind": "scope (weaker rate)",
+   "status": "PLANNED",
+   "effect": "the headline's exponent is 1/4 (owner question Q1)"
   },
   {
    "id": "D-NORM-1",
@@ -72,6 +160,26 @@
    "status": "PLANNED",
    "effect": "the general exact-symplectic setting of the source is specialized to the standard form on Tⁿ × ℝⁿ",
    "evidence": ""
+  },
+  {
+   "id": "D-UNIQ-1",
+   "type": "deviation",
+   "source": "GJLV05",
+   "location": "Theorem 2 (maps), §6, §8",
+   "claim": "Proof supplement: local uniqueness modulo phase for flows. No published statement exists in this framework (GJLV05 Rem. 7: 'We do not formulate such a theorem'; HL19 Rem. 3.5 asserts it without proof). We prove it by adapting the map proof of GJLV05 §6 with the flow reducibility of §8 and Prop. 18, directly for flows (not through the time-one map, which needs map-Diophantine frequencies).",
+   "kind": "proof supplement",
+   "status": "PLANNED",
+   "effect": "a gate theorem of our own; no source statement changes"
+  },
+  {
+   "id": "D-LIP-1",
+   "type": "deviation",
+   "source": "CCdlL13",
+   "location": "Cor. 29–30",
+   "claim": "Lipschitz dependence on the frequency by re-applying the a-posteriori theorem at a nearby frequency (CCdlL13 template), with the error estimate ‖E′‖ ≲ (ε + ‖K_ω − K⁰_ω‖_{C¹})·|ω − ω′| and Lipschitz defect O(ε/γ⁴)",
+   "kind": "proof supplement",
+   "status": "PLANNED",
+   "effect": "explicit constants of our own"
   }
  ]
 }

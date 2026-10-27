@@ -52,6 +52,7 @@ if [ -n "$oversize_files" ]; then
 fi
 
 python3 -I "$project_root/scripts/gen_root_imports.py" --check || status=1
+python3 -I "$project_root/scripts/render_errata.py" --check || status=1
 python3 -I "$project_root/scripts/check_lean_modules.py" --root "$project_root" || status=1
 # The anchor guard rejects an empty manifest; until the first anchor is frozen, instead require
 # that KAM/Frozen holds no Lean file at all.
