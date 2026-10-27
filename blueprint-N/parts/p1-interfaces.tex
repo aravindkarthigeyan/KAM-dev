@@ -49,8 +49,8 @@ Let $R,s>0$, $n\ge0$.
 \item $\mathcal B_s(R)=B(0,R+s)$; in particular it is open and $B(0,R)\subset\mathcal B_s(R)$ (Remark~\ref{bpN:p0:rdomain-eq}); $W_s:=\R^n\times\mathcal B_s(R)$ is open in $\R^n\times\R^n$ and
   $D_s(R)\cap(\R^n\times\R^n)=W_s$ (real points of $D_s(R)$: $\theta\in\R^n\subset T_s$ since $s>0$).
 \item $B(0,R)_s\cap\R^n=\mathcal B_s(R)$; $D_s(R)$ and $B(0,R)_s$ are open.
-\item (Euclidean tubes) Let $P=\{J\in\R^n:\abs J\le R/2\}$ and $0<r_0\le\min(s/2,R/8)$. If $I\in\C^n$ and $J\in P$ with $\abs{I-J}_2<r_0$, then $I\in B(0,R)_s$ and
-  $\abs{I-J}_\infty<s$. If moreover $I\in\R^n$ then $\abs I_\infty<5R/8\le3R/4$.
+\item (Max-norm tubes, as in Definition~\ref{bpN:p4:domains}) Let $P=\{J\in\R^n:\abs J\le R/2\}$ and $0<r_0\le\min(s/2,R/8)$. If $I\in\C^n$ and $J\in P$ with $\abs{I-J}_\infty<r_0$, then $I\in B(0,R)_s$ and
+  $\abs{I-J}_\infty<s$. If moreover $I\in\R^n$ then $\abs I_\infty<5R/8\le3R/4$. Since $\abs x_\infty\le\abs x_2$, the same holds (as a consequence) for the smaller Euclidean tube $\abs{I-J}_2<r_0$.
 \item $T_{\rho}\subset T_s$ for $\rho\le s$; $T_s=\C^0$ is the universal singleton for $n=0$ (no $n>0$ hypothesis is needed anywhere in N-ZERO, N-QC).
 \end{enumerate}
 \source{Ours (Remark~\ref{bpN:p0:rdomain-eq}); BM11 p.~4 for the notation.}
@@ -60,7 +60,7 @@ Let $R,s>0$, $n\ge0$.
 
 \proofstep{Openness and real points}\label{stepN:p1:rd-open} $B(0,R)_s=\bigcup_{J\in B(0,R)}\{\abs{I-J}<s\}$ is a union of open balls; $T_s$ is open as a preimage of an open set; products of open sets are open; the rest is the definition of $\iota$ and $\mathcal B_s(R)=B(0,R)_s\cap\R^n$ by Step~\ref{stepN:p1:rd-real}.
 
-\proofstep{Euclidean tubes}\label{stepN:p1:rd-euclid} By \ref{bpN:p1:ext-norms} $\abs{I-J}_\infty\le\abs{I-J}_2<r_0\le s/2<s$, and $\abs J<R$ since $J\in P$; so $I\in B(0,R)_s$. For real $I$: $\abs I_\infty<R/2+R/8$.
+\proofstep{Max-norm tubes}\label{stepN:p1:rd-euclid} $\abs{I-J}_\infty<r_0\le s/2<s$, and $\abs J_\infty\le R/2<R$ since $J\in P$; so $I\in B(0,R)_s$ (direct triangle inequality, no norm comparison needed). For real $I$: $\abs I_\infty\le\abs J_\infty+\abs{I-J}_\infty<R/2+R/8$. The Euclidean tube is contained in the max-norm tube by \ref{bpN:p1:ext-norms} ($\abs x_\infty\le\abs x_2$).
 \end{proof}
 
 \subsection{Holomorphy implies real smoothness}\label{bpN:p1:s-holo}
@@ -176,14 +176,14 @@ The constants $q,B_c,\mu,\ell$ depend only on $(n,m,M_\C,\omega_{\min})$. In P\"
 \begin{lemma}[Period conversion]\label{bpN:p1:period-convert}
 Let $\Lambda(\theta,I)=(2\pi\theta,I)$ and, for $H:\R^n\times\R^n\to\R$ and arbitrary $h:\C^n\to\C$, $f:\C^n\times\C^n\to\C$, define
 \[\tilde H(\varphi,I)=2\pi H(\varphi/2\pi,I),\qquad\tilde h=2\pi h,\qquad\tilde f(\varphi,I)=2\pi f(\varphi/2\pi,I),\]
-so $\tilde H=H_{\tilde h,\tilde f}$ when $H=H_{h,f}$. Clauses (a), (b) are unconditional (no analyticity or periodicity is assumed). Clauses (c), (d) and the periodicity statement (e) are about $f$ satisfying $\texttt{IsAnalyticPerturbation}\,R\,s\,\varepsilon\,f$ (Definition~\ref{bpN:p0:pert}), $R,s>0$. Then:
+so $\tilde H=H_{\tilde h,\tilde f}$ when $H=H_{h,f}$. Clauses (a), (b) are unconditional (no analyticity or periodicity is assumed). Clauses (c) (domains), (d) (periodicity) and (e) (Fourier coefficients) are about $f$ satisfying $\texttt{IsAnalyticPerturbation}\,R\,s\,\varepsilon\,f$ (Definition~\ref{bpN:p0:pert}), $R,s>0$. Then:
 \begin{enumerate}[label=(\alph*)]
 \item (Dynamics) For $U\subset\R^n$, $J\subset\R$: $z$ satisfies $\texttt{IsSolutionOn}\,H\,U\,J\,z$ iff $\Lambda\circ z$ satisfies $\texttt{IsSolutionOn}\,\tilde H\,U\,J$ (same time, same actions). In particular $\abs{(\Lambda z)_2-I_0}=\abs{z_2-I_0}$.
 \item (Quantities) $\omega_{\tilde h}=2\pi\omega_h$, $D^2\tilde h_\R=2\pi D^2h_\R$, and so: $\texttt{IsStrictlyQuasiConvex}\,U\,h\,m\Rightarrow\texttt{IsStrictlyQuasiConvex}\,U\,\tilde h\,2\pi m$;
   $B(M)\Rightarrow$ coordinate partials of $\tilde h_\R$ of order $1,2,3$ bounded by $2\pi M$; the complex Hessian bound $M_\C\to2\pi M_\C$; $\omega_{\min}\to2\pi\omega_{\min}$; Euclidean sizes of $\omega$: $\abs{\tilde\omega}_2=2\pi\abs\omega_2$. Time is unchanged.
 \item (Domains; needs holomorphy of $f$ on $D_s(R)$ and the bound $\abs f\le\varepsilon$) $\tilde f$ is holomorphic on $\{\abs{\operatorname{Im}\varphi}<2\pi s\}\times B(0,R)_s$ and $\abs{\tilde f}\le2\pi\varepsilon$ there; the strip $T_\rho$ ($\rho$ in $\theta$) corresponds to the strip of width $2\pi\rho$ in $\varphi$.
 \item (Periodicity; needs $f(\theta+k,I)=f(\theta,I)$ on $D_s(R)$) $\tilde f(\varphi+2\pi k,I)=\tilde f(\varphi,I)$ for $k\in\Z^n$ and $\varphi$ in that strip. (Without this premise the claim fails: $f=\theta_1$ gives $\tilde f=\varphi_1$.)
-\item (Fourier; needs (c), (e)) $\tilde f(\varphi,I)=\sum_k\tilde{\hat f}_k(I)e^{ik\cdot\varphi}$ with $\tilde{\hat f}_k(I)=2\pi\hat f_k(I)$, $\hat f_k(I)=\int_{[0,1]^n}f(\theta,I)e^{-2\pi ik\cdot\theta}\,d\theta$, whenever the Fourier series of $f(\cdot,I)$ converges to it (\Kref{bp:p1:summation}); the coefficient radius $s'$ of P\"oschel's weight $e^{\abs k_1s'}$ equals $2\pi\rho$.
+\item (Fourier; needs (c), (d)) $\tilde f(\varphi,I)=\sum_k\tilde{\hat f}_k(I)e^{ik\cdot\varphi}$ with $\tilde{\hat f}_k(I)=2\pi\hat f_k(I)$, $\hat f_k(I)=\int_{[0,1]^n}f(\theta,I)e^{-2\pi ik\cdot\theta}\,d\theta$, whenever the Fourier series of $f(\cdot,I)$ converges to it (\Kref{bp:p1:summation}); the coefficient radius $s'$ of P\"oschel's weight $e^{\abs k_1s'}$ equals $2\pi\rho$.
 \end{enumerate}
 \source{\texttt{docs/tracks/N/sources.md} (``For the period conversion''); Pos93 p.~189 (set-up: $\theta\in\R^n/2\pi\Z^n$, strip $W_{s_0}$ of width $s_0$ in the max norm of $\operatorname{Im}\theta$).}
 \end{lemma}
@@ -223,7 +223,7 @@ Then:
 \begin{enumerate}[label=(\alph*)]
 \item All constants are positive and finite and depend only on $(n,R,s,M,m,M_\C,\omega_{\min})$ --- not on $h,f,\varepsilon,\theta_0,I_0$, nor on the bound $A$ of Definition~\ref{bpN:p0:integrable}(iii). Order of choice: $q,B_c,\mu,\ell,r_0,A$; then $s_0,\sigma,F$; $\varepsilon_*$; $C,c$; $T$; $\varepsilon_0$. And $C\varepsilon_0^{a}\le R/4$, $0<\varepsilon_0\le\varepsilon_*/F$.
 \item $r_0\le\ell_P/(2M_P)$ ($=\ell/(2B_c)$, hypothesis \ref{bpN:p9:s-r} of Definition~\ref{bpN:p9:setting}); consequently $r_0\le4\ell_P/m_P$ ($=4\ell/\mu$); $A\ge22$; $R_0=r_0/A\le r_0/22\le R/176$.
-\item (Tubes) With $V_{r_0}P=\{I\in\C^n:\exists J\in P,\ \abs{I-J}_2<r_0\}$ and $U_{r_0}P=V_{r_0}P\cap\R^n$: $V_{r_0}P\subset B(0,R)_s$ and $U_{r_0}P\subset B(0,5R/8)\subset B(0,R)$.
+\item (Tubes) With the max-norm tube $V_{r_0}P=\{I\in\C^n:\exists J\in P,\ \abs{I-J}_\infty<r_0\}$ of Definition~\ref{bpN:p4:domains} and $U_{r_0}P=V_{r_0}P\cap\R^n$: $V_{r_0}P\subset B(0,R)_s$ and $U_{r_0}P\subset B(0,5R/8)\subset B(0,R)$ (the Euclidean tubes are contained in these).
 \item (Hypotheses of Theorem~1) If $h$ satisfies (H1)--(H5) of Theorem~\ref{bpN:p0:head}, then for $I\in U_{r_0}P$: $\tilde h$ is $\ell_P,\mu_P$-quasi-convex (Lemma~\ref{bpN:p1:qc-convert}) with $\mu_P=2\pi\mu$; the complex Hessian operator norm (Euclidean) of $\tilde h$ on $V_{r_0}P$ is $\le M_P$ (Lemma~\ref{bpN:p1:hessian-convert}); P\"oschel's $m,M$ are $m_P,M_P$ and his hypothesis $r_0\le4\ell_P/m_P$ holds, together with the added hypothesis $r_0\le\ell_P/(2M_P)$ of Part~\ref{bpN:p9} (needed on the block $\Z^n$, Remark~\ref{bpN:p9:errata}(1)).
 \item (Perturbation) If $f$ satisfies (H6) with $\varepsilon$, then P\"oschel's norm of $\tilde f$ on $V_{r_0}P\times$(strip of width $s_0$) is $\le F\varepsilon$; and $F\varepsilon\le\varepsilon_{0,P}$ if $\varepsilon\le\varepsilon_0$.
 \item (Exceptional branch is empty) For $I_0\in B(0,R/2)$: $\abs{\tilde\omega(I_0)}_2\ge2\pi\omega_{\min}>\pi\omega_{\min}\ge m_Pr_0/8$.
@@ -242,7 +242,7 @@ Then:
 
 \proofstep{Quasi-convexity and Hessian}\label{stepN:p1:co-qc} For (d): $U_{r_0}P\subset B(0,R)$ by (c), so Lemma~\ref{bpN:p1:qc-convert}(b) applies at every point of $U_{r_0}P$ and, after Lemma~\ref{bpN:p1:period-convert}(b), gives the $(\ell_P,\mu_P)$-alternative for $\tilde h$. For $I\in V_{r_0}P\subset B(0,R)_s$ the Euclidean operator norm of $\tilde Q(I)$ is $\le2\pi nM_\C\le2\pi B_c=M_P$ (Lemma~\ref{bpN:p1:hessian-convert}). P\"oschel's $A=11M/m$ with $M=M_P$ and $m=\mu_P=m_P$ is $11B_c/\mu=A$. The hypothesis \ref{bpN:p9:s-r} of Part~\ref{bpN:p9} is $r_0\le\ell_P/(2M_P)=\ell/(2B_c)$, the third entry of the minimum defining $r_0$.
 
-\proofstep{Perturbation}\label{stepN:p1:co-pert} By (H6) $\abs f\le\varepsilon$ on $D_s(R)\supset T_{3s/4}\times V_{r_0}P$ ($V_{r_0}P\subset B(0,R)_s$, (c)). For each fixed $I\in V_{r_0}P$ apply Lemma~\ref{bpN:p1:norm-convert} to $u=f(\cdot,I)$ with $\rho=3s/4$, $\delta=s/4$: $\sum_k\abs{\hat f_k(I)}e^{2\pi\abs k_1s/2}\le\coth(\pi s/4)^n\varepsilon$. Multiplying by $2\pi$ (Lemma~\ref{bpN:p1:period-convert}(f); $f$ satisfies (H6), so (c), (e) apply) and noting $2\pi\cdot s/2=\pi s=s_0$ gives $\le F\varepsilon$. (In P\"oschel's terms $s_0+2\sigma=3\pi s/2=2\pi\cdot\frac{3s}4$.) $\varepsilon\le\varepsilon_*/F$ gives $F\varepsilon\le\varepsilon_*=\varepsilon_{0,P}$. This is (e).
+\proofstep{Perturbation}\label{stepN:p1:co-pert} By (H6) $\abs f\le\varepsilon$ on $D_s(R)\supset T_{3s/4}\times V_{r_0}P$ ($V_{r_0}P\subset B(0,R)_s$, (c)). For each fixed $I\in V_{r_0}P$ apply Lemma~\ref{bpN:p1:norm-convert} to $u=f(\cdot,I)$ with $\rho=3s/4$, $\delta=s/4$: $\sum_k\abs{\hat f_k(I)}e^{2\pi\abs k_1s/2}\le\coth(\pi s/4)^n\varepsilon$. Multiplying by $2\pi$ (Lemma~\ref{bpN:p1:period-convert}(e); $f$ satisfies (H6), so (c), (d) apply) and noting $2\pi\cdot s/2=\pi s=s_0$ gives $\le F\varepsilon$. (In P\"oschel's terms $s_0+2\sigma=3\pi s/2=2\pi\cdot\frac{3s}4$.) $\varepsilon\le\varepsilon_*/F$ gives $F\varepsilon\le\varepsilon_*=\varepsilon_{0,P}$. This is (e).
 
 \proofstep{Exceptional branch}\label{stepN:p1:co-exc} $I_0\in B(0,R/2)\subset B(0,R)$ so $\abs{\omega(I_0)}_2\ge\omega_{\min}$ (Lemma~\ref{bpN:p1:qc-convert}(c)) and $\abs{\tilde\omega}_2=2\pi\abs\omega_2$. And $m_Pr_0/8=2\pi\mu r_0/8\le2\pi\mu\cdot\frac{4\omega_{\min}}{8\mu}=\pi\omega_{\min}$ by $r_0\le4\omega_{\min}/\mu$. This is (f).
 

@@ -177,4 +177,15 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
     `by exact <export>`. A sealed body may now apply the export to exactly those binder names, all of them, in
     order, and to nothing else.
   - The upstream skill script `check_frozen_anchors.py` has the same two limitations (reported to the owner).
+- **D27 (2026-10-27) Lean status `BYPASSED` for route substitutions.** *(orchestrator)*
+  - **Meaning.** A graph step is `BYPASSED` when its proved parent's Lean proof follows another valid route, so
+    the step's own conclusion is never formalized. Its `LEAN_NOTE` records the route and the audit that confirmed
+    no proved consumer needs the step.
+  - **Uses so far:**
+    - `step:p1:li-cubes` and `step:p1:li-image`: the Mathlib Hausdorff-measure route, which the blueprint itself
+      offers (I-LIP audit).
+    - `step:p1:han-series`: the contour identification of the coefficients (I-STRIP-5 audits 1–2).
+    - I-ZMAP's bypassed steps, to be recorded when it lands.
+  - **Positive widths.** Strip widths are positive and `n ≥ 1` wherever a strip occurs. Part 1's conventions now
+    state this explicitly.
 

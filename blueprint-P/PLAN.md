@@ -69,6 +69,13 @@ DCDS-S 2010, CP09 = Chierchia-Pusateri ETDS 2009 (arXiv v1 numbering), Fej04r = 
   repair is a recorded deviation. Estimated 35–60 blueprint pages. Part 11 (CP09 finite preparation, polar
   normalisation, properly degenerate local wrapper) stays separate. No further source acquisition needed.
 
+- **After Part 8 (2026-10-27).** (i) The secular identification is exact to all orders, so P-FIXED for n = 2
+  follows route (c) like P-PLANAR. (ii) Under the frozen √(2Λ) normalisation every Fej04r (35)–(37) coefficient is
+  halved (E-P-Fej04r-3, numerically confirmed); "Ω_j = 2σ_j" holds with σ the eigenvalues of the HALVED Q_h.
+  (iii) CP11 (B.2) misses a ½ (E-P-CP11-1) and CP11's planar coefficient r₁ (B.6) is only asymptotic, wrong in sign
+  at a = (1, 2) (E-P-CP11-2): **Part 11b recomputes the planar torsion from Part 8's `quartic` interface; CP11
+  §8.1 is a cross-check only, never copied.**
+
 ## Routes in one paragraph
 
 * **P-G** (Theorem `bpP:p0:pg`) is CP10 Theorem 1.3, pp. 548 and 562-564 (proof §4, "most of the arguments are similar

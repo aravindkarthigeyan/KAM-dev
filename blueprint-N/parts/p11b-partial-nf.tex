@@ -1,0 +1,103 @@
+\begingroup\sloppy
+\subsection{The extended class: slow variables as parameters}\label{bpN:p11:s-ext-class}
+
+Throughout this and the next subsections $n\ge1$, $k\ge1$ and $I_c\in\R^n$ is a fixed base action; $S\subset\R^{2k}$ (physical slow pairs $x=(q,p)$, ordered $(q_1..q_k,p_1..p_k)$) is a fixed set (later $S=\operatorname{core}(D,3d/4)$); $r,s,w>0$ and
+\[\lambda:=\frac wr,\qquad c:=\frac{2\pi}{\lambda^2}=\frac{2\pi r^2}{w^2},\qquad \tilde x=x/\lambda\ \ (\text{rescaled slow variables}),\qquad \tilde S=\lambda^{-1}S .\]
+
+\begin{definition}[Extended class $\Os rs^{e}$, extended phase space]\label{bpN:p11:ext-class}
+The \emph{extended base set} is $\hat D=\{I_c\}\times\tilde S\subset\C^{n}\times\C^{2k}$ ($m=n+2k$ in Part~\ref{bpN:p4}); points of the extended phase space are $y=(\theta,I,\tilde x)\in\C^n\times\C^n\times\C^{2k}$ with the \emph{extended actions} $\hat I=(I,\tilde x)$. $\Dom rs^{e}=T_s\times V_r\hat D=\{(\theta,I,\tilde x):\abs{\operatorname{Im}\theta}<s,\ \abs{I-I_c}<r,\ \operatorname{dist}_\infty(\tilde x,\tilde S)<r\}$ (Definition~\ref{bpN:p4:domains}); in physical slow variables $\operatorname{dist}_\infty(x,S)<w$. $\Os rs^{e}$ and $\wn urs$ are the class and the norm of Definition~\ref{bpN:p4:norm} with $D=\hat D$. $\Os rs^{e,\R}$ is the subclass of functions real on the real points $W^e_r:=\Dom rs^e\cap\R^{2n+2k}$.
+The Poisson bracket is $\{u,v\}_c$ of Definition~\ref{bpN:p11:wfield} in the variables $(\theta,I,\tilde x)$, $\tilde x=(\tilde q,\tilde p)$, with $\tilde x$-pairs $(\tilde q_j,\tilde p_j)$; since $q=\lambda\tilde q$, $p=\lambda\tilde p$, $\{u,v\}_c$ equals the bracket of Definition~\ref{bpN:p11:wfield} with weight $2\pi$ in the physical slow variables ($c\lambda^2=2\pi$). Let
+\[\textup{(SL)}_{\rho,\sigma}\qquad 16\,k\,c\,\sigma\le\rho ,\qquad\text{and}\qquad \textup{(SL)}:\ \ 64\pi\,k\,s\,r\le w^2\ \ (\iff c\le r/(32ks)).\]
+\textup{(SL)} implies $\textup{(SL)}_{\rho,\sigma}$ for all $(\rho,\sigma)$ with $\sigma/\rho\le2s/r$ (so for all losses used in the Normal Form Lemma). \emph{Interpretation:} the physical slow width $w$ is fixed ($w=\lambda r$ for every $r$); the rescaling makes the slow polydisc a polydisc of the same radius $r$ as the action one, so Part~\ref{bpN:p4} applies verbatim; $c$ measures the strength of the slow bracket and (SL) says that it is dominated by the fast one.
+\source{Ours. Nek77 Lemma 10.3 (p.~45--46) takes the same tube over $(I,p,q)\in A$ with a loss $b$ in the slow variables; the rescaling is a device for reusing Part~\ref{bpN:p4}.}
+\end{definition}
+
+\begin{lemma}[Part~\ref{bpN:p4} for the extended class]\label{bpN:p11:ext-part4}
+Lemmas~\ref{bpN:p4:coefficients}, \ref{bpN:p4:sup-weighted} (B.1), \ref{bpN:p4:algebra} (B.2), \ref{bpN:p4:cauchy} (B.3: (a) pointwise in $\hat I$ for the angular derivatives, (b) for every derivative $\partial_{\hat I_i}$, $i\le n+2k$), \ref{bpN:p4:general-cauchy} and \ref{bpN:p4:projections} hold for $\Os rs^e$ (with $\max_{i\le n+2k}$ in B.3(b)), with the same constants.
+\end{lemma}
+\begin{proof}
+\proofstep{Generality of Part~\ref{bpN:p4}}\label{stepN:p11:e4-gen} Part~\ref{bpN:p4} is written for an arbitrary $D\subset\C^m$ with $m$ independent of $n$ (its introduction); $\hat D\subset\C^{n+2k}$ is such a set. Only the bracket (Lemma~\ref{bpN:p4:bracket}) uses $m=n$.
+\end{proof}
+
+\begin{lemma}[Bracket estimate with slow pairs, B.4$^e$]\label{bpN:p11:bracket}
+Let $u\in\Os{r_0}{s_0}^e$, $v\in\Os rs^e$ have finite norms (same $\hat D$, with $r_0,r$ both measured as radii of the rescaled domain), $0<\rho<r$, $0<\sigma<s$, $r-\rho<r_0$, $s-\sigma<s_0$. Then $\{u,v\}_c\in\Os{r-\rho}{s-\sigma}^e$ and
+\[\wn{\{u,v\}_c}{r-\rho}{s-\sigma}\le\Bigl[\frac1e\Bigl(\frac1{(r_0-r+\rho)\sigma}+\frac1{(s_0-s+\sigma)\rho}\Bigr)+\frac{2kc}{(r_0-r+\rho)\rho}\Bigr]\wn u{r_0}{s_0}\wn vrs .\]
+If $\textup{(SL)}_{\rho,\sigma}$ holds, the bracket is $\le\frac12\bigl(\frac1{(r_0-r+\rho)\sigma}+\frac1{(s_0-s+\sigma)\rho}\bigr)\wn u{r_0}{s_0}\wn vrs$ (use $\frac1e+\frac{2kc\sigma}\rho\le0.368+0.125<\frac12$).
+\source{Pos93 p.~214 (Lemma B.4) extended by the slow term; ours.}
+\end{lemma}
+\begin{proof}
+The fast part is Lemma~\ref{bpN:p4:bracket} (its proof uses only Lemmas~\ref{bpN:p4:algebra}, \ref{bpN:p4:cauchy}, valid by Lemma~\ref{bpN:p11:ext-part4}).
+\proofstep{Slow part}\label{stepN:p11:br-slow} Fix $\hat I\in V_{r-\rho}\hat D$, $t=s-\sigma$. The $2k$ products $\partial_{\tilde q_j}u\,\partial_{\tilde p_j}v$, $\partial_{\tilde p_j}u\,\partial_{\tilde q_j}v$ satisfy, by Lemma~\ref{bpN:p4:algebra} (pointwise in $\hat I$) and Lemma~\ref{bpN:p4:cauchy}(b) ($\max_i\wn{\partial_{\hat I_i}u}{\hat I}{t}\le\wn u{r_0}{s_0}/(r_0-r+\rho)$ and $\max_i\wn{\partial_{\hat I_i}v}{\hat I}{t}\le\wn vrs/\rho$), the bound $\wn{\partial u\,\partial v}{\hat I}{t}\le\wn u{r_0}{s_0}\wn vrs/((r_0-r+\rho)\rho)$ each. Multiply by $c$ and sum the $2k$ terms, then take $\sup_{\hat I}$ last.
+\proofstep{Domination}\label{stepN:p11:br-dom} $\frac{2kc}{(r_0-r+\rho)\rho}=\frac{2kc\sigma}\rho\cdot\frac1{(r_0-r+\rho)\sigma}\le\frac18\cdot\frac1{(r_0-r+\rho)\sigma}$ under $\textup{(SL)}_{\rho,\sigma}$; add to $\frac1e\frac1{(r_0-r+\rho)\sigma}$.
+\end{proof}
+
+\begin{lemma}[Bracket with a decomposed $g$]\label{bpN:p11:bracket-g}
+In the situation of Lemma~\ref{bpN:p6:bracket-g} for $\Os rs^e$ and $\textup{(SL)}_{\rho,\sigma}$: $\wn{\{g,\phi\}_c}{r-\rho}{s-\sigma}\le\dfrac1{\rho\sigma}\abs g_*\wn\phi rs$ ($\abs g_*$ as in Definition~\ref{bpN:p6:setting}).
+\end{lemma}
+\begin{proof}
+\proofstep{One term, sum}\label{stepN:p11:bg} Lemma~\ref{bpN:p11:bracket} with $(u,v)\to(g_j,\phi)$: $\le\frac12\bigl(\frac1{(r_j-r+\rho)\sigma}+\frac1{(s_j-s+\sigma)\rho}\bigr)=\frac1{2\rho\sigma}\bigl(\frac\rho{r_j-r+\rho}+\frac\sigma{s_j-s+\sigma}\bigr)=\frac1{\rho\sigma}\cdot\frac12(\cdots)$; sum over $j$ and compare with the definition of $\abs g_*$.
+\end{proof}
+
+\subsection{Lie transform in the extended class}\label{bpN:p11:s-lie}
+
+\begin{definition}[Scaled norm, field]\label{bpN:p11:scaled}
+$\nu_{\rho,\sigma}(a,b,\xi)=\max(\abs a/\sigma,\abs b/\rho,\abs\xi/\rho)$ on $\C^n\times\C^n\times\C^{2k}$ (angles, actions, rescaled slow). For $\phi$ holomorphic, $X^c_\phi=\Omega_c\nabla\phi$ in the variables $(\theta,I,\tilde x)$ (Definition~\ref{bpN:p11:wfield}): its components are $\partial_I\phi$, $-\partial_\theta\phi$, $c\,\partial_{\tilde p}\phi$, $-c\,\partial_{\tilde q}\phi$.
+\end{definition}
+
+\begin{lemma}[Size of the field]\label{bpN:p11:vf}
+Let $\phi\in\Os rs^e$ have finite norm, $0<\rho<r$, $0<\sigma<s$ and $\textup{(SL)}_{\rho,\sigma}$. On $\Dom{r-\rho}{s-\sigma}^e$: $\abs{\partial_{I_i}\phi}\le\wn\phi rs/\rho$, $\abs{\partial_{\theta_i}\phi}\le\wn\phi rs/(e\sigma)$, $\abs{\partial_{\tilde x_j}\phi}\le\wn\phi rs/\rho$ and $\nu_{\rho,\sigma}(X^c_\phi)\le\wn\phi rs/(\rho\sigma)$. Moreover $c\,\wn\phi rs/\rho\le\wn\phi rs/(16k\sigma)$.
+\end{lemma}
+\begin{proof}
+\proofstep{Derivatives}\label{stepN:p11:vf-d} Lemma~\ref{bpN:p11:ext-part4} (B.3) and Lemma~\ref{bpN:p4:sup-weighted}(a) as in Lemma~\ref{bpN:p5:vf-bound}.
+\proofstep{Slow components}\label{stepN:p11:vf-s} $\textup{(SL)}_{\rho,\sigma}$ gives $c\le\rho/(16k\sigma)$, so $c\abs\phi/\rho\le\abs\phi/(16k\sigma)$ and $\nu$-slow $\le c\abs\phi/\rho^2\le\abs\phi/(16k\rho\sigma)$.
+\end{proof}
+
+\begin{proposition}[Lie transform and canonical maps for the extended class]\label{bpN:p11:lie}
+Let $0<\rho<r\le r'-\rho$, $0<\sigma<s\le s'-\sigma$, $\phi\in\Os{r'}{s'}^e$ with finite norm, $\eta=2\wn\phi{r'}{s'}/(\rho\sigma)\le\frac12$, and $\textup{(SL)}_{\rho,\sigma}$. Then Lemma~\ref{bpN:p5:flow}, Lemma~\ref{bpN:p5:symplectic} (with $\Omega_c$), Corollary~\ref{bpN:p5:canonical}, Lemmas~\ref{bpN:p5:lie-derivative}, \ref{bpN:p5:taylor}, \ref{bpN:p5:adjoint}, Theorem~\ref{bpN:p5:composition}, Proposition~\ref{bpN:p5:transform}, Corollary~\ref{bpN:p5:composition-integral} and Proposition~\ref{bpN:p5:canonical-map} hold for $\Os\cdot\cdot^e$, the bracket $\{\cdot,\cdot\}_c$, the flow $X^t=X^{t,c}_\phi$ of $X^c_\phi$, the norm $\nu_{\rho,\sigma}$ of Definition~\ref{bpN:p11:scaled}, with the following changes of constants: in Lemma~\ref{bpN:p5:adjoint} the estimate is $\frac1{h!}\wn{\operatorname{ad}^h_\phi u}{r-\rho}{s-\sigma}\le(e^2\eta/8)^h\wn u{r}{s}$ (instead of $(e\eta/4)^h$), and every use of $e\eta/4$ is replaced by $e^2\eta/8$ ($\le0.924\,\eta$); in Proposition~\ref{bpN:p5:canonical-map}(a) the displacement of the rescaled slow variables is $\abs{\Phi_{\tilde x}-\tilde x}_\infty\le c\wn\phi{}{}/\rho\le\frac1{16k}\wn\phi{}{}/\sigma$ (so $\le\frac e{16k}\cdot\wn\phi{}{}/(e\sigma)$, the bound for $\abs{\Phi_I-I}$), the other bounds are unchanged.
+\source{Pos93 pp.~211--215 (Appendix A, Lemma~B.5); ours for the slow term.}
+\end{proposition}
+\begin{proof}
+\proofstep{Inputs that are unchanged}\label{stepN:p11:lie-same} Lemma~\ref{bpN:p5:flow} is for an arbitrary complex norm on $\C^N$ ($N=2n+2k$): use $\nu_{\rho,\sigma}$. Lemma~\ref{bpN:p5:flow}(d),(e): periodicity under $\theta\mapsto\theta+\ell$ ($\ell\in\Z^n$) and reality (the proof is the same for every $N$: the field is real at real points, so the conjugate of a solution through a real point is a solution; uniqueness). Lemma~\ref{bpN:p5:lie-derivative}, \ref{bpN:p5:taylor}: $\frac d{dt}v(X^t(z))=Dv\cdot X^c_\phi=\{v,\phi\}_c$ (Definition~\ref{bpN:p11:wfield}); Taylor's formula is one-variable.
+\proofstep{Symplectic flow}\label{stepN:p11:lie-sympl} $F=X^c_\phi=\Omega_c\nabla\phi$, $DF=\Omega_cS$ with $S$ the (symmetric) Hessian; $\Omega_c^\top=-\Omega_c$. For $Y(t)=DX^t(z)$, $Y'=DF\,Y$ and
+$\frac d{dt}(Y^\top\Omega_c^{-1}Y)=Y^\top(DF^\top\Omega_c^{-1}+\Omega_c^{-1}DF)Y=Y^\top(-S\,\Omega_c\Omega_c^{-1}+\Omega_c^{-1}\Omega_cS)Y=0$, so $Y^\top\Omega_c^{-1}Y=\Omega_c^{-1}$, hence $Y\Omega_cY^\top=\Omega_c$ ($Y$ invertible). Therefore $\{u\circ\Phi,v\circ\Phi\}_c=\nabla u^\top Y\Omega_cY^\top\nabla v=\{u,v\}_c\circ\Phi$ and $D\Phi\,X^c_{H\circ\Phi}=X^c_H\circ\Phi$ (Corollary~\ref{bpN:p5:canonical}).
+\proofstep{Vector field size}\label{stepN:p11:lie-vf} Lemma~\ref{bpN:p11:vf} replaces Lemma~\ref{bpN:p5:vf-bound}: $\nu_{\rho,\sigma}(X^c_\phi)\le\wn\phi{}{}/(\rho\sigma)=\eta/2$.
+\proofstep{Iterated brackets}\label{stepN:p11:lie-ad} In the proof of Lemma~\ref{bpN:p5:adjoint}, Step~\ref{stepN:p5:ad-step}, use Lemma~\ref{bpN:p11:bracket} (with $\textup{(SL)}_{\kappa,\lambda}$, $\kappa=\rho/h$, $\lambda=\sigma/h$, which holds because $\sigma/\rho$ is unchanged): the factor is $\le\frac12\bigl(\frac1{(r'-r_{i-1}+\kappa)\lambda}+\frac1{(s'-s_{i-1}+\lambda)\kappa}\bigr)\le\frac1{(h+i)\kappa\lambda}$. Multiplying over $i$: $\wn{\operatorname{ad}^h_\phi u}{}{}\le\bigl(\frac{h^2}{\rho\sigma}\bigr)^h\frac{h!}{(2h)!}\wn\phi{}{}^h\wn u{}{}$, and with $(2h)!\ge(2h/e)^{2h}$: $\frac1{h!}\wn{\operatorname{ad}^h_\phi u}{}{}\le\bigl(\frac{\eta h^2}2\cdot\frac{e^2}{4h^2}\bigr)^h\wn u{}{}=(e^2\eta/8)^h\wn u{}{}$.
+\proofstep{Composition, transform}\label{stepN:p11:lie-comp} In Theorem~\ref{bpN:p5:composition}: Step~\ref{stepN:p5:co-series} gives $\sum_h(e^2\eta/8)^h=(1-e^2\eta/8)^{-1}\le(1-\eta)^{-1}$ ($e^2/8<1$); Step~\ref{stepN:p5:co-remainder}: $\hat\eta=\eta/(1-\varepsilon)^2\le\frac{16}9\eta\le\frac89$ and $e^2\hat\eta/8\le\frac{e^2}9<0.83<1$ (\ref{bpN:p11:ext-num}); the losses $(\hat\rho,\hat\sigma)=((1-\varepsilon)\rho,(1-\varepsilon)\sigma)$ have the same ratio, so $\textup{(SL)}_{\hat\rho,\hat\sigma}$ holds. Proposition~\ref{bpN:p5:transform}: $\sum_{j\ge1}(e^2\eta/8)^j(\frac{\abs w}{j+1}+\abs{f_0})\le\frac\eta{1-\eta}(\frac12\abs w+\abs{f_0})$. Corollary~\ref{bpN:p5:composition-integral} is unchanged.
+\proofstep{Canonical-map package}\label{stepN:p11:lie-map} Proposition~\ref{bpN:p5:canonical-map}: (a)--(e) follow as there; the slow displacement bound is Lemma~\ref{bpN:p11:vf} and the mean value inequality along the trajectory.
+\end{proof}
+
+\subsection{Iterative Lemma and Normal Form Lemma with slow parameters}\label{bpN:p11:s-nf}
+
+Notation of Part~\ref{bpN:p6}: $(D,r,K,\alpha,L,\Lambda,h)\to(\{I_c\},r,K_a,\alpha,L,\Lambda,h)$ with $K_a$ the analytic cut-off, $p>1$, $q=p/(p-1)$, $\ba=2\pi\alpha$, $\kappa=2\pi K_as$. $h$ is holomorphic on $V_r(I_c)$ and regarded as a function on $\Dom rs^e$ independent of $(\theta,\tilde x)$.
+
+\begin{theorem}[Iterative Lemma$^e$]\label{bpN:p11:iterative}
+Let $\Lambda\subset\Z^n$ and assume (N-dir) of Corollary~\ref{bpN:p6:iterative-direct}: $\abs{k\cdot\omega(I)}\ge\alpha/q$ for $I\in V_r(I_c)$, $k\in Z_{K_a}\setminus\Lambda$. Let $s,\rho,\sigma>0$, $2\rho<r$, $2\sigma<s$, $\textup{(SL)}_{\rho,\sigma}$; $H=h+g+f$ on $\Dom rs^e$ with $g=\sum_jg_j$ as in Definition~\ref{bpN:p6:setting} and $f\in\Os rs^e$, $\delta=\wn frs\le\ba\rho\sigma/(4q)$. Then there is $\phi\in\Os rs^e$, $\wn\phi rs\le q\delta/\ba$, with $\Phi=X^{1,c}_\phi$ satisfying (a), (b), (c), (e) of Theorem~\ref{bpN:p6:iterative} (for the extended domains, symplectic for $\Omega_c$, i.e.\ $D\Phi\,\Omega_c\,D\Phi^\top=\Omega_c$), the additional slow displacement $\abs{\Phi_{\tilde x}-\tilde x}_\infty\le\frac e{16k}\cdot\frac{q\delta}{e\ba\sigma}$, and
+\[\textup{(d}^e)\qquad \wn{f_+}{r-2\rho}{s-2\sigma}\le\Bigl(1-\frac{2q\delta}{\ba\rho\sigma}\Bigr)^{-1}\Bigl(\frac q{\ba\rho\sigma}\bigl(\abs g_*+\delta\bigr)+e^{-2\pi K_a\sigma}\Bigr)\delta .\]
+\source{Pos93 p.~193 and Appendix A, pp.~211--213, extended; $\frac{2q}{e\ba\rho\sigma}$ is replaced by $\frac q{\ba\rho\sigma}$, which is larger.}
+\end{theorem}
+\begin{proof}
+\proofstep{Homological equation}\label{stepN:p11:it-hom} Proposition~\ref{bpN:p6:homological} with (N-dir) (Corollary~\ref{bpN:p6:iterative-direct}) is a statement about Fourier coefficients in $\theta$ at fixed $\hat I$, valid for $\Os rs^e$ by Lemma~\ref{bpN:p11:ext-part4}; since $h$ does not depend on $\tilde x$ or $\theta$, $\{\phi,h\}_c=\partial_\theta\phi\cdot\omega$ (the slow bracket of $h$ vanishes); $\xi=P_\Lambda T_{K_a}f$, $\wn\phi rs\le q\delta/\ba$, reality as there. The slow variables enter only as parameters in $\hat\phi_k(I,\tilde x)=\hat f_k(I,\tilde x)/(2\pi ik\cdot\omega(I))$.
+\proofstep{Smallness}\label{stepN:p11:it-small} $\eta=2\wn\phi rs/(\rho\sigma)\le2q\delta/(\ba\rho\sigma)\le\frac12$ ($u\le\frac14$). Proposition~\ref{bpN:p11:lie} applies (with $(r',s')=(r,s)$ after the re-indexing of Part~\ref{bpN:p6}, Step~\ref{stepN:p6:it-taylor}) and gives (a), (b), (c) and the slow displacement.
+\proofstep{The remainder}\label{stepN:p11:it-rem} Steps~\ref{stepN:p6:it-taylor}--\ref{stepN:p6:it-terms} of Theorem~\ref{bpN:p6:iterative} with $\{\cdot,\cdot\}_c$ and Lemma~\ref{bpN:p11:bracket-g} in place of Lemma~\ref{bpN:p6:bracket-g}: $\wn{v_t}{r-\rho}{s-\sigma}\le\frac1{\rho\sigma}(\abs g_*+\delta)\wn\phi rs\le\frac q{\ba\rho\sigma}(\abs g_*+\delta)\delta=:V$; Corollary~\ref{bpN:p5:composition-integral} (extended) gives $\wn{\mathcal R}{}{}\le(1-\eta)^{-1}V$; the term $(f-T_{K_a}f)\circ\Phi$ is as there. This is (d$^e$). Reality: as Step~\ref{stepN:p6:it-real}.
+\end{proof}
+
+\begin{theorem}[Normal Form Lemma$^e$]\label{bpN:p11:nf}
+Let $(\{I_c\},r,K_a,\alpha,L,\Lambda,h)$ satisfy \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L} and $K_aLr\le\alpha/p$ ($\Lambda=-\Lambda$, $K_a>0$; then (N-dir) holds by Lemma~\ref{bpN:p6:divisor}); let $s>0$, $\textup{(SL)}$ hold ($64\pi ksr\le w^2$), $H=h+f$ with $f\in\Os rs^{e,\R}$, $\varepsilon=\wn frs$ and
+\[\textup{(i)}\ \ \varepsilon\le\frac1{2^7q}\cdot\frac{\alpha r}{K_a},\qquad\textup{(ii)}\ \ \kappa=2\pi K_as\ge6 .\]
+Put $r_*=r/2$, $s_*=s/6$, $c_1=2qK_a/(\alpha r)$, $g_0=P_\Lambda T_{K_a}f$. Then there are a holomorphic injective $\Psi:\Dom{r_*}{s_*}^e\to\Dom rs^e$ with $D\Psi\,\Omega_c\,D\Psi^\top=\Omega_c$, $\Psi(\theta+\ell,I,\tilde x)=\Psi(\theta,I,\tilde x)+(\ell,0,0)$, real at real points, and $g,f_*\in\Os{r_*}{s_*}^{e,\R}$, $g$ a trigonometric polynomial in $\theta$ with frequencies in $\Lambda\cap Z_{K_a}$ (so $P_\Lambda g=g$), with $H\circ\Psi=h+g+f_*$ and
+(a) $\wn{g-g_0}{r_*}{s_*}\le16c_1\varepsilon^2$; (b) $\wn{f_*}{r_*}{s_*}\le e^{-\kappa/6}\varepsilon$; (c) $\abs{\Pi_I\Psi-I}_\infty\le qK_a\varepsilon/\alpha\ (\le r/2^7)$, $\abs{\Pi_\theta\Psi-\theta}_\infty\le10q\varepsilon/(2\pi\alpha r)$ and the new bound (c$^e$) $\abs{\Pi_{\tilde x}\Psi-\tilde x}_\infty\le\frac18\,qK_a\varepsilon/\alpha\ (\le r/2^{10})$; in physical slow variables the displacement is $\le w/2^{10}$.
+\source{Pos93 p.~192 and pp.~193--196, Theorem~\ref{bpN:p6:normal-form} extended. Deviation: the first bound $\frac2e$ is replaced by $1$ (no effect on the printed constants, Step~\ref{stepN:p11:nf-num}); the slow displacement (c$^e$) is new.}
+\end{theorem}
+\begin{proof}
+The proof is that of Theorem~\ref{bpN:p6:normal-form} with Theorem~\ref{bpN:p11:iterative} in place of Theorem~\ref{bpN:p6:iterative}. We list the points where the proof of Part~\ref{bpN:p6} could be sensitive.
+\proofstep{(SL) at every step}\label{stepN:p11:nf-sl} The losses used are $(\rho_0,\sigma_0)=(\frac r8,\frac s6)$, $(\rho',\sigma')=(\frac r4,\frac s3)$ (Case B) and $(\rho,\sigma)=(\frac r{8N},\frac s{4N})$; the ratio $\sigma/\rho$ is $\frac{4s}{3r}$ (first step and Case B) and $\frac{2s}r$ (steps $1..N$), so $\sigma\le2s\rho/r$ in all cases. $\textup{(SL)}$ ($c\le r/(32ks)$) gives $16kc\sigma\le\frac{r\sigma}{2s}\le\rho$. Every step is admissible and the sub-steps of Lemma~\ref{bpN:p5:adjoint} have the same ratio.
+\proofstep{Numerical checks where $2/e$ occurred}\label{stepN:p11:nf-num} (1) Step~\ref{stepN:p6:nf-case}: $\abs{f_1}\le\frac87(y_0+e^{-\kappa/6})\varepsilon$ with $y_0=q\varepsilon/(\ba\rho_0\sigma_0)\le\frac1{16}$; Case A ($e^{-\kappa/6}\le y_0$): $\le\frac87\cdot2y_0\varepsilon=\frac{16}7y_0\varepsilon$, which is Part~\ref{bpN:p6}'s bound (there $\frac87(\frac2e+1)\le\frac{16}7$ was used); so (6.1) and (6.2) hold verbatim. Case B: $\abs{f_1}_{r/2,s/3}\le(1-\frac{y_0}2)^{-1}(\frac{y_0}4+e^{-2\kappa/6})\varepsilon$ with $y_0<e^{-\kappa/6}$ and $e^{-2\kappa/6}\le e^{-1}e^{-\kappa/6}$: $\le\frac{32}{31}(\frac14+\frac1e)e^{-\kappa/6}\varepsilon<0.64\,e^{-\kappa/6}\varepsilon\le e^{-\kappa/6}\varepsilon$.
+(2) Step~\ref{stepN:p6:nf-induct}: the induction step is $\varepsilon_{i+1}\le\frac{128}{127}\bigl(\frac q{\ba\rho\sigma}(\abs{g_{i-1}}_*+\varepsilon_i)+e^{-2\pi K_a\sigma}\bigr)\varepsilon_i$ with $\frac q{\ba\rho\sigma}(\abs{g_{i-1}}_*+\varepsilon_i)\le\frac1{2^4}+\frac1{2^8}$ (as $\frac q{\ba\rho\sigma}\abs{g_{i-1}}_*\le\frac1{2^4}$ and $\frac q{\ba\rho\sigma}\varepsilon_i\le\frac1{2^8}$ from (6.2)), $e^{-2\pi K_a\sigma}\le\frac18$: $\frac{128}{127}(0.0625+0.0039+0.125)<0.1915\cdot\frac{128}{127}<\frac14$; this is exactly the printed computation of Part~\ref{bpN:p6} (where $\frac2e\le1$ had been used).
+\proofstep{Displacement of the slow variables}\label{stepN:p11:nf-disp} By Theorem~\ref{bpN:p11:iterative} and the telescoping Lemma~\ref{bpN:p6:telescope} (which holds for every seminorm, e.g.\ $\abs{\Pi_{\tilde x}\cdot}_\infty$): $\abs{\Pi_{\tilde x}\Psi-\tilde x}\le\sum_i\frac e{16k}\cdot\frac{q\varepsilon_i}{e\ba\sigma_i}$; this is $\frac e{16k}\le\frac e{16}<0.17$ times the sum bounding $\abs{\Pi_I\Psi-I}$ in Step~\ref{stepN:p6:nf-disp} before simplification, i.e.\ $\le0.17\cdot1.17\cdot\frac{qK_a\varepsilon}{e\alpha}<\frac18\frac{qK_a\varepsilon}\alpha$. By (i), $\le r/2^{10}$.
+\proofstep{Domain, injectivity, symplecticity}\label{stepN:p11:nf-dom} As in Step~\ref{stepN:p6:nf-concl}: $\Psi=\Phi_0\circ\dots\circ\Phi_N$ on $\Dom{r_*}{s_*}^e$ (telescoping Lemma~\ref{bpN:p6:telescope} applies to subsets of $\C^{2n+2k}$ and to maps with $D\Phi_i\Omega_cD\Phi_i^\top=\Omega_c$); items (a), (b), (c) and reality are Part~\ref{bpN:p6}'s.
+\end{proof}
+
+\begin{remark}[Hypotheses used and not used]\label{bpN:p11:nf-use}
+(1) The hypotheses \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L}, $K_aLr\le\alpha/p$ are those of Part~\ref{bpN:p6} (Theorem~\ref{bpN:p6:normal-form} keeps them, Remark of Corollary~\ref{bpN:p6:iterative-direct}); they are checked in Proposition~\ref{bpN:p9:block-hyp}(c),(d),(e). (2) No assumption on $\tilde x$-dependence of $f$ is made other than membership in $\Os rs^e$; $g$ and $f_*$ depend on the slow variables, and $g$ is \emph{not} constant in them. (3) The case $\kappa<6$ is not needed (it is excluded by $\mu\le\mu_c$, Step~\ref{stepN:p11:final-mu}). (4) The constants $\varepsilon$, $K_a$, $\alpha$, $r$ of the theorem do not depend on $k$, $w$, $c$ other than through the single hypothesis (SL).
+\end{remark}
+\endgroup
