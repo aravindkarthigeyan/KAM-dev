@@ -164,6 +164,7 @@ public import KAM.Frozen.Theorems.LocalUniquenessFlow
 public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
 public import KAM.Head.Adapters
 public import KAM.Head.Apply
+public import KAM.Head.Assembly
 public import KAM.Head.CohUnique
 public import KAM.Head.CoverMono
 public import KAM.Head.Data
