@@ -7,7 +7,7 @@ CONVENTIONS: docs/graph/K/SPEC.md "Conventions to watch": max norm on C^m and in
 STANDING_ASSUMPTIONS: -
 EXTERNAL_POLICY: the eleven Mathlib-level inputs (E1)-(E11) of Part 1 are KIND external nodes bp:p1:ext-*; any other unproved fact is a step node with NOTE SOURCE_GAP
 FROZEN_ANCHORS: bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:domains#actionNbhd, bp:p0:domains#fundamentalDomain, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:torus#IsInvariantLagrangianTorus, bp:p0:cover#kamCover, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#dotC, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage, bp:p0:head, bp:p0:headq, bp:p0:g1, bp:p0:g2, bp:p0:g3
-FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:95ab954c0479944c1a314487276da31c6bf1af8eebbfbd49e88c06cd01cf4cdf
+FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:96109bf3ff71b0a0ce6e52c842cb291f8a169e699f29f63280fde14f79221234
 WRITER: claude-main-orchestrator
 GLOBAL_REVIEWER: sol-global-K
 GLOBAL_REVIEW_REF: docs/graph/K/reviews/GLOBAL-review.md and docs/graph/K/reviews/GLOBAL-recheck.md (Codex GPT-6.1-Sol medium, tmux kam-graph-global)
@@ -8136,9 +8136,9 @@ EDGE: bp:p2:objects | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L77-L88 |
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.{Params, S1, S2, S3, S4}, KAM.Uniq.standing_of
+LEAN_NOTE: standing data and constants per the audited design; audit docs/campaign/audits/P3-0-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: standing hypotheses of Part 3, a local package (SPEC): (S1)-(S4)
 
 NODE: bp:p3:matrix-norms
@@ -9380,9 +9380,9 @@ EDGE: bp:p1:cohomological | blueprint/parts/p3-uniqueness.tex#bp:p3:standing#con
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.{C_P, C_Gamma, C_tor, C_coh, C_N, C_L, C_quad}, KAM.Uniq.threshold
+LEAN_NOTE: standing data and constants per the audited design; audit docs/campaign/audits/P3-0-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: ADDED step: the constants paragraph of the setting (L95-117) is a construction reused throughout; not a labelled environment
 
 NODE: bp:p3:quadratic#absorb
