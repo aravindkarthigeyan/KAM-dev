@@ -228,6 +228,7 @@ public import KAM.Strip.Taylor
 public import KAM.Torus.Basic
 public import KAM.Torus.FrozenAgreement
 public import KAM.Torus.Objects
+public import KAM.Uniq.Difference
 public import KAM.Uniq.Frame
 public import KAM.Uniq.Phase
 public import KAM.Uniq.Standing
