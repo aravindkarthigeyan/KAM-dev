@@ -1,0 +1,167 @@
+\section{P\"oschel's Theorem~1 as an internal theorem}\label{bpN:p9}
+\providecommand{\wn}[3]{\lvert #1\rvert_{#2,#3}}
+\providecommand{\Dom}[2]{\mathcal D_{#1,#2}}
+\providecommand{\Os}[2]{\mathcal O(#1,#2)}
+\providecommand{\UD}[1]{U_{#1}D}
+\providecommand{\Eb}{\mathcal E}
+\providecommand{\Pj}{\Pi}
+\begingroup\sloppy
+
+This part is Section~5 of P\"oschel~1993 (``Proof of Theorem~1'', pp.~203--204) together with the statement of Theorem~1 (pp.~190--191): it assembles the Normal Form Lemma and the stability estimates (Parts~\ref{bpN:p6}, \ref{bpN:p7}) with the covering of action space by resonance blocks (Part~\ref{bpN:p8}). The result, Theorem~\ref{bpN:p9:thm1}, is an \emph{a priori} statement about orbits on a real tube around an arbitrary set $P\subset\R^n$; Part~\ref{bpN:p10} connects it with existence (Theorem~\ref{bpN:p3:confinement-glue}). It is stated in the frozen conventions (angles of period $1$, weight $e^{2\pi\abs k_1s}$, max norms on actions in $\abs\cdot$, Euclidean norm $\norm\cdot$ where the geometry and convexity need it), so that its hypotheses are exactly those of Part~\ref{bpN:p7}. The conversion to P\"oschel's printed form and to the data of Part~\ref{bpN:p1} is Remark~\ref{bpN:p9:dictionary}.
+
+\paragraph{Conventions.} $V_rD$ is the max-norm tube of Definition~\ref{bpN:p4:domains}, $\UD r=V_rD\cap\R^n$, $\Os rs$ the class of Definition~\ref{bpN:p4:norm} (with $D$ understood), $\Os rs^\R$ and $W_r=\R^n\times\UD r$ as in Definition~\ref{bpN:p7:setting}; $Z_K=\{k:\abs k_1\le K\}$, $\Eb_K=\{k:\norm k\le K\}$, $\mathbb M_K$, $D_\Lambda$, $r_\Lambda$, $\alpha_\Lambda$, $\delta_\Lambda$ as in Part~\ref{bpN:p8}. As in Part~\ref{bpN:p7}, an $H$-orbit is an orbit of the real Hamiltonian $H^\R=(h+f)|_{W_r}$ (extended by $0$) and $\omega(I)=\nabla h_\R(I)\in\R^n$ for real $I$.
+The three numerical parameters of P\"oschel's proof are fixed once and for all:
+\[q=9,\qquad p=\tfrac98\ \ (\text{so }q=\tfrac p{p-1}\ge3,\ 1<p\le\tfrac32,\ \tfrac pq=\tfrac18),\qquad b=\tfrac18 .\]
+
+\subsection{External facts}\label{bpN:p9:s-ext}
+\begin{enumerate}[label=(E\arabic*),leftmargin=2.2em]
+\item\label{bpN:p9:ext-num} \emph{Numerics.} $\sqrt2<2$; $\frac98\cdot8=9$; $2^{10}/288>3$; $\frac{2^{10}}{5\cdot8}=25.6>1$; $x^n\ge x^2$ for $x\ge1$, $n\ge2$; for $x>0$, $a=\frac1{2n}$: $(x^{-1})^{2n\,a}=x^{-1}$ (\Lean{Real.rpow\_natCast}, \Lean{Real.rpow\_mul}). Exists.
+\item\label{bpN:p9:ext-compact} \emph{Maximum on a compact set.} A continuous real function on a nonempty compact subset of $\R^n$ attains its maximum. Exists.
+\end{enumerate}
+Besides these: Lemma~\ref{bpN:p1:holo-real}, Lemma~\ref{bpN:p1:norm-compare}, \Kref{bp:p1:ext-mvt}; Part~\ref{bpN:p7} (Definition~\ref{bpN:p7:setting}, Definition~\ref{bpN:p7:resonance-data}, Propositions~\ref{bpN:p7:nonresonant}, \ref{bpN:p7:resonant-prop2}, Corollary~\ref{bpN:p7:stopped-extension}); Part~\ref{bpN:p8} (Lemma~\ref{bpN:p8:maximal}, Proposition~\ref{bpN:p8:blocks-cover}, Lemma~\ref{bpN:p8:covering}, Corollary~\ref{bpN:p8:cutoffs}).
+
+\subsection{Setting and constants}\label{bpN:p9:s-setting}
+
+\begin{definition}[Setting of Theorem~1]\label{bpN:p9:setting}
+A \emph{Theorem-1 setting} consists of $n\ge2$, a set $P\subset\R^n$, numbers $r_0,s>0$, $0<m\le M$, $\ell>0$, and functions $h$, $f$ such that
+\begin{enumerate}[label=(S\arabic*)]
+\item\label{bpN:p9:s-h} $h$ is holomorphic on $V_{r_0}P$ and real on $U_{r_0}P$; $\norm{\partial_I^2h(I)}_{2\to2}\le M$ for all $I\in V_{r_0}P$ (operator norm of the complex Hessian on $(\C^n,\norm\cdot)$);
+\item\label{bpN:p9:s-qc} $h$ is $\ell,m$-quasi-convex on $U_{r_0}P$ (Definition~\ref{bpN:p7:resonance-data}): for $I\in U_{r_0}P$, $\xi\in\R^n$, $\abs{\omega(I)\cdot\xi}\le\ell\norm\xi\Rightarrow Q(I)[\xi,\xi]\ge m\norm\xi^2$;
+\item\label{bpN:p9:s-r} $r_0\le\dfrac\ell{2M}$;
+\item\label{bpN:p9:s-f} $f\in\Os{r_0}s^\R$ (relative to $D=P$) with $\varepsilon_f:=\wn f{r_0}s<\infty$.
+\end{enumerate}
+The \emph{constants} are
+\[A=\frac{11M}m,\qquad\varepsilon_0=\frac{m\,r_0^2}{2^{10}A^{2n}},\qquad a=\frac1{2n},\qquad R_0=\frac{r_0}A,\]
+and for a number $\varepsilon\in(0,\varepsilon_0]$ (the bound for $f$; we always assume $\varepsilon_f\le\varepsilon$)
+\[K=\Bigl(\frac{\varepsilon_0}\varepsilon\Bigr)^a,\qquad K_a=\frac K{\sqrt n},\qquad\kappa=2\pi K_as,\qquad r_\Theta=\frac{r_0}{(AK)^n}.\]
+$W:=W_{r_0}=\R^n\times U_{r_0}P$, $H^\R=(h+f)|_W$ (and $0$ off $W$). For $I_0\in P$ put $\Omega_0(I_0)=\max\{\norm{\omega(I)}:\norm{I-I_0}\le R_0\}$ (Lemma~\ref{bpN:p9:omega0}).
+\source{Pos93 pp.~189--191 (hypotheses and parameters of Theorem~1: $\abs{f_\varepsilon}_{P,r_0,s_0}\le\varepsilon\le\varepsilon_0=mr_0^2/(2^{10}A^{2n})$, $A=11M/m$, $a=\frac1{2n}$, $R_0=r_0/A$) and p.~203 (proof, $q=9$, $p=\frac98$, $b=\frac18$); the geometric strip width $s$ is $s_0/2\pi$ of the source. Deviations: \ref{bpN:p9:s-r} replaces $r_0\le4\ell/m$ (Remark~\ref{bpN:p9:errata}(1)); the analytic cut-off is $K_a=K/\sqrt n$ (Remark~\ref{bpN:p9:errata}(2)); max-norm tubes.}
+\end{definition}
+
+\begin{lemma}[Elementary relations]\label{bpN:p9:elementary}
+In a Theorem-1 setting with $0<\varepsilon\le\varepsilon_0$:
+\begin{enumerate}[label=(\alph*)]
+\item $A\ge11$, $A\ge\dfrac{pM}{bm}+\sqrt2$ (with $p=\frac98$, $b=\frac18$), $R_0\le r_0/11$, and $r_0\le4\ell/m$.
+\item $K\ge1$, $K^{2n}=\varepsilon_0/\varepsilon$, $(\varepsilon/\varepsilon_0)^a=1/K$, and $\varepsilon=\dfrac{m\,r_\Theta^2}{2^{10}}$; moreover $\varepsilon_0\le m r_0^2/2^{10}$.
+\item $K_a>0$, $\sqrt nK_a=K$ and $K_a\le K$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepN:p9:el-a} $M\ge m$ gives $A\ge11$ and $\frac{pM}{bm}=\frac98\cdot8\frac Mm=9\frac Mm$, so $A-\frac{pM}{bm}=\frac{2M}m\ge2>\sqrt2$ (\ref{bpN:p9:ext-num}). $R_0=r_0/A$. Finally $r_0\le\frac\ell{2M}\le\frac\ell{2m}\le\frac{4\ell}m$ by \ref{bpN:p9:s-r}.
+\proofstep{(b)}\label{stepN:p9:el-b} $\varepsilon\le\varepsilon_0$ gives $\varepsilon_0/\varepsilon\ge1$, so $K\ge1$; $K^{2n}=(\varepsilon_0/\varepsilon)^{2na}=\varepsilon_0/\varepsilon$ (\ref{bpN:p9:ext-num}), and $(\varepsilon/\varepsilon_0)^a=K^{-1}$. Then $\frac{mr_\Theta^2}{2^{10}}=\frac{mr_0^2}{2^{10}A^{2n}K^{2n}}=\frac{\varepsilon_0}{K^{2n}}=\varepsilon$; $A^{2n}\ge1$ gives the last claim.
+\proofstep{(c)}\label{stepN:p9:el-c} Clear from $K_a=K/\sqrt n$, $n\ge2$.
+\end{proof}
+
+\begin{lemma}[$m\le M$ is automatic]\label{bpN:p9:m-le-M}
+Let $n\ge2$, $P\ne\emptyset$, and \ref{bpN:p9:s-h}, \ref{bpN:p9:s-qc} hold with some $m>0$ and $M>0$ (not assuming $m\le M$). Then $m\le M$.
+\end{lemma}
+\begin{proof}
+\proofstep{A transverse vector}\label{stepN:p9:mm-vec} Take $I\in P\subset U_{r_0}P$ and $\xi\in\R^n\setminus\{0\}$ with $\omega(I)\cdot\xi=0$ ($n\ge2$). Then $\abs{\omega\cdot\xi}=0\le\ell\norm\xi$, so $Q(I)[\xi,\xi]\ge m\norm\xi^2$ by \ref{bpN:p9:s-qc}. The real Hessian is the restriction of the complex one (Lemma~\ref{bpN:p1:holo-real}), so $Q(I)[\xi,\xi]\le\norm{Q(I)\xi}\norm\xi\le M\norm\xi^2$ by \ref{bpN:p9:s-h}. Hence $m\le M$.
+\end{proof}
+
+\begin{lemma}[The frequency size $\Omega_0$]\label{bpN:p9:omega0}
+In a Theorem-1 setting let $I_0\in P$ and $\bar B=\{I\in\R^n:\norm{I-I_0}\le R_0\}$. Then $\bar B\subset U_{r_0}P$, $\Omega_0(I_0)=\max_{\bar B}\norm\omega$ exists, and $\norm{\omega(I_0)}\le\Omega_0(I_0)\le\norm{\omega(I_0)}+MR_0<\infty$.
+\end{lemma}
+\begin{proof}
+\proofstep{Inclusion}\label{stepN:p9:om-incl} For $I\in\bar B$: $\abs{I-I_0}\le\norm{I-I_0}\le R_0<r_0$ (Lemma~\ref{bpN:p9:elementary}(a), Lemma~\ref{bpN:p1:norm-compare}), so $I\in V_{r_0}P\cap\R^n$.
+\proofstep{Max and bounds}\label{stepN:p9:om-max} $h_\R$ is $C^2$ on the open set $U_{r_0}P$ (Lemma~\ref{bpN:p1:holo-real}), so $\omega$ is continuous; $\bar B$ is compact, convex, nonempty, so the maximum exists (\ref{bpN:p9:ext-compact}). $I_0\in\bar B$ gives the lower bound; the mean value inequality (\Kref{bp:p1:ext-mvt}) with $\norm{D\omega}=\norm{Q}\le M$ (\ref{bpN:p9:s-h}) on the convex set $\bar B$ gives $\norm{\omega(I)-\omega(I_0)}\le MR_0$.
+\end{proof}
+
+\subsection{The hypotheses of Part~\ref{bpN:p7} on every block}\label{bpN:p9:s-blocks}
+
+Fix a Theorem-1 setting, $\varepsilon\in(0,\varepsilon_0]$ with $\varepsilon_f\le\varepsilon$, $K,K_a,\kappa$ as in Definition~\ref{bpN:p9:setting}. Apply Lemma~\ref{bpN:p8:covering} with the parameters $p=\frac98$, $b=\frac18$, $r_0$, $M$, $m$, $K\ (=K_g)\ge1$, $A=11M/m$ (admissible by Lemma~\ref{bpN:p9:elementary}(a)), to the set $P$ and the map $\omega|_P$: this defines $\mathbb M_K$, and for $\Lambda\in\mathbb M_K$ the numbers $r_\Lambda$, $\alpha_\Lambda=pMKr_\Lambda$, $\delta_\Lambda=bmr_\Lambda=\frac18mr_\Lambda$ and the blocks $D_\Lambda\subset P$.
+
+\begin{proposition}[Each block satisfies the hypotheses of Propositions~\ref{bpN:p7:nonresonant}, \ref{bpN:p7:resonant-prop2}]\label{bpN:p9:block-hyp}
+Let $\Lambda\in\mathbb M_K$, $I_0\in D_\Lambda$, and put $D=\{I_0\}$, $r=r_\Lambda$, $\alpha=\alpha_\Lambda$, $L=\sqrt nM$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{domains}) $r_\Theta\le r\le r_0$ and $r\le r_0/(AK)$ if $\Lambda\ne\Z^n$; $V_rD\subset V_{r_0}P$, $\UD r\subset U_{r_0}P$, $W_r\subset W$; $h$ is holomorphic on $V_rD$, real on $\UD r$, with $\norm{\partial_I^2h}_{2\to2}\le M$ on $V_rD$, $\ell,m$-quasi-convex on $\UD r$; $f\in\Os rs^\R$ and $\wn frs\le\varepsilon$.
+\item (\emph{size of $\varepsilon$}) $\varepsilon\le\dfrac{mr^2}{2^{10}}=\dfrac pq\cdot\dfrac{mr^2}{2^7}$.
+\item (\emph{radius}) $r=\dfrac\alpha{p\sqrt n\,MK_a}$, i.e.\ $K_aLr=\alpha/p$; $r\le\dfrac{4\ell}m$; $Mr\le\dfrac\ell2$.
+\item (\emph{nonresonance}) If $\Lambda=\Theta$: $\abs{k\cdot\omega(I_0)}\ge\alpha_\Theta$ for all $k\in\Z^n$, $0<\abs k_1\le K_a$. If $\Lambda\ne\Theta$: $\abs{k\cdot\omega(I_0)}\ge\alpha$ for all $k\in Z_{K_a}\setminus\Lambda$ (no such $k$ if $\Lambda=\Z^n$), and $\norm{\Pi_\Lambda\omega(I_0)}<\delta_\Lambda\le\frac18mr$.
+\item (\emph{Lipschitz bound}) $\omega$ satisfies the condition \ref{bpN:p6:cond-L} on $V_rD$ with constant $L=\sqrt nM$.
+\item (\emph{nonresonant smallness}) If $\Lambda=\Theta$: $\varepsilon\le\dfrac{\alpha r}{2^7qK_a}$.
+\end{enumerate}
+\source{Pos93 pp.~203--204 (``The stability estimates now apply to all blocks simultaneously, if we have $r_0\le4\ell/m$ and $\varepsilon\le mr_\Theta^2/2^{10}=\varepsilon_0/K^{2n}$''); every inequality recomputed; (c) carries the added hypothesis of Part~\ref{bpN:p7} (Remark~\ref{bpN:p9:errata}(1)).}
+\end{proposition}
+\begin{proof}
+\proofstep{(a): domains}\label{stepN:p9:bh-dom} Lemma~\ref{bpN:p8:covering}(d): $r_\Theta\le r_\Lambda\le r_0$, and $r_\Lambda\le r_0/(AK)$ for $1\le\dim\Lambda<n$; also $r_\Theta=r_0/(AK)^n\le r_0/(AK)$ since $AK\ge1$, $n\ge1$; only $\Lambda=\Z^n$ has $r_\Lambda=r_0$. $I_0\in P$ and $r\le r_0$ give $V_rD\subset V_{r_0}P$ and the inclusions of the real tubes and of $W_r\subset W$. All hypotheses \ref{bpN:p9:s-h}, \ref{bpN:p9:s-qc} are inherited by subsets. For $f$: restriction of $f$ to $\Dom rs$ is in $\Os rs^\R$ and $\wn frs\le\wn f{r_0}s\le\varepsilon$ (monotonicity, Part~\ref{bpN:p4}).
+\proofstep{(b)}\label{stepN:p9:bh-eps} By Lemma~\ref{bpN:p9:elementary}(b) and $r\ge r_\Theta$: $\varepsilon=mr_\Theta^2/2^{10}\le mr^2/2^{10}$; $\frac pq\cdot\frac1{2^7}=\frac1{8\cdot2^7}=2^{-10}$.
+\proofstep{(c)}\label{stepN:p9:bh-rad} $\alpha=pMKr$ and $K=\sqrt nK_a$ (Lemma~\ref{bpN:p9:elementary}(c)) give $\frac\alpha{p\sqrt nMK_a}=\frac{pMKr}{p\sqrt nMK_a}=r$. By (a) and \ref{bpN:p9:s-r}: $Mr\le Mr_0\le\ell/2$, and $r\le r_0\le4\ell/m$ (Lemma~\ref{bpN:p9:elementary}(a)).
+\proofstep{(d)}\label{stepN:p9:bh-nr} $I_0\in D_\Lambda$. By Corollary~\ref{bpN:p8:cutoffs}(b) (applicable since $K_a\le K$, Lemma~\ref{bpN:p9:elementary}(c)): for $k\in Z_{K_a}\setminus\Lambda$ ($k\in Z_{K_a}\setminus\{0\}$ if $\Lambda=\Theta$) $\abs{k\cdot\omega(I_0)}\ge\alpha_\Lambda$, and $\operatorname{dist}_2(\omega(I_0),R_\Lambda)=\norm{\Pi_\Lambda\omega(I_0)}<\delta_\Lambda=bmr$ (Lemma~\ref{bpN:p8:projection}(c)); $\Lambda=\Z^n$: $Z_{K_a}\setminus\Z^n=\emptyset$.
+\proofstep{(e)}\label{stepN:p9:bh-lip} For $v\in\C^n$ and $I\in V_rD$: $\abs{\partial_I^2h(I)v}\le\norm{\partial_I^2h(I)v}\le M\norm v\le\sqrt nM\abs v$ (Lemma~\ref{bpN:p1:norm-compare}(a)); Lemma~\ref{bpN:p6:lipschitz}.
+\proofstep{(f)}\label{stepN:p9:bh-small} By (c), $\frac{\alpha r}{2^7qK_a}=\frac{pMKr^2}{2^7qK_a}=\frac{\sqrt n\,M\,r^2}{2^{10}}\ge\frac{mr^2}{2^{10}}\ge\varepsilon$ by (b), $M\ge m$, $\frac pq=\frac18$.
+\end{proof}
+
+\begin{lemma}[Stability on one block, stopped form]\label{bpN:p9:block-stab}
+In the situation of Proposition~\ref{bpN:p9:block-hyp} let $F:\R^{2n}\to\R^{2n}$ be any function with $F=X_{H^\R}$ on $W$, let $J\ni0$ be an interval and $z=(\theta,I):\R\to\R^{2n}$ with $z'(t)=F(z(t))$ for $t\in J$ and $I(0)=I_0$. Put $\Omega_\Lambda(I_0)=\max\{\norm{\omega(I)}:\norm{I-I_0}\le r_\Lambda/2\}$ (finite, $\ge\norm{\omega(I_0)}$, as in Lemma~\ref{bpN:p9:omega0}) and
+\[T_\Theta=\frac{s\,r_\Theta}{5\varepsilon}\,e^{\kappa/6},\qquad T_\Lambda=\frac{s\,m\,r_\Lambda^2}{288\,\Omega_\Lambda(I_0)\,\varepsilon}\,e^{\kappa/6}\ (\Theta\ne\Lambda\ne\Z^n),\qquad T_{\Z^n}=\infty.\]
+Then $z(t)\in W$ for all $t\in J$ with $\abs t\le T_\Lambda$ (where $T_\Theta=T_\Lambda$ for $\Lambda=\Theta$), and for those $t$
+\[\abs{I(t)-I_0}\le\tfrac12r_\Lambda,\qquad\text{and}\qquad\norm{I(t)-I_0}\le\tfrac12r_\Lambda\ \text{ if }\Lambda\ne\Theta.\]
+(If $\Omega_\Lambda(I_0)=0$ then $T_\Lambda=+\infty$ for $\Theta\ne\Lambda\ne\Z^n$, as in Proposition~\ref{bpN:p7:resonant-prop2}.)
+\end{lemma}
+\begin{proof}
+Let $D=\{I_0\}$, $r=r_\Lambda$, $\alpha=\alpha_\Lambda$, $W_r=\R^n\times\UD r\subset W$, so that $X_{H^\R}$ computed on $W_r$ is the restriction of the one on $W$ ($W_r$ is open and the two real Hamiltonians agree on it).
+\proofstep{Case $\Lambda=\Theta$}\label{stepN:p9:bs-theta} Proposition~\ref{bpN:p7:nonresonant} with $(D,r,s,K,\alpha,L,p)\to(\{I_0\},r_\Theta,s,K_a,\alpha_\Theta,\sqrt nM,\frac98)$: (i) is Proposition~\ref{bpN:p9:block-hyp}(d); (ii) is (e) and (c) ($K_aLr=\alpha/p\le\alpha/p$); (iii) is (f). $h$, $f$ as required by (a). It gives $\abs{I(t)-I(0)}\le r_\Theta/2$ for every $H$-orbit in $W_{r_\Theta}$ on every $J'\ni0$ with $I(0)\in D$ and $\abs t\le T_{\mathrm{nr}}=sr_\Theta e^{\kappa/6}/(5\varepsilon)$.
+\proofstep{Case $\Lambda\ne\Theta$}\label{stepN:p9:bs-res} Proposition~\ref{bpN:p7:resonant-prop2} with $(D,r,K,\alpha,\ell,m,M,\delta,p)\to(\{I_0\},r_\Lambda,K_a,\alpha_\Lambda,\ell,m,M,\delta_\Lambda,\frac98)$ and the subgroup $\Lambda$: the Hessian bound and quasi-convexity are (a); (a) of that proposition is Proposition~\ref{bpN:p9:block-hyp}(d) (the closeness with $\delta=\delta_\Lambda$); (b) is $\varepsilon\le\frac pq\frac{mr^2}{2^7}$ from (b) here and $\delta_\Lambda\le\frac18mr$ from (d); (c) is Proposition~\ref{bpN:p9:block-hyp}(c) (first bound with equality, second bound, and the added $Mr\le\ell/2$). Its conclusion: $\norm{I(t)-I(0)}\le r/2$ for $\abs t\le T(I_0)$ ($=T_\Lambda$), and for all $t$ if $\Lambda=\Z^n$.
+\proofstep{Stopped form}\label{stepN:p9:bs-stop} In each case the hypothesis of Corollary~\ref{bpN:p7:stopped-extension} holds for $H$, $D=\{I_0\}$, $\varrho=r_\Lambda/2<r_\Lambda$, $T=T_\Lambda$ and the norm $\abs\cdot_*=\abs\cdot$ ($\Lambda=\Theta$) resp.\ $\norm\cdot$ (note $\abs\cdot\le\norm\cdot$); $F=X_{H^\R}$ on $W_r$. The corollary gives the claims and $z(t)\in W_r\subset W$.
+\end{proof}
+
+\subsection{Theorem~1}\label{bpN:p9:s-thm}
+
+\begin{theorem}[P\"oschel's Theorem~1, stopped form]\label{bpN:p9:thm1}
+Let $(n,P,r_0,s,m,M,\ell,h,f)$ be a Theorem-1 setting (Definition~\ref{bpN:p9:setting}), $P\ne\emptyset$, and let $\varepsilon\in(0,\varepsilon_0]$ with $\wn f{r_0}s\le\varepsilon$. With $a=\frac1{2n}$, $A=11M/m$, $R_0=r_0/A$, $K=(\varepsilon_0/\varepsilon)^a$, $\Omega_0(I_0)$ as above, let
+\[F:\R^{2n}\to\R^{2n}\ \text{ be any function with }F=X_{H^\R}\text{ on }W=\R^n\times U_{r_0}P,\]
+$J\ni0$ an interval and $z=(\theta,I):\R\to\R^{2n}$ with $z'(t)=F(z(t))$ for all $t\in J$, and $I_0:=I(0)\in P$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{nonexceptional initial action}) If $\norm{\omega(I_0)}\ge\frac18mr_0$, then for all $t\in J$ with
+\[\abs t\le T_0\exp\Bigl(\frac{\pi s}{3\sqrt n}\Bigl(\frac{\varepsilon_0}\varepsilon\Bigr)^a\Bigr),\qquad T_0=\frac{A^2s}{\Omega_0(I_0)}\]
+one has $z(t)\in W$ and $\abs{I(t)-I_0}\le\tfrac12R_0\bigl(\varepsilon/\varepsilon_0\bigr)^a\ \bigl(\le R_0(\varepsilon/\varepsilon_0)^a\bigr)$.
+\item (\emph{exceptional initial action}) If $\norm{\omega(I_0)}<\frac18mr_0$, then for all $t\in J$: $z(t)\in W$ and $\norm{I(t)-I_0}\le\frac12r_0$.
+\end{enumerate}
+The constants $A,\varepsilon_0,a,R_0$ depend only on $(n,r_0,m,M)$ and $\Omega_0(I_0)$ only on $h,I_0,R_0$; $s$ enters only through $T_0$ and the exponent.
+\source{Pos93 Theorem~1 (pp.~190--191) with its proof, pp.~203--204. Deviations from the printed statement (details in Remarks~\ref{bpN:p9:errata}, \ref{bpN:p9:dictionary}): (1) hypothesis $r_0\le\ell/(2M)$ instead of $r_0\le4\ell/m$; (2) the exponent is $\frac{\pi s}{3\sqrt n}K$ ($=\frac{2\pi s}6\cdot\frac K{\sqrt n}$) instead of $\frac{s_0}6K$ ($s_0=2\pi s$ in the source's normalisation); (3) the stability radius is $\frac12R_0/K$ in the max norm; the exceptional branch is $\norm{\omega(I_0)}<\frac18mr_0$ with radius $\frac12r_0$ (the source has $\le$ and $r_0$); (4) stopped form for any extension $F$ of the field; (5) all printed constants of Pos93 p.~204 reproduced ($\varepsilon_0$, $A$, $a$, $R_0$, $T_0$) are correct as printed except for these changes.}
+\end{theorem}
+\begin{proof}
+\proofstep{Parameters}\label{stepN:p9:t1-par} Lemma~\ref{bpN:p9:elementary} applies ($K\ge1$, $K_a=K/\sqrt n$), Lemma~\ref{bpN:p9:m-le-M} is not needed since $m\le M$ is a standing hypothesis; Lemma~\ref{bpN:p9:omega0}: $\Omega_0(I_0)\ge\norm{\omega(I_0)}$. Apply Lemma~\ref{bpN:p8:covering} as at the start of \S\ref{bpN:p9:s-blocks} to $P$ and $\omega|_P$.
+\proofstep{(b): the block $\Z^n$}\label{stepN:p9:t1-b} Let $\norm{\omega(I_0)}<\frac18mr_0=\delta_{\Z^n}$ ($r_{\Z^n}=r_0$, Lemma~\ref{bpN:p8:covering}(d)). $\Z^n\in\mathbb M_K$ ($K\ge1$, Lemma~\ref{bpN:p8:maximal}(d)), $W_{\Z^n}=\R^n$, $\Pi_{\Z^n}=1$, so $\omega(I_0)\in Z_{\Z^n}$; since $Z^*_{n+1}=\emptyset$, $B_{\Z^n}=Z_{\Z^n}$ (Definition~\ref{bpN:p8:blocks}), thus $I_0\in D_{\Z^n}$. Lemma~\ref{bpN:p9:block-stab} with $T_{\Z^n}=\infty$: $z(t)\in W$ and $\norm{I(t)-I_0}\le r_0/2$ for all $t\in J$.
+\proofstep{(a): choice of a block}\label{stepN:p9:t1-a-choice} Let $\norm{\omega(I_0)}\ge\frac18mr_0$. By Lemma~\ref{bpN:p8:covering}(a) there is $\Lambda\in\mathbb M_K$ with $I_0\in D_\Lambda$. If $\Lambda=\Z^n$ then, as in Step~\ref{stepN:p9:t1-b} (and Lemma~\ref{bpN:p8:covering}(c)), $\norm{\omega(I_0)}=\norm{\Pi_{\Z^n}\omega(I_0)}<\delta_{\Z^n}=\frac18mr_0$, a contradiction; so $\Lambda\ne\Z^n$. By Lemma~\ref{bpN:p9:block-stab}, for $t\in J$, $\abs t\le T_\Lambda$: $z(t)\in W$ and $\abs{I(t)-I_0}\le\frac12r_\Lambda\le\frac12\cdot\frac{r_0}{AK}=\frac12R_0K^{-1}=\frac12R_0(\varepsilon/\varepsilon_0)^a$ (Proposition~\ref{bpN:p9:block-hyp}(a), Lemma~\ref{bpN:p9:elementary}(b)).
+\proofstep{(a): the time, block $\Theta$}\label{stepN:p9:t1-a-theta} Let $\Lambda=\Theta$. By Lemma~\ref{bpN:p9:elementary}(b), $\varepsilon=mr_\Theta^2/2^{10}$ gives $\frac{r_\Theta}\varepsilon=\frac{2^{10}}{m\,r_\Theta}=\frac{2^{10}(AK)^n}{mr_0}$. With $mr_0\le8\norm{\omega(I_0)}\le8\Omega_0$ (hypothesis of (a), Lemma~\ref{bpN:p9:omega0}):
+\[T_\Theta=\frac{s\,e^{\kappa/6}}{5}\cdot\frac{2^{10}(AK)^n}{mr_0}\ge\frac{2^{10}}{40}\cdot\frac{(AK)^ns}{\Omega_0}e^{\kappa/6}\ge\frac{A^2s}{\Omega_0}e^{\kappa/6}\]
+since $2^{10}/40=25.6\ge1$ and $(AK)^n\ge(AK)^2\ge A^2$ ($n\ge2$, $AK\ge1$) (\ref{bpN:p9:ext-num}).
+\proofstep{(a): the time, blocks $\Lambda\ne\Theta,\Z^n$}\label{stepN:p9:t1-a-res} Let $d=\dim\Lambda\in[1,n-1]$. Lemma~\ref{bpN:p8:maximal}(e): $\abs\Lambda\le K^d$; hence $r_\Lambda=\frac{r_0(AK)^d}{(AK)^n\abs\Lambda}\ge r_0A^{d-n}K^{-n}$ and, with $\varepsilon=\varepsilon_0K^{-2n}=\frac{mr_0^2}{2^{10}A^{2n}K^{2n}}$,
+\[\frac{mr_\Lambda^2}\varepsilon\ge mr_0^2A^{2d-2n}K^{-2n}\cdot\frac{2^{10}A^{2n}K^{2n}}{mr_0^2}=2^{10}A^{2d}\ge2^{10}A^2 .\]
+The ball $\{\norm{I-I_0}\le r_\Lambda/2\}$ is contained in $\{\norm{I-I_0}\le R_0\}$ because $r_\Lambda/2\le\frac{r_0}{2AK}\le R_0$ ($K\ge1$), so $\Omega_\Lambda(I_0)\le\Omega_0(I_0)$, and $\Omega_\Lambda(I_0)\ge\norm{\omega(I_0)}\ge\frac18mr_0>0$. Therefore
+\[T_\Lambda=\frac{s}{288\,\Omega_\Lambda}\cdot\frac{mr_\Lambda^2}\varepsilon\,e^{\kappa/6}\ge\frac{2^{10}}{288}\cdot\frac{A^2s}{\Omega_0}e^{\kappa/6}\ge\frac{A^2s}{\Omega_0}e^{\kappa/6}.\]
+\proofstep{(a): conclusion}\label{stepN:p9:t1-a-concl} In both cases $T_\Lambda\ge T_0e^{\kappa/6}$, and $\kappa/6=\frac{2\pi K_as}6=\frac{\pi s}{3\sqrt n}K=\frac{\pi s}{3\sqrt n}(\varepsilon_0/\varepsilon)^a$. So every $t\in J$ with $\abs t\le T_0\exp(\frac{\pi s}{3\sqrt n}(\varepsilon_0/\varepsilon)^a)$ satisfies $\abs t\le T_\Lambda$, and Step~\ref{stepN:p9:t1-a-choice} gives (a).
+\end{proof}
+
+\begin{remark}[What the stopped form says; interface with Part~\ref{bpN:p10}]\label{bpN:p9:stopped}
+The orbit $z$ is only assumed to solve $z'=F(z)$ on $J$ with $I(0)\in P$; \emph{nothing} says that it stays in $W$. The conclusion includes $z(t)\in W$ for the times stated, which is exactly what is needed to feed $\texttt{IsSolutionOn}$ and Theorem~\ref{bpN:p3:confinement-glue}: take $F=X_{H_{h,f}}$ (the Lean field), which equals $X_{H^\R}$ on $W$ whenever $U_{r_0}P\subset\mathcal B_s(R)$ (Lemma~\ref{bpN:p1:holo-real}), $J$ an open interval and $z$ a solution in $B(0,R)$. The orbit's angles $\theta_0\in\R^n$ are arbitrary; all bounds are on $I$.
+\end{remark}
+
+\subsection{Deviations, errata, dictionary}\label{bpN:p9:s-errata}
+
+\begin{remark}[Suspected defects in Pos93 and repairs (to the ledger)]\label{bpN:p9:errata}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{p.~190 (Theorem~1) and p.~204, the radius condition.} Printed: ``$r_0\le4l/m$'', and p.~204: ``The stability estimates now apply to all blocks simultaneously, if we have $r_0\le4l/m$ and $\varepsilon\le\dots$''. Proposition~\ref{bpN:p7:resonant-prop2} (Lemma~2, p.~199) needs in addition $Mr\le\ell/2$ on every block (Remark~\ref{bpN:p7:errata}(1)). For the blocks $\Lambda\ne\Z^n$ one has $r_\Lambda\le r_0/(AK)$, hence $Mr_\Lambda\le\frac{4\ell}{11K}\le\frac\ell2$ from $r_0\le4\ell/m$ alone; \emph{but the block $D_{\Z^n}$ has $r_{\Z^n}=r_0$}, and $r_0\le4\ell/m$ does not give $Mr_0\le\ell/2$ (the ratio $M/m$ is unbounded). (Part~\ref{bpN:p7}, Remark~\ref{bpN:p7:consumers}/\ref{bpN:p7:errata}(1) states that $K\ge1$ suffices; that is true only for $\Lambda\ne\Z^n$.) The zone radius cannot be shrunk on that block, since $\delta_{\Z^n}=\frac18mr_0$ is tied to $r_0$ and Lemma~2 needs $\delta\le\frac18mr$. \emph{Corrected hypothesis:} $r_0\le\ell/(2M)$ (\ref{bpN:p9:s-r}), which implies $r_0\le4\ell/m$ (Lemma~\ref{bpN:p9:elementary}(a)) and is used in Proposition~\ref{bpN:p9:block-hyp}(c). Only $r_0$, hence $R_0,\varepsilon_0,C$, change in the frozen headline, where only the existence of constants is asserted; Part~\ref{bpN:p1} (Lemma~\ref{bpN:p1:constants}) must add $\ell/(2B_c)$ to the minimum defining $r_0$ (Remark~\ref{bpN:p9:dictionary}).
+\item \emph{p.~192, p.~202 (``it suffices to assume $\norm k\le K$'') and the exponent.} The nonresonance of the Geometric Lemma is on the Euclidean ball $\Eb_K$, the Normal Form Lemma is for $Z_K=\{\abs k_1\le K\}$ with the Lipschitz constant of $\omega$ in the max norm. Part~\ref{bpN:p8} (Remark~\ref{bpN:p8:direction}) shows that the compatible choice is $K_g=\sqrt nK_a$, so the exponential in the time bound is $e^{2\pi K_as/6}=e^{\frac{\pi s}{3\sqrt n}K}$, i.e.\ the printed $e^{Ks/6}$ loses a factor $\sqrt n$ in the exponent. This only changes the constant $c$ of the frozen headline ($c\to c/\sqrt n$). (In P\"oschel's own Euclidean framework the factor does not arise; our tubes and the cut-off are in the max/$\ell^1$ norms.)
+\item \emph{p.~204, ``$A=11\frac Mm\ge\frac{pM}{bm}+\sqrt2$''.} True, but only because $M\ge m$ (Lemma~\ref{bpN:p9:elementary}(a)); $M\ge m$ is automatic for $n\ge2$ (Lemma~\ref{bpN:p9:m-le-M}) and not stated. Likewise the covering uses $\abs\Lambda\le K^d$ and $\abs\Lambda\ge1$ (Part~\ref{bpN:p8}, Remark~\ref{bpN:p8:errata}(4)).
+\item \emph{p.~191, exceptional branch.} Printed: ``except when $\norm{\omega(I_0)}\le mr_0/8$ in which case $\norm{I(t)-I_0}\le r_0$ for all $t$''. Proved: for $\norm{\omega(I_0)}<mr_0/8$, radius $r_0/2$; the boundary case $\norm{\omega(I_0)}=mr_0/8$ lies in a block $\Lambda\ne\Z^n$ and satisfies the nonexceptional estimate (a). Not a defect; the statement is slightly sharper.
+\item \emph{p.~204, time bound.} The chain ``$\frac s{288\Omega}\frac{mr_\Lambda^2}\varepsilon\ge A^2\frac s{\Omega_0}$'' and ``$\frac{sr_\Theta}{5\varepsilon}\ge\frac{A^nK^ns}{\Omega_0}\ge A^2\frac s{\Omega_0}$'' were recomputed (Steps~\ref{stepN:p9:t1-a-theta}, \ref{stepN:p9:t1-a-res}); they hold with room ($\frac{2^{10}}{288}>3$, $25.6$), and use $\Omega_\Lambda\le\Omega_0$ (the stability ball $\norm{I-I_0}\le r_\Lambda/2$ lies in $\norm{I-I_0}\le R_0$), not stated. The printed $e^{Ks/6}$ factor was never written in the chain (it multiplies both sides); the time bound of the printed theorem, $T_0\exp(\frac{s_0}6(\varepsilon_0/\varepsilon)^a)$, is recovered with the $\sqrt n$ change of (2).
+\item \emph{Misprints.} None found in the numbers of pp.~190--191, 203--204 beyond (1)--(3); $\varepsilon_0=mr_0^2/(2^{10}A^{2n})$, $R_0=r_0/A$, $a=\frac1{2n}$, $T_0=A^2s_0/\Omega_0$ are correct as printed (in his normalisation), and the equality $\varepsilon=mr_\Theta^2/2^{10}=\varepsilon_0/K^{2n}$ is exact for $K=(\varepsilon_0/\varepsilon)^a$.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}[Dictionary with P\"oschel's printed normalisation and with Part~\ref{bpN:p1}]\label{bpN:p9:dictionary}
+The substitution of Lemma~\ref{bpN:p1:period-convert} ($\tilde H=2\pi H(\varphi/2\pi,I)$, same actions and time) multiplies $m,M,\ell,\omega,\varepsilon$ by $2\pi$ and the strip width by $2\pi$ ($s_0=2\pi s$), and leaves $r_0$, $A=11M/m$, $\ell/M$, $a$, $R_0$, $m\,r_0^2/\varepsilon$, $\varepsilon/\varepsilon_0$, $A^2s/\Omega_0$ unchanged; so Theorem~\ref{bpN:p9:thm1} \emph{is} P\"oschel's Theorem~1 for $\tilde H$ with $s_0/6\to s_0/(6\sqrt n)$ in the exponent, $r_0\le\ell/(2M)$, $\frac12R_0$ in place of $R_0$. For Part~\ref{bpN:p10}, with the data of Lemma~\ref{bpN:p1:constants} ($m\to\mu$, $M\to B_c$, $\ell$, $P=\{\abs J\le R/2\}$, strip width $s/2$, $\varepsilon_f\le F_{\mathrm{fr}}\varepsilon$ with $F_{\mathrm{fr}}=\coth^n(\pi s/4)$, Lemma~\ref{bpN:p1:norm-convert}):
+\begin{enumerate}[label=(\roman*)]
+\item $r_0$ must satisfy \ref{bpN:p9:s-r}: replace the entry $2\ell/\mu$ by $\ell/(2B_c)$ (it is smaller, since $B_c\ge2\mu$); all other entries of the minimum remain, and then $r_0\le4\ell/\mu$, $r_0\le4\omega_{\min}/\mu$ and the tube inclusions of Lemma~\ref{bpN:p1:realdomain}(c) hold. The max-norm tube of Definition~\ref{bpN:p4:domains} satisfies $V_{r_0}P\subset B(0,R)_s$ directly ($\abs{I-J}_\infty<r_0\le s/2$).
+\item The exponent constant is $c=\frac{\pi s}{6\sqrt n}\bigl(\varepsilon_{0}^{\mathrm{fr}}/F_{\mathrm{fr}}\bigr)^a$ with $\varepsilon_0^{\mathrm{fr}}=\mu r_0^2/(2^{10}A^{2n})$ (Part~\ref{bpN:p1}'s $c$ divided by $\sqrt n$), the radius constant is $C=\frac{r_0}{2A}(F_{\mathrm{fr}}/\varepsilon_0^{\mathrm{fr}})^a$ (or $\frac{r_0}A(\dots)^a$, cruder), and the time prefactor is $T_0=A^2\frac s2/\Omega_0$ with $\Omega_0\le\sqrt nM$-type bounds as in Lemma~\ref{bpN:p1:constants}(g).
+\item The exceptional branch is empty: $\frac18\mu r_0\le\frac18\mu\cdot\frac{4\omega_{\min}}\mu=\frac12\omega_{\min}<\omega_{\min}\le\norm{\omega(I_0)}_2$ for $I_0\in B(0,R/2)$ (Lemma~\ref{bpN:p1:qc-convert}(c)).
+\end{enumerate}
+\end{remark}
+
+\begin{remark}[Consumers and totality]\label{bpN:p9:consumers}
+Part~\ref{bpN:p10} uses Theorem~\ref{bpN:p9:thm1}(a) only (the branch (b) is empty by (iii)) together with Remark~\ref{bpN:p9:stopped}. Every division and root is guarded: $\Omega_0(I_0)\ge\frac18mr_0>0$ in (a) (Lemma~\ref{bpN:p9:omega0}); $\varepsilon>0$ for $\varepsilon^{\pm a}$ (the case $\varepsilon=0$ is N-ZERO, Part~\ref{bpN:p2}); $\Omega_\Lambda(I_0)>0$ in Step~\ref{stepN:p9:t1-a-res}. The hypothesis $n\ge2$ is used in Lemma~\ref{bpN:p9:m-le-M} and in $(AK)^n\ge A^2$; the frozen $n\ge3$ is stronger. Not used: Theorem~1* (p.~191, $\mu\in[0,1]$), as planned.
+\end{remark}
+\endgroup
