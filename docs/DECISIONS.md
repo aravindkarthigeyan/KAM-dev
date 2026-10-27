@@ -28,4 +28,15 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   Lipschitz dependence on the frequency comes from re-applying the a-posteriori theorem (CCdlL13, Cor. 29–30); the
   defect is O(ε/γ⁴). The measure step uses a McShane extension and a lipeomorphism (Pos01, Prop. 1–2, App. B;
   BC17, §6.5–6.6). Details in `docs/PLAN.md`, "Route verdict".
-- **D7 (2026-10-27) Hosting.** Private GitHub repository `scottnarmstrong/KAM-dev`. *(Scott: "commit and push")*
+- **D7 (2026-10-27) Hosting.** GitHub repository `scottnarmstrong/KAM-dev`, created private (*Scott: "commit and push"*)
+  and made public the same day (*Scott: "can you make the dev repo public?"*). Source PDFs stay out of git.
+- **D9 (2026-10-27) Statement rulings Q1–Q5.** *(Scott: "go with your recommendations on Q1–Q5")*
+  - Q1: the headline carries the rate meas(complement) ≤ C·ε^{1/4}; the qualitative (1 − κ) form, with no
+    boundary condition, is a corollary.
+  - Q2: angle period 1 (Tⁿ = ℝⁿ/ℤⁿ).
+  - Q3: each torus is invariant and carries the linear flow with a Diophantine frequency; it is Lagrangian, a
+    real-analytic embedding, and close to the unperturbed torus.
+  - Q4: gates: the fixed-frequency a-posteriori theorem (HL19 Thm 3.1, d = n), local uniqueness for flows (ours),
+    and the measure of the Diophantine set (Pos01 §1d).
+  - Q5: n ≥ 2; B bounded, with a regular boundary for the rate form; ∇h bi-Lipschitz on B̄; h + f real-analytic
+    on a uniform complex neighbourhood of Tⁿ × B̄.

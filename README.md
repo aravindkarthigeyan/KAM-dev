@@ -3,7 +3,7 @@
 Lean 4 + Mathlib formalization of the **Kolmogorov–Arnold–Moser theorem** in its positive-measure form:
 for a nearly-integrable real-analytic Hamiltonian H(θ, I) = h(I) + f(θ, I) with a Kolmogorov-nondegenerate
 h, most of phase space is filled by invariant Lagrangian tori that carry quasi-periodic motion with
-Diophantine frequencies, as soon as f is small enough. Private repository; owner Scott Armstrong.
+Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
 > **Last updated: 2026-10-27 14:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 9.7 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
@@ -251,19 +251,22 @@ Full text: [`docs/DECISIONS.md`](docs/DECISIONS.md).
   `by exact Provider.<name>`; Lean module system everywhere.
 - **D6** This README is regenerated at least every 20 minutes and after every commit; an errata and deviations
   ledger is kept for every formalized source. *(Scott, 2026-10-27)*
-- **D7** Hosting: private GitHub repository `scottnarmstrong/KAM-dev`. *(Scott)*
+- **D7** Hosting: public GitHub repository `scottnarmstrong/KAM-dev` (source PDFs stay out of git). *(Scott)*
 - **D8** Route verdict: rate ε^{1/4}; local uniqueness for flows is proved by us; Lipschitz dependence by
   re-application (CCdlL13); measure step by McShane extension (Pos01). *(orchestrator, 2026-10-27; revisable)*
 
-## Owner questions (open)
+## Owner questions
 
-| | Question | Recommendation |
+All answered: Scott accepted the recommendations on Q1–Q5 (2026-10-27), recorded as D9 in
+[`docs/DECISIONS.md`](docs/DECISIONS.md).
+
+| | Question | Ruling |
 |---|---|---|
-| Q1 | Should the frozen headline carry the explicit rate meas(complement) ≤ C·ε^{1/4}, or only the qualitative (1 − κ) form? | The rate ε^{1/4}: the route delivers it, and no Lean KAM theorem has a rate. It needs ∂B regular; the qualitative form needs no boundary condition, so it can be a corollary. |
-| Q2 | Angle period: 1 (Tⁿ = ℝⁿ/ℤⁿ, as in HL19, FHL17 and Mathlib's `UnitAddTorus`) or 2π (as in Pöschel, Arnold)? | Period 1. |
-| Q3 | What must the conclusion say about each torus: invariance with the linear flow and a Diophantine frequency (minimum); also Lagrangian, real-analytic embedding, closeness to the unperturbed torus? | All of them; the Lagrangian property comes for free in the a-posteriori framework. |
-| Q4 | Gate theorems to freeze besides the headline: the fixed-frequency a-posteriori theorem, local uniqueness for flows, measure of the Diophantine set? | Freeze all three: the a-posteriori theorem is the main reusable result, uniqueness for flows is new (no source states it), and the Diophantine measure is classical. |
-| Q5 | Standing assumptions: n ≥ 2; B bounded with regular (e.g. C² or Lipschitz) boundary; ∇h a bi-Lipschitz diffeomorphism of B̄ onto its image; h + f real-analytic on a uniform complex neighbourhood of Tⁿ × B̄? | Yes to all; the boundary condition only for the rate form. |
+| Q1 | Rate in the frozen headline? | Yes: meas(complement) ≤ C·ε^{1/4}; the qualitative (1 − κ) form, with no boundary condition, is a corollary. |
+| Q2 | Angle period? | 1: Tⁿ = ℝⁿ/ℤⁿ. |
+| Q3 | Content of "invariant torus"? | Invariant, carrying the linear flow with a Diophantine frequency; Lagrangian; real-analytic embedding; close to the unperturbed torus. |
+| Q4 | Gates besides the headline? | The fixed-frequency a-posteriori theorem, local uniqueness for flows, and the measure of the Diophantine set. |
+| Q5 | Standing assumptions? | n ≥ 2; B bounded with regular boundary (rate form only); ∇h bi-Lipschitz on B̄; h + f real-analytic on a uniform complex neighbourhood. |
 
 ## Errata and deviations
 
