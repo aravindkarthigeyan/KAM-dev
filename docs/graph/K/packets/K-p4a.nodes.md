@@ -352,9 +352,9 @@ EDGE: bp:p0:domains#actionNbhd | blueprint/parts/p4-measure.tex#bp:p4:data@L158-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-r2
 REVIEWER: sol-review-d2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.{Lplus, CBplus, stripWidth, deltaStar, muParam, domainD, domainD', cauchyConst, cbar, unperturbedTorus, hbold}
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4A-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:h-bounded
@@ -380,9 +380,9 @@ EDGE: step:p4:hbdd-continuity | blueprint/parts/p4-measure.tex#bp:p4:h-bounded@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.h_bounded (+ hBound, norm_le_hBound, isLUB_hBound)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4A-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:hbdd-compact
@@ -406,9 +406,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.isCompact_hbddCompact
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4A-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:hbdd-continuity
@@ -433,9 +433,9 @@ EDGE: step:p4:hbdd-compact | blueprint/parts/p4-measure.tex#step:p4:hbdd-continu
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.bddAbove_norm_image_of_isCompact
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4A-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:derivative-bounds
@@ -1366,9 +1366,9 @@ EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p4-measure.tex#bp:p4:matrix-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-global-K
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.matrix_norms_cor
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4A-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: L^0,N^0 are identified by the notation pointer at L525-L526; their norms are computed directly at L539-L540. No application of the conditional unperturbed-torus lemma is made.
 
 NODE: step:p4:mn-rowsum
@@ -1397,9 +1397,9 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L542
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-global-K
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.norm_frameL0, norm_frameN0, norm_matrixAverage_le (+ transposes, dotℂ_omegaZero, omegaZeroMatrix_transpose_mul_self, ofReal_symplecticForm)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4A-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: L^0,N^0 are identified by the notation pointer at L525-L526; their norms are computed directly at L539-L540. No application of the conditional unperturbed-torus lemma is made.
 
 NODE: bp:p4:torsion-regular
