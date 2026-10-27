@@ -1,13 +1,13 @@
 {
  "replaced": [
-  "step:p4:db-vectorfield"
+  "step:p4:slab-fubini"
  ],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "bp:p4:data",
-  "bp:p4:freq-map",
-  "bp:p4:smallness"
+  "step:p4:db-vectorfield",
+  "bp:p4:matrix-norms",
+  "step:p4:mn-rowsum"
  ]
 }

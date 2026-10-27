@@ -193,9 +193,9 @@ EDGE: bp:p4:apply | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-
 EDGE: bp:p4:shift | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-L738 | parts (a)-(e) of the phase shift lemma
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-L741 | K_omega=(K^inf)^[-ph]
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L737-L741 | Missing direct dependency on the explicit local package (SA), required by SPEC
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -497,9 +497,9 @@ EDGE: step:p4:lip-g2 | blueprint/parts/p4-measure.tex#bp:p4:lip@L913-L913 | proo
 EDGE: step:p4:lip-phase | blueprint/parts/p4-measure.tex#bp:p4:lip@L929-L929 | proof step of this result
 EDGE: step:p4:lip-close | blueprint/parts/p4-measure.tex#bp:p4:lip@L936-L936 | proof step of this result
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:lip@L876-L882 | Missing direct dependency on the explicit local package (SA), required by SPEC
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -562,9 +562,9 @@ EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L897-L905 
 EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L898-L901 | The reference action and frequency bounds are used in the STAB application
 EDGE: step:p4:lip-far | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L895-L895 | definition of e' and close-pair assumption
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L892-L911 | Missing direct dependency on the explicit local package (SA), required by SPEC
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -851,9 +851,9 @@ EDGE: step:p4:rt-cover | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1063-L
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1009-L1021 | Missing direct dependency on the explicit local package (SA), required by SPEC
 EDGE: bp:p0:torus#IsInvariantLagrangianTorus | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1013-L1014 | the conclusion uses the six-clause frozen invariant Lagrangian torus predicate
 EDGE: bp:p1:real-restriction | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1010-L1011 | k_omega is defined as the real restriction of K_omega using the cited real-restriction lemma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -880,9 +880,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:real-restriction | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1025-L1026 | The restriction lemma is used at L1025, not the heading
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1026-L1026 | K_omega holomorphic, primary, real
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1025-L1026 | the inherited local SA package and omega in Omega_gamma are the premises for normalize at K_omega
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1245,9 +1245,9 @@ EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1124-
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1125-L1129 | A_4, A_3, Lambda_g definitions
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1123-L1131 | Missing direct dependency on the explicit local package (SA), required by SPEC
 EDGE: bp:p1:ext-mvt | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1124-L1129 | The real derivative bound is converted to a difference bound on convex R^n
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1272,11 +1272,11 @@ DEPS: bp:p4:smallness, step:p4:ml-size, bp:p4:good-actions, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1137-L1137 | (s7): eta_0<=gamma/2
-EDGE: step:p4:ml-size | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1137-L1137 | /G_0/<=eta_0
+EDGE: step:p4:ml-size | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1138-L1138 | /G_0/<=eta_0
 EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1134-L1136 | A_gamma, Z, G_0
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1133-L1139 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4+claude-main-orchestrator
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1462,9 +1462,9 @@ EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1180
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1180-L1185 | Monotonicity and subadditivity are directly used in the measure count
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1180-L1185 | the inherited main-measure source setting assumes the local SA package; gamma is the positive width used in the bad-action estimates
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1180-L1180 | product volume of action sets times the angle cube (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1630,9 +1630,9 @@ EDGE: bp:p4:main-measure | blueprint/parts/p4-measure.tex#step:p4:head-positive@
 EDGE: step:p4:head-constants | blueprint/parts/p4-measure.tex#step:p4:head-positive@L1221-L1221 | C, eps_0, c_*
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:head-positive@L1221-L1222 | use c_*>0 and A_0 in the choice of gamma and in eta_0=A_0 epsilon gamma^-2
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:head-positive@L1221-L1222 | the chosen gamma lies in (0,1] and epsilon=c_* gamma^4, supplying the local package required by main-measure
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1657,11 +1657,11 @@ DEPS: bp:p4:main-measure, bp:p4:parameters, step:p4:head-constants, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:main-measure | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1229 | measure bound for each gamma in (0,1]
-EDGE: step:p4:head-constants | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1228-L1228 | constant C
+EDGE: step:p4:head-constants | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1231 | constant C
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1230 | use c_*>0 and eta_0=A_0 epsilon gamma^-2 at epsilon=0
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1230 | epsilon=0 supplies (SA) for every gamma in (0,1], before applying main-measure
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b+sol-global-K
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1715,9 +1715,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-measure
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-exhaust@L1250-L1250 | continuity of Lebesgue measure from below (E11)
+EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-exhaust@L1253-L1254 | continuity of Lebesgue measure from below (E11)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b+sol-review-r2+claude-main-orchestrator
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1743,9 +1743,9 @@ DEPS: step:p4:dy-exhaust, bp:p1:ext-measure
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:dy-exhaust | blueprint/parts/p4-measure.tex#step:p4:dy-open@L1257-L1257 | cubes D_j and E_j with measure bound
-EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-open@L1258-L1258 | null boundaries of boxes (E11)
+EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-open@L1258-L1259 | null boundaries of boxes (E11)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4+claude-main-orchestrator
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1799,9 +1799,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p4-measure.tex#step:p4:hq-trivial@L1272-L1273 | unfold F_B as the half-open unit angle cube times B; the volume identity remains the explicit source gap
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:hq-trivial@L1273-L1273 | product volume meas([0,1)^n x B) = meas B (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-global-K+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1918,9 +1918,9 @@ EDGE: step:p4:hq-trivial | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1303
 EDGE: step:p4:hq-head | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1298-L1298 | The chosen epsilon_0 supplies Cprime sqrt(epsilon)<=kappa; transfer only records the measure part
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1300-L1303 | monotonicity and subadditivity apply to the displayed cover of the complement
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1303-L1303 | product volume meas([0,1)^n x S) = meas S (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

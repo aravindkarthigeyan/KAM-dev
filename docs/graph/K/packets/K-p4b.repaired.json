@@ -1,5 +1,14 @@
 {
  "replaced": [
+  "step:p4:head-zero",
+  "step:p4:dy-exhaust",
+  "step:p4:dy-open",
+  "step:p4:ml-mixed"
+ ],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
   "step:p4:normalize-proof",
   "bp:p4:lip",
   "step:p4:lip-g1",
@@ -7,21 +16,8 @@
   "step:p4:rt-analytic",
   "step:p4:ml-good",
   "step:p4:mm-count",
-  "step:p4:hq-cover"
- ],
- "added": [],
- "items": [],
- "unresolved": {},
- "passes": [
-  "step:p4:shift-phase",
-  "bp:p4:normalized-torus",
-  "bp:p4:lip-error",
-  "bp:p4:good-actions",
-  "bp:p4:map-lipschitz",
-  "step:p4:ml-size",
-  "bp:p4:main-measure",
-  "step:p4:dy-exhaust",
-  "step:p4:hq-approx",
-  "step:p4:hq-transfer"
+  "step:p4:hq-cover",
+  "step:p4:hq-trivial",
+  "step:p4:head-positive"
  ]
 }

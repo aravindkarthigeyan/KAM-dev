@@ -801,9 +801,9 @@ REVIEWER: sol-review-r1
 
 ITEM: p2:perturbation-average-applicability
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L877
-DISPOSITION: EXCLUDED
-REASON: unsupported use of the periodic-input averages corollary under the nonperiodic perturbation hypotheses
-COVERAGE_STATUS: REVIEWED
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L878
+DISPOSITION: NODE step:p2:pt-twist
+REASON: revised source uses the norm-of-integral bound E6 without periodicity; the average estimate and inversion are represented by step:p2:pt-twist
+COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: sol-review-r1
+REVIEWER: -

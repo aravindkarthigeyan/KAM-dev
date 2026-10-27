@@ -502,9 +502,9 @@ ROUTE_FOR: -
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L756-L756 | definitions of E and A
 EDGE: bp:p2:correction | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L755-L757 | K and Delta K are holomorphic on the working strip, allowing differentiation of Kbar=K+Delta K and Delta K=P xi
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L755-L757 | the inherited local package supplies the holomorphic Hamiltonian and ambient domain for the frame/correction application
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -924,9 +924,9 @@ EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p2-aposteriori.tex#step:p2:pt-
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876 | the directional derivative of the new holomorphic normal frame is holomorphic, giving holomorphy and continuity of the new torsion
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L878 | the inherited local package supplies holomorphic h on the open ambient domain when forming the new torsion
 EDGE: bp:p1:ext-integral | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L876-L876 | ¦avg(tilde T)-avg(T)¦ <= sup over [0,1]^n of ¦tilde T - T¦ by the norm-of-integral bound; no periodicity needed
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1044,9 +1044,9 @@ ROUTE_FOR: -
 EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L923 | A2: β-ball around K lies in 𝔅
 EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L923 | the preceding correction bound gives abs(Kbar-K)<=d in the triangle inequality
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L923 | the inherited local ambient-domain package is fixed for admissibility and the A2 ball inclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1281,9 +1281,9 @@ EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmal
 EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1010-L1010 | ε_s,δ_s notation
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1012-L1012 | 𝔠_*≥𝔠_step max{1,2/μ}
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1010-L1015 | the inherited local package fixes gamma>0 and the parameters entering the decay and step-smallness comparison
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1434,9 +1434,9 @@ ROUTE_FOR: -
 EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L1062 | (vi): DK_{s+1}−DK_s≤nd_s/δ_s
 EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L1062 | finiteness of Σnd_s/δ_s via the sum bound with j=a+1
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L1063 | the limit is in the induction setting with the local Part 2 package, which supplies gamma>0 and the fixed parameters of d_s
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1495,9 +1495,9 @@ EDGE: bp:p1:uniform-limits | blueprint/parts/p2-aposteriori.tex#step:p2:lim-prim
 EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1073 | pointwise convergence to K_infty supplies the limit premise for preservation of primarity and realness
 EDGE: step:p2:lim-dk | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1073-L1073 | uniform derivative convergence supplies the remaining hypothesis of the cited uniform-limits lemma
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1073 | the local Part 2 package is inherited by the induction setting whose primary real tori are restricted here
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1525,9 +1525,9 @@ EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L10
 EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1076 | Σd_s≤2Θ²C_ΔKe/(γ⁴δ_0^{2a})≤μ/4
 EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1078 | uniform convergence justifies passage to the limit and L1057 supplies sum d_s<=2 C_DeltaK e/(gamma^2 delta_0^a)
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1078 | the local Part 2 package fixes the positive gamma and constants in the summed displacement bounds
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1587,9 +1587,9 @@ EDGE: step:p2:lim-margins | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invar
 EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1087-L1087 | DK_s→DK_∞ pointwise
 EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1087 | K_s(theta) tends to K_infty(theta), allowing continuity of X_h to pass to the limit
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1089 | the local package supplies the open ambient domain and holomorphic X_h input used for continuity at the limiting point
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

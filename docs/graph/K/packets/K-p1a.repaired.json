@@ -1,37 +1,9 @@
 {
  "replaced": [],
  "added": [],
- "items": [],
+ "items": [
+  "bp:p1:ext-measure"
+ ],
  "unresolved": {},
- "passes": [
-  "step:p1:opn-blocks",
-  "step:p1:opn-omega",
-  "step:p1:mn-products",
-  "step:p1:neu-series",
-  "step:p1:neu-inverse",
-  "step:p1:neu-difference",
-  "step:p1:ri-adjugate",
-  "step:p1:hreg-line",
-  "step:p1:hreg-integral",
-  "step:p1:hreg-differentiate",
-  "step:p1:hreg-full",
-  "step:p1:hreg-orders",
-  "step:p1:hreg-symmetry",
-  "step:p1:han-cauchy",
-  "step:p1:han-series",
-  "step:p1:han-bounds",
-  "step:p1:han-real",
-  "step:p1:ul-differences",
-  "step:p1:ul-limit",
-  "step:p1:ul-derivative",
-  "step:p1:hi-holomorphic",
-  "step:p1:hi-derivative",
-  "step:p1:io-mvt",
-  "step:p1:tay-lipschitz",
-  "step:p1:tay-integrate",
-  "step:p1:co-first",
-  "step:p1:co-second",
-  "step:p1:co-third",
-  "step:p1:co-constants"
- ]
+ "passes": []
 }

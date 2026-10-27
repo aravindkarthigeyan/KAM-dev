@@ -352,9 +352,9 @@ DEPS: bp:p1:ext-measure
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-measure | blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1119-L1119 | product of Lebesgue measures is Lebesgue measure on R^2n, cited as (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -552,9 +552,9 @@ ROUTE_FOR: -
 EDGE: step:p1:mc-component | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1175-L1181 | proof step of this result
 EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1183-L1186 | proof step of this result
 EDGE: step:p1:mc-clamp | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1188-L1191 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -632,9 +632,9 @@ DEPS: step:p1:mc-components
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1189-L1190 | clamp the extension U
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

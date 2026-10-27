@@ -122,7 +122,7 @@ DISPOSITION: NODE bp:p1:lip-image-product
 REASON: SOURCE_GAP step added for the unproved product-measure identification
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
-REVIEWER: sol-review-r1
+REVIEWER: sol-review-d3
 
 ITEM: bp:p1:lip-image
 KIND: lemma
