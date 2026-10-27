@@ -33,6 +33,8 @@ DECL = re.compile(
     r"(theorem|lemma|def|abbrev|opaque|structure|class|inductive|axiom|constant|instance|example)\b"
     r"(?:\s+(" + _ID + r"(?:\." + _ID + r")*))?"
 )
+# A Lean character literal: one character or one escape between single quotes.
+CHAR_LITERAL = re.compile(r"'(?:\\(?:[\\'\"ntr0]|x[0-9a-fA-F]{2}|u\{[0-9a-fA-F]{1,6}\})|[^\\'\n])'")
 NAMESPACE = re.compile(r"^[ \t]*namespace\s+(" + _ID + r"(?:\." + _ID + r")*)\b")
 SECTION = re.compile(
     r"^[ \t]*(?:@\[[^\]\n]*\][ \t]*)*((?:(?:public|private|noncomputable)\s+)*)"
@@ -139,17 +141,13 @@ class Guard:
                     else:
                         index += 1
                 blank(start, min(index, size))
-            elif text[index] == "'" and (index == 0 or not (text[index - 1].isalnum() or text[index - 1] in "_'")):
-                start, index = index, index + 1
-                while index < size:
-                    if text[index] == "\\":
-                        index += 2
-                    elif text[index] == "'":
-                        index += 1
-                        break
-                    else:
-                        index += 1
-                blank(start, min(index, size))
+            elif (text[index] == "'" and CHAR_LITERAL.match(text, index)
+                  and (index == 0 or not (text[index - 1].isalnum() or text[index - 1] in "_'!?"))):
+                # Repository change: only a genuine character literal is masked. A bare `'`, as in the
+                # notation `∑'`, is an ordinary token; masking from it to the next `'` hid code from the guard.
+                start = index
+                index = CHAR_LITERAL.match(text, index).end()
+                blank(start, index)
             else:
                 index += 1
         return "".join(out)
@@ -444,12 +442,49 @@ class Guard:
             implementation = anchor.get("implementation")
             export = implementation.get("export") if isinstance(implementation, dict) else None
             escaped = re.escape(export) if isinstance(export, str) else r"(?!)"
-            if not re.fullmatch(r"\s*by\s+(?:exact\s+|simpa\s+using\s+)" + escaped + r"\s*", body):
-                self.fail(f"{label}: SEALED body must be trivial assembly of exactly implementation.export")
+            # Repository change: a frozen theorem whose explicit binders precede the colon needs them as
+            # arguments. The only arguments allowed are exactly those binder names, all of them, in order.
+            binders = self.explicit_binders(prefix)
+            args = r"".join(r"\s+" + re.escape(name) for name in binders)
+            if not re.fullmatch(r"\s*by\s+(?:exact\s+|simpa\s+using\s+)" + escaped + args + r"\s*", body):
+                self.fail(f"{label}: SEALED body must be trivial assembly of exactly implementation.export"
+                          + (f" applied to the explicit binders {' '.join(binders)}" if binders else ""))
             lines = 0 if not body.strip() else body.strip().count("\n") + 1
             if lines > limits["max_body_lines"] or len(body.encode("utf-8")) > limits["max_body_bytes"]:
                 self.fail(f"{label}: SEALED body exceeds configured short assembly limits")
         return body_start, body_end
+
+    def explicit_binders(self, prefix: str) -> list[str]:
+        """Names of the explicit binders `(a b : T)` before the colon of the last declaration in `prefix`.
+
+        Repository change. Brackets are tracked so that parentheses inside binder types are not binders.
+        """
+        code = self.code_mask(prefix)
+        starts = [m.end() for m in re.finditer(r"(?m)^[ \t]*(?:@\[[^\]\n]*\][ \t]*)*(?:\w+\s+)*"
+                                              r"(?:theorem|lemma)\s+\S+", code)]
+        if not starts:
+            return []
+        header, names, depth, index = code[starts[-1]:], [], 0, 0
+        closing = {"(": ")", "{": "}", "[": "]", "⦃": "⦄"}
+        while index < len(header):
+            char = header[index]
+            if depth == 0 and char == ":" and not header.startswith(":=", index):
+                break
+            if depth == 0 and char in closing:
+                end, level = index + 1, 1
+                while end < len(header) and level:
+                    if header[end] == char:
+                        level += 1
+                    elif header[end] == closing[char]:
+                        level -= 1
+                    end += 1
+                if char == "(":
+                    group = header[index + 1:end - 1]
+                    names.extend(group.split(":", 1)[0].split())
+                index = end
+                continue
+            index += 1
+        return names
 
     def check_declaration(self, anchor: dict[str, Any], label: str, text: str, kind: str) -> None:
         declarations = self.declarations(text)

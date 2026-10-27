@@ -1,5 +1,5 @@
 {
- "current_phase": "Statements frozen on all four tracks. Track K: blueprint and source dependency graph published (docs/graph/K/DEPGRAPH.md: 453 nodes, 1420 edges, 0 source gaps, fully reviewed); proof campaign starting (Sonnet provers, GPT-6.1-Sol medium auditors). Tracks I, N, P: Opus sub-orchestrator (D23): D25 additions being frozen, blueprints being written.",
+ "current_phase": "First seal: G3 (KAM.volume_not_diophantine_le) proved, audited, kernel-replayed (D26). Track K proof campaign: I-MAT landed; I-LIP in audit; I-STRIP-5 (several-variable analyticity) running. Tracks I, N, P: Opus sub-orchestrator; blueprints nearly complete (track I done), N-AVERAGING re-transcription from the pinned source.",
  "workers": [
   {
    "id": "orchestrator",
@@ -47,31 +47,13 @@
    "state": "active"
   },
   {
-   "id": "prover-P-G3",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-g3",
-   "assignment": "Package P-G3 (docs/campaign/briefs/P-G3.md)",
-   "state": "running"
-  },
-  {
-   "id": "prover-I-MAT",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-mat",
-   "assignment": "Package I-MAT (docs/campaign/briefs/I-MAT.md)",
-   "state": "running"
-  },
-  {
    "id": "prover-I-LIP",
    "kind": "Lean prover",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
    "session": "worktree /root/code/KAM-w-lip",
    "assignment": "Package I-LIP (docs/campaign/briefs/I-LIP.md)",
-   "state": "running"
+   "state": "done; in audit"
   },
   {
    "id": "prover-I-STRIP-5",
@@ -80,6 +62,15 @@
    "account": "claude-1 (subagent)",
    "session": "worktree /root/code/KAM-w-strip5",
    "assignment": "Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md)",
+   "state": "running"
+  },
+  {
+   "id": "audit-I-LIP",
+   "kind": "package audit (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "kam-audit-lip",
+   "assignment": "Independent audit of package I-LIP",
    "state": "running"
   }
  ],

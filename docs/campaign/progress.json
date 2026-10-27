@@ -133,8 +133,8 @@
    "id": "F.MAT",
    "title": "Matrix-valued functions: products, Neumann-series inverses, averages",
    "difficulty": "M",
-   "done": 0.5,
-   "note": "Zohar: quantitative matrix Neumann estimates (KAM/Matrix)"
+   "done": 0.8,
+   "note": "Neumann (Zohar) + operator norms, matrix norms, real/holomorphic inverses (I-MAT, audited)"
   },
   {
    "group": "Analytic infrastructure",
@@ -221,8 +221,8 @@
    "id": "M.DMEAS",
    "title": "Measure of the non-Diophantine frequencies",
    "difficulty": "M",
-   "done": 0.1,
-   "note": "P-G3 provider package running"
+   "done": 1.0,
+   "note": "G3 SEALED (D26): KAM.volume_not_diophantine_le proved, audited, kernel-replayed"
   },
   {
    "group": "Measure of the invariant tori",

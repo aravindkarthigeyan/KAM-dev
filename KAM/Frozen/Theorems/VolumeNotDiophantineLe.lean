@@ -31,7 +31,7 @@ theorem volume_not_diophantine_le {n : ℕ} {τ : ℝ} (hτ : (n : ℝ) - 1 < τ
     ∃ C : ℝ, ∀ α : ℝ, 0 < α →
       volume {ω ∈ Ω | ¬ IsDiophantine α τ ω} ≤ ENNReal.ofReal (C * α) :=
   -- FROZEN_ANCHOR_PROOF_BEGIN
-  by sorry
+  by exact KAM.Provider.volume_not_diophantine_le hτ hΩ
   -- FROZEN_ANCHOR_PROOF_END
 -- FROZEN_ANCHOR_SUFFIX_BEGIN
 
