@@ -81,3 +81,6 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   - Only `full_file_sha256`, `prefix_sha256` and `definition_closure` hashes in `manifest/frozen-anchors.json`
     changed. Log: `docs/MANIFEST-CHANGES.md`.
 
+- **D17 (2026-10-27) Track N dimension.** N-HEAD (quasi-convex Nekhoroshev with exponents 1/(2n)) is stated for
+  n ≥ 3 (track N owner question 1). *(Scott: "approve n ≥ 3 for track N")* The other track-N questions wait for the
+  statement audit and the review page.

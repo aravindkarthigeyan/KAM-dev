@@ -238,7 +238,7 @@ annotations on a measure cell, and two sum-parenthesis scope errors; these were 
 in the draft before the successful checks. No mathematical assumption was added to
 work around an elaboration failure.
 
-Repository lint:
+Initial repository lint, before the concurrent tooling correction:
 
 ```text
 $ scripts/lint_sources.sh
@@ -258,21 +258,31 @@ ABI HASHES OK (25 frozen declarations)
 exit 1
 ```
 
-**Lint limitation:** the frozen-anchor guard traverses `.drafts/` and rejects the very
-placeholders explicitly required by all three track Phase 0 briefs. Its failure includes
-this track's three intentional theorem-body placeholders and the concurrently drafted
-tracks I/N. This is a tooling/brief mismatch, not a clean-lint receipt. The shell lint
-and module checker themselves exclude drafts; the ABI check passes. Fixing the guard
-is outside the permitted deliverable paths, so it was not edited and no check was
-bypassed. Phase 0 completion here means the four review artifacts and successful direct
-elaboration, with this failed repository check disclosed.
+During final audit, the shared guard was changed concurrently to exclude `.drafts/`
+(`project_files` in `scripts/check_frozen_anchors.py`). This agent did not edit it.
+A fresh run after that external change, on the final draft, passed:
+
+```text
+$ scripts/lint_sources.sh
+check_lean_modules: PASS (40 Lean files, 0 comparator configurations)
+FROZEN-ANCHOR GUARD OK
+ABI HASHES OK (25 frozen declarations)
+exit 0
+```
+
+Thus the earlier draft/guard mismatch is resolved in the final shared snapshot. The
+successful direct Lean check, static draft audit and explicit axiom report remain the
+validation of the ignored draft itself; repository lint intentionally excludes it.
 
 `git diff --check` exited 0 with no output. `git check-ignore` returned exactly
 `.drafts/P/Statements.lean` and `sources/incoming-P/cp10.pdf` for those two queried
 paths. The draft has 348 lines, no line over 100 columns, exactly three theorem-body
 `sorry` tokens, and no proof-escape declarations or resource overrides. PDF SHA-256
-values were recomputed from the bytes listed in sources.md. Subsequent document-only
-checks are recorded below after the final packet audit.
+values were recomputed from the bytes listed in sources.md; all five matched.
+The final packet audit found all four files present, no unfinished TODO/TBD markers,
+no control characters in the three Markdown files, and no whitespace errors. The draft
+is absent from `git ls-files`, as required. The final Lean run still emitted only the
+three expected placeholder warnings and the printed axiom inventories above.
 
 There is concurrent unrelated work in the shared checkout (including blueprint and
 other-track paths). Repository-wide lint reports the current shared snapshot; ownership

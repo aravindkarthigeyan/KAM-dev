@@ -118,7 +118,7 @@ simpler predicate. This is not a missing Phase 0 deliverable for the selected qu
 
 ## Owner questions and recommendations
 
-1. **Dimension:** approve n≥3 for this packet? **Recommend yes**, matching the selected campaign scope;
+1. **Dimension:** approve n≥3 for this packet? **Ruled yes by the owner (D17, 2026-10-27).** Recommendation was yes, matching the selected campaign scope;
    retain n=2 as a separately audited extension (its denominator is valid, and stronger track-I statements
    exist, but no unverified all-time inference is used here).
 2. **Endpoint convention:** approve ≤ε with explicit factor-two rescaling and a separate all-time size-zero
