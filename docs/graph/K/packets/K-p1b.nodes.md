@@ -850,9 +850,9 @@ EDGE: bp:p1:averages-real | blueprint/parts/p1-analysis.tex#step:p1:fb-derivativ
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.torusCoeff_fderiv_coordinate_real, KAM.torusCoeff_fderiv_real (KAM/Strip/FourierDerivative.lean:83,152); holomorphic form KAM.torusCoeff_fderiv (KAM/Strip/Cohomological.lean:66)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:fb-series
@@ -1228,9 +1228,9 @@ EDGE: bp:p1:decay#boundary-radius | blueprint/parts/p1-analysis.tex#step:p1:coh-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.torusCoeff_zero (KAM/Strip/Cohomological.lean:52) with zero average; KAM.norm_torusCoeff_le (KAM/Strip/Fourier.lean:291)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md (parent KAM.cohomological); decay input audited in docs/campaign/audits/I-ZMAP-audit-1.md, I-ZMAP-audit-2.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coh-coefficients
@@ -1256,9 +1256,9 @@ EDGE: step:p1:coh-data | blueprint/parts/p1-analysis.tex#step:p1:coh-coefficient
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Diophantine.solve, solve_zero_mode, directionalCoeff_solve, norm_solve_le (KAM/Diophantine/Cohomological.lean:50,~78,82,104); KAM.sum_mul_eq_flowMultiplier (KAM/Strip/Cohomological.lean:121)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md (consumer KAM.cohomological; Diophantine solver itself not separately audited); kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coh-weighted
@@ -1285,9 +1285,9 @@ EDGE: bp:p1:exp-sums | blueprint/parts/p1-analysis.tex#step:p1:coh-weighted@L918
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.weightedNorm_torusCoeff_le_of_avg_zero, KAM.summableWeighted_solve_torusCoeff (KAM/Strip/Cohomological.lean:134,183)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md (parent KAM.cohomological); kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coh-existence
@@ -1314,9 +1314,9 @@ EDGE: step:p1:coh-coefficients | blueprint/parts/p1-analysis.tex#step:p1:coh-exi
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.differentiableOn_cohSolution, cohSolution_add_single, torusCoeff_cohSolution, torusAverage_cohSolution, norm_cohSolution_le (KAM/Strip/Cohomological.lean:222-250); packaged in KAM.cohomological (KAM/Strip/CohomologicalNodes.lean:57)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coh-equation
@@ -1344,9 +1344,9 @@ EDGE: step:p1:coh-coefficients | blueprint/parts/p1-analysis.tex#step:p1:coh-equ
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.fderiv_cohSolution (KAM/Strip/Cohomological.lean:257); KAM.cohomological (KAM/Strip/CohomologicalNodes.lean:57)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coh-unique
@@ -1373,9 +1373,9 @@ EDGE: step:p1:coh-existence | blueprint/parts/p1-analysis.tex#step:p1:coh-unique
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.eq_cohSolution (KAM/Strip/Cohomological.lean:302); KAM.cohomological (last conjunct)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coh-real
@@ -1401,9 +1401,9 @@ EDGE: step:p1:coh-existence | blueprint/parts/p1-analysis.tex#step:p1:coh-real@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.cohSolution_im_eq_zero (KAM/Strip/Cohomological.lean:385); KAM.cohomological
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coh-vector
@@ -1431,9 +1431,9 @@ EDGE: step:p1:coh-real | blueprint/parts/p1-analysis.tex#step:p1:coh-vector@L963
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.cohSolutionPi family (cohSolutionPi, differentiableOn_cohSolutionPi, norm_cohSolutionPi_le, eq_cohSolutionPi, ... KAM/Strip/Cohomological.lean:399-500); KAM.cohomological second conjunct (CohomologicalNodes.lean)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p1:cohomological-operator
@@ -1489,9 +1489,9 @@ EDGE: bp:p1:cohomological | blueprint/parts/p1-analysis.tex#step:p1:coo-entries@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.cohSolutionMat, differentiableOn_cohSolutionMat, torusAverage_cohSolutionMat, fderiv_cohSolutionMat, eq_cohSolutionMat (KAM/Strip/CohomologicalOperator.lean:192-265); KAM.cohomological_operator (CohomologicalNodes.lean:119)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coo-vectors
@@ -1518,9 +1518,9 @@ EDGE: bp:p1:cohomological | blueprint/parts/p1-analysis.tex#step:p1:coo-vectors@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.norm_cohSolutionMat_le (KAM/Strip/CohomologicalOperator.lean:286); helper KAM.mulVec_transfer (:89)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coo-norm
@@ -1547,9 +1547,9 @@ EDGE: step:p1:coo-entries | blueprint/parts/p1-analysis.tex#step:p1:coo-norm@L99
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.norm_cohSolutionMat_le, KAM.eq_cohSolutionMat (KAM/Strip/CohomologicalOperator.lean:265,286); KAM.cohomological_operator
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p1:coo-apriori
@@ -1577,9 +1577,9 @@ EDGE: step:p1:coo-norm | blueprint/parts/p1-analysis.tex#step:p1:coo-apriori@L10
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.cohomological_apriori, cohomological_apriori_pi, cohomological_apriori_operator (KAM/Strip/CohomologicalOperator.lean:119,144,165); second conjunct of KAM.cohomological_operator
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p1:decay#boundary-radius
