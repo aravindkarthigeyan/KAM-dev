@@ -339,6 +339,106 @@
    "pdf": "Neishtadt76_DAN_226_6_1295-1298.pdf",
    "sha256": "57459a2221141e0fb0fce2143009107b30ce39ceb08acff0a6d7b8cc150b98f6",
    "role": "N-AVERAGING: original proof behind AKN06 Thm 6.11 / Cor. 6.1 (source-proof gap E-NAVG-NEI-17, the sup/integral interchange in (17), is repaired in the proof route). Russian original; the English translation (Soviet Phys. Dokl. 21 (1976)) is not pinned."
-  }
- ]
+  },
+    {
+      "key": "Nek77",
+      "tier": "track I/N/P",
+      "citation": "N. N. Nekhoroshev, An exponential estimate of the time of stability of nearly-integrable Hamiltonian systems, Russian Mathematical Surveys 32(6) (1977), 1–65. English translation.",
+      "arxiv": null,
+      "doi": "10.1070/RM1977v032n06ABEH003859",
+      "pdf": "sources/incoming-round3/nek77-eng.pdf",
+      "sha256": "0bfe624cf108096badd7e27fc40ca800e2948b68dce2bf8b9c653e0eaec4def6",
+      "role": "D25 partial convexity and planetary confinement. DOI verified by exact Crossref record; pinned English text includes announcements of later proofs, not a proof-complete Part II."
+    },
+    {
+      "key": "LP17",
+      "tier": "track I/N/P",
+      "citation": "J. Laskar and A. C. Petit, AMD-stability and the classification of planetary systems, Astronomy & Astrophysics 605 (2017), A72.",
+      "arxiv": "1703.07125v2",
+      "doi": "10.1051/0004-6361/201630022",
+      "pdf": "sources/incoming-zohar2/r2-amd17.pdf",
+      "sha256": "6b3c7aad2c2bf69612c0e0a65a5409f40a03e330253f8b3880f8e53d40f09361",
+      "role": "D25 AMD and heliocentric Hamiltonian. Exact publisher title/author/volume match verified."
+    },
+    {
+      "key": "CP09",
+      "tier": "track I/N/P",
+      "citation": "L. Chierchia and F. Pusateri, Analytic Lagrangian tori for the planetary many-body problem, Ergodic Theory and Dynamical Systems 29(3) (2009), 849–873.",
+      "arxiv": "1206.3475v1",
+      "doi": "10.1017/S0143385708000503",
+      "pdf": "sources/incoming-P/cp09.pdf",
+      "sha256": "dd29561ef38116ba27a743b9b580f797a602bfda1edee8510ef1371c61655859",
+      "role": "P-FIXED analytic maximal-torus route. DOI verified against Cambridge publisher record; pagination in audits refers to the 25-page pinned preprint."
+    },
+    {
+      "key": "Chi05",
+      "tier": "track I/N/P",
+      "citation": "L. Chierchia, The restricted, circular, planar three-body problem, March 2005 lecture notes.",
+      "arxiv": null,
+      "doi": null,
+      "pdf": "sources/incoming-I/chierchia-delaunay.pdf",
+      "sha256": "31ed844d0916b4b76c02f1da07051f36bfade0338db0b060ec4fa6eab688fe1a",
+      "role": "I Kepler/Delaunay and restricted Hamiltonian. Title/date checked against author-hosted PDF; no DOI asserted."
+    },
+    {
+      "key": "CC03",
+      "tier": "track I/N/P",
+      "citation": "A. Celletti and L. Chierchia, KAM stability and celestial mechanics, December 2003 author preprint, 127 pp.; published as Memoirs of the American Mathematical Society 187(878) (2007).",
+      "arxiv": null,
+      "doi": "10.1090/memo/0878",
+      "pdf": "sources/incoming-I/cc07.pdf",
+      "sha256": "ddab68a2b4f7ffe0fa3808fd5ec554531ab0609557b2445b0e6e3f5cba5bd2e2",
+      "role": "I isoenergetic confinement comparator. DOI verified by exact Crossref metadata in cc07-crossref.json; quoted page numbers refer to this preprint, not assumed identical to the published memoir."
+    },
+    {
+      "key": "Fej07e",
+      "tier": "track I/N/P",
+      "citation": "J. Féjoz, Erratum de la Démonstration du ‘théorème d’Arnold’ et addendum, 6 February 2007, 5 pp.",
+      "arxiv": null,
+      "doi": null,
+      "pdf": "sources/pdf/fejoz04_erratum.pdf",
+      "sha256": "e8559fa0b031e7151e947a1d37106fbbb4f57deb7add3f91c623f101686bc5a4",
+      "role": "Author corrections to the original 2004 printing, and planar/smooth addendum. Original unrevised printing is not pinned; do not attribute every historical defect to the revised PDF. No DOI asserted for the separate erratum."
+    },
+    {
+      "key": "Fej04r",
+      "tier": "track I/N/P",
+      "citation": "J. Féjoz, Démonstration du ‘théorème d’Arnold’ sur la stabilité du système planétaire (d’après Michael Herman), Ergodic Theory and Dynamical Systems 24(5) (2004), 1521–1582; pinned January 2007 revision, 65 pp.",
+      "arxiv": null,
+      "doi": "10.1017/S0143385704000410",
+      "pdf": "sources/pdf/fejoz04_herman_arnold_revised.pdf",
+      "sha256": "d5a05c79f754da467d8148ee572a22098e1e1ee16a8c6f3052356657a02ac9e3",
+      "role": "Explicit alias of existing Fej04 for the revised printing used throughout P. DOI agrees with existing exact source record; no original-printing PDF is implied."
+    },
+    {
+      "key": "Nek79II",
+      "tier": "track I/N/P",
+      "citation": "N. N. Nekhoroshev, An exponential estimate of the time of stability of nearly-integrable Hamiltonian systems. II, Trudy Seminara imeni I. G. Petrovskogo 5 (1979), 5–50 (Russian). English translation: Topics in Modern Mathematics, Petrovskii Seminar No. 5, ed. O. A. Oleinik, Consultants Bureau, New York, 1985, 1–58.",
+      "arxiv": null,
+      "doi": null,
+      "pdf": null,
+      "sha256": null,
+      "role": "UNPINNED source-acquisition gap for proofs announced in Nek77 §10. Russian bibliographic record verified against MathNet references; translation bibliography checked. No DOI verified; no claim that Part II proves the new blueprint strengthening."
+    },
+    {
+      "key": "Pos93scan",
+      "tier": "track I/N/P",
+      "citation": "J. Pöschel, *Nekhoroshev estimates for quasi-convex Hamiltonian systems*, Math. Z. 213 (1993) 187–216",
+      "arxiv": null,
+      "doi": "10.1007/BF03025718",
+      "pdf": "sources/incoming-N/poschel1993_gdz.pdf",
+      "sha256": "27568ec63af069ab6d6c02e0327aa2d822998be47888f20dea0c6418552dc869",
+      "role": "Pinned-copy alias for Pos93; the pre-existing record is preserved append-only. GDZ scan: PDF page = printed page − 185; formulas require image inspection."
+    },
+    {
+      "key": "CP10pin",
+      "tier": "track I/N/P",
+      "citation": "L. Chierchia, G. Pinzari, *Properly-degenerate KAM theory (following V. I. Arnold)*, Discrete Contin. Dyn. Syst. Ser. S 3 (2010) 545–578",
+      "arxiv": null,
+      "doi": "10.3934/dcdss.2010.3.545",
+      "pdf": "sources/incoming-P/cp10.pdf",
+      "sha256": "68fbf161e0aa62fc966f33b3b3c49e2ab0fbcca3eb7fdb0950d62eadcdf18338",
+      "role": "Pinned-copy alias for CP10; the pre-existing record is preserved append-only. Pinned author text; PDF page = printed page − 544."
+    }
+  ]
 }
