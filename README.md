@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 21.2 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:41 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 21.2 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:40 UTC from `main` at `32e70fa` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:41 UTC from `main` at `da61a77` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.
 
@@ -276,6 +276,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:41 | `da61a77` | Blueprint Part 4 review: ACCEPT WITH FIXES; major F1 (several-variable holomorphic implies analytic) becomes a Part 1 lemma and package I-STRIP-5 |
 | 2026-10-27 16:40 | `32e70fa` | Track P delta audit v0.2: approvable; review page published for owner approval |
 | 2026-10-27 16:33 | `2b84d71` | Exploration round 2: exponential-time safety for all low-AMD planetary data, secular Jupiter-Saturn box, ranked milestones; round 3 refutation running |
 | 2026-10-27 16:29 | `cac339c` | Merge remote-tracking branch 'origin/main' |
@@ -287,7 +288,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 16:15 | `ddec667` | Track N statement audit v0.1: approvable with changes; source gap F-N1 (uniformity in h needs a complex Hessian bound); revision v0.2 under way |
 | 2026-10-27 16:13 | `9fcd939` | Track P statement audit v0.1: P-G rejected as drafted (three blocking defects with counterexamples); revision v0.2 under way |
 | 2026-10-27 16:07 | `1e0a048` | Blueprint Part 3 review: ACCEPT WITH FIXES (no blocking or major findings); step labels prefixed with S |
-| 2026-10-27 16:06 | `b876ed8` | Merge remote-tracking branch 'origin/main' |
 <!-- /AUTO:landed -->
 
 ## Decisions
