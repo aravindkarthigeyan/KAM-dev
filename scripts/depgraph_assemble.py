@@ -16,6 +16,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--graph-dir", required=True)
 ap.add_argument("--header", required=True)
 ap.add_argument("--slices", required=True)
+ap.add_argument("--slice-dir", default=None, help="directory of <slice>.{nodes,coverage}.md (default: --graph-dir)")
 ap.add_argument("--title", default="Proof dependency database")
 ap.add_argument("--root", default=".")
 a = ap.parse_args()
@@ -27,8 +28,9 @@ if m:
     header = header.replace(m.group(0), f"FROZEN_MANIFEST: {m.group(1)} | sha256:{digest}")
 corpus = re.search(r"^CORPUS: .*$", header, re.M).group(0)
 slices = a.slices.split(",")
-nodes = "\n".join((d / f"{s}.nodes.md").read_text().strip("\n") + "\n" for s in slices)
-cov = "\n".join((d / f"{s}.coverage.md").read_text().strip("\n") + "\n" for s in slices)
+sd = Path(a.slice_dir) if a.slice_dir else d
+nodes = "\n".join((sd / f"{s}.nodes.md").read_text().strip("\n") + "\n" for s in slices)
+cov = "\n".join((sd / f"{s}.coverage.md").read_text().strip("\n") + "\n" for s in slices)
 db = d / "DEPGRAPH.md"
 dash = "<!-- BEGIN PROOF DEPGRAPH GENERATED -->\n<!-- END PROOF DEPGRAPH GENERATED -->\n"
 if db.exists():
@@ -39,7 +41,7 @@ if db.exists():
 amend = d / "AMENDMENTS.md"
 amend_txt = ("\n## Append-only structural amendments\n\n" + amend.read_text().strip("\n") + "\n") if amend.exists() else ""
 db.write_text(f"# {a.title}\n\n{header}\n\nThe dependency direction is `NODE -> prerequisite`. Node blocks are "
-              f"assembled from `{d}/<slice>.nodes.md`; edit those, then re-run `scripts/depgraph_assemble.py`.\n\n"
+              f"assembled from `{sd}/<slice>.nodes.md`; edit those, then re-run `scripts/depgraph_assemble.py`.\n\n"
               f"## Nodes\n\n{nodes}{amend_txt}\n{dash}")
 (d / "DEPGRAPH_COVERAGE.md").write_text(f"# Proof-source coverage manifest\n\n{corpus}\n\n## Inventory\n\n{cov}")
 print(f"wrote {db} and {d / 'DEPGRAPH_COVERAGE.md'} from {len(slices)} slices")

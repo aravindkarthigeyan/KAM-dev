@@ -5,10 +5,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L997-L1002
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1004-L1018
 CONTRACT_ID: bp:p1:iteration
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Q>0; p>=0; reals y_0,y_1,...>=0 with y_{m+1}<=Q 2^{pm} y_m^2 for all m>=0; Q 2^p y_0<=1/2 (second claim: only q:=Q 2^p y_0<=1)
+SOURCE_QUANTIFIERS: for all Q>0, p>=0, sequences (y_m) satisfying the recursion; then for all m>=0
+SOURCE_CONCLUSION: y_m<=Q^{-1} 2^{-p(m+1)} 2^{-2^m} for all m>=0 (so y_m->0); under q<=1 only: y_m<=q^{2^m-1} 2^{-pm} y_0 for all m>=0
+CONSTANT_SCOPE: none (Q, p, y_0 arbitrary; no constants introduced)
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -16,10 +16,10 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p1:it-super, step:p1:it-linear
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p1:it-super | blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1005-L1005 | proof step of this result
-EDGE: step:p1:it-linear | blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1012-L1012 | proof step of this result
+EDGE: step:p1:it-super | blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1005-L1010 | proof step of this result
+EDGE: step:p1:it-linear | blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1012-L1017 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -33,10 +33,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-super@L1005-L1010
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-super@L1005-L1010
 CONTRACT_ID: step:p1:it-super
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Q>0; p>=0; y_{m+1}<=Q 2^{pm} y_m^2; Q 2^p y_0<=1/2
+SOURCE_QUANTIFIERS: x_m:=Q 2^{p(m+1)} y_m, induction on m>=0
+SOURCE_CONCLUSION: x_m<=2^{-2^m}, i.e. y_m<=Q^{-1} 2^{-p(m+1)} 2^{-2^m}, and y_m->0
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -45,7 +45,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -59,10 +59,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-linear@L1012-L1017
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-linear@L1012-L1017
 CONTRACT_ID: step:p1:it-linear
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Q>0; p>=0; y_{m+1}<=Q 2^{pm} y_m^2; q=Q 2^p y_0<=1
+SOURCE_QUANTIFIERS: induction on m>=0
+SOURCE_CONCLUSION: y_m<=q^{2^m-1} 2^{-pm} y_0 for all m>=0
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -71,7 +71,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -85,10 +85,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction-consequ
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction-consequences@L1027-L1033
 CONTRACT_ID: bp:p1:real-restriction-consequences
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: l:C^n->C^p C-linear with l(R^n) in R^p, l_R its restriction; K:T_rho->C^n x C^n primary on T_rho and real on reals, k its restriction to R^n
+SOURCE_QUANTIFIERS: for all such l, K, rho; x in R^n, m in Z^n
+SOURCE_CONCLUSION: |l_R|<=|l| (operator norms of max norms); k(x+m)=k(x)+(m,0) for x in R^n, m in Z^n
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -97,12 +97,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: remark: its justification is inline (confirm, or exclude if not a mathematical claim)
+NOTE: Self-contained remark; proof is inline (real h with |h|<=1 are a subset of complex ones; primarity identity at the real point x).
 
 NODE: bp:p1:real-restriction
 KIND: lemma
@@ -111,10 +111,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1035-L
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1041-L1059
 CONTRACT_ID: bp:p1:real-restriction
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: K holomorphic on T_rho and real on reals; for the primary claim, K primary on T_rho (p=2n)
+SOURCE_QUANTIFIERS: K, rho, p (=2n in applications); x in R^n; m in Z^n
+SOURCE_CONCLUSION: k=K|_{R^n} real-analytic with real derivative the restriction of the complex derivative; |Dk(x)|<=|DK(x)| for x in R^n; if K primary, k(x+m)=k(x)+(m,0) for m in Z^n
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -122,11 +122,11 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p1:rr-analytic, step:p1:rr-derivative, step:p1:rr-consequences
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p1:rr-analytic | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1045-L1045 | proof step of this result
-EDGE: step:p1:rr-derivative | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1049-L1049 | proof step of this result
-EDGE: step:p1:rr-consequences | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1055-L1055 | proof step of this result
+EDGE: step:p1:rr-analytic | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1045-L1047 | proof step of this result
+EDGE: step:p1:rr-derivative | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1049-L1053 | proof step of this result
+EDGE: step:p1:rr-consequences | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1055-L1058 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -140,10 +140,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-analytic@L1045-L104
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-analytic@L1045-L1047
 CONTRACT_ID: step:p1:rr-analytic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: K:T_rho->C^p holomorphic with K(R^n) in R^p; T_rho open, T_rho cap R^n=R^n
+SOURCE_QUANTIFIERS: k=K|_{R^n}
+SOURCE_CONCLUSION: k is real-analytic on R^n as a map into R^p
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -151,9 +151,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:holomorphic-analytic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:holomorphic-analytic | blueprint/parts/p1-analysis.tex#step:p1:rr-analytic@L1046-L1046 | cited at this line (step; \ref{bp:p1:holomorphic-analytic})
+EDGE: bp:p1:holomorphic-analytic | blueprint/parts/p1-analysis.tex#step:p1:rr-analytic@L1046-L1047 | part (b) with U=T_rho, m=n, W=C^p gives real analyticity of the restriction
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -167,10 +167,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-derivative@L1049-L1
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-derivative@L1049-L1053
 CONTRACT_ID: step:p1:rr-derivative
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: K holomorphic on T_rho, K(R^n) in R^p; x in R^n
+SOURCE_QUANTIFIERS: real h->0
+SOURCE_CONCLUSION: k differentiable at x and Dk(x)h=DK(x)h for h in R^n
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -179,7 +179,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -193,20 +193,21 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1055-
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1055-L1058
 CONTRACT_ID: step:p1:rr-consequences
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Dk(x) is the restriction of the C-linear map DK(x) with DK(x)(R^n) in R^p (previous step); K primary when claimed
+SOURCE_QUANTIFIERS: x in R^n
+SOURCE_CONCLUSION: |Dk(x)|<=|DK(x)|; for primary K (p=2n), k(x+m)=k(x)+(m,0)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:real-restriction-consequences
+DEPS: step:p1:rr-derivative, bp:p1:real-restriction-consequences
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:real-restriction-consequences | blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1057-L1057 | cited at this line (step; \ref{bp:p1:real-restriction-consequences})
+EDGE: step:p1:rr-derivative | blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1056-L1057 | previous step: Dk(x) is the restriction of DK(x)
+EDGE: bp:p1:real-restriction-consequences | blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1057-L1058 | remark gives the norm bound and the primary identity
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -220,26 +221,26 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1061-L
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1069-L1096
 CONTRACT_ID: bp:p1:hamiltonian-real
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: V open in C^n x C^n; h holomorphic on V and real at real points of V; z in V cap (R^n x R^n); H:R^n x R^n->R agrees with Re h near z; (second claim) phi holomorphic; X_H frozen vector field, J=-Omega_0
+SOURCE_QUANTIFIERS: for all V, h, z, H; for all holomorphic phi
+SOURCE_CONCLUSION: H differentiable at z and X_H(z)=X_h(z); X_phi=J (Dphi)^T with J=[[0,I],[-I,0]]=-Omega_0, equivalently Omega_0 X_phi=(Dphi)^T
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p1:hr-derivative, step:p1:hr-components, step:p1:hr-matrix, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero
+DEPS: step:p1:hr-derivative, step:p1:hr-components, step:p1:hr-matrix, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#omegaZero, bp:p0:hamiltonian#symplecticForm
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p1:hr-derivative | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1073-L1073 | proof step of this result
-EDGE: step:p1:hr-components | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1081-L1081 | proof step of this result
-EDGE: step:p1:hr-matrix | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1089-L1089 | proof step of this result
-EDGE: bp:p0:hamiltonian#hamiltonianVectorField | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1070-L1070 | cited at this line (proof; \ref{bp:p0:hamiltonian})
-EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1070-L1070 | cited at this line (proof; \ref{bp:p0:hamiltonian})
-EDGE: bp:p0:hamiltonian#symplecticForm | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1070-L1070 | cited at this line (proof; \ref{bp:p0:hamiltonian})
-EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1070-L1070 | cited at this line (proof; \ref{bp:p0:hamiltonian})
+EDGE: step:p1:hr-derivative | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1073-L1079 | proof step of this result
+EDGE: step:p1:hr-components | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1081-L1087 | proof step of this result
+EDGE: step:p1:hr-matrix | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1089-L1095 | proof step of this result
+EDGE: bp:p0:hamiltonian#hamiltonianVectorField | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1063-L1064 | X_H in the statement is the frozen real vector field
+EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1063-L1064 | X_h, X_varphi in the statement is the frozen complex vector field
+EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1065-L1066 | Omega_0 in the statement
+EDGE: bp:p0:hamiltonian#symplecticForm | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1065-L1066 | symplectic form Omega_0 in the statement
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -253,10 +254,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-derivative@L1073-L1
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-derivative@L1073-L1079
 CONTRACT_ID: step:p1:hr-derivative
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: V_R={y in R^n x R^n: y in V} open neighbourhood of z; H=Re h near z; h real at real points
+SOURCE_QUANTIFIERS: e in R^n x R^n
+SOURCE_CONCLUSION: H differentiable at z with DH(z)e=Dh(z)e (real number)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -265,7 +266,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -279,19 +280,22 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1081-L1
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1081-L1087
 CONTRACT_ID: step:p1:hr-components
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: the previous step; frozen definitions of X_H and X_h
+SOURCE_QUANTIFIERS: z, i=1..n
+SOURCE_CONCLUSION: X_H(z)=X_h(z)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: step:p1:hr-derivative, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC
 ROUTES: -
 ROUTE_FOR: -
+EDGE: step:p1:hr-derivative | blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1087-L1087 | previous step with e=(0,e_i) and e=(e_i,0)
+EDGE: bp:p0:hamiltonian#hamiltonianVectorField | blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1082-L1084 | component formula for X_H by the frozen definition
+EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1082-L1085 | component formula for X_h by the frozen definition
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -305,20 +309,22 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-matrix@L1089-L1095
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-matrix@L1089-L1095
 CONTRACT_ID: step:p1:hr-matrix
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: phi holomorphic; frozen formula X_phi=(d_I phi,-d_theta phi)
+SOURCE_QUANTIFIERS: phi holomorphic
+SOURCE_CONCLUSION: X_phi=J(Dphi)^T with J=-Omega_0=Omega_0^{-1}; equivalently Omega_0 X_phi=(Dphi)^T; J as a map L(C^{2n},C)->C^{2n}
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:operator-norms
+DEPS: bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#omegaZero, bp:p1:operator-norms
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:hr-matrix@L1094-L1094 | cited at this line (step; \ref{bp:p1:operator-norms})
+EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p1-analysis.tex#step:p1:hr-matrix@L1091-L1092 | frozen formula for X_phi
+EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#step:p1:hr-matrix@L1093-L1093 | Omega_0 identified with -J
+EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:hr-matrix@L1093-L1094 | Omega_0^2=-I gives J=-Omega_0=Omega_0^{-1}
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -332,10 +338,37 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1106-
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1106-L1109
 CONTRACT_ID: bp:p1:lip-image-product
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: R^n x R^n identified with R^{2n}
+SOURCE_QUANTIFIERS: n
+SOURCE_CONCLUSION: the identification is an isometry for the max norm of the two components and carries the product of Lebesgue measures to Lebesgue measure on R^{2n}
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bp:p1:lip-image-product#product-lebesgue
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bp:p1:lip-image-product#product-lebesgue | blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1107-L1108 | stated without proof; see SOURCE_GAP
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p1c
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Stated without proof.
+
+NODE: bp:p1:lip-image-product#product-lebesgue
+KIND: step
+TITLE: Product of Lebesgue measures is Lebesgue measure on R^{2n}
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1107-L1108
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1107-L1108
+CONTRACT_ID: bp:p1:lip-image-product#product-lebesgue
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: R^n x R^n = R^{2n}
+SOURCE_QUANTIFIERS: n
+SOURCE_CONCLUSION: the product of the Lebesgue measures on R^n x R^n is Lebesgue measure on R^{2n}
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -344,12 +377,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: remark: its justification is inline (confirm, or exclude if not a mathematical claim)
+NOTE: SOURCE_GAP: the identification of the product Lebesgue measure with Lebesgue measure on R^{2n} is asserted without proof and is not among (E1)-(E10).
 
 NODE: bp:p1:lip-image
 KIND: lemma
@@ -358,10 +391,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1111-L1116
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1118-L1153
 CONTRACT_ID: bp:p1:lip-image
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: S subset R^d; F:S->R^d with |F(x)-F(y)|<=Lambda|x-y|; Phi:A->R^d injective with Lipschitz inverse Phi^{-1}:Phi(A)->A; R^d with max norm
+SOURCE_QUANTIFIERS: for all d, S, F, Lambda; for all A, Phi, N
+SOURCE_CONCLUSION: outer measure meas F(S)<=Lambda^d meas S; meas N=0 implies meas Phi^{-1}(N)=0; both hold on R^n x R^n with the max norm of the components and the product Lebesgue measure
+CONSTANT_SCOPE: Lambda is the Lipschitz constant of F (arbitrary)
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -369,13 +402,13 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p1:li-cubes, step:p1:li-image, step:p1:li-sum, step:p1:li-preimage, step:p1:li-product
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p1:li-cubes | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1122-L1122 | proof step of this result
-EDGE: step:p1:li-image | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1131-L1131 | proof step of this result
-EDGE: step:p1:li-sum | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1137-L1137 | proof step of this result
-EDGE: step:p1:li-preimage | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1144-L1144 | proof step of this result
-EDGE: step:p1:li-product | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1150-L1150 | proof step of this result
+EDGE: step:p1:li-cubes | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1122-L1129 | proof step of this result
+EDGE: step:p1:li-image | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1131-L1135 | proof step of this result
+EDGE: step:p1:li-sum | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1137-L1142 | proof step of this result
+EDGE: step:p1:li-preimage | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1144-L1148 | proof step of this result
+EDGE: step:p1:li-product | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1150-L1152 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -389,10 +422,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1122-L1129
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1122-L1129
 CONTRACT_ID: step:p1:li-cubes
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: S subset R^d; eps>0; (E3) Lebesgue outer measure as infimum over box covers
+SOURCE_QUANTIFIERS: eps>0
+SOURCE_CONCLUSION: countably many closed cubes Q_j cover S with sum vol(Q_j)<=meas S+eps
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -400,9 +433,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1124-L1124 | cited at this line (step; \ref{bp:p1:ext-lebesgue})
+EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1124-L1125 | definition of outer measure by closed box covers gives boxes R_j
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -416,10 +449,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-image@L1131-L1135
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-image@L1131-L1135
 CONTRACT_ID: step:p1:li-image
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: F:S->R^d Lambda-Lipschitz on S; Q closed cube of side ell
+SOURCE_QUANTIFIERS: Q
+SOURCE_CONCLUSION: meas F(S cap Q)<=Lambda^d ell^d = Lambda^d vol(Q)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -428,7 +461,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -442,19 +475,22 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1137-L1142
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1137-L1142
 CONTRACT_ID: step:p1:li-sum
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: cube cover Q_j of S with total volume <= meas S+eps; image bound for each cube
+SOURCE_QUANTIFIERS: eps>0
+SOURCE_CONCLUSION: meas F(S)<=Lambda^d meas S
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: step:p1:li-cubes, step:p1:li-image, bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
+EDGE: step:p1:li-cubes | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1138-L1139 | cube cover
+EDGE: step:p1:li-image | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1138-L1139 | image of one cube
+EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1138-L1138 | countable subadditivity
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -468,19 +504,20 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1144-L114
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1144-L1148
 CONTRACT_ID: step:p1:li-preimage
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Phi:A->R^d injective with Lambda-Lipschitz inverse; meas N=0
+SOURCE_QUANTIFIERS: N
+SOURCE_CONCLUSION: meas Phi^{-1}(N)=0
+CONSTANT_SCOPE: Lambda is the Lipschitz constant of the inverse
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: step:p1:li-sum
 ROUTES: -
 ROUTE_FOR: -
+EDGE: step:p1:li-sum | blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1147-L1148 | Lipschitz image estimate applied to Phi^{-1} on Phi(A)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -494,20 +531,22 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-product@L1150-L1152
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-product@L1150-L1152
 CONTRACT_ID: step:p1:li-product
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: the previous steps; remark on products
+SOURCE_QUANTIFIERS: n; d=2n
+SOURCE_CONCLUSION: both claims hold on R^n x R^n with max norm and product Lebesgue measure
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:lip-image-product
+DEPS: bp:p1:lip-image-product, step:p1:li-sum, step:p1:li-preimage
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:lip-image-product | blueprint/parts/p1-analysis.tex#step:p1:li-product@L1151-L1151 | cited at this line (step; \ref{bp:p1:lip-image-product})
+EDGE: bp:p1:lip-image-product | blueprint/parts/p1-analysis.tex#step:p1:li-product@L1151-L1151 | identification of R^n x R^n with R^{2n}
+EDGE: step:p1:li-sum | blueprint/parts/p1-analysis.tex#step:p1:li-product@L1151-L1152 | case d=2n of the image estimate
+EDGE: step:p1:li-preimage | blueprint/parts/p1-analysis.tex#step:p1:li-product@L1151-L1152 | case d=2n of the preimage claim
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -521,10 +560,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1155-L1158
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1160-L1181
 CONTRACT_ID: bp:p1:mcshane
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: X metric space; S subset X; Lambda>=0; phi:S->R^d Lambda-Lipschitz (max norm); optionally |phi|<=beta on S
+SOURCE_QUANTIFIERS: for all X, S, Lambda, phi, beta
+SOURCE_CONCLUSION: phi extends to a Lambda-Lipschitz map on X; the extension can be chosen with |Phi|<=beta on X
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -532,11 +571,11 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p1:mc-component, step:p1:mc-components, step:p1:mc-clamp
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p1:mc-component | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1164-L1164 | proof step of this result
-EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1172-L1172 | proof step of this result
-EDGE: step:p1:mc-clamp | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1177-L1177 | proof step of this result
+EDGE: step:p1:mc-component | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1164-L1170 | proof step of this result
+EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1172-L1175 | proof step of this result
+EDGE: step:p1:mc-clamp | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1177-L1180 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -550,10 +589,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-component@L1164-L11
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-component@L1164-L1170
 CONTRACT_ID: step:p1:mc-component
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: phi_j:S->R Lambda-Lipschitz
+SOURCE_QUANTIFIERS: component j
+SOURCE_CONCLUSION: U_j(x)=inf_{y in S}(phi_j(y)+Lambda dist(x,y)) is finite, Lambda-Lipschitz and equals phi_j on S (S empty: extension 0)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -562,7 +601,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -576,19 +615,20 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-components@L1172-L1
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-components@L1172-L1175
 CONTRACT_ID: step:p1:mc-components
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: each component phi_j has a Lambda-Lipschitz extension U_j
+SOURCE_QUANTIFIERS: max norm on R^d
+SOURCE_CONCLUSION: U=(U_j) is a Lambda-Lipschitz extension of phi
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: step:p1:mc-component
 ROUTES: -
 ROUTE_FOR: -
+EDGE: step:p1:mc-component | blueprint/parts/p1-analysis.tex#step:p1:mc-components@L1172-L1174 | componentwise extensions
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -602,19 +642,20 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1177-L1180
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1177-L1180
 CONTRACT_ID: step:p1:mc-clamp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: |phi|<=beta on S; U the extension
+SOURCE_QUANTIFIERS: clamping Phi_j=max(-beta,min(beta,U_j))
+SOURCE_CONCLUSION: Phi is a Lambda-Lipschitz extension of phi with |Phi|<=beta on X
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: step:p1:mc-components
 ROUTES: -
 ROUTE_FOR: -
+EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1178-L1179 | clamp the extension U
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -628,10 +669,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo-fixed@L1183-L1188
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo-fixed@L1183-L1188
 CONTRACT_ID: bp:p1:lipeo-fixed
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Psi a bijection of R^d with Psi(x)=x for x in Z' subset R^d
+SOURCE_QUANTIFIERS: Psi, Z'
+SOURCE_CONCLUSION: Psi maps R^d minus Z' onto itself
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -640,12 +681,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: remark: its justification is inline (confirm, or exclude if not a mathematical claim)
+NOTE: Self-contained remark; proof is inline (injectivity argument).
 
 NODE: bp:p1:lipeo
 KIND: lemma
@@ -654,10 +695,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1190-L1194
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1196-L1212
 CONTRACT_ID: bp:p1:lipeo
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: G:R^d->R^d lambda-Lipschitz with lambda<1; Psi=id+G; (second claim) G=0 on Z'
+SOURCE_QUANTIFIERS: for all d, lambda<1, G, Z'
+SOURCE_CONCLUSION: Psi is a bijection of R^d with (1-lambda)|x-y|<=|Psi(x)-Psi(y)|<=(1+lambda)|x-y|; if G=0 on Z' then Psi maps R^d minus Z' onto itself
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -665,11 +706,11 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p1:lipeo-bounds, step:p1:lipeo-onto, step:p1:lipeo-zero
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p1:lipeo-bounds | blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1199-L1199 | proof step of this result
-EDGE: step:p1:lipeo-onto | blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1204-L1204 | proof step of this result
-EDGE: step:p1:lipeo-zero | blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1209-L1209 | proof step of this result
+EDGE: step:p1:lipeo-bounds | blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1199-L1202 | proof step of this result
+EDGE: step:p1:lipeo-onto | blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1204-L1207 | proof step of this result
+EDGE: step:p1:lipeo-zero | blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1209-L1211 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -683,10 +724,10 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-bounds@L1199-L12
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-bounds@L1199-L1202
 CONTRACT_ID: step:p1:lipeo-bounds
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: G lambda-Lipschitz, lambda<1
+SOURCE_QUANTIFIERS: x,y in R^d
+SOURCE_CONCLUSION: (1-lambda)|x-y|<=|Psi(x)-Psi(y)|<=(1+lambda)|x-y|; Psi injective with (1-lambda)^{-1}-Lipschitz inverse on the image
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -695,7 +736,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -709,20 +750,21 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-onto@L1204-L1207
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-onto@L1204-L1207
 CONTRACT_ID: step:p1:lipeo-onto
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: G lambda-Lipschitz, lambda<1; R^d complete
+SOURCE_QUANTIFIERS: y in R^d
+SOURCE_CONCLUSION: Psi surjective, hence a bijection of R^d with (1-lambda)^{-1}-Lipschitz inverse
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:ext-banach
+DEPS: bp:p1:ext-banach, step:p1:lipeo-bounds
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:ext-banach | blueprint/parts/p1-analysis.tex#step:p1:lipeo-onto@L1206-L1206 | cited at this line (step; \ref{bp:p1:ext-banach})
+EDGE: bp:p1:ext-banach | blueprint/parts/p1-analysis.tex#step:p1:lipeo-onto@L1205-L1206 | fixed point of the contraction x->y-G(x)
+EDGE: step:p1:lipeo-bounds | blueprint/parts/p1-analysis.tex#step:p1:lipeo-onto@L1206-L1207 | injectivity and Lipschitz inverse from the lower bound
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -736,20 +778,21 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1209-L1211
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1209-L1211
 CONTRACT_ID: step:p1:lipeo-zero
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: G=0 on Z'; Psi a bijection
+SOURCE_QUANTIFIERS: Z'
+SOURCE_CONCLUSION: Psi maps R^d minus Z' onto itself
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:lipeo-fixed
+DEPS: bp:p1:lipeo-fixed, step:p1:lipeo-onto
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:lipeo-fixed | blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1210-L1210 | cited at this line (step; \ref{bp:p1:lipeo-fixed})
+EDGE: bp:p1:lipeo-fixed | blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1210-L1211 | bijection fixing Z' pointwise preserves the complement
+EDGE: step:p1:lipeo-onto | blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1210-L1210 | Psi is a bijection of R^d
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

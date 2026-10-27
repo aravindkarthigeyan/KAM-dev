@@ -4,7 +4,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:periodic-bounded@L505-L507
 DISPOSITION: NODE bp:p1:periodic-bounded
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:pb-compact
@@ -13,7 +13,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pb-compact@L510-L516
 DISPOSITION: NODE step:p1:pb-compact
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:strip-identity
@@ -22,7 +22,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:strip-identity@L519-L522
 DISPOSITION: NODE bp:p1:strip-identity
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:si-induction
@@ -31,7 +31,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:si-induction@L525-L533
 DISPOSITION: NODE step:p1:si-induction
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:increments
@@ -40,7 +40,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments@L539-L543
 DISPOSITION: NODE bp:p1:increments
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:inc-mvt
@@ -49,7 +49,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:inc-mvt@L546-L549
 DISPOSITION: NODE step:p1:inc-mvt
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:inc-cauchy
@@ -58,7 +58,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:inc-cauchy@L551-L553
 DISPOSITION: NODE step:p1:inc-cauchy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:cauchy-strip
@@ -67,7 +67,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L556-L562
 DISPOSITION: NODE bp:p1:cauchy-strip
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:cs-coordinate
@@ -76,7 +76,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs-coordinate@L567-L575
 DISPOSITION: NODE step:p1:cs-coordinate
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:cs-full
@@ -85,25 +85,25 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs-full@L577-L584
 DISPOSITION: NODE step:p1:cs-full
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:cauchy-strip-2
 KIND: lemma
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L592-L594
-DISPOSITION: NODE bp:p1:cauchy-strip-2
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: not consumed by any root's proof
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:cs2-polydisc
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs2-polydisc@L597-L602
-DISPOSITION: NODE step:p1:cs2-polydisc
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: not consumed by any root's proof
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:cauchy-corollaries
@@ -112,7 +112,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L605-L609
 DISPOSITION: NODE bp:p1:cauchy-corollaries
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:cc-transpose
@@ -121,7 +121,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cc-transpose@L614-L619
 DISPOSITION: NODE step:p1:cc-transpose
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:cc-omega
@@ -130,7 +130,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cc-omega@L621-L624
 DISPOSITION: NODE step:p1:cc-omega
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:averages-real
@@ -139,7 +139,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages-real@L634-L637
 DISPOSITION: NODE bp:p1:averages-real
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:ar-one
@@ -148,7 +148,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ar-one@L640-L644
 DISPOSITION: NODE step:p1:ar-one
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:ar-fubini
@@ -157,7 +157,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ar-fubini@L646-L650
 DISPOSITION: NODE step:p1:ar-fubini
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:averages
@@ -166,7 +166,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages@L653-L657
 DISPOSITION: NODE bp:p1:averages
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:av-derivatives
@@ -175,7 +175,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:av-derivatives@L660-L665
 DISPOSITION: NODE step:p1:av-derivatives
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:av-bound
@@ -184,7 +184,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:av-bound@L667-L671
 DISPOSITION: NODE step:p1:av-bound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:averages-matrix
@@ -193,7 +193,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages-matrix@L674-L677
 DISPOSITION: NODE bp:p1:averages-matrix
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:am-bound
@@ -202,7 +202,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:am-bound@L680-L682
 DISPOSITION: NODE step:p1:am-bound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:am-derivative
@@ -211,7 +211,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:am-derivative@L684-L686
 DISPOSITION: NODE step:p1:am-derivative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:periodic-average
@@ -220,7 +220,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:periodic-average@L689-L691
 DISPOSITION: NODE bp:p1:periodic-average
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:pa-one
@@ -229,7 +229,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pa-one@L694-L697
 DISPOSITION: NODE step:p1:pa-one
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:pa-induction
@@ -238,7 +238,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pa-induction@L699-L704
 DISPOSITION: NODE step:p1:pa-induction
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:exp-sums
@@ -247,7 +247,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:exp-sums@L715-L722
 DISPOSITION: NODE bp:p1:exp-sums
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:es-power
@@ -256,7 +256,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:es-power@L725-L728
 DISPOSITION: NODE step:p1:es-power
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:es-product
@@ -265,7 +265,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:es-product@L730-L733
 DISPOSITION: NODE step:p1:es-product
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:es-nonzero
@@ -274,7 +274,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:es-nonzero@L735-L742
 DISPOSITION: NODE step:p1:es-nonzero
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:fourier-basic
@@ -283,7 +283,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:fourier-basic@L745-L756
 DISPOSITION: NODE bp:p1:fourier-basic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:fb-derivative
@@ -292,7 +292,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:fb-derivative@L759-L764
 DISPOSITION: NODE step:p1:fb-derivative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:fb-series
@@ -301,7 +301,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:fb-series@L766-L767
 DISPOSITION: NODE step:p1:fb-series
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:fb-holomorphic
@@ -310,7 +310,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:fb-holomorphic@L769-L771
 DISPOSITION: NODE step:p1:fb-holomorphic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:decay
@@ -319,7 +319,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay@L774-L777
 DISPOSITION: NODE bp:p1:decay
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:dec-shift
@@ -328,7 +328,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:dec-shift@L788-L799
 DISPOSITION: NODE step:p1:dec-shift
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:dec-bound
@@ -337,7 +337,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:dec-bound@L801-L806
 DISPOSITION: NODE step:p1:dec-bound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:summation
@@ -346,7 +346,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:summation@L812-L819
 DISPOSITION: NODE bp:p1:summation
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:sum-bound
@@ -355,7 +355,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-bound@L824-L827
 DISPOSITION: NODE step:p1:sum-bound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:sum-holo
@@ -364,7 +364,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-holo@L829-L839
 DISPOSITION: NODE step:p1:sum-holo
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:sum-coeff
@@ -373,7 +373,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-coeff@L841-L847
 DISPOSITION: NODE step:p1:sum-coeff
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:sum-converse
@@ -382,7 +382,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L849-L855
 DISPOSITION: NODE step:p1:sum-converse
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:sum-representation
@@ -391,7 +391,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-representation@L857-L862
 DISPOSITION: NODE step:p1:sum-representation
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:cohomological
@@ -400,7 +400,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L875-L885
 DISPOSITION: NODE bp:p1:cohomological
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coh-data
@@ -409,7 +409,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-data@L894-L896
 DISPOSITION: NODE step:p1:coh-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coh-coefficients
@@ -418,7 +418,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L898-L903
 DISPOSITION: NODE step:p1:coh-coefficients
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coh-weighted
@@ -427,7 +427,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-weighted@L905-L920
 DISPOSITION: NODE step:p1:coh-weighted
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coh-existence
@@ -436,7 +436,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-existence@L922-L925
 DISPOSITION: NODE step:p1:coh-existence
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coh-equation
@@ -445,7 +445,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-equation@L927-L932
 DISPOSITION: NODE step:p1:coh-equation
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coh-unique
@@ -454,7 +454,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-unique@L934-L941
 DISPOSITION: NODE step:p1:coh-unique
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coh-real
@@ -463,7 +463,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-real@L943-L948
 DISPOSITION: NODE step:p1:coh-real
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coh-vector
@@ -472,7 +472,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-vector@L950-L956
 DISPOSITION: NODE step:p1:coh-vector
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: bp:p1:cohomological-operator
@@ -481,7 +481,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological-operator@L959-L962
 DISPOSITION: NODE bp:p1:cohomological-operator
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coo-entries
@@ -490,7 +490,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-entries@L968-L971
 DISPOSITION: NODE step:p1:coo-entries
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coo-vectors
@@ -499,7 +499,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-vectors@L973-L978
 DISPOSITION: NODE step:p1:coo-vectors
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coo-norm
@@ -508,7 +508,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-norm@L980-L983
 DISPOSITION: NODE step:p1:coo-norm
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: step:p1:coo-apriori
@@ -517,7 +517,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-apriori@L985-L991
 DISPOSITION: NODE step:p1:coo-apriori
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: heading:bp:p1:sec-strips
@@ -526,7 +526,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-strips@L499-L499
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: heading:bp:p1:sec-averages
@@ -535,7 +535,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-averages@L628-L628
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: heading:bp:p1:sec-fourier
@@ -544,7 +544,7 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-fourier@L708-L708
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: heading:bp:p1:sec-cohomological
@@ -553,23 +553,23 @@ SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-cohomological@L866-L866
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: p1:source-L561
 KIND: citation
 SOURCE: blueprint/parts/p1-analysis.tex#source@L561-L561
 DISPOSITION: EXCLUDED
-REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+REASON: provenance note (HL19 citation) for a result proved in the blueprint; no unproved input is relied on
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
 ITEM: p1:source-L883
 KIND: citation
 SOURCE: blueprint/parts/p1-analysis.tex#source@L883-L883
 DISPOSITION: EXCLUDED
-REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+REASON: provenance note (HL19 citation) for a result proved in the blueprint; no unproved input is relied on
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
