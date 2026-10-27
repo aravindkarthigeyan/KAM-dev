@@ -5,10 +5,11 @@ twist, whose invariance error is small compared with $\gamma^4$, lies within $O(
 invariant torus with the same Diophantine frequency. The proof is the quasi-Newton scheme of HL19
 (Theorem~3.1, pp.~16--18; \S4--5; Appendix~B), specialized as follows.
 \begin{itemize}
-\item $d=n$: there are no first integrals, the tangent frame is $L=DK$, and every $X_p$-term of HL19
+\item HL19's torus dimension $d$ equals $n$: there are no first integrals, the tangent frame is $L=DK$, and every $X_p$-term of HL19
   vanishes (HL19 Rem.~3.2, p.~18).
-\item The canonical structure $\Omega=\tilde\Omega=\Omega_0$, $G=I_{2n}$, $J=\Omega_0$ (HL19 Rem.~3.3,
-  p.~18), in Case~III, where $A=0$ (HL19 \S2.5, p.~12; (3.5), p.~16). Then $B=(L^\top L)^{-1}$ and
+\item The canonical structure $\Omega=\tilde\Omega=\Omega_0$, HL19's metric $G=I_{2n}$, $J=\Omega_0$ (HL19
+  Rem.~3.3, p.~18), in Case~III, where HL19's matrix $A(\theta)$ of (3.5) vanishes (HL19 \S2.5, p.~12;
+  (3.5), p.~16). Then $B=(L^\top L)^{-1}$ and
   $N=\Omega_0LB$, which are the frozen definitions of Part~\ref{bp:p0}.
 \item Primary tori in $\T^n\times U$ (HL19 Rem.~2.3, p.~7): $K(\theta+k)=K(\theta)+(k,0)$, so $DK$, the
   frame, the error and the torsion are $1$-periodic. Lemma~\ref{bp:p2:periodicity} checks every formula
@@ -47,7 +48,7 @@ at the cost of powers of $\delta$ only; (ii) the Diophantine condition at $k=e_1
 $\gamma\le\abs{\omega}$, so the step constants do not depend on $\gamma$ (in HL19 they increase with
 $\gamma$, ledger D-G1-1); the bound $\bar\gamma$ is used once, to force $e\le1$; (iii) constants are
 crude polynomials in one size constant~$\mathfrak m$. All deviations are listed in
-Subsection~\ref{bp:p2:sec-ledger}.
+Remark~\ref{bp:p2:deviations}.
 
 %----------------------------------------------------------------------------------------------------
 \subsection{Standing assumptions, norms and constants}\label{bp:p2:sec-setting}
@@ -108,20 +109,20 @@ $\delta_0=\delta_0(\rho,\rho_\infty)$.
 
 The numerical factors are crude; only the dependence matters. Since $\tau\ge0$ and $n\ge1$ we have
 $\varkappa\ge1$ and $a\ge4$; with the frozen $n\ge2$, $\tau\ge1$ we even have $a\ge8$. We use $a\ge3$
-in Lemma~\ref{bp:p2:error-decay}.
+in Proposition~\ref{bp:p2:iteration}.
 
 %----------------------------------------------------------------------------------------------------
 \subsection{Tools}\label{bp:p2:sec-tools}
 
-This subsection collects elementary facts used throughout: matrix norms, Cauchy estimates along
-$\omega$, boundedness and averages of periodic functions, the cohomological equation in operator norms,
-and the Hamiltonian identities. Results not in Part~\ref{bp:p1} are listed for transfer in
-Subsection~\ref{bp:p2:sec-transfer}.
+This subsection specializes the infrastructure of Part~\ref{bp:p1} to the form used here: matrix
+norms, averages of periodic functions, the cohomological equation in operator norms, and the Hamiltonian
+identities. The Cauchy estimates used below are Lemmas~\ref{bp:p1:cauchy-strip}
+and~\ref{bp:p1:cauchy-corollaries}.
 
-\begin{lemma}[Matrix norms]\label{bp:p2:matrix}
+\begin{corollary}[Matrix norms]\label{bp:p2:matrix}
 \begin{enumerate}[label=(\alph*)]
 \item For a $p\times q$ matrix $M$: $\max_{i,j}\abs{M_{ij}}\le\abs M=\sup_{\abs v\le1}\abs{Mv}$, and
-  $\abs{M^\top}\le p\abs M$ if $q\le p$ (all transposes below are of $2n\times n$ matrices).
+  $\abs{M^\top}\le p\abs M$.
 \item $\abs{M_1M_2}\le\abs{M_1}\abs{M_2}$ and $\abs{Mv}\le\abs M\abs v$.
 \item For block matrices, $\abs{(M_1\ M_2)}\le\abs{M_1}+\abs{M_2}$,
   \[
@@ -134,48 +135,27 @@ Subsection~\ref{bp:p2:sec-transfer}.
   $\Omega_0\left(\begin{smallmatrix}U_1\\U_2\end{smallmatrix}\right)
   =\left(\begin{smallmatrix}-U_2\\U_1\end{smallmatrix}\right)$ for matrices $U_1,U_2$ with $n$ rows.
 \end{enumerate}
-\source{HL19 \S2.1, p.~5, and \S3.1, pp.~14--15 (matrix norms and transposes). The transpose bound and
-(b) are Lemma~\ref{bp:p1:matrix-norms}.}
-\end{lemma}
+\source{HL19 \S2.1, p.~5, and \S3.1, pp.~14--15 (matrix norms and transposes).}
+\end{corollary}
 
 \begin{proof}
 \proofstep{Operator norm}\label{step:p2:matrix-op}
-For $\abs v\le1$, $\abs{(Mv)_i}\le\sum_j\abs{M_{ij}}$; equality is attained at
-$v_j=\overline{M_{i_0j}}/\abs{M_{i_0j}}$ (and $v_j=0$ where $M_{i_0j}=0$) for a maximizing row $i_0$. Hence
-$\abs M=\sup_{\abs v\le1}\abs{Mv}$, and $\abs{M_{ij}}\le\sum_{j'}\abs{M_{ij'}}\le\abs M$.
+By Lemma~\ref{bp:p1:operator-norms}, $\abs M=\max_i\sum_j\abs{M_{ij}}=\sup_{\abs v\le1}\abs{Mv}$; in
+particular $\abs{M_{ij}}\le\sum_{j'}\abs{M_{ij'}}\le\abs M$.
 
 \proofstep{Transpose and products}\label{step:p2:matrix-transpose}
-These are Lemma~\ref{bp:p1:matrix-norms}; directly, $\abs{M^\top}=\max_j\sum_{i=1}^p\abs{M_{ij}}\le
-p\max_{i,j}\abs{M_{ij}}\le p\abs M$, and (b) follows from the operator-norm form.
+The transpose bound and (b) are Lemma~\ref{bp:p1:matrix-norms}.
 
 \proofstep{Blocks and $\Omega_0$}\label{step:p2:matrix-blocks}
-In (c) the row sums of a block row are the sums of the row sums of its blocks. (d) is a direct
-computation from $\Omega_0(a,b)=(-b,a)$; each row of $\Omega_0$ has a single entry $\pm1$.
+The block bounds in (c) are Lemma~\ref{bp:p1:operator-norms} (for $(M_1\ M_2)$, the case of one block
+row). The stacked-block identity of Lemma~\ref{bp:p1:matrix-norms}, with $\abs{(M_1\ 0)}=\abs{M_1}$ and
+$\abs{(0\ M_2)}=\abs{M_2}$, gives the identity for $\operatorname{diag}(M_1,M_2)$. In (d),
+$\Omega_0^\top=-\Omega_0$, $\Omega_0^2=-I_{2n}$ and $\abs{\Omega_0}=1$ are Lemma~\ref{bp:p1:operator-norms};
+then $\Omega_0^\top\Omega_0=-\Omega_0^2=I_{2n}$, so $\Omega_0^{-1}=\Omega_0^\top$. The last formula is
+$\Omega_0(a,b)=(-b,a)$ applied to each column.
 \end{proof}
 
-\begin{lemma}[Cauchy estimates used below]\label{bp:p2:cauchy}
-Let $f$ be holomorphic on $T_r$ with $\abs f\le F$ on $T_r$, and $0<\delta<r$.
-\begin{enumerate}[label=(\alph*)]
-\item If $f$ is $\C^p$-valued, then $\abs{Df}\le nF/\delta$ and $\abs{(Df)^\top}\le pF/\delta$ on
-  $T_{r-\delta}$.
-\item If $f$ is vector- or matrix-valued, then $\abs{\partial_\omega f}\le n\abs\omega F/\delta$ on
-  $T_{r-\delta}$.
-\end{enumerate}
-\source{HL19 \S3.1, p.~15.}
-\end{lemma}
-
-\begin{proof}
-\proofstep{Entries}\label{step:p2:cauchy-entries}
-By Lemma~\ref{bp:p1:cauchy-strip}, $\abs{\partial_{\theta_\ell}f}\le F/\delta$ on $T_{r-\delta}$ for each
-$\ell$, with the norm of $f$'s values; in particular $\abs{\partial_{\theta_\ell}f_i}\le F/\delta$.
-
-\proofstep{Sums}\label{step:p2:cauchy-sums}
-$Df$ is $p\times n$ with entries $\partial_{\theta_\ell}f_i$: its row sums have $n$ terms and its column
-sums $p$ terms, which gives (a). For (b), $\abs{\partial_\omega f}\le\sum_\ell\abs{\omega_\ell}
-\abs{\partial_{\theta_\ell}f}\le n\abs\omega F/\delta$.
-\end{proof}
-
-\begin{lemma}[Averages]\label{bp:p2:averages}
+\begin{corollary}[Averages]\label{bp:p2:averages}
 \begin{enumerate}[label=(\alph*)]
 \item Let $f:\R^n\to\C^{p\times q}$ be continuous and $1$-periodic. Then $f$ is integrable on $[0,1]^n$,
   $\avg f=\int_{[0,1]^n}f$ (entrywise) is linear in $f$, real if $f$ is real, and
@@ -184,15 +164,13 @@ sums $p$ terms, which gives (a). For (b), $\abs{\partial_\omega f}\le\sum_\ell\a
   $\C$, $\C^p$ or $\C^{p\times q}$. Then $\avg{\partial_{\theta_\ell}v}=0$ for every $\ell$ and
   $\avg{\partial_\omega v}=0$.
 \end{enumerate}
-\source{(a) extends the bound of Lemma~\ref{bp:p1:averages} to continuous matrix-valued functions on
-$\R^n$; (b) is Lemma~\ref{bp:p1:averages-real} applied entrywise.}
-\end{lemma}
+\end{corollary}
 
 \begin{proof}
 \proofstep{Integrability and the bound}\label{step:p2:avg-bound}
-A continuous function is bounded and integrable on the compact box $[0,1]^n$, which has measure~$1$.
-Then $\abs{\avg f}=\max_i\sum_j\bigl|\int f_{ij}\bigr|\le\max_i\int\sum_j\abs{f_{ij}}\le\sup\abs f$.
-Linearity and realness are properties of the integral.
+A continuous function is integrable on the compact box $[0,1]^n$ (\ref{bp:p1:ext-integral}); linearity
+and realness are properties of the integral. By Lemma~\ref{bp:p1:averages-matrix},
+$\abs{\avg f}\le\sup_{\R^n}\abs f$, and $\sup_{\R^n}\abs f=\sup_{[0,1]^n}\abs f$ by periodicity.
 
 \proofstep{Derivatives}\label{step:p2:avg-deriv}
 The restriction of each entry of $v$ to $\R^n\subset T_r$ is continuous, $1$-periodic and
@@ -201,10 +179,11 @@ Lemma~\ref{bp:p1:averages-real} gives (b). (Alternatively: $v$ is bounded on $T_
 Lemma~\ref{bp:p1:periodic-bounded}, and Lemma~\ref{bp:p1:averages} applies there.)
 \end{proof}
 
-The cohomological equation of Part~\ref{bp:p1} is stated componentwise. The next lemma restates it in
-the operator norms used here, and adds the a-priori form used for the Lagrangian defect.
+The next corollary restates Lemmas~\ref{bp:p1:cohomological} and~\ref{bp:p1:cohomological-operator}
+with the constant $c_R$ and the notation $\mathcal R g$ used below; (b) is the a-priori form used for the
+Lagrangian defect.
 
-\begin{lemma}[Cohomological equation in operator norms]\label{bp:p2:cohomological}
+\begin{corollary}[Cohomological equation in operator norms]\label{bp:p2:cohomological}
 Let $0<\delta<r$ and write $\Gamma_\delta:=c_R\gamma^{-1}\delta^{-\varkappa}$.
 \begin{enumerate}[label=(\alph*)]
 \item\emph{(Solution.)} Let $g:T_r\to\C^p$ be holomorphic and $1$-periodic, with $\abs g\le H$ on $T_r$
@@ -216,7 +195,7 @@ Let $0<\delta<r$ and write $\Gamma_\delta:=c_R\gamma^{-1}\delta^{-\varkappa}$.
   $T_{r-\delta}$.
 \end{enumerate}
 \source{HL19 Lemma~4.1, p.~20, with exponent $\tau+n$ instead of $\tau$ (decision D12).}
-\end{lemma}
+\end{corollary}
 
 \begin{proof}
 \proofstep{Componentwise solution}\label{step:p2:coh-components}
@@ -225,12 +204,11 @@ by $H$ and has zero average. The unique solutions $u_i$ give $u=(u_i)$; uniquene
 uniqueness of each $u_i$. Each $\abs{u_i}\le c(n,\tau)\gamma^{-1}\delta^{-\varkappa}H\le\Gamma_\delta H$,
 and the max norm gives $\abs u\le\Gamma_\delta H$. Realness is part of Lemma~\ref{bp:p1:cohomological}.
 
-\proofstep{Reduction of (b) to vectors}\label{step:p2:coh-apriori}
-Fix $v\in\C^q$ with $\abs v\le1$. The function $uv$ is holomorphic and periodic on $T_r$, has
-$\avg{uv}=\avg uv=0$, and $\partial_\omega(uv)=(\partial_\omega u)v=:g$ satisfies $\abs g\le H$ on $T_r$
-and $\avg g=0$ (Lemma~\ref{bp:p2:averages}(b)). By the uniqueness in (a), $uv=\mathcal Rg$ on
-$T_{r-\delta}$, so $\abs{u(\theta)v}\le\Gamma_\delta H$ there. Taking the supremum over $v$
-(Lemma~\ref{bp:p2:matrix}(a)) gives $\abs{u(\theta)}\le\Gamma_\delta H$.
+\proofstep{The a-priori bound}\label{step:p2:coh-apriori}
+The function $g:=\partial_\omega u$ is holomorphic and $1$-periodic on $T_r$, bounded by $H$, and
+$\avg g=0$ by Corollary~\ref{bp:p2:averages}(b). The restriction of $u$ to $T_{r-\delta}$ is a holomorphic
+periodic solution of $Du\,\omega=g$ with zero average, so Lemma~\ref{bp:p1:cohomological-operator} gives
+$\abs u\le c(n,\tau)\gamma^{-1}\delta^{-\varkappa}H\le\Gamma_\delta H$ on $T_{r-\delta}$.
 \end{proof}
 
 \begin{lemma}[The Hamiltonian vector field]\label{bp:p2:hamiltonian}
@@ -253,10 +231,9 @@ Under Assumption~\ref{bp:p2:standing}:
 
 \begin{proof}
 \proofstep{Regularity}\label{step:p2:ham-regular}
-A function holomorphic on an open set of $\C^{2n}$ is analytic there, so its derivatives of every
-order are holomorphic. By definition $X_h=(\partial_Ih,-\partial_\theta h)$ is built from $Dh$, hence
-holomorphic on $\mathfrak B$. The derivative of $DX_h$ is $D^2X_h$ under the canonical isometry
-between $\mathcal L(V,\mathcal L(V,W))$ and bilinear maps, so the norms agree.
+By Lemma~\ref{bp:p1:holomorphic-regularity}, the derivatives of every order of $h$ are holomorphic on
+$\mathfrak B$. By definition $X_h=(\partial_Ih,-\partial_\theta h)$ is built from $Dh$, hence holomorphic on
+$\mathfrak B$, and the same lemma, applied to $X_h$, gives $\abs{D(DX_h)}=\abs{D^2X_h}$.
 
 \proofstep{Periodicity}\label{step:p2:ham-periodic}
 The translation $t_k(\theta,I)=(\theta+k,I)$ maps the open set $\mathfrak B$ into itself and
@@ -269,20 +246,20 @@ partial derivative at a real point is a limit of real difference quotients along
 $Dh$, hence $X_h$, is real at real points; the same argument applied to $X_h$ gives $DX_h$.
 
 \proofstep{Symplectic identity}\label{step:p2:ham-symplectic}
-With $\Omega_0(a,b)=(-b,a)$, $\Omega_0X_h=\Omega_0(\partial_Ih,-\partial_\theta h)=(\partial_\theta
-h,\partial_Ih)=(Dh)^\top$. Differentiating, $\Omega_0DX_h=D^2h$, the Hessian, which is symmetric (Schwarz).
+By Lemma~\ref{bp:p1:hamiltonian-real}, $\Omega_0X_h=(Dh)^\top$. Differentiating, $\Omega_0DX_h=D^2h$, the
+Hessian, which is symmetric by Lemma~\ref{bp:p1:holomorphic-regularity}.
 Hence $DX_h^\top\Omega_0=-(\Omega_0DX_h)^\top=-\Omega_0DX_h$, using $\Omega_0^\top=-\Omega_0$.
 
 \proofstep{Mean value estimates}\label{step:p2:ham-mvt}
 The ball $\mathbb B_\beta(z)$ is convex and contained in $\mathfrak B$, so it contains the segment
-$[z,z+w]$. The mean value inequality for $DX_h$ on this segment, with $\abs{D(DX_h)}\le M$ by (a), gives
-the first bound. Lemma~\ref{bp:p1:taylor} applied to $F=X_h$ on $U=\mathfrak B$ with $A=M$ gives
+$[z,z+w]$. Lemma~\ref{bp:p1:increments-open}, applied to $F=DX_h$ on $U=\mathbb B_\beta(z)$ with
+$\abs{D(DX_h)}\le M$ by (a), gives the first bound. Lemma~\ref{bp:p1:taylor} applied to $F=X_h$ on $U=\mathfrak B$ with $A=M$ gives
 $\abs{X_h(z+w)-X_h(z)-DX_h(z)w}\le\frac M2\abs w^2\le M\abs w^2$.
 \end{proof}
 
 \begin{remark}[Transposed derivatives]\label{bp:p2:transposes}
 HL19 assume separate bounds $\sigma_{K^\top}$ on $(DK)^\top$ and $c_{X_h^\top,1}$ on $(DX_h)^\top$. Here
-$\abs{(DK)^\top}\le2n\abs{DK}$ by Lemma~\ref{bp:p2:matrix}(a), and in the canonical case
+$\abs{(DK)^\top}\le2n\abs{DK}$ by Corollary~\ref{bp:p2:matrix}(a), and in the canonical case
 $(DX_h)^\top=\Omega_0DX_h\Omega_0$ by Lemma~\ref{bp:p2:hamiltonian}(d), so $\abs{(DX_h)^\top}=
 \abs{DX_h}$. The latter is not needed below.
 \end{remark}
@@ -371,9 +348,10 @@ derivatives of these, and the constants $\Omega_0,\omega$; derivatives of period
 \proofstep{Realness}\label{step:p2:per-real}
 If $K$ is real on $\R^n$, then $DK$ and its derivatives are real at real points (real difference
 quotients), $K(x)$ is a real point of $\mathfrak B$ for real $x$, and $X_h(K(x))$, $DX_h(K(x))$ are real
-by Lemma~\ref{bp:p2:hamiltonian}(c). The inverse of a real invertible matrix is real (adjugate formula),
+by Lemma~\ref{bp:p2:hamiltonian}(c). The inverse of a real invertible matrix is real
+(Lemma~\ref{bp:p1:real-inverse}),
 and $\partial_\omega$ of a function real on $\R^n$ is real on $\R^n$ because $\omega\in\R^n$. Hence all
-objects are real at real points, and $\avg T$ is real by Lemma~\ref{bp:p2:averages}(a).
+objects are real at real points, and $\avg T$ is real by Corollary~\ref{bp:p2:averages}(a).
 \end{proof}
 
 \begin{lemma}[Frequency bound]\label{bp:p2:frequency}
@@ -392,7 +370,7 @@ Fix $\theta\in T_r$. From $E=X_h(K)-L\omega$ and $BL^\top L=I_n$ we get
 $\omega=B(\theta)L(\theta)^\top\bigl(X_h(K(\theta))-E(\theta)\bigr)$.
 
 \proofstep{Upper bound}\label{step:p2:freq-upper}
-By Lemma~\ref{bp:p2:matrix}, $\abs{L^\top}\le2n\abs L\le2n\sigma_K$; with $\abs B\le\sigma_B$,
+By Corollary~\ref{bp:p2:matrix}, $\abs{L^\top}\le2n\abs L\le2n\sigma_K$; with $\abs B\le\sigma_B$,
 $\abs{X_h}\le M$ and $\abs E\le\varepsilon$ this gives $\abs\omega\le2n\sigma_K\sigma_B(M+\varepsilon)
 \le2n\mathfrak m^2\cdot2\mathfrak m=\Theta$, since $M+\varepsilon\le\mathfrak m+1\le2\mathfrak m$.
 
@@ -410,7 +388,7 @@ needed here).
 \item On $T_r$: $\abs L\le\mathfrak m$, $\abs{L^\top}\le2n\mathfrak m$, $\abs B\le\mathfrak m$,
   $\abs N\le\mathfrak m^2$, $\abs{N^\top}\le2n\mathfrak m^2$, $\abs P\le2\mathfrak m^2$,
   $\abs A\le\mathfrak m$.
-\item If \ref{bp:p2:A6} holds with $\varepsilon\le1$, then on $T_r$: $\abs{\eta^L}\le2n\mathfrak
+\item If \ref{bp:p2:A6} holds, then on $T_r$: $\abs{\eta^L}\le2n\mathfrak
   m^2\varepsilon$, $\abs{\eta^N}\le2n\mathfrak m\varepsilon$.
 \item If $\abs\omega\le\Theta$ and $0<\delta\le1$, $\delta<r$, then $\abs{X_N}\le C_X/\delta$ and
   $\abs T\le C_T/\delta$ on $T_{r-\delta}$.
@@ -428,7 +406,7 @@ N,X_N,T,E_{\mathrm{sym}},Q,\eta$ are holomorphic as products and derivatives of 
 $G$ is symmetric, hence so is $B$. A holomorphic function is continuous, and $\R^n\subset T_r$.
 
 \proofstep{Frame bounds}\label{step:p2:fb-bounds}
-By \ref{bp:p2:A3}, \ref{bp:p2:A4} and Lemma~\ref{bp:p2:matrix}: $\abs L\le\sigma_K\le\mathfrak m$,
+By \ref{bp:p2:A3}, \ref{bp:p2:A4} and Corollary~\ref{bp:p2:matrix}: $\abs L\le\sigma_K\le\mathfrak m$,
 $\abs{L^\top}\le2n\mathfrak m$, $\abs N\le\abs{\Omega_0}\abs L\abs B\le\mathfrak m^2$, $\abs{N^\top}\le
 2n\abs N$, $\abs P\le\abs L+\abs N\le2\mathfrak m^2$, and $\abs A\le M\le\mathfrak m$ by
 Assumption~\ref{bp:p2:standing}.
@@ -438,8 +416,9 @@ $\abs{\eta^L}\le\abs{N^\top}\abs{\Omega_0}\abs E\le2n\mathfrak m^2\varepsilon$ a
 $\abs{\eta^N}\le\abs{L^\top}\abs E\le2n\mathfrak m\varepsilon$.
 
 \proofstep{Torsion bound}\label{step:p2:fb-torsion}
-By Lemma~\ref{bp:p2:cauchy}(b) applied to $N$ ($\abs N\le\mathfrak m^2$ on $T_r$),
-$\abs{\partial_\omega N}\le n\Theta\mathfrak m^2/\delta=4n^2\mathfrak m^5/\delta$ on $T_{r-\delta}$.
+By Lemma~\ref{bp:p1:cauchy-corollaries} applied to $N$ ($\abs N\le\mathfrak m^2$ on $T_r$), and
+$\abs\omega_1\le n\abs\omega\le n\Theta$, $\abs{\partial_\omega N}\le n\Theta\mathfrak m^2/\delta=4n^2\mathfrak
+m^5/\delta$ on $T_{r-\delta}$.
 Hence $\abs{X_N}\le\abs A\abs N+\abs{\partial_\omega N}\le\mathfrak m^3+4n^2\mathfrak m^5/\delta\le
 5n^2\mathfrak m^5/\delta=C_X/\delta$, using $\delta\le1$. Then $\abs T\le\abs{N^\top}\abs{X_N}\le
 2n\mathfrak m^2C_X/\delta=C_T/\delta$.
@@ -496,7 +475,7 @@ I_n&B\Omega_KB\end{smallmatrix}\right)$ by (a), and subtracting
 $\Omega_0=\left(\begin{smallmatrix}0&-I_n\\I_n&0\end{smallmatrix}\right)$ gives (b).
 
 \proofstep{Derivative of the frame along $\omega$}\label{step:p2:fi-dl}
-$K$ is holomorphic, so mixed partial derivatives commute and
+$K$ is holomorphic, so mixed partial derivatives commute (Lemma~\ref{bp:p1:holomorphic-regularity}) and
 $\partial_\omega\partial_{\theta_j}K=\partial_{\theta_j}(L\omega)$. Since $L\omega=X_h\circ K-E$ on $T_r$,
 the chain rule gives $\partial_{\theta_j}(L\omega)=A\,\partial_{\theta_j}K-\partial_{\theta_j}E$, which
 is column $j$ of (c).
@@ -509,7 +488,7 @@ by Lemma~\ref{bp:p2:hamiltonian}(d) at the points $K(\theta)\in\mathfrak B$.
 
 \proofstep{Block form of the reduced field}\label{step:p2:fi-blocks}
 Put $X_L:=AL-\partial_\omega L$ and recall $X_N=AN-\partial_\omega N$, so $AP-\partial_\omega
-P=(X_L\ X_N)$. By Lemma~\ref{bp:p2:matrix}(d),
+P=(X_L\ X_N)$. By Corollary~\ref{bp:p2:matrix}(d),
 \[
 Q(X_L\ X_N)=-\Omega_0\begin{pmatrix}L^\top\Omega_0X_L&L^\top\Omega_0X_N\\N^\top\Omega_0X_L&N^\top\Omega_0X_N
 \end{pmatrix}=\begin{pmatrix}N^\top\Omega_0X_L&N^\top\Omega_0X_N\\-L^\top\Omega_0X_L&-L^\top\Omega_0X_N
@@ -530,7 +509,7 @@ Together with the previous step this is (e).
 \proofstep{The products with $Q$}\label{step:p2:fi-q}
 $QP=-\Omega_0(\Omega_0+E_{\mathrm{sym}})=I_{2n}-\Omega_0E_{\mathrm{sym}}$ by (b), and $QE=-\eta$ by the
 definition of $\eta$. The block form of $\eta$ in Definition~\ref{bp:p2:objects} is
-Lemma~\ref{bp:p2:matrix}(d) applied to $P^\top\Omega_0E=(L^\top\Omega_0E;N^\top\Omega_0E)$.
+Corollary~\ref{bp:p2:matrix}(d) applied to $P^\top\Omega_0E=(L^\top\Omega_0E;N^\top\Omega_0E)$.
 \end{proof}
 
 \begin{lemma}[Exactness: two vanishing averages]\label{bp:p2:exactness}
@@ -549,12 +528,12 @@ Write $K=(K^\theta,K^I)$. Since $u^\top\Omega_0v=u^I\cdot v^\theta-u^\theta\cdot
 $u=(u^\theta,u^I)$, $v=(v^\theta,v^I)$, the entries of $\Omega_K$ are
 $(\Omega_K)_{ij}=\partial_{\theta_i}K^I\cdot\partial_{\theta_j}K^\theta-\partial_{\theta_i}K^\theta\cdot
 \partial_{\theta_j}K^I$. With $f_j=(K^I)^\top\partial_{\theta_j}K^\theta$ and the symmetry of second
-derivatives, $(\Omega_K)_{ij}=\partial_{\theta_i}f_j-\partial_{\theta_j}f_i$. This is the pull-back of
+derivatives (Lemma~\ref{bp:p1:holomorphic-regularity}), $(\Omega_K)_{ij}=\partial_{\theta_i}f_j-\partial_{\theta_j}f_i$. This is the pull-back of
 the primitive $\alpha_0=\sum_iI_i\,d\theta_i$, whose coefficient $K^I$ is periodic for a primary torus.
 
 \proofstep{Average of $\Omega_K$}\label{step:p2:ex-avg-omega}
 The $f_j$ are holomorphic and periodic on $T_r$ (Lemma~\ref{bp:p2:periodicity}), so
-$\avg{\partial_{\theta_i}f_j}=0$ by Lemma~\ref{bp:p2:averages}(b), and $\avg{\Omega_K}=0$.
+$\avg{\partial_{\theta_i}f_j}=0$ by Corollary~\ref{bp:p2:averages}(b), and $\avg{\Omega_K}=0$.
 
 \proofstep{The gradient identity}\label{step:p2:ex-gradient}
 By Lemma~\ref{bp:p2:hamiltonian}(d), $\Omega_0X_h=(Dh)^\top$, so
@@ -563,7 +542,7 @@ $L^\top\Omega_0E=(D(h\circ K))^\top-\Omega_K\omega$.
 
 \proofstep{Average of $L^\top\Omega_0E$}\label{step:p2:ex-avg-eta}
 $h\circ K$ is holomorphic and periodic on $T_r$ (Lemma~\ref{bp:p2:periodicity}), so its partial
-derivatives have zero average (Lemma~\ref{bp:p2:averages}(b)); and $\avg{\Omega_K\omega}=\avg{\Omega_K}
+derivatives have zero average (Corollary~\ref{bp:p2:averages}(b)); and $\avg{\Omega_K\omega}=\avg{\Omega_K}
 \omega=0$. Hence $\avg{L^\top\Omega_0E}=0$, and $\eta^N=L^\top\Omega_0E$.
 \end{proof}
 
@@ -586,7 +565,8 @@ p.~891.}
 \begin{proof}
 \proofstep{Derivatives of the error}\label{step:p2:geo-de}
 $E$ is holomorphic on $T_r$ with $\abs E\le\varepsilon$ and has $2n$ components, so
-Lemma~\ref{bp:p2:cauchy}(a) gives the bounds on $DE$ and $(DE)^\top$ on $T_{r-\delta}$.
+Lemma~\ref{bp:p1:cauchy-strip} gives the bound on $DE$, and Lemma~\ref{bp:p1:cauchy-corollaries} with
+$p=2n$ the bound on $(DE)^\top$, on $T_{r-\delta}$.
 
 \proofstep{Bound on $\partial_\omega\Omega_K$}\label{step:p2:geo-domegak}
 By Lemma~\ref{bp:p2:frame-identities}(d) and Lemma~\ref{bp:p2:frame-basic}(b), on $T_{r-\delta}$:
@@ -594,7 +574,7 @@ $\abs{\partial_\omega\Omega_K}\le\abs{(DE)^\top}\abs L+\abs{L^\top}\abs{DE}\le
 (2n\mathfrak m+2n^2\mathfrak m)\varepsilon/\delta$.
 
 \proofstep{Bound on $E_{\mathrm{red}}$}\label{step:p2:geo-ered}
-By Lemma~\ref{bp:p2:frame-identities}(e) and Lemma~\ref{bp:p2:matrix}(c), on $T_{r-\delta}$ the first
+By Lemma~\ref{bp:p2:frame-identities}(e) and Corollary~\ref{bp:p2:matrix}(c), on $T_{r-\delta}$ the first
 block row has norm $\le\abs{N^\top}\abs{DE}\le2n^2\mathfrak m^2\varepsilon/\delta$ and the second
 $\le\abs{L^\top}\abs{DE}+\abs{(DE)^\top}\abs N\le(2n^2\mathfrak m+2n\mathfrak m^2)\varepsilon/\delta$;
 both are $\le C_{\mathrm{red}}\varepsilon/\delta$.
@@ -602,12 +582,12 @@ both are $\le C_{\mathrm{red}}\varepsilon/\delta$.
 \proofstep{The Lagrangian defect by the cohomological equation}\label{step:p2:geo-omegak}
 $\Omega_K$ is holomorphic and periodic on $T_{r-\delta}$, with $\avg{\Omega_K}=0$
 (Lemma~\ref{bp:p2:exactness}) and $\abs{\partial_\omega\Omega_K}\le2n(n+1)\mathfrak m\varepsilon/\delta$
-there. Lemma~\ref{bp:p2:cohomological}(b) on the strip $T_{r-\delta}$ with loss $\delta$ (note
+there. Corollary~\ref{bp:p2:cohomological}(b) on the strip $T_{r-\delta}$ with loss $\delta$ (note
 $\delta<r-\delta$) gives $\abs{\Omega_K}\le c_R\gamma^{-1}\delta^{-\varkappa}\cdot2n(n+1)\mathfrak m
 \varepsilon/\delta=C_\Omega\varepsilon/(\gamma\delta^{\varkappa+1})$ on $T_{r-2\delta}$.
 
 \proofstep{The symplecticity defect}\label{step:p2:geo-esym}
-By Lemma~\ref{bp:p2:frame-identities}(b) and Lemma~\ref{bp:p2:matrix}(c),
+By Lemma~\ref{bp:p2:frame-identities}(b) and Corollary~\ref{bp:p2:matrix}(c),
 \[
 \abs{E_{\mathrm{sym}}}=\max\{\abs{\Omega_K},\abs{B\Omega_KB}\}\le\max\{1,\mathfrak m^2\}\abs{\Omega_K}
 =\mathfrak m^2\abs{\Omega_K},
@@ -645,7 +625,7 @@ u^N:=\mathcal R\eta^N\ \text{on }T_{r-\delta},\qquad
 g^L:=T\xi^N-\eta^L\ \text{on }T_{r-\delta},\qquad\xi^L:=\mathcal Rg^L\ \text{on }T_{r-2\delta},\qquad
 \xi:=(\xi^L,\xi^N),
 \end{gather*}
-with $\mathcal R$ from Lemma~\ref{bp:p2:cohomological}(a). Then:
+with $\mathcal R$ from Corollary~\ref{bp:p2:cohomological}(a). Then:
 \begin{enumerate}[label=(\alph*)]
 \item $\avg{g^L}=0$, so $\xi^L$ is defined; $\xi^N$ and $g^L$ are holomorphic and periodic on
   $T_{r-\delta}$, and $\xi$ on $T_{r-2\delta}$;
@@ -665,18 +645,18 @@ supplied here.}
 
 \begin{proof}
 \proofstep{First cohomological equation}\label{step:p2:tri-first}
-By Lemma~\ref{bp:p2:cohomological}(a) on $T_r$, $u^N$ is holomorphic, periodic and real (if $\eta^N$
+By Corollary~\ref{bp:p2:cohomological}(a) on $T_r$, $u^N$ is holomorphic, periodic and real (if $\eta^N$
 is) on $T_{r-\delta}$, with $\avg{u^N}=0$, $\partial_\omega u^N=\eta^N$ and $\abs{u^N}\le\Gamma_\delta
 H_N$. Hence $\partial_\omega\xi^N=-\eta^N$ and $\abs{\xi^N}\le\abs{\xi^N_0}+\Gamma_\delta H_N$.
 
 \proofstep{The torsion average fixes $\xi^N_0$}\label{step:p2:tri-xi0}
 $Tu^N$ is continuous on $\R^n$, so $\avg{Tu^N}$ is defined, and $\abs{\avg{Tu^N}}\le H_T\Gamma_\delta
-H_N$, $\abs{\avg{\eta^L}}\le H_L$ (Lemma~\ref{bp:p2:averages}(a)). This gives the bound on
+H_N$, $\abs{\avg{\eta^L}}\le H_L$ (Corollary~\ref{bp:p2:averages}(a)). This gives the bound on
 $\xi^N_0$. By linearity of the average, $\avg{g^L}=\avg T\xi^N_0-\avg{Tu^N}-\avg{\eta^L}=0$.
 
 \proofstep{Second cohomological equation}\label{step:p2:tri-second}
 $g^L$ is holomorphic and periodic on $T_{r-\delta}$, bounded by $H_T\sup\abs{\xi^N}+H_L$, with zero
-average. Lemma~\ref{bp:p2:cohomological}(a) on $T_{r-\delta}$ with loss $\delta$ (note $\delta<r-\delta$)
+average. Corollary~\ref{bp:p2:cohomological}(a) on $T_{r-\delta}$ with loss $\delta$ (note $\delta<r-\delta$)
 gives $\xi^L$ on $T_{r-2\delta}$ with $\partial_\omega\xi^L=g^L$ and the stated bound.
 
 \proofstep{Triangular form}\label{step:p2:tri-form}
@@ -684,7 +664,7 @@ $\Lambda\xi-\partial_\omega\xi=(T\xi^N-\partial_\omega\xi^L,\,-\partial_\omega\x
 
 \proofstep{Realness}\label{step:p2:tri-real}
 If the data are real on reals, $\avg T$, $\avg{\eta^L}$, $\avg{Tu^N}$ are real, hence $\xi^N_0$ is real,
-and Lemma~\ref{bp:p2:cohomological}(a) preserves realness at each stage.
+and Corollary~\ref{bp:p2:cohomological}(a) preserves realness at each stage.
 \end{proof}
 
 \begin{lemma}[Size of the correction]\label{bp:p2:correction}
@@ -810,8 +790,10 @@ $4\mathfrak m^2\Theta^2C_{\mathrm{lin}}\varepsilon^2/(\gamma^4\delta^{2a})$.
 The correction changes $K$ by $d=O(\varepsilon/(\gamma^2\delta^a))$. The nondegeneracy data change
 accordingly: $DK$, the Gram inverse and the normal frame by $O(d/\delta)$, the torsion by
 $O(d/\delta^2)$. The next lemma quantifies this for any holomorphic perturbation; it does not use the
-invariance error, and it is also the stability statement needed in Part~\ref{bp:p4} (node STAB of
-\texttt{docs/PLAN.md}).
+invariance error. A caller outside this part must supply its hypothesis $\abs\omega\le\Theta$ (for an
+invariant torus this follows from Lemma~\ref{bp:p2:frequency} with $\varepsilon=0$) and must use the
+difference bounds (b)--(f) for margins, since absolute bounds such as $\abs{\tilde B}\le2\mathfrak m$ are
+crude. Part~\ref{bp:p4} proves its own stability statement, measured from an unperturbed torus.
 
 \begin{lemma}[Perturbation of the frame and the torsion]\label{bp:p2:perturbation}
 Let $r>0$ and $0<\delta\le1$ with $2\delta<r$; let $\abs\omega\le\Theta$. Let $K$ be holomorphic on
@@ -855,8 +837,8 @@ particular the segment $[K(\theta),\tilde K(\theta)]$ lies in $\mathbb B_\beta(K
 Lemma~\ref{bp:p2:hamiltonian}(e) gives $\abs{\tilde A-A}\le Md\le\mathfrak md$ on $T_r$.
 
 \proofstep{Tangent frame}\label{step:p2:pt-dl}
-Lemma~\ref{bp:p2:cauchy}(a) applied to $\tilde K-K$ gives $\abs{\tilde L-L}\le nd/\delta$ and
-$\abs{(\tilde L-L)^\top}\le2nd/\delta$ on $T_{r-\delta}$. Hence $\abs{\tilde L}\le2\mathfrak m$ and
+Lemmas~\ref{bp:p1:cauchy-strip} and~\ref{bp:p1:cauchy-corollaries} (with $p=2n$), applied to $\tilde K-K$,
+give $\abs{\tilde L-L}\le nd/\delta$ and $\abs{(\tilde L-L)^\top}\le2nd/\delta$ on $T_{r-\delta}$. Hence $\abs{\tilde L}\le2\mathfrak m$ and
 $\abs{\tilde L^\top}\le2n\mathfrak m+2nd/\delta\le4n\mathfrak m$.
 
 \proofstep{Gram matrix}\label{step:p2:pt-gram}
@@ -877,7 +859,8 @@ C_{\Delta N}d/\delta\le2\mathfrak m^2$ on $T_{r-\delta}$. In particular $\abs{\t
 \proofstep{Displacement of the normal frame}\label{step:p2:pt-xn}
 On $T_{r-2\delta}$: $\tilde X_{\tilde N}-X_N=(\tilde A-A)\tilde N+A(\tilde N-N)-\partial_\omega(\tilde
 N-N)$. The first two terms are bounded by $2\mathfrak m^3d+\mathfrak mC_{\Delta N}d/\delta$; the third,
-by Lemma~\ref{bp:p2:cauchy}(b) on $T_{r-\delta}$, by $n\Theta C_{\Delta N}d/\delta^2$. With $\delta\le1$
+by Lemma~\ref{bp:p1:cauchy-corollaries} on $T_{r-\delta}$ with loss $\delta$ and $\abs\omega_1\le n\Theta$, by
+$n\Theta C_{\Delta N}d/\delta^2$. With $\delta\le1$
 the sum is $\le C_{\Delta X}d/\delta^2$.
 
 \proofstep{Torsion}\label{step:p2:pt-torsion}
@@ -889,7 +872,7 @@ $\abs{\tilde T-T}\le4n\mathfrak m^2C_{\Delta X}d/\delta^2+2nC_{\Delta N}C_Xd/\de
 
 \proofstep{Twist (integrability and invertibility before use)}\label{step:p2:pt-twist}
 By (c), $\tilde N$ and hence $\tilde T$ are holomorphic on $T_{r-\delta}\supset\R^n$, so $\tilde T$ is
-continuous on $\R^n$ and $\avg{\tilde T}$ is defined. By Lemma~\ref{bp:p2:averages}(a),
+continuous on $\R^n$ and $\avg{\tilde T}$ is defined. By Corollary~\ref{bp:p2:averages}(a),
 $\abs{\avg{\tilde T}-\avg T}\le C_{\Delta T}d/\delta^2$, and $\abs{\avg T^{-1}}\abs{\avg{\tilde T}-\avg
 T}\le\mathfrak mC_{\Delta T}d/\delta^2\le\frac12$. Lemma~\ref{bp:p1:neumann} gives (f).
 \end{proof}
@@ -939,7 +922,7 @@ bound in (b), and (c).
 If $\abs{z-\bar K(\theta)}<\beta-d$, then $\abs{z-K(\theta)}<\beta$, so $z\in\mathfrak B$ by \ref{bp:p2:A2}.
 
 \proofstep{Perturbation on the strip $T_{r-2\delta}$}\label{step:p2:st-perturb}
-On $T_{r-2\delta}$, $K$ satisfies the hypotheses of Lemma~\ref{bp:p2:perturbation} (restriction of
+On the strip $T_{r-2\delta}$, the map $K$ satisfies the hypotheses of Lemma~\ref{bp:p2:perturbation} (restriction of
 \ref{bp:p2:A2}--\ref{bp:p2:A5}; $\abs\omega\le\Theta$ by Lemma~\ref{bp:p2:frequency}), and $\tilde K:=\bar
 K$ is holomorphic there with $\abs{\bar K-K}\le d<\beta$ and $2\mathfrak mC_{\Delta T}d/\delta^2\le1$ by
 the first step. Since $2\delta<r-2\delta$, the lemma gives (d) and (e) on $T_{r-3\delta}$ and (f).
@@ -962,36 +945,22 @@ $4\delta_s<r_s$ for every $s$.
 $a_1=2$ and the loss per step is $4\delta_s$).}
 \end{definition}
 
-The closeness bound must be linear in $e$, so we need the decay of the errors in a form proportional to
-the initial error; part (a) below is a sharper form of Lemma~\ref{bp:p1:iteration}.
+The closeness bound must be linear in $e$, so we use the form of Lemma~\ref{bp:p1:iteration} that is
+proportional to the initial error.
 
 \begin{lemma}[Decay of the errors]\label{bp:p2:error-decay}
-\begin{enumerate}[label=(\alph*)]
-\item Let $Q>0$, $p\ge0$ and $y_0,y_1,\dots\ge0$ with $y_{m+1}\le Q2^{pm}y_m^2$ for every $m\ge0$. If
-  $q:=Q2^py_0\le1$, then $y_m\le q^{2^m-1}2^{-pm}y_0$ for every $m\ge0$. If moreover $q\le\frac12$, then
-  $y_m\le Q^{-1}2^{-p(m+1)}2^{-2^m}$, which is the conclusion of Lemma~\ref{bp:p1:iteration}.
-\item If $q:=2^{2a}C_E\,e/(\gamma^4\delta_0^{2a})\le1$, then $\varepsilon_s\le q^{2^s-1}2^{-2as}e\le
-  2^{-2as}e$ for all $s\ge0$. Consequently $\varepsilon_s/\delta_s^j\le2^{-(2a-j)s}e/\delta_0^j\le
-  e/\delta_0^j$ for $0\le j\le2a$, and $\sum_{s\ge0}\varepsilon_s/\delta_s^j\le2e/\delta_0^j$ for
-  $0\le j\le2a-1$.
-\end{enumerate}
-\source{HL19 (5.68)--(5.69), p.~43; Lemma~\ref{bp:p1:iteration}.}
+If $q:=2^{2a}C_E\,e/(\gamma^4\delta_0^{2a})\le1$, then $\varepsilon_s\le q^{2^s-1}2^{-2as}e\le2^{-2as}e$ for
+all $s\ge0$. Consequently $\varepsilon_s/\delta_s^j\le2^{-(2a-j)s}e/\delta_0^j\le e/\delta_0^j$ for
+$0\le j\le2a$, and $\sum_{s\ge0}\varepsilon_s/\delta_s^j\le2e/\delta_0^j$ for $0\le j\le2a-1$.
+\source{HL19 (5.68)--(5.69), p.~43.}
 \end{lemma}
 
 \begin{proof}
-\proofstep{Induction}\label{step:p2:ed-induction}
-The case $m=0$ is trivial. If $y_m\le q^{2^m-1}2^{-pm}y_0$, then
-$y_{m+1}\le Q2^{pm}q^{2^{m+1}-2}2^{-2pm}y_0^2=(Q2^py_0)\,q^{2^{m+1}-2}2^{-p(m+1)}y_0=
-q^{2^{m+1}-1}2^{-p(m+1)}y_0$.
-
-\proofstep{Comparison with Part~1}\label{step:p2:ed-part1}
-If $0<q\le\frac12$, then $q^{2^m-1}2^{-pm}y_0=q^{2^m}2^{-pm}y_0/q=Q^{-1}2^{-p(m+1)}q^{2^m}\le
-Q^{-1}2^{-p(m+1)}2^{-2^m}$; if $q=0$, all $y_m$ vanish.
-
 \proofstep{The errors of the schedule}\label{step:p2:ed-errors}
 By Definition~\ref{bp:p2:schedule} and $\delta_s^{-2a}=2^{2as}\delta_0^{-2a}$, the errors satisfy
-$\varepsilon_{s+1}=Q2^{2as}\varepsilon_s^2$ with $Q=C_E/(\gamma^4\delta_0^{2a})$. Part (a) with $p=2a$ and
-$y_0=e$ gives $\varepsilon_s\le q^{2^s-1}2^{-2as}e$, and $q\le1$ gives the second inequality.
+$\varepsilon_{s+1}=Q'2^{2as}\varepsilon_s^2$ with $Q'=C_E/(\gamma^4\delta_0^{2a})>0$, and $Q'2^{2a}\varepsilon_0=q$.
+The form of Lemma~\ref{bp:p1:iteration} linear in $y_0$, with $Q=Q'$, $p=2a$ and $y_s=\varepsilon_s$, gives
+$\varepsilon_s\le q^{2^s-1}2^{-2as}e$, and $q\le1$ gives the second inequality.
 
 \proofstep{Sums}\label{step:p2:ed-sums}
 $\varepsilon_s\delta_s^{-j}\le2^{-2as}e\,2^{js}\delta_0^{-j}$; for $2a-j\ge1$ the geometric series
@@ -1093,16 +1062,14 @@ Likewise $\abs{DK_{s+1}-DK_s}\le nd_s/\delta_s$ on $T_{\rho_\infty}$ with $\sum_
 $DK_s$ converges uniformly on $T_{\rho_\infty}$ to some $\Lambda_\infty$ with values in $\C$-linear maps.
 
 \proofstep{Holomorphy of the limit}\label{step:p2:lim-holo}
-Each $K_s$ is holomorphic on the open set $T_{\rho_\infty}$ with derivative $DK_s$. A sequence of
-differentiable maps on an open set whose derivatives converge uniformly and which converges pointwise has
-a differentiable limit whose derivative is the limit of the derivatives (Mathlib
-\Lean{hasFDerivAt\_of\_tendstoUniformlyOn}). Hence $K_\infty$ is complex differentiable on
-$T_{\rho_\infty}$ with $DK_\infty=\Lambda_\infty$; this is (a).
+Each $K_s$ is holomorphic on the open set $T_{\rho_\infty}$, $K_s\to K_\infty$ pointwise there and
+$DK_s\to\Lambda_\infty$ uniformly. By Lemma~\ref{bp:p1:uniform-limits}, $K_\infty$ is holomorphic on
+$T_{\rho_\infty}$ with $DK_\infty=\Lambda_\infty$; this is (a). (Mathlib:
+\Lean{hasFDerivAt\_of\_tendstoUniformlyOn}.)
 
 \proofstep{Primary and real}\label{step:p2:lim-primary}
-For $\theta\in T_{\rho_\infty}$ and $k\in\Z^n$, $\theta+k\in T_{\rho_\infty}$ and $K_s(\theta+k)=K_s(\theta)
-+(k,0)$ for all $s$; let $s\to\infty$. For $x\in\R^n\subset T_{\rho_\infty}$, $K_s(x)\in\R^n\times\R^n$, a
-closed set, so $K_\infty(x)$ is real.
+Every $K_s$ is primary on $T_{\rho_\infty}\subset T_{r_s}$ and real on reals
+(Proposition~\ref{bp:p2:iteration}(i)), so Lemma~\ref{bp:p1:uniform-limits} with $V=T_{\rho_\infty}$ gives (b).
 
 \proofstep{Closeness}\label{step:p2:lim-close}
 On $T_{\rho_\infty}$, $\abs{K_\infty-K}=\lim_s\abs{K_s-K}\le\sup_sD_s\le\sum_sd_s$. By the summed bounds
@@ -1203,40 +1170,15 @@ Unlike HL19's constants, none of these depends on $\gamma$, on the gaps $\sigma-
 initial torus (these are replaced by the uniform margin $\mu$), or on the initial torus otherwise.
 \end{remark}
 
-%----------------------------------------------------------------------------------------------------
-\subsection{Ledger candidates and deviations}\label{bp:p2:sec-ledger}
-
-\paragraph{Errata candidates in HL19 (arXiv v1).} In addition to E-HL19-1 and E-HL19-2:
-\begin{enumerate}[label=(L\arabic*)]
-\item\label{bp:p2:L1} \emph{Lemma~A.1, p.~55.} Printed conclusion: ``$\abs{\bar M^{-1}-M^{-1}}<
-  2\sigma^2\abs{\bar M-M}$''. False for $\bar M=M$, which satisfies the hypothesis (A.1) and gives
-  $0<0$. Correction: $\le$. In (A.3), the printed ``$\frac{\sigma^2\abs{\bar M-M}}{\sigma-\abs{M^{-1}}}<
-  \frac12$'' follows from (A.1) only with $\le$. The other conclusion $\abs{\bar M^{-1}}<\sigma$ is true
-  (for $\bar M=M$ it is the hypothesis $\abs{M^{-1}}<\sigma$). Kind: typo (strict versus non-strict
-  inequality). Effect: none here (we use Lemma~\ref{bp:p1:neumann}).
-\item\label{bp:p2:L2} \emph{Lemma~5.2, (5.15)--(5.18), p.~33, and (5.68), p.~43.} Printed, e.g.,
-  ``$\norm{\bar K-K}_{\rho-2\delta}<\frac{C_{\Delta K}}{\gamma^2\delta^{2\tau}}\norm E_\rho$'' and
-  ``$\norm{\bar E}_{\rho-2\delta}<\frac{C_E}{\gamma^4\delta^{4\tau}}\norm E_\rho^2$''. False when $E=0$
-  (both sides vanish); the same defect as E-HL19-1, which inherits it. Correction: $\le$. Kind: typo.
-\item\label{bp:p2:L3} \emph{p.~42, sentence after (5.67).} Printed: ``and so, we obtain the estimates
-  (5.12) and (5.16) on the new object.'' The estimates just proved are those on the torsion, (5.13) and
-  (5.17); the printed sentence repeats the one after (5.41). Kind: typo.
-\item\label{bp:p2:L4} \emph{p.~44, after (5.77).} Printed: ``$\norm{E_s}_{\rho_s}<a_1^{-4\tau s}\norm
-  E_\rho\longrightarrow0$ when $s\to0$''. Should read $s\to\infty$. Kind: typo.
-\item\label{bp:p2:L5} \emph{p.~44, end of the proof of Theorem~3.1.} Printed: ``$\operatorname{dist}
-  (K_\infty(\T^d),\partial\mathcal B)>0$'', whereas Theorem~3.1 (p.~17) asserts
-  ``$\operatorname{dist}(K_\infty(\T^d_{\rho_\infty}),\partial\mathcal B)>0$''. The proof establishes the
-  latter (via (5.73)); the printed line is the weaker statement. Kind: typo.
-\end{enumerate}
-Not errata, recorded for readers: the proof of HL19 Lemma~4.3 (p.~22) needs a primitive $a$ with $a\circ K$
-periodic; for primary tori this holds for $\alpha_0=\sum_iz_{n+i}\,dz_i$ but not for the second action
-form of Rem.~2.1 (p.~6), $\frac12\sum_i(z_{n+i}dz_i-z_idz_{n+i})$. Rem.~2.3 assumes $a$ periodic, so the
-text is consistent; Lemma~\ref{bp:p2:exactness} uses $\alpha_0=\sum_iI_i\,d\theta_i$.
-
-\paragraph{Deviations from HL19 introduced in this part.}
+\begin{remark}[Deviations from the sources]\label{bp:p2:deviations}
+The errata candidates of HL19 found while writing this part are recorded in
+\texttt{docs/errata/ledger.json} (E-HL19-3 to E-HL19-7). For readers comparing with HL19 Lemma~4.3
+(p.~22): its proof needs a primitive $a$ of the symplectic form with $a\circ K$ periodic; for primary tori
+this holds for $\alpha_0=\sum_iI_i\,d\theta_i$, which Lemma~\ref{bp:p2:exactness} uses, but not for the second
+action form of HL19 Rem.~2.1, p.~6. The deviations from HL19 introduced in this part are the following.
 \begin{enumerate}[label=(V\arabic*)]
-\item\label{bp:p2:V1} \emph{Specialization:} $d=n$, canonical structure, Case~III ($A=0$), primary tori
-  in $\T^n\times\C^n$ coordinates (refines D-COORD-1). In this case the reducibility defect is exactly
+\item\label{bp:p2:V1} \emph{Specialization:} HL19's torus dimension $d=n$, canonical structure,
+  Case~III (HL19's $A(\theta)=0$), primary tori in $\T^n\times\C^n$ coordinates (refines D-COORD-1). In this case the reducibility defect is exactly
   $E_{\mathrm{red}}$ of Lemma~\ref{bp:p2:frame-identities}(e), of size $O(e/\delta)$.
 \item\label{bp:p2:V2} \emph{Small-divisor exponent} $\varkappa=\tau+n$ (decision D12): the new error is
   $O(e^2/(\gamma^4\delta^{2a}))$ with $a=2\tau+2n+2$ instead of $O(e^2/(\gamma^4\delta^{4\tau}))$, the
@@ -1264,60 +1206,6 @@ text is consistent; Lemma~\ref{bp:p2:exactness} uses $\alpha_0=\sum_iI_i\,d\thet
   (Lemmas~\ref{bp:p2:periodicity}, \ref{bp:p2:triangular}(d), \ref{bp:p2:correction}); HL19 build them into
   the spaces $A(\T^d_\rho)$ without comment.
 \end{enumerate}
-
-%----------------------------------------------------------------------------------------------------
-\subsection{Transfer requests to Part 1}\label{bp:p2:sec-transfer}
-
-Part~\ref{bp:p1} already provides the bounded-periodic, Taylor, matrix-norm, holomorphic-inverse and
-real-torus-average lemmas used here (Lemmas~\ref{bp:p1:periodic-bounded}, \ref{bp:p1:taylor},
-\ref{bp:p1:matrix-norms}, \ref{bp:p1:holomorphic-inverse}, \ref{bp:p1:averages-real}). The following
-results are stated and proved in this part but belong to the infrastructure of Part~\ref{bp:p1}; they are
-general and likely needed by Parts~\ref{bp:p3} and~\ref{bp:p4}.
-\begin{enumerate}[label=(T\arabic*)]
-\item Lemma~\ref{bp:p2:matrix}(a), (c), (d): the operator-norm characterization
-  $\abs M=\sup_{\abs v\le1}\abs{Mv}$, block matrices, and the facts on $\Omega_0$.
-\item Lemma~\ref{bp:p2:cauchy}: Cauchy bounds for $Df$, $(Df)^\top$ and $\partial_\omega f$, corollaries of
-  Lemma~\ref{bp:p1:cauchy-strip}.
-\item Lemma~\ref{bp:p2:averages}(a): averages of continuous periodic matrix-valued functions on $\R^n$,
-  with $\abs{\avg f}\le\sup_{[0,1]^n}\abs f$ in the max-row-sum norm.
-\item Lemma~\ref{bp:p2:cohomological}: the cohomological equation for vector-valued data in the max norm,
-  and the a-priori bound for matrix-valued solutions in the operator norm.
-\item Increments on open sets, the first bound of Lemma~\ref{bp:p2:hamiltonian}(e): if $F$ is holomorphic
-  on an open $U\subset\C^m$, $\abs{DF}\le A$ on $U$ and $[z,z+w]\subset U$, then
-  $\abs{F(z+w)-F(z)}\le A\abs w$ (applied to $F=DX_h$; Lemma~\ref{bp:p1:increments} covers only strips).
-\item Realness of the inverse of a real invertible matrix (Lemma~\ref{bp:p2:periodicity}); a one-line
-  addition to Lemma~\ref{bp:p1:holomorphic-inverse}.
-\item Uniform limits: if holomorphic $f_s$ converge pointwise on an open set and $Df_s$ converge uniformly
-  there, the limit is holomorphic with derivative $\lim Df_s$ (Proposition~\ref{bp:p2:limit}; Mathlib
-  \Lean{hasFDerivAt\_of\_tendstoUniformlyOn}).
-\item Lemma~\ref{bp:p2:error-decay}(a), which strengthens Lemma~\ref{bp:p1:iteration} to a bound
-  proportional to $y_0$ and implies it; the two should be unified in this form, as Part~\ref{bp:p1}
-  anticipates.
-\end{enumerate}
-
-\subsection{Requests to the orchestrator}\label{bp:p2:sec-requests}
-
-\begin{enumerate}[label=(Q\arabic*)]
-\item \emph{Lemma~\ref{bp:p1:cohomological}.} State the class in which the solution is unique: all
-  functions holomorphic and $1$-periodic on $T_{\rho-\delta}$ with zero average, with no boundedness
-  assumed. Lemma~\ref{bp:p2:cohomological}(b) identifies $uv$, and through it $\Omega_K$, with the solution
-  by this uniqueness. Also state that for vector-valued $g$ the bound holds in the max norm with no extra
-  factor (it does, componentwise).
-\item \emph{Lemma~\ref{bp:p1:iteration}.} Replace its conclusion by the form of
-  Lemma~\ref{bp:p2:error-decay}(a): the closeness bound of G1 needs $\sum_m y_m/\delta_m^j\lesssim y_0$,
-  which the current form ($y_m\le Q^{-1}2^{-p(m+1)}2^{-2^m}$, independent of $y_0$) does not give.
-\item \emph{Theorem~\ref{bp:p0:g1} (transcription).} Say that $\abs{D^2X_h}$ is the operator norm of the
-  bilinear map (Lean \Lean{iteratedFDeriv}), not HL19's sum of second partial derivatives, and that
-  $\abs{Dh}$ is the operator norm, i.e.\ the $\ell^1$ norm of the gradient. Neither affects the proof.
-\item \emph{Ledger D-G1-1.} Add: by the Diophantine condition at $k=e_1$ and Lemma~\ref{bp:p2:frequency},
-  $\gamma\le\abs\omega\le2n\sigma_K\sigma_B(M+e)$; the bound $\bar\gamma$ is needed only because the
-  smallness condition alone does not bound $e$ when $\gamma$ is large.
-\item \emph{Ledger:} record \ref{bp:p2:L1}--\ref{bp:p2:L5} as CANDIDATE errata of HL19 and
-  \ref{bp:p2:V1}--\ref{bp:p2:V9} as deviations (or fold them into D-G1-1, D-NORM-1, D-COORD-1).
-\item \emph{Parts~\ref{bp:p3} and~\ref{bp:p4}.} Lemma~\ref{bp:p2:perturbation} is the stability statement
-  STAB of \texttt{docs/PLAN.md} (H2--H4 under $C^0$-small holomorphic perturbations, with explicit strip
-  losses); Lemmas~\ref{bp:p2:frame-identities}, \ref{bp:p2:exactness} and~\ref{bp:p2:geometry} hold for
-  $E=0$ and give the exact geometry needed in Part~\ref{bp:p3}.
-\item \emph{The frozen statement.} No defect found: Theorem~\ref{bp:p0:g1} is proved as stated
-  (Theorem~\ref{bp:p2:g1}).
-\end{enumerate}
+No defect was found in the frozen statement: Theorem~\ref{bp:p0:g1} is proved as stated
+(Theorem~\ref{bp:p2:g1}).
+\end{remark}

@@ -1,15 +1,10 @@
 \section{Analysis on strips and complex domains}\label{bp:p1}
 
-% Local notation of Part 1: \pOneLab prints a label of the blueprint as a link.
-\newcommand{\pOneLab}[1]{\hyperref[#1]{\nolinkurl{#1}}}
+The statements of this part are the shared infrastructure cited by Parts~\ref{bp:p2}--\ref{bp:p4},
+and each of them is proved here.
 
-The statements of this part are the interface cited by Parts~\ref{bp:p2}--\ref{bp:p4}, and each of
-them is proved here. The other parts cite only the labels below. A writer of another part who needs a
-further infrastructure lemma states it in that part, as a lemma of its own, and lists it for transfer
-here.
-
-Throughout, functions on strips are holomorphic on the open strip and bounded there, and norms are
-sup norms (Part~\ref{bp:p0}). Constants called $c(\cdot)$ depend only on the displayed quantities.
+Throughout, functions on strips are holomorphic on the open strip; they are assumed bounded only where a
+statement says so. Norms are sup norms (Part~\ref{bp:p0}). Constants called $c(\cdot)$ depend only on the displayed quantities.
 
 \paragraph{Route.} Every Cauchy estimate below restricts a function to a complex line and applies
 Cauchy's estimate in one variable, so it holds for the max norms of Part~\ref{bp:p0} as they stand.
@@ -50,9 +45,6 @@ Lebesgue measure.
   $\avg v=\int_{[0,1]^n}v(x)\,dx$ and $\hat v_k=\avg{v\chi_{-k}}$, entrywise for vector or matrix
   values. Sums over $k$ run over $\Z^n$.
 \item In expressions $(\tau/(ea))^\tau$ the value at $\tau=0$ is $1$.
-\item Boundedness of a function on a strip is used only where a statement names it. In particular the
-  proofs below cover Lemma~\ref{bp:p1:periodic-bounded} and the unbounded uniqueness class of
-  Lemma~\ref{bp:p1:cohomological} as written.
 \end{itemize}
 
 \paragraph{External inputs.} The proofs use the following classical results, each listed with a
@@ -115,7 +107,7 @@ norm with the largest row sum; the others are its algebraic consequences.
 \begin{lemma}[Operator norms, blocks, $\Omega_0$]\label{bp:p1:operator-norms}
 For the max norms of Part~\ref{bp:p0}: the operator norm of a matrix is $\max_i\sum_j\abs{M_{ij}}$; for a block
 matrix $\left(\begin{smallmatrix}A&B\\C&D\end{smallmatrix}\right)$ the norm is at most $\max\{\abs A+\abs B,\abs C+\abs D\}$;
-$\abs{\Omega_0}=1$, $\Omega_0^\top=-\Omega_0$, $\Omega_0^2=-I$. (Proved as \texttt{bp:p2:matrix}(a), (c), (d).)
+$\abs{\Omega_0}=1$, $\Omega_0^\top=-\Omega_0$, $\Omega_0^2=-I$.
 \end{lemma}
 
 \begin{proof}
@@ -143,7 +135,9 @@ $\Omega_0$ has exactly one nonzero entry, equal to $\pm1$, so $\abs{\Omega_0}=1$
 
 \begin{lemma}[Max-norm matrix facts]\label{bp:p1:matrix-norms}
 For the norm $\abs{M}=\max_i\sum_j\abs{M_{ij}}$: $\abs{MN}\le\abs M\abs N$, $\abs{Mv}\le\abs M\abs v$, and
-$\abs{M^\top}\le m\abs M$ for $m\times m'$ matrices with $m'\le m$ (dimension factors explicit).
+$\abs{M^\top}\le m\abs M$ for $m\times m'$ matrices (dimension factors explicit). Moreover
+$\abs{\Omega_0M}=\abs M$ for $2n\times q$ matrices $M$, $\abs{M\Omega_0}=\abs M$ for $p\times2n$ matrices
+$M$, and $\bigl|\left(\begin{smallmatrix}M_1\\M_2\end{smallmatrix}\right)\bigr|=\max\{\abs{M_1},\abs{M_2}\}$.
 \end{lemma}
 
 \begin{proof}
@@ -156,7 +150,16 @@ supremum over $\abs v\le1$ gives $\abs{MN}\le\abs M\abs N$. (Mathlib:
 \proofstep{Transposes}\label{step:p1:mn-transpose}
 Let $M$ be an $m\times m'$ matrix. Every entry is at most the absolute sum of its row, so
 $\abs{M_{ij}}\le\abs M$, and the $j$-th row of $M^\top$ has absolute sum
-$\sum_{i=1}^m\abs{M_{ij}}\le m\abs M$. Hence $\abs{M^\top}\le m\abs M$; the condition $m'\le m$ is not used.
+$\sum_{i=1}^m\abs{M_{ij}}\le m\abs M$. Hence $\abs{M^\top}\le m\abs M$.
+
+\proofstep{$\Omega_0$ and stacked blocks}\label{step:p1:mn-signed}
+By Definition~\ref{bp:p0:hamiltonian}, $\Omega_0(a,b)=(-b,a)$, so $\Omega_0$ has exactly one nonzero
+entry, equal to $\pm1$, in each row and in each column: it is a signed permutation matrix. The rows of
+$\Omega_0M$ are the rows of $M$, permuted and multiplied by $\pm1$; the rows of $M\Omega_0$ are the rows of
+$M$ with their entries permuted and multiplied by $\pm1$. Neither operation changes the set of absolute
+row sums, so $\abs{\Omega_0M}=\abs{M\Omega_0}=\abs M$. The rows of
+$\left(\begin{smallmatrix}M_1\\M_2\end{smallmatrix}\right)$ are those of $M_1$ followed by those of $M_2$,
+which gives the last identity.
 \end{proof}
 
 \begin{lemma}[Neumann series]\label{bp:p1:neumann}
@@ -347,13 +350,13 @@ $\R^m\to\C^m$, and, for real values, with the real part.)
 \end{proof}
 
 \begin{lemma}[Uniform limits]\label{bp:p1:uniform-limits}
-If $K_s$ are holomorphic on an open set and $K_s\to K$, $DK_s\to\Lambda$ uniformly there, then $K$ is holomorphic and
-$DK=\Lambda$; primary periodicity and realness on reals pass to the limit.
+Let $K_s$ be holomorphic on an open set $V$, with $K_s\to K$ pointwise and $DK_s\to\Lambda$ uniformly on
+$V$. Then $K$ is holomorphic on $V$ and $DK=\Lambda$. If $V=T_r$ and every $K_s$ is primary on $T_r$,
+respectively real on reals, so is $K$.
 \end{lemma}
 
 \begin{proof}
-Let $V\subset\C^m$ be the open set and let the $K_s$ take values in $W$. Only the pointwise convergence
-of $K_s$ is used. Put $\eta_s=\sup_V\abs{DK_s-\Lambda}$, which is finite for large $s$ and tends to $0$;
+Let $V\subset\C^m$ and let the $K_s$ take values in $W$. Put $\eta_s=\sup_V\abs{DK_s-\Lambda}$, which is finite for large $s$ and tends to $0$;
 we consider only such $s$.
 
 \proofstep{Linearization error of the differences}\label{step:p1:ul-differences}
@@ -437,13 +440,12 @@ $\abs{g(1)}=\abs{\int_0^1g'(t)\,dt}\le\int_0^1At\abs w^2\,dt=\frac A2\abs w^2$.
 \end{proof}
 
 \begin{lemma}[Mixed second differences]\label{bp:p1:mixed-difference}
-For $F$ holomorphic on a convex open set with $\abs{D^2F}\le A$:
-$\abs{F(z+v+w)-F(z+v)-F(z+w)+F(z)}\le A\abs v\abs w$. (Proved as \texttt{bp:p4:mixed-difference}.)
+Let $F$ be holomorphic on a convex open set $U$ with $\abs{D^2F}\le A$ on $U$, and let
+$z,z+v,z+w,z+v+w\in U$. Then $\abs{F(z+v+w)-F(z+v)-F(z+w)+F(z)}\le A\abs v\abs w$.
 \end{lemma}
 
 \begin{proof}
-Let $U$ be the convex open set. The statement presumes that $z$, $z+v$, $z+w$ and $z+v+w$ lie in $U$;
-by convexity $z+sv+tw\in U$ for all $s,t\in[0,1]$.
+By convexity of $U$, $z+sv+tw\in U$ for all $s,t\in[0,1]$.
 
 \proofstep{The derivative across}\label{step:p1:md-inner}
 By Lemma~\ref{bp:p1:holomorphic-regularity}, $DF$ is holomorphic on $U$ with $\abs{D(DF)}\le A$. For
@@ -535,15 +537,14 @@ No analyticity in several variables is needed here. The lemma also shows that tw
 $T_r$ which agree on a thinner strip $T_{r'}$, $0<r'<r$, agree on $T_r$.
 
 \begin{lemma}[Increments]\label{bp:p1:increments}
-If $u$ is holomorphic on $T_\rho$ and $\theta,\theta+v\in T_{\rho-\delta}$ with the segment between them in
-$T_{\rho-\delta}$, then $\abs{u(\theta+v)-u(\theta)}\le\norm{Du}_{\rho-\delta}\abs{v}$; with
-Lemma~\ref{bp:p1:cauchy-strip}, $\le n\delta^{-1}\norm{u}_\rho\abs{v}$.
+Let $u$ be holomorphic on $T_\rho$ and $0<\delta<\rho$. For $\theta,\theta+v\in T_{\rho-\delta}$,
+$\abs{u(\theta+v)-u(\theta)}\le\norm{Du}_{\rho-\delta}\abs v$; if $u$ is bounded on $T_\rho$, this is at most
+$n\delta^{-1}\norm u_\rho\abs v$.
 \end{lemma}
 
 \begin{proof}
 \proofstep{Mean value inequality}\label{step:p1:inc-mvt}
-Here $0<\delta<\rho$. The strip $T_{\rho-\delta}$ is convex, so the segment condition holds for all
-$\theta,\theta+v\in T_{\rho-\delta}$. If $\norm{Du}_{\rho-\delta}=\infty$ there is nothing to prove.
+The strip $T_{\rho-\delta}$ is convex, so it contains the segment from $\theta$ to $\theta+v$. If $\norm{Du}_{\rho-\delta}=\infty$ there is nothing to prove.
 Otherwise~\ref{bp:p1:ext-mvt} on the segment, with $\abs{Du}\le\norm{Du}_{\rho-\delta}$, gives
 $\abs{u(\theta+v)-u(\theta)}\le\norm{Du}_{\rho-\delta}\abs v$.
 
@@ -602,10 +603,9 @@ $\abs{D^2u(\theta)}\le4\delta^{-2}\norm u_\rho$. Hence $c(n)=4$. (Lean:
 \end{proof}
 
 \begin{lemma}[Cauchy corollaries]\label{bp:p1:cauchy-corollaries}
-For $f$ holomorphic and bounded on $T_\rho$ (scalar, vector or matrix valued) and $0<\delta<\rho$:
-$\norm{(Df)^\top}_{\rho-\delta}\le c\,\delta^{-1}\norm f_\rho$ and
-$\norm{\partial_\omega f}_{\rho-\delta}\le\abs\omega_1\delta^{-1}\norm f_\rho$, with $c$ a dimension factor.
-(Proved as \texttt{bp:p2:cauchy}.)
+For $f$ holomorphic and bounded on $T_\rho$ and $0<\delta<\rho$: if $f$ takes values in $\C^p$, then
+$\norm{(Df)^\top}_{\rho-\delta}\le p\,\delta^{-1}\norm f_\rho$; if $f$ takes values in $\C^p$ or
+$\C^{p\times q}$, then $\norm{\partial_\omega f}_{\rho-\delta}\le\abs\omega_1\delta^{-1}\norm f_\rho$.
 \end{lemma}
 
 \begin{proof}
@@ -615,9 +615,8 @@ Let $\theta\in T_{\rho-\delta}$.
 Let $f$ take values in $\C^p$ (for scalar $f$, $p=1$). Then $Df(\theta)$ is the $p\times n$ matrix
 $(\partial_\ell f_i(\theta))_{i\ell}$ and $(Df(\theta))^\top$ is $n\times p$. The $\ell$-th row of
 $(Df(\theta))^\top$ has absolute sum $\sum_{i=1}^p\abs{\partial_\ell f_i(\theta)}\le
-p\abs{\partial_\ell f(\theta)}\le p\delta^{-1}\norm f_\rho$, by Step~\ref{step:p1:cs-coordinate}. Hence the
-first estimate holds with $c=p$. Part~\ref{bp:p0} defines transposes only for matrices, so for
-matrix-valued $f$ only the second estimate is meaningful.
+p\abs{\partial_\ell f(\theta)}\le p\delta^{-1}\norm f_\rho$, by Step~\ref{step:p1:cs-coordinate}. This is
+the first estimate.
 
 \proofstep{Derivative along $\omega$}\label{step:p1:cc-omega}
 For $f$ with values in any $W$, Step~\ref{step:p1:cs-coordinate} gives
@@ -653,7 +652,8 @@ applies to each entry.
 
 \begin{lemma}[Averages]\label{bp:p1:averages}
 For $v$ holomorphic, bounded and $1$-periodic on $T_\rho$: $\avg{\partial_{\theta_\ell}v}=0$,
-$\avg{Dv\,\omega}=0$, and $\abs{\avg v}\le\norm{v}_\rho$.
+$\avg{Dv\,\omega}=0$, and $\abs{\avg v}\le\norm{v}_\rho$. The same holds for $v$ with values in $\C^p$ or
+$\C^{p\times q}$, with the norms of Part~\ref{bp:p0}.
 \end{lemma}
 
 \begin{proof}
@@ -673,7 +673,7 @@ operator norm.
 
 \begin{lemma}[Averages of matrix-valued functions]\label{bp:p1:averages-matrix}
 For $M$ continuous, $1$-periodic and matrix valued on $\R^n$: $\abs{\avg M}\le\sup_{\R^n}\abs M$, and $\avg{\partial_\omega M}=0$ if
-$M$ is $C^1$. (Proved as \texttt{bp:p2:averages}.)
+$M$ is $C^1$.
 \end{lemma}
 
 \begin{proof}
@@ -687,7 +687,7 @@ Lemma~\ref{bp:p1:averages-real} applied to each entry.
 \end{proof}
 
 \begin{lemma}[Translation invariance of averages]\label{bp:p1:periodic-average}
-For $v$ continuous and $1$-periodic on $\R^n$ and $a\in\R^n$: $\avg{v(\cdot+a)}=\avg v$. (Proved as \texttt{bp:p4:periodic-average}.)
+For $v$ continuous and $1$-periodic on $\R^n$ and $a\in\R^n$: $\avg{v(\cdot+a)}=\avg v$.
 \end{lemma}
 
 \begin{proof}
@@ -958,7 +958,7 @@ Lemma~\ref{bp:p1:cohomological-operator}.
 
 \begin{lemma}[Cohomological equation in operator norms, a-priori bound]\label{bp:p1:cohomological-operator}
 Lemma~\ref{bp:p1:cohomological} holds for matrix-valued $g$ with the operator norm, and every holomorphic periodic
-solution $u$ with $\avg u=0$ satisfies the same bound. (Proved as \texttt{bp:p2:cohomological}.)
+solution $u$ with $\avg u=0$ satisfies the same bound.
 \end{lemma}
 
 \begin{proof}
@@ -988,7 +988,7 @@ $\avg u=0$ and $\norm{Du\,\omega}_\rho\le H<\infty$. Then $g=Du\,\omega$ is holo
 (Lemma~\ref{bp:p1:holomorphic-regularity}), $1$-periodic and bounded on $T_\rho$, with $\avg g=0$ by
 Lemma~\ref{bp:p1:averages-real} applied to the entries of the restriction of $u$ to $\R^n$. The restriction
 of $u$ to $T_{\rho-\delta}$ is a solution in the class of Step~\ref{step:p1:coo-entries}, so
-$\norm u_{\rho-\delta}\le\Gamma H$. This is the form used in Lemma~\ref{bp:p2:cohomological}(b).
+$\norm u_{\rho-\delta}\le\Gamma H$.
 \end{proof}
 
 %----------------------------------------------------------------------------------------------------
@@ -998,8 +998,7 @@ $\norm u_{\rho-\delta}\le\Gamma H$. This is the form used in Lemma~\ref{bp:p2:co
 Let $Q>0$, $p\ge0$ and $y_0,y_1,\dots\ge0$ with $y_{m+1}\le Q2^{pm}y_m^2$ for every $m\ge0$ and
 $Q2^py_0\le\frac12$. Then $y_m\le Q^{-1}2^{-p(m+1)}2^{-2^m}$ for every $m\ge0$; in particular $y_m\to0$.
 If moreover only $q\coloneqq Q2^py_0\le1$ is assumed, then $y_m\le q^{2^m-1}2^{-pm}y_0$ for every $m\ge0$
-(linear in $y_0$, as needed for closeness bounds). (Proved as \texttt{bp:p3:iteration} and
-\texttt{bp:p2:error-decay}(a).)
+(linear in $y_0$, as needed for closeness bounds).
 \end{lemma}
 
 \begin{proof}
@@ -1025,9 +1024,18 @@ The frozen torus of Definition~\ref{bp:p0:torus} is a real-analytic map on $\R^n
 field $X_H$ is defined with real derivatives. The two lemmas below pass from the holomorphic objects on
 strips and complex domains to these real objects.
 
+\begin{remark}[Real restrictions of linear and primary maps]\label{bp:p1:real-restriction-consequences}
+Let $\ell:\C^n\to\C^p$ be $\C$-linear with $\ell(\R^n)\subset\R^p$, and let $\ell_\R:\R^n\to\R^p$ be its
+restriction. Then $\abs{\ell_\R}\le\abs\ell$ for the operator norms of the max norms, since the supremum
+defining $\abs{\ell_\R}$ runs over the real $h$ with $\abs h\le1$, a subset of the complex ones. If
+$K:T_\rho\to\C^n\times\C^n$ is primary on $T_\rho$ and real on reals, its restriction $k$ to $\R^n$ satisfies
+$k(x+m)=k(x)+(m,0)$ for $x\in\R^n$ and $m\in\Z^n$, by the primarity identity at the real point $x$.
+\end{remark}
+
 \begin{lemma}[Real restriction]\label{bp:p1:real-restriction}
-If $K$ is holomorphic on $T_\rho$ and real on reals, its restriction to $\R^n$ is real-analytic, and its real derivative is
-the restriction of its complex derivative.
+If $K$ is holomorphic on $T_\rho$ and real on reals, its restriction $k$ to $\R^n$ is real-analytic, and its real
+derivative is the restriction of its complex derivative. Moreover $\abs{Dk(x)}\le\abs{DK(x)}$ for
+$x\in\R^n$, and if $K$ is primary on $T_\rho$, then $k(x+m)=k(x)+(m,0)$ for $m\in\Z^n$.
 \end{lemma}
 
 \begin{proof}
@@ -1043,29 +1051,29 @@ Let $x\in\R^n$. Complex differentiability gives $K(x+h)-K(x)-DK(x)h=o(\abs h)$ a
 particular for real $h$. For real $h$, $DK(x)h=\lim_{t\to0}t^{-1}\bigl(k(x+th)-k(x)\bigr)$ is a limit of
 real vectors over real $t$, hence real. So $k$ is differentiable at $x$ and $Dk(x)h=DK(x)h$ for
 $h\in\R^n$.
+
+\proofstep{Norm and primarity}\label{step:p1:rr-consequences}
+By the previous step, $Dk(x)$ is the restriction to $\R^n$ of the $\C$-linear map $DK(x)$, which maps
+$\R^n$ into $\R^p$. Remark~\ref{bp:p1:real-restriction-consequences} gives $\abs{Dk(x)}\le\abs{DK(x)}$
+and, for primary $K$ (here $p=2n$), $k(x+m)=k(x)+(m,0)$.
 \end{proof}
 
-\begin{remark}[Consequences used in Part~\ref{bp:p4}]\label{bp:p1:real-restriction-consequences}
-In the setting of Lemma~\ref{bp:p1:real-restriction}, $\abs{Dk(x)}\le\abs{DK(x)}$ for $x\in\R^n$, since
-the supremum defining $\abs{Dk(x)}$ runs over the real $h$ with $\abs h\le1$, a subset of the complex
-ones. If $p=2n$ and $K$ is primary on $T_\rho$, then $k(x+m)=k(x)+(m,0)$ for $x\in\R^n$ and $m\in\Z^n$, by
-the primarity identity at the real point $x$.
-\end{remark}
-
 \begin{lemma}[Real and complex Hamiltonian fields]\label{bp:p1:hamiltonian-real}
-If $h$ is holomorphic near a real point $z$ and real on real points, then $X_{\operatorname{Re}h}(z)=X_h(z)$, and
-$X_\varphi=J\,D\varphi^\top$ in the frozen conventions. (Proved as \texttt{bp:p4:hamiltonian-real}.)
+Let $V\subset\C^n\times\C^n$ be open, $h$ holomorphic on $V$ and real at the real points of $V$, and
+$z\in V\cap(\R^n\times\R^n)$. If $H:\R^n\times\R^n\to\R$ agrees with $\operatorname{Re}h$ near $z$, then $H$
+is differentiable at $z$ and $X_H(z)=X_h(z)$. For $\varphi$ holomorphic, $X_\varphi=J(D\varphi)^\top$ with
+$J=-\Omega_0=\left(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\right)$; equivalently
+$\Omega_0X_\varphi=(D\varphi)^\top$.
 \end{lemma}
 
 \begin{proof}
-We read the statement as follows: $V\subset\C^n\times\C^n$ is open, $h$ is holomorphic on $V$ and real
-at the real points of $V$, $z\in\R^n\times\R^n$ lies in $V$, and $X_{\operatorname{Re}h}(z)$ is the
-frozen vector field (Definition~\ref{bp:p0:hamiltonian}) of a function $H:\R^n\times\R^n\to\R$ that
-agrees with $\operatorname{Re}h$ on a neighbourhood of $z$, for instance \Lean{realHamiltonian}.
+Here $X_H$ is the frozen vector field of Definition~\ref{bp:p0:hamiltonian}; in the applications $H$ is
+\Lean{realHamiltonian}.
 
 \proofstep{The real derivative}\label{step:p1:hr-derivative}
-The set $V_\R=\{y\in\R^n\times\R^n:y\in V\}$ is an open neighbourhood of $z$ on which
-$H(y)=\operatorname{Re}h(y)=h(y)$, since $h$ is real there. The map $y\mapsto h(y)$ on $V_\R$ is
+The set $V_\R=\{y\in\R^n\times\R^n:y\in V\}$ is an open neighbourhood of $z$, and on a smaller open
+neighbourhood $V'\subset V_\R$ of $z$ we have $H(y)=\operatorname{Re}h(y)=h(y)$, since $H$ agrees with
+$\operatorname{Re}h$ near $z$ and $h$ is real at real points. The map $y\mapsto h(y)$ on $V'$ is
 $\R$-differentiable with derivative $e\mapsto Dh(y)e$, by the chain rule for the $\R$-linear inclusion of
 $\R^{2n}$ into $\C^{2n}$. Hence $H$ is differentiable at $z$ with $DH(z)e=Dh(z)e$ for
 $e\in\R^n\times\R^n$, a real number because $H$ is real-valued.
@@ -1084,8 +1092,7 @@ column of partial derivatives, $\theta$-block first. The frozen formula reads
 $X_\varphi=(\partial_I\varphi,-\partial_\theta\varphi)=J(D\varphi)^\top$ with
 $J=\left(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\right)=-\Omega_0=\Omega_0^{-1}$
 (Lemma~\ref{bp:p1:operator-norms}); equivalently $\Omega_0X_\varphi=(D\varphi)^\top$. Regarded as a map
-$J:\mathcal L(\C^{2n},\C)\to\C^{2n}$, $J(\ell)=\bigl((\ell(0,e_i))_i,(-\ell(e_i,0))_i\bigr)$, which is the
-form used in Step~\ref{step:p4:db-vectorfield}.
+$J:\mathcal L(\C^{2n},\C)\to\C^{2n}$, $J(\ell)=\bigl((\ell(0,e_i))_i,(-\ell(e_i,0))_i\bigr)$.
 \end{proof}
 
 %----------------------------------------------------------------------------------------------------
@@ -1096,9 +1103,16 @@ most the $d$-th power of their constant, Lipschitz maps into $\R^d$ extend from 
 Lipschitz-small perturbation of the identity is a bi-Lipschitz bijection. Throughout, $\R^d$ carries the
 max norm.
 
+\begin{remark}[Products]\label{bp:p1:lip-image-product}
+The identification of $\R^n\times\R^n$ with $\R^{2n}$ is an isometry for the max norm of the two
+components and carries the product of the Lebesgue measures to Lebesgue measure on $\R^{2n}$.
+\end{remark}
+
 \begin{lemma}[Lipschitz images and preimages]\label{bp:p1:lip-image}
-A $\Lambda$-Lipschitz map on $\R^d$ (max norm) multiplies outer Lebesgue measure by at most $\Lambda^d$; the preimage of a
-null set under a map with Lipschitz inverse is null. (Proved as \texttt{bp:p4:lip-image}, \texttt{bp:p4:preimage-measure}.)
+Let $S\subset\R^d$ and $F:S\to\R^d$ with $\abs{F(x)-F(y)}\le\Lambda\abs{x-y}$. Then $\meas F(S)\le\Lambda^d\meas S$
+(outer measures). If $\Phi:A\to\R^d$ is injective and $\Phi^{-1}:\Phi(A)\to A$ is Lipschitz, then
+$\meas\Phi^{-1}(N)=0$ whenever $\meas N=0$. Both hold on $\R^n\times\R^n$ with the max norm of the two
+components and the product Lebesgue measure.
 \end{lemma}
 
 \begin{proof}
@@ -1132,18 +1146,15 @@ Let $\Phi:A\to\R^d$, $A\subset\R^d$, be injective with a $\Lambda$-Lipschitz inv
 $\Phi^{-1}:\Phi(A)\to A$, and let $\meas N=0$. Then $\Phi^{-1}(N)=\Phi^{-1}(N\cap\Phi(A))$ is the image of
 $N\cap\Phi(A)$ under the Lipschitz map $\Phi^{-1}$, so its outer measure is at most
 $\Lambda^d\meas(N\cap\Phi(A))=0$.
-\end{proof}
 
-\begin{remark}[Products]\label{bp:p1:lip-image-product}
-The identification of $\R^n\times\R^n$ with $\R^{2n}$ is an isometry for the max norm of the two
-components and carries the product of the Lebesgue measures to Lebesgue measure on $\R^{2n}$. Hence
-Lemma~\ref{bp:p1:lip-image} holds on $\R^n\times\R^n$ with $d=2n$.
-\end{remark}
+\proofstep{Products}\label{step:p1:li-product}
+By Remark~\ref{bp:p1:lip-image-product}, both claims on $\R^n\times\R^n$ are the case $d=2n$ of the
+previous steps.
+\end{proof}
 
 \begin{lemma}[McShane extension]\label{bp:p1:mcshane}
 A $\Lambda$-Lipschitz map from a subset of a metric space to $\R^d$ with the max norm extends to a $\Lambda$-Lipschitz map on
-the whole space; it can be clamped to keep a given sup bound. (Mathlib \Lean{LipschitzOnWith.extend\_pi}; proved as
-\texttt{bp:p4:mcshane}.)
+the whole space; it can be clamped to keep a given sup bound. (Mathlib \Lean{LipschitzOnWith.extend\_pi}.)
 \end{lemma}
 
 \begin{proof}
@@ -1169,9 +1180,17 @@ $1$-Lipschitz and fixes $[-\beta,\beta]$, so $\Phi=(\Phi_j)_j$ is $\Lambda$-Lips
 satisfies $\abs\Phi\le\beta$ on $X$.
 \end{proof}
 
+\begin{remark}[Bijections fixing a set]\label{bp:p1:lipeo-fixed}
+Let $\Psi$ be a bijection of $\R^d$ with $\Psi(x)=x$ for every $x$ in a set $Z'\subset\R^d$. Then $\Psi$ maps
+$\R^d\setminus Z'$ onto itself. Indeed, if $x\notin Z'$ had $\Psi(x)\in Z'$, then $\Psi(\Psi(x))=\Psi(x)$ and
+injectivity would give $x=\Psi(x)\in Z'$. If $y\notin Z'$ and $y=\Psi(x)$, then $x\notin Z'$, since
+otherwise $y=x\in Z'$.
+\end{remark}
+
 \begin{lemma}[Lipeomorphisms]\label{bp:p1:lipeo}
-If $G:\R^d\to\R^d$ is $\lambda$-Lipschitz with $\lambda<1$, then $\mathrm{id}+G$ is a bi-Lipschitz bijection of $\R^d$.
-(Proved as \texttt{bp:p4:lipeo}.)
+If $G:\R^d\to\R^d$ is $\lambda$-Lipschitz with $\lambda<1$, then $\Psi=\mathrm{id}+G$ is a bijection of $\R^d$
+with $(1-\lambda)\abs{x-y}\le\abs{\Psi(x)-\Psi(y)}\le(1+\lambda)\abs{x-y}$; if $G=0$ on a set $Z'$, then
+$\Psi$ maps $\R^d\setminus Z'$ onto itself.
 \end{lemma}
 
 \begin{proof}
@@ -1186,277 +1205,8 @@ the image, is $(1-\lambda)^{-1}$-Lipschitz.
 Let $y\in\R^d$. The map $x\mapsto y-G(x)$ is a $\lambda$-contraction of the complete space $\R^d$,
 so by~\ref{bp:p1:ext-banach} it has a fixed point $x$, and then $\Psi(x)=y$. Hence $\Psi$ is a bijection
 of $\R^d$ whose inverse is $(1-\lambda)^{-1}$-Lipschitz.
+
+\proofstep{The set where $G$ vanishes}\label{step:p1:lipeo-zero}
+If $G=0$ on $Z'$, then $\Psi$ fixes $Z'$ pointwise, and Remark~\ref{bp:p1:lipeo-fixed} shows that $\Psi$
+maps $\R^d\setminus Z'$ onto itself.
 \end{proof}
-
-\begin{remark}[The set where $G$ vanishes]\label{bp:p1:lipeo-fixed}
-In the setting of Lemma~\ref{bp:p1:lipeo}, if $G=0$ on a set $Z'\subset\R^d$, then $\Psi$ maps
-$\R^d\setminus Z'$ onto itself. Indeed, $\Psi$ fixes $Z'$ pointwise. If $x\notin Z'$ had $\Psi(x)\in Z'$,
-then $\Psi(\Psi(x))=\Psi(x)$ and injectivity would give $x=\Psi(x)\in Z'$. If $y\notin Z'$ and
-$y=\Psi(x)$, then $x\notin Z'$, since otherwise $y=x\in Z'$. Part~\ref{bp:p4} uses this in
-Step~\ref{step:p4:mm-extension}.
-\end{remark}
-
-\begin{lemma}[Measure of the resonant set]\label{bp:p1:dmeas}
-This is Theorem~\ref{bp:p0:g3}; its proof is written in Part~\ref{bp:p4}.
-\end{lemma}
-
-\begin{proof}
-The statement is Theorem~\ref{bp:p0:g3}. Its proof slices the non-Diophantine set into slabs and sums
-over the lattice; it is given in Subsection~\ref{bp:p4:sec-g3} (Lemmas~\ref{bp:p4:lattice-count},
-\ref{bp:p4:lattice-sum} and~\ref{bp:p4:slab}). No other result of this part depends on it.
-\end{proof}
-
-%----------------------------------------------------------------------------------------------------
-\subsection{Requests to the orchestrator}\label{bp:p1:requests}
-
-The statements above are the interface text, unchanged except that the provenance note of
-Lemma~\ref{bp:p1:real-restriction} was removed on the orchestrator's instruction. The proofs establish
-them as written, under the readings stated at the start of the proofs of
-Lemmas~\ref{bp:p1:mixed-difference}, \ref{bp:p1:hamiltonian-real} and~\ref{bp:p1:cauchy-corollaries}.
-The following changes are proposed; none requires a new proof beyond what is written above.
-\begin{enumerate}[label=(Q\arabic*),ref=(Q\arabic*)]
-\item\label{bp:p1:Q-bounded} \emph{Standing convention.} The sentence ``Throughout, functions on strips
-  are holomorphic on the open strip and bounded there'' contradicts Lemma~\ref{bp:p1:periodic-bounded},
-  whose conclusion it would make empty, and the clause ``no boundedness assumed'' of
-  Lemma~\ref{bp:p1:cohomological}, on which Steps~\ref{step:p3:lagrangian-unique}
-  and~\ref{step:p4:lag-unique} rely. Proposed: ``Throughout, functions on strips are holomorphic on the
-  open strip; they are assumed bounded only where a statement says so. Norms are sup norms
-  (Part~\ref{bp:p0}).''
-\item\label{bp:p1:Q-corollaries} \emph{Lemma~\ref{bp:p1:cauchy-corollaries}.} $(Df)^\top$ is undefined
-  for matrix-valued $f$, and ``$c$ a dimension factor'' is unspecified. Proposed: ``For $f$ holomorphic
-  and bounded on $T_\rho$ and $0<\delta<\rho$: if $f$ takes values in $\C^p$, then
-  $\norm{(Df)^\top}_{\rho-\delta}\le p\,\delta^{-1}\norm f_\rho$; if $f$ takes values in $\C^p$ or
-  $\C^{p\times q}$, then $\norm{\partial_\omega f}_{\rho-\delta}\le\abs\omega_1\delta^{-1}\norm f_\rho$.''
-  This is what Lemma~\ref{bp:p2:cauchy} uses.
-\item\label{bp:p1:Q-hamiltonian} \emph{Lemma~\ref{bp:p1:hamiltonian-real}.} $J$ is not defined in
-  Parts~\ref{bp:p0} or~\ref{bp:p1}, and $X_{\operatorname{Re}h}$ needs a real function on all of
-  $\R^n\times\R^n$. Proposed: ``Let $V\subset\C^n\times\C^n$ be open, $h$ holomorphic on $V$ and real at the
-  real points of $V$, and $z\in V\cap(\R^n\times\R^n)$. If $H:\R^n\times\R^n\to\R$ agrees with
-  $\operatorname{Re}h$ near $z$, then $H$ is differentiable at $z$ and $X_H(z)=X_h(z)$. For $\varphi$
-  holomorphic, $X_\varphi=J(D\varphi)^\top$ with
-  $J=-\Omega_0=\left(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\right)$; equivalently
-  $\Omega_0X_\varphi=(D\varphi)^\top$.''
-\item\label{bp:p1:Q-mixed} \emph{Lemma~\ref{bp:p1:mixed-difference}.} The four points are not said to lie
-  in the set. Proposed: ``Let $F$ be holomorphic on a convex open set $U$ with $\abs{D^2F}\le A$ on $U$,
-  and let $z,z+v,z+w,z+v+w\in U$. Then
-  $\abs{F(z+v+w)-F(z+v)-F(z+w)+F(z)}\le A\abs v\abs w$.'' Step~\ref{step:p4:le-h} applies it on a ball,
-  which is convex, inside the nonconvex set $B_{r_0/2}$.
-\item\label{bp:p1:Q-limits} \emph{Lemma~\ref{bp:p1:uniform-limits}.} The periodicity clause presupposes a
-  strip, and pointwise convergence of $K_s$ suffices (Step~\ref{step:p2:lim-holo} uses only that).
-  Proposed: ``Let $K_s$ be holomorphic on an open set $V$, with $K_s\to K$ pointwise and $DK_s\to\Lambda$
-  uniformly on $V$. Then $K$ is holomorphic on $V$ and $DK=\Lambda$. If $V=T_r$ and every $K_s$ is
-  primary on $T_r$, respectively real on reals, so is $K$.''
-\item\label{bp:p1:Q-increments} \emph{Lemma~\ref{bp:p1:increments}.} The second clause presupposes
-  $0<\delta<\rho$ and a bounded $u$; the segment condition is automatic because $T_{\rho-\delta}$ is
-  convex. Proposed: ``Let $u$ be holomorphic on $T_\rho$ and $0<\delta<\rho$. For
-  $\theta,\theta+v\in T_{\rho-\delta}$, $\abs{u(\theta+v)-u(\theta)}\le\norm{Du}_{\rho-\delta}\abs v$; if $u$ is
-  bounded on $T_\rho$, this is at most $n\delta^{-1}\norm u_\rho\abs v$.''
-\item\label{bp:p1:Q-lipimage} \emph{Lemma~\ref{bp:p1:lip-image}.} The domain and the inverse map are
-  implicit, and Part~\ref{bp:p4} needs the product form (Step~\ref{step:p4:mm-count}). Proposed: ``Let
-  $S\subset\R^d$ and $F:S\to\R^d$ with $\abs{F(x)-F(y)}\le\Lambda\abs{x-y}$. Then
-  $\meas F(S)\le\Lambda^d\meas S$ (outer measures). If $\Phi:A\to\R^d$ is injective and
-  $\Phi^{-1}:\Phi(A)\to A$ is Lipschitz, then $\meas\Phi^{-1}(N)=0$ whenever $\meas N=0$. Both hold on
-  $\R^n\times\R^n$ with the max norm of the two components and the product Lebesgue measure.'' The last
-  sentence is Remark~\ref{bp:p1:lip-image-product}.
-\item\label{bp:p1:Q-lipeo} \emph{Lemma~\ref{bp:p1:lipeo}.} Step~\ref{step:p4:mm-extension} uses the
-  constants and the invariance of the complement of the set where $G$ vanishes. Proposed: ``If
-  $G:\R^d\to\R^d$ is $\lambda$-Lipschitz with $\lambda<1$, then $\Psi=\mathrm{id}+G$ is a bijection of $\R^d$
-  with $(1-\lambda)\abs{x-y}\le\abs{\Psi(x)-\Psi(y)}\le(1+\lambda)\abs{x-y}$; if $G=0$ on a set $Z'$, then
-  $\Psi$ maps $\R^d\setminus Z'$ onto itself.'' The proof is Step~\ref{step:p1:lipeo-bounds} and
-  Remark~\ref{bp:p1:lipeo-fixed}.
-\item\label{bp:p1:Q-realrestr} \emph{Lemma~\ref{bp:p1:real-restriction}.} Steps~\ref{step:p4:rt-small}
-  and~\ref{step:p4:rt-analytic} also use $\abs{Dk(x)}\le\abs{DK(x)}$ and primarity of the restriction.
-  Proposed addition: ``Moreover $\abs{Dk(x)}\le\abs{DK(x)}$ for $x\in\R^n$, and if $K$ is primary on
-  $T_\rho$, then $k(x+m)=k(x)+(m,0)$ for $m\in\Z^n$.'' The proof is
-  Remark~\ref{bp:p1:real-restriction-consequences}.
-\item\label{bp:p1:Q-matrix} \emph{Lemma~\ref{bp:p1:matrix-norms}.} The restriction $m'\le m$ is unused.
-  Part~\ref{bp:p3} (Lemma~\ref{bp:p3:matrix-norms}(a)) also uses $\abs{\Omega_0M}=\abs M$ for $2n\times q$
-  matrices, $\abs{M\Omega_0}=\abs M$ for $p\times2n$ matrices, and
-  $\bigl|\left(\begin{smallmatrix}M_1\\M_2\end{smallmatrix}\right)\bigr|=\max\{\abs{M_1},\abs{M_2}\}$, all
-  immediate from Lemma~\ref{bp:p1:operator-norms} because $\Omega_0$ is a signed permutation matrix.
-  Proposed: drop ``with $m'\le m$'' and add these three identities.
-\item\label{bp:p1:Q-averages} \emph{Lemma~\ref{bp:p1:averages}.} The values of $v$ are not specified, and
-  Part~\ref{bp:p3} applies it to vector-valued functions. Proposed addition: ``The same holds for $v$ with
-  values in $\C^p$ or $\C^{p\times q}$, with the norms of Part~\ref{bp:p0}.'' The proof covers any norm.
-\item\label{bp:p1:Q-provenance} \emph{Provenance notes.} The parentheses ``(Proved as \dots)'' in the
-  statements of Lemmas~\ref{bp:p1:iteration}, \ref{bp:p1:operator-norms},
-  \ref{bp:p1:cauchy-corollaries}, \ref{bp:p1:averages-matrix}, \ref{bp:p1:cohomological-operator},
-  \ref{bp:p1:periodic-average}, \ref{bp:p1:hamiltonian-real}, \ref{bp:p1:mixed-difference},
-  \ref{bp:p1:lip-image}, \ref{bp:p1:mcshane} and~\ref{bp:p1:lipeo} are now inaccurate, since each is proved
-  here. Proposed: delete them; Subsection~\ref{bp:p1:xref} records the corresponding results of
-  Parts~\ref{bp:p2}--\ref{bp:p4}, which should cite the Part~\ref{bp:p1} labels instead.
-\item\label{bp:p1:Q-new} \emph{New results of this part.} Lemmas~\ref{bp:p1:holomorphic-regularity}
-  and~\ref{bp:p1:holomorphic-analytic} were added on the orchestrator's instruction.
-  Lemmas~\ref{bp:p1:strip-identity}, \ref{bp:p1:exp-sums} and~\ref{bp:p1:fourier-basic} and
-  Remarks~\ref{bp:p1:real-restriction-consequences}, \ref{bp:p1:lip-image-product}
-  and~\ref{bp:p1:lipeo-fixed} were added because the proofs need them; they need approval as interface
-  nodes. Lemma~\ref{bp:p1:strip-identity} replaces the several-variable identity theorem in
-  Steps~\ref{step:p4:nu-phase} and~\ref{step:p4:lag-unique}: two holomorphic maps on $T_r$ that agree on
-  $\R^n$ agree on $T_r$, by the one-variable identity theorem alone.
-\item\label{bp:p1:Q-constants} \emph{Constants.} Lemma~\ref{bp:p1:cauchy-open} holds with $c(m,1)=1$,
-  $c(m,2)=4$, $c(m,3)=32$, independent of $m$; Lemma~\ref{bp:p1:cauchy-strip-2} with $c(n)=4$;
-  Lemma~\ref{bp:p1:cohomological} with $c(n,\tau)=(2\pi)^{-1}(\tau/(e\pi))^\tau(8n/\pi)^n$; and
-  Lemma~\ref{bp:p1:cauchy-strip} even without the factor $n$ in the operator norm. No statement change is
-  needed.
-\item\label{bp:p1:Q-dmeas} \emph{Lemma~\ref{bp:p1:dmeas}} is Theorem~\ref{bp:p0:g3} under a second label and
-  is proved only in Part~\ref{bp:p4}; it is cited only by Remark~\ref{bp:p4:g3-remark}. Proposed: delete it,
-  or keep it as an explicit alias outside the Part~\ref{bp:p1} dependency graph.
-\end{enumerate}
-
-%----------------------------------------------------------------------------------------------------
-\subsection{Cross-references}\label{bp:p1:xref}
-
-For each result of this part: the labels of Parts~\ref{bp:p2}--\ref{bp:p4} that cite it (the enclosing
-proof step, or the result when the citation is outside a proof); the results of those parts that prove
-the same fact under their own label (``counterpart''), with the labels citing the counterpart; and the
-state of the formalization (``Lean''). Mentions in the transfer and request lists of
-Parts~\ref{bp:p2}--\ref{bp:p4} (\pOneLab{bp:p2:sec-transfer}, \pOneLab{bp:p2:sec-requests},
-\pOneLab{bp:p3:transfer}, \pOneLab{bp:p3:requests}, \pOneLab{bp:p4:sec-notes}) and in errata notes are
-omitted. ``New'' means that no Lean proof exists yet.
-
-{\raggedright
-\medskip\noindent\textbf{Matrices.}\par
-\begin{itemize}
-\item \pOneLab{bp:p1:operator-norms}. Cited by \pOneLab{step:p4:mn-rowsum}. Counterparts:
-  \pOneLab{bp:p2:matrix}(a),(c),(d), cited by \pOneLab{step:p2:coh-apriori}, \pOneLab{bp:p2:transposes},
-  \pOneLab{step:p2:freq-upper}, \pOneLab{step:p2:fb-bounds}, \pOneLab{step:p2:fi-blocks},
-  \pOneLab{step:p2:fi-q}, \pOneLab{step:p2:geo-ered}, \pOneLab{step:p2:geo-esym};
-  \pOneLab{bp:p3:matrix-norms}(a), cited by \pOneLab{eq:p3:Cquad}, \pOneLab{step:p3:lagrangian-unique},
-  \pOneLab{step:p3:frequency-omega}, \pOneLab{step:p3:torsion-bound-step}, \pOneLab{step:p3:diff-bounds};
-  \pOneLab{bp:p4:matrix-norms}(i)--(iii), cited by \pOneLab{step:p4:tr-torsion},
-  \pOneLab{step:p4:stab-gram}, \pOneLab{step:p4:stab-torsion}, \pOneLab{step:p4:stab-twist},
-  \pOneLab{step:p4:lag-exact}, \pOneLab{step:p4:lag-transport}, \pOneLab{step:p4:rt-lagrangian}.
-  Lean: Mathlib \nolinkurl{Matrix.linfty_opNorm_def}; blocks and $\Omega_0$ new.
-\item \pOneLab{bp:p1:matrix-norms}. Cited by \pOneLab{bp:p2:matrix}, \pOneLab{step:p2:matrix-transpose},
-  \pOneLab{step:p4:mn-rowsum}. Counterparts: those of \pOneLab{bp:p1:operator-norms}. Lean: Mathlib
-  \nolinkurl{Matrix.linfty_opNorm_mul}, \nolinkurl{Matrix.linfty_opNorm_mulVec}; transpose bound new.
-\item \pOneLab{bp:p1:neumann}. Cited by \pOneLab{step:p2:ne-invert}, \pOneLab{step:p2:pt-binv},
-  \pOneLab{step:p2:pt-twist}, \pOneLab{step:p4:unp-twist}, \pOneLab{step:p4:stab-gram},
-  \pOneLab{step:p4:stab-twist}. Lean: new.
-\item \pOneLab{bp:p1:real-inverse}. Not cited. Counterpart: the adjugate argument in
-  \pOneLab{step:p2:per-real}. Lean: new.
-\end{itemize}
-
-\medskip\noindent\textbf{Holomorphic maps on open sets.}\par
-\begin{itemize}
-\item \pOneLab{bp:p1:holomorphic-regularity} (new). Not cited by label. Counterparts: the regularity
-  claims in \pOneLab{step:p2:ham-regular}, \pOneLab{bp:p3:hamiltonian-symmetry},
-  \pOneLab{step:p4:db-vectorfield}, \pOneLab{step:p4:tr-inverse}, \pOneLab{step:p4:stab-cauchy},
-  \pOneLab{step:p4:lag-regular}, \pOneLab{step:p4:lag-transport}, \pOneLab{step:p4:mixed-proof}. Lean:
-  exists, \nolinkurl{KAM.differentiableOn_fderiv_of_isOpen} and
-  \nolinkurl{KAM.contDiffOn_infty_of_differentiableOn} (\texttt{KAM/Strip/Regularity.lean}); symmetry by
-  Mathlib \nolinkurl{second_derivative_symmetric_of_eventually}.
-\item \pOneLab{bp:p1:holomorphic-analytic} (new). Not cited by label. Counterpart: the analyticity claim
-  in \pOneLab{step:p4:rr-analytic}, whose Mathlib pointer covers one variable only. Lean: new.
-\item \pOneLab{bp:p1:uniform-limits}. Not cited. Counterpart: \pOneLab{step:p2:lim-holo}. Lean: Mathlib
-  \nolinkurl{hasFDerivAt_of_tendstoUniformlyOn}; periodicity and realness of the limit new.
-\item \pOneLab{bp:p1:holomorphic-inverse}. Cited by \pOneLab{step:p2:fb-holo},
-  \pOneLab{step:p4:tr-inverse}. Counterpart: \pOneLab{step:p3:red-holomorphy}, cited by
-  \pOneLab{bp:p3:totality-check}. Lean: Mathlib \nolinkurl{differentiableAt_inverse},
-  \nolinkurl{hasFDerivAt_ringInverse}; assembly new.
-\item \pOneLab{bp:p1:increments-open}. Cited by \pOneLab{step:p4:stab-xn}. Counterpart: the first bound
-  of \pOneLab{bp:p2:hamiltonian}(e), in \pOneLab{step:p2:ham-mvt}. Lean: Mathlib
-  \nolinkurl{Convex.norm_image_sub_le_of_norm_fderiv_le}.
-\item \pOneLab{bp:p1:taylor}. Cited by \pOneLab{step:p2:ham-mvt}. Counterpart: \pOneLab{bp:p3:taylor},
-  cited by \pOneLab{step:p3:diff-bounds}. Lean: new.
-\item \pOneLab{bp:p1:mixed-difference}. Not cited. Counterpart: \pOneLab{bp:p4:mixed-difference}, cited by
-  \pOneLab{step:p4:le-h}. Lean: new.
-\item \pOneLab{bp:p1:cauchy-open}. Cited by \pOneLab{bp:p4:data}, \pOneLab{step:p4:db-cauchy}. Lean:
-  exists, \nolinkurl{KAM.norm_fderiv_le_of_closedBall}, \nolinkurl{KAM.norm_coordinate_fderiv_le_of_closedBall}
-  (\texttt{KAM/Strip/Cauchy.lean}), \nolinkurl{KAM.norm_iteratedFDeriv_two_le_of_closedBall},
-  \nolinkurl{KAM.norm_iteratedFDeriv_three_le_of_closedBall} (\texttt{KAM/Strip/HigherCauchy.lean}), with
-  the constants $1$, $4$, $32$.
-\end{itemize}
-
-\medskip\noindent\textbf{Functions on strips.}\par
-\begin{itemize}
-\item \pOneLab{bp:p1:periodic-bounded}. Cited by \pOneLab{step:p2:avg-deriv}, \pOneLab{step:p4:lag-regular}.
-  Counterpart: \pOneLab{bp:p3:periodic-bounded}, cited by \pOneLab{step:p3:tangent-average},
-  \pOneLab{bp:p3:totality-check}. Lean: new.
-\item \pOneLab{bp:p1:strip-identity} (new). Not cited. Replaces the several-variable identity theorem in
-  \pOneLab{step:p4:nu-phase} and \pOneLab{step:p4:lag-unique}. Lean: new (one-variable input in Mathlib).
-\item \pOneLab{bp:p1:increments}. Cited by \pOneLab{step:p4:lip-close}. Counterpart:
-  \pOneLab{bp:p3:increments}, cited by \pOneLab{step:p3:phase-derivatives}, \pOneLab{step:p3:g2-size}.
-  Lean: Mathlib mean value inequality with \nolinkurl{KAM.norm_fderiv_le_of_mem_complexStrip}; assembly new.
-\item \pOneLab{bp:p1:cauchy-strip}. Cited by \pOneLab{step:p2:cauchy-entries}, \pOneLab{bp:p3:increments},
-  \pOneLab{step:p3:torsion-bound-step}, \pOneLab{step:p4:stab-cauchy}, \pOneLab{step:p4:le-transport},
-  \pOneLab{step:p4:rt-small}. Lean: exists,
-  \nolinkurl{KAM.norm_coordinate_fderiv_le_of_mem_complexStrip} and, in the sharper operator-norm form,
-  \nolinkurl{KAM.norm_fderiv_le_of_mem_complexStrip}.
-\item \pOneLab{bp:p1:cauchy-strip-2}. Not cited. Counterpart: the two applications of
-  \pOneLab{bp:p1:cauchy-strip} in \pOneLab{step:p4:stab-cauchy}. Lean: exists,
-  \nolinkurl{KAM.norm_iteratedFDeriv_two_le_of_mem_complexStrip}.
-\item \pOneLab{bp:p1:cauchy-corollaries}. Not cited. Counterpart: \pOneLab{bp:p2:cauchy}, cited by
-  \pOneLab{step:p2:fb-torsion}, \pOneLab{step:p2:geo-de}, \pOneLab{step:p2:pt-dl}, \pOneLab{step:p2:pt-xn}.
-  Lean: new (a corollary of the strip estimate).
-\end{itemize}
-
-\medskip\noindent\textbf{Averages.}\par
-\begin{itemize}
-\item \pOneLab{bp:p1:averages-real}. Cited by \pOneLab{bp:p2:averages}, \pOneLab{step:p2:avg-deriv}. Lean:
-  new.
-\item \pOneLab{bp:p1:averages}. Cited by \pOneLab{bp:p2:averages}, \pOneLab{step:p2:avg-deriv},
-  \pOneLab{step:p3:tangent-average}, \pOneLab{step:p3:quad-normal-osc}, \pOneLab{step:p3:quad-normal-avg},
-  \pOneLab{step:p4:lag-exact}. Lean: new.
-\item \pOneLab{bp:p1:averages-matrix}. Cited by \pOneLab{step:p4:mn-rowsum}. Counterparts:
-  \pOneLab{bp:p2:averages}(a), cited by \pOneLab{step:p2:coh-apriori}, \pOneLab{step:p2:per-real},
-  \pOneLab{step:p2:ex-avg-omega}, \pOneLab{step:p2:ex-avg-eta}, \pOneLab{step:p2:tri-xi0},
-  \pOneLab{step:p2:pt-twist}; \pOneLab{bp:p4:matrix-norms}(v). Lean: new.
-\item \pOneLab{bp:p1:periodic-average}. Not cited. Counterpart: \pOneLab{bp:p4:periodic-average}, cited by
-  \pOneLab{step:p4:shift-phase}, \pOneLab{step:p4:lip-phase}. Lean: Mathlib
-  \nolinkurl{Function.Periodic.intervalIntegral_add_eq}; the several-variable form new.
-\end{itemize}
-
-\medskip\noindent\textbf{Fourier coefficients and the cohomological equation.}\par
-\begin{itemize}
-\item \pOneLab{bp:p1:exp-sums} (new). Used only in this part. Lean: (a) exists,
-  \nolinkurl{KAM.Fourier.rpow_mul_exp_neg_le}; (b), (c) new.
-\item \pOneLab{bp:p1:fourier-basic} (new). Used only in this part. Lean: (b) from Mathlib
-  \nolinkurl{UnitAddTorus.hasSum_mFourier_series_apply_of_summable}, after transport from periodic
-  functions on $\R^n$; (a), (c) new.
-\item \pOneLab{bp:p1:decay}. Used only in this part. Lean: new.
-\item \pOneLab{bp:p1:summation}. Used only in this part. Lean: new; the coefficient side uses
-  \nolinkurl{KAM.Fourier.weightedNorm} at coefficient radius $2\pi\rho$.
-\item \pOneLab{bp:p1:cohomological}. Cited by \pOneLab{bp:p2} (introduction), \pOneLab{bp:p2:constants},
-  \pOneLab{step:p2:coh-components}, \pOneLab{step:p2:g1-constants}, \pOneLab{eq:p3:constants},
-  \pOneLab{step:p3:lagrangian-unique}, \pOneLab{step:p3:quad-normal-osc}, \pOneLab{step:p3:quad-tangent},
-  \pOneLab{step:p4:lag-unique}. Lean: the coefficient level exists,
-  \nolinkurl{KAM.Diophantine.solve}, \nolinkurl{KAM.Diophantine.existsUnique_cohomological},
-  \nolinkurl{KAM.Diophantine.weightedNorm_solve_le}, \nolinkurl{KAM.Diophantine.solve_unique},
-  \nolinkurl{KAM.Diophantine.solve_conjugateSymmetric}; the passage to functions on strips is new.
-\item \pOneLab{bp:p1:cohomological-operator}. Not cited. Counterpart: \pOneLab{bp:p2:cohomological}, cited
-  by \pOneLab{step:p2:geo-omegak}, \pOneLab{bp:p2:triangular}, \pOneLab{step:p2:tri-first},
-  \pOneLab{step:p2:tri-second}, \pOneLab{step:p2:tri-real}. Lean: new.
-\item \pOneLab{bp:p1:iteration}. Cited by \pOneLab{bp:p2:error-decay}. Counterparts:
-  \pOneLab{bp:p2:error-decay}(a), cited by \pOneLab{bp:p2:constants}, \pOneLab{step:p2:it-sums},
-  \pOneLab{step:p2:it-stepsmall}, \pOneLab{step:p2:lim-k}, \pOneLab{step:p2:lim-invariance};
-  \pOneLab{bp:p3:iteration}, cited by \pOneLab{step:p3:g2-iteration}. Lean: new.
-\end{itemize}
-
-\medskip\noindent\textbf{Real points.}\par
-\begin{itemize}
-\item \pOneLab{bp:p1:real-restriction}. Not cited. Counterpart: \pOneLab{bp:p4:real-restriction}, cited by
-  \pOneLab{bp:p4:real-torus}, \pOneLab{step:p4:rt-analytic}, \pOneLab{step:p4:rt-small},
-  \pOneLab{step:p4:rt-lagrangian}, \pOneLab{step:p4:rt-ode}. Lean: new; it rests on
-  \pOneLab{bp:p1:holomorphic-analytic}.
-\item \pOneLab{bp:p1:hamiltonian-real}. Not cited. Counterparts: \pOneLab{bp:p4:hamiltonian-real}, cited by
-  \pOneLab{step:p4:rt-ode}; \pOneLab{step:p4:db-vectorfield}, cited by \pOneLab{step:p4:unp-torsion},
-  \pOneLab{step:p4:lag-transport}; \pOneLab{bp:p2:hamiltonian}(d). Lean: new.
-\end{itemize}
-
-\medskip\noindent\textbf{Lipschitz maps and Lebesgue measure.}\par
-\begin{itemize}
-\item \pOneLab{bp:p1:lip-image}. Not cited. Counterparts: \pOneLab{bp:p4:lip-image}, cited by
-  \pOneLab{step:p4:pm-proof}, \pOneLab{step:p4:mm-count}; \pOneLab{bp:p4:preimage-measure}, cited by
-  \pOneLab{step:p4:mm-bad}. Lean: Mathlib \nolinkurl{MeasureTheory.hausdorffMeasure_pi_real},
-  \nolinkurl{LipschitzOnWith.hausdorffMeasure_image_le}; assembly new.
-\item \pOneLab{bp:p1:mcshane}. Not cited. Counterpart: \pOneLab{bp:p4:mcshane}, cited by
-  \pOneLab{step:p4:mm-extension}. Lean: Mathlib \nolinkurl{LipschitzOnWith.extend_real},
-  \nolinkurl{LipschitzOnWith.extend_pi}; clamping new.
-\item \pOneLab{bp:p1:lipeo}. Not cited. Counterpart: \pOneLab{bp:p4:lipeo}, cited by
-  \pOneLab{step:p4:mm-extension}. Lean: Mathlib \nolinkurl{ContractingWith.fixedPoint}; assembly new.
-\item \pOneLab{bp:p1:dmeas}. Cited by \pOneLab{bp:p4:g3-remark}. It is Theorem~\ref{bp:p0:g3}, proved in
-  Subsection~\ref{bp:p4:sec-g3} and applied in \pOneLab{bp:p4:preimage-measure}. Lean: the frozen
-  statement \Lean{KAM.volume\_not\_diophantine\_le}.
-\end{itemize}
-\par}

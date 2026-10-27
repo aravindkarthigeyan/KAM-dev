@@ -128,8 +128,7 @@ $a=\alpha\abs{k}_1^{-\tau}$, and Lemma~\ref{bp:p4:lattice-sum},
 \end{proof}
 
 \begin{remark}\label{bp:p4:g3-remark}
-The proof gives $C\ge0$, and the constant depends on $\Omega$ only through a bounding cube. This is
-Lemma~\ref{bp:p1:dmeas}. Below, G3 is applied once, to the bounded set $\nabla h(B)$ of
+The proof gives $C\ge0$, and the constant depends on $\Omega$ only through a bounding cube. Below, G3 is applied once, to the bounded set $\nabla h(B)$ of
 Lemma~\ref{bp:p4:freq-map}.
 \end{remark}
 
@@ -138,11 +137,12 @@ Lemma~\ref{bp:p4:freq-map}.
 
 Throughout Sections~\ref{bp:p4:sec-data}--\ref{bp:p4:sec-measure} we fix the data of HEAD:
 $n\ge2$, $\tau>n-1$, $s_0,r_0>0$, an open bounded set $B\subset\R^n$, a function $h$ holomorphic on
-$B_{r_0}$ and real at real points of $B_{r_0}$, a witness $L\in\R$ of the nondegeneracy hypothesis
+$B_{r_0}$ and real at real points of $B_{r_0}$, a witness $L_h\in\R$ of the nondegeneracy hypothesis (the constant $L$ of
+Theorem~\ref{bp:p0:head}; here $L$ denotes tangent frames)
 and a witness $C_B\in\R$ of the boundary-layer hypothesis. We assume $B\ne\emptyset$; the empty
 case is trivial (Step~\ref{step:p4:head-empty}). All constants named in this part are computed from
 these data alone, never from $f$ or $\varepsilon$; a constant ``depending on the data'' means
-depending only on $n,\tau,s_0,r_0,B,h,L,C_B$. The perturbation $f$ and the number $\varepsilon$
+depending only on $n,\tau,s_0,r_0,B,h,L_h,C_B$. The perturbation $f$ and the number $\varepsilon$
 are as in HEAD: $f$ is holomorphic on $D(s_0,r_0)$, $1$-periodic in $\theta$, real at real points,
 and $\abs f\le\varepsilon$ on $D(s_0,r_0)$. We put
 \begin{equation*}
@@ -152,7 +152,7 @@ so that the frozen real Hamiltonian is $H(z)=\operatorname{Re}\pfh(\iota z)$ at 
 $z$ with $\iota z\in D(s_0,r_0)$ (Definition~\ref{bp:p0:nearlyintegrable}).
 
 \begin{definition}[Shrunken domains and basic constants]\label{bp:p4:data}
-Put $\pfL=\max(L,1)$, $C_B^+=\max(C_B,0)$, and
+Put $\pfL=\max(L_h,1)$, $C_B^+=\max(C_B,0)$, and
 \begin{equation*}
 s=\min(s_0,1)\,,\qquad \delta_*=\tfrac14\min(s,r_0)\,,\qquad \mu=\tfrac12\delta_*\,,\qquad
 \pfD=T_{s/2}\times B_{r_0/2}\,,\qquad \pfD'=T_{3s/4}\times B_{3r_0/4}\,.
@@ -209,10 +209,12 @@ $\pfD$; since $\delta_*\le1$, $\delta_*^{-j}\le\delta_*^{-3}$.
 
 \proofstep{From $D\pfh$ to $X_\pfh$}\label{step:p4:db-vectorfield}
 For a holomorphic function $\phi$ on an open subset of $\C^n\times\C^n$, the frozen definition
-(\Lean{hamiltonianVectorField\ensuremath{\mathbb{C}}}) reads $X_\phi=J\circ D\phi$, where
+(\Lean{hamiltonianVectorField\ensuremath{\mathbb{C}}}) reads $X_\phi=J\circ D\phi$
+(Lemma~\ref{bp:p1:hamiltonian-real}), where
 $J:\mathcal L(\C^{2n},\C)\to\C^{2n}$, $J(\ell)=\bigl((\ell(0,e_i))_i,(-\ell(e_i,0))_i\bigr)$, is
 linear with $\abs{J(\ell)}\le\norm{\ell}$ because $\abs{(0,e_i)}=\abs{(e_i,0)}=1$. Since $J$ is a
-continuous linear map, $DX_\phi=J\circ D^2\phi$ and $D^2X_\phi=J\circ D^3\phi$, whence
+continuous linear map and $D\phi$, $D^2\phi$ are holomorphic (Lemma~\ref{bp:p1:holomorphic-regularity}),
+$DX_\phi=J\circ D^2\phi$ and $D^2X_\phi=J\circ D^3\phi$, whence
 $\abs{X_\phi}\le\abs{D\phi}$, $\abs{DX_\phi}\le\abs{D^2\phi}$, $\abs{D^2X_\phi}\le\abs{D^3\phi}$.
 With $\phi=f$ this completes (c); with $\phi=\pfh$ and $\varepsilon\le1$ it gives (d), since
 $\abs{D\pfh}\le\bar c(M_h+1)\delta_*^{-1}\le M$. (In Lean, the norm of
@@ -229,8 +231,8 @@ Let $U=\{I\in\R^n:\iota I\in B_{r_0}\}$ and $\pfg=\Lean{frequencyMap}\,h:\R^n\to
 \item $\pfg$ is differentiable on $U$, and $D\pfg(I)$ is the real symmetric matrix
   $\nabla^2h(\iota I)=(\partial_j\partial_ih(\iota I))_{ij}$.
 \item For $\iota I\in B_{r_0/2}$: $\abs{\pfg(I)}\le H_1$ and $\abs{\nabla^2h(\iota I)}\le H_2$.
-\item $\pfg$ is $\Lambda$-Lipschitz on $B$, with $\Lambda=\max(H_2,2H_1/\delta_*)$, and
-  $\pfg(B)$ is bounded by $W:=H_1$.
+\item $\pfg$ is $\Lambda_g$-Lipschitz on $B$, with $\Lambda_g=\max(H_2,2H_1/\delta_*)$, and
+  $\pfg(B)$ is bounded by $W_\infty:=H_1$.
 \end{enumerate}
 \end{lemma}
 
@@ -250,10 +252,12 @@ derivative at $I$ is $D\varphi(I)$, and $\pfg_i(I)=D\varphi(I)e_i=\partial_ih(\i
 establishes the guarded fact of Remark~\ref{bp:p0:totality} on $U$.
 
 \proofstep{The Hessian}\label{step:p4:fm-hessian}
-Each $\partial_ih$ is holomorphic on $B_{r_0}$ and real on $\iota U$ by (ii). The argument of
+Each $\partial_ih$ is holomorphic on $B_{r_0}$ (Lemma~\ref{bp:p1:holomorphic-regularity}) and real on
+$\iota U$ by (ii). The argument of
 Step~\ref{step:p4:fm-gradient} applied to $\partial_ih$ shows that $\pfg_i$ is differentiable on
 $U$ with $D\pfg_i(I)v=\sum_j\partial_j\partial_ih(\iota I)v_j$, all entries real; the matrix is
-symmetric because mixed complex partial derivatives of holomorphic functions commute.
+symmetric because mixed complex partial derivatives of holomorphic functions commute (by the same
+lemma).
 
 \proofstep{Bounds}\label{step:p4:fm-bounds}
 $\abs{\pfg(I)}=\max_i\abs{Dh(\iota I)e_i}\le\abs{Dh(\iota I)}\le H_1$ and, row by row,
@@ -275,7 +279,7 @@ $\abs{\nabla^2h(\iota I)^{-1}}\le\pfL$ in the row-sum norm, also as a complex ma
 
 \begin{proof}
 \proofstep{Difference quotients}\label{step:p4:hess-quotient}
-Since $L\le\pfL$, the hypothesis gives $\abs{I-J}\le\pfL\abs{\pfg(I)-\pfg(J)}$ for $I,J\in\bar B$.
+Since $L_h\le\pfL$, the hypothesis gives $\abs{I-J}\le\pfL\abs{\pfg(I)-\pfg(J)}$ for $I,J\in\bar B$.
 As $B$ is open, $I+tv\in B$ for small $t>0$, so
 $\abs v\le\pfL\abs{(\pfg(I+tv)-\pfg(I))/t}$. Letting $t\to0^+$ and using
 Lemma~\ref{bp:p4:freq-map}(iii) gives $\abs v\le\pfL\abs{\nabla^2h(\iota I)v}$.
@@ -291,7 +295,7 @@ $\abs{w^{(i)}}\le1$; hence $\abs{A^{-1}}\le\pfL$, and this is also the complex o
 Let $\Omega=\pfg(B)$. The map $\pfg$ is injective on $\bar B$, and its inverse
 $\pfg(\bar B)\to\bar B$ is $\pfL$-Lipschitz. For $\omega\in\Omega$ let $I_\omega$ be the unique
 $I\in B$ with $\pfg(I)=\omega$. Then $I_\omega\in B$, $\pfg(I_\omega)=\omega$,
-$\abs{I_\omega-I_{\omega'}}\le\pfL\abs{\omega-\omega'}$, and $\abs\omega\le W$. We write
+$\abs{I_\omega-I_{\omega'}}\le\pfL\abs{\omega-\omega'}$, and $\abs\omega\le W_\infty$. We write
 $K^0_\omega=K^0_{I_\omega}$.
 \end{lemma}
 
@@ -299,7 +303,7 @@ $K^0_\omega=K^0_{I_\omega}$.
 \proofstep{Inverse Lipschitz bound}\label{step:p4:invfreq-proof}
 The inequality $\abs{I-J}\le\pfL\abs{\pfg(I)-\pfg(J)}$ on $\bar B$
 (Step~\ref{step:p4:hess-quotient}) gives injectivity and the Lipschitz bound of the inverse;
-$\abs\omega\le W$ is Lemma~\ref{bp:p4:freq-map}(v).
+$\abs\omega\le W_\infty$ is Lemma~\ref{bp:p4:freq-map}(v).
 \end{proof}
 
 \begin{lemma}[The Hamiltonian hypothesis H1]\label{bp:p4:h1}
@@ -418,7 +422,7 @@ A_1=\pfL(H_3A_0+F_2)+\frac{32nA_0}{s}\,,\quad
 A_2=\frac{(\sigma_K+1)C_2^{(2)}A_1}{(3s/32)^{2\tau}}\,,\\
 A_3=\max\Bigl(A_2,\frac{2A_0}{\lambda_*}\Bigr)\,,\quad
 A_4=\frac{16nA_0}{s}\,,\quad
-c_T=304n^3(M+W+1)\,,\quad
+c_T=304n^3(M+W_\infty+1)\,,\quad
 \eta_*(\delta)=\min\Bigl(\mu,\frac{\delta^2}{16c_T\pfL}\Bigr)\,,
 \end{gather*}
 and $c_*>0$ is the minimum of the eight numbers
@@ -426,7 +430,7 @@ and $c_*>0$ is the minimum of the eight numbers
 1\,,\quad\frac{\delta_*^2}{2\pfL\bar c}\,,\quad\frac{(s/4)^{4\tau}}{2C_1^{(1)}F_1}\,,\quad
 \frac{\eta_*(s/32)}{A_0}\,,\quad\frac{(3s/32)^{4\tau}}{2C_1^{(2)}A_1\lambda_*}\,,\\
 \frac{c_G(s/16)^{2\tau}}{2A_0+C_2^{(2)}A_1\lambda_*(3s/32)^{-2\tau}}\,,\quad
-\frac1{4(A_3\Lambda+A_4)}\,,\quad\frac1{2A_0}\,.
+\frac1{4(A_3\Lambda_g+A_4)}\,,\quad\frac1{2A_0}\,.
 \end{gather*}
 All of these depend only on the data.
 \end{definition}
@@ -446,7 +450,7 @@ Under~\eqref{bp:p4:SA}:
 \item $\eta_0\le\eta_*(\frac s{32})\le\eta_*(\frac s{16})$, $\eta_0\le\mu$, and $16n\eta_0/s\le\frac12$;
 \item $C_1^{(2)}A_1\lambda_*\varepsilon/(\gamma^4(3s/32)^{4\tau})\le\frac12$;
 \item $\bigl(2A_0+C_2^{(2)}A_1\lambda_*(3s/32)^{-2\tau}\bigr)\varepsilon\gamma^{-2}\le c_G\gamma^2(s/16)^{2\tau}$;
-\item $(A_3\Lambda+A_4)\varepsilon\gamma^{-4}\le\frac14$;
+\item $(A_3\Lambda_g+A_4)\varepsilon\gamma^{-4}\le\frac14$;
 \item $\eta_0\le\frac12\gamma^2\le\frac12\min(\gamma,1)$.
 \end{enumerate}
 \end{lemma}
@@ -511,7 +515,7 @@ Lemma~\ref{bp:p4:unperturbed} on the Gram inverse and the twist. We always compa
 unperturbed torus, never with another perturbed one, so the bounds do not deteriorate from one
 application to the next.
 
-\begin{lemma}[Matrix norms]\label{bp:p4:matrix-norms}
+\begin{corollary}[Matrix norms]\label{bp:p4:matrix-norms}
 \begin{enumerate}[label=(\roman*)]
 \item For $A\in\C^{p\times q}$, the row-sum norm $\abs A$ is the operator norm of $A$ from
   $(\C^q,\abs\cdot_\infty)$ to $(\C^p,\abs\cdot_\infty)$. In particular it is submultiplicative,
@@ -526,7 +530,7 @@ application to the next.
   $\Lean{symplecticForm}(x,y)=(\iota x)^\top\Omega_0(\iota y)$.
 \item If $A:[0,1]^n\to\C^{p\times q}$ is continuous, then $\abs{\int A}\le\sup\abs A$.
 \end{enumerate}
-\end{lemma}
+\end{corollary}
 
 \begin{proof}
 \proofstep{Row sums}\label{step:p4:mn-rowsum}
@@ -535,8 +539,8 @@ and~\ref{bp:p1:matrix-norms}; for (ii) directly: a row sum of $A^\top$ is a colu
 most $p$ times the largest entry, which is at most $\abs A$. For (iii), each of these matrices has in each
 row at most one nonzero entry, of modulus $1$, and some row has one. For (iv), compute with
 $\Omega_0(a,b)=(-b,a)$: $x^\top\Omega_0y=\sum_i(x_{2,i}y_{1,i}-x_{1,i}y_{2,i})$, which is the frozen
-formula of \Lean{symplecticForm} for real arguments. Item (v) is
-Lemma~\ref{bp:p1:averages-matrix}: integrate the row sums over the unit cube, of measure $1$.
+formula of \Lean{symplecticForm} for real arguments. For (v), \ref{bp:p1:ext-integral} applied with the
+operator norm gives $\abs{\int A}\le\int\abs A\le\sup\abs A$, since the unit cube has measure $1$.
 \end{proof}
 
 \begin{lemma}[Guarded facts for the frame and the torsion]\label{bp:p4:torsion-regular}
@@ -558,7 +562,7 @@ $\partial_\omega F=DF\,\omega$.
 
 \begin{proof}
 \proofstep{Inverse}\label{step:p4:tr-inverse}
-$L=DK$ is holomorphic on the open set $T_\rho$, and the entries of $G_K$ and its determinant are
+$L=DK$ is holomorphic on the open set $T_\rho$ (Lemma~\ref{bp:p1:holomorphic-regularity}), and the entries of $G_K$ and its determinant are
 polynomials in the entries of $L$. The Lean inverse is $\operatorname{Ring.inverse}(\det G)$ times
 the adjugate; where $\det G\ne0$ this is $(\det G)^{-1}\operatorname{adj}G=G^{-1}$. Holomorphy and
 the derivative formula are Lemma~\ref{bp:p1:holomorphic-inverse}.
@@ -567,7 +571,7 @@ the derivative formula are Lemma~\ref{bp:p1:holomorphic-inverse}.
 By (a), $N$ is holomorphic, so its Fréchet derivative (the \Lean{fderiv} in the frozen
 \Lean{torsion}) is its true derivative. $X_\pfh$ is holomorphic on the open set $\pfD\ni K(\theta)$,
 so $DX_\pfh(K(\theta))$ is its true derivative there. Writing the frozen sums as matrix products
-with Lemma~\ref{bp:p4:matrix-norms}(iv) gives $T=N^\top\Omega_0X_N$, a holomorphic function.
+with Corollary~\ref{bp:p4:matrix-norms}(iv) gives $T=N^\top\Omega_0X_N$, a holomorphic function.
 
 \proofstep{Periodicity}\label{step:p4:tr-periodic}
 If $K(\theta+k)=K(\theta)+(k,0)$ on $T_\rho$, then $u(\theta+k)=K_1(\theta)+k-\theta-k=u(\theta)$
@@ -578,7 +582,7 @@ $\Z^n$-periodic $X_\pfh$ (Lemma~\ref{bp:p4:h1}).
 
 \begin{theorem}[STAB]\label{bp:p4:stab}
 Assume $\varepsilon\le1$ and $\pfL F_2\varepsilon\le\frac12$. Let $I_*\in B$, $\omega\in\R^n$
-with $\abs\omega\le W$, $0<\delta<\rho\le\frac s4$, and let $K$ be holomorphic on $T_\rho$ with
+with $\abs\omega\le W_\infty$, $0<\delta<\rho\le\frac s4$, and let $K$ be holomorphic on $T_\rho$ with
 \begin{equation*}
 \abs{K(\theta)-K^0_{I_*}(\theta)}\le\eta\quad(\theta\in T_\rho)\,,\qquad\eta\le\eta_*(\delta)\,.
 \end{equation*}
@@ -598,16 +602,18 @@ $\sigma_K,\sigma_B,\sigma_T,\mu$ of Definition~\ref{bp:p4:parameters}.
 
 \begin{proof}
 \proofstep{Smallness bookkeeping}\label{step:p4:stab-small}
-Put $\Delta=K-K^0_{I_*}$, $a=n\eta/\delta$ and $b=4n^2W\eta\delta^{-2}$. Since $\delta<\frac s4\le1$
-and $\eta\le\delta^2/(16c_T\pfL)$ with $c_T\ge304n^3$, we have $a\le n\eta\delta^{-2}\le\frac1{10n}$
-and $c_T\eta\delta^{-2}\le\frac1{16}$.
+Put $\Delta=K-K^0_{I_*}$, $a=n\eta/\delta$ and $b=4n^2W_\infty\eta\delta^{-2}$. Since $\delta<\frac s4\le1$
+and $\eta\le\delta^2/(16c_T\pfL)$ with $c_T\ge304n^3$ and $\pfL\ge1$, we have
+$a\le n\eta\delta^{-2}\le n/(16c_T\pfL)\le1/(4864n^2)\le\frac1{12n}$, so $12na\le1$, and
+$c_T\eta\delta^{-2}\le\frac1{16}$.
 
 \proofstep{Cauchy estimates}\label{step:p4:stab-cauchy}
 By Lemma~\ref{bp:p1:cauchy-strip} on $T_\rho$ with loss $\delta$, $\abs{D\Delta}\le a$ on
-$T_{\rho-\delta}$. With loss $\delta/2$ twice, $\abs{\partial_\ell\Delta}\le2\eta/\delta$ on
+$T_{\rho-\delta}$. With loss $\delta/2$ twice, applied to $\Delta$ and then to the holomorphic
+(Lemma~\ref{bp:p1:holomorphic-regularity}) $\partial_\ell\Delta$, $\abs{\partial_\ell\Delta}\le2\eta/\delta$ on
 $T_{\rho-\delta/2}$ and $\abs{\partial_m\partial_\ell\Delta}\le4\eta/\delta^2$ on $T_{\rho-\delta}$. Since
 $D^2K^0_{I_*}=0$, the matrix $\partial_\omega L=\bigl(\sum_m\omega_m\partial_m\partial_\ell\Delta\bigr)_\ell$
-has row sums at most $n\cdot n\cdot W\cdot4\eta\delta^{-2}$, so $\abs{\partial_\omega L}\le b$ on
+has row sums at most $n\cdot n\cdot W_\infty\cdot4\eta\delta^{-2}$, so $\abs{\partial_\omega L}\le b$ on
 $T_{\rho-\delta}$. In particular $\abs L\le\abs{L^0}+a\le2$, which is (a).
 
 \proofstep{Neighbourhood}\label{step:p4:stab-ball}
@@ -616,7 +622,7 @@ $B_\mu(K(\theta))\subset B_{2\mu}(K^0_{I_*}(\theta))=B_{\delta_*}(K^0_{I_*}(\the
 Lemma~\ref{bp:p4:unperturbed}(g). This is (b), and it gives $K(T_{\rho-\delta})\subset\pfD$.
 
 \proofstep{Gram matrix}\label{step:p4:stab-gram}
-With $L=L^0+D\Delta$ and Lemma~\ref{bp:p4:matrix-norms}(ii),(iii),
+With $L=L^0+D\Delta$ and Corollary~\ref{bp:p4:matrix-norms}(ii),(iii),
 $\abs{G_K-\mathrm{Id}}\le\abs{(L^0)^\top}a+2na\abs{L^0}+2na^2\le5na\le\frac12$. By
 Lemma~\ref{bp:p1:neumann} with $A=\mathrm{Id}$, $G_K$ is invertible (so $\det G_K\ne0$),
 $\abs{G_K^{-1}}\le2$ and $\abs{G_K^{-1}-\mathrm{Id}}\le10na$. This is (c), and
@@ -636,18 +642,18 @@ around $K^0_{I_*}(\theta)$, which is contained in $\pfD$, where $\abs{D^2X_\pfh}
 $\abs{DX_\pfh(K)-DX_\pfh(K^0_{I_*})}\le M\eta$. With $X_N^0=DX_\pfh(K^0_{I_*})N^0$ (the torsion
 vector of $K^0_{I_*}$, Lemma~\ref{bp:p4:unperturbed}(c)),
 \begin{equation*}
-\abs{X_N-X_N^0}\le M\eta\abs N+M\abs{N-N^0}+\abs{\partial_\omega N}\le(2M+12n^2M+264n^3W)\eta\delta^{-2}\le c_T\eta\delta^{-2}\,,
+\abs{X_N-X_N^0}\le M\eta\abs N+M\abs{N-N^0}+\abs{\partial_\omega N}\le(2M+12n^2M+264n^3W_\infty)\eta\delta^{-2}\le c_T\eta\delta^{-2}\,,
 \end{equation*}
 using $\delta\le1$. Hence $\abs{X_N}\le M+1$.
 
 \proofstep{Torsion}\label{step:p4:stab-torsion}
 $T-T^0=(N-N^0)^\top\Omega_0X_N+(N^0)^\top\Omega_0(X_N-X_N^0)$, so by
-Lemma~\ref{bp:p4:matrix-norms},
-$\abs{T-T^0}\le2n\cdot12na(M+1)+(2M+12n^2M+264n^3W)\eta\delta^{-2}\le c_T\eta\delta^{-2}$.
+Corollary~\ref{bp:p4:matrix-norms},
+$\abs{T-T^0}\le2n\cdot12na(M+1)+(2M+12n^2M+264n^3W_\infty)\eta\delta^{-2}\le c_T\eta\delta^{-2}$.
 
 \proofstep{Twist}\label{step:p4:stab-twist}
 By Lemma~\ref{bp:p4:torsion-regular}(c) and Lemma~\ref{bp:p4:unperturbed}(d), both averages are
-integrals of continuous functions, and Lemma~\ref{bp:p4:matrix-norms}(v) gives
+integrals of continuous functions, and Corollary~\ref{bp:p4:matrix-norms}(v) gives
 $\abs{\avg T-\avg{T^0}}\le c_T\eta\delta^{-2}$. By Lemma~\ref{bp:p4:unperturbed}(e),
 $\abs{\avg{T^0}^{-1}}\le2\pfL$, and $2\pfL c_T\eta\delta^{-2}\le\frac18$. Lemma~\ref{bp:p1:neumann}
 gives (d).
@@ -671,22 +677,11 @@ estimate of Section~\ref{bp:p4:sec-lip} compares normalized tori.
 \begin{definition}[Angle displacement and phase average]\label{bp:p4:phase-average}
 Let $K$ be holomorphic on $T_\rho$, primary on $T_\rho$ and real on reals. Its \emph{angle
 displacement} is $u_K(\theta)=K_1(\theta)-\theta$ and its \emph{phase average} is
-$\operatorname{ph}(K)=\int_{[0,1]^n}u_K(\iota x)\,dx\in\R^n$; it is real because $K_1(\iota x)$ is
-real for real $x$, and finite because $u_K$ is continuous. $K$ is \emph{normalized} if
+$\operatorname{ph}(K)=\int_{[0,1]^n}\operatorname{Re}u_K(\iota x)\,dx\in\R^n$, which is finite because
+$u_K$ is continuous. Since $K_1(\iota x)$ is real for real $x$, so is $u_K(\iota x)$, and
+$\iota\operatorname{ph}(K)=\int_{[0,1]^n}u_K(\iota x)\,dx$. $K$ is \emph{normalized} if
 $\operatorname{ph}(K)=0$. For $a\in\R^n$ put $K^{[a]}(\theta)=K(\theta+\iota a)$.
 \end{definition}
-
-\begin{lemma}[Averages of periodic functions are translation invariant]\label{bp:p4:periodic-average}
-If $\phi:\R^n\to\C^m$ is continuous and $\Z^n$-periodic, then
-$\int_{[0,1]^n}\phi(x+a)\,dx=\int_{[0,1]^n}\phi(x)\,dx$ for every $a\in\R^n$.
-\end{lemma}
-
-\begin{proof}
-\proofstep{One variable at a time}\label{step:p4:pa-proof}
-By Fubini it suffices to treat $n=1$. For a continuous $1$-periodic $\psi$, the function
-$a\mapsto\int_0^1\psi(x+a)\,dx=\int_a^{a+1}\psi$ has derivative $\psi(a+1)-\psi(a)=0$.
-(Mathlib: \Lean{Function.Periodic.intervalIntegral\_add\_eq}.)
-\end{proof}
 
 \begin{lemma}[Phase shifts]\label{bp:p4:shift}
 Let $K$ be holomorphic, primary on $T_\rho$, real on reals, $a\in\R^n$, and $\omega\in\R^n$.
@@ -715,8 +710,8 @@ gives (b), and (c) is the same substitution.
 
 \proofstep{Phase average}\label{step:p4:shift-phase}
 $u_{K^{[a]}}(\iota x)=K_1(\iota(x+a))-\iota x=u_K(\iota(x+a))+\iota a$, and $u_K\circ\iota$ is continuous
-and $\Z^n$-periodic (Lemma~\ref{bp:p4:torsion-regular}(d)); Lemma~\ref{bp:p4:periodic-average}
-gives (d). For (e), $u_{K^0_{I_*}}=0$, so $u_K(\iota x)$ is the angle component of
+and $\Z^n$-periodic, because primarity gives $u_K(\theta+k)=K_1(\theta)+k-\theta-k=u_K(\theta)$. Taking
+real parts, Lemma~\ref{bp:p1:periodic-average} gives (d). For (e), $u_{K^0_{I_*}}=0$, so $u_K(\iota x)$ is the angle component of
 $K(\iota x)-K^0_{I_*}(\iota x)$, and the average over a set of measure $1$ is bounded by the sup;
 the second bound is the triangle inequality with
 $\abs{K^0_{I_*}(\theta+\iota a)-K^0_{I_*}(\theta)}=\abs a$.
@@ -760,7 +755,7 @@ $\mathfrak B=\pfD$, $h=\pfh$, $K_1=K_\omega$, $K_2=K'$, the frequency $\omega$ a
 \begin{itemize}
 \item H1: Lemma~\ref{bp:p4:h1} and (s1).
 \item $K_1$ satisfies H2--H4 on $T_{s/16}$: Theorem~\ref{bp:p4:stab} with $I_*=I_\omega\in B$,
-  $\abs\omega\le W$, $\rho=\frac s8$, $\delta=\frac s{16}$, $\eta=\eta_0\le\eta_*(\frac s{16})$ by
+  $\abs\omega\le W_\infty$, $\rho=\frac s8$, $\delta=\frac s{16}$, $\eta=\eta_0\le\eta_*(\frac s{16})$ by
   (s3); $K_\omega$ is primary and real on reals (Lemma~\ref{bp:p4:normalize}).
 \item $0<\gamma$, $\omega\in\Dio_{\gamma,\tau}$, and $E_1=0$ on $T_{s/16}$: Lemma~\ref{bp:p4:normalize}.
 \item $K_2$ is holomorphic on $T_{s/16}$, primary, real on reals, $E_2=0$ there; and
@@ -774,9 +769,12 @@ G2 gives $\varphi\in\R^n$ with $K'(\theta)=K_\omega(\theta+\iota\varphi)$ for $\
 \proofstep{The phase vanishes}\label{step:p4:nu-phase}
 On real points, $K'=K_\omega^{[\varphi]}$, and the phase average only involves real points. By
 Lemma~\ref{bp:p4:shift}(d), $0=\operatorname{ph}(K')=\operatorname{ph}(K_\omega)+\varphi=\varphi$. So
-$K'=K_\omega$ on $T_{s/32}$, and by the identity theorem on the connected open set $T_{s/8}$,
-$K'=K_\omega$ on $T_{s/8}$.
+$K'=K_\omega$ on $T_{s/32}\supset\R^n$, and Lemma~\ref{bp:p1:strip-identity}, applied to $K'-K_\omega$ on
+$T_{s/8}$, gives $K'=K_\omega$ on $T_{s/8}$.
 \end{proof}
+
+Corollary~\ref{bp:p4:normalized-unique} is not used in the proof of HEAD: the Lipschitz estimate below
+applies G2 directly (Step~\ref{step:p4:lip-g2}).
 
 %======================================================================
 \subsection{Lipschitz dependence on the frequency (LIP)}\label{bp:p4:sec-lip}
@@ -799,20 +797,24 @@ stability of the non-degeneracy conditions, which is Theorem~\ref{bp:p4:stab} he
 Lipschitz constant in Cor.~30 is not small, while the measure argument needs a small one; the
 action shift below is our supplement.}
 
-\begin{lemma}[Mixed second differences]\label{bp:p4:mixed-difference}
+\begin{corollary}[Mixed second differences]\label{bp:p4:mixed-difference}
 Let $U\subset\C^n$ be open, $F:U\to\C^n$ holomorphic, and $a,v,w\in\C^n$ with
-$a+sv+tw\in U$ for all $s,t\in[0,1]$. If $\abs{D^2F}\le Q$ at these points, then
+$a+tv+t'w\in U$ for all $t,t'\in[0,1]$. If $\abs{D^2F}\le Q$ at these points, then
 \begin{equation*}
 \abs{F(a+v+w)-F(a+v)-F(a+w)+F(a)}\le Q\abs v\abs w\,.
 \end{equation*}
-\end{lemma}
+\end{corollary}
 
 \begin{proof}
 \proofstep{Two mean value inequalities}\label{step:p4:mixed-proof}
-Let $\psi(s)=F(a+sv+w)-F(a+sv)$ for $s\in[0,1]$. The left side is $\abs{\psi(1)-\psi(0)}$, and
-$\psi'(s)=DF(a+sv+w)v-DF(a+sv)v$. The segment $t\mapsto a+sv+tw$ lies in $U$, so by the mean value
-inequality applied to $DF$, $\abs{\psi'(s)}\le Q\abs w\abs v$. A second mean value inequality on
-$[0,1]$ gives the claim.
+This is the argument of Lemma~\ref{bp:p1:mixed-difference}, with the mean value
+inequality~\ref{bp:p1:ext-mvt} applied on segments of the parallelogram $\{a+tv+t'w\}$, where the bound
+on $D^2F$ holds, instead of on a convex open set. By Lemma~\ref{bp:p1:holomorphic-regularity}, $DF$ is
+holomorphic on $U$ and $\abs{D(DF)}=\abs{D^2F}$. Let $\psi(t)=F(a+tv+w)-F(a+tv)$ for $t\in[0,1]$. The
+left side is $\abs{\psi(1)-\psi(0)}$, and $\psi'(t)=DF(a+tv+w)v-DF(a+tv)v$. The segment
+$t'\mapsto a+tv+t'w$ lies in the parallelogram, so by~\ref{bp:p1:ext-mvt} applied to $DF$ on it,
+$\abs{\psi'(t)}\le Q\abs w\abs v$. A second application of~\ref{bp:p1:ext-mvt} on $[0,1]$ gives the
+claim.
 \end{proof}
 
 \begin{lemma}[The error of the shifted torus]\label{bp:p4:lip-error}
@@ -849,17 +851,18 @@ P_f=X_f(K_\omega+(0,\iota\Delta I))-X_f(K_\omega)\,.
 \end{equation*}
 
 \proofstep{The integrable part: a mixed difference}\label{step:p4:le-h}
-For $s',t\in[0,1]$, $\abs{a+s'v+t\iota\Delta I-a}\le\frac34\delta_*<\frac{r_0}2$ with $I_\omega\in B$,
+For $t,t'\in[0,1]$, $\abs{a+tv+t'\iota\Delta I-a}\le\frac34\delta_*<\frac{r_0}2$ with $I_\omega\in B$,
 so these points lie in $B_{r_0/2}$. There $\nabla h=J'\circ Dh$ with
 $J'(\ell)=(\ell(e_i))_i$ of norm at most $1$, so $\abs{D^2\nabla h}\le\abs{D^3h}\le H_3$
-(Lemma~\ref{bp:p4:derivative-bounds}(b)). Lemma~\ref{bp:p4:mixed-difference} gives
+(Lemma~\ref{bp:p4:derivative-bounds}(b)). Corollary~\ref{bp:p4:mixed-difference} gives
 $\abs{P_h}\le H_3\eta_0\pfL\abs{\Delta\omega}$.
 
 \proofstep{The perturbation}\label{step:p4:le-f}
 Let $\theta\in T_{3s/32}\subset T_{s/4}$. The segment $t\mapsto K_\omega(\theta)+t(0,\iota\Delta I)$
-stays within $\frac34\delta_*$ of $K^0_\omega(\theta)$, hence in $\pfD$
-(Lemma~\ref{bp:p4:unperturbed}(g)), where $\abs{DX_f}\le F_2\varepsilon$. So
-$\abs{P_f}\le F_2\varepsilon\pfL\abs{\Delta\omega}$.
+stays within $\frac34\delta_*$ of $K^0_\omega(\theta)$, hence in the convex ball
+$U=B_{\delta_*}(K^0_\omega(\theta))\subset\pfD$ (Lemma~\ref{bp:p4:unperturbed}(g)), where
+$\abs{DX_f}\le F_2\varepsilon$. Lemma~\ref{bp:p1:increments-open}, applied to $F=X_f$ on $U$ with
+$A=F_2\varepsilon$, gives $\abs{P_f}\le F_2\varepsilon\abs{\Delta I}\le F_2\varepsilon\pfL\abs{\Delta\omega}$.
 
 \proofstep{The transport term}\label{step:p4:le-transport}
 By Lemma~\ref{bp:p1:cauchy-strip} with loss $\frac s{32}$ from $T_{s/8}$,
@@ -881,7 +884,7 @@ particular all real $\theta$,
 \begin{proof}
 \proofstep{Far pairs}\label{step:p4:lip-far}
 If $\abs{\Delta\omega}>\lambda_*\gamma^2$, then by Lemma~\ref{bp:p4:normalize}
-$\abs{W_{\omega'}-W_\omega}\le2\eta_0=2A_0\varepsilon\gamma^{-2}<(2A_0/\lambda_*)\varepsilon\gamma^{-4}\abs{\Delta\omega}$.
+$\abs{W_{\omega'}-W_\omega}\le2\eta_0=2A_0\varepsilon\gamma^{-2}\le(2A_0/\lambda_*)\varepsilon\gamma^{-4}\abs{\Delta\omega}$.
 From now on $\abs{\Delta\omega}\le\lambda_*\gamma^2$; let $K'$ and $E'$ be as in
 Lemma~\ref{bp:p4:lip-error} and $e'=A_1\varepsilon\gamma^{-2}\abs{\Delta\omega}$, so that
 $e'\le A_1\lambda_*\varepsilon$.
@@ -893,7 +896,7 @@ frequency $\omega'$, the same $\gamma$, and $e=e'$.
 \begin{itemize}
 \item H1: Lemma~\ref{bp:p4:h1} and (s1).
 \item H2--H4 on $T_{3s/32}$: Theorem~\ref{bp:p4:stab} with $I_*=I_{\omega'}\in B$, frequency
-  $\omega'$ ($\abs{\omega'}\le W$), $\rho=\frac s8$, $\delta=\frac s{32}$ and $\eta=\eta_0\le\eta_*(\frac s{32})$
+  $\omega'$ ($\abs{\omega'}\le W_\infty$), $\rho=\frac s8$, $\delta=\frac s{32}$ and $\eta=\eta_0\le\eta_*(\frac s{32})$
   (s3), using $\abs{K'-K^0_{\omega'}}\le\eta_0$ and that $K'$ is primary and real on reals
   (Lemma~\ref{bp:p4:lip-error}).
 \item H5: $0<\gamma\le1$ and $\omega'\in\Dio_{\gamma,\tau}$.
@@ -924,11 +927,11 @@ $\mathfrak B=\pfD$, $h=\pfh$, $K_1=K_{\omega'}$, $K_2=\tilde K$, the frequency $
 G2 gives $\varphi\in\R^n$ with $\tilde K(\theta)=K_{\omega'}(\theta+\iota\varphi)$ for $\theta\in T_{s/32}$.
 
 \proofstep{The phase is controlled by normalization}\label{step:p4:lip-phase}
-For real $x$, $u_{\tilde K}(\iota x)=\iota\varphi+u_{\omega'}(\iota(x+\varphi))$; averaging with
-Lemma~\ref{bp:p4:periodic-average} and $\avg{u_{\omega'}}=0$ gives
+For real $x$, $u_{\tilde K}(\iota x)=\iota\varphi+u_{\omega'}(\iota(x+\varphi))$. Taking real parts and
+averaging, Lemma~\ref{bp:p1:periodic-average} and $\operatorname{ph}(K_{\omega'})=0$ give
 $\operatorname{ph}(\tilde K)=\varphi$. The angle components of $K'$ and $K_\omega$ coincide, so
-$u_{\tilde K}-u_\omega$ is the angle component of $\tilde K-K'$; since $\avg{u_\omega}=0$,
-$\varphi=\int_{[0,1]^n}(u_{\tilde K}-u_\omega)(\iota x)\,dx$ and $\abs\varphi\le d_1$.
+$u_{\tilde K}-u_\omega$ is the angle component of $\tilde K-K'$; since $\operatorname{ph}(K_\omega)=0$,
+$\varphi=\int_{[0,1]^n}\operatorname{Re}(u_{\tilde K}-u_\omega)(\iota x)\,dx$ and $\abs\varphi\le d_1$.
 
 \proofstep{Conclusion for close pairs}\label{step:p4:lip-close}
 Let $\theta\in T_{s/32}$. Then $K_{\omega'}(\theta)=\tilde K(\theta-\iota\varphi)$, and
@@ -951,48 +954,9 @@ real points, check analyticity, primarity and the embedding property from the sm
 $DW_\omega$, derive the Lagrangian property from invariance and nonresonance, and obtain the
 Hamiltonian equations from the invariance equation.
 
-\begin{lemma}[Restriction to real points]\label{bp:p4:real-restriction}
-Let $K$ be holomorphic on $T_\rho$ and real on reals, and define $k:\R^n\to\R^n\times\R^n$ by
-$\iota k(x)=K(\iota x)$ (componentwise real parts). Then:
-\begin{enumerate}[label=(\alph*)]
-\item $k$ is real-analytic on $\R^n$ (\Lean{AnalyticOnNhd} $\R$ $k$ \Lean{univ});
-\item $k$ is differentiable and $\iota(Dk(x)v)=DK(\iota x)(\iota v)$ for $x,v\in\R^n$; hence
-  $\abs{Dk(x)}\le\abs{DK(\iota x)}$;
-\item if $K$ is primary on $T_\rho$, then $k(x+m)=k(x)+(m,0)$ for $m\in\Z^n$.
-\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-\proofstep{Analyticity}\label{step:p4:rr-analytic}
-A function holomorphic on an open subset of $\C^n$ is complex-analytic there
-(Mathlib: \Lean{DifferentiableOn.analyticOnNhd}); restricting scalars and composing with the
-$\R$-linear map $\iota$ makes $x\mapsto K(\iota x)$ real-analytic on $\R^n$, and $k$ is its
-composition with the continuous $\R$-linear map taking real parts.
-
-\proofstep{Derivative}\label{step:p4:rr-derivative}
-By the chain rule $D(K\circ\iota)(x)v=DK(\iota x)(\iota v)$. Since $K\circ\iota$ takes values in
-$\iota(\R^{2n})$, its difference quotients are real and so is their limit; hence
-$D(K\circ\iota)(x)v=\iota(Dk(x)v)$. The norm bound follows because $\iota$ preserves the max norm.
-Item (c) is the primarity identity at the real point $\iota x$.
-\end{proof}
-
-\begin{lemma}[Real and complex Hamiltonian vector fields]\label{bp:p4:hamiltonian-real}
-Assume $\varepsilon\le1$ and let $z\in\R^n\times\R^n$ with $\iota z\in\pfD$. Then
-$H=\Lean{realHamiltonian}\,h\,f$ is differentiable at $z$ and
-$\iota\bigl(X_H(z)\bigr)=X_\pfh(\iota z)$, where $X_H$ is the frozen \Lean{hamiltonianVectorField}.
-\end{lemma}
-
-\begin{proof}
-\proofstep{The real Hamiltonian near $z$}\label{step:p4:hr-proof}
-By definition $H(y)=\operatorname{Re}\pfh(\iota y)$ for every real $y$. The set
-$\{y:\iota y\in\pfD\}$ is an open neighbourhood of $z$ on which $\varphi(y)=\pfh(\iota y)$ is
-real-valued (Lemma~\ref{bp:p4:h1}) and $\R$-differentiable with
-$D\varphi(y)e=D\pfh(\iota y)(\iota e)$, a real number by the argument of
-Step~\ref{step:p4:fm-gradient}. So $H=\varphi$ near $z$ and $DH(z)e=D\pfh(\iota z)(\iota e)$.
-Comparing the frozen formulas componentwise,
-$X_H(z)=\bigl((DH(z)(0,e_i))_i,(-DH(z)(e_i,0))_i\bigr)$ is the real point whose image under $\iota$ is
-$X_\pfh(\iota z)$.
-\end{proof}
+For $K$ holomorphic on a strip and real on reals, its restriction $k$ to real points, $\iota k(x)=K(\iota x)$,
+is described by Lemma~\ref{bp:p1:real-restriction}; the real and complex Hamiltonian vector fields are
+compared by Lemma~\ref{bp:p1:hamiltonian-real}.
 
 \begin{lemma}[Invariant tori with nonresonant frequency are Lagrangian]\label{bp:p4:lagrangian}
 Assume $\varepsilon\le1$. Let $\rho>0$, $\gamma>0$, $\omega\in\Dio_{\gamma,\tau}$, and let $K$ be
@@ -1008,12 +972,13 @@ well known \dots\ see [6, 41]'') without proof. The proof below supplies it.}
 
 \begin{proof}
 \proofstep{Regularity and periodicity}\label{step:p4:lag-regular}
-Write $K=(\theta+u,v)$. By Step~\ref{step:p4:tr-periodic}, $u$, $v$ and $DK$ are $\Z^n$-periodic
-on $T_\rho$; $\Lambda$ is holomorphic, periodic and bounded on $T_\rho$. On $T_{\rho/2}$ the
+Write $K=(\theta+u,v)$. Primarity gives $u(\theta+k)=u(\theta)$ and $v(\theta+k)=v(\theta)$ on $T_\rho$, and
+differentiating on the open set $T_\rho$ shows that $DK$ is $\Z^n$-periodic; $DK$ is holomorphic
+(Lemma~\ref{bp:p1:holomorphic-regularity}). Hence $\Lambda$ is holomorphic, periodic and bounded on $T_\rho$. On $T_{\rho/2}$ the
 functions $u,v,Du$ are bounded by Lemma~\ref{bp:p1:periodic-bounded}.
 
 \proofstep{$\Lambda$ is a sum of derivatives}\label{step:p4:lag-exact}
-By Lemma~\ref{bp:p4:matrix-norms}(iv),
+By Corollary~\ref{bp:p4:matrix-norms}(iv),
 $\Lambda_{ij}=\sum_m(\partial_iv_m\,\partial_jK_{1,m}-\partial_iK_{1,m}\,\partial_jv_m)$ with
 $\partial_jK_{1,m}=\delta_{jm}+\partial_ju_m$. Using $\partial_i\partial_ju=\partial_j\partial_iu$,
 \begin{equation*}
@@ -1024,10 +989,10 @@ $\avg\Lambda=0$ by Lemma~\ref{bp:p1:averages}.
 
 \proofstep{$\Lambda$ is constant along $\omega$}\label{step:p4:lag-transport}
 Differentiating $X_\pfh(K(\theta))=DK(\theta)\omega$ in the direction $e_i$ and using the
-symmetry of $D^2K$ gives $DX_\pfh(K)\partial_iK=\partial_\omega\partial_iK$. By
+symmetry of $D^2K$ (Lemma~\ref{bp:p1:holomorphic-regularity}) gives $DX_\pfh(K)\partial_iK=\partial_\omega\partial_iK$. By
 Step~\ref{step:p4:db-vectorfield}, $DX_\pfh(z)=-\Omega_0S(z)$, where $S(z)$ is the complex Hessian
-matrix of $\pfh$ in the coordinates $(\theta,I)$, which is symmetric. Hence, by
-Lemma~\ref{bp:p4:matrix-norms}(iv),
+matrix of $\pfh$ in the coordinates $(\theta,I)$, which is symmetric by the same lemma. Hence, by
+Corollary~\ref{bp:p4:matrix-norms}(iv),
 \begin{equation*}
 \partial_\omega\Lambda_{ij}=-(\Omega_0S\partial_iK)^\top\Omega_0\partial_jK-\partial_iK^\top\Omega_0\Omega_0S\partial_jK
 =-\partial_iK^\top S^\top\partial_jK+\partial_iK^\top S\partial_jK=0\,.
@@ -1037,13 +1002,13 @@ Lemma~\ref{bp:p4:matrix-norms}(iv),
 Apply Lemma~\ref{bp:p1:cohomological} on $T_{\rho/2}$ with $g=0$ and loss $\rho/4$, entrywise:
 there is exactly one holomorphic periodic $w$ on $T_{\rho/4}$ with $\avg w=0$ and $Dw\,\omega=0$.
 Both $w=0$ and $w=\Lambda_{ij}$ qualify (Steps~\ref{step:p4:lag-exact}
-and~\ref{step:p4:lag-transport}), so $\Lambda=0$ on $T_{\rho/4}$, and on $T_\rho$ by the identity
-theorem.
+and~\ref{step:p4:lag-transport}), so $\Lambda=0$ on $T_{\rho/4}\supset\R^n$, and on $T_\rho$ by
+Lemma~\ref{bp:p1:strip-identity}.
 \end{proof}
 
 \begin{theorem}[The real tori are KAM tori]\label{bp:p4:real-torus}
 Assume~\eqref{bp:p4:SA} and let $\omega\in\Omega_\gamma$. Let $k_\omega$ be the restriction of
-$K_\omega$ to real points (Lemma~\ref{bp:p4:real-restriction}). Then:
+$K_\omega$ to real points (Lemma~\ref{bp:p1:real-restriction}). Then:
 \begin{enumerate}[label=(\roman*)]
 \item $k_\omega$ is an invariant Lagrangian torus of $H=\Lean{realHamiltonian}\,h\,f$ with
   frequency $\omega$ (Definition~\ref{bp:p0:torus});
@@ -1057,13 +1022,14 @@ with witnesses $K=k_\omega$, $\omega$, $\gamma$ and $I_0=I_\omega$.
 
 \begin{proof}
 \proofstep{Analyticity and primarity}\label{step:p4:rt-analytic}
-Lemma~\ref{bp:p4:real-restriction}(a),(c) and Lemma~\ref{bp:p4:normalize}.
+Lemma~\ref{bp:p1:real-restriction}, which rests on Lemma~\ref{bp:p1:holomorphic-analytic}, applied to
+$K_\omega$, which is holomorphic and primary on $T_{s/8}$ and real on reals (Lemma~\ref{bp:p4:normalize}).
 
 \proofstep{Small angle displacement}\label{step:p4:rt-small}
 Let $w(x)=k_\omega(x)-(x,I_\omega)$, the real restriction of $W_\omega$, and $\tilde u=w_1$. By
 Lemma~\ref{bp:p1:cauchy-strip} from $T_{s/8}$ with loss $\frac s{16}$ and (s3),
 $\abs{DW_\omega}\le16n\eta_0/s\le\frac12$ on $T_{s/16}\supset\iota\R^n$; by
-Lemma~\ref{bp:p4:real-restriction}(b), $\abs{D\tilde u(x)}\le\frac12$ for every $x\in\R^n$, and
+Lemma~\ref{bp:p1:real-restriction}, $\abs{D\tilde u(x)}\le\frac12$ for every $x\in\R^n$, and
 $\tilde u$ is $\Z^n$-periodic.
 
 \proofstep{Immersion}\label{step:p4:rt-immersion}
@@ -1080,23 +1046,26 @@ so $x'=x+m$.
 Lemma~\ref{bp:p4:lagrangian} applies to $K_\omega$ on $T_{s/8}$: it is holomorphic and primary,
 $K_\omega(T_{s/8})\subset\pfD$ and $\abs{DK_\omega}\le\sigma_K$ (Lemma~\ref{bp:p4:normalize}),
 $E=0$, $\gamma>0$, $\omega\in\Dio_{\gamma,\tau}$, and $\varepsilon\le1$ by (s1). For real $x,u,v$,
-Lemma~\ref{bp:p4:matrix-norms}(iv) and Lemma~\ref{bp:p4:real-restriction}(b) give
+Corollary~\ref{bp:p4:matrix-norms}(iv) and Lemma~\ref{bp:p1:real-restriction} give
 $\Lean{symplecticForm}(Dk_\omega(x)u,Dk_\omega(x)v)=(\iota u)^\top\Lambda(\iota x)(\iota v)=0$.
 
 \proofstep{Hamilton's equations}\label{step:p4:rt-ode}
 Fix $x\in\R^n$, $t\in\R$, and put $y=x+t\omega$. Then $\iota k_\omega(y)=K_\omega(\iota y)\in\pfD$,
-so by Lemma~\ref{bp:p4:hamiltonian-real}, invariance at $\iota y\in T_{s/8}$, and
-Lemma~\ref{bp:p4:real-restriction}(b),
+and Lemma~\ref{bp:p1:hamiltonian-real} applies with $V=\pfD$, $h=\pfh$ (holomorphic on $\pfD$ and real at
+its real points by Lemma~\ref{bp:p4:h1} and (s1)), the real point $k_\omega(y)$, and
+$H=\Lean{realHamiltonian}\,h\,f$, which equals $\operatorname{Re}\pfh\circ\iota$ at every real point
+(Definition~\ref{bp:p0:nearlyintegrable}). With invariance at $\iota y\in T_{s/8}$ and
+Lemma~\ref{bp:p1:real-restriction},
 $\iota X_H(k_\omega(y))=X_\pfh(K_\omega(\iota y))=DK_\omega(\iota y)(\iota\omega)=\iota\bigl(Dk_\omega(y)\omega\bigr)$.
-By the chain rule, $s\mapsto k_\omega(x+s\omega)$ has derivative $Dk_\omega(y)\omega=X_H(k_\omega(y))$
-at $s=t$, which is clause (vi) of Definition~\ref{bp:p0:torus}.
+By the chain rule, $t'\mapsto k_\omega(x+t'\omega)$ has derivative $Dk_\omega(y)\omega=X_H(k_\omega(y))$
+at $t'=t$, which is clause (vi) of Definition~\ref{bp:p0:torus}.
 
 \proofstep{Cover clauses}\label{step:p4:rt-cover}
 $\abs{k_\omega(x)-(x,I_\omega)}=\abs{W_\omega(\iota x)}\le\eta_0$ (Lemma~\ref{bp:p4:normalize}),
 which is (iv); in particular $\abs{k_\omega(x)_2-I_\omega}\le\eta_0\le\mu<r_0$ by (s3), which is (ii)
 with $J=I_\omega\in B$; (iii) is Lemma~\ref{bp:p4:inverse-freq}. Together with $\gamma>0$ and
 $\omega\in\Dio_{\gamma,\tau}$ these are all the clauses of Definition~\ref{bp:p0:cover} with
-$\delta=\eta_0$.
+cover radius $\eta_0$.
 \end{proof}
 
 %======================================================================
@@ -1111,27 +1080,9 @@ extension is a lipeomorphism of $\R^{2n}$ fixing the boundary layer. A point of
 $[0,1)^n\times B$ off the tori is then the image of a point whose action is bad: too close to the
 boundary, or with a frequency that is not $(\gamma,\tau)$-Diophantine. Both sets of bad actions have
 measure $O(\gamma)$.
-\source{Pos01 Prop.~1--2, p.~11, and App.~B, p.~31; BC17 \S6.6, Lemma~6 and footnote~32, pp.~17--18
+\source{Pos01 Prop.~1--2, p.~11, and App.~B, p.~31; BC17 \S6.6, Lemma~6 and footnotes~28 and~32, pp.~17--18
 (ledger D-MEAS-1). We work in action coordinates rather than frequency coordinates; see
-Remark~\ref{bp:p4:omega-gamma} and the ledger candidates.}
-
-\begin{lemma}[Lipschitz images]\label{bp:p4:lip-image}
-Let $N\ge1$, $S\subset\R^N$ any set, and $F:S\to\R^N$ with $\abs{F(x)-F(y)}\le\lambda\abs{x-y}$
-for the max norm. Then $\meas F(S)\le\lambda^N\meas S$ (outer measures). The same holds on
-$\R^n\times\R^n$ with the max norm of the two components and the product Lebesgue measure.
-\end{lemma}
-
-\begin{proof}
-\proofstep{Hausdorff measure}\label{step:p4:li-proof}
-For the max norm on $\R^N$ the $N$-dimensional Hausdorff measure equals Lebesgue measure
-(Mathlib: \nolinkurl{MeasureTheory.hausdorffMeasure_pi_real}), and a $\lambda$-Lipschitz map on any
-set multiplies $\mu_H^N$ by at most $\lambda^N$
-(\nolinkurl{LipschitzOnWith.hausdorffMeasure_image_le}).
-The identification $\R^n\times\R^n\cong\R^{2n}$ is an isometry for the max norms and carries the
-product of Lebesgue measures to Lebesgue measure.
-\end{proof}
-\source{BC17, footnote~32, p.~18: ``If $A\subseteq\R^n$ is a measurable set and $f:A\to\R^n$ is a
-Lipschitz map, then $\meas f(A)\le\abs f^n_{\mathrm{Lip},A}\meas A$.''}
+Remark~\ref{bp:p4:omega-gamma} and Remark~\ref{bp:p4:deviations}.}
 
 \begin{lemma}[Actions with non-Diophantine frequency]\label{bp:p4:preimage-measure}
 Let $C_3$ be the constant of Theorem~\ref{bp:p0:g3} for the bounded set $\Omega=\pfg(B)$
@@ -1145,53 +1096,8 @@ Let $C_3$ be the constant of Theorem~\ref{bp:p0:g3} for the bounded set $\Omega=
 \proofstep{Image under the inverse frequency map}\label{step:p4:pm-proof}
 The set is the image of $\{\omega\in\pfg(B):\omega\notin\Dio_{\alpha,\tau}\}$ under the inverse of
 $\pfg$, which is $\pfL$-Lipschitz on $\pfg(\bar B)$ (Lemma~\ref{bp:p4:inverse-freq}). Apply
-Lemma~\ref{bp:p4:lip-image} with $N=n$ and Theorem~\ref{bp:p0:g3}.
+Lemma~\ref{bp:p1:lip-image} with $d=n$ and Theorem~\ref{bp:p0:g3}.
 \end{proof}
-
-\begin{lemma}[McShane extension with a sup bound]\label{bp:p4:mcshane}
-Let $X$ be a metric space, $S\subset X$, $\lambda,\beta\ge0$, and $\phi:S\to\R^m$ with
-$\abs{\phi(x)-\phi(y)}\le\lambda d(x,y)$ and $\abs{\phi(x)}\le\beta$ (max norm) for $x,y\in S$.
-Then there is $\Phi:X\to\R^m$ with $\Phi=\phi$ on $S$, $\abs{\Phi(x)-\Phi(y)}\le\lambda d(x,y)$
-and $\abs\Phi\le\beta$ on $X$.
-\end{lemma}
-
-\begin{proof}
-\proofstep{One component}\label{step:p4:mc-component}
-If $S=\emptyset$ take $\Phi=0$. Otherwise, for each component $\phi_j$ put
-$U_j(x)=\inf_{z\in S}\bigl(\phi_j(z)+\lambda d(x,z)\bigr)$. It is finite, since every term is at least
-$\phi_j(z_0)-\lambda d(x,z_0)$ for a fixed $z_0\in S$; it is $\lambda$-Lipschitz as an infimum of
-$\lambda$-Lipschitz functions; and $U_j=\phi_j$ on $S$ because $\phi_j(z)+\lambda d(x,z)\ge\phi_j(x)$
-for $x,z\in S$, with equality at $z=x$. (This is the formula of Pos01 App.~B with $\sup$ and $\inf$
-exchanged; Mathlib: \Lean{LipschitzOnWith.extend\_real}.)
-
-\proofstep{Clamping}\label{step:p4:mc-clamp}
-Let $\Phi_j=\max(-\beta,\min(\beta,U_j))$. Clamping is $1$-Lipschitz and fixes $[-\beta,\beta]$, so
-$\Phi_j$ is $\lambda$-Lipschitz, extends $\phi_j$, and $\abs{\Phi_j}\le\beta$. In the max norm,
-$\Phi=(\Phi_j)_j$ is $\lambda$-Lipschitz because each component is.
-\end{proof}
-
-\begin{lemma}[Lipeomorphisms]\label{bp:p4:lipeo}
-Let $G:\R^N\to\R^N$ be $\eta$-Lipschitz with $\eta<1$ and $\Psi=\mathrm{id}+G$. Then $\Psi$ is a
-bijection, $(1-\eta)\abs{x-y}\le\abs{\Psi(x)-\Psi(y)}\le(1+\eta)\abs{x-y}$, and if $G=0$ on a set
-$Z'$ then $\Psi$ maps $\R^N\setminus Z'$ onto itself.
-\end{lemma}
-
-\begin{proof}
-\proofstep{Bi-Lipschitz bounds and injectivity}\label{step:p4:lipeo-inj}
-The two inequalities are the triangle inequality; the lower one gives injectivity.
-
-\proofstep{Surjectivity}\label{step:p4:lipeo-onto}
-For $y\in\R^N$, the map $x\mapsto y-G(x)$ is a contraction of the complete space $\R^N$, so it has
-a fixed point $x$, and $\Psi(x)=y$ (Banach fixed point theorem; Mathlib:
-\Lean{ContractingWith.fixedPoint}).
-
-\proofstep{The fixed region}\label{step:p4:lipeo-fixed}
-If $x\notin Z'$ and $\Psi(x)\in Z'$, then $\Psi(\Psi(x))=\Psi(x)$, so $\Psi(x)=x\notin Z'$ by
-injectivity, a contradiction. If $y\notin Z'$ and $y=\Psi(x)$ with $x\in Z'$, then $y=x\in Z'$, a
-contradiction. So $\Psi$ maps $\R^N\setminus Z'$ into and onto itself.
-\end{proof}
-\source{Pos01 Prop.~1, p.~11 (``Hence $\bar\varphi$ is a lipeomorphism on $\R^n$''); BC17 footnote~28,
-p.~17.}
 
 \begin{definition}[Good actions and the displacement]\label{bp:p4:good-actions}
 Assume~\eqref{bp:p4:SA}. Put
@@ -1220,7 +1126,7 @@ restriction of $W_\omega$ has derivative at most $16n\eta_0/s=A_4\varepsilon\gam
 convex set $\R^n$; by Theorem~\ref{bp:p4:lip} and Lemma~\ref{bp:p4:freq-map}(v),
 \begin{align*}
 \abs{G_0(\theta,I)-G_0(\theta',J)}&\le\abs{W_{\pfg(I)}(\theta)-W_{\pfg(I)}(\theta')}+\abs{W_{\pfg(I)}(\theta')-W_{\pfg(J)}(\theta')}\\
-&\le A_4\varepsilon\gamma^{-2}\abs{\theta-\theta'}+A_3\varepsilon\gamma^{-4}\Lambda\abs{I-J}\le\tfrac14\abs{(\theta,I)-(\theta',J)}\,,
+&\le A_4\varepsilon\gamma^{-2}\abs{\theta-\theta'}+A_3\varepsilon\gamma^{-4}\Lambda_g\abs{I-J}\le\tfrac14\abs{(\theta,I)-(\theta',J)}\,,
 \end{align*}
 by (s6) and $\gamma\le1$.
 
@@ -1242,11 +1148,12 @@ $C_{\mathrm{meas}}=2C_B^++(9/2)^n\bigl(2C_B^++\pfL^nC_3^+\bigr)$. Then
 
 \begin{proof}
 \proofstep{Extension and lipeomorphism}\label{step:p4:mm-extension}
-By Lemmas~\ref{bp:p4:map-lipschitz} and~\ref{bp:p4:mcshane} (with $X=\R^n\times\R^n$, max norm,
-$S=\R^n\times(A_\gamma\cup Z)$, $\lambda=\frac12$, $\beta=\eta_0$) there is
-$\bar G:\R^{2n}\to\R^{2n}$, $\frac12$-Lipschitz, with $\bar G=G_0$ on $S$ and $\abs{\bar G}\le\eta_0\le\frac12$.
-By Lemma~\ref{bp:p4:lipeo}, $\Psi=\mathrm{id}+\bar G$ is a bijection of $\R^{2n}$, it is
-$\frac32$-Lipschitz, and it maps $\R^n\times Z^c$ onto itself because $\bar G=0$ on $\R^n\times Z$.
+By Lemmas~\ref{bp:p4:map-lipschitz} and~\ref{bp:p1:mcshane} (the formula of Pos01 App.~B, with the metric
+space $\R^n\times\R^n$ with the max norm, target $\R^{2n}$, $S=\R^n\times(A_\gamma\cup Z)$, Lipschitz
+constant $\frac12$, and clamping at the sup bound $\eta_0$) there is $\bar G:\R^{2n}\to\R^{2n}$,
+$\frac12$-Lipschitz, with $\bar G=G_0$ on $S$ and $\abs{\bar G}\le\eta_0\le\frac12$.
+By Lemma~\ref{bp:p1:lipeo} with $d=2n$ and Remark~\ref{bp:p1:lip-image-product},
+$\Psi=\mathrm{id}+\bar G$ is a bijection of $\R^{2n}$, it is $\frac32$-Lipschitz, and it maps $\R^n\times Z^c$ onto itself because $\bar G=0$ on $\R^n\times Z$.
 
 \proofstep{Good actions lie on tori}\label{step:p4:mm-tori}
 For $I\in A_\gamma$ and $\theta\in\R^n$, $\Psi(\theta,I)=k_{\pfg(I)}(\theta)\in\mathcal K(\eta_0)$ by
@@ -1269,7 +1176,7 @@ Lemma~\ref{bp:p4:preimage-measure} the second set has measure at most $\pfL^nC_3
 
 \proofstep{Measure count}\label{step:p4:mm-count}
 The product measure of $[0,1)^n\times(B\cap Z)$ is $\meas(B\cap Z)\le2C_B^+\gamma$. By
-Lemma~\ref{bp:p4:lip-image} with $N=2n$ and $\lambda=\frac32$,
+Lemma~\ref{bp:p1:lip-image} on $\R^n\times\R^n$ with $\Lambda=\frac32$,
 \begin{equation*}
 \meas\Psi\bigl(Q\times(Z^c\setminus A_\gamma)\bigr)\le(\tfrac32)^{2n}\,2^n\,\meas(Z^c\setminus A_\gamma)\le(\tfrac92)^n\bigl(2C_B^++\pfL^nC_3^+\bigr)\gamma\,.
 \end{equation*}
@@ -1277,8 +1184,8 @@ Subadditivity gives the claim.
 \end{proof}
 
 \begin{lemma}[Monotonicity of the cover]\label{bp:p4:cover-mono}
-If $B'\subset B$ and $\delta'\le\delta$, then
-$\Lean{kamCover}\,h\,f\,B'\,r_0\,\tau\,\delta'\subset\Lean{kamCover}\,h\,f\,B\,r_0\,\tau\,\delta$.
+If $B'\subset B$ and $\kappa'\le\kappa$, then
+$\Lean{kamCover}\,h\,f\,B'\,r_0\,\tau\,\kappa'\subset\Lean{kamCover}\,h\,f\,B\,r_0\,\tau\,\kappa$.
 \end{lemma}
 
 \begin{proof}
@@ -1287,7 +1194,7 @@ Keep the witnesses $K,\omega,\gamma,I_0$ of Definition~\ref{bp:p0:cover}. The cl
 Diophantine, invariant Lagrangian torus of $\Lean{realHamiltonian}\,h\,f$ (which does not involve
 $B$), $\pfg(I_0)=\omega$ and $z\in K(\R^n)$ are unchanged. A point $J\in B'$ with
 $\abs{K(\theta)_2-J}<r_0$ lies in $B$; $I_0\in B'\subset B$; and
-$\abs{K(\theta)-(\theta,I_0)}\le\delta'\le\delta$.
+$\abs{K(\theta)-(\theta,I_0)}\le\kappa'\le\kappa$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{bp:p0:head}]
@@ -1300,7 +1207,7 @@ With $c_*$, $A_0$ (Definition~\ref{bp:p4:parameters}) and $C_{\mathrm{meas}}$
 \begin{equation*}
 C=\max\bigl(1,\ A_0c_*^{1/2},\ C_{\mathrm{meas}}c_*^{-1/4}\bigr)\,,\qquad\varepsilon_0=c_*\,.
 \end{equation*}
-Both are positive and depend only on the data $n,\tau,s_0,r_0,B,h$ and the witnesses $L,C_B$,
+Both are positive and depend only on the data $n,\tau,s_0,r_0,B,h$ and the witnesses $L_h,C_B$,
 which are fixed once from the hypotheses. Let $f$ and $\varepsilon\le\varepsilon_0$ satisfy the
 hypotheses of HEAD.
 
@@ -1332,7 +1239,7 @@ remainder $B\setminus B'$ into the allowed fraction $\kappa$.
 \begin{lemma}[Inner dyadic approximation]\label{bp:p4:dyadic-approx}
 Let $B\subset\R^n$ be open and bounded and $\eta>0$. There is an open set $B'\subset B$ with
 $\meas(B\setminus B')\le\eta$ and a constant $C_{B'}$ with
-$\meas\{I\in B':\infd(I,B'^c)<\delta\}\le C_{B'}\delta$ for all $\delta>0$.
+$\meas\{I\in B':\infd(I,B'^c)<t\}\le C_{B'}t$ for all layer widths $t>0$.
 \end{lemma}
 
 \begin{proof}
@@ -1350,11 +1257,11 @@ It is open, $B'\subset E_j\subset B$, and $E_j\setminus B'$ lies in the union of
 null set. Hence $\meas(B\setminus B')\le\eta$.
 
 \proofstep{Boundary layer}\label{step:p4:dy-layer}
-Let $I\in B'$ with $\infd(I,B'^c)<\delta$, and let $Q$ be a cube of $\mathcal D_j$ with
+Let $I\in B'$ with $\infd(I,B'^c)<t$, and let $Q$ be a cube of $\mathcal D_j$ with
 $I\in\operatorname{int}Q$. Since $B'^c\subset(\operatorname{int}Q)^c$,
-$\infd(I,(\operatorname{int}Q)^c)<\delta$. For $Q=c+[0,\ell]^n$ in the max norm this means that some
-coordinate satisfies $I_i-c_i<\delta$ or $c_i+\ell-I_i<\delta$, so $I\in Q\setminus(c+[\delta,\ell-\delta]^n)$,
-a set of measure $\ell^n-(\ell-2\delta)_+^n\le2n\delta\ell^{n-1}$. Summing over the cubes,
+$\infd(I,(\operatorname{int}Q)^c)<t$. For $Q=c+[0,\ell]^n$ in the max norm this means that some
+coordinate satisfies $I_i-c_i<t$ or $c_i+\ell-I_i<t$, so $I\in Q\setminus(c+[t,\ell-t]^n)$,
+a set of measure $\ell^n-(\ell-2t)_+^n\le2nt\ell^{n-1}$. Summing over the cubes,
 $C_{B'}=2nN\ell^{n-1}$ works.
 \end{proof}
 
@@ -1372,7 +1279,7 @@ The data $(n,\tau,s_0,r_0,B',h)$ satisfy the hypotheses of Theorem~\ref{bp:p0:he
 bounded (as a subset of $B$) and has the boundary-layer property with $C_{B'}$; $B'_{r_0}\subset B_{r_0}$,
 so $h$ is holomorphic on $B'_{r_0}$ and real at its real points; and
 $\overline{B'}\subset\bar B$, so the nondegeneracy inequality holds on $\overline{B'}$ with the same
-$L$. HEAD gives $C'>0$ and $\varepsilon_0'>0$. Put
+$L_h$. HEAD gives $C'>0$ and $\varepsilon_0'>0$. Put
 \begin{equation*}
 \varepsilon_0=\min\Bigl(\varepsilon_0',\ \bigl(\kappa/C'\bigr)^2,\ \bigl(\kappa\meas B/(2C')\bigr)^4\Bigr)>0\,.
 \end{equation*}
@@ -1396,67 +1303,24 @@ and
 \end{proof}
 
 %======================================================================
-\subsection{Applications of G1 and G2, transfers and ledger candidates}\label{bp:p4:sec-notes}
+\subsection{Applications of G1--G3 and deviations}\label{bp:p4:sec-notes}
 
 \paragraph{Applications of G1, G2 and G3.} G1 (Theorem~\ref{bp:p0:g1}) is applied twice:
 in Step~\ref{step:p4:apply-g1} at $K^0_\omega$ on $T_{s/4}$ (output on $T_{s/8}$), and in
 Step~\ref{step:p4:lip-g1} at $K_\omega+(0,\iota\Delta I)$ on $T_{3s/32}$ (output on $T_{s/16}$).
 G2 (Theorem~\ref{bp:p0:g2}) is applied twice on $T_{s/16}$: in Step~\ref{step:p4:nu-g2} (uniqueness
-of the normalized torus) and in Step~\ref{step:p4:lip-g2} (comparison at $\omega'$). Every
+of the normalized torus, not used for HEAD) and in Step~\ref{step:p4:lip-g2} (comparison at $\omega'$). Every
 application uses $\mathfrak B=\pfD$, $h=\pfh$ and the parameters of
 Definition~\ref{bp:p4:parameters}; each lists the frozen hypotheses with the lemma that checks them.
-G3 is applied once, in Lemma~\ref{bp:p4:preimage-measure}.
+G3 is applied once, in Lemma~\ref{bp:p4:preimage-measure}. The constants $C,\varepsilon_0$ of HEAD depend on the witnesses $L_h$ and $C_B$, which the
+existential hypotheses provide before $C,\varepsilon_0$ are chosen; G3 allows a negative constant, which is
+harmless (Lemma~\ref{bp:p4:preimage-measure} uses $\max(C_3,0)$). The proofs establish HEAD, HEAD-Q and
+G3 exactly as frozen.
 
-\paragraph{Transfer requests to Part~\ref{bp:p1}.} The following infrastructure is stated and
-proved here and may move to Part~\ref{bp:p1}: Lemma~\ref{bp:p4:matrix-norms}(iv) (the bilinear
-form of $\Omega_0$ and \Lean{symplecticForm}; the other items are already in Part~\ref{bp:p1});
-Lemma~\ref{bp:p4:torsion-regular} (guarded facts for the Gram inverse, the
-frame and the torsion; alternatively Part~\ref{bp:p2}); Lemma~\ref{bp:p4:periodic-average};
-Lemma~\ref{bp:p4:real-restriction}; Lemma~\ref{bp:p4:hamiltonian-real};
-Lemma~\ref{bp:p4:mixed-difference}; Lemma~\ref{bp:p4:lip-image}; Lemma~\ref{bp:p4:mcshane};
-Lemma~\ref{bp:p4:lipeo}; the identity $X_\phi=J\circ D\phi$ with its consequences
-(Step~\ref{step:p4:db-vectorfield}); the second-derivative Cauchy estimate on strips obtained by two
-applications of Lemma~\ref{bp:p1:cauchy-strip} (Step~\ref{step:p4:stab-cauchy}).
-
-\paragraph{Requests to the orchestrator.}
-\begin{enumerate}[label=(R\arabic*)]
-\item Lemma~\ref{bp:p1:cohomological} now states uniqueness without a boundedness assumption;
-  Lemma~\ref{bp:p4:lagrangian} uses it with $g=0$. Please keep $g=0$ admissible (it is: $\avg0=0$).
-\item Lemma~\ref{bp:p1:cauchy-open}: please fix that $D^j$ is the $j$-th Fréchet derivative
-  (\Lean{iteratedFDeriv}) with the operator norm for max norms. Part~\ref{bp:p4} applies it to
-  scalar functions only and passes to $X_\phi$ through Step~\ref{step:p4:db-vectorfield}.
-\item Part~\ref{bp:p0} uses $B$ both for the action domain and for the Gram inverse
-  (Definition~\ref{bp:p0:stripdata}); Part~\ref{bp:p4} writes $G_K^{-1}$ for the latter. A common
-  renaming would help the graph extraction.
-\item \texttt{docs/statement.md} lists $B$ as nonempty; the frozen Lean statements do not, and the
-  proofs above treat $B=\emptyset$ separately. No change is needed.
-\item The strip losses of the route verdict (\texttt{docs/PLAN.md}) are realized as
-  $\frac s4\to\frac s8\to\frac{3s}{32}\to\frac s{16}\to\frac s{32}$ with $s=\min(s_0,1)$.
-\item The provider of G3 depends only on Section~\ref{bp:p4:sec-g3} and can start at once.
-\end{enumerate}
-
-\paragraph{Ledger candidates.} Unverified until checked by an independent verifier; quotations are
-from the pinned arXiv PDF of Pos01.
-\begin{enumerate}[label=(L\arabic*)]
-\item E-Pos01-3 (existing candidate, checked by this writer against the pinned PDF). Pos01, p.~13:
-  ``the measure of the complement of all those tori in the phase space is bounded by a constant
-  times the measure of $\Omega_\alpha\times T^n$, hence is $O(\alpha)$''. It should be
-  $(\Omega-\Omega_\alpha)\times T^n$, as in Proposition~2. Typo.
-\item New candidate. Pos01, p.~6: ``$m(\Omega-\Omega_\alpha)=O(\alpha)$, provided the boundary of
-  $\Omega$ is piecewise smooth, or at least of dimension $n-1$ so that the measure of a boundary
-  layer of size $\alpha$ is $O(\alpha)$''. A boundary of (Hausdorff) dimension $n-1$ does not give
-  $O(\alpha)$ layers: for $n=1$ and $\Omega=(0,1)\setminus\{1/k:k\ge2\}$, $\partial\Omega$ is countable
-  (dimension $0=n-1$), but the inner layer of width $\alpha$ has measure at least $c\sqrt\alpha$
-  (about $(2\alpha)^{-1/2}$ points of $\partial\Omega$ are more than $2\alpha$ apart). Correction: require
-  finite upper $(n-1)$-dimensional Minkowski content of $\partial\Omega$, or directly the layer bound,
-  as HEAD does. Kind: imprecise hypothesis; no effect on our statements.
-\item New candidate. Pos01, p.~11, proof of Proposition~2:
-  ``$m(\bar\varphi(\Omega-\Omega_\alpha))\le\abs{\bar\varphi}_{L,\Omega}\,m(\Omega-\Omega_\alpha)$''. In
-  dimension $n$ the Lipschitz constant enters to the power $n$ (cf.\ BC17, footnote~32, p.~18), so the
-  bound should read $\abs{\bar\varphi}^n_{L,\Omega}$. Typo; only constants change.
-\end{enumerate}
-
-\paragraph{Deviations introduced here.}
+\begin{remark}[Deviations from the sources]\label{bp:p4:deviations}
+The errata candidates of Pos01 checked or found while writing this part are recorded in
+\texttt{docs/errata/ledger.json} (E-Pos01-3, E-Pos01-4, E-Pos01-5). The deviations introduced here are the
+following.
 \begin{enumerate}[label=(V\arabic*)]
 \item Measure step in action coordinates; this refines D-MEAS-1. The displacement $G_0$ of
   Definition~\ref{bp:p4:good-actions}, which is $k_{\nabla h(I)}(\theta)-(\theta,I)$ on
@@ -1474,9 +1338,4 @@ from the pinned arXiv PDF of Pos01.
 \item The Lagrangian property is proved directly in coordinates (Lemma~\ref{bp:p4:lagrangian})
   rather than through a primitive of the symplectic form as in GJLV05 Lemma~19.
 \end{enumerate}
-
-\paragraph{The frozen statements.} No defect was found in the frozen statements of HEAD, HEAD-Q
-and G3: the proofs above establish them exactly as frozen. Two remarks for the record: the constants
-$C,\varepsilon_0$ of HEAD depend on the witnesses $L$ and $C_B$, which the existential hypotheses
-provide before $C,\varepsilon_0$ are chosen; and G3 allows a negative constant, which is harmless
-(Lemma~\ref{bp:p4:preimage-measure} uses $\max(C_3,0)$).
+\end{remark}
