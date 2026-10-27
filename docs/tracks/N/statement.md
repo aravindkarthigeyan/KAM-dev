@@ -201,3 +201,202 @@ simpler predicate. This is not a missing Phase 0 deliverable for the selected qu
 
 Questions 1–6 record existing rulings. Question 7 is the new owner decision. The gate dimension generalization
 D-N-9 is also visible for exact-text approval. These questions do not interrupt this authorized revision.
+
+## Additions (D22), draft v0.3
+
+These additions are **unapproved statement drafts**, dated 27 October 2026. D20's frozen N-HEAD-C,
+N-ZERO, N-QC and their definitions remain authoritative and unchanged. Historical questions above do not
+reopen D20. Exact new text: `.drafts/N/Additions.lean`, namespace `KAM.Nekhoroshev`. The three new theorem
+bodies contain `sorry`; no provider or proof is supplied. The round-3 corrections govern this section.
+
+### Conventions and reuse
+
+The ambient coordinate spaces are `Fin n → ℝ` and `Fin n → ℂ`, with maximum norms. A canonical point is
+(positions, momenta). Reuse the frozen `Planetary.Phase`, `fast`, `slow`, `fastShift`,
+`degenerateHamiltonian`, and the frozen N `realPart`, `actionBall`, `IsAnalyticIntegrable`,
+`IsAnalyticPerturbation`, `IsSolutionOn`; these in turn reuse track K's domains, frequency map,
+real Hamiltonian and genuine Hamiltonian vector field. No existing definition is shadowed.
+
+For partial convexity, n counts **fast** actions and k counts slow canonical pairs: n ≥ 2, k ≥ 1.
+The positions are (φ,q), the momenta (I,p). Fast angles have period **2π**, exactly as Nekhoroshev §4.3
+and the frozen planetary `fastShift`; the slow coordinates have no periodicity requirement. For averaging,
+there are n ≥ 2 actions and n period-**1** angles, as in the existing N analytic classes. Conversion of AKN's
+phase coordinate φ to 2πθ changes the angular equation and the phase-volume constant, not the time interval
+or the ranks. The two conventions are explicit; neither frozen interface is redefined.
+
+New literal definitions are `complexifyPhase` (coordinate inclusion), `innerCore` (closed maximum-norm
+ball contained in an open domain), `partialComplexDomain`, `HasDefiniteFastPart`,
+`IsPartialPerturbation`, the two source exponents, `HasAveragingFrequencyRank`, and `averagingError`.
+There are no default branches or chosen witnesses. Theorems guard all derivatives by regularity on open
+neighborhoods, all time inverses and powers by positive parameters, and the real supremum by nonempty
+compact time intervals and bounded action trajectories. The mean theorem concludes integrability and uses
+the nonnegative Lebesgue integral, not an unguarded Bochner integral.
+
+### N-PARTIAL-CONVEX — `partialConvex_nekhoroshev`
+
+**Fixed data, before the smallness threshold.** Open convex G ⊂ ℝⁿ, arbitrary open
+D ⊂ ℝᵏ × ℝᵏ, positive ρ,g,m,Mcomplex, and a fixed integrable h. Let U be the real slice of
+`actionNbhd G ρ`. Assume:
+
+1. h is holomorphic and complex C² on `actionNbhd G ρ`, real on U, and
+   ‖D²h(z)‖op ≤ Mcomplex **throughout that complex neighborhood**.
+2. `realPart h` is real C³ on U. There is one fixed sign σ ∈ {1,−1} such that on U,
+   ‖∇h(I)‖∞ ≥ g and σ D²h(I)[v,v] ≥ m Σᵢvᵢ² for every v.
+
+Thus strong convexity **or strong concavity** is required only in the fast actions. There is no Hessian
+condition in the slow variables and no slow frequency-rank hypothesis. This is a specialization of the
+source's steep setting, with all steepness indices equal to one; it deliberately does not yet include every
+quasi-convex fast Hamiltonian. A definite Kepler fast part on a compact action box fits the intended class.
+The lower frequency bound is explicit. Complex control is not inferred from real derivatives (F-N1).
+The real enlargement supplies room for the convex-to-steep conversion; its domain bookkeeping is an audit
+obligation, described in notes.md, not an extra conclusion-shaped premise.
+
+Set
+
+    a(n) = 2/(6n² − 3n + 14),     b(n) = 3/(6n² − 3n + 14) = 3a(n)/2.
+
+These are obtained by substituting α₁ = ⋯ = αₙ₋₁ = 1 and ζ = n(n−1)/2 into source (4.1), (4.4),
+(4.5). For n=2 the values are a=1/16, b=3/32. We do **not** use 1/(2n).
+
+**Quantifier order.** After all fixed data above, ∃ μ₀>0; then ∀ 0<μ<μ₀, ∀ normalized P,
+∀ C>0, ∀ actual solution z on [0,C], ∀ queried times t. Neither μ₀ nor the exponents depend on P, μ,
+C, z or t. This first statement is fixed-h, not a uniform-in-h family theorem. Mcomplex is nevertheless
+an explicit input needed by the source. We do not claim the threshold is independent of G,D or k.
+
+Here P is holomorphic on the source tube F, real on real points, 2π-periodic in φ and bounded by one.
+F consists of Re I∈G, (Re q,Re p)∈D, and each imaginary coordinate of (φ,q,I,p) of size <ρ.
+The actual real Hamiltonian is
+
+    Hμ(φ,q,I,p) = realPart h(I) + μ Re P(φ,q,I,p).
+
+In Lean this is the frozen `Planetary.degenerateHamiltonian` with the displayed perturbation. `IsSolutionOn`
+requires Hamilton's equations and differentiability of this Hμ at every visited point, as well as I(u)∈G.
+It is a supplied solution segment, not a proxy quantity or an assertion of a maximal lifetime.
+
+**Stopped conclusion.** Put d=μᵇ and T=μ⁻¹ exp(μ⁻ᵃ). If I(0)∈innerCore(G,d), then for each
+0≤t≤min(C,T),
+
+    [for every 0≤u≤t, (q(u),p(u)) ∈ innerCore(D,d)]
+       implies   ‖I(t)−I(0)‖∞ ≤ d/2.
+
+The slow-domain test belongs to the history **through the queried time**, inside the conclusion. There is
+no assumption of slow confinement on [0,T] or even on [0,C]. Applying Theorem 4.4 to the restricted segment
+[0,t] proves exactly this form (t=0 separately). It is the estimate up to the first exit from the **eroded**
+slow domain, with the endpoint included only when its history still satisfies the margin. No `sInf` of an
+empty exit set is used. A stopped theorem cannot itself prove slow confinement; this is what P's angular
+momentum bootstrap must establish.
+
+The source uses M=sup|H₁| by Remark 4.5.A; M≤μ gives d(M)≤d(μ), T(M)≥T(μ), and a weaker drift bound
+at μ. M=0 gives constant fast actions directly; no source formula is evaluated at zero. Maximum-norm
+closed erosion is stronger than the source's Euclidean open-neighborhood erosion, and Euclidean drift
+bounds imply the displayed maximum-norm bound. The complex operator norm changes by a dimension factor
+absorbed in the threshold, without changing a,b. Strict source inequalities are weakened to ≤.
+
+**Consumer contract for P-EXP-SAFE.** Work on a larger fixed fast box and slow domain, leaving fixed margins
+around the desired initial set. Choose μ small enough that d is below those margins. Supply only the
+solution segment before the first loss of a margin. Combine the fast drift with P's actual angular-momentum
+identity to improve the slow margin; continuation then extends the segment. If the physical perturbation
+has norm ≤C₀μphys, use μ=C₀μphys and P=H₁/μ, for μphys>0. This yields constants multiplying μphysᵇ and
+exp(c μphys⁻ᵃ). No all-time slow confinement, collision exclusion, canonical-coordinate theorem or
+1/(2n) estimate is imported as a hypothesis.
+
+### N-AVERAGING — `averaging_mean` and `averaging_most`
+
+**Fixed data.** n≥2, R,s>0, fixed h and f satisfying the existing `IsAnalyticIntegrable R s h` and
+`IsAnalyticPerturbation R s 1 f`, and a fixed compact set K of real phase points with actions in B(0,R/2).
+The perturbed Hamiltonian is the **actual** Hε=h+εf, represented by frozen `realHamiltonian`.
+K is any compact subset of a lifted angular window and the action ball, not a fictitious distribution of
+orbits. Measure is ordinary product Lebesgue volume on ℝⁿ×ℝⁿ, **not normalized probability**.
+An angular fundamental cell can be used via its compact closure; its boundary has zero volume.
+
+On all of B(0,R), assume one of the following global alternatives:
+
+- Dω(I) is onto ℝⁿ for every I; or
+- ω(I)≠0 and (v,c) ↦ Dω(I)v+cω(I) is onto ℝⁿ for every I.
+
+Here ω is the frozen genuine `frequencyMap h`. The second condition is precisely full projective rank
+n−1, expressed without division or a chart choice. We retain the source's global disjunction, rather than
+allowing an unmentioned pointwise switch between alternatives. No quantitative lower rank bound or
+constant uniform over varying h is asserted. Rank margins on interior compact sets may enter the constants.
+
+For this Hamiltonian specialization, the average action equation in AKN (6.3) is J̇=0, because the average
+of −∂θf over the periodic torus vanishes. Thus J(t)=I(0). This identity requires the periodic differentiation
+and integration lemma; it is not an assumption of integrability of the perturbed motion.
+
+**Mean theorem and κ form.** After h,f,K and the fixed data, ∃ A,ε₀>0. For every 0<ε≤ε₀ and every
+family Φ of actual solutions on [0,1/ε] starting at x∈K and remaining in B(0,R), define
+
+    eε(x) = sup { ‖(Φ(x,t)).I − x.I‖∞ : 0≤t≤1/ε }.
+
+Then eε is integrable on K and
+
+    ∫_K eε(x) dx ≤ A√ε.
+
+For **every κ>0**, there exists a measurable E⊆K with volume(E)≤κ such that **every** x∈K\E satisfies
+
+    ‖(Φ(x,t)).I − x.I‖∞ ≤ A√ε/κ    for every 0≤t≤1/ε.
+
+A and ε₀ precede ε, Φ and κ; they are not claimed uniform in f or h. The flow premise is explicit existence
+and typing data for the source's mean of errors. It contains no error estimate, no measure estimate, and
+no exceptional set. This theorem alone does not assert that every initial point has a full-window solution.
+
+**Local-domain existence corollary.** `averaging_most` has the same fixed inputs, but **no supplied-flow
+premise**. There exist A,ε₀,η₀>0 with η₀≤R/4 such that for every 0<ε≤ε₀ and every 0<η≤η₀ there is a
+measurable E⊆K with
+
+    volume(E) ≤ A√ε/η,
+
+and for every x∈K\E there **exists a genuine Hε solution** from x on [0,1/ε], in B(0,R), whose action
+drift is ≤η at every time. To obtain the requested κ formulation with existence, set η=A√ε/κ, provided
+A√ε/κ≤η₀. This boundary admissibility is explicit, not hidden in a κ-dependent constant. Uniqueness of
+smooth Hamiltonian ODEs identifies these curves with any other solution through x on their common interval;
+this corollary does not use a nonphysical averaged solution in place of the actual one.
+
+This is a derived localization target, not a literal quotation of Theorem 6.11. The proposed proof uses
+smooth localization and Markov's inequality; its source-regularity and continuation audit is still open
+(see notes.md). It has a separate name so the source mean theorem is not replaced by a stronger unaudited
+existence claim. Neither theorem claims √ε error outside a √ε exceptional set. The balanced consequence is
+error and exceptional volume O(ε^(1/4)); for fixed κ the error is O(√ε).
+
+### Clause-to-source map and declared deviations
+
+| Clause | Source or explicit conversion |
+|---|---|
+| Fast/slow splitting, arbitrary slow domain, 2π angles, actual equations | Nek77 §1.5 p.5; §4.3.A,C p.29 |
+| Nonzero frequency and steep coefficients | Nek77 §4.1.B,C p.28 |
+| Convex/concave fast specialization, index one | Nek77 §1.18 p.14; §12.5 p.62; quantitative convex-to-steep lemma remains to prove |
+| Complex Hessian control before constants | Nek77 §4.3.B (4.2) p.29; Remark 4.5.B p.30 |
+| h on larger fast neighborhood; convex G; uniform definite sign on U | Explicit strengthening for analytic/convex domain control; not quoted as the full source hypothesis |
+| μ₀ before P and arbitrary C; history through t | Nek77 Theorem 4.4 p.30, restriction to [0,t] |
+| Norm-one P, μ upper bound, positive μ, zero actual norm case | Nek77 Remark 4.5.A p.30 plus monotonicity and direct zero vector-field calculation |
+| a,b and prefactor μ⁻¹ | Nek77 (4.1) p.28 and (4.4)–(4.5) p.30 |
+| Closed max-norm margins, max-norm drift | Stronger hypothesis/weaker conclusion than §4.2–4.3 Euclidean conventions |
+| Averaging standard form and J(0)=I(0) | AKN §6.1.1 (6.2)–(6.3), pp.208–209; transcript L10042–10075 |
+| Two rank alternatives | AKN §6.1.9 Theorem 6.11 p.243; L11597–11600 |
+| Mean error ≤A√ε on time 1/ε | AKN (6.27) p.243; L11600–11606 |
+| Compact K, exceptional measure and κ form | AKN Corollary 6.1 (6.28) p.243; L11607–11620 |
+| Analytic normalized fixed f; n≥2; period one; sup norm | Specialization/convention change; fixed constants absorb norm and angular-volume factors |
+| Integrability, measurable exceptional E | Analytic ODE dependence and compactness, then Markov; obligations, not assumptions |
+| `averaging_most` existence and η collar | Derived localization/continuation statement; smooth-source applicability **[unverified]** |
+
+### Owner questions for these additions
+
+1. **Approve the definite fast class, including concavity, with the exact 1977 exponents?** Recommend yes,
+   after audit of the convex-to-steep domain conversion. It includes the intended Kepler application and
+   makes the weaker 1977 rates explicit. Defer broader quasi-convex hypotheses and improved 1/(2n) rates.
+2. **Approve the stopped-history interface rather than an extended-real exit-time definition?** Recommend yes.
+   It handles empty exit sets and endpoint margins without totalized infima, and P can consume it on every
+   pre-exit segment. Retain the eroded slow domain; removing its margin is not source-faithful.
+3. **Approve fixed-h constants and the explicit complex Hessian and gradient inputs?** Recommend yes.
+   Do not infer uniformity in h from real derivative bounds. A future uniform class needs a separate audit.
+4. **Approve the 2π partial interface alongside the period-1 averaging interface?** Recommend yes, to reuse
+   frozen planetary coordinates exactly. Any later canonical rescaling must transform conjugate actions too.
+5. **Which averaging statements should freeze?** Recommend the source mean/κ theorem first, after acquiring
+   and checking the complete third-edition source page and standing hypotheses. Keep `averaging_most` as a
+   separately reviewed local existence corollary until its smooth localization route is verified. Both exact
+   drafts are supplied now; neither is silently presented as already approved.
+6. **Use absolute or relative exceptional measure?** Recommend absolute Lebesgue volume as printed. A
+   relative formulation can subsequently divide by volume(K) when it is positive; no probability measure or
+   uniformity over shrinking K is implicit.
+
+These questions are the requested review record, not a request to interrupt this authorized Phase 0 work.
