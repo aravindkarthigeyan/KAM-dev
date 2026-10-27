@@ -226,8 +226,10 @@ section Translation
 
 variable {F : Type*} [NormedAddCommGroup F] [NormedSpace ℝ F]
 
+/-- Adding `c` in the `i`-th coordinate shifts the inserted entry. -/
 theorem insertNth_add_single (i : Fin (n + 1)) (y : Fin n → ℝ) (t c : ℝ) :
-    i.insertNth (α := fun _ => ℝ) t y + Pi.single i c = i.insertNth (α := fun _ => ℝ) (t + c) y := by
+    i.insertNth (α := fun _ => ℝ) t y + Pi.single i c =
+      i.insertNth (α := fun _ => ℝ) (t + c) y := by
   ext j
   refine i.succAboveCases ?_ (fun k => ?_) j
   · simp
