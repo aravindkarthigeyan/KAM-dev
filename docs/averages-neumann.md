@@ -85,3 +85,13 @@ normed targets and complete normed rings, and drops boundedness where the proof 
 not need it. There is no change to the source constants or conclusion, and no
 conclusion-shaped assumption. Translation invariance of averages, Fourier decay,
 and the function-space cohomological equation are separate work.
+
+Validation on 2026-10-27 with Lean and pinned Mathlib 4.35.0:
+
+- Targeted builds passed without warnings in the new modules.
+- All 20 exported results depend only on `propext`, `Classical.choice`, and `Quot.sound`;
+  the four compatibility examples described above also elaborate.
+- Full `nice -n 5 lake build` on integrated `main` passed: 2887 jobs. The only
+  placeholder warnings are the five existing, manifest-authorized frozen theorem bodies.
+- Source checks passed for 45 Lean files, and all 25 frozen declaration ABI hashes match.
+- The frozen-source and manifest diff against the starting upstream revision is empty.

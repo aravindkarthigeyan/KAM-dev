@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:23 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 21.2 %** · frozen statements proved: 0 / 5 · **2,384 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:25 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 21.2 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -121,22 +121,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **2,384** (1,343 excluding blank lines and comments) · **+2,384** since 2026-10-27 13:33 UTC |
+| On `main` now | **2,758** (1,619 excluding blank lines and comments) · **+2,758** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
 | **Estimated total at completion** | **≈ 40,000** |
-| Estimated still to write | ≈ 38,000 |
+| Estimated still to write | ≈ 37,000 |
 
 **How the size is estimated.** The estimate is a planning figure (infrastructure ≈ 12k, a-posteriori theorem ≈ 15k, measure layer ≈ 8k, interfaces ≈ 5k lines); it switches to a rate-based estimate once 8 weight units of Lean work are done. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:23 UTC from `main` at `073dee6` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:25 UTC from `main` at `edd0f99` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.
 
 **Frozen statements proved: 0 / 5** · frozen definitions: 20
 
-**Lean on `main`:** 41 modules · 2,384 lines · 88 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 43 modules · 2,758 lines · 111 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 5 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean)
@@ -235,8 +235,8 @@ flowchart BT
 | [`KAM/Frozen/`](KAM/Frozen) | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 25 | 974 | 5 |
 | [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 3 | 359 | 24 |
 | [`KAM/Diophantine/`](KAM/Diophantine) | Diophantine vectors, cohomological equation, measure of the Diophantine set | 5 | 543 | 35 |
-| [`KAM/Strip/`](KAM/Strip) | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 3 | 436 | 24 |
-| `KAM/Matrix/` *(not created yet)* | Matrix-valued functions: Neumann series and inverse bounds | 0 | 0 | 0 |
+| [`KAM/Strip/`](KAM/Strip) | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 4 | 665 | 38 |
+| [`KAM/Matrix/`](KAM/Matrix) | Matrix-valued functions: Neumann series and inverse bounds | 1 | 145 | 9 |
 | `KAM/Newton/` *(not created yet)* | Abstract Newton/KAM convergence on analytic scales | 0 | 0 | 0 |
 | `KAM/Hamiltonian/` *(not created yet)* | Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits | 0 | 0 | 0 |
 | `KAM/APosteriori/` *(not created yet)* | A-posteriori KAM theorem at fixed frequency and local uniqueness | 0 | 0 | 0 |
@@ -257,13 +257,13 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **orchestrator** | lead | Claude Opus 5.5 | claude-1 | 🔄 active | Campaign lead: sources, statements, assignments, landings, owner questions, this README | — | — |
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | ✅ done | Blueprint part 4 (G3, HEAD, HEAD-Q) written: 1482 lines; in review | — | — |
-| **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | ✅ handed off | Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running | — | — |
-| **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | 🔄 working | Track N revision v0.2: N-HEAD as approved plus a complex-bound variant; owner choice of headline | — | — |
-| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | 🔄 working | Track P revision v0.2 addressing the audit (docs/tracks/P/RESPONSE-v0.1.md) | — | — |
-| **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Collaborator's research question, round 2: longer horizons for most initial conditions, one best planetary statement with proof sketch, realistic-parameter feasibility (round 1: docs/explorations/almost-every-shorter-times.md) | — | — |
-| **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | ✅ handed off | Track N audit v0.1: approvable with changes; F-N1 (BM11 uniformity in h needs a complex Hessian bound) blocks proof-route sign-off | — | — |
-| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ handed off | Track P audit v0.1: P-G REJECT (box vs disc region, diffeomorphism on a neighbourhood, boundary regularity); P-PLANAR, P-FIXED approvable with changes | — | — |
-| **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Refute-first statement audit of track I drafts | — | — |
+| **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | ✅ done | Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running | — | — |
+| **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | 🔄 running | Track N revision v0.2: N-HEAD as approved plus a complex-bound variant; owner choice of headline | — | — |
+| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | 🔄 running | Track P revision v0.2 addressing the audit (docs/tracks/P/RESPONSE-v0.1.md) | — | — |
+| **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 running | Collaborator's research question, round 2: longer horizons for most initial conditions, one best planetary statement with proof sketch, realistic-parameter feasibility (round 1: docs/explorations/almost-every-shorter-times.md) | — | — |
+| **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | ✅ done | Track N audit v0.1: approvable with changes; F-N1 (BM11 uniformity in h needs a complex Hessian bound) blocks proof-route sign-off | — | — |
+| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ done | Track P audit v0.1: P-G REJECT (box vs disc region, diffeomorphism on a neighbourhood, boundary regularity); P-PLANAR, P-FIXED approvable with changes | — | — |
+| **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 running | Refute-first statement audit of track I drafts | — | — |
 | **review-p2** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 2 (G1) | — | — |
 | **review-p4** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 4 | — | — |
 | **bp-p1** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Proofs of the 30 part-1 interface lemmas | — | — |
@@ -276,6 +276,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:25 | `edd0f99` | Merge branch 'proof/averages-neumann' |
 | 2026-10-27 16:23 | `073dee6` | Blueprint Part 4: G3, HEAD and HEAD-Q from G1 and G2, complete proof |
 | 2026-10-27 16:15 | `ddec667` | Track N statement audit v0.1: approvable with changes; source gap F-N1 (uniformity in h needs a complex Hessian bound); revision v0.2 under way |
 | 2026-10-27 16:13 | `9fcd939` | Track P statement audit v0.1: P-G rejected as drafted (three blocking defects with counterexamples); revision v0.2 under way |
@@ -287,7 +288,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:56 | `4df9d8c` | Track I Phase 0: sources, statement draft, notes; statement audit running |
 | 2026-10-27 15:54 | `388f8c1` | Track P Phase 0: sources, statement draft, notes; statement audit running |
 | 2026-10-27 15:53 | `dfd5e62` | Record D18: owner rulings on track N questions 2-6, as recommended |
-| 2026-10-27 15:53 | `e4266b2` | Record D17: track N is stated for n >= 3 (owner ruling) |
 <!-- /AUTO:landed -->
 
 ## Decisions
