@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 22:34 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **29,684 lines of Lean** of an estimated ≈ 207,000
+> **Last updated: 2026-10-27 22:35 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **29,684 lines of Lean** of an estimated ≈ 207,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 22:34 UTC from `main` at `3e68670` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 22:35 UTC from `main` at `8c68b90` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 22:35 | `8c68b90` | Brief for P2-12 |
 | 2026-10-27 22:34 | `3e68670` | P4-1 (frequency maps), P4-3 (parameters, smallness), P4-Q (HEAD-Q helper), P3-2 (phase) landed; audits PASS / PASS WITH NOTES |
 | 2026-10-27 22:33 | `5bae51f` | Land k/p3-2 into main |
 | 2026-10-27 22:31 | `c752345` | Land k/p4-q into main |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 22:17 | `18adf59` | P4-0 landed: Part 4 definitions (Head/Standing, Head/Defs), design-form adapters, coh_unique_zero; audit PASS WITH NOTES |
 | 2026-10-27 22:17 | `796fad6` | Land k/p4-0 into main |
 | 2026-10-27 22:13 | `3dbbacc` | P2-7 geometry theorem landed (bf96412); delta audit PASS |
-| 2026-10-27 22:12 | `bf96412` | Land k/p2-7 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
