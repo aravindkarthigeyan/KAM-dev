@@ -133,8 +133,8 @@
    "id": "F.MAT",
    "title": "Matrix-valued functions: products, Neumann-series inverses, averages",
    "difficulty": "M",
-   "done": 0.0,
-   "note": ""
+   "done": 0.5,
+   "note": "Zohar: quantitative matrix Neumann estimates (KAM/Matrix)"
   },
   {
    "group": "Analytic infrastructure",

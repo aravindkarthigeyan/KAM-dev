@@ -29,6 +29,7 @@ Uses of `KAM.IsDiophantine` and `KAM.Diophantine.Condition` convert through
 | I-STRIP-2 | Fourier coefficients of periodic holomorphic functions: decay and summation | `bp:p1:decay`, `bp:p1:summation` | `KAM/Strip/Fourier.lean` | I-FOURIER-1 | open |
 | I-STRIP-3 | Cohomological equation on strips (sup norms, crude exponent τ + n), real on reals | `bp:p1:cohomological` | `KAM/Strip/Cohomological.lean` | I-STRIP-2, I-DIOPH-1 | open |
 | I-STRIP-4 | Averages of derivatives; Neumann series for matrix-valued functions | `bp:p1:averages`, `bp:p1:neumann` | `KAM/Strip/Averages.lean`, `KAM/Matrix/Neumann.lean` | — | done (Zohar, c2b079d) |
+| I-STRIP-5 | Holomorphic on an open subset of ℂᵐ implies analytic (power series); real restriction is real-analytic. Not in Mathlib beyond one variable; worth upstreaming | `bp:p1:holomorphic-analytic`, `bp:p1:real-restriction` | `KAM/Strip/Analytic.lean` | I-STRIP-1 (Regularity) | open |
 
 Notes for the `I-STRIP` packages:
 - Use the frozen `KAM.complexStrip` for strips.

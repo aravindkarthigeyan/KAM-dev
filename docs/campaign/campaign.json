@@ -92,15 +92,6 @@
    "state": "done"
   },
   {
-   "id": "review-p4",
-   "kind": "blueprint reviewer",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1",
-   "session": null,
-   "assignment": "Refute-first review of blueprint part 4",
-   "state": "running"
-  },
-  {
    "id": "bp-p1",
    "kind": "blueprint writer",
    "model": "Claude Opus 5.5",
