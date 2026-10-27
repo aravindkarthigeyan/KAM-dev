@@ -229,7 +229,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76
 CONTRACT_ID: stepI:p8:tp-chart
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Lemma bpI:p7:near-circular; part (a)
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: N = Q(R^2 x A) and every z_0 in N has a preimage in R^2 x A
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -258,7 +258,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78
 CONTRACT_ID: stepI:p8:tp-open
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Lemma bpI:p7:near-circular description of N by a and e on C; a, e continuous on the open set C
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: N is open in R^2 x R^2
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -287,7 +287,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80-L80
 CONTRACT_ID: stepI:p8:tp-nonempty
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: a_* = (a_-+a_+)/2, e_* = (e_-+e_+)/2, L_* = sqrt(a_*), G_* = L_* kappa(e_*)
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: (L_*,G_*) in A and Q(0,0,L_*,G_*) = ((a_*(1-e_*),0),(0,kappa(e_*)/(L_*(1-e_*)))) in N; hence N nonempty
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -346,7 +346,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-quant@L100-L100
 CONTRACT_ID: stepI:p8:ce-quant
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: S, delta with |q-x_j| >= delta on S; mu_* as defined; |mu| <= mu_*
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: |q - y_j(mu)| >= |q-x_j| - |x_j - y_j(mu)| >= delta - c|mu| >= delta/2
 CONSTANT_SCOPE: depends on (delta,c,mu_1) only
 FROZEN_FILE: -
@@ -373,7 +373,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-compact@L102-L102
 CONTRACT_ID: stepI:p8:ce-compact
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: X finite dimensional, S compact nonempty, x_j not in S; part (a)
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: delta_S = min_j min_{q in S}|q-x_j| > 0 (attained, q_j != x_j) and (a) applies with delta = delta_S
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -432,7 +432,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst@L114-L114
 CONTRACT_ID: stepI:p8:se-inst
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: X = R^2 with |.|_2 = rad, m=2, x_1=(0,0), x_2=(1,0), y_j(mu)=a_j(mu), c=1, S the shell {r_min <= |q|_2 <= rho_max}
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: rad(q-a_j(mu)) >= nu_0/2 for q in S, and positive radii mean collision freedom
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -526,7 +526,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161
 CONTRACT_ID: stepI:p8:sr-incl
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Definition A for (a'_pm,e'_pm); Proposition topology (d): A nonempty; kappa strictly decreasing
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: calK subset C_0 compact, U open bounded, calK nonempty, and closure(A) subset A^cl subset U subset calK
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -586,7 +586,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165
 CONTRACT_ID: stepI:p8:sr-radii
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (b); t <= 1/8, e_+ < 1/4, t(2+e_+)+t^2 <= 3t <= (1-rho_*)/(2a_+); calK compact
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: rho_max <= a'_+(1+e'_+) <= (1+rho_*)/2 < 1; r_min >= a'_-(1-e'_+) > 0; max and min exist; r_min <= rho_max
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -617,7 +617,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167
 CONTRACT_ID: stepI:p8:sr-B
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U open bounded nonempty; closure(A) subset U
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: B = 2 pi U open bounded nonempty with B subset 2 pi calK; B' open, closure(B') = 2 pi closure(A) compact inside B; (e) explicit dependence on (a_pm,e_pm)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -682,7 +682,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180
 CONTRACT_ID: stepI:p8:hd-h
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Corollary period-one (b): h~ holomorphic on B_{r_0}, real at real I, Re I_1 > pi m_L > 0; Proposition nondeg
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: h~ holomorphic on B_{r_0}, real at real I, and det B_h~(I) = 3/I_1^4 > 0 for every real I in B_{r_0}
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -738,7 +738,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184
 CONTRACT_ID: stepI:p8:hd-sets
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Lemma safe-region (d); delta_2 > 0; Corollary period-one (e)
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: B open bounded nonempty, B' open with compact closure in B, s_0, r_0 > 0; (c) dependence on (a_pm,e_pm) only
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -830,7 +830,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-r@L209-L209
 CONTRACT_ID: stepI:p8:bd-r
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Proposition orbit-identities (a): L^2(1-e) <= |q|_2 <= L^2(1+e); r_min, rho_max min/max over calK
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: r_min <= rad(q) <= rho_max
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -858,7 +858,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211
 CONTRACT_ID: stepI:p8:bd-p
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Proposition orbit-identities (c): E(q,p) = -1/(2L^2); |q|_2 >= r_min
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: |p|_2^2 = 2/|q|_2 - 1/L^2 <= 2/r_min = R^2
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -887,7 +887,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L217-L217
 CONTRACT_ID: stepI:p8:pf-coord
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: a_pm,e_pm as in I-R3BP; mu_0,d,R of Definition constants; mu in [0,mu_0), z_0 in N; Proposition topology (b)
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: z_0 = Q(l_0,g_0,L_0,G_0) with (L_0,G_0) in A; z~_0 = (theta_0,I_0) := S^{-1}(l_0,g_0,L_0,G_0) = ((l_0,g_0)/(2 pi), 2 pi (L_0,G_0)), Q(S(z~_0)) = z_0 and I_0 in 2 pi A = B'
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -917,7 +917,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219
 CONTRACT_ID: stepI:p8:pf-small
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0 <= mu < mu_0 <= mu_2; mu_0 <= eps_H/C_F
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: f = f~_mu and epsilon = C_F mu satisfy the hypotheses of I-HEAD on (f,epsilon) and epsilon < eps_H = epsilon_0; the remaining hypotheses of I-HEAD hold by head-data (a)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -946,7 +946,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221
 CONTRACT_ID: stepI:p8:pf-head
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: I-HEAD (frozen) for (B,s_0,r_0,h~,B',eta); f = f~_mu; epsilon = C_F mu < eps_H; z~_0 with I_0 in B'
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: z~ : R -> R^2 x R^2 with z~(0) = z~_0 and Sol(Ham_{h~,f~_mu},B,R,z~): z~(t)_2 in B, Ham differentiable at z~(t), z~'(t) = X(z~(t)); confinement and uniqueness clauses not needed
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -979,7 +979,7 @@ PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223
 CONTRACT_ID: stepI:p8:pf-sol
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: z = Q o S o z~; |mu| < mu_2; B subset 2 pi calK; J = R; Proposition transfer
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: z(0) = z_0 and RSol_mu(R,z)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
