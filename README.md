@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 21:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **22,201 lines of Lean** of an estimated ≈ 155,000
+> **Last updated: 2026-10-27 21:41 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **22,825 lines of Lean** of an estimated ≈ 159,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -125,22 +125,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **22,201** (14,035 excluding blank lines and comments) · **+22,201** since 2026-10-27 13:33 UTC |
+| On `main` now | **22,825** (14,489 excluding blank lines and comments) · **+22,825** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
-| **Estimated total at completion** | **≈ 155,000** |
-| Estimated still to write | ≈ 133,000 |
+| **Estimated total at completion** | **≈ 159,000** |
+| Estimated still to write | ≈ 136,000 |
 
 **How the size is estimated.** The estimate scales the lines per completed Lean weight unit to all Lean work items. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 21:40 UTC from `main` at `c34bce6` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 21:41 UTC from `main` at `1676390` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
 **Frozen statements proved: 4 / 22** · frozen definitions: 122
 
-**Lean on `main`:** 232 modules · 22,201 lines · 897 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 233 modules · 22,825 lines · 936 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 18 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMean.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMost.lean)
@@ -279,8 +279,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29) | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29) | — | — |
 | **bpP-p11a2** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track P Part 11a-2: cutoff, homological equation, KAM step (Russmann route for P-FIXED) | — | — |
 | **graphN-ext** | graph extractor (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N dependency graph: slices N-p11ab, N-p11c (N-PARTIAL-CONVEX) | — | — |
 | **design-N3** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design with exact signatures for blueprint-N Part 3 (shared Hamiltonian ODE layer) | — | — |
@@ -302,6 +302,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 21:41 | `1676390` | P3-0 landed: Part 3 standing data and constants; audit PASS WITH NOTES |
+| 2026-10-27 21:40 | `8074600` | Land k/p3-0 into main |
 | 2026-10-27 21:37 | `8dca456` | Overnight log: move the 22:05 entry into the main orchestrator's section |
 | 2026-10-27 21:37 | `d00df98` | Overnight log: keep main-orchestrator entries above the Tracks I, N, P section |
 | 2026-10-27 21:36 | `37c34d0` | Part 4 design audit brief |
@@ -312,8 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 21:34 | `ee902e2` | P2-5 (frequency, frame bounds) and P2-6 (frame identities) landed; audits PASS WITH NOTES / PASS |
 | 2026-10-27 21:33 | `8b096f5` | Land k/p2-6 into main |
 | 2026-10-27 21:30 | `8db3c62` | Land k/p2-5 into main |
-| 2026-10-27 21:29 | `9fa8a74` | I-P4B landed (bc93762): derivative bounds, torsion regularity, phase shifts, mixed differences; audit PASS WITH NOTES |
-| 2026-10-27 21:27 | `bc93762` | Land k/p4b into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
