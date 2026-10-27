@@ -13,7 +13,7 @@ convention, the content of "invariant torus" and the gate theorems.
 | Node | Content | Source (pinned) |
 |---|---|---|
 | ALG | Weighted ℓ¹ Fourier and Fourier–Taylor algebras: Banach algebra, exp, derivatives, composition, Taylor remainders, matrix-valued functions and Neumann inverses | standard; Chi03 App. B (Lemmas 13–15) for the Fourier norm |
-| DIOPH | (γ,τ)-Diophantine vectors; solution of ω·∂u = g − ⟨g⟩ with ‖u‖_{s−δ} ≤ γ⁻¹(τ/(eδ))^τ ‖g‖_s | coefficientwise; HL19 §4.1 and FHL17 §4.2 for the sup-norm versions |
+| DIOPH | (γ,τ)-Diophantine vectors; solution of ω·∂u = g − ⟨g⟩ with ‖u‖_{s−δ} ≤ (2πγ)⁻¹(τ/(eδ))^τ ‖g‖_s (τ > 0; s, δ are coefficient radii) | coefficientwise; HL19 §4.1 and FHL17 §4.2 for the sup-norm versions |
 | NEWTON | Convergence of a quadratic scheme on a scale of analytic spaces | HL19 §5; GJLV05 §4 |
 | BRIDGE | Real-analytic functions on complex strips ↔ coefficient spaces (contour shift, one variable at a time) | standard |
 | GEOM | Approximate Lagrangian property, adapted symplectic frame, torsion matrix | HL19 §2.4–2.5, §4; GJLV05 §3 |
@@ -58,17 +58,29 @@ convention, the content of "invariant torus" and the gate theorems.
 
 ## 3. Framework
 
-Weighted norms, with |k| = |k|₁:
+The period-1 convention (D9/Q2) fixes the Fourier characters to e^{2πik·θ}, with
+f̂_k = ∫_[0,1]ⁿ f(θ)e^{−2πik·θ} dθ and ⟨f⟩ = f̂_0 (HL19 §2.1, p. 5).
+We keep the following weighted norms, with |k| = |k|₁:
 - ‖f‖_s = Σ_k |f̂_k| e^{|k| s} on functions of θ;
 - ‖f‖_{s,r} = Σ_{k,m} |f_{k,m}| e^{|k| s} r^{|m|} on functions of (θ, I).
 
-Facts used everywhere, each checked by hand:
+Here **s is a coefficient radius**: the corresponding geometric strip width is ρ = s/(2π).
+The strip widths in `docs/statement.md` (including s₀ in HEAD) remain geometric widths. See
+[`fourier-conventions.md`](fourier-conventions.md) for derivations and a single-mode check.
+
+Estimates to formalize, for 0 < δ < s (and nonnegative coefficient radii):
 - **Algebra:** ‖fg‖ ≤ ‖f‖‖g‖.
-- **Derivatives:** ‖∂_θ f‖_{s−δ} ≤ ‖f‖_s/(eδ).
-- **Cohomological equation:** the estimate in DIOPH, with Rüssmann's exponent τ.
-- **Composition:** ‖f∘(id+u)‖_{s′} ≤ ‖f‖_s whenever s′ + ‖u‖_{s′} ≤ s, since e^{ik·(θ+u)} = e^{ik·θ}·exp(ik·u). The
-  Fourier–Taylor version holds when also r′ + ‖v‖ ≤ r.
-- **Sup norm versus ℓ¹ norm:** sup_{|Im θ| ≤ s} |f| ≤ ‖f‖_s and ‖f‖_{s−δ} ≤ coth(δ/2)ⁿ · sup_{|Im θ| < s} |f|.
+- **Derivatives:** ‖∂_{θ_j} f‖_{s−δ} ≤ 2π‖f‖_s/(eδ).
+- **Cohomological equation:** û_0 = 0 and û_k = ĝ_k/(2πi k·ω) for k ≠ 0 solve
+  ω·∂u = g − ⟨g⟩. For τ > 0 the estimate is the one in DIOPH, with Rüssmann's exponent τ;
+  for τ = 0 use ‖u‖_{s−δ} ≤ (2πγ)⁻¹‖g‖_s. HL19 uses the opposite sign for its operator L_ω.
+- **Composition:** ‖f∘(id+u)‖_{s′} ≤ ‖f‖_s whenever s′ + 2π‖u‖_{s′} ≤ s, since
+  e^{2πik·(θ+u)} = e^{2πik·θ}·exp(2πik·u). For vector u, use the max norm on its Fourier coefficients.
+  The Fourier–Taylor version holds when also r′ + ‖v‖_{s′,r′} ≤ r, with the angle condition
+  s′ + 2π‖u‖_{s′,r′} ≤ s.
+- **Sup norm versus ℓ¹ norm:** sup_{|Im θ| ≤ s/(2π)} |f| ≤ ‖f‖_s. Conversely, for f bounded and
+  holomorphic on T_ρ, and 0 < δ < 2πρ,
+  ‖f‖_{2πρ−δ} ≤ coth(δ/2)ⁿ · sup_{|Im θ| < ρ} |f|.
 
 ## 4. Lean design
 
