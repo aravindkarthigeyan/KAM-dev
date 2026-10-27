@@ -152,6 +152,10 @@ public import KAM.Measure.Lipschitz
 public import KAM.Measure.McShane
 public import KAM.Measure.Slab
 public import KAM.Provider.VolumeNotDiophantineLe
+public import KAM.Strip.Analytic
+public import KAM.Strip.AnalyticCauchy
+public import KAM.Strip.AnalyticSeries
+public import KAM.Strip.AnalyticTaylor
 public import KAM.Strip.Averages
 public import KAM.Strip.Cauchy
 public import KAM.Strip.Fourier
@@ -160,6 +164,7 @@ public import KAM.Strip.FourierSeries
 public import KAM.Strip.HigherCauchy
 public import KAM.Strip.Limits
 public import KAM.Strip.Periodic
+public import KAM.Strip.RealRestriction
 public import KAM.Strip.Regularity
 
 /-!
