@@ -34,7 +34,7 @@ results of \texttt{PLAN.md}. Tracks I and P cite the general results as \Nref{bp
   with $\alpha(t_0)=x$ and $\alpha$ has derivative $F(\alpha(t))$ within $[t_0-T,t_0+T]$ at each $t$ of that interval.
   (Mathlib: the root-namespace structure \Lean{IsPicardLindelof}\,$f\,t_0\,x_0\,a\,r\,L\,K$ of
   \texttt{Analysis/ODE/PicardLindelof.lean}, with $r=0$ and a time-independent field, and
-  \Lean{IsPicardLindelof.exists\_eq\_forall\_mem\_Icc\_hasDerivWithinAt\char`\₀} of \texttt{Analysis/ODE/ExistUnique.lean};
+  \Lean{IsPicardLindelof.exists\_eq\_forall\_mem\_Icc\_hasDerivWithinAt\textsubscript{0}} (Unicode subscript zero) of \texttt{Analysis/ODE/ExistUnique.lean};
   Mathlib's norm bound is the parameter $L$ (our $M$) and its Lipschitz parameter is $K$ (our $L$); the time constraint is the field
   \Lean{mul\_max\_le}: $M\max(t_{\max}-t_0,t_0-t_{\min})\le a-r$. Parameters are \Lean{NNReal}. The contraction on iterates means no smallness of
   $LT$ is needed.) Exists.
@@ -469,10 +469,12 @@ On this ball $\ell\ge\rho/2$ and $\abs{v'}\le\bar V+\delta$; the entries of $F_N
 
 \subsection{The track-N statements}\label{bpN:p3:s-N}
 
+\begingroup\sloppy
 Throughout, $R,s>0$, $h:\C^n\to\C$ with $\texttt{IsAnalyticIntegrable}\,R\,s\,h$, $\varepsilon\ge0$ and $f:\C^n\times\C^n\to\C$ with
 $\texttt{IsAnalyticPerturbation}\,R\,s\,\varepsilon\,f$ (Definitions~\ref{bpN:p0:integrable}, \ref{bpN:p0:pert}), $H=H_{h,f}$
 (Definition~\ref{bpN:p0:realH}), $W_s=\R^n\times B(0,R+s)\subset P$ (open; $B(0,R+s)=\mathcal B_s(R)$ by Remark~\ref{bpN:p0:rdomain-eq}), and
 $U\subset B(0,R+s)$ open (in N-HEAD-C, $U=B(0,R)$).
+\par\endgroup
 
 \begin{lemma}[Input from Part 1: $H$ is smooth on $W_s$]\label{bpN:p3:holo-input}
 $H_{h,f}$ is $C^\infty$ (in particular $C^2$) on the open set $W_s$, $X_{H}=X_{h+f}$ on $W_s\cap(\R^n\times\R^n)$, and
@@ -482,7 +484,7 @@ $H(\theta+k,I)=H(\theta,I)$ for $(\theta,I)\in W_s$, $k\in\Z^n$.
 \begin{proof}
 \proofstep{Citation}\label{stepN:p3:hi-cite} (b), (c), (d) of Lemma~\ref{bpN:p1:holo-real} are exactly the three claims. For orientation, the argument is as follows.
 
-\proofstep{Regularity}\label{stepN:p3:hi-reg} The function $G(\theta,I)=h(I)+f(\theta,I)$ is holomorphic on the open set $D_s(R)\supset W_s$ (real points $(\theta,I)$ with $I\in\mathcal B_s(R)=B(0,R)_s\cap\R^n$ lie in $T_s\times B(0,R)_s$), hence $C^\infty$ in the real sense (\Kref{bp:p1:holomorphic-regularity}); it is real on $W_s$ by Definition~\ref{bpN:p0:integrable}(iv) and \ref{bpN:p0:pert}(iii). So $H=\operatorname{Re}G=G$ on $W_s$ is the restriction of $C^\infty$ map to a real subspace: $C^\infty$ on $W_s$; $X_H=X_G$ at real points is \Kref{bp:p1:hamiltonian-real}. (Packaged as \Nref{bpN:p1:holo-real}.)
+\proofstep{Regularity}\label{stepN:p3:hi-reg} The function $G(\theta,I)=h(I)+f(\theta,I)$ is holomorphic on the open set $D_s(R)\supset W_s$ (real points $(\theta,I)$ with $I\in\mathcal B_s(R)=B(0,R)_s\cap\R^n$ lie in $T_s\times B(0,R)_s$), hence $C^\infty$ in the real sense (\Kref{bp:p1:holomorphic-regularity}); it is real on $W_s$ by Definition~\ref{bpN:p0:integrable}(iv) and \ref{bpN:p0:pert}(iii). So $H=\operatorname{Re}G=G$ on $W_s$ is the restriction of $C^\infty$ map to a real subspace: $C^\infty$ on $W_s$; $X_H=X_G$ at real points is \Kref{bp:p1:hamiltonian-real}. (Packaged as Lemma~\ref{bpN:p1:holo-real}.)
 
 \proofstep{Periodicity}\label{stepN:p3:hi-per} $f(\theta+k,I)=f(\theta,I)$ for real $\theta$, $I\in\mathcal B_s(R)$, and $h$ depends on $I$ only.
 \end{proof}
