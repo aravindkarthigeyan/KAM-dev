@@ -29,7 +29,7 @@ Uses of `KAM.IsDiophantine` and `KAM.Diophantine.Condition` convert through
 | I-STRIP-2 | Fourier coefficients of periodic holomorphic functions: decay and summation | `bp:p1:decay`, `bp:p1:summation` | `KAM/Strip/Fourier.lean` | I-FOURIER-1 | open |
 | I-STRIP-3 | Cohomological equation on strips (sup norms, crude exponent τ + n), real on reals | `bp:p1:cohomological` | `KAM/Strip/Cohomological.lean` | I-STRIP-2, I-DIOPH-1 | open |
 | I-STRIP-4 | Averages of derivatives; Neumann series for matrix-valued functions | `bp:p1:averages`, `bp:p1:neumann` | `KAM/Strip/Averages.lean`, `KAM/Matrix/Neumann.lean` | — | done (Zohar, c2b079d) |
-| I-STRIP-5 | Holomorphic on an open subset of ℂᵐ implies analytic (power series); real restriction is real-analytic. Not in Mathlib beyond one variable; worth upstreaming | `bp:p1:holomorphic-analytic`, `bp:p1:real-restriction` | `KAM/Strip/Analytic.lean` | I-STRIP-1 (Regularity) | open |
+| I-STRIP-5 | Holomorphic on an open subset of ℂᵐ implies analytic (power series); real restriction is real-analytic. Not in Mathlib beyond one variable; worth upstreaming | `bp:p1:holomorphic-analytic`, `bp:p1:real-restriction` | `KAM/Strip/Analytic.lean` | I-STRIP-1 (Regularity) | claimed (orchestrator, Sonnet prover, 2026-10-27; brief docs/campaign/briefs/I-STRIP-5.md) |
 
 Notes for the `I-STRIP` packages:
 - Use the frozen `KAM.complexStrip` for strips.
@@ -38,6 +38,21 @@ Notes for the `I-STRIP` packages:
   into the frozen G1 and G2 hypotheses directly.
 - The one-variable Cauchy estimate in Mathlib is `Complex.norm_deriv_le_of_forall_mem_sphere_norm_le`; apply it to
   the restriction to one coordinate.
+
+## Track K proof campaign: wave 1 (claimed 2026-10-27)
+
+Sonnet provers in their own worktrees; GPT-6.1-Sol medium audits before landing (D21, D24). Briefs are in
+[`docs/campaign/briefs/`](briefs). The graph is [`docs/graph/K/DEPGRAPH.md`](../graph/K/DEPGRAPH.md).
+
+| ID | Goal | Graph nodes | Owned files | Status |
+|---|---|---|---|---|
+| P-G3 | Provider of the frozen G3 `KAM.volume_not_diophantine_le` | closure of `bp:p0:g3` (Part 4 §G3) | `KAM/Measure/{Lattice,Slab}.lean`, `KAM/Provider/VolumeNotDiophantineLe.lean` | claimed (orchestrator, 2026-10-27) |
+| I-MAT | Matrix norms, real and holomorphic inverses | `bp:p1:operator-norms`, `matrix-norms`, `real-inverse`, `holomorphic-inverse` | `KAM/Matrix/{Norms,Inverse}.lean` | claimed (orchestrator, 2026-10-27) |
+| I-LIP | Lipschitz images, McShane, lipeomorphisms | `bp:p1:lip-image(-product)`, `mcshane`, `lipeo(-fixed)` | `KAM/Measure/{Lipschitz,McShane,Lipeo}.lean` | claimed (orchestrator, 2026-10-27) |
+| I-STRIP-5 | Several-variable analyticity; real restrictions | `bp:p1:holomorphic-analytic`, `real-restriction(-consequences)`, `hamiltonian-real` | `KAM/Strip/{Analytic,RealRestriction}.lean` | claimed (orchestrator, 2026-10-27) |
+
+I-STRIP-2 (decay, summation) and I-STRIP-3 (cohomological equation on strips) stay open for Zohar, building on his
+Fourier and Diophantine packages.
 
 ## Waiting for the blueprint
 
