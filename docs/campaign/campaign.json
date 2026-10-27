@@ -70,8 +70,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P Phase 0 done: statement draft (P-G properly degenerate KAM, P-PLANAR, P-FIXED; spatial sketch); audit running",
-   "state": "done"
+   "assignment": "Track P revision v0.2 addressing the audit (docs/tracks/P/RESPONSE-v0.1.md)",
+   "state": "running"
   },
   {
    "id": "zohar-shorter-times",
@@ -97,8 +97,8 @@
    "model": "GPT-6-Astra xhigh",
    "account": "codex-4",
    "session": "kam-audit-p",
-   "assignment": "Refute-first statement audit of track P drafts",
-   "state": "running"
+   "assignment": "Track P audit v0.1: P-G REJECT (box vs disc region, diffeomorphism on a neighbourhood, boundary regularity); P-PLANAR, P-FIXED approvable with changes",
+   "state": "done"
   },
   {
    "id": "audit-I",
