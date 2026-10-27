@@ -34,8 +34,8 @@
    "model": "Claude Opus 5.5",
    "account": "claude-1",
    "session": null,
-   "assignment": "Blueprint part 3: G2, local uniqueness for flows (adapting GJLV05 §6, §8)",
-   "state": "running"
+   "assignment": "Blueprint part 3 (G2) written: 830 lines, complete proof; in review",
+   "state": "done"
   },
   {
    "id": "bp-meas",
@@ -52,8 +52,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-1",
    "session": "kam-track-i",
-   "assignment": "Track I Phase 0: isoenergetic KAM (HL19 Thm 3.6), 2-DOF confinement, restricted three-body problem",
-   "state": "running"
+   "assignment": "Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running",
+   "state": "done"
   },
   {
    "id": "track-N",
@@ -61,8 +61,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N Phase 0: quasi-convex Nekhoroshev (Bounemoura–Marco Thm 2.1; Pöschel 1993)",
-   "state": "running"
+   "assignment": "Track N Phase 0 done: statement draft 0.1 (N-HEAD quasi-convex Nekhoroshev, N-ZERO, N-QC); audit running",
+   "state": "done"
   },
   {
    "id": "track-P",
@@ -70,8 +70,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P Phase 0: properly degenerate KAM (CP11 Thm 11.1), planar two-planet and fixed-Sun statements",
-   "state": "running"
+   "assignment": "Track P Phase 0 done: statement draft (P-G properly degenerate KAM, P-PLANAR, P-FIXED; spatial sketch); audit running",
+   "state": "done"
   },
   {
    "id": "zohar-shorter-times",
@@ -80,6 +80,42 @@
    "account": "codex-1",
    "session": "kam-zohar2",
    "assignment": "Stability of almost every initial condition over shorter-than-Nekhoroshev times; compatibility with simulations; candidate theorems (Zohar's question)",
+   "state": "running"
+  },
+  {
+   "id": "review-p3",
+   "kind": "blueprint reviewer",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Refute-first review of blueprint part 3 (G2)",
+   "state": "running"
+  },
+  {
+   "id": "audit-N",
+   "kind": "statement audit (Codex)",
+   "model": "GPT-6-Astra xhigh",
+   "account": "codex-3",
+   "session": "kam-audit-n",
+   "assignment": "Refute-first statement audit of track N drafts",
+   "state": "running"
+  },
+  {
+   "id": "audit-P",
+   "kind": "statement audit (Codex)",
+   "model": "GPT-6-Astra xhigh",
+   "account": "codex-4",
+   "session": "kam-audit-p",
+   "assignment": "Refute-first statement audit of track P drafts",
+   "state": "running"
+  },
+  {
+   "id": "audit-I",
+   "kind": "statement audit (Codex)",
+   "model": "GPT-6-Astra xhigh",
+   "account": "codex-1",
+   "session": "kam-audit-i",
+   "assignment": "Refute-first statement audit of track I drafts",
    "state": "running"
   }
  ],

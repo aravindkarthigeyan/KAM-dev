@@ -155,8 +155,9 @@ class Guard:
         return "".join(out)
 
     def project_files(self) -> list[Path]:
+        # `.drafts/` is the untracked area for statement drafts awaiting owner approval (repository change).
         return [path for path in self.root.rglob("*.lean")
-                if ".lake" not in path.parts and ".git" not in path.parts]
+                if ".lake" not in path.parts and ".git" not in path.parts and ".drafts" not in path.parts]
 
     def declarations(self, text: str) -> list[tuple[str | None, str, str | None, str | None]]:
         """Lexically resolve common declaration commands under simple namespaces.

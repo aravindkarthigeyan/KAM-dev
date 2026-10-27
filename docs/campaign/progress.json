@@ -53,8 +53,8 @@
    "id": "S.BP",
    "title": "Blueprint: every proof step written out against the pinned sources",
    "difficulty": "VH",
-   "done": 0.1,
-   "note": "p0 and the p1 interface written; p2, p3, p4 being drafted"
+   "done": 0.3,
+   "note": "p0, p1 interface, p3 (G2, 830 lines) written; p2, p4 being written; p3 in review"
   },
   {
    "group": "Statement and planning",
@@ -245,8 +245,8 @@
    "id": "I.PHASE0",
    "title": "Sources, statements, owner approval, freeze",
    "difficulty": "H",
-   "done": 0.0,
-   "note": ""
+   "done": 0.5,
+   "note": "sources, statement draft (I-G1 isoenergetic KAM, I-HEAD confinement, I-R3BP, I-KEPLER), Lean drafts elaborate; audit running"
   },
   {
    "group": "Track I (isoenergetic, confinement, R3BP)",
@@ -261,8 +261,8 @@
    "id": "N.PHASE0",
    "title": "Sources, statements, owner approval, freeze",
    "difficulty": "H",
-   "done": 0.0,
-   "note": ""
+   "done": 0.5,
+   "note": "sources, statement draft 0.1, Lean drafts (elaborate); audit running"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -277,8 +277,8 @@
    "id": "P.PHASE0",
    "title": "Sources, statements, owner approval, freeze",
    "difficulty": "H",
-   "done": 0.0,
-   "note": ""
+   "done": 0.5,
+   "note": "sources, statement draft (P-G, P-PLANAR, P-FIXED; spatial sketch), Lean drafts elaborate; audit running"
   },
   {
    "group": "Track P (planetary)",

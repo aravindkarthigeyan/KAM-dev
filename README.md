@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:56 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 13.5 %** · frozen statements proved: 0 / 5 · **2,384 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:57 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 19.0 %** · frozen statements proved: 0 / 5 · **2,384 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,22 +53,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **13.5 %**
+### Estimated completion: **19.0 %**
 
-`███░░░░░░░░░░░░░░░░░░░░░░` 13.5 %
+`█████░░░░░░░░░░░░░░░░░░░░` 19.0 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
-| Statement and planning | 8 | 26 | 13.6 | `█████░░░░░` 52 % |
+| Statement and planning | 8 | 26 | 15.2 | `██████░░░░` 58 % |
 | Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
 | Analytic infrastructure | 8 | 24 | 2.4 | `█░░░░░░░░░` 10 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
 | Measure of the invariant tori | 5 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
-| Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
-| Track N (Nekhoroshev) | 2 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
-| Track P (planetary) | 3 | 20 | 0.0 | `░░░░░░░░░░` 0 % |
+| Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 2.0 | `██░░░░░░░░` 17 % |
+| Track N (Nekhoroshev) | 2 | 12 | 2.0 | `██░░░░░░░░` 17 % |
+| Track P (planetary) | 3 | 20 | 2.0 | `█░░░░░░░░░` 10 % |
 | Sealing of the frozen statements | 5 | 5 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 41 | 140 | 18.9 | **13.5 %** |
+| **Total** | 41 | 140 | 26.6 | **19.0 %** |
 
 **How this is estimated.** The project is divided into 36 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -81,7 +81,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | S.ROUTE | Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency) | H | 🟨 90 % | verdict: route works; rate ε^{1/4}; flow local uniqueness must be proved by us (no published version) |
 | S.STMT | Mathematical statement of the headline theorem and the gate theorems, with owner rulings | M | ✅ 100 % | docs/statement.md draft 0.2, approved |
 | S.LEAN | Exact Lean statements (headline + gates): independent audit, owner approval, freeze | H | ✅ 100 % | approved (D11) and frozen: 5 theorem anchors + 20 definitions, manifest with file/prefix/ABI hashes |
-| S.BP | Blueprint: every proof step written out against the pinned sources | VH | 🟨 10 % | p0 and the p1 interface written; p2, p3, p4 being drafted |
+| S.BP | Blueprint: every proof step written out against the pinned sources | VH | 🟨 30 % | p0, p1 interface, p3 (G2, 830 lines) written; p2, p4 being written; p3 in review |
 | S.GRAPH | Source-level dependency graph anchored to the frozen statements | H | ⬜ 0 % |  |
 | S.ERRATA | Errata and deviations ledger for every formalized source (continuous) | L | 🟨 30 % | ledger: 8 candidate errata, 6 planned deviations |
 | I.REPO | Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint | L | ✅ 100 % |  |
@@ -105,11 +105,11 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | M.DMEAS | Measure of the non-Diophantine frequencies | M | ⬜ 0 % |  |
 | M.IMAGE | McShane extension of F̂ − id and the lipeomorphism: the complement is the image of the complement | M | ⬜ 0 % |  |
 | M.ASSEMBLY | Assembly of the headline theorem | M | ⬜ 0 % |  |
-| I.PHASE0 | Sources, statements, owner approval, freeze | H | ⬜ 0 % |  |
+| I.PHASE0 | Sources, statements, owner approval, freeze | H | 🟨 50 % | sources, statement draft (I-G1 isoenergetic KAM, I-HEAD confinement, I-R3BP, I-KEPLER), Lean drafts elaborate; audit running |
 | I.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | ⬜ 0 % |  |
-| N.PHASE0 | Sources, statements, owner approval, freeze | H | ⬜ 0 % |  |
+| N.PHASE0 | Sources, statements, owner approval, freeze | H | 🟨 50 % | sources, statement draft 0.1, Lean drafts (elaborate); audit running |
 | N.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | ⬜ 0 % |  |
-| P.PHASE0 | Sources, statements, owner approval, freeze | H | ⬜ 0 % |  |
+| P.PHASE0 | Sources, statements, owner approval, freeze | H | 🟨 50 % | sources, statement draft (P-G, P-PLANAR, P-FIXED; spatial sketch), Lean drafts elaborate; audit running |
 | P.PROOF.PDKAM | Properly degenerate KAM: blueprint, graph, proofs | VH | ⬜ 0 % |  |
 | P.PROOF.PLANAR | Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy | VH | ⬜ 0 % |  |
 
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:56 UTC from `main` at `4f58d62` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:57 UTC from `main` at `c16df2f` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -153,9 +153,9 @@ Four parallel tracks (decision D14; details in [`docs/TRACKS.md`](docs/TRACKS.md
 | Track | Headline | Stage |
 |---|---|---|
 | **K** | Positive-measure KAM for nearly-integrable analytic Hamiltonians, complement ≤ C·ε^{1/4} | statements frozen; blueprint being written |
-| **I** | All-time confinement in two degrees of freedom (isoenergetic KAM); restricted circular planar three-body problem | Phase 0 |
-| **N** | Nekhoroshev stability for quasi-convex Hamiltonians, exponents 1/(2n) | Phase 0 |
-| **P** | Properly degenerate KAM; planar two-planet problem; n planets around a fixed Sun; spatial n-body later | Phase 0 |
+| **I** | All-time confinement in two degrees of freedom (isoenergetic KAM); restricted circular planar three-body problem | Phase 0: statement draft ([docs/tracks/I](docs/tracks/I)); audit running |
+| **N** | Nekhoroshev stability for quasi-convex Hamiltonians, exponents 1/(2n) | Phase 0: statement draft 0.1 ([docs/tracks/N](docs/tracks/N)); audit running |
+| **P** | Properly degenerate KAM; planar two-planet problem; n planets around a fixed Sun; spatial n-body later | Phase 0: statement draft ([docs/tracks/P](docs/tracks/P)); audit running |
 
 The phase table below is track K's.
 
@@ -257,12 +257,16 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **orchestrator** | lead | Claude Opus 5.5 | claude-1 | 🔄 active | Campaign lead: sources, statements, assignments, landings, owner questions, this README | — | — |
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **bp-g1** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 2: G1 from HL19 §4–5 and App. B (d = n, canonical, primary, uniform constants) | — | — |
-| **bp-g2** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 3: G2, local uniqueness for flows (adapting GJLV05 §6, §8) | — | — |
+| **bp-g2** | blueprint writer | Claude Opus 5.5 | claude-1 | ✅ done | Blueprint part 3 (G2) written: 830 lines, complete proof; in review | — | — |
 | **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 4: G3, APPLY, STAB, LIP, McShane and measure, HEAD, HEAD-Q | — | — |
-| **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | 🔄 running | Track I Phase 0: isoenergetic KAM (HL19 Thm 3.6), 2-DOF confinement, restricted three-body problem | — | — |
-| **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | 🔄 running | Track N Phase 0: quasi-convex Nekhoroshev (Bounemoura–Marco Thm 2.1; Pöschel 1993) | — | — |
-| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | 🔄 running | Track P Phase 0: properly degenerate KAM (CP11 Thm 11.1), planar two-planet and fixed-Sun statements | — | — |
+| **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | ✅ done | Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running | — | — |
+| **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ done | Track N Phase 0 done: statement draft 0.1 (N-HEAD quasi-convex Nekhoroshev, N-ZERO, N-QC); audit running | — | — |
+| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ done | Track P Phase 0 done: statement draft (P-G properly degenerate KAM, P-PLANAR, P-FIXED; spatial sketch); audit running | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 running | Stability of almost every initial condition over shorter-than-Nekhoroshev times; compatibility with simulations; candidate theorems (Zohar's question) | — | — |
+| **review-p3** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 3 (G2) | — | — |
+| **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | 🔄 running | Refute-first statement audit of track N drafts | — | — |
+| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | 🔄 running | Refute-first statement audit of track P drafts | — | — |
+| **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 running | Refute-first statement audit of track I drafts | — | — |
 
 **Queued:** Blueprint part 1 proofs · Independent review of each blueprint part · Dependency graph extraction
 <!-- /AUTO:workers -->
@@ -272,6 +276,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:56 | `c16df2f` | Complete Cauchy work package and record verified integration |
 | 2026-10-27 15:55 | `4f58d62` | Merge branch 'proof/cauchy-strip-estimates' |
 | 2026-10-27 15:40 | `28ab456` | HQ: exploration of almost-every, shorter-time stability (collaborator's question) |
 | 2026-10-27 15:37 | `6f73a2b` | Name both authors in the frozen and project file headers (D16) |
@@ -283,7 +288,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:16 | `1f0d755` | Freeze the approved KAM statements (D11) |
 | 2026-10-27 15:09 | `ed21566` | Statement drafts v0.2 audited; ledger and plan updated; exploration launched |
 | 2026-10-27 14:35 | `4db4826` | Record D10: the errata ledger stays public |
-| 2026-10-27 14:32 | `80d65f4` | HQ: statement drafts elaborate; independent audit running |
 <!-- /AUTO:landed -->
 
 ## Decisions
@@ -336,7 +340,7 @@ against the pinned PDF.
 |---|---|---|
 | CCdlL13 | 1 candidate | 1 planned |
 | FdlLS09 | 2 candidate | 0 |
-| GJLV05 | 2 candidate | 1 planned |
+| GJLV05 | 5 candidate | 1 planned |
 | HL19 | 2 candidate | 3 planned |
 | Pos01 | 3 candidate | 2 planned |
 
@@ -356,11 +360,14 @@ against the pinned PDF.
 | D-MEAS-1 | deviation | Pos01 | Theorem (p. 6), Prop. 1–2 (p. 11) | Rate: our route proves meas(complement) ≤ C·ε^{1/4} (γ ~ ε^{1/4}), not Pöschel's O(√ε); the measure step applies the McShane extension of App. B to F̂ − id in frequency coordinates | PLANNED |
 | D-NORM-1 | deviation | HL19 | §3.1 (analytic functions and norms) | Estimates are carried out in weighted ℓ¹ Fourier(–Taylor) coefficient norms instead of sup norms on complex strips; hypotheses are stated for real-analytic functions and converted once at the interface | PLANNED |
 | D-COORD-1 | deviation | HL19 | §2 (Hamiltonian systems and invariant tori) | Phase space Tⁿ × B is represented in coordinates: angles in ℝⁿ with ℤⁿ-periodicity, actions in an open set of ℝⁿ (no manifold structure, no general symplectic form) | PLANNED |
-| D-UNIQ-1 | deviation | GJLV05 | Theorem 2 (maps), §6, §8 | Proof supplement: local uniqueness modulo phase for flows. No published statement exists in this framework (GJLV05 Rem. 7: 'We do not formulate such a theorem'; HL19 Rem. 3.5 asserts it without proof). We prove it by adapting the map proof of GJLV05 §6 with the flow reducibility of §8 and Prop. 18, directly for flows (not through the time-one map, which needs map-Diophantine frequencies). | PLANNED |
+| D-UNIQ-1 | deviation | GJLV05 | Theorem 2 (maps), §6, §8 | Proof supplement: local uniqueness modulo phase for flows. No published statement exists in this framework (GJLV05 Rem. 7: 'We do not formulate such a theorem'; HL19 Rem. 3.5 asserts it without proof). We prove it by adapting the map proof of GJLV05 §6 with the flow reducibility of §8 and Prop. 18, directly for flows (not through the time-one map, which needs map-Diophantine frequencies).. Proof written in blueprint Part 3: linearization at K₁ (not K₂), the phase fixed once by ⟨BLᵀ(K₂(·+ψ) − K₁)⟩ = 0, a uniqueness constant independent of γ (∣ω∣ ≤ Γ from invariance, so γ ≤ Γ), the small-divisor exponent τ + n, and the conclusion on T_{ρ/2} | PLANNED |
 | D-LIP-1 | deviation | CCdlL13 | Cor. 29–30 | Lipschitz dependence on the frequency by re-applying the a-posteriori theorem at a nearby frequency (CCdlL13 template), with the error estimate ‖E′‖ ≲ (ε + ‖K_ω − K⁰_ω‖_{C¹})·∣ω − ω′∣ and Lipschitz defect O(ε/γ⁴) | PLANNED |
 | E-HL19-1 | erratum | HL19 | p. 18, (3.11) | the strict inequality is false when E = 0, where it would require ‖K∞ − K‖ < 0; it should read ≤ | CANDIDATE |
 | E-HL19-2 | erratum | HL19 | p. 42, (5.66) | in the estimate for the twist term the denominator should be σ_T − ∣⟨T⟩⁻¹∣ | CANDIDATE |
 | D-G1-1 | deviation | HL19 | Theorem 3.1, pp. 16–18; App. B (5.74)–(5.77) | Uniform constants: C₁, C₂ depend only on n, τ, ρ, ρ∞, a bound M for the Hamiltonian's derivatives, σK, σB, σT, a margin μ (gaps σ − ‖·‖ and distance to the boundary) and an upper bound γbar ≥ γ (App. B's constants increase with γ; without γbar the statement is false: machine-checked counterexample). Dropped hypotheses implied up to 2n factors: σ_{Kᵀ}, c_{X_hᵀ,1}; first integrals and the estimate on ⟨c∘K∞⟩ not transcribed. Pointwise operator norms on the open strip instead of sums of sups on the closed strip. Conclusion strengthened to explicit margins (μ/2) and ≤ in the closeness bound (cf. E-HL19-1). Same uniformization in our G2, where no γbar is needed: invariance with H2–H3 bounds ∣ω∣, hence γ | PLANNED |
+| E-GJLV05-3 | erratum | GJLV05 | pp. 884–885, Lemma 14 (choice of the phase) | the proof never shows that Ψ maps Θ into itself, and Θ is open; Ψ(0) can be as large as ‖T‖_ρ‖K₁ − K₂‖_ρ. Correction: use the closed ball of radius 2‖T‖_ρ‖K₁ − K₂‖_ρ | CANDIDATE |
+| E-GJLV05-4 | erratum | GJLV05 | p. 885, proof of Theorem 2 | should read 0 < δ < ρ/2 | CANDIDATE |
+| E-GJLV05-5 | erratum | GJLV05 | p. 889, Prop. 18 | the derivative index should be θ_j, and the right-hand side norm should be ‖h‖_ρ | CANDIDATE |
 
 </details>
 <!-- /AUTO:errata -->

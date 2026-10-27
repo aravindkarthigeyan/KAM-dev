@@ -81,3 +81,18 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   - Only `full_file_sha256`, `prefix_sha256` and `definition_closure` hashes in `manifest/frozen-anchors.json`
     changed. Log: `docs/MANIFEST-CHANGES.md`.
 
+- **D17 (2026-10-27) Track N dimension.** N-HEAD (quasi-convex Nekhoroshev with exponents 1/(2n)) is stated for
+  n ≥ 3 (track N owner question 1). *(Scott: "approve n ≥ 3 for track N")* The other track-N questions wait for the
+  statement audit and the review page.
+- **D18 (2026-10-27) Track N rulings Q2–Q6.** *(Scott: "approve your other recommendations for track N too")*
+  - Q2: pointwise `‖f‖ ≤ ε`, with BM11's constants rescaled by a factor of two, plus a separate size-zero theorem
+    (N-ZERO).
+  - Q3: constants uniform in both h and f, given (n, R, s, M, m), as BM11's stable constants; no added
+    frequency lower bound.
+  - Q4: N-HEAD states existence on the whole interval, equality with every other solution, and the margin
+    C·ε₀^{1/(2n)} ≤ R/4.
+  - Q5: freeze N-QC and N-ZERO as gates; defer N-STEEP and BM11's uniform inverse-radius claim.
+  - Q6: the suspected BM11 issues E-N-BM-1..3 are resolved before the proof route is signed off.
+
+  These rulings fix the shape. The exact Lean text still needs the owner's line-by-line approval after the
+  statement audit.
