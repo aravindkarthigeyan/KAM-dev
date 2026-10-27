@@ -34,13 +34,20 @@ claim of the blueprint is syntactic.
 Every inequality between the constants that later parts of Part 2 use is proved here, so that no
 later module unfolds a constant. They are grouped by the blueprint step that uses them:
 
-* orderings (`pt-small`): `C_DT ≥ max {n, C_G, C_DN}` (`n_le_C_DT`, `C_G_le_C_DT`,
-  `C_DN_le_C_DT`) and `perturbation_small`;
-* absorption of powers of `γ` and `δ` (`cor-absorb`, `st-small`, `ne-total`): `div_absorb`;
-* smallness of the step (`st-small`): `step_small`;
-* the schedule (`it-sums`, `it-stepsmall`): `error_decay_hyp`, `sum_coef_le`, `iteration_step_small`,
-  `iteration_sums`;
-* G1 (`g1-e`): `g1_error_small`, `g1_closeness_eq`.
+* orderings and smallness of the perturbation (`pt-small`, `pt-gram`, `pt-xn`):
+  `C_DT ≥ max {n, C_G, C_DN}` (`n_le_C_DT`, `C_G_le_C_DT`, `C_DN_le_C_DT`), `gram_coeff_le`,
+  `perturbation_small`, `pt_xn_sum_le`;
+* absorption of powers of `γ` and `δ` (`cor-absorb`, `st-small`, `ne-total`): `mul_rpow_le`,
+  `div_absorb`, `absorb_mul_le`;
+* smallness of the step (`st-small`): `step_small`, from the dominance facts
+  `two_Theta_pow_three_mul_C_sym_le_c_step`, `two_Theta_sq_mul_C_DK_le_c_step` and
+  `four_Theta_sq_mul_le_c_step`;
+* the induction (`it-sums`, `it-stepsmall`): `error_decay_hyp`, `c_sum_small`,
+  `iteration_step_small`, `sum_coef_le`, `iteration_sums`, `closeness_le`;
+* Theorem G1 (`g1-e`, `g1-check`): `g1_error_small`, `g1_closeness_eq`.
+
+The hypothesis `γ ≤ Θ` of the absorption lemmas is the conclusion of Lemma `bp:p2:frequency`; the
+lemmas here are arithmetic and take it as a hypothesis.
 -/
 
 @[expose] public noncomputable section
@@ -59,35 +66,56 @@ def cR : ℝ := max 1 (cohConst n τ)
 def mSize : ℝ := max 1 (max M (max σK (max σB σT)))
 /-- `Θ = 4 n 𝔪³`. -/
 def Theta : ℝ := 4 * n * mSize M σK σB σT ^ 3
+/-- `C_X = 5 n² 𝔪⁵`. -/
 def C_X : ℝ := 5 * (n : ℝ) ^ 2 * mSize M σK σB σT ^ 5
+/-- `C_T = 2 n 𝔪² C_X`. -/
 def C_T : ℝ := 2 * n * mSize M σK σB σT ^ 2 * C_X n M σK σB σT
+/-- `C_Ω = 2 n (n + 1) c_R 𝔪`. -/
 def C_Omega : ℝ := 2 * n * (n + 1) * cR n τ * mSize M σK σB σT
+/-- `C_sym = 𝔪² C_Ω`. -/
 def C_sym : ℝ := mSize M σK σB σT ^ 2 * C_Omega n τ M σK σB σT
+/-- `C_red = 2 n (n + 1) 𝔪²`. -/
 def C_red : ℝ := 2 * n * (n + 1) * mSize M σK σB σT ^ 2
+/-- `C_{ξ₀} = 2 n 𝔪² (𝔪 Θ + c_R C_T)`. -/
 def C_xi0 : ℝ := 2 * n * mSize M σK σB σT ^ 2 *
   (mSize M σK σB σT * Theta n M σK σB σT + cR n τ * C_T n M σK σB σT)
+/-- `C_{ξN} = C_{ξ₀} + 2 n c_R 𝔪`. -/
 def C_xiN : ℝ := C_xi0 n τ M σK σB σT + 2 * n * cR n τ * mSize M σK σB σT
+/-- `C_g = C_T C_{ξN} + 2 n 𝔪² Θ`. -/
 def C_g : ℝ := C_T n M σK σB σT * C_xiN n τ M σK σB σT +
   2 * n * mSize M σK σB σT ^ 2 * Theta n M σK σB σT
+/-- `C_ξ = c_R C_g + Θ C_{ξN}`. -/
 def C_xi : ℝ := cR n τ * C_g n τ M σK σB σT + Theta n M σK σB σT * C_xiN n τ M σK σB σT
+/-- `C_ΔK = 2 𝔪² C_ξ`. -/
 def C_DK : ℝ := 2 * mSize M σK σB σT ^ 2 * C_xi n τ M σK σB σT
+/-- `C_lin = C_red C_ξ + C_sym C_g`. -/
 def C_lin : ℝ := C_red n M σK σB σT * C_xi n τ M σK σB σT +
   C_sym n τ M σK σB σT * C_g n τ M σK σB σT
+/-- `C_E = 4 𝔪² Θ² C_lin + 𝔪 C_ΔK²`. -/
 def C_E : ℝ := 4 * mSize M σK σB σT ^ 2 * Theta n M σK σB σT ^ 2 * C_lin n τ M σK σB σT +
   mSize M σK σB σT * C_DK n τ M σK σB σT ^ 2
+/-- `C_G = 6 n² 𝔪`. -/
 def C_G : ℝ := 6 * (n : ℝ) ^ 2 * mSize M σK σB σT
+/-- `C_B = 2 𝔪² C_G`. -/
 def C_B : ℝ := 2 * mSize M σK σB σT ^ 2 * C_G n M σK σB σT
+/-- `C_ΔN = 2 n 𝔪 + 𝔪 C_B`. -/
 def C_DN : ℝ := 2 * n * mSize M σK σB σT + mSize M σK σB σT * C_B n M σK σB σT
+/-- `C_ΔX = 2 𝔪³ + (𝔪 + n Θ) C_ΔN`. -/
 def C_DX : ℝ := 2 * mSize M σK σB σT ^ 3 +
   (mSize M σK σB σT + n * Theta n M σK σB σT) * C_DN n M σK σB σT
+/-- `C_ΔT = 4 n 𝔪² C_ΔX + 2 n C_ΔN C_X`. -/
 def C_DT : ℝ := 4 * n * mSize M σK σB σT ^ 2 * C_DX n M σK σB σT +
   2 * n * C_DN n M σK σB σT * C_X n M σK σB σT
+/-- `𝔠_step = 2 Θ⁴ max {C_sym, 2 𝔪 C_ΔT C_ΔK}`. -/
 def c_step : ℝ := 2 * Theta n M σK σB σT ^ 4 * max (C_sym n τ M σK σB σT)
   (2 * mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT)
+/-- `𝔠_sum = 4 Θ² C_ΔK max {n, C_B, 𝔪² C_ΔT}`. -/
 def c_sum : ℝ := 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT *
   max (n : ℝ) (max (C_B n M σK σB σT) (mSize M σK σB σT ^ 2 * C_DT n M σK σB σT))
+/-- `𝔠_* = max {2^{2a} C_E, 𝔠_step max {1, 2/μ}, 2 𝔠_sum/μ}`. -/
 def c_star (μ : ℝ) : ℝ := max ((2 : ℝ) ^ (2 * aExp n τ) * C_E n τ M σK σB σT)
   (max (c_step n τ M σK σB σT * max 1 (2 / μ)) (2 * c_sum n τ M σK σB σT / μ))
+/-- `δ₀ = min {1, (ρ - ρ_∞)/8}`. -/
 def delta0 (ρ ρinf : ℝ) : ℝ := min 1 ((ρ - ρinf) / 8)
 
 variable {n τ M σK σB σT}
