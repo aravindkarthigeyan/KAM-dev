@@ -79,7 +79,7 @@
    "model": "GPT-6-Astra xhigh",
    "account": "codex-1",
    "session": "kam-zohar2",
-   "assignment": "Stability of almost every initial condition over shorter-than-Nekhoroshev times; compatibility with simulations; candidate theorems (Zohar's question)",
+   "assignment": "Collaborator's research question, round 2: longer horizons for most initial conditions, one best planetary statement with proof sketch, realistic-parameter feasibility (round 1: docs/explorations/almost-every-shorter-times.md)",
    "state": "running"
   },
   {
