@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 21:16 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 39.1 %** · frozen statements proved: 1 / 22 · **19,608 lines of Lean** of an estimated ≈ 137,000
+> **Last updated: 2026-10-27 21:19 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 39.1 %** · frozen statements proved: 1 / 22 · **19,608 lines of Lean** of an estimated ≈ 137,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 21:16 UTC from `main` at `7405b13` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 21:19 UTC from `main` at `a6ac5f5` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -279,13 +279,13 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **prover-I-STRIP-3** `worktree` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | I-STRIP-3: cohomological equation on strips (overnight claim, D29) | — | — |
 | **prover-I-P4B** `worktree` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | I-P4B: derivative bounds, torsion regularity, shifts, mixed differences | — | — |
 | **design-P4** `worktree /root/code/KAM-w-design4` | Lean architect | Claude Opus 5.5 | claude-1 (subagent) | ⚠️ session missing | Part 4 (HEAD, HEAD-Q) Lean design | — | — |
 | **prover-P2-5** `worktree /root/code/KAM-w-p2-5` | Lean prover (G1 design wave 4) | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package P2-5 | — | — |
 | **prover-P2-6** `worktree /root/code/KAM-w-p2-6` | Lean prover (G1 design wave 4) | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package P2-6 | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29) | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29) | — | — |
 | **bpP-p11a2** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track P Part 11a-2: cutoff, homological equation, KAM step (Russmann route for P-FIXED) | — | — |
 | **graphN-ext** | graph extractor (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N dependency graph: slices N-p11ab, N-p11c (N-PARTIAL-CONVEX) | — | — |
 | **design-N3** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design with exact signatures for blueprint-N Part 3 (shared Hamiltonian ODE layer) | — | — |
@@ -293,7 +293,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **grev-1** `inp-grev-1` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: third-pass review of I-imports, I-nown | — | — |
 | **bprev-2** `inp-bprev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: third-pass review of I-p2, I-p5, I-p8 | — | — |
 | **grev-3** `inp-grev-3` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track I graph: third-pass review of I-p67a, I-p7b | — | — |
-| **grev-2** `inp-grev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Track N graph: slice review N-p02, N-p1 | — | — |
+| **grev-2** `inp-grev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track N graph: slice review N-p02, N-p1 | — | — |
 | **grev-4** `inp-grev-4` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track N graph: slice review N-p4, N-p5 | — | — |
 | **rev-n11** `inp-rev-n11` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Track N graph: slice review N-p3a, N-p3b (earlier: N Part 12 review, REVISE) | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | N additions drafter (D25/D28 frozen); idle | — | — |
@@ -307,6 +307,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 21:19 | `a6ac5f5` | Overnight log: P3-0 split |
+| 2026-10-27 21:19 | `98f44b6` | Brief for P3-0 (Part 3 standing data and constants, split from P3-1) |
 | 2026-10-27 21:16 | `7405b13` | P2-4 landed: Hamiltonian facts and periodicity; audit PASS |
 | 2026-10-27 21:15 | `89e8442` | Land k/p2-4 into main |
 | 2026-10-27 21:14 | `41f8125` | Land inp into main |
@@ -317,8 +319,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 20:59 | `2676c3c` | Overnight: claim I-STRIP-3 and I-P4B; Part 4 design brief |
 | 2026-10-27 20:58 | `83e9a74` | D29: overnight mode; overnight decision log |
 | 2026-10-27 20:54 | `c547067` | Brief for P2-4 (Hamiltonian, periodicity) |
-| 2026-10-27 20:53 | `85d4f35` | P2-2 landed: frozen agreement; audit PASS |
-| 2026-10-27 20:53 | `c4c273d` | Land k/p2-2 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
