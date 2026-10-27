@@ -3,9 +3,9 @@ KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:domains@L41-L47
 DISPOSITION: NODE bpI:p0:domains#complexStrip
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:domains#actionNbhd
 KIND: definition
@@ -21,207 +21,207 @@ KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:diophantine@L49-L54
 DISPOSITION: NODE bpI:p0:diophantine#IsDiophantine
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:hamiltonian#hamiltonianVectorField
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:hamiltonian@L56-L63
 DISPOSITION: NODE bpI:p0:hamiltonian#hamiltonianVectorField
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:hamiltonian#hamiltonianVectorFieldC
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:hamiltonian@L56-L63
 DISPOSITION: NODE bpI:p0:hamiltonian#hamiltonianVectorFieldC
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:realham#realHamiltonian
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:realham@L65-L72
 DISPOSITION: NODE bpI:p0:realham#realHamiltonian
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:realham#frequencyMap
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:realham@L65-L72
 DISPOSITION: NODE bpI:p0:realham#frequencyMap
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:stripdata#IsPrimaryOnStrip
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L74-L92
 DISPOSITION: NODE bpI:p0:stripdata#IsPrimaryOnStrip
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:stripdata#IsRealOnReals
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L74-L92
 DISPOSITION: NODE bpI:p0:stripdata#IsRealOnReals
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:stripdata#dotC
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L74-L92
 DISPOSITION: NODE bpI:p0:stripdata#dotC
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:stripdata#omegaZero
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L74-L92
 DISPOSITION: NODE bpI:p0:stripdata#omegaZero
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:stripdata#invarianceError
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L74-L92
 DISPOSITION: NODE bpI:p0:stripdata#invarianceError
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:stripdata#gramMatrix
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L74-L92
 DISPOSITION: NODE bpI:p0:stripdata#gramMatrix
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:stripdata#normalFrame
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L74-L92
 DISPOSITION: NODE bpI:p0:stripdata#normalFrame
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:stripdata#torsion
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L74-L92
 DISPOSITION: NODE bpI:p0:stripdata#torsion
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:extended#energyAverage
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:extended@L96-L109
 DISPOSITION: NODE bpI:p0:extended#energyAverage
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:extended#extendedTorsion
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:extended@L96-L109
 DISPOSITION: NODE bpI:p0:extended#extendedTorsion
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:extended#extendedTorsionAverage
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:extended@L96-L109
 DISPOSITION: NODE bpI:p0:extended#extendedTorsionAverage
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:bordered#borderedHessian
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:bordered@L111-L120
 DISPOSITION: NODE bpI:p0:bordered#borderedHessian
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:hamsol#IsHamiltonianSolutionOn
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:hamsol@L122-L128
 DISPOSITION: NODE bpI:p0:hamsol#IsHamiltonianSolutionOn
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:primaries#radiusSq
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:primaries@L130-L137
 DISPOSITION: NODE bpI:p0:primaries#radiusSq
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:primaries#radius
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:primaries@L130-L137
 DISPOSITION: NODE bpI:p0:primaries#radius
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:primaries#primary1
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:primaries@L130-L137
 DISPOSITION: NODE bpI:p0:primaries#primary1
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:primaries#primary2
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:primaries@L130-L137
 DISPOSITION: NODE bpI:p0:primaries#primary2
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:primaries#CollisionFree
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:primaries@L130-L137
 DISPOSITION: NODE bpI:p0:primaries#CollisionFree
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:restricted#restrictedHamiltonian
 KIND: definition
@@ -255,18 +255,18 @@ KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:nearcircular@L155-L168
 DISPOSITION: NODE bpI:p0:nearcircular#NearCircular
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:keplerborder#keplerBorder
 KIND: definition
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:keplerborder@L170-L180
 DISPOSITION: NODE bpI:p0:keplerborder#keplerBorder
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:totality
 KIND: claim
@@ -300,9 +300,9 @@ KIND: theorem
 SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:head@L268-L286
 DISPOSITION: NODE bpI:p0:head
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 
 ITEM: bpI:p0:head-remarks
 KIND: claim
@@ -554,4 +554,40 @@ DISPOSITION: EXCLUDED
 REASON: conventions (carriers, max norm, strips, averages, phase-space orders): notation and carrier choices fixed by the frozen declarations, which the anchor nodes transcribe; no proof step relies on an unproved claim here (row-sum norm convention recorded in the anchor statement fields)
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p0
+REVIEWER: -
+
+ITEM: bpI:p0:domains#openness
+KIND: claim
+SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:domains@L43-L44
+DISPOSITION: EXCLUDED
+REASON: Outside every root closure as an independent arbitrary-B,r assertion: checked the domain-opening use in bpI:p3:hypothesis-d (L282–283), which invokes K:step:p4:h1-open; that owning proof (blueprint/parts/p4-measure.tex L316–319) proves openness for its working domain from the union-of-balls definition. Keep the frozen actionNbhd node as the set definition; the extra Part 0 property is a duplicate pointer, not a stronger frozen contract.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p0
+REVIEWER: -
+
+ITEM: bpI:p0:restricted#hamiltonian-agreement
+KIND: claim
+SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L146-L146
+DISPOSITION: NODE bpI:p7:ham-eq
+REASON: Alias of the Hamiltonian-field agreement on the open collision-free set proved at bpI:p7:ham-eq (Part 7 L51–70). This derived assertion is not the definition of restrictedVectorField; linking it back from that definition would introduce a cycle.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p0
+REVIEWER: -
+
+ITEM: bpI:p0:nearcircular#witness-uniqueness
+KIND: claim
+SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:nearcircular@L164-L164
+DISPOSITION: NODE bpI:p7:near-circular
+REASON: Alias of the witness identification/uniqueness in bpI:p7:near-circular, statement L267 and proof stepI:p7:nc-sub L272. Keep the existential frozen predicate separate from its derived uniqueness property.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p0
+REVIEWER: -
+
+ITEM: bpI:p0:keplerborder#hessian-agreement
+KIND: claim
+SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:keplerborder@L176-L177
+DISPOSITION: NODE bpI:p6:kep-border
+REASON: Alias of bpI:p6:kep-border (Part 6 L69–108), identifying the bordered Hessian of the explicitly defined complex Kepler Hamiltonian with the frozen matrix after reindexing. The matrix definition alone does not assert this derivative identity.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p0
 REVIEWER: -
