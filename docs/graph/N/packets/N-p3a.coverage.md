@@ -4,7 +4,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-pl@L32-L40
 DISPOSITION: NODE bpN:p3:ext-pl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:ext-unique
@@ -13,7 +13,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-unique@L41-L45
 DISPOSITION: NODE bpN:p3:ext-unique
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:ext-lip-local
@@ -22,16 +22,16 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-lip-local@L46-L49
 DISPOSITION: NODE bpN:p3:ext-lip-local
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:ext-mvt
 KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-mvt@L50-L52
-DISPOSITION: NODE bpN:p3:ext-mvt
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: alias of K:bp:p1:ext-mvt (SPEC decision: its two extra sentences are the convex-set and one-variable forms of the same inequality); consumers (short-ext) depend on K:bp:p1:ext-mvt directly
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:ext-compact
@@ -40,7 +40,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-compact@L53-L57
 DISPOSITION: NODE bpN:p3:ext-compact
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:ext-calc
@@ -49,16 +49,16 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-calc@L58-L62
 DISPOSITION: NODE bpN:p3:ext-calc
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:ext-pl-c1
 KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-pl-c1@L63-L69
-DISPOSITION: NODE bpN:p3:ext-pl-c1
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: outside every root closure of track N: offered only as an optional shortcut ('may be reused', prose at L63-L69 and L70-L76); checked by grep of blueprint-N/parts for the label: no proof in Parts 0-11 cites it (gen-local and gen-uniform-exist are proved from ext-pl)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:totality
@@ -67,7 +67,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:totality@L78-L84
 DISPOSITION: NODE bpN:p3:totality
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-sol
@@ -76,7 +76,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol@L88-L93
 DISPOSITION: NODE bpN:p3:gen-sol
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-symmetry
@@ -85,7 +85,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetry@L101-L110
 DISPOSITION: NODE bpN:p3:gen-symmetry
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:sym
@@ -94,7 +94,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sym@L112-L113
 DISPOSITION: NODE stepN:p3:sym
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-lip
@@ -103,7 +103,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-lip@L116-L120
 DISPOSITION: NODE bpN:p3:gen-lip
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:lip-mathlib
@@ -112,7 +112,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-mathlib@L122-L122
 DISPOSITION: NODE stepN:p3:lip-mathlib
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:lip-bdd
@@ -121,7 +121,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-bdd@L124-L124
 DISPOSITION: NODE stepN:p3:lip-bdd
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:lip-contra
@@ -130,7 +130,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-contra@L126-L128
 DISPOSITION: NODE stepN:p3:lip-contra
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:lip-compact
@@ -139,7 +139,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L130-L133
 DISPOSITION: NODE stepN:p3:lip-compact
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-uniform
@@ -148,7 +148,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform@L136-L141
 DISPOSITION: NODE bpN:p3:gen-uniform
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-uniform-compact
@@ -157,7 +157,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-compact@L143
 DISPOSITION: NODE bpN:p3:gen-uniform-compact
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:uc-delta
@@ -166,7 +166,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-delta@L148-L151
 DISPOSITION: NODE stepN:p3:uc-delta
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:uc-data
@@ -175,7 +175,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-data@L153-L153
 DISPOSITION: NODE stepN:p3:uc-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-uniform-periodic
@@ -184,7 +184,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-periodic@L15
 DISPOSITION: NODE bpN:p3:gen-uniform-periodic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:up-cell
@@ -193,7 +193,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L162-L164
 DISPOSITION: NODE stepN:p3:up-cell
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:up-translate
@@ -202,7 +202,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-translate@L166-L168
 DISPOSITION: NODE stepN:p3:up-translate
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-short
@@ -211,7 +211,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-short@L173-L179
 DISPOSITION: NODE bpN:p3:gen-short
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:short-boot
@@ -220,7 +220,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L181-L183
 DISPOSITION: NODE stepN:p3:short-boot
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:short-ext
@@ -229,7 +229,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-ext@L185-L187
 DISPOSITION: NODE stepN:p3:short-ext
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-uniform-exist
@@ -238,7 +238,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-exist@L190-L
 DISPOSITION: NODE bpN:p3:gen-uniform-exist
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:ue-pl
@@ -247,7 +247,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-pl@L198-L200
 DISPOSITION: NODE stepN:p3:ue-pl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:ue-stay
@@ -256,7 +256,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202-L202
 DISPOSITION: NODE stepN:p3:ue-stay
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-local
@@ -265,7 +265,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-local@L205-L210
 DISPOSITION: NODE bpN:p3:gen-local
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:loc-red
@@ -274,7 +274,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212-L212
 DISPOSITION: NODE stepN:p3:loc-red
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-uniqueness
@@ -283,7 +283,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniqueness@L217-L224
 DISPOSITION: NODE bpN:p3:gen-uniqueness
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:uq-compact
@@ -292,7 +292,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L226-L228
 DISPOSITION: NODE stepN:p3:uq-compact
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:uq-lip
@@ -301,7 +301,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-lip@L230-L230
 DISPOSITION: NODE stepN:p3:uq-lip
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:uq-apply
@@ -310,7 +310,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L232-L233
 DISPOSITION: NODE stepN:p3:uq-apply
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-extend
@@ -319,7 +319,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-extend@L238-L241
 DISPOSITION: NODE bpN:p3:gen-extend
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:ext-right
@@ -328,7 +328,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L243-L246
 DISPOSITION: NODE stepN:p3:ext-right
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:ext-left
@@ -337,7 +337,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-left@L248-L248
 DISPOSITION: NODE stepN:p3:ext-left
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-maximal
@@ -346,7 +346,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L251-L258
 DISPOSITION: NODE bpN:p3:gen-maximal
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:max-union
@@ -355,7 +355,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-union@L260-L261
 DISPOSITION: NODE stepN:p3:max-union
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:max-glue
@@ -364,7 +364,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L263-L264
 DISPOSITION: NODE stepN:p3:max-glue
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:max-max
@@ -373,7 +373,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L266-L267
 DISPOSITION: NODE stepN:p3:max-max
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-continuation
@@ -382,7 +382,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L270-L2
 DISPOSITION: NODE bpN:p3:gen-continuation
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:cont-setup
@@ -391,7 +391,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-setup@L279-L279
 DISPOSITION: NODE stepN:p3:cont-setup
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:cont-alpha
@@ -400,7 +400,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L281-L282
 DISPOSITION: NODE stepN:p3:cont-alpha
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:cont-glue
@@ -409,7 +409,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L284-L286
 DISPOSITION: NODE stepN:p3:cont-glue
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-continuation-compact
@@ -418,7 +418,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-compact
 DISPOSITION: NODE bpN:p3:gen-continuation-compact
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-continuation-periodic
@@ -427,16 +427,16 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodi
 DISPOSITION: NODE bpN:p3:gen-continuation-periodic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-uniform-remark
 KIND: claim
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-remark@L304-L308
-DISPOSITION: NODE bpN:p3:gen-uniform-remark
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: administrative remark (counterexample and pointer list, 'what the closed-set variant needs'); no proof consumes it; checked by grep for the label in blueprint-N/parts: its only references are label-index/prose pointers
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: bpN:p3:gen-confinement
@@ -445,7 +445,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L310-L31
 DISPOSITION: NODE bpN:p3:gen-confinement
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:conf-noexit
@@ -454,7 +454,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@L320-L321
 DISPOSITION: NODE stepN:p3:conf-noexit
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: stepN:p3:conf-concl
@@ -463,7 +463,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L323-L323
 DISPOSITION: NODE stepN:p3:conf-concl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: heading:bpN:p3
@@ -472,7 +472,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3@L1-L1
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: heading:bpN:p3:s-conv
@@ -481,7 +481,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-conv@L13-L13
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: heading:bpN:p3:s-general
@@ -490,7 +490,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-general@L86-L86
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: heading:bpN:p3:s-exist
@@ -499,7 +499,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-exist@L171-L171
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: heading:bpN:p3:s-unique
@@ -508,7 +508,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-unique@L215-L215
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: heading:bpN:p3:s-max
@@ -517,7 +517,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-max@L236-L236
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L92
@@ -526,7 +526,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L92-L92
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L109
@@ -535,7 +535,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L109-L109
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L119
@@ -544,7 +544,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L119-L119
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L178
@@ -553,7 +553,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L178-L178
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L195
@@ -562,7 +562,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L195-L195
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L209
@@ -571,7 +571,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L209-L209
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L223
@@ -580,7 +580,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L223-L223
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L257
@@ -589,7 +589,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L257-L257
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L276
@@ -598,7 +598,7 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L276-L276
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:source-L317
@@ -607,50 +607,50 @@ SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#source@L317-L317
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:prose-L3-L11
 KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#prose@L3-L11
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: introduction/outline of Part 3 (two levels, who cites which result, pointers to tracks I and P); no fact is consumed
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:prose-L15-L26
 KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#prose@L15-L26
-DISPOSITION: TODO
-REASON: unlabelled prose without cross-references outside every node (--all-prose): map it to the node(s) that rely on a fact or datum it states (or make it a node), or exclude with a reason (motivation, outline, notation only)
+DISPOSITION: EXCLUDED
+REASON: conventions paragraph (E finite-dimensional real normed space, F total, 'C^1 on W' = ContDiffOn, intervals order-connected, two-sided derivatives): notation; recorded in the source fields of gen-sol, gen-uniform, gen-lip, gen-uniform-periodic, gen-uniqueness and the nodes that use the Euclidean-free max norm on R^n x R^n
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:prose-L28-L31
 KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#prose@L28-L31
-DISPOSITION: TODO
-REASON: unlabelled prose without cross-references outside every node (--all-prose): map it to the node(s) that rely on a fact or datum it states (or make it a node), or exclude with a reason (motivation, outline, notation only)
+DISPOSITION: EXCLUDED
+REASON: header of the external-facts list with pointers to Mathlib directories; each fact is its own node ext-* (or an alias/exclusion)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:prose-L70-L76
 KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#prose@L70-L76
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: 'Not in Mathlib' pointer/outline list; every item named there is a node of this slice (gen-uniform-compact, gen-uniform-periodic, gen-short, gen-uniform-exist, gen-uniqueness, gen-maximal, gen-continuation, gen-exit in N-p3b); the optional shortcut ext-pl-c1 is excluded
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
 
 ITEM: p3:prose-L95-L99
 KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#prose@L95-L99
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: NODE bpN:p3:gen-sol#consequences
+REASON: elementary consequences (i) restriction, (ii) continuity, (iii) local nature of IsSolIn, consumed by short-boot, short-ext, uq-compact, ext-right, max-glue, cont-glue (and exit-closed, exit-bdry in N-p3b)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -

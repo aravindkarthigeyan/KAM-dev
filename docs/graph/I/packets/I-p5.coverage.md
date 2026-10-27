@@ -57,9 +57,9 @@ KIND: external
 SOURCE: blueprint-I/parts/p5-confinement.tex#bpI:p5:ext-top@L55-L56
 DISPOSITION: NODE bpI:p5:ext-top
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: bpI:p5:ext-ift
 KIND: external
@@ -84,9 +84,9 @@ KIND: definition
 SOURCE: blueprint-I/parts/p5-confinement.tex#bpI:p5:eps0@L79-L85
 DISPOSITION: NODE bpI:p5:eps0
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: bpI:p5:graph
 KIND: lemma
@@ -345,9 +345,9 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-fix@L182-L182
 DISPOSITION: NODE stepI:p5:hd-fix
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: stepI:p5:hd-sol
 KIND: proof-region

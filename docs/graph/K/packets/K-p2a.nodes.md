@@ -573,9 +573,9 @@ EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p2-aposteriori.tex#bp:p2:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Torus.frozen_agreement (items: gramMatrix_eq_tangentMat_transpose_mul, sumVec_normalFrame, sumVec_invarianceError, torsion_eq_mat, gramMatrix_mul_inv, inv_gramMatrix_mul, torsionAverage_eq_avg)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-2-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: a bridge claim between the frozen definitions and the Part 2 objects; kept because Part 2 conclusion step nodes consume it; the reference to bp:p0:totality (excluded in K-p0 as an administrative note) is a pointer, so the former edge was dropped
 
 NODE: bp:p2:admissible

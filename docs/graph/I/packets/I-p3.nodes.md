@@ -20,9 +20,9 @@ EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.te
 EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting@L42-L42 | strip T_{s_0}
 EDGE: K:bp:p4:freq-map | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting@L45-L45 | (i): iota B in B_{r_0}, so B in U
 EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting@L35-L35 | the domain B_{r_0} and its real preimage U
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -48,9 +48,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting#k-bridge@L48-L48 | the package of Part 3
 EDGE: K:bp:p4:data | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting#k-bridge@L48-L48 | K's Part 4 setting
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -81,9 +81,9 @@ EDGE: K:bp:p4:h-bounded | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:const
 EDGE: K:bp:p1:cauchy-open | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:constants@L58-L58 | constants c(m,j)
 EDGE: bpI:p3:ext-compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:constants@L62-L62 | d_B > 0 for compact closure B' in open B
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:constants@L69-L69 | B_h^{-1} in S_h
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -174,9 +174,9 @@ EDGE: bpI:p3:ext-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L91-L91 | S, m_h, M_g
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L90-L90 | S in B in U
 EDGE: stepI:p3:cp-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L91-L91 | S is compact and contained in B, as established above
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -210,9 +210,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inv
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@L96-L96 | S_h
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@L93-L93 | entries of B_h
 EDGE: stepI:p3:cp-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@L96-L96 | S is compact and contained in B, as established above
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -350,9 +350,9 @@ EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.te
 EDGE: bpI:p1:trivial | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-expand@L126-L126 | B_h as the torsion of the trivial torus
 EDGE: stepI:p1:tr-compare | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-expand@L126-L126 | identification of the entries of B_h
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-expand@L126-L126 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -378,9 +378,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p3:di-expand | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-conseq@L131-L131 | the identity det B_h = - g^perp . grad^2 h g^perp
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-conseq@L131-L131 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -409,9 +409,9 @@ EDGE: bpI:p3:det-identity | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:coo
 EDGE: K:bp:p4:freq-map | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:coordinates@L148-L148 | grad h is C^1 on U
 EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:coordinates@L148-L148 | supplies the premises of the applied K Part 4 result under the Part 3 data
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:coordinates@L148-L148 | the Hessian entries are continuous, so the displayed derivative of grad h is continuous
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -437,9 +437,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:slope-ray@L152-L152 | a_c, sigma_c, m_c, U_c
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:slope-ray@L154-L154 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -468,9 +468,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:char
 EDGE: stepI:p3:ch-deriv | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:chart@L166-L166 | proof step of this result
 EDGE: stepI:p3:ch-det | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:chart@L170-L170 | proof step of this result
 EDGE: stepI:p3:ch-ift | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:chart@L173-L173 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -499,9 +499,9 @@ EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#stepI:
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L167-L167 | sigma_c, m_c, q_c
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L167-L167 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p1:ext-chain | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L168-L168 | chain rule for sigma_c composed with grad h
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -529,9 +529,9 @@ EDGE: stepI:p3:ch-deriv | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-
 EDGE: bpI:p3:det-identity | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-det@L171-L171 | (b): det(g, grad^2 h g^perp) = - det B_h
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-det@L172-L172 | c in closure B' in B in U, iota U in B_{r_0}, det B_h != 0
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-det@L171-L171 | q_c, gradient or slope/chart coordinates
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -559,9 +559,9 @@ EDGE: bpI:p3:ext-ift | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift@L174-L174 | U_c open, Phi_c C^1
 EDGE: stepI:p3:ch-det | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift@L174-L174 | D Phi_c(c) invertible
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift@L174-L174 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -651,9 +651,9 @@ EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-local
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-local@L196-L196 | h, m_c continuous on U_c, m_c(c)=0, Phi_c(c)
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-local@L195-L195 | eta_1
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-local@L194-L194 | c in closure B'
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -681,9 +681,9 @@ EDGE: stepI:p3:cv-local | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-
 EDGE: bpI:p3:ext-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compact@L198-L198 | Heine-Borel
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compact@L198-L198 | closure B' compact
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compact@L198-L198 | rho_c is the radius component of the constructed patch
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -769,9 +769,9 @@ ROUTE_FOR: -
 EDGE: stepI:p3:do-positive | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-choice@L214-L214 | the constant C and meas O
 EDGE: bpI:p3:ext-lebesgue | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-choice@L214-L214 | subadditivity
 EDGE: bpI:p0:diophantine#IsDiophantine | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-choice@L214-L214 | Dio_{gamma,2}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -800,9 +800,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L218-L218 | a_c, sigma_c
 EDGE: stepI:p3:ry-open | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L224-L224 | proof step of this result
 EDGE: stepI:p3:ry-dio | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L228-L228 | proof step of this result
-EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L218-L218 | positive finite m_h, M_g, S_h and attained bounds on S
+EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L227-L227 | m_h > 0 makes the chosen norm-shell witness belong to O
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -831,9 +831,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-open@L225-L225 | m_h
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-open@L226-L226 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-open@L227-L227 | positive finite m_h, M_g, S_h and attained bounds on S
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -860,9 +860,9 @@ ROUTE_FOR: -
 EDGE: bpI:p3:dio-open | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-dio@L229-L229 | Diophantine vector in the open set O
 EDGE: stepI:p3:ry-open | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-dio@L229-L229 | O is open, bounded, nonempty
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-dio@L229-L229 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -927,9 +927,9 @@ EDGE: stepI:p3:pt-exist | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:point
 EDGE: stepI:p3:pt-parallel | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:points@L261-L261 | proof step of this result
 EDGE: stepI:p3:pt-position | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:points@L265-L265 | proof step of this result
 EDGE: stepI:p3:pt-segment | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:points@L267-L267 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -956,9 +956,9 @@ ROUTE_FOR: -
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-exist@L260-L260 | (P2): Q in V
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-exist@L260-L260 | m_+- in (+-delta_m/2, +-delta_m)
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-exist@L260-L260 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -990,9 +990,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-p
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L262-L262 | Phi_c, a_c, U_c
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L262-L262 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L264-L264 | positive finite m_h, M_g, S_h and attained bounds on S
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1022,9 +1022,9 @@ EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L266-L266 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L266-L266 | standing constants in this step and its local conclusion
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L266-L266 | q_c, gradient or slope/chart coordinates
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1051,9 +1051,9 @@ ROUTE_FOR: -
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-segment@L268-L268 | Phi_p homeomorphism W to V and Q in V
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-segment@L268-L268 | Phi_c = (h, m_c)
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-segment@L268-L268 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1084,9 +1084,9 @@ EDGE: K:bp:p4:derivative-bounds | blueprint-I/parts/p3-iso-local-charts.tex#bpI:
 EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L282-L282 | supplies the premises of the applied K Part 4 result under the Part 3 data
 EDGE: stepI:p3:hd-open | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L281-L281 | proof step of this result
 EDGE: stepI:p3:hd-bounds | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L284-L284 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1116,9 +1116,9 @@ EDGE: K:bp:p4:h1 | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-open@L2
 EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-open@L282-L282 | supplies the premises of the applied K Part 4 result under the Part 3 data
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-open@L282-L282 | D-frak
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-open@L283-L283 | f real at real points; h real
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1147,9 +1147,9 @@ EDGE: K:step:p4:db-cauchy | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:h
 EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-bounds@L285-L285 | supplies the premises of the applied K Part 4 result under the Part 3 data
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-bounds@L286-L286 | M, F_j, c-bar, M_h, delta_*
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-bounds@L285-L285 | epsilon<=1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1188,9 +1188,9 @@ EDGE: stepI:p3:to-torsion | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tor
 EDGE: stepI:p3:to-neumann | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:torus@L314-L314 | proof step of this result
 EDGE: stepI:p3:to-energy | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:torus@L316-L316 | proof step of this result
 EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:torus@L296-L296 | the unaveraged extended-torsion matrix in the block identity
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1219,9 +1219,9 @@ EDGE: stepI:p1:tr-frame | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-
 EDGE: bpI:p1:trivial | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torus@L305-L305 | trivial-torus lemma (K and the frame do not involve the Hamiltonian)
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torus@L306-L306 | mu, rho, D-frak, s, r_0
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torus@L306-L306 | B in B_{r_0}, I real in B
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1251,9 +1251,9 @@ EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-error@L309-L309 | ¦X_f¦ <= F_1 epsilon
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-error@L309-L309 | F_1
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-error@L309-L309 | H = h+f
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1274,25 +1274,24 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p1:tr-compare, bpI:p3:hypothesis-d, K:bp:p1:ext-integral, stepI:p3:to-torus, stepI:p3:to-error, bpI:p3:constants, bpI:p3:setting
+DEPS: stepI:p1:tr-compare, bpI:p3:hypothesis-d, K:bp:p1:ext-integral, stepI:p3:to-torus, bpI:p3:constants, bpI:p3:setting
 ROUTES: stepI:p3:to-torsion#flat-route, stepI:p3:to-torsion#citation-route
 ROUTE_FOR: -
 EDGE: stepI:p1:tr-compare | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | upper-left block and border of B_h(I)
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | ¦D^2 f¦ <= F_2 epsilon, ¦X_f¦ <= F_1 epsilon
 EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | ¦avg¦ <= sup
 EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L311-L311 | frame N_{.j} = (0,e_j), D_theta N = 0
-EDGE: stepI:p3:to-error | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L312-L312 | E = X_f so eta^L_b = -d_{I_b} f
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | F_1, F_2
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | H = h+f; B_h from h
 EDGE: stepI:p3:to-torsion#flat-route | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L310-L313 | alternative derivation offered by the proof (route)
 EDGE: stepI:p3:to-torsion#citation-route | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L310-L313 | alternative derivation offered by the proof (route)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: The direct DH(K)N calculation uses no invariance-error identity. The to-error dependency belongs only to the citation route, where E = X_f is substituted in eta^L. Both alternatives retain their own actual torsion-formula and frame prerequisites.
 
 NODE: stepI:p3:to-torsion#p1-setting
 KIND: step
@@ -1316,9 +1315,9 @@ EDGE: bpI:p1:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-tor
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L312-L312 | (I1)-(I4) for (D,H)
 EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L312-L312 | K holomorphic, primary, real on reals; K(T_{s/2}) in D; det G_K = 1
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L312-L312 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1348,9 +1347,9 @@ EDGE: stepI:p3:to-torsion | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:t
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L315-L315 | S_h, F_2, eps_T, sigma_T, mu
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L315-L315 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L315-L315 | positive finite m_h, M_g, S_h and attained bounds on S
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1377,9 +1376,9 @@ ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-energy@L317-L317 | ¦f¦ <= epsilon on T_{s_0} x B_{r_0}, H = h+f
 EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-energy@L317-L317 | Ebar_H(K)
 EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-energy@L317-L317 | integral of continuous f on the unit cube; linearity and norm bound
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1418,9 +1417,9 @@ EDGE: stepI:p3:ap-small | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply
 EDGE: stepI:p3:ap-conclusion | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L347-L347 | proof step of this result
 EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L322-L322 | positive finite m_h, M_g, S_h and attained bounds on S
 EDGE: bpI:p3:apply#constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L322-L322 | the same per-ray C_i chosen at L321-L322
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1447,9 +1446,9 @@ ROUTE_FOR: -
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-d@L336-L336 | (I1)-(I4)
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-d@L336-L336 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-d@L336-L336 | standing constants in this step and its local conclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1477,9 +1476,9 @@ EDGE: bpI:p3:torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L33
 EDGE: bpI:p3:points | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L338-L338 | (b): I_+- in B
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L338-L338 | sigma_K, sigma_B, mu, rho
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L338-L338 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1507,9 +1506,9 @@ EDGE: bpI:p3:points | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L3
 EDGE: bpI:p3:torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L340-L340 | (d)
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L340-L340 | sigma_T, mu, eps_T
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L340-L340 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1537,9 +1536,9 @@ EDGE: bpI:p3:points | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@L342-L342 | m_h/4 < ¦omega*¦ < m_h/2
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@L342-L342 | nu, sigma_omega
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@L342-L342 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1568,9 +1567,9 @@ EDGE: bpI:p3:torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-error
 EDGE: bpI:p3:points | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-error@L344-L344 | (a): h(I) = E = E_0
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-error@L344-L344 | F_1 >= 1, e = F_1 epsilon
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-error@L344-L344 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1598,9 +1597,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-s
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-small@L346-L346 | gamma = gamma_{p,+-}
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-small@L346-L346 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p3:apply#constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-small@L346-L346 | the same per-ray C_i chosen at L321-L322
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1634,9 +1633,9 @@ EDGE: stepI:p3:ap-small | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L348-L348 | F_1, rho
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L348-L348 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p3:apply#constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L348-L348 | the same per-ray C_i chosen at L321-L322
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1708,9 +1707,9 @@ EDGE: stepI:p3:tori-position | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L374-L374 | patch centres, radii and delta_m
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L374-L374 | omega*_{j,+-}, gamma_{j,+-}, m_{j,+-}
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L383-L383 | Phi_j and m_{c_j} in T7
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1738,9 +1737,9 @@ EDGE: bpI:p3:cover | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-pat
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-patch@L390-L390 | (P3): ¦h(I_0)-h(c)¦<delta_E/2
 EDGE: bpI:p3:uniform | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-patch@L391-L391 | eps_1 <= delta_{E,j}/2
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-patch@L390-L390 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1769,9 +1768,9 @@ EDGE: stepI:p3:tori-patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:t
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L393-L393 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L393-L393 | standing constants in this step and its local conclusion
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L393-L393 | q_c, gradient or slope/chart coordinates
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1804,9 +1803,9 @@ EDGE: K:bp:p1:real-restriction | blueprint-I/parts/p3-iso-local-charts.tex#stepI
 EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L396-L396 | Ham_{h,f} = Re H = H at real points where H is real
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L396-L396 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L395-L395 | standing constants in this step and its local conclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1837,9 +1836,9 @@ EDGE: bpI:p0:stripdata#IsPrimaryOnStrip | blueprint-I/parts/p3-iso-local-charts.
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L400-L400 | rho_infty = s/8
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L399-L399 | local Part 3 data, including h, B', f or epsilon
 EDGE: bpI:p0:g1 | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L399-L399 | the O5 conclusion for the already selected I-G1 output
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1871,9 +1870,9 @@ EDGE: stepI:p3:tori-base | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to
 EDGE: bpI:p3:uniform | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-position@L402-L402 | eps_1 <= eta_1/(2C_K)
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-position@L402-L402 | eta_1, d_B, S, sigma_K, mu, D-frak
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-position@L403-L403 | local Part 3 data, including h, B', f or epsilon
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1903,9 +1902,9 @@ EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#co
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L321-L321 | fixed patch
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L321-L321 | gamma positive and omega* nonzero
 EDGE: bpI:p0:g1 | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L321-L321 | frozen existential constants with this quantifier order
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-I-p3
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1926,22 +1925,22 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p1:tr-compare, bpI:p3:hypothesis-d, K:bp:p1:ext-integral, stepI:p3:to-torus, stepI:p3:to-error, bpI:p3:constants, bpI:p3:setting, bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain
+DEPS: stepI:p1:tr-compare, bpI:p3:hypothesis-d, K:bp:p1:ext-integral, stepI:p3:to-torus, bpI:p3:constants, bpI:p3:setting, bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain, bpI:p0:stripdata#torsion
 ROUTES: -
 ROUTE_FOR: stepI:p3:to-torsion
 EDGE: stepI:p1:tr-compare | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
 EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
-EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
-EDGE: stepI:p3:to-error | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L311-L311 | N_j = (0,e_j) and D_theta N_j = 0 in the torsion calculation
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
 EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L312-L312 | the explicitly stated direct value Y_b = DH(K) N_b
 EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | entrywise unit-cube average
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | continuity of the first and second derivative entries in the displayed flat formula
 EDGE: bpI:p1:ext-chain | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L312-L312 | differentiate H=h+f and evaluate on the constant normal frame
+EDGE: bpI:p0:stripdata#torsion | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L311-L311 | the defining torsion formula with constant N gives T_ij from DX_H and D_theta N = 0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: new+sol-review-I-p3
+EXTRACTOR: new+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1963,21 +1962,22 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p1:tr-compare, bpI:p3:hypothesis-d, K:bp:p1:ext-integral, stepI:p3:to-torus, stepI:p3:to-error, bpI:p3:constants, bpI:p3:setting, stepI:p3:to-torsion#p1-setting, bpI:p1:last-row, bpI:p1:extended-basic
+DEPS: stepI:p1:tr-compare, bpI:p3:hypothesis-d, K:bp:p1:ext-integral, stepI:p3:to-torus, stepI:p3:to-error, bpI:p3:constants, bpI:p3:setting, stepI:p3:to-torsion#p1-setting, bpI:p1:last-row, bpI:p1:extended-basic, bpI:p0:stripdata#torsion
 ROUTES: -
 ROUTE_FOR: stepI:p3:to-torsion
 EDGE: stepI:p1:tr-compare | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
 EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
-EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
-EDGE: stepI:p3:to-error | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L311-L311 | N_j = (0,e_j) and D_theta N_j = 0 in the torsion calculation
+EDGE: stepI:p3:to-error | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L312-L312 | E = X_f gives eta^L_b = -partial_I_b f in the cited last-row calculation
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
 EDGE: stepI:p3:to-torsion#p1-setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L312-L312 | missing full-package premise discharge for the citations
 EDGE: bpI:p1:last-row | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L312-L312 | last-row identity (a)
 EDGE: bpI:p1:extended-basic | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | integrability and identification of the average
+EDGE: bpI:p0:stripdata#torsion | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L311-L311 | the defining torsion formula with constant N gives T_ij from DX_H and D_theta N = 0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: new+sol-review-I-p3
+EXTRACTOR: new+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

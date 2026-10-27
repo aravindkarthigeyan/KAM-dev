@@ -14,8 +14,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.4,
-   "note": "blueprint-I complete and confirmed (round 3); dependency graph tooling and SPEC being built"
+   "done": 0.45,
+   "note": "blueprint complete and reviewed; dependency graph: 10 slices extracted, lint-clean, slice reviews done, delta/global review in progress"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -30,8 +30,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.38,
-   "note": "blueprint-N complete for D20 (Parts 0-10: N-HEAD-C, N-ZERO, N-QC proved in the blueprint); reviews and consolidation in progress; next: dependency graph"
+   "done": 0.42,
+   "note": "blueprint complete for D20+D25 (N-PARTIAL-CONVEX accepted after 3 review rounds); N-AVERAGING (D28) part being written; dependency graph extraction in progress (4/12 slices)"
   },
   {
    "group": "Track P (planetary)",
@@ -46,32 +46,32 @@
    "id": "P.PROOF.PDKAM",
    "title": "Properly degenerate KAM: blueprint, graph, proofs",
    "difficulty": "VH",
-   "done": 0.35,
-   "note": "blueprint-P: Parts 0-5 written (P-G proved in the blueprint, incl. supplied CP10 (60) and strictness); reviews in progress"
+   "done": 0.4,
+   "note": "blueprint: P-G proved (Parts 1-5, reviewed)"
   },
   {
    "group": "Track P (planetary)",
    "id": "P.PROOF.PLANAR",
    "title": "Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy",
    "difficulty": "VH",
-   "done": 0.1,
-   "note": "blueprint-P: Parts 6-8 written (Newton models, Poincare chart, secular form with exact moving/fixed identification); Part 9 being written; P-PLANAR via route (c), P-FIXED general n via Part 11a"
+   "done": 0.3,
+   "note": "blueprint: P-PLANAR proved (Parts 6-12; planar torsion recomputed); P-FIXED via Part 11a (1 of 5 files written) and Part 13"
   },
   {
    "group": "Track N (Nekhoroshev)",
    "id": "N.ADD.PHASE0",
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.8,
-   "note": "N-PARTIAL-CONVEX frozen (D25); N-AVERAGING v0.5 being re-transcribed from AKN06 (primary source now pinned)"
+   "done": 1.0,
+   "note": "N-PARTIAL-CONVEX frozen (D25), N-AVERAGING frozen (D28)"
   },
   {
    "group": "Track N (Nekhoroshev)",
    "id": "N.ADD.PROOF",
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: blueprint, graph, proofs",
    "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
+   "done": 0.15,
+   "note": "blueprint: N-PARTIAL-CONVEX Part 11 accepted; N-AVERAGING Part 12 being written"
   },
   {
    "group": "Track P (planetary)",
@@ -86,8 +86,8 @@
    "id": "P.ADD.PROOF",
    "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: blueprint, graph, proofs",
    "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
+   "done": 0.2,
+   "note": "blueprint: P-AMD-CONFINEMENT and P-EXP-SAFE proved (Part 14a); P-SECULAR-BOX pending"
   }
  ]
 }
