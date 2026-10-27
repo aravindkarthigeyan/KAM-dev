@@ -916,13 +916,13 @@ EDGE: bpN:p11:symplectic | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-re
 EDGE: bpN:p11:flow | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | (iv) by Lemma flow(e); trajectory in D^e
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | d/dt v(X^t z)=Dv.X^c_phi={v,phi}_c
 EDGE: stepN:p11:co-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | S(z) is the holomorphic series limit constructed in the preceding Series step
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: sol-delta2-N-f
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: the source additionally uses e^2/9<0.83, which is not supplied by Part 11 ext-num or the weaker Part 6 e^2<8. The printed sharpening is preserved as an unsupported numerical input, not silently included in an external contract.
+NOTE: SOURCE_GAP: The cited bpN:p5:taylor is stated for the canonical Part 5 flow and bracket on paired phase coordinates. This consumer uses X^c and the extended bracket; those are not an instance of its stated setting. The source supplies the extended derivative identity and requests one-variable Taylor, but the carrier-independent Taylor contract or a distinct extended-flow bridge must be recorded before this conditional theorem application is certified. Do not add the desired remainder identity as a premise. SOURCE_GAP: the source additionally uses e^2/9<0.83, which is not supplied by Part 11 ext-num or the weaker Part 6 e^2<8. The printed sharpening is preserved as an unsupported numerical input, not silently included in an external contract.
 
 NODE: bpN:p11:transform
 KIND: proposition
@@ -985,13 +985,13 @@ EDGE: bpN:p5:taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@
 EDGE: bpN:p11:composition | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | trajectory stays in D^e_{R,s} (i)
 EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | bounds (e^2 hat-eta/8)^{N-1} for ad^{N-1}_phi w and the series terms
 EDGE: stepN:p11:co-remainder | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | the hatted-loss Taylor remainder estimate and its decay are reused from the composition remainder argument
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: sol-delta2-N-f
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: The cited bpN:p5:taylor is stated for the canonical Part 5 flow and bracket on paired phase coordinates. This consumer uses X^c and the extended bracket; those are not an instance of its stated setting. The source supplies the extended derivative identity and requests one-variable Taylor, but the carrier-independent Taylor contract or a distinct extended-flow bridge must be recorded before this conditional theorem application is certified. Do not add the desired remainder identity as a premise.
 
 NODE: stepN:p11:tr-int
 KIND: step

@@ -1,21 +1,10 @@
 {
- "replaced": [],
+ "replaced": [
+  "stepN:p11:co-remainder",
+  "stepN:p11:tr-taylor"
+ ],
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": [
-  "stepN:p11:ex-cmp",
-  "stepN:p11:co-series",
-  "stepN:p11:co-remainder",
-  "bpN:p11:transform",
-  "stepN:p11:tr-taylor",
-  "stepN:p11:tr-int",
-  "bpN:p11:canonical-map",
-  "bpN:p11:hom",
-  "bpN:p11:iterative",
-  "stepN:p11:it-map",
-  "stepN:p11:it-taylor",
-  "stepN:p11:nf-first",
-  "stepN:p11:nf-concl"
- ]
+ "passes": []
 }

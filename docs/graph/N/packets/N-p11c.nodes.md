@@ -837,23 +837,25 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p7:energy-core, bpN:p11:real-system, stepN:p11:ef-adm, stepN:p11:ef-tube, bpN:p7:setting, bpN:p7:resonance-data, bpN:p4:norm
-EDGE: bpN:p7:setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | direct package or input used by this proof step
+DEPS: bpN:p11:real-system, stepN:p11:ef-adm, stepN:p11:ef-tube, bpN:p7:resonance-data, bpN:p4:norm, bpN:p7:ext-taylor, bpN:p11:ext-class, bpN:p11:s-real#data, bpN:p11:wfield
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | direct package or input used by this proof step
 EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p7:energy-core | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | Lemma energy-core(a),(c),(d)
 EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | energy conservation G^R o y constant (Lemma real-system(b))
 EDGE: stepN:p11:ef-adm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | ¦Pi omega_0¦<=(5/4)delta
 EDGE: stepN:p11:ef-tube | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | the segment [I-tilde(0),I-tilde(t*)] lies in U (Taylor along I_s)
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
-REVIEWER: sol-delta-N-g
+EDGE: bpN:p7:ext-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | apply the one-variable Lagrange remainder to h evaluated on the fast action segment, which ef-tube places inside U
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | the energy values of g and f_* are evaluated on the extended orbit
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended real Hamiltonian and orbit carrier
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | the conserved Hamiltonian uses the weighted field X^c
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11c+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: Part 7 energy-core is a proof template, not an applicable conditional lemma on this slow-fast carrier. The inline Part 11 proof uses extended energy conservation, one-variable Taylor along the fast segment, and projection algebra. No coercivity in the slow directions or canonical projected orbit is assumed.
 
 NODE: stepN:p11:ef-id
 KIND: step

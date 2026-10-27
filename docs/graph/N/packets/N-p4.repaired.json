@@ -1,9 +1,12 @@
 {
- "replaced": [],
+ "replaced": [
+  "stepN:p4:co-series",
+  "stepN:p4:co-repr",
+  "stepN:p4:b1-b",
+  "stepN:p4:b3-a"
+ ],
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": [
-  "stepN:p4:b4-prod"
- ]
+ "passes": []
 }

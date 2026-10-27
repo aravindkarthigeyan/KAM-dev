@@ -31,7 +31,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay@L786-L789
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:decay
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: u holomorphic, bounded and 1-periodic on T_rho
+SOURCE_HYPOTHESES: n≥1 (owning Part 1 standing strip convention, L37–39); u holomorphic, bounded and 1-periodic on T_rho
 SOURCE_QUANTIFIERS: rho, u; k in Z^n; rho' with 0<=rho'<rho
 SOURCE_CONCLUSION: |hat u_k| <= e^{-2 pi |k|_1 rho'} ||u||_rho
 CONSTANT_SCOPE: none
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-N
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -187,7 +187,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:fourier-basic@L757-L768
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:fourier-basic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: v C-valued (componentwise for vector/matrix); (a) v continuous, 1-periodic, C^1; (b) v continuous, 1-periodic, sum |hat v_k| finite; (c) r>0, v holomorphic and 1-periodic on T_r, not necessarily bounded, all hat v_k=0
+SOURCE_HYPOTHESES: v C-valued (componentwise for vector/matrix); (a) v continuous, 1-periodic, C^1; (b) v continuous, 1-periodic, sum |hat v_k| finite; (c) r>0, v holomorphic and 1-periodic on T_r, not necessarily bounded, all hat v_k=0; n≥1 in the strip clause (c), by the owning Part 1 standing convention L37–39
 SOURCE_QUANTIFIERS: v; k in Z^n; ell; omega in C^n; r
 SOURCE_CONCLUSION: (a) hat(d_ell v)_k = 2 pi i k_ell hat v_k and hat(d_omega v)_k = 2 pi i (k.omega) hat v_k; (b) v(x)=sum hat v_k chi_k(x) for all x, so v=0 if all hat v_k=0; (c) v=0 on T_r
 CONSTANT_SCOPE: none
@@ -198,9 +198,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-N
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -265,7 +265,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:real-restriction
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K holomorphic on T_rho and real on reals; for the primary claim, K primary on T_rho (p=2n)
+SOURCE_HYPOTHESES: n≥1 (owning Part 1 standing strip convention, L37–39); K holomorphic on T_rho and real on reals; for the primary claim, K primary on T_rho (p=2n)
 SOURCE_QUANTIFIERS: K, rho, p (=2n in applications); x in R^n; m in Z^n
 SOURCE_CONCLUSION: k=K|_{R^n} real-analytic with real derivative the restriction of the complex derivative; |Dk(x)|<=|DK(x)| for x in R^n; if K primary, k(x+m)=k(x)+(m,0) for m in Z^n
 CONSTANT_SCOPE: none
@@ -276,9 +276,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-N
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -291,7 +291,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:summation@L824-L831
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:summation
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (forward) sum_k |a_k| e^{2 pi |k|_1 rho} finite; (converse) u as in decay, 0<delta<rho
+SOURCE_HYPOTHESES: n≥1 (owning Part 1 standing strip convention, L37–39); (forward) sum_k |a_k| e^{2 pi |k|_1 rho} finite; (converse) u as in decay, 0<delta<rho
 SOURCE_QUANTIFIERS: rho, a_k, u, delta
 SOURCE_CONCLUSION: u=sum a_k e^{2 pi i k.theta} holomorphic and 1-periodic on T_rho, hat u_k=a_k, ||u||_rho <= sum |a_k| e^{2 pi |k|_1 rho}; conversely sum |hat u_k| e^{2 pi |k|_1(rho-delta)} <= coth(pi delta)^n ||u||_rho and u equals its Fourier series on T_rho
 CONSTANT_SCOPE: none
@@ -302,9 +302,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-N
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -343,7 +343,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages@L665-L669
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:averages
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: v holomorphic, bounded and 1-periodic on T_rho; scalar, C^p or C^{pxq} valued
+SOURCE_HYPOTHESES: n≥1 (owning Part 1 standing strip convention, L37–39); v holomorphic, bounded and 1-periodic on T_rho; scalar, C^p or C^{pxq} valued
 SOURCE_QUANTIFIERS: rho, v; ell; omega
 SOURCE_CONCLUSION: <d_theta_ell v>=0, <Dv omega>=0, |avg(v)| <= ||v||_rho
 CONSTANT_SCOPE: none
@@ -354,9 +354,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-N
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -

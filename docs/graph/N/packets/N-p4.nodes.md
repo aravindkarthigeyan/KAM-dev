@@ -334,13 +334,13 @@ EDGE: bpN:p4:ext-series | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-se
 EDGE: K:bp:p1:summation | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L77-L77 | 'as in the coefficient step of K summation'
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L77-L77 | norm identity is the definition
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L76-L76 | 𝒟_{r,s'} ⊂ 𝒟_{r,s}; holomorphy on 𝒟_{r,s} as s' arbitrary
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-review-N-b
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: The native statement permits n=0. The cited K strip/series inputs require n≥1 (K Part 1 L37–39; exp-sums also L728). No n=0 branch is recorded at this consumer. Preserve the native source premises; supply the singleton Fourier-index calculation or an explicitly generalized supplier before certifying the all-n contract.
 
 NODE: stepN:p4:co-repr
 KIND: step
@@ -364,13 +364,13 @@ EDGE: K:bp:p1:summation | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-re
 EDGE: K:bp:p1:fourier-basic | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L80-L80 | (c): holomorphic periodic function with all coefficients zero vanishes
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L79-L79 | single term of ¦u¦_{I,s} ≤ ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L79-L79 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: sol-delta-N-b
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: The native statement permits n=0. The cited K strip/series inputs require n≥1 (K Part 1 L37–39; exp-sums also L728). No n=0 branch is recorded at this consumer. Preserve the native source premises; supply the singleton Fourier-index calculation or an explicitly generalized supplier before certifying the all-n contract.
 
 NODE: bpN:p4:sup-weighted
 KIND: lemma
@@ -454,13 +454,13 @@ EDGE: K:bp:p1:decay | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L98-
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L99-L99 | (b) with x = 2πσ: Σ_k e^{−2π¦k¦₁σ} = coth(πσ)ⁿ
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L98-L98 | û_k(I), ¦u¦_{I,s}, ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L98-L98 | T_{s+σ}, V_rD
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-review-N-b
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: The native statement permits n=0. The cited K strip/series inputs require n≥1 (K Part 1 L37–39; exp-sums also L728). No n=0 branch is recorded at this consumer. Preserve the native source premises; supply the singleton Fourier-index calculation or an explicitly generalized supplier before certifying the all-n contract.
 
 NODE: bpN:p4:algebra
 KIND: lemma
@@ -633,13 +633,13 @@ EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L133-L133 | (a) with τ = 1, a = 2π(s_0−s): x e^{−ax} ≤ 1/(ea)
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L132-L133 | ¦·¦_{I,s}, ¦·¦_{r_0,s_0}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L132-L132 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: sol-delta-N-b
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: The angular-sum contract permits n=0, while the cited K exp-sums(a) is stated for n≥1. An actual angular coordinate implies n≥1, but the unrestricted sum also needs the n=0 empty-sum branch. Preserve the source contract and record this branch rather than adding a dimension hypothesis.
 
 NODE: stepN:p4:b3-b
 KIND: step

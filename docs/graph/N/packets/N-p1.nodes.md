@@ -1279,13 +1279,13 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208 | geometric sums (b) with x = 2πδ
 EDGE: stepN:p1:nc-decay | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208 | per-k bound
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: sol-delta-N-a
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p1+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: For n≥1 apply K exp-sums(b) with x=2πδ>0. For n=0 the sum has the sole empty index and is 1=coth(πδ)^0; no dimension-restricted imported theorem is applied in this case.
+NOTE: SOURCE_GAP: The native statement permits n=0. The cited K strip/series inputs require n≥1 (K Part 1 L37–39; exp-sums also L728). No n=0 branch is recorded at this consumer. Preserve the native source premises; supply the singleton Fourier-index calculation or an explicitly generalized supplier before certifying the all-n contract.
 
 NODE: bpN:p1:constants
 KIND: lemma
