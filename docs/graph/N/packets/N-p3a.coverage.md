@@ -64,11 +64,11 @@ REVIEWER: sol-delta-N-c
 ITEM: bpN:p3:totality
 KIND: claim
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:totality@L78-L84
-DISPOSITION: NODE bpN:p3:totality
-REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: sol-review-N-c
+DISPOSITION: EXCLUDED
+REASON: writer: administrative Lean-totality convention; its only consumer edge (bpN:p5:flow, L56 zero extension) was removed by sol-delta-N-b as a pointer, not a proved prerequisite (N-p5-delta.md), so no root proof consumes it
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p3a+writer-suborch-INP
+REVIEWER: -
 
 ITEM: bpN:p3:gen-sol
 KIND: definition

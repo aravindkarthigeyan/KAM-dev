@@ -1,34 +1,9 @@
 {
- "replaced": [
-  "stepN:p11:rs-red"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "bpN:p11:conj",
-  "bpN:p11:preimage",
-  "stepN:p11:ct-data",
-  "bpN:p11:transfer",
-  "stepN:p11:tr-closed",
-  "bpN:p11:nonresonant",
-  "stepN:p11:ef-tube",
-  "stepN:p11:ef-adm",
-  "stepN:p11:ef-id",
-  "stepN:p11:ef-C",
-  "bpN:p11:resonant",
-  "stepN:p11:rs-nf",
-  "stepN:p11:rs-t12",
-  "bpN:p11:hessian",
-  "stepN:p11:hs-op",
-  "bpN:p11:block-setting",
-  "bpN:p11:domain",
-  "bpN:p11:block-data",
-  "stepN:p11:bd-cover",
-  "stepN:p11:bd-24",
-  "bpN:p11:block",
-  "stepN:p11:bl-block",
-  "stepN:p11:final-mu",
-  "stepN:p11:final-sign"
+  "stepN:p11:rs-red"
  ]
 }

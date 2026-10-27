@@ -128,33 +128,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: external fact E6 (calculus)
 
-NODE: bpN:p3:totality
-KIND: claim
-TITLE: Lean totality
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:totality@L78-L84
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:totality@L78-L84
-CONTRACT_ID: bpN:p3:totality
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (remark); frozen KAM.hamiltonianVectorField uses fderiv, which is 0 at points of non-differentiability
-SOURCE_QUANTIFIERS: H; points where H is C² or inside the frozen predicates
-SOURCE_CONCLUSION: states that X_H occurs only on an open set where H is C² (or inside the frozen predicates, which assert differentiability at every visited point), and that the general layer never uses F off W
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p0:vf#hamiltonianVectorField
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:totality@L79-L79 | KAM.hamiltonianVectorField uses fderiv (total definition)
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: kept as a claim node because Part 5 (flow proof, L56) extends F by 0 outside Ω citing this remark; the Newtonian half of the remark (planeLength, radius) is track P/I business and is not used by track N
-
 NODE: bpN:p3:gen-sol
 KIND: definition
 TITLE: Solutions in $W$

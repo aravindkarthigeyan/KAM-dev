@@ -275,7 +275,7 @@ DISPOSITION: NODE stepN:p11:rs-red
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta3-N-c
 
 ITEM: stepN:p11:rs-nf
 KIND: proof-region
@@ -692,10 +692,19 @@ EXTRACTOR: sonnet-extract-N-p11c
 REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:eq:lie
-KIND: equation
+KIND: display
 SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:eq:lie@L91-L91
 DISPOSITION: NODE stepN:p11:ef-id
 REASON: the labelled Lie identity is the conclusion of step ef-id, already represented by that node; no separate mathematical claim is added
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-N-f
 REVIEWER: sol-delta-N-g
+
+ITEM: bpN:p11:hessian#real-hessian
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115
+DISPOSITION: NODE bpN:p11:hessian#real-hessian
+REASON: writer: coverage item for the step node added by the slice review sol-review-N-f (real and complex Hessians on the partial-theorem tube)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: writer-suborch-INP
+REVIEWER: -
