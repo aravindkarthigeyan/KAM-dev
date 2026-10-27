@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 14:28 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 9.7 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 14:32 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 12.6 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -51,20 +51,20 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **9.7 %**
+### Estimated completion: **12.6 %**
 
-`██░░░░░░░░░░░░░░░░░░░░░░░` 9.7 %
+`███░░░░░░░░░░░░░░░░░░░░░░` 12.6 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
-| Statement and planning | 8 | 26 | 6.8 | `███░░░░░░░` 26 % |
+| Statement and planning | 8 | 26 | 9.3 | `████░░░░░░` 36 % |
 | Campaign infrastructure | 4 | 5 | 2.1 | `████░░░░░░` 42 % |
 | Analytic infrastructure | 8 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
 | Measure of the invariant tori | 5 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 29 | 91 | 8.8 | **9.7 %** |
+| **Total** | 29 | 91 | 11.4 | **12.6 %** |
 
-**How this is estimated.** The project is divided into 29 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 13:55 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
+**How this is estimated.** The project is divided into 29 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 14:45 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
 <details><summary>All work items with their weight and status</summary>
 
@@ -73,8 +73,8 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | S.SURVEY | Literature survey: candidate sources, prior formal work, Mathlib inventory | M | ✅ 100 % | three research reports (2026-10-27): sources, warm-ups and norms, prior formalizations |
 | S.SOURCES | Pinned source library: PDFs with SHA-256, bibliographic data checked against arXiv and Crossref | L | 🟨 85 % | 50 PDFs pinned in sources/SHA256SUMS; 20 in the registry; per-paper summaries still to write |
 | S.ROUTE | Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency) | H | 🟨 90 % | verdict: route works; rate ε^{1/4}; flow local uniqueness must be proved by us (no published version) |
-| S.STMT | Mathematical statement of the headline theorem and the gate theorems, with owner rulings | M | ⬜ 0 % |  |
-| S.LEAN | Exact Lean statements (headline + gates): independent audit, owner approval, freeze | H | ⬜ 0 % |  |
+| S.STMT | Mathematical statement of the headline theorem and the gate theorems, with owner rulings | M | 🟨 70 % | docs/statement.md draft 0.1; rulings Q1–Q5 in |
+| S.LEAN | Exact Lean statements (headline + gates): independent audit, owner approval, freeze | H | 🟨 30 % | exact drafts elaborate (5 theorems, 19 definitions); independent audit running |
 | S.BP | Blueprint: every proof step written out against the pinned sources | VH | ⬜ 0 % |  |
 | S.GRAPH | Source-level dependency graph anchored to the frozen statements | H | ⬜ 0 % |  |
 | S.ERRATA | Errata and deviations ledger for every formalized source (continuous) | L | 🟨 30 % | ledger: 8 candidate errata, 6 planned deviations |
@@ -117,9 +117,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 14:28 UTC from `main` at `227e9b6` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 14:32 UTC from `main` at `80d65f4` by `scripts/hq-status.py`.*
 
-**Current phase:** Phase 0: sources and statements. Route verdict in: the a-posteriori route gives the positive-measure theorem with complement O(ε^{1/4}); local uniqueness for flows must be proved by us. Next: mathematical statement and owner questions Q1–Q5, then exact Lean statements for approval.
+**Current phase:** Phase 0: statements. Owner rulings Q1–Q5 recorded (D9); mathematical statement draft 0.1 in docs/statement.md; exact Lean drafts of the headline (rate and qualitative), G1 (a-posteriori), G2 (local uniqueness for flows), G3 (Diophantine measure) and 19 definitions elaborate against Mathlib; independent refute-first statement audit running; then owner approval and freeze.
 
 **Frozen statements proved: 0 / 0** · frozen definitions: 0
 
@@ -221,8 +221,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | Agent | Kind | Model | Account | State | Assignment | Branch | Unlanded commits |
 |---|---|---|---|---|---|---|---|
 | **orchestrator** | lead | Claude Opus 5.5 | claude-1 | 🔄 active | Campaign lead: sources, statements, assignments, landings, owner questions, this README | — | — |
+| **statement-audit** | audit subagent | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first audit of the drafted Lean statements against HL19, Pos01, GJLV05 and the rulings | — | — |
 
-**Queued:** Mathematical statement of the headline and gates (docs/statement.md), after Q1–Q5
+**Queued:** Owner approval of the exact Lean statements, then freeze (manifest, DRAFT_SORRY anchors)
 <!-- /AUTO:workers -->
 
 ### Recent changes on `main`
@@ -230,6 +231,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 14:32 | `80d65f4` | HQ: statement drafts elaborate; independent audit running |
 | 2026-10-27 14:28 | `227e9b6` | Make the repository public; record rulings Q1-Q5; add statement draft 0.1 |
 | 2026-10-27 13:45 | `3b36d0e` | Pin the measure-layer sources and record the route verdict |
 | 2026-10-27 13:33 | `980b703` | Set up the KAM campaign: Lean project, sources, HQ and ledgers |
