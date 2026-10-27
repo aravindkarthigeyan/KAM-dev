@@ -677,9 +677,9 @@ EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p0-conventions.tex#bp:p0:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.local_uniqueness_flow (SEALED: by exact KAM.Provider.local_uniqueness_flow …; provider ⟨_, KAM.Uniq.g2_explicit …⟩)
+LEAN_NOTE: SEALED 2026-10-27 (D26): provider package P3-5, audit docs/campaign/audits/P3-5-audit-1.md PASS (exact-type probe); axioms propext/Classical.choice/Quot.sound; leanchecker replay of the frozen module, provider and KAM.Uniq.G2 exit 0
 NOTE: -
 
 NODE: bp:p0:g3
