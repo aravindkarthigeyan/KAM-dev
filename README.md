@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 17:54 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 26.3 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 18:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 26.3 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 17:54 UTC from `main` at `f6bbe97` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 18:00 UTC from `main` at `10e598b` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks (94 anchors). Track K: blueprint reviewed in full; dependency graph extracted (449 nodes, 1301 edges, structurally clean) and under independent slice review; then a global review and publication. Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints being written.
 
@@ -272,12 +272,12 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
-| **graph-review-r1** `kam-graph-r1` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Refute-first topology review of slices K-p0, K-p1a, K-p1c | — | — |
-| **graph-review-r2** `kam-graph-r2` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Refute-first topology review of slices K-p1b, K-p2a | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **graph-review-r1** `kam-graph-r1` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Refute-first topology review of slices K-p0, K-p1a, K-p1c | — | — |
+| **graph-review-r2** `kam-graph-r2` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Refute-first topology review of slices K-p1b, K-p2a | — | — |
 | **graph-review-r3** `kam-graph-r3` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Refute-first topology review of slices K-p2b, K-p3 | — | — |
 | **graph-review-r4** `kam-graph-r4` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Refute-first topology review of slices K-p4a, K-p4b | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 5 |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 8 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Track N additions: revision v0.4 (audit F-NADD-1..9), in the inp worktree | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: revision v0.4 (audit finding F-P-A1), in the inp worktree | — | — |
 | **audit-add-P** `inp-audit-p` | statement audit (Codex) | GPT-6.1-Sol high | codex-1 | ⚠️ session missing | Statement audit of the track-P D22 additions: done (1 major finding F-P-A1: inline two result bundles; rest approvable) | — | — |
@@ -287,7 +287,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bpP-p0** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | ✅ done | Track P blueprint: Part 0 (conventions, frozen statements) and part plan (done) | — | — |
 | **bpN-p3** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | ✅ done | Track N blueprint Part 3: shared Hamiltonian ODE layer for I, N, P (done) | — | — |
 | **bpI-p1** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | ✅ done | Track I blueprint Part 1: extended torsion, bordered triangular system (HL19 Lemma 6.1) (done) | — | — |
-| **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Refute-first reviews: Part 0 of I and N (done, fixes applied); now N Part 3 and I Part 1 | — | — |
+| **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Refute-first reviews: Part 0 of I and N (done, fixes applied); now N Part 3 and I Part 1 | — | — |
 | **bpN-p12** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N blueprint Parts 1-2: interfaces and conversions; proofs of N-QC and N-ZERO | — | — |
 | **bpP-p3** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track P blueprint Part 3: two-scale KAM theorem (CP10 Prop. 3, App. B) | — | — |
 | **route-P11** `inp-route-p11` | route study (Codex) | GPT-6.1-Sol medium | codex-1 | ⚠️ session missing | Track P Part 11 route study: weak-nondegeneracy KAM gate for P-PLANAR/P-FIXED (CP09+Russmann vs Fejoz 2004 vs P-G fallback) | — | — |
