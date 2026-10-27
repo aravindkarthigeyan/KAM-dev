@@ -27,11 +27,22 @@ DCDS-S 2010, CP09 = Chierchia-Pusateri ETDS 2009 (arXiv v1 numbering), Fej04r = 
     exclusion from a compact safe region: track I Part 8 (`\Iref{bpI:p8:*}`), stated generally.
   - Symplectic transport of tori and period conversions: P1. Averaging over mean longitudes, Laplace coefficients,
     secular Hamiltonian: P8. Two-scale Diophantine measure: P4.
-- **Part 11 (analytic weak-nondegeneracy gate): route not yet chosen.** Before any writing, a route study compares
-  (a) CP09 Theorem 4 via Rüssmann 2001 (unpinned) with (b) Féjoz 2004 (pinned, revised printing) §§3–5: twisted
-  conjugacy (§4.2), hypothetical conjugacy (§4.4), the Arnold–Pyartli condition with Féjoz's own adaptation of Pyartli's
-  measure estimate (Théorème 50, §5.2), isotropic invariant tori (§5.3), and Rüssmann's Théorème 59 as Féjoz uses it.
-  Parts 12–13 wait for that decision. The P-PLANAR fallback via P-G (quartic Birkhoff torsion) is kept as option (c).
+- **Part 11 route decision (after the GPT-6.1-Sol route study `reviews/p11-route-study.md`, 2026-10-27).**
+  - No route has a proof of the weak-nondegeneracy gate complete in the pinned sources. Féjoz 2004 §§3–5 is proved
+    but in the C^∞ category (Fej07e p. 4: "Les tores trouvés ici sont de classe C∞"); the frozen statements need
+    real-analytic tori, so route (b) is rejected as the gate (its Pyartli estimate, Théorème 50/58, may be reused).
+  - **P-PLANAR: primary route (c)** — frozen P-G (Parts 1–5) applied to the planar secular Birkhoff form, using the
+    explicit planar two-planet torsion of CP11 §8.1 pp. 32–34, (8.1)–(8.4) (pinned), plus the continuation of the
+    torsion determinant to a full-torsion patch near every prescribed axis vector (new obligation; CP11 Rem. 7.3(iii)).
+    Parts 10–12 are re-planned around this route; Part 11 becomes the planar torsion part.
+  - **P-FIXED (general n): route (a)** — CP09 Theorem 4 with an analytic quantitative Rüssmann theorem. BLOCKED on
+    source acquisition: Rüssmann, R&C Dynamics 6(2) (2001) 119–203 (CP09 [16], Thm 1.7 p. 127), and optionally
+    Pusateri's master thesis (Roma Tre 2006, Fej07e [P06]). Requested from the owner. Do not dispatch a source-complete
+    Part 11a before it is pinned and audited (study, milestone 1). The finite preparation (CP09 Lemmas 4–7, via N
+    Parts 5–6) may be written meanwhile. For n = 2 only, P-FIXED can also follow route (c): ⟨H_mov⟩ − ⟨H_fix⟩ is
+    an exact function of the actions (Fej04r Lemma 64 and the virial identity), to be proved in Part 8.
+  - Apply the study's plan-level corrections: P6 tube sketch must convert the Pi (max) position error to Euclidean
+    distance (factor √2); the pair bounds are exactly μ-independent (x_i − x_j = q_i − q_j).
 
 ## Routes in one paragraph
 

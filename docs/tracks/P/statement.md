@@ -429,13 +429,17 @@ reviewable contract, not an owner ruling; no freeze occurs in Phase 0.
 The exact source quotations, defects and responses are in
 [RESPONSE-v0.1.md](RESPONSE-v0.1.md). No source ledger, frozen file or manifest is edited.
 
-## Additions (D22), draft v0.3
+## Additions (D22), draft v0.4
 
 This section proposes **P-EXP-SAFE**, **P-AMD-CONFINEMENT**, and **P-SECULAR-BOX**.
 It does not revise the D20 frozen v0.2 statements above. The exact new Lean surface is
 [Additions.lean](../../../.drafts/P/Additions.lean). All four theorem bodies there are
 unproved draft placeholders; the fourth theorem specializes P-SECULAR-BOX to the cited
-rational model masses. Independent audit and owner approval precede freezing.
+rational model masses. The [independent v0.3 audit](AUDIT-additions-v0.3.md) is
+complete; this v0.4 revision applies F-P-A1 by literal conclusion expansion and
+deletes the two result aliases. Exact owner approval still precedes freezing.
+The full types of all four theorems are definitionally equal to their v0.3 types;
+no premise, bound, witness or rate changes.
 
 ### Physical conventions and fixed region
 
@@ -508,8 +512,8 @@ solution on the overlap, remains in the outer region and satisfies the stopped
 bound on the entire interval. Moreover A(t)≤A₀+nδ and J(t)=J(0), eᵢ(t)<e*,
 d≤|qᵢ(t)|≤R, and every barycentric pair distance lies in [d,2R]. Reconstructed
 Q,V satisfy the literal Newton equations, including Q′=V and the gravitational
-acceleration, for every t in the closed interval. `AMDSafeOn` includes these
-clauses. Functions are typed on ℝ only to state derivatives; no dynamics is
+acceleration, for every t in the closed interval. These clauses appear literally
+in the conclusions of `amdConfinement` and `planetaryExponentialSafety`. Functions are typed on ℝ only to state derivatives; no dynamics is
 asserted outside the specified interval. Frozen `IsNewtonSolution` asserts all
 time, so the new `IsNewtonSolutionOn` is its explicit interval restriction at G=1.
 The frozen `KAM.Iso.IsHamiltonianSolutionOn` supplies the differentiability guard
@@ -536,7 +540,9 @@ region, an actual solution exists on
 
     |t| ≤ exp(c μ^(−a)),
 
-has all the physical safety and uniqueness conclusions of `AMDSafeOn`, and
+has all the physical existence, uniqueness, reconstructed Newton-equation,
+outer-region, angular-momentum, eccentricity, radius and pair-distance clauses
+listed above, literally expanded in its conclusion, and
 
     |aᵢ(t)−aᵢ(0)| ≤ C μ^b    for every planet i.
 
@@ -626,8 +632,10 @@ the reconstructed ellipses satisfy
     every barycentric pair distance ∈ [399/200, 4439/200].
 
 All-time means all t∈ℝ, with no exceptional data and no smallness threshold for μ
-in this averaged model. `SecularBoxConclusion` makes no Newton-equation claim
-about the reconstructed ellipses. The dynamical equation is explicitly the
+in this averaged model. Both secular theorem conclusions explicitly exhibit the
+all-time solution, local uniqueness, regularity, action/AMD conservation and
+all-phase geometry clauses. They make no Newton-equation claim about the
+reconstructed ellipses. The dynamical equation is explicitly the
 Hamiltonian equation for Hsec, and the geometric bounds hold for all phases.
 
 The rational arithmetic behind the certificate is
@@ -687,3 +695,178 @@ assumed new rulings. They do not interrupt preparation of the complete draft.
   the stronger parameter-family theorem?
   **Recommend yes.** Keep “not an ephemeris certificate” and the averaged-model
   boundary; no physical-year or full-system realistic-mass claim is supported.
+
+
+### Exact v0.4 declaration inventory and theorem text
+
+The draft contains **33 definitions, one data structure, and four theorems**
+(38 declarations). All 33 retained definition bodies, the `AMDBox` structure,
+and every theorem premise are unchanged from the audited v0.3 draft. The two
+conclusion aliases were removed rather than retained as source definitions.
+Every name below is in namespace `KAM.Planetary`; the links identify the exact
+text in the v0.4 draft. The theorem commands following the inventory are copied
+verbatim from that file, including their unproved draft bodies.
+
+| Declaration | Kind | Exact text |
+|---|---|---|
+| `planeCross` | def | [line 41](../../../.drafts/P/Additions.lean:41) |
+| `keplerEnergy` | def | [line 44](../../../.drafts/P/Additions.lean:44) |
+| `keplerAxis` | def | [line 48](../../../.drafts/P/Additions.lean:48) |
+| `keplerAction` | def | [line 52](../../../.drafts/P/Additions.lean:52) |
+| `keplerEccVector` | def | [line 56](../../../.drafts/P/Additions.lean:56) |
+| `totalMomentum` | def | [line 64](../../../.drafts/P/Additions.lean:64) |
+| `physicalAMD` | def | [line 68](../../../.drafts/P/Additions.lean:68) |
+| `ProgradeElliptic` | def | [line 72](../../../.drafts/P/Additions.lean:72) |
+| `LowAMDRegion` | def | [line 77](../../../.drafts/P/Additions.lean:77) |
+| `AMDBox` | structure | [line 82](../../../.drafts/P/Additions.lean:82) |
+| `AMDBox.Admissible` | def | [line 96](../../../.drafts/P/Additions.lean:96) |
+| `IsMovingSolutionOn` | def | [line 108](../../../.drafts/P/Additions.lean:108) |
+| `IsNewtonSolutionOn` | def | [line 115](../../../.drafts/P/Additions.lean:115) |
+| `MovingUniqueOn` | def | [line 125](../../../.drafts/P/Additions.lean:125) |
+| `StoppedActionBound` | def | [line 132](../../../.drafts/P/Additions.lean:132) |
+| `amdConfinement` | theorem | [line 144](../../../.drafts/P/Additions.lean:144) |
+| `planetaryTimeExponent` | def | [line 170](../../../.drafts/P/Additions.lean:170) |
+| `planetaryDriftExponent` | def | [line 173](../../../.drafts/P/Additions.lean:173) |
+| `planetaryExponentialSafety` | theorem | [line 178](../../../.drafts/P/Additions.lean:178) |
+| `quarterTurn` | def | [line 207](../../../.drafts/P/Additions.lean:207) |
+| `orbitalUnit` | def | [line 210](../../../.drafts/P/Additions.lean:210) |
+| `secularGamma` | def | [line 213](../../../.drafts/P/Additions.lean:213) |
+| `secularAMD` | def | [line 217](../../../.drafts/P/Additions.lean:217) |
+| `secularRoot` | def | [line 220](../../../.drafts/P/Additions.lean:220) |
+| `secularEccVector` | def | [line 225](../../../.drafts/P/Additions.lean:225) |
+| `secularAxis` | def | [line 230](../../../.drafts/P/Additions.lean:230) |
+| `keplerMeanLongitude` | def | [line 235](../../../.drafts/P/Additions.lean:235) |
+| `longitudeJacobian` | def | [line 239](../../../.drafts/P/Additions.lean:239) |
+| `ellipsePosition` | def | [line 244](../../../.drafts/P/Additions.lean:244) |
+| `ellipseMomentum` | def | [line 252](../../../.drafts/P/Additions.lean:252) |
+| `ellipsePhase` | def | [line 260](../../../.drafts/P/Additions.lean:260) |
+| `secularIntegrand` | def | [line 268](../../../.drafts/P/Additions.lean:268) |
+| `exactSecularHamiltonian` | def | [line 275](../../../.drafts/P/Additions.lean:275) |
+| `SecularRegular` | def | [line 280](../../../.drafts/P/Additions.lean:280) |
+| `jupiterSaturnWeights` | def | [line 291](../../../.drafts/P/Additions.lean:291) |
+| `SecularInputBox` | def | [line 295](../../../.drafts/P/Additions.lean:295) |
+| `secularBoxSafety` | theorem | [line 307](../../../.drafts/P/Additions.lean:307) |
+| `secularBoxAtCitedMasses` | theorem | [line 339](../../../.drafts/P/Additions.lean:339) |
+
+```lean
+theorem amdConfinement {n : ℕ} (hn : 2 ≤ n) (B : AMDBox n) (hB : B.Admissible)
+    (mu T delta : ℝ) (hmu : 0 < mu) (hT : 0 < T) (hdelta : 0 < delta)
+    (hmargin : ∀ i, B.lower i + 2 * delta < B.innerLower i ∧
+      B.innerUpper i + 2 * delta < B.upper i)
+    (hAMD : B.initialAMD + 2 * (n : ℝ) * delta < B.outerAMD)
+    (z0 : Phase (n * 2))
+    (hz0 : z0 ∈ LowAMDRegion B.mass B.innerLower B.innerUpper B.initialAMD)
+    (hstop : StoppedActionBound B mu T delta z0) :
+    ∃ z : ℝ → Phase (n * 2), z 0 = z0 ∧ (IsMovingSolutionOn B.mass mu (Set.Icc (-T) T) z ∧
+      MovingUniqueOn B.mass mu (Set.Icc (-T) T) z ∧
+      IsNewtonSolutionOn (actualMasses 1 B.mass mu) (Set.Icc (-T) T)
+        (fun t => barycentricPositions 1 B.mass mu (z t).1)
+        (fun t => barycentricVelocities 1 B.mass mu (z t).2) ∧
+      ∀ t ∈ (Set.Icc (-T) T),
+        z t ∈ LowAMDRegion B.mass B.lower B.upper B.outerAMD ∧
+        totalMomentum (z t) = totalMomentum (z 0) ∧
+        (∀ i, planeLength (keplerEccVector B.mass (z t) i) < B.ecc ∧
+          B.distance ≤ planeLength (bodyVector (z t).1 i) ∧
+          planeLength (bodyVector (z t).1 i) ≤ B.radius) ∧
+        PairBounds B.distance (2 * B.radius) (barycentricPositions 1 B.mass mu (z t).1)) ∧
+      ∀ t ∈ Set.Icc (-T) T,
+        physicalAMD B.mass (z t) ≤ B.initialAMD + (n : ℝ) * delta ∧
+        ∀ i, |keplerAction B.mass (z t) i - keplerAction B.mass z0 i| ≤ delta := by
+  sorry
+```
+
+```lean
+theorem planetaryExponentialSafety {n : ℕ} (hn : 2 ≤ n)
+    (B : AMDBox n) (hB : B.Admissible) :
+    ∃ muStar c C : ℝ, 0 < muStar ∧ 0 < c ∧ 0 < C ∧
+      ∀ mu : ℝ, 0 < mu → mu < muStar →
+      ∀ z0 ∈ LowAMDRegion B.mass B.innerLower B.innerUpper B.initialAMD,
+      ∃ z : ℝ → Phase (n * 2), z 0 = z0 ∧
+        (IsMovingSolutionOn B.mass mu (Set.Icc (-Real.exp (c * mu ^ (-planetaryTimeExponent n)))
+                  (Real.exp (c * mu ^ (-planetaryTimeExponent n)))) z ∧ MovingUniqueOn B.mass mu
+                    (Set.Icc (-Real.exp (c * mu ^ (-planetaryTimeExponent n)))
+                  (Real.exp (c * mu ^ (-planetaryTimeExponent n)))) z ∧
+        IsNewtonSolutionOn (actualMasses 1 B.mass mu) (Set.Icc (-Real.exp (c * mu ^
+          (-planetaryTimeExponent n)))
+                  (Real.exp (c * mu ^ (-planetaryTimeExponent n))))
+          (fun t => barycentricPositions 1 B.mass mu (z t).1)
+          (fun t => barycentricVelocities 1 B.mass mu (z t).2) ∧
+        ∀ t ∈ (Set.Icc (-Real.exp (c * mu ^ (-planetaryTimeExponent n)))
+                  (Real.exp (c * mu ^ (-planetaryTimeExponent n)))),
+          z t ∈ LowAMDRegion B.mass B.lower B.upper B.outerAMD ∧
+          totalMomentum (z t) = totalMomentum (z 0) ∧
+          (∀ i, planeLength (keplerEccVector B.mass (z t) i) < B.ecc ∧
+            B.distance ≤ planeLength (bodyVector (z t).1 i) ∧
+            planeLength (bodyVector (z t).1 i) ≤ B.radius) ∧
+          PairBounds B.distance (2 * B.radius) (barycentricPositions 1 B.mass mu (z t).1)) ∧
+        ∀ t : ℝ, |t| ≤ Real.exp (c * mu ^ (-planetaryTimeExponent n)) →
+          ∀ i, |keplerAxis B.mass (z t) i - keplerAxis B.mass z0 i| ≤
+            C * mu ^ planetaryDriftExponent n := by
+  sorry
+```
+
+```lean
+theorem secularBoxSafety (saturn mu : ℝ)
+    (hsaturn : saturn ∈ Set.Icc (29 / 100 : ℝ) (31 / 100 : ℝ)) (hmu : 0 < mu)
+    (w0 : Phase (2 + 2)) (hw0 : SecularInputBox saturn w0) :
+    ∃ w : ℝ → Phase (2 + 2), w 0 = w0 ∧
+      KAM.Iso.IsHamiltonianSolutionOn (exactSecularHamiltonian (jupiterSaturnWeights saturn) mu)
+        Set.univ Set.univ w ∧
+      (∀ (U : Set ℝ) (v : ℝ → Phase (2 + 2)), IsOpen U → Convex ℝ U → 0 ∈ U →
+        v 0 = w0 →
+        KAM.Iso.IsHamiltonianSolutionOn
+          (exactSecularHamiltonian (jupiterSaturnWeights saturn) mu) Set.univ U v →
+        (∀ t ∈ U, SecularRegular (jupiterSaturnWeights saturn) mu (v t)) →
+        ∀ t ∈ U, v t = w t) ∧
+      ∀ t : ℝ,
+        SecularRegular (jupiterSaturnWeights saturn) mu (w t) ∧
+        fast (w t).2 = fast w0.2 ∧ secularAMD (w t) = secularAMD w0 ∧
+        secularAMD (w t) < (16373 / 2500000 : ℝ) ∧
+        (∀ i, planeLength (secularEccVector (w t) i) < (3 / 20 : ℝ)) ∧
+        ∀ F : Fin 2 → ℝ,
+          (∀ i, (1751 / 400 : ℝ) ≤
+            planeLength (ellipsePosition (jupiterSaturnWeights saturn) (w t) i (F i)) ∧
+            planeLength (ellipsePosition (jupiterSaturnWeights saturn) (w t) i (F i)) ≤
+              (4439 / 400 : ℝ)) ∧
+          (399 / 200 : ℝ) ≤
+            planeLength (ellipsePosition (jupiterSaturnWeights saturn) (w t) 1 (F 1)) -
+            planeLength (ellipsePosition (jupiterSaturnWeights saturn) (w t) 0 (F 0)) ∧
+          PairBounds (399 / 200 : ℝ) (4439 / 200 : ℝ)
+            (barycentricPositions 1 (jupiterSaturnWeights saturn) mu
+              (ellipsePhase (jupiterSaturnWeights saturn) (w t) F).1) := by
+  sorry
+```
+
+```lean
+theorem secularBoxAtCitedMasses (w0 : Phase (2 + 2))
+    (hw0 : SecularInputBox (476 / 1591 : ℝ) w0) :
+    ∃ w : ℝ → Phase (2 + 2), w 0 = w0 ∧
+      KAM.Iso.IsHamiltonianSolutionOn (exactSecularHamiltonian (jupiterSaturnWeights (476 / 1591 :
+        ℝ)) (4773 / 5000000 : ℝ))
+        Set.univ Set.univ w ∧
+      (∀ (U : Set ℝ) (v : ℝ → Phase (2 + 2)), IsOpen U → Convex ℝ U → 0 ∈ U →
+        v 0 = w0 →
+        KAM.Iso.IsHamiltonianSolutionOn
+          (exactSecularHamiltonian (jupiterSaturnWeights (476 / 1591 : ℝ)) (4773 / 5000000 : ℝ))
+            Set.univ U v →
+        (∀ t ∈ U, SecularRegular (jupiterSaturnWeights (476 / 1591 : ℝ)) (4773 / 5000000 : ℝ) (v t))
+          →
+        ∀ t ∈ U, v t = w t) ∧
+      ∀ t : ℝ,
+        SecularRegular (jupiterSaturnWeights (476 / 1591 : ℝ)) (4773 / 5000000 : ℝ) (w t) ∧
+        fast (w t).2 = fast w0.2 ∧ secularAMD (w t) = secularAMD w0 ∧
+        secularAMD (w t) < (16373 / 2500000 : ℝ) ∧
+        (∀ i, planeLength (secularEccVector (w t) i) < (3 / 20 : ℝ)) ∧
+        ∀ F : Fin 2 → ℝ,
+          (∀ i, (1751 / 400 : ℝ) ≤
+            planeLength (ellipsePosition (jupiterSaturnWeights (476 / 1591 : ℝ)) (w t) i (F i)) ∧
+            planeLength (ellipsePosition (jupiterSaturnWeights (476 / 1591 : ℝ)) (w t) i (F i)) ≤
+              (4439 / 400 : ℝ)) ∧
+          (399 / 200 : ℝ) ≤
+            planeLength (ellipsePosition (jupiterSaturnWeights (476 / 1591 : ℝ)) (w t) 1 (F 1)) -
+            planeLength (ellipsePosition (jupiterSaturnWeights (476 / 1591 : ℝ)) (w t) 0 (F 0)) ∧
+          PairBounds (399 / 200 : ℝ) (4439 / 200 : ℝ)
+            (barycentricPositions 1 (jupiterSaturnWeights (476 / 1591 : ℝ)) (4773 / 5000000 : ℝ)
+              (ellipsePhase (jupiterSaturnWeights (476 / 1591 : ℝ)) (w t) F).1) := by
+  sorry
+```

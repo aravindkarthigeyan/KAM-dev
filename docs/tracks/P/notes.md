@@ -459,3 +459,121 @@ There is concurrent unrelated blueprint work in the shared checkout. It was
 neither edited nor reverted here; the lint receipt describes the shared snapshot
 at validation time. No state-changing git, full-library build, cleanup, frozen-file
 edit, manifest edit or generated-file edit was performed for this task.
+
+## Additions (D22), draft v0.4 — D23 revision change log
+
+This revision was performed entirely in `/root/code/KAM-inp`, following the
+[independent v0.3 audit](AUDIT-additions-v0.3.md) and the sub-orchestrator's explicit
+F-P-A1 instruction. The v0.3 records above remain historical receipts.
+
+### F-P-A1: exact conclusion expansion
+
+- In `amdConfinement` and `planetaryExponentialSafety`, replace the application
+  of `AMDSafeOn` by its entire conjunction with the original B, μ, interval and
+  trajectory arguments substituted literally. Parentheses preserve the scope
+  of its final universal quantifier and the separate drift conclusion.
+- In `secularBoxSafety` and `secularBoxAtCitedMasses`, replace the application
+  of `SecularBoxConclusion` by its complete existential body. The cited-masses
+  theorem substitutes `(476 / 1591 : ℝ)` and `(4773 / 5000000 : ℝ)` everywhere
+  the old alias used its Saturn-weight and mass-parameter arguments.
+- Delete both alias declarations from the intended Lean draft. No additional
+  premise, witness, bound, rate or quantifier was introduced. Every retained
+  definition body, the data structure and every theorem header are unchanged.
+- Update the statement section to v0.4, remove references to the aliases as
+  current mathematical objects, and list all **38 declarations: 33 definitions,
+  one structure and four theorems**. That section includes the four complete
+  theorem commands copied verbatim from the final draft.
+
+The new surface addresses the audit's source-definition packaging finding.
+F-P-A2 remains unpaid proof work: the analytic coordinate/domain bridge must
+construct the stopped estimate from N-PARTIAL-CONVEX on each tested segment,
+including norm bounds, fixed erosions, derivative/time transport and both signs
+of H. F-P-A3 remains an approval boundary: the mathematical scope and exact text
+still await owner approval. This revision adds no scope ruling or mathematical
+repair, and does not claim theorem proof closure.
+
+### Errata candidates for the orchestrator's ledger
+
+The following are carried forward from §8 of the independent audit. Its PDF/page
+checks are the evidence for these candidates; this revision does not claim a new
+source audit or adoption of corrections. No ledger or pinned source was edited.
+
+| Candidate | Source and exact locator | Printed evidence | Reason and recommended disposition |
+|---|---|---|---|
+| **E-P-A-N77-1** | Nekhoroshev 1977 English PDF, p. 56 compactness lemma; p. 58 proof of Lemma 12.4.C | `12.3.A` on p. 56 versus `12.4.A` in the p. 58 citation | The same compactness result has inconsistent numbering. Retain the printed label with page/title and record the cross-reference mismatch. No mathematical change. |
+| **E-P-A-N77-2** | Nekhoroshev 1977, p. 56, equation (12.6); compare (12.8) on the same page | `T=(1/2)Σmᵢ(ẋᵢ²/2)` | The kinetic energy has a duplicate factor 1/2, whereas the printed momentum formula (12.8), `Pᵢ=mᵢẋᵢ+mᵢΣmⱼẋⱼ`, follows from the usual single half. Recommend removing one half in a recorded erratum after orchestrator review. Retain the frozen moving Hamiltonian, which independently matches LP17 (5)–(6); no Lean change. |
+| **E-N-ADD-1** | Nekhoroshev 1977, p. 15, §1.18; also recorded in track N's source packet | “the perturbation H−H₀ becomes small” | In the stated close-approach context, the reciprocal-distance interaction becomes large. Recommend “ceases to be small,” subject to orchestrator review. This remains a suspected textual defect, not an adopted mathematical premise or a new independent erratum. |
+| **E-P-A-LP17-1** | Laskar–Petit, arXiv:1703.07125v2, p. 17, between (B.9) and (B.10) | `{F,H₀}=0` | F is unintroduced in that argument; K is the integral in the surrounding formulas. Recommend K. The draft uses the earlier (B.5), (B.8) and direct rotational invariance, so no Lean change is needed. |
+
+The existing adaptations D-P-A1–D-P-A4 and owner questions Q-P-A1–Q-P-A5 remain
+as recorded. The source packet `sources.md` is byte-identical to the audited
+v0.3 input. This round changes only the intended Lean draft and the requested
+statement/notes documentation, with ignored verification artifacts under
+`.drafts/P/revision-v0.4/`.
+
+### v0.4 Lean rules and preservation check
+
+1. Never use set_option maxHeartbeats (or any heartbeat-budget override). A default-heartbeat elaboration failure is a design signal to refactor or split the proof, not something to mask with a larger budget.
+2. No Lean file may exceed 1500 lines of code.
+
+The final draft has 378 lines and exactly four theorem-body placeholders. Its
+module header, author names, public frozen-definition imports, exposed section
+and ambient types are preserved. No resource override or forbidden proof escape
+was introduced.
+
+`/root/code/KAM-inp/.drafts/P/revision-v0.4/Additions-v0.3.lean` retains the
+exact audited input, SHA-256
+`6df42966f8abbe33f7421752f74f18d3465e0d03f38d47e13696c297bca9c585`.
+The scratch module `TypeEquality.lean` places the old alias-based theorem
+statements beside the final expanded statements, sharing all retained
+definitions and the same data structure. Four `rfl` checks establish equality
+of the **complete theorem types**, including all premises and quantifier order.
+All four checks elaborated at default budgets with exit 0. Only the eight
+placeholder warnings from the paired old/new theorem declarations were emitted;
+the four type equalities themselves contain no placeholders. The scratch
+module is below 1500 lines and is not part of the intended declaration surface.
+
+### v0.4 final elaboration and SHA-256 receipt
+
+```text
+$ cd /root/code/KAM-inp && nice -n 5 lake env lean .drafts/P/Additions.lean
+.drafts/P/Additions.lean:144:8: warning: declaration uses `sorry`
+.drafts/P/Additions.lean:178:8: warning: declaration uses `sorry`
+.drafts/P/Additions.lean:307:8: warning: declaration uses `sorry`
+.drafts/P/Additions.lean:339:8: warning: declaration uses `sorry`
+'KAM.Planetary.amdConfinement' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Planetary.planetaryExponentialSafety' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Planetary.secularBoxSafety' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Planetary.secularBoxAtCitedMasses' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+exit 0
+```
+
+Only the four expected theorem-body `sorry` warnings were emitted. Each main
+result still reports `[propext, sorryAx, Classical.choice, Quot.sound]` from
+`#print axioms`; this is an elaborated, unproved draft awaiting owner approval.
+The direct draft elaboration is the targeted build for this ignored artifact.
+
+```text
+$ sha256sum /root/code/KAM-inp/.drafts/P/Additions.lean
+bf4b9d474e4c3fa32844af887f90851cb5bd026c101f2b5fc882b9169d5e72f0  /root/code/KAM-inp/.drafts/P/Additions.lean
+
+$ PYTHONDONTWRITEBYTECODE=1 /root/code/KAM-inp/scripts/lint_sources.sh
+check_lean_modules: PASS (124 Lean files, 0 comparator configurations)
+FROZEN-ANCHOR GUARD OK
+ABI HASHES OK (94 frozen declarations)
+exit 0
+```
+
+Additional checks passed: the two deleted aliases are absent from the intended
+draft; every surviving definition/structure body and theorem header matches
+the audited input; all four full theorem-type equalities elaborate by `rfl`;
+the declaration inventory and four copied theorem commands match the final
+draft; the source packet hash is unchanged; and the requested documentation
+passes `git diff --check`. A separate check covers whitespace and forbidden
+code/resource commands in the ignored draft. Lint intentionally excludes drafts.
+
+All task edits and verification artifacts are under `/root/code/KAM-inp`.
+No edit was made in `/root/code/KAM`, no frozen file or manifest was changed,
+and no state-changing git command was run. Concurrent worktree changes were
+left to their owners. The four errata entries above are candidates for the
+orchestrator's review and ledger, not ledger modifications by this revision.

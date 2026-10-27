@@ -16,8 +16,8 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N additions: revision v0.4 (audit F-NADD-1..9), in the inp worktree",
-   "state": "running"
+   "assignment": "Track N additions: draft v0.4 done (N-PARTIAL-CONVEX on an enlarged domain; N-AVERAGING deferred)",
+   "state": "done"
   },
   {
    "id": "track-P",
@@ -25,70 +25,7 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P additions: revision v0.4 (audit finding F-P-A1), in the inp worktree",
-   "state": "running"
-  },
-  {
-   "id": "audit-add-P",
-   "kind": "statement audit (Codex)",
-   "model": "GPT-6.1-Sol high",
-   "account": "codex-1",
-   "session": "inp-audit-p",
-   "assignment": "Statement audit of the track-P D22 additions: done (1 major finding F-P-A1: inline two result bundles; rest approvable)",
-   "state": "done"
-  },
-  {
-   "id": "audit-add-N",
-   "kind": "statement audit (Codex)",
-   "model": "GPT-6.1-Sol high",
-   "account": "codex-4",
-   "session": "inp-audit-n",
-   "assignment": "Statement audit of the track-N D22 additions: done (F-NADD-1 domain-convention gap; N-AVERAGING primary source missing)",
-   "state": "done"
-  },
-  {
-   "id": "bpI-p0",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track I blueprint: Part 0 (conventions, frozen statements) and part plan (done)",
-   "state": "done"
-  },
-  {
-   "id": "bpN-p0",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track N blueprint: Part 0 (conventions, frozen statements) and part plan (done)",
-   "state": "done"
-  },
-  {
-   "id": "bpP-p0",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track P blueprint: Part 0 (conventions, frozen statements) and part plan (done)",
-   "state": "done"
-  },
-  {
-   "id": "bpN-p3",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track N blueprint Part 3: shared Hamiltonian ODE layer for I, N, P (done)",
-   "state": "done"
-  },
-  {
-   "id": "bpI-p1",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track I blueprint Part 1: extended torsion, bordered triangular system (HL19 Lemma 6.1) (done)",
+   "assignment": "Track P additions: draft v0.4 done (F-P-A1 applied); under delta audit",
    "state": "done"
   },
   {
@@ -97,16 +34,7 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "inp-bprev-1",
-   "assignment": "Refute-first reviews: Part 0 of I and N (done, fixes applied); now N Part 3 and I Part 1",
-   "state": "running"
-  },
-  {
-   "id": "bpN-p12",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track N blueprint Parts 1-2: interfaces and conversions; proofs of N-QC and N-ZERO",
+   "assignment": "Refute-first blueprint reviews: Part 0 I/N, N p3, I p1 done (REVISE, fixes queued); now I p2, N p1-2",
    "state": "running"
   },
   {
@@ -119,21 +47,30 @@
    "state": "running"
   },
   {
-   "id": "route-P11",
-   "kind": "route study (Codex)",
+   "id": "delta-PN",
+   "kind": "delta statement audit (Codex)",
    "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "inp-route-p11",
-   "assignment": "Track P Part 11 route study: weak-nondegeneracy KAM gate for P-PLANAR/P-FIXED (CP09+Russmann vs Fejoz 2004 vs P-G fallback)",
+   "account": "codex-4",
+   "session": "inp-delta-p",
+   "assignment": "Delta audits of the D22 additions: P v0.4 READY FOR OWNER; N v0.4 running",
    "state": "running"
   },
   {
-   "id": "bpI-p2",
+   "id": "bpN-p45",
    "kind": "blueprint writer (subagent)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track I blueprint Part 2: isoenergetic step and iteration; proof of I-G1",
+   "assignment": "Track N blueprint Parts 4-5: weighted norms, Lie transform (shared with P)",
+   "state": "running"
+  },
+  {
+   "id": "bpI-p3",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track I blueprint Part 3: local energy charts, uniform application of I-G1",
    "state": "running"
   }
  ]

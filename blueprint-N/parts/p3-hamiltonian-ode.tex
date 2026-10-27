@@ -95,7 +95,7 @@ Let $\texttt{IsSolIn}\,F\,W\,J\,z$.
 \source{Standard.}
 \end{lemma}
 \begin{proof}
-\proofstep{Chain rule}\label{step:p3:sym} (a) and (b) are the chain rule for $t\mapsto t+c$, $t\mapsto-t$ (\ref{bpN:p3:ext-calc});
+\proofstep{Chain rule}\label{stepN:p3:sym} (a) and (b) are the chain rule for $t\mapsto t+c$, $t\mapsto-t$ (\ref{bpN:p3:ext-calc});
 (c): $z+v$ has the same derivative $F(z(t))=F(z(t)+v)$, and $z(t)+v\in W+v=W$.
 \end{proof}
 
@@ -105,16 +105,16 @@ $\norm{F(x)-F(y)}\le L\norm{x-y}$ for $x,y\in K$.
 \source{Standard.}
 \end{lemma}
 \begin{proof}
-\proofstep{Bounded}\label{step:p3:lip-bdd} $F$ is continuous on $W\supset K$, so $\norm F\le M$ on the compact $K$ (\ref{bpN:p3:ext-compact}).
+\proofstep{Bounded}\label{stepN:p3:lip-bdd} $F$ is continuous on $W\supset K$, so $\norm F\le M$ on the compact $K$ (\ref{bpN:p3:ext-compact}).
 
-\proofstep{Contradiction hypothesis}\label{step:p3:lip-contra}
+\proofstep{Contradiction hypothesis}\label{stepN:p3:lip-contra}
 If no $L$ works, for every $k\in\N$ there are $x_k\ne y_k$ in $K$ with $\norm{F(x_k)-F(y_k)}>k\norm{x_k-y_k}$; then
 $\norm{x_k-y_k}<2M/k\to0$.
 
-\proofstep{Compactness}\label{step:p3:lip-compact}
+\proofstep{Compactness}\label{stepN:p3:lip-compact}
 A subsequence $x_{k_j}\to p\in K$, hence also $y_{k_j}\to p$. By \ref{bpN:p3:ext-lip-local} there are $L_p$ and a
 neighbourhood $N_p$ of $p$ on which $F$ is $L_p$-Lipschitz. For large $j$ both points lie in $N_p$ and $k_j>L_p$, which
-contradicts Step~\ref{step:p3:lip-contra}.
+contradicts Step~\ref{stepN:p3:lip-contra}.
 \end{proof}
 
 \begin{definition}[Uniform data]\label{bpN:p3:gen-uniform}
@@ -129,11 +129,11 @@ Let $F$ be $C^1$ on the open set $W$ and $K\subset W$ compact. Then $K$ has unif
 $\delta>0$, and $K_\delta=\{y:\operatorname{dist}(y,K)\le\delta\}\subset W$.
 \end{lemma}
 \begin{proof}
-\proofstep{Choice of $\delta$}\label{step:p3:uc-delta} If $W=E$ put $\delta=1$. Otherwise $x\mapsto\operatorname{dist}(x,E\setminus W)$ is continuous and
+\proofstep{Choice of $\delta$}\label{stepN:p3:uc-delta} If $W=E$ put $\delta=1$. Otherwise $x\mapsto\operatorname{dist}(x,E\setminus W)$ is continuous and
 positive on $K$, so has a minimum $2\delta>0$ (\ref{bpN:p3:ext-compact}); then $K_\delta\subset W$.
 $K_\delta$ is closed and bounded, hence compact.
 
-\proofstep{Data}\label{step:p3:uc-data} Apply Lemma~\ref{bpN:p3:gen-lip} to $K_\delta$: $\norm F\le M$ and $F$ is $L$-Lipschitz on $K_\delta\supset\overline B(x,\delta)$ for $x\in K$.
+\proofstep{Data}\label{stepN:p3:uc-data} Apply Lemma~\ref{bpN:p3:gen-lip} to $K_\delta$: $\norm F\le M$ and $F$ is $L$-Lipschitz on $K_\delta\supset\overline B(x,\delta)$ for $x\in K$.
 \end{proof}
 
 \begin{lemma}[Uniform data for angle-periodic fields]\label{bpN:p3:gen-uniform-periodic}
@@ -142,11 +142,11 @@ $F(\theta+k,I)=F(\theta,I)$ for $(\theta,I)\in W$, $k\in\Z^n$. If $K\subset U$ i
 uniform data $(\delta,M,L)$ for some $\delta\in(0,1]$.
 \end{lemma}
 \begin{proof}
-\proofstep{A compact cell}\label{step:p3:up-cell} Choose $\delta\in(0,1]$ with $K_\delta=\{I:\operatorname{dist}(I,K)\le\delta\}\subset U$ (as in
-Step~\ref{step:p3:uc-delta}). $C=[-1,2]^n\times K_\delta$ is compact and contained in $W$; let $M,L_C$ be the constants of
+\proofstep{A compact cell}\label{stepN:p3:up-cell} Choose $\delta\in(0,1]$ with $K_\delta=\{I:\operatorname{dist}(I,K)\le\delta\}\subset U$ (as in
+Step~\ref{stepN:p3:uc-delta}). $C=[-1,2]^n\times K_\delta$ is compact and contained in $W$; let $M,L_C$ be the constants of
 Lemma~\ref{bpN:p3:gen-lip} for $C$.
 
-\proofstep{Translating a ball into the cell}\label{step:p3:up-translate} Let $x=(\theta,I)\in\Phi$, $k=(\lfloor\theta_i\rfloor)_i\in\Z^n$ and $x'=x-(k,0)\in[0,1)^n\times K$. Since the norm is the max
+\proofstep{Translating a ball into the cell}\label{stepN:p3:up-translate} Let $x=(\theta,I)\in\Phi$, $k=(\lfloor\theta_i\rfloor)_i\in\Z^n$ and $x'=x-(k,0)\in[0,1)^n\times K$. Since the norm is the max
 norm and $\delta\le1$, $\overline B(x',\delta)\subset C$, and $\overline B(x,\delta)=\overline B(x',\delta)+(k,0)\subset W$.
 By periodicity $F(y+(k,0))=F(y)$ on $\overline B(x',\delta)$, so $\norm F\le M$ and $F$ is $L_C$-Lipschitz on $\overline B(x,\delta)$.
 \end{proof}
@@ -161,11 +161,11 @@ $\alpha(t)\in\overline B(x,\delta)$.
 \source{Standard.}
 \end{lemma}
 \begin{proof}
-\proofstep{Forward bootstrap}\label{step:p3:short-boot} Let $t\in J$, $t_0<t<t_0+\delta/M$ (the case $t<t_0$ follows by Lemma~\ref{bpN:p3:gen-symmetry}(b) and the case $t=t_0$ is trivial).
+\proofstep{Forward bootstrap}\label{stepN:p3:short-boot} Let $t\in J$, $t_0<t<t_0+\delta/M$ (the case $t<t_0$ follows by Lemma~\ref{bpN:p3:gen-symmetry}(b) and the case $t=t_0$ is trivial).
 Let $A=\{s\in[t_0,t]:\norm{\alpha(u)-x}\le M(u-t_0)\ \forall u\in[t_0,s]\}$ and $s^*=\sup A$. $t_0\in A$ and $A$ is closed by
 continuity of $\alpha$ on $J$, so $s^*\in A$.
 
-\proofstep{Extension}\label{step:p3:short-ext} If $s^*<t$, then $\norm{\alpha(s^*)-x}\le M(s^*-t_0)<\delta$, so by continuity there is $\eta>0$, $s^*+\eta\le t$, with $\alpha([s^*,s^*+\eta])\subset\overline B(x,\delta)$. On this interval $\norm{\alpha'}=\norm{F(\alpha)}\le M$, so by
+\proofstep{Extension}\label{stepN:p3:short-ext} If $s^*<t$, then $\norm{\alpha(s^*)-x}\le M(s^*-t_0)<\delta$, so by continuity there is $\eta>0$, $s^*+\eta\le t$, with $\alpha([s^*,s^*+\eta])\subset\overline B(x,\delta)$. On this interval $\norm{\alpha'}=\norm{F(\alpha)}\le M$, so by
 \ref{bpN:p3:ext-mvt} $\norm{\alpha(u)-\alpha(s^*)}\le M(u-s^*)$ and hence $\norm{\alpha(u)-x}\le M(u-t_0)$ there,
 contradicting the definition of $s^*$. So $s^*=t$.
 \end{proof}
@@ -178,11 +178,11 @@ $\texttt{IsSolIn}\,F\,W\,(t_0-\varepsilon,t_0+\varepsilon)\,\alpha$.
 \source{Standard (Picard--Lindel\"of).}
 \end{proposition}
 \begin{proof}
-\proofstep{Picard--Lindel\"of}\label{step:p3:ue-pl} Apply \ref{bpN:p3:ext-pl} with $a=\delta$, bound $M'$, Lipschitz constant $L$ and $T=\varepsilon$ ($M'T=\delta\le a$):
+\proofstep{Picard--Lindel\"of}\label{stepN:p3:ue-pl} Apply \ref{bpN:p3:ext-pl} with $a=\delta$, bound $M'$, Lipschitz constant $L$ and $T=\varepsilon$ ($M'T=\delta\le a$):
 there is $\alpha$ with $\alpha(t_0)=x$ and derivative $F(\alpha(t))$ within $[t_0-\varepsilon,t_0+\varepsilon]$ at each point of it.
 At points $t$ of the open interval this is a two-sided derivative, since the closed interval is a neighbourhood of $t$.
 
-\proofstep{Staying in $W$}\label{step:p3:ue-stay} By Lemma~\ref{bpN:p3:gen-short} on $J=(t_0-\varepsilon,t_0+\varepsilon)$, $\norm{\alpha(t)-x}\le M'\abs{t-t_0}<\delta$, so $\alpha(t)\in\overline B(x,\delta)\subset W$.
+\proofstep{Staying in $W$}\label{stepN:p3:ue-stay} By Lemma~\ref{bpN:p3:gen-short} on $J=(t_0-\varepsilon,t_0+\varepsilon)$, $\norm{\alpha(t)-x}\le M'\abs{t-t_0}<\delta$, so $\alpha(t)\in\overline B(x,\delta)\subset W$.
 \end{proof}
 
 \begin{theorem}[Local existence, both time directions]\label{bpN:p3:gen-local}
@@ -192,7 +192,7 @@ $K\subset W$ (for all $x_0\in K$).
 \source{Standard.}
 \end{theorem}
 \begin{proof}
-\proofstep{Reduction}\label{step:p3:loc-red} $\{x_0\}$ (resp.\ $K$) is compact; Lemma~\ref{bpN:p3:gen-uniform-compact} gives uniform data and Proposition~\ref{bpN:p3:gen-uniform-exist} the claim.
+\proofstep{Reduction}\label{stepN:p3:loc-red} $\{x_0\}$ (resp.\ $K$) is compact; Lemma~\ref{bpN:p3:gen-uniform-compact} gives uniform data and Proposition~\ref{bpN:p3:gen-uniform-exist} the claim.
 \end{proof}
 
 \subsection{Uniqueness on every interval}\label{bpN:p3:s-unique}
@@ -206,13 +206,13 @@ $J_1\cap J_2$ (an interval), and two solutions which agree at one time of $J$ ag
 \source{Standard; used for BM11 Theorem~2.1 (uniqueness) and in the maximal-solution argument of BM11 p.~13.}
 \end{theorem}
 \begin{proof}
-\proofstep{A compact piece}\label{step:p3:uq-compact} Let $t_1\in J$, $t_1>t_0$ ($t_1<t_0$ is the mirror image, using the left-derivative form of \ref{bpN:p3:ext-unique}; $t_1=t_0$ is the hypothesis).
+\proofstep{A compact piece}\label{stepN:p3:uq-compact} Let $t_1\in J$, $t_1>t_0$ ($t_1<t_0$ is the mirror image, using the left-derivative form of \ref{bpN:p3:ext-unique}; $t_1=t_0$ is the hypothesis).
 Then $[t_0,t_1]\subset J$, each $y_i$ is continuous on it, so $K=y_1([t_0,t_1])\cup y_2([t_0,t_1])$ is compact
 (\ref{bpN:p3:ext-compact}) and $K\subset W$.
 
-\proofstep{Lipschitz on $K$}\label{step:p3:uq-lip} Lemma~\ref{bpN:p3:gen-lip} gives $L$ with $F$ $L$-Lipschitz on $K$.
+\proofstep{Lipschitz on $K$}\label{stepN:p3:uq-lip} Lemma~\ref{bpN:p3:gen-lip} gives $L$ with $F$ $L$-Lipschitz on $K$.
 
-\proofstep{Apply \ref{bpN:p3:ext-unique}}\label{step:p3:uq-apply} Both $y_i$ are continuous on $[t_0,t_1]$, have right derivative $F(y_i(t))$ on $[t_0,t_1)$ (a two-sided derivative gives a right derivative) and take values in $K$; so
+\proofstep{Apply \ref{bpN:p3:ext-unique}}\label{stepN:p3:uq-apply} Both $y_i$ are continuous on $[t_0,t_1]$, have right derivative $F(y_i(t))$ on $[t_0,t_1)$ (a two-sided derivative gives a right derivative) and take values in $K$; so
 $y_1(t_1)=y_2(t_1)$.
 \end{proof}
 
@@ -223,12 +223,12 @@ Let $F$ be $C^1$ on the open set $W$, $J\ne\emptyset$ an interval and $\texttt{I
 open interval $J'\supset J$ and $y'$ with $y'=y$ on $J$ and $\texttt{IsSolIn}\,F\,W\,J'\,y'$.
 \end{lemma}
 \begin{proof}
-\proofstep{Right end}\label{step:p3:ext-right} If $J$ has a largest element $b$, apply Theorem~\ref{bpN:p3:gen-local} at $x_0=y(b)\in W$, $t_0=b$: $\alpha$ on $(b-\varepsilon,b+\varepsilon)$.
+\proofstep{Right end}\label{stepN:p3:ext-right} If $J$ has a largest element $b$, apply Theorem~\ref{bpN:p3:gen-local} at $x_0=y(b)\in W$, $t_0=b$: $\alpha$ on $(b-\varepsilon,b+\varepsilon)$.
 Put $y_1(s)=y(s)$ for $s\le b$ and $y_1(s)=\alpha(s)$ for $s>b$. Then $y_1$ is a solution on $J_1=J\cup(b,b+\varepsilon)$: at $t\in J$, $t<b$, and at $t\in(b,b+\varepsilon)$ it agrees with $y$, resp.\ $\alpha$, near $t$;
 at $t=b$ it has derivative $F(y(b))$ within $(-\infty,b]$ (it equals $y$ there) and within $[b,\infty)$ (it equals $\alpha$ there, as $\alpha(b)=y(b)$), so by \ref{bpN:p3:ext-calc} it has the two-sided derivative.
 If $J$ has no largest element, $J_1=J$, $y_1=y$.
 
-\proofstep{Left end}\label{step:p3:ext-left} Apply Step~\ref{step:p3:ext-right} to the reversed solution $y_1(-\cdot)$ (Lemma~\ref{bpN:p3:gen-symmetry}(b)). The result has no endpoint, so is an open interval.
+\proofstep{Left end}\label{stepN:p3:ext-left} Apply Step~\ref{stepN:p3:ext-right} to the reversed solution $y_1(-\cdot)$ (Lemma~\ref{bpN:p3:gen-symmetry}(b)). The result has no endpoint, so is an open interval.
 \end{proof}
 
 \begin{theorem}[Maximal solution]\label{bpN:p3:gen-maximal}
@@ -240,13 +240,13 @@ instead of $0$ use Lemma~\ref{bpN:p3:gen-symmetry}(a).
 \source{BM11 p.~13 (``maximal time of existence''); standard.}
 \end{theorem}
 \begin{proof}
-\proofstep{The union}\label{step:p3:max-union} Let $\mathcal J$ be the set of open intervals $J\ni0$ carrying a solution $y_J$ with $y_J(0)=x_0$; $\mathcal J\ne\emptyset$ by Theorem~\ref{bpN:p3:gen-local}.
+\proofstep{The union}\label{stepN:p3:max-union} Let $\mathcal J$ be the set of open intervals $J\ni0$ carrying a solution $y_J$ with $y_J(0)=x_0$; $\mathcal J\ne\emptyset$ by Theorem~\ref{bpN:p3:gen-local}.
 The union $I$ of $\mathcal J$ is an open interval $(T_-,T_+)\ni0$ (a union of intervals containing $0$).
 
-\proofstep{Gluing}\label{step:p3:max-glue} For $t\in I$ choose $J\in\mathcal J$ with $t\in J$ and set $z(t)=y_J(t)$ (and $z(t)=x_0$ outside $I$). This is independent of $J$: for $J,J'\in\mathcal J$, $y_J=y_{J'}$ on $J\cap J'\ni0$ by Theorem~\ref{bpN:p3:gen-uniqueness}.
+\proofstep{Gluing}\label{stepN:p3:max-glue} For $t\in I$ choose $J\in\mathcal J$ with $t\in J$ and set $z(t)=y_J(t)$ (and $z(t)=x_0$ outside $I$). This is independent of $J$: for $J,J'\in\mathcal J$, $y_J=y_{J'}$ on $J\cap J'\ni0$ by Theorem~\ref{bpN:p3:gen-uniqueness}.
 Each $t\in I$ has an open neighbourhood $J\in\mathcal J$ on which $z=y_J$, so $z$ is a solution on $I$ (local nature, (iii) above).
 
-\proofstep{Maximality}\label{step:p3:max-max} If $y$ is a solution on an interval $J\ni0$ with $y(0)=x_0$, Lemma~\ref{bpN:p3:gen-extend} gives an open $J'\supset J$ and a solution $y'$ extending $y$, so $J'\in\mathcal J$, $J\subset J'\subset I$, and $y=y'=z$ on $J$ (Theorem~\ref{bpN:p3:gen-uniqueness}).
+\proofstep{Maximality}\label{stepN:p3:max-max} If $y$ is a solution on an interval $J\ni0$ with $y(0)=x_0$, Lemma~\ref{bpN:p3:gen-extend} gives an open $J'\supset J$ and a solution $y'$ extending $y$, so $J'\in\mathcal J$, $J\subset J'\subset I$, and $y=y'=z$ on $J$ (Theorem~\ref{bpN:p3:gen-uniqueness}).
 Uniqueness of $(T_-,T_+)$ and $z$ is immediate from the maximality property applied twice.
 \end{proof}
 
@@ -259,12 +259,12 @@ Equivalently: if the solution stays in $\Phi$ near the right (left) end of its m
 \source{Standard; BM11 p.~13 (``this solution is defined for all time''), P\"oschel 1993 p.~198 (``$T=T_*$'').}
 \end{theorem}
 \begin{proof}
-\proofstep{Set-up}\label{step:p3:cont-setup} Suppose $T_+<\infty$ and $z(t)\in\Phi$ on $[t_*,T_+)$. Let $\varepsilon=\delta/\max(M,1)$ from Proposition~\ref{bpN:p3:gen-uniform-exist}. Choose $t_1\in[t_*,T_+)$ with $t_1>T_+-\varepsilon$.
+\proofstep{Set-up}\label{stepN:p3:cont-setup} Suppose $T_+<\infty$ and $z(t)\in\Phi$ on $[t_*,T_+)$. Let $\varepsilon=\delta/\max(M,1)$ from Proposition~\ref{bpN:p3:gen-uniform-exist}. Choose $t_1\in[t_*,T_+)$ with $t_1>T_+-\varepsilon$.
 
-\proofstep{A solution through $z(t_1)$}\label{step:p3:cont-alpha} Proposition~\ref{bpN:p3:gen-uniform-exist} with $x=z(t_1)\in\Phi$ and $t_0=t_1$ gives $\alpha$ on $(t_1-\varepsilon,t_1+\varepsilon)$ with $\alpha(t_1)=z(t_1)$.
+\proofstep{A solution through $z(t_1)$}\label{stepN:p3:cont-alpha} Proposition~\ref{bpN:p3:gen-uniform-exist} with $x=z(t_1)\in\Phi$ and $t_0=t_1$ gives $\alpha$ on $(t_1-\varepsilon,t_1+\varepsilon)$ with $\alpha(t_1)=z(t_1)$.
 By Theorem~\ref{bpN:p3:gen-uniqueness} on $(t_1-\varepsilon,t_1+\varepsilon)\cap(T_-,T_+)$, $\alpha=z$ there.
 
-\proofstep{Gluing past $T_+$}\label{step:p3:cont-glue} Put $y=z$ on $(T_-,T_+)$ and $y=\alpha$ on $[T_+,t_1+\varepsilon)$; then $y=\alpha$ on $(t_1-\varepsilon,t_1+\varepsilon)$ and $y=z$ on $(T_-,T_+)$, two open sets covering $(T_-,t_1+\varepsilon)$ on each of which $y$ is a solution.
+\proofstep{Gluing past $T_+$}\label{stepN:p3:cont-glue} Put $y=z$ on $(T_-,T_+)$ and $y=\alpha$ on $[T_+,t_1+\varepsilon)$; then $y=\alpha$ on $(t_1-\varepsilon,t_1+\varepsilon)$ and $y=z$ on $(T_-,T_+)$, two open sets covering $(T_-,t_1+\varepsilon)$ on each of which $y$ is a solution.
 So $y$ is a solution on $(T_-,t_1+\varepsilon)\ni0$ with $y(0)=x_0$, and $t_1+\varepsilon>T_+$ contradicts Theorem~\ref{bpN:p3:gen-maximal}.
 The left end follows by Lemma~\ref{bpN:p3:gen-symmetry}(b).
 \end{proof}
@@ -300,10 +300,10 @@ there.
 \source{BM11 p.~13 (the two-case argument ``Therefore this solution is defined for all time''); P\"oschel 1993 p.~198.}
 \end{theorem}
 \begin{proof}
-\proofstep{No exit before $\tau$}\label{step:p3:conf-noexit} Suppose $T_+\le\tau$. The maximal solution $z$ on $(T_-,T_+)$ satisfies, for $t\in[0,T_+)$ ($\abs t<\tau$), $z(t)\in\Phi$ by confinement.
+\proofstep{No exit before $\tau$}\label{stepN:p3:conf-noexit} Suppose $T_+\le\tau$. The maximal solution $z$ on $(T_-,T_+)$ satisfies, for $t\in[0,T_+)$ ($\abs t<\tau$), $z(t)\in\Phi$ by confinement.
 Theorem~\ref{bpN:p3:gen-continuation} gives $T_+=\infty$, a contradiction. So $T_+>\tau$, and likewise $T_->-\tau$.
 
-\proofstep{Conclusion}\label{step:p3:conf-concl} $[-\tau,\tau]\subset(T_-,T_+)$ so $z$ is a solution on $[-\tau,\tau]$ and $z(t)\in\Phi$ for $\abs t\le\tau$ by confinement applied to $z$ itself. Uniqueness is Theorem~\ref{bpN:p3:gen-uniqueness}.
+\proofstep{Conclusion}\label{stepN:p3:conf-concl} $[-\tau,\tau]\subset(T_-,T_+)$ so $z$ is a solution on $[-\tau,\tau]$ and $z(t)\in\Phi$ for $\abs t\le\tau$ by confinement applied to $z$ itself. Uniqueness is Theorem~\ref{bpN:p3:gen-uniqueness}.
 \end{proof}
 
 \subsection{First exit from an open set; barriers}\label{bpN:p3:s-exit}
@@ -323,13 +323,13 @@ Only continuity of $z$ on $J$ is used; $F$ and $W$ play no role.
 \source{Standard; used for BM11 p.~13 (``smallest time $t_*$ such that $\omega(t_*)\in R_K$'') and P\"oschel 1993 p.~198--199 (stopping-time arguments).}
 \end{lemma}
 \begin{proof}
-\proofstep{Closedness}\label{step:p3:exit-closed} $z$ is continuous on $J$ (consequence (ii)), $E\setminus V$ is closed, so $A$ is closed in $J\cap[0,\infty)$.
+\proofstep{Closedness}\label{stepN:p3:exit-closed} $z$ is continuous on $J$ (consequence (ii)), $E\setminus V$ is closed, so $A$ is closed in $J\cap[0,\infty)$.
 
-\proofstep{The minimum}\label{step:p3:exit-min} If $A\ne\emptyset$, $t^*=\inf A\in[0,\infty)$; $t^*\in J$ since $J$ is an interval containing $0$ and a point of $A$ that is $\ge t^*$. By closedness $t^*\in A$, i.e.\ $z(t^*)\notin V$. As $z(0)\in V$, $t^*>0$.
+\proofstep{The minimum}\label{stepN:p3:exit-min} If $A\ne\emptyset$, $t^*=\inf A\in[0,\infty)$; $t^*\in J$ since $J$ is an interval containing $0$ and a point of $A$ that is $\ge t^*$. By closedness $t^*\in A$, i.e.\ $z(t^*)\notin V$. As $z(0)\in V$, $t^*>0$.
 
-\proofstep{Boundary point}\label{step:p3:exit-bdry} For $t\in[0,t^*)$, $t\notin A$, so $z(t)\in V$. By continuity $z(t^*)=\lim_{t\uparrow t^*}z(t)\in\overline V$, and $z(t^*)\notin V$; as $V$ is open, $\overline V\setminus V=\partial V$.
+\proofstep{Boundary point}\label{stepN:p3:exit-bdry} For $t\in[0,t^*)$, $t\notin A$, so $z(t)\in V$. By continuity $z(t^*)=\lim_{t\uparrow t^*}z(t)\in\overline V$, and $z(t^*)\notin V$; as $V$ is open, $\overline V\setminus V=\partial V$.
 
-\proofstep{The supremum formula}\label{step:p3:exit-sup} $z([0,t])\subset V$ iff $t<t^*$ (for $t\in J$, $t\ge 0$), so the supremum is $t^*$.
+\proofstep{The supremum formula}\label{stepN:p3:exit-sup} $z([0,t])\subset V$ iff $t<t^*$ (for $t\in J$, $t\ge 0$), so the supremum is $t^*$.
 \end{proof}
 
 \begin{definition}[Invariant sets]\label{bpN:p3:gen-invariant}
@@ -345,9 +345,9 @@ Let $G\subset E$ with $z(J)\subset G$, and suppose $\partial V\cap G\subset S$ w
 initial point). Then $z(t)\in V$ for all $t\in J$ (both time directions).
 \end{corollary}
 \begin{proof}
-\proofstep{Forward}\label{step:p3:barrier-fwd} If not, Lemma~\ref{bpN:p3:gen-exit}(ii) gives $t^*\in J$ with $z(t^*)\in\partial V\cap G\subset S$; invariance gives $z(0)\in S$, a contradiction.
+\proofstep{Forward}\label{stepN:p3:barrier-fwd} If not, Lemma~\ref{bpN:p3:gen-exit}(ii) gives $t^*\in J$ with $z(t^*)\in\partial V\cap G\subset S$; invariance gives $z(0)\in S$, a contradiction.
 
-\proofstep{Backward}\label{step:p3:barrier-bwd} Apply Step~\ref{step:p3:barrier-fwd} to $t\mapsto z(-t)$, a solution of $-F$ on $-J$; $G$, $\partial V$ are unchanged and $S$ is invariant for $-F$ as well (reversal maps solutions of $F$ to solutions of $-F$ and back).
+\proofstep{Backward}\label{stepN:p3:barrier-bwd} Apply Step~\ref{stepN:p3:barrier-fwd} to $t\mapsto z(-t)$, a solution of $-F$ on $-J$; $G$, $\partial V$ are unchanged and $S$ is invariant for $-F$ as well (reversal maps solutions of $F$ to solutions of $-F$ and back).
 \end{proof}
 
 \subsection{Hamiltonian layer}\label{bpN:p3:s-ham}
@@ -363,9 +363,9 @@ Let $W\subset P$ be open and $H:P\to\R$ be $C^{k+1}$ on $W$, $k\ge0$. Then $X_H$
 \source{Standard.}
 \end{lemma}
 \begin{proof}
-\proofstep{Derivative is $C^k$}\label{step:p3:hs-deriv} $DH:W\to\mathcal L(P,\R)$ is $C^k$ on the open $W$ (\ref{bpN:p3:ext-calc}, \Lean{ContDiffOn.fderiv\_of\_isOpen}).
+\proofstep{Derivative is $C^k$}\label{stepN:p3:hs-deriv} $DH:W\to\mathcal L(P,\R)$ is $C^k$ on the open $W$ (\ref{bpN:p3:ext-calc}, \Lean{ContDiffOn.fderiv\_of\_isOpen}).
 
-\proofstep{Components}\label{step:p3:hs-comp} Each coordinate of $X_H$ is $\pm$ the composition of $DH$ with the continuous linear evaluation $\ell\mapsto\ell(0,e_i)$ or $\ell\mapsto\ell(e_i,0)$; hence $C^k$, and a map into $\R^n\times\R^n$ with $C^k$ coordinates is $C^k$.
+\proofstep{Components}\label{stepN:p3:hs-comp} Each coordinate of $X_H$ is $\pm$ the composition of $DH$ with the continuous linear evaluation $\ell\mapsto\ell(0,e_i)$ or $\ell\mapsto\ell(e_i,0)$; hence $C^k$, and a map into $\R^n\times\R^n$ with $C^k$ coordinates is $C^k$.
 \end{proof}
 
 \begin{theorem}[Energy conservation]\label{bpN:p3:ham-energy}
@@ -375,11 +375,11 @@ and $z$ has derivative $X_H(z(t))$ at $t$. Then $t\mapsto H(z(t))$ is constant o
 \source{BM11 p.~13 and P\"oschel 1993 p.~198 (``energy conservation'', ``$\Delta H=H(I(t),\theta(t))|_0^T$ vanishes''); standard.}
 \end{theorem}
 \begin{proof}
-\proofstep{Chain rule}\label{step:p3:en-chain} For $t\in J$, $\frac{d}{dt}H(z(t))=DH(z(t))\bigl[X_H(z(t))\bigr]$ (\ref{bpN:p3:ext-calc}).
+\proofstep{Chain rule}\label{stepN:p3:en-chain} For $t\in J$, $\frac{d}{dt}H(z(t))=DH(z(t))\bigl[X_H(z(t))\bigr]$ (\ref{bpN:p3:ext-calc}).
 
-\proofstep{Cancellation}\label{step:p3:en-cancel} Write $z=z(t)$, $\ell=DH(z)$ and $X_H(z)=(a,b)$ with $a_i=\ell(0,e_i)$, $b_i=-\ell(e_i,0)$. By linearity, $\ell(a,b)=\sum_ia_i\,\ell(e_i,0)+\sum_ib_i\,\ell(0,e_i)=\sum_i\ell(0,e_i)\ell(e_i,0)-\sum_i\ell(e_i,0)\ell(0,e_i)=0$.
+\proofstep{Cancellation}\label{stepN:p3:en-cancel} Write $z=z(t)$, $\ell=DH(z)$ and $X_H(z)=(a,b)$ with $a_i=\ell(0,e_i)$, $b_i=-\ell(e_i,0)$. By linearity, $\ell(a,b)=\sum_ia_i\,\ell(e_i,0)+\sum_ib_i\,\ell(0,e_i)=\sum_i\ell(0,e_i)\ell(e_i,0)-\sum_i\ell(e_i,0)\ell(0,e_i)=0$.
 
-\proofstep{Constancy}\label{step:p3:en-const} Let $s<t$ in $J$. $H\circ z$ is continuous on $[s,t]\subset J$ and has derivative $0$ at every point, so $H(z(t))=H(z(s))$ (\ref{bpN:p3:ext-calc}).
+\proofstep{Constancy}\label{stepN:p3:en-const} Let $s<t$ in $J$. $H\circ z$ is continuous on $[s,t]\subset J$ and has derivative $0$ at every point, so $H(z(t))=H(z(s))$ (\ref{bpN:p3:ext-calc}).
 \end{proof}
 
 \begin{lemma}[Periodicity in the angles passes to solutions]\label{bpN:p3:ham-periodic}
@@ -389,9 +389,9 @@ $\texttt{IsSolIn}\,X_H\,W\,J\,(z+(k,0))$ for every $k\in\Z^n$, and $H\circ(z+(k,
 \source{Standard.}
 \end{lemma}
 \begin{proof}
-\proofstep{Field}\label{step:p3:per-field} Let $\tau_k(x)=x+(k,0)$. On the open set $W$, $H\circ\tau_k=H$, so $DH=D(H\circ\tau_k)=DH\circ\tau_k$ at each point of $W$ (the derivative of a translate; both sides are $0$ if $H$ is not differentiable, by the definition of \Lean{fderiv}). Evaluating on $(0,e_i)$ and $(e_i,0)$ gives $X_H\circ\tau_k=X_H$ on $W$.
+\proofstep{Field}\label{stepN:p3:per-field} Let $\tau_k(x)=x+(k,0)$. On the open set $W$, $H\circ\tau_k=H$, so $DH=D(H\circ\tau_k)=DH\circ\tau_k$ at each point of $W$ (the derivative of a translate; both sides are $0$ if $H$ is not differentiable, by the definition of \Lean{fderiv}). Evaluating on $(0,e_i)$ and $(e_i,0)$ gives $X_H\circ\tau_k=X_H$ on $W$.
 
-\proofstep{Solutions}\label{step:p3:per-sol} Lemma~\ref{bpN:p3:gen-symmetry}(c) with $v=(k,0)$ applies to $F=X_H$.
+\proofstep{Solutions}\label{stepN:p3:per-sol} Lemma~\ref{bpN:p3:gen-symmetry}(c) with $v=(k,0)$ applies to $F=X_H$.
 \end{proof}
 
 \subsection{The frozen solution predicates are instances}\label{bpN:p3:s-frozen}
@@ -409,9 +409,9 @@ and $X_H$ is $C^1$ on $W_U$. (The three predicates are literally the same formul
 \source{Ours (bookkeeping).}
 \end{proposition}
 \begin{proof}
-\proofstep{Membership}\label{step:p3:red-mem} $z(t)_2\in U\iff z(t)\in W_U$ by definition of $W_U$.
+\proofstep{Membership}\label{stepN:p3:red-mem} $z(t)_2\in U\iff z(t)\in W_U$ by definition of $W_U$.
 
-\proofstep{Differentiability is free}\label{step:p3:red-diff} For $z(t)\in W_U\subset W$, $H$ is $C^2$ on the open $W$, hence differentiable at $z(t)$ (Lemma~\ref{bpN:p3:ham-smooth}); so the clause $\texttt{DifferentiableAt}\,\R\,H\,(z\,t)$ is implied by $z(t)\in W_U$, and the two predicates coincide. Smoothness of $X_H$: Lemma~\ref{bpN:p3:ham-smooth}, $k=1$, restricted to $W_U\subset W$.
+\proofstep{Differentiability is free}\label{stepN:p3:red-diff} For $z(t)\in W_U\subset W$, $H$ is $C^2$ on the open $W$, hence differentiable at $z(t)$ (Lemma~\ref{bpN:p3:ham-smooth}); so the clause $\texttt{DifferentiableAt}\,\R\,H\,(z\,t)$ is implied by $z(t)\in W_U$, and the two predicates coincide. Smoothness of $X_H$: Lemma~\ref{bpN:p3:ham-smooth}, $k=1$, restricted to $W_U\subset W$.
 \end{proof}
 
 \begin{proposition}[Newtonian predicates]\label{bpN:p3:newton-reduction}
@@ -431,9 +431,9 @@ In all three cases $F$ is $C^\infty$ on the open set $W$ and the general layer a
 \source{Ours (bookkeeping); Fejoz Section~6.1, Newton equations as in the frozen text.}
 \end{proposition}
 \begin{proof}
-\proofstep{Open domain and smoothness}\label{step:p3:nr-smooth} $\ell(w)^2=\texttt{planeSq}(w)=w_0^2+w_1^2$ is a polynomial, so $\{\ell>0\}=\{\texttt{planeSq}>0\}$ is open, and $\ell=\sqrt{\cdot}$ is $C^\infty$ where $\texttt{planeSq}>0$. Hence $\ell(q_j-q_i)^{-3}$ is $C^\infty$ on $W_N$ and $F_N$ is a finite sum of products of $C^\infty$ maps. Same for $F'$ and $F_\mu$ ($\texttt{radius}=\sqrt{\texttt{radiusSq}}$ with the shifts by $\texttt{primary}_{1,2}\mu$).
+\proofstep{Open domain and smoothness}\label{stepN:p3:nr-smooth} $\ell(w)^2=\texttt{planeSq}(w)=w_0^2+w_1^2$ is a polynomial, so $\{\ell>0\}=\{\texttt{planeSq}>0\}$ is open, and $\ell=\sqrt{\cdot}$ is $C^\infty$ where $\texttt{planeSq}>0$. Hence $\ell(q_j-q_i)^{-3}$ is $C^\infty$ on $W_N$ and $F_N$ is a finite sum of products of $C^\infty$ maps. Same for $F'$ and $F_\mu$ ($\texttt{radius}=\sqrt{\texttt{radiusSq}}$ with the shifts by $\texttt{primary}_{1,2}\mu$).
 
-\proofstep{Derivatives of pairs}\label{step:p3:nr-pair} A map into a finite product has derivative $(a,b)$ at $t$ iff each component has the corresponding derivative (\Lean{hasDerivAt\_pi}, \Lean{HasDerivAt.prodMk} and converse). The first block of the frozen definition (distance positivity) is membership in $W_N$; the second block says $Q$ has derivative $V(t)$; the third says $V$ has derivative the force. Together they say exactly that $x$ has derivative $F_N(x(t))$ at $t$.
+\proofstep{Derivatives of pairs}\label{stepN:p3:nr-pair} A map into a finite product has derivative $(a,b)$ at $t$ iff each component has the corresponding derivative (\Lean{hasDerivAt\_pi}, \Lean{HasDerivAt.prodMk} and converse). The first block of the frozen definition (distance positivity) is membership in $W_N$; the second block says $Q$ has derivative $V(t)$; the third says $V$ has derivative the force. Together they say exactly that $x$ has derivative $F_N(x(t))$ at $t$.
 \end{proof}
 
 \begin{corollary}[Newtonian continuation]\label{bpN:p3:newton-continuation}
@@ -444,10 +444,10 @@ and every $t_*\in[0,T_+)$ there is $t\in[t_*,T_+)$ with $x(t)\notin\Phi_{\rho,\b
 near-collisions or unbounded velocities; positions may be unbounded). The same for $F'$ with the additional condition $\ell(q_i)\ge\rho$, and for $F_\mu$ with $\ell\ge\rho$ from both primaries and $\abs q,\abs p\le\bar V$.
 \end{corollary}
 \begin{proof}
-\proofstep{Uniform data}\label{step:p3:nc-data} Let $\delta=\rho/8$. If $\abs{y-x}\le\delta$ (max norm) with $x\in\Phi_{\rho,\bar V}$ then each $\ell(q'_j-q'_i)\ge\rho-2\sqrt2\,\delta\ge\rho/2$, so $y\in W_N$ and $\overline B(x,\delta)\subset W_N$.
+\proofstep{Uniform data}\label{stepN:p3:nc-data} Let $\delta=\rho/8$. If $\abs{y-x}\le\delta$ (max norm) with $x\in\Phi_{\rho,\bar V}$ then each $\ell(q'_j-q'_i)\ge\rho-2\sqrt2\,\delta\ge\rho/2$, so $y\in W_N$ and $\overline B(x,\delta)\subset W_N$.
 On this ball $\ell\ge\rho/2$ and $\abs{v'}\le\bar V+\delta$; the entries of $F_N$ and $DF_N$ are polynomials in $v'$, the differences $q'_j-q'_i$ (Euclidean length $\le\ell(q'_j-q'_i)$) and the inverse powers $\ell^{-3},\ell^{-5}$ ($D(w/\ell^3)=\ell^{-3}I-3\ell^{-5}ww^{\top}$), hence bounded by a constant $C(N,G,\mathrm{mass},\rho,\bar V)$ \emph{independent of the position of $x$}. By \ref{bpN:p3:ext-mvt} on the convex ball, $F_N$ is $C$-Lipschitz there. So $\Phi_{\rho,\bar V}$ has uniform data.
 
-\proofstep{Apply}\label{step:p3:nc-apply} Theorem~\ref{bpN:p3:gen-continuation} gives the claim; the other two fields are identical in structure (for $F_\mu$ the extra terms are linear in $(q,p)$ and bounded on $\abs q,\abs p\le\bar V$).
+\proofstep{Apply}\label{stepN:p3:nc-apply} Theorem~\ref{bpN:p3:gen-continuation} gives the claim; the other two fields are identical in structure (for $F_\mu$ the extra terms are linear in $(q,p)$ and bounded on $\abs q,\abs p\le\bar V$).
 \end{proof}
 
 \subsection{The track-N statements}\label{bpN:p3:s-N}
@@ -463,9 +463,9 @@ $H(\theta+k,I)=H(\theta,I)$ for $(\theta,I)\in W_s$, $k\in\Z^n$.
 \source{Part 1 forward label \Nref{bpN:p1:holo-real}; the two ingredients are \Kref{bp:p1:holomorphic-regularity}, \Kref{bp:p1:hamiltonian-real}; periodicity is Definition~\ref{bpN:p0:pert}(ii).}
 \end{lemma}
 \begin{proof}
-\proofstep{Regularity}\label{step:p3:hi-reg} The function $G(\theta,I)=h(I)+f(\theta,I)$ is holomorphic on the open set $D_s(R)\supset W_s$ (real points $(\theta,I)$ with $I\in\mathcal B_s(R)=B(0,R)_s\cap\R^n$ lie in $T_s\times B(0,R)_s$), hence $C^\infty$ in the real sense (\Kref{bp:p1:holomorphic-regularity}); it is real on $W_s$ by Definition~\ref{bpN:p0:integrable}(iv) and \ref{bpN:p0:pert}(iii). So $H=\operatorname{Re}G=G$ on $W_s$ is the restriction of $C^\infty$ map to a real subspace: $C^\infty$ on $W_s$; $X_H=X_G$ at real points is \Kref{bp:p1:hamiltonian-real}. (Packaged as \Nref{bpN:p1:holo-real}.)
+\proofstep{Regularity}\label{stepN:p3:hi-reg} The function $G(\theta,I)=h(I)+f(\theta,I)$ is holomorphic on the open set $D_s(R)\supset W_s$ (real points $(\theta,I)$ with $I\in\mathcal B_s(R)=B(0,R)_s\cap\R^n$ lie in $T_s\times B(0,R)_s$), hence $C^\infty$ in the real sense (\Kref{bp:p1:holomorphic-regularity}); it is real on $W_s$ by Definition~\ref{bpN:p0:integrable}(iv) and \ref{bpN:p0:pert}(iii). So $H=\operatorname{Re}G=G$ on $W_s$ is the restriction of $C^\infty$ map to a real subspace: $C^\infty$ on $W_s$; $X_H=X_G$ at real points is \Kref{bp:p1:hamiltonian-real}. (Packaged as \Nref{bpN:p1:holo-real}.)
 
-\proofstep{Periodicity}\label{step:p3:hi-per} $f(\theta+k,I)=f(\theta,I)$ for real $\theta$, $I\in\mathcal B_s(R)$, and $h$ depends on $I$ only.
+\proofstep{Periodicity}\label{stepN:p3:hi-per} $f(\theta+k,I)=f(\theta,I)$ for real $\theta$, $I\in\mathcal B_s(R)$, and $h$ depends on $I$ only.
 \end{proof}
 
 \begin{theorem}[$X_H$ is $C^1$, hence locally Lipschitz]\label{bpN:p3:lipschitz}
@@ -474,8 +474,8 @@ on every set $\R^n\times K$ with $K\subset B(0,R+s)$ compact there are $\delta,M
 \source{BM11 p.~13 (implicit in ``the solution''); standard.}
 \end{theorem}
 \begin{proof}
-\proofstep{Smoothness}\label{step:p3:lip-smooth} Lemma~\ref{bpN:p3:holo-input} and Lemma~\ref{bpN:p3:ham-smooth} ($k=1$).
-\proofstep{Lipschitz}\label{step:p3:lip-lip} Lemma~\ref{bpN:p3:gen-lip} on compact sets, Lemma~\ref{bpN:p3:gen-uniform-periodic} (with $U=B(0,R+s)$, using the periodicity of $X_H$ from Lemma~\ref{bpN:p3:ham-periodic} and Lemma~\ref{bpN:p3:holo-input}) for the cylinders.
+\proofstep{Smoothness}\label{stepN:p3:lip-smooth} Lemma~\ref{bpN:p3:holo-input} and Lemma~\ref{bpN:p3:ham-smooth} ($k=1$).
+\proofstep{Lipschitz}\label{stepN:p3:lip-lip} Lemma~\ref{bpN:p3:gen-lip} on compact sets, Lemma~\ref{bpN:p3:gen-uniform-periodic} (with $U=B(0,R+s)$, using the periodicity of $X_H$ from Lemma~\ref{bpN:p3:ham-periodic} and Lemma~\ref{bpN:p3:holo-input}) for the cylinders.
 \end{proof}
 
 \begin{theorem}[Local existence and uniqueness for $\texttt{IsSolutionOn}$]\label{bpN:p3:local-exist}
@@ -485,8 +485,8 @@ $y_1,y_2$ satisfy $\texttt{IsSolutionOn}\,H\,U\,J\,y_i$ with $y_1(t_0)=y_2(t_0)$
 \source{BM11 p.~13 and Theorem~2.1 p.~5; Picard--Lindel\"of (external fact \ref{bpN:p3:ext-pl}).}
 \end{theorem}
 \begin{proof}
-\proofstep{Reduction}\label{step:p3:le-red} Proposition~\ref{bpN:p3:ham-reduction} (with $W=W_s$, $H$ $C^2$ there by Lemma~\ref{bpN:p3:holo-input}) turns $\texttt{IsSolutionOn}\,H\,U$ into $\texttt{IsSolIn}\,X_H\,(\R^n\times U)$ with $X_H$ $C^1$ on $\R^n\times U$.
-\proofstep{Existence, uniqueness}\label{step:p3:le-apply} Theorem~\ref{bpN:p3:gen-local} and Theorem~\ref{bpN:p3:gen-uniqueness}.
+\proofstep{Reduction}\label{stepN:p3:le-red} Proposition~\ref{bpN:p3:ham-reduction} (with $W=W_s$, $H$ $C^2$ there by Lemma~\ref{bpN:p3:holo-input}) turns $\texttt{IsSolutionOn}\,H\,U$ into $\texttt{IsSolIn}\,X_H\,(\R^n\times U)$ with $X_H$ $C^1$ on $\R^n\times U$.
+\proofstep{Existence, uniqueness}\label{stepN:p3:le-apply} Theorem~\ref{bpN:p3:gen-local} and Theorem~\ref{bpN:p3:gen-uniqueness}.
 \end{proof}
 
 \begin{theorem}[Energy conservation for $\texttt{IsSolutionOn}$]\label{bpN:p3:energy}
@@ -495,7 +495,7 @@ In particular, for $H=H_{h,f}$ and $J=[0,T]$ the quantity $\Delta H=H(z(t))|_0^T
 \source{P\"oschel 1993 p.~198 (``by energy conservation \dots $\Delta H$ vanishes''; page read); BM11 p.~13.}
 \end{theorem}
 \begin{proof}
-\proofstep{Direct}\label{step:p3:en-direct} The definition gives differentiability of $H$ at every $z(t)$ and $z'(t)=X_H(z(t))$; Theorem~\ref{bpN:p3:ham-energy}.
+\proofstep{Direct}\label{stepN:p3:en-direct} The definition gives differentiability of $H$ at every $z(t)$ and $z'(t)=X_H(z(t))$; Theorem~\ref{bpN:p3:ham-energy}.
 \end{proof}
 
 \begin{theorem}[Maximal solutions and continuation]\label{bpN:p3:continuation}
@@ -507,8 +507,8 @@ The angle components $z(t)_1$ may be unbounded: no obstruction arises because $X
 \source{BM11 p.~13 (``From this estimate we can deduce that the solution $I(t)$ belongs to some compact ball \dots this solution is defined for all time''); P\"oschel 1993 p.~198 (``$T=T_*$'').}
 \end{theorem}
 \begin{proof}
-\proofstep{General statements}\label{step:p3:co-general} By Proposition~\ref{bpN:p3:ham-reduction}, $\texttt{IsSolutionOn}\,H\,U\,J\,y\iff\texttt{IsSolIn}\,X_H\,(\R^n\times U)\,J\,y$ and $X_H$ is $C^1$ on $W=\R^n\times U$; maximality is Theorem~\ref{bpN:p3:gen-maximal}.
-\proofstep{Periodic cylinder}\label{step:p3:co-periodic} $X_H$ is $1$-periodic in $\theta$ on $W$ (Lemmas~\ref{bpN:p3:ham-periodic}, \ref{bpN:p3:holo-input}). Corollary~\ref{bpN:p3:gen-continuation-periodic} yields $T_+=\infty$.
+\proofstep{General statements}\label{stepN:p3:co-general} By Proposition~\ref{bpN:p3:ham-reduction}, $\texttt{IsSolutionOn}\,H\,U\,J\,y\iff\texttt{IsSolIn}\,X_H\,(\R^n\times U)\,J\,y$ and $X_H$ is $C^1$ on $W=\R^n\times U$; maximality is Theorem~\ref{bpN:p3:gen-maximal}.
+\proofstep{Periodic cylinder}\label{stepN:p3:co-periodic} $X_H$ is $1$-periodic in $\theta$ on $W$ (Lemmas~\ref{bpN:p3:ham-periodic}, \ref{bpN:p3:holo-input}). Corollary~\ref{bpN:p3:gen-continuation-periodic} yields $T_+=\infty$.
 \end{proof}
 
 \begin{theorem}[Uniqueness on closed intervals]\label{bpN:p3:uniqueness-closed}
@@ -517,7 +517,7 @@ No confinement of $y$ is assumed: Gronwall is replaced by Theorem~\ref{bpN:p3:ge
 \source{Standard (Gronwall); clause (d) of the frozen N-HEAD-C.}
 \end{theorem}
 \begin{proof}
-\proofstep{Apply}\label{step:p3:uc-apply} $J=[-L,L]$, $t_0=0$ in Theorem~\ref{bpN:p3:local-exist} (uniqueness part).
+\proofstep{Apply}\label{stepN:p3:uc-apply} $J=[-L,L]$, $t_0=0$ in Theorem~\ref{bpN:p3:local-exist} (uniqueness part).
 \end{proof}
 
 \begin{theorem}[Confinement glue]\label{bpN:p3:confinement-glue}
@@ -530,8 +530,8 @@ This is the assembly of clauses (a)--(d) of Theorem~\ref{bpN:p0:head} from an a 
 \source{BM11 p.~13 (two cases, ``Therefore this solution is defined for all time''); P\"oschel 1993 p.~198.}
 \end{theorem}
 \begin{proof}
-\proofstep{Compact confinement set}\label{step:p3:cg-set} $K=\overline B(I_0,\rho)$ is compact and $\subset U$; $\Phi=\R^n\times K$ has uniform data by Lemma~\ref{bpN:p3:gen-uniform-periodic} (with $W=\R^n\times U$, $F=X_H$ periodic by Lemma~\ref{bpN:p3:ham-periodic}).
-\proofstep{General glue}\label{step:p3:cg-glue} By Proposition~\ref{bpN:p3:ham-reduction} the hypothesis reads: every general solution on an open $J\ni0$ with this initial value stays in $\Phi$ for $\abs t\le\tau$.
+\proofstep{Compact confinement set}\label{stepN:p3:cg-set} $K=\overline B(I_0,\rho)$ is compact and $\subset U$; $\Phi=\R^n\times K$ has uniform data by Lemma~\ref{bpN:p3:gen-uniform-periodic} (with $W=\R^n\times U$, $F=X_H$ periodic by Lemma~\ref{bpN:p3:ham-periodic}).
+\proofstep{General glue}\label{stepN:p3:cg-glue} By Proposition~\ref{bpN:p3:ham-reduction} the hypothesis reads: every general solution on an open $J\ni0$ with this initial value stays in $\Phi$ for $\abs t\le\tau$.
 Theorem~\ref{bpN:p3:gen-confinement} gives $z$ on $[-\tau,\tau]$ in $\Phi$, i.e.\ $\abs{z(t)_2-I_0}\le\rho$, and uniqueness on $[-L,L]$ (it is also Theorem~\ref{bpN:p3:uniqueness-closed}).
 \end{proof}
 

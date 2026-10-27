@@ -1,0 +1,102 @@
+\section{N-QC and N-ZERO}\label{bpN:p2}
+\begingroup\sloppy
+
+This part proves two frozen theorems completely: N-QC (Theorem~\ref{bpN:p0:qcthm}, the nonsingular isoenergetic derivative) and N-ZERO
+(Theorem~\ref{bpN:p0:zero}, the exact integrable dynamics). Neither uses the normal-form machinery. The linear-algebra core of N-QC is stated
+in a reusable form (Lemma~\ref{bpN:p2:qc-kernel}, cited by track~I as the isoenergetic gate, \Nref{bpN:p2:qc-kernel}). Frozen conventions throughout (max norms, period $1$);
+Euclidean structure appears only as the dot product $\omega\cdot v=\sum\omega_iv_i$.
+
+\subsection{N-QC}\label{bpN:p2:s-qc}
+
+\begin{lemma}[Kernel core: bordered Hessian is nonsingular]\label{bpN:p2:qc-kernel}
+Let $n\ge1$, $\omega\in\R^n$, $A$ a real $n\times n$ matrix (not necessarily symmetric, no norm bound), $\lambda\ne0$, and suppose
+\[\omega\cdot v=0,\ v\ne0\ \Longrightarrow\ v^{\!\top}Av\ne0\qquad\text{and}\qquad\omega\ne0.\]
+Let $L:\R^n\times\R\to\R\times\R^n$, $L(v,u)=(\omega\cdot v,\ u\,\omega+\lambda Av)$. Then $\ker L=0$, hence $L$ is bijective.
+In particular this holds if $\lambda>0$, $\omega\ne0$ and $v^\top Av\ge m\abs v^2$ for some norm and $m>0$ whenever $\omega\cdot v=0$.
+(For $n=0$ no $\omega\ne0$ exists; N-QC is then vacuous, Remark~\ref{bpN:p2:n0}.)
+\source{BM11 Lemma~3.3 and its proof, pp.~9--10 (kernel computation); linear algebra \ref{bpN:p1:ext-linalg}.}
+\end{lemma}
+\begin{proof}
+\proofstep{Kernel equations}\label{stepN:p2:qk-eqs} Let $L(v,u)=0$: $\omega\cdot v=0$ and $u\omega+\lambda Av=0$.
+
+\proofstep{Pairing with $v$}\label{stepN:p2:qk-pair} Dot the second equation with $v$: $u(\omega\cdot v)+\lambda v^\top Av=0$, so $\lambda v^\top Av=0$, i.e.\ $v^\top Av=0$ as $\lambda\ne0$. Since also $\omega\cdot v=0$, the hypothesis forces $v=0$.
+
+\proofstep{The scalar}\label{stepN:p2:qk-scalar} With $v=0$: $u\omega=0$; as $\omega\ne0$, $u=0$.
+
+\proofstep{Bijectivity}\label{stepN:p2:qk-bij} $L$ is a linear map between spaces of dimension $n+1$ with trivial kernel, hence bijective by \ref{bpN:p1:ext-linalg}.
+\end{proof}
+
+\begin{remark}[$n=0$]\label{bpN:p2:n0}
+For $n=0$ the space $\R^0$ is a point, so $\omega=0$ and Definition~\ref{bpN:p0:qc} requires $\omega_h(I)\ne0$: no $I$ satisfies it. Hence for $n=0$ the hypotheses of N-QC are never met with $I\in U$ and the theorem is vacuous; no restriction $n\ge1$ is added to it (review N03).
+\end{remark}
+
+\begin{lemma}[The derivative of $\Psi$]\label{bpN:p2:qc-deriv}
+Let $U\subset\R^n$ be open, $h$ with $h_\R\in C^2(U)$, $I\in U$, $\lambda\in\R$, $\Psi(I',\lambda')=(h_\R(I'),\lambda'\omega_h(I'))$. Then $\Psi$ is differentiable at $(I,\lambda)$ (so \Lean{fderiv} is the genuine derivative; Remark~\ref{bpN:p0:totality}(e)) and
+\[D\Psi(I,\lambda)[v,u]=\bigl(\omega\cdot v,\ u\,\omega+\lambda Qv\bigr),\qquad\omega=\omega_h(I),\ Q_{ij}=D^2h_\R(I)[e_i,e_j]=Q_{ji}.\]
+\source{BM11 p.~10; \ref{bpN:p1:ext-prod}, \Kref{bp:p1:ext-schwarz}.}
+\end{lemma}
+\begin{proof}
+\proofstep{First component}\label{stepN:p2:qd-first} $(I',\lambda')\mapsto h_\R(I')$ is differentiable at $(I,\lambda)$ ($h_\R$ is $C^2$ on the open set $U\ni I$) with derivative $[v,u]\mapsto Dh_\R(I)[v]=\sum_iv_iDh_\R(I)[e_i]=\omega\cdot v$.
+
+\proofstep{The frequency map is $C^1$}\label{stepN:p2:qd-freq} $\omega_h(I')_i=Dh_\R(I')[e_i]$ is the composition of $I'\mapsto Dh_\R(I')\in\mathcal L(\R^n,\R)$ (which is $C^1$ on $U$ since $h_\R\in C^2(U)$ and $U$ is open) with the continuous linear evaluation $\ell\mapsto\ell(e_i)$. So $\omega_h$ is differentiable on $U$ with $D\omega_h(I)[v]_i=D(Dh_\R)(I)[v][e_i]=D^2h_\R(I)[v,e_i]$.
+
+\proofstep{Symmetry}\label{stepN:p2:qd-sym} $D^2h_\R(I)$ is symmetric (\Kref{bp:p1:ext-schwarz}), so $D\omega_h(I)[v]=Qv$ with $Q$ the symmetric Hessian matrix.
+
+\proofstep{Product}\label{stepN:p2:qd-prod} By the product rule \ref{bpN:p1:ext-prod}, $(I',\lambda')\mapsto\lambda'\omega_h(I')$ is differentiable at $(I,\lambda)$ with derivative $[v,u]\mapsto u\,\omega+\lambda Qv$. Both components are differentiable, so $\Psi$ is, with the stated derivative.
+\end{proof}
+
+\begin{theorem}[N-QC]\label{bpN:p2:qc-bij}
+Theorem~\ref{bpN:p0:qcthm} holds: for $\texttt{IsStrictlyQuasiConvex}\,U\,h\,m$, $I\in U$, $\lambda>0$, the map $D\Psi(I,\lambda)$ is bijective.
+\frozen{KAM.Nekhoroshev.\allowbreak quasiConvex\_\allowbreak isoenergetic\_\allowbreak derivative}
+\source{BM11 Lemma~3.3 and proof, pp.~9--10.}
+\end{theorem}
+\begin{proof}
+\proofstep{Unpack the hypothesis}\label{stepN:p2:qb-unpack} Definition~\ref{bpN:p0:qc}: $m>0$, $U$ open, $h_\R\in C^2(U)$, $\omega:=\omega_h(I)\ne0$, and $\omega\cdot v=0\Rightarrow m\abs v^2\le D^2h_\R(I)[v,v]$ (max norm on $v$). Note $n\ge1$ because $\omega\ne0$ (Remark~\ref{bpN:p2:n0}).
+
+\proofstep{The derivative}\label{stepN:p2:qb-deriv} By Lemma~\ref{bpN:p2:qc-deriv}, $D\Psi(I,\lambda)=L$ of Lemma~\ref{bpN:p2:qc-kernel} with $A=Q$ the Hessian matrix, $v^\top Qv=D^2h_\R(I)[v,v]$ (bilinearity).
+
+\proofstep{Positivity on $\omega^\perp$}\label{stepN:p2:qb-pos} For $\omega\cdot v=0$, $v\ne0$: $v^\top Qv\ge m\abs v_\infty^2>0$, since $m>0$ and $\abs v_\infty>0$. So the hypothesis of Lemma~\ref{bpN:p2:qc-kernel} holds (with $\lambda>0$).
+
+\proofstep{Conclusion}\label{stepN:p2:qb-concl} Lemma~\ref{bpN:p2:qc-kernel} gives bijectivity of $L=D\Psi(I,\lambda)=\texttt{fderiv}\,\R\,\Psi\,(I,\lambda)$.
+\end{proof}
+
+\begin{remark}[Reusable form for track I]\label{bpN:p2:qc-reuse}
+Lemma~\ref{bpN:p2:qc-kernel} needs no norm, no symmetry of $A$ and no uniform constant: any quasi-convexity-type hypothesis (``$v^\top Av>0$ on $\omega^\perp\setminus0$'') together with $\omega\ne0$ and $\lambda\ne0$ gives nonsingularity of the bordered matrix $\begin{pmatrix}\omega^\top&0\\\lambda A&\omega\end{pmatrix}$. A quantitative inverse bound is not asserted by N-QC and is not provided here; it would follow, if needed, from the compactness of $\{v:\abs v_2=1,\ \omega\cdot v=0\}$ for a fixed $(I,\lambda)$ but is not uniform in $(I,\lambda)$.
+\end{remark}
+
+\subsection{N-ZERO}\label{bpN:p2:s-zero}
+
+\begin{lemma}[The field at the integrable orbit]\label{bpN:p2:zero-deriv}
+Let $R,s>0$, $\texttt{IsAnalyticIntegrable}\,R\,s\,h$, $\texttt{IsAnalyticPerturbation}\,R\,s\,0\,f$, $H=H_{h,f}$, and $W_s=\R^n\times B(0,R+s)$. Then $H(\theta,I)=h_\R(I)$ on $W_s$; $H$ is differentiable at every $z=(\theta,I)\in W_s$ with $DH(z)[(a,b)]=Dh_\R(I)[b]$ and
+\[X_H(\theta,I)=(\omega_h(I),0).\]
+\source{BM11 p.~1 ($H=h(I)$ when $f=0$); ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{$f$ vanishes}\label{stepN:p2:zd-zero} Definition~\ref{bpN:p0:pert}(iv) with $\varepsilon=0$: $\abs{f}\le0$ on $D_s(R)$, so $f=0$ there. For $z=(\theta,I)\in W_s$, $(\theta,I)\in D_s(R)$ (Lemma~\ref{bpN:p1:realdomain}(a)), so $H(z)=\operatorname{Re}h(I)=h_\R(I)$ (Lemma~\ref{bpN:p1:holo-real}(e)).
+
+\proofstep{Differentiability}\label{stepN:p2:zd-diff} $W_s$ is open and on it $H=h_\R\circ\mathrm{pr}_2$ with $h_\R\in C^3(\mathcal B_s(R))$ (Definition~\ref{bpN:p0:integrable}(v)), $\mathcal B_s(R)=B(0,R+s)$ open. So $H$ is differentiable at each point of $W_s$ with $DH(z)[(a,b)]=Dh_\R(I)[b]$ (chain rule with the continuous linear projection). The point-wise hypotheses of the totality remark~\ref{bpN:p0:totality} are met.
+
+\proofstep{Field}\label{stepN:p2:zd-field} By Definition~\ref{bpN:p0:vf}, $\partial_{I_i}H=Dh_\R(I)[e_i]=\omega_h(I)_i$ (Definition~\ref{bpN:p0:freq}) and $\partial_{\theta_i}H=DH(z)[(e_i,0)]=0$.
+\end{proof}
+
+\begin{theorem}[N-ZERO]\label{bpN:p2:zero}
+Theorem~\ref{bpN:p0:zero} holds.
+\frozen{KAM.Nekhoroshev.\allowbreak zero\_perturbation}
+\source{Ours (supplement to BM11 Theorem~2.1, p.~5).}
+\end{theorem}
+\begin{proof}
+\proofstep{Initial value and action}\label{stepN:p2:z-init} $\gamma(t)=(\theta_0+t\omega_h(I_0),I_0)$ (Definition~\ref{bpN:p0:orbit}) gives $\gamma(0)=(\theta_0,I_0)$ and $\gamma(t)_2=I_0$ for all $t$: the first and third conclusions.
+
+\proofstep{The action stays in $B(0,R)$}\label{stepN:p2:z-ball} $I_0\in B(0,R/2)\subset B(0,R)$ since $R>0$ (max norm: $\abs{I_0}<R/2<R$).
+
+\proofstep{Differentiability of $H$ along the orbit}\label{stepN:p2:z-H} $\gamma(t)\in\R^n\times B(0,R)\subset W_s$ (Lemma~\ref{bpN:p1:realdomain}(a): $B(0,R)\subset B(0,R+s)$). By Lemma~\ref{bpN:p2:zero-deriv} $H$ is differentiable at $\gamma(t)$ for each $t$.
+
+\proofstep{Derivative of the orbit}\label{stepN:p2:z-curve} $\gamma$ is affine in $t$, so differentiable at every $t\in\R$ (two-sided) with $\gamma'(t)=(\omega_h(I_0),0)$.
+
+\proofstep{The equation}\label{stepN:p2:z-eq} Lemma~\ref{bpN:p2:zero-deriv} gives $X_H(\gamma(t))=(\omega_h(I_0),0)=\gamma'(t)$ for every $t\in\R$. With Steps~\ref{stepN:p2:z-ball}--\ref{stepN:p2:z-curve}, every clause of Definition~\ref{bpN:p0:sol} holds with $U=B(0,R)$ and $J=\R$.
+\end{proof}
+
+\begin{remark}[Scope]\label{bpN:p2:zero-scope}
+N-ZERO uses neither the holomorphy of Part~1 (beyond the stated clauses of the definitions) nor the ODE layer of Part~3; Part~3 supplies uniqueness if ever required for $\varepsilon=0$ ($\gamma$ is the unique solution by \Nref{bpN:p3:gen-uniqueness}), which is not asserted by the frozen statement. The case $\varepsilon=0$ is excluded from N-HEAD-C by (H7).
+\end{remark}
+\endgroup
