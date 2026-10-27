@@ -7,13 +7,13 @@ Design v1, 2026-10-27, branch `inp-design-kep` (brief: design the Lean architect
 `PART3-LEAN-DESIGN.md`.
 
 **The signatures.** Every result node has its exact Lean statement in two untracked files (copied verbatim in Appendix A):
-`.drafts/design/KeplerSignatures.lean` (sections A-E: shared layer and track I; 994 lines, sha256 `616309f5871b1ec9bf12e1ddcd19f18a4ef3cf794245d2b4f60d0e6ba5b9462b`)
+`.drafts/design/KeplerSignatures.lean` (sections A-E: shared layer and track I; 1,006 lines, sha256 `39f557a4ca7324443508351a3600f0a363e2db726a11af0d6cc58e793d521370`)
 and `.drafts/design/KeplerSignaturesP.lean` (sections F-G: Newtonian models and Poincare charts; 690 lines, sha256
-`99c11c8828718807c2637b1e91b996988732ca781f6183841fb1648fe76737d3`). Both are under the 1500-line cap (the first draft was 1,478 lines and the
+`d9903304231afac0841cf0456d90c3dec04b2eb9e1a9752a9d4f9f9b7164d9c8`). Both are under the 1500-line cap (the first draft was 1,478 lines and the
 audit additions would have exceeded it).
 - `nice -n 5 lake env lean .drafts/design/KeplerSignatures.lean` exits 0 on its own. The second file continues the first and uses the frozen
   `FastShift`; `sh .drafts/design/check_kepler.sh` concatenates them (adding the one extra import) and elaborates them in one Lean process:
-  exit 0, 293 diagnostics, all `declaration uses 'sorry'` (a draft cannot import a draft without a built `.olean.server`, hence the script).
+  exit 0, 294 diagnostics, all `declaration uses 'sorry'` (a draft cannot import a draft without a built `.olean.server`, hence the script).
   No `set_option`, no `maxHeartbeats`, no `axiom/admit/unsafe/opaque`.
 - Imports: only `Mathlib` and `KAM.Frozen.*.Defs.*` (including `KAM.Frozen.Planetary.Defs.FastShift`, audit F1); no provider, no frozen theorem.
 - No body is proved (the brief). Every Mathlib/KAM lemma relied on was `#check`ed AND probed for applicability (Section 9.2, audit F7).
@@ -144,7 +144,7 @@ Remarks and pure notation nodes have no declaration (last row of each part).
 | `scaling` | `scaleMK`, `energyMK`, `scaleMK_energy/_cross/_symplectic/_bijective`, `scaleMK_flow`, `energyMK_eq_mul_energy`, `scaleMK_hamiltonianVectorField` | `Kepler/Mass` | |
 | `complex-domain` | `SafeAction`, `kEccMin/Max`, `kLMin`, `kGMin`, `kRmin`, `kRhoMax`, `SafeAction.ecc_bounds`, `eccC`, `UDelta`, `delaunayC`, `ComplexDomainData`, `complexDelta`, `complex_domain_spec` | `Iso/ComplexDomain` | `IsCompact.exists_isMinOn`, `IsCompact.sSup_mem`, `Complex.cpow` on `slitPlane`, `DifferentiableAt.cpow` |
 | `shift-def`, `shift` | `vtheta`, `clen`, `e0`, `shiftW/Psi/F/Xi/O`, `ShiftConst`, `shiftEps`, `shiftCstar`, `shiftCsh`, `shiftConst_shiftEps`, `shiftF_eq_integral`, `shift_domain`, `shift_holomorphic`, `shift_mul_eq`, `shift_bound`, `shift_value_zero`, `shift_real` | `Iso/ShiftPotential` | `dslope`, `Complex.norm_cpow_of_ne_zero`, `intervalIntegral.hasFDerivAt_integral_of_dominated_of_fderiv_le` (`RCLike`), Schwarz lemma `Complex.norm_le_of_forall_mem_frontier_norm_le`, `Complex.dist_le_div_mul_dist_of_mapsTo_ball` |
-| `exact-ham` | `exactF`, `exactEps`, `exactMu2`, `exactCF`, `ExactHamData`, `exactDelta`, `exact_ham`, `exact_positions_mem_shiftO` | `Iso/ExactHamiltonian` | `Metric.isCompact_iff_isClosed_bounded`, `Complex.differentiableOn` composition |
+| `exact-ham` | `exactF`, `exactEps`, `exactMu2`, `exactCF`, `ExactHamData`, `ExactRadiusData`, `exactDelta`, `exact_radius_spec`, `exact_ham`, `exact_positions_mem_shiftO` | `Iso/ExactHamiltonian` | `Metric.isCompact_iff_isClosed_bounded`, `Complex.differentiableOn` composition |
 | `period-one` | `tildeF`, `delaunay_periodOne_symplectic`, `period_one` | `Iso/PeriodOne` | frozen `realHamiltonian`, `complexStrip`, `actionNbhd` |
 | `transfer` | `transfer`, `transfer_identities` | `Iso/PeriodOne` | `HasDerivAt.comp`, `Filter.EventuallyEq.fderiv_eq` |
 | `nondeg` | `nondeg_exact` | `Iso/PeriodOne` | `nondeg_period_one`, `borderedHessian_conversion` |
@@ -233,7 +233,7 @@ Remarks and pure notation nodes have no declaration (last row of each part).
 | D7 | `tube-constants` | `AxisData a gamma A` + canonical `axisGap`, `axisMax` instead of `min`/`max` over pairs | `n = 1` has an empty pair set (junk `sInf`); consumers choose `gamma` themselves |
 | D8 | `complex-domain` | "for every `(L', G') in K` within `delta_1`" replaces "nearest" | nearest point need not be unique; the blueprint's use is for any such point (B1) |
 | D9 | `shift` | `shiftF = - dslope (shiftPsi q) 0 mu` instead of the integral `-int_0^1 d_mu Psi(q, t mu) dt`; `shift_real` over `shiftO` (not only the shell) | `dslope` is Mathlib's removable-singularity object; exactness needs real `q in O` off the shell (B8) |
-| D10 | `exact-ham`, `period-one`, `transfer` | `exactDelta K` + `ExactHamData`; `delta_2 <= delta_1` is not stated (it follows from the properties listed) | no conditional premises (rule 6) |
+| D10 | `exact-ham`, `period-one`, `transfer` | `exactDelta K` is chosen from the full predicate `ExactRadiusData` (positivity, `<= complexDelta K`, `ExactHamData`, positions in `shiftO`); `exact_radius_spec` certifies the selection | no conditional premises (rule 6); superseded by D20 |
 | D11 | `range` | equality case pointwise (`q . p = 0 /\ planeLength q = a`) | "circular orbit" is an orbit property; the pointwise form is the one the proof gives |
 | D12 | `reduction` (c) | `0 < mu`, `0 < m0`, `0 < m_i`, zero total momentum as hypotheses; conclusion `IsHamiltonianSolutionOn ... univ J z` + `NoCollision` (for `G = m0 = 1` this is `IsMovingSolutionOn`) | exact shape of the frozen predicate |
 | D13 | `newton` (I) | pointwise in time, `v = x'` a separate curve | not used by frozen statements; avoids `deriv (deriv x)` |
@@ -243,7 +243,7 @@ Remarks and pure notation nodes have no declaration (last row of each part).
 | D17 | `measure-positive` (b) | restated as `measure_chart_image` with Part 1's hypotheses | Part 1 is not designed here; owner Part 1 |
 | D18 | `symplectic`, `conversion` (a) | frozen `symplecticForm` on both sides | sign convention `J = -omegaZero` of the blueprint never appears |
 | D19 | `kepler-eq`, `regular-kepler` (b) | `KeplerData` has `AnalyticOnNhd` coefficients and `[CompleteSpace P]`; joint analyticity by the analytic IFT | audit F7: no multivariable Weierstrass in Mathlib; every instance is a composition of analytic maps |
-| D20 | `exact-ham` | radius subordinate to a selected `complexDelta K` (`0 < exactDelta <= complexDelta`) | audit F3 |
+| D20 | `exact-ham` | radius subordinate to a selected `complexDelta K` AND carrying the geometric control (`ExactRadiusData`); `exact_ham`, `exact_positions_mem_shiftO` are projections of `exact_radius_spec` | audit F3, audit 2 R2-1 |
 | D21 | `lattice`, `product-chart` | the FROZEN `fastShift {a b}` is used, never redefined | audit F1 |
 
 ## 5. Blueprint issues
@@ -485,7 +485,7 @@ with `Phi(x, psi x) = 0` near `x0`, and `psi x` stays in the open strip by conti
 implicit differentiation. `keplerSol_spec`: unique fixed point; `keplerSol` is it by `dif_pos`. `keplerSol_real`: `conj` of the solution is a solution (`Complex.sin_conj`, real coefficients) with the same `|Im|`; uniqueness.
 
 **KEP-4.** Regular tube: `y0 = 1`, `kappa = 0.39`, `N = {|Im lam| < 1/4, |v0| + |v1| < 1/4}`; the numerics `1/4 + (1/4) * (sinh 1 + cosh 1) < 1`
-(`sinh 1 + cosh 1 = exp 1 < 2.7183`: `0.25 + 0.68 < 1`) or the cruder blueprint bound; `cosh_one_lt : cosh 1 < 1.55` proved in this package (probed: `rw [Real.cosh_eq, Real.exp_neg]`, `Real.exp_one_lt_d9`, `Real.exp_one_gt_d9`, `inv_lt_comm₀`, `linarith`; `Real.cosh_one_lt` does not exist and `1.5431` is too tight for this route; `1.55` suffices: `0.25 * 1.55 = 0.3875 < 0.39`, `1 - 0.3875 > 3/5`)
+(`sinh 1 + cosh 1 = exp 1 < 2.7183`: `0.25 + 0.68 < 1`) or the cruder blueprint bound; `cosh_one_lt : cosh 1 < 1.55` proved in this package (probed: `rw [Real.cosh_eq, Real.exp_neg]`, `Real.exp_one_lt_d9`, `Real.exp_one_gt_d9`, `inv_lt_comm₀`, `linarith`; `Real.cosh_one_lt` does not exist and `1.5431` is true but too tight for this probe route; `1.55` suffices: `0.25 * 1.55 = 0.3875 < 0.39`, `1 - 0.3875 > 3/5`)
 with `Real.exp_one_lt_d9`; `|J| > 3/5` from `|v0 cos F + v1 sin F| <= (|v0| + |v1|) cosh 1`. Real points: `keplerLongC_ofReal` by
 `keplerSol_real` and `keplerLong_unique`. I's tube: instance `a = e, b = 0, c = ell` on `N = keplerTube e1`; open set: preimage of `<`
 under `Metric.infDist` (continuous) and `|Im|`; invariance with `e2 sinh y0 <= theta y0` (`sinh y <= y * cosh y` for `y >= 0`: the function `y |-> y cosh y - sinh y` vanishes at `0` and has derivative `y sinh y >= 0`).
@@ -614,7 +614,7 @@ surjectivity by the two cases of `stepP:p7:po-bij`; `poincareInv` by the explici
    `Complex.ofReal_cpow`, `Complex.norm_cpow_of_ne_zero`, `Complex.cpow_neg`, holomorphy on `slitPlane`. Keep all branch arguments inside `Re z > 0`
    (so `z in slitPlane`).
 4. **Heterogeneous dimensions `Phase (n+n)` vs `Phase (n*2)`.** `n * 2` and `n + n` are not defeq. `poincareProd` is heterogeneous by design;
-   if Part 12 needs `Phase (n*2) -> Phase (n*2)` it composes with `Fin.cast`-based `phaseCast`, to be added in Part 1 or P7-5 (30 lines).
+   if Part 12 needs `Phase (n*2) -> Phase (n*2)` it uses the designed `phaseCast`/`poincareProdCast` (module `Kepler/Basic`, `Poincare/Product`).
 5. **`OpenPartialHomeomorph` with analytic inverse.** Uses `ContDiffAt.toOpenPartialHomeomorph` and `to_localInverse` at `omega`; both are stated for
    `n : WithTop N-infty` (checked). Fallback: state `HasStrictFDerivAt` + `AnalyticAt` of the local inverse of the local solution given by `ContDiffAt.localInverse`.
 6. **`Fin` index plumbing.** `finProdFinEquiv`, `Fin.append`, `Fin.cons` simp sets are the most likely source of slow elaboration;
@@ -662,7 +662,7 @@ A `#check` shows a name exists; the following probes were elaborated as proofs a
   `ContDiffAt.implicitFunction`, `.implicitFunction_apply_self`, `.eventually_apply_implicitFunction` and `(… .contDiffAt_implicitFunction (by simp) h).analyticAt` give `∃ ψ, AnalyticAt R ψ u.1 ∧ ψ u.1 = u.2 ∧ ∀ᶠ x, f (x, ψ x) = f u`. OK.
 - the same over `C` with a generic complete parameter space `P` (needs `[CompleteSpace P]`): `∃ ψ : P -> C, AnalyticAt C ψ u.1`. OK (this is why `KeplerData` has `[CompleteSpace P]` and `AnalyticOnNhd` coefficients).
 - contraction on the closed strip: `IsClosed.completeSpace_coe` for `{G : C | |G.im| <= y}`, `Nonempty` from a witness, `ContractingWith.fixedPoint_isFixedPt`. OK.
-- numerics: `Real.cosh 1 < 1.55` by `Real.cosh_eq`, `Real.exp_neg`, `Real.exp_one_lt_d9`, `Real.exp_one_gt_d9`, `inv_lt_comm₀`, `linarith`. OK (`1.5431` fails by 1e-4).
+- numerics: `Real.cosh 1 < 1.55` by `Real.cosh_eq`, `Real.exp_neg`, `Real.exp_one_lt_d9`, `Real.exp_one_gt_d9`, `inv_lt_comm₀`, `linarith`. OK (`1.5431` is true but not reachable by this route).
 - change of variables: `intervalIntegral.integral_comp_mul_deriv'` with `f' = fun _ => 1`, `g = Real.sin`: `simp` closes. OK.
 - `Real.contDiffAt_sqrt (n := ω) hx` gives `AnalyticAt R Real.sqrt x` via `.analyticAt`. OK.
 - `(Complex.differentiableOn_dslope hmem).2 hf` gives `DifferentiableOn C (dslope f 0) (ball 0 1)`. OK (one variable only: joint holomorphy is the risk R2).
@@ -677,18 +677,19 @@ A `#check` shows a name exists; the following probes were elaborated as proofs a
 |---|---|
 | F1 HIGH: `fastShift` redeclared | Deleted the draft definition. `KeplerSignaturesP.lean` imports the FROZEN `KAM.Planetary.Defs.FastShift` (via `check_kepler.sh`) and writes `fastShift (a := n) (b := n) k` in `poincareProd_lattice`, `poincareProd_eq_iff`, `poincareProdCast_eq_iff`. The combined file elaborates with the frozen definition present, which would have exposed the clash. Rule recorded in Section 3: never redeclare a frozen export. |
 | F2: complex derivative conclusions | Added `fderiv_keplerLongC_vec` (`∂_{v_0}F = sin F/J`, `∂_{v_1}F = -cos F/J`), `regularKepler_jac_bound` (`1 - cosh 1/4 <= |J|`, `3/5 < 1 - cosh 1/4`), `hasDerivAt_eccAnomC_ecc` (`∂_e u`), and the generic `keplerSol_fderiv`, all in KEP-3/KEP-4. |
-| F3: radius vs complex-domain witness | `ComplexDomainData K δ` (exact factorization of the old `complex_domain` output), `complexDelta K` (selected `δ_1`), `complex_domain_spec`; `exactDelta` now chooses `0 < δ <= complexDelta K ∧ ExactHamData K δ`; `exact_ham : 0 < exactDelta ∧ exactDelta <= complexDelta ∧ ExactHamData`; `exact_positions_mem_shiftO` records that positions lie in the shift neighbourhood. D10 text replaced by D20. |
+| F3: radius vs complex-domain witness | `ComplexDomainData K δ`, `complexDelta K`, `complex_domain_spec`. Audit 2 (R2-1): the first repair left the geometric output out of the choice predicate, so `exact_positions_mem_shiftO` was not justified for an arbitrary selected radius. Now `ExactRadiusData K δ := 0 < δ ∧ δ ≤ complexDelta K ∧ ExactHamData K δ ∧ (∀ w ∈ UDelta K δ, (delaunayC K w).1 ∈ shiftO …)`, `exactDelta` is chosen from `∃ δ, ExactRadiusData K δ`, and `exact_radius_spec : SafeAction K → kRhoMax K < 1 → ExactRadiusData K (exactDelta K)` is the certified specification (existence by the source construction `stepI:p7:eh-delta`: uniform continuity on a compact period gives one `δ` with all properties; all radii depend only on `K`). `exact_ham` and `exact_positions_mem_shiftO` keep their types and are projections. No premise carries `ExactRadiusData`. |
 | F4: `transfer` / `newton_in_tube` overstate | `transfer` docstring now says what it gives; added `transfer_identities` (exact radius, `elemL/cross/elemA/elemEcc`, and `restrictedHamiltonian = realHamiltonian` along the orbit) and `fixed_in_tube` (finite-time fixed-Sun equations, no collision, pair bounds with the Sun at the origin); `newton_in_tube` docstring says "moving Sun". |
 | F5 HIGH: packages vs DAG | Rebuilt Sections 6-7 together: four missing edges added (`DelaunayChart <- DelaunaySymplectic`; `Newtonian.Tube <- Reconstruction`; and the two early-definition problems solved by the new module `Kepler/Energy`, so `Iso/RestrictedHam` and `Newtonian/Models` import only `Plane`/`Energy`, wave 2); the package table now lists owned modules and "After" = exactly the DAG imports; waves recomputed (KEP-7 becomes wave 5, KEP-10 wave 6, P7-4 wave 4; critical path still 10 waves); the DAG is acyclic by a stated topological order; `KAM/Iso/Kepler.lean` is the explicit prerequisite package I-0 (wave 0, cherry-pick from `inp-w1gates`). 32 packages. |
 | F6: heterogeneous-dimension bridge | Designed: `phaseCast` + `phaseCast_apply/_symm/_symplectic/_hamiltonianVectorField/_volume/_measurableEquiv/_analytic` and `poincareProdCast` (+ `_symplectic`, `analyticOnNhd_`, `isOpen_`, `_eq_iff`) in the signatures (module `Kepler/Basic`, `Poincare/Product`); `IsSymplecticOn.comp` carries differentiability hypotheses. The consumer table keeps the audit's caveat that `measure_chart_image` is not the P12 Cartesian interface (Section 7.3). |
 | F7: names vs applicable theorems | Section 9.2: applicability probes (IFT real/complex, contraction on the strip, `cosh` numerics, change of variables, sqrt analyticity, dslope, Schwarz, `phaseCast`). Consequences: `Real.cosh_one_lt` replaced by the proved helper `cosh_one_lt : cosh 1 < 1.55`; the Weierstrass plan replaced by the analytic-IFT route with `KeplerData` taking `AnalyticOnNhd` coefficients and `[CompleteSpace P]`; project `KAM.holomorphic_analytic` import/adapter not needed, and its namespace noted. |
 | C6 coverage items | Added `delaunayMK_localDiffeo`, `delaunayMK_periodic`, `delaunay_hamiltonianVectorField`, `orbitMapC_real`, `shiftF_eq_integral`, `delaunay_liouville` (+ `delaunayGen`), `nearCircular_witness_unique`, `scaleMK_flow`, and the explicit Jacobian columns (`orbitMapColumn`, `fderiv_orbitMapR_basis`, `fderiv_delaunay_basis`) that the KEP-6 plan only asserted before. `hasDerivAt_nu` is documented as a derivative lemma only. |
+| R2-2 stale prose | D10 replaced (above); `phaseCast` is designed (Section 9.2 and 10), not "to be added"; the docstring of `phaseCast_analytic` names its real output; the `1.5431` remark corrected: `cosh 1 ≈ 1.543081 < 1.5431` is TRUE, the probe route with `exp 1 < 2.7182818286` and `exp(-1) < 0.37` is simply too weak to prove it, so the helper uses `1.55`. |
 | Sub-orchestrator decision | Plane-length helpers live in `KAM/Kepler/Plane` (KEP-1); final signatures stated in Section 7.3 item 1 and in `KeplerSignatures.lean` section A; N3-8 imports it. |
-| Line cap | The signatures are split into two files (994 + 690 lines). |
+| Line cap | The signatures are split into two files (1,006 + 690 lines). |
 
 ## Appendix A. The signature files (verbatim)
 
-Sha256 values as in the header. `check_kepler.sh` first, then the two files.
+Sha256 values as in the header.
 
 ### A.0 `.drafts/design/check_kepler.sh`
 
@@ -1617,15 +1618,27 @@ def ExactHamData (K : Set (Fin 2 → ℝ)) (δ₂ : ℝ) : Prop :=
           -1 / (2 * w.2 0 ^ 2) - w.2 1 + μ * (exactF K (phaseToC w) μ).re) ∧
   (∀ w : Phase 2, w.2 ∈ K → phaseToC w ∈ UDelta K δ₂)
 
-open scoped Classical in
-/-- The radius `δ₂` of `bpI:p7:exact-ham`: `0 < δ₂ ≤ δ₁` with `δ₁ = complexDelta K` (F3), chosen once. -/
-def exactDelta (K : Set (Fin 2 → ℝ)) : ℝ :=
-  if h : ∃ δ : ℝ, 0 < δ ∧ δ ≤ complexDelta K ∧ ExactHamData K δ then h.choose else 0
+/-- The full admissibility predicate of the exact radius (audit 2, R2-1): positivity, subordination to the selected
+complex-domain radius, the clauses (i)-(iv), AND the geometric control that the complex Delaunay positions lie in the
+shift neighbourhood. It is a result predicate (used in a choice and in theorem conclusions), never a premise. -/
+def ExactRadiusData (K : Set (Fin 2 → ℝ)) (δ : ℝ) : Prop :=
+  0 < δ ∧ δ ≤ complexDelta K ∧ ExactHamData K δ ∧
+    ∀ w ∈ UDelta K δ, (delaunayC K w).1 ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K)
 
-/-- `bpI:p7:exact-ham`, assuming `ρ_max < 1` (the frozen `aPlus(1 + ePlus) < 1`). -/
+open scoped Classical in
+/-- The radius `δ₂` of `bpI:p7:exact-ham`, chosen once from `ExactRadiusData`. -/
+def exactDelta (K : Set (Fin 2 → ℝ)) : ℝ :=
+  if h : ∃ δ : ℝ, ExactRadiusData K δ then h.choose else 0
+
+/-- Existence (the source construction `stepI:p7:eh-delta`, by uniform continuity on a compact period) gives the
+full specification of the SELECTED radius. -/
+theorem exact_radius_spec {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
+    ExactRadiusData K (exactDelta K) := sorry
+
+/-- `bpI:p7:exact-ham`, assuming `ρ_max < 1` (the frozen `aPlus(1 + ePlus) < 1`): a projection of `exact_radius_spec`. -/
 theorem exact_ham {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
     0 < exactDelta K ∧ exactDelta K ≤ complexDelta K ∧ ExactHamData K (exactDelta K) := sorry
-/-- F3: the construction output that links the radius to the shift neighbourhood. -/
+/-- F3: a projection of `exact_radius_spec`; justified because the property is part of the choice predicate. -/
 theorem exact_positions_mem_shiftO {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
     ∀ w ∈ UDelta K (exactDelta K), (delaunayC K w).1 ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K) := sorry
 
@@ -2198,7 +2211,7 @@ theorem phaseCast_volume {d e : ℕ} (h : d = e) (A : Set (Phase d)) :
     MeasureTheory.volume (phaseCast h '' A) = MeasureTheory.volume A := sorry
 theorem phaseCast_measurableEquiv {d e : ℕ} (h : d = e) {A : Set (Phase d)} (hA : MeasurableSet A) :
     MeasurableSet (phaseCast h '' A) := sorry
-/-- `bodyVector` is blind to the cast: `bodyVector` of `phaseCast (Nat.mul_two n).symm`-transported points. -/
+/-- `phaseCast` is analytic (it is a continuous linear equivalence). -/
 theorem phaseCast_analytic {d e : ℕ} (h : d = e) : AnalyticOnNhd ℝ (phaseCast h) univ := sorry
 
 end PhaseCast
