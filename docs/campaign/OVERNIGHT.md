@@ -66,6 +66,16 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   - P4-1, P4-3 and P4-Q from P4-0;
   - P4-2 from P4-1.
 
+### 23:00: P4-8 step mapping (orchestrator, Opus)
+- The P4-8 audit failed the graph step `step:p4:lag-regular` only. The step claims boundedness of Λ on T_ρ and of
+  u, v, Du on T_{ρ/2}, and the wrapper `KAM.Head.lagrangeMat_regular` exports only holomorphy and periodicity.
+- The main theorem `KAM.Head.lagrangian` passed. Its route applies `coh_unique_zero` directly on T_ρ, which needs
+  none of those bounds.
+- **Ruling:** the step is marked BYPASSED (D27, route substitution), and the package landed. The Appendix A
+  signature is unchanged.
+- **Alternative for the owner:** a separately named full-regularity theorem could be added later if the bound
+  clauses are wanted for their own sake.
+
 ## Tracks I, N, P (sub-orchestrator, D23)
 
 - **21:15. No new freezes; packets only.** Nothing is pending owner approval from tracks I/N/P tonight (D25 and D28
