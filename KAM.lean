@@ -7,6 +7,7 @@ module
 
 public import KAM.Analysis.Iteration
 public import KAM.Apost.Constants
+public import KAM.Apost.Correction
 public import KAM.Apost.Exactness
 public import KAM.Apost.Frame
 public import KAM.Apost.Geometry
