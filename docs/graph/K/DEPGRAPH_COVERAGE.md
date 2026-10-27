@@ -817,8 +817,8 @@ REVIEWER: -
 ITEM: bp:p1:mixed-difference
 KIND: lemma
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mixed-difference@L442-L445
-DISPOSITION: NODE bp:p1:mixed-difference
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: not consumed by any root's proof
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: -
@@ -826,8 +826,8 @@ REVIEWER: -
 ITEM: step:p1:md-inner
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-inner@L450-L453
-DISPOSITION: NODE step:p1:md-inner
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: not consumed by any root's proof
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: -
@@ -835,8 +835,8 @@ REVIEWER: -
 ITEM: step:p1:md-outer
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-outer@L455-L459
-DISPOSITION: NODE step:p1:md-outer
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: not consumed by any root's proof
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: -
@@ -1006,8 +1006,8 @@ REVIEWER: -
 ITEM: bp:p1:cauchy-strip-2
 KIND: lemma
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L592-L594
-DISPOSITION: NODE bp:p1:cauchy-strip-2
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: not consumed by any root's proof
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
@@ -1015,8 +1015,8 @@ REVIEWER: -
 ITEM: step:p1:cs2-polydisc
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs2-polydisc@L597-L602
-DISPOSITION: NODE step:p1:cs2-polydisc
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: not consumed by any root's proof
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
@@ -3640,6 +3640,24 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: -
 
+ITEM: eq:p3:constants
+KIND: display
+SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:constants@L95-L117
+DISPOSITION: NODE bp:p3:standing#constants
+REASON: constants paragraph (eq:p3:constants, eq:p3:Cquad) maps to the added construction node
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p3
+REVIEWER: -
+
+ITEM: eq:p3:absorb
+KIND: display
+SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:absorb@L428-L433
+DISPOSITION: NODE bp:p3:quadratic#absorb
+REASON: absorption inequality maps to the added step node
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p3
+REVIEWER: -
+
 ITEM: bp:p4:lattice-count
 KIND: lemma
 SOURCE: blueprint/parts/p4-measure.tex#bp:p4:lattice-count@L53-L55
@@ -4345,8 +4363,8 @@ REVIEWER: -
 ITEM: bp:p4:normalized-unique
 KIND: corollary
 SOURCE: blueprint/parts/p4-measure.tex#bp:p4:normalized-unique@L744-L749
-DISPOSITION: NODE bp:p4:normalized-unique
-REASON: labelled unit checked against the blueprint text
+DISPOSITION: EXCLUDED
+REASON: not used for HEAD (blueprint L776-777); unreachable from the roots, no other node uses it
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: -
@@ -4354,8 +4372,8 @@ REVIEWER: -
 ITEM: step:p4:nu-g2
 KIND: proof-region
 SOURCE: blueprint/parts/p4-measure.tex#step:p4:nu-g2@L752-L767
-DISPOSITION: NODE step:p4:nu-g2
-REASON: labelled unit checked against the blueprint text
+DISPOSITION: EXCLUDED
+REASON: not used for HEAD (blueprint L776-777); unreachable from the roots, no other node uses it
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: -
@@ -4363,8 +4381,8 @@ REVIEWER: -
 ITEM: step:p4:nu-phase
 KIND: proof-region
 SOURCE: blueprint/parts/p4-measure.tex#step:p4:nu-phase@L769-L773
-DISPOSITION: NODE step:p4:nu-phase
-REASON: labelled unit checked against the blueprint text
+DISPOSITION: EXCLUDED
+REASON: not used for HEAD (blueprint L776-777); unreachable from the roots, no other node uses it
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: -

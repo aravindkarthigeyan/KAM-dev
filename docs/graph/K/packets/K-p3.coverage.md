@@ -494,7 +494,7 @@ EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: -
 
 ITEM: eq:p3:constants
-KIND: equation
+KIND: display
 SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:constants@L95-L117
 DISPOSITION: NODE bp:p3:standing#constants
 REASON: constants paragraph (eq:p3:constants, eq:p3:Cquad) maps to the added construction node
@@ -503,7 +503,7 @@ EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: -
 
 ITEM: eq:p3:absorb
-KIND: equation
+KIND: display
 SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:absorb@L428-L433
 DISPOSITION: NODE bp:p3:quadratic#absorb
 REASON: absorption inequality maps to the added step node

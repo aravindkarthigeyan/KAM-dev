@@ -2134,90 +2134,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
 
-NODE: bp:p1:mixed-difference
-KIND: lemma
-TITLE: Mixed second differences
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mixed-difference@L442-L445
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mixed-difference@L447-L460
-CONTRACT_ID: bp:p1:mixed-difference
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: F holomorphic on convex open U; |D^2F|<=A on U; z,z+v,z+w,z+v+w in U
-SOURCE_QUANTIFIERS: U,F,A; z,v,w
-SOURCE_CONCLUSION: |F(z+v+w)-F(z+v)-F(z+w)+F(z)|<=A|v||w|
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: step:p1:md-inner, step:p1:md-outer
-EDGE: step:p1:md-inner | blueprint/parts/p1-analysis.tex#bp:p1:mixed-difference@L450-L450 | proof step of this result
-EDGE: step:p1:md-outer | blueprint/parts/p1-analysis.tex#bp:p1:mixed-difference@L455-L455 | proof step of this result
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: step:p1:md-inner
-KIND: step
-TITLE: The derivative across
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-inner@L450-L453
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-inner@L450-L453
-CONTRACT_ID: step:p1:md-inner
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: z+sv+tw in U for s,t in [0,1] (convexity); DF holomorphic with |D(DF)|<=A
-SOURCE_QUANTIFIERS: s in [0,1]
-SOURCE_CONCLUSION: |DF(z+sv+w)-DF(z+sv)|<=A|w|
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bp:p1:holomorphic-regularity, bp:p1:increments-open
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:md-inner@L451-L451 | cited at this line (step; \ref{bp:p1:holomorphic-regularity})
-EDGE: bp:p1:increments-open | blueprint/parts/p1-analysis.tex#step:p1:md-inner@L452-L452 | cited at this line (step; \ref{bp:p1:increments-open})
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: step:p1:md-outer
-KIND: step
-TITLE: The difference along
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-outer@L455-L459
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-outer@L455-L459
-CONTRACT_ID: step:p1:md-outer
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: psi(s)=F(z+sv+w)-F(z+sv) on an open interval containing [0,1]; derivative bound from the inner step; MVT (E4)
-SOURCE_QUANTIFIERS: s in [0,1]
-SOURCE_CONCLUSION: |psi'(s)|<=A|v||w| and |psi(1)-psi(0)|<=A|v||w|, where psi(1)-psi(0) is the mixed difference
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: step:p1:md-inner, bp:p1:ext-mvt
-EDGE: step:p1:md-inner | blueprint/parts/p1-analysis.tex#step:p1:md-outer@L458-L458 | derivative bound from previous step
-EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:md-outer@L458-L458 | MVT on [0,1]
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
 NODE: bp:p1:cauchy-open
 KIND: lemma
 TITLE: Cauchy estimate on open sets
@@ -2628,61 +2544,6 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:cs-coordinate | blueprint/parts/p1-analysis.tex#step:p1:cs-full@L578-L578 | previous step: bound on each d_ell u
 EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:cs-full@L583-L583 | operator norm equals row-sum norm of the Jacobian
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bp:p1:cauchy-strip-2
-KIND: lemma
-TITLE: Second-derivative Cauchy estimate on strips
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L592-L594
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L596-L603
-CONTRACT_ID: bp:p1:cauchy-strip-2
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: u holomorphic and bounded on T_rho; 0<delta<rho
-SOURCE_QUANTIFIERS: rho, delta, u; c(n)
-SOURCE_CONCLUSION: ||D^2 u||_{rho-delta} <= c(n) delta^-2 ||u||_rho
-CONSTANT_SCOPE: c(n) depends only on n
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: step:p1:cs2-polydisc, bp:p0:domains#complexStrip
-ROUTES: -
-ROUTE_FOR: -
-EDGE: step:p1:cs2-polydisc | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L597-L597 | proof step of this result
-EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L593-L593 | strip T_rho used by name
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: step:p1:cs2-polydisc
-KIND: step
-TITLE: Polydiscs in the strip
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs2-polydisc@L597-L602
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs2-polydisc@L597-L602
-CONTRACT_ID: step:p1:cs2-polydisc
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: u holomorphic bounded on T_rho; theta in T_{rho-delta}; closed polydisc P(theta,delta) in T_rho
-SOURCE_QUANTIFIERS: theta
-SOURCE_CONCLUSION: |D^2 u(theta)| <= 4 delta^-2 ||u||_rho, so c(n)=4
-CONSTANT_SCOPE: c(n)=4, independent of rho, delta, u
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bp:p1:cauchy-open
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bp:p1:cauchy-open | blueprint/parts/p1-analysis.tex#step:p1:cs2-polydisc@L600-L600 | Cauchy estimate on open sets with U=T_rho, j=2, A=u_rho
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
@@ -9514,9 +9375,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p4:lattice-count
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p4:lattice-count | blueprint/parts/p4-measure.tex#step:p4:latsum-shells@L75-L75 | shell cardinalities
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -9620,9 +9482,11 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: step:p4:slab-coordinate, bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
+EDGE: step:p4:slab-coordinate | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L101-L101 | dominant coordinate bound
+EDGE: bp:p1:ext-lebesgue | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L99-L99 | Fubini for Lebesgue measure
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -9646,9 +9510,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p0:diophantine#IsDiophantine
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p4-measure.tex#step:p4:g3-n0@L106-L106 | Diophantine condition is vacuous for k=0 only
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -9672,9 +9537,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p4:lattice-sum
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p4:lattice-sum | blueprint/parts/p4-measure.tex#step:p4:g3-cube@L111-L111 | S(n,tau) from the lattice sum
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -9698,9 +9564,11 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p0:diophantine#IsDiophantine, step:p4:g3-cube
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p4-measure.tex#step:p4:g3-union@L115-L115 | negation of the Diophantine condition
+EDGE: step:p4:g3-cube | blueprint/parts/p4-measure.tex#step:p4:g3-union@L110-L110 | bounding cube R
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -9724,9 +9592,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p4:slab, bp:p4:lattice-sum, step:p4:g3-union, step:p4:g3-cube, bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p4:slab | blueprint/parts/p4-measure.tex#step:p4:g3-sum@L123-L123 | slab measure with a=alpha k-norm^-tau
+EDGE: bp:p4:lattice-sum | blueprint/parts/p4-measure.tex#step:p4:g3-sum@L124-L124 | lattice sum bound
+EDGE: step:p4:g3-union | blueprint/parts/p4-measure.tex#step:p4:g3-sum@L126-L126 | union inclusion
+EDGE: step:p4:g3-cube | blueprint/parts/p4-measure.tex#step:p4:g3-sum@L126-L126 | constant C
+EDGE: bp:p1:ext-lebesgue | blueprint/parts/p4-measure.tex#step:p4:g3-sum@L123-L123 | monotonicity and countable subadditivity of outer measure
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -10058,9 +9931,11 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p1:holomorphic-regularity, step:p4:fm-gradient
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:fm-hessian@L255-L255 | d_i h holomorphic and symmetry of mixed derivatives
+EDGE: step:p4:fm-gradient | blueprint/parts/p4-measure.tex#step:p4:fm-hessian@L257-L257 | gradient argument and reality (ii)
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -10084,9 +9959,11 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p4:derivative-bounds, step:p4:fm-gradient
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p4:derivative-bounds | blueprint/parts/p4-measure.tex#step:p4:fm-bounds@L265-L265 | bounds (b)
+EDGE: step:p4:fm-gradient | blueprint/parts/p4-measure.tex#step:p4:fm-bounds@L263-L263 | g(I)=Dh(iota I)e_i
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -10250,9 +10127,11 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: step:p4:hess-quotient, bp:p4:freq-map
 ROUTES: -
 ROUTE_FOR: -
+EDGE: step:p4:hess-quotient | blueprint/parts/p4-measure.tex#step:p4:invfreq-proof@L305-L305 | inequality on closure of B
+EDGE: bp:p4:freq-map | blueprint/parts/p4-measure.tex#step:p4:invfreq-proof@L306-L306 | norm omega bounded by W_inf by (v)
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -10360,9 +10239,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p4:derivative-bounds
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p4:derivative-bounds | blueprint/parts/p4-measure.tex#step:p4:h1-bounds@L330-L330 | part (d)
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: -
@@ -11262,11 +11142,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:phase-average, bp:p4:data
+DEPS: bp:p4:phase-average, bp:p4:data, step:p4:shift-translation, step:p4:shift-phase
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:phase-average | blueprint/parts/p4-measure.tex#bp:p4:shift@L687-L687 | K^[a], ph(K) used by name
 EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#bp:p4:shift@L698-L698 | unperturbed torus K0_{I*} in (e)
+EDGE: step:p4:shift-translation | blueprint/parts/p4-measure.tex#bp:p4:shift@L704-L704 | proof step of this result
+EDGE: step:p4:shift-phase | blueprint/parts/p4-measure.tex#bp:p4:shift@L711-L711 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: -
@@ -11376,11 +11258,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:normalized-torus, bp:p4:parameters
+DEPS: bp:p4:normalized-torus, bp:p4:parameters, step:p4:normalize-proof
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#bp:p4:normalize@L729-L729 | K_omega, W_omega defined there
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:normalize@L729-L729 | standing assumption (SA), sigma_K, mu, eta_0
+EDGE: step:p4:normalize-proof | blueprint/parts/p4-measure.tex#bp:p4:normalize@L737-L737 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: -
@@ -11410,100 +11293,6 @@ ROUTE_FOR: -
 EDGE: bp:p4:apply | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-L738 | properties of K^inf_omega on T_{s/8} and the eta_0/2 closeness
 EDGE: bp:p4:shift | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-L738 | parts (a)-(e) of the phase shift lemma
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L737-L737 | K_omega=(K^inf)^[-ph]
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bp:p4:normalized-unique
-KIND: corollary
-TITLE: Uniqueness of the normalized torus
-STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:normalized-unique@L744-L749
-PROOF_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:normalized-unique@L751-L774
-CONTRACT_ID: bp:p4:normalized-unique
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (SA); omega in Omega_gamma; K' holomorphic, primary on T_{s/8}, real on reals, invariant with frequency omega on T_{s/8}, normalized, |K'-K0_omega|<=eta_0 on T_{s/8}
-SOURCE_QUANTIFIERS: gamma,eps with (SA); omega in Omega_gamma; K' as stated
-SOURCE_CONCLUSION: K'=K_omega on T_{s/8}; in particular K_omega is independent of the choice in the definition
-CONSTANT_SCOPE: all named constants (c_*, A_0..A_4, lambda_*, L_+, delta_*, mu, M, W_inf, Lambda_g, sigma_K, sigma_B, sigma_T, c_T, eta_*) depend only on the data n,tau,s0,r0,B,h,L_h,C_B (never on f, eps, gamma); eta_0=A_0 eps gamma^-2 depends also on eps,gamma
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bp:p4:normalized-torus, bp:p4:parameters
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#bp:p4:normalized-unique@L748-L748 | statement compares with K_omega and its independence of choice
-EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:normalized-unique@L745-L745 | standing assumption (SA)
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: Not used in the proof of HEAD (blueprint L776-777). Only a leaf of the graph for HEAD, kept as a proved result.
-
-NODE: step:p4:nu-g2
-KIND: step
-TITLE: Application of G2
-STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#step:p4:nu-g2@L752-L767
-PROOF_SOURCE: blueprint/parts/p4-measure.tex#step:p4:nu-g2@L752-L767
-CONTRACT_ID: step:p4:nu-g2
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (SA); omega in Omega_gamma; K' as in the corollary
-SOURCE_QUANTIFIERS: gamma,eps,omega,K'; G2 applied with rho=s/16, B-frak=D, h=pfh
-SOURCE_CONCLUSION: exists phi in R^n with K'(theta)=K_omega(theta+i phi) for theta in T_{s/32}
-CONSTANT_SCOPE: all named constants (c_*, A_0..A_4, lambda_*, L_+, delta_*, mu, M, W_inf, Lambda_g, sigma_K, sigma_B, sigma_T, c_T, eta_*) depend only on the data n,tau,s0,r0,B,h,L_h,C_B (never on f, eps, gamma); eta_0=A_0 eps gamma^-2 depends also on eps,gamma
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bp:p0:g2, bp:p4:parameters, bp:p4:h1, bp:p4:stab, bp:p4:normalize, bp:p4:unperturbed, bp:p4:smallness, bp:p4:inverse-freq, bp:p4:normalized-torus
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bp:p0:g2 | blueprint/parts/p4-measure.tex#step:p4:nu-g2@L753-L753 | frozen local uniqueness theorem applied
-EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:nu-g2@L753-L753 | tuple, constants c_G, sigma_*, mu, (SA)
-EDGE: bp:p4:h1 | blueprint/parts/p4-measure.tex#step:p4:nu-g2@L755-L755 | H1 of G2
-EDGE: bp:p4:stab | blueprint/parts/p4-measure.tex#step:p4:nu-g2@L757-L757 | H2-H4 for K_omega on T_{s/16}
-EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:nu-g2@L758-L758 | K_omega primary, real, E_1=0, omega Diophantine, bounds
-EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#step:p4:nu-g2@L764-L764 | part (g): K'(T_{s/16}) in D
-EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:nu-g2@L759-L759 | (s3) eta_0<=eta_*(s/16) and (s5) closeness
-EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:nu-g2@L757-L757 | I_omega in B, /omega/<=W_inf
-EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#step:p4:nu-g2@L753-L753 | K_1=K_omega
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: step:p4:nu-phase
-KIND: step
-TITLE: The phase vanishes
-STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#step:p4:nu-phase@L769-L773
-PROOF_SOURCE: blueprint/parts/p4-measure.tex#step:p4:nu-phase@L769-L773
-CONTRACT_ID: step:p4:nu-phase
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K'=K_omega^[phi] on real points with phi from G2; K_omega normalized; K' normalized
-SOURCE_QUANTIFIERS: omega,K',phi in R^n
-SOURCE_CONCLUSION: phi=0, hence K'=K_omega on T_{s/32} and then on T_{s/8}
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bp:p4:shift, bp:p1:strip-identity, step:p4:nu-g2, bp:p4:normalize, bp:p4:phase-average
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bp:p4:shift | blueprint/parts/p4-measure.tex#step:p4:nu-phase@L770-L770 | part (d): ph(K_omega^[phi])=ph(K_omega)+phi
-EDGE: bp:p1:strip-identity | blueprint/parts/p4-measure.tex#step:p4:nu-phase@L771-L771 | identity theorem on T_{s/8} for K'-K_omega
-EDGE: step:p4:nu-g2 | blueprint/parts/p4-measure.tex#step:p4:nu-phase@L769-L769 | phi and K'=K_omega(.+i phi) from G2
-EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:nu-phase@L770-L770 | ph(K_omega)=0
-EDGE: bp:p4:phase-average | blueprint/parts/p4-measure.tex#step:p4:nu-phase@L770-L770 | ph(K') defined from real points
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: -
@@ -11582,11 +11371,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:normalized-torus, bp:p4:parameters
+DEPS: bp:p4:normalized-torus, bp:p4:parameters, step:p4:le-basic, step:p4:le-split, step:p4:le-h, step:p4:le-f, step:p4:le-transport, step:p4:le-sum
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L821-L821 | K_omega, W_omega
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L821-L821 | standing assumption (SA), lambda_*, A_1
+EDGE: step:p4:le-basic | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L832-L832 | proof step of this result
+EDGE: step:p4:le-split | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L838-L838 | proof step of this result
+EDGE: step:p4:le-h | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L853-L853 | proof step of this result
+EDGE: step:p4:le-f | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L860-L860 | proof step of this result
+EDGE: step:p4:le-transport | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L867-L867 | proof step of this result
+EDGE: step:p4:le-sum | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L871-L871 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: -
@@ -11788,11 +11583,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:parameters, bp:p4:normalized-torus
+DEPS: bp:p4:parameters, bp:p4:normalized-torus, step:p4:lip-far, step:p4:lip-g1, step:p4:lip-g2, step:p4:lip-phase, step:p4:lip-close
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:lip@L877-L877 | standing assumption (SA), A_3
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#bp:p4:lip@L878-L878 | W_omega defined there
+EDGE: step:p4:lip-far | blueprint/parts/p4-measure.tex#bp:p4:lip@L885-L885 | proof step of this result
+EDGE: step:p4:lip-g1 | blueprint/parts/p4-measure.tex#bp:p4:lip@L892-L892 | proof step of this result
+EDGE: step:p4:lip-g2 | blueprint/parts/p4-measure.tex#bp:p4:lip@L913-L913 | proof step of this result
+EDGE: step:p4:lip-phase | blueprint/parts/p4-measure.tex#bp:p4:lip@L929-L929 | proof step of this result
+EDGE: step:p4:lip-close | blueprint/parts/p4-measure.tex#bp:p4:lip@L936-L936 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: -
@@ -12126,7 +11926,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:parameters, bp:p4:normalized-torus, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:cover#kamCover
+DEPS: bp:p4:parameters, bp:p4:normalized-torus, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:cover#kamCover, step:p4:rt-analytic, step:p4:rt-small, step:p4:rt-immersion, step:p4:rt-embedding, step:p4:rt-lagrangian, step:p4:rt-ode, step:p4:rt-cover
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1010-L1010 | standing assumption (SA)
@@ -12134,6 +11934,13 @@ EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L
 EDGE: bp:p0:nearlyintegrable#realHamiltonian | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1014-L1014 | H=realHamiltonian h f
 EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1019-L1019 | g(I_omega)=omega
 EDGE: bp:p0:cover#kamCover | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1020-L1020 | conclusion membership in the cover
+EDGE: step:p4:rt-analytic | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1024-L1024 | proof step of this result
+EDGE: step:p4:rt-small | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1028-L1028 | proof step of this result
+EDGE: step:p4:rt-immersion | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1035-L1035 | proof step of this result
+EDGE: step:p4:rt-embedding | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1039-L1039 | proof step of this result
+EDGE: step:p4:rt-lagrangian | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1045-L1045 | proof step of this result
+EDGE: step:p4:rt-ode | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1052-L1052 | proof step of this result
+EDGE: step:p4:rt-cover | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1063-L1063 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: -
@@ -13185,4 +12992,563 @@ LEAN_NOTE: -
 NOTE: -
 
 <!-- BEGIN PROOF DEPGRAPH GENERATED -->
+Regenerated by `proof_depgraph.py`; do not hand-edit.
+
+### Dashboard
+
+* Total nodes: **449**
+* Frozen anchors: **25**
+* Versioned statement contracts: **449**
+* Total edges: **1301**
+* Root-closure nodes: **449**
+* Dependency leaves in root closure: **51**
+* Assumption boundary leaves: **0**
+* External boundary leaves: **10**
+* Alternative routes: **0**
+* Topology review queue: **449**
+* Explicit source gaps: **1**
+* Coverage items: **557**; excluded: **104**
+
+### Roots
+
+* `bp:p0:head` [PROPOSED; frozen] — contract `kam.kam_positive_measure@1`
+* `bp:p0:headq` [PROPOSED; frozen] — contract `kam.kam_positive_measure_qualitative@1`
+* `bp:p0:g1` [PROPOSED; frozen] — contract `kam.aposteriori_kam@1`
+* `bp:p0:g2` [PROPOSED; frozen] — contract `kam.local_uniqueness_flow@1`
+* `bp:p0:g3` [PROPOSED; frozen] — contract `kam.volume_not_diophantine_le@1`
+
+### Topology review queue
+
+* `bp:p0:cover#kamCover` [PROPOSED] — The KAM cover: KAM.kamCover
+* `bp:p0:diophantine#IsDiophantine` [PROPOSED] — Diophantine vectors: KAM.IsDiophantine
+* `bp:p0:domains#actionNbhd` [PROPOSED] — Complex neighbourhoods and the fundamental domain: KAM.actionNbhd
+* `bp:p0:domains#complexStrip` [PROPOSED] — Complex neighbourhoods and the fundamental domain: KAM.complexStrip
+* `bp:p0:domains#fundamentalDomain` [PROPOSED] — Complex neighbourhoods and the fundamental domain: KAM.fundamentalDomain
+* `bp:p0:g1` [PROPOSED] — G1: a-posteriori KAM at fixed frequency
+* `bp:p0:g2` [PROPOSED] — G2: local uniqueness for flows
+* `bp:p0:g3` [PROPOSED] — G3: measure of the non-Diophantine set
+* `bp:p0:hamiltonian#hamiltonianVectorField` [PROPOSED] — Hamiltonian vector fields, symplectic form: KAM.hamiltonianVectorField
+* `bp:p0:hamiltonian#hamiltonianVectorFieldC` [PROPOSED] — Hamiltonian vector fields, symplectic form: KAM.hamiltonianVectorFieldℂ
+* `bp:p0:hamiltonian#omegaZero` [PROPOSED] — Hamiltonian vector fields, symplectic form: KAM.omegaZero
+* `bp:p0:hamiltonian#symplecticForm` [PROPOSED] — Hamiltonian vector fields, symplectic form: KAM.symplecticForm
+* `bp:p0:head` [PROPOSED] — HEAD: positive-measure KAM with rate
+* `bp:p0:headq` [PROPOSED] — HEAD-Q: qualitative form
+* `bp:p0:nearlyintegrable#frequencyMap` [PROPOSED] — The integrable part, the perturbation, the frequency map: KAM.frequencyMap
+* `bp:p0:nearlyintegrable#realHamiltonian` [PROPOSED] — The integrable part, the perturbation, the frequency map: KAM.realHamiltonian
+* `bp:p0:stripdata#IsPrimaryOnStrip` [PROPOSED] — Torus data on strips: KAM.IsPrimaryOnStrip
+* `bp:p0:stripdata#IsRealOnReals` [PROPOSED] — Torus data on strips: KAM.IsRealOnReals
+* `bp:p0:stripdata#dotC` [PROPOSED] — Torus data on strips: KAM.dotℂ
+* `bp:p0:stripdata#gramMatrix` [PROPOSED] — Torus data on strips: KAM.gramMatrix
+* `bp:p0:stripdata#invarianceError` [PROPOSED] — Torus data on strips: KAM.invarianceError
+* `bp:p0:stripdata#normalFrame` [PROPOSED] — Torus data on strips: KAM.normalFrame
+* `bp:p0:stripdata#torsion` [PROPOSED] — Torus data on strips: KAM.torsion
+* `bp:p0:stripdata#torsionAverage` [PROPOSED] — Torus data on strips: KAM.torsionAverage
+* `bp:p0:torus#IsInvariantLagrangianTorus` [PROPOSED] — Invariant Lagrangian torus: KAM.IsInvariantLagrangianTorus
+* `bp:p1:averages` [PROPOSED] — Averages
+* `bp:p1:averages-matrix` [PROPOSED] — Averages of matrix-valued functions
+* `bp:p1:averages-real` [PROPOSED] — Averages of functions on the real torus
+* `bp:p1:cauchy-corollaries` [PROPOSED] — Cauchy corollaries
+* `bp:p1:cauchy-open` [PROPOSED] — Cauchy estimate on open sets
+* `bp:p1:cauchy-strip` [PROPOSED] — Cauchy estimate on strips
+* `bp:p1:cohomological` [PROPOSED] — Cohomological equation on strips
+* `bp:p1:cohomological-operator` [PROPOSED] — Cohomological equation in operator norms, a-priori bound
+* `bp:p1:decay` [PROPOSED] — Coefficient decay
+* `bp:p1:exp-sums` [PROPOSED] — Exponential sums over $\Z^n$
+* `bp:p1:ext-banach` [PROPOSED] — Banach's fixed point theorem
+* `bp:p1:ext-cauchy` [PROPOSED] — Cauchy's formulas in one variable
+* `bp:p1:ext-cramer` [PROPOSED] — Cramer's rule
+* `bp:p1:ext-fourier` [PROPOSED] — Fourier series on the torus
+* `bp:p1:ext-identity` [PROPOSED] — Identity theorem in one variable
+* `bp:p1:ext-integral` [PROPOSED] — Integrals
+* `bp:p1:ext-lebesgue` [PROPOSED] — Lebesgue outer measure
+* `bp:p1:ext-mvt` [PROPOSED] — Mean value inequality
+* `bp:p1:ext-rectangle` [PROPOSED] — Cauchy's theorem for rectangles
+* `bp:p1:ext-schwarz` [PROPOSED] — Symmetry of second derivatives
+* `bp:p1:fourier-basic` [PROPOSED] — Fourier coefficients of periodic functions
+* `bp:p1:hamiltonian-real` [PROPOSED] — Real and complex Hamiltonian fields
+* `bp:p1:holomorphic-analytic` [PROPOSED] — Holomorphic maps are analytic
+* `bp:p1:holomorphic-inverse` [PROPOSED] — Holomorphic inverse
+* `bp:p1:holomorphic-regularity` [PROPOSED] — Derivatives of holomorphic maps
+* `bp:p1:increments` [PROPOSED] — Increments
+* `bp:p1:increments-open` [PROPOSED] — Increments on open sets
+* `bp:p1:iteration` [PROPOSED] — Quadratic iteration on nested strips
+* `bp:p1:lip-image` [PROPOSED] — Lipschitz images and preimages
+* `bp:p1:lip-image-product` [PROPOSED] — Products
+* `bp:p1:lip-image-product#product-lebesgue` [PROPOSED] — Product of Lebesgue measures is Lebesgue measure on R^{2n}
+* `bp:p1:lipeo` [PROPOSED] — Lipeomorphisms
+* `bp:p1:lipeo-fixed` [PROPOSED] — Bijections fixing a set
+* `bp:p1:matrix-norms` [PROPOSED] — Max-norm matrix facts
+* `bp:p1:mcshane` [PROPOSED] — McShane extension
+* `bp:p1:neumann` [PROPOSED] — Neumann series
+* `bp:p1:operator-norms` [PROPOSED] — Operator norms, blocks, $\Omega_0$
+* `bp:p1:periodic-average` [PROPOSED] — Translation invariance of averages
+* `bp:p1:periodic-bounded` [PROPOSED] — Periodic functions are bounded on smaller strips
+* `bp:p1:real-inverse` [PROPOSED] — Real inverses
+* `bp:p1:real-restriction` [PROPOSED] — Real restriction
+* `bp:p1:real-restriction-consequences` [PROPOSED] — Real restrictions of linear and primary maps
+* `bp:p1:strip-identity` [PROPOSED] — Identity theorem on strips
+* `bp:p1:summation` [PROPOSED] — Summation
+* `bp:p1:taylor` [PROPOSED] — Second-order Taylor bound
+* `bp:p1:uniform-limits` [PROPOSED] — Uniform limits
+* `bp:p2:admissible` [PROPOSED] — Admissible parameterization
+* `bp:p2:averages` [PROPOSED] — Averages
+* `bp:p2:cohomological` [PROPOSED] — Cohomological equation in operator norms
+* `bp:p2:constants` [PROPOSED] — Exponents and constants
+* `bp:p2:correction` [PROPOSED] — Size of the correction
+* `bp:p2:error-decay` [PROPOSED] — Decay of the errors
+* `bp:p2:exactness` [PROPOSED] — Exactness: two vanishing averages
+* `bp:p2:frame-basic` [PROPOSED] — Regularity and bounds of the frame
+* `bp:p2:frame-identities` [PROPOSED] — Frame identities
+* `bp:p2:frequency` [PROPOSED] — Frequency bound
+* `bp:p2:frozen-agreement` [PROPOSED] — Agreement with the frozen definitions
+* `bp:p2:g1` [PROPOSED] — G1 with explicit constants
+* `bp:p2:geometry` [PROPOSED] — Approximate Lagrangian property, symplecticity and reducibility
+* `bp:p2:hamiltonian` [PROPOSED] — The Hamiltonian vector field
+* `bp:p2:iteration` [PROPOSED] — The induction
+* `bp:p2:limit` [PROPOSED] — The limit torus
+* `bp:p2:matrix` [PROPOSED] — Matrix norms
+* `bp:p2:newton-error` [PROPOSED] — The new invariance error
+* `bp:p2:objects` [PROPOSED] — Objects attached to a parameterization
+* `bp:p2:periodicity` [PROPOSED] — Periodicity and realness of the attached objects
+* `bp:p2:perturbation` [PROPOSED] — Perturbation of the frame and the torsion
+* `bp:p2:schedule` [PROPOSED] — Schedule of the iteration
+* `bp:p2:standing` [PROPOSED] — Standing data of Part~\ref{bp:p2}
+* `bp:p2:step` [PROPOSED] — The KAM step
+* `bp:p2:triangular` [PROPOSED] — The triangular system
+* `bp:p3:difference-equation` [PROPOSED] — The difference in the frame
+* `bp:p3:frequency-bound` [PROPOSED] — A priori bound on the frequency
+* `bp:p3:lagrangian` [PROPOSED] — The reference torus is Lagrangian
+* `bp:p3:matrix-norms` [PROPOSED] — Matrix norms of the frame
+* `bp:p3:phase` [PROPOSED] — Phase normalization
+* `bp:p3:quadratic` [PROPOSED] — Quadratic estimate
+* `bp:p3:quadratic#absorb` [PROPOSED] — Absorption inequality
+* `bp:p3:reducibility` [PROPOSED] — Exact reducibility
+* `bp:p3:standing` [PROPOSED] — Two invariant tori
+* `bp:p3:standing#constants` [PROPOSED] — Constants of Part 3
+* `bp:p3:torsion-bound` [PROPOSED] — The torsion
+* `bp:p4:apply` [PROPOSED] — APPLY: a torus for every Diophantine frequency
+* `bp:p4:cover-mono` [PROPOSED] — Monotonicity of the cover
+* `bp:p4:data` [PROPOSED] — Shrunken domains and basic constants
+* `bp:p4:derivative-bounds` [PROPOSED] — Derivative bounds
+* `bp:p4:dyadic-approx` [PROPOSED] — Inner dyadic approximation
+* `bp:p4:freq-map` [PROPOSED] — The frequency map
+* `bp:p4:good-actions` [PROPOSED] — Good actions and the displacement
+* `bp:p4:h-bounded` [PROPOSED] — $h$ is bounded on a shrunken neighbourhood
+* `bp:p4:h1` [PROPOSED] — The Hamiltonian hypothesis H1
+* `bp:p4:hessian-inverse` [PROPOSED] — Kolmogorov nondegeneracy at a point
+* `bp:p4:inverse-freq` [PROPOSED] — The inverse frequency map
+* `bp:p4:lagrangian` [PROPOSED] — Invariant tori with nonresonant frequency are Lagrangian
+* `bp:p4:lattice-count` [PROPOSED] — Counting lattice points on $\ell^1$ spheres
+* `bp:p4:lattice-sum` [PROPOSED] — Lattice sum
+* `bp:p4:lip` [PROPOSED] — LIP
+* `bp:p4:lip-error` [PROPOSED] — The error of the shifted torus
+* `bp:p4:main-measure` [PROPOSED] — Measure of the complement at a given $\gamma$
+* `bp:p4:map-lipschitz` [PROPOSED] — The displacement is small and $\tfrac12$-Lipschitz
+* `bp:p4:matrix-norms` [PROPOSED] — Matrix norms
+* `bp:p4:mixed-difference` [PROPOSED] — Mixed second differences
+* `bp:p4:normalize` [PROPOSED] — Properties of $K_\omega$
+* `bp:p4:normalized-torus` [PROPOSED] — The normalized torus $K_\omega$
+* `bp:p4:parameters` [PROPOSED] — Parameters of the applications of G1 and G2
+* `bp:p4:phase-average` [PROPOSED] — Angle displacement and phase average
+* `bp:p4:preimage-measure` [PROPOSED] — Actions with non-Diophantine frequency
+* `bp:p4:real-torus` [PROPOSED] — The real tori are KAM tori
+* `bp:p4:shift` [PROPOSED] — Phase shifts
+* `bp:p4:slab` [PROPOSED] — Slabs in a cube
+* `bp:p4:smallness` [PROPOSED] — Smallness consequences
+* `bp:p4:stab` [PROPOSED] — STAB
+* `bp:p4:torsion-regular` [PROPOSED] — Guarded facts for the frame and the torsion
+* `bp:p4:unperturbed` [PROPOSED] — Geometry of the unperturbed torus
+* `step:p1:am-bound` [PROPOSED] — The bound
+* `step:p1:am-derivative` [PROPOSED] — Derivative along $\omega$
+* `step:p1:ar-fubini` [PROPOSED] — Fubini
+* `step:p1:ar-one` [PROPOSED] — One variable
+* `step:p1:av-bound` [PROPOSED] — The bound
+* `step:p1:av-derivatives` [PROPOSED] — Derivatives
+* `step:p1:cc-omega` [PROPOSED] — Derivative along $\omega$
+* `step:p1:cc-transpose` [PROPOSED] — Transposed derivative
+* `step:p1:co-constants` [PROPOSED] — Constants
+* `step:p1:co-first` [PROPOSED] — First derivatives
+* `step:p1:co-second` [PROPOSED] — Second derivatives
+* `step:p1:co-third` [PROPOSED] — Third derivatives
+* `step:p1:coh-coefficients` [PROPOSED] — The coefficient solution
+* `step:p1:coh-data` [PROPOSED] — Coefficients of the datum
+* `step:p1:coh-equation` [PROPOSED] — The equation
+* `step:p1:coh-existence` [PROPOSED] — Existence
+* `step:p1:coh-real` [PROPOSED] — Realness
+* `step:p1:coh-unique` [PROPOSED] — Uniqueness
+* `step:p1:coh-vector` [PROPOSED] — Vector- and matrix-valued data
+* `step:p1:coh-weighted` [PROPOSED] — Weighted estimate
+* `step:p1:coo-apriori` [PROPOSED] — A-priori form
+* `step:p1:coo-entries` [PROPOSED] — The entrywise solution
+* `step:p1:coo-norm` [PROPOSED] — Operator norm
+* `step:p1:coo-vectors` [PROPOSED] — Testing against vectors
+* `step:p1:cs-coordinate` [PROPOSED] — One coordinate
+* `step:p1:cs-full` [PROPOSED] — The full derivative
+* `step:p1:dec-bound` [PROPOSED] — The bound
+* `step:p1:dec-shift` [PROPOSED] — Shifting one variable
+* `step:p1:es-nonzero` [PROPOSED] — Nonzero modes
+* `step:p1:es-power` [PROPOSED] — The power times the exponential
+* `step:p1:es-product` [PROPOSED] — Product structure
+* `step:p1:fb-derivative` [PROPOSED] — Derivatives
+* `step:p1:fb-holomorphic` [PROPOSED] — Holomorphic functions
+* `step:p1:fb-series` [PROPOSED] — Fourier series
+* `step:p1:han-bounds` [PROPOSED] — Coefficient bounds
+* `step:p1:han-cauchy` [PROPOSED] — Iterated Cauchy formula
+* `step:p1:han-margin` [PROPOSED] — A larger polydisc
+* `step:p1:han-real` [PROPOSED] — Real points
+* `step:p1:han-series` [PROPOSED] — Geometric expansion
+* `step:p1:hi-derivative` [PROPOSED] — Derivative
+* `step:p1:hi-holomorphic` [PROPOSED] — Holomorphy
+* `step:p1:hr-components` [PROPOSED] — Components
+* `step:p1:hr-derivative` [PROPOSED] — The real derivative
+* `step:p1:hr-matrix` [PROPOSED] — Matrix form
+* `step:p1:hreg-differentiate` [PROPOSED] — Differentiation under the integral
+* `step:p1:hreg-full` [PROPOSED] — The full derivative
+* `step:p1:hreg-integral` [PROPOSED] — A Cauchy integral for the derivative
+* `step:p1:hreg-line` [PROPOSED] — Cauchy's estimate along lines
+* `step:p1:hreg-orders` [PROPOSED] — All orders
+* `step:p1:hreg-symmetry` [PROPOSED] — Symmetry
+* `step:p1:inc-cauchy` [PROPOSED] — With the Cauchy estimate
+* `step:p1:inc-mvt` [PROPOSED] — Mean value inequality
+* `step:p1:io-mvt` [PROPOSED] — Mean value inequality
+* `step:p1:it-linear` [PROPOSED] — The form linear in $y_0$
+* `step:p1:it-super` [PROPOSED] — Super-exponential decay
+* `step:p1:li-cubes` [PROPOSED] — Covers by cubes
+* `step:p1:li-image` [PROPOSED] — Image of one cube
+* `step:p1:li-preimage` [PROPOSED] — Preimages of null sets
+* `step:p1:li-product` [PROPOSED] — Products
+* `step:p1:li-sum` [PROPOSED] — Summation
+* `step:p1:lipeo-bounds` [PROPOSED] — Bi-Lipschitz bounds
+* `step:p1:lipeo-onto` [PROPOSED] — Surjectivity
+* `step:p1:lipeo-zero` [PROPOSED] — The set where $G$ vanishes
+* `step:p1:mc-clamp` [PROPOSED] — Clamping
+* `step:p1:mc-component` [PROPOSED] — One component
+* `step:p1:mc-components` [PROPOSED] — All components
+* `step:p1:mn-products` [PROPOSED] — Products
+* `step:p1:mn-signed` [PROPOSED] — $\Omega_0$ and stacked blocks
+* `step:p1:mn-transpose` [PROPOSED] — Transposes
+* `step:p1:neu-difference` [PROPOSED] — The difference
+* `step:p1:neu-inverse` [PROPOSED] — The inverse of $A+\Delta$
+* `step:p1:neu-pointwise` [PROPOSED] — Matrix-valued functions
+* `step:p1:neu-series` [PROPOSED] — The Neumann series
+* `step:p1:opn-blocks` [PROPOSED] — Blocks
+* `step:p1:opn-omega` [PROPOSED] — The matrix $\Omega_0$
+* `step:p1:opn-rowsum` [PROPOSED] — Row sums
+* `step:p1:pa-induction` [PROPOSED] — One coordinate at a time
+* `step:p1:pa-one` [PROPOSED] — One variable
+* `step:p1:pb-compact` [PROPOSED] — A compact fundamental set
+* `step:p1:ri-adjugate` [PROPOSED] — Adjugate
+* `step:p1:rr-analytic` [PROPOSED] — Analyticity
+* `step:p1:rr-consequences` [PROPOSED] — Norm and primarity
+* `step:p1:rr-derivative` [PROPOSED] — The derivative
+* `step:p1:si-induction` [PROPOSED] — One coordinate at a time
+* `step:p1:sum-bound` [PROPOSED] — Convergence and the bound
+* `step:p1:sum-coeff` [PROPOSED] — Coefficients
+* `step:p1:sum-converse` [PROPOSED] — The converse estimate
+* `step:p1:sum-holo` [PROPOSED] — Holomorphy
+* `step:p1:sum-representation` [PROPOSED] — Fourier representation
+* `step:p1:tay-integrate` [PROPOSED] — Integration
+* `step:p1:tay-lipschitz` [PROPOSED] — The derivative along the segment
+* `step:p1:ul-derivative` [PROPOSED] — Differentiability of the limit
+* `step:p1:ul-differences` [PROPOSED] — Linearization error of the differences
+* `step:p1:ul-limit` [PROPOSED] — Passage to the limit
+* `step:p1:ul-primary` [PROPOSED] — Periodicity and realness
+* `step:p2:avg-bound` [PROPOSED] — Integrability and the bound
+* `step:p2:avg-deriv` [PROPOSED] — Derivatives
+* `step:p2:coh-apriori` [PROPOSED] — The a-priori bound
+* `step:p2:coh-components` [PROPOSED] — Componentwise solution
+* `step:p2:cor-absorb` [PROPOSED] — Absorbing powers of $\gamma\delta$
+* `step:p2:cor-data` [PROPOSED] — The data of the triangular system
+* `step:p2:cor-dxi` [PROPOSED] — Bound on $\partial_\omega\xi$
+* `step:p2:cor-reg` [PROPOSED] — Regularity of the correction
+* `step:p2:cor-xi` [PROPOSED] — Bounds on $\xi$ and $\Delta K$
+* `step:p2:cor-xin` [PROPOSED] — Bounds on $\xi^N$ and $g^L$
+* `step:p2:ed-errors` [PROPOSED] — The errors of the schedule
+* `step:p2:ed-sums` [PROPOSED] — Sums
+* `step:p2:ex-avg-eta` [PROPOSED] — Average of $L^\top\Omega_0E$
+* `step:p2:ex-avg-omega` [PROPOSED] — Average of $\Omega_K$
+* `step:p2:ex-curl` [PROPOSED] — $\Omega_K$ is a curl of periodic functions
+* `step:p2:ex-gradient` [PROPOSED] — The gradient identity
+* `step:p2:fb-bounds` [PROPOSED] — Frame bounds
+* `step:p2:fb-eta` [PROPOSED] — Bounds on $\eta$
+* `step:p2:fb-holo` [PROPOSED] — Holomorphy
+* `step:p2:fb-torsion` [PROPOSED] — Torsion bound
+* `step:p2:fi-22` [PROPOSED] — The $(2,2)$ block
+* `step:p2:fi-blocks` [PROPOSED] — Block form of the reduced field
+* `step:p2:fi-dl` [PROPOSED] — Derivative of the frame along $\omega$
+* `step:p2:fi-domegak` [PROPOSED] — Derivative of $\Omega_K$
+* `step:p2:fi-products` [PROPOSED] — Products with $\Omega_0$
+* `step:p2:fi-q` [PROPOSED] — The products with $Q$
+* `step:p2:fi-sym` [PROPOSED] — Symplecticity defect
+* `step:p2:freq-lower` [PROPOSED] — Lower bound
+* `step:p2:freq-solve` [PROPOSED] — Solving for $\omega$
+* `step:p2:freq-upper` [PROPOSED] — Upper bound
+* `step:p2:g1-apply` [PROPOSED] — Iteration and limit
+* `step:p2:g1-check` [PROPOSED] — Checking the conclusion
+* `step:p2:g1-constants` [PROPOSED] — The constants
+* `step:p2:g1-e` [PROPOSED] — Size of the error
+* `step:p2:g1-standing` [PROPOSED] — The standing assumptions
+* `step:p2:geo-de` [PROPOSED] — Derivatives of the error
+* `step:p2:geo-domegak` [PROPOSED] — Bound on $\partial_\omega\Omega_K$
+* `step:p2:geo-ered` [PROPOSED] — Bound on $E_{\mathrm{red}}$
+* `step:p2:geo-esym` [PROPOSED] — The symplecticity defect
+* `step:p2:geo-omegak` [PROPOSED] — The Lagrangian defect by the cohomological equation
+* `step:p2:ham-mvt` [PROPOSED] — Mean value estimates
+* `step:p2:ham-periodic` [PROPOSED] — Periodicity
+* `step:p2:ham-real` [PROPOSED] — Realness
+* `step:p2:ham-regular` [PROPOSED] — Regularity
+* `step:p2:ham-symplectic` [PROPOSED] — Symplectic identity
+* `step:p2:it-base` [PROPOSED] — Base case
+* `step:p2:it-step` [PROPOSED] — Inductive step
+* `step:p2:it-stepsmall` [PROPOSED] — Step smallness at every stage
+* `step:p2:it-sums` [PROPOSED] — Summed bounds
+* `step:p2:lim-close` [PROPOSED] — Closeness
+* `step:p2:lim-dk` [PROPOSED] — Uniform convergence of $DK_s$
+* `step:p2:lim-holo` [PROPOSED] — Holomorphy of the limit
+* `step:p2:lim-invariance` [PROPOSED] — Invariance
+* `step:p2:lim-k` [PROPOSED] — Uniform convergence of $K_s$
+* `step:p2:lim-margins` [PROPOSED] — Margins
+* `step:p2:lim-primary` [PROPOSED] — Primary and real
+* `step:p2:matrix-blocks` [PROPOSED] — Blocks and $\Omega_0$
+* `step:p2:matrix-op` [PROPOSED] — Operator norm
+* `step:p2:matrix-transpose` [PROPOSED] — Transpose and products
+* `step:p2:ne-domain` [PROPOSED] — The corrected torus stays in the domain
+* `step:p2:ne-expand` [PROPOSED] — Expansion of the new error
+* `step:p2:ne-invert` [PROPOSED] — Invertibility of $S$ and of $Q$
+* `step:p2:ne-lin` [PROPOSED] — Estimate of the linear part
+* `step:p2:ne-quad` [PROPOSED] — Estimate of the quadratic part
+* `step:p2:ne-reduce` [PROPOSED] — Reduction by $Q$
+* `step:p2:ne-total` [PROPOSED] — The quadratic estimate
+* `step:p2:per-compose` [PROPOSED] — Periodicity of the composed objects
+* `step:p2:per-dk` [PROPOSED] — Periodicity of $DK$ and $K^I$
+* `step:p2:per-real` [PROPOSED] — Realness
+* `step:p2:pt-binv` [PROPOSED] — Gram inverse (invertibility before use)
+* `step:p2:pt-dl` [PROPOSED] — Tangent frame
+* `step:p2:pt-domain` [PROPOSED] — Domain
+* `step:p2:pt-gram` [PROPOSED] — Gram matrix
+* `step:p2:pt-n` [PROPOSED] — Normal frame
+* `step:p2:pt-small` [PROPOSED] — Consequences of the smallness
+* `step:p2:pt-torsion` [PROPOSED] — Torsion
+* `step:p2:pt-twist` [PROPOSED] — Twist (integrability and invertibility before use)
+* `step:p2:pt-xn` [PROPOSED] — Displacement of the normal frame
+* `step:p2:st-ball` [PROPOSED] — Ball margin
+* `step:p2:st-error` [PROPOSED] — Correction and new error
+* `step:p2:st-perturb` [PROPOSED] — Perturbation on the strip $T_{r-2\delta}$
+* `step:p2:st-small` [PROPOSED] — The smallness conditions used
+* `step:p2:tri-first` [PROPOSED] — First cohomological equation
+* `step:p2:tri-form` [PROPOSED] — Triangular form
+* `step:p2:tri-real` [PROPOSED] — Realness
+* `step:p2:tri-second` [PROPOSED] — Second cohomological equation
+* `step:p2:tri-xi0` [PROPOSED] — The torsion average fixes $\xi^N_0$
+* `step:p3:diff-bounds` [PROPOSED] — Bounds
+* `step:p3:diff-linearized` [PROPOSED] — Linearized equation
+* `step:p3:diff-regularity` [PROPOSED] — Regularity and periodicity
+* `step:p3:diff-triangular` [PROPOSED] — Triangular system
+* `step:p3:frequency-gamma` [PROPOSED] — Bound on $\gamma$
+* `step:p3:frequency-omega` [PROPOSED] — Bound on $\omega$
+* `step:p3:g2-conclusion` [PROPOSED] — Conclusion
+* `step:p3:g2-constant` [PROPOSED] — Choice of the threshold
+* `step:p3:g2-iteration` [PROPOSED] — Iteration on shrinking strips
+* `step:p3:g2-phase` [PROPOSED] — Phase
+* `step:p3:g2-size` [PROPOSED] — Size of the difference
+* `step:p3:g2-smallness` [PROPOSED] — The three smallness conditions
+* `step:p3:lagrangian-transport` [PROPOSED] — Invariance of $\Omega_{K_1}$ along the flow
+* `step:p3:lagrangian-unique` [PROPOSED] — Nonresonance
+* `step:p3:norms-frame` [PROPOSED] — The frame
+* `step:p3:phase-conclusion` [PROPOSED] — Conclusion
+* `step:p3:phase-contraction` [PROPOSED] — Contraction
+* `step:p3:phase-derivatives` [PROPOSED] — Derivative bounds on the real torus
+* `step:p3:phase-fixed-point` [PROPOSED] — Fixed-point form
+* `step:p3:phase-real` [PROPOSED] — Realness
+* `step:p3:quad-combine` [PROPOSED] — Return to $\Delta$
+* `step:p3:quad-normal` [PROPOSED] — The normal coordinate
+* `step:p3:quad-normal-avg` [PROPOSED] — Average of the normal coordinate
+* `step:p3:quad-normal-osc` [PROPOSED] — Oscillating part of the normal coordinate
+* `step:p3:quad-remainder` [PROPOSED] — The remainder
+* `step:p3:quad-tangent` [PROPOSED] — The tangential coordinate
+* `step:p3:red-assembly` [PROPOSED] — Assembly
+* `step:p3:red-frame` [PROPOSED] — Symplectic frame
+* `step:p3:red-holomorphy` [PROPOSED] — Holomorphy
+* `step:p3:red-normal` [PROPOSED] — Normal columns
+* `step:p3:red-tangent` [PROPOSED] — Tangent columns
+* `step:p3:torsion-bound-step` [PROPOSED] — Bound
+* `step:p3:torsion-holomorphy` [PROPOSED] — Holomorphy
+* `step:p4:apply-g1` [PROPOSED] — Application of G1 at the unperturbed torus
+* `step:p4:cm-proof` [PROPOSED] — Same witnesses
+* `step:p4:count-projection` [PROPOSED] — Projection to the first $n-1$ coordinates
+* `step:p4:db-cauchy` [PROPOSED] — Cauchy estimates
+* `step:p4:db-polydisc` [PROPOSED] — Polydiscs
+* `step:p4:db-vectorfield` [PROPOSED] — From $D\pfh$ to $X_\pfh$
+* `step:p4:dy-exhaust` [PROPOSED] — Dyadic exhaustion
+* `step:p4:dy-layer` [PROPOSED] — Boundary layer
+* `step:p4:dy-open` [PROPOSED] — The open set
+* `step:p4:fm-bounds` [PROPOSED] — Bounds
+* `step:p4:fm-domain` [PROPOSED] — The real domain
+* `step:p4:fm-gradient` [PROPOSED] — Guarded fact: the frozen frequency map is the gradient
+* `step:p4:fm-hessian` [PROPOSED] — The Hessian
+* `step:p4:fm-lipschitz` [PROPOSED] — Lipschitz bound on $B$
+* `step:p4:g3-cube` [PROPOSED] — Bounding cube and constant
+* `step:p4:g3-n0` [PROPOSED] — The case $n=0$
+* `step:p4:g3-sum` [PROPOSED] — Summation
+* `step:p4:g3-union` [PROPOSED] — Union of slabs
+* `step:p4:h1-bounds` [PROPOSED] — Derivative bounds
+* `step:p4:h1-holo` [PROPOSED] — Holomorphy, periodicity, reality
+* `step:p4:h1-open` [PROPOSED] — Openness and invariance
+* `step:p4:hbdd-compact` [PROPOSED] — A compact set between the neighbourhoods
+* `step:p4:hbdd-continuity` [PROPOSED] — Continuity
+* `step:p4:head-constants` [PROPOSED] — Constants
+* `step:p4:head-empty` [PROPOSED] — Empty action domain
+* `step:p4:head-negative` [PROPOSED] — Negative $\varepsilon$
+* `step:p4:head-positive` [PROPOSED] — Positive $\varepsilon$
+* `step:p4:head-zero` [PROPOSED] — Vanishing perturbation
+* `step:p4:hess-norm` [PROPOSED] — Inverse and its norm
+* `step:p4:hess-quotient` [PROPOSED] — Difference quotients
+* `step:p4:hq-approx` [PROPOSED] — Inner approximation
+* `step:p4:hq-cover` [PROPOSED] — Comparison of covers
+* `step:p4:hq-head` [PROPOSED] — HEAD for $B'$
+* `step:p4:hq-transfer` [PROPOSED] — Transfer of the perturbation hypotheses
+* `step:p4:hq-trivial` [PROPOSED] — Trivial cases
+* `step:p4:invfreq-proof` [PROPOSED] — Inverse Lipschitz bound
+* `step:p4:lag-exact` [PROPOSED] — $\Lambda$ is a sum of derivatives
+* `step:p4:lag-regular` [PROPOSED] — Regularity and periodicity
+* `step:p4:lag-transport` [PROPOSED] — $\Lambda$ is constant along $\omega$
+* `step:p4:lag-unique` [PROPOSED] — Uniqueness for the cohomological equation
+* `step:p4:latsum-integral` [PROPOSED] — Integral comparison
+* `step:p4:latsum-shells` [PROPOSED] — Summation by shells
+* `step:p4:le-basic` [PROPOSED] — Elementary properties
+* `step:p4:le-f` [PROPOSED] — The perturbation
+* `step:p4:le-h` [PROPOSED] — The integrable part: a mixed difference
+* `step:p4:le-split` [PROPOSED] — Splitting the error
+* `step:p4:le-sum` [PROPOSED] — Sum
+* `step:p4:le-transport` [PROPOSED] — The transport term
+* `step:p4:lip-close` [PROPOSED] — Conclusion for close pairs
+* `step:p4:lip-far` [PROPOSED] — Far pairs
+* `step:p4:lip-g1` [PROPOSED] — Re-application of G1 at $\omega'$
+* `step:p4:lip-g2` [PROPOSED] — Local uniqueness at $\omega'$
+* `step:p4:lip-phase` [PROPOSED] — The phase is controlled by normalization
+* `step:p4:mixed-proof` [PROPOSED] — Two mean value inequalities
+* `step:p4:ml-good` [PROPOSED] — Two good actions
+* `step:p4:ml-mixed` [PROPOSED] — A good action and a boundary action
+* `step:p4:ml-size` [PROPOSED] — Disjointness and size
+* `step:p4:mm-bad` [PROPOSED] — Bad actions
+* `step:p4:mm-complement` [PROPOSED] — The complement is the image of bad actions
+* `step:p4:mm-count` [PROPOSED] — Measure count
+* `step:p4:mm-extension` [PROPOSED] — Extension and lipeomorphism
+* `step:p4:mm-tori` [PROPOSED] — Good actions lie on tori
+* `step:p4:mn-rowsum` [PROPOSED] — Row sums
+* `step:p4:normalize-proof` [PROPOSED] — Shift of the G1 output
+* `step:p4:pm-proof` [PROPOSED] — Image under the inverse frequency map
+* `step:p4:rt-analytic` [PROPOSED] — Analyticity and primarity
+* `step:p4:rt-cover` [PROPOSED] — Cover clauses
+* `step:p4:rt-embedding` [PROPOSED] — Embedding modulo $\Z^n$
+* `step:p4:rt-immersion` [PROPOSED] — Immersion
+* `step:p4:rt-lagrangian` [PROPOSED] — Lagrangian
+* `step:p4:rt-ode` [PROPOSED] — Hamilton's equations
+* `step:p4:rt-small` [PROPOSED] — Small angle displacement
+* `step:p4:shift-phase` [PROPOSED] — Phase average
+* `step:p4:shift-translation` [PROPOSED] — Translation
+* `step:p4:slab-coordinate` [PROPOSED] — A dominant coordinate
+* `step:p4:slab-fubini` [PROPOSED] — Fubini in the coordinate $\omega_i$
+* `step:p4:small-proof` [PROPOSED] — Reduction to $c_*$
+* `step:p4:stab-ball` [PROPOSED] — Neighbourhood
+* `step:p4:stab-cauchy` [PROPOSED] — Cauchy estimates
+* `step:p4:stab-frame` [PROPOSED] — Normal frame
+* `step:p4:stab-gram` [PROPOSED] — Gram matrix
+* `step:p4:stab-h2h4` [PROPOSED] — The hypotheses H2--H4
+* `step:p4:stab-small` [PROPOSED] — Smallness bookkeeping
+* `step:p4:stab-torsion` [PROPOSED] — Torsion
+* `step:p4:stab-twist` [PROPOSED] — Twist
+* `step:p4:stab-xn` [PROPOSED] — The vector $X_N$
+* `step:p4:tr-inverse` [PROPOSED] — Inverse
+* `step:p4:tr-periodic` [PROPOSED] — Periodicity
+* `step:p4:tr-torsion` [PROPOSED] — Frame and torsion
+* `step:p4:unp-ball` [PROPOSED] — Neighbourhood
+* `step:p4:unp-error` [PROPOSED] — Invariance error
+* `step:p4:unp-frame` [PROPOSED] — Frame and Gram matrix
+* `step:p4:unp-normal` [PROPOSED] — Normal frame
+* `step:p4:unp-torsion` [PROPOSED] — Torsion
+* `step:p4:unp-twist` [PROPOSED] — Twist
+
+### Dependency leaves in root closure
+
+* `bp:p0:diophantine#IsDiophantine` [PROPOSED] — Diophantine vectors: KAM.IsDiophantine
+* `bp:p0:domains#actionNbhd` [PROPOSED] — Complex neighbourhoods and the fundamental domain: KAM.actionNbhd
+* `bp:p0:domains#complexStrip` [PROPOSED] — Complex neighbourhoods and the fundamental domain: KAM.complexStrip
+* `bp:p0:domains#fundamentalDomain` [PROPOSED] — Complex neighbourhoods and the fundamental domain: KAM.fundamentalDomain
+* `bp:p0:hamiltonian#hamiltonianVectorField` [PROPOSED] — Hamiltonian vector fields, symplectic form: KAM.hamiltonianVectorField
+* `bp:p0:hamiltonian#hamiltonianVectorFieldC` [PROPOSED] — Hamiltonian vector fields, symplectic form: KAM.hamiltonianVectorFieldℂ
+* `bp:p0:hamiltonian#omegaZero` [PROPOSED] — Hamiltonian vector fields, symplectic form: KAM.omegaZero
+* `bp:p0:hamiltonian#symplecticForm` [PROPOSED] — Hamiltonian vector fields, symplectic form: KAM.symplecticForm
+* `bp:p0:nearlyintegrable#frequencyMap` [PROPOSED] — The integrable part, the perturbation, the frequency map: KAM.frequencyMap
+* `bp:p0:nearlyintegrable#realHamiltonian` [PROPOSED] — The integrable part, the perturbation, the frequency map: KAM.realHamiltonian
+* `bp:p0:stripdata#IsRealOnReals` [PROPOSED] — Torus data on strips: KAM.IsRealOnReals
+* `bp:p0:stripdata#dotC` [PROPOSED] — Torus data on strips: KAM.dotℂ
+* `bp:p1:ext-banach` [PROPOSED] — Banach's fixed point theorem
+* `bp:p1:ext-cauchy` [PROPOSED] — Cauchy's formulas in one variable
+* `bp:p1:ext-cramer` [PROPOSED] — Cramer's rule
+* `bp:p1:ext-fourier` [PROPOSED] — Fourier series on the torus
+* `bp:p1:ext-identity` [PROPOSED] — Identity theorem in one variable
+* `bp:p1:ext-integral` [PROPOSED] — Integrals
+* `bp:p1:ext-lebesgue` [PROPOSED] — Lebesgue outer measure
+* `bp:p1:ext-mvt` [PROPOSED] — Mean value inequality
+* `bp:p1:ext-rectangle` [PROPOSED] — Cauchy's theorem for rectangles
+* `bp:p1:ext-schwarz` [PROPOSED] — Symmetry of second derivatives
+* `bp:p1:lip-image-product#product-lebesgue` [PROPOSED] — Product of Lebesgue measures is Lebesgue measure on R^{2n}
+* `bp:p1:lipeo-fixed` [PROPOSED] — Bijections fixing a set
+* `bp:p1:real-restriction-consequences` [PROPOSED] — Real restrictions of linear and primary maps
+* `bp:p4:phase-average` [PROPOSED] — Angle displacement and phase average
+* `step:p1:es-power` [PROPOSED] — The power times the exponential
+* `step:p1:es-product` [PROPOSED] — Product structure
+* `step:p1:han-margin` [PROPOSED] — A larger polydisc
+* `step:p1:hr-derivative` [PROPOSED] — The real derivative
+* `step:p1:it-linear` [PROPOSED] — The form linear in $y_0$
+* `step:p1:it-super` [PROPOSED] — Super-exponential decay
+* `step:p1:li-image` [PROPOSED] — Image of one cube
+* `step:p1:lipeo-bounds` [PROPOSED] — Bi-Lipschitz bounds
+* `step:p1:mc-component` [PROPOSED] — One component
+* `step:p1:mn-transpose` [PROPOSED] — Transposes
+* `step:p1:opn-rowsum` [PROPOSED] — Row sums
+* `step:p1:pb-compact` [PROPOSED] — A compact fundamental set
+* `step:p1:rr-derivative` [PROPOSED] — The derivative
+* `step:p1:sum-bound` [PROPOSED] — Convergence and the bound
+* `step:p3:diff-linearized` [PROPOSED] — Linearized equation
+* `step:p3:phase-fixed-point` [PROPOSED] — Fixed-point form
+* `step:p4:count-projection` [PROPOSED] — Projection to the first $n-1$ coordinates
+* `step:p4:dy-exhaust` [PROPOSED] — Dyadic exhaustion
+* `step:p4:fm-domain` [PROPOSED] — The real domain
+* `step:p4:hbdd-compact` [PROPOSED] — A compact set between the neighbourhoods
+* `step:p4:head-empty` [PROPOSED] — Empty action domain
+* `step:p4:head-negative` [PROPOSED] — Negative $\varepsilon$
+* `step:p4:hq-trivial` [PROPOSED] — Trivial cases
+* `step:p4:latsum-integral` [PROPOSED] — Integral comparison
+* `step:p4:slab-coordinate` [PROPOSED] — A dominant coordinate
+
+### Assumption boundary leaves
+
+* _(none)_
+
+### External boundary leaves
+
+* `bp:p1:ext-banach` [PROPOSED] — Banach's fixed point theorem
+* `bp:p1:ext-cauchy` [PROPOSED] — Cauchy's formulas in one variable
+* `bp:p1:ext-cramer` [PROPOSED] — Cramer's rule
+* `bp:p1:ext-fourier` [PROPOSED] — Fourier series on the torus
+* `bp:p1:ext-identity` [PROPOSED] — Identity theorem in one variable
+* `bp:p1:ext-integral` [PROPOSED] — Integrals
+* `bp:p1:ext-lebesgue` [PROPOSED] — Lebesgue outer measure
+* `bp:p1:ext-mvt` [PROPOSED] — Mean value inequality
+* `bp:p1:ext-rectangle` [PROPOSED] — Cauchy's theorem for rectangles
+* `bp:p1:ext-schwarz` [PROPOSED] — Symmetry of second derivatives
+
+### Uncovered graph nodes
+
+* _(none)_
+
+### Nodes outside every root closure
+
+* _(none)_
+
+### Explicit source gaps
+
+* `bp:p1:lip-image-product#product-lebesgue` [PROPOSED] — Product of Lebesgue measures is Lebesgue measure on R^{2n}
 <!-- END PROOF DEPGRAPH GENERATED -->
