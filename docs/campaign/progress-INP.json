@@ -94,8 +94,8 @@
    "id": "N.ADD.PHASE0",
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.15,
-   "note": "drafting (kam-track-n)"
+   "done": 0.3,
+   "note": "drafted (v0.3, d7ad21c); independent GPT-6.1-Sol statement audit running"
   },
   {
    "group": "Track N (Nekhoroshev)",

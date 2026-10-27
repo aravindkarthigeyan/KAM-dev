@@ -16,8 +16,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N additions Phase 0 (D22): N-PARTIAL-CONVEX, N-AVERAGING",
-   "state": "running"
+   "assignment": "Track N additions Phase 0 (D22): drafted (READY additions-N, d7ad21c); draft under audit",
+   "state": "done"
   },
   {
    "id": "track-P",
@@ -35,6 +35,15 @@
    "account": "codex-1",
    "session": "inp-audit-p",
    "assignment": "Independent statement audit of the track-P D22 additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX)",
+   "state": "running"
+  },
+  {
+   "id": "audit-add-N",
+   "kind": "statement audit (Codex)",
+   "model": "GPT-6.1-Sol high",
+   "account": "codex-4",
+   "session": "inp-audit-n",
+   "assignment": "Independent statement audit of the track-N D22 additions (N-PARTIAL-CONVEX, N-AVERAGING)",
    "state": "running"
   },
   {
