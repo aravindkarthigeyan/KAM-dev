@@ -40,3 +40,5 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
     and the measure of the Diophantine set (Pos01 §1d).
   - Q5: n ≥ 2; B bounded, with a regular boundary for the rate form; ∇h bi-Lipschitz on B̄; h + f real-analytic
     on a uniform complex neighbourhood of Tⁿ × B̄.
+- **D10 (2026-10-27) Public ledger.** The errata and deviations ledger stays public, CANDIDATE entries included;
+  each is labelled unverified until checked against the pinned PDF. *(Scott: "keep the ledger public, it's fine")*
