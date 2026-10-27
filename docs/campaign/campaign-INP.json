@@ -10,48 +10,39 @@
    "state": "active"
   },
   {
-   "id": "bpP-p11a2",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track P Part 11a-2: cutoff, homological equation, KAM step (Russmann route for P-FIXED)",
-   "state": "running"
-  },
-  {
-   "id": "graphN-ext",
-   "kind": "graph extractor (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track N dependency graph: slices N-p11ab, N-p11c (N-PARTIAL-CONVEX)",
-   "state": "running"
-  },
-  {
-   "id": "design-N3",
+   "id": "design-N145",
    "kind": "Lean design writer (subagent)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Lean design with exact signatures for blueprint-N Part 3 (shared Hamiltonian ODE layer)",
+   "assignment": "Lean design for blueprint-N Parts 1, 4, 5 (interfaces, weighted norms, Lie series, canonical maps)",
    "state": "running"
   },
   {
-   "id": "seal-W1",
-   "kind": "seal audit (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "inp-seal-1",
-   "assignment": "Seal audit of package W1: I-KEPLER, N-QC, N-ZERO providers",
+   "id": "design-I58",
+   "kind": "Lean design writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Lean design for blueprint-I Parts 5, 8 (I-HEAD confinement, I-R3BP)",
    "state": "running"
   },
   {
-   "id": "grev-1",
-   "kind": "graph review (Codex)",
+   "id": "design-kep",
+   "kind": "Lean design writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Kepler/Delaunay shared layer design: revision after audit 1 (FAIL: F1-F7)",
+   "state": "running"
+  },
+  {
+   "id": "glob-n",
+   "kind": "graph global review (Codex)",
    "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "inp-grev-1",
-   "assignment": "Track I graph: third-pass review of I-imports, I-nown",
+   "account": "codex-4",
+   "session": "inp-glob-n",
+   "assignment": "Track N graph: global root-closure review",
    "state": "running"
   },
   {
@@ -60,61 +51,106 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-1",
    "session": "inp-bprev-2",
-   "assignment": "Track I graph: third-pass review of I-p2, I-p5, I-p8",
+   "assignment": "Track I graph: delta review of the Part 1 amendment",
    "state": "running"
   },
   {
-   "id": "grev-3",
-   "kind": "graph review (Codex)",
+   "id": "glob-i",
+   "kind": "graph global review (Codex)",
    "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
-   "session": "inp-grev-3",
-   "assignment": "Track I graph: third-pass review of I-p67a, I-p7b",
-   "state": "running"
-  },
-  {
-   "id": "grev-2",
-   "kind": "graph review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-4",
-   "session": "inp-grev-2",
-   "assignment": "Track N graph: slice review N-p02, N-p1",
-   "state": "running"
-  },
-  {
-   "id": "grev-4",
-   "kind": "graph review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "inp-grev-4",
-   "assignment": "Track N graph: slice review N-p4, N-p5",
-   "state": "running"
-  },
-  {
-   "id": "rev-n11",
-   "kind": "graph review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-4",
-   "session": "inp-rev-n11",
-   "assignment": "Track N graph: slice review N-p3a, N-p3b (earlier: N Part 12 review, REVISE)",
-   "state": "running"
-  },
-  {
-   "id": "track-N",
-   "kind": "Phase 0 (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-3",
-   "session": "kam-track-n",
-   "assignment": "N additions drafter (D25/D28 frozen); idle",
+   "session": "inp-glob-i",
+   "assignment": "Track I graph: global review (round 3 pending)",
    "state": "idle"
   },
   {
-   "id": "track-P",
-   "kind": "Phase 0 (Codex)",
+   "id": "grev-1",
+   "kind": "reviewer/auditor (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-grev-1",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
+   "state": "idle"
+  },
+  {
+   "id": "grev-2",
+   "kind": "reviewer/auditor (Codex)",
    "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
-   "session": "kam-track-p",
-   "assignment": "P additions drafter (D25 frozen); idle",
+   "session": "inp-grev-2",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
+   "state": "idle"
+  },
+  {
+   "id": "grev-3",
+   "kind": "reviewer/auditor (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "inp-grev-3",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
+   "state": "idle"
+  },
+  {
+   "id": "grev-4",
+   "kind": "reviewer/auditor (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-grev-4",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
+   "state": "idle"
+  },
+  {
+   "id": "grev-5",
+   "kind": "reviewer/auditor (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "inp-grev-5",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
+   "state": "idle"
+  },
+  {
+   "id": "rev-n11",
+   "kind": "reviewer/auditor (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "inp-rev-n11",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
+   "state": "idle"
+  },
+  {
+   "id": "rev-p11a",
+   "kind": "reviewer/auditor (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "inp-rev-p11a",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
+   "state": "idle"
+  },
+  {
+   "id": "seal-1",
+   "kind": "reviewer/auditor (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-seal-1",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
+   "state": "idle"
+  },
+  {
+   "id": "dsgn-1",
+   "kind": "reviewer/auditor (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-dsgn-1",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
+   "state": "idle"
+  },
+  {
+   "id": "aud-2",
+   "kind": "reviewer/auditor (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-aud-2",
+   "assignment": "graph/blueprint reviews and package audits; idle between tasks",
    "state": "idle"
   }
  ]
