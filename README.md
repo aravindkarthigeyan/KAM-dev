@@ -118,7 +118,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:19 UTC from `main` at `d27ab4d` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:19 UTC from `main` at `1f4bdd2` by `scripts/hq-status.py`.*
 
 **Current phase:** Phase 0 complete: the headline (rate and qualitative), G1, G2, G3 and 20 definitions are approved and frozen (D11). Phase 1 next: blueprint and source-level dependency graph anchored to the frozen statements; infrastructure (weighted Fourier algebras) can start in parallel.
 
@@ -238,6 +238,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:19 | `1f4bdd2` | HQ updater: merge collaborators' pushes to main before regenerating |
+| 2026-10-27 15:19 | `59daeac` | Merge Zohar's Fourier and Diophantine infrastructure into the frozen-statement main |
 | 2026-10-27 15:16 | `1f0d755` | Freeze the approved KAM statements (D11) |
 | 2026-10-27 15:09 | `ed21566` | Statement drafts v0.2 audited; ledger and plan updated; exploration launched |
 | 2026-10-27 14:35 | `4db4826` | Record D10: the errata ledger stays public |
