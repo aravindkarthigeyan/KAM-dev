@@ -164,8 +164,7 @@ whose interior contains
     {(ℓ,g,L,G)∈S_(ĒV): |L−LV|<0.0015, |G−GV|<0.0059}.
 
 The constants are LV=0.670, GV=0.654, ĒV=−1.769, εSJ=0.954·10⁻³
-((1.5)–(1.6), pp. 6–7). The theorem also mentions “any complex perturbative parameter”
-with |ε|<10⁻³. This last wording needs a real-domain qualification for physical flows.
+((1.5)–(1.6), pp. 6–7). The theorem also extends its statement to complex ε with |ε|<10⁻³. This last wording needs a real-domain qualification for physical flows.
 
 Crucially, p. 6 says “we replace the perturbation F”; (1.4) is a trigonometric
 polynomial and (1.5) uses it. We borrow only the two-boundary-torus mechanism.

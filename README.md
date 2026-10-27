@@ -155,7 +155,7 @@ Four parallel tracks (decision D14; details in [`docs/TRACKS.md`](docs/TRACKS.md
 | **K** | Positive-measure KAM for nearly-integrable analytic Hamiltonians, complement ≤ C·ε^{1/4} | statements frozen; blueprint being written |
 | **I** | All-time confinement in two degrees of freedom (isoenergetic KAM); restricted circular planar three-body problem | Phase 0 |
 | **N** | Nekhoroshev stability for quasi-convex Hamiltonians, exponents 1/(2n) | Phase 0: statement draft 0.1 ([docs/tracks/N](docs/tracks/N)); audit running |
-| **P** | Properly degenerate KAM; planar two-planet problem; n planets around a fixed Sun; spatial n-body later | Phase 0 |
+| **P** | Properly degenerate KAM; planar two-planet problem; n planets around a fixed Sun; spatial n-body later | Phase 0: statement draft ([docs/tracks/P](docs/tracks/P)); audit running |
 
 The phase table below is track K's.
 

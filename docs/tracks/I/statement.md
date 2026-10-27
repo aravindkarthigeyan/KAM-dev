@@ -118,7 +118,8 @@ initial angle and action.
     I(t)∈B,  HasDerivAt z (X_H(z(t))) t,  ‖I(t)−I₀‖<η       for every real t.
 
 Moreover, for every a<0<b and every y with y(0)=z₀ satisfying these same
-Hamilton equations on (a,b), with action in B, y(t)=z(t) for all t∈(a,b).
+Hamilton equations on (a,b), with action in B and H differentiable at each
+visited point, y(t)=z(t) for all t∈(a,b).
 This last clause assumes only that y is a solution in the phase domain; it does
 not assume any displacement bound. It implies that every maximal solution
 through z₀ extends globally and has the stated confinement. Artificially

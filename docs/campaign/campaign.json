@@ -70,8 +70,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P Phase 0: properly degenerate KAM (CP11 Thm 11.1), planar two-planet and fixed-Sun statements",
-   "state": "running"
+   "assignment": "Track P Phase 0 done: statement draft (P-G properly degenerate KAM, P-PLANAR, P-FIXED; spatial sketch); audit running",
+   "state": "done"
   },
   {
    "id": "zohar-shorter-times",
@@ -98,6 +98,15 @@
    "account": "codex-3",
    "session": "kam-audit-n",
    "assignment": "Refute-first statement audit of track N drafts",
+   "state": "running"
+  },
+  {
+   "id": "audit-P",
+   "kind": "statement audit (Codex)",
+   "model": "GPT-6-Astra xhigh",
+   "account": "codex-4",
+   "session": "kam-audit-p",
+   "assignment": "Refute-first statement audit of track P drafts",
    "state": "running"
   }
  ],
