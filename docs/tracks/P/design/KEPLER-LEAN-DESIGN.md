@@ -6,14 +6,18 @@ Design v1, 2026-10-27, branch `inp-design-kep` (brief: design the Lean architect
 `keplerBorder_det_pos`). Everything else here is new. Modeled on track K's `PART23-LEAN-DESIGN.md` and track N's
 `PART3-LEAN-DESIGN.md`.
 
-**The signatures.** Every result node has its exact Lean statement in `.drafts/design/KeplerSignatures.lean`
-(untracked; copied verbatim in Appendix A).
-- The file is 1,478 lines, sha256 `38b82e2cf8e793ea12c92482d5bc37e5f6f57a1b9fa30f9289639d10ab567104`.
-- `nice -n 5 lake env lean .drafts/design/KeplerSignatures.lean` exits 0 against the build snapshot of `f9cb624`
-  (about 15 s). It prints 264 diagnostics, all `declaration uses 'sorry'`; there is no other warning, no
-  `set_option`, no `maxHeartbeats`. It imports only `Mathlib` and `KAM.Frozen.*.Defs.*` (no provider, no frozen theorem).
-- No body is proved (the brief: write no proofs). The Mathlib route of every analytic step was checked with
-  `#check` (Section 9).
+**The signatures.** Every result node has its exact Lean statement in two untracked files (copied verbatim in Appendix A):
+`.drafts/design/KeplerSignatures.lean` (sections A-E: shared layer and track I; 994 lines, sha256 `616309f5871b1ec9bf12e1ddcd19f18a4ef3cf794245d2b4f60d0e6ba5b9462b`)
+and `.drafts/design/KeplerSignaturesP.lean` (sections F-G: Newtonian models and Poincare charts; 690 lines, sha256
+`99c11c8828718807c2637b1e91b996988732ca781f6183841fb1648fe76737d3`). Both are under the 1500-line cap (the first draft was 1,478 lines and the
+audit additions would have exceeded it).
+- `nice -n 5 lake env lean .drafts/design/KeplerSignatures.lean` exits 0 on its own. The second file continues the first and uses the frozen
+  `FastShift`; `sh .drafts/design/check_kepler.sh` concatenates them (adding the one extra import) and elaborates them in one Lean process:
+  exit 0, 293 diagnostics, all `declaration uses 'sorry'` (a draft cannot import a draft without a built `.olean.server`, hence the script).
+  No `set_option`, no `maxHeartbeats`, no `axiom/admit/unsafe/opaque`.
+- Imports: only `Mathlib` and `KAM.Frozen.*.Defs.*` (including `KAM.Frozen.Planetary.Defs.FastShift`, audit F1); no provider, no frozen theorem.
+- No body is proved (the brief). Every Mathlib/KAM lemma relied on was `#check`ed AND probed for applicability (Section 9.2, audit F7).
+- Revision 2 (this text) resolves the audit `docs/tracks/P/design/KEPLER-design-audit-1.md`; see "Audit fixes" (Section 10).
 
 ## 0. Decisions in brief
 
@@ -26,8 +30,9 @@ Design v1, 2026-10-27, branch `inp-design-kep` (brief: design the Lean architect
    The PLAN.md ownership ruling is followed: I owns Kepler fundamentals, P owns the Poincare chart and the Newtonian
    models. No module of the shared layer imports a track module.
 2. **One contraction lemma serves both Kepler equations.** `KeplerData`/`keplerSol_spec` (`KAM/Kepler/EquationComplex`)
-   solves `G - a sin G + b cos G = c` on any open parameter set `N` of a complex normed space with holomorphic
-   coefficients, from two inequalities (strip invariance, contraction). Track I's `u(ell, e)` (`bpI:p7:kepler-eq`, thin
+   solves `G - a sin G + b cos G = c` on any open parameter set `N` of a complete complex normed space with analytic
+   coefficients (`AnalyticOnNhd`), from two inequalities (strip invariance, contraction); joint analyticity of the solution
+   comes from the analytic implicit function theorem, not from a multivariable Weierstrass theorem (audit F7). Track I's `u(ell, e)` (`bpI:p7:kepler-eq`, thin
    tube around `[-e1, e1]`) is the instance `a = e, b = 0, c = ell`; track P's `F(lambda, v)` (`bpP:p7:regular-kepler` (b))
    is the instance `a = v_0, b = v_1, c = lambda`. The real solution `keplerLong` is separate and uses Mathlib's
    `C^omega` implicit function theorem (Section 9); `eccAnom ell e := keplerLong ell ![e, 0]`.
@@ -54,10 +59,10 @@ Design v1, 2026-10-27, branch `inp-design-kep` (brief: design the Lean architect
    no later theorem carries a conclusion-shaped premise (rule 6).
 8. **Hypotheses are minimal and explicit.** Where a blueprint hypothesis is unused it is dropped (list in Section 4);
    side conditions `0 < m`, `0 < kappa`, `0 < G`, `0 <= mu`, `0 < n`, eccentricity bounds are binders.
-9. **Packages.** 31 prover packages of 250-900 lines each (about 18,800 lines of proof in total) in 10 waves; the critical
+9. **Packages.** 32 prover packages (31 new + integration of the existing `KAM/Iso/Kepler.lean`) of 250-900 lines each (about 19,500 lines of proof) in 10 waves; the critical
    path is 10 waves (Section 7). **No package needs the ODE layer `KAM/ODE/`**: this layer proves identities,
    chart properties and the passage between frozen predicates (all pointwise in time), never existence, uniqueness or
-   continuation. The one coupling to track N's design is a shared helper trio (Section 7.3, item 1).
+   continuation. The one coupling to track N's design is a shared helper trio whose final signatures are fixed here (Section 7.3, item 1; sub-orchestrator decision: N3-8 imports `KAM.Kepler.Plane`).
 
 ## 1. Carriers
 
@@ -94,8 +99,8 @@ is the bundle of the clauses (i)-(iv) of `bpI:p7:exact-ham`; it is a `Prop`-def 
 `keplerRegion`, `elemL/elemA/elemEcc`, `eccOf`, `scaleMK`, `energyMK`, `axisMK`, `actionMK`, `regionMK`, `delaunayMK`,
 `keplerRotH`, `periodOneMap(C)`, `restrictedHamTotal`, `vtheta`, `clen`, `shiftW/Psi/F/Xi/O`, `eccC`, `UDelta`, `exactF`,
 `tildeF`, `keplerPart`, `pairPotential`, `fMov`, `fFix`, `gKernel`, `fKernel`, `nbodyHamiltonian`, `helioMap/Inv`,
-`ofBodies`, `tubeRadius/D/BigD`, `poincareGamma/K/V/F`, `poincare`, `poincareInv`, `poincareC`, `poincareNbhd`,
-`planetBlock`, `poincareProd`, `hProd`, `regionProd`, `fastShift`, `polarMap`, `fullShift`, `angleScale`.
+`ofBodies`, `phaseCast`, `poincareProdCast`, `ComplexDomainData`, `complexDelta`, `orbitMapColumn`, `delaunayGen`, `NearCircularWitness`, `tubeRadius/D/BigD`, `poincareGamma/K/V/F`, `poincare`, `poincareInv`, `poincareC`, `poincareNbhd`,
+`planetBlock`, `poincareProd`, `hProd`, `regionProd`, `polarMap`, `fullShift`, `angleScale`.
 `restrictedHamTotal` is the frozen `restrictedHamiltonian` formula on all of `Phase 2` (`restrictedHamiltonian_eq` is
 `rfl`-level), so no dependent `dite` appears. `keplerSol`, `keplerLong` and `exactDelta` use classical `if`; consumers
 use only their specification theorems.
@@ -125,23 +130,23 @@ Remarks and pure notation nodes have no declaration (last row of each part).
 |---|---|---|---|
 | `ham-eq` | `restrictedHamTotal`, `restrictedHamiltonian_eq`, `isOpen_collisionFree`, `analyticOnNhd_restrictedHamTotal`, `restrictedVectorField_eq_hamiltonian`, `isRestrictedSolutionOn_iff` | `Iso/RestrictedHam` | `ContDiffAt.sqrt` at `omega`, `Real.contDiffAt_sqrt`; shares `KAM.ODE.restrictedField` (N3-8) |
 | `newton` | `restricted_newton_iff` (pointwise in time; lowest priority) | same | `HasDerivAt` of `rot (-s)`, `hasDerivAt_pi` |
-| `kepler-eq` | `KeplerData`, `keplerSol_spec`, `keplerSol_differentiableOn`, `keplerConstants_pos`, `keplerEq_tube`, `keplerTube_real_points`, `eccAnomC_periodic`, `eccAnomC_zero_ecc`, `hasDerivAt_eccAnomC_ell`; real part `eccAnom_*`, `analyticOnNhd_eccAnom`, `strictMono_eccAnom` | `Kepler/EquationComplex`, `Kepler/KeplerTube`, `Kepler/Equation` | `ContractingWith.exists_fixedPoint`, `Real.arcosh`, `Real.cosh_arcosh`, `Complex.sin_add_mul_I`, `Complex.cos_add_mul_I`, `TendstoLocallyUniformlyOn.differentiableOn` (Weierstrass) |
+| `kepler-eq` | `KeplerData`, `keplerSol_analyticOnNhd`, `keplerSol_fderiv`, `hasDerivAt_eccAnomC_ecc`, `keplerSol_spec`, `keplerSol_differentiableOn`, `keplerConstants_pos`, `keplerEq_tube`, `keplerTube_real_points`, `eccAnomC_periodic`, `eccAnomC_zero_ecc`, `hasDerivAt_eccAnomC_ell`; real part `eccAnom_*`, `analyticOnNhd_eccAnom`, `strictMono_eccAnom` | `Kepler/EquationComplex`, `Kepler/KeplerTube`, `Kepler/Equation` | `ContractingWith.exists_fixedPoint`, `Real.arcosh`, `Real.cosh_arcosh`, `Complex.sin_add_mul_I`, `Complex.cos_add_mul_I`, `TendstoLocallyUniformlyOn.differentiableOn` (Weierstrass) |
 | `ke-ift` (remark) | none | | the real part uses it (Section 9) |
 | `elements` | `kE`, `keplerRegion`, `elemL/elemA/elemEcc`, `isOpen_keplerRegion` | `Kepler/Orbit` | continuity |
 | `orbit-maps` | `orbitFrame`, `orbitMapR`, `delaunay`, `deDom`, `eccOf` | `Kepler/Orbit` | `Real.sqrt` |
-| `orbit-maps-e` | `orbitMapC`, `orbitDomC`, `orbitMapC_differentiableOn/periodic/ofReal`, `orbitDomC_mem_ofReal` | `Kepler/OrbitComplex` | `DifferentiableOn.comp`, `keplerSol_differentiableOn` |
+| `orbit-maps-e` | `orbitMapC`, `orbitDomC`, `orbitMapC_differentiableOn/periodic/ofReal/real`, `orbitDomC_mem_ofReal` | `Kepler/OrbitComplex` | `DifferentiableOn.comp`, `keplerSol_differentiableOn` |
 | `orbit-identities` (a)-(d), `circular` | `orbitMapR_radius/_radius_bounds/_speed_sq/_cross/_dot/_energy/_radial/_periodic`, `delaunay_mem_region`, `delaunay_elements`, `orbitMapR_eq_delaunay`, `analyticOnNhd_orbitMapR`, `analyticOnNhd_delaunay` | `Kepler/Orbit` | `Real.sin_sq_add_cos_sq`; stated for `0 <= e < 1` |
-| `symplectic` | `IsSymplecticOn`, `delaunay_symplectic`, `delaunay_fderiv_equiv`, `delaunay_hasFDerivAt` | `Kepler/DelaunaySymplectic` | `HasStrictFDerivAt`, `ContinuousLinearEquiv` (Section 7.1) |
+| `symplectic` | `IsSymplecticOn`, `IsSymplecticOn.comp`, `delaunay_symplectic`, `delaunay_fderiv_equiv`, `delaunay_hasFDerivAt`, `orbitMapColumn`, `fderiv_orbitMapR_basis`, `fderiv_delaunay_basis`, `delaunayGen`, `delaunay_liouville`, `delaunay_hamiltonianVectorField` | `Kepler/DelaunaySymplectic` | `HasStrictFDerivAt`, `ContinuousLinearEquiv` (Section 7.1) |
 | `chart` | `delaunay_periodic`, `delaunay_eq_iff`, `keplerRegion_subset_image`, `delaunay_localDiffeo` | `Kepler/DelaunayChart` | `Complex.arg`-free: uses `exists_rot_eq`, `Real.arccos`/`Real.cos_arccos`; `ContDiffAt.toOpenPartialHomeomorph`, `ContDiffAt.to_localInverse` at `omega` |
-| `near-circular` | `nearCircular_eq`, `nearCircular_eq_image`, `isOpen_nearCircular`, `nearCircular_nonempty_iff` (about the frozen `NearCircular`) | `Iso/NearCircular` | `iso_radiusSq_eq` |
+| `near-circular` | `NearCircularWitness`, `nearCircular_witness_unique`, `nearCircular_eq`, `nearCircular_eq_image`, `isOpen_nearCircular`, `nearCircular_nonempty_iff` (about the frozen `NearCircular`) | `Iso/NearCircular` | `iso_radiusSq_eq` |
 | `h0` | `delaunay_hamiltonian`, `restrictedHamTotal_zero` | `Kepler/Orbit`, `Iso/RestrictedHam` | |
 | `means` | `orbitMapR_mean_inv_radius/_speed_sq/_radius` (also the circular case) | `Kepler/Means` | `intervalIntegral.integral_comp_mul_deriv'`, `Function.Periodic.intervalIntegral_add_eq`, `integral_cos_sq`, `integral_cos`, `integral_sin` |
-| `scaling` | `scaleMK`, `energyMK`, `scaleMK_energy/_cross/_symplectic/_bijective`, `energyMK_eq_mul_energy`, `scaleMK_hamiltonianVectorField` | `Kepler/Mass` | |
-| `complex-domain` | `SafeAction`, `kEccMin/Max`, `kLMin`, `kGMin`, `kRmin`, `kRhoMax`, `SafeAction.ecc_bounds`, `eccC`, `UDelta`, `delaunayC`, `complex_domain` | `Iso/ComplexDomain` | `IsCompact.exists_isMinOn`, `IsCompact.sSup_mem`, `Complex.cpow` on `slitPlane`, `DifferentiableAt.cpow` |
-| `shift-def`, `shift` | `vtheta`, `clen`, `e0`, `shiftW/Psi/F/Xi/O`, `ShiftConst`, `shiftEps`, `shiftCstar`, `shiftCsh`, `shiftConst_shiftEps`, `shift_domain`, `shift_holomorphic`, `shift_mul_eq`, `shift_bound`, `shift_value_zero`, `shift_real` | `Iso/ShiftPotential` | `dslope`, `Complex.norm_cpow_of_ne_zero`, `intervalIntegral.hasFDerivAt_integral_of_dominated_of_fderiv_le` (`RCLike`), Schwarz lemma `Complex.norm_le_of_forall_mem_frontier_norm_le`, `Complex.dist_le_div_mul_dist_of_mapsTo_ball` |
-| `exact-ham` | `exactF`, `exactEps`, `exactMu2`, `exactCF`, `ExactHamData`, `exactDelta`, `exact_ham` | `Iso/ExactHamiltonian` | `Metric.isCompact_iff_isClosed_bounded`, `Complex.differentiableOn` composition |
+| `scaling` | `scaleMK`, `energyMK`, `scaleMK_energy/_cross/_symplectic/_bijective`, `scaleMK_flow`, `energyMK_eq_mul_energy`, `scaleMK_hamiltonianVectorField` | `Kepler/Mass` | |
+| `complex-domain` | `SafeAction`, `kEccMin/Max`, `kLMin`, `kGMin`, `kRmin`, `kRhoMax`, `SafeAction.ecc_bounds`, `eccC`, `UDelta`, `delaunayC`, `ComplexDomainData`, `complexDelta`, `complex_domain_spec` | `Iso/ComplexDomain` | `IsCompact.exists_isMinOn`, `IsCompact.sSup_mem`, `Complex.cpow` on `slitPlane`, `DifferentiableAt.cpow` |
+| `shift-def`, `shift` | `vtheta`, `clen`, `e0`, `shiftW/Psi/F/Xi/O`, `ShiftConst`, `shiftEps`, `shiftCstar`, `shiftCsh`, `shiftConst_shiftEps`, `shiftF_eq_integral`, `shift_domain`, `shift_holomorphic`, `shift_mul_eq`, `shift_bound`, `shift_value_zero`, `shift_real` | `Iso/ShiftPotential` | `dslope`, `Complex.norm_cpow_of_ne_zero`, `intervalIntegral.hasFDerivAt_integral_of_dominated_of_fderiv_le` (`RCLike`), Schwarz lemma `Complex.norm_le_of_forall_mem_frontier_norm_le`, `Complex.dist_le_div_mul_dist_of_mapsTo_ball` |
+| `exact-ham` | `exactF`, `exactEps`, `exactMu2`, `exactCF`, `ExactHamData`, `exactDelta`, `exact_ham`, `exact_positions_mem_shiftO` | `Iso/ExactHamiltonian` | `Metric.isCompact_iff_isClosed_bounded`, `Complex.differentiableOn` composition |
 | `period-one` | `tildeF`, `delaunay_periodOne_symplectic`, `period_one` | `Iso/PeriodOne` | frozen `realHamiltonian`, `complexStrip`, `actionNbhd` |
-| `transfer` | `transfer` | `Iso/PeriodOne` | `HasDerivAt.comp`, `Filter.EventuallyEq.fderiv_eq` |
+| `transfer` | `transfer`, `transfer_identities` | `Iso/PeriodOne` | `HasDerivAt.comp`, `Filter.EventuallyEq.fderiv_eq` |
 | `nondeg` | `nondeg_exact` | `Iso/PeriodOne` | `nondeg_period_one`, `borderedHessian_conversion` |
 | `outputs`, `totality`, `errata` | no declaration | | remarks |
 
@@ -149,7 +154,7 @@ Remarks and pure notation nodes have no declaration (last row of each part).
 
 | Node | Lean declaration(s) | Module | Mathlib / notes |
 |---|---|---|---|
-| `plane` (a)-(c) | the `planeLength_*` family, `norm_le_planeLength`, `planeLength_le_sqrt_two_mul_norm`, `analyticAt_planeLength`, `analyticAt_inv_planeLength`, `hasFDerivAt_planeLength`, `hasFDerivAt_inv_planeLength`, `iso_radius_eq` | `Kepler/Plane` | `Real.sqrt`, `ContDiffAt.sqrt` at `omega`, `Finset.sum_mul_sq_le_sq_mul_sq` |
+| `plane` (a)-(c) | the `planeLength_*` family, `norm_le_planeLength`, `planeLength_le_sqrt_two_mul_norm`, `analyticAt_planeLength`, `analyticAt_inv_planeLength`, `hasFDerivAt_planeLength`, `hasFDerivAt_inv_planeLength`, `radius_eq_planeLength`, `radiusSq_eq_planeSq` | `Kepler/Plane` | `Real.sqrt`, `ContDiffAt.sqrt` at `omega`, `Finset.sum_mul_sq_le_sq_mul_sq` |
 | `domain` | `collisionFreeDomain`, `isOpen_collisionFreeDomain`, `analyticOnNhd_moving/fixedHamiltonian`, `differentiableAt_*` | `Newtonian/Models` | `isOpen_iInter_of_finite`, `ContDiffAt` closure at `omega` |
 | `split`, `kepler-part` | `keplerPart`, `pairPotential`, `fMov`, `fFix`, `keplerPart_eq_sum`, `movingHamiltonian_split`, `fixedHamiltonian_split`, `moving_sub_fixed`, `analyticOnNhd_fMov/fFix` | `Newtonian/Models` | `Finset.sum_comm`, `Fin.sum_univ_succ` |
 | `action-reaction` | `gKernel`, `fKernel`, `sum_mass_smul_fKernel` | same | `Finset.sum_comm`, `planeLength_sub_comm` |
@@ -161,7 +166,7 @@ Remarks and pure notation nodes have no declaration (last row of each part).
 | `orbit-transfer` | `orbit_transfer_moving`, `orbit_transfer_fixed` | same | frozen `IsPhysicalTorus` clause (viii) |
 | `tube-constants` | `AxisData`, `axisMax`, `axisGap`, `axisData_canonical`, `tubeRadius`, `tubeD`, `tubeBigD` | `Newtonian/Tube` | `csInf_le`, `le_ciSup`, `Set.Finite.csInf_mem` |
 | `tube-geometry` (a)-(e) | `circularTube_mono`, `circularTube_euclidean`, `circularTube_distances`, `circularTube_pair_bounds`, `circularTube_pairBounds_barycentric`, `circularTube_pairBounds_fixed` | same | `abs_planeLength_sub_le`, `planeLength_le_sqrt_two_mul_norm`, `Prod.norm_def`, `pi_norm_lt_iff` |
-| `newton-in-tube` | `newton_in_tube` | same | `reconstruction`, `circularTube_pair_bounds` |
+| `newton-in-tube` | `newton_in_tube`, `fixed_in_tube` | same | `reconstruction`, `circularTube_pair_bounds` |
 | `vs-I`, `reduction-role`, `units` | no declaration | | remarks |
 | `measure-positive` (a) | `circularTube_norm_lt`, `volume_lt_top_of_subset_circularTube` | `Newtonian/Assembly` | `Real.volume_Icc`, `MeasureTheory.Measure.pi`, `MeasureTheory.measure_mono`, `MeasureTheory.Measure.prod_prod` |
 | `measure-positive` (b) | `measure_chart_image` (**Part 1 owns**; restated for the dependency check) | same | `MeasurableSet.image_of_continuousOn_injOn`, `MeasureTheory.Measure.addHaar_image_eq_abs_det_fderiv_mul` (Part 1); gated on P1 |
@@ -173,16 +178,16 @@ Remarks and pure notation nodes have no declaration (last row of each part).
 |---|---|---|---|
 | `kepler-data` | `scaleMK`, `energyMK`, `axisMK`, `actionMK`, `regionMK`, `delaunayMK`, `isOpen_regionMK` | `Kepler/Mass` | |
 | `range` | `cross_le_action`, `cross_eq_action_iff` (pointwise equality case, B8) | `Kepler/Mass` | `planeSq_mul_planeSq` (Lagrange) |
-| `kepler` (a)-(d) | `delaunayMK_symplectic`, `analyticOnNhd_delaunayMK`, `delaunayMK_image`, `delaunayMK_eq_iff`, `delaunayMK_identities`, `delaunayMK_position`, `hasDerivAt_keplerEnergy_action`, `delaunayMK_means` | `Kepler/Mass` | `scaleMK_*`, `delaunay_*`, `orbitMapR_mean_*` |
+| `kepler` (a)-(d) | `delaunayMK_symplectic`, `analyticOnNhd_delaunayMK`, `delaunayMK_image`, `delaunayMK_eq_iff`, `delaunayMK_localDiffeo`, `delaunayMK_periodic`, `delaunayMK_identities`, `delaunayMK_position`, `hasDerivAt_keplerEnergy_action`, `delaunayMK_means` | `Kepler/Mass` | `scaleMK_*`, `delaunay_*`, `orbitMapR_mean_*` |
 | `regular-kepler` (a) | `keplerPhi`, `keplerJac`, `keplerMeanLongitude_eq`, `longitudeJacobian_eq`, `keplerPhi_strictMono/_bijective/_shift`, `keplerLong`, `keplerPhi_keplerLong`, `keplerLong_unique/_shift/_zero_vec`, `analyticOnNhd_keplerLong`, `hasDerivAt_keplerLong_lambda`, `fderiv_keplerLong_vec` | `Kepler/Equation` | `Continuous.surjective`, `ContDiffAt.implicitFunction`, `ContDiffAt.eventually_apply_eq_iff_implicitFunction`, `ContDiffAt.analyticAt` |
-| `regular-kepler` (b) | `regularTube`, `keplerLongC`, `regularKepler_complex`, `keplerLongC_ofReal`, `keplerLongC_shift`, `hasDerivAt_keplerLongC_lambda` | `Kepler/KeplerTube` | `keplerSol_spec`, numerics (`Real.cosh_eq`, `Real.exp_one_lt_d9`) |
+| `regular-kepler` (b) | `regularTube`, `keplerLongC`, `regularKepler_complex`, `keplerLongC_ofReal`, `keplerLongC_shift`, `hasDerivAt_keplerLongC_lambda`, `fderiv_keplerLongC_vec`, `regularKepler_jac_bound`, `cosh_one_lt` | `Kepler/KeplerTube` | `keplerSol_spec`, numerics (`Real.cosh_eq`, `Real.exp_one_lt_d9`) |
 | `regular-kepler` (c) | `keplerLong_eq_add_eccAnom` | `Kepler/Equation` | uniqueness |
 | `poincare-def`, `o-facts` | `poincareGamma/K/V/F`, `poincare`, `poincareDom`, `isOpen_poincareDom`, `poincare_facts`, `poincare_facts_polar` | `Poincare/Chart` | `Real.sqrt_pos`, `keplerJac_pos` |
 | `poincare` (a) | `analyticOnNhd_poincareF`, `analyticOnNhd_poincare`, `poincare_periodic` | `Poincare/Chart` | `ContDiffAt` at `omega`, `analyticOnNhd_keplerLong` |
 | `poincare` (b), (c), (d), (f) | `poincare_eq_delaunayMK`, `poincare_symplectic`, `poincare_elements`, `poincare_circular`, `poincare_means` | `Poincare/Symplectic` | density: `Dense.closure_eq`, `continuousOn` of `fderiv` of an analytic map (`AnalyticOnNhd.fderiv`) |
 | `poincare` (e) | `poincare_image`, `poincare_eq_iff`, `poincare_localDiffeo`, `poincareInv`, `poincareInv_poincare`, `poincare_poincareInv` | `Poincare/Bijective` | `Complex.arg_mul_cos_add_sin_mul_I`, `exists_rot_eq` |
 | `holomorphic` | `poincareGammaC`, `poincareVC`, `poincareC`, `poincareNbhd`, `poincare_holomorphic` | `Poincare/Holomorphic` | `DifferentiableOn.cpow`, `keplerSol_differentiableOn`, `Complex.arg_le_pi_div_two_iff`, `Complex.mem_slitPlane_iff` |
-| `product-def`, `product-chart` (a)-(c) | `planetBlock`, `poincareProd`, `poincareProdDom`, `hProd`, `regionProd`, `fastShift`, `isOpen_poincareProdDom`, `regionProd_one_iff`, `poincareProd_symplectic/_lattice/_eq_iff/_image/_localDiffeo`, `analyticOnNhd_poincareProd`, `keplerPart_poincareProd`, `hasDerivAt_nu`, `movingHamiltonian_poincareProd`, `fixedHamiltonian_poincareProd`, `isOpen_poincareProd_preimage`, `analyticOnNhd_fMov/fFix_poincareProd` | `Poincare/Product` | `finProdFinEquiv`, `Fin.append`, `fast`, `slow`, `assemble` simp lemmas (to be added) |
+| `product-def`, `product-chart` (a)-(c) | `planetBlock`, `poincareProd`, `poincareProdDom`, `hProd`, `regionProd`, `isOpen_poincareProdDom`, `regionProd_one_iff`, `poincareProd_symplectic/_lattice/_eq_iff/_image/_localDiffeo` (lattice shift = the FROZEN `fastShift (a := n) (b := n)`), `phaseCast` and its API (module `Kepler/Basic`), `poincareProdCast`, `poincareProdCast_symplectic/_eq_iff`, `analyticOnNhd_poincareProd`, `keplerPart_poincareProd`, `hasDerivAt_nu`, `movingHamiltonian_poincareProd`, `fixedHamiltonian_poincareProd`, `isOpen_poincareProd_preimage`, `analyticOnNhd_fMov/fFix_poincareProd` | `Poincare/Product` | `finProdFinEquiv`, `Fin.append`, `fast`, `slow`, `assemble` simp lemmas (to be added) |
 | `product-chart` (d) | none: it is the definition of `hamiltonianVectorField` read in the `fast`/`slow` blocks | | remark |
 | `same-chart` | none (remark); `moving_sub_fixed` | | |
 | `tube` | `circularPoint_eq_poincareProd`, `tube_in_chart` | `Poincare/Tube` | `IsCompact.exists_cthickening_subset_open`, `Metric.thickening` |
@@ -237,6 +242,9 @@ Remarks and pure notation nodes have no declaration (last row of each part).
 | D16 | `holomorphic`, `complex-domain`, `shift` | `cpow` with exponents `1/2`, `-1/2`, `-3/2` (principal branch) | no `Complex.sqrt` API on `slitPlane`; `Complex.ofReal_cpow` links to real roots |
 | D17 | `measure-positive` (b) | restated as `measure_chart_image` with Part 1's hypotheses | Part 1 is not designed here; owner Part 1 |
 | D18 | `symplectic`, `conversion` (a) | frozen `symplecticForm` on both sides | sign convention `J = -omegaZero` of the blueprint never appears |
+| D19 | `kepler-eq`, `regular-kepler` (b) | `KeplerData` has `AnalyticOnNhd` coefficients and `[CompleteSpace P]`; joint analyticity by the analytic IFT | audit F7: no multivariable Weierstrass in Mathlib; every instance is a composition of analytic maps |
+| D20 | `exact-ham` | radius subordinate to a selected `complexDelta K` (`0 < exactDelta <= complexDelta`) | audit F3 |
+| D21 | `lattice`, `product-chart` | the FROZEN `fastShift {a b}` is used, never redefined | audit F1 |
 
 ## 5. Blueprint issues
 
@@ -290,7 +298,7 @@ exactness proof (`stepI:p7:eh-exact`) needs exactly this (the real point `q(w)` 
 `K_delta` lie in `C_0`). Lean has this in `complex_domain` and as the conjunct `0 < G < L` of `ExactHamData`.
 
 **B10. Minor (no action).** (i) `bpP:p7:regular-kepler` (b) claims `|J| > 3/5` and contraction `0.39`: both true with
-`cosh 1 < 1.5431` (`0.25 * 1.5431 = 0.3858 < 0.39`, `1 - 0.3858 = 0.614 > 0.6`). (ii) `bpP:p6:newton-in-tube` mixes
+`cosh 1 < 1.55` (`0.25 * 1.55 = 0.3875 < 0.39`, `1 - 0.3875 > 0.6`). (ii) `bpP:p6:newton-in-tube` mixes
 `zeta <= zeta_*` with `U_zeta`; Lean takes `0 < zeta <= gamma/6` (which is what the pair bounds use) and `AxisData`.
 (iii) `bpP:p6:reconstruction` for the D25 predicates needs the rewrite `1 * actualMasses 1 m mu = actualMasses 1 m mu`;
 provided as `isNewtonSolutionOn_of_isMovingSolutionOn`. (iv) The blueprint names `bpP:p6:reduction` as a forward
@@ -306,133 +314,145 @@ the frozen `movingHamiltonian`/`fixedHamiltonian` against `H_Kep + mu f_mov`, `H
 
 ## 6. Modules and import DAG
 
-Sizes are realistic estimates; the hard cap is 1500 lines (target <= 700).
+Sizes are realistic estimates; the hard cap is 1500 lines (target <= 950). Revision 2: the early energy/region definitions move to a small
+module `Kepler/Energy` (so `Iso/RestrictedHam`, `Newtonian/Models` and `Poincare/Chart` need not import the late mass chart), `phaseCast` lives in
+`Kepler/Basic`, and every edge needed by a statement or a proof plan is in the DAG (audit F5).
 
 | Module | Content | Lines |
 |---|---|---|
-| `KAM/Kepler/Basic.lean` | `IsSymplecticOn` (+ composition, scaling, linear-map lemmas), `phaseToC`, `rot`, `ex` | 250 |
-| `KAM/Kepler/Plane.lean` | planar geometry, calculus of `planeLength`, Lagrange, `iso_radius_eq` | 400 |
+| `KAM/Kepler/Basic.lean` | `IsSymplecticOn` (+ `comp`, scaling, linear-map lemmas), `phaseToC`, `rot`, `ex`, `phaseCast` and its API (`phaseCast_symplectic/_hamiltonianVectorField/_volume/_analytic`) | 350 |
+| `KAM/Kepler/Plane.lean` | planar geometry, calculus of `planeLength`, Lagrange, `radius_eq_planeLength` | 400 |
+| `KAM/Kepler/Energy.lean` | `kE`, `eccOf`, `deDom`, `keplerRegion`, `elemL/A/Ecc`, `scaleMK`, `energyMK`, `axisMK`, `actionMK`, `regionMK` (definitions + openness/scaling lemmas) | 200 |
 | `KAM/Kepler/Equation.lean` | `keplerPhi/Jac/Long`, `eccAnom`, real analyticity (IFT), derivatives | 550 |
-| `KAM/Kepler/EquationComplex.lean` | `keplerOp`, `KeplerData`, `keplerSol`, contraction, holomorphy, real/periodic corollaries | 650 |
-| `KAM/Kepler/KeplerTube.lean` | `regularTube`, `keplerLongC` (instance P7), `keplerE2`...`keplerTube`, `eccAnomC` (instance I) | 600 |
-| `KAM/Kepler/Orbit.lean` | `kE`, regions, `orbitFrame`, `orbitMapR`, identities, `delaunay`, analyticity, `delaunay_hamiltonian` | 700 |
-| `KAM/Kepler/OrbitComplex.lean` | `orbitMapC`, domain, holomorphy, real points | 350 |
-| `KAM/Kepler/DelaunaySymplectic.lean` | explicit Jacobian, six bracket identities, `delaunay_symplectic`, invertibility | 800 |
+| `KAM/Kepler/EquationComplex.lean` | `keplerOp`, `KeplerData`, `keplerSol`, contraction, analyticity, derivatives, real/periodic corollaries | 650 |
+| `KAM/Kepler/KeplerTube.lean` | `regularTube`, `keplerLongC` (instance P7), `keplerE2`...`keplerTube`, `eccAnomC` (instance I), all derivative formulas, `cosh_one_lt` | 700 |
+| `KAM/Kepler/Orbit.lean` | `orbitFrame`, `orbitMapR`, identities, `delaunay`, analyticity, `delaunay_hamiltonian` | 600 |
+| `KAM/Kepler/OrbitComplex.lean` | `orbitMapC`, domain, holomorphy, real points | 400 |
+| `KAM/Kepler/DelaunaySymplectic.lean` | `orbitMapColumn`, `fderiv_*_basis`, six bracket identities, `delaunay_symplectic`, `delaunay_liouville`, invertibility | 900 |
 | `KAM/Kepler/DelaunayChart.lean` | periodicity, injectivity modulo lattice, surjectivity, local diffeo | 650 |
 | `KAM/Kepler/Means.lean` | the three means over `ell`, circular case | 350 |
-| `KAM/Kepler/Mass.lean` | `scaleMK`, `energyMK`..., `delaunayMK`, `range`, `kepler` (a)-(d), `scaling` | 700 |
+| `KAM/Kepler/Mass.lean` | `delaunayMK`, `range`, `kepler` (a)-(d), `scaling` incl. flow | 700 |
+| `KAM/Iso/Kepler.lean` | EXISTING (`keplerBorder_det`, `keplerBorder_det_pos`), cherry-picked from `inp-w1gates` | 37 |
 | `KAM/Iso/KeplerHamiltonian.lean` | `keplerRotH`, frequency map, bordered Hessian | 500 |
 | `KAM/Iso/Conversion.lean` | `periodOneMap`, (a)-(d), `nondeg_period_one` | 600 |
-| `KAM/Iso/RestrictedHam.lean` | `restrictedHamTotal`, `ham-eq`, solution equivalence, `newton`, `h0` | 450 |
-| `KAM/Iso/NearCircular.lean` | the four statements about `NearCircular` | 250 |
-| `KAM/Iso/ShiftPotential.lean` | `vtheta`...`shift_real` | 800 |
-| `KAM/Iso/ComplexDomain.lean` | `SafeAction`, constants, `eccC`, `UDelta`, `delaunayC`, `complex_domain` | 500 |
-| `KAM/Iso/ExactHamiltonian.lean` | `exactF`, `ExactHamData`, `exactDelta`, `exact_ham` | 650 |
-| `KAM/Iso/PeriodOne.lean` | `tildeF`, `period_one`, `transfer`, `nondeg_exact` | 600 |
+| `KAM/Iso/RestrictedHam.lean` | `restrictedHamTotal`, `ham-eq`, solution equivalence, `newton`, `restrictedHamTotal_zero` | 450 |
+| `KAM/Iso/NearCircular.lean` | the statements about `NearCircular` (incl. witness uniqueness) | 300 |
+| `KAM/Iso/ShiftPotential.lean` | `vtheta`...`shiftF_eq_integral`, `shift_real` | 850 |
+| `KAM/Iso/ComplexDomain.lean` | `SafeAction`, constants, `eccC`, `UDelta`, `delaunayC`, `ComplexDomainData`, `complex_domain_spec` | 500 |
+| `KAM/Iso/ExactHamiltonian.lean` | `exactF`, `ExactHamData`, `exactDelta`, `exact_ham`, `exact_positions_mem_shiftO` | 700 |
+| `KAM/Iso/PeriodOne.lean` | `tildeF`, `period_one`, `transfer`, `transfer_identities`, `nondeg_exact` | 700 |
 | `KAM/Planetary/Newtonian/Models.lean` | domain, split, kernels, Hamilton equations | 700 |
 | `KAM/Planetary/Newtonian/Reduction.lean` | `nbodyHamiltonian`, `helioMap`, `newton_to_moving` | 550 |
 | `KAM/Planetary/Newtonian/Barycentric.lean` | `bary-algebra` | 450 |
 | `KAM/Planetary/Newtonian/Reconstruction.lean` | `reconstruction*`, `orbit_transfer_*` | 650 |
-| `KAM/Planetary/Newtonian/Tube.lean` | `AxisData`, tube constants and geometry, `newton_in_tube` | 700 |
+| `KAM/Planetary/Newtonian/Tube.lean` | `AxisData`, tube constants and geometry, `newton_in_tube`, `fixed_in_tube` | 800 |
 | `KAM/Planetary/Newtonian/Assembly.lean` | measure statements, `movingKolmogorovSet_of_tube`, `fixedKolmogorovSet_of_tube` | 500 |
 | `KAM/Planetary/Poincare/Chart.lean` | `poincare` data, facts, analyticity, periodicity | 650 |
 | `KAM/Planetary/Poincare/Symplectic.lean` | (b), (c), (d), (f), means | 700 |
 | `KAM/Planetary/Poincare/Bijective.lean` | (e), `poincareInv`, local diffeo | 800 |
 | `KAM/Planetary/Poincare/Holomorphic.lean` | `poincareC`, `poincareNbhd`, `poincare_holomorphic` | 500 |
-| `KAM/Planetary/Poincare/Product.lean` | `planetBlock`, `poincareProd`, (a)-(c), simp lemmas | 650 |
+| `KAM/Planetary/Poincare/Product.lean` | `planetBlock`, `poincareProd`, (a)-(c), `poincareProdCast`, simp lemmas | 750 |
 | `KAM/Planetary/Poincare/Tube.lean` | `circularPoint_eq_poincareProd`, `tube_in_chart` | 350 |
 | `KAM/Planetary/Poincare/Lattice.lean` | polar chart, lattice statements | 550 |
 | `KAM/Planetary/Poincare/D25.lean` | D25 dictionary, average, means | 700 |
 
-About 18,800 lines. No facade is needed now; if a module approaches 1,200 lines, split along the node groups of the
-table and leave the old path as a facade (`public import` of the parts).
+About 19,500 lines. If a module approaches 1,200 lines, split along its node groups and keep the old path as a facade.
 
-**Import DAG** (`A <- B` means B imports A):
+**Import DAG** (`A <- B` means B imports A; this DAG is exactly what the package table of Section 7 implements; it is acyclic by construction: every
+edge goes from a lower to a higher line of the topological order `Basic, Plane, Energy, Equation, EquationComplex, KeplerTube, Orbit, OrbitComplex,
+DelaunaySymplectic, DelaunayChart, Means, Mass, Iso.*, Newtonian.*, Poincare.*`):
 
 ```
-[Frozen Defs: SymplecticForm, Planetary/Defs/*]  <- Kepler.Basic <- Kepler.Plane
-Kepler.Plane                                      <- Kepler.Equation <- Kepler.Orbit
-[Mathlib: ContractingWith, Complex trig]          <- Kepler.EquationComplex
-Kepler.Equation, Kepler.EquationComplex           <- Kepler.KeplerTube
-Kepler.Orbit                                      <- Kepler.DelaunaySymplectic, Kepler.DelaunayChart, Kepler.Means
-Kepler.Orbit, Kepler.KeplerTube                   <- Kepler.OrbitComplex
-Kepler.{Orbit,DelaunaySymplectic,DelaunayChart,Means} <- Kepler.Mass
-Kepler.Basic, [Frozen Iso Defs: BorderedHessian, KeplerBorder, FrequencyMap] <- Iso.KeplerHamiltonian <- Iso.Conversion
-Kepler.Plane, [Frozen Iso Defs: Restricted*, CollisionFree]  <- Iso.RestrictedHam
-Iso.RestrictedHam, Kepler.DelaunayChart           <- Iso.NearCircular
-Kepler.Plane                                      <- Iso.ShiftPotential
-Kepler.OrbitComplex                               <- Iso.ComplexDomain
-Iso.ComplexDomain, Iso.ShiftPotential, Iso.RestrictedHam <- Iso.ExactHamiltonian
+[Frozen Defs, Mathlib]                                  <- Kepler.Basic <- Kepler.Plane <- Kepler.Energy
+Kepler.Plane                                            <- Kepler.Equation
+[Mathlib only]                                          <- Kepler.EquationComplex
+Kepler.Equation, Kepler.EquationComplex                 <- Kepler.KeplerTube
+Kepler.Equation, Kepler.Energy                          <- Kepler.Orbit
+Kepler.Orbit, Kepler.KeplerTube                         <- Kepler.OrbitComplex
+Kepler.Orbit                                            <- Kepler.DelaunaySymplectic, Kepler.Means
+Kepler.Orbit, Kepler.DelaunaySymplectic                 <- Kepler.DelaunayChart
+Kepler.Orbit, .DelaunaySymplectic, .DelaunayChart, .Means <- Kepler.Mass
+[Iso.Kepler (existing)], Kepler.Basic, [Frozen Iso Defs: BorderedHessian, KeplerBorder, FrequencyMap] <- Iso.KeplerHamiltonian <- Iso.Conversion
+Kepler.Plane, Kepler.Energy, [Frozen Iso Defs: Restricted*, CollisionFree] <- Iso.RestrictedHam
+Kepler.Energy, Kepler.DelaunayChart                     <- Iso.NearCircular
+Kepler.Plane                                            <- Iso.ShiftPotential
+Kepler.OrbitComplex                                     <- Iso.ComplexDomain
+Iso.ComplexDomain, Iso.ShiftPotential, Iso.RestrictedHam, Kepler.Orbit <- Iso.ExactHamiltonian
 Iso.ExactHamiltonian, Iso.Conversion, Kepler.DelaunaySymplectic <- Iso.PeriodOne
-Kepler.Plane                                      <- Planetary.Newtonian.Models <- Newtonian.Reduction
-Kepler.Plane                                      <- Newtonian.Barycentric
-Newtonian.Models, Newtonian.Barycentric           <- Newtonian.Reconstruction
-Newtonian.Barycentric, Kepler.Plane               <- Newtonian.Tube
-Newtonian.Reconstruction, Newtonian.Tube          <- Newtonian.Assembly
-Kepler.Equation                                   <- Poincare.Chart
-Poincare.Chart, Kepler.Mass                       <- Poincare.Symplectic
-Poincare.Symplectic, Kepler.DelaunayChart         <- Poincare.Bijective
-Poincare.Chart, Kepler.KeplerTube                 <- Poincare.Holomorphic
-Poincare.Bijective, Newtonian.Models              <- Poincare.Product
-Poincare.Product                                  <- Poincare.Tube, Poincare.Lattice
-Poincare.Product, Kepler.Means                    <- Poincare.D25
+Kepler.Plane, Kepler.Energy                             <- Newtonian.Models <- Newtonian.Reduction
+Kepler.Plane                                            <- Newtonian.Barycentric
+Newtonian.Models, Newtonian.Barycentric                 <- Newtonian.Reconstruction
+Newtonian.Barycentric, Newtonian.Reconstruction         <- Newtonian.Tube
+Newtonian.Reconstruction, Newtonian.Tube                <- Newtonian.Assembly
+Kepler.Equation, Kepler.Energy                          <- Poincare.Chart
+Poincare.Chart, Kepler.Mass                             <- Poincare.Symplectic
+Poincare.Symplectic, Kepler.DelaunayChart               <- Poincare.Bijective
+Poincare.Chart, Kepler.KeplerTube                       <- Poincare.Holomorphic
+Poincare.Bijective, Newtonian.Models, [Frozen Planetary/Defs/FastShift] <- Poincare.Product
+Poincare.Product                                        <- Poincare.Tube, Poincare.Lattice, Poincare.D25
 ```
-No module imports a provider, a frozen theorem or `KAM.ODE`. Only frozen *definitions* are imported.
+No module imports a provider, a frozen theorem or `KAM.ODE`. Only frozen *definitions* are imported. (`KAM.Strip.Analytic` is NOT needed: every holomorphy
+claim is obtained from analytic data, Section 7.1 KEP-3; if a package prefers `KAM.analyticOnNhd_of_differentiableOn` for `Fin m -> C`
+inputs, it adds that import and the DAG gains the edge `KAM.Strip.Analytic <- <that module>`.)
 
 ## 7. Prover packages
 
-Each package proves its nodes exactly as in Appendix A. A package changes a signature only through the orchestrator,
-after a statement audit. Hard rules for every Lean brief (verbatim):
+Each package proves its nodes exactly as in the signature files. A package changes a signature only through the orchestrator, after a statement audit.
+Hard rules for every Lean brief (verbatim):
 1. Never use `set_option maxHeartbeats` (or any heartbeat-budget override). A default-heartbeat elaboration failure
    is a design signal to refactor or split the proof, not something to mask with a larger budget. If a proof will
    not elaborate at default heartbeats, report it as a design signal.
 2. No Lean file may exceed 1500 lines of code. When a file approaches the cap, split it into focused modules,
    preserving public import paths as cheap facades.
 
-(Plus AGENTS.md rules 3-11: module files, no `axiom/admit/unsafe/opaque`, frozen files read-only, no
-conclusion-shaped hypotheses, ambient types, one targeted build, quarantined providers, no edits of `README.md`/`KAM.lean`,
-errata reporting.)
+(Plus AGENTS.md rules 3-11: module files, no `axiom/admit/unsafe/opaque`, frozen files read-only, no conclusion-shaped hypotheses, ambient types, one targeted build,
+quarantined providers, no edits of `README.md`/`KAM.lean`, errata reporting.)
 
-| Package | Nodes | Modules | Lines | After | Wave |
+The table lists, per package, the modules it OWNS and the packages whose modules those import (exactly the DAG of Section 6); "wave" = 1 + the maximum wave of the
+packages in "After" (computed, not asserted).
+
+| Package | Nodes | Modules owned | Lines | After (= DAG imports) | Wave |
 |---|---|---|---|---|---|
-| KEP-1 Basics | `IsSymplecticOn` API, `rot`, planar geometry and calculus | `Kepler/Basic`, `Kepler/Plane` | 650 | - | 1 |
-| KEP-2 Real Kepler equation | `regular-kepler` (a), (c) real, `eccAnom` | `Kepler/Equation` | 550 | KEP-1 | 2 |
+| I-0 Existing determinant | `det-formula`, `kepler` (done) | `Iso/Kepler` (cherry-pick `inp-w1gates:KAM/Iso/Kepler.lean`) | 37 | - | 0 |
+| KEP-1 Basics | `IsSymplecticOn` API, `phaseCast` API, `rot`, planar geometry/calculus, energy and region definitions | `Kepler/Basic`, `Kepler/Plane`, `Kepler/Energy` | 950 | - | 1 |
 | KEP-3 Kepler contraction | `KeplerData`, `keplerSol_*` | `Kepler/EquationComplex` | 650 | - | 1 |
-| KEP-4 Kepler tubes | `regular-kepler` (b), `kepler-eq` | `Kepler/KeplerTube` | 600 | KEP-2, KEP-3 | 3 |
-| KEP-5 Orbit maps | `elements`, `orbit-maps`, `orbit-identities`, `circular`, `h0` | `Kepler/Orbit` | 700 | KEP-2 | 3 |
-| KEP-6 Delaunay symplectic | `symplectic` | `Kepler/DelaunaySymplectic` | 800 | KEP-5 | 4 |
-| KEP-7 Delaunay chart | `chart` | `Kepler/DelaunayChart` | 650 | KEP-5, KEP-6 | 5 |
-| KEP-8 Means | `means`, `circular` (means) | `Kepler/Means` | 350 | KEP-5 | 4 |
-| KEP-9 Complex orbit map | `orbit-maps-e` | `Kepler/OrbitComplex` | 350 | KEP-4, KEP-5 | 4 |
-| KEP-10 Mass and strength | `scaling`, `kepler-data`, `range`, `kepler` | `Kepler/Mass` | 700 | KEP-6, KEP-7, KEP-8 | 6 |
-| I-1 Kepler-rotation Hamiltonian | `kep-ham`, `kep-border` | `Iso/KeplerHamiltonian` | 500 | KEP-1 | 2 |
-| I-2 Conversion | `conversion-map`, `conversion`, `nondeg` | `Iso/Conversion` | 600 | KEP-1, I-1 | 3 |
+| KEP-2 Real Kepler equation | `regular-kepler` (a), (c) real, `eccAnom` | `Kepler/Equation` | 550 | KEP-1 | 2 |
+| I-1 Kepler-rotation Hamiltonian | `kep-ham`, `kep-border` | `Iso/KeplerHamiltonian` | 500 | I-0, KEP-1 | 2 |
 | I-3 Restricted Hamiltonian | `ham-eq`, `newton`, `h0` (second clause) | `Iso/RestrictedHam` | 450 | KEP-1 | 2 |
-| I-4 Near-circular region | `near-circular` | `Iso/NearCircular` | 250 | I-3, KEP-7 | 6 |
-| I-5 Shift potential | `shift-def`, `shift` | `Iso/ShiftPotential` | 800 | KEP-1 | 2 |
-| I-6 Complex domain | `complex-domain` | `Iso/ComplexDomain` | 500 | KEP-9 | 5 |
-| I-7 Exact Hamiltonian | `exact-ham` | `Iso/ExactHamiltonian` | 650 | I-3, I-5, I-6 | 6 |
-| I-8 Period one, transfer | `period-one`, `transfer`, `nondeg` | `Iso/PeriodOne` | 600 | I-7, I-2, KEP-6 | 7 |
+| I-5 Shift potential | `shift-def`, `shift` | `Iso/ShiftPotential` | 850 | KEP-1 | 2 |
 | P6-1 Models | `domain`, `split`, `action-reaction`, `hamilton-eqs` | `Newtonian/Models` | 700 | KEP-1 | 2 |
 | P6-2 Barycentric algebra | `bary-algebra` | `Newtonian/Barycentric` | 450 | KEP-1 | 2 |
+| KEP-4 Kepler tubes | `regular-kepler` (b), `kepler-eq`, F2 derivatives | `Kepler/KeplerTube` | 700 | KEP-2, KEP-3 | 3 |
+| KEP-5 Orbit maps | `elements`, `orbit-maps`, `orbit-identities`, `circular`, `h0` | `Kepler/Orbit` | 600 | KEP-2, KEP-1 | 3 |
+| I-2 Conversion | `conversion-map`, `conversion`, `nondeg` | `Iso/Conversion` | 600 | KEP-1, I-1 | 3 |
 | P6-3 Reconstruction | `reconstruction*`, `orbit-transfer` | `Newtonian/Reconstruction` | 650 | P6-1, P6-2 | 3 |
-| P6-4 Tube | `tube-constants`, `tube-geometry`, `newton-in-tube` | `Newtonian/Tube` | 700 | P6-2, P6-3 | 4 |
-| P6-5 Assembly | `measure-positive`, `movkol/fixkol-assembly` | `Newtonian/Assembly` | 500 | P6-3, P6-4; **Part 1** for (b) | 5 |
 | P6-6 Reduction (low priority) | `nbody`, `reduction` | `Newtonian/Reduction` | 550 | P6-1 | 3 (last) |
-| P7-1 Poincare chart | `poincare-def`, `o-facts`, `poincare` (a) | `Poincare/Chart` | 650 | KEP-2 | 3 |
+| P7-1 Poincare chart | `poincare-def`, `o-facts`, `poincare` (a) | `Poincare/Chart` | 650 | KEP-2, KEP-1 | 3 |
+| KEP-6 Delaunay symplectic | `symplectic`, explicit columns, Liouville primitive | `Kepler/DelaunaySymplectic` | 900 | KEP-5 | 4 |
+| KEP-8 Means | `means`, circular means | `Kepler/Means` | 350 | KEP-5 | 4 |
+| KEP-9 Complex orbit map | `orbit-maps-e` | `Kepler/OrbitComplex` | 400 | KEP-4, KEP-5 | 4 |
+| P6-4 Tube | `tube-constants`, `tube-geometry`, `newton-in-tube`, `fixed_in_tube` | `Newtonian/Tube` | 800 | P6-2, P6-3 | 4 |
+| P7-4 Holomorphic extension | `holomorphic` | `Poincare/Holomorphic` | 500 | P7-1, KEP-4 | 4 |
+| KEP-7 Delaunay chart | `chart` | `Kepler/DelaunayChart` | 650 | KEP-5, KEP-6 | 5 |
+| I-6 Complex domain | `complex-domain` | `Iso/ComplexDomain` | 500 | KEP-9 | 5 |
+| P6-5 Assembly | `measure-positive`, `movkol/fixkol-assembly` | `Newtonian/Assembly` | 500 | P6-3, P6-4; **Part 1** for (b) | 5 |
+| KEP-10 Mass and strength | `scaling`, `kepler-data`, `range`, `kepler` | `Kepler/Mass` | 700 | KEP-5, KEP-6, KEP-7, KEP-8 | 6 |
+| I-4 Near-circular region | `near-circular` | `Iso/NearCircular` | 300 | KEP-1, KEP-7 | 6 |
+| I-7 Exact Hamiltonian | `exact-ham` | `Iso/ExactHamiltonian` | 700 | I-3, I-5, I-6, KEP-5 | 6 |
 | P7-2 Poincare symplectic | `poincare` (b)-(d), (f), means | `Poincare/Symplectic` | 700 | P7-1, KEP-10 | 7 |
+| I-8 Period one, transfer | `period-one`, `transfer`, `transfer_identities`, `nondeg` | `Iso/PeriodOne` | 700 | I-7, I-2, KEP-6 | 7 |
 | P7-3 Poincare bijective | `poincare` (e), inverse | `Poincare/Bijective` | 800 | P7-2, KEP-7 | 8 |
-| P7-4 Holomorphic extension | `holomorphic` | `Poincare/Holomorphic` | 500 | P7-1, KEP-4 | 5 |
-| P7-5 Product chart | `product-def`, `product-chart` | `Poincare/Product` | 650 | P7-3, P6-1 | 9 |
+| P7-5 Product chart | `product-def`, `product-chart`, `poincareProdCast` | `Poincare/Product` | 750 | P7-3, P6-1 | 9 |
 | P7-6 Tube and lattice | `tube`, `lattice` | `Poincare/Tube`, `Poincare/Lattice` | 900 | P7-5; **Part 1** (`S_c`) | 10 |
-| P7-7 D25 and averages | `d25`, `average` | `Poincare/D25` | 700 | P7-5, KEP-8 | 10 |
+| P7-7 D25 and averages | `d25`, `average` | `Poincare/D25` | 700 | P7-5 | 10 |
 
-(31 packages; "Wave" is the earliest wave; the ordering is by dependencies, builds are serialized by the compile gate.) **Critical path:** KEP-1 -> KEP-2 -> KEP-5 -> KEP-6 -> KEP-10 -> P7-2 -> P7-3
--> P7-5 -> P7-6/7 (10 waves). Track I's path is shorter: KEP-3 (wave 1) -> KEP-4 (3) -> KEP-9 (4) -> I-6 (5) -> I-7 (6) -> I-8 (7). What consumers
-can use by wave (earliest): wave 2 gives `keplerLong`, the plane calculus, `restrictedHamTotal`, the Newtonian domain/Hamilton
-equations, the barycentric algebra, `keplerRotH`; wave 3 gives the conversion, `reconstruction*`, the real orbit maps;
-wave 4 the Delaunay symplectic map, the tube constants and geometry of `bpP:p6` and `newton_in_tube`; wave 5 the Delaunay chart, the holomorphic
-Poincare extension and the complex domain; wave 6 the mass/strength chart and the exact Hamiltonian; wave 7 the Poincare symplectic chart and `transfer`; wave 9 the product chart.
+(32 packages.) Realizability check (done by script on this table): every "After" entry names a package of strictly smaller wave, every module's imports in the DAG
+are owned by packages of strictly smaller wave or by the same package, and the module sets are disjoint. **Critical path:** KEP-1 -> KEP-2 -> KEP-5 -> KEP-6 -> KEP-7 -> KEP-10 ->
+P7-2 -> P7-3 -> P7-5 -> P7-6/7 (10 waves; KEP-7 is wave 5 because it imports `DelaunaySymplectic`, so KEP-10 is wave 6). Track I's path: KEP-3 (1) -> KEP-4 (3) -> KEP-9 (4) -> I-6 (5)
+-> I-7 (6) -> I-8 (7). What consumers can use by wave (earliest): wave 2 gives `keplerLong`, the plane calculus, `restrictedHamTotal`, the Newtonian domain/Hamilton equations,
+the barycentric algebra, `keplerRotH`, the shift potential; wave 3 the conversion, `reconstruction*`, the real orbit maps, the Poincare chart data; wave 4 the Delaunay symplectic map,
+tube geometry and `newton_in_tube`/`fixed_in_tube`, the holomorphic Poincare extension; wave 5 the Delaunay chart and the complex domain; wave 6 the mass/strength chart and the exact
+Hamiltonian; wave 7 the Poincare symplectic chart and `transfer`; wave 9 the product chart.
 
 ### 7.1 Proof plans (so provers do not rediscover them)
 
@@ -454,18 +474,18 @@ strict monotonicity from `StrictMonoOn`/`strictMono_of_deriv_pos`; surjectivity 
 identifies `keplerLong` with `psi`). Derivatives by differentiating `Phi(F(lam, v), v) = lam`. `keplerLong_eq_add_eccAnom`: uniqueness plus
 `v0 sin F - v1 cos F = e sin (F - g)`.
 
-**KEP-3.** `S = {G : C | |Im G| <= y0}` closed (`isClosed_le`), complete; `beta x (G) = c x + a x sin G - b x cos G`.
-Invariance: `Complex.sin_add_mul_I`, `Complex.cos_add_mul_I` give `Im sin G`, `Re sin G` etc. with `|Im sin| <= sinh |y|`, `|Re sin| <= cosh y`;
-`Im (a sin G) = Re a Im sin + Im a Re sin`. Contraction: `norm (a cos G) <= norm a cosh y0` (`|cos G| <= cosh y`),
-mean value inequality on the convex `S` (`Convex.norm_image_sub_le_of_norm_deriv_le`, `convex_closedBall`-style set; `S` is convex as a strip,
-`Convex.isPreconnected` not needed). Fixed point: `ContractingWith.fixedPoint`/`exists_fixedPoint` (`S` as a `Set` subtype, or work in
-`{G // |Im G| <= y0}` with `CompleteSpace` from `IsClosed.completeSpace_coe`). Holomorphy: iterates `u_0 = c x`, `u_{m+1} = beta (u_m)` are
-`DifferentiableOn`, converge uniformly (the geometric bound of `ContractingWith.exists_fixedPoint`), limit holomorphic by
-`TendstoLocallyUniformlyOn.differentiableOn` (Weierstrass). `keplerSol_spec`: unique fixed point in `S`; `keplerSol` is it by
-`dif_pos`. `keplerSol_real`: `conj` of the solution is a solution (`Complex.sin_conj`, real coefficients) with the same `|Im|`; uniqueness.
+**KEP-3.** `S = {G : C | |Im G| <= y0}` closed (`isClosed_le`), `beta x (G) = c x + a x sin G - b x cos G`. Invariance: `Complex.sin_add_mul_I`, `Complex.cos_add_mul_I` give
+`Im sin G`, `Re sin G`... with `|Im sin| <= sinh |y|`, `|Re sin| <= cosh y`; `Im (a sin G) = Re a Im sin + Im a Re sin`. Contraction: `norm (a cos G) <= norm a cosh y0`; mean value inequality on the
+convex strip (`Convex.norm_image_sub_le_of_norm_hasDerivWithin_le`). Fixed point: the subtype `{G // |Im G| <= y0}` is complete (`IsClosed.completeSpace_coe`, probed) and
+`ContractingWith.fixedPoint_isFixedPt` applies (probed with an explicit `Nonempty` witness `c x`, which lies in the strip by the invariance inequality). Strictness of the invariance
+inequality puts the fixed point in the OPEN strip `|Im G| < y0`. **Joint analyticity (replaces the invalid Weierstrass plan):** at `x0 in N` put `Phi(x, G) = G - a x sin G + b x cos G - c x`, analytic on
+`P x C` (compositions of analytic maps; `AnalyticAt.contDiffAt`), `partial_G Phi = 1 - a cos G - b sin G` has norm `>= 1 - kappa > 0`, hence is invertible
+(`ContinuousLinearMap.isUnit_iff_bijective`, probed shape `(fderiv ...).IsInvertible`); `ContDiffAt.contDiffAt_implicitFunction` at `omega` (probed over `C`, generic complete `P`) gives an analytic local solution `psi`
+with `Phi(x, psi x) = 0` near `x0`, and `psi x` stays in the open strip by continuity, so `psi = keplerSol` by uniqueness in the strip. `keplerSol_fderiv` is `hasStrictFDerivAt_implicitFunction` /
+implicit differentiation. `keplerSol_spec`: unique fixed point; `keplerSol` is it by `dif_pos`. `keplerSol_real`: `conj` of the solution is a solution (`Complex.sin_conj`, real coefficients) with the same `|Im|`; uniqueness.
 
 **KEP-4.** Regular tube: `y0 = 1`, `kappa = 0.39`, `N = {|Im lam| < 1/4, |v0| + |v1| < 1/4}`; the numerics `1/4 + (1/4) * (sinh 1 + cosh 1) < 1`
-(`sinh 1 + cosh 1 = exp 1 < 2.7183`: `0.25 + 0.68 < 1`) or the cruder blueprint bound; `cosh 1 < 1.5431` via `Real.cosh_one_lt`/`norm_num [Real.cosh_eq]`
+(`sinh 1 + cosh 1 = exp 1 < 2.7183`: `0.25 + 0.68 < 1`) or the cruder blueprint bound; `cosh_one_lt : cosh 1 < 1.55` proved in this package (probed: `rw [Real.cosh_eq, Real.exp_neg]`, `Real.exp_one_lt_d9`, `Real.exp_one_gt_d9`, `inv_lt_comm₀`, `linarith`; `Real.cosh_one_lt` does not exist and `1.5431` is too tight for this route; `1.55` suffices: `0.25 * 1.55 = 0.3875 < 0.39`, `1 - 0.3875 > 3/5`)
 with `Real.exp_one_lt_d9`; `|J| > 3/5` from `|v0 cos F + v1 sin F| <= (|v0| + |v1|) cosh 1`. Real points: `keplerLongC_ofReal` by
 `keplerSol_real` and `keplerLong_unique`. I's tube: instance `a = e, b = 0, c = ell` on `N = keplerTube e1`; open set: preimage of `<`
 under `Metric.infDist` (continuous) and `|Im|`; invariance with `e2 sinh y0 <= theta y0` (`sinh y <= y * cosh y` for `y >= 0`: the function `y |-> y cosh y - sinh y` vanishes at `0` and has derivative `y sinh y >= 0`).
@@ -475,14 +495,15 @@ under `Metric.infDist` (continuous) and `|Im|`; invariance with `e2 sinh y0 <= t
 `field_simp; ring` after `Real.sin_sq_add_cos_sq`. `keplerRegion` membership: `G^2 < L^2` iff `e > 0` (only for `e > 0`; this is why `delaunay_mem_region` needs `deDom`).
 Analyticity: composition of `analyticOnNhd_eccAnom`, `Real.analyticAt_sin/cos`, `Real.contDiffAt_sqrt` at `omega` (radicand `1 - e^2 > 0`).
 
-**KEP-6 (largest algebra; split into two files if needed).** Do not differentiate through `eccOf` and `eccAnom` simultaneously. Intermediate
-coordinates `(ell, g, L, e)`: `d u = (d ell + sin u d e)/D` from `hasDerivAt_eccAnom` and `fderiv_keplerLong_vec`; the orbit-frame vector
-`(X, Y, P_X, P_Y)` is a rational function of `(c, s, e, k, L, D)`. State `delaunay_hasFDerivAt` with the four columns
-(`dq/d ell`, `dq/dg`, `dq/dL`, `dq/dG`, same for `p`) as explicit expressions (`rot` of frame derivatives plus `J`-rotated terms), then
-`delaunay_symplectic` is the six Lagrange-bracket identities `[ell, g] = [L, G] = [ell, L]... `: all of the form `sum_i (d p_i/d a)(d q_i/d b) - (d q_i/d a)(d p_i/d b) = delta`;
-prove each by `field_simp` + `nlinarith [sin_sq_add_cos_sq u, sq_sqrt (1 - e^2)]` or `ring_nf` after substituting `k^2 = 1 - e^2`. The brackets with `g`
-use only `pi . J xi = G` (`orbitMapR_cross`). Invertibility: a symplectic `A` with `Omega(Au, Av) = Omega(u, v)` and `Omega` nondegenerate is injective
-(`symplecticForm` pairing with the `e_i` basis); finite dimension gives bijective (`LinearMap.injective_iff_surjective`).
+**KEP-6 (largest algebra; split into two files if needed).** The Jacobian columns are DESIGNED in the signatures (`orbitMapColumn`, `fderiv_orbitMapR_basis`, `fderiv_delaunay_basis`): in the intermediate
+coordinates `(ell, g, L, e)` the frame derivatives are `d_u(X,Y,P_X,P_Y) = (-L^2 s, L^2 k c, -(c-e)/(L D^2), -k s/(L D^2))`, `d_e = (-L^2, -L^2 e s/k, -s c/(L D^2), c(c-e)/(L D^2 k))`,
+`d_L = (2L(c-e), 2Lks, s/(L^2 D), -kc/(L^2 D))`, with `d_ell u = 1/D`, `d_e u = s/D` (`hasDerivAt_eccAnom`, `fderiv_keplerLong_vec`), `d g` acts by `quarterTurn`, and the chain rule through
+`e(L,G)` adds `d_L e = G^2/(L^3 e)`, `d_G e = -G/(L^2 e)`. Step 1: prove `fderiv_orbitMapR_basis` coordinatewise (`HasDerivAt` of each frame entry; `field_simp`). Step 2: `delaunay_symplectic` is the six
+Lagrange brackets `sum_i (d p_i/d a)(d q_i/d b) - (d q_i/d a)(d p_i/d b) = delta_{ab}` (rotation-invariant, so `rot g` drops out: `planeDot_rot`, `planeCross_rot`), each by `field_simp` +
+`nlinarith [sin_sq_add_cos_sq u, sq_sqrt (1 - e^2)]` or `ring_nf` after `k^2 = 1 - e^2`; the brackets with `g` use only `planeCross` of the frame `= G` (`orbitMapR_cross`). Step 3: `delaunay_liouville`
+(`p . dq = pi . d xi + G dg`, `pi . d xi - L d ell = 2 d(L e s)`, exactly `stepI:p7:sy-g..compare`). Step 4: invertibility: a map with `Omega(Au, Av) = Omega(u, v)` is injective
+(`Omega` is nondegenerate: pair with the basis), hence bijective in finite dimension (`LinearMap.injective_iff_surjective`); `delaunay_hamiltonianVectorField` is `Lemma p1:omega-algebra (b)`
+specialised. Do not differentiate through `eccOf` and `eccAnom` simultaneously (two-step chain rule).
 
 **KEP-7.** Injective modulo `2 pi`: from `orbitMapR_radius/_dot/_energy/_cross` recover `L`, `G`, `cos u`, `sin u` (`e > 0`), then `u mod 2 pi`
 (`Real.Angle` or `Complex.arg`), `ell = u - e sin u` modulo `2 pi` via `Function.Periodic`, then `g` from `rot g (X,Y) = q`: `exists_rot_eq`
@@ -563,16 +584,18 @@ surjectivity by the two cases of `stepP:p7:po-bij`; `poincareInv` by the explici
 
 ### 7.3 Coordination with other designs
 
-1. **Plane-length helpers (track N, N3-8).** `KAM/ODE/NewtonDefs.lean` (N design Section 6) plans `norm_le_planeLength`,
-   `planeLength_le_sqrt_two_mul_norm`, `planeLength_add_le`, `radius_eq_planeLength`. These are the same statements as
-   KEP-1's. Recommendation: land KEP-1 first and have N3-8 import `KAM.Kepler.Plane` (N3-8 is wave 2 there, KEP-1 is wave 1
-   here); otherwise keep two copies in different namespaces (`KAM.ODE`, `KAM.Kepler`) and delete one later. This is the only
-   coupling to the ODE layer.
+1. **Plane-length helpers (track N, N3-8): DECIDED by the sub-orchestrator.** The helpers live in `KAM/Kepler/Plane` (KEP-1, wave 1) and the ODE design's package N3-8
+   imports it (`KAM.ODE.NewtonDefs` re-uses, does not redeclare). Final signatures (identical to `NPart3Signatures.lean`, namespace `KAM.Kepler`):
+   `theorem norm_le_planeLength (v : Fin 2 -> R) : ‖v‖ <= planeLength v`;
+   `theorem planeLength_le_sqrt_two_mul_norm (v : Fin 2 -> R) : planeLength v <= √2 * ‖v‖`;
+   `theorem planeLength_add_le (v w : Fin 2 -> R) : planeLength (v + w) <= planeLength v + planeLength w`;
+   `theorem radius_eq_planeLength : KAM.Iso.radius = planeLength := rfl` (and `radiusSq_eq_planeSq := rfl`). N3-8 must `public import KAM.Kepler.Plane` and drop its own copies;
+   N3-8 is then after KEP-1 (wave 1) on the N side, which the N design (N3-8 in wave 2) already satisfies. This is the only coupling to the ODE layer.
 2. **Part 1 (charts).** `IsSymplecticOn` must be the one definition: Part 1's `IsChart c Psi O` should be
    `AnalyticOnNhd R Psi O /\ IsSymplecticOn c Psi O` (so `chart-field`, `torus-transport`, `liouville-lattice` consume
    `poincareProd_symplectic` directly) with source and target dimensions independent (needed for `Phase (n+n) -> Phase (n*2)`);
-   `angleScale c` is Part 1's `S_c`. `measure_chart_image` in the signatures file is only the consumer form of
-   `bpP:p1:liouville-lattice` (package P6-5 (b) is gated on Part 1; the rest of P6-5 is not).
+   `angleScale c` is Part 1's `S_c`. The heterogeneous-dimension bridge is DESIGNED here (audit F6): `phaseCast (h : d = e) : Phase d ≃L[ℝ] Phase e` (reindex by `Fin.cast` on both components; API: `phaseCast_symplectic`, `phaseCast_hamiltonianVectorField`, `phaseCast_volume`, `phaseCast_analytic`) and the equal-dimension chart `poincareProdCast m κ := poincareProd m κ ∘ phaseCast (Nat.mul_two n) : Phase (n*2) -> Phase (n*2)` with `poincareProdCast_symplectic/_eq_iff` for Part 1's `IsChart`; the body permutation stays inside `poincareProd` and is not mixed with the cast. For literal `n = 2` the cast is the identity up to `rfl`. `measure_chart_image` in the signatures file is only the consumer form of
+   `bpP:p1:liouville-lattice` (package P6-5 (b) is gated on Part 1; the rest of P6-5 is not). **Caveat kept from the audit (F6):** `measure_chart_image` is a FULL-position-lattice theorem; it is NOT the interface for P12's Cartesian cylinder torus (P12:205 proves fast-lattice variants itself, and the polar lattice lemmas do not show that an arbitrary frozen cylinder torus winds in every slow angle). Consumers must not use it for the cylinder measure.
 3. **Part 11a/11b/12/13 (P).** They read `poincare_*`, `poincareProd_*` as listed in 7.2; no change of statement is expected;
    P12 chooses `gamma := axisGap a`, `A := axisMax a` through `axisData_canonical`.
 4. **Track I Part 8.** Takes `K` from its own safe-region lemma and `exactDelta K`; the ODE-side uniqueness
@@ -632,10 +655,53 @@ Names that do not exist at this snapshot (so the proof must not cite them): `Ana
 (use `analyticAt_log` in `Mathlib/Analysis/SpecialFunctions/Complex/Analytic.lean`), `Complex.analyticAt_cpow_const`, `Complex.abs_sin_le_cosh`,
 `MeasureTheory.hasFDerivAt_integral_of_dominated_of_fderiv_le` (the interval version `intervalIntegral.hasFDerivAt_integral_of_dominated_of_fderiv_le` exists).
 
+### 9.2 Applicability probes (audit F7)
 
-## Appendix A. `.drafts/design/KeplerSignatures.lean` (verbatim)
+A `#check` shows a name exists; the following probes were elaborated as proofs against the pinned Mathlib (scratch file, deleted afterwards) to show the lemma applies in the SHAPE used:
+- real analytic IFT: from `hf : AnalyticAt R f u` and `(fderiv R f u ∘L ContinuousLinearMap.inr R R R).IsInvertible`, `hf.contDiffAt : ContDiffAt R ω f u`, then
+  `ContDiffAt.implicitFunction`, `.implicitFunction_apply_self`, `.eventually_apply_implicitFunction` and `(… .contDiffAt_implicitFunction (by simp) h).analyticAt` give `∃ ψ, AnalyticAt R ψ u.1 ∧ ψ u.1 = u.2 ∧ ∀ᶠ x, f (x, ψ x) = f u`. OK.
+- the same over `C` with a generic complete parameter space `P` (needs `[CompleteSpace P]`): `∃ ψ : P -> C, AnalyticAt C ψ u.1`. OK (this is why `KeplerData` has `[CompleteSpace P]` and `AnalyticOnNhd` coefficients).
+- contraction on the closed strip: `IsClosed.completeSpace_coe` for `{G : C | |G.im| <= y}`, `Nonempty` from a witness, `ContractingWith.fixedPoint_isFixedPt`. OK.
+- numerics: `Real.cosh 1 < 1.55` by `Real.cosh_eq`, `Real.exp_neg`, `Real.exp_one_lt_d9`, `Real.exp_one_gt_d9`, `inv_lt_comm₀`, `linarith`. OK (`1.5431` fails by 1e-4).
+- change of variables: `intervalIntegral.integral_comp_mul_deriv'` with `f' = fun _ => 1`, `g = Real.sin`: `simp` closes. OK.
+- `Real.contDiffAt_sqrt (n := ω) hx` gives `AnalyticAt R Real.sqrt x` via `.analyticAt`. OK.
+- `(Complex.differentiableOn_dslope hmem).2 hf` gives `DifferentiableOn C (dslope f 0) (ball 0 1)`. OK (one variable only: joint holomorphy is the risk R2).
+- Schwarz: `Complex.dist_le_div_mul_dist_of_mapsTo_ball` (arbitrary complex normed `E`, `F`). OK.
+- NOT applicable as previously planned: `TendstoLocallyUniformlyOn.differentiableOn` is for `U : Set C` only (replaced by the IFT route); `Real.cosh_one_lt`, `Complex.norm_le_of_mapsTo_ball`, `ContractingWith.edist_iterate_fixedPoint_le`, `TendstoUniformlyOn.differentiableOn`, `intervalIntegral.integral_cos/_sin` (use root `integral_cos`, `integral_sin`) do not exist.
+- project lemmas: `KAM.holomorphic_analytic` and `KAM.analyticOnNhd_of_differentiableOn` are in namespace `KAM` (file `KAM/Strip/Analytic.lean`, main), take `Fin m -> C` input, and are NOT used by this design; a package that wants them adds the import and a product-to-`Pi` adapter.
+- `phaseCast`: `ContinuousLinearEquiv.piCongrLeft` with the index equivalence `finCongr h : Fin d ≃ Fin e` and `φ := fun _ : Fin e => R` elaborates (signature file, section PhaseCast).
 
-The file below is the exact text elaborated with `nice -n 5 lake env lean`, sha256 as given at the top.
+## 10. Audit fixes (audit 1, `KEPLER-design-audit-1.md`)
+
+| Finding | Resolution |
+|---|---|
+| F1 HIGH: `fastShift` redeclared | Deleted the draft definition. `KeplerSignaturesP.lean` imports the FROZEN `KAM.Planetary.Defs.FastShift` (via `check_kepler.sh`) and writes `fastShift (a := n) (b := n) k` in `poincareProd_lattice`, `poincareProd_eq_iff`, `poincareProdCast_eq_iff`. The combined file elaborates with the frozen definition present, which would have exposed the clash. Rule recorded in Section 3: never redeclare a frozen export. |
+| F2: complex derivative conclusions | Added `fderiv_keplerLongC_vec` (`∂_{v_0}F = sin F/J`, `∂_{v_1}F = -cos F/J`), `regularKepler_jac_bound` (`1 - cosh 1/4 <= |J|`, `3/5 < 1 - cosh 1/4`), `hasDerivAt_eccAnomC_ecc` (`∂_e u`), and the generic `keplerSol_fderiv`, all in KEP-3/KEP-4. |
+| F3: radius vs complex-domain witness | `ComplexDomainData K δ` (exact factorization of the old `complex_domain` output), `complexDelta K` (selected `δ_1`), `complex_domain_spec`; `exactDelta` now chooses `0 < δ <= complexDelta K ∧ ExactHamData K δ`; `exact_ham : 0 < exactDelta ∧ exactDelta <= complexDelta ∧ ExactHamData`; `exact_positions_mem_shiftO` records that positions lie in the shift neighbourhood. D10 text replaced by D20. |
+| F4: `transfer` / `newton_in_tube` overstate | `transfer` docstring now says what it gives; added `transfer_identities` (exact radius, `elemL/cross/elemA/elemEcc`, and `restrictedHamiltonian = realHamiltonian` along the orbit) and `fixed_in_tube` (finite-time fixed-Sun equations, no collision, pair bounds with the Sun at the origin); `newton_in_tube` docstring says "moving Sun". |
+| F5 HIGH: packages vs DAG | Rebuilt Sections 6-7 together: four missing edges added (`DelaunayChart <- DelaunaySymplectic`; `Newtonian.Tube <- Reconstruction`; and the two early-definition problems solved by the new module `Kepler/Energy`, so `Iso/RestrictedHam` and `Newtonian/Models` import only `Plane`/`Energy`, wave 2); the package table now lists owned modules and "After" = exactly the DAG imports; waves recomputed (KEP-7 becomes wave 5, KEP-10 wave 6, P7-4 wave 4; critical path still 10 waves); the DAG is acyclic by a stated topological order; `KAM/Iso/Kepler.lean` is the explicit prerequisite package I-0 (wave 0, cherry-pick from `inp-w1gates`). 32 packages. |
+| F6: heterogeneous-dimension bridge | Designed: `phaseCast` + `phaseCast_apply/_symm/_symplectic/_hamiltonianVectorField/_volume/_measurableEquiv/_analytic` and `poincareProdCast` (+ `_symplectic`, `analyticOnNhd_`, `isOpen_`, `_eq_iff`) in the signatures (module `Kepler/Basic`, `Poincare/Product`); `IsSymplecticOn.comp` carries differentiability hypotheses. The consumer table keeps the audit's caveat that `measure_chart_image` is not the P12 Cartesian interface (Section 7.3). |
+| F7: names vs applicable theorems | Section 9.2: applicability probes (IFT real/complex, contraction on the strip, `cosh` numerics, change of variables, sqrt analyticity, dslope, Schwarz, `phaseCast`). Consequences: `Real.cosh_one_lt` replaced by the proved helper `cosh_one_lt : cosh 1 < 1.55`; the Weierstrass plan replaced by the analytic-IFT route with `KeplerData` taking `AnalyticOnNhd` coefficients and `[CompleteSpace P]`; project `KAM.holomorphic_analytic` import/adapter not needed, and its namespace noted. |
+| C6 coverage items | Added `delaunayMK_localDiffeo`, `delaunayMK_periodic`, `delaunay_hamiltonianVectorField`, `orbitMapC_real`, `shiftF_eq_integral`, `delaunay_liouville` (+ `delaunayGen`), `nearCircular_witness_unique`, `scaleMK_flow`, and the explicit Jacobian columns (`orbitMapColumn`, `fderiv_orbitMapR_basis`, `fderiv_delaunay_basis`) that the KEP-6 plan only asserted before. `hasDerivAt_nu` is documented as a derivative lemma only. |
+| Sub-orchestrator decision | Plane-length helpers live in `KAM/Kepler/Plane` (KEP-1); final signatures stated in Section 7.3 item 1 and in `KeplerSignatures.lean` section A; N3-8 imports it. |
+| Line cap | The signatures are split into two files (994 + 690 lines). |
+
+## Appendix A. The signature files (verbatim)
+
+Sha256 values as in the header. `check_kepler.sh` first, then the two files.
+
+### A.0 `.drafts/design/check_kepler.sh`
+
+```sh
+#!/bin/sh
+# Elaborate both signature files in ONE process (the second continues the first). Run from the worktree root.
+D=.drafts/design
+{ sed 's/^public import KAM.Frozen.Planetary.Defs.ProgradeElliptic$/public import KAM.Frozen.Planetary.Defs.ProgradeElliptic\npublic import KAM.Frozen.Planetary.Defs.FastShift/' $D/KeplerSignatures.lean;
+  sed -n '/^-- BEGIN-P/,$p' $D/KeplerSignaturesP.lean; } > $D/_combined.lean
+nice -n 5 lake env lean $D/_combined.lean
+```
+
+### A.1 `.drafts/design/KeplerSignatures.lean`
 
 ```lean
 /-
@@ -708,7 +774,8 @@ public import KAM.Frozen.Planetary.Defs.ProgradeElliptic
 
 Exact Lean statements of every result node of blueprint-I Parts 6, 7 and blueprint-P Parts 6, 7, see
 `docs/tracks/P/design/KEPLER-LEAN-DESIGN.md`. Every body is `sorry`; no `set_option`, no
-`maxHeartbeats`. Design evidence, not approved Lean. Sections A-G correspond to the modules of the
+`maxHeartbeats`. Design evidence, not approved Lean. This file: sections A-E (shared layer and track I); sections F-G are in `KeplerSignaturesP.lean`, which
+imports this file. Sections correspond to the modules of the
 design document (shared layer `KAM/Kepler/*`, track I `KAM/Iso/*`, track P `KAM/Planetary/*`).
 -/
 
@@ -778,9 +845,11 @@ theorem hasFDerivAt_inv_planeLength {v : Fin 2 → ℝ} (hv : v ≠ 0) :
     HasFDerivAt (fun w => (planeLength w)⁻¹)
       (-((planeLength v ^ 3)⁻¹) • ∑ k, v k • ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 2 => ℝ) k) v := sorry
 
-/-- `KAM.Iso.radius` is the frozen planar length (`rfl`); likewise `radiusSq` is `planeSq`. -/
-theorem iso_radius_eq : KAM.Iso.radius = planeLength := sorry
-theorem iso_radiusSq_eq : KAM.Iso.radiusSq = planeSq := sorry
+/-- `KAM.Iso.radius` is the frozen planar length (`rfl`); likewise `radiusSq` is `planeSq`. These and the
+three helpers `norm_le_planeLength`, `planeLength_le_sqrt_two_mul_norm`, `planeLength_add_le` above are the FINAL
+forms imported by the ODE design's N3-8 (`KAM.ODE.NewtonDefs`): same statements as `NPart3Signatures.lean`. -/
+theorem radius_eq_planeLength : KAM.Iso.radius = planeLength := rfl
+theorem radiusSq_eq_planeSq : KAM.Iso.radiusSq = planeSq := rfl
 
 end Plane
 
@@ -857,12 +926,12 @@ def keplerOp (a b G : ℂ) : ℂ := G - a * Complex.sin G + b * Complex.cos G
 
 /-- Quantitative hypotheses of the contraction (data, not a conclusion). On a parameter set `N` with
 holomorphic coefficients `a b c`: the strip `|Im G| ≤ y₀` is invariant and the map is a `κ`-contraction. -/
-structure KeplerData {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] (N : Set P)
+structure KeplerData {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] [CompleteSpace P] (N : Set P)
     (a b c : P → ℂ) (y₀ κ : ℝ) : Prop where
   isOpen : IsOpen N
-  diff_a : DifferentiableOn ℂ a N
-  diff_b : DifferentiableOn ℂ b N
-  diff_c : DifferentiableOn ℂ c N
+  analytic_a : AnalyticOnNhd ℂ a N
+  analytic_b : AnalyticOnNhd ℂ b N
+  analytic_c : AnalyticOnNhd ℂ c N
   y₀_pos : 0 < y₀
   κ_lt : κ < 1
   invariant : ∀ x ∈ N, |(c x).im| + (|(a x).re| + |(b x).re|) * Real.sinh y₀
@@ -874,15 +943,30 @@ open scoped Classical in
 def keplerSol (y₀ : ℝ) (a b c : ℂ) : ℂ :=
   if h : ∃! G : ℂ, |G.im| ≤ y₀ ∧ keplerOp a b G = c then h.choose else 0
 
-/-- Generic Kepler contraction: `bpI:p7:kepler-eq` and `bpP:p7:regular-kepler` (b) are instances. -/
-theorem keplerSol_spec {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] {N : Set P}
+/-- Generic Kepler contraction: `bpI:p7:kepler-eq` and `bpP:p7:regular-kepler` (b) are instances.
+Joint holomorphy is by the analytic implicit function theorem (`ContDiffAt.implicitFunction` over `ℂ`, which needs
+`[CompleteSpace P]`) plus uniqueness in the open strip, NOT by a multivariable Weierstrass theorem (absent from
+Mathlib); hence the coefficients are `AnalyticOnNhd` (a holomorphic coefficient on `Fin m → ℂ` is analytic by
+`KAM.analyticOnNhd_of_differentiableOn`; the instances below are compositions of analytic maps and need no adapter). -/
+theorem keplerSol_spec {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] [CompleteSpace P] {N : Set P}
     {a b c : P → ℂ} {y₀ κ : ℝ} (h : KeplerData N a b c y₀ κ) {x : P} (hx : x ∈ N) :
     |(keplerSol y₀ (a x) (b x) (c x)).im| ≤ y₀ ∧
       keplerOp (a x) (b x) (keplerSol y₀ (a x) (b x) (c x)) = c x ∧
       ∀ G : ℂ, |G.im| ≤ y₀ → keplerOp (a x) (b x) G = c x → G = keplerSol y₀ (a x) (b x) (c x) := sorry
-theorem keplerSol_differentiableOn {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] {N : Set P}
+theorem keplerSol_analyticOnNhd {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] [CompleteSpace P] {N : Set P}
+    {a b c : P → ℂ} {y₀ κ : ℝ} (h : KeplerData N a b c y₀ κ) :
+    AnalyticOnNhd ℂ (fun x => keplerSol y₀ (a x) (b x) (c x)) N := sorry
+theorem keplerSol_differentiableOn {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] [CompleteSpace P] {N : Set P}
     {a b c : P → ℂ} {y₀ κ : ℝ} (h : KeplerData N a b c y₀ κ) :
     DifferentiableOn ℂ (fun x => keplerSol y₀ (a x) (b x) (c x)) N := sorry
+/-- Generic derivatives (implicit differentiation; the denominator `1 - a cos G - b sin G` is nonzero on `N`
+because `‖a cos G‖ + ‖b sin G‖ ≤ κ < 1`): `∂_x G = (a' sin G - b' cos G + c')/(1 - a cos G - b sin G)` in direction `v`. -/
+theorem keplerSol_fderiv {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] [CompleteSpace P] {N : Set P}
+    {a b c : P → ℂ} {y₀ κ : ℝ} (h : KeplerData N a b c y₀ κ) {x : P} (hx : x ∈ N) (v : P) :
+    fderiv ℂ (fun x => keplerSol y₀ (a x) (b x) (c x)) x v *
+        (1 - a x * Complex.cos (keplerSol y₀ (a x) (b x) (c x)) - b x * Complex.sin (keplerSol y₀ (a x) (b x) (c x))) =
+      fderiv ℂ a x v * Complex.sin (keplerSol y₀ (a x) (b x) (c x))
+        - fderiv ℂ b x v * Complex.cos (keplerSol y₀ (a x) (b x) (c x)) + fderiv ℂ c x v := sorry
 /-- Real coefficients give a real solution. -/
 theorem keplerSol_real {y₀ : ℝ} {a b c : ℂ} (ha : a.im = 0) (hb : b.im = 0) (hc : c.im = 0)
     (hex : ∃ G : ℂ, |G.im| ≤ y₀ ∧ keplerOp a b G = c) (huniq : ∃! G : ℂ, |G.im| ≤ y₀ ∧ keplerOp a b G = c) :
@@ -911,6 +995,22 @@ theorem keplerLongC_shift {x : ℂ × (Fin 2 → ℂ)} (hx : x ∈ regularTube) 
 theorem hasDerivAt_keplerLongC_lambda {x : ℂ × (Fin 2 → ℂ)} (hx : x ∈ regularTube) :
     HasDerivAt (fun t : ℂ => keplerLongC (t, x.2))
       (1 / (1 - x.2 0 * Complex.cos (keplerLongC x) - x.2 1 * Complex.sin (keplerLongC x))) x.1 := sorry
+
+/-- F2: the other two derivative formulas of `bpP:p7:regular-kepler` (b) in the complex tube
+(`∂_{v₀}F = sin F/J`, `∂_{v₁}F = -cos F/J`), and the source's sharp Jacobian bound. -/
+theorem fderiv_keplerLongC_vec {x : ℂ × (Fin 2 → ℂ)} (hx : x ∈ regularTube) :
+    fderiv ℂ (fun v => keplerLongC (x.1, v)) x.2 (Pi.single 0 1) =
+        Complex.sin (keplerLongC x) /
+          (1 - x.2 0 * Complex.cos (keplerLongC x) - x.2 1 * Complex.sin (keplerLongC x)) ∧
+    fderiv ℂ (fun v => keplerLongC (x.1, v)) x.2 (Pi.single 1 1) =
+        -Complex.cos (keplerLongC x) /
+          (1 - x.2 0 * Complex.cos (keplerLongC x) - x.2 1 * Complex.sin (keplerLongC x)) := sorry
+theorem regularKepler_jac_bound {x : ℂ × (Fin 2 → ℂ)} (hx : x ∈ regularTube) :
+    1 - Real.cosh 1 / 4 ≤
+      ‖1 - x.2 0 * Complex.cos (keplerLongC x) - x.2 1 * Complex.sin (keplerLongC x)‖ ∧
+    (3 / 5 : ℝ) < 1 - Real.cosh 1 / 4 := sorry
+/-- Numerical helper (probed, Section 9.2): `cosh 1 < 1.55`, so the contraction constant `0.39` and `3/5` hold. -/
+theorem cosh_one_lt : Real.cosh 1 < 1.55 := sorry
 
 /-! ### Track I's tube (`bpI:p7:kepler-eq`) -/
 
@@ -951,6 +1051,10 @@ theorem eccAnomC_zero_ecc {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) {ℓ : �
 theorem hasDerivAt_eccAnomC_ell {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) {x : ℂ × ℂ} (hx : x ∈ keplerTube e₁) :
     HasDerivAt (fun t : ℂ => eccAnomC e₁ (t, x.2))
       (1 / (1 - x.2 * Complex.cos (eccAnomC e₁ x))) x.1 := sorry
+/-- F2: `∂_e u = sin u/(1 - e cos u)` on the tube. -/
+theorem hasDerivAt_eccAnomC_ecc {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) {x : ℂ × ℂ} (hx : x ∈ keplerTube e₁) :
+    HasDerivAt (fun e : ℂ => eccAnomC e₁ (x.1, e))
+      (Complex.sin (eccAnomC e₁ x) / (1 - x.2 * Complex.cos (eccAnomC e₁ x))) x.2 := sorry
 
 end Equation
 
@@ -964,6 +1068,12 @@ section Delaunay
 def IsSymplecticOn {d e : ℕ} (c : ℝ) (Ψ : Phase d → Phase e) (U : Set (Phase d)) : Prop :=
   ∀ z ∈ U, ∀ u v : Phase d,
     symplecticForm (fderiv ℝ Ψ z u) (fderiv ℝ Ψ z v) = c * symplecticForm u v
+
+/-- Chain rule for `IsSymplecticOn` (differentiability is an explicit hypothesis, since `fderiv` is total). -/
+theorem IsSymplecticOn.comp {d e f : ℕ} {c₁ c₂ : ℝ} {Ψ₁ : Phase d → Phase e} {Ψ₂ : Phase e → Phase f}
+    {U : Set (Phase d)} {V : Set (Phase e)} (h₁ : IsSymplecticOn c₁ Ψ₁ U) (h₂ : IsSymplecticOn c₂ Ψ₂ V)
+    (hU : ∀ z ∈ U, DifferentiableAt ℝ Ψ₁ z) (hV : ∀ z ∈ V, DifferentiableAt ℝ Ψ₂ z)
+    (hmaps : Set.MapsTo Ψ₁ U V) : IsSymplecticOn (c₂ * c₁) (Ψ₂ ∘ Ψ₁) U := sorry
 
 /-- Entrywise complexification of a real phase point. -/
 def phaseToC {d : ℕ} (z : Phase d) : (Fin d → ℂ) × (Fin d → ℂ) :=
@@ -1047,6 +1157,51 @@ theorem eccOf_mem_Ioo {L G : ℝ} (h : (![L, G] : Fin 2 → ℝ) 1 < (![L, G] : 
 theorem delaunay_hamiltonian {w : Phase 2} (hw : w ∈ deDom) :
     kE (delaunay w) - planeCross (delaunay w).1 (delaunay w).2 = -1 / (2 * w.2 0 ^ 2) - w.2 1 := sorry
 
+/-- F-audit C6 (`bpI:p7:symplectic`, Liouville primitive): `𝖰^*(Σ p dq) = L dℓ + G dg + dF`, `F = 2 L e sin u`. -/
+def delaunayGen (w : Phase 2) : ℝ :=
+  2 * w.2 0 * eccOf (w.2 0) (w.2 1) * Real.sin (eccAnom (w.1 0) (eccOf (w.2 0) (w.2 1)))
+theorem delaunay_liouville {w : Phase 2} (hw : w ∈ deDom) (u : Phase 2) :
+    planeDot (delaunay w).2 (fderiv ℝ delaunay w u).1 =
+      w.2 0 * u.1 0 + w.2 1 * u.1 1 + fderiv ℝ delaunayGen w u := sorry
+/-- C6: the Hamiltonian-field consequence of symplecticity (`D𝖰 X_{H∘𝖰} = X_H ∘ 𝖰`). -/
+theorem delaunay_hamiltonianVectorField {H : Phase 2 → ℝ} {w : Phase 2} (hw : w ∈ deDom)
+    (hH : DifferentiableAt ℝ H (delaunay w)) :
+    fderiv ℝ delaunay w (hamiltonianVectorField (H ∘ delaunay) w) = hamiltonianVectorField H (delaunay w) := sorry
+
+/-- EXPLICIT Jacobian columns (audit: the decomposition promised for KEP-6 is designed here, not only asserted).
+Frame derivatives, with `u = eccAnom ℓ e`, `c = cos u`, `s = sin u`, `k = √(1-e²)`, `D = 1 - e c`:
+`∂_u (X, Y, P_X, P_Y) = (-L² s, L² k c, -(c-e)/(L D²), -k s/(L D²))`,
+`∂_e (at fixed u) = (-L², -L² e s/k, -s c/(L D²), c (c-e)/(L D² k))`,
+`∂_L = (2 L (c-e), 2 L k s, s/(L² D), -k c/(L² D))`, and `∂_ℓ u = 1/D`, `∂_e u = s/D`. -/
+def orbitMapColumn (ℓ g L e : ℝ) : Fin 4 → Phase 2 :=
+  let u := eccAnom ℓ e
+  let c := Real.cos u
+  let s := Real.sin u
+  let k := √(1 - e ^ 2)
+  let D := 1 - e * c
+  let fu : Phase 2 := (![-L ^ 2 * s, L ^ 2 * k * c], ![-(c - e) / (L * D ^ 2), -k * s / (L * D ^ 2)])
+  let fe : Phase 2 := (![-L ^ 2, -L ^ 2 * e * s / k], ![-s * c / (L * D ^ 2), c * (c - e) / (L * D ^ 2 * k)])
+  let fL : Phase 2 := (![2 * L * (c - e), 2 * L * k * s], ![s / (L ^ 2 * D), -k * c / (L ^ 2 * D)])
+  let q := (orbitMapR ℓ g L e)
+  ![(rot g ((1 / D) • fu.1), rot g ((1 / D) • fu.2)),
+    (quarterTurn q.1, quarterTurn q.2),
+    (rot g fL.1, rot g fL.2),
+    (rot g (fe.1 + (s / D) • fu.1), rot g (fe.2 + (s / D) • fu.2))]
+theorem fderiv_orbitMapR_basis {ℓ g L e : ℝ} (hL : 0 < L) (he0 : 0 < e) (he1 : e < 1) (i : Fin 4) :
+    fderiv ℝ (fun x : Fin 4 → ℝ => orbitMapR (x 0) (x 1) (x 2) (x 3)) ![ℓ, g, L, e] (Pi.single i 1) =
+      orbitMapColumn ℓ g L e i := sorry
+/-- Chain rule through `e(L, G)`: `∂_L e = G²/(L³ e)`, `∂_G e = -G/(L² e)`. -/
+theorem fderiv_delaunay_basis {w : Phase 2} (hw : w ∈ deDom) :
+    fderiv ℝ delaunay w (Pi.single 0 1, 0) = orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1)) 0 ∧
+    fderiv ℝ delaunay w (Pi.single 1 1, 0) = orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1)) 1 ∧
+    fderiv ℝ delaunay w (0, Pi.single 0 1) =
+      orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1)) 2 +
+        (w.2 1 ^ 2 / (w.2 0 ^ 3 * eccOf (w.2 0) (w.2 1))) •
+          orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1)) 3 ∧
+    fderiv ℝ delaunay w (0, Pi.single 1 1) =
+      (-w.2 1 / (w.2 0 ^ 2 * eccOf (w.2 0) (w.2 1))) •
+        orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1)) 3 := sorry
+
 /-- `bpI:p7:symplectic`: `𝖰^*(Σ dq∧dp) = dℓ∧dL + dg∧dG`, i.e. factor one for the frozen form
 (positions `(ℓ, g)`, momenta `(L, G)`), and `D𝖰` is invertible. -/
 theorem delaunay_symplectic : IsSymplecticOn 1 delaunay deDom := sorry
@@ -1088,6 +1243,10 @@ theorem orbitMapC_differentiableOn {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) 
 theorem orbitMapC_periodic {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) {x : Fin 5 → ℂ} (hx : x ∈ orbitDomC e₁) :
     orbitMapC e₁ (Function.update x 0 (x 0 + 2 * π)) = orbitMapC e₁ x ∧
       orbitMapC e₁ (Function.update x 1 (x 1 + 2 * π)) = orbitMapC e₁ x := sorry
+/-- C6: reality for arbitrary real `k` and nonzero real `L` (not only the principal `k = √(1-e²)`). -/
+theorem orbitMapC_real {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) {x : Fin 5 → ℝ} (hL : x 2 ≠ 0) (he : |x 3| ≤ e₁) :
+    (∀ i, ((orbitMapC e₁ (fun j => (x j : ℂ))).1 i).im = 0) ∧
+    (∀ i, ((orbitMapC e₁ (fun j => (x j : ℂ))).2 i).im = 0) := sorry
 theorem orbitMapC_ofReal {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) {ℓ g L e : ℝ} (hL : 0 < L)
     (he : |e| ≤ e₁) :
     orbitMapC e₁ ![(ℓ : ℂ), (g : ℂ), (L : ℂ), (e : ℂ), ((√(1 - e ^ 2) : ℝ) : ℂ)] =
@@ -1139,6 +1298,12 @@ theorem delaunayMK_image {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) :
 theorem delaunayMK_eq_iff {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w w' : Phase 2} (hw : w ∈ deDom)
     (hw' : w' ∈ deDom) : delaunayMK m κ w = delaunayMK m κ w' ↔
       ∃ k k' : ℤ, w'.1 = w.1 + ![2 * π * k, 2 * π * k'] ∧ w'.2 = w.2 := sorry
+/-- C6 (`bpP:p7:kepler` (a), completing the B6 interface for the mass chart). -/
+theorem delaunayMK_localDiffeo {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2} (hw : w ∈ deDom) :
+    ∃ φ : OpenPartialHomeomorph (Phase 2) (Phase 2), w ∈ φ.source ∧
+      (φ : Phase 2 → Phase 2) = delaunayMK m κ ∧ AnalyticOnNhd ℝ φ.symm φ.target := sorry
+theorem delaunayMK_periodic {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2} (hw : w ∈ deDom) (k k' : ℤ) :
+    delaunayMK m κ (w.1 + ![2 * π * k, 2 * π * k'], w.2) = delaunayMK m κ w := sorry
 /-- `bpP:p7:kepler` (b), (d): identities and `E ∘ 𝖰 = h_m(Λ) = -κ²m³/(2Λ²)`. -/
 theorem delaunayMK_identities {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2} (hw : w ∈ deDom) :
     energyMK m κ (delaunayMK m κ w) = -(κ ^ 2 * m ^ 3) / (2 * w.2 0 ^ 2) ∧
@@ -1163,6 +1328,13 @@ theorem delaunayMK_means {m κ g Λ e : ℝ} (hm : 0 < m) (hκ : 0 < κ) (hΛ : 
 /-- `bpI:p7:scaling`: the flow statement (`m = 1`), and the mass dictionary `H = m E_κ(q, p/m)`. -/
 theorem energyMK_eq_mul_energy (m κ : ℝ) (hm : 0 < m) (z : Phase 2) :
     energyMK m κ z = m * energyMK 1 κ (z.1, m⁻¹ • z.2) := sorry
+/-- `bpI:p7:scaling`, flow clause: if `Z` solves the strength-one Hamilton equations at `τ = κ² t`, then
+`t ↦ 𝖲_κ(Z(κ² t))` solves those of `E_κ` (time change by `κ²`). -/
+theorem scaleMK_flow {κ : ℝ} (hκ : 0 < κ) {Zc : ℝ → Phase 2} {t : ℝ}
+    (hZ : HasDerivAt Zc (hamiltonianVectorField kE (Zc (κ ^ 2 * t))) (κ ^ 2 * t))
+    (hE : DifferentiableAt ℝ kE (Zc (κ ^ 2 * t))) :
+    HasDerivAt (fun s => scaleMK 1 κ (Zc (κ ^ 2 * s)))
+      (hamiltonianVectorField (energyMK 1 κ) (scaleMK 1 κ (Zc (κ ^ 2 * t)))) t := sorry
 theorem scaleMK_hamiltonianVectorField {κ : ℝ} (hκ : 0 < κ) {H : Phase 2 → ℝ} {z : Phase 2}
     (hH : DifferentiableAt ℝ H (scaleMK 1 κ z)) :
     (scaleMK 1 κ) (hamiltonianVectorField (H ∘ scaleMK 1 κ) z) = hamiltonianVectorField H (scaleMK 1 κ z) := sorry
@@ -1282,6 +1454,15 @@ theorem restricted_newton_iff {μ t : ℝ} {x v : ℝ → Fin 2 → ℝ}
 /-- `bpI:p7:h0`, second clause: `Ham^R3_0 = E - Γ` (Lean totality, no hypothesis). -/
 theorem restrictedHamTotal_zero (z : Phase 2) : restrictedHamTotal 0 z = kE z - planeCross z.1 z.2 := sorry
 
+/-- The frozen witness conditions of `NearCircular`, with the witnesses explicit (C6: uniqueness clause). -/
+def NearCircularWitness (aMinus aPlus eMinus ePlus : ℝ) (z : Phase 2) (r a e : ℝ) : Prop :=
+  0 < r ∧ r ^ 2 = radiusSq z.1 ∧ 0 < a ∧ 0 < e ∧ e < 1 ∧ aMinus < a ∧ a < aPlus ∧ eMinus < e ∧ e < ePlus ∧
+    radiusSq z.2 / 2 - 1 / r = -1 / (2 * a) ∧ 0 < z.1 0 * z.2 1 - z.1 1 * z.2 0 ∧
+    (z.1 0 * z.2 1 - z.1 1 * z.2 0) ^ 2 = a * (1 - e ^ 2)
+theorem nearCircular_witness_unique {aMinus aPlus eMinus ePlus : ℝ} {z : Phase 2} {r a e r' a' e' : ℝ}
+    (h : NearCircularWitness aMinus aPlus eMinus ePlus z r a e)
+    (h' : NearCircularWitness aMinus aPlus eMinus ePlus z r' a' e') :
+    r = r' ∧ a = a' ∧ e = e' ∧ r = planeLength z.1 ∧ a = elemA z ∧ e = elemEcc z := sorry
 /-- `bpI:p7:near-circular` (`NearCircular` is the frozen set). -/
 theorem nearCircular_eq (aMinus aPlus eMinus ePlus : ℝ) :
     NearCircular aMinus aPlus eMinus ePlus =
@@ -1335,6 +1516,9 @@ def shiftO (rmin ρmax ε₀ : ℝ) : Set (Fin 2 → ℂ) :=
 theorem shiftConst_shiftEps {rmin ρmax : ℝ} (h0 : 0 < rmin) (h1 : rmin ≤ ρmax) (h2 : ρmax < 1) :
     ShiftConst rmin ρmax (shiftEps rmin ρmax) := sorry
 /-- `bpI:p7:shift`: the numerators, `𝒪 × D̄(0, ε₀/2) ⊆ Ξ`, `Re ϑ ≥ c_*`, `|ϑ^{-1/2}| ≤ c_*^{-1/2}`. -/
+theorem shiftF_eq_integral {rmin ρmax ε₀ : ℝ} (h : ShiftConst rmin ρmax ε₀) {q : Fin 2 → ℂ}
+    (hq : q ∈ shiftO rmin ρmax ε₀) {μ : ℂ} (hμ : ‖μ‖ < ε₀ / 2) :
+    shiftF q μ = -∫ t in (0 : ℝ)..1, deriv (shiftPsi q) ((t : ℂ) * μ) := sorry
 theorem shift_domain {rmin ρmax ε₀ : ℝ} (h : ShiftConst rmin ρmax ε₀) {q : Fin 2 → ℂ}
     (hq : q ∈ shiftO rmin ρmax ε₀) {μ : ℂ} (hμ : ‖μ‖ ≤ ε₀ / 2) :
     (q, μ) ∈ shiftXi ∧ shiftCstar rmin ρmax ε₀ ≤ (vtheta q).re ∧
@@ -1389,21 +1573,27 @@ def UDelta (K : Set (Fin 2 → ℝ)) (δ : ℝ) : Set ((Fin 2 → ℂ) × (Fin 2
 def delaunayC (K : Set (Fin 2 → ℝ)) (w : (Fin 2 → ℂ) × (Fin 2 → ℂ)) : (Fin 2 → ℂ) × (Fin 2 → ℂ) :=
   orbitMapC (kEccMax K) ![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0]
 
-/-- `bpI:p7:complex-domain` (the quantifier "nearest `(L', G')`" is replaced by "every `(L', G') ∈ 𝒦` within
-`δ₁`", see the blueprint-issues section). -/
-theorem complex_domain {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) :
-    ∃ δ₁ : ℝ, 0 < δ₁ ∧ δ₁ ≤ min (keplerDeltaK (kEccMax K)) (min (kLMin K) (kGMin K)) / 2 ∧
-      (∀ x ∈ actionNbhd K δ₁, x 0 ≠ 0 ∧ kLMin K / 2 < (x 0).re) ∧
-      DifferentiableOn ℂ (fun x : Fin 2 → ℂ => eccC (x 0) (x 1)) (actionNbhd K δ₁) ∧
-      (∀ x ∈ actionNbhd K δ₁, ∀ y ∈ K, ‖x - fun i => (y i : ℂ)‖ < δ₁ →
-        ‖eccC (x 0) (x 1) - (eccOf (y 0) (y 1) : ℝ)‖ < keplerDeltaE (kEccMax K) ∧
-        ‖eccC (x 0) (x 1)‖ < keplerE2 (kEccMax K)) ∧
-      (∀ y : Fin 2 → ℝ, (fun i => (y i : ℂ)) ∈ actionNbhd K δ₁ → 0 < y 1 ∧ y 1 < y 0 ∧
-        eccC (y 0) (y 1) = (eccOf (y 0) (y 1) : ℝ)) ∧
-      (∀ w ∈ UDelta K δ₁, ![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] ∈
-        orbitDomC (kEccMax K)) ∧
-      DifferentiableOn ℂ (delaunayC K) (UDelta K δ₁) ∧
-      (∀ w : Phase 2, phaseToC w ∈ UDelta K δ₁ → delaunayC K (phaseToC w) = phaseToC (delaunay w)) := sorry
+/-- The full output of `bpI:p7:complex-domain` at a given `δ₁` (exact factorization of the earlier statement). -/
+def ComplexDomainData (K : Set (Fin 2 → ℝ)) (δ₁ : ℝ) : Prop :=
+  0 < δ₁ ∧ δ₁ ≤ min (keplerDeltaK (kEccMax K)) (min (kLMin K) (kGMin K)) / 2 ∧
+    (∀ x ∈ actionNbhd K δ₁, x 0 ≠ 0 ∧ kLMin K / 2 < (x 0).re) ∧
+    DifferentiableOn ℂ (fun x : Fin 2 → ℂ => eccC (x 0) (x 1)) (actionNbhd K δ₁) ∧
+    (∀ x ∈ actionNbhd K δ₁, ∀ y ∈ K, ‖x - fun i => (y i : ℂ)‖ < δ₁ →
+      ‖eccC (x 0) (x 1) - (eccOf (y 0) (y 1) : ℝ)‖ < keplerDeltaE (kEccMax K) ∧
+      ‖eccC (x 0) (x 1)‖ < keplerE2 (kEccMax K)) ∧
+    (∀ y : Fin 2 → ℝ, (fun i => (y i : ℂ)) ∈ actionNbhd K δ₁ → 0 < y 1 ∧ y 1 < y 0 ∧
+      eccC (y 0) (y 1) = (eccOf (y 0) (y 1) : ℝ)) ∧
+    (∀ w ∈ UDelta K δ₁, ![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] ∈ orbitDomC (kEccMax K)) ∧
+    DifferentiableOn ℂ (delaunayC K) (UDelta K δ₁) ∧
+    (∀ w : Phase 2, phaseToC w ∈ UDelta K δ₁ → delaunayC K (phaseToC w) = phaseToC (delaunay w))
+
+open scoped Classical in
+/-- The selected `δ₁` (F3). -/
+def complexDelta (K : Set (Fin 2 → ℝ)) : ℝ := if h : ∃ δ₁ : ℝ, ComplexDomainData K δ₁ then h.choose else 0
+
+/-- `bpI:p7:complex-domain` (the quantifier "nearest `(L', G')`" is replaced by "every `(L', G') ∈ K` within
+`δ₁`", see B1): the selected `δ₁` is admissible. -/
+theorem complex_domain_spec {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) : ComplexDomainData K (complexDelta K) := sorry
 
 /-- The exact perturbation `F_μ(w) = f(q(w), μ)` (`bpI:p7:exact-ham`). -/
 def exactF (K : Set (Fin 2 → ℝ)) (w : (Fin 2 → ℂ) × (Fin 2 → ℂ)) (μ : ℂ) : ℂ :=
@@ -1428,13 +1618,16 @@ def ExactHamData (K : Set (Fin 2 → ℝ)) (δ₂ : ℝ) : Prop :=
   (∀ w : Phase 2, w.2 ∈ K → phaseToC w ∈ UDelta K δ₂)
 
 open scoped Classical in
-/-- The radius `δ₂` of `bpI:p7:exact-ham` (chosen once; `exact_ham` says it is admissible). -/
+/-- The radius `δ₂` of `bpI:p7:exact-ham`: `0 < δ₂ ≤ δ₁` with `δ₁ = complexDelta K` (F3), chosen once. -/
 def exactDelta (K : Set (Fin 2 → ℝ)) : ℝ :=
-  if h : ∃ δ : ℝ, 0 < δ ∧ ExactHamData K δ then h.choose else 0
+  if h : ∃ δ : ℝ, 0 < δ ∧ δ ≤ complexDelta K ∧ ExactHamData K δ then h.choose else 0
 
 /-- `bpI:p7:exact-ham`, assuming `ρ_max < 1` (the frozen `aPlus(1 + ePlus) < 1`). -/
 theorem exact_ham {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
-    0 < exactDelta K ∧ ExactHamData K (exactDelta K) := sorry
+    0 < exactDelta K ∧ exactDelta K ≤ complexDelta K ∧ ExactHamData K (exactDelta K) := sorry
+/-- F3: the construction output that links the radius to the shift neighbourhood. -/
+theorem exact_positions_mem_shiftO {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
+    ∀ w ∈ UDelta K (exactDelta K), (delaunayC K w).1 ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K) := sorry
 
 end Part7Exact
 
@@ -1469,8 +1662,8 @@ theorem period_one {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax 
         restrictedHamiltonian μ ⟨delaunay (periodOneMap z), hcf⟩ =
           realHamiltonian (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) (tildeF K μ) z) := sorry
 
-/-- `bpI:p7:transfer`: transfer of Delaunay solutions to the restricted problem, and the radius and
-energy along the orbit. -/
+/-- `bpI:p7:transfer`: transfer of Delaunay solutions to the restricted problem and the radius interval
+(the exact radius, elements and energy identities are `transfer_identities` below). -/
 theorem transfer {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
     {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * π)) ∈ K) {μ : ℝ} (hμ : |μ| < exactMu2 K)
     {J : Set ℝ} {zt : ℝ → Phase 2}
@@ -1481,6 +1674,21 @@ theorem transfer {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K 
       Icc ((zt t).2 0 ^ 2 / (2 * π) ^ 2 * (1 - eccOf ((zt t).2 0 / (2 * π)) ((zt t).2 1 / (2 * π))))
         ((zt t).2 0 ^ 2 / (2 * π) ^ 2 * (1 + eccOf ((zt t).2 0 / (2 * π)) ((zt t).2 1 / (2 * π)))) := sorry
 
+/-- F4: the remaining outputs of `bpI:p7:transfer`: exact radius, recovery of the elements, and the physical energy
+equal to `realHamiltonian` along the orbit. -/
+theorem transfer_identities {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
+    {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * π)) ∈ K) {μ : ℝ} (hμ : |μ| < exactMu2 K)
+    {J : Set ℝ} {zt : ℝ → Phase 2}
+    (hz : IsHamiltonianSolutionOn
+      (realHamiltonian (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) (tildeF K μ)) B J zt) :
+    ∀ t ∈ J,
+      let w := periodOneMap (zt t)
+      let z := delaunay w
+      planeLength z.1 = w.2 0 ^ 2 * (1 - eccOf (w.2 0) (w.2 1) * Real.cos (eccAnom (w.1 0) (eccOf (w.2 0) (w.2 1)))) ∧
+      elemL z = w.2 0 ∧ planeCross z.1 z.2 = w.2 1 ∧ elemA z = w.2 0 ^ 2 ∧ elemEcc z = eccOf (w.2 0) (w.2 1) ∧
+      ∃ hcf : CollisionFree μ z, restrictedHamiltonian μ ⟨z, hcf⟩ =
+        realHamiltonian (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) (tildeF K μ) (zt t) := sorry
+
 /-- `bpI:p7:nondeg`. -/
 theorem nondeg_exact {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
     {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * π)) ∈ K) :
@@ -1490,7 +1698,23 @@ theorem nondeg_exact {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMa
 end Part7PeriodOne
 
 end KAM.Iso
+```
 
+### A.2 `.drafts/design/KeplerSignaturesP.lean`
+
+```lean
+/-
+Continuation of `KeplerSignatures.lean` (sections F-G: Newtonian models and Poincare charts).
+Copyright (c) 2026 Scott Armstrong, Zohar Komargodski. Released under Apache 2.0.
+
+NOT a standalone module: it uses the declarations of `KeplerSignatures.lean` (namespaces `KAM.Kepler`, `KAM.Iso`)
+and the frozen `FastShift`. Check by concatenation (one Lean process, see `check_kepler.sh`):
+  { cat KeplerSignatures.lean; echo 'public import placeholder' | true; sed -n '/^-- BEGIN-P/,$p' KeplerSignaturesP.lean; } > combined.lean
+Every body is `sorry`; no `set_option`, no `maxHeartbeats`.
+-/
+-- BEGIN-P
+-- (F1) frozen lattice shift, used below as `fastShift (a := n) (b := n) k`:
+-- the single extra import line of the combined file is `public import KAM.Frozen.Planetary.Defs.FastShift`.
 /-! ## F. Track P, Part 6: Newtonian models, barycentric reduction, reconstruction, tube geometry
 (`KAM/Planetary/Newtonian/Models.lean`, `Reduction.lean`, `Barycentric.lean`, `Reconstruction.lean`,
 `Tube.lean`, `Assembly.lean`) -/
@@ -1761,7 +1985,7 @@ theorem circularTube_pairBounds_fixed {G m0 : ℝ} {m a : Fin n → ℝ} {γ A �
     PairBounds (tubeD γ) (tubeBigD γ A)
       (Fin.cons (0 : Fin 2 → ℝ) (fun i => bodyVector z.1 i) : Fin (n + 1) → Fin 2 → ℝ) := sorry
 
-/-- `bpP:p6:newton-in-tube`, moving and fixed Sun, on any set of times. -/
+/-- `bpP:p6:newton-in-tube`, moving Sun, on any set of times (fixed Sun: `fixed_in_tube`). -/
 theorem newton_in_tube {G m0 μ : ℝ} {m a : Fin n → ℝ} {γ A ζ : ℝ} (h : AxisData a γ A) (hζ : 0 < ζ) (hζ' : ζ ≤ γ / 6)
     (hG : 0 < G) (hm0 : 0 < m0) (hm : ∀ i, 0 < m i) (hμ : 0 ≤ μ) {J : Set ℝ} {z : ℝ → Phase (n * 2)}
     (hz : ∀ t ∈ J, z t ∈ circularTube G m0 m a ζ ∧
@@ -1769,6 +1993,21 @@ theorem newton_in_tube {G m0 μ : ℝ} {m a : Fin n → ℝ} {γ A ζ : ℝ} (h 
     IsNewtonSolutionOn (fun k => G * actualMasses m0 m μ k) J
       (fun t => barycentricPositions m0 m μ (z t).1) (fun t => barycentricVelocities m0 m μ (z t).2) ∧
     ∀ t ∈ J, PairBounds (tubeD γ) (tubeBigD γ A) (barycentricPositions m0 m μ (z t).1) := sorry
+
+/-- F4: the fixed-Sun companion of `newton_in_tube` (finite-time equations and pair bounds). -/
+theorem fixed_in_tube {G m0 ε : ℝ} {m a : Fin n → ℝ} {γ A ζ : ℝ} (h : AxisData a γ A) (hζ : 0 < ζ) (hζ' : ζ ≤ γ / 6)
+    (hG : 0 < G) (hm0 : 0 < m0) (hm : ∀ i, 0 < m i) {J : Set ℝ} {z : ℝ → Phase (n * 2)}
+    (hz : ∀ t ∈ J, z t ∈ circularTube G m0 m a ζ ∧
+      HasDerivAt z (hamiltonianVectorField (fixedHamiltonian G m0 m ε) (z t)) t) :
+    (∀ t ∈ J, NoCollision (z t).1) ∧
+    (∀ t ∈ J, ∀ i, HasDerivAt (fun s => bodyVector (z s).1 i) ((1 / m i) • bodyVector (z t).2 i) t ∧
+      HasDerivAt (fun s => (1 / m i) • bodyVector (z s).2 i)
+        ((-G * m0 / planeLength (bodyVector (z t).1 i) ^ 3) • bodyVector (z t).1 i +
+          ε • ∑ j ∈ Finset.univ.filter (fun j => j ≠ i),
+            (G * m j / planeLength (bodyVector (z t).1 j - bodyVector (z t).1 i) ^ 3) •
+              (bodyVector (z t).1 j - bodyVector (z t).1 i)) t) ∧
+    (∀ t ∈ J, PairBounds (tubeD γ) (tubeBigD γ A)
+      (Fin.cons (0 : Fin 2 → ℝ) (fun i => bodyVector (z t).1 i) : Fin (n + 1) → Fin 2 → ℝ)) := sorry
 
 /-- `bpP:p6:measure-positive` (a): the tube is bounded. -/
 theorem circularTube_norm_lt {G m0 : ℝ} {m a : Fin n → ℝ} {η : ℝ} (hG : 0 < G) (hm0 : 0 < m0)
@@ -1942,6 +2181,28 @@ theorem poincare_holomorphic {m κ Λo : ℝ} (hm : 0 < m) (hκ : 0 < κ) (hΛ :
 
 end PoincareChart
 
+section PhaseCast
+
+/-- F6: the canonical reindexing `Phase d ≃L[ℝ] Phase e` for `h : d = e` (`Fin.cast` on both components). -/
+def phaseCast {d e : ℕ} (h : d = e) : Phase d ≃L[ℝ] Phase e :=
+  (ContinuousLinearEquiv.piCongrLeft ℝ (fun _ : Fin e => ℝ) (finCongr h : Fin d ≃ Fin e)).prodCongr
+    (ContinuousLinearEquiv.piCongrLeft ℝ (fun _ : Fin e => ℝ) (finCongr h : Fin d ≃ Fin e))
+
+theorem phaseCast_apply {d e : ℕ} (h : d = e) (z : Phase d) (i : Fin e) :
+    (phaseCast h z).1 i = z.1 (Fin.cast h.symm i) ∧ (phaseCast h z).2 i = z.2 (Fin.cast h.symm i) := sorry
+theorem phaseCast_symm {d e : ℕ} (h : d = e) : (phaseCast h).symm = phaseCast h.symm := sorry
+theorem phaseCast_symplectic {d e : ℕ} (h : d = e) : IsSymplecticOn 1 (phaseCast h) univ := sorry
+theorem phaseCast_hamiltonianVectorField {d e : ℕ} (h : d = e) (H : Phase e → ℝ) (z : Phase d) :
+    hamiltonianVectorField (H ∘ phaseCast h) z = (phaseCast h).symm (hamiltonianVectorField H (phaseCast h z)) := sorry
+theorem phaseCast_volume {d e : ℕ} (h : d = e) (A : Set (Phase d)) :
+    MeasureTheory.volume (phaseCast h '' A) = MeasureTheory.volume A := sorry
+theorem phaseCast_measurableEquiv {d e : ℕ} (h : d = e) {A : Set (Phase d)} (hA : MeasurableSet A) :
+    MeasurableSet (phaseCast h '' A) := sorry
+/-- `bodyVector` is blind to the cast: `bodyVector` of `phaseCast (Nat.mul_two n).symm`-transported points. -/
+theorem phaseCast_analytic {d e : ℕ} (h : d = e) : AnalyticOnNhd ℝ (phaseCast h) univ := sorry
+
+end PhaseCast
+
 section ProductChart
 
 variable {n : ℕ}
@@ -1962,8 +2223,8 @@ def hProd (κ : ℝ) (m : Fin n → ℝ) (w : Phase (n + n)) : ℝ := -∑ i, κ
 /-- `𝒦^{(n)}`. -/
 def regionProd (m : Fin n → ℝ) (κ : ℝ) : Set (Phase (n * 2)) :=
   {z | ∀ i, (bodyVector z.1 i, bodyVector z.2 i) ∈ regionMK (m i) κ}
-/-- The lattice shift `((2πk, 0), 0)` of the fast positions. -/
-def fastShift (k : Fin n → ℤ) : Phase (n + n) := (Fin.append (fun i => 2 * π * (k i : ℝ)) (0 : Fin n → ℝ), 0)
+-- F1: the lattice shift is the FROZEN `KAM.Planetary.fastShift {a b} (k : Fin a → ℤ) : Phase (a + b)`;
+-- no redefinition here. In this layer it is used as `fastShift (a := n) (b := n) k`.
 
 theorem isOpen_poincareProdDom (n : ℕ) : IsOpen (poincareProdDom n) := sorry
 theorem regionProd_one_iff {m : Fin n → ℝ} (hm : ∀ i, 0 < m i) (z : Phase (n * 2)) :
@@ -1976,10 +2237,10 @@ theorem analyticOnNhd_poincareProd {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0
     AnalyticOnNhd ℝ (poincareProd m κ) (poincareProdDom n) := sorry
 theorem poincareProd_lattice {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) {w : Phase (n + n)}
     (hw : w ∈ poincareProdDom n) (k : Fin n → ℤ) :
-    w + fastShift k ∈ poincareProdDom n ∧ poincareProd m κ (w + fastShift k) = poincareProd m κ w := sorry
+    w + fastShift (a := n) (b := n) k ∈ poincareProdDom n ∧ poincareProd m κ (w + fastShift (a := n) (b := n) k) = poincareProd m κ w := sorry
 theorem poincareProd_eq_iff {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) {w w' : Phase (n + n)}
     (hw : w ∈ poincareProdDom n) (hw' : w' ∈ poincareProdDom n) :
-    poincareProd m κ w = poincareProd m κ w' ↔ ∃ k : Fin n → ℤ, w' = w + fastShift k := sorry
+    poincareProd m κ w = poincareProd m κ w' ↔ ∃ k : Fin n → ℤ, w' = w + fastShift (a := n) (b := n) k := sorry
 theorem poincareProd_image {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) :
     poincareProd m κ '' poincareProdDom n = regionProd m κ := sorry
 theorem poincareProd_localDiffeo {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) {w : Phase (n + n)}
@@ -2061,6 +2322,21 @@ theorem polar_hamiltonian_split {m : Fin n → ℝ} {G m0 μ : ℝ} (hm : ∀ i,
     movingHamiltonian G m0 m μ (poincareProd m (G * m0) (polarMap z)) =
       hProd (G * m0) m (polarMap z) + μ * fMov G m0 m (poincareProd m (G * m0) (polarMap z)) := sorry
 
+/-- F6: the equal-dimension chart `Phase (n*2) → Phase (n*2)` that Part 1's `IsChart` consumes
+(`poincareProd` composed with the canonical reindexing; the body permutation stays inside `poincareProd`). -/
+def poincareProdCast (m : Fin n → ℝ) (κ : ℝ) : Phase (n * 2) → Phase (n * 2) :=
+  poincareProd m κ ∘ phaseCast (Nat.mul_two n)
+def poincareProdCastDom (n : ℕ) : Set (Phase (n * 2)) := phaseCast (Nat.mul_two n) ⁻¹' poincareProdDom n
+theorem poincareProdCast_symplectic {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) :
+    IsSymplecticOn 1 (poincareProdCast m κ) (poincareProdCastDom n) := sorry
+theorem analyticOnNhd_poincareProdCast {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) :
+    AnalyticOnNhd ℝ (poincareProdCast m κ) (poincareProdCastDom n) := sorry
+theorem isOpen_poincareProdCastDom (n : ℕ) : IsOpen (poincareProdCastDom n) := sorry
+theorem poincareProdCast_eq_iff {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) {z z' : Phase (n * 2)}
+    (hz : z ∈ poincareProdCastDom n) (hz' : z' ∈ poincareProdCastDom n) :
+    poincareProdCast m κ z = poincareProdCast m κ z' ↔
+      ∃ k : Fin n → ℤ, z' = z + (phaseCast (Nat.mul_two n)).symm (fastShift (a := n) (b := n) k) := sorry
+
 end ProductChart
 
 section D25
@@ -2116,4 +2392,5 @@ theorem poincareProd_means {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) 
 end D25
 
 end KAM.Planetary
+
 ```
