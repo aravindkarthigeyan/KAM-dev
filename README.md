@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 16.4 %** · frozen statements proved: 0 / 5 · **1,912 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 18.9 %** · frozen statements proved: 0 / 5 · **1,912 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -51,21 +51,21 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **16.4 %**
+### Estimated completion: **18.9 %**
 
-`████░░░░░░░░░░░░░░░░░░░░░` 16.4 %
+`█████░░░░░░░░░░░░░░░░░░░░` 18.9 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
 | Statement and planning | 8 | 26 | 12.8 | `█████░░░░░` 49 % |
 | Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
-| Analytic infrastructure | 8 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
+| Analytic infrastructure | 8 | 24 | 2.4 | `█░░░░░░░░░` 10 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
 | Measure of the invariant tori | 5 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
 | Sealing of the frozen statements | 5 | 5 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 34 | 96 | 15.8 | **16.4 %** |
+| **Total** | 34 | 96 | 18.1 | **18.9 %** |
 
-**How this is estimated.** The project is divided into 29 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 15:45 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
+**How this is estimated.** The project is divided into 29 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 15:25 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
 <details><summary>All work items with their weight and status</summary>
 
@@ -83,12 +83,12 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | I.HQ | Campaign HQ: this README, generator, 20-minute cron and post-commit hook | L | 🟨 80 % |  |
 | I.GUARDS | Freeze machinery: manifest, anchor guard, quarantine, kernel replay, mutation suite | M | 🟨 60 % | anchor guard (Unicode-aware), ABI hashes, lint; manual mutation tests pass (3/3); kernel replay and mutation suite to do |
 | I.BUILD | Shared build snapshot for worktrees and machine-wide compile gate | L | ⬜ 0 % |  |
-| F.ALG | Weighted ℓ¹ Fourier algebra on ℤⁿ: Banach algebra, exp, derivatives, averages | H | ⬜ 0 % |  |
+| F.ALG | Weighted ℓ¹ Fourier algebra on ℤⁿ: Banach algebra, exp, derivatives, averages | H | 🟨 30 % | Zohar: weighted norm, derivative bound (period one), convolution summability and submultiplicativity (KAM/Fourier) |
 | F.FT | Fourier–Taylor algebra in (angles, actions); Cauchy estimates in the actions | H | ⬜ 0 % |  |
 | F.COMP | Composition f∘(id+u) and Taylor remainders in the weighted norms | H | ⬜ 0 % |  |
 | F.MAT | Matrix-valued functions: products, Neumann-series inverses, averages | M | ⬜ 0 % |  |
 | F.BRIDGE | Bridge between real-analytic functions on complex strips and coefficient spaces | H | ⬜ 0 % |  |
-| F.DIOPH | Diophantine vectors; cohomological equation with Rüssmann's exponent | M | ⬜ 0 % |  |
+| F.DIOPH | Diophantine vectors; cohomological equation with Rüssmann's exponent | M | 🟨 60 % | Zohar: zero-average cohomological solver, uniqueness, small-divisor estimate, Lipschitz in ω (KAM/Diophantine); bridge to frozen KAM.IsDiophantine still to add |
 | F.NEWTON | Abstract Newton/KAM convergence on a scale of analytic spaces | M | ⬜ 0 % |  |
 | F.HAM | Hamiltonian vector fields in coordinates; invariant tori; quasi-periodic orbits as ODE solutions | M | ⬜ 0 % |  |
 | K.GEOM | Approximate Lagrangian property, adapted symplectic frame, torsion matrix | H | ⬜ 0 % |  |
@@ -118,7 +118,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:20 UTC from `main` at `615276c` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:20 UTC from `main` at `83b6e08` by `scripts/hq-status.py`.*
 
 **Current phase:** Phase 0 complete: the headline (rate and qualitative), G1, G2, G3 and 20 definitions are approved and frozen (D11). Phase 1 next: blueprint and source-level dependency graph anchored to the frozen statements; infrastructure (weighted Fourier algebras) can start in parallel.
 
@@ -170,8 +170,8 @@ flowchart BT
   classDef progress fill:#ffe0b2,stroke:#ef6c00,color:#000
   classDef todo fill:#eeeeee,stroke:#757575,color:#000
   classDef anchor fill:#fff9c4,stroke:#f9a825,color:#000,stroke-width:3px
-  ALG["Weighted ℓ¹ Fourier–Taylor algebras<br/>products, derivatives, composition"]:::todo
-  DIOPH["Diophantine vectors<br/>cohomological equation"]:::todo
+  ALG["Weighted ℓ¹ Fourier–Taylor algebras<br/>products, derivatives, composition"]:::progress
+  DIOPH["Diophantine vectors<br/>cohomological equation"]:::progress
   NEWTON["Newton convergence<br/>on analytic scales"]:::todo
   BRIDGE["Real-analytic functions ↔<br/>coefficient spaces"]:::todo
   GEOM["Approximate Lagrangian geometry<br/>frame and torsion"]:::todo
@@ -229,6 +229,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 |---|---|---|---|---|---|---|---|
 | **orchestrator** | lead | Claude Opus 5.5 | claude-1 | 🔄 active | Campaign lead: sources, statements, assignments, landings, owner questions, this README | — | — |
 | **zohar-exploration** `kam-zohar` | exploration (Codex) | GPT-6-Astra high | codex-1 | 🔄 working | Planetary KAM, open-region stability (2 DOF, Nekhoroshev) and follow-up headline candidates, from the collaborator's comments | — | — |
+| **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine), pushed to main | — | — |
 
 **Queued:** Blueprint and dependency graph (Phase 1) · Infrastructure: weighted ℓ¹ Fourier algebra (F.ALG)
 <!-- /AUTO:workers -->
@@ -238,6 +239,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:20 | `83b6e08` | HQ: credit the collaborator's Fourier and Diophantine infrastructure |
 | 2026-10-27 15:19 | `1f4bdd2` | HQ updater: merge collaborators' pushes to main before regenerating |
 | 2026-10-27 15:19 | `59daeac` | Merge Zohar's Fourier and Diophantine infrastructure into the frozen-statement main |
 | 2026-10-27 15:16 | `1f0d755` | Freeze the approved KAM statements (D11) |
