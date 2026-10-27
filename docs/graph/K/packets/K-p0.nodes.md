@@ -604,7 +604,7 @@ EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: conditional assembly KAM.Head.headq_of_head (HEAD conclusion → HEAD-Q conclusion) proved and audited (docs/campaign/audits/P4-Q-audit-1.md, PASS); the anchor stays open until HEAD is proved and the provider sealed
 NOTE: -
 
 NODE: bp:p0:g1

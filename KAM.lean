@@ -163,10 +163,14 @@ public import KAM.Head.Defs
 public import KAM.Head.DerivativeBounds
 public import KAM.Head.DyadicApprox
 public import KAM.Head.DyadicBoxes
+public import KAM.Head.Frequency
 public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
+public import KAM.Head.HeadQ
+public import KAM.Head.InverseFrequency
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
+public import KAM.Head.Parameters
 public import KAM.Head.PhaseAverage
 public import KAM.Head.Shift
 public import KAM.Head.Standing
@@ -224,6 +228,7 @@ public import KAM.Torus.Basic
 public import KAM.Torus.FrozenAgreement
 public import KAM.Torus.Objects
 public import KAM.Uniq.Frame
+public import KAM.Uniq.Phase
 public import KAM.Uniq.Standing
 
 /-!

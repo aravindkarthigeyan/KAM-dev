@@ -583,9 +583,9 @@ EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#bp:p4:freq-map@L226-L235 | fix
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-r2
 REVIEWER: sol-review-d2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.freq_map
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:fm-domain
@@ -609,9 +609,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: helpers of KAM.Head.freq_map (KAM/Head/Frequency.lean)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:fm-gradient
@@ -636,9 +636,9 @@ EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p4-measure.tex#step:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: helpers of KAM.Head.freq_map
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:fm-hessian
@@ -664,9 +664,9 @@ EDGE: step:p4:fm-gradient | blueprint/parts/p4-measure.tex#step:p4:fm-hessian@L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: helpers of KAM.Head.freq_map
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:fm-bounds
@@ -692,9 +692,9 @@ EDGE: step:p4:fm-gradient | blueprint/parts/p4-measure.tex#step:p4:fm-bounds@L26
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: helpers of KAM.Head.freq_map (derivative_bounds_design)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:fm-lipschitz
@@ -722,9 +722,9 @@ EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#step:p4:fm-lipschitz@L268-L268
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: helpers of KAM.Head.freq_map
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:hessian-inverse
@@ -750,9 +750,9 @@ EDGE: step:p4:hess-norm | blueprint/parts/p4-measure.tex#bp:p4:hessian-inverse@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.hessian_inverse (hessian_inverse_at)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:hess-quotient
@@ -778,9 +778,9 @@ EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#step:p4:hess-quotient@L282-L28
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: helpers of KAM.Head.hessian_inverse_at
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:hess-norm
@@ -805,9 +805,9 @@ EDGE: step:p4:hess-quotient | blueprint/parts/p4-measure.tex#step:p4:hess-norm@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: helpers of KAM.Head.hessian_inverse_at
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:inverse-freq
@@ -832,9 +832,9 @@ EDGE: step:p4:invfreq-proof | blueprint/parts/p4-measure.tex#bp:p4:inverse-freq@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.inverse_freq
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:invfreq-proof
@@ -860,9 +860,9 @@ EDGE: bp:p4:freq-map | blueprint/parts/p4-measure.tex#step:p4:invfreq-proof@L306
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.inverse_freq
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:h1
@@ -1217,9 +1217,9 @@ EDGE: bp:p4:freq-map | blueprint/parts/p4-measure.tex#bp:p4:parameters@L425-L425
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.parameters
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:smallness
@@ -1245,9 +1245,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:smallness@L445-L456 | Miss
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-r2
 REVIEWER: sol-review-d2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.smallness
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:small-proof
@@ -1273,9 +1273,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:small-proof@L459-L465 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.Parameters.smallness_s1..s7
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:apply
