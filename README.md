@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:33 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 13.5 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:37 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 13.5 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:33 UTC from `main` at `544042a` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:37 UTC from `main` at `6f73a2b` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -271,6 +271,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:37 | `6f73a2b` | Name both authors in the frozen and project file headers (D16) |
 | 2026-10-27 15:33 | `544042a` | Plan four parallel tracks; add Zohar Komargodski as author; pin new sources |
 | 2026-10-27 15:26 | `725e81c` | Start Phase 1: blueprint skeleton, package board, Diophantine bridge |
 | 2026-10-27 15:20 | `83b6e08` | HQ: credit the collaborator's Fourier and Diophantine infrastructure |
@@ -282,7 +283,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 14:32 | `80d65f4` | HQ: statement drafts elaborate; independent audit running |
 | 2026-10-27 14:28 | `227e9b6` | Make the repository public; record rulings Q1-Q5; add statement draft 0.1 |
 | 2026-10-27 13:45 | `3b36d0e` | Pin the measure-layer sources and record the route verdict |
-| 2026-10-27 13:33 | `980b703` | Set up the KAM campaign: Lean project, sources, HQ and ledgers |
 <!-- /AUTO:landed -->
 
 ## Decisions
