@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 23:40 UTC from `main` at `edad3b8` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 23:40 UTC from `main` at `8ff0b59` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 23:40 | `8ff0b59` | Graph K: 44 reviewed AMEND records make the Part 1 standing convention (n >= 1, positive widths) explicit; S1 source tension logged for the owner |
 | 2026-10-27 23:39 | `b0d0341` | P4-11 (good actions, map Lipschitz, main measure) landed; audit PASS |
 | 2026-10-27 23:39 | `17a4dff` | Land k/p4-11 into main |
 | 2026-10-27 23:37 | `7e09224` | Graph K bookkeeping: record steps and frozen definitions of landed packages (map in docs/campaign/audits/K-graph-bookkeeping-2026-10-27.json); Zohar's Fourier/summation nodes held for a dedicated audit |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 23:27 | `1e8ee33` | OVERNIGHT: G2 and G1 sealed; P4-9 fix |
 | 2026-10-27 23:27 | `ed163d2` | Brief for P4-S1 (HEAD provider) |
 | 2026-10-27 23:25 | `f4cdc0d` | Seal G1: KAM.aposteriori_kam is proved (third sealed frozen theorem) |
-| 2026-10-27 23:22 | `d7d6b9d` | Land k/p4-7 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
