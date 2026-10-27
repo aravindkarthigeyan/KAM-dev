@@ -141,8 +141,8 @@
    "id": "F.BRIDGE",
    "title": "Bridge between real-analytic functions on complex strips and coefficient spaces",
    "difficulty": "H",
-   "done": 0.0,
-   "note": ""
+   "done": 0.6,
+   "note": "strip<->coefficient bridges: decay (W-valued), summation (Zohar), analyticity, Cauchy; cohomological on strips pending (I-STRIP-3)"
   },
   {
    "group": "Analytic infrastructure",
@@ -173,8 +173,8 @@
    "id": "K.GEOM",
    "title": "Approximate Lagrangian property, adapted symplectic frame, torsion matrix",
    "difficulty": "H",
-   "done": 0.0,
-   "note": ""
+   "done": 0.05,
+   "note": "Lean design done and under audit (docs/campaign/design/PART23-LEAN-DESIGN.md)"
   },
   {
    "group": "A-posteriori KAM at fixed frequency",
