@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:40 UTC from `main` at `eb7b3f2` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:40 UTC from `main` at `32e70fa` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.
 
@@ -262,13 +262,13 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P v0.2: all nine audit findings adopted (disc cylinder, diffeomorphism on W ⊇ closure V, boundary-layer guard) | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–2 done (docs/explorations/almost-every-*.md); round 3 refutation running | — | — |
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | 🔄 working | Delta audit of track N v0.2 (N-HEAD-C) | — | — |
-| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ handed off | Delta audit of track P v0.2 | — | — |
+| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ handed off | Track P delta audit v0.2: all statements APPROVABLE; P-G true as corrected | — | — |
 | **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Track I audit v0.1: all 4 theorems and 15 definitions APPROVABLE; minor fixes applied (author header, three source locators) | — | — |
 | **review-p4** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 4 | — | — |
 | **bp-p1** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Proofs of the 30 part-1 interface lemmas | — | — |
 | **round3-refute** | research referee | Claude Opus 5.5 | claude-1 | 🔄 running | Round 3: refute-first check of the round-2 planetary claims (P-EXP-SAFE, secular box, averaging corrections) | — | — |
 
-**Queued:** Owner approval of track I statements (review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK), then freeze · Blueprint consolidation (p2/p3 shared geometry, p3 copies, stale request sections; reviews p2 and p3) · Dependency graph extraction for track K
+**Queued:** Owner approval: track I (claude.ai/artifact/5B9odMattAPViUVYUgNPDK), track P (claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1), track N question 7 · Blueprint consolidation (p2/p3 shared geometry, p3 copies, stale request sections; reviews p2 and p3) · Dependency graph extraction for track K
 <!-- /AUTO:workers -->
 
 ### Recent changes on `main`
@@ -276,6 +276,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:40 | `32e70fa` | Track P delta audit v0.2: approvable; review page published for owner approval |
 | 2026-10-27 16:33 | `2b84d71` | Exploration round 2: exponential-time safety for all low-AMD planetary data, secular Jupiter-Saturn box, ranked milestones; round 3 refutation running |
 | 2026-10-27 16:29 | `cac339c` | Merge remote-tracking branch 'origin/main' |
 | 2026-10-27 16:29 | `a034fc9` | Track N v0.2: complex-bound headline variant N-HEAD-C; delta audit running |
@@ -287,7 +288,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 16:13 | `9fcd939` | Track P statement audit v0.1: P-G rejected as drafted (three blocking defects with counterexamples); revision v0.2 under way |
 | 2026-10-27 16:07 | `1e0a048` | Blueprint Part 3 review: ACCEPT WITH FIXES (no blocking or major findings); step labels prefixed with S |
 | 2026-10-27 16:06 | `b876ed8` | Merge remote-tracking branch 'origin/main' |
-| 2026-10-27 16:06 | `c1171f3` | Blueprint Part 2: the a-posteriori theorem G1, complete proof |
 <!-- /AUTO:landed -->
 
 ## Decisions
