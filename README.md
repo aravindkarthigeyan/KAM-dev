@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 19:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 34.4 %** · frozen statements proved: 1 / 20 · **11,455 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 19:43 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 34.4 %** · frozen statements proved: 1 / 20 · **11,455 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 19:40 UTC from `main` at `ef03b72` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 19:43 UTC from `main` at `a28a623` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.
 
@@ -279,7 +279,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **prover-I-STRIP-5** `worktree /root/code/KAM-w-strip5` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md) | — | — |
-| **audit-I-STRIP-5** `kam-audit-strip5` | package audit (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Independent audit of package I-STRIP-5 (five explicit audit questions) | — | — |
+| **audit-I-STRIP-5** `kam-audit-strip5` | package audit (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Independent audit of package I-STRIP-5 (five explicit audit questions) | — | — |
 | **prover-I-ZMAP** `worktree /root/code/KAM-w-zmap` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-ZMAP (docs/campaign/briefs/I-ZMAP.md) | — | — |
 | **prover-I-P1B** `worktree /root/code/KAM-w-p1b` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P1B (docs/campaign/briefs/I-P1B.md) | — | — |
 | **prover-I-P4A** `worktree /root/code/KAM-w-p4a` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P4A (docs/campaign/briefs/I-P4A.md) | — | — |
@@ -300,6 +300,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 19:43 | `a28a623` | I-P1B landed (ef03b72): audit PASS WITH NOTES; 20 graph nodes PROVED |
 | 2026-10-27 19:39 | `ef03b72` | Land k/p1b into main |
 | 2026-10-27 19:36 | `aec5b8b` | Blueprint Part 1 conventions: strip widths are positive (made explicit after three proof packages needed it); graph locators remapped |
 | 2026-10-27 19:35 | `5295e01` | Land inp into main |
@@ -311,7 +312,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 19:12 | `22a8b42` | Track K proof campaign, wave 2 briefs: I-ZMAP, I-P1B, I-P4A |
 | 2026-10-27 19:10 | `8f161e6` | I-LIP landed (c9695bc): audit PASS WITH NOTES; graph: 14 nodes PROVED, li-cubes and li-image BYPASSED (alternative Mathlib route) |
 | 2026-10-27 19:09 | `c9695bc` | Land k/lip into main |
-| 2026-10-27 19:04 | `4bbb791` | Pin Neishtadt 1976 (Nei76, Dokl. Akad. Nauk SSSR 226(6) 1295-1298; Math-Net.Ru dan39798) for N-AVERAGING |
 <!-- /AUTO:landed -->
 
 ## Decisions
