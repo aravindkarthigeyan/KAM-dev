@@ -9,6 +9,8 @@ public import KAM.Frozen.Defs.ComplexStrip
 public import Mathlib.Analysis.Complex.Basic
 public import Mathlib.Analysis.Complex.CauchyIntegral
 public import Mathlib.Analysis.Analytic.IsolatedZeros
+public import KAM.Strip.Averages
+public import Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic
 import Mathlib.Tactic.Linarith
 
 /-!
@@ -19,11 +21,14 @@ import Mathlib.Tactic.Linarith
   is the form used by `KAM.Strip.Fourier`; it implies invariance under all of `ℤⁿ`.
 * `bp:p1:strip-identity`: a holomorphic function on `T_r` vanishing on `ℝⁿ` vanishes on `T_r`
   (induction over the coordinates, with the one-variable identity theorem on a horizontal strip).
+* `bp:p1:periodic-average`: the torus average `⟨v⟩` of a continuous `1`-periodic function does not
+  change under a translation of the argument. One coordinate at a time, Fubini and the
+  one-variable translation invariance of the integral of a periodic function over a period.
 -/
 
 @[expose] public section
 
-open Set Filter Topology Metric
+open Set Filter Topology Metric MeasureTheory
 
 namespace KAM
 
@@ -199,9 +204,11 @@ theorem strip_identity {r : ℝ} (hr : 0 < r) {v : (Fin n → ℂ) → F}
               omega
             simpa [Function.update_of_ne hij] using hθ i this
         have h0mem : (0 : ℂ) ∈ horizontalStrip r := mem_horizontalStrip.mpr (by simpa using hr)
+        have hlim : Tendsto (fun x : ℝ => (x : ℂ)) (𝓝 0) (𝓝 0) := by
+          simpa using Complex.continuous_ofReal.tendsto 0
         have hten : Tendsto (fun x : ℝ => (x : ℂ)) (𝓝[≠] 0) (𝓝[≠] 0) :=
           tendsto_nhdsWithin_of_tendsto_nhds_of_eventually_within _
-            (tendsto_nhdsWithin_of_tendsto_nhds (by simpa using Complex.continuous_ofReal.tendsto 0))
+            (tendsto_nhdsWithin_of_tendsto_nhds hlim)
             (eventually_nhdsWithin_of_forall fun x hx => by simpa using hx)
         have hfreq : ∃ᶠ z in 𝓝[≠] (0 : ℂ), φ z = 0 :=
           hten.frequently (Frequently.of_forall hreal)
@@ -214,5 +221,100 @@ theorem strip_identity {r : ℝ} (hr : 0 < r) {v : (Fin n → ℂ) → F}
         exact absurd i.isLt (by omega)
   intro θ hθ
   exact hclaim n θ hθ fun i hi => absurd i.isLt (by omega)
+
+section Translation
+
+variable {F : Type*} [NormedAddCommGroup F] [NormedSpace ℝ F]
+
+theorem insertNth_add_single (i : Fin (n + 1)) (y : Fin n → ℝ) (t c : ℝ) :
+    i.insertNth (α := fun _ => ℝ) t y + Pi.single i c = i.insertNth (α := fun _ => ℝ) (t + c) y := by
+  ext j
+  refine i.succAboveCases ?_ (fun k => ?_) j
+  · simp
+  · simp [Fin.succAbove_ne]
+
+/-- The torus average of a continuous function, as an iterated integral with the `i`-th
+coordinate innermost. -/
+theorem torusAverage_eq_iterated {w : (Fin (n + 1) → ℝ) → F} (hw : Continuous w)
+    (i : Fin (n + 1)) :
+    torusAverage w = ∫ y, ∫ t, w (i.insertNth (α := fun _ => ℝ) t y)
+      ∂(volume.restrict (Icc (0 : ℝ) 1))
+      ∂(Measure.pi fun _ : Fin n => volume.restrict (Icc (0 : ℝ) 1)) := by
+  let μ : Measure ℝ := volume.restrict (Icc 0 1)
+  have hgi : Integrable w (Measure.pi (fun _ : Fin (n + 1) => μ)) := by
+    rw [← Measure.restrict_pi_pi]
+    apply hw.continuousOn.integrableOn_compact
+    rw [pi_univ_Icc]
+    exact isCompact_Icc
+  have hpres := (measurePreserving_piFinSuccAbove
+    (fun _ : Fin (n + 1) => μ) i).symm
+  have hcomp := (hpres.integrable_comp_emb (MeasurableEquiv.measurableEmbedding _)).mpr hgi
+  dsimp only [Function.comp_def] at hcomp
+  change (∫ x, w x ∂volume.restrict (Set.pi Set.univ (fun _ => Icc 0 1))) = _
+  change (∫ x, w x ∂(Measure.pi (fun _ => volume)).restrict
+    (Set.pi Set.univ (fun _ => Icc 0 1))) = _
+  rw [Measure.restrict_pi_pi, ← hpres.integral_comp' w,
+    integral_prod_symm _ hcomp]
+  rfl
+
+/-- Translation of the argument along one coordinate axis does not change the torus average. -/
+theorem torusAverage_add_single {v : (Fin n → ℝ) → F} (hv : Continuous v)
+    (hp : ∀ (i : Fin n) x, v (x + Pi.single i 1) = v x) (i : Fin n) (c : ℝ) :
+    torusAverage (fun x => v (x + Pi.single i c)) = torusAverage v := by
+  cases n with
+  | zero => exact Fin.elim0 i
+  | succ n =>
+    have hv' : Continuous (fun x : Fin (n + 1) → ℝ => v (x + Pi.single i c)) := by fun_prop
+    rw [torusAverage_eq_iterated hv' i, torusAverage_eq_iterated hv i]
+    refine integral_congr_ae (Eventually.of_forall fun y => ?_)
+    have hper : Function.Periodic (fun t : ℝ => v (i.insertNth (α := fun _ => ℝ) t y)) 1 := by
+      intro t
+      simp only
+      rw [← insertNth_add_single i y t 1]
+      exact hp i _
+    have h1 : ∀ f : ℝ → F, ∫ t in Icc (0 : ℝ) 1, f t = ∫ t in (0 : ℝ)..1, f t := fun f => by
+      rw [intervalIntegral.integral_of_le zero_le_one, integral_Icc_eq_integral_Ioc]
+    simp only [insertNth_add_single]
+    rw [h1, h1, intervalIntegral.integral_comp_add_right
+      (fun t => v (i.insertNth (α := fun _ => ℝ) t y)) c]
+    have := hper.intervalIntegral_add_eq c 0
+    simpa [add_comm] using this
+
+/-- Blueprint `bp:p1:periodic-average`. For `v` continuous and `1`-periodic on `ℝⁿ` and `a ∈ ℝⁿ`,
+`⟨v (· + a)⟩ = ⟨v⟩`. The values may lie in any real Banach space (vectors, matrices).
+
+Step `step:p1:pa-one` is the one-variable invariance
+`Function.Periodic.intervalIntegral_add_eq`, used inside `torusAverage_add_single`; step
+`step:p1:pa-induction` is the induction over the coordinates of `a`, here a `Finset` sum of
+the translations `Pi.single i (a i)`. -/
+theorem periodic_average {v : (Fin n → ℝ) → F} (hv : Continuous v)
+    (hp : ∀ (i : Fin n) x, v (x + Pi.single i 1) = v x) (a : Fin n → ℝ) :
+    torusAverage (fun x => v (x + a)) = torusAverage v := by
+  let P : (Fin n → ℝ) → Prop := fun a => ∀ w : (Fin n → ℝ) → F, Continuous w →
+    (∀ (i : Fin n) x, w (x + Pi.single i 1) = w x) →
+      torusAverage (fun x => w (x + a)) = torusAverage w
+  have hadd : ∀ a b, P a → P b → P (a + b) := by
+    intro a b ha hb w hw hwp
+    have hw' : Continuous (fun x => w (x + a)) := by fun_prop
+    have hwp' : ∀ (i : Fin n) x, w (x + Pi.single i 1 + a) = w (x + a) := by
+      intro i x
+      rw [add_right_comm]
+      exact hwp i _
+    calc torusAverage (fun x => w (x + (a + b)))
+        = torusAverage (fun x => (fun y => w (y + a)) (x + b)) := by
+          congr 1; ext x
+          show w (x + (a + b)) = w (x + b + a)
+          rw [add_assoc, add_comm b a]
+      _ = torusAverage (fun x => w (x + a)) := hb _ hw' hwp'
+      _ = torusAverage w := ha w hw hwp
+  have hzero : P 0 := fun w _ _ => by simp
+  have hsingle : ∀ i, P (Pi.single i (a i)) := fun i w hw hwp =>
+    torusAverage_add_single hw hwp i (a i)
+  have hsum := Finset.sum_induction (s := Finset.univ) (fun i => Pi.single i (a i)) P hadd hzero
+    (fun i _ => hsingle i)
+  rw [Finset.univ_sum_single a] at hsum
+  exact hsum v hv hp
+
+end Translation
 
 end KAM
