@@ -45,42 +45,6 @@
    "session": "kam-suborch",
    "assignment": "Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp",
    "state": "active"
-  },
-  {
-   "id": "prover-I-STRIP-3",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree",
-   "assignment": "I-STRIP-3: cohomological equation on strips (overnight claim, D29)",
-   "state": "running"
-  },
-  {
-   "id": "design-P4",
-   "kind": "Lean architect",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-design4",
-   "assignment": "Part 4 (HEAD, HEAD-Q) Lean design",
-   "state": "running"
-  },
-  {
-   "id": "prover-P2-5",
-   "kind": "Lean prover (G1 design wave 4)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p2-5",
-   "assignment": "Package P2-5",
-   "state": "running"
-  },
-  {
-   "id": "prover-P2-6",
-   "kind": "Lean prover (G1 design wave 4)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p2-6",
-   "assignment": "Package P2-6",
-   "state": "running"
   }
  ],
  "queued": [
