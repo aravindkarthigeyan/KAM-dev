@@ -19,6 +19,7 @@ public import KAM.Apost.Perturbation
 public import KAM.Apost.PerturbationTorsion
 public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
+public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
 public import KAM.Diophantine.Basic
