@@ -83,15 +83,6 @@
    "state": "running"
   },
   {
-   "id": "review-p3",
-   "kind": "blueprint reviewer",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1",
-   "session": null,
-   "assignment": "Refute-first review of blueprint part 3 (G2)",
-   "state": "running"
-  },
-  {
    "id": "audit-N",
    "kind": "statement audit (Codex)",
    "model": "GPT-6-Astra xhigh",
@@ -130,10 +121,10 @@
  ],
  "queued": [
   {
-   "title": "Blueprint part 1 proofs"
+   "title": "Blueprint consolidation: shared torus geometry between parts 2 and 3; part 3 copies of part 1 lemmas (review p3 F1–F3)"
   },
   {
-   "title": "Independent review of each blueprint part"
+   "title": "Blueprint part 1 proofs"
   },
   {
    "title": "Dependency graph extraction"

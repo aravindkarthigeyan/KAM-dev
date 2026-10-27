@@ -36,7 +36,7 @@
 \newcommand{\source}[1]{\par\noindent{\small\textsf{Source:} #1}\par}
 % \proofstep{title}: a substantive proof step; follow it with \label{step:...}.
 \newcounter{bpstep}[section]
-\renewcommand{\thebpstep}{\thesection.\arabic{bpstep}}
+\renewcommand{\thebpstep}{S\thesection.\arabic{bpstep}}
 \newcommand{\proofstep}[1]{\par\medskip\noindent\refstepcounter{bpstep}\textbf{Step \thebpstep: #1.}\ }
 % \sourcegap{text}: the source asserts or needs this bridge without proving it.
 \newcommand{\sourcegap}[1]{\par\noindent{\small\textsf{Source gap:} #1}\par}
