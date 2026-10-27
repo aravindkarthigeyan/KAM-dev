@@ -557,9 +557,9 @@ EDGE: step:p3:phase-conclusion | blueprint/parts/p3-uniqueness.tex#bp:p3:phase@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.phase (def KAM.Uniq.diffMap)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-2-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:phase-real
@@ -584,9 +584,9 @@ EDGE: bp:p1:real-inverse | blueprint/parts/p3-uniqueness.tex#step:p3:phase-real@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.PhaseAux.im_integrand
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-2-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:phase-fixed-point
@@ -611,9 +611,9 @@ EDGE: step:p3:phase-real | blueprint/parts/p3-uniqueness.tex#step:p3:phase-fixed
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-r1
 REVIEWER: sol-review-d2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.PhaseAux.exists_fixedPoint
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-2-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:phase-fixed-point@L303-L306 | B=(L^T L)^{-1} at L85 and invertibility in S3 give BL^T L=I for the fixed-point identity
 
@@ -640,9 +640,9 @@ EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:p
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.PhaseAux.norm_sub_le_real, norm_taylor_defect_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-2-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:phase-contraction
@@ -671,9 +671,9 @@ EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contracti
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.PhaseAux.norm_phaseMap_sub_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-2-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:phase-conclusion
@@ -700,9 +700,9 @@ EDGE: step:p3:phase-contraction | blueprint/parts/p3-uniqueness.tex#step:p3:phas
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.phase
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-2-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p3:difference-equation
