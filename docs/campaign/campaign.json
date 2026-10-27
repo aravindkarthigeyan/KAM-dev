@@ -1,5 +1,5 @@
 {
- "current_phase": "Statements frozen on all four tracks (94 anchors). Track K: blueprint consolidated; Part 1 under review; dependency graph extraction running (464 draft nodes, 9 slices; 6 Sonnet extractors, Part 1 slices after its review). Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints starting.",
+ "current_phase": "Statements frozen on all four tracks (94 anchors). Track K: blueprint reviewed in full; dependency graph extracted (449 nodes, 1301 edges, structurally clean) and under independent slice review; then a global review and publication. Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints being written.",
  "workers": [
   {
    "id": "orchestrator",
@@ -47,66 +47,39 @@
    "state": "active"
   },
   {
-   "id": "review-p1",
-   "kind": "blueprint review (Codex)",
-   "model": "GPT-6.1-Sol",
+   "id": "graph-review-r1",
+   "kind": "graph slice review (Codex)",
+   "model": "GPT-6.1-Sol medium",
    "account": "codex-1",
-   "session": "kam-k-review",
-   "assignment": "Refute-first review of blueprint Part 1 and of the consolidation pass (67b8129)",
+   "session": "kam-graph-r1",
+   "assignment": "Refute-first topology review of slices K-p0, K-p1a, K-p1c",
    "state": "running"
   },
   {
-   "id": "extract-K-p0",
-   "kind": "graph extraction",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "-",
-   "assignment": "Dependency graph slice K-p0: confirm edges, fill source fields",
+   "id": "graph-review-r2",
+   "kind": "graph slice review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-3",
+   "session": "kam-graph-r2",
+   "assignment": "Refute-first topology review of slices K-p1b, K-p2a",
    "state": "running"
   },
   {
-   "id": "extract-K-p2a",
-   "kind": "graph extraction",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "-",
-   "assignment": "Dependency graph slice K-p2a: confirm edges, fill source fields",
+   "id": "graph-review-r3",
+   "kind": "graph slice review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "kam-graph-r3",
+   "assignment": "Refute-first topology review of slices K-p2b, K-p3",
    "state": "running"
   },
   {
-   "id": "extract-K-p2b",
-   "kind": "graph extraction",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "-",
-   "assignment": "Dependency graph slice K-p2b: confirm edges, fill source fields",
-   "state": "running"
-  },
-  {
-   "id": "extract-K-p3",
-   "kind": "graph extraction",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "-",
-   "assignment": "Dependency graph slice K-p3: confirm edges, fill source fields",
-   "state": "running"
-  },
-  {
-   "id": "extract-K-p4a",
-   "kind": "graph extraction",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "-",
-   "assignment": "Dependency graph slice K-p4a: confirm edges, fill source fields",
-   "state": "running"
-  },
-  {
-   "id": "extract-K-p4b",
-   "kind": "graph extraction",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "-",
-   "assignment": "Dependency graph slice K-p4b: confirm edges, fill source fields",
+   "id": "graph-review-r4",
+   "kind": "graph slice review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "kam-graph-r4",
+   "assignment": "Refute-first topology review of slices K-p4a, K-p4b",
    "state": "running"
   }
  ],
