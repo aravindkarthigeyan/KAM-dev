@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: 24a486c6ccc5648791465ec3577c2e37fd464ecaec8f0dab9c74a5588535e
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -27,7 +27,7 @@ NOTE: -
 NODE: bp:p0:domains#complexStrip
 KIND: definition
 TITLE: Complex neighbourhoods and the fundamental domain: KAM.complexStrip
-STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
+STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:conventions@L19-L20
 PROOF_SOURCE: -
 CONTRACT_ID: kam.complexStrip
 CONTRACT_VERSION: 1
@@ -43,7 +43,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: b05e2aeddf393c0b232bd809f64d9d8040e0fdf54248c4f880ab1ad98c040
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: 810177265bdc6565103c4424a87272ae1769c4479cde418f98ce4b0c91794
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -120,9 +120,9 @@ FROZEN_ABI_SHA256: 427a145572df4c3e14079cf88feb16d60e1cd92fcd1770faddd36ad706562
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -146,9 +146,9 @@ FROZEN_ABI_SHA256: 482764b7e8e1691b3c3c182bca9b959f0d657e126c6b21b837ff0516f91e4
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -172,9 +172,9 @@ FROZEN_ABI_SHA256: 542b8d8eb08283f5c961a969dd96003cbb23fc447da8ea444498cb92a48f6
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -198,9 +198,9 @@ FROZEN_ABI_SHA256: 32a39d2730c3b399c1bb81f1b709931dbdea47635807e8036db3b25116ef4
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -224,9 +224,9 @@ FROZEN_ABI_SHA256: ea510392f643a3fce65df6d4bc826d902d7b2277f67b0c009e3522d5659a0
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -250,9 +250,9 @@ FROZEN_ABI_SHA256: c9326077b299282bff92fdb8a3a849f512167fd4dc8e859bb0fdf1662f525
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -278,9 +278,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:hamiltonian#symplecticForm | blueprint/parts/p0-conventions.tex#bp:p0:torus@L77-L77 | condition (v) uses omega_0
 EDGE: bp:p0:hamiltonian#hamiltonianVectorField | blueprint/parts/p0-conventions.tex#bp:p0:torus@L78-L78 | condition (vi) uses X_H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -308,9 +308,9 @@ EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p0-conventions.tex#bp:p0
 EDGE: bp:p0:torus#IsInvariantLagrangianTorus | blueprint/parts/p0-conventions.tex#bp:p0:cover@L85-L86 | K invariant Lagrangian torus of H
 EDGE: bp:p0:nearlyintegrable#realHamiltonian | blueprint/parts/p0-conventions.tex#bp:p0:cover@L86-L86 | H is the real Hamiltonian built from h,f
 EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p0-conventions.tex#bp:p0:cover@L87-L87 | nabla h(I_0)=omega
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -335,9 +335,9 @@ DEPS: bp:p0:domains#complexStrip
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L92-L92 | strip T_rho used in the definition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -361,9 +361,9 @@ FROZEN_ABI_SHA256: 6549c22016139f44ca97ba901aa4927905970838ce283fef53b30c223dfab
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -388,9 +388,9 @@ DEPS: bp:p0:hamiltonian#hamiltonianVectorFieldC
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L94-L94 | E uses X_h
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -403,9 +403,9 @@ STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L91-L101
 PROOF_SOURCE: -
 CONTRACT_ID: kam.dotℂ
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data: complex vectors of equal length)
-SOURCE_QUANTIFIERS: vectors u,v in C^m
-SOURCE_CONCLUSION: defines the bilinear (non-conjugated) transpose pairing u^T v used in L^T L and N^T Omega_0 X_N
+SOURCE_HYPOTHESES: typing data: u,v in C^n x C^n
+SOURCE_QUANTIFIERS: n fixed; u,v in C^n x C^n
+SOURCE_CONCLUSION: defines dotC(u,v)=sum_i (u_1i v_1i + u_2i v_2i), the bilinear non-conjugated pairing used by the transpose formulas
 CONSTANT_SCOPE: none
 FROZEN_FILE: KAM/Frozen/Defs/DotC.lean
 FROZEN_DECL: KAM.dotℂ
@@ -415,7 +415,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -441,9 +441,9 @@ DEPS: bp:p0:stripdata#dotC
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:stripdata#dotC | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L95-L95 | Gram matrix uses the bilinear transpose
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -456,9 +456,9 @@ STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L91-L101
 PROOF_SOURCE: -
 CONTRACT_ID: kam.normalFrame
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K as above; L^T L (assumed invertible for the formula to be meaningful)
+SOURCE_HYPOTHESES: typing data: K:C^n->C^n x C^n and theta in C^n; L=DK; no invertibility premise
 SOURCE_QUANTIFIERS: K, theta
-SOURCE_CONCLUSION: defines B = (L^T L)^{-1} and the normal frame N = Omega_0 L B
+SOURCE_CONCLUSION: defines B=(L^T L)^{-1} using the total matrix inverse and N=Omega_0 L B; invertibility is a later theorem hypothesis, not a premise of this definition
 CONSTANT_SCOPE: none
 FROZEN_FILE: KAM/Frozen/Defs/NormalFrame.lean
 FROZEN_DECL: KAM.normalFrame
@@ -470,7 +470,7 @@ ROUTE_FOR: -
 EDGE: bp:p0:stripdata#gramMatrix | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L96-L96 | B=(L^T L)^{-1} from the Gram matrix
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L96-L96 | N = Omega_0 L B
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -499,9 +499,9 @@ EDGE: bp:p0:stripdata#normalFrame | blueprint/parts/p0-conventions.tex#bp:p0:str
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L96-L96 | X_N uses DX_h
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L97-L97 | T = N^T Omega_0 X_N
 EDGE: bp:p0:stripdata#dotC | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L97-L97 | N^T ... uses the bilinear transpose
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -526,9 +526,9 @@ DEPS: bp:p0:stripdata#torsion
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:stripdata#torsion | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L97-L97 | average of T
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -562,9 +562,9 @@ EDGE: bp:p0:domains#actionNbhd | blueprint/parts/p0-conventions.tex#bp:p0:head@L
 EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p0-conventions.tex#bp:p0:head@L112-L112 | F_B in the conclusion
 EDGE: bp:p0:cover#kamCover | blueprint/parts/p0-conventions.tex#bp:p0:head@L112-L112 | K(C sqrt eps) in the conclusion
 EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p0-conventions.tex#bp:p0:head@L108-L108 | nabla h in the nondegeneracy inequality
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -593,14 +593,14 @@ EDGE: step:p4:hq-approx | blueprint/parts/p4-measure.tex#bp:p0:headq@L1274-L1274
 EDGE: step:p4:hq-head | blueprint/parts/p4-measure.tex#bp:p0:headq@L1277-L1277 | proof step of this result
 EDGE: step:p4:hq-transfer | blueprint/parts/p4-measure.tex#bp:p0:headq@L1287-L1287 | proof step of this result
 EDGE: step:p4:hq-cover | blueprint/parts/p4-measure.tex#bp:p0:headq@L1295-L1295 | proof step of this result
-EDGE: bp:p0:head | blueprint/parts/p0-conventions.tex#bp:p0:headq@L118-L118 | cited at this line (statement; \ref{bp:p0:head})
+EDGE: bp:p0:head | blueprint/parts/p4-measure.tex#step:p4:hq-head@L1278-L1284 | HEAD applied to B-prime; its premises are supplied at L1278-L1282, with perturbation restriction at L1288-L1292
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p0-conventions.tex#bp:p0:headq@L119-L119 | strip T_{s_0} in D(s_0,r_0)
 EDGE: bp:p0:domains#actionNbhd | blueprint/parts/p0-conventions.tex#bp:p0:headq@L119-L119 | B_{r_0} in the phase domain and in h holomorphic on B_{r_0}
 EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p0-conventions.tex#bp:p0:headq@L120-L120 | F_B in the conclusion
-EDGE: bp:p0:cover#kamCover | blueprint/parts/p0-conventions.tex#bp:p0:headq@L120-L120 | K(C sqrt eps) in the conclusion
+EDGE: bp:p0:cover#kamCover | blueprint/parts/p0-conventions.tex#bp:p0:headq@L120-L120 | K(kappa) in the qualitative conclusion
 EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p0-conventions.tex#bp:p0:headq@L119-L119 | nabla h in the nondegeneracy inequality
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -611,7 +611,7 @@ NODE: bp:p0:g1
 KIND: theorem
 TITLE: G1: a-posteriori KAM at fixed frequency
 STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:g1@L124-L140
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1094-L1107
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1109-L1142
 CONTRACT_ID: kam.aposteriori_kam
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: n >= 2; tau >= n-1; 0 < rho_inf < rho; M, sigma_K, sigma_B, sigma_T, mu, gammabar > 0; mathfrak B subset C^n x C^n open and invariant under theta -> theta+k; h holomorphic on mathfrak B, 1-periodic in theta, real on real points, |Dh|,|X_h|,|DX_h|,|D^2X_h| <= M on mathfrak B; K holomorphic on T_rho, primary, real on reals, B_mu(K(theta)) subset mathfrak B and |DK| <= sigma_K - mu on T_rho; L^T L invertible with |B| <= sigma_B - mu on T_rho; avg(T) invertible with |avg(T)^{-1}| <= sigma_T - mu; 0 < gamma <= gammabar and omega in Dio_{gamma,tau}; |E| <= e on T_rho; C_1 e/(gamma^4 rho^{4 tau}) < 1
@@ -625,7 +625,7 @@ FROZEN_ABI_SHA256: 15dbaab5a036f69e52d0659874d64abe6fdd36e0f235973db368792c615ee
 DEPS: bp:p2:g1, bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#torsionAverage
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:g1 | blueprint/parts/p2-aposteriori.tex#bp:p0:g1@L1094-L1094 | this result carries \frozen{KAM.aposteriori_kam}: it proves the anchor
+EDGE: bp:p2:g1 | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1131-L1141 | the explicit-constant theorem verifies all seven clauses of the frozen G1 conclusion
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p0-conventions.tex#bp:p0:g1@L132-L132 | omega in Dio_{gamma,tau}
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p0-conventions.tex#bp:p0:g1@L130-L130 | strips T_rho
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p0-conventions.tex#bp:p0:g1@L129-L129 | X_h bounds
@@ -635,7 +635,7 @@ EDGE: bp:p0:stripdata#invarianceError | blueprint/parts/p0-conventions.tex#bp:p0
 EDGE: bp:p0:stripdata#gramMatrix | blueprint/parts/p0-conventions.tex#bp:p0:g1@L131-L131 | L^T L and B
 EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p0-conventions.tex#bp:p0:g1@L131-L131 | avg(T)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -674,9 +674,9 @@ EDGE: bp:p0:stripdata#IsRealOnReals | blueprint/parts/p0-conventions.tex#bp:p0:g
 EDGE: bp:p0:stripdata#invarianceError | blueprint/parts/p0-conventions.tex#bp:p0:g2@L149-L149 | error E
 EDGE: bp:p0:stripdata#gramMatrix | blueprint/parts/p0-conventions.tex#bp:p0:g2@L147-L147 | L^T L and B
 EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p0-conventions.tex#bp:p0:g2@L148-L148 | avg(T)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -705,9 +705,9 @@ EDGE: step:p4:g3-cube | blueprint/parts/p4-measure.tex#bp:p0:g3@L109-L109 | proo
 EDGE: step:p4:g3-union | blueprint/parts/p4-measure.tex#bp:p0:g3@L114-L114 | proof step of this result
 EDGE: step:p4:g3-sum | blueprint/parts/p4-measure.tex#bp:p0:g3@L122-L122 | proof step of this result
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p0-conventions.tex#bp:p0:g3@L159-L159 | complement of Dio_{alpha,tau}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

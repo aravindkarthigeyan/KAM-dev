@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -120,9 +120,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -146,9 +146,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -172,9 +172,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -198,9 +198,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -224,9 +224,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -250,9 +250,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -279,9 +279,9 @@ EDGE: step:p1:opn-blocks | blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@
 EDGE: step:p1:opn-omega | blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L128-L128 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -305,9 +305,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -320,7 +320,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L123-L126
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L123-L126
 CONTRACT_ID: step:p1:opn-blocks
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: operator norm = largest row sum (row-sum step); block matrix (A B; C D)
+SOURCE_HYPOTHESES: block matrix (A B; C D) of compatible sizes; induced operator norms for max norms
 SOURCE_QUANTIFIERS: rows of the upper and lower block rows
 SOURCE_CONCLUSION: upper block-row sums <= |A|+|B|, lower <= |C|+|D|, so block norm <= max{|A|+|B|,|C|+|D|}
 CONSTANT_SCOPE: none
@@ -333,7 +333,7 @@ EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L1
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -347,7 +347,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L128-L133
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L128-L133
 CONTRACT_ID: step:p1:opn-omega
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Definition of Omega_0(a,b)=(-b,a) (Part 0); operator norm = largest row sum
+SOURCE_HYPOTHESES: Omega_0(a,b)=(-b,a) as defined in Part 0; induced operator norm for max norms
 SOURCE_QUANTIFIERS: a,b in C^n
 SOURCE_CONCLUSION: Omega_0^2=-I, Omega_0^T=-Omega_0, every row has one nonzero entry +-1, so |Omega_0|=1
 CONSTANT_SCOPE: none
@@ -361,7 +361,7 @@ EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L13
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -389,9 +389,9 @@ EDGE: step:p1:mn-transpose | blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@
 EDGE: step:p1:mn-signed | blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L155-L155 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -404,7 +404,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L144-L148
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L144-L148
 CONTRACT_ID: step:p1:mn-products
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: |M|=sup_{|v|<=1}|Mv| (operator norms lemma)
+SOURCE_HYPOTHESES: matrices M,N and vector v of compatible sizes; induced operator norms for max norms
 SOURCE_QUANTIFIERS: all compatible M,N,v
 SOURCE_CONCLUSION: |Mv|<=|M||v| and |MN|<=|M||N|
 CONSTANT_SCOPE: none
@@ -417,7 +417,7 @@ EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:mn-products
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -442,9 +442,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -469,9 +469,9 @@ DEPS: bp:p0:hamiltonian#omegaZero
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#step:p1:mn-signed@L156-L156 | Omega_0(a,b)=(-b,a) definition
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -499,9 +499,9 @@ EDGE: step:p1:neu-difference | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L18
 EDGE: step:p1:neu-pointwise | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L187-L187 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -514,7 +514,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L172-L177
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L172-L177
 CONTRACT_ID: step:p1:neu-series
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: X=A^-1 Delta; |A^-1||Delta|<=1/2; matrix norm facts; |I|=1
+SOURCE_HYPOTHESES: A invertible square matrix; Delta of the same size; |A^{-1}| |Delta|<=1/2; max-norm operator norms; X denotes A^{-1}Delta
 SOURCE_QUANTIFIERS: square matrices
 SOURCE_CONCLUSION: |X^j|<=2^-j, S=sum_j (-X)^j converges absolutely, |S|<=2, S(I+X)=(I+X)S=I
 CONSTANT_SCOPE: none
@@ -528,7 +528,7 @@ EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-series@
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -542,7 +542,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L179-L181
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L179-L181
 CONTRACT_ID: step:p1:neu-inverse
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A+Delta=A(I+X); S=(I+X)^-1 with |S|<=2
+SOURCE_HYPOTHESES: A invertible square matrix; Delta of the same size; |A^{-1}| |Delta|<=1/2; max-norm operator norms; X=A^{-1}Delta; S=sum_{j>=0}(-X)^j
 SOURCE_QUANTIFIERS: A,Delta as in lemma
 SOURCE_CONCLUSION: A+Delta invertible with inverse S A^-1 and |(A+Delta)^-1|<=2|A^-1|
 CONSTANT_SCOPE: none
@@ -556,7 +556,7 @@ EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -570,7 +570,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L183-L1
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L183-L185
 CONTRACT_ID: step:p1:neu-difference
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A+Delta invertible, |(A+Delta)^-1|<=2|A^-1|
+SOURCE_HYPOTHESES: A invertible square matrix; Delta of the same size; |A^{-1}| |Delta|<=1/2; max-norm operator norms
 SOURCE_QUANTIFIERS: as in lemma
 SOURCE_CONCLUSION: (A+Delta)^-1-A^-1=-(A+Delta)^-1 Delta A^-1 and |.|<=2|A^-1|^2|Delta|
 CONSTANT_SCOPE: none
@@ -584,7 +584,7 @@ EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-differenc
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -611,9 +611,9 @@ EDGE: step:p1:neu-inverse | blueprint/parts/p1-analysis.tex#step:p1:neu-pointwis
 EDGE: step:p1:neu-difference | blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L190-L190 | conclusions applied at each theta
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -638,9 +638,9 @@ DEPS: step:p1:ri-adjugate
 EDGE: step:p1:ri-adjugate | blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L199-L199 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -653,7 +653,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L199-L203
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L199-L203
 CONTRACT_ID: step:p1:ri-adjugate
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A real invertible; Cramer's rule
+SOURCE_HYPOTHESES: A real invertible square matrix; for the pointwise clause A(theta) real at real theta and invertible
 SOURCE_QUANTIFIERS: A real invertible
 SOURCE_CONCLUSION: A^-1=(det A)^-1 adj A is real; the pointwise claim is the same at each real theta
 CONSTANT_SCOPE: none
@@ -666,7 +666,7 @@ EDGE: bp:p1:ext-cramer | blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L20
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -697,9 +697,9 @@ EDGE: step:p1:hreg-orders | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-re
 EDGE: step:p1:hreg-symmetry | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L278-L278 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -712,7 +712,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L227-L233
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L227-L233
 CONTRACT_ID: step:p1:hreg-line
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: x in U, r>0 with closed polydisc P-bar(x,r) in U and |F|<=A on it; v with |v|=1; Cauchy formulas (E1)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; x in U; r>0; closed P(x,r) subset U; |F|<=A there; |v|=1
 SOURCE_QUANTIFIERS: x,r,A,v arbitrary with those properties
 SOURCE_CONCLUSION: |DF(x)v|<=A/r for |v|=1 and hence |DF(x)|<=A/r
 CONSTANT_SCOPE: none
@@ -725,7 +725,7 @@ EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L231-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -739,7 +739,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L235-L24
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L235-L242
 CONTRACT_ID: step:p1:hreg-integral
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: z_0 in U, r>0, P-bar(z_0,3r) in U, A=max |F| there; |v|=1; x in P(z_0,r); Cauchy formula (E1)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,3r) subset U; A=max there; |v|=1; x in P(z_0,r)
 SOURCE_QUANTIFIERS: z_0,r,A fixed; v, x then arbitrary
 SOURCE_CONCLUSION: DF(x)v=(2 pi i)^-1 oint_{|zeta|=r} F(x+zeta v)/zeta^2 dzeta for x in P(z_0,r)
 CONSTANT_SCOPE: none
@@ -752,7 +752,7 @@ EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -766,7 +766,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L24
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L244-L260
 CONTRACT_ID: step:p1:hreg-differentiate
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Cauchy integral for DF(x)v; |DF(y)|<=A/r on P-bar(z_0,2r) (line estimate); x in P(z_0,r); |h|<r-|x-z_0|; MVT and dominated convergence (E4,E6)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,3r) subset U; A=max there; |v|=1; x in P(z_0,r); |h|<r-|x-z_0|
 SOURCE_QUANTIFIERS: z_0,r,A,v fixed; x; then h
 SOURCE_CONCLUSION: x->DF(x)v is complex differentiable at x in P(z_0,r) with derivative h->(2 pi i)^-1 oint DF(x+zeta v)h zeta^-2 dzeta
 CONSTANT_SCOPE: none
@@ -782,7 +782,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:hreg-differen
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -796,7 +796,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L262-L267
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L262-L267
 CONTRACT_ID: step:p1:hreg-full
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: x->DF(x)v is holomorphic on P(z_0,r) for v=e_1..e_m
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,3r) subset U
 SOURCE_QUANTIFIERS: z_0 in U arbitrary
 SOURCE_CONCLUSION: DF is holomorphic on P(z_0,r), hence on U
 CONSTANT_SCOPE: none
@@ -809,7 +809,7 @@ EDGE: step:p1:hreg-differentiate | blueprint/parts/p1-analysis.tex#step:p1:hreg-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -823,7 +823,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L269-L276
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L269-L276
 CONTRACT_ID: step:p1:hreg-orders
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: DF holomorphic for every holomorphic F with values in a finite-dimensional space; canonical isometry L(C^m,L^j(C^m,W)) = L^{j+1}(C^m,W)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic
 SOURCE_QUANTIFIERS: j>=1; F, DF as the maps
 SOURCE_CONCLUSION: every D^jF exists and is holomorphic, F is C^infty, and the norm identities |D^{j+1}F|=|D^j(DF)|=|D(D^jF)|
 CONSTANT_SCOPE: none
@@ -836,7 +836,7 @@ EDGE: step:p1:hreg-full | blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L2
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -850,7 +850,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L278-L28
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L278-L281
 CONTRACT_ID: step:p1:hreg-symmetry
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: F differentiable on open U; DF differentiable at every z in U (full-derivative step); Schwarz (E5)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic
 SOURCE_QUANTIFIERS: z in U; v,w
 SOURCE_CONCLUSION: D^2F(z) symmetric; d_i d_j F=d_j d_i F
 CONSTANT_SCOPE: none
@@ -864,7 +864,7 @@ EDGE: bp:p1:ext-schwarz | blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -894,9 +894,9 @@ EDGE: step:p1:han-bounds | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-ana
 EDGE: step:p1:han-real | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L340-L340 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -920,9 +920,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -935,7 +935,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L307-L319
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L307-L319
 CONTRACT_ID: step:p1:han-cauchy
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: r_1>r margin; w in P(z_0,r); circles C_j of radius r; Cauchy formula (E1); Fubini (E6)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,r) subset U; A=max there; r_1 is the larger radius constructed in the margin step; w in P(z_0,r); C_j the coordinate circles of radius r
 SOURCE_QUANTIFIERS: w in P(z_0,r); circles C_j around z_{0,j}
 SOURCE_CONCLUSION: F(w)=(2 pi i)^-m oint_{C_1}...oint_{C_m} F(zeta)/prod(zeta_j-w_j) dzeta, as an integral over the torus C_1x...xC_m
 CONSTANT_SCOPE: none
@@ -950,7 +950,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L3
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -964,7 +964,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L321-L331
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L321-L331
 CONTRACT_ID: step:p1:han-series
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Iterated Cauchy formula; t=|w-z_0|/r<1; term-by-term integration (E6)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,r) subset U; A=max there; w in P(z_0,r); t=|w-z_0|/r; c_alpha denotes the displayed contour integral
 SOURCE_QUANTIFIERS: w in P(z_0,r); zeta on the torus
 SOURCE_CONCLUSION: F(w)=sum_alpha c_alpha (w-z_0)^alpha with c_alpha=(2 pi i)^-m oint...oint F(zeta)/prod(zeta_j-z_{0,j})^{alpha_j+1}
 CONSTANT_SCOPE: none
@@ -978,7 +978,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-series@L3
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -992,7 +992,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L333-L338
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L333-L338
 CONTRACT_ID: step:p1:han-bounds
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: coefficient formula for c_alpha; |F|<=A on the torus; circles of length 2 pi r
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,r) subset U; A=max there; c_alpha denotes the contour integral constructed in the previous step; w in P(z_0,r)
 SOURCE_QUANTIFIERS: alpha in N^m; w in P(z_0,r)
 SOURCE_CONCLUSION: |c_alpha|<=A r^-|alpha|; sum |c_alpha||(w-z_0)^alpha|<=A(1-t)^-m; part (a) holds
 CONSTANT_SCOPE: none
@@ -1006,7 +1006,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L3
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1020,7 +1020,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L340-L349
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L340-L349
 CONTRACT_ID: step:p1:han-real
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: part (a); x_0 in U_R, r>0 with P-bar(x_0,r) in U
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; x_0 in U cap R^m; r>0 with closed P(x_0,r) subset U; additionally W=C^p and F real on U cap R^m for the real-coefficient clause
 SOURCE_QUANTIFIERS: real x with |x-x_0|<r; W=C^p with F real on U_R for the second clause
 SOURCE_CONCLUSION: F|U_R is a real power series in x-x_0, absolutely convergent near x_0; with real F, F(x)=sum (Re c_alpha)(x-x_0)^alpha, |Re c_alpha|<=|c_alpha|; this is (b)
 CONSTANT_SCOPE: none
@@ -1033,7 +1033,7 @@ EDGE: step:p1:han-bounds | blueprint/parts/p1-analysis.tex#step:p1:han-real@L341
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1062,9 +1062,9 @@ EDGE: step:p1:ul-derivative | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limi
 EDGE: step:p1:ul-primary | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L384-L384 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1077,7 +1077,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L362-L3
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L362-L367
 CONTRACT_ID: step:p1:ul-differences
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: V in C^m open; eta_s=sup_V|DK_s-Lambda| finite and ->0 for large s; x in V, r>0 with P(x,r) in V; MVT (E4)
+SOURCE_HYPOTHESES: V subset C^m open; W finite-dimensional complex normed; K_s:V->W holomorphic; K_s->K pointwise; DK_s->Lambda uniformly on V; eta_s=sup_V |DK_s-Lambda| for sufficiently large s; x in V; P(x,r) subset V
 SOURCE_QUANTIFIERS: x,r fixed; indices s,t; y in P(x,r)
 SOURCE_CONCLUSION: |phi_st(y)-phi_st(x)|<=2(eta_s+eta_t)|y-x| for phi_st(y)=K_s(y)-K_t(y)-(DK_s(x)-DK_t(x))(y-x)
 CONSTANT_SCOPE: none
@@ -1090,7 +1090,7 @@ EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L36
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1104,7 +1104,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L369-L374
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L369-L374
 CONTRACT_ID: step:p1:ul-limit
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: difference estimate for K_s-K_t; K_t->K pointwise, DK_t(x)->Lambda(x), eta_t->0
+SOURCE_HYPOTHESES: V subset C^m open; W finite-dimensional complex normed; K_s:V->W holomorphic; K_s->K pointwise; DK_s->Lambda uniformly on V; eta_s=sup_V |DK_s-Lambda| for sufficiently large s; x in V; P(x,r) subset V
 SOURCE_QUANTIFIERS: x,r,s fixed; y in P(x,r); t->infinity
 SOURCE_CONCLUSION: |K_s(y)-K(y)-(K_s(x)-K(x))-(DK_s(x)-Lambda(x))(y-x)|<=2 eta_s|y-x|
 CONSTANT_SCOPE: none
@@ -1117,7 +1117,7 @@ EDGE: step:p1:ul-differences | blueprint/parts/p1-analysis.tex#step:p1:ul-limit@
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1131,7 +1131,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L376-L38
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L376-L382
 CONTRACT_ID: step:p1:ul-derivative
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: limit estimate with 2 eta_s|y-x|; K_s differentiable at x; eps>0
+SOURCE_HYPOTHESES: V subset C^m open; W finite-dimensional complex normed; K_s:V->W holomorphic; K_s->K pointwise; DK_s->Lambda uniformly on V; eta_s=sup_V |DK_s-Lambda| for sufficiently large s; x in V; P(x,r) subset V; epsilon>0
 SOURCE_QUANTIFIERS: eps>0, then s, then r'<=r
 SOURCE_CONCLUSION: |K(y)-K(x)-Lambda(x)(y-x)|<=eps|y-x| for |y-x|<r'; Lambda(x) complex linear; K complex differentiable at x with DK(x)=Lambda(x)
 CONSTANT_SCOPE: none
@@ -1144,7 +1144,7 @@ EDGE: step:p1:ul-limit | blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1172,9 +1172,9 @@ EDGE: bp:p0:stripdata#IsRealOnReals | blueprint/parts/p1-analysis.tex#step:p1:ul
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L385-L385 | strip T_r
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1200,9 +1200,9 @@ EDGE: step:p1:hi-holomorphic | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic
 EDGE: step:p1:hi-derivative | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L406-L406 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1215,7 +1215,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L400-L4
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L400-L404
 CONTRACT_ID: step:p1:hi-holomorphic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A:V->C^{p x p} holomorphic, det A != 0; Cramer (E10)
+SOURCE_HYPOTHESES: V open; A:V->C^{p x p} holomorphic; det A nonzero on V
 SOURCE_QUANTIFIERS: on V
 SOURCE_CONCLUSION: A^-1=(det A)^-1 adj A is holomorphic on V
 CONSTANT_SCOPE: none
@@ -1228,7 +1228,7 @@ EDGE: bp:p1:ext-cramer | blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1242,7 +1242,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L406-L41
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L406-L410
 CONTRACT_ID: step:p1:hi-derivative
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A^-1 holomorphic on V; A(z)A(z)^-1=I
+SOURCE_HYPOTHESES: V open; A:V->C^{p x p} holomorphic; det A nonzero on V
 SOURCE_QUANTIFIERS: z in V; direction v
 SOURCE_CONCLUSION: D(A^-1)(z)v=-A(z)^-1 (DA(z)v) A(z)^-1
 CONSTANT_SCOPE: none
@@ -1255,7 +1255,7 @@ EDGE: step:p1:hi-holomorphic | blueprint/parts/p1-analysis.tex#step:p1:hi-deriva
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1281,9 +1281,9 @@ DEPS: step:p1:io-mvt
 EDGE: step:p1:io-mvt | blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L419-L419 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1296,7 +1296,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L419-L421
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L419-L421
 CONTRACT_ID: step:p1:io-mvt
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: [z,z+w] convex in U; F differentiable on it; |DF|<=A there; MVT (E4)
+SOURCE_HYPOTHESES: U subset C^m open; F:U->W holomorphic; |DF|<=A on U; [z,z+w] subset U
 SOURCE_QUANTIFIERS: z,w
 SOURCE_CONCLUSION: |F(z+w)-F(z)|<=A|w|
 CONSTANT_SCOPE: none
@@ -1309,7 +1309,7 @@ EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L421-L421 |
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1336,9 +1336,9 @@ EDGE: step:p1:tay-lipschitz | blueprint/parts/p1-analysis.tex#bp:p1:taylor@L430-
 EDGE: step:p1:tay-integrate | blueprint/parts/p1-analysis.tex#bp:p1:taylor@L435-L435 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1351,7 +1351,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L430-L43
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L430-L433
 CONTRACT_ID: step:p1:tay-lipschitz
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: DF holomorphic on U (derivative regularity); |D(DF)|=|D^2F|<=A; [z,z+w] in U
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; |D^2F|<=A on U; [z,z+w] subset U
 SOURCE_QUANTIFIERS: t in [0,1]
 SOURCE_CONCLUSION: |DF(z+tw)-DF(z)|<=A t|w|
 CONSTANT_SCOPE: none
@@ -1365,7 +1365,7 @@ EDGE: bp:p1:increments-open | blueprint/parts/p1-analysis.tex#step:p1:tay-lipsch
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1379,7 +1379,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L435-L43
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L435-L439
 CONTRACT_ID: step:p1:tay-integrate
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Lipschitz bound on DF along the segment; g(t)=F(z+tw)-F(z)-t DF(z)w C^1 on an open interval containing [0,1], g(0)=0; FTC and |int|<=int|.| (E6)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; |D^2F|<=A on U; [z,z+w] subset U; g(t)=F(z+tw)-F(z)-t DF(z)w
 SOURCE_QUANTIFIERS: z,w fixed; t in [0,1]
 SOURCE_CONCLUSION: |g(1)|<=int_0^1 A t|w|^2 dt = (A/2)|w|^2
 CONSTANT_SCOPE: none
@@ -1394,7 +1394,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:tay-integrate
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1423,9 +1423,9 @@ EDGE: step:p1:co-third | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L487-
 EDGE: step:p1:co-constants | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L494-L494 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
-REVIEWER: -
+REVIEWER: sol-review-r1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1438,7 +1438,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L472-L476
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L472-L476
 CONTRACT_ID: step:p1:co-first
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: only |f|<=A on P-bar(z,delta) is used; line estimate of derivative regularity with x=z, r=delta
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
 SOURCE_QUANTIFIERS: l
 SOURCE_CONCLUSION: |Df(z)|<=A/delta and |d_l f(z)|<=A/delta
 CONSTANT_SCOPE: none
@@ -1451,7 +1451,7 @@ EDGE: step:p1:hreg-line | blueprint/parts/p1-analysis.tex#step:p1:co-first@L473-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1465,7 +1465,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L478-L485
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L478-L485
 CONTRACT_ID: step:p1:co-second
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: P-bar(z,delta) in U, |f|<=A there; first-derivative bound; Df holomorphic
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
 SOURCE_QUANTIFIERS: y in P-bar(z,delta/2)
 SOURCE_CONCLUSION: |Df(y)|<=2A/delta on P-bar(z,delta/2) and |D^2f(z)|<=4A/delta^2
 CONSTANT_SCOPE: none
@@ -1479,7 +1479,7 @@ EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:co-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1493,7 +1493,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L487-L492
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L487-L492
 CONTRACT_ID: step:p1:co-third
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: second-derivative bound; Df holomorphic with |Df|<=2A/delta on P-bar(z,delta/2)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
 SOURCE_QUANTIFIERS: z, radius delta/2
 SOURCE_CONCLUSION: |D^2(Df)(z)|<=32A/delta^3 and |D^3f(z)|<=32A/delta^3
 CONSTANT_SCOPE: none
@@ -1507,7 +1507,7 @@ EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:co-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1521,7 +1521,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L494-L495
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L494-L495
 CONTRACT_ID: step:p1:co-constants
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: first, second and third derivative bounds
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
 SOURCE_QUANTIFIERS: j=1,2,3
 SOURCE_CONCLUSION: the lemma holds with c(m,1)=1, c(m,2)=4, c(m,3)=32, independent of m
 CONSTANT_SCOPE: constants are absolute (independent of m)
@@ -1536,7 +1536,7 @@ EDGE: step:p1:co-third | blueprint/parts/p1-analysis.tex#step:p1:co-constants@L4
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

@@ -818,27 +818,27 @@ ITEM: bp:p1:mixed-difference
 KIND: lemma
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mixed-difference@L442-L445
 DISPOSITION: EXCLUDED
-REASON: not consumed by any root's proof
+REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+claude-main-orchestrator
 REVIEWER: -
 
 ITEM: step:p1:md-inner
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-inner@L450-L453
 DISPOSITION: EXCLUDED
-REASON: not consumed by any root's proof
+REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+claude-main-orchestrator
 REVIEWER: -
 
 ITEM: step:p1:md-outer
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-outer@L455-L459
 DISPOSITION: EXCLUDED
-REASON: not consumed by any root's proof
+REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+claude-main-orchestrator
 REVIEWER: -
 
 ITEM: bp:p1:cauchy-open
@@ -1007,18 +1007,18 @@ ITEM: bp:p1:cauchy-strip-2
 KIND: lemma
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L592-L594
 DISPOSITION: EXCLUDED
-REASON: not consumed by any root's proof
+REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sol-review-r2+claude-main-orchestrator
 REVIEWER: -
 
 ITEM: step:p1:cs2-polydisc
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs2-polydisc@L597-L602
 DISPOSITION: EXCLUDED
-REASON: not consumed by any root's proof
+REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sol-review-r2+claude-main-orchestrator
 REVIEWER: -
 
 ITEM: bp:p1:cauchy-corollaries
@@ -1489,6 +1489,15 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: -
 
+ITEM: bp:p1:decay#boundary-radius
+KIND: proof-region
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L809-L810
+DISPOSITION: NODE bp:p1:decay#boundary-radius
+REASON: A reused intermediate claim, applied at L850-L851 and L895-L896.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-r2
+REVIEWER: -
+
 ITEM: bp:p1:iteration
 KIND: lemma
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L997-L1002
@@ -1853,9 +1862,9 @@ ITEM: step:p2:avg-deriv
 KIND: proof-region
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv@L175-L179
 DISPOSITION: NODE step:p2:avg-deriv
-REASON: labelled unit carried by this node
+REASON: This proof-region contains two routes; retain both through ROUTES rather than silently dropping L178-L179.
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sol-review-r2
 REVIEWER: -
 
 ITEM: bp:p2:cohomological
@@ -2423,6 +2432,24 @@ DISPOSITION: EXCLUDED
 REASON: provenance note (HL19/GJLV05 reference) for a result proved in the blueprint; no unproved cited input
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p2a
+REVIEWER: -
+
+ITEM: step:p2:avg-deriv#real-route
+KIND: proof-region
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#real-route@L176-L178
+DISPOSITION: NODE step:p2:avg-deriv#real-route
+REASON: Main proof via real restriction and averages-real.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-r2
+REVIEWER: -
+
+ITEM: step:p2:avg-deriv#bounded-route
+KIND: proof-region
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#bounded-route@L178-L179
+DISPOSITION: NODE step:p2:avg-deriv#bounded-route
+REASON: Explicit alternative via boundedness on T_{r/2} and averages.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-r2
 REVIEWER: -
 
 ITEM: bp:p2:triangular
@@ -3145,6 +3172,96 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: -
 
+ITEM: bp:p2:V1
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V1@L1180-L1182
+DISPOSITION: EXCLUDED
+REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
+ITEM: bp:p2:V2
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V2@L1183-L1186
+DISPOSITION: EXCLUDED
+REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
+ITEM: bp:p2:V3
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V3@L1187-L1189
+DISPOSITION: EXCLUDED
+REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
+ITEM: bp:p2:V4
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V4@L1190-L1194
+DISPOSITION: EXCLUDED
+REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
+ITEM: bp:p2:V5
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V5@L1195-L1197
+DISPOSITION: EXCLUDED
+REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
+ITEM: bp:p2:V6
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V6@L1198-L1200
+DISPOSITION: EXCLUDED
+REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
+ITEM: bp:p2:V7
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V7@L1201-L1203
+DISPOSITION: EXCLUDED
+REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
+ITEM: bp:p2:V8
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V8@L1204-L1204
+DISPOSITION: EXCLUDED
+REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
+ITEM: bp:p2:V9
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V9@L1205-L1207
+DISPOSITION: EXCLUDED
+REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
+ITEM: p2:perturbation-average-applicability
+KIND: proof-region
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876
+DISPOSITION: NODE bp:p2:perturbation#average-applicability
+REASON: unsupported use of the periodic-input averages corollary under the nonperiodic perturbation hypotheses
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p2b
+REVIEWER: -
+
 ITEM: bp:p3:standing
 KIND: definition
 SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L55-L72
@@ -3658,6 +3775,51 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: -
 
+ITEM: p3:setting-notation
+KIND: definition
+SOURCE: blueprint/parts/p3-uniqueness.tex#p3:setting-notation@L74-L93
+DISPOSITION: NODE bp:p3:standing
+REASON: Missing inventory item: explicit supply of the Part 2 package and the attached-object notation; included in the corrected standing source span.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p3
+REVIEWER: -
+
+ITEM: eq:p3:Cquad
+KIND: display
+SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:Cquad@L105-L112
+DISPOSITION: NODE bp:p3:standing#constants
+REASON: Missing named display: definitions of C^N, C^L and C_quad belong to the constants construction.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p3
+REVIEWER: -
+
+ITEM: eq:p3:phase-small
+KIND: display
+SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:phase-small@L281-L283
+DISPOSITION: NODE bp:p3:phase
+REASON: Missing named display: smallness hypothesis of phase normalization.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p3
+REVIEWER: -
+
+ITEM: eq:p3:Delta
+KIND: display
+SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:Delta@L350-L353
+DISPOSITION: NODE bp:p3:difference-equation
+REASON: Missing named display: construction of Delta used in the difference equation; include it in that node source span.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p3
+REVIEWER: -
+
+ITEM: eq:p3:c
+KIND: display
+SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:c@L515-L518
+DISPOSITION: NODE step:p3:g2-constant
+REASON: Missing named display: threshold construction in the G2 constant step.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p3
+REVIEWER: -
+
 ITEM: bp:p4:lattice-count
 KIND: lemma
 SOURCE: blueprint/parts/p4-measure.tex#bp:p4:lattice-count@L53-L55
@@ -3777,11 +3939,11 @@ REVIEWER: -
 
 ITEM: bp:p4:data
 KIND: definition
-SOURCE: blueprint/parts/p4-measure.tex#bp:p4:data@L154-L163
+SOURCE: blueprint/parts/p4-measure.tex#bp:p4:data@L138-L163
 DISPOSITION: NODE bp:p4:data
-REASON: labelled unit of the slice, read and filled
+REASON: fixed HEAD data, Hamiltonian hbold, shrunken domains and basic constants
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sol-review-r4
 REVIEWER: -
 
 ITEM: bp:p4:h-bounded
@@ -4290,11 +4452,20 @@ REVIEWER: -
 
 ITEM: p4:source-L48
 KIND: citation
-SOURCE: blueprint/parts/p4-measure.tex#source@L48-L48
+SOURCE: blueprint/parts/p4-measure.tex#source@L48-L51
 DISPOSITION: EXCLUDED
 REASON: provenance note (Pos01); the blueprint proves the two cited estimates in Lemmas lattice-sum and slab
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p4a
+REVIEWER: -
+
+ITEM: bp:p4:SA
+KIND: display
+SOURCE: blueprint/parts/p4-measure.tex#bp:p4:SA@L438-L443
+DISPOSITION: NODE bp:p4:SA
+REASON: explicit local hypothesis package and definitions used throughout the applications
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-r4
 REVIEWER: -
 
 ITEM: bp:p4:phase-average
@@ -4965,7 +5136,7 @@ REVIEWER: -
 
 ITEM: p4:sourcegap-L792
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#sourcegap@L792-L792
+SOURCE: blueprint/parts/p4-measure.tex#sourcegap@L792-L798
 DISPOSITION: NODE bp:p4:lip
 REASON: gap note on CCdlL13 Cor. 30: the blueprint supplies the stability (Theorem STAB) and the action shift in the proofs of lip-error and LIP; no unproved input remains
 COVERAGE_STATUS: PROPOSED
@@ -4974,7 +5145,7 @@ REVIEWER: -
 
 ITEM: p4:sourcegap-L970
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#sourcegap@L970-L970
+SOURCE: blueprint/parts/p4-measure.tex#sourcegap@L970-L971
 DISPOSITION: NODE bp:p4:lagrangian
 REASON: gap note on HL19 eq. (2.3): isotropy from quasi-periodicity is proved in this lemma, so no missing input
 COVERAGE_STATUS: PROPOSED
@@ -4983,7 +5154,7 @@ REVIEWER: -
 
 ITEM: p4:source-L674
 KIND: citation
-SOURCE: blueprint/parts/p4-measure.tex#source@L674-L674
+SOURCE: blueprint/parts/p4-measure.tex#source@L674-L675
 DISPOSITION: EXCLUDED
 REASON: provenance note only; the cited result is proved in the blueprint
 COVERAGE_STATUS: PROPOSED
@@ -4992,7 +5163,7 @@ REVIEWER: -
 
 ITEM: p4:source-L790
 KIND: citation
-SOURCE: blueprint/parts/p4-measure.tex#source@L790-L790
+SOURCE: blueprint/parts/p4-measure.tex#source@L790-L791
 DISPOSITION: EXCLUDED
 REASON: provenance note only; the cited result is proved in the blueprint
 COVERAGE_STATUS: PROPOSED
@@ -5001,7 +5172,7 @@ REVIEWER: -
 
 ITEM: p4:source-L968
 KIND: citation
-SOURCE: blueprint/parts/p4-measure.tex#source@L968-L968
+SOURCE: blueprint/parts/p4-measure.tex#source@L968-L969
 DISPOSITION: EXCLUDED
 REASON: provenance note only; the cited result is proved in the blueprint
 COVERAGE_STATUS: PROPOSED
@@ -5010,7 +5181,7 @@ REVIEWER: -
 
 ITEM: p4:source-L1083
 KIND: citation
-SOURCE: blueprint/parts/p4-measure.tex#source@L1083-L1083
+SOURCE: blueprint/parts/p4-measure.tex#source@L1083-L1085
 DISPOSITION: EXCLUDED
 REASON: provenance note only; the cited result is proved in the blueprint
 COVERAGE_STATUS: PROPOSED

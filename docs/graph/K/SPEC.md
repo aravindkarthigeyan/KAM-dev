@@ -72,6 +72,11 @@ end with a date and reason.
 - Refine an item label into its own node only if consumers use the item independently and that matters for
   the topology.
 
+- **Reachability.** Every graph node must feed at least one root. A labelled result or step that no proof of a
+  root consumes is `EXCLUDED` in the coverage manifest with the reason "outside every root closure" (the skill's
+  exclusion for material outside the root closure). This applies to `bp:p1:cauchy-strip-2`, `bp:p1:mixed-difference`
+  and `bp:p4:normalized-unique` with their steps.
+
 ## Edges
 - Direct uses only, conjunctive.
 - A `\ref` that is a forward pointer, a comparison, a provenance remark or a mention of a hypothesis being
@@ -114,3 +119,6 @@ end with a date and reason.
 - 2026-10-27: the Part 1 review (`blueprint/reviews/p1-review-1.md`) returned ACCEPT WITH FIXES with one minor
   finding, P1-R1. `bp:p1:cauchy-open` now states `δ>0`. The change stays within the line, so every locator is
   unchanged. `CORPUS.sha256` is updated (Part 1 only). The Part 1 slices are released for extraction.
+- 2026-10-27, after the slice reviews: the reachability rule above is stated explicitly. The reviewers of K-p1a and
+  K-p1b re-added `mixed-difference` and `cauchy-strip-2` because SPEC did not name the rule. The writer excludes them
+  again: no root's proof consumes them, and Part 4 proves its own mixed-difference corollary.

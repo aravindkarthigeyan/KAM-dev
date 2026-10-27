@@ -45,7 +45,7 @@ NOTE: -
 NODE: bp:p0:domains#complexStrip
 KIND: definition
 TITLE: Complex neighbourhoods and the fundamental domain: KAM.complexStrip
-STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
+STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:conventions@L19-L20
 PROOF_SOURCE: -
 CONTRACT_ID: kam.complexStrip
 CONTRACT_VERSION: 1
@@ -61,7 +61,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -421,9 +421,9 @@ STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L91-L101
 PROOF_SOURCE: -
 CONTRACT_ID: kam.dotℂ
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data: complex vectors of equal length)
-SOURCE_QUANTIFIERS: vectors u,v in C^m
-SOURCE_CONCLUSION: defines the bilinear (non-conjugated) transpose pairing u^T v used in L^T L and N^T Omega_0 X_N
+SOURCE_HYPOTHESES: typing data: u,v in C^n x C^n
+SOURCE_QUANTIFIERS: n fixed; u,v in C^n x C^n
+SOURCE_CONCLUSION: defines dotC(u,v)=sum_i (u_1i v_1i + u_2i v_2i), the bilinear non-conjugated pairing used by the transpose formulas
 CONSTANT_SCOPE: none
 FROZEN_FILE: KAM/Frozen/Defs/DotC.lean
 FROZEN_DECL: KAM.dotℂ
@@ -433,7 +433,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -474,9 +474,9 @@ STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L91-L101
 PROOF_SOURCE: -
 CONTRACT_ID: kam.normalFrame
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K as above; L^T L (assumed invertible for the formula to be meaningful)
+SOURCE_HYPOTHESES: typing data: K:C^n->C^n x C^n and theta in C^n; L=DK; no invertibility premise
 SOURCE_QUANTIFIERS: K, theta
-SOURCE_CONCLUSION: defines B = (L^T L)^{-1} and the normal frame N = Omega_0 L B
+SOURCE_CONCLUSION: defines B=(L^T L)^{-1} using the total matrix inverse and N=Omega_0 L B; invertibility is a later theorem hypothesis, not a premise of this definition
 CONSTANT_SCOPE: none
 FROZEN_FILE: KAM/Frozen/Defs/NormalFrame.lean
 FROZEN_DECL: KAM.normalFrame
@@ -488,7 +488,7 @@ ROUTE_FOR: -
 EDGE: bp:p0:stripdata#gramMatrix | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L96-L96 | B=(L^T L)^{-1} from the Gram matrix
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p0-conventions.tex#bp:p0:stripdata@L96-L96 | N = Omega_0 L B
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -611,14 +611,14 @@ EDGE: step:p4:hq-approx | blueprint/parts/p4-measure.tex#bp:p0:headq@L1274-L1274
 EDGE: step:p4:hq-head | blueprint/parts/p4-measure.tex#bp:p0:headq@L1277-L1277 | proof step of this result
 EDGE: step:p4:hq-transfer | blueprint/parts/p4-measure.tex#bp:p0:headq@L1287-L1287 | proof step of this result
 EDGE: step:p4:hq-cover | blueprint/parts/p4-measure.tex#bp:p0:headq@L1295-L1295 | proof step of this result
-EDGE: bp:p0:head | blueprint/parts/p0-conventions.tex#bp:p0:headq@L118-L118 | cited at this line (statement; \ref{bp:p0:head})
+EDGE: bp:p0:head | blueprint/parts/p4-measure.tex#step:p4:hq-head@L1278-L1284 | HEAD applied to B-prime; its premises are supplied at L1278-L1282, with perturbation restriction at L1288-L1292
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p0-conventions.tex#bp:p0:headq@L119-L119 | strip T_{s_0} in D(s_0,r_0)
 EDGE: bp:p0:domains#actionNbhd | blueprint/parts/p0-conventions.tex#bp:p0:headq@L119-L119 | B_{r_0} in the phase domain and in h holomorphic on B_{r_0}
 EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p0-conventions.tex#bp:p0:headq@L120-L120 | F_B in the conclusion
-EDGE: bp:p0:cover#kamCover | blueprint/parts/p0-conventions.tex#bp:p0:headq@L120-L120 | K(C sqrt eps) in the conclusion
+EDGE: bp:p0:cover#kamCover | blueprint/parts/p0-conventions.tex#bp:p0:headq@L120-L120 | K(kappa) in the qualitative conclusion
 EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p0-conventions.tex#bp:p0:headq@L119-L119 | nabla h in the nondegeneracy inequality
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -629,7 +629,7 @@ NODE: bp:p0:g1
 KIND: theorem
 TITLE: G1: a-posteriori KAM at fixed frequency
 STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:g1@L124-L140
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1094-L1107
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1109-L1142
 CONTRACT_ID: kam.aposteriori_kam
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: n >= 2; tau >= n-1; 0 < rho_inf < rho; M, sigma_K, sigma_B, sigma_T, mu, gammabar > 0; mathfrak B subset C^n x C^n open and invariant under theta -> theta+k; h holomorphic on mathfrak B, 1-periodic in theta, real on real points, |Dh|,|X_h|,|DX_h|,|D^2X_h| <= M on mathfrak B; K holomorphic on T_rho, primary, real on reals, B_mu(K(theta)) subset mathfrak B and |DK| <= sigma_K - mu on T_rho; L^T L invertible with |B| <= sigma_B - mu on T_rho; avg(T) invertible with |avg(T)^{-1}| <= sigma_T - mu; 0 < gamma <= gammabar and omega in Dio_{gamma,tau}; |E| <= e on T_rho; C_1 e/(gamma^4 rho^{4 tau}) < 1
@@ -643,7 +643,7 @@ FROZEN_ABI_SHA256: 15dbaab5a036f69e52d0659874d64abe6fdd36e0f235973db368792c615ee
 DEPS: bp:p2:g1, bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#torsionAverage
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:g1 | blueprint/parts/p2-aposteriori.tex#bp:p0:g1@L1094-L1094 | this result carries \frozen{KAM.aposteriori_kam}: it proves the anchor
+EDGE: bp:p2:g1 | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1131-L1141 | the explicit-constant theorem verifies all seven clauses of the frozen G1 conclusion
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p0-conventions.tex#bp:p0:g1@L132-L132 | omega in Dio_{gamma,tau}
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p0-conventions.tex#bp:p0:g1@L130-L130 | strips T_rho
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p0-conventions.tex#bp:p0:g1@L129-L129 | X_h bounds
@@ -653,7 +653,7 @@ EDGE: bp:p0:stripdata#invarianceError | blueprint/parts/p0-conventions.tex#bp:p0
 EDGE: bp:p0:stripdata#gramMatrix | blueprint/parts/p0-conventions.tex#bp:p0:g1@L131-L131 | L^T L and B
 EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p0-conventions.tex#bp:p0:g1@L131-L131 | avg(T)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p0
+EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1053,7 +1053,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L123-L126
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L123-L126
 CONTRACT_ID: step:p1:opn-blocks
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: operator norm = largest row sum (row-sum step); block matrix (A B; C D)
+SOURCE_HYPOTHESES: block matrix (A B; C D) of compatible sizes; induced operator norms for max norms
 SOURCE_QUANTIFIERS: rows of the upper and lower block rows
 SOURCE_CONCLUSION: upper block-row sums <= |A|+|B|, lower <= |C|+|D|, so block norm <= max{|A|+|B|,|C|+|D|}
 CONSTANT_SCOPE: none
@@ -1066,7 +1066,7 @@ EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L1
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1080,7 +1080,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L128-L133
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L128-L133
 CONTRACT_ID: step:p1:opn-omega
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Definition of Omega_0(a,b)=(-b,a) (Part 0); operator norm = largest row sum
+SOURCE_HYPOTHESES: Omega_0(a,b)=(-b,a) as defined in Part 0; induced operator norm for max norms
 SOURCE_QUANTIFIERS: a,b in C^n
 SOURCE_CONCLUSION: Omega_0^2=-I, Omega_0^T=-Omega_0, every row has one nonzero entry +-1, so |Omega_0|=1
 CONSTANT_SCOPE: none
@@ -1094,7 +1094,7 @@ EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L13
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1137,7 +1137,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L144-L148
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L144-L148
 CONTRACT_ID: step:p1:mn-products
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: |M|=sup_{|v|<=1}|Mv| (operator norms lemma)
+SOURCE_HYPOTHESES: matrices M,N and vector v of compatible sizes; induced operator norms for max norms
 SOURCE_QUANTIFIERS: all compatible M,N,v
 SOURCE_CONCLUSION: |Mv|<=|M||v| and |MN|<=|M||N|
 CONSTANT_SCOPE: none
@@ -1150,7 +1150,7 @@ EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:mn-products
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1247,7 +1247,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L172-L177
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L172-L177
 CONTRACT_ID: step:p1:neu-series
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: X=A^-1 Delta; |A^-1||Delta|<=1/2; matrix norm facts; |I|=1
+SOURCE_HYPOTHESES: A invertible square matrix; Delta of the same size; |A^{-1}| |Delta|<=1/2; max-norm operator norms; X denotes A^{-1}Delta
 SOURCE_QUANTIFIERS: square matrices
 SOURCE_CONCLUSION: |X^j|<=2^-j, S=sum_j (-X)^j converges absolutely, |S|<=2, S(I+X)=(I+X)S=I
 CONSTANT_SCOPE: none
@@ -1261,7 +1261,7 @@ EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-series@
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1275,7 +1275,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L179-L181
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L179-L181
 CONTRACT_ID: step:p1:neu-inverse
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A+Delta=A(I+X); S=(I+X)^-1 with |S|<=2
+SOURCE_HYPOTHESES: A invertible square matrix; Delta of the same size; |A^{-1}| |Delta|<=1/2; max-norm operator norms; X=A^{-1}Delta; S=sum_{j>=0}(-X)^j
 SOURCE_QUANTIFIERS: A,Delta as in lemma
 SOURCE_CONCLUSION: A+Delta invertible with inverse S A^-1 and |(A+Delta)^-1|<=2|A^-1|
 CONSTANT_SCOPE: none
@@ -1289,7 +1289,7 @@ EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1303,7 +1303,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L183-L1
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L183-L185
 CONTRACT_ID: step:p1:neu-difference
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A+Delta invertible, |(A+Delta)^-1|<=2|A^-1|
+SOURCE_HYPOTHESES: A invertible square matrix; Delta of the same size; |A^{-1}| |Delta|<=1/2; max-norm operator norms
 SOURCE_QUANTIFIERS: as in lemma
 SOURCE_CONCLUSION: (A+Delta)^-1-A^-1=-(A+Delta)^-1 Delta A^-1 and |.|<=2|A^-1|^2|Delta|
 CONSTANT_SCOPE: none
@@ -1317,7 +1317,7 @@ EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-differenc
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1386,7 +1386,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L199-L203
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L199-L203
 CONTRACT_ID: step:p1:ri-adjugate
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A real invertible; Cramer's rule
+SOURCE_HYPOTHESES: A real invertible square matrix; for the pointwise clause A(theta) real at real theta and invertible
 SOURCE_QUANTIFIERS: A real invertible
 SOURCE_CONCLUSION: A^-1=(det A)^-1 adj A is real; the pointwise claim is the same at each real theta
 CONSTANT_SCOPE: none
@@ -1399,7 +1399,7 @@ EDGE: bp:p1:ext-cramer | blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L20
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1445,7 +1445,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L227-L233
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L227-L233
 CONTRACT_ID: step:p1:hreg-line
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: x in U, r>0 with closed polydisc P-bar(x,r) in U and |F|<=A on it; v with |v|=1; Cauchy formulas (E1)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; x in U; r>0; closed P(x,r) subset U; |F|<=A there; |v|=1
 SOURCE_QUANTIFIERS: x,r,A,v arbitrary with those properties
 SOURCE_CONCLUSION: |DF(x)v|<=A/r for |v|=1 and hence |DF(x)|<=A/r
 CONSTANT_SCOPE: none
@@ -1458,7 +1458,7 @@ EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L231-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1472,7 +1472,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L235-L24
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L235-L242
 CONTRACT_ID: step:p1:hreg-integral
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: z_0 in U, r>0, P-bar(z_0,3r) in U, A=max |F| there; |v|=1; x in P(z_0,r); Cauchy formula (E1)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,3r) subset U; A=max there; |v|=1; x in P(z_0,r)
 SOURCE_QUANTIFIERS: z_0,r,A fixed; v, x then arbitrary
 SOURCE_CONCLUSION: DF(x)v=(2 pi i)^-1 oint_{|zeta|=r} F(x+zeta v)/zeta^2 dzeta for x in P(z_0,r)
 CONSTANT_SCOPE: none
@@ -1485,7 +1485,7 @@ EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1499,7 +1499,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L24
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L244-L260
 CONTRACT_ID: step:p1:hreg-differentiate
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Cauchy integral for DF(x)v; |DF(y)|<=A/r on P-bar(z_0,2r) (line estimate); x in P(z_0,r); |h|<r-|x-z_0|; MVT and dominated convergence (E4,E6)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,3r) subset U; A=max there; |v|=1; x in P(z_0,r); |h|<r-|x-z_0|
 SOURCE_QUANTIFIERS: z_0,r,A,v fixed; x; then h
 SOURCE_CONCLUSION: x->DF(x)v is complex differentiable at x in P(z_0,r) with derivative h->(2 pi i)^-1 oint DF(x+zeta v)h zeta^-2 dzeta
 CONSTANT_SCOPE: none
@@ -1515,7 +1515,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:hreg-differen
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1529,7 +1529,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L262-L267
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L262-L267
 CONTRACT_ID: step:p1:hreg-full
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: x->DF(x)v is holomorphic on P(z_0,r) for v=e_1..e_m
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,3r) subset U
 SOURCE_QUANTIFIERS: z_0 in U arbitrary
 SOURCE_CONCLUSION: DF is holomorphic on P(z_0,r), hence on U
 CONSTANT_SCOPE: none
@@ -1542,7 +1542,7 @@ EDGE: step:p1:hreg-differentiate | blueprint/parts/p1-analysis.tex#step:p1:hreg-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1556,7 +1556,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L269-L276
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L269-L276
 CONTRACT_ID: step:p1:hreg-orders
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: DF holomorphic for every holomorphic F with values in a finite-dimensional space; canonical isometry L(C^m,L^j(C^m,W)) = L^{j+1}(C^m,W)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic
 SOURCE_QUANTIFIERS: j>=1; F, DF as the maps
 SOURCE_CONCLUSION: every D^jF exists and is holomorphic, F is C^infty, and the norm identities |D^{j+1}F|=|D^j(DF)|=|D(D^jF)|
 CONSTANT_SCOPE: none
@@ -1569,7 +1569,7 @@ EDGE: step:p1:hreg-full | blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L2
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1583,7 +1583,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L278-L28
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L278-L281
 CONTRACT_ID: step:p1:hreg-symmetry
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: F differentiable on open U; DF differentiable at every z in U (full-derivative step); Schwarz (E5)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic
 SOURCE_QUANTIFIERS: z in U; v,w
 SOURCE_CONCLUSION: D^2F(z) symmetric; d_i d_j F=d_j d_i F
 CONSTANT_SCOPE: none
@@ -1597,7 +1597,7 @@ EDGE: bp:p1:ext-schwarz | blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1668,7 +1668,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L307-L319
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L307-L319
 CONTRACT_ID: step:p1:han-cauchy
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: r_1>r margin; w in P(z_0,r); circles C_j of radius r; Cauchy formula (E1); Fubini (E6)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,r) subset U; A=max there; r_1 is the larger radius constructed in the margin step; w in P(z_0,r); C_j the coordinate circles of radius r
 SOURCE_QUANTIFIERS: w in P(z_0,r); circles C_j around z_{0,j}
 SOURCE_CONCLUSION: F(w)=(2 pi i)^-m oint_{C_1}...oint_{C_m} F(zeta)/prod(zeta_j-w_j) dzeta, as an integral over the torus C_1x...xC_m
 CONSTANT_SCOPE: none
@@ -1683,7 +1683,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L3
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1697,7 +1697,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L321-L331
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L321-L331
 CONTRACT_ID: step:p1:han-series
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Iterated Cauchy formula; t=|w-z_0|/r<1; term-by-term integration (E6)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,r) subset U; A=max there; w in P(z_0,r); t=|w-z_0|/r; c_alpha denotes the displayed contour integral
 SOURCE_QUANTIFIERS: w in P(z_0,r); zeta on the torus
 SOURCE_CONCLUSION: F(w)=sum_alpha c_alpha (w-z_0)^alpha with c_alpha=(2 pi i)^-m oint...oint F(zeta)/prod(zeta_j-z_{0,j})^{alpha_j+1}
 CONSTANT_SCOPE: none
@@ -1711,7 +1711,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-series@L3
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1725,7 +1725,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L333-L338
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L333-L338
 CONTRACT_ID: step:p1:han-bounds
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: coefficient formula for c_alpha; |F|<=A on the torus; circles of length 2 pi r
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,r) subset U; A=max there; c_alpha denotes the contour integral constructed in the previous step; w in P(z_0,r)
 SOURCE_QUANTIFIERS: alpha in N^m; w in P(z_0,r)
 SOURCE_CONCLUSION: |c_alpha|<=A r^-|alpha|; sum |c_alpha||(w-z_0)^alpha|<=A(1-t)^-m; part (a) holds
 CONSTANT_SCOPE: none
@@ -1739,7 +1739,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L3
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1753,7 +1753,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L340-L349
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L340-L349
 CONTRACT_ID: step:p1:han-real
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: part (a); x_0 in U_R, r>0 with P-bar(x_0,r) in U
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; x_0 in U cap R^m; r>0 with closed P(x_0,r) subset U; additionally W=C^p and F real on U cap R^m for the real-coefficient clause
 SOURCE_QUANTIFIERS: real x with |x-x_0|<r; W=C^p with F real on U_R for the second clause
 SOURCE_CONCLUSION: F|U_R is a real power series in x-x_0, absolutely convergent near x_0; with real F, F(x)=sum (Re c_alpha)(x-x_0)^alpha, |Re c_alpha|<=|c_alpha|; this is (b)
 CONSTANT_SCOPE: none
@@ -1766,7 +1766,7 @@ EDGE: step:p1:han-bounds | blueprint/parts/p1-analysis.tex#step:p1:han-real@L341
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1810,7 +1810,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L362-L3
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L362-L367
 CONTRACT_ID: step:p1:ul-differences
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: V in C^m open; eta_s=sup_V|DK_s-Lambda| finite and ->0 for large s; x in V, r>0 with P(x,r) in V; MVT (E4)
+SOURCE_HYPOTHESES: V subset C^m open; W finite-dimensional complex normed; K_s:V->W holomorphic; K_s->K pointwise; DK_s->Lambda uniformly on V; eta_s=sup_V |DK_s-Lambda| for sufficiently large s; x in V; P(x,r) subset V
 SOURCE_QUANTIFIERS: x,r fixed; indices s,t; y in P(x,r)
 SOURCE_CONCLUSION: |phi_st(y)-phi_st(x)|<=2(eta_s+eta_t)|y-x| for phi_st(y)=K_s(y)-K_t(y)-(DK_s(x)-DK_t(x))(y-x)
 CONSTANT_SCOPE: none
@@ -1823,7 +1823,7 @@ EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L36
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1837,7 +1837,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L369-L374
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L369-L374
 CONTRACT_ID: step:p1:ul-limit
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: difference estimate for K_s-K_t; K_t->K pointwise, DK_t(x)->Lambda(x), eta_t->0
+SOURCE_HYPOTHESES: V subset C^m open; W finite-dimensional complex normed; K_s:V->W holomorphic; K_s->K pointwise; DK_s->Lambda uniformly on V; eta_s=sup_V |DK_s-Lambda| for sufficiently large s; x in V; P(x,r) subset V
 SOURCE_QUANTIFIERS: x,r,s fixed; y in P(x,r); t->infinity
 SOURCE_CONCLUSION: |K_s(y)-K(y)-(K_s(x)-K(x))-(DK_s(x)-Lambda(x))(y-x)|<=2 eta_s|y-x|
 CONSTANT_SCOPE: none
@@ -1850,7 +1850,7 @@ EDGE: step:p1:ul-differences | blueprint/parts/p1-analysis.tex#step:p1:ul-limit@
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1864,7 +1864,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L376-L38
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L376-L382
 CONTRACT_ID: step:p1:ul-derivative
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: limit estimate with 2 eta_s|y-x|; K_s differentiable at x; eps>0
+SOURCE_HYPOTHESES: V subset C^m open; W finite-dimensional complex normed; K_s:V->W holomorphic; K_s->K pointwise; DK_s->Lambda uniformly on V; eta_s=sup_V |DK_s-Lambda| for sufficiently large s; x in V; P(x,r) subset V; epsilon>0
 SOURCE_QUANTIFIERS: eps>0, then s, then r'<=r
 SOURCE_CONCLUSION: |K(y)-K(x)-Lambda(x)(y-x)|<=eps|y-x| for |y-x|<r'; Lambda(x) complex linear; K complex differentiable at x with DK(x)=Lambda(x)
 CONSTANT_SCOPE: none
@@ -1877,7 +1877,7 @@ EDGE: step:p1:ul-limit | blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1948,7 +1948,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L400-L4
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L400-L404
 CONTRACT_ID: step:p1:hi-holomorphic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A:V->C^{p x p} holomorphic, det A != 0; Cramer (E10)
+SOURCE_HYPOTHESES: V open; A:V->C^{p x p} holomorphic; det A nonzero on V
 SOURCE_QUANTIFIERS: on V
 SOURCE_CONCLUSION: A^-1=(det A)^-1 adj A is holomorphic on V
 CONSTANT_SCOPE: none
@@ -1961,7 +1961,7 @@ EDGE: bp:p1:ext-cramer | blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1975,7 +1975,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L406-L41
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L406-L410
 CONTRACT_ID: step:p1:hi-derivative
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A^-1 holomorphic on V; A(z)A(z)^-1=I
+SOURCE_HYPOTHESES: V open; A:V->C^{p x p} holomorphic; det A nonzero on V
 SOURCE_QUANTIFIERS: z in V; direction v
 SOURCE_CONCLUSION: D(A^-1)(z)v=-A(z)^-1 (DA(z)v) A(z)^-1
 CONSTANT_SCOPE: none
@@ -1988,7 +1988,7 @@ EDGE: step:p1:hi-holomorphic | blueprint/parts/p1-analysis.tex#step:p1:hi-deriva
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2029,7 +2029,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L419-L421
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L419-L421
 CONTRACT_ID: step:p1:io-mvt
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: [z,z+w] convex in U; F differentiable on it; |DF|<=A there; MVT (E4)
+SOURCE_HYPOTHESES: U subset C^m open; F:U->W holomorphic; |DF|<=A on U; [z,z+w] subset U
 SOURCE_QUANTIFIERS: z,w
 SOURCE_CONCLUSION: |F(z+w)-F(z)|<=A|w|
 CONSTANT_SCOPE: none
@@ -2042,7 +2042,7 @@ EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L421-L421 |
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2084,7 +2084,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L430-L43
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L430-L433
 CONTRACT_ID: step:p1:tay-lipschitz
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: DF holomorphic on U (derivative regularity); |D(DF)|=|D^2F|<=A; [z,z+w] in U
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; |D^2F|<=A on U; [z,z+w] subset U
 SOURCE_QUANTIFIERS: t in [0,1]
 SOURCE_CONCLUSION: |DF(z+tw)-DF(z)|<=A t|w|
 CONSTANT_SCOPE: none
@@ -2098,7 +2098,7 @@ EDGE: bp:p1:increments-open | blueprint/parts/p1-analysis.tex#step:p1:tay-lipsch
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2112,7 +2112,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L435-L43
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L435-L439
 CONTRACT_ID: step:p1:tay-integrate
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Lipschitz bound on DF along the segment; g(t)=F(z+tw)-F(z)-t DF(z)w C^1 on an open interval containing [0,1], g(0)=0; FTC and |int|<=int|.| (E6)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; |D^2F|<=A on U; [z,z+w] subset U; g(t)=F(z+tw)-F(z)-t DF(z)w
 SOURCE_QUANTIFIERS: z,w fixed; t in [0,1]
 SOURCE_CONCLUSION: |g(1)|<=int_0^1 A t|w|^2 dt = (A/2)|w|^2
 CONSTANT_SCOPE: none
@@ -2127,7 +2127,7 @@ EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:tay-integrate
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2171,7 +2171,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L472-L476
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L472-L476
 CONTRACT_ID: step:p1:co-first
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: only |f|<=A on P-bar(z,delta) is used; line estimate of derivative regularity with x=z, r=delta
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
 SOURCE_QUANTIFIERS: l
 SOURCE_CONCLUSION: |Df(z)|<=A/delta and |d_l f(z)|<=A/delta
 CONSTANT_SCOPE: none
@@ -2184,7 +2184,7 @@ EDGE: step:p1:hreg-line | blueprint/parts/p1-analysis.tex#step:p1:co-first@L473-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2198,7 +2198,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L478-L485
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L478-L485
 CONTRACT_ID: step:p1:co-second
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: P-bar(z,delta) in U, |f|<=A there; first-derivative bound; Df holomorphic
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
 SOURCE_QUANTIFIERS: y in P-bar(z,delta/2)
 SOURCE_CONCLUSION: |Df(y)|<=2A/delta on P-bar(z,delta/2) and |D^2f(z)|<=4A/delta^2
 CONSTANT_SCOPE: none
@@ -2212,7 +2212,7 @@ EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:co-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2226,7 +2226,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L487-L492
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L487-L492
 CONTRACT_ID: step:p1:co-third
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: second-derivative bound; Df holomorphic with |Df|<=2A/delta on P-bar(z,delta/2)
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
 SOURCE_QUANTIFIERS: z, radius delta/2
 SOURCE_CONCLUSION: |D^2(Df)(z)|<=32A/delta^3 and |D^3f(z)|<=32A/delta^3
 CONSTANT_SCOPE: none
@@ -2240,7 +2240,7 @@ EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:co-
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2254,7 +2254,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L494-L495
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L494-L495
 CONTRACT_ID: step:p1:co-constants
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: first, second and third derivative bounds
+SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
 SOURCE_QUANTIFIERS: j=1,2,3
 SOURCE_CONCLUSION: the lemma holds with c(m,1)=1, c(m,2)=4, c(m,3)=32, independent of m
 CONSTANT_SCOPE: constants are absolute (independent of m)
@@ -2269,7 +2269,7 @@ EDGE: step:p1:co-third | blueprint/parts/p1-analysis.tex#step:p1:co-constants@L4
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1a
+EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2284,7 +2284,7 @@ PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:periodic-bounded@L509-L517
 CONTRACT_ID: bp:p1:periodic-bounded
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: u holomorphic and 1-periodic on T_rho, values in W
-SOURCE_QUANTIFIERS: rho>0; u; 0<... rho' < rho (every rho' < rho)
+SOURCE_QUANTIFIERS: rho>0; every holomorphic 1-periodic u:T_rho -> W; every real rho'<rho, including rho'<=0
 SOURCE_CONCLUSION: u is bounded on T_rho'
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -2297,7 +2297,7 @@ ROUTE_FOR: -
 EDGE: step:p1:pb-compact | blueprint/parts/p1-analysis.tex#bp:p1:periodic-bounded@L510-L510 | proof step of this result
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:periodic-bounded@L505-L505 | strip T_rho used by name
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2311,9 +2311,9 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pb-compact@L510-L516
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pb-compact@L510-L516
 CONTRACT_ID: step:p1:pb-compact
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: u holomorphic 1-periodic on T_rho; 0<rho'<rho
-SOURCE_QUANTIFIERS: rho, rho', u fixed
-SOURCE_CONCLUSION: sup over T_rho' of |u| <= max over compact S of |u|
+SOURCE_HYPOTHESES: u holomorphic and 1-periodic on T_rho; rho'<rho
+SOURCE_QUANTIFIERS: rho>0, u fixed; every real rho'<rho
+SOURCE_CONCLUSION: if rho'<=0 then T_rho' is empty; if 0<rho'<rho then the compact fundamental set S at L512 is contained in T_rho and sup_{T_rho'} |u| <= max_S |u|; hence boundedness in both cases
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -2323,7 +2323,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -3260,12 +3260,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p1:dec-shift
+DEPS: step:p1:dec-shift, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:dec-shift | blueprint/parts/p1-analysis.tex#step:p1:dec-bound@L806-L806 | hat u_k = I_0 = ... = I_n
+EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:dec-bound@L802-L806 | norm of the integral over a box of volume one bounds I_n by the displayed uniform integrand bound
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -3395,7 +3396,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L849-L855
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L849-L855
 CONTRACT_ID: step:p1:sum-converse
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: u holomorphic, bounded, 1-periodic on T_rho; 0<delta<rho; limit form of decay
+SOURCE_HYPOTHESES: u holomorphic, bounded and 1-periodic on T_rho; 0<delta<rho (the boundary-radius decay is a dependency, not an extra premise)
 SOURCE_QUANTIFIERS: delta
 SOURCE_CONCLUSION: sum |hat u_k| e^{2 pi |k|_1 (rho-delta)} <= coth(pi delta)^n ||u||_rho
 CONSTANT_SCOPE: none
@@ -3403,13 +3404,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:decay, bp:p1:exp-sums
+DEPS: bp:p1:decay#boundary-radius, bp:p1:exp-sums
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:decay | blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L850-L850 | limit form hat u_k <= e^{-2 pi k_1 rho}u_rho
 EDGE: bp:p1:exp-sums | blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L851-L851 | part (b) with x=2 pi delta
+EDGE: bp:p1:decay#boundary-radius | blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L850-L851 | the boundary-radius decay statement of L809-L810
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -3455,7 +3456,7 @@ PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L887-L957
 CONTRACT_ID: bp:p1:cohomological
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: omega in Dio_{gamma,tau}, gamma>0, tau>=0; g holomorphic, bounded, 1-periodic on T_rho with avg(g)=0; 0<delta<rho; g real on real points (for realness); vector/matrix valued componentwise
-SOURCE_QUANTIFIERS: gamma, tau, rho, omega, g, delta; then u; c(n,tau)
+SOURCE_QUANTIFIERS: fixed dimension n under the corpus conventions, and tau>=0; a constant c(n,tau) depending only on these; then every gamma>0, rho>0, Diophantine omega, datum g as stated and 0<delta<rho; then the unique zero-average solution u
 SOURCE_CONCLUSION: there is a unique u holomorphic and 1-periodic on T_{rho-delta} (no boundedness assumed) with avg(u)=0 and Du(theta) omega=g(theta); u is bounded and ||u||_{rho-delta} <= c(n,tau) gamma^-1 delta^-(tau+n) ||g||_rho; u real on real points if g is
 CONSTANT_SCOPE: c(n,tau) depends only on n and tau (not on gamma, rho, delta, omega, g)
 FROZEN_FILE: -
@@ -3476,7 +3477,7 @@ EDGE: step:p1:coh-vector | blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L876-L876 | omega in Dio_{gamma,tau}
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L876-L876 | strip T_rho used by name
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -3498,12 +3499,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:decay
+DEPS: bp:p1:decay#boundary-radius
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:decay | blueprint/parts/p1-analysis.tex#step:p1:coh-data@L895-L895 | limit form of coefficient decay
+EDGE: bp:p1:decay#boundary-radius | blueprint/parts/p1-analysis.tex#step:p1:coh-data@L895-L896 | the boundary-radius decay statement of L809-L810
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -3517,20 +3518,21 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L898-
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L898-L903
 CONTRACT_ID: step:p1:coh-coefficients
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: omega Diophantine (gamma,tau); k!=0
-SOURCE_QUANTIFIERS: k in Z^n
+SOURCE_HYPOTHESES: gamma>0, tau>=0, omega Diophantine (gamma,tau); datum g as in the enclosing lemma with hat g_0=0 from step:p1:coh-data
+SOURCE_QUANTIFIERS: define a_0=0 and a_k=hat g_k/(2 pi i k.omega) for every k!=0; coefficient identity for every k in Z^n; inverse-divisor estimate for every k!=0
 SOURCE_CONCLUSION: a_0=0, a_k=hat g_k/(2 pi i k.omega) satisfy 2 pi i (k.omega) a_k=hat g_k and |a_k| <= (2 pi gamma)^-1 |k|_1^tau |hat g_k|
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:diophantine#IsDiophantine
+DEPS: bp:p0:diophantine#IsDiophantine, step:p1:coh-data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L899-L899 | k.omega >= gamma k_1^-tau
+EDGE: step:p1:coh-data | blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L900-L901 | the all-mode coefficient identity uses hat g_0=0 at k=0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1b
+EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -3858,6 +3860,33 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
 
+NODE: bp:p1:decay#boundary-radius
+KIND: step
+TITLE: Coefficient decay at the boundary radius
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L809-L810
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L809-L810
+CONTRACT_ID: bp:p1:decay#boundary-radius
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: u holomorphic, bounded and 1-periodic on T_rho; rho>0
+SOURCE_QUANTIFIERS: every k in Z^n
+SOURCE_CONCLUSION: |hat u_k| <= exp(-2 pi |k|_1 rho) ||u||_rho
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bp:p1:decay
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bp:p1:decay | blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L809-L810 | let rho' increase to rho in the coefficient estimate
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-r2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
 NODE: bp:p1:iteration
 KIND: lemma
 TITLE: Quadratic iteration on nested strips
@@ -3893,7 +3922,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-super@L1005-L1010
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-super@L1005-L1010
 CONTRACT_ID: step:p1:it-super
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Q>0; p>=0; y_{m+1}<=Q 2^{pm} y_m^2; Q 2^p y_0<=1/2
+SOURCE_HYPOTHESES: real sequence (y_m) with y_m>=0 for every m>=0; Q>0; p>=0; y_{m+1}<=Q 2^{pm} y_m^2; Q 2^p y_0<=1/2
 SOURCE_QUANTIFIERS: x_m:=Q 2^{p(m+1)} y_m, induction on m>=0
 SOURCE_CONCLUSION: x_m<=2^{-2^m}, i.e. y_m<=Q^{-1} 2^{-p(m+1)} 2^{-2^m}, and y_m->0
 CONSTANT_SCOPE: none
@@ -3905,7 +3934,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -3919,7 +3948,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-linear@L1012-L1017
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-linear@L1012-L1017
 CONTRACT_ID: step:p1:it-linear
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Q>0; p>=0; y_{m+1}<=Q 2^{pm} y_m^2; q=Q 2^p y_0<=1
+SOURCE_HYPOTHESES: real sequence (y_m) with y_m>=0 for every m>=0; Q>0; p>=0; y_{m+1}<=Q 2^{pm} y_m^2; q=Q 2^p y_0<=1
 SOURCE_QUANTIFIERS: induction on m>=0
 SOURCE_CONCLUSION: y_m<=q^{2^m-1} 2^{-pm} y_0 for all m>=0
 CONSTANT_SCOPE: none
@@ -3931,7 +3960,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -3953,16 +3982,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:domains#complexStrip
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: Self-contained remark; proof is inline (real h with |h|<=1 are a subset of complex ones; primarity identity at the real point x).
+EDGE: bp:p0:stripdata#IsPrimaryOnStrip | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction-consequences@L1031-L1032 | unfold primarity at the real point x
+EDGE: bp:p0:stripdata#IsRealOnReals | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction-consequences@L1031-L1032 | the restriction takes real values
+EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction-consequences@L1031-L1032 | real x belongs to the positive-width strip
 
 NODE: bp:p1:real-restriction
 KIND: lemma
@@ -4053,7 +4085,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1055-
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1055-L1058
 CONTRACT_ID: step:p1:rr-consequences
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Dk(x) is the restriction of the C-linear map DK(x) with DK(x)(R^n) in R^p (previous step); K primary when claimed
+SOURCE_HYPOTHESES: K:T_rho->C^p holomorphic and real on reals; k its real restriction; x in R^n; K primary when the primarity clause is claimed
 SOURCE_QUANTIFIERS: x in R^n
 SOURCE_CONCLUSION: |Dk(x)|<=|DK(x)|; for primary K (p=2n), k(x+m)=k(x)+(m,0)
 CONSTANT_SCOPE: none
@@ -4067,7 +4099,7 @@ ROUTE_FOR: -
 EDGE: step:p1:rr-derivative | blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1056-L1057 | previous step: Dk(x) is the restriction of DK(x)
 EDGE: bp:p1:real-restriction-consequences | blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1057-L1058 | remark gives the norm bound and the primary identity
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4089,7 +4121,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p1:hr-derivative, step:p1:hr-components, step:p1:hr-matrix, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#omegaZero, bp:p0:hamiltonian#symplecticForm
+DEPS: step:p1:hr-derivative, step:p1:hr-components, step:p1:hr-matrix, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#omegaZero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:hr-derivative | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1073-L1079 | proof step of this result
@@ -4098,9 +4130,8 @@ EDGE: step:p1:hr-matrix | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real
 EDGE: bp:p0:hamiltonian#hamiltonianVectorField | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1063-L1064 | X_H in the statement is the frozen real vector field
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1063-L1064 | X_h, X_varphi in the statement is the frozen complex vector field
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1065-L1066 | Omega_0 in the statement
-EDGE: bp:p0:hamiltonian#symplecticForm | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1065-L1066 | symplectic form Omega_0 in the statement
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4114,7 +4145,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-derivative@L1073-L1
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-derivative@L1073-L1079
 CONTRACT_ID: step:p1:hr-derivative
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: V_R={y in R^n x R^n: y in V} open neighbourhood of z; H=Re h near z; h real at real points
+SOURCE_HYPOTHESES: V subset C^n x C^n open; h holomorphic on V and real at real points; z in V cap R^{2n}; H:R^{2n}->R agrees with Re h near z
 SOURCE_QUANTIFIERS: e in R^n x R^n
 SOURCE_CONCLUSION: H differentiable at z with DH(z)e=Dh(z)e (real number)
 CONSTANT_SCOPE: none
@@ -4126,7 +4157,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4140,7 +4171,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1081-L1
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1081-L1087
 CONTRACT_ID: step:p1:hr-components
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the previous step; frozen definitions of X_H and X_h
+SOURCE_HYPOTHESES: V subset C^n x C^n open; h holomorphic on V and real at real points; z in V cap R^{2n}; H:R^{2n}->R agrees with Re h near z
 SOURCE_QUANTIFIERS: z, i=1..n
 SOURCE_CONCLUSION: X_H(z)=X_h(z)
 CONSTANT_SCOPE: none
@@ -4155,7 +4186,7 @@ EDGE: step:p1:hr-derivative | blueprint/parts/p1-analysis.tex#step:p1:hr-compone
 EDGE: bp:p0:hamiltonian#hamiltonianVectorField | blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1082-L1084 | component formula for X_H by the frozen definition
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1082-L1085 | component formula for X_h by the frozen definition
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4282,7 +4313,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1122-L1129
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1122-L1129
 CONTRACT_ID: step:p1:li-cubes
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: S subset R^d; eps>0; (E3) Lebesgue outer measure as infimum over box covers
+SOURCE_HYPOTHESES: S subset R^d; epsilon>0; R^d carries Lebesgue outer measure
 SOURCE_QUANTIFIERS: eps>0
 SOURCE_CONCLUSION: countably many closed cubes Q_j cover S with sum vol(Q_j)<=meas S+eps
 CONSTANT_SCOPE: none
@@ -4295,7 +4326,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1124-L1125 | definition of outer measure by closed box covers gives boxes R_j
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4317,16 +4348,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
+EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-image@L1133-L1135 | image lies in a cube; outer measure is bounded by its box volume
 
 NODE: step:p1:li-sum
 KIND: step
@@ -4335,7 +4367,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1137-L1142
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1137-L1142
 CONTRACT_ID: step:p1:li-sum
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: cube cover Q_j of S with total volume <= meas S+eps; image bound for each cube
+SOURCE_HYPOTHESES: S subset R^d; F:S->R^d Lambda-Lipschitz in the max norm; epsilon>0
 SOURCE_QUANTIFIERS: eps>0
 SOURCE_CONCLUSION: meas F(S)<=Lambda^d meas S
 CONSTANT_SCOPE: none
@@ -4350,7 +4382,7 @@ EDGE: step:p1:li-cubes | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1138-L1
 EDGE: step:p1:li-image | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1138-L1139 | image of one cube
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1138-L1138 | countable subadditivity
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4372,17 +4404,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p1:li-sum
+DEPS: step:p1:li-sum, bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:li-sum | blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1147-L1148 | Lipschitz image estimate applied to Phi^{-1} on Phi(A)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
+EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1146-L1148 | N cap Phi(A) subset N, so its outer measure is zero
 
 NODE: step:p1:li-product
 KIND: step
@@ -4391,7 +4424,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-product@L1150-L1152
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-product@L1150-L1152
 CONTRACT_ID: step:p1:li-product
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the previous steps; remark on products
+SOURCE_HYPOTHESES: S subset R^n x R^n; F:S->R^n x R^n Lambda-Lipschitz in the max norm; for the preimage claim Phi:A->R^n x R^n injective with Lipschitz inverse and N of outer measure zero; product Lebesgue measure
 SOURCE_QUANTIFIERS: n; d=2n
 SOURCE_CONCLUSION: both claims hold on R^n x R^n with max norm and product Lebesgue measure
 CONSTANT_SCOPE: none
@@ -4406,7 +4439,7 @@ EDGE: bp:p1:lip-image-product | blueprint/parts/p1-analysis.tex#step:p1:li-produ
 EDGE: step:p1:li-sum | blueprint/parts/p1-analysis.tex#step:p1:li-product@L1151-L1152 | case d=2n of the image estimate
 EDGE: step:p1:li-preimage | blueprint/parts/p1-analysis.tex#step:p1:li-product@L1151-L1152 | case d=2n of the preimage claim
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4475,7 +4508,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-components@L1172-L1
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-components@L1172-L1175
 CONTRACT_ID: step:p1:mc-components
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: each component phi_j has a Lambda-Lipschitz extension U_j
+SOURCE_HYPOTHESES: X metric space; S subset X; Lambda>=0; phi:S->R^d Lambda-Lipschitz in max norm; U_j is the scalar extension constructed in the preceding step
 SOURCE_QUANTIFIERS: max norm on R^d
 SOURCE_CONCLUSION: U=(U_j) is a Lambda-Lipschitz extension of phi
 CONSTANT_SCOPE: none
@@ -4488,7 +4521,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:mc-component | blueprint/parts/p1-analysis.tex#step:p1:mc-components@L1172-L1174 | componentwise extensions
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4502,7 +4535,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1177-L1180
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1177-L1180
 CONTRACT_ID: step:p1:mc-clamp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: |phi|<=beta on S; U the extension
+SOURCE_HYPOTHESES: X metric space; S subset X; Lambda>=0; phi:S->R^d Lambda-Lipschitz in max norm; |phi|<=beta on S; U is the preceding constructed extension
 SOURCE_QUANTIFIERS: clamping Phi_j=max(-beta,min(beta,U_j))
 SOURCE_CONCLUSION: Phi is a Lambda-Lipschitz extension of phi with |Phi|<=beta on X
 CONSTANT_SCOPE: none
@@ -4515,12 +4548,12 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1178-L1179 | clamp the extension U
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L1178-L1180 uses the interval [-beta,beta] and claims |Phi|<=beta but does not assume beta>=0. For nonempty X, S empty and beta<0, the premise is vacuous and no such bounded extension exists. Report the missing source restriction; do not silently add it to SOURCE_HYPOTHESES. The extension without the optional sup bound is unaffected.
 
 NODE: bp:p1:lipeo-fixed
 KIND: claim
@@ -4638,7 +4671,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1209-L1211
 PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1209-L1211
 CONTRACT_ID: step:p1:lipeo-zero
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: G=0 on Z'; Psi a bijection
+SOURCE_HYPOTHESES: G:R^d->R^d lambda-Lipschitz with lambda<1; Psi=id+G; G=0 on Z-prime subset R^d
 SOURCE_QUANTIFIERS: Z'
 SOURCE_CONCLUSION: Psi maps R^d minus Z' onto itself
 CONSTANT_SCOPE: none
@@ -4652,7 +4685,7 @@ ROUTE_FOR: -
 EDGE: bp:p1:lipeo-fixed | blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1210-L1211 | bijection fixing Z' pointwise preserves the complement
 EDGE: step:p1:lipeo-onto | blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1210-L1210 | Psi is a bijection of R^d
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p1c
+EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4696,7 +4729,7 @@ CONTRACT_ID: bp:p2:constants
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: tau>=0, n>=1 (here n>=2, tau>=n-1); c(n,tau) the constant of the cohomological lemma; M,sigma_K,sigma_B,sigma_T>0; mu>0 and 0<rho_inf<rho for c_* and delta_0
 SOURCE_QUANTIFIERS: for the data (n,tau,M,sigma_K,sigma_B,sigma_T) in order; then for mu>0 and 0<rho_inf<rho
-SOURCE_CONCLUSION: defines kappa=tau+n, a=2kappa+2, c_R, m(frak), Theta=4n m^3, the constants C_X,C_T,C_Omega,C_sym,C_red,C_xi0,C_xiN,C_g,C_xi,C_DeltaK,C_lin,C_E,C_G,C_B,C_DeltaN,C_DeltaX,C_DeltaT,c_step,c_sum, and c_*, delta_0; all >=1
+SOURCE_CONCLUSION: defines kappa=tau+n, a=2kappa+2, c_R, m(frak), Theta=4n m^3, the constants C_X,C_T,C_Omega,C_sym,C_red,C_xi0,C_xiN,C_g,C_xi,C_DeltaK,C_lin,C_E,C_G,C_B,C_DeltaN,C_DeltaX,C_DeltaT,c_step,c_sum, and c_*, delta_0; the constants defined through L97 are >=1 (L99); c_* and delta_0 are defined subsequently, with delta_0=min{1,(rho-rho_inf)/8} in (0,1]
 CONSTANT_SCOPE: kappa,a,c_R,m,Theta,C_* and c_step,c_sum depend only on (n,tau,M,sigma_K,sigma_B,sigma_T); c_* = c_*(n,tau,M,sigma_K,sigma_B,sigma_T,mu); delta_0 = delta_0(rho,rho_inf)
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -4708,7 +4741,7 @@ ROUTE_FOR: -
 EDGE: bp:p1:cohomological | blueprint/parts/p2-aposteriori.tex#bp:p2:constants@L79-L79 | c(n,tau) is the constant of the cohomological lemma
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:constants@L99-L99 | the constants are functions of the standing parameters n,tau,M,sigma_K,sigma_B,sigma_T
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4847,9 +4880,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:avg-bound | blueprint/parts/p2-aposteriori.tex#bp:p2:averages@L170-L170 | proof step of (a)
 EDGE: step:p2:avg-deriv | blueprint/parts/p2-aposteriori.tex#bp:p2:averages@L175-L175 | proof step of (b)
-EDGE: bp:p0:domains#complexStrip | blueprint/parts/p2-aposteriori.tex#bp:p2:averages@L162-L162 | T_r in (b)
+EDGE: bp:p0:domains#complexStrip | blueprint/parts/p2-aposteriori.tex#bp:p2:averages@L163-L163 | T_r in (b)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -4891,7 +4924,7 @@ STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv@L175-L179
 PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv@L175-L179
 CONTRACT_ID: step:p2:avg-deriv
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: v holomorphic and 1-periodic on T_r; restriction to R^n is continuous, periodic, C^1
+SOURCE_HYPOTHESES: v holomorphic and 1-periodic on T_r, r>0; values scalar, vector or matrix (no additional C^1 premise)
 SOURCE_QUANTIFIERS: for all such v and l
 SOURCE_CONCLUSION: avg(d_{theta_l} v)=0 and avg(d_omega v)=0
 CONSTANT_SCOPE: none
@@ -4899,17 +4932,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:averages-real
-ROUTES: -
+DEPS: -
+ROUTES: step:p2:avg-deriv#real-route, step:p2:avg-deriv#bounded-route
 ROUTE_FOR: -
-EDGE: bp:p1:averages-real | blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv@L178-L178 | average of the derivative of a periodic C^1 function vanishes
+EDGE: step:p2:avg-deriv#real-route | blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv@L176-L178 | direct restriction to the real torus
+EDGE: step:p2:avg-deriv#bounded-route | blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv@L178-L179 | explicit parenthetical alternative on T_{r/2}
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: the parenthetical alternative proof (periodic-bounded, averages) at L178-L179 is not used by the main route; edges to bp:p1:periodic-bounded and bp:p1:averages dropped
+NOTE: The two proofs at L176-L179 are alternatives, not a conjunction. The C^1 property in the first route is derived from holomorphy.
 
 NODE: bp:p2:cohomological
 KIND: corollary
@@ -4984,14 +5018,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:averages, bp:p1:cohomological-operator, bp:p2:constants
+DEPS: bp:p2:averages, bp:p1:cohomological-operator, bp:p2:constants, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:averages | blueprint/parts/p2-aposteriori.tex#step:p2:coh-apriori@L209-L209 | avg d_omega u=0
 EDGE: bp:p1:cohomological-operator | blueprint/parts/p2-aposteriori.tex#step:p2:coh-apriori@L210-L210 | a-priori bound for periodic solutions of Du omega=g
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:coh-apriori@L211-L211 | c(n,tau)<=c_R, Gamma_delta
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p2-aposteriori.tex#step:p2:coh-apriori@L208-L208 | g=d_omega u is holomorphic since derivatives of holomorphic maps are holomorphic
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -5195,9 +5230,9 @@ ROUTE_FOR: -
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:objects@L271-L271 | B(frak), h, omega of the package
 EDGE: bp:p0:domains#complexStrip | blueprint/parts/p2-aposteriori.tex#bp:p2:objects@L271-L271 | T_r
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p2-aposteriori.tex#bp:p2:objects@L275-L275 | X_h
-EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p2-aposteriori.tex#bp:p2:objects@L275-L275 | Omega_0
+EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p2-aposteriori.tex#bp:p2:objects@L276-L276 | Omega_0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -5334,9 +5369,9 @@ STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:per-compose@L342-L3
 PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:per-compose@L342-L346
 CONTRACT_ID: step:p2:per-compose
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing data of Part 2 (bp:p2:standing); K primary, K(T_r) subset B(frak); periodicity of DK, K^I
+SOURCE_HYPOTHESES: the standing data of Part 2; K holomorphic and primary on T_r with K(T_r) subset B(frak); DK and K^I periodic by step:p2:per-dk; det G!=0 on T_r for expressions involving B,N,P,X_N,T,E_sym,eta
 SOURCE_QUANTIFIERS: k in Z^n, theta in T_r
-SOURCE_CONCLUSION: X_h o K, DX_h o K, h o K and every algebraic expression in them and in L, K^I (products, transposes, inverse, derivatives) are 1-periodic
+SOURCE_CONCLUSION: X_h o K, DX_h o K, h o K and the listed composed objects are periodic; inverse-dependent objects in the second list are asserted periodic only when det G!=0, as in the enclosing lemma
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -5350,7 +5385,7 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:per-compose@L3
 EDGE: step:p2:per-dk | blueprint/parts/p2-aposteriori.tex#step:p2:per-compose@L343-L343 | K(theta+k)=K(theta)+(k,0), periodic L and K^I
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#step:p2:per-compose@L344-L344 | the objects are algebraic expressions in L, X_h o K, A, K^I
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -5364,7 +5399,7 @@ STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:per-real@L348-L354
 PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:per-real@L348-L354
 CONTRACT_ID: step:p2:per-real
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing data of Part 2 (bp:p2:standing); K real on reals, periodic objects
+SOURCE_HYPOTHESES: the standing data of Part 2; K holomorphic and primary on T_r, K(T_r) subset B(frak), K real on reals; det G!=0 on T_r for the inverse-dependent second group and avg T
 SOURCE_QUANTIFIERS: real x
 SOURCE_CONCLUSION: all listed objects are real at real points and avg T is real
 CONSTANT_SCOPE: none
@@ -5381,7 +5416,7 @@ EDGE: bp:p2:averages | blueprint/parts/p2-aposteriori.tex#step:p2:per-real@L354-
 EDGE: bp:p0:stripdata#IsRealOnReals | blueprint/parts/p2-aposteriori.tex#step:p2:per-real@L349-L349 | K real on reals
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#step:p2:per-real@L353-L353 | definitions of the objects
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -5521,7 +5556,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p2:fb-holo, step:p2:fb-bounds, step:p2:fb-eta, step:p2:fb-torsion, bp:p2:admissible, bp:p2:objects, bp:p2:constants
+DEPS: step:p2:fb-holo, step:p2:fb-bounds, step:p2:fb-eta, step:p2:fb-torsion, bp:p2:admissible, bp:p2:objects, bp:p2:constants, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:fb-holo | blueprint/parts/p2-aposteriori.tex#bp:p2:frame-basic@L401-L401 | proof step (a)
@@ -5531,8 +5566,9 @@ EDGE: step:p2:fb-torsion | blueprint/parts/p2-aposteriori.tex#bp:p2:frame-basic@
 EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#bp:p2:frame-basic@L383-L383 | (A2)-(A4)
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:frame-basic@L386-L386 | the objects
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:frame-basic@L388-L388 | m, Theta, C_X, C_T
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:frame-basic@L383-L384 | local Part 2 package is assumed by this result; h, omega and the ambient domain retain the enclosing standing data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -5554,15 +5590,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:hamiltonian, bp:p2:admissible, bp:p1:holomorphic-inverse, bp:p2:objects
+DEPS: bp:p2:hamiltonian, bp:p2:admissible, bp:p1:holomorphic-inverse, bp:p2:objects, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:hamiltonian | blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L402-L402 | X_h, DX_h holomorphic on B(frak)
 EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L403-L403 | (A4): det G != 0
 EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L404-L404 | inverse of a holomorphic invertible matrix is holomorphic
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L404-L404 | definitions of N,P,X_N,T,E_sym,Q,eta
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L402-L405 | DK and d_omega N are holomorphic derivatives; K is holomorphic by hypothesis
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -5914,7 +5951,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p2:ex-curl, step:p2:ex-avg-omega, step:p2:ex-gradient, step:p2:ex-avg-eta, bp:p0:stripdata#IsPrimaryOnStrip, bp:p2:objects
+DEPS: step:p2:ex-curl, step:p2:ex-avg-omega, step:p2:ex-gradient, step:p2:ex-avg-eta, bp:p0:stripdata#IsPrimaryOnStrip, bp:p2:objects, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:ex-curl | blueprint/parts/p2-aposteriori.tex#bp:p2:exactness@L526-L526 | proof step
@@ -5923,8 +5960,9 @@ EDGE: step:p2:ex-gradient | blueprint/parts/p2-aposteriori.tex#bp:p2:exactness@L
 EDGE: step:p2:ex-avg-eta | blueprint/parts/p2-aposteriori.tex#bp:p2:exactness@L543-L543 | proof step
 EDGE: bp:p0:stripdata#IsPrimaryOnStrip | blueprint/parts/p2-aposteriori.tex#bp:p2:exactness@L516-L516 | primary K
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:exactness@L518-L518 | Omega_K, eta^N
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:exactness@L516-L516 | local Part 2 package is assumed by this result; h, omega and the ambient domain retain the enclosing standing data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -6026,7 +6064,7 @@ CONTRACT_ID: step:p2:ex-avg-eta
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: h o K holomorphic and periodic on T_r; avg Omega_K=0; gradient identity
 SOURCE_QUANTIFIERS: theta in T_r
-SOURCE_CONCLUSION: avg(L^T Omega_0 E)=0 and eta^N=L^T Omega_0 E
+SOURCE_CONCLUSION: avg(L^T Omega_0 E)=0; when det G!=0 on T_r, eta^N is defined by bp:p2:objects and eta^N=L^T Omega_0 E, hence avg eta^N=0
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -6041,7 +6079,7 @@ EDGE: step:p2:ex-gradient | blueprint/parts/p2-aposteriori.tex#step:p2:ex-avg-et
 EDGE: step:p2:ex-avg-omega | blueprint/parts/p2-aposteriori.tex#step:p2:ex-avg-eta@L545-L545 | avg Omega_K=0
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#step:p2:ex-avg-eta@L546-L546 | eta^N=L^T Omega_0 E
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2a
+EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -6236,6 +6274,62 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
 
+NODE: step:p2:avg-deriv#real-route
+KIND: route
+TITLE: Derivatives of the restriction to the real torus
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#real-route@L176-L178
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#real-route@L176-L178
+CONTRACT_ID: step:p2:avg-deriv#real-route
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: v holomorphic and 1-periodic on T_r; r>0
+SOURCE_QUANTIFIERS: each component and every ell, omega
+SOURCE_CONCLUSION: avg(d_ell v)=0 and avg(d_omega v)=0
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bp:p1:holomorphic-regularity, bp:p1:averages-real
+ROUTES: -
+ROUTE_FOR: step:p2:avg-deriv
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#real-route@L176-L177 | the real restriction has continuous first derivatives obtained by real difference quotients
+EDGE: bp:p1:averages-real | blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#real-route@L178-L178 | apply to the periodic C^1 restriction entrywise
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-r2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: step:p2:avg-deriv#bounded-route
+KIND: route
+TITLE: Alternative through a bounded smaller strip
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#bounded-route@L178-L179
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#bounded-route@L178-L179
+CONTRACT_ID: step:p2:avg-deriv#bounded-route
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: v holomorphic and 1-periodic on T_r; r>0
+SOURCE_QUANTIFIERS: each component and every ell, omega
+SOURCE_CONCLUSION: avg(d_ell v)=0 and avg(d_omega v)=0
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bp:p1:periodic-bounded, bp:p1:averages
+ROUTES: -
+ROUTE_FOR: step:p2:avg-deriv
+EDGE: bp:p1:periodic-bounded | blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#bounded-route@L178-L179 | v is bounded on T_{r/2} since 0<r/2<r
+EDGE: bp:p1:averages | blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#bounded-route@L179-L179 | apply to the holomorphic bounded periodic restriction on T_{r/2}, which contains R^n
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-r2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
 NODE: bp:p2:triangular
 KIND: lemma
 TITLE: The triangular system
@@ -6251,7 +6345,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p2:tri-first, step:p2:tri-xi0, step:p2:tri-second, step:p2:tri-form, step:p2:tri-real, bp:p2:cohomological, bp:p2:constants
+DEPS: step:p2:tri-first, step:p2:tri-xi0, step:p2:tri-second, step:p2:tri-form, step:p2:tri-real, bp:p2:cohomological, bp:p2:constants, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:tri-first | blueprint/parts/p2-aposteriori.tex#bp:p2:triangular@L647-L647 | proof step of this result
@@ -6261,8 +6355,9 @@ EDGE: step:p2:tri-form | blueprint/parts/p2-aposteriori.tex#bp:p2:triangular@L66
 EDGE: step:p2:tri-real | blueprint/parts/p2-aposteriori.tex#bp:p2:triangular@L665-L665 | proof step of this result
 EDGE: bp:p2:cohomological | blueprint/parts/p2-aposteriori.tex#bp:p2:triangular@L628-L628 | R is the solution operator of the cohomological corollary
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:triangular@L617-L617 | Γ_δ, c_R, ϰ defined in the constants
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:triangular@L617-L617 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -6424,7 +6519,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p2:cor-data, step:p2:cor-absorb, step:p2:cor-xin, step:p2:cor-xi, step:p2:cor-dxi, step:p2:cor-reg, bp:p2:triangular, bp:p2:admissible, bp:p2:constants, bp:p2:objects
+DEPS: step:p2:cor-data, step:p2:cor-absorb, step:p2:cor-xin, step:p2:cor-xi, step:p2:cor-dxi, step:p2:cor-reg, bp:p2:triangular, bp:p2:admissible, bp:p2:constants, bp:p2:objects, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:cor-data | blueprint/parts/p2-aposteriori.tex#bp:p2:correction@L685-L685 | proof step of this result
@@ -6437,8 +6532,9 @@ EDGE: bp:p2:triangular | blueprint/parts/p2-aposteriori.tex#bp:p2:correction@L67
 EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#bp:p2:correction@L671-L671 | hypothesis class of K
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:correction@L675-L675 | constants C_{ξN},C_g,C_ξ,C_{ΔK}
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:correction@L672-L672 | η, T, P of K
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:correction@L671-L671 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -6638,7 +6734,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p2:ne-invert, step:p2:ne-domain, step:p2:ne-expand, step:p2:ne-reduce, step:p2:ne-lin, step:p2:ne-quad, step:p2:ne-total, bp:p2:correction, bp:p2:constants, bp:p2:objects
+DEPS: step:p2:ne-invert, step:p2:ne-domain, step:p2:ne-expand, step:p2:ne-reduce, step:p2:ne-lin, step:p2:ne-quad, step:p2:ne-total, bp:p2:correction, bp:p2:constants, bp:p2:objects, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:ne-invert | blueprint/parts/p2-aposteriori.tex#bp:p2:newton-error@L743-L743 | proof step of this result
@@ -6651,8 +6747,9 @@ EDGE: step:p2:ne-total | blueprint/parts/p2-aposteriori.tex#bp:p2:newton-error@L
 EDGE: bp:p2:correction | blueprint/parts/p2-aposteriori.tex#bp:p2:newton-error@L724-L724 | setting and ΔK of the correction lemma
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:newton-error@L727-L727 | constants C_ΔK,C_sym,C_E
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:newton-error@L730-L730 | E_sym, E, A, P of K
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:newton-error@L724-L724 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -6731,12 +6828,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:objects
+DEPS: bp:p2:objects, bp:p2:correction
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L756-L756 | definitions of E and A
+EDGE: bp:p2:correction | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L755-L757 | K and Delta K are holomorphic on the working strip, allowing differentiation of Kbar=K+Delta K and Delta K=P xi
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -6877,7 +6975,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p2:pt-small, step:p2:pt-domain, step:p2:pt-dl, step:p2:pt-gram, step:p2:pt-binv, step:p2:pt-n, step:p2:pt-xn, step:p2:pt-torsion, step:p2:pt-twist, bp:p2:constants, bp:p2:objects
+DEPS: step:p2:pt-small, step:p2:pt-domain, step:p2:pt-dl, step:p2:pt-gram, step:p2:pt-binv, step:p2:pt-n, step:p2:pt-xn, step:p2:pt-torsion, step:p2:pt-twist, bp:p2:constants, bp:p2:objects, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:pt-small | blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L823-L823 | proof step of this result
@@ -6891,8 +6989,9 @@ EDGE: step:p2:pt-torsion | blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation
 EDGE: step:p2:pt-twist | blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L873-L873 | proof step of this result
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L804-L804 | constants C_B,C_ΔN,C_ΔT
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L801-L801 | G,B,N,T of a parameterization
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L799-L799 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7144,16 +7243,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:averages, bp:p1:neumann, step:p2:pt-torsion, step:p2:pt-binv, step:p2:pt-small
+DEPS: bp:p2:perturbation#average-applicability, bp:p1:neumann, step:p2:pt-torsion, step:p2:pt-binv, step:p2:pt-small, bp:p1:holomorphic-inverse, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:averages | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L875-L875 | average of T̃−T is bounded by its sup
+EDGE: bp:p2:perturbation#average-applicability | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L875-L876 | the continuity-only average estimate used here lacks the periodicity premise of the cited corollary
 EDGE: bp:p1:neumann | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L877-L877 | Neumann inversion of avg T̃
 EDGE: step:p2:pt-torsion | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L875-L875 | bound T̃−T≤C_ΔTd/δ²
 EDGE: step:p2:pt-binv | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L874 | Ñ holomorphic via det G̃≠0 (part c)
 EDGE: step:p2:pt-small | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L877-L877 | 𝔪C_ΔTd/δ²≤1/2
+EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L875 | the holomorphic new Gram matrix has nonzero determinant by (c), so its inverse and the new normal frame are holomorphic
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L875 | the directional derivative of the new holomorphic normal frame is holomorphic, giving holomorphy and continuity of the new torsion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7175,7 +7276,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p2:st-small, step:p2:st-error, step:p2:st-ball, step:p2:st-perturb, bp:p2:newton-error, bp:p2:admissible, bp:p2:constants
+DEPS: step:p2:st-small, step:p2:st-error, step:p2:st-ball, step:p2:st-perturb, bp:p2:newton-error, bp:p2:admissible, bp:p2:constants, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:st-small | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L906-L906 | proof step of this result
@@ -7185,8 +7286,9 @@ EDGE: step:p2:st-perturb | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L924-L9
 EDGE: bp:p2:newton-error | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L889-L889 | K̄ is the map defined there
 EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L885-L885 | hypothesis class of K
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L887-L887 | 𝔠_step, C_ΔK
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L884-L884 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7265,12 +7367,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:admissible
+DEPS: bp:p2:admissible, step:p2:st-error
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L922-L922 | A2: β-ball around K lies in 𝔅
+EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L922-L922 | the preceding correction bound gives abs(Kbar-K)<=d in the triangle inequality
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7434,7 +7537,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p2:it-sums, step:p2:it-stepsmall, step:p2:it-base, step:p2:it-step, bp:p2:admissible, bp:p2:schedule, bp:p2:constants, bp:p2:objects
+DEPS: step:p2:it-sums, step:p2:it-stepsmall, step:p2:it-base, step:p2:it-step, bp:p2:admissible, bp:p2:schedule, bp:p2:constants, bp:p2:objects, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L993-L993 | proof step of this result
@@ -7445,8 +7548,9 @@ EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L981
 EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L978-L978 | r_s,δ_s,ε_s,d_s
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L976-L976 | 𝔠_*, δ_0
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L973-L973 | G,B,T,E of K
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L971-L971 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7498,15 +7602,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:error-decay, bp:p2:step, bp:p2:schedule, bp:p2:constants
+DEPS: bp:p2:error-decay, bp:p2:schedule, bp:p2:constants
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1009-L1009 | ε_s≤e and ε_s/δ_s^{2a}≤e/δ_0^{2a}
-EDGE: bp:p2:step | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1012-L1012 | the hypothesis being verified
 EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1009-L1009 | ε_s,δ_s notation
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1011-L1011 | 𝔠_*≥𝔠_step max{1,2/μ}
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7586,7 +7689,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p2:lim-k, step:p2:lim-dk, step:p2:lim-holo, step:p2:lim-primary, step:p2:lim-close, step:p2:lim-margins, step:p2:lim-invariance, bp:p2:iteration, bp:p2:constants, bp:p2:objects
+DEPS: step:p2:lim-k, step:p2:lim-dk, step:p2:lim-holo, step:p2:lim-primary, step:p2:lim-close, step:p2:lim-margins, step:p2:lim-invariance, bp:p2:iteration, bp:p2:constants, bp:p2:objects, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1054-L1054 | proof step of this result
@@ -7599,8 +7702,9 @@ EDGE: step:p2:lim-invariance | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1
 EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1032-L1032 | the sequence K_s
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1042-L1042 | C_ΔK, δ_0
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1045-L1045 | E_∞ is the invariance error E of K_∞
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1032-L1032 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7651,14 +7755,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:iteration, bp:p2:error-decay, step:p2:lim-k
+DEPS: bp:p2:iteration, bp:p2:error-decay
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1061-L1061 | (vi): DK_{s+1}−DK_s≤nd_s/δ_s
 EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1061-L1061 | finiteness of Σnd_s/δ_s via the sum bound with j=a+1
-EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1061-L1061 | same Cauchy argument
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7710,13 +7813,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:iteration, bp:p1:uniform-limits
+DEPS: bp:p2:iteration, bp:p1:uniform-limits, step:p2:lim-k, step:p2:lim-dk
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1072 | K_s primary and real
 EDGE: bp:p1:uniform-limits | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1072 | primary and real are preserved under uniform limits
+EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1071-L1072 | pointwise convergence to K_infty supplies the limit premise for preservation of primarity and realness
+EDGE: step:p2:lim-dk | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1072 | uniform derivative convergence supplies the remaining hypothesis of the cited uniform-limits lemma
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7738,13 +7843,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:iteration, step:p2:it-sums
+DEPS: bp:p2:iteration, step:p2:it-sums, step:p2:lim-k
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1075 | K_s−K≤D_s (ii)
 EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1075 | Σd_s≤2Θ²C_ΔKe/(γ⁴δ_0^{2a})≤μ/4
+EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1077 | uniform convergence justifies passage to the limit and L1057 supplies sum d_s<=2 C_DeltaK e/(gamma^2 delta_0^a)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7795,7 +7901,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:iteration, bp:p2:error-decay, bp:p2:hamiltonian, step:p2:lim-margins, step:p2:lim-holo
+DEPS: bp:p2:iteration, bp:p2:error-decay, bp:p2:hamiltonian, step:p2:lim-margins, step:p2:lim-holo, step:p2:lim-k
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1087-L1087 | E_s≤ε_s
@@ -7803,8 +7909,9 @@ EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invaria
 EDGE: bp:p2:hamiltonian | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1085 | X_h holomorphic hence continuous
 EDGE: step:p2:lim-margins | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1085 | K_∞(θ)∈𝔅 by the margin ball
 EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1086 | DK_s→DK_∞ pointwise
+EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1086 | K_s(theta) tends to K_infty(theta), allowing continuity of X_h to pass to the limit
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -7986,10 +8093,38 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
 
+NODE: bp:p2:perturbation#average-applicability
+KIND: step
+TITLE: Continuity-only averaging estimate used by frame perturbation
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876
+CONTRACT_ID: bp:p2:perturbation#average-applicability
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the hypotheses of bp:p2:perturbation; Ttilde and T continuous on R^n; abs(Ttilde-T)<=C_DeltaT d/delta^2 on T_{r-2delta}; no periodicity or primarity hypothesis on K or Ktilde
+SOURCE_QUANTIFIERS: the parameters and maps of bp:p2:perturbation
+SOURCE_CONCLUSION: abs(avg Ttilde-avg T)<=C_DeltaT d/delta^2, as used at L875-L876
+CONSTANT_SCOPE: C_DeltaT as in bp:p2:constants
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bp:p2:averages, step:p2:pt-torsion
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bp:p2:averages | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L875-L875 | source invokes (a), but its periodicity premise is not supplied
+EDGE: step:p2:pt-torsion | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L876-L876 | pointwise difference bound on a strip containing the real cube
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-r3
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: SOURCE_GAP: the literal corollary bp:p2:averages(a), L160-L162, assumes a continuous 1-periodic input. Neither K nor Ktilde is assumed primary or periodic in bp:p2:perturbation, L798-L805, and no periodicity of Ttilde-T is established. A continuity-only estimate is used at L875-L876 without a matching stated result. Do not add periodicity as a theorem hypothesis or silently replace the cited result. E6 is a possible source repair, not a proof supplied by this review.
+
 NODE: bp:p3:standing
 KIND: definition
 TITLE: Two invariant tori
-STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L55-L72
+STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L55-L93
 PROOF_SOURCE: -
 CONTRACT_ID: bp:p3:standing
 CONTRACT_VERSION: 1
@@ -8001,7 +8136,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:diophantine#IsDiophantine, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage
+DEPS: bp:p0:diophantine#IsDiophantine, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage, bp:p2:standing, bp:p2:objects
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L63-L63 | (S2) omega in Dio_{gamma,tau}
@@ -8012,8 +8147,10 @@ EDGE: bp:p0:stripdata#gramMatrix | blueprint/parts/p3-uniqueness.tex#bp:p3:stand
 EDGE: bp:p0:stripdata#normalFrame | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L85-L85 | N, P of the frame, B = (L^T L)^{-1}
 EDGE: bp:p0:stripdata#torsion | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L87-L87 | torsion T = N^T Omega_0 X_N
 EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L87-L87 | avg T used in (S3)
+EDGE: bp:p2:standing | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L74-L77 | S1-S2 supply the Part 2 standing package with the same n,tau,M,sigma parameters; S3 supplies the additional torus premises when a Part 2 result is applied
+EDGE: bp:p2:objects | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L77-L88 | the frame, torsion and error notation are specialized from the objects of Part 2 at K=K_1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -8470,13 +8607,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p3:reducibility, bp:p2:hamiltonian
+DEPS: bp:p3:reducibility, bp:p2:hamiltonian, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomorphy@L249-L249 | N holomorphic; T=BL^T X_N
 EDGE: bp:p2:hamiltonian | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomorphy@L251-L251 | (a): DX_h holomorphic on B
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomorphy@L249-L251 | derivatives of N and X_h are holomorphic on the relevant open domains
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -8588,11 +8726,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: step:p3:phase-real
 ROUTES: -
 ROUTE_FOR: -
+EDGE: step:p3:phase-real | blueprint/parts/p3-uniqueness.tex#step:p3:phase-fixed-point@L308-L310 | the two averaged integrands are real, so Phi is a map R^n to R^n
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -8642,15 +8781,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p3:phase-derivatives, step:p3:phase-fixed-point, step:p3:phase-real, bp:p3:matrix-norms
+DEPS: step:p3:phase-derivatives, step:p3:phase-fixed-point, bp:p3:matrix-norms, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p3:phase-derivatives | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L328-L328 | Lipschitz bounds on W and L
 EDGE: step:p3:phase-fixed-point | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L332-L332 | definition of Phi
-EDGE: step:p3:phase-real | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L335-L335 | Phi real-valued on R^n
 EDGE: bp:p3:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L330-L330 | abs BL^Tabs <=C_P
+EDGE: bp:p1:ext-integral | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L325-L336 | fundamental theorem of calculus along the real segment and norm-of-integral bounds for the segment integral and the averages
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -8689,7 +8828,7 @@ NOTE: -
 NODE: bp:p3:difference-equation
 KIND: lemma
 TITLE: The difference in the frame
-STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L359-L373
+STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L350-L373
 PROOF_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L375-L406
 CONTRACT_ID: bp:p3:difference-equation
 CONTRACT_VERSION: 1
@@ -8711,7 +8850,7 @@ EDGE: step:p3:diff-linearized | blueprint/parts/p3-uniqueness.tex#bp:p3:differen
 EDGE: step:p3:diff-triangular | blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L393-L393 | proof step
 EDGE: step:p3:diff-bounds | blueprint/parts/p3-uniqueness.tex#bp:p3:difference-equation@L399-L399 | proof step
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -8733,13 +8872,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p3:reducibility, bp:p2:periodicity
+DEPS: bp:p3:reducibility, bp:p2:periodicity, bp:p2:hamiltonian, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L382-L382 | P^{-1} holomorphic, explicit formula
 EDGE: bp:p2:periodicity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L384-L384 | L is 1-periodic
+EDGE: bp:p2:hamiltonian | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L378-L380 | S1-S2 supply the Part 2 standing package; X_h is holomorphic on B and the ball inclusion puts the composed arguments there
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L380-L380 | DX_h is holomorphic because X_h is holomorphic on the open domain, so the remainder R is holomorphic
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -8787,13 +8928,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p3:reducibility, step:p3:diff-linearized
+DEPS: bp:p3:reducibility, step:p3:diff-linearized, step:p3:diff-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular@L395-L395 | triangular reduction identity
 EDGE: step:p3:diff-linearized | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular@L394-L394 | linearized equation for Delta
+EDGE: step:p3:diff-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular@L394-L394 | the established identity Delta=P xi permits substitution into the differential equation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -8815,16 +8957,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p3:matrix-norms, bp:p1:taylor, bp:p2:hamiltonian, step:p3:diff-regularity, bp:p1:holomorphic-regularity
+DEPS: bp:p3:matrix-norms, bp:p1:taylor, bp:p2:hamiltonian, step:p3:diff-regularity, bp:p1:holomorphic-regularity, bp:p3:reducibility
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p3:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L401-L401 | abs Pabs ,abs P^{-1}abs <=C_P
 EDGE: bp:p1:taylor | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L401-L401 | second-order Taylor bound on R
 EDGE: bp:p2:hamiltonian | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L402-L402 | (a): X_h holomorphic on B
 EDGE: step:p3:diff-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L403-L403 | segment lies in B
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L405-L405 | abs D^2X_habs =abs D(DX_h)abs 
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L405-L405 | abs D^2X_habs =abs D(DX_h)abs
+EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L400-L401 | P^{-1}=(BL^T;-L^T Omega_0), so the stacked-matrix bound of matrix-norms applies to P^{-1}
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -9232,9 +9375,9 @@ STATEMENT_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:standing#constants@L95
 PROOF_SOURCE: blueprint/parts/p3-uniqueness.tex#bp:p3:standing#constants@L95-L117
 CONTRACT_ID: bp:p3:standing#constants
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing package bp:p3:standing (S1)-(S4) for the data on which the constants are evaluated; bp:p1:cohomological supplies c(n,tau)
+SOURCE_HYPOTHESES: n>=2, tau>=n-1, rho>0, M,sigma_K,sigma_B,sigma_T>0; c(n,tau) is the constant of bp:p1:cohomological; no B,h,K_1,K_2,omega,gamma or package (S1)-(S4) is assumed
 SOURCE_QUANTIFIERS: n,tau,rho,M,sigma_K,sigma_B,sigma_T fixed before any data; then C_P, Gamma, C_tor, C_coh, C^N, C^L, C_quad
-SOURCE_CONCLUSION: defines C_P=2n sigma_K(1+sigma_B), Gamma=C_P M, C_tor=C_P^2 M(1+4nC_P/rho), C_coh=c(n,tau), C^N, C^L, C_quad=C_P max{C^L,Gamma rho^{tau+n} C^N} by (eq:p3:constants),(eq:p3:Cquad)
+SOURCE_CONCLUSION: defines C_P=2n sigma_K(1+sigma_B), Gamma=C_P M, C_tor=C_P^2 M(1+4n C_P/rho), C_coh=c(n,tau), C^N=(1/2)C_P M[(1+sigma_T C_tor)C_coh+sigma_T Gamma rho^{tau+n}], C^L=C_coh[C_tor C^N+(1/2)C_P M Gamma rho^{tau+n}], C_quad=C_P max{C^L,Gamma rho^{tau+n} C^N}; forward descriptions at L113-L117 add no dependencies
 CONSTANT_SCOPE: all constants depend only on n,tau,rho,M,sigma_K,sigma_B,sigma_T (C_coh only on n,tau; C_P only on n,sigma_K,sigma_B); not on gamma, mu or the data
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -9245,7 +9388,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:cohomological | blueprint/parts/p3-uniqueness.tex#bp:p3:standing#constants@L104-L104 | C_coh is the constant c(n,tau) of that lemma
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p3
+EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -9482,18 +9625,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:slab-coordinate, bp:p1:ext-lebesgue
+DEPS: step:p4:slab-coordinate
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:slab-coordinate | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L101-L101 | dominant coordinate bound
-EDGE: bp:p1:ext-lebesgue | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L99-L99 | Fubini for Lebesgue measure
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L96-L101 uses Fubini for the indicator of the slab intersected with a cube. E6 only explicitly provides Fubini for continuous functions on compact boxes; E8 does not provide measurable-set Fubini. The blueprint supplies no extension or slab-cover argument. Keep this as a source obligation, not a new external leaf.
 
 NODE: step:p4:g3-n0
 KIND: step
@@ -9568,9 +9710,9 @@ DEPS: bp:p0:diophantine#IsDiophantine, step:p4:g3-cube
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p4-measure.tex#step:p4:g3-union@L115-L115 | negation of the Diophantine condition
-EDGE: step:p4:g3-cube | blueprint/parts/p4-measure.tex#step:p4:g3-union@L110-L110 | bounding cube R
+EDGE: step:p4:g3-cube | blueprint/parts/p4-measure.tex#step:p4:g3-union@L115-L120 | Bounding cube is consumed in the union inclusion; L110 is the prerequisite construction, outside this step
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -9611,13 +9753,13 @@ NOTE: -
 NODE: bp:p4:data
 KIND: definition
 TITLE: Shrunken domains and basic constants
-STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:data@L154-L163
+STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:data@L138-L163
 PROOF_SOURCE: -
 CONTRACT_ID: bp:p4:data
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the data of HEAD of Section sec-data: the data of HEAD of Section sec-data (n>=2, tau>n-1, s0,r0>0, B open bounded nonempty, h holomorphic on B_{r0} and real at real points, witnesses L_h, C_B) and f, eps as in HEAD
+SOURCE_HYPOTHESES: n>=2, tau>n-1, s0,r0>0; B open bounded nonempty; h holomorphic on B_{r0} and real at real points; fixed witnesses L_h of the inverse frequency inequality on closure B and C_B of the boundary-layer inequality; f and epsilon as in HEAD
 SOURCE_QUANTIFIERS: L_h, C_B, s0, r0, B, h fixed; then s, delta_*, mu, D, D' defined; c(m,j) from Cauchy-open
-SOURCE_CONCLUSION: defines L_+=max(L_h,1), C_B^+, s=min(s0,1), delta_*=min(s,r0)/4, mu=delta_*/2, D=T_{s/2} x B_{r0/2}, D'=T_{3s/4} x B_{3r0/4}, cbar=max{1,c(n,j),c(2n,j)}, and the unperturbed torus K^0_{I*}(theta)=(theta,iota I*)
+SOURCE_CONCLUSION: defines L_+=max(L_h,1), C_B^+, s=min(s0,1), delta_*=min(s,r0)/4, mu=delta_*/2, D=T_{s/2} x B_{r0/2}, D'=T_{3s/4} x B_{3r0/4}, cbar=max{1,c(n,j),c(2n,j)}, and the unperturbed torus K^0_{I*}(theta)=(theta,iota I*); hbold(theta,I)=h(I)+f(theta,I) on D(s0,r0), realHamiltonian h f=Re hbold at real points
 CONSTANT_SCOPE: all constants depend only on n,tau,s0,r0,B,h,L_h,C_B
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -9628,7 +9770,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:cauchy-open | blueprint/parts/p4-measure.tex#bp:p4:data@L160-L160 | cbar uses the constants c(m,j) of Cauchy-open
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -9818,13 +9960,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:hamiltonian#hamiltonianVectorFieldC, step:p4:db-cauchy
+DEPS: bp:p0:hamiltonian#hamiltonianVectorFieldC, step:p4:db-cauchy, bp:p1:hamiltonian-real, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p4-measure.tex#step:p4:db-vectorfield@L211-L211 | frozen complex Hamiltonian vector field is J D phi
 EDGE: step:p4:db-cauchy | blueprint/parts/p4-measure.tex#step:p4:db-vectorfield@L219-L219 | Cauchy bounds on D^j f and D^j h~
+EDGE: bp:p1:hamiltonian-real | blueprint/parts/p4-measure.tex#step:p4:db-vectorfield@L211-L218 | Missing direct use of the vector-field formula cited at L213
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:db-vectorfield@L216-L218 | Missing direct use establishing holomorphy of derivatives
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -9838,7 +9982,7 @@ STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:freq-map@L225-L237
 PROOF_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:freq-map@L239-L272
 CONTRACT_ID: bp:p4:freq-map
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the data of HEAD; derivative bounds H_1,H_2
+SOURCE_HYPOTHESES: fixed HEAD data of Section sec-data; U={I real : iota I in B_{r0}}, g=frequencyMap h; H_1,H_2 are defined constants, not assumed derivative estimates
 SOURCE_QUANTIFIERS: U, g=frequencyMap h, I
 SOURCE_CONCLUSION: (i) U open, contains closure of B; (ii) g(I)=grad h(iota I) real; (iii) g differentiable on U with Dg=nabla^2 h symmetric real; (iv) |g|<=H_1, |nabla^2 h|<=H_2 on iota I in B_{r0/2}; (v) g is Lambda_g-Lipschitz on B, Lambda_g=max(H_2,2H_1/delta_*), |g(B)|<=W_inf=H_1
 CONSTANT_SCOPE: Lambda_g, W_inf depend only on the data
@@ -9856,7 +10000,7 @@ EDGE: step:p4:fm-bounds | blueprint/parts/p4-measure.tex#bp:p4:freq-map@L262-L26
 EDGE: step:p4:fm-lipschitz | blueprint/parts/p4-measure.tex#bp:p4:freq-map@L267-L267 | proof step of this result
 EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p4-measure.tex#bp:p4:freq-map@L226-L226 | g is the frozen frequencyMap h
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10359,7 +10503,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:db-vectorfield, step:p4:unp-normal, bp:p0:stripdata#torsion, bp:p0:stripdata#dotC, bp:p0:hamiltonian#omegaZero, bp:p0:stripdata#torsionAverage
+DEPS: step:p4:db-vectorfield, step:p4:unp-normal, bp:p0:stripdata#torsion, bp:p0:stripdata#dotC, bp:p0:hamiltonian#omegaZero, bp:p0:stripdata#torsionAverage, bp:p1:holomorphic-regularity, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:db-vectorfield | blueprint/parts/p4-measure.tex#step:p4:unp-torsion@L377-L377 | DX_h~ via D^2 h~
@@ -10368,8 +10512,10 @@ EDGE: bp:p0:stripdata#torsion | blueprint/parts/p4-measure.tex#step:p4:unp-torsi
 EDGE: bp:p0:stripdata#dotC | blueprint/parts/p4-measure.tex#step:p4:unp-torsion@L380-L380 | dot product in torsion
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p4-measure.tex#step:p4:unp-torsion@L380-L380 | Omega_0
 EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p4-measure.tex#step:p4:unp-torsion@L383-L383 | frozen torsionAverage
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:unp-torsion@L382-L384 | Holomorphy of second derivatives supplies continuity before the frozen integral is used
+EDGE: bp:p1:ext-integral | blueprint/parts/p4-measure.tex#step:p4:unp-torsion@L382-L384 | Continuous torsion on the real unit cube is integrable; linearity integrates its constant term
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10471,9 +10617,9 @@ STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:parameters@L406-L436
 PROOF_SOURCE: -
 CONTRACT_ID: bp:p4:parameters
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the data of HEAD; frozen G1 and G2 with their side conditions
+SOURCE_HYPOTHESES: fixed HEAD data; all tuple side conditions are checked at L415-L416; G1 and G2 are dependencies supplying the constants
 SOURCE_QUANTIFIERS: tuples for G1 (two) and G2 (one); constants C_1^(i),C_2^(i),c_G from G1,G2
-SOURCE_CONCLUSION: defines sigma_K=sigma_B=2+mu, sigma_T=4L_++mu, gammabar=1, A_0..A_4, lambda_*, c_T, eta_*(delta), c_*=min of eight numbers; all depend only on the data
+SOURCE_CONCLUSION: defines sigma_K=sigma_B=2+mu, sigma_T=4L_++mu, gammabar=1, A_0..A_4, lambda_*, c_T, eta_*(delta), c_*=min of eight numbers; all depend only on the data; c_*>0 is fixed before f, epsilon and gamma
 CONSTANT_SCOPE: C_1^(i),C_2^(i) are the constants of G1 for the stated tuple, c_G of G2; all derived constants depend only on the data
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -10488,7 +10634,7 @@ EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#bp:p4:parameters@L409-L409 | m
 EDGE: bp:p4:derivative-bounds | blueprint/parts/p4-measure.tex#bp:p4:parameters@L419-L419 | H_3,F_1,F_2,M
 EDGE: bp:p4:freq-map | blueprint/parts/p4-measure.tex#bp:p4:parameters@L425-L425 | W_inf, Lambda_g
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10510,12 +10656,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:small-proof
+DEPS: step:p4:small-proof, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:small-proof | blueprint/parts/p4-measure.tex#bp:p4:smallness@L459-L459 | proof step of this result
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:smallness@L445-L456 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10537,12 +10684,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:parameters
+DEPS: bp:p4:parameters, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:small-proof@L460-L460 | entries of c_*, eta_*, c_T
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:small-proof@L459-L465 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10564,13 +10712,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:apply-g1, bp:p4:parameters
+DEPS: step:p4:apply-g1, bp:p4:parameters, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:apply-g1 | blueprint/parts/p4-measure.tex#bp:p4:apply@L477-L477 | proof step of this result
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:apply@L469-L469 | SA, Omega_gamma, sigma_K, mu
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:apply@L468-L474 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10584,7 +10733,7 @@ STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#step:p4:apply-g1@L477-L495
 PROOF_SOURCE: blueprint/parts/p4-measure.tex#step:p4:apply-g1@L477-L495
 CONTRACT_ID: step:p4:apply-g1
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: H1-H5 and error hypotheses of G1 checked at K^0_omega with e=F_1 eps; (SA); omega in Omega_gamma
+SOURCE_HYPOTHESES: fixed HEAD data; (SA); omega in Omega_gamma; K=K^0_omega and e=F_1 epsilon (H1-H5 and smallness are established by the listed dependencies)
 SOURCE_QUANTIFIERS: first G1 tuple, D, h~, K=K^0_omega
 SOURCE_CONCLUSION: K^inf_omega with all stated properties on T_{s/8} and |K^inf-K^0|<=eta_0/2
 CONSTANT_SCOPE: constants C_1^(1),C_2^(1) from G1
@@ -10592,7 +10741,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:g1, bp:p4:parameters, bp:p4:h1, bp:p4:unperturbed, bp:p4:smallness, bp:p4:inverse-freq, bp:p0:diophantine#IsDiophantine
+DEPS: bp:p0:g1, bp:p4:parameters, bp:p4:h1, bp:p4:unperturbed, bp:p4:smallness, bp:p4:inverse-freq, bp:p0:diophantine#IsDiophantine, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:g1 | blueprint/parts/p4-measure.tex#step:p4:apply-g1@L478-L478 | G1 applied
@@ -10602,8 +10751,9 @@ EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#step:p4:apply-g1@L485-L
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:apply-g1@L483-L483 | (s1),(s2)
 EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:apply-g1@L488-L488 | I_omega in B, g(I_omega)=omega
 EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p4-measure.tex#step:p4:apply-g1@L489-L489 | omega in Dio_{gamma,tau} (H5)
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:apply-g1@L477-L495 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10648,7 +10798,7 @@ STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L536-L543
 PROOF_SOURCE: blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L536-L543
 CONTRACT_ID: step:p4:mn-rowsum
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Part 1 norm lemmas
+SOURCE_HYPOTHESES: matrices and vectors as in Corollary matrix-norms; for (v), A continuous on the real unit cube
 SOURCE_QUANTIFIERS: A, p, q
 SOURCE_CONCLUSION: (i)-(v)
 CONSTANT_SCOPE: none
@@ -10656,14 +10806,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p4:unperturbed
+DEPS: bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p4:unperturbed, bp:p1:operator-norms, bp:p1:matrix-norms, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:hamiltonian#symplecticForm | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L541-L541 | frozen formula of symplecticForm
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L541-L541 | Omega_0
 EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L539-L539 | rows of L^0,N^0
+EDGE: bp:p1:operator-norms | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L537-L539 | Missing cited identification of row-sum and operator norms
+EDGE: bp:p1:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L537-L539 | Missing cited submultiplicativity and transpose bounds
+EDGE: bp:p1:ext-integral | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L542-L543 | Missing explicitly cited integral norm bound
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10720,12 +10873,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:stripdata#gramMatrix
+DEPS: bp:p0:stripdata#gramMatrix, bp:p1:holomorphic-regularity, bp:p1:holomorphic-inverse
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:stripdata#gramMatrix | blueprint/parts/p4-measure.tex#step:p4:tr-inverse@L566-L566 | frozen Gram matrix and Lean inverse
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:tr-inverse@L565-L568 | Missing cited holomorphy of DK
+EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p4-measure.tex#step:p4:tr-inverse@L567-L568 | Missing explicitly cited inverse holomorphy and differentiation result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10747,15 +10902,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:tr-inverse, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p4:h1
+DEPS: step:p4:tr-inverse, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p4:matrix-norms, step:p4:h1-holo, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:tr-inverse | blueprint/parts/p4-measure.tex#step:p4:tr-torsion@L571-L571 | N holomorphic by (a)
 EDGE: bp:p0:stripdata#normalFrame | blueprint/parts/p4-measure.tex#step:p4:tr-torsion@L571-L571 | frozen normal frame
 EDGE: bp:p0:stripdata#torsion | blueprint/parts/p4-measure.tex#step:p4:tr-torsion@L571-L571 | frozen torsion
-EDGE: bp:p4:h1 | blueprint/parts/p4-measure.tex#step:p4:tr-torsion@L572-L572 | X_h~ holomorphic on D
+EDGE: bp:p4:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:tr-torsion@L573-L574 | Missing explicitly cited conversion of frozen sums into matrix products
+EDGE: step:p4:h1-holo | blueprint/parts/p4-measure.tex#step:p4:tr-torsion@L572-L574 | Supply holomorphy directly without the unused epsilon<=1 premise of H1
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:tr-torsion@L571-L574 | Holomorphic derivatives of N and X_hbold are needed for holomorphic torsion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10777,12 +10934,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:stripdata#IsPrimaryOnStrip
+DEPS: bp:p0:stripdata#IsPrimaryOnStrip, step:p4:h1-holo, step:p4:tr-inverse, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:stripdata#IsPrimaryOnStrip | blueprint/parts/p4-measure.tex#step:p4:tr-periodic@L577-L577 | K(theta+k)=K(theta)+(k,0)
+EDGE: step:p4:h1-holo | blueprint/parts/p4-measure.tex#step:p4:tr-periodic@L579-L580 | Missing direct use of Hamiltonian periodicity; use the part of H1 that has no epsilon<=1 premise
+EDGE: step:p4:tr-inverse | blueprint/parts/p4-measure.tex#step:p4:tr-periodic@L579-L580 | Periodic Gram inverse on the nonsingular domain is used in the frame
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:tr-periodic@L577-L580 | Differentiation of primarity and of periodic derivatives supplies periodic L and DN
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10926,7 +11086,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:matrix-norms, bp:p1:neumann, bp:p4:torsion-regular, step:p4:stab-cauchy, bp:p4:unperturbed, step:p4:stab-small
+DEPS: bp:p4:matrix-norms, bp:p1:neumann, bp:p4:torsion-regular, step:p4:stab-cauchy, bp:p4:unperturbed, step:p4:stab-small, step:p4:stab-ball
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:stab-gram@L625-L625 | transpose and L^0 norms
@@ -10935,8 +11095,9 @@ EDGE: bp:p4:torsion-regular | blueprint/parts/p4-measure.tex#step:p4:stab-gram@L
 EDGE: step:p4:stab-cauchy | blueprint/parts/p4-measure.tex#step:p4:stab-gram@L625-L625 | a and  L <=2
 EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#step:p4:stab-gram@L626-L626 | G_{K^0}=Id, L^0
 EDGE: step:p4:stab-small | blueprint/parts/p4-measure.tex#step:p4:stab-gram@L626-L626 | 5na<=1/2
+EDGE: step:p4:stab-ball | blueprint/parts/p4-measure.tex#step:p4:stab-gram@L629-L629 | The application of torsion-regular needs K(T_{rho-delta}) subset D, supplied by the neighbourhood step
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -10958,7 +11119,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:torsion-regular, step:p4:stab-gram, step:p4:stab-cauchy, bp:p4:matrix-norms, bp:p4:unperturbed
+DEPS: bp:p4:torsion-regular, step:p4:stab-gram, step:p4:stab-cauchy, bp:p4:matrix-norms, bp:p4:unperturbed, step:p4:stab-small
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:torsion-regular | blueprint/parts/p4-measure.tex#step:p4:stab-frame@L633-L633 | derivative formula (a) for G^{-1}
@@ -10966,8 +11127,9 @@ EDGE: step:p4:stab-gram | blueprint/parts/p4-measure.tex#step:p4:stab-frame@L632
 EDGE: step:p4:stab-cauchy | blueprint/parts/p4-measure.tex#step:p4:stab-frame@L632-L632 |  L-L^0 <=a,  d_omega L <=b
 EDGE: bp:p4:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:stab-frame@L632-L632 |  Omega_0 =1, transpose norms
 EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#step:p4:stab-frame@L632-L632 | N^0,L^0
+EDGE: step:p4:stab-small | blueprint/parts/p4-measure.tex#step:p4:stab-frame@L632-L636 | The conclusion ¦N¦<=2 uses ¦N0¦=1 and 12na<=1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11021,7 +11183,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:matrix-norms, step:p4:stab-frame, step:p4:stab-xn, bp:p4:torsion-regular, bp:p4:unperturbed
+DEPS: bp:p4:matrix-norms, step:p4:stab-frame, step:p4:stab-xn, bp:p4:torsion-regular, bp:p4:unperturbed, bp:p4:parameters
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:stab-torsion@L651-L651 | norm calculus
@@ -11029,8 +11191,9 @@ EDGE: step:p4:stab-frame | blueprint/parts/p4-measure.tex#step:p4:stab-torsion@L
 EDGE: step:p4:stab-xn | blueprint/parts/p4-measure.tex#step:p4:stab-torsion@L650-L650 |  X_N-X_N^0 ,  X_N <=M+1
 EDGE: bp:p4:torsion-regular | blueprint/parts/p4-measure.tex#step:p4:stab-torsion@L650-L650 | T=N^T Omega_0 X_N
 EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#step:p4:stab-torsion@L650-L650 | T^0 from N^0, X_N^0
+EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:stab-torsion@L652-L652 | The final coefficient comparison uses the definition c_T=304n^3(M+W_inf+1)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11100,6 +11263,35 @@ LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
+
+NODE: bp:p4:SA
+KIND: display
+TITLE: Local smallness package and frequency notation
+STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:SA@L438-L443
+PROOF_SOURCE: -
+CONTRACT_ID: bp:p4:SA
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: fixed HEAD data of Part 4 and constants of Definition parameters
+SOURCE_QUANTIFIERS: gamma, epsilon real, after the data-dependent constants have been fixed
+SOURCE_CONCLUSION: local package (SA) is 0<gamma<=1 and 0<=epsilon<=c_* gamma^4; eta_0=A_0 epsilon gamma^{-2}; Omega_gamma=g(B) intersect Dio_{gamma,tau}
+CONSTANT_SCOPE: c_*, A_0 fixed before gamma, epsilon; eta_0 and Omega_gamma depend on gamma (and eta_0 on epsilon)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bp:p4:parameters, bp:p4:freq-map, bp:p0:diophantine#IsDiophantine
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:SA@L438-L443 | c_*, A_0 and their scope
+EDGE: bp:p4:freq-map | blueprint/parts/p4-measure.tex#bp:p4:SA@L443-L443 | g(B), with g the frequency map
+EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p4-measure.tex#bp:p4:SA@L443-L443 | Diophantine set
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-r4
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Local hypothesis package only; STANDING_ASSUMPTIONS remains none.
 
 NODE: bp:p4:phase-average
 KIND: definition
@@ -11199,14 +11391,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:periodic-average, bp:p4:phase-average, bp:p4:data
+DEPS: bp:p1:periodic-average, bp:p4:phase-average, bp:p4:data, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:periodic-average | blueprint/parts/p4-measure.tex#step:p4:shift-phase@L714-L714 | real parts of u_K(i(x+a)) averaged over the period cell, shift invariance
 EDGE: bp:p4:phase-average | blueprint/parts/p4-measure.tex#step:p4:shift-phase@L711-L711 | u_K, ph(K) defined there
 EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#step:p4:shift-phase@L715-L715 | K0_{I*} and u_{K0}=0
+EDGE: bp:p1:ext-integral | blueprint/parts/p4-measure.tex#step:p4:shift-phase@L714-L717 | The bound on the phase uses the integral norm bound on a unit-volume cube
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11228,15 +11421,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:apply, bp:p4:phase-average, bp:p4:inverse-freq, bp:p4:parameters
+DEPS: bp:p4:apply, bp:p4:phase-average, bp:p4:inverse-freq, bp:p4:parameters, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:apply | blueprint/parts/p4-measure.tex#bp:p4:normalized-torus@L721-L721 | K^inf_omega is a torus given by APPLY
 EDGE: bp:p4:phase-average | blueprint/parts/p4-measure.tex#bp:p4:normalized-torus@L723-L723 | ph and the shift K^[a] defined there
 EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#bp:p4:normalized-torus@L724-L724 | K0_omega=K0_{I_omega}, I_omega
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:normalized-torus@L721-L721 | standing assumption (SA) and Omega_gamma
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:normalized-torus@L720-L726 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11258,14 +11452,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:normalized-torus, bp:p4:parameters, step:p4:normalize-proof
+DEPS: bp:p4:normalized-torus, bp:p4:parameters, step:p4:normalize-proof, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#bp:p4:normalize@L729-L729 | K_omega, W_omega defined there
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:normalize@L729-L729 | standing assumption (SA), sigma_K, mu, eta_0
 EDGE: step:p4:normalize-proof | blueprint/parts/p4-measure.tex#bp:p4:normalize@L737-L737 | proof step of this result
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:normalize@L728-L734 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11287,14 +11482,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:apply, bp:p4:shift, bp:p4:normalized-torus
+DEPS: bp:p4:apply, bp:p4:shift, bp:p4:normalized-torus, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:apply | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-L738 | properties of K^inf_omega on T_{s/8} and the eta_0/2 closeness
 EDGE: bp:p4:shift | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-L738 | parts (a)-(e) of the phase shift lemma
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L737-L737 | K_omega=(K^inf)^[-ph]
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L737-L741 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11319,9 +11515,9 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p4:mixed-proof
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p4:mixed-proof | blueprint/parts/p4-measure.tex#bp:p4:mixed-difference@L808-L808 | proof step
+EDGE: step:p4:mixed-proof | blueprint/parts/p4-measure.tex#bp:p4:mixed-difference@L809-L817 | Use the actual proof step rather than the bare proof-environment line L808
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11346,10 +11542,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-mvt, bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:ext-mvt | blueprint/parts/p4-measure.tex#step:p4:mixed-proof@L810-L810 | mean value inequality on the segments of the parallelogram
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:mixed-proof@L811-L811 | DF holomorphic, /D(DF)/=/D^2F/
+EDGE: bp:p1:ext-mvt | blueprint/parts/p4-measure.tex#step:p4:mixed-proof@L810-L817 | Mean value inequality is applied on the parallelogram segments
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:mixed-proof@L812-L813 | Holomorphic regularity is used at L812-L813, not L811
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11371,7 +11567,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:normalized-torus, bp:p4:parameters, step:p4:le-basic, step:p4:le-split, step:p4:le-h, step:p4:le-f, step:p4:le-transport, step:p4:le-sum
+DEPS: bp:p4:normalized-torus, bp:p4:parameters, step:p4:le-basic, step:p4:le-split, step:p4:le-h, step:p4:le-f, step:p4:le-transport, step:p4:le-sum, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L821-L821 | K_omega, W_omega
@@ -11382,8 +11578,9 @@ EDGE: step:p4:le-h | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L853-L853 | 
 EDGE: step:p4:le-f | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L860-L860 | proof step of this result
 EDGE: step:p4:le-transport | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L867-L867 | proof step of this result
 EDGE: step:p4:le-sum | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L871-L871 | proof step of this result
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L820-L829 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11405,14 +11602,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:inverse-freq, bp:p4:smallness, bp:p4:parameters
+DEPS: bp:p4:inverse-freq, bp:p4:smallness, bp:p4:parameters, bp:p4:SA, bp:p4:normalize
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:le-basic@L834-L834 | /Delta I/<=L_+/Delta omega/
-EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:le-basic@L835-L835 | (s3) eta_0<=mu=delta_*/2
-EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:le-basic@L834-L834 | lambda_*=delta_*/(4 L_+)
+EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:le-basic@L835-L836 | (s3) is consumed at L836, not L835
+EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:le-basic@L834-L835 | Definition of lambda_* in the action-shift bound
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:le-basic@L832-L836 | Missing direct dependency on the explicit local package (SA), required by SPEC
+EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:le-basic@L833-L836 | Holomorphy, primarity, reality and ¦W_omega¦<=eta_0 must be supplied, not inferred from smallness alone
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11466,12 +11665,12 @@ DEPS: bp:p4:derivative-bounds, bp:p4:mixed-difference, step:p4:le-split, step:p4
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:derivative-bounds | blueprint/parts/p4-measure.tex#step:p4:le-h@L855-L855 | (b): /D^3 h/<=H_3
-EDGE: bp:p4:mixed-difference | blueprint/parts/p4-measure.tex#step:p4:le-h@L856-L856 | mixed second difference of grad h
-EDGE: step:p4:le-split | blueprint/parts/p4-measure.tex#step:p4:le-h@L853-L853 | P_h defined there
-EDGE: step:p4:le-basic | blueprint/parts/p4-measure.tex#step:p4:le-h@L853-L853 | 3delta_*/4 bound and /Delta I/<=L_+/Delta omega/
-EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:le-h@L853-L853 | /v_omega/<=/W_omega/<=eta_0, I_omega in B
+EDGE: bp:p4:mixed-difference | blueprint/parts/p4-measure.tex#step:p4:le-h@L854-L858 | The mixed-difference lemma is invoked at L857, not L856
+EDGE: step:p4:le-split | blueprint/parts/p4-measure.tex#step:p4:le-h@L854-L858 | P_h from the error decomposition is consumed in the estimate
+EDGE: step:p4:le-basic | blueprint/parts/p4-measure.tex#step:p4:le-h@L854-L858 | Parallelogram containment uses the earlier action-shift bound
+EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:le-h@L854-L858 | The estimate uses ¦v_omega¦<=eta_0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11497,12 +11696,12 @@ DEPS: bp:p4:unperturbed, bp:p1:increments-open, bp:p4:derivative-bounds, step:p4
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#step:p4:le-f@L862-L862 | (g): ball B_{delta_*}(K0_omega(theta)) in D
-EDGE: bp:p1:increments-open | blueprint/parts/p4-measure.tex#step:p4:le-f@L863-L863 | increment bound for X_f on the convex ball
-EDGE: bp:p4:derivative-bounds | blueprint/parts/p4-measure.tex#step:p4:le-f@L862-L862 | (c): /DX_f/<=F_2 eps on D
-EDGE: step:p4:le-split | blueprint/parts/p4-measure.tex#step:p4:le-f@L860-L860 | P_f defined there
+EDGE: bp:p1:increments-open | blueprint/parts/p4-measure.tex#step:p4:le-f@L861-L865 | The increment lemma is invoked at L864, not L863
+EDGE: bp:p4:derivative-bounds | blueprint/parts/p4-measure.tex#step:p4:le-f@L863-L865 | The DX_f bound is used at L864
+EDGE: step:p4:le-split | blueprint/parts/p4-measure.tex#step:p4:le-f@L861-L865 | The P_f expression is consumed in this increment estimate
 EDGE: step:p4:le-basic | blueprint/parts/p4-measure.tex#step:p4:le-f@L861-L861 | 3delta_*/4 bound
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11583,7 +11782,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:parameters, bp:p4:normalized-torus, step:p4:lip-far, step:p4:lip-g1, step:p4:lip-g2, step:p4:lip-phase, step:p4:lip-close
+DEPS: bp:p4:parameters, bp:p4:normalized-torus, step:p4:lip-far, step:p4:lip-g1, step:p4:lip-g2, step:p4:lip-phase, step:p4:lip-close, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:lip@L877-L877 | standing assumption (SA), A_3
@@ -11593,8 +11792,9 @@ EDGE: step:p4:lip-g1 | blueprint/parts/p4-measure.tex#bp:p4:lip@L892-L892 | proo
 EDGE: step:p4:lip-g2 | blueprint/parts/p4-measure.tex#bp:p4:lip@L913-L913 | proof step of this result
 EDGE: step:p4:lip-phase | blueprint/parts/p4-measure.tex#bp:p4:lip@L929-L929 | proof step of this result
 EDGE: step:p4:lip-close | blueprint/parts/p4-measure.tex#bp:p4:lip@L936-L936 | proof step of this result
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:lip@L876-L882 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11616,14 +11816,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:normalize, bp:p4:lip-error, bp:p4:parameters
+DEPS: bp:p4:normalize, bp:p4:lip-error, bp:p4:parameters, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:lip-far@L886-L886 | /W_omega/<=eta_0
 EDGE: bp:p4:lip-error | blueprint/parts/p4-measure.tex#step:p4:lip-far@L888-L888 | K',E' for close pairs
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:lip-far@L887-L887 | lambda_*, A_0, A_1
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:lip-far@L885-L890 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11645,19 +11846,20 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:g1, bp:p4:parameters, bp:p4:h1, bp:p4:stab, bp:p4:lip-error, bp:p4:smallness, bp:p4:inverse-freq, step:p4:lip-far
+DEPS: bp:p0:g1, bp:p4:parameters, bp:p4:h1, bp:p4:stab, bp:p4:lip-error, bp:p4:smallness, bp:p4:inverse-freq, step:p4:lip-far, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:g1 | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L893-L893 | frozen a-posteriori theorem applied
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L893-L893 | second tuple, constants C_1^(2), C_2^(2)
-EDGE: bp:p4:h1 | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L895-L895 | H1
-EDGE: bp:p4:stab | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L897-L897 | H2-H4 on T_{3s/32}
+EDGE: bp:p4:h1 | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L897-L897 | H1 use is L897, not L895
+EDGE: bp:p4:stab | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L898-L901 | STAB application is at L898-L901, not L897
 EDGE: bp:p4:lip-error | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L898-L898 | K' primary, real, close to K0_omega', /E'/<=e'
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L898-L898 | (s3) and (s4)
-EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L897-L897 | I_omega' in B, /omega'/<=W_inf
+EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L898-L901 | The reference action and frequency bounds are used in the STAB application
 EDGE: step:p4:lip-far | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L892-L892 | definition of e' and close-pair assumption
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L892-L911 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11679,20 +11881,21 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:g2, bp:p4:parameters, bp:p4:h1, bp:p4:stab, bp:p4:normalize, bp:p4:smallness, step:p4:lip-g1, bp:p4:lip-error, bp:p4:inverse-freq
+DEPS: bp:p0:g2, bp:p4:parameters, bp:p4:h1, bp:p4:stab, bp:p4:normalize, bp:p4:smallness, step:p4:lip-g1, bp:p4:lip-error, bp:p4:inverse-freq, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:g2 | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L914-L914 | frozen local uniqueness theorem applied
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L914-L914 | tuple and c_G
-EDGE: bp:p4:h1 | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L916-L916 | H1
+EDGE: bp:p4:h1 | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L917-L917 | H1 use is L917, not the itemize delimiter at L916
 EDGE: bp:p4:stab | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L918-L918 | H2-H4 for K_omega' on T_{s/16}
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L920-L920 | K_omega' primary, real, E_1=0, Diophantine
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L919-L919 | (s3), (s5) closeness
-EDGE: step:p4:lip-g1 | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L914-L914 | K~ and d_1, balls B_{mu/2}(K~) in D
+EDGE: step:p4:lip-g1 | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L921-L924 | G1 output properties and closeness are consumed here, not on L914
 EDGE: bp:p4:lip-error | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L924-L924 | K'-K0_omega'=W_omega, /K0_omega'-K'/ closeness
 EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L918-L918 | I_omega' in B
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:lip-g2@L913-L927 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11714,17 +11917,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:periodic-average, step:p4:lip-g2, bp:p4:normalize, bp:p4:phase-average, step:p4:lip-g1, bp:p4:lip-error
+DEPS: bp:p1:periodic-average, step:p4:lip-g2, bp:p4:normalize, bp:p4:phase-average, step:p4:lip-g1, bp:p4:lip-error, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:periodic-average | blueprint/parts/p4-measure.tex#step:p4:lip-phase@L930-L930 | averaging the shifted real part
-EDGE: step:p4:lip-g2 | blueprint/parts/p4-measure.tex#step:p4:lip-phase@L929-L929 | phi from G2
+EDGE: bp:p1:periodic-average | blueprint/parts/p4-measure.tex#step:p4:lip-phase@L930-L934 | The average lemma is invoked at L931
+EDGE: step:p4:lip-g2 | blueprint/parts/p4-measure.tex#step:p4:lip-phase@L930-L930 | The shifted-torus identity is used in the first formula, not the heading
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:lip-phase@L931-L931 | ph(K_omega')=ph(K_omega)=0
 EDGE: bp:p4:phase-average | blueprint/parts/p4-measure.tex#step:p4:lip-phase@L930-L930 | u_K, ph
 EDGE: step:p4:lip-g1 | blueprint/parts/p4-measure.tex#step:p4:lip-phase@L933-L933 | /K~-K'/<=d_1
 EDGE: bp:p4:lip-error | blueprint/parts/p4-measure.tex#step:p4:lip-phase@L932-L932 | K' and K_omega share angle component
+EDGE: bp:p1:ext-integral | blueprint/parts/p4-measure.tex#step:p4:lip-phase@L933-L934 | The bound ¦phi¦<=d_1 uses the integral norm inequality
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11749,14 +11953,14 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:increments, step:p4:lip-phase, step:p4:lip-g1, step:p4:lip-g2, bp:p4:lip-error, bp:p4:parameters
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:increments | blueprint/parts/p4-measure.tex#step:p4:lip-close@L941-L941 | increment bound on real segment theta to theta-i phi
-EDGE: step:p4:lip-phase | blueprint/parts/p4-measure.tex#step:p4:lip-close@L937-L937 | /phi/<=d_1
-EDGE: step:p4:lip-g1 | blueprint/parts/p4-measure.tex#step:p4:lip-close@L937-L937 | d_1 and /DK~/<=sigma_K
+EDGE: bp:p1:increments | blueprint/parts/p4-measure.tex#step:p4:lip-close@L940-L944 | The increment lemma is invoked at L942, not the display delimiter at L941
+EDGE: step:p4:lip-phase | blueprint/parts/p4-measure.tex#step:p4:lip-close@L940-L940 | The phase bound is used in the last inequality at L940
+EDGE: step:p4:lip-g1 | blueprint/parts/p4-measure.tex#step:p4:lip-close@L940-L944 | The G1 distance and derivative bounds are used at L940-L944
 EDGE: step:p4:lip-g2 | blueprint/parts/p4-measure.tex#step:p4:lip-close@L937-L937 | K_omega'(theta)=K~(theta-i phi)
 EDGE: bp:p4:lip-error | blueprint/parts/p4-measure.tex#step:p4:lip-close@L938-L938 | W_omega'-W_omega=K_omega'-K'
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:lip-close@L944-L944 | A_2, A_3 definitions
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11812,10 +12016,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:holomorphic-regularity, bp:p1:periodic-bounded
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:lag-regular@L975-L975 | DK holomorphic
-EDGE: bp:p1:periodic-bounded | blueprint/parts/p4-measure.tex#step:p4:lag-regular@L977-L977 | u,v,Du bounded on T_{rho/2}
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:lag-regular@L975-L978 | DK holomorphy is cited at L977
+EDGE: bp:p1:periodic-bounded | blueprint/parts/p4-measure.tex#step:p4:lag-regular@L977-L978 | The periodic boundedness lemma is cited at L978
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11842,9 +12046,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:lag-exact@L981-L981 | (iv): Lambda_ij formula
 EDGE: bp:p1:averages | blueprint/parts/p4-measure.tex#step:p4:lag-exact@L987-L987 | average of a derivative of a periodic holomorphic function is 0
-EDGE: step:p4:lag-regular | blueprint/parts/p4-measure.tex#step:p4:lag-exact@L985-L985 | boundedness and periodicity on T_{rho/2}
+EDGE: step:p4:lag-regular | blueprint/parts/p4-measure.tex#step:p4:lag-exact@L987-L988 | The averages application consumes bounded periodic holomorphic factors
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11898,13 +12102,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:cohomological, step:p4:lag-exact, step:p4:lag-transport, bp:p1:strip-identity, step:p4:lag-regular
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:cohomological | blueprint/parts/p4-measure.tex#step:p4:lag-unique@L1001-L1001 | uniqueness for the cohomological equation with g=0
+EDGE: bp:p1:cohomological | blueprint/parts/p4-measure.tex#step:p4:lag-unique@L1002-L1005 | Cohomological uniqueness is invoked at L1002, not the heading
 EDGE: step:p4:lag-exact | blueprint/parts/p4-measure.tex#step:p4:lag-unique@L1004-L1004 | avg Lambda_ij=0
-EDGE: step:p4:lag-transport | blueprint/parts/p4-measure.tex#step:p4:lag-unique@L1004-L1004 | Lambda_ij constant along omega
+EDGE: step:p4:lag-transport | blueprint/parts/p4-measure.tex#step:p4:lag-unique@L1004-L1005 | The transport step is invoked at L1005
 EDGE: bp:p1:strip-identity | blueprint/parts/p4-measure.tex#step:p4:lag-unique@L1006-L1006 | extension from T_{rho/4} to T_rho
 EDGE: step:p4:lag-regular | blueprint/parts/p4-measure.tex#step:p4:lag-unique@L1003-L1003 | Lambda holomorphic periodic
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11926,13 +12130,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:parameters, bp:p4:normalized-torus, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:cover#kamCover, step:p4:rt-analytic, step:p4:rt-small, step:p4:rt-immersion, step:p4:rt-embedding, step:p4:rt-lagrangian, step:p4:rt-ode, step:p4:rt-cover
+DEPS: bp:p4:parameters, bp:p4:normalized-torus, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:cover#kamCover, step:p4:rt-analytic, step:p4:rt-small, step:p4:rt-immersion, step:p4:rt-embedding, step:p4:rt-lagrangian, step:p4:rt-ode, step:p4:rt-cover, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1010-L1010 | standing assumption (SA)
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1010-L1010 | K_omega
 EDGE: bp:p0:nearlyintegrable#realHamiltonian | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1014-L1014 | H=realHamiltonian h f
-EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1019-L1019 | g(I_omega)=omega
+EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1016-L1016 | The frequency identity is on L1016, not the cover-membership line L1019
 EDGE: bp:p0:cover#kamCover | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1020-L1020 | conclusion membership in the cover
 EDGE: step:p4:rt-analytic | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1024-L1024 | proof step of this result
 EDGE: step:p4:rt-small | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1028-L1028 | proof step of this result
@@ -11941,8 +12145,9 @@ EDGE: step:p4:rt-embedding | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L10
 EDGE: step:p4:rt-lagrangian | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1045-L1045 | proof step of this result
 EDGE: step:p4:rt-ode | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1052-L1052 | proof step of this result
 EDGE: step:p4:rt-cover | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1063-L1063 | proof step of this result
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1009-L1021 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11958,7 +12163,7 @@ CONTRACT_ID: step:p4:rt-analytic
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K_omega holomorphic and primary on T_{s/8}, real on reals
 SOURCE_QUANTIFIERS: omega
-SOURCE_CONCLUSION: k_omega is real analytic and Z^n-periodic in the sense of the real restriction lemma
+SOURCE_CONCLUSION: k_omega is real analytic and primary: k_omega(x+m)=k_omega(x)+(m,0) for every real x and integer m
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -11967,11 +12172,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:real-restriction, bp:p1:holomorphic-analytic, bp:p4:normalize
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:real-restriction | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1024-L1024 | real restriction of a holomorphic real-on-reals map
+EDGE: bp:p1:real-restriction | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1025-L1026 | The restriction lemma is used at L1025, not the heading
 EDGE: bp:p1:holomorphic-analytic | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1025-L1025 | holomorphic implies analytic
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1026-L1026 | K_omega holomorphic, primary, real
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -11997,11 +12202,11 @@ DEPS: bp:p1:cauchy-strip, bp:p1:real-restriction, bp:p4:smallness, bp:p4:normali
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:cauchy-strip | blueprint/parts/p4-measure.tex#step:p4:rt-small@L1030-L1030 | Cauchy estimate with loss s/16
-EDGE: bp:p1:real-restriction | blueprint/parts/p4-measure.tex#step:p4:rt-small@L1031-L1031 | derivative of real restriction
+EDGE: bp:p1:real-restriction | blueprint/parts/p4-measure.tex#step:p4:rt-small@L1031-L1033 | The real derivative restriction is used at L1032
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:rt-small@L1031-L1031 | (s3): 16 n eta_0/s<=1/2
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:rt-small@L1029-L1029 | W_omega bounded and holomorphic
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12026,9 +12231,9 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p4:rt-small
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p4:rt-small | blueprint/parts/p4-measure.tex#step:p4:rt-immersion@L1035-L1035 | /D u~/<=1/2
+EDGE: step:p4:rt-small | blueprint/parts/p4-measure.tex#step:p4:rt-immersion@L1036-L1037 | The derivative bound is consumed in the lower bound, not the heading
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12050,12 +12255,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:rt-small
+DEPS: step:p4:rt-small, bp:p1:ext-mvt
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:rt-small | blueprint/parts/p4-measure.tex#step:p4:rt-embedding@L1041-L1041 | /D u~/<=1/2 and periodicity of u~
+EDGE: bp:p1:ext-mvt | blueprint/parts/p4-measure.tex#step:p4:rt-embedding@L1041-L1043 | The derivative bound is integrated along the real segment on the convex set R^n
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12080,13 +12286,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p4:lagrangian, bp:p4:normalize, bp:p4:matrix-norms, bp:p1:real-restriction, bp:p4:smallness
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p4:lagrangian | blueprint/parts/p4-measure.tex#step:p4:rt-lagrangian@L1045-L1045 | Lambda=0 on T_{s/8}
+EDGE: bp:p4:lagrangian | blueprint/parts/p4-measure.tex#step:p4:rt-lagrangian@L1046-L1050 | The Lagrangian lemma is applied at L1046
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:rt-lagrangian@L1046-L1046 | K_omega properties
-EDGE: bp:p4:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:rt-lagrangian@L1048-L1048 | (iv): symplectic form as bilinear form
+EDGE: bp:p4:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:rt-lagrangian@L1049-L1050 | Matrix-form comparison with the real symplectic form occurs at L1049-L1050
 EDGE: bp:p1:real-restriction | blueprint/parts/p4-measure.tex#step:p4:rt-lagrangian@L1049-L1049 | derivative of real restriction
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:rt-lagrangian@L1048-L1048 | (s1): eps<=1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12101,7 +12307,7 @@ PROOF_SOURCE: blueprint/parts/p4-measure.tex#step:p4:rt-ode@L1052-L1061
 CONTRACT_ID: step:p4:rt-ode
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K_omega invariant on T_{s/8}; pfh holomorphic on D and real at real points
-SOURCE_QUANTIFIERS: x,t in R; y=x+t omega
+SOURCE_QUANTIFIERS: x in R^n, t in R; y=x+t omega
 SOURCE_CONCLUSION: d/dt' k_omega(x+t' omega)=X_H(k_omega(y)), clause (vi) of Definition torus
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -12119,7 +12325,7 @@ EDGE: bp:p0:torus#IsInvariantLagrangianTorus | blueprint/parts/p4-measure.tex#st
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:rt-ode@L1058-L1058 | invariance at i y in T_{s/8}, K_omega(iy) in D
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:rt-ode@L1055-L1055 | (s1) for H1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12141,15 +12347,20 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:normalize, bp:p4:inverse-freq, bp:p0:cover#kamCover, bp:p4:smallness
+DEPS: bp:p4:normalize, bp:p4:inverse-freq, bp:p0:cover#kamCover, bp:p4:smallness, step:p4:rt-analytic, step:p4:rt-immersion, step:p4:rt-embedding, step:p4:rt-lagrangian, step:p4:rt-ode
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1064-L1064 | /W_omega/<=eta_0
-EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1067-L1067 | (iii) I_omega in B, g(I_omega)=omega
+EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1066-L1066 | Inverse-frequency clause (iii) is invoked at L1066
 EDGE: bp:p0:cover#kamCover | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1067-L1067 | clauses of the cover definition
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1065-L1065 | (s3): eta_0<=mu<r0
+EDGE: step:p4:rt-analytic | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1066-L1068 | Cover membership requires the already established analytic and primary clauses
+EDGE: step:p4:rt-immersion | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1066-L1068 | Missing direct discharge of the invariant Lagrangian torus premise in the cover application
+EDGE: step:p4:rt-embedding | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1066-L1068 | Missing direct discharge of the invariant Lagrangian torus premise in the cover application
+EDGE: step:p4:rt-lagrangian | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1066-L1068 | Missing direct discharge of the invariant Lagrangian torus premise in the cover application
+EDGE: step:p4:rt-ode | blueprint/parts/p4-measure.tex#step:p4:rt-cover@L1066-L1068 | Missing direct discharge of the invariant Lagrangian torus premise in the cover application
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12203,11 +12414,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p4:inverse-freq, bp:p1:lip-image, bp:p0:g3
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:pm-proof@L1096-L1096 | L_+-Lipschitz inverse of g
-EDGE: bp:p1:lip-image | blueprint/parts/p4-measure.tex#step:p4:pm-proof@L1098-L1098 | measure of a Lipschitz image
+EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:pm-proof@L1097-L1098 | Inverse Lipschitz use is at L1097-L1098, not the heading
+EDGE: bp:p1:lip-image | blueprint/parts/p4-measure.tex#step:p4:pm-proof@L1099-L1099 | The image-measure lemma is invoked at L1099
 EDGE: bp:p0:g3 | blueprint/parts/p4-measure.tex#step:p4:pm-proof@L1099-L1099 | measure of non-Diophantine frequencies
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12229,14 +12440,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:inverse-freq, bp:p4:real-torus, bp:p4:parameters
+DEPS: bp:p4:inverse-freq, bp:p4:real-torus, bp:p4:parameters, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#bp:p4:good-actions@L1109-L1109 | g(I) in Omega_gamma and I_{g(I)}=I
 EDGE: bp:p4:real-torus | blueprint/parts/p4-measure.tex#bp:p4:good-actions@L1107-L1107 | k_omega, real restriction of K_omega
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:good-actions@L1103-L1103 | standing assumption (SA), Omega_gamma
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:good-actions@L1102-L1111 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12258,7 +12470,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:ml-size, step:p4:ml-good, step:p4:ml-mixed, bp:p4:good-actions, bp:p4:parameters
+DEPS: step:p4:ml-size, step:p4:ml-good, step:p4:ml-mixed, bp:p4:good-actions, bp:p4:parameters, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:ml-size | blueprint/parts/p4-measure.tex#bp:p4:map-lipschitz@L1119-L1119 | proof step
@@ -12266,8 +12478,9 @@ EDGE: step:p4:ml-good | blueprint/parts/p4-measure.tex#bp:p4:map-lipschitz@L1123
 EDGE: step:p4:ml-mixed | blueprint/parts/p4-measure.tex#bp:p4:map-lipschitz@L1133-L1133 | proof step
 EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#bp:p4:map-lipschitz@L1114-L1114 | G_0, A_gamma, Z
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:map-lipschitz@L1114-L1114 | standing assumption (SA)
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:map-lipschitz@L1113-L1116 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12289,13 +12502,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:normalize, bp:p4:good-actions
+DEPS: bp:p4:normalize, bp:p4:good-actions, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:ml-size@L1121-L1121 | /W_omega/<=eta_0
 EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:ml-size@L1119-L1119 | A_gamma, Z, G_0
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:ml-size@L1119-L1121 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12317,7 +12531,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:rt-small, bp:p4:lip, bp:p4:freq-map, bp:p4:smallness, bp:p4:good-actions, bp:p4:parameters
+DEPS: step:p4:rt-small, bp:p4:lip, bp:p4:freq-map, bp:p4:smallness, bp:p4:good-actions, bp:p4:parameters, bp:p4:SA, bp:p1:ext-mvt
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:rt-small | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1124-L1124 | derivative bound 16 n eta_0/s on R^n
@@ -12326,8 +12540,10 @@ EDGE: bp:p4:freq-map | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1126-L112
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1129-L1129 | (s6)
 EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1123-L1123 | G_0, A_gamma
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1124-L1124 | A_4, A_3, Lambda_g definitions
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1123-L1131 | Missing direct dependency on the explicit local package (SA), required by SPEC
+EDGE: bp:p1:ext-mvt | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1124-L1129 | The real derivative bound is converted to a difference bound on convex R^n
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12341,7 +12557,7 @@ STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1133-L1137
 PROOF_SOURCE: blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1133-L1137
 CONTRACT_ID: step:p4:ml-mixed
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (SA); |G_0|<=eta_0; infDist 1-Lipschitz
+SOURCE_HYPOTHESES: (SA); I in A_gamma, J in Z; theta,theta_prime in R^n; G_0 as defined in good-actions
 SOURCE_QUANTIFIERS: I in A_gamma, J in Z
 SOURCE_CONCLUSION: |G_0(theta,I)-G_0(theta',J)|<=(1/2)|(theta,I)-(theta',J)|; two boundary actions give 0
 CONSTANT_SCOPE: none
@@ -12349,19 +12565,20 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:smallness, step:p4:ml-size, bp:p4:good-actions
+DEPS: bp:p4:smallness, step:p4:ml-size, bp:p4:good-actions, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1135-L1135 | (s7): eta_0<=gamma/2
 EDGE: step:p4:ml-size | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1135-L1135 | /G_0/<=eta_0
 EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1134-L1134 | A_gamma, Z, G_0
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1133-L1137 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L1134 invokes the 1-Lipschitz property of infDist(.,B^c) without proof; none of E1-E10 is a distance-to-set theorem. The existing labelled separation step exposes this local missing input; SOURCE_HYPOTHESES must not present it as an extra source assumption.
 
 NODE: bp:p4:main-measure
 KIND: theorem
@@ -12378,7 +12595,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:mm-extension, step:p4:mm-tori, step:p4:mm-complement, step:p4:mm-bad, step:p4:mm-count, bp:p4:parameters, bp:p0:cover#kamCover
+DEPS: step:p4:mm-extension, step:p4:mm-tori, step:p4:mm-complement, step:p4:mm-bad, step:p4:mm-count, bp:p4:parameters, bp:p0:cover#kamCover, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:mm-extension | blueprint/parts/p4-measure.tex#bp:p4:main-measure@L1150-L1150 | proof step
@@ -12388,8 +12605,9 @@ EDGE: step:p4:mm-bad | blueprint/parts/p4-measure.tex#bp:p4:main-measure@L1171-L
 EDGE: step:p4:mm-count | blueprint/parts/p4-measure.tex#bp:p4:main-measure@L1177-L1177 | proof step
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:main-measure@L1141-L1141 | standing assumption (SA)
 EDGE: bp:p0:cover#kamCover | blueprint/parts/p4-measure.tex#bp:p4:main-measure@L1145-L1145 | cover appearing in the conclusion
+EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:main-measure@L1140-L1147 | Missing direct dependency on the explicit local package (SA), required by SPEC
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12501,14 +12719,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:preimage-measure, step:p4:mm-complement, bp:p4:good-actions
+DEPS: bp:p4:preimage-measure, bp:p4:good-actions
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p4:preimage-measure | blueprint/parts/p4-measure.tex#step:p4:mm-bad@L1174-L1174 | measure of the non-Diophantine action set
-EDGE: step:p4:mm-complement | blueprint/parts/p4-measure.tex#step:p4:mm-bad@L1171-L1171 | the sets B cap Z and Z^c minus A_gamma
+EDGE: bp:p4:preimage-measure | blueprint/parts/p4-measure.tex#step:p4:mm-bad@L1174-L1175 | The preimage-measure bound is invoked at L1175
 EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:mm-bad@L1172-L1172 | A_gamma, Z
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12530,7 +12747,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p1:lip-image, step:p4:mm-complement, step:p4:mm-bad, step:p4:mm-extension, bp:p4:good-actions
+DEPS: bp:p1:lip-image, step:p4:mm-complement, step:p4:mm-bad, step:p4:mm-extension, bp:p4:good-actions, bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:lip-image | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1179-L1179 | measure of the Lipschitz image Psi(Q x (...))
@@ -12538,13 +12755,14 @@ EDGE: step:p4:mm-complement | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1
 EDGE: step:p4:mm-bad | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1182-L1182 | measure of Y and of the non-Diophantine set
 EDGE: step:p4:mm-extension | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1180-L1180 | Psi is 3/2-Lipschitz
 EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1178-L1178 | Z, A_gamma
+EDGE: bp:p1:ext-lebesgue | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1178-L1183 | Monotonicity and subadditivity are directly used in the measure count
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L1178-L1181 uses product-volume formulas for the action sets B intersect Z and Z^c minus A_gamma, and measures their products with cubes. E8 gives outer measure by box covers; E6 explicitly gives Fubini for continuous compact-box integrands. No measurable-indicator/product bridge for these sets is supplied here. Expose this use rather than claim E8 proves it.
 
 NODE: bp:p4:cover-mono
 KIND: lemma
@@ -12608,7 +12826,7 @@ STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-empty@L1201-L1202
 PROOF_SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-empty@L1201-L1202
 CONTRACT_ID: step:p4:head-empty
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: fixed HEAD data (n>=2, tau>n-1, s0,r0>0, B open bounded nonempty, h holomorphic on B_{r0} and real at real points, witnesses L_h, C_B) (B possibly empty)
+SOURCE_HYPOTHESES: HEAD data, allowing B empty: n>=2, tau>n-1, s0,r0>0, B open bounded, boundary-layer witness C_B, h holomorphic and real on B_{r0}, inverse-frequency witness L_h on closure B
 SOURCE_QUANTIFIERS: B
 SOURCE_CONCLUSION: if B empty then F_B empty and C=eps_0=1 work; otherwise continue with B nonempty
 CONSTANT_SCOPE: none
@@ -12616,11 +12834,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p0:domains#fundamentalDomain
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p4-measure.tex#step:p4:head-empty@L1202-L1202 | The empty case unfolds F_B
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12670,11 +12889,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bp:p4:data
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#step:p4:head-negative@L1215-L1216 | The nonempty domain and the perturbation bound from the fixed data supply epsilon>=0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12788,12 +13008,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L1251-L1252 invokes continuity of Lebesgue measure from below for E_j, without a derivation from the E8 box-cover definition or an explicit reduction to E6 dominated convergence. E8 itself states only outer measure, monotonicity and countable subadditivity. This invocation must remain visible under the closed external-input policy.
 
 NODE: step:p4:dy-open
 KIND: step
@@ -12815,12 +13035,12 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:dy-exhaust | blueprint/parts/p4-measure.tex#step:p4:dy-open@L1255-L1255 | cubes D_j and E_j with measure bound
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L1256-L1257 uses that the finite union of cube boundaries is null, without a box-cover estimate in the corpus or an E1-E10 statement of this result. Retain the claimed approximation but expose this missing measure input.
 
 NODE: step:p4:dy-layer
 KIND: step
@@ -12893,10 +13113,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p4:dyadic-approx, step:p4:hq-trivial
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p4:dyadic-approx | blueprint/parts/p4-measure.tex#step:p4:hq-approx@L1274-L1274 | inner approximation
+EDGE: bp:p4:dyadic-approx | blueprint/parts/p4-measure.tex#step:p4:hq-approx@L1275-L1275 | Dyadic approximation is invoked at L1275, not the heading
 EDGE: step:p4:hq-trivial | blueprint/parts/p4-measure.tex#step:p4:hq-approx@L1274-L1274 | 0<meas B<infty and kappa fixed
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12949,12 +13169,12 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p4:head-negative, bp:p0:head, step:p4:hq-head, step:p4:hq-approx
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p4:head-negative | blueprint/parts/p4-measure.tex#step:p4:hq-transfer@L1290-L1290 | eps>=0 as in HEAD
+EDGE: step:p4:head-negative | blueprint/parts/p4-measure.tex#step:p4:hq-transfer@L1290-L1291 | Nonnegative epsilon is invoked at L1291
 EDGE: bp:p0:head | blueprint/parts/p4-measure.tex#step:p4:hq-transfer@L1291-L1291 | HEAD conclusion for B'
 EDGE: step:p4:hq-head | blueprint/parts/p4-measure.tex#step:p4:hq-transfer@L1288-L1288 | eps<=eps_0'; C', eps_0
 EDGE: step:p4:hq-approx | blueprint/parts/p4-measure.tex#step:p4:hq-transfer@L1287-L1287 | B' subset B
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12976,15 +13196,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p4:cover-mono, step:p4:hq-transfer, step:p4:hq-approx, step:p4:hq-trivial
+DEPS: bp:p4:cover-mono, step:p4:hq-transfer, step:p4:hq-approx, step:p4:hq-trivial, step:p4:hq-head
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:cover-mono | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1296-L1296 | kamCover_B'(C' sqrt eps) subset kamCover_B(kappa)
-EDGE: step:p4:hq-transfer | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1300-L1300 | measure bound for F_B' minus cover
-EDGE: step:p4:hq-approx | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1300-L1300 | meas(B minus B')<=(1/2)kappa meas B
+EDGE: step:p4:hq-transfer | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1298-L1301 | The measure inequality is used at L1301, not the display delimiter L1300
+EDGE: step:p4:hq-approx | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1298-L1301 | The approximation error is consumed in the final measure inequality
 EDGE: step:p4:hq-trivial | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1301-L1301 | meas F_B = meas B
+EDGE: step:p4:hq-head | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1296-L1296 | The chosen epsilon_0 supplies Cprime sqrt(epsilon)<=kappa; transfer only records the measure part
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -12996,18 +13217,18 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 
 ### Dashboard
 
-* Total nodes: **449**
+* Total nodes: **454**
 * Frozen anchors: **25**
-* Versioned statement contracts: **449**
-* Total edges: **1301**
-* Root-closure nodes: **449**
-* Dependency leaves in root closure: **51**
+* Versioned statement contracts: **454**
+* Total edges: **1392**
+* Root-closure nodes: **454**
+* Dependency leaves in root closure: **46**
 * Assumption boundary leaves: **0**
 * External boundary leaves: **10**
-* Alternative routes: **0**
-* Topology review queue: **449**
-* Explicit source gaps: **1**
-* Coverage items: **557**; excluded: **104**
+* Alternative routes: **2**
+* Topology review queue: **454**
+* Explicit source gaps: **8**
+* Coverage items: **576**; excluded: **113**
 
 ### Roots
 
@@ -13053,6 +13274,7 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `bp:p1:cohomological` [PROPOSED] — Cohomological equation on strips
 * `bp:p1:cohomological-operator` [PROPOSED] — Cohomological equation in operator norms, a-priori bound
 * `bp:p1:decay` [PROPOSED] — Coefficient decay
+* `bp:p1:decay#boundary-radius` [PROPOSED] — Coefficient decay at the boundary radius
 * `bp:p1:exp-sums` [PROPOSED] — Exponential sums over $\Z^n$
 * `bp:p1:ext-banach` [PROPOSED] — Banach's fixed point theorem
 * `bp:p1:ext-cauchy` [PROPOSED] — Cauchy's formulas in one variable
@@ -13111,6 +13333,7 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `bp:p2:objects` [PROPOSED] — Objects attached to a parameterization
 * `bp:p2:periodicity` [PROPOSED] — Periodicity and realness of the attached objects
 * `bp:p2:perturbation` [PROPOSED] — Perturbation of the frame and the torsion
+* `bp:p2:perturbation#average-applicability` [PROPOSED] — Continuity-only averaging estimate used by frame perturbation
 * `bp:p2:schedule` [PROPOSED] — Schedule of the iteration
 * `bp:p2:standing` [PROPOSED] — Standing data of Part~\ref{bp:p2}
 * `bp:p2:step` [PROPOSED] — The KAM step
@@ -13126,6 +13349,7 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `bp:p3:standing` [PROPOSED] — Two invariant tori
 * `bp:p3:standing#constants` [PROPOSED] — Constants of Part 3
 * `bp:p3:torsion-bound` [PROPOSED] — The torsion
+* `bp:p4:SA` [PROPOSED] — Local smallness package and frequency notation
 * `bp:p4:apply` [PROPOSED] — APPLY: a torus for every Diophantine frequency
 * `bp:p4:cover-mono` [PROPOSED] — Monotonicity of the cover
 * `bp:p4:data` [PROPOSED] — Shrunken domains and basic constants
@@ -13255,6 +13479,8 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `step:p1:ul-primary` [PROPOSED] — Periodicity and realness
 * `step:p2:avg-bound` [PROPOSED] — Integrability and the bound
 * `step:p2:avg-deriv` [PROPOSED] — Derivatives
+* `step:p2:avg-deriv#bounded-route` [PROPOSED] — Alternative through a bounded smaller strip
+* `step:p2:avg-deriv#real-route` [PROPOSED] — Derivatives of the restriction to the real torus
 * `step:p2:coh-apriori` [PROPOSED] — The a-priori bound
 * `step:p2:coh-components` [PROPOSED] — Componentwise solution
 * `step:p2:cor-absorb` [PROPOSED] — Absorbing powers of $\gamma\delta$
@@ -13495,7 +13721,6 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `bp:p1:ext-schwarz` [PROPOSED] — Symmetry of second derivatives
 * `bp:p1:lip-image-product#product-lebesgue` [PROPOSED] — Product of Lebesgue measures is Lebesgue measure on R^{2n}
 * `bp:p1:lipeo-fixed` [PROPOSED] — Bijections fixing a set
-* `bp:p1:real-restriction-consequences` [PROPOSED] — Real restrictions of linear and primary maps
 * `bp:p4:phase-average` [PROPOSED] — Angle displacement and phase average
 * `step:p1:es-power` [PROPOSED] — The power times the exponential
 * `step:p1:es-product` [PROPOSED] — Product structure
@@ -13503,7 +13728,6 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `step:p1:hr-derivative` [PROPOSED] — The real derivative
 * `step:p1:it-linear` [PROPOSED] — The form linear in $y_0$
 * `step:p1:it-super` [PROPOSED] — Super-exponential decay
-* `step:p1:li-image` [PROPOSED] — Image of one cube
 * `step:p1:lipeo-bounds` [PROPOSED] — Bi-Lipschitz bounds
 * `step:p1:mc-component` [PROPOSED] — One component
 * `step:p1:mn-transpose` [PROPOSED] — Transposes
@@ -13512,13 +13736,10 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `step:p1:rr-derivative` [PROPOSED] — The derivative
 * `step:p1:sum-bound` [PROPOSED] — Convergence and the bound
 * `step:p3:diff-linearized` [PROPOSED] — Linearized equation
-* `step:p3:phase-fixed-point` [PROPOSED] — Fixed-point form
 * `step:p4:count-projection` [PROPOSED] — Projection to the first $n-1$ coordinates
 * `step:p4:dy-exhaust` [PROPOSED] — Dyadic exhaustion
 * `step:p4:fm-domain` [PROPOSED] — The real domain
 * `step:p4:hbdd-compact` [PROPOSED] — A compact set between the neighbourhoods
-* `step:p4:head-empty` [PROPOSED] — Empty action domain
-* `step:p4:head-negative` [PROPOSED] — Negative $\varepsilon$
 * `step:p4:hq-trivial` [PROPOSED] — Trivial cases
 * `step:p4:latsum-integral` [PROPOSED] — Integral comparison
 * `step:p4:slab-coordinate` [PROPOSED] — A dominant coordinate
@@ -13551,4 +13772,11 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 ### Explicit source gaps
 
 * `bp:p1:lip-image-product#product-lebesgue` [PROPOSED] — Product of Lebesgue measures is Lebesgue measure on R^{2n}
+* `bp:p2:perturbation#average-applicability` [PROPOSED] — Continuity-only averaging estimate used by frame perturbation
+* `step:p1:mc-clamp` [PROPOSED] — Clamping
+* `step:p4:dy-exhaust` [PROPOSED] — Dyadic exhaustion
+* `step:p4:dy-open` [PROPOSED] — The open set
+* `step:p4:ml-mixed` [PROPOSED] — A good action and a boundary action
+* `step:p4:mm-count` [PROPOSED] — Measure count
+* `step:p4:slab-fubini` [PROPOSED] — Fubini in the coordinate $\omega_i$
 <!-- END PROOF DEPGRAPH GENERATED -->
