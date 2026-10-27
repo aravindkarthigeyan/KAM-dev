@@ -124,8 +124,10 @@ theorem mcshane_prod {n : ℕ} {Λ : ℝ} (hΛ : 0 ≤ Λ) {φ : X → (Fin n �
     obtain ⟨Φ₂, g₂, e₂⟩ := (mcshane hΛ h2).1
     refine ⟨fun x => (Φ₁ x, Φ₂ x), hLip Φ₁ Φ₂ g₁ g₂, fun x hx => ?_⟩
     exact Prod.ext (e₁ x hx) (e₂ x hx)
-  · obtain ⟨Φ₁, g₁, e₁, b₁⟩ := (mcshane hΛ h1).2 β hβ fun x hx => (norm_fst_le (φ x)).trans (hφβ x hx)
-    obtain ⟨Φ₂, g₂, e₂, b₂⟩ := (mcshane hΛ h2).2 β hβ fun x hx => (norm_snd_le (φ x)).trans (hφβ x hx)
+  · obtain ⟨Φ₁, g₁, e₁, b₁⟩ := (mcshane hΛ h1).2 β hβ fun x hx =>
+      (norm_fst_le (φ x)).trans (hφβ x hx)
+    obtain ⟨Φ₂, g₂, e₂, b₂⟩ := (mcshane hΛ h2).2 β hβ fun x hx =>
+      (norm_snd_le (φ x)).trans (hφβ x hx)
     refine ⟨fun x => (Φ₁ x, Φ₂ x), hLip Φ₁ Φ₂ g₁ g₂, fun x hx => Prod.ext (e₁ x hx) (e₂ x hx),
       fun x => ?_⟩
     rw [Prod.norm_def]

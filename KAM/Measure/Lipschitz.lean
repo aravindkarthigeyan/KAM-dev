@@ -17,11 +17,23 @@ Blueprint `bp:p1:lip-image-product` and `bp:p1:lip-image`. All norms are the max
 `Fin d → ℝ` and on `(Fin n → ℝ) × (Fin n → ℝ)`; `volume` is Lebesgue measure, regarded as an
 outer measure on arbitrary sets.
 
-The proof of the image bound follows the alternative route of the blueprint: for the max norm
-the `d`-dimensional Hausdorff measure is Lebesgue measure
+The proof of the image bound follows the alternative route of the blueprint (step
+`step:p1:li-sum`): for the max norm the `d`-dimensional Hausdorff measure is Lebesgue measure
 (`MeasureTheory.hausdorffMeasure_pi_real`) and Lipschitz maps multiply it by at most `Λ ^ d`
-(`LipschitzOnWith.hausdorffMeasure_image_le`). The product `ℝⁿ × ℝⁿ` is identified with `ℝ^(n+n)`
-by `Fin.append`, an isometry that preserves Lebesgue measure.
+(`LipschitzOnWith.hausdorffMeasure_image_le`). This route replaces the cube-cover argument, so
+`step:p1:li-cubes` and `step:p1:li-image` have no declaration of their own: their content is inside
+the Mathlib lemma. The product `ℝⁿ × ℝⁿ` is identified with `ℝ^(n+n)` by `Fin.append`, an isometry
+that preserves Lebesgue measure (`lip_image_product`); the dimension `d = 2n` enters the
+product statements as the exponent `2 * n`.
+
+| Blueprint item | Declaration |
+| --- | --- |
+| `bp:p1:lip-image-product` | `lip_image_product` |
+| `bp:p1:lip-image`, image bound | `lip_image`, `lip_image_prod` |
+| `bp:p1:lip-image`, null preimages | `lip_preimage_null`, `lip_preimage_null_prod` |
+| `step:p1:li-sum` | `lip_image` |
+| `step:p1:li-preimage` | `lip_preimage_null` |
+| `step:p1:li-product` | `lip_image_prod`, `lip_preimage_null_prod` |
 -/
 
 @[expose] public section

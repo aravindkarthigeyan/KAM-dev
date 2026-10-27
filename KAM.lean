@@ -134,6 +134,9 @@ public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
 public import KAM.Matrix.Neumann
+public import KAM.Measure.Lipeo
+public import KAM.Measure.Lipschitz
+public import KAM.Measure.McShane
 public import KAM.Strip.Averages
 public import KAM.Strip.Cauchy
 public import KAM.Strip.HigherCauchy
