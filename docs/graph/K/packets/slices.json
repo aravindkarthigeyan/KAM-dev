@@ -1,0 +1,83 @@
+{
+ "K-p0": {
+  "part": "p0",
+  "lines": [
+   1,
+   1000000000
+  ],
+  "nodes": 26,
+  "coverage": 39
+ },
+ "K-p1a": {
+  "part": "p1",
+  "lines": [
+   1,
+   498
+  ],
+  "nodes": 59,
+  "coverage": 62
+ },
+ "K-p1b": {
+  "part": "p1",
+  "lines": [
+   499,
+   994
+  ],
+  "nodes": 58,
+  "coverage": 64
+ },
+ "K-p1c": {
+  "part": "p1",
+  "lines": [
+   995,
+   1000000000
+  ],
+  "nodes": 28,
+  "coverage": 31
+ },
+ "K-p2a": {
+  "part": "p2",
+  "lines": [
+   1,
+   602
+  ],
+  "nodes": 55,
+  "coverage": 72
+ },
+ "K-p2b": {
+  "part": "p2",
+  "lines": [
+   603,
+   1000000000
+  ],
+  "nodes": 61,
+  "coverage": 80
+ },
+ "K-p3": {
+  "part": "p3",
+  "lines": [
+   1,
+   1000000000
+  ],
+  "nodes": 44,
+  "coverage": 55
+ },
+ "K-p4a": {
+  "part": "p4",
+  "lines": [
+   1,
+   667
+  ],
+  "nodes": 65,
+  "coverage": 71
+ },
+ "K-p4b": {
+  "part": "p4",
+  "lines": [
+   668,
+   1000000000
+  ],
+  "nodes": 68,
+  "coverage": 80
+ }
+}
