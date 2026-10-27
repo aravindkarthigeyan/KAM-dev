@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 22:20 UTC from `main` at `4e449e5` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 22:20 UTC from `main` at `d15c8ce` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 22:20 | `d15c8ce` | Briefs for P2-9, P4-2, P4-8 |
 | 2026-10-27 22:18 | `4e449e5` | Land inp into main |
 | 2026-10-27 22:17 | `18adf59` | P4-0 landed: Part 4 definitions (Head/Standing, Head/Defs), design-form adapters, coh_unique_zero; audit PASS WITH NOTES |
 | 2026-10-27 22:17 | `796fad6` | Land k/p4-0 into main |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 22:03 | `02fe981` | Land k/p3-1 into main |
 | 2026-10-27 21:57 | `ce4945a` | Briefs for P3-2, P3-3, P4-1, P4-3 |
 | 2026-10-27 21:55 | `9ddc863` | I-STRIP-3b (cohomological operator, Part 2 corollary) and P2-7 (exactness, geometry steps) landed; audits PASS WITH NOTES |
-| 2026-10-27 21:54 | `ac6ed0a` | Land k/p2-7 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
