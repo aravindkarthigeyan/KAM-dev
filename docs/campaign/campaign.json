@@ -43,8 +43,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N revision v0.2: N-HEAD as approved plus a complex-bound variant; owner choice of headline",
-   "state": "running"
+   "assignment": "Track N v0.2: N-HEAD kept (F-N1 open) plus N-HEAD-C with complex Hessian bound and frequency lower bound (Poschel 1993 Thm 1)",
+   "state": "done"
   },
   {
    "id": "track-P",
@@ -70,8 +70,8 @@
    "model": "GPT-6-Astra xhigh",
    "account": "codex-3",
    "session": "kam-audit-n",
-   "assignment": "Track N audit v0.1: approvable with changes; F-N1 (BM11 uniformity in h needs a complex Hessian bound) blocks proof-route sign-off",
-   "state": "done"
+   "assignment": "Delta audit of track N v0.2 (N-HEAD-C)",
+   "state": "running"
   },
   {
    "id": "audit-P",

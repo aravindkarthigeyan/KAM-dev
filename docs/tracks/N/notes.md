@@ -317,3 +317,46 @@ The original D18 uniformity is preserved exactly in the other named theorem.
 - Lochak's original theorem text remains **[unverified]** and is not needed for the selected direct
   Pöschel route. N-STEEP remains deferred under D18-Q5.
 - These statements do not establish planetary collision exclusion or observed-Solar-System stability.
+
+## Current v0.2 validation receipt
+
+The historical output above is not the current lint status. Checks were run sequentially with the required
+`nice -n 5` for Lean; no resource overrides, whole-library build, frozen edits, or git mutations were used.
+
+- `nice -n 5 lake env lean .drafts/N/Statements.lean` — **exit 0**, exactly four warnings:
+
+  ```text
+  .drafts/N/Statements.lean:103:8: warning: declaration uses `sorry`
+  .drafts/N/Statements.lean:114:8: warning: declaration uses `sorry`
+  .drafts/N/Statements.lean:130:8: warning: declaration uses `sorry`
+  .drafts/N/Statements.lean:169:8: warning: declaration uses `sorry`
+  ```
+
+  The embedded `#print axioms` commands report `[propext, sorryAx, Classical.choice, Quot.sound]`
+  for each of `quasiConvex_isoenergetic_derivative`, `zero_perturbation`, `quasiConvex_nekhoroshev`,
+  and `quasiConvex_nekhoroshev_complexBound`. These are unproved theorem drafts, not kernel proof receipts.
+- `scripts/lint_sources.sh` — **exit 0**:
+
+  ```text
+  check_lean_modules: PASS (43 Lean files, 0 comparator configurations)
+  FROZEN-ANCHOR GUARD OK
+  ABI HASHES OK (25 frozen declarations)
+  ```
+
+  The guard excludes `.drafts/`; its pass does not substitute for draft elaboration.
+- Mechanical comparison with the in-memory v0.1 snapshot: original N-HEAD declaration, from `theorem`
+  through its `sorry` body, is **byte-identical**, SHA-256
+  `37028cd2d8cf0e9448e74428246814eb57cf9450ac811544aec70be7267abc56`.
+  The new theorem is exactly that declaration with its new name, two positive fixed parameters, and
+  two additional antecedents. Its entire solution conclusion is unchanged.
+- The draft is **203 lines**; no line exceeds 100 characters. It contains eleven exposed definitions
+  and four theorem bodies. All ten existing definitions are unchanged. The only existing theorem-type
+  edits are removal of the two unused gate dimension hypotheses; N-HEAD is unchanged.
+- All three PDF hashes match the pins in sources.md. The source-line audit uses the existing renderings;
+  no new PDF or audit-scratch file was written.
+- `git diff --check` and direct checks of the five owned text deliverables report no whitespace or control
+  character defects. `.drafts/N/Statements.lean` is ignored and absent from `git ls-files`.
+
+The workspace has concurrent orchestrator activity and its HEAD advanced during this revision. No commit,
+add, push, checkout, reset or stash was run by this task. The preservation comparison uses the actual
+pre-edit draft snapshot rather than treating a moving HEAD as the v0.1 baseline.
