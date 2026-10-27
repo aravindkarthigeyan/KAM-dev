@@ -46,8 +46,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.03,
-   "note": "blueprint-I: Part 0 and plan written (7 parts, ~100 pp.); Part 1 being written"
+   "done": 0.06,
+   "note": "blueprint-I: Part 0 (reviewed, fixed), Part 1 written; Part 2 (iteration, I-G1) being written"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -94,8 +94,8 @@
    "id": "N.ADD.PHASE0",
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.3,
-   "note": "drafted (v0.3, d7ad21c); independent GPT-6.1-Sol statement audit running"
+   "done": 0.45,
+   "note": "audit done; N-PARTIAL-CONVEX revision v0.4 running (F-NADD-1); N-AVERAGING deferred until the primary AKN source is pinned"
   },
   {
    "group": "Track N (Nekhoroshev)",
