@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 20:53 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 38.8 %** · frozen statements proved: 1 / 22 · **17,895 lines of Lean** of an estimated ≈ 125,000
+> **Last updated: 2026-10-27 20:54 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 38.8 %** · frozen statements proved: 1 / 22 · **17,895 lines of Lean** of an estimated ≈ 125,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 20:53 UTC from `main` at `85d4f35` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 20:54 UTC from `main` at `c547067` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K: 120/453 graph nodes proved and audited. G1/G2 proof campaign started: Lean design audited (PASS, no corrected signatures); wave 1 running (P2-1a carrier, P2-1b standing/constants); I-P1C running; Zohar's I-STRIP-3 (cohomological equation) gates wave 5. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -299,6 +299,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 20:54 | `c547067` | Brief for P2-4 (Hamiltonian, periodicity) |
 | 2026-10-27 20:53 | `85d4f35` | P2-2 landed: frozen agreement; audit PASS |
 | 2026-10-27 20:53 | `c4c273d` | Land k/p2-2 into main |
 | 2026-10-27 20:50 | `b94a7a7` | Land inp into main |
@@ -310,7 +311,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 20:37 | `2edfb0e` | Land k/p2-11 into main |
 | 2026-10-27 20:29 | `dcdde7b` | Land inp into main |
 | 2026-10-27 20:26 | `b92f125` | P2-1b landed (9d193ec): Part 2 standing data and constants; audit PASS WITH NOTES. Brief for P2-11 (schedule) |
-| 2026-10-27 20:26 | `ca83a66` | Land inp into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
