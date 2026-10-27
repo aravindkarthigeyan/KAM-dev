@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: 91cedb11be4f33139d30fcc5103f7ed5370fa5d89a68f9a3aaf0b061ae292
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -33,7 +33,7 @@ CONTRACT_ID: kam.actionNbhd
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: typing data: B subset R^n, r in R
 SOURCE_QUANTIFIERS: B, r
-SOURCE_CONCLUSION: defines B_r = {I in C^n : exists J in B, max-norm ¦I-J¦ < r} (KAM.actionNbhd); B_r is open; for real I, I in B_r iff exists J in B with ¦I-J¦ < r
+SOURCE_CONCLUSION: defines B_r = {I in C^n : exists J in B, max-norm ¦I-J¦ < r} (KAM.actionNbhd); for real I, I in B_r iff exists J in B with ¦I-J¦ < r
 CONSTANT_SCOPE: none
 FROZEN_FILE: KAM/Frozen/Defs/ActionNbhd.lean
 FROZEN_DECL: KAM.actionNbhd
@@ -43,7 +43,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p0
+EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: 24a486c6ccc5648791465ec3577c2e37fd464ecaec8f0dab9c74a5588535e
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: 427a145572df4c3e14079cf88feb16d60e1cd92fcd1770faddd36ad706562
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -120,9 +120,9 @@ FROZEN_ABI_SHA256: 482764b7e8e1691b3c3c182bca9b959f0d657e126c6b21b837ff0516f91e4
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -146,9 +146,9 @@ FROZEN_ABI_SHA256: ea510392f643a3fce65df6d4bc826d902d7b2277f67b0c009e3522d5659a0
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -172,9 +172,9 @@ FROZEN_ABI_SHA256: c9326077b299282bff92fdb8a3a849f512167fd4dc8e859bb0fdf1662f525
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -199,9 +199,9 @@ DEPS: bpI:p0:domains#complexStrip
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L77-L77 | strip T_rho
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -225,9 +225,9 @@ FROZEN_ABI_SHA256: 6549c22016139f44ca97ba901aa4927905970838ce283fef53b30c223dfab
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -251,9 +251,9 @@ FROZEN_ABI_SHA256: 6d938a769932067b5668f7e0b3bb92a62331b9be8f6a13b7a625af3b5eed3
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -277,9 +277,9 @@ FROZEN_ABI_SHA256: 32a39d2730c3b399c1bb81f1b709931dbdea47635807e8036db3b25116ef4
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -304,9 +304,9 @@ DEPS: bpI:p0:hamiltonian#hamiltonianVectorFieldC
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:hamiltonian#hamiltonianVectorFieldC | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L82-L82 | X_H(K(theta)) with complex H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -331,9 +331,9 @@ DEPS: bpI:p0:stripdata#dotC
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:stripdata#dotC | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L83-L83 | entries are bilinear dot products DK e_i . DK e_j
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -359,9 +359,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:stripdata#gramMatrix | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L84-L84 | inverse of the Gram matrix
 EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L84-L84 | Omega_0(DK e_k)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -389,9 +389,9 @@ EDGE: bpI:p0:stripdata#normalFrame | blueprint-I/parts/p0-conventions.tex#bpI:p0
 EDGE: bpI:p0:hamiltonian#hamiltonianVectorFieldC | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L86-L86 | DX_H(K(theta))
 EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L86-L86 | Omega_0 applied to the transport term
 EDGE: bpI:p0:stripdata#dotC | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripdata@L86-L86 | N_{.i} . Omega_0(...)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -415,9 +415,9 @@ FROZEN_ABI_SHA256: 6ad218934c652835e712bbac7ccb96b5642ef3577ffde62883cc9c83969c7
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -443,9 +443,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:stripdata#torsion | blueprint-I/parts/p0-conventions.tex#bpI:p0:extended@L100-L100 | upper-left block is the torsion
 EDGE: bpI:p0:stripdata#normalFrame | blueprint-I/parts/p0-conventions.tex#bpI:p0:extended@L103-L103 | last row DH(K(theta))(N_{.b}(theta))
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -470,9 +470,9 @@ DEPS: bpI:p0:extended#extendedTorsion
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p0-conventions.tex#bpI:p0:extended@L105-L105 | entrywise integral of T_H(theta)_ij
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -497,9 +497,9 @@ DEPS: bpI:p0:realham#frequencyMap
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p0-conventions.tex#bpI:p0:bordered@L116-L116 | grad h and its real derivative
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -524,9 +524,9 @@ DEPS: bpI:p0:hamiltonian#hamiltonianVectorField
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:hamiltonian#hamiltonianVectorField | blueprint-I/parts/p0-conventions.tex#bpI:p0:hamsol@L125-L125 | z'(t) = X_H(z(t))
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -550,9 +550,9 @@ FROZEN_ABI_SHA256: 5311b4ff1819b9d4cf9fe59159a329131dfd4eb74ea2a6c766c1bdfe565db
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -577,9 +577,9 @@ DEPS: bpI:p0:primaries#radiusSq
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p0-conventions.tex#bpI:p0:primaries@L131-L131 | rad(q) = sqrt of rho_2(q)^2 (the radicand q_0^2+q_1^2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -603,9 +603,9 @@ FROZEN_ABI_SHA256: ec076b67ffb8c1136b924761bb31caffa4832b565b5916e98e835b8d9b1b1
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -629,9 +629,9 @@ FROZEN_ABI_SHA256: ec66ea6ca9c04594189612b9f1dd30eb5c3291cf557af7e90456eba543870
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -658,9 +658,9 @@ ROUTE_FOR: -
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p0-conventions.tex#bpI:p0:primaries@L134-L134 | rad(q - a_j(mu)) > 0
 EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p0-conventions.tex#bpI:p0:primaries@L134-L134 | a_1(mu)
 EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p0-conventions.tex#bpI:p0:primaries@L134-L134 | a_2(mu)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -684,13 +684,13 @@ FROZEN_ABI_SHA256: cb461337f8575c139de5daa594ad98c79c78610a0b84977605a40e168c236
 DEPS: bpI:p0:primaries#radius, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:primaries#CollisionFree, bpI:p0:primaries#radiusSq
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L141-L141 | r_j = rad(q - a_j(mu))
-EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L141-L141 | a_1(mu)
-EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L141-L141 | a_2(mu)
+EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L140-L140 | r_j = rad(q - a_j(mu))
+EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L140-L140 | a_1(mu)
+EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L140-L140 | a_2(mu)
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L140-L140 | defined on collision-free points
 EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L142-L142 | ¦p¦_2^2 = p_0^2+p_1^2
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p0
+EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -712,16 +712,15 @@ FROZEN_FILE: KAM/Frozen/Iso/Defs/RestrictedVectorField.lean
 FROZEN_DECL: KAM.Iso.restrictedVectorField
 FROZEN_ANCHOR_ID: iso.restrictedVectorField.v1
 FROZEN_ABI_SHA256: 7f23620e590d0b874e5e94198c0e04331fa179347cb63925313f28703115520a
-DEPS: bpI:p0:primaries#radius, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:primaries#CollisionFree, bpI:p0:primaries#radiusSq
+DEPS: bpI:p0:primaries#radius, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:primaries#CollisionFree
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L141-L141 | r_j = rad(q - a_j(mu))
-EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L141-L141 | a_1(mu)
-EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L141-L141 | a_2(mu)
+EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L140-L140 | r_j = rad(q - a_j(mu))
+EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L140-L140 | a_1(mu)
+EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L140-L140 | a_2(mu)
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L140-L140 | defined on collision-free points
-EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L142-L142 | ¦p¦_2^2 = p_0^2+p_1^2
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p0
+EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -746,10 +745,10 @@ FROZEN_ABI_SHA256: f8e83a3360d7b983683d6d48e29e232ef15fc8c7a9546eede0512d09d6a00
 DEPS: bpI:p0:primaries#CollisionFree, bpI:p0:restricted#restrictedVectorField
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L147-L147 | z(t) collision free
+EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L148-L148 | z(t) collision free
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L148-L148 | z'(t) = V_mu(z(t))
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p0
+EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -775,9 +774,9 @@ DEPS: bpI:p0:primaries#radiusSq
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p0-conventions.tex#bpI:p0:nearcircular@L159-L159 | r^2 = q_0^2+q_1^2 and ¦p¦_2^2 in the energy equation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -801,9 +800,9 @@ FROZEN_ABI_SHA256: 36e9baac00666553c4182571874d115c3f812a3679f898e30ae5679d367d4
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -813,7 +812,7 @@ NODE: bpI:p0:g1
 KIND: theorem
 TITLE: I-G1: isoenergetic a-posteriori KAM
 STATEMENT_SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:g1@L215-L253
-PROOF_SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:g1@L329-L337
+PROOF_SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:g1@L338-L355
 CONTRACT_ID: iso.isoenergetic_kam
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: n >= 2; tau in R, tau >= n-1; rho, rho_inf in R, 0 < rho_inf < rho; M, sigma_K, sigma_B, sigma_T, mu, gammabar > 0; sigma_omega > 1; nu > 0; omega* in R^n, omega* != 0; for the inner statement: (I1) D open and Z^n-invariant in theta; (I2) H holomorphic on D and Z^n-periodic in theta on D; (I3) Im H = 0 at real phase points of D; (I4) ¦DH¦,¦X_H¦,¦D X_H¦,¦D^2 X_H¦,¦D^2 H¦ <= M on D; (I5) K holomorphic, primary and real on reals on T_rho; (I6) B_mu(K(theta)) subset D and ¦DK(theta)¦ <= sigma_K - mu on T_rho; (I7) det G_K(theta) != 0 and row-sum ¦G_K^{-1}¦ <= sigma_B - mu on T_rho; (I8) det avg(T_H) != 0 for T_H built from (H,K,s omega*), row-sum ¦avg(T_H)^{-1}¦ <= sigma_T - mu; (I9) 1 < s < sigma_omega, nu <= (s-1)¦omega*¦, nu <= (sigma_omega-s)¦omega*¦; (I10) 0 < gamma <= gammabar, omega* in Dio_{gamma,tau}, 0 <= e; (I11) ¦E_{H,K,s omega*}(theta)¦ <= e on T_rho; (I12) ¦Ebar_H(K) - E_0¦ <= e; (I13) C_1 e/(gamma^4 rho^{4 tau}) < 1
@@ -836,9 +835,9 @@ EDGE: bpI:p0:stripdata#gramMatrix | blueprint-I/parts/p0-conventions.tex#bpI:p0:
 EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p0-conventions.tex#bpI:p0:g1@L229-L229 | avg(T_H) in (I8)
 EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p0-conventions.tex#bpI:p0:g1@L233-L233 | E_{H,K,s omega*} in (I11), (O2)
 EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p0-conventions.tex#bpI:p0:g1@L234-L234 | Ebar_H(K) in (I12)
-EDGE: bpI:p2:g1 | blueprint-I/parts/p2-iso-iteration.tex#bpI:p0:g1@L329-L329 | the proof of the anchor is this result
+EDGE: bpI:p2:g1 | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:g1@L335-L335 | frozen tag binds this proved result to the I-G1 anchor
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p0
+EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -872,9 +871,9 @@ EDGE: stepI:p5:hd-eps | blueprint-I/parts/p5-confinement.tex#bpI:p0:head@L181-L1
 EDGE: stepI:p5:hd-fix | blueprint-I/parts/p5-confinement.tex#bpI:p0:head@L182-L182 | proof of the anchor: this step is part of the proof
 EDGE: stepI:p5:hd-sol | blueprint-I/parts/p5-confinement.tex#bpI:p0:head@L183-L183 | proof of the anchor: this step is part of the proof
 EDGE: stepI:p5:hd-uniq | blueprint-I/parts/p5-confinement.tex#bpI:p0:head@L184-L184 | proof of the anchor: this step is part of the proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
-REVIEWER: -
+REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -884,7 +883,7 @@ NODE: bpI:p0:kepler
 KIND: theorem
 TITLE: I-KEPLER: the classical isoenergetic determinant
 STATEMENT_SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:kepler@L299-L303
-PROOF_SOURCE: blueprint-I/parts/p6-kepler.tex#bpI:p6:kepler@L37-L42
+PROOF_SOURCE: blueprint-I/parts/p6-kepler.tex#bpI:p6:kepler@L43-L48
 CONTRACT_ID: iso.kepler_bordered_det
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: kappa, Omega > 0; L > 0
@@ -899,9 +898,9 @@ DEPS: bpI:p0:keplerborder#keplerBorder, bpI:p6:kepler
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p0-conventions.tex#bpI:p0:kepler@L300-L300 | det K_{kappa,Omega}(L)
-EDGE: bpI:p6:kepler | blueprint-I/parts/p6-kepler.tex#bpI:p0:kepler@L37-L37 | the proof of the anchor is this result
+EDGE: bpI:p6:kepler | blueprint-I/parts/p6-kepler.tex#bpI:p6:kepler@L40-L40 | frozen tag binds this proved result to the I-KEPLER anchor
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p0
+EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -930,7 +929,7 @@ EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p0-conventions.tex#bp
 EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p0-conventions.tex#bpI:p0:r3bp@L309-L309 | RSol_mu
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p0-conventions.tex#bpI:p0:r3bp@L311-L311 | rad bounds
 EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p0-conventions.tex#bpI:p0:r3bp@L311-L311 | a_1(mu)
-EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p0-conventions.tex#bpI:p0:r3bp@L311-L311 | a_2(mu)
+EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p0-conventions.tex#bpI:p0:r3bp@L312-L312 | a_2(mu)
 EDGE: stepI:p8:pf-coord | blueprint-I/parts/p8-r3bp.tex#bpI:p0:r3bp@L217-L217 | proof of the anchor: this step is part of the proof
 EDGE: stepI:p8:pf-small | blueprint-I/parts/p8-r3bp.tex#bpI:p0:r3bp@L219-L219 | proof of the anchor: this step is part of the proof
 EDGE: stepI:p8:pf-head | blueprint-I/parts/p8-r3bp.tex#bpI:p0:r3bp@L221-L221 | proof of the anchor: this step is part of the proof
@@ -941,7 +940,7 @@ EDGE: stepI:p8:pf-uniq | blueprint-I/parts/p8-r3bp.tex#bpI:p0:r3bp@L229-L229 | p
 EDGE: bpI:p8:topology | blueprint-I/parts/p8-r3bp.tex#bpI:p0:r3bp@L215-L215 | cited at this line (proof; \ref{bpI:p8:topology})
 EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#bpI:p0:r3bp@L215-L215 | cited at this line (proof; \ref{bpI:p8:constants})
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p0
+EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

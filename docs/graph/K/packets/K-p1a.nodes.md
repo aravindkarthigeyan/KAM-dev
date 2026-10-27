@@ -1339,9 +1339,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.taylor (+ KAM.taylor_iteratedFDeriv)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P1C-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:tay-lipschitz
@@ -1367,9 +1367,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.taylor_lipschitz
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P1C-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:tay-integrate
@@ -1396,9 +1396,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.taylor_integrate (Mathlib boundary-comparison route)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P1C-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:cauchy-open

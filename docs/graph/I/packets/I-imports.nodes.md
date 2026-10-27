@@ -648,32 +648,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p2:constants; shared Lean provider. There: KIND definition, contract bp:p2:constants v1. Cited as \Kref{bp:p2:constants}.
 
-NODE: K:bp:p2:constants-register
-KIND: external
-TITLE: [K] Constants and their counterparts in HL19
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:constants-register@L1145-L1172
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p2:constants-register
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (administrative remark of track K Part 2)
-SOURCE_QUANTIFIERS: none
-SOURCE_CONCLUSION: register: each constant of Definition bp:p2:constants is introduced in one result, listed with its HL19 counterpart
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p2:constants-register; shared Lean provider. Cited as \Kref{bp:p2:constants-register}. WARNING: EXCLUDED in the K graph: administrative remark (constants register / deviation list); no proof uses it, constants are defined in bp:p2:constants.
-
 NODE: K:bp:p2:error-decay
 KIND: external
 TITLE: [K] Decay of the errors
@@ -830,58 +804,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p2:frozen-agreement; shared Lean provider. There: KIND claim, contract bp:p2:frozen-agreement v1. Cited as \Kref{bp:p2:frozen-agreement}.
 
-NODE: K:bp:p2:g1
-KIND: external
-TITLE: [K] G1 with explicit constants
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1095-L1108
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p2:g1
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: n≥2, τ≥n−1, 0<ρ_∞<ρ, M,σ_K,σ_B,σ_T,μ,γ̄>0; C_1:=ρ^{4τ}max{γ̄⁴,𝔠_*δ_0^{-2a}}, C_2:=2C_ΔKρ^{2τ}δ_0^{-a}; hypotheses of bp:p0:g1 on 𝔅,h,K,ω,γ,e (including γ≤γ̄)
-SOURCE_QUANTIFIERS: for the given n,τ,ρ,ρ_∞,M,σ_*,μ,γ̄; then for all 𝔅,h,K,ω,γ,e satisfying the hypotheses of bp:p0:g1
-SOURCE_CONCLUSION: C_1,C_2>0 and the conclusion (seven clauses) of bp:p0:g1 holds with these constants
-CONSTANT_SCOPE: C_1 depends only on (n,τ,ρ,ρ_∞,M,σ_K,σ_B,σ_T,μ,γ̄); C_2 only on (n,τ,ρ,ρ_∞,M,σ_K,σ_B,σ_T)
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p2:g1; shared Lean provider. There: KIND theorem, contract bp:p2:g1 v1. Cited as \Kref{bp:p2:g1}.
-
-NODE: K:bp:p2:geometry
-KIND: external
-TITLE: [K] Approximate Lagrangian property, symplecticity and reducibility
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:geometry@L549-L563
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p2:geometry
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing data of Part 2 (bp:p2:standing); K (r,beta,epsilon)-admissible with epsilon<=1; 0<delta<=1, 2delta<r
-SOURCE_QUANTIFIERS: for all r,beta,epsilon,delta, K as stated
-SOURCE_CONCLUSION: on T_{r-delta}: |DE|<=n epsilon/delta, |(DE)^T|<=2n epsilon/delta, |d_omega Omega_K|<=2n(n+1) m epsilon/delta, |E_red|<=C_red epsilon/delta; on T_{r-2delta}: |Omega_K|<=C_Omega epsilon/(gamma delta^{kappa+1}), |E_sym|<=C_sym epsilon/(gamma delta^{kappa+1})
-CONSTANT_SCOPE: C_red, C_Omega, C_sym, kappa, m depend only on (n,tau,M,sigma_K,sigma_B,sigma_T); gamma from the standing data
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p2:geometry; shared Lean provider. There: KIND lemma, contract bp:p2:geometry v1. Cited as \Kref{bp:p2:geometry}.
-
 NODE: K:bp:p2:hamiltonian
 KIND: external
 TITLE: [K] The Hamiltonian vector field
@@ -933,32 +855,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p2:matrix; shared Lean provider. There: KIND corollary, contract bp:p2:matrix v1. Cited as \Kref{bp:p2:matrix}.
-
-NODE: K:bp:p2:newton-error
-KIND: external
-TITLE: [K] The new invariance error
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:newton-error@L723-L740
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p2:newton-error
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: setting of bp:p2:correction (K admissible, 0<δ≤1, 2δ<r); C_{ΔK}ε/(γ²δ^a)<β; C_sym ε/(γδ^{ϰ+1})≤1/2; K̄:=K+ΔK on T_{r−2δ}, K̄:=K elsewhere; S:=I_{2n}−Ω_0E_sym; standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}
-SOURCE_QUANTIFIERS: as in bp:p2:correction; for all admissible K, r,β,ε,δ satisfying the two inequalities
-SOURCE_CONCLUSION: K̄(T_{r−2δ})⊂𝔅; S invertible with |S^{-1}|≤2 on T_{r−2δ}; Ē=PS^{-1}E_lin+Δ²X with E_lin:=E_redξ+Ω_0E_sym∂_ωξ, Δ²X:=X_h(K̄)−X_h(K)−AΔK on T_{r−2δ}; consequently |Ē|≤C_Eε²/(γ⁴δ^{2a}) on T_{r−2δ}
-CONSTANT_SCOPE: C_E,C_ΔK,C_sym,ϰ,a from bp:p2:constants: depend only on (n,τ,M,σ_K,σ_B,σ_T)
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p2:newton-error; shared Lean provider. There: KIND lemma, contract bp:p2:newton-error v1. Cited as \Kref{bp:p2:newton-error}.
 
 NODE: K:bp:p2:objects
 KIND: external
@@ -1012,58 +908,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p2:periodicity; shared Lean provider. There: KIND lemma, contract bp:p2:periodicity v1. Cited as \Kref{bp:p2:periodicity}.
 
-NODE: K:bp:p2:perturbation
-KIND: external
-TITLE: [K] Perturbation of the frame and the torsion
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L798-L820
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p2:perturbation
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: r>0, 0<δ≤1, 2δ<r; |ω|≤Θ; K holomorphic on T_r with B_β(K(θ))⊂𝔅, |DK|≤σ_K, det G≠0, |B|≤σ_B on T_r, avg T invertible with |avg T^{-1}|≤σ_T; K̃ holomorphic on T_r with |K̃−K|≤d on T_r; d<β and 2𝔪C_{ΔT}d/δ²≤1; standing data of Part 2 (via 𝔅,h,M)
-SOURCE_QUANTIFIERS: standing data fixed; for all r,δ,β>0,d≥0, all ω with |ω|≤Θ, all such K,K̃
-SOURCE_CONCLUSION: (a) B_{β−d}(K̃(θ))⊂𝔅 on T_r; (b) |DK̃−DK|≤nd/δ on T_{r−δ}; (c) det G̃≠0, |B̃|≤2𝔪, |B̃−B|≤C_Bd/δ on T_{r−δ}; (d) |Ñ−N|≤C_{ΔN}d/δ, |Ñ|≤2𝔪² on T_{r−δ}; (e) |T̃−T|≤C_{ΔT}d/δ² on T_{r−2δ}; (f) T̃ continuous on R^n, avg T̃ invertible, |avgT̃^{-1}−avgT^{-1}|≤2𝔪²C_{ΔT}d/δ²
-CONSTANT_SCOPE: C_B,C_ΔN,C_ΔT,Θ,𝔪 from bp:p2:constants: depend only on (n,τ,M,σ_K,σ_B,σ_T); not on r,δ,β,d,K,K̃
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p2:perturbation; shared Lean provider. There: KIND lemma, contract bp:p2:perturbation v1. Cited as \Kref{bp:p2:perturbation}.
-
-NODE: K:bp:p2:schedule
-KIND: external
-TITLE: [K] Schedule of the iteration
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:schedule@L935-L947
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p2:schedule
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 0<ρ_∞<ρ, γ>0, e≥0; δ_0 from bp:p2:constants
-SOURCE_QUANTIFIERS: for given ρ_∞<ρ, γ, e
-SOURCE_CONCLUSION: defines δ_s:=2^{-s}δ_0, r_s:=ρ−8δ_0(1−2^{-s}), ε_0:=e, ε_{s+1}:=C_Eε_s²/(γ⁴δ_s^{2a}), d_s:=C_ΔKε_s/(γ²δ_s^a); with r_0=ρ, r_{s+1}=r_s−4δ_s, ρ_∞≤ρ−8δ_0<r_s, δ_s≤1, 4δ_s<r_s
-CONSTANT_SCOPE: δ_0=δ_0(ρ,ρ_∞); C_E,C_ΔK,a from bp:p2:constants
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p2:schedule; shared Lean provider. There: KIND definition, contract bp:p2:schedule v1. Cited as \Kref{bp:p2:schedule}.
-
 NODE: K:bp:p2:standing
 KIND: external
 TITLE: [K] Standing data of Part~\ref{bp:p2}
@@ -1089,32 +933,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p2:standing; shared Lean provider. There: KIND definition, contract bp:p2:standing v1. Cited as \Kref{bp:p2:standing}.
-
-NODE: K:bp:p2:triangular
-KIND: external
-TITLE: [K] The triangular system
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:triangular@L616-L644
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p2:triangular
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: δ>0, 2δ<r; η^L,η^N:T_r→C^n holomorphic, 1-periodic, |η^L|≤H_L, |η^N|≤H_N on T_r, average of η^N is 0; T:T_r→C^{n×n} holomorphic, 1-periodic, |T|≤H_T on T_{r−δ}, avg T invertible with |avg T^{-1}|≤σ; Γ_δ=c_Rγ^{-1}δ^{-ϰ}; R from Cor. bp:p2:cohomological(a) (uses ω,γ,τ of the standing data of Part 2); u^N:=Rη^N, ξ^N_0:=avgT^{-1}(avg η^L+avg(Tu^N)), ξ^N:=ξ^N_0−u^N, g^L:=Tξ^N−η^L, ξ^L:=Rg^L, ξ:=(ξ^L,ξ^N)
-SOURCE_QUANTIFIERS: standing data (n,τ,ω,γ) fixed; for all r,δ with 0<δ, 2δ<r, all H_L,H_N,H_T,σ (reals bounding as stated), all η^L,η^N,T
-SOURCE_CONCLUSION: (a) avg g^L=0 so ξ^L defined; ξ^N,g^L holomorphic periodic on T_{r−δ}, ξ on T_{r−2δ}; (b) ∂_ωξ^N=−η^N on T_{r−δ}, ∂_ωξ^L=g^L on T_{r−2δ}, i.e. Λξ−∂_ωξ=η on T_{r−2δ} with Λ=[[0,T],[0,0]]; (c) |ξ^N_0|≤σ(H_L+H_TΓ_δH_N), |ξ^N|≤|ξ^N_0|+Γ_δH_N and |g^L|≤H_T sup|ξ^N|+H_L on T_{r−δ}, |ξ^L|≤Γ_δ sup|g^L| on T_{r−2δ}; (d) if η^L,η^N,T real on reals then ξ^N_0, ξ, g^L real
-CONSTANT_SCOPE: Γ_δ uses c_R,ϰ of bp:p2:constants (dependence on n,τ only); H_L,H_N,H_T,σ are free parameters (bounds), no other constants
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p2:triangular; shared Lean provider. There: KIND lemma, contract bp:p2:triangular v1. Cited as \Kref{bp:p2:triangular}.
 
 NODE: K:bp:p4:data
 KIND: external
@@ -1245,32 +1063,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p4:h1; shared Lean provider. There: KIND lemma, contract bp:p4:h1 v1. Cited as \Kref{bp:p4:h1}.
-
-NODE: K:step:p1:hr-derivative
-KIND: external
-TITLE: [K] The real derivative
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-derivative@L1083-L1089
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p1:hr-derivative
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: V subset C^n x C^n open; h holomorphic on V and real at real points; z in V cap R^{2n}; H:R^{2n}->R agrees with Re h near z
-SOURCE_QUANTIFIERS: e in R^n x R^n
-SOURCE_CONCLUSION: H differentiable at z with DH(z)e=Dh(z)e (real number)
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p1:hr-derivative; shared Lean provider. There: KIND step, contract step:p1:hr-derivative v1. Cited as \Kref{step:p1:hr-derivative}.
 
 NODE: K:step:p2:cor-absorb
 KIND: external
@@ -1428,58 +1220,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node step:p2:it-step; shared Lean provider. There: KIND step, contract step:p2:it-step v1. Cited as \Kref{step:p2:it-step}.
 
-NODE: K:step:p2:ne-domain
-KIND: external
-TITLE: [K] The corrected torus stays in the domain
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ne-domain@L749-L752
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:ne-domain
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: |ΔK(θ)|<β on T_{r−2δ} (smallness assumption and the correction bound); A2
-SOURCE_QUANTIFIERS: θ∈T_{r−2δ}
-SOURCE_CONCLUSION: K̄(θ)∈B_β(K(θ))⊂𝔅 and the segment [K(θ),K̄(θ)] lies in the ball
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:ne-domain; shared Lean provider. There: KIND step, contract step:p2:ne-domain v1. Cited as \Kref{step:p2:ne-domain}.
-
-NODE: K:step:p2:ne-invert
-KIND: external
-TITLE: [K] Invertibility of $S$ and of $Q$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ne-invert@L743-L747
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:ne-invert
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: |Ω_0E_sym|≤1/2 on T_{r−2δ}; QP=S
-SOURCE_QUANTIFIERS: on T_{r−2δ}
-SOURCE_CONCLUSION: S invertible with |S^{-1}|≤2; Q invertible with Q^{-1}=PS^{-1}
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:ne-invert; shared Lean provider. There: KIND step, contract step:p2:ne-invert v1. Cited as \Kref{step:p2:ne-invert}.
-
 NODE: K:step:p2:pt-small
 KIND: external
 TITLE: [K] Consequences of the smallness
@@ -1583,32 +1323,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node step:p4:h1-open; shared Lean provider. There: KIND step, contract step:p4:h1-open v1. Cited as \Kref{step:p4:h1-open}.
-
-NODE: N:bpN:p2:qc-kernel
-KIND: external
-TITLE: [N] Kernel core: bordered Hessian is nonsingular
-STATEMENT_SOURCE: blueprint-N/parts/p2-qc-zero.tex#bpN:p2:qc-kernel@L11-L18
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p2:qc-kernel
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: n >= 1; omega in R^n with omega != 0; A a real n x n matrix (not necessarily symmetric, no norm bound); lambda != 0; omega.v = 0 and v != 0 imply v^T A v != 0
-SOURCE_QUANTIFIERS: n, omega, A, lambda fixed; L : R^n x R -> R x R^n, L(v,u) = (omega.v, u omega + lambda A v)
-SOURCE_CONCLUSION: ker L = 0, hence L is bijective; in particular this holds if lambda > 0, omega != 0 and v^T A v >= m|v|^2 (some norm, some m > 0) whenever omega.v = 0
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p2:qc-kernel; shared Lean provider. Cited as \Nref{bpN:p2:qc-kernel}.
 
 NODE: N:bpN:p3:gen-barrier
 KIND: external

@@ -1,0 +1,295 @@
+\section{The planar quartic Birkhoff form and the torsion}\label{bpP:p11b}
+\begingroup\sloppy
+
+This part produces, for the planar two-planet secular function, exactly the hypotheses on $(P_0,\Omega,\beta)$ that the frozen theorem P-G (Theorem~\ref{bpP:p0:pg}) needs: the secular Birkhoff form $\operatorname{HasBirkhoff}$ (Definition~\ref{bpP:p0:birkhoff}) with a symmetric torsion matrix $\beta$ whose determinant is bounded away from zero on a patch near every prescribed axis vector. Route (c) of the plan: no new KAM theorem, only the finite computation below plus the frozen P-G.
+\begin{itemize}
+\item \texttt{quartic} (Lemma~\ref{bpP:p11b:orbit}, Lemma~\ref{bpP:p11b:laplace-red}, Proposition~\ref{bpP:p11b:pair-jet}, Theorem~\ref{bpP:p11b:quartic-explicit}): the six invariant quartic coefficients $c_1,\dots,c_6$ of Proposition~\ref{bpP:p8:quartic}, derived from the Kepler expansion of the Poincar\'e chart to order four (third- and fourth-order single-planet variations are kept) and reduced to the two Laplace coefficients $b_{1/2}^{(0)},b_{1/2}^{(1)}$ with explicit rational coefficients; $c_1,c_2$ agree with Part~8's definition, and none of this is copied from CP11;
+\item \texttt{birkhoff} (Lemmas~\ref{bpP:p11b:char}--\ref{bpP:p11b:flow}, Proposition~\ref{bpP:p11b:lie}, Proposition~\ref{bpP:p11b:lift-map}): Birkhoff normalisation to order $4$ by a finite, explicit homological equation, realised as a symplectic map of the full phase space that preserves the actions and commutes with angle translations, so that the average of the transformed perturbation is the normalised secular function \emph{exactly};
+\item \texttt{beta} (Definition~\ref{bpP:p11b:beta-def}, Proposition~\ref{bpP:p11b:beta-formula}, Theorem~\ref{bpP:p11b:birkhoff-form}): the torsion $\hat\beta$ is the torus average of the rotated quartic form, in closed form in $(c_\nu,\Pi_1)$; the frozen $\operatorname{HasBirkhoff}$ follows;
+\item \texttt{torsion} (Proposition~\ref{bpP:p11b:asymptotics}, Theorem~\ref{bpP:p11b:torsion}, Corollary~\ref{bpP:p11b:patch}): $\det\hat\beta=-\tfrac{117}{16}(G/\kappa)^2a_1^3a_2^{-7}(1+O(a_1^2/a_2^2))$ as $a_1/a_2\to0$ (this recovers CP11 (8.4), pp.~33--34, and Arnold's check), so $\det\hat\beta\not\equiv0$ on the connected domain $\{0<a_1<a_2\}$ and, by the identity theorem, is nonzero on an open dense full-measure set; patches with $\Phi_4\ne0$ and $\det\hat\beta\ne0$ exist inside every neighbourhood of every axis vector.
+\end{itemize}
+
+\subsection{Setting and external facts}\label{bpP:p11b:sec-set}
+
+Throughout $n=2$, $G,m_0>0$, $\kappa=Gm_0$, $m=(m_1,m_2)\in(0,\infty)^2$, and we use the objects of Parts~7--9: the chart $\Psi$ and $w=(\lambda,\xi,\Lambda,\eta)$, $u_i=(\xi_i,\eta_i)\in\R^2$, $a_i=\Lambda_i^2/(m_i^2\kappa)$, $\mathcal A_2=\{0<a_1<a_2\}$ (increasing order), $\alpha=a_1/a_2\in(0,1)$, the secular functions $S_{\rm fix},S_{\rm mov}$ and the common jet of Corollary~\ref{bpP:p8:same-jets}, $C_0,\mathfrak a=\mathfrak a_{12},\mathfrak b=\mathfrak b_{12},Q_h$ (Definition~\ref{bpP:p8:coeffs}), the eigenvalues $\sigma_1<\sigma_2<0$ and the rotation $\varrho\in SO(2)$ (Corollary~\ref{bpP:p9:n2}, Proposition~\ref{bpP:p9:local-analytic}), $\Phi_4$ and $\operatorname{NR}_4$ (Definition~\ref{bpP:p9:good}), and the Laplace coefficients $b_s^{(k)}$ (Definition~\ref{bpP:p8:laplace-def}, Lemma~\ref{bpP:p8:laplace}). Abbreviate
+\[\beta_0:=b_{1/2}^{(0)}(\alpha),\qquad\beta_1:=b_{1/2}^{(1)}(\alpha),\qquad\Delta:=1-\alpha^2,\qquad \mathrm{pref}:=-\frac{Gm_1m_2}{a_2}.\]
+Complex notation for the plane: $\zeta=v_0+iv_1$ for an eccentricity vector $v=(v_0,v_1)$ (Definition~\ref{bpP:p7:poincare-def}) and $X=e^{i\lambda}$. For $F=F(\Lambda,z)$ on the slow variables, $z=(z_1,z_2)$, $z_j=(x_j,y_j)\in\R^2$ and $R_j=\tfrac12(x_j^2+y_j^2)$, with the chart form $d\Lambda\wedge d\lambda+dy\wedge dx$ of Part~9; $\{F,G\}:=dF(X_G)$ in the slow variables ($\Lambda$ a parameter), $X_G$ the Hamiltonian field of the frozen sign convention $\dot x=\partial_yG,\ \dot y=-\partial_xG$ (Corollary~\ref{bpP:p8:same-jets}(b)). \emph{Dictionary:} $q=x$, $p=y$ in the sense of Part~8 (position $\xi$, momentum $\eta$).
+
+\emph{External facts.}
+\begin{enumerate}[label=(F\arabic*),ref=(F\arabic*)]
+\item\label{bpP:p11b:e-ode} \emph{Analytic ODE.} The flow of a real-analytic vector field depends real-analytically on time, initial data and parameters on its (open) domain of definition. (Standard; cf.\ \Nref{bpN:p3:local-exist} for existence, uniqueness and continuation, Part~1 \texttt{ode}.)
+\item\label{bpP:p11b:e-id} \emph{Identity theorem} on a connected open set (\ref{bpP:p9:e-id}, \ref{bpP:p10:f-id}), and its consequence Lemma~\ref{bpP:p10:generic}.
+\item\label{bpP:p11b:e-jet} A real-analytic function whose jet of order $k-1$ at $z=0$ vanishes is $O(|z|^k)$ locally uniformly in the parameters (Taylor, \ref{bpP:p8:e-taylor}).
+\item\label{bpP:p11b:e-ca} \emph{Finite exact computation.} A polynomial or rational identity with rational coefficients, in finitely many variables, of bounded degree, is verified by a finite exact computation (Lean: \texttt{ring}, \texttt{field\_simp}, \texttt{norm\_num}). The displayed expansions of Lemma~\ref{bpP:p11b:orbit} and the identities of Proposition~\ref{bpP:p11b:pair-jet} and Theorem~\ref{bpP:p11b:quartic-explicit} are of this kind; they were generated and checked with a computer algebra system and numerically (\S\ref{bpP:p11b:sec-num}).
+\end{enumerate}
+
+\subsection{The quartic jet of the pair interaction}\label{bpP:p11b:sec-quartic}
+
+\begin{lemma}[Kepler expansion to order four]\label{bpP:p11b:orbit}
+For the Poincar\'e chart with $a=1$ (Definition~\ref{bpP:p7:poincare-def}), in the complex notation $z_{\rm orb}=q_0+iq_1$ for the position $q$, as a formal power series in $(\zeta,\bar\zeta)$ with coefficients Laurent polynomials in $X=e^{i\lambda}$,
+\begin{align*}
+z_{\rm orb}={}&X+\Big(\tfrac12X^2\bar\zeta-\tfrac32\zeta\Big)+\Big(\tfrac38X^3\bar\zeta^2-\tfrac12X\zeta\bar\zeta+\tfrac18X^{-1}\zeta^2\Big)
++\Big(\tfrac13X^4\bar\zeta^3-\tfrac38X^2\zeta\bar\zeta^2+\tfrac1{24}X^{-2}\zeta^3\Big)\\
+&+\Big(\tfrac{125}{384}X^5\bar\zeta^4-\tfrac38X^3\zeta\bar\zeta^3-\tfrac1{64}X\zeta^2\bar\zeta^2+\tfrac1{24}X^{-1}\zeta^3\bar\zeta+\tfrac3{128}X^{-3}\zeta^4\Big)+O(|\zeta|^5),
+\end{align*}
+where $\lambda$ is the mean longitude and the terms are grouped by degree $1,2,3,4$ in $(\zeta,\bar\zeta)$. Moreover $z_{\rm orb}$ at fixed $\lambda$ is real analytic in $v$ for $|v|<1$, and its degree-$d$ homogeneous part is the $d$-th Taylor polynomial.
+\end{lemma}
+\begin{proof}
+\proofstep{Kepler's equation}\label{stepP:p11b:or-kep} By Proposition~\ref{bpP:p7:regular-kepler}(a), $F-v_0\sin F+v_1\cos F=\lambda$. Since $v_0\sin F-v_1\cos F=\operatorname{Im}(\bar\zeta e^{iF})$, writing $F=\lambda+\phi$, $E=e^{iF}=Xe^{i\phi}$, the equation is $\phi=\operatorname{Im}(\bar\zeta E)=(\bar\zeta E-\zeta\bar E)/(2i)$, a fixed-point equation whose right side is divisible by $\zeta,\bar\zeta$: Picard iteration from $\phi=0$ determines $\phi$ modulo degree $d$ after $d$ steps (formal inverse function theorem; the iteration is a finite polynomial computation by \ref{bpP:p11b:e-ca}).
+\proofstep{Position}\label{stepP:p11b:or-pos} $q=a(kc-v+\frac{v\cdot c}{1+k}v)$ with $a=1$, $k=\sqrt{1-|\zeta|^2}$, $v\cdot c=\operatorname{Re}(\bar\zeta E)$ and $c\leftrightarrow E$ gives $z_{\rm orb}=kE-\zeta+\frac{\operatorname{Re}(\bar\zeta E)}{1+k}\zeta$. Insert the series of $\phi$, of $k=1-\tfrac12\zeta\bar\zeta-\dots$ and of $(1+k)^{-1}$, expand and collect. The result is the displayed table (the degree-$\le2$ part is the classical $x\approx a(\cos\lambda-\frac32e\cos\varpi+\frac12e\cos(2\lambda-\varpi))$; the degree $3,4$ parts are needed for the bidegrees $(3,1),(1,3)$, cf.\ Proposition~\ref{bpP:p8:quartic}(c)).
+\proofstep{Analyticity}\label{stepP:p11b:or-an} Proposition~\ref{bpP:p7:regular-kepler}(a) and the formulas above are analytic in $v$ for $|v|<1$, and the Taylor polynomials of an analytic function are the homogeneous parts of its (formal) series.
+\end{proof}
+
+\begin{lemma}[Laplace coefficients: relations and reduction to two functions]\label{bpP:p11b:laplace-red}
+Let $s>1$, $k\ge0$, $\alpha\in(0,1)$ and $b_s^{(k)}=b_s^{(k)}(\alpha)$ (Definition~\ref{bpP:p8:laplace-def}), $b_s^{(-k)}=b_s^{(k)}$. Then
+\begin{enumerate}[label=(R\arabic*)]
+\item $b_{s-1}^{(k)}=(1+\alpha^2)b_s^{(k)}-\alpha\big(b_s^{(k+1)}+b_s^{(k-1)}\big)$;
+\item $k\,b_{s-1}^{(k)}=(s-1)\alpha\big(b_s^{(k-1)}-b_s^{(k+1)}\big)$;
+\item (three-term recurrence) $(s-1-k)\,\alpha\,b_s^{(k+1)}=(k+s-1)\,\alpha\,b_s^{(k-1)}-k(1+\alpha^2)\,b_s^{(k)}$ for $k\ge1$.
+\end{enumerate}
+Consequently, for every $s\in\tfrac12+\N$ and $k\in\N$, $b_s^{(k)}=r_{s,k}^{(0)}(\alpha)\,\beta_0+r_{s,k}^{(1)}(\alpha)\,\beta_1$ with $r^{(0)}_{s,k},r^{(1)}_{s,k}\in\mathbb Q(\alpha)$ whose denominators divide $\alpha^{k}\Delta^{2(s-1/2)}\cdot\prod(\cdot)$ times a product of linear factors $(s'-1-k')$ not vanishing for half-integer $s'$. Explicitly, for $s\ge\tfrac12$:
+\begin{equation}\label{bpP:p11b:eq:up}
+b_{s+1}^{(0)}=\frac{(1+\alpha^2)b_s^{(0)}+2\alpha\big(1-\tfrac1s\big)b_s^{(1)}}{\Delta^2},\qquad
+b_{s+1}^{(1)}=\frac{(1+\alpha^2)\big(1-\tfrac1s\big)b_s^{(1)}+2\alpha\,b_s^{(0)}}{\Delta^2},
+\end{equation}
+and $b_{s+1}^{(k+1)}=b_{s+1}^{(k-1)}-k\,b_s^{(k)}/(s\alpha)$ for $k\ge1$.
+\end{lemma}
+\begin{proof}
+\proofstep{(R1)}\label{stepP:p11b:lr-1} $1+\alpha^2-2\alpha\cos t=\Delta_t$ gives $\Delta_t\cdot\Delta_t^{-s}=\Delta_t^{-(s-1)}$ and $2\cos t\cos kt=\cos(k+1)t+\cos(k-1)t$; integrate against $\frac1{2\pi}$.
+\proofstep{(R2)}\label{stepP:p11b:lr-2} $\int_0^{2\pi}\frac{d}{dt}\big(\sin kt\,\Delta_t^{-(s-1)}\big)dt=0$, i.e.\ $k\int\cos kt\,\Delta_t^{-(s-1)}=(s-1)2\alpha\int\sin kt\sin t\,\Delta_t^{-s}$, and $2\sin kt\sin t=\cos(k-1)t-\cos(k+1)t$.
+\proofstep{(R3)}\label{stepP:p11b:lr-3} Eliminate $b_{s-1}^{(k)}$ between (R1) and (R2).
+\proofstep{Reduction}\label{stepP:p11b:lr-red} At level $s=\tfrac12$ the recurrence (R3) (denominator $(s-1-k)=-(k+\tfrac12)\ne0$) gives all $b_{1/2}^{(k)}$ from $b_{1/2}^{(0)},b_{1/2}^{(1)}$. For the step $s\to s+1$: (R2) at $s+1$ gives $b_{s+1}^{(k-1)}-b_{s+1}^{(k+1)}=k\,b_s^{(k)}/(s\alpha)$, i.e.\ the last formula; (R1) at $s+1$ for $k=0$ and $k=1$ reads $(1+\alpha^2)b_{s+1}^{(0)}-2\alpha b_{s+1}^{(1)}=b_s^{(0)}$ and $(1+\alpha^2)b_{s+1}^{(1)}-\alpha(b_{s+1}^{(2)}+b_{s+1}^{(0)})=b_s^{(1)}$ with $b^{(2)}_{s+1}=b_{s+1}^{(0)}-b_s^{(1)}/(s\alpha)$, i.e.\ $(1+\alpha^2)b_{s+1}^{(1)}-2\alpha b_{s+1}^{(0)}=(1-\frac1s)b_s^{(1)}$. This $2\times2$ system has determinant $(1+\alpha^2)^2-4\alpha^2=\Delta^2$; solving gives \eqref{bpP:p11b:eq:up}. Induct on $s$ and on $k$.
+\end{proof}
+
+\begin{proposition}[The jet of $\mathcal W$ to order four, by Fourier averaging]\label{bpP:p11b:pair-jet}
+Let $0<\alpha<1$. The function $\mathcal W(\alpha;v_1,v_2)=\frac1{(2\pi)^2}\int\int|\alpha z_{\rm orb}(\lambda_1;\zeta_1)-z_{\rm orb}(\lambda_2;\zeta_2)|^{-1}d\lambda_1d\lambda_2$ of Proposition~\ref{bpP:p8:quartic}(a) ($S_{12}=-Gm_1m_2a_2^{-1}\mathcal W$; here $v_i$ is the eccentricity vector of planet $i$ and $\zeta_i$ its complex form) is real analytic near $v=0$, and its Taylor expansion is $\mathcal W=\mathcal W_0+\mathcal W_2+\mathcal W_4+O(|v|^6)$ with $\mathcal W_0=\beta_0$,
+\begin{align*}
+\mathcal W_2&=\mathsf A\,|\zeta_1|^2+\mathsf A\,|\zeta_2|^2+\mathsf B\,\operatorname{Re}(\bar\zeta_1\zeta_2),\\
+\mathcal W_4&=\mathsf p_1|\zeta_1|^4+\mathsf p_2|\zeta_2|^4+\mathsf p_3|\zeta_1|^2|\zeta_2|^2+\mathsf p_4\operatorname{Re}(\bar\zeta_1\zeta_2)^2+\mathsf p_5|\zeta_1|^2\operatorname{Re}(\bar\zeta_1\zeta_2)+\mathsf p_6|\zeta_2|^2\operatorname{Re}(\bar\zeta_1\zeta_2),
+\end{align*}
+where, with $\Delta=1-\alpha^2$, $\beta_0=b_{1/2}^{(0)}$, $\beta_1=b_{1/2}^{(1)}$,
+\begin{align*}
+\mathsf A&=\frac{\alpha\,[\,2\alpha\beta_0-(1+\alpha^2)\beta_1\,]}{4\Delta^2}\ \Big(=\tfrac14\alpha\,b_{3/2}^{(1)}\Big),\qquad
+\mathsf B=\frac{2(1-\alpha^2+\alpha^4)\beta_1-\alpha(1+\alpha^2)\beta_0}{2\Delta^2}\ \Big(=-\tfrac12\alpha\,b_{3/2}^{(2)}\Big),\\
+\mathsf p_1&=\frac{\alpha\,[(\alpha+14\alpha^3+33\alpha^5)\beta_0-(2-6\alpha^2+46\alpha^4+6\alpha^6)\beta_1]}{64\,\Delta^4},\\
+\mathsf p_2&=\frac{\alpha\,[(33\alpha+14\alpha^3+\alpha^5)\beta_0-(6+46\alpha^2-6\alpha^4+2\alpha^6)\beta_1]}{64\,\Delta^4},\\
+\mathsf p_3&=\frac{3\alpha\,[(7\alpha+2\alpha^3+7\alpha^5)\beta_0-(2+6\alpha^2+6\alpha^4+2\alpha^6)\beta_1]}{32\,\Delta^4},\\
+\mathsf p_4&=\frac{3\alpha\,[(-\alpha+18\alpha^3-\alpha^5)\beta_0+(2-10\alpha^2-10\alpha^4+2\alpha^6)\beta_1]}{16\,\Delta^4},\\
+\mathsf p_5&=\frac{(4-15\alpha^2+50\alpha^4+9\alpha^6)\beta_1-(2\alpha+4\alpha^3+42\alpha^5)\beta_0}{16\,\Delta^4},\\
+\mathsf p_6&=\frac{\alpha^2\,[(9+50\alpha^2-15\alpha^4+4\alpha^6)\beta_1-(42\alpha+4\alpha^3+2\alpha^5)\beta_0]}{16\,\Delta^4}.
+\end{align*}
+The same coefficient of $|\zeta_1|^2$ and $|\zeta_2|^2$ and the vanishing of all further monomials (such as $\operatorname{Im}$-type terms) are part of the statement. As power series in $\alpha$ (convergent for $|\alpha|<1$, Lemma~\ref{bpP:p8:laplace}):
+\begin{equation}\label{bpP:p11b:eq:series}
+\begin{aligned}
+\mathsf A&=\tfrac38\alpha^2+\tfrac{45}{64}\alpha^4+\tfrac{525}{512}\alpha^6+\dots,&\mathsf B&=-\tfrac{15}{16}\alpha^3-\tfrac{105}{64}\alpha^5-\tfrac{4725}{2048}\alpha^7-\dots,\\
+\mathsf p_1&=\tfrac{135}{512}\alpha^4+\tfrac{2625}{2048}\alpha^6+\dots,&\mathsf p_2&=\tfrac{15}{32}\alpha^2+\tfrac{945}{512}\alpha^4+\tfrac{4725}{1024}\alpha^6+\dots,\\
+\mathsf p_3&=\tfrac9{16}\alpha^2+\tfrac{585}{256}\alpha^4+\tfrac{1575}{256}\alpha^6+\dots,&\mathsf p_4&=\tfrac{315}{128}\alpha^4+\tfrac{4725}{512}\alpha^6+\dots,\\
+\mathsf p_5&=-\tfrac{45}{64}\alpha^3-\tfrac{525}{128}\alpha^5-\dots,&\mathsf p_6&=-\tfrac{75}{32}\alpha^3-\tfrac{2205}{256}\alpha^5-\dots.
+\end{aligned}
+\end{equation}
+\source{Ours. The method is that of Theorem~\ref{bpP:p8:quadratic-form} carried to order four; Fej04r (35)--(37) and CP11 (B.5)--(B.6) give no derivation. Independent checks: \S\ref{bpP:p11b:sec-num}.}
+\end{proposition}
+\begin{proof}
+\proofstep{Reduction to a formal series}\label{stepP:p11b:pj-formal} Put $z_1=\alpha z_{\rm orb}(\lambda_1;\zeta_1)=\alpha X_1+\alpha\delta_1$, $z_2=z_{\rm orb}(\lambda_2;\zeta_2)=X_2+\delta_2$ with $\delta_i=z_{\rm orb}-X_i$ (degree $\ge1$ in $\zeta_i$), $X_i=e^{i\lambda_i}$. By Proposition~\ref{bpP:p8:perturbation-analytic} and \ref{bpP:p8:e-diff} the Taylor coefficients of the average at $v=0$ are the averages of the Taylor coefficients of the integrand, which is analytic in $v$ for $\lambda$ in the compact torus. So it suffices to expand $|z_1-z_2|^{-1}$ formally in $(\zeta_i,\bar\zeta_i)$ (Lemma~\ref{bpP:p11b:orbit}) and average the coefficients.
+\proofstep{Binomial expansion}\label{stepP:p11b:pj-bin} $|z_1-z_2|^2=\mathsf s+D$, $\mathsf s=1+\alpha^2-2\alpha\cos(\lambda_1-\lambda_2)$ (the circular value, $>0$), $D=\overline{(\alpha X_1-X_2)}\,d+(\alpha X_1-X_2)\,\bar d+d\bar d$ with $d=\alpha\delta_1-\delta_2$; $D$ has no constant term in $(\zeta,\bar\zeta)$ and is a Laurent polynomial in $X_1,X_2$ at each degree. Hence, as formal series, $|z_1-z_2|^{-1}=\sum_{\ell=0}^4\binom{-1/2}{\ell}\mathsf s^{-1/2-\ell}D^\ell$ modulo degree $5$, only finitely many terms contribute to each degree. The degree-$d$ coefficient is therefore $\sum_{\ell\le d}\mathsf s^{-1/2-\ell}\,L_{d,\ell}(X_1,X_2;\alpha)$, $L_{d,\ell}$ a Laurent polynomial in $X_1,X_2$ with coefficients polynomial in $\alpha$ and in the monomials of $\zeta_1,\bar\zeta_1,\zeta_2,\bar\zeta_2$.
+\proofstep{Averaging rule}\label{stepP:p11b:pj-avg} Write $X_1^pX_2^r=e^{ip(\lambda_1-\lambda_2)}e^{i(p+r)\lambda_2}$. Since $\mathsf s$ depends on $\lambda_1-\lambda_2$ only, integration over $\lambda_2$ (at fixed $\theta=\lambda_1-\lambda_2$) kills the monomial unless $p+r=0$, and $\frac1{2\pi}\int e^{ip\theta}\mathsf s^{-s}d\theta=b_s^{(|p|)}(\alpha)$ (Definition~\ref{bpP:p8:laplace-def}). So $\langle X_1^pX_2^r\mathsf s^{-s}\rangle=\delta_{p+r,0}\,b_s^{(|p|)}$.
+\proofstep{Reduction and extraction}\label{stepP:p11b:pj-red} By Lemma~\ref{bpP:p11b:laplace-red} every $b_s^{(k)}$ occurring ($s\in\{\tfrac12,\dots,\tfrac92\}$, $k\le 8$) is a rational combination of $\beta_0,\beta_1$. The result is a polynomial in $\zeta_1,\bar\zeta_1,\zeta_2,\bar\zeta_2$ of degrees $0,2,4$ (odd degrees vanish by (S1), Proposition~\ref{bpP:p8:symmetries}), invariant under simultaneous rotation $\zeta\mapsto e^{i\theta}\zeta$ (S2) and under $\zeta\mapsto\bar\zeta$ (S3): the monomials $\zeta_1^{a}\bar\zeta_1^{b}\zeta_2^{c}\bar\zeta_2^{d}$ occurring have $a+c=b+d$; the span of the real invariants of degree $4$ is spanned by the six listed monomials. Reading off the coefficients of $|\zeta_1|^4$, $|\zeta_2|^4$, $\zeta_1\bar\zeta_1\zeta_2\bar\zeta_2$, $\bar\zeta_1^2\zeta_2^2$, $\zeta_1\bar\zeta_1^2\zeta_2$, $\bar\zeta_1\zeta_2^2\bar\zeta_2$ and using $\operatorname{Re}(\bar\zeta_1\zeta_2)=\tfrac12(\bar\zeta_1\zeta_2+\zeta_1\bar\zeta_2)$, $\operatorname{Re}(\bar\zeta_1\zeta_2)^2=\tfrac14(\bar\zeta_1^2\zeta_2^2+\zeta_1^2\bar\zeta_2^2)+\tfrac12|\zeta_1|^2|\zeta_2|^2$ gives $\mathsf p_1,\dots,\mathsf p_6$ (and $\mathsf p_3$ is the coefficient of $\zeta_1\bar\zeta_1\zeta_2\bar\zeta_2$ minus $\tfrac12\mathsf p_4$); all other monomials cancel. This is the finite exact computation \ref{bpP:p11b:e-ca}; its output is displayed. The leading series \eqref{bpP:p11b:eq:series} follow by inserting $\beta_0=\sum_q((\tfrac12)_q/q!)^2\alpha^{2q}$, $\beta_1=\sum_q\frac{(1/2)_{q+1}(1/2)_q}{(q+1)!q!}\alpha^{2q+1}$ (Lemma~\ref{bpP:p8:laplace}); equivalently from the unreduced sum of the terms $\alpha^jb_s^{(k)}$ before Step~\ref{stepP:p11b:pj-red}.
+\proofstep{Consistency with Part 8}\label{stepP:p11b:pj-cons} $\mathsf A=\frac14\alpha b_{3/2}^{(1)}$ and $\mathsf B=-\frac12\alpha b_{3/2}^{(2)}$ reproduce the quadratic part of Theorem~\ref{bpP:p8:quadratic-form}: $S_{12}\ni\mathrm{pref}\,(\mathsf A|v_1|^2+\dots)$ with $v_i=u_i/\sqrt{\Lambda_i}$ to leading order gives $-\mathfrak a/\Lambda_1\cdot|u_1|^2$, and $\mathrm{pref}\cdot\mathsf B/\sqrt{\Lambda_1\Lambda_2}\,u_1\cdot u_2=2\mathfrak b\,u_1\cdot u_2/\sqrt{\Lambda_1\Lambda_2}$; the identities hold identically in $\alpha$ by the reduction (finite check \ref{bpP:p11b:e-ca}). The multipole expansion gives an independent test of the leading terms: the inner ellipse contributes $\mathcal W\ni\alpha^2\tfrac14\langle r^2\rangle+\alpha^4\tfrac9{64}\langle r^4\rangle$ with $\langle r^2\rangle=1+\tfrac32e^2$, $\langle r^4\rangle=1+5e^2+\tfrac{15}8e^4$ (inner axis $1$), so $\mathsf A=\tfrac38\alpha^2+\dots$ and $\mathsf p_1=\tfrac9{64}\cdot\tfrac{15}8\alpha^4+\dots=\tfrac{135}{512}\alpha^4+\dots$, as in \eqref{bpP:p11b:eq:series}.
+\end{proof}
+
+\begin{theorem}[The six quartic coefficients]\label{bpP:p11b:quartic-explicit}
+For $a\in\mathcal A_2$ put $\Lambda_i=m_i\sqrt{\kappa a_i}$, $\alpha=a_1/a_2$, and
+\begin{align*}
+c_1&=\mathrm{pref}\,\frac{\mathsf p_1-\mathsf A/4}{\Lambda_1^2},& c_2&=\mathrm{pref}\,\frac{\mathsf p_2-\mathsf A/4}{\Lambda_2^2},& c_3&=\mathrm{pref}\,\frac{\mathsf p_3}{\Lambda_1\Lambda_2},& c_4&=\mathrm{pref}\,\frac{\mathsf p_4}{\Lambda_1\Lambda_2},\\
+c_5&=\mathrm{pref}\,\frac{\mathsf p_5-\mathsf B/8}{\Lambda_1^{3/2}\Lambda_2^{1/2}},& c_6&=\mathrm{pref}\,\frac{\mathsf p_6-\mathsf B/8}{\Lambda_1^{1/2}\Lambda_2^{3/2}},
+\end{align*}
+(with $\mathsf A,\mathsf B,\mathsf p_\nu$ of Proposition~\ref{bpP:p11b:pair-jet}, $\mathrm{pref}=-Gm_1m_2/a_2$). They are real analytic on $\mathcal A_2$, and the degree-four part of $S_{\rm fix}$ and of $S_{\rm mov}$ in $(\xi,\eta)$ is
+\[\mathcal Q_4(u)=c_1|u_1|^4+c_2|u_2|^4+c_3|u_1|^2|u_2|^2+c_4(u_1\cdot u_2)^2+c_5|u_1|^2(u_1\cdot u_2)+c_6|u_2|^2(u_1\cdot u_2).\]
+Thus $c_\nu^{12}=c_\nu$ in Proposition~\ref{bpP:p8:quartic}; $c_1,c_2$ coincide with the diagonal formula of Proposition~\ref{bpP:p8:quartic}(b) (equivalently $c_1=\frac{m_1m_2}{2\Lambda_1^2}r_1^{\rm ex}(a_1,a_2)$, $c_2=\frac{m_1m_2}{2\Lambda_2^2}r_1^{\rm ex}(a_2,a_1)$ for $G=m_0=1$).
+\end{theorem}
+\begin{proof}
+\proofstep{Exact conversion}\label{stepP:p11b:qe-conv} $v_i=\sqrt{(1-\Gamma_i/2\Lambda_i)/\Lambda_i}\,u_i=\Lambda_i^{-1/2}(1-|u_i|^2/(4\Lambda_i))^{1/2}u_i$ ($\Gamma_i=|u_i|^2/2$). Put $w_i=u_i/\sqrt{\Lambda_i}$; then $v_i=w_i(1-\tfrac18|w_i|^2+O(|w|^4))$, so $|v_i|^2=|w_i|^2-\tfrac14|w_i|^4+O(|w|^6)$ and $v_1\cdot v_2=w_1\cdot w_2\,(1-\tfrac18|w_1|^2-\tfrac18|w_2|^2)+O(|w|^6)$. Insert in $\mathcal W_2+\mathcal W_4$ (Proposition~\ref{bpP:p11b:pair-jet}; $|\zeta_i|=|v_i|$, $\operatorname{Re}(\bar\zeta_1\zeta_2)=v_1\cdot v_2$): the degree-four part in $w$ is
+\[\mathcal W_4(w)-\tfrac{\mathsf A}4(|w_1|^4+|w_2|^4)-\tfrac{\mathsf B}8\,(w_1\cdot w_2)(|w_1|^2+|w_2|^2),\]
+and multiplying by $\mathrm{pref}$ and using $|w_1|^4=|u_1|^4/\Lambda_1^2$, $|w_1|^2(w_1\cdot w_2)=|u_1|^2(u_1\cdot u_2)/(\Lambda_1^{3/2}\Lambda_2^{1/2})$, etc., gives the displayed $c_\nu$.
+\proofstep{Analyticity and the jet}\label{stepP:p11b:qe-an} $\beta_0,\beta_1,\Lambda_i$ are real analytic on $\mathcal A_2$ (Lemma~\ref{bpP:p8:laplace}) and the denominators $\Delta^4=(1-\alpha^2)^4$ do not vanish. By Proposition~\ref{bpP:p8:quartic}'s structure and Corollary~\ref{bpP:p8:same-jets}, $S_{\rm fix}$ and $S_{\rm mov}$ have the same degree-four part, equal to that of $S_{12}$ (pair decomposition, Step~\ref{stepP:p8:qf-pair}).
+\proofstep{$c_1,c_2$}\label{stepP:p11b:qe-c12} For $\zeta_2=0$ the planetary pair average is a function of $E=|v_1|^2$ alone: $\mathcal W(\alpha;\zeta_1,0)=\beta_0+\mathsf AE+\mathsf p_1E^2+\dots$, while Step~\ref{stepP:p8:qf-diag} gives $S_{12}|_{u_2=0}=-Gm_1m_2[h(0)+\tfrac14h''(0)E+\tfrac1{64}h^{(4)}(0)E^2+O(E^3)]$ (inner eccentric; $E$ is the same $e^2$). Comparing, $\mathrm{pref}\,\mathsf A=-Gm_1m_2h''(0)/4$ and $\mathrm{pref}\,\mathsf p_1=-Gm_1m_2h^{(4)}(0)/64$, hence $\mathrm{pref}(\mathsf p_1-\mathsf A/4)/\Lambda_1^2=-Gm_1m_2(h^{(4)}/64-h''/16)/\Lambda_1^2$, the formula of Proposition~\ref{bpP:p8:quartic}(b). The case $i=2$ is the same with the outer planet eccentric (Step~\ref{stepP:p8:qf-diag}, $i>j$). Numerically both sides agree to $10^{-14}$ (\S\ref{bpP:p11b:sec-num}).
+\end{proof}
+
+\subsection{Birkhoff normalisation to order four}\label{bpP:p11b:sec-bnf}
+
+Fix an open set $\mathcal O\subset\R^2$ of actions and real-analytic $\Omega=(\Omega_1,\Omega_2):\mathcal O\to\R^2$ with the non-resonance
+\begin{equation}\label{bpP:p11b:eq:nr}
+k\cdot\Omega(\Lambda)\ne0\qquad\forall k\in\Z^2,\ 0<\lvert k\rvert_1\le4,\ \Lambda\in\mathcal O\qquad(\text{i.e. }\operatorname{NR}_4(\Omega)).
+\end{equation}
+Put $N_0(\Lambda,z)=\sum_j\Omega_j(\Lambda)R_j(z)$ on $z=(z_1,z_2)\in\R^4$. A \emph{quartic family} is $F(\Lambda,z)=\sum_{|\gamma|=4}f_\gamma(\Lambda)z^\gamma$ with real-analytic $f_\gamma$ (monomials in $x_1,y_1,x_2,y_2$) and real values. Identify $z_j\leftrightarrow x_j+iy_j$. The \emph{rotation action} is $T_\theta z=(e^{-i\theta_1}z_1,e^{-i\theta_2}z_2)$, $\theta\in\R^2$; by the frozen sign convention it is the flow of $N_0$: $\psi^t_{N_0}=T_{t\Omega}$ ($\dot z_j=-i\Omega_jz_j$ from $\dot x=\partial_yN_0$, $\dot y=-\partial_xN_0$).
+
+\begin{lemma}[Character decomposition]\label{bpP:p11b:char}
+For a quartic family $F$ and $k\in\Z^2$ let $F_k(\Lambda,z)=(2\pi)^{-2}\int_{[0,2\pi]^2}e^{-ik\cdot\theta}F(\Lambda,T_\theta z)\,d\theta$. Then $F_k(\Lambda,T_\phi z)=e^{ik\cdot\phi}F_k(\Lambda,z)$; $F_k\ne0$ only if $\lvert k\rvert_1\le4$; $F=\sum_kF_k$ (finite sum); $\overline{F_k}=F_{-k}$ for real $F$; $F_k$ is a polynomial in $(z,\bar z)$ with coefficients real analytic in $\Lambda$, and $\{F_k,N_0\}=i\,(k\cdot\Omega)\,F_k$. In particular $\langle F\rangle:=F_0$ is the $T^2$-average of $F$, and it is a real quartic family.
+\end{lemma}
+\begin{proof}
+\proofstep{Monomials}\label{stepP:p11b:ch-mon} In $z_j,\bar z_j$ the quartic family is a combination of $z^\alpha\bar z^\beta$, $\lvert\alpha\rvert+\lvert\beta\rvert=4$, and $T_\theta(z^\alpha\bar z^\beta)=e^{ik\cdot\theta}z^\alpha\bar z^\beta$ with $k=\beta-\alpha$, $\lvert k\rvert_1\le4$. Orthogonality of characters gives $F_k=\sum_{\beta-\alpha=k}f_{\alpha\beta}z^\alpha\bar z^\beta$ and $F=\sum F_k$.
+\proofstep{Reality and bracket}\label{stepP:p11b:ch-bra} For real $F$, conjugating the definition gives $\overline{F_k}=F_{-k}$. $\{F_k,N_0\}=\frac d{dt}F_k(T_{t\Omega}z)|_0=i(k\cdot\Omega)F_k$ by the covariance just proved.
+\end{proof}
+
+\begin{lemma}[Homological equation]\label{bpP:p11b:homological}
+Let $F$ be a quartic family on $\mathcal O$ and assume \eqref{bpP:p11b:eq:nr}. Then
+\[\chi:=\sum_{k\ne0}\frac{F_k}{i\,(k\cdot\Omega)}\]
+is a real quartic family (coefficients real analytic on $\mathcal O$) and $\{\chi,N_0\}=F-\langle F\rangle$, equivalently $\{N_0,\chi\}=-(F-\langle F\rangle)$.
+\end{lemma}
+\begin{proof}
+\proofstep{Well defined, real}\label{stepP:p11b:ho-def} The sum has finitely many terms with $0<\lvert k\rvert_1\le4$, so $k\cdot\Omega\ne0$ and analytic; $\overline{F_k/(i k\cdot\Omega)}=F_{-k}/(i(-k)\cdot\Omega)$ shows $\chi$ real.
+\proofstep{Equation}\label{stepP:p11b:ho-eq} Lemma~\ref{bpP:p11b:char}: $\{\chi,N_0\}=\sum_{k\ne0}\frac{i(k\cdot\Omega)F_k}{i(k\cdot\Omega)}=F-F_0$; antisymmetry of $\{\cdot,\cdot\}$ gives the second form.
+\end{proof}
+
+\begin{lemma}[Time-one map of a quartic Hamiltonian]\label{bpP:p11b:flow}
+Let $\chi$ be a quartic family on $\mathcal O$, $\mathcal K\subset\mathcal O$ compact. There are $C_1,r_1>0$ such that for $\Lambda\in\mathcal K$ and $\lvert z\rvert_2<r_1$ the flow $\phi_\chi^t$ of $X_\chi(\Lambda,\cdot)$ exists for $t\in[0,1]$, $\lvert\phi^t_\chi(z)\rvert_2^2\le2\lvert z\rvert_2^2$, and $Y(\Lambda,z):=\phi_\chi^1(\Lambda,z)$ is real analytic in $(\Lambda,z)$ on a neighbourhood of $\mathcal K\times\{|z|<r_1\}$, $Y(\Lambda,z)=z+O(\lvert z\rvert^3)$ uniformly, and $Y$ is injective with inverse $\phi^1_{-\chi}$ on its image.
+\end{lemma}
+\begin{proof}
+\proofstep{Bound}\label{stepP:p11b:fl-bd} $X_\chi$ is a polynomial vector field, homogeneous of degree $3$ in $z$ with coefficients analytic in $\Lambda$: $\lvert X_\chi\rvert\le C_1\lvert z\rvert^3$ on $\mathcal K$. For $u=\lvert z(t)\rvert^2$, $\dot u=2z\cdot X_\chi\le2C_1u^2$, so $1/u(t)\ge1/u_0-2C_1t$; if $u_0\le r_1^2:=1/(4C_1)$ then $u(t)\le2u_0$ on $[0,1]$ (and the solution cannot blow up, \Nref{bpN:p3:gen-continuation}).
+\proofstep{Analyticity, expansion}\label{stepP:p11b:fl-an} \ref{bpP:p11b:e-ode}; $\phi^1_\chi(z)-z=\int_0^1X_\chi(\phi^t)dt=O(\lvert z\rvert^3)$. The inverse is the time-one map of $-\chi$ (uniqueness, \Nref{bpN:p3:gen-uniqueness}).
+\end{proof}
+
+\begin{proposition}[Birkhoff normal form of order four]\label{bpP:p11b:lie}
+Let $\mathcal O$, $\Omega$ satisfy \eqref{bpP:p11b:eq:nr}, let $K(\Lambda,z)$ be real analytic on a neighbourhood of $\mathcal O\times\{0\}$ with
+\[K=C+N_0+F+\mathcal R,\]
+$C=C(\Lambda)$, $F$ a quartic family, and $\mathcal R$ analytic with vanishing $5$-jet at $z=0$ (so $\mathcal R=O(\lvert z\rvert^6)$ locally uniformly, \ref{bpP:p11b:e-jet}). Let $\chi$ be given by Lemma~\ref{bpP:p11b:homological} and $Y=\phi^1_\chi$. Then for every compact $\mathcal K\subset\mathcal O$ there are $C_2,r_2>0$ with
+\[\Big\lvert K(\Lambda,Y(\Lambda,z))-\big(C(\Lambda)+N_0(\Lambda,z)+\langle F\rangle(\Lambda,z)\big)\Big\rvert\le C_2\lvert z\rvert^6\qquad(\Lambda\in\mathcal K,\ \lvert z\rvert<r_2).\]
+Here $\langle F\rangle$ is the $T^2$-average, a quartic polynomial in $R_1,R_2$ only (Lemma~\ref{bpP:p11b:char}): $\langle F\rangle=\sum_{i\le j}\varphi_{ij}(\Lambda)R_iR_j$.
+\source{Standard Birkhoff normalisation (Siegel--Moser; Fej04r/CP10 Prop.~2 step), here in the finite closed form of the homological equation; CP10 Prop.~2, p.~553, and Step~4 p.~559 use track N's iterative Lie transform, not needed for order four.}
+\end{proposition}
+\begin{proof}
+\proofstep{Taylor along the flow}\label{stepP:p11b:li-tay} For analytic $K$ and $t\in[0,1]$, $\frac d{dt}K\circ\phi^t_\chi=\{K,\chi\}\circ\phi^t_\chi$ (definition of $\{\cdot,\cdot\}$; Part~N, \Nref{bpN:p5:lie-derivative}, \Nref{bpN:p5:taylor}), hence $K\circ Y=K+\{K,\chi\}+\int_0^1(1-t)\{\{K,\chi\},\chi\}\circ\phi^t_\chi\,dt$.
+\proofstep{Orders}\label{stepP:p11b:li-ord} $\{N_0,\chi\}=-(F-\langle F\rangle)$ (Lemma~\ref{bpP:p11b:homological}) is quartic. $\{F,\chi\}$ is a polynomial of degree $4+4-2=6$ ($dF=O(\lvert z\rvert^3)$, $X_\chi=O(\lvert z\rvert^3)$), $\{\mathcal R,\chi\}=O(\lvert z\rvert^8)$ and $\{C,\chi\}=0$ ($C$ does not depend on $z$). So $\{K,\chi\}=-(F-\langle F\rangle)+O(\lvert z\rvert^6)$. Further $\{K,\chi\}=O(\lvert z\rvert^4)$ analytic, so $\{\{K,\chi\},\chi\}=O(\lvert z\rvert^3)\cdot O(\lvert z\rvert^3)=O(\lvert z\rvert^6)$ (analytic, \ref{bpP:p11b:e-jet}), and on $\phi^t_\chi(z)$ with $\lvert\phi^t_\chi z\rvert^2\le2\lvert z\rvert^2$ (Lemma~\ref{bpP:p11b:flow}) it is $\le C\lvert z\rvert^6$.
+\proofstep{Sum}\label{stepP:p11b:li-sum} $K\circ Y=C+N_0+F+\mathcal R-(F-\langle F\rangle)+O(\lvert z\rvert^6)=C+N_0+\langle F\rangle+O(\lvert z\rvert^6)$. $\langle F\rangle$ is invariant under $T_\theta$, hence a polynomial in $\lvert z_1\rvert^2,\lvert z_2\rvert^2$ (invariant polynomials of the torus action in $(z,\bar z)$ are $z^\alpha\bar z^\alpha$), of degree $2$ in $(R_1,R_2)$.
+\end{proof}
+
+\begin{proposition}[The Birkhoff map on the full phase space]\label{bpP:p11b:lift-map}
+In the situation of Lemma~\ref{bpP:p11b:flow}, with $\Lambda$ a variable, define on $\R^2\times\mathcal O\times\{\lvert z\rvert<r_1\}\ni(\lambda,\Lambda,z)$
+\[\Phi_\chi(\lambda,\Lambda,z)=\big(\lambda+g(\Lambda,z),\ \Lambda,\ Y(\Lambda,z)\big),\qquad g_l(\Lambda,z)=\int_0^1\partial_{\Lambda_l}\chi\big(\Lambda,\phi^t_\chi(\Lambda,z)\big)\,dt.\]
+Then $\Phi_\chi$ is the time-one map of the Hamiltonian flow of $\chi(\Lambda,z)$ for the chart form $\Omega_{\rm chart}=d\Lambda\wedge d\lambda+dy\wedge dx$; hence it is a real analytic symplectic diffeomorphism onto its image, preserves $\Lambda$, commutes with angle translations $\Phi_\chi(\lambda+c,\Lambda,z)=\Phi_\chi(\lambda,\Lambda,z)+(c,0,0)$, and the composition $T:=\Phi_\varrho^{-1}\circ\Phi_\chi$ with the lift of Proposition~\ref{bpP:p9:lift} has the same three properties and the form
+\[T(\lambda,\Lambda,z)=\big(\lambda+g(\Lambda,z)+H(\Lambda,Y(\Lambda,z)),\ \Lambda,\ \varrho(\Lambda)Y(\Lambda,z)\big)\]
+with $H_l(\Lambda,\tilde z)=\tilde y^\top(\varrho^\top\partial_{\Lambda_l}\varrho)\tilde x$ (Proposition~\ref{bpP:p9:lift}); $\varrho Y$ means $\varrho$ applied to the $x$- and to the $y$-vectors.
+\end{proposition}
+\begin{proof}
+\proofstep{Hamilton's equations}\label{stepP:p11b:lm-ham} The Hamiltonian $\chi$ does not depend on $\lambda$, so $\dot\Lambda=-\partial_\lambda\chi=0$, $\dot z=X_\chi(\Lambda,z)$ and $\dot\lambda_l=\partial_{\Lambda_l}\chi(\Lambda,z(t))$; integrating gives $\lambda(1)=\lambda+g$, $z(1)=Y$.
+\proofstep{Properties}\label{stepP:p11b:lm-prop} Hamiltonian flows are symplectic (\Nref{bpN:p5:symplectic}, \Nref{bpN:p5:canonical}); analytic by \ref{bpP:p11b:e-ode}; $\Lambda$ is constant; the vector field does not involve $\lambda$ so $\lambda$-translations commute. $T$: composition of two maps with these properties (Proposition~\ref{bpP:p9:lift}).
+\end{proof}
+
+\subsection{The torsion matrix}\label{bpP:p11b:sec-beta}
+
+For $a\in\mathcal A_2$ let $\sigma_1<\sigma_2<0$ be the eigenvalues of $Q_h(a)$ (Corollary~\ref{bpP:p9:n2}) and
+\[\Pi_1(a)=\frac{Q_h(a)-\sigma_2I}{\sigma_1-\sigma_2}=\begin{pmatrix}\pi_{11}&\pi_{12}\\\pi_{12}&\pi_{22}\end{pmatrix}\]
+the orthogonal projection onto the $\sigma_1$-eigenspace (rank one: $\pi_{11}+\pi_{22}=1$, $\pi_{11}\pi_{22}=\pi_{12}^2$). With $\varrho=[e_1|e_2]\in SO(2)$ one has $\Pi_1=e_1e_1^\top$.
+
+\begin{definition}[Torsion $\hat\beta$]\label{bpP:p11b:beta-def}
+With $c_1,\dots,c_6$ of Theorem~\ref{bpP:p11b:quartic-explicit} put $\delta_\pi=\pi_{11}-\pi_{22}$ and
+\begin{align*}
+\mathsf a&=c_1\pi_{11}^2+c_2\pi_{22}^2+(c_3+c_4)\pi_{11}\pi_{22}+(c_5\pi_{11}+c_6\pi_{22})\pi_{12},\\
+\mathsf d&=c_1\pi_{22}^2+c_2\pi_{11}^2+(c_3+c_4)\pi_{11}\pi_{22}-(c_5\pi_{22}+c_6\pi_{11})\pi_{12},\\
+\mathsf b&=4(c_1+c_2)\pi_{11}\pi_{22}+c_3\delta_\pi^2+c_4\big(\tfrac12\delta_\pi^2-2\pi_{11}\pi_{22}\big)+2(c_6-c_5)\pi_{12}\delta_\pi,
+\end{align*}
+and $\hat\beta(a)=\begin{pmatrix}8\mathsf a&4\mathsf b\\4\mathsf b&8\mathsf d\end{pmatrix}$, symmetric. All entries are real analytic on $\mathcal A_2$ ($\sigma_{1,2}=\frac12(\operatorname{tr}\mp\sqrt{\operatorname{tr}^2-4\det})$ with positive discriminant, Corollary~\ref{bpP:p9:n2}), \emph{independent of the choice of $\varrho$} (only $\Pi_1$ enters), of the coupling parameter, and the same for $S_{\rm fix}$ and $S_{\rm mov}$ (Corollary~\ref{bpP:p8:same-jets}).
+\end{definition}
+
+\begin{proposition}[$\hat\beta$ is the torus average of the rotated quartic]\label{bpP:p11b:beta-formula}
+Let $\varrho=[e_1|e_2]\in SO(2)$ diagonalise $Q_h(a)$ and let $\tilde{\mathcal Q}_4(z)=\mathcal Q_4(\varrho x,\varrho y)$, i.e.\ $u_i=\sum_j\varrho_{ij}z_j$ in $\mathcal Q_4$ (Theorem~\ref{bpP:p11b:quartic-explicit}). Its $T^2$-average (Lemma~\ref{bpP:p11b:char}) is
+\[\langle\tilde{\mathcal Q}_4\rangle=\tfrac12\sum_{i,j}\hat\beta_{ij}(a)R_iR_j=4\mathsf a\,R_1^2+4\mathsf b\,R_1R_2+4\mathsf d\,R_2^2 .\]
+\end{proposition}
+\begin{proof}
+\proofstep{Gram variables}\label{stepP:p11b:bf-gram} Put $r_j=\lvert z_j\rvert^2=2R_j$ and $g=z_1\cdot z_2=x_1x_2+y_1y_2$. With $\varrho=\begin{pmatrix}\gamma&-s\\s&\gamma\end{pmatrix}$, $e_1=(\gamma,s)$, $\pi_{11}=\gamma^2$, $\pi_{22}=s^2$, $\pi_{12}=\gamma s$: $u_1=\gamma z_1-sz_2$, $u_2=sz_1+\gamma z_2$, so
+\begin{gather*}A_1:=\lvert u_1\rvert^2=\pi_{11}r_1+\pi_{22}r_2-2\pi_{12}g,\quad A_2:=\lvert u_2\rvert^2=\pi_{22}r_1+\pi_{11}r_2+2\pi_{12}g,\\ B_\cdot:=u_1\cdot u_2=\pi_{12}(r_1-r_2)+\delta_\pi g,\end{gather*}
+and $\tilde{\mathcal Q}_4=c_1A_1^2+c_2A_2^2+c_3A_1A_2+c_4B_\cdot^2+c_5A_1B_\cdot+c_6A_2B_\cdot$ is a polynomial in $(r_1,r_2,g)$ of degree $\le2$ in $g$.
+\proofstep{Averaging}\label{stepP:p11b:bf-avg} Under $T_\theta$, $r_j$ is invariant and $g=\operatorname{Re}(\bar z_1z_2)\mapsto\operatorname{Re}(e^{i(\theta_1-\theta_2)}\bar z_1z_2)$, so $\langle g\rangle=0$ and $\langle g^2\rangle=\tfrac12r_1r_2$ ($\langle\cos^2\rangle=\tfrac12$; $\operatorname{Re}(e^{i\vartheta}\bar z_1z_2)=\sqrt{r_1r_2}\cos(\vartheta+\vartheta_0)$). Collecting the coefficients of $r_1^2$, $r_2^2$ and $r_1r_2+\tfrac12g^2$ in the expansion (and using $\pi_{11}\pi_{22}=\pi_{12}^2$, $\pi_{11}+\pi_{22}=1$ to write $A_\cdot$, $B_\cdot$ products in the $\pi$'s): coefficient of $r_1^2$ is $\mathsf a$, of $r_2^2$ is $\mathsf d$ and of $r_1r_2$ (after $g^2\mapsto\frac12r_1r_2$) is $\mathsf b$; for instance the $r_1r_2$ coefficient of $A_1^2$ is $2\pi_{11}\pi_{22}$ and $\tfrac12\cdot4\pi_{12}^2=2\pi_{12}^2$ comes from $g^2$, total $4\pi_{11}\pi_{22}$, which gives the term $4c_1\pi_{11}\pi_{22}$ of $\mathsf b$; the others are identical bookkeeping, verified symbolically and numerically (\S\ref{bpP:p11b:sec-num}). Hence $\langle\tilde{\mathcal Q}_4\rangle=\mathsf ar_1^2+\mathsf br_1r_2+\mathsf dr_2^2=4\mathsf aR_1^2+4\mathsf bR_1R_2+4\mathsf dR_2^2$, and $\tfrac12\sum\hat\beta_{ij}R_iR_j=\tfrac12(8\mathsf aR_1^2+8\mathsf bR_1R_2+8\mathsf dR_2^2)$.
+\end{proof}
+
+\begin{theorem}[Secular Birkhoff form, planar]\label{bpP:p11b:birkhoff-form}
+Let $n=2$, $G,m_0>0$, $m_1,m_2>0$. Let $K_a=\overline B_\infty(a^0,\rho)\subset\{a\in\mathcal A_2:\Phi_4(a)\ne0\}$ be a closed cube, $\mathcal O_a\supset K_a$ open and inside $\{\Phi_4\ne0\}$ and simply connected, $\Lambda(\cdot)$ the analytic diffeomorphism $a\mapsto\Lambda$, $K=\Lambda(K_a)$, $\mathcal O=\Lambda(\mathcal O_a)$. Then there are an analytic $\varrho:\mathcal O\to SO(2)$ diagonalising $Q_h$, analytic $\chi$ (Lemma~\ref{bpP:p11b:homological} with $F=\tilde{\mathcal Q}_4$, $\Omega=2\sigma$), constants $r_*>0$, $C_*>0$ and the analytic symplectic map $T=\Phi_\varrho^{-1}\circ\Phi_\chi$ (Proposition~\ref{bpP:p11b:lift-map}) on $\mathcal T=\{(\lambda,\Lambda,z):\Lambda\in\mathcal O',\lvert z\rvert_2<r_*\}$, $\mathcal O'\Subset\mathcal O$ a neighbourhood of $K$, with values in the domain of $\hat f$, such that for $\hat f\in\{\hat f_{\rm fix},\hat f_{\rm mov}\}$ and $P:=\hat f\circ T$:
+\begin{enumerate}[label=(\alph*)]
+\item $P$ is real analytic on $\mathcal T$, $2\pi$-periodic in $\lambda$, independent of any coupling parameter, and $H^\Psi\circ T=h(\Lambda)+\mu P$ for $H^\Psi=h+\mu\hat f$ ($T$ preserves $\Lambda$);
+\item for $\Lambda\in K$, $\lvert z\rvert_2<r_*$,
+\[\langle P\rangle(\Lambda,z)=P_0(\Lambda)+\sum_{j=1,2}\Omega_j(\Lambda)R_j+\tfrac12\sum_{i,j}\hat\beta_{ij}(a(\Lambda))R_iR_j+\mathrm{Rem},\qquad\lvert\mathrm{Rem}\rvert\le C_*\lvert z\rvert^6,\]
+with $\Omega_j=2\sigma_j(a(\Lambda))<0$, $P_0=C_0(a)$ for $\hat f_{\rm fix}$ and $C_0(a)+\delta(\Lambda)$ for $\hat f_{\rm mov}$, $\langle\cdot\rangle$ the average over $\lambda\in[0,2\pi]^2$;
+\item with the dictionary $(I,\varphi,p,q)=(\Lambda,\lambda,y,x)$, the frozen $\operatorname{HasBirkhoff}(P,V,r_0,\mu_0,P_0,\Omega,\beta)$ of Definition~\ref{bpP:p0:birkhoff} holds for $V=\operatorname{int}K$, any $\mu_0>0$, $r_0=r_*/\sqrt2$ and $\Omega(\mu,I)=2\sigma(a(I))$, $\beta(\mu,I)=\hat\beta(a(I))$, $P_0(\mu,I)$ as above (all independent of $\mu$), where $P$ is extended to the rest of phase space as in Part~12; $\beta(\mu,I)$ is symmetric.
+\end{enumerate}
+The data $\varrho,\chi,r_*,C_*$ depend only on $(G,m_0,m,K_a)$.
+\end{theorem}
+\begin{proof}
+\proofstep{Rotation}\label{stepP:p11b:bt-rot} $Q_h$ has simple spectrum on $\mathcal O_a$, $\Pi_1$ is analytic there, and $e_1$ (a unit vector in the range of $\Pi_1$) lifts analytically to the angle $\psi$ on the simply connected $\mathcal O_a$ (covering $S^1\to S^1$); put $\varrho=[e_1|e_2]$, $e_2=Je_1$ (Proposition~\ref{bpP:p9:local-analytic}, Theorem~\ref{bpP:p9:diagonalize}(a)).
+\proofstep{The function $K$}\label{stepP:p11b:bt-K} Put $K(\Lambda,z)=S_{\rm fix}(\Lambda,\varrho x,\varrho y)$. By Theorem~\ref{bpP:p8:quadratic-form}, Corollary~\ref{bpP:p8:evenness} and Theorem~\ref{bpP:p11b:quartic-explicit}, $S_{\rm fix}=C_0+\xi^\top Q_h\xi+\eta^\top Q_h\eta+\mathcal Q_4+\mathcal R_6$ with $\mathcal R_6$ analytic with vanishing $5$-jet; by Theorem~\ref{bpP:p9:diagonalize}(a), $K=C_0+N_0+\tilde{\mathcal Q}_4+\mathcal R$ with $\Omega=2\sigma$, $\mathcal R=\mathcal R_6\circ(\varrho\cdot)$. $K$ is analytic on a neighbourhood $\mathcal N_K$ of $K\times\{0\}$ in the sense of Part~8: choose $\rho_K$ by compactness (cover $K$ by finitely many $\mathcal N(\rho_*(\Lambda^*)/2)$) so that the real polydiscs of radius $\rho_K$ around $(0,\Lambda_c,0)$, $\Lambda_c\in K$, lie in the domain of Proposition~\ref{bpP:p8:perturbation-analytic}.
+\proofstep{Normal form}\label{stepP:p11b:bt-nf} $F=\tilde{\mathcal Q}_4$ is a quartic family (coefficients analytic in $\Lambda$ through $c_\nu,\varrho$), and $\operatorname{NR}_4(\Omega)$ holds on $\mathcal O$ since $\Phi_4\ne0$ (Proposition~\ref{bpP:p9:good-set}(b), $\operatorname{NR}_4(\sigma)\Leftrightarrow\operatorname{NR}_4(2\sigma)$). Proposition~\ref{bpP:p11b:lie}: $K\circ Y=C_0+N_0+\langle\tilde{\mathcal Q}_4\rangle+O(\lvert z\rvert^6)$, and $\langle\tilde{\mathcal Q}_4\rangle=\tfrac12\sum\hat\beta_{ij}R_iR_j$ by Proposition~\ref{bpP:p11b:beta-formula}.
+\proofstep{Average of $P$}\label{stepP:p11b:bt-avg} $T(\lambda,\Lambda,z)=(\lambda+h_T(\Lambda,z),\Lambda,\varrho Y)$ with $h_T$ independent of $\lambda$ (Proposition~\ref{bpP:p11b:lift-map}). $\hat f$ is continuous and $2\pi$-periodic in $\lambda$ (Proposition~\ref{bpP:p8:perturbation-analytic}(b)), so the $\lambda$-average of $\hat f\circ T$ is the average of $\hat f$ at the point $(\Lambda,\varrho x',\varrho y')$, $z'=Y(\Lambda,z)$ (translation invariance, \ref{bpP:p8:e-diff}), i.e.\ $S(\Lambda,\varrho x',\varrho y')=K(\Lambda,Y)+[\delta]$; here $\lvert\varrho Y\rvert\le\lvert Y\rvert\le\sqrt2\lvert z\rvert$ so the image point lies in the polydisc for $r_*\le\rho_K/\sqrt2$, which also gives (a). This is (b); the remainder bound is Proposition~\ref{bpP:p11b:lie} with the $[\delta]$ identification of Theorem~\ref{bpP:p8:identification}.
+\proofstep{The frozen clauses}\label{stepP:p11b:bt-frozen} (i) $P$ is continuous on the torus, hence integrable (Definition~\ref{bpP:p0:birkhoff}(i)); the frozen $\operatorname{secularAverage}$ is $\langle P\rangle$ (dictionary, \S\ref{bpP:p8:conv}). (ii) For $\lvert(p,q)\rvert_\infty<\delta$: $\lvert z\rvert_2\le2\lvert(p,q)\rvert_\infty$, hence $\lvert\mathrm{Rem}\rvert\le64C_*\lvert(p,q)\rvert_\infty^6\le\epsilon\lvert(p,q)\rvert_\infty^4$ for $\delta^2\le\epsilon/(64C_*)$, $\delta\le r_0$; uniformly in $I\in K$. The constants $\hat\beta$, $\Omega$ do not depend on $\mu$, so (iii) holds for all $\mu\in[0,\mu_0]$. Symmetry of $\hat\beta$ is built in.
+\end{proof}
+
+\begin{remark}[Two clauses of P-G that remain for Part 12]\label{bpP:p11b:remain}
+(1) $\operatorname{htorsion}$ asks $B\le\lvert\det\beta\rvert$ on $V$: by Corollary~\ref{bpP:p11b:patch} below, $\det\hat\beta$ is continuous and nonzero on the compact $K_a$, so $B:=\min_{K_a}\lvert\det\hat\beta\rvert>0$ works. (2) The joint analyticity of $P$ on a neighbourhood of $\operatorname{closure}(\text{cylinder})$, the extension of $P$ outside $\mathcal T$, $\operatorname{hperiod}$ (which holds because $T$ commutes with $2\pi$-shifts and $\hat f$ is $2\pi$-periodic), the fast diffeomorphism and the boundary collar are Part~12's. For $n=2$ and P-FIXED the same $P_0$, $\Omega$, $\hat\beta$ (up to $\delta$) serve (Corollary~\ref{bpP:p8:same-jets}).
+\end{remark}
+
+\subsection{The torsion determinant}\label{bpP:p11b:sec-det}
+
+\begin{proposition}[Hierarchical asymptotics of $\hat\beta$]\label{bpP:p11b:asymptotics}
+Fix $G,m_0,m_1,m_2>0$, $g_0:=G/\kappa=1/m_0$, and take $a_2=1$, $a_1=\alpha\in(0,\alpha_0)$ ($\alpha_0$ depends only on $m_1/m_2$). Then, with $O(\cdot)$ constants depending only on $m_1/m_2$,
+\begin{align*}
+\hat\beta_{11}&=\frac{3g_0m_2}{4m_1}\,\alpha\,\big(1+O(\alpha^2)\big),&\hat\beta_{12}&=-\frac{9g_0}4\,\alpha^{3/2}\big(1+O(\alpha^2)\big),&\hat\beta_{22}&=-\frac{3g_0m_1}{m_2}\,\alpha^2\big(1+O(\alpha^2)\big),\\
+\det\hat\beta&=-\frac{117}{16}\,g_0^2\,\alpha^3\,\big(1+O(\alpha^2)\big).
+\end{align*}
+For general axes, by homogeneity ($\hat\beta(sa_1,sa_2)=s^{-2}\hat\beta(a_1,a_2)$), $\det\hat\beta=-\frac{117}{16}\,(G/\kappa)^2\,a_1^3a_2^{-7}\,(1+O(a_1^2/a_2^2))$ as $a_1/a_2\to0$ with $m$ fixed.
+\source{Ours. Cross-check: CP11 (8.3)--(8.4), p.~34 (planar block $\tau_{\rm pl}=m_1m_2\frac{a_1^2}{a_2^3}\big(\begin{smallmatrix}3/(4\Lambda_1^2)&-9/(4\Lambda_1\Lambda_2)\\-9/(4\Lambda_1\Lambda_2)&-3/\Lambda_2^2\end{smallmatrix}\big)$ for $G=m_0=1$, $\det\tau_{\rm pl}=-\frac{117}{16\Lambda_1^2\Lambda_2^2}(m_1m_2a_1^2/a_2^3)^2$), Arnold 1963 [2, p.~138, (3.4.31)]; with $\Lambda_1^2=m_1^2a_1$, $\Lambda_2^2=m_2^2a_2$ these are exactly the three limits above and (8.4): the two computations agree. CP11's asymptotics (8.2) for $r_1(a_1,a_2)=\tfrac3{16}\alpha^2$, $r_1(a_2,a_1)=-\tfrac34\alpha^2$ also agree with $c_1,c_2$ below.}
+\end{proposition}
+\begin{proof}
+\proofstep{Inputs}\label{stepP:p11b:as-in} Here $\Lambda_1=m_1\sqrt{\kappa\alpha}$, $\Lambda_2=m_2\sqrt\kappa$, $\mathrm{pref}=-Gm_1m_2$. From Lemma~\ref{bpP:p8:laplace}, $b_{3/2}^{(1)}=\tfrac32\alpha(1+O(\alpha^2))$, $b_{3/2}^{(2)}=\tfrac{15}8\alpha^2(1+O(\alpha^2))$, so $\mathfrak a=\tfrac38Gm_1m_2\alpha^2(1+O(\alpha^2))$, $\mathfrak b=\tfrac{15}{32}Gm_1m_2\alpha^3(1+O(\alpha^2))$ and
+\begin{gather*}Q_{11}=-\frac{\mathfrak a}{\Lambda_1}=-\frac{3Gm_2}{8\sqrt\kappa}\alpha^{3/2}(1+O(\alpha^2)),\quad Q_{22}=-\frac{\mathfrak a}{\Lambda_2}=-\frac{3Gm_1}{8\sqrt\kappa}\alpha^2(1+O(\alpha^2)),\\ Q_{12}=\frac{\mathfrak b}{\sqrt{\Lambda_1\Lambda_2}}=O(\alpha^{11/4}).\end{gather*}
+The difference $\Delta_Q:=Q_{11}-Q_{22}=Q_{11}\big(1+O(\alpha^{1/2})\big)$ is nonzero and negative for small $\alpha$.
+\proofstep{Projection}\label{stepP:p11b:as-pi} With $R=\sqrt{\Delta_Q^2+4Q_{12}^2}\ge\lvert\Delta_Q\rvert$: $\sigma_2-\sigma_1=R$, $\pi_{12}=Q_{12}/(\sigma_1-\sigma_2)=-Q_{12}/R$, so $\lvert\pi_{12}\rvert\le\lvert Q_{12}\rvert/\lvert\Delta_Q\rvert=O(\alpha^{5/4})$; $\pi_{22}=(\sigma_2-Q_{22})/R$ and $\sigma_2-Q_{22}=\tfrac12(\Delta_Q+R)=\tfrac12(R-\lvert\Delta_Q\rvert)\in[0,Q_{12}^2/\lvert\Delta_Q\rvert]$, so $0\le\pi_{22}\le Q_{12}^2/\Delta_Q^2=O(\alpha^{5/2})$ and $\pi_{11}=1-\pi_{22}$.
+\proofstep{Sizes of $c_\nu$}\label{stepP:p11b:as-c} By \eqref{bpP:p11b:eq:series} (with $\mathrm{pref}=-Gm_1m_2$): $\mathsf p_1-\mathsf A/4=-\tfrac3{32}\alpha^2(1+O(\alpha^2))$, $\mathsf p_2-\mathsf A/4=\tfrac38\alpha^2(1+O(\alpha^2))$, $\mathsf p_3=\tfrac9{16}\alpha^2(1+O(\alpha^2))$, $\mathsf p_4=O(\alpha^4)$, $\mathsf p_5-\mathsf B/8=O(\alpha^3)$, $\mathsf p_6-\mathsf B/8=O(\alpha^3)$. Dividing by $\Lambda_1^2=m_1^2\kappa\alpha$, $\Lambda_2^2=m_2^2\kappa$, $\Lambda_1\Lambda_2=m_1m_2\kappa\alpha^{1/2}$, $\Lambda_1^{3/2}\Lambda_2^{1/2}\asymp\alpha^{3/4}$, $\Lambda_1^{1/2}\Lambda_2^{3/2}\asymp\alpha^{1/4}$:
+\begin{gather*}c_1=\frac{3g_0m_2}{32m_1}\alpha(1+O(\alpha^2)),\quad c_2=-\frac{3g_0m_1}{8m_2}\alpha^2(1+O(\alpha^2)),\quad c_3=-\frac{9g_0}{16}\alpha^{3/2}(1+O(\alpha^2)),\\ c_4=O(\alpha^{7/2}),\ c_5=O(\alpha^{9/4}),\ c_6=O(\alpha^{11/4}).\end{gather*}
+\proofstep{The entries}\label{stepP:p11b:as-ent} Insert into Definition~\ref{bpP:p11b:beta-def} with the bounds of Step~\ref{stepP:p11b:as-pi} ($\pi_{12}=O(\alpha^{5/4})$, $\pi_{11}\pi_{22}=\pi_{12}^2=O(\alpha^{5/2})$, $\delta_\pi^2=1-4\pi_{12}^2$): $\mathsf a=c_1+O(\alpha^{7/2})$ (the corrections are $c_1\pi_{22}=O(\alpha^{7/2})$, $c_3\pi_{12}^2=O(\alpha^{4})$, $c_5\pi_{12}=O(\alpha^{7/2})$); $\mathsf d=c_2+O(\alpha^4)$ ($c_6\pi_{12}=O(\alpha^4)$, $c_3\pi_{12}^2=O(\alpha^4)$, $c_1\pi_{22}^2$ negligible); $\mathsf b=c_3+O(\alpha^{7/2})$ ($4(c_1+c_2)\pi_{12}^2=O(\alpha^{7/2})$, $c_4=O(\alpha^{7/2})$, $(c_6-c_5)\pi_{12}\delta_\pi=O(\alpha^{7/2})$, $c_3(\delta_\pi^2-1)=O(\alpha^4)$). Since $c_1\asymp\alpha$, $c_2\asymp\alpha^2$, $c_3\asymp\alpha^{3/2}$ the relative errors are $O(\alpha^{5/2})$, $O(\alpha^2)$, $O(\alpha^2)$. Then $\hat\beta_{11}=8\mathsf a$, $\hat\beta_{12}=4\mathsf b$, $\hat\beta_{22}=8\mathsf d$ give the three limits.
+\proofstep{Determinant}\label{stepP:p11b:as-det} $\det\hat\beta=64\,\mathsf a\mathsf d-16\,\mathsf b^2=g_0^2\alpha^3\big[64\cdot\tfrac3{32}\cdot(-\tfrac38)-16\cdot\tfrac{81}{256}\big](1+O(\alpha^2))=g_0^2\alpha^3\big[-\tfrac94-\tfrac{81}{16}\big](1+O(\alpha^2))=-\tfrac{117}{16}g_0^2\alpha^3(1+O(\alpha^2))$, the two summands having the same sign, so there is no cancellation. Homogeneity: $S_{12}$ is homogeneous of degree $-1$ in the lengths and the actions scale as $\Lambda\mapsto s^{1/2}\Lambda$, so $\hat\beta=\partial_R^2S$ scales as $s^{-1}\cdot s^{-1}$.
+\end{proof}
+
+\begin{theorem}[$\det\hat\beta\not\equiv0$ and the torsion theorem]\label{bpP:p11b:torsion}
+$\det\hat\beta$ is real analytic on the connected (convex) open set $\mathcal A_2=\{0<a_1<a_2\}$ and not identically zero. Hence $\{\det\hat\beta\ne0\}$ is open, dense and of full Lebesgue measure in $\mathcal A_2$; the same for $\{\Phi_4\det\hat\beta\ne0\}$.
+\source{Ours. This is the ``full torsion'' statement of CP11 \S8.1, p.~34, with its proof (Remark~7.3(iii), p.~32: Birkhoff invariants are analytic in the axes and the determinant does not vanish identically, so by the identity theorem not on an open dense set); here with the invariants recomputed.}
+\end{theorem}
+\begin{proof}
+\proofstep{Analyticity}\label{stepP:p11b:to-an} The entries of $\hat\beta$ are real analytic on $\mathcal A_2$ (Definition~\ref{bpP:p11b:beta-def}).
+\proofstep{A point}\label{stepP:p11b:to-pt} By Proposition~\ref{bpP:p11b:asymptotics} (with $a_2=1$, $a_1=\alpha$ small) $\det\hat\beta<0$; so $\det\hat\beta\not\equiv0$.
+\proofstep{Identity theorem}\label{stepP:p11b:to-id} \ref{bpP:p11b:e-id} (\ref{bpP:p9:e-id}) on connected $\mathcal A_2$: the zero set of $\det\hat\beta$ is closed, has empty interior and measure zero. Together with Theorem~\ref{bpP:p10:good-point} ($\Phi_4\not\equiv0$ on $\mathcal A_2$) Lemma~\ref{bpP:p10:generic} gives the last claim.
+\end{proof}
+
+\begin{corollary}[Patches near every axis vector]\label{bpP:p11b:patch}
+For every $a^*\in\mathcal A_2$ and $\eta>0$ there are $a_0\in\mathcal A_2$ and $r_0>0$ with $\overline B_\infty(a_0,2r_0)\subset B_\infty(a^*,\eta)\cap\{\Phi_4\ne0\}\cap\{\det\hat\beta\ne0\}$, and then $B:=\min_{\overline B_\infty(a_0,r_0)}\lvert\det\hat\beta\rvert>0$, $\hat\beta$ symmetric and Theorem~\ref{bpP:p11b:birkhoff-form} applies with $K_a=\overline B_\infty(a_0,r_0)$, $\mathcal O_a=B_\infty(a_0,2r_0)$ (a cube: simply connected). Moreover Part~10's frequency data (Theorem~\ref{bpP:p10:interface}) can be taken on the same patch (the extra analytic condition $\det\hat\beta\ne0$ is covered by the final sentence of that theorem).
+\end{corollary}
+\begin{proof}
+Theorem~\ref{bpP:p11b:torsion}: $\mathcal G=\{\Phi_4\det\hat\beta\ne0\}$ is open and dense in $\mathcal A_2$, so $B_\infty(a^*,\eta)\cap\mathcal G\cap\mathcal A_2$ is a nonempty open set containing a closed cube $\overline B_\infty(a_0,2r_0)$; $\lvert\det\hat\beta\rvert$ is continuous and positive on the compact $\overline B_\infty(a_0,r_0)$.
+\end{proof}
+
+\subsection{Numerical evidence, comparison with CP11}\label{bpP:p11b:sec-num}
+
+Scratch scripts: \texttt{.drafts/P/bp-scratch-bpP-p11b/} (\texttt{orbit.py}, \texttt{pair.py}, \texttt{avg.py}, \texttt{reduce.py}, \texttt{coeffs.py}, \texttt{series.py}, \texttt{final.py}, \texttt{endtoend.py}, \texttt{cmp.py}, \texttt{scan.py}, \texttt{beta\_asym.py}).
+\begin{enumerate}
+\item \emph{Pair jet} (\texttt{num1.py}): at $\alpha=0.45$, $\zeta_1=0.05e^{0.7i}$, $\zeta_2=0.04e^{-1.1i}$, the brute-force torus average of $|z_1-z_2|^{-1}$ (Kepler's equation solved by Newton, $96^2$ nodes) minus $\mathcal W_0+\dots+\mathcal W_4$ (before reduction) is $1.4\cdot10^{-8}$; halving $\zeta$ gives $2.1\cdot10^{-10}$, ratio $64=2^6$: the error is $O(\lvert v\rvert^6)$, so all six coefficients are right.
+\item \emph{Closed forms vs series} (\texttt{final.py}): the reduced rational formulas of Proposition~\ref{bpP:p11b:pair-jet} agree with the unreduced power series \eqref{bpP:p11b:eq:series} (to $M=16$) at $\alpha=0.3$ to the truncation error ($\le3\cdot10^{-7}$).
+\item \emph{End to end} (\texttt{endtoend.py}): $G=\kappa=1$, $m=(0.7,1.9)$, $a=(1,3)$. The exact $S_{12}(u_1,u_2)=\mathrm{pref}\,\mathcal W$ computed by brute force from the chart ($128^2$ nodes, the exact map $u\mapsto v$) minus $C_0+\xi^\top Q_h\xi+\eta^\top Q_h\eta+\mathcal Q_4$ equals $-1.5\cdot10^{-10}$ at $\lvert u\rvert\approx0.06$ and $-2.4\cdot10^{-12}$ at half amplitude (ratio $64$). Values: $c_1=0.0065937$, $c_2=-0.0028633$ (equal to Remark~\ref{bpP:p8:cp11-check}), $c_3=-0.019563$, $c_4=-0.009108$, $c_5=0.018701$, $c_6=0.011446$; $\sigma=(-0.034350,-0.005582)$; $\hat\beta=\big(\begin{smallmatrix}0.0050153&-0.060765\\-0.060765&-0.010875\end{smallmatrix}\big)$, $\det\hat\beta=-3.747\cdot10^{-3}$.
+\item \emph{Torus average} (\texttt{cmp.py}): $\hat\beta$ computed from Definition~\ref{bpP:p11b:beta-def} equals the numerical $T^2$-average of $\tilde{\mathcal Q}_4$ ($48^2$ angles) to $10^{-15}$.
+\item \emph{Torsion vs $\alpha$} (\texttt{scan.py}, $m=(0.7,1.9)$, $a_2=1$): $\det\hat\beta/(-\frac{117}{16}\alpha^3)=1.0011,\ 1.0062,\ 1.0215,\ 1.065$ at $\alpha=0.02,0.05,0.1,0.2$ (so the error is $\approx2.5\alpha^2$ as claimed), and $\det\hat\beta$ changes sign between $\alpha=0.6$ ($-1.49$) and $\alpha=0.7$ ($+0.879$): $\det\hat\beta$ does vanish on an analytic curve in $\mathcal A_2$, so the genericity of Theorem~\ref{bpP:p11b:torsion} (rather than a global statement) is what is true.
+\item \emph{Frequency shifts of the nonlinear flow} (\texttt{freq2.py}): for the Hamiltonian $K=\xi^\top Q_h\xi+\eta^\top Q_h\eta+\mathcal Q_4$ at the same point, integrate Hamilton's equations (DOP853, $10^{-12}$) from the pure mode-$j$ initial datum of amplitude $\rho$ ($R=\rho^2/2$) and fit the phase of the mode coordinates. Frequency shift per unit $R$: mode~1 in mode~1: $0.00474,\ 0.00390$ for $\rho=0.05,0.1$ against $\hat\beta_{11}=0.00502$; mode~2 in mode~1: $-0.0754,\ -0.0634$ against $\hat\beta_{12}=-0.0608$; mode~2 in mode~2: $-0.01087$ against $\hat\beta_{22}=-0.01087$ (differences $O(R)$ as expected). This confirms the Birkhoff step independently of the averaging formula.
+\end{enumerate}
+\emph{Comparison with CP11.} (8.3), (8.4) and (8.2) of CP11 (pp.~33--34, rendered page read) agree with Proposition~\ref{bpP:p11b:asymptotics} (all three entries and the constant $-\frac{117}{16}$), which is an independent derivation. CP11's printed finite-$\alpha$ formulas ($r_1$ of (B.6), $r_2,r_3,r_4$) were not used; the repaired $r_1$ (exponent $37\alpha^3\beta_4^{(9)}$, review P8-01/02) agrees with $c_1$ in the numerical value above (Remark~\ref{bpP:p8:cp11-check}).
+
+\subsection{Sources, deviations, errata, forward references}\label{bpP:p11b:notes}
+
+\paragraph{Sources read.} CP11 pp.~31--34 (page 34 rendered as an image), Part~8--10 of this blueprint in their revised versions; the review P8 and the Part~8--10 consolidation notes.
+
+\paragraph{Deviations.} (1) $\beta$ is derived from the Birkhoff \emph{finite} homological equation and the $T^2$-average; no Lie-transform machinery of track N beyond the flow/Taylor formula. (2) The Birkhoff map is realised on the full phase space as a $\lambda$-independent Hamiltonian flow; its angle shift $g$ does not affect the $\lambda$-average. (3) The exceptional set is the zero set of an analytic function: unlike CP11, no claim of nonvanishing for all axes is made, and numerically it fails (item 5 above).
+
+\paragraph{Suspected errata (for the ledger).} E-P-CP11-2 (already recorded): (B.6) $r_1$ exponent $\alpha^4\to\alpha^3$ in the term $37\alpha^4\beta_4^{(9)}$; the repaired formula reproduces $c_1$ at the test point, $r_2,r_3,r_4$ unchecked. None new: the asymptotics (8.2)--(8.4) are correct.
+
+\paragraph{Doubts about frozen statements.} None. The frozen $\operatorname{HasSecularBirkhoffForm}$ asks for the secular average \emph{of the physical perturbation in the stated coordinates}; the coordinate change $T$ of Proposition~\ref{bpP:p11b:lift-map}/Part~9 is not mentioned in the sources and must be part of Part~12's definition of $P$ (a symplectic, $\Lambda$-preserving, angle-translation commuting change of the cylinder coordinates).
+
+\paragraph{External facts used.} \ref{bpP:p11b:e-ode}--\ref{bpP:p11b:e-ca}; \ref{bpP:p8:e-diff}, \ref{bpP:p8:e-taylor}, \ref{bpP:p9:e-id}, \ref{bpP:p10:f-id}.
+
+\paragraph{Forward references and consumers.} Part~12: Theorem~\ref{bpP:p11b:birkhoff-form}, Corollary~\ref{bpP:p11b:patch}, Remark~\ref{bpP:p11b:remain}. Cited from other tracks: \Nref{bpN:p3:gen-continuation}, \Nref{bpN:p3:gen-uniqueness}, \Nref{bpN:p5:symplectic}, \Nref{bpN:p5:canonical}, \Nref{bpN:p5:lie-derivative}, \Nref{bpN:p5:taylor}.
+
+\paragraph{Label index.} \texttt{orbit}, \texttt{laplace-red}, \texttt{pair-jet}, \texttt{quartic-explicit}, \texttt{char}, \texttt{homological}, \texttt{flow}, \texttt{lie}, \texttt{lift-map}, \texttt{beta-def}, \texttt{beta-formula}, \texttt{birkhoff-form}, \texttt{remain}, \texttt{asymptotics}, \texttt{torsion}, \texttt{patch}.
+\par\endgroup

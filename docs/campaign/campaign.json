@@ -1,5 +1,5 @@
 {
- "current_phase": "G3 sealed (D26). Track K: waves 1-2 landed (P-G3, I-MAT, I-LIP, I-STRIP-5, I-ZMAP, I-P1B, I-P4A): 120/453 graph nodes proved and audited. Part 2/3 (G1, G2) Lean design done (21 packages, 10 waves); its signatures under independent audit; I-P1C running; Zohar: I-STRIP-2 done, I-STRIP-3 (cohomological equation) next. Tracks I, N, P: Opus sub-orchestrator; track I graph under construction.",
+ "current_phase": "G3 sealed (D26). Track K: 120/453 graph nodes proved and audited. G1/G2 proof campaign started: Lean design audited (PASS, no corrected signatures); wave 1 running (P2-1a carrier, P2-1b standing/constants); I-P1C running; Zohar's I-STRIP-3 (cohomological equation) gates wave 5. Tracks I, N, P: Opus sub-orchestrator.",
  "workers": [
   {
    "id": "orchestrator",
@@ -47,30 +47,21 @@
    "state": "active"
   },
   {
-   "id": "prover-I-P1C",
-   "kind": "Lean prover",
+   "id": "prover-P2-1a",
+   "kind": "Lean prover (G1 design wave 1)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p1c",
-   "assignment": "Package I-P1C: Taylor (factor 1/2) and increments",
+   "session": "worktree /root/code/KAM-w-p2-1a",
+   "assignment": "Package P2-1a (docs/campaign/briefs/P2-1a.md)",
    "state": "running"
   },
   {
-   "id": "design-audit-P2",
-   "kind": "design audit (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "kam-dsgn-p2",
-   "assignment": "Refute-first audit of the Part 2 (G1) Lean signatures and assembly",
-   "state": "running"
-  },
-  {
-   "id": "design-audit-P3",
-   "kind": "design audit (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-4",
-   "session": "kam-dsgn-p3",
-   "assignment": "Refute-first audit of the Part 3 (G2) Lean signatures, assembly and Part 1 interfaces",
+   "id": "prover-P2-1b",
+   "kind": "Lean prover (G1 design wave 1)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-p2-1b",
+   "assignment": "Package P2-1b (docs/campaign/briefs/P2-1b.md)",
    "state": "running"
   }
  ],
