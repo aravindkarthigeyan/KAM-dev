@@ -277,3 +277,162 @@ that the bound cannot be derived by a new argument from the original class. Remo
 would require an audited quantitative conversion and treatment of the exceptional branch; neither is
 smuggled in via compactness. All original real B(M) orders are retained to make this a strengthened-input
 variant of the approved class, although this direct route only uses its first-order upper bound.
+
+## Additions (D22), draft v0.3 — source evidence
+
+This section supports only the new `.drafts/N/Additions.lean` declarations. It leaves the earlier source
+packet and D20's frozen statements intact. Bibliography and hashes were checked again on 27 October 2026.
+The research reports are navigation and correction records, not replacements for the sources below.
+
+### Nek77: the stopped theorem, primary PDF verified
+
+N. N. Nekhoroshev, *An exponential estimate of the time of stability of nearly-integrable Hamiltonian
+systems*, Russian Mathematical Surveys **32** (6) (1977), 1–65.
+[DOI](https://doi.org/10.1070/RM1977v032n06ABEH003859).
+The [exact Crossref record](https://api.crossref.org/works/10.1070/RM1977v032n06ABEH003859) matches title,
+author, year, and pages. The version read is the English journal translation, not a later abstract or
+Guzzo's attribution. Printed and PDF page numbers coincide.
+
+- File: `sources/incoming-round3/nek77-eng.pdf`.
+- SHA-256: `0bfe624cf108096badd7e27fc40ca800e2948b68dce2bf8b9c653e0eaec4def6`.
+- Read §1.5 p.5, §1.18 pp.14–15, §4 pp.28–30; p.30's exponent display and p.28's steepness/index
+  display were checked as rendered PDF images, because plain-text extraction drops formula material.
+- The chapter's s fast actions are renamed n; its total number n is our n+k. No exponent uses the total
+  number of slow plus fast degrees of freedom.
+
+**Source setting, §4.3 p.29.** H=H₀(I)+H₁(I,p,φ,q), with 2π-periodic φ, s≥2 fast actions and n>s.
+G⊂ℝˢ and D⊂ℝ²⁽ⁿ⁻ˢ⁾ are arbitrary open domains. The complex set is
+
+> F = {I,p,φ,q : Re I∈G, Re(p,q)∈D, |Im I,p,φ,q|<ρ}.
+
+The imaginary inequalities are componentwise; other finite-dimensional norms are Euclidean/Hermitian.
+H is analytic on F and real on reals. The displayed complex bound is
+
+> m = sup_F ‖∂²H₀(I)/∂I²‖ < ∞.                                      (4.2)
+
+Our parameter Mcomplex corresponds to this bound after finite-dimensional operator-norm conversion;
+it is not the real convexity parameter m in the draft. §4.3.C gives the actual canonical equations
+İ=−Hφ, ṗ=−Hq, φ̇=HI, q̇=Hp. The draft's ordering (φ,q;I,p) reproduces these equations using the frozen
+Hamiltonian vector field.
+
+**Steepness and specialization, §4.1 p.28.** The source requires a uniform lower bound g>0 on
+|grad H₀| and steepness coefficients Cᵣ,δᵣ and indices αᵣ≥1 on affine r-planes perpendicular to the gradient.
+Its plane-restricted quantity m_{I,λ}(η) is the infimum of the restricted gradient lengths on the radius-η
+sphere intersected with the domain; steepness is sup_{0≤η≤ξ} m_{I,λ}(η)>Cξ^α for 0<ξ<δ.
+§1.18 p.14 explicitly identifies same-sign nonzero second derivatives and nonzero gradient as convex,
+quasi-convex and steep; this includes its concave Kepler example. The draft uses a uniform signed definite
+Hessian, stronger than quasi-convexity, and an enlarged real domain. Deriving uniform index-one coefficients
+with the exact domain convention is a provider/audit obligation; we do not quote §1.18 as a quantified
+uniform-family theorem. Substituting all αᵣ=1 in (4.1) gives ζ=s(s−1)/2, with the separate s=2 rule ζ=1.
+
+**Theorem 4.4, p.30, normalized transcription.** Under §4.3 and steepness in G with fixed coefficients and
+indices, the source supplies M₀=M₀(H₀,ρ)>0 independent of the characteristics of H₁ other than ρ. Set
+M=sup_F|grad H₁| and assume 0<M<M₀. For an arbitrary real canonical solution with
+
+> I(0)∈G−d and (p(t),q(t))∈D−d for all t∈[0,C], where C>0 is arbitrary,
+>
+> |I(t)−I(0)|<d/2 for all t∈[0,min{C,T}].
+>
+> d=Mᵇ,  b=3/((12ζ+3s+14)α_{s−1}),                                  (4.4)
+>
+> T=(1/M) exp((1/M)ᵃ),  a=2/(12ζ+3s+14).                              (4.5)
+
+§4.2 p.29 defines X−d by requiring the point and its d-neighborhood to lie in X. The draft's closed
+maximum-norm erosion is explicitly stronger. Its slow history implication applies this result with C=t;
+no statement from Pinzari Appendix D is used to justify that quantifier.
+
+**Remarks 4.5.A–B, p.30.**
+
+> The assertion of the theorem is completely unchanged if we take M to be sup |H₁| instead of
+> sup |grad H₁|.
+
+The following remark limits dependence of M₀ to the steepness coefficients/indices, the complex Hessian
+bound m, and ρ. This pins both the value-norm normalization of P and the complex-control input. For
+M≤μ the source bound is weakened monotonically to the draft's μ bound; the case M=0 is treated directly.
+The fixed-h draft does not claim every displayed numerical bound exhausts the threshold's dependence.
+
+**Source defect found while reading.** §1.18 p.15 says, concerning two bodies approaching one another,
+“the perturbation H−H₀ becomes small.” This appears to be a translation/typographical error: the mutual
+Newtonian potential has a reciprocal-distance singularity, so its magnitude becomes large. The paragraph's
+need for angular momentum to prevent close approaches confirms that reading. Proposed correction: “large”
+or “ceases to be small.” This sentence is not used as a premise; report E-N-ADD-1 to the orchestrator.
+
+### AKN06: mean averaging estimate; book-page verification incomplete
+
+Vladimir I. Arnold, Valery V. Kozlov and Anatoly I. Neishtadt, *Mathematical Aspects of Classical and
+Celestial Mechanics*, **third edition**, Encyclopaedia of Mathematical Sciences **3**, Springer, 2006.
+[DOI](https://doi.org/10.1007/978-3-540-48926-9), ISBN 978-3-540-28246-4 (print),
+978-3-540-48926-9 (electronic). The [exact Crossref record](https://api.crossref.org/works/10.1007/978-3-540-48926-9)
+confirms all three authors, title, year and ISBNs; the [publisher record](https://link.springer.com/book/10.1007/978-3-540-48926-9)
+identifies the third edition. This verifies the citation, not every theorem hypothesis.
+
+The theorem text available in this workspace is a pinned transcription of the book, not a full PDF:
+
+- `sources/incoming-zohar2/akn06-web-excerpt.json`, SHA-256
+  `4601cba5dd3c2c6fb030d5a9d1c5de3c5185d10ce5cb60b75fe8c9cb06af4aca`.
+  This is a JSON-encoded string containing the book transcription and line locators. Its
+  [book-text URL](https://studylib.es/doc/9451276/vladimir-i.-arnold--valery-v.-kozlov--anatoly-i.-neishtad...)
+  was reopened and checked at the lines below. The content is the primary authors' text carried by a
+  third-party host, not that host's mathematical commentary.
+- `sources/incoming-zohar2/akn06university.pdf`, SHA-256
+  `06bd6cab45130dedcef195f0edf46e0677e67d00fae1daccb04d1c5474944ac3`.
+  This is an **11-page publisher/contents excerpt**. It does not contain p.243 and is not evidence that
+  Theorem 6.11 has been checked in a PDF.
+- Complete third-edition PDF and a visual check of printed p.243: **[unverified]**. Attempts to obtain a
+  full copy from the available search/publisher links did not produce one; no failed download was pinned
+  as a source. The later author slides below independently corroborate the formula, not all standing
+  hypotheses. Do not freeze on the strength of a purported full-PDF verification.
+
+**Exact locators and formula transcription.** §6.1.1, pp.208–209, transcript L10042–10075, specifies
+
+    İ = ε f(I,φ,ε),       φ̇ = ω(I)+ε g(I,φ,ε),                       (6.2)
+    J̇ = ε F(J),           F(J) = (2π)⁻ᵐ ∫_{Tᵐ} f(J,φ,0)dφ,           (6.3)
+    J(0)=I(0),             0≤t≤1/ε.
+
+The functions are 2π-periodic. For the Hamiltonian specialization, the first averaged vector field vanishes
+by periodic differentiation/integration; period conversion and norms only change constants.
+
+Theorem 6.11 ([451]), §6.1.9, **p.243**, L11597–11606, requires either rank(Dω)=m or projective frequency
+rank m−1. It calls the resulting quantity the “mean error (over the initial conditions)”. Formula (6.27) is
+
+> ∫ max_{0≤t≤1/ε} |I(t)−J(t)| dI₀dφ₀ < c₁√ε.                      (6.27)
+
+Corollary 6.1, L11607–11620, takes initial data in a fixed compact set, defines E(ε,ρ) by error at least ρ,
+and states
+
+> meas E(ε,ρ) < c₁√ε/ρ.                                             (6.28)
+
+Its equivalent κ form is
+
+> |I(t)−J(t)| < c₁√ε/κ
+
+outside a set of measure κ. The integrals here are over initial phase volume; “mean” does not introduce a
+normalized probability measure. Strict inequalities become weak ones in the draft. The source uses ρ for
+error tolerance; the draft uses η to distinguish it from analytic strip widths. No square-root error bound
+with a square-root exceptional measure is asserted. The local-existence corollary is a derived target;
+the precise smoothness version needed to justify its cutoff is **[unverified]**, not silently supplied by
+this transcription. The cited original item [451] has not been independently pinned or used as a separate
+authority here.
+
+### NO22: independent author corroboration of the rate only
+
+A. Neishtadt and A. Okunev, *Averaging and passage through resonances in two-frequency systems near
+separatrices*, Joint BE-ABP and INFN Theoretical Group Seminar, **3 February 2022**, slides **1 and 14/46**.
+[Author slide PDF hosted by CERN](https://indico.cern.ch/event/1117554/attachments/2380210/4066752/talk_averaging.pdf).
+The title, both authors and date are printed on slide 1. This is not a journal paper; no DOI is claimed.
+
+- File: `sources/incoming-zohar2/nei22slides.pdf`.
+- SHA-256: `df064c4063d93478f343278458190da21972c1c5174dc63a79e746282a59fec7`.
+- Slide 14, “Systems with many frequencies”, gives the same full/projective rank alternatives, mean
+  O(√ε) estimate, O(√ε/κ) error off a set of measure κ, and the balanced ε^(1/4) consequence.
+  It is corroboration only: the draft's theorem locator remains AKN Theorem 6.11/Corollary 6.1.
+
+### Excluded routes and discrepancy record
+
+Pinzari Appendix D.1 is not the authority for the stopped-history quantifier. The round-2 whole-interval
+hypothesis cannot close a first-exit bootstrap; no analytic cutoff is invoked for N-PARTIAL-CONVEX.
+Nek77's source exponents are retained. The reported Guzzo 1999 attribution of 1/(2n) to Nek77 and the
+unavailable Niederman 1996 proof do not support a stronger draft. These are existing round-3 discrepancies,
+not fresh independent audits of those papers. The only new suspected printed-source typo reported here
+is E-N-ADD-1; the AKN page/smoothness limitations and the steepness-domain conversion are explicit open
+source/translation checks. All introduced specializations and weakenings are listed in statement.md.

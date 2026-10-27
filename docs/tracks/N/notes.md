@@ -360,3 +360,163 @@ The historical output above is not the current lint status. Checks were run sequ
 The workspace has concurrent orchestrator activity and its HEAD advanced during this revision. No commit,
 add, push, checkout, reset or stash was run by this task. The preservation comparison uses the actual
 pre-edit draft snapshot rather than treating a moving HEAD as the v0.1 baseline.
+
+## Additions (D22), draft v0.3 — implementation and handoff
+
+Four deliverables: appended sections in `docs/tracks/N/statement.md`, `sources.md`, this file, and the new
+untracked `.drafts/N/Additions.lean`. Existing N history and all D20 frozen files are unchanged. This is
+Phase 0 source/statement work only; the three theorem bodies are unproved drafts.
+
+The Lean hard rules for this work are:
+
+1. Never use `set_option maxHeartbeats` (or any heartbeat-budget override). A default-heartbeat elaboration
+   failure is a design signal to refactor or split the proof, not something to mask with a larger budget.
+2. No Lean file may exceed 1500 lines of code.
+
+### Statement design and consumer boundary
+
+`partialConvex_nekhoroshev` uses fixed h, an explicit complex Hessian bound, a uniform nonzero fast frequency,
+and a signed definite fast Hessian. The sign allows the concave Kepler Hamiltonian without reversing physical
+time. Constants precede perturbations and solution segments. The source's slow confinement premise has been
+localized **inside the conclusion** to the queried history [0,t]. There is no premise of confinement up to
+the proposed exponential endpoint. The source uses an eroded slow domain, and the draft preserves that
+margin. This is the contract P's first-exit/AMD argument needs; this task does not supply that argument.
+
+The source 1977 rates are a=2/(6n²−3n+14), b=3a/2. The factor μ⁻¹ in T is retained, and can be dropped to
+obtain a weaker pure exponential estimate after reducing μ₀≤1. A normalized P of bound one and positive μ
+stand for H₁=μP. Using an upper bound rather than the actual supremum needs monotonicity in M; actual norm
+zero needs the direct constant-action argument. None of these estimates are assumed in the theorem.
+
+`averaging_mean` exposes both the mean estimate and its Markov κ consequence, with actual solution-family
+typing data. `averaging_most` has no flow premise: existence and confinement for the good initial data are
+conclusions. It is separately named because the latter needs localization and continuation beyond the
+printed mean formula. Both use absolute initial phase volume and fixed h,f,K before constants; neither
+silently promises uniformity over all analytic perturbations of norm one. Varying ε scales the one fixed f.
+The global rank disjunction matches the source and has no chart singularity. The real supremum definition
+is used only with positive ε, an actual continuous trajectory on a nonempty compact interval, and bounded
+actions. The two rank maps are genuine derivatives, guarded by the analytic/real C³ data.
+
+### Proof infrastructure and rough incremental size
+
+| Work | Sharing / first consumer | Rough new Lean lines |
+|---|---|---:|
+| Complex Cauchy bounds, norm conversions, tube restrictions, analytic symplectic transformations | Existing K analysis; N and P normal forms | 2k–4k |
+| Quantitative convex/concave-to-index-one steepness on nested domains; geometry and resonant blocks | N, then P-EXP-SAFE | 4k–8k |
+| Properly degenerate resonant normal form with parameters and 1977 iteration | N-PARTIAL-CONVEX; shares ordinary N estimates where their contracts match | 8k–16k |
+| Genuine ODE uniqueness, dependence on initial data, restriction and continuation, first-exit margins | N, I, P | 2k–5k |
+| Multi-frequency averaging resonance-volume and residence-time estimates | N-AVERAGING | 6k–12k |
+| Supremum measurability/integrability, Markov, fixed compact set, smooth localization | N-AVERAGING and other measure consumers | 2k–4k |
+
+These are planning ranges, not measured dependency inventories or promises of Mathlib availability.
+The sum is roughly 24k–49k lines before reuse; it must not be added mechanically to earlier estimates
+because the analysis, ODE and normal-form layers overlap. Split providers into focused modules well before
+1500 lines; retain only manifest-approved frozen imports when the orchestrator eventually freezes them.
+
+No all-time collision theorem follows from either addition by itself. P must supply its actual canonical
+coordinates, perturbation bound, fast Hessian and frequency bounds on a complex neighborhood, angular
+momentum conservation, and continuation in collision-free physical coordinates. The ordinary frozen
+N-HEAD-C has no slow variables and cannot be substituted for this parameter-dependent stopped theorem.
+
+### Open source/conversion audits and a concrete proof plan
+
+1. **Fast convexity and source steepness.** Use the signed Hessian bound and the fundamental theorem of
+   calculus on segments in the real enlargement U to obtain an index-one lower bound on plane-restricted
+   gradients. The g bound supplies nonzero frequency, and the complex bound supplies the upper control in
+   Nek77 §4.3.B. The exact radius and domain convention of §4.1 must be audited: its sphere infimum is taken
+   over an intersection with G, which can be empty near a boundary. Do not encode an empty real infimum as
+   zero or simply infer a uniform radius from pointwise openness. The draft explicitly supplies h and the
+   inequalities on an enlarged real neighborhood. The provider must use that room in a nested-domain
+   argument and justify the source restriction. This is an open translation obligation, not a newly assumed
+   steepness conclusion. If the exact conversion fails, revise the unfrozen statement visibly before freeze.
+2. **Stopped interval.** For each queried t>0 apply source Theorem 4.4 with its arbitrary C=t; handle t=0
+   directly. Derive pre-exit bounds for P without assuming future slow confinement. Its exit set concerns the
+   eroded domain, not the outer analytic boundary. At an endpoint, pass to a limit only after proving the
+   required closed margin and continuous extension. Maximum-norm erosion is a stronger source premise.
+3. **AKN source status.** The exact DOI/edition is verified and the pinned transcription contains the mean
+   and Markov formulas; no complete book PDF/page image was acquired. Smoothness requirements and the
+   source's domain/continuation convention at §6.1.9 need a full primary-page audit. They are **[unverified]**.
+   This is explicitly recorded, rather than identifying the 11-page contents excerpt as the theorem PDF.
+4. **Averaging mean.** Convert the fixed analytic Hamiltonian to standard form, prove the averaged action
+   drift is zero by periodic integration, establish quantitative rank margins on compact interior domains,
+   then prove the multi-frequency mean estimate. Smooth dependence and uniqueness make any supplied family
+   agree on K with the actual flow, so its error is measurable/integrable despite arbitrary values off K.
+   Apply Markov to the error itself; do not assume the desired exceptional set or an averaged proxy orbit.
+5. **Local existence corollary.** A proposed route is to multiply f on the real action domain by a smooth
+   cutoff equal to one on B(0,3R/4), supported in B(0,7R/8). The cutoff Hamiltonian keeps the same h and
+   frequency rank; its averaged action equation is still zero. Its action motion vanishes outside the
+   cutoff support, so a compact-action, periodic-angle continuation argument gives full-window solutions.
+   A smooth version of the source averaging theorem then gives the mean bound and Markov estimate.
+   For error η≤R/4, data in B(0,R/2) remain inside B(0,3R/4), where cutoff and actual equations agree.
+   This is a **smooth**, not analytic, cutoff; analytic cutoff functions are not asserted to exist.
+   Applicability of the source to that smooth intermediate system is **[unverified]** in the available
+   excerpt. `averaging_most` remains a separate draft pending that verification, or a direct local proof.
+   Its existence claim is not smuggled into the mean theorem's source premises.
+6. **Rates and quantifiers.** A fixed κ gives error O(√ε); κ proportional to ε^(1/4) balances the error and
+   exceptional-volume exponents. The local existence corollary needs A√ε/κ≤η₀. No result here gives both
+   O(√ε) error and O(√ε) exceptional volume. Positive ε and κ/η hypotheses guard every inverse and square
+   root; zero perturbation can use a separately proved direct integrable calculation.
+
+### Suspected errata and declared deviations
+
+- **E-N-ADD-1 (new suspected typo):** Nek77 §1.18 p.15, “the perturbation H−H₀ becomes small” when bodies
+  approach. A reciprocal-distance potential grows in magnitude. Proposed replacement: “large” / “ceases
+  to be small.” This is a suspected English-text defect, not a change to Theorem 4.4. The orchestrator should
+  record it in the ledger; this task does not edit the ledger.
+- **S-N-ADD-2 (source limitation):** AKN p.243 has transcription and later author-slide corroboration, not a
+  complete primary-PDF inspection. The smooth localization variant is also unverified. These are gaps in
+  our evidence, not alleged errors in AKN.
+- **D-N-ADD-3 (specializations):** definite fast Hessian with a global sign; convex fast G; analytic and real
+  bounds on a larger fast neighborhood; fixed h constants; explicit g and Mcomplex. These make the intended
+  first class conservative. They do not claim to freeze the full steep or quasi-convex source generality.
+- **D-N-ADD-4 (representations):** source Euclidean norms converted to maximum norms, stronger closed erosion,
+  arbitrary queried-history form instead of an exit-time infimum, norm-one perturbation and μ upper bound,
+  strict inequalities weakened to ≤. All are stated explicitly with their source/conversion obligations.
+- **D-N-ADD-5 (averaging):** fixed analytic Hamiltonian specialization, period-one angles, compact initial K,
+  absolute volume, integrability conclusion, and separate local-existence corollary with an η collar.
+  These are not unmentioned additions to the printed theorem. The normalized f is fixed before constants.
+- The round-3 Pinzari stop-time and Guzzo exponent-attribution findings remain reported in the research
+  packet. This task does not independently certify their whole proofs, and does not use the unavailable
+  Niederman result to assert the stronger exponent.
+
+Owner questions and recommendations are in the appended statement section. In particular, recommend auditing
+and freezing the source mean/κ surface before its separate local-existence corollary, and retaining the exact
+1977 exponents for the partial theorem. No owner response is needed to complete this authorized draft round.
+
+### Validation receipt for D22 draft v0.3
+
+Checks were run on 27 October 2026, sequentially, without resource overrides or a whole-library rebuild.
+
+- `nice -n 5 lake env lean .drafts/N/Additions.lean` — **exit 0**. The only warnings were:
+
+  ```text
+  .drafts/N/Additions.lean:91:8: warning: declaration uses `sorry`
+  .drafts/N/Additions.lean:145:8: warning: declaration uses `sorry`
+  .drafts/N/Additions.lean:170:8: warning: declaration uses `sorry`
+  ```
+
+  Embedded `#print axioms` reported `[propext, sorryAx, Classical.choice, Quot.sound]` for each of
+  `partialConvex_nekhoroshev`, `averaging_mean`, and `averaging_most`. This is successful elaboration of
+  the exact draft types, not a proof or a claim of a sorry-free theorem.
+- `scripts/lint_sources.sh` — **exit 0**:
+
+  ```text
+  check_lean_modules: PASS (124 Lean files, 0 comparator configurations)
+  FROZEN-ANCHOR GUARD OK
+  ABI HASHES OK (94 frozen declarations)
+  ```
+
+  The repository lint excludes `.drafts/`; direct elaboration and the separate draft checks cover this file.
+- Direct draft checks: **194 lines**, no lines over 100 characters, nine exposed literal definitions,
+  three theorems, exactly three `sorry` bodies, no prohibited code constructs or resource overrides.
+  Module header and authors follow the frozen modules. Imports are definition modules and Mathlib, never
+  providers or frozen theorem anchors.
+- `git diff --check` — **exit 0**. Byte-prefix comparisons with the existing repository versions confirm
+  that all three documentation files retain their entire prior contents; this task only appends sections.
+  `git ls-files .drafts/N/Additions.lean` returns no path: the draft is untracked/ignored as required.
+- Draft SHA-256: `f7b3278008de764bf252d5aa02f43ac9234ac79cbb63b5191931e54e4dffbc5e`.
+  The four source hashes printed in sources.md were recomputed and matched. Both DOI records were checked
+  by exact Crossref requests; failed full-book downloads were not retained as evidence.
+
+No frozen, manifest, generated, other-track or research-report files were edited. No state-changing git
+command was used. The source ambiguities and suspected erratum above remain visible for the independent
+statement audit and owner approval; this receipt certifies the completed Phase 0 packet only.
