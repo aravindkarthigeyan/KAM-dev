@@ -133,7 +133,9 @@ public import KAM.Frozen.Planetary.Defs.SecularRoot
 public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
+public import KAM.Matrix.Inverse
 public import KAM.Matrix.Neumann
+public import KAM.Matrix.Norms
 public import KAM.Measure.Lattice
 public import KAM.Measure.Slab
 public import KAM.Strip.Averages
