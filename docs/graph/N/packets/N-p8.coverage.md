@@ -3,9 +3,9 @@ KIND: claim
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:direction@L11-L13
 DISPOSITION: EXCLUDED
 REASON: administrative remark: historical correction of the direction of the cut-off compatibility (K_g ≥ √n K_a); no proof consumes it, the corrected statement is Corollary bpN:p8:cutoffs; checked by grep for p8:direction over blueprint-N/parts: only p8 itself
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:ext-free
 KIND: external
@@ -84,27 +84,27 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-basis@L43-L43
 DISPOSITION: NODE stepN:p8:lb-basis
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:lb-unimod
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-unimod@L44-L44
 DISPOSITION: NODE stepN:p8:lb-unimod
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:lb-sub
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-sub@L45-L45
 DISPOSITION: NODE stepN:p8:lb-sub
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:volume-def
 KIND: definition
@@ -120,9 +120,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:projection@L53-L63
 DISPOSITION: NODE bpN:p8:projection
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:pr-alg
 KIND: proof-region
@@ -156,36 +156,36 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:lattice-volume@L70-L81
 DISPOSITION: NODE bpN:p8:lattice-volume
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:lv-ab
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-ab@L83-L83
 DISPOSITION: NODE stepN:p8:lv-ab
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:lv-c
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-c@L84-L84
 DISPOSITION: NODE stepN:p8:lv-c
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:lv-d
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-d@L85-L85
 DISPOSITION: NODE stepN:p8:lv-d
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:lv-e
 KIND: proof-region
@@ -201,18 +201,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-f@L87-L87
 DISPOSITION: NODE stepN:p8:lv-f
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:totality
 KIND: claim
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:totality@L90-L92
 DISPOSITION: EXCLUDED
 REASON: administrative remark: Lean totality note (guarded roots and divisions); states no fact a proof consumes; checked by grep for p8:totality: no external reference
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:klattice
 KIND: definition
@@ -228,9 +228,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:maximal@L101-L111
 DISPOSITION: NODE bpN:p8:maximal
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:mx-char
 KIND: proof-region
@@ -246,45 +246,45 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-exist@L114-L114
 DISPOSITION: NODE stepN:p8:mx-exist
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:mx-c
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-c@L115-L115
 DISPOSITION: NODE stepN:p8:mx-c
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:mx-d
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-d@L116-L116
 DISPOSITION: NODE stepN:p8:mx-d
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:mx-e
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-e@L117-L117
 DISPOSITION: NODE stepN:p8:mx-e
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:blocks
 KIND: definition
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:blocks@L120-L127
 DISPOSITION: NODE bpN:p8:blocks
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:blocks-cover
 KIND: proposition
@@ -309,9 +309,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:bc-top@L135-L135
 DISPOSITION: NODE stepN:p8:bc-top
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:sqrt
 KIND: lemma
@@ -327,27 +327,27 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L148-L158
 DISPOSITION: NODE bpN:p8:geometric
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:geom-formula
 KIND: lemma
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geom-formula@L160-L164
 DISPOSITION: NODE bpN:p8:geom-formula
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:gl-theta
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-theta@L170-L170
 DISPOSITION: NODE stepN:p8:gl-theta
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:gl-theta2
 KIND: proof-region
@@ -363,18 +363,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-setup@L172-L172
 DISPOSITION: NODE stepN:p8:gl-setup
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:gl-vol
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-vol@L173-L173
 DISPOSITION: NODE stepN:p8:gl-vol
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:gl-proj
 KIND: proof-region
@@ -408,18 +408,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-params@L197-L197
 DISPOSITION: NODE stepN:p8:cv-params
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:cv-cover
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-cover@L198-L198
 DISPOSITION: NODE stepN:p8:cv-cover
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:cv-nonres
 KIND: proof-region
@@ -435,249 +435,249 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-radii@L200-L200
 DISPOSITION: NODE stepN:p8:cv-radii
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:cutoffs
 KIND: corollary
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L203-L211
 DISPOSITION: NODE bpN:p8:cutoffs
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: stepN:p8:co-incl
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:co-incl@L213-L213
 DISPOSITION: NODE stepN:p8:co-incl
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:errata
 KIND: claim
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:errata@L218-L227
 DISPOSITION: EXCLUDED
 REASON: administrative remark: errata and deviations list for Pos93 pp.200-204; checked by grep for p8:errata in Parts 9-11: only mentions, no use
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: bpN:p8:consumers
 KIND: claim
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:consumers@L229-L231
 DISPOSITION: EXCLUDED
 REASON: administrative remark: consumers summary (Part 9 usage and track-P pointer); pointers only; grep for p8:consumers: no reference
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: heading:bpN:p8
 KIND: heading
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8@L1-L1
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: heading:bpN:p8:s-ext
 KIND: heading
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:s-ext@L15-L15
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: heading:bpN:p8:s-volume
 KIND: heading
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:s-volume@L26-L26
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: heading:bpN:p8:s-blocks
 KIND: heading
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:s-blocks@L94-L94
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: heading:bpN:p8:s-geometric
 KIND: heading
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:s-geometric@L138-L138
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: heading:bpN:p8:s-covering
 KIND: heading
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:s-covering@L182-L182
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: heading:bpN:p8:s-errata
 KIND: heading
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:s-errata@L216-L216
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L30
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L30-L30
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L40
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L40-L40
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L50
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L50-L50
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L62
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L62-L62
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L80
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L80-L80
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L98
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L98-L98
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L110
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L110-L110
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L126
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L126-L126
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L131
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L131-L131
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L142
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L142-L142
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L157
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L157-L157
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L194
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L194-L194
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:source-L210
 KIND: citation
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#source@L210-L210
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:prose-L7-L7
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#prose@L7-L7
 DISPOSITION: EXCLUDED
 REASON: outline/introduction: states that Part 8 is pure linear algebra (Pos93 Section 4); no fact used by a proof
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:prose-L9-L9
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#prose@L9-L9
 DISPOSITION: NODE bpN:p8:klattice, bpN:p8:projection, bpN:p8:lattice-volume, bpN:p8:blocks, bpN:p8:geometric, bpN:p8:covering, bpN:p8:cutoffs
 REASON: conventions paragraph: Euclidean norm, dot product, ℰ_K = {k: ‖k‖ ≤ K} (used by klattice, mx-*, bc-finite), K_g vs K_a; notation fixed here, recorded in the statements of the consumers; no separate node (the comparison with ¦k¦₁ is the edge to bpN:p1:norm-compare in cutoffs)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 
 ITEM: p8:prose-L23-L24
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#prose@L23-L24
 DISPOSITION: EXCLUDED
 REASON: pointer: "Part 1 Lemma norm-compare is used for the norm comparisons; no track-K result is used"; the use is the edge from bpN:p8:cutoffs and stepN:p8:co-incl to bpN:p1:norm-compare
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-delta-N-e

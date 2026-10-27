@@ -44,9 +44,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:general-cauchy | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:ext-weier@L26-L27 | derivative part: Lemma general-cauchy applied to K_j−K_l (text: 'the derivatives by Lemma general-cauchy'; also L177)
 EDGE: K:bp:p1:uniform-limits | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:ext-weier@L27-L27 | holomorphy of the uniform limit
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -126,9 +126,9 @@ DEPS: bpN:p0:strip#complexStrip
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:dom-open@L41-L41 | T_s is the max-norm complex strip, used in the domain proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -153,9 +153,9 @@ DEPS: bpN:p0:strip#complexStrip
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:dom-poly@L43-L43 | T_s is the max-norm complex strip, used in the domain proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -302,9 +302,9 @@ EDGE: bpN:p4:ext-param | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-der
 EDGE: stepN:p4:co-holo | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-deriv@L73-L73 | 'as in Step co-holo': hypotheses of the parameter integral
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-deriv@L72-L72 | 𝒪(r,s), û_k
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-deriv@L72-L72 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -364,9 +364,9 @@ EDGE: K:bp:p1:summation | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-re
 EDGE: K:bp:p1:fourier-basic | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L80-L80 | (c): holomorphic periodic function with all coefficients zero vanishes
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L79-L79 | single term of ¦u¦_{I,s} ≤ ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L79-L79 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -424,9 +424,9 @@ EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-
 EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L96-L96 | bound ¦χ_k(θ)¦ ≤ e^{2π¦k¦₁¦Im θ¦_∞} on T_s (Kref bp:p0:domains)
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L95-L95 | ¦û_k(I)¦e^{2π¦k¦₁s} sum is ¦u¦_{I,s} ≤ ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L95-L95 | (θ,I) ∈ 𝒟_{r,s}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -513,9 +513,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-class@L111-L111 | membership in the class 𝒪(r,s)
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-class@L111-L111 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -543,9 +543,9 @@ EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-
 EDGE: bpN:p4:ext-series | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-coeff@L113-L114 | Cauchy product of absolutely convergent series; termwise integration
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-coeff@L114-L114 | ¦u¦_{I,0}, û_k(I)
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-coeff@L113-L113 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -573,9 +573,9 @@ EDGE: stepN:p4:b2-coeff | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-no
 EDGE: bpN:p4:ext-series | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-norm@L117-L117 | Tonelli for nonnegative double series
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-norm@L116-L117 | ¦·¦_{I,s}, ¦·¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-norm@L117-L117 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -633,9 +633,9 @@ EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L133-L133 | (a) with τ = 1, a = 2π(s_0−s): x e^{−ax} ≤ 1/(ea)
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L132-L133 | ¦·¦_{I,s}, ¦·¦_{r_0,s_0}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L132-L132 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -664,9 +664,9 @@ EDGE: K:bp:p1:ext-cauchy | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-b
 EDGE: bpN:p4:ext-series | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-b@L137-L137 | Tonelli for the sum over k
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-b@L135-L135 | I+ζe_i ∈ V_{r_0}D
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-b@L137-L138 | ¦·¦_{I,s_0}, ¦·¦_{r_0,s_0}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -725,9 +725,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L1
 EDGE: bpN:p4:norm#monotone | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L152-L152 | restriction of the terms to 𝒟_{r−ρ,s−σ} (monotonicity)
 EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L152-L152 | {u,v} ∈ 𝒪(r−ρ,s−σ): derivatives of 𝒪-functions are in the class (b) and products by algebra
 EDGE: bpN:p5:setting | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L147-L147 | Uses the Hamiltonian Poisson bracket fixed in Part 5; SPEC requires its package edge
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -756,9 +756,9 @@ EDGE: bpN:p4:s-b4#data | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-fou
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-four@L154-L154 | ¦·¦_{I,t}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-four@L154-L154 | Uses the action neighbourhood or the domain of the function class directly
 EDGE: bpN:p5:setting | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-four@L154-L154 | Uses the Hamiltonian Poisson bracket fixed in Part 5; SPEC requires its package edge
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -787,9 +787,9 @@ EDGE: bpN:p4:norm#monotone | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4
 EDGE: stepN:p4:b4-four | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L163-L163 | the display into which the four bounds are inserted
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L160-L160 | I ∈ V_{r_0}D since r−ρ < r_0
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L160-L162 | ¦·¦_{I,s}, ¦·¦_{r,s}
-EDGE: bpN:p5:setting | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L160-L160 | Uses the Hamiltonian Poisson bracket fixed in Part 5; SPEC requires its package edge
+EDGE: bpN:p5:setting | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L163-L163 | Uses the Hamiltonian Poisson bracket fixed in Part 5; SPEC requires its package edge
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
+EXTRACTOR: sonnet-extract-N-p4+sol-delta-N-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -842,9 +842,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -870,9 +870,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:ext-cauchy | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:c1-cauchy@L175-L175 | one-variable Cauchy estimate ¦f'(0)¦ ≤ M/ϱ
 EDGE: stepN:p4:c1-line | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:c1-cauchy@L175-L175 | the function f and f'(0) = DG(v)u
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -929,9 +929,9 @@ ROUTE_FOR: -
 EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-class@L189-L189 | (a) holomorphy of a_k and (c) series lemma
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-class@L189-L189 | ¦·¦_{r,s}, 𝒪(r,s)
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-class@L189-L189 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -958,9 +958,9 @@ ROUTE_FOR: -
 EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-tail@L191-L191 | (d): u = Σ_k û_kχ_k
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-tail@L191-L191 | ¦·¦_{r,s−σ} as sup of the weighted sum
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-tail@L191-L191 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

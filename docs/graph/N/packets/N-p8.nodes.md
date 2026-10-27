@@ -231,9 +231,9 @@ ROUTE_FOR: -
 EDGE: bpN:p8:ext-free | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-basis@L43-L43 | ℤ-basis with d ≤ n
 EDGE: bpN:p8:ext-indep | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-basis@L43-L43 | ℝ-independence
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-basis@L43-L43 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -246,7 +246,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-unimod
 PROOF_SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-unimod@L44-L44
 CONTRACT_ID: stepN:p8:lb-unimod
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: bases A, Ã of Λ; part (a)
+SOURCE_HYPOTHESES: bases A, Ã of Λ
 SOURCE_QUANTIFIERS: Λ; A, Ã
 SOURCE_CONCLUSION: Ã = AU with U ∈ ℤ^{d×d}, det U = ±1; converse for U unimodular
 CONSTANT_SCOPE: none
@@ -261,7 +261,7 @@ EDGE: stepN:p8:lb-basis | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:l
 EDGE: bpN:p8:ext-units | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-unimod@L44-L44 | integer det with product 1 is ±1; U⁻¹ integral
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-unimod@L44-L44 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
+EXTRACTOR: sonnet-extract-N-p8+sol-delta-N-e
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -275,7 +275,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-sub@L4
 PROOF_SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-sub@L45-L45
 CONTRACT_ID: stepN:p8:lb-sub
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Γ ≤ Λ with equal dimension; bases Ã, A; (a),(b)
+SOURCE_HYPOTHESES: Γ ≤ Λ with equal dimension; bases Ã, A
 SOURCE_QUANTIFIERS: Γ, Λ
 SOURCE_CONCLUSION: Ã = AN with N integer and det N ≠ 0
 CONSTANT_SCOPE: none
@@ -283,14 +283,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p8:lb-unimod, stepN:p8:lb-basis, bpN:p8:lattice
+DEPS: stepN:p8:lb-basis, bpN:p8:lattice
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p8:lb-unimod | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-sub@L45-L45 | Ã = AN as in (b)
 EDGE: stepN:p8:lb-basis | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-sub@L45-L45 | Ã injective by (a)
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lb-sub@L45-L45 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
+EXTRACTOR: sonnet-extract-N-p8+sol-delta-N-e
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -350,9 +349,9 @@ EDGE: stepN:p8:pr-alg | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:proje
 EDGE: stepN:p8:pr-dist | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:projection@L66-L66 | proof step (b),(c)
 EDGE: stepN:p8:pr-nest | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:projection@L67-L67 | proof step (d)
 EDGE: bpN:p8:lattice-basis | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:projection@L61-L61 | the consequence for an arbitrary lattice uses existence of an independent basis for its span, including the zero-dimensional convention
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -448,7 +447,7 @@ CONTRACT_ID: bpN:p8:lattice-volume
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: n ≥ 1; Λ, Γ ≤ ℤⁿ lattices
 SOURCE_QUANTIFIERS: n; Λ, Γ; (c) N; (e) k; (f) v_1..v_d
-SOURCE_CONCLUSION: (a) det(AᵀA) independent of basis matrix; (b) ¦Λ¦² positive integer, ¦Λ¦ ≥ 1; (c) Γ ≤ Λ, dim equal ⇒ ¦Γ¦ = ¦det N¦¦Λ¦ ≥ ¦Λ¦; (d) ¦ℤg¦ = ‖g‖, ¦ℤⁿ¦ = 1; (e) k ∉ W_Λ ⇒ dim(Λ+ℤk) = dim Λ + 1, ¦Λ+ℤk¦ = ¦Λ¦‖Q_Λ k‖, Q_Λ k ≠ 0; (f) Hadamard ¦Γ¦ ≤ ∏‖v_i‖
+SOURCE_CONCLUSION: (a) det(AᵀA) independent of basis matrix; (b) ¦Λ¦² positive integer, ¦Λ¦ ≥ 1; (c) Γ ≤ Λ, dim equal ⇒ ¦Γ¦ = ¦det N¦¦Λ¦ ≥ ¦Λ¦; (d) for g ∈ ℤⁿ∖{0}, ¦ℤg¦ = ‖g‖, ¦ℤⁿ¦ = 1; (e) k ∈ ℤⁿ∖W_Λ ⇒ dim(Λ+ℤk) = dim Λ + 1, ¦Λ+ℤk¦ = ¦Λ¦‖Q_Λ k‖, Q_Λ k ≠ 0; (f) if v_1,…,v_d ∈ ℤⁿ are ℝ-independent and generate Γ, then ¦Γ¦ ≤ ∏‖v_i‖
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -467,7 +466,7 @@ EDGE: stepN:p8:lv-d | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:lattice
 EDGE: stepN:p8:lv-e | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:lattice-volume@L86-L86 | proof (e)
 EDGE: stepN:p8:lv-f | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:lattice-volume@L87-L87 | proof (f)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
+EXTRACTOR: sonnet-extract-N-p8+sol-delta-N-e
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -496,9 +495,9 @@ EDGE: bpN:p8:lattice-basis | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p
 EDGE: bpN:p8:ext-gram | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-ab@L83-L83 | det multiplicative, det Uᵀ = det U, det(AᵀA) > 0
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-ab@L83-L83 | ¦Θ¦ = 1 and ¦Λ¦ = sqrt det(AᵀA)
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-ab@L83-L83 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -527,9 +526,9 @@ EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:l
 EDGE: bpN:p8:ext-units | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-c@L84-L84 | nonzero integer has modulus ≥ 1
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-c@L84-L84 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
 EDGE: bpN:p8:ext-gram | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-c@L84-L84 | the determinant of N-transpose (A-transpose A) N is expanded multiplicatively
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -555,9 +554,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-d@L85-L85 | A = g and A = 1 as basis matrices
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-d@L85-L85 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -617,9 +616,9 @@ EDGE: stepN:p8:lv-e | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-f@
 EDGE: bpN:p8:projection | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-f@L87-L87 | ‖Q v‖ ≤ ‖v‖
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-f@L87-L87 | start ¦Θ¦ = 1
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-f@L87-L87 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -678,9 +677,9 @@ EDGE: stepN:p8:mx-exist | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:max
 EDGE: stepN:p8:mx-c | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:maximal@L115-L115 | proof (c)
 EDGE: stepN:p8:mx-d | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:maximal@L116-L116 | proof (d)
 EDGE: stepN:p8:mx-e | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:maximal@L117-L117 | proof (e)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -735,9 +734,9 @@ ROUTE_FOR: -
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-exist@L114-L114 | K-lattices, maximality
 EDGE: bpN:p8:ext-basic | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-exist@L114-L114 | finite nonempty poset has a maximal element; ℰ_K finite
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-exist@L114-L114 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -764,9 +763,9 @@ ROUTE_FOR: -
 EDGE: stepN:p8:mx-char | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-c@L115-L115 | (a) and the K-lattice argument of Step Characterisation
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-c@L115-L115 | K-lattice
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-c@L115-L115 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -793,9 +792,9 @@ ROUTE_FOR: -
 EDGE: stepN:p8:mx-char | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-d@L116-L116 | (a) for ℰ_K ⊂ Λ and ℤⁿ ∈ 𝕄_K
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-d@L116-L116 | K-lattice, 𝕄_K
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-d@L116-L116 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -824,9 +823,9 @@ EDGE: bpN:p8:ext-basic | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-e@L117-L117 | Λ∩ℰ_K spans W_Λ (K-lattice)
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-e@L117-L117 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-e@L117-L117 | the lattice volume is used directly in the displayed computation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -854,9 +853,9 @@ EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:block
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:blocks@L122-L123 | ¦Λ¦ in δ_Λ
 EDGE: bpN:p8:projection | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:blocks@L123-L124 | dist₂(ω,R_Λ) = ‖Π_Λ ω‖ by projection(c)
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:blocks@L122-L123 | R_Λ, d, Θ
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -940,9 +939,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p8:blocks | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:bc-top@L135-L135 | Z_d^*, B_Λ, B_Θ, Z_{n+1}^* = ∅
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:bc-top@L135-L135 | the maximal K-lattice family or its dimension stratum is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -993,8 +992,8 @@ DEPS: bpN:p8:blocks, bpN:p8:maximal, bpN:p8:lattice, stepN:p8:gl-theta, stepN:p8
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p8:blocks | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L149-L152 | 𝕄_K, δ_Λ, B_Λ
-EDGE: bpN:p8:maximal | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L156-L156 | (d): no such k when d = n
-EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L155-L155 | R_Λ, d
+EDGE: bpN:p8:maximal | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L154-L154 | (d): no such k when d = n
+EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L154-L154 | R_Λ, d
 EDGE: stepN:p8:gl-theta | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L170-L170 | proof (a)
 EDGE: stepN:p8:gl-theta2 | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L171-L171 | proof (a)
 EDGE: stepN:p8:gl-setup | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L172-L172 | proof (b)
@@ -1003,7 +1002,7 @@ EDGE: stepN:p8:gl-proj | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geom
 EDGE: stepN:p8:gl-div | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L177-L177 | proof (b)
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geometric@L151-L151 | the maximal K-lattice family or its dimension stratum is used directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
+EXTRACTOR: sonnet-extract-N-p8+sol-delta-N-e
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1030,9 +1029,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geom-formula@L161-L161 | W the span of a lattice basis matrix
 EDGE: bpN:p8:projection | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:geom-formula@L166-L166 | (a),(b): Π_+ is characterised by orthogonality; symmetry and idempotence of Π
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1063,9 +1062,9 @@ EDGE: bpN:p8:blocks | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-th
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-theta@L170-L170 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-theta@L170-L170 | the lattice volume is used directly in the displayed computation
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-theta@L170-L170 | the maximal K-lattice family or its dimension stratum is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1125,9 +1124,9 @@ EDGE: bpN:p8:blocks | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-se
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-setup@L172-L172 | V = ¦Λ¦, V_+ = ¦Λ_+¦
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-setup@L172-L172 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-setup@L172-L172 | the maximal K-lattice family or its dimension stratum is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1156,9 +1155,9 @@ EDGE: stepN:p8:gl-setup | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:g
 EDGE: bpN:p8:projection | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-vol@L173-L173 | ‖Qk‖ ≤ ‖k‖
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-vol@L173-L173 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-vol@L173-L173 | the lattice volume is used directly in the displayed computation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1283,9 +1282,9 @@ EDGE: bpN:p8:geometric | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv
 EDGE: bpN:p8:blocks | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-params@L197-L197 | δ_Λ = λ_d/¦Λ¦ is the radius of Z_Λ
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-params@L197-L197 | ¦Λ¦ in r_Λ
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-params@L197-L197 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1312,9 +1311,9 @@ ROUTE_FOR: -
 EDGE: bpN:p8:blocks-cover | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-cover@L198-L198 | covering and finiteness at the point ω(I)
 EDGE: bpN:p8:blocks | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-cover@L198-L198 | D_Λ via B_Λ
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-cover@L198-L198 | the maximal K-lattice family or its dimension stratum is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1372,9 +1371,9 @@ EDGE: bpN:p8:lattice-volume | blueprint-N/parts/p8-resonance-geometry.tex#stepN:
 EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-radii@L200-L200 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
 EDGE: bpN:p8:volume-def | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-radii@L200-L200 | the lattice volume is used directly in the displayed computation
 EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-radii@L200-L200 | the maximal K-lattice family or its dimension stratum is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1399,14 +1398,14 @@ DEPS: bpN:p8:covering, bpN:p1:norm-compare, bpN:p6:setting, bpN:p7:resonance-dat
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p8:covering | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L204-L204 | setting, r_Λ, α_Λ, δ_Λ, D_Λ
-EDGE: bpN:p1:norm-compare | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L205-L205 | (a) via norm-compare(b)
-EDGE: bpN:p6:setting | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L206-L206 | nonresonance modulo Λ of cond-nr; Z_{K_a}
+EDGE: bpN:p1:norm-compare | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L206-L206 | (a) via norm-compare(b)
+EDGE: bpN:p6:setting | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L207-L207 | nonresonance modulo Λ of cond-nr; Z_{K_a}
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L207-L207 | closeness to exact Λ-resonances
-EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L206-L206 | Λ ∈ 𝕄_{K_g}
+EDGE: bpN:p8:klattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L207-L207 | Λ ∈ 𝕄_{K_g}
 EDGE: stepN:p8:co-incl | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L213-L213 | proof step
-EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L206-L206 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
+EDGE: bpN:p8:lattice | blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:cutoffs@L207-L207 | lattice objects, their spans/dimensions or the trivial/full lattice are used at this consumer; SPEC requires the package directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
+EXTRACTOR: sonnet-extract-N-p8+sol-delta-N-e
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1435,9 +1434,9 @@ EDGE: bpN:p1:norm-compare | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8
 EDGE: bpN:p8:covering | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:co-incl@L213-L213 | (c) and closeness of Lemma covering; α_Λ = pMKr_Λ
 EDGE: bpN:p6:setting | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:co-incl@L213-L213 | clause (b) uses the analytic Z_K cut-off and nonresonance predicate (N1)
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:co-incl@L213-L213 | the closeness clause in (b) uses the exact-resonance predicate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8+sol-review-N-e
-REVIEWER: -
+REVIEWER: sol-delta-N-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

@@ -400,9 +400,9 @@ EDGE: bpN:p1:realdomain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-holo@L
 EDGE: bpN:p0:cdomain#complexDomain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-holo@L87-L87 | G on D_s(R), B(0,R)_s second factor
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-holo@L87-L87 | C^∞ in the real sense
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-holo@L87-L87 | holomorphic implies C^∞ with holomorphic derivatives
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -432,9 +432,9 @@ EDGE: bpN:p0:pert#IsAnalyticPerturbation | blueprint-N/parts/p1-interfaces.tex#s
 EDGE: bpN:p0:realH#realHamiltonian | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-real@L89-L89 | H(z) = Re G(ιz)
 EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-real@L89-L89 | h_ℝ = h∘ι
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-real@L89-L89 | G, ι
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -463,9 +463,9 @@ EDGE: stepN:p1:hr-real | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-deriv@L
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-deriv@L91-L91 | chain rule
 EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-deriv@L91-L91 | h_ℝ
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-deriv@L91-L91 | standing h,f,G,H,ι and local data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -497,9 +497,9 @@ EDGE: K:bp:p1:ext-schwarz | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-fiel
 EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-field@L93-L93 | ω_h(I)_i = Dh_ℝ(I)[e_i]
 EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-field@L93-L93 | h_ℝ
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-field@L93-L93 | standing h,f,G,H,ι and local data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -529,9 +529,9 @@ EDGE: bpN:p0:realH#realHamiltonian | blueprint-N/parts/p1-interfaces.tex#stepN:p
 EDGE: stepN:p1:hr-deriv | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-per@L95-L95 | differentiating H (smoothness on W_s)
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-per@L95-L95 | chain rule
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-per@L95-L95 | standing h,f,G,H,ι and local data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -560,9 +560,9 @@ EDGE: bpN:p1:realdomain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-zero@L
 EDGE: bpN:p0:realH#realHamiltonian | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-zero@L97-L97 | H = Re(h(I) + f)
 EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-zero@L97-L97 | h_ℝ
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hr-zero@L97-L97 | standing h,f,G,H,ι and local data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -592,9 +592,9 @@ EDGE: bpN:p0:bm#HasDerivativeBounds | blueprint-N/parts/p1-interfaces.tex#bpN:p1
 EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p1-interfaces.tex#bpN:p1:partials@L102-L102 | ω_h
 EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p1-interfaces.tex#bpN:p1:partials@L102-L102 | D²h_ℝ
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#bpN:p1:partials@L100-L105 | standing subsection data, including analytic-integrable h and reality on real points
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -623,9 +623,9 @@ EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pa
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pa-first@L107-L107 | ¦ω¦₂ ≤ √n¦ω¦_∞
 EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pa-first@L107-L107 | h_ℝ
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pa-first@L107-L107 | standing subsection data, including analytic-integrable h and reality on real points
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -652,9 +652,9 @@ ROUTE_FOR: -
 EDGE: bpN:p0:bm#HasDerivativeBounds | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pa-sym@L109-L109 | h_ℝ ∈ C³(U), k = 2 bound
 EDGE: K:bp:p1:ext-schwarz | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pa-sym@L109-L109 | Schwarz for h_ℝ, Dh_ℝ, D²h_ℝ
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pa-sym@L109-L109 | standing subsection data, including analytic-integrable h and reality on real points
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -686,9 +686,9 @@ EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p1-interfaces.tex#bpN:p1:
 EDGE: bpN:p0:rdomain#realActionDomain | blueprint-N/parts/p1-interfaces.tex#bpN:p1:hessian-convert@L115-L115 | 𝓑_s(R)
 EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p1-interfaces.tex#bpN:p1:hessian-convert@L115-L115 | D²h_ℝ
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#bpN:p1:hessian-convert@L112-L118 | standing subsection data, including analytic-integrable h and reality on real points
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -715,9 +715,9 @@ ROUTE_FOR: -
 EDGE: bpN:p0:hess#HasComplexHessianBound | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hc-entries@L120-L120 | norm bound of D(Dh)(I)
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hc-entries@L120-L120 | symmetry of the complex Hessian
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hc-entries@L120-L120 | standing subsection data, including analytic-integrable h and reality on real points
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -744,9 +744,9 @@ ROUTE_FOR: -
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hc-eucl@L122-L122 | part (c)
 EDGE: stepN:p1:hc-entries | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hc-eucl@L122-L122 | entry bound
 EDGE: bpN:p1:s-holo#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:hc-eucl@L122-L122 | standing subsection data, including analytic-integrable h and reality on real points
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -800,9 +800,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -854,9 +854,9 @@ DEPS: stepN:p1:cc-decomp
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p1:cc-decomp | blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-expand@L140-L140 | t, u, e and ω·u = 0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -882,9 +882,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p1:cc-expand | blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-num@L144-L144 | the lower bound
 EDGE: stepN:p1:cc-decomp | blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-num@L144-L144 | ¦t¦ ≤ κ
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -951,12 +951,12 @@ EDGE: bpN:p1:hessian-convert | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-r
 EDGE: bpN:p1:realdomain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-reg@L163-L163 | B(0,R) ⊂ 𝓑_s(R), Lemma realdomain (a)
 EDGE: bpN:p0:hess#HasComplexHessianBound | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-reg@L163-L163 | hypothesis with constant M_ℂ
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
+EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: The current hessian-convert contract includes the standing §s-holo data IsAnalyticPerturbation R s ε f (L68–70 and its SOURCE_HYPOTHESES). This application supplies hypotheses on h only and no such f,ε datum. The quoted Hessian estimate is h-only in its proof, but that premise-free projection has not been recorded as a distinct source result. Keep the present source premises unchanged and expose the conditional-application mismatch.
 
 NODE: stepN:p1:qc-trans
 KIND: step
@@ -1036,9 +1036,9 @@ EDGE: bpN:p1:conic-coercive | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-co
 EDGE: stepN:p1:qc-reg | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-conic@L169-L169 | bilinear bound
 EDGE: stepN:p1:qc-trans | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-conic@L169-L169 | transverse coercivity
 EDGE: stepN:p1:qc-freq | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-conic@L169-L169 | ℓ ≤ ¦ω¦₂ q/(8(B_c+q))
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1066,9 +1066,9 @@ EDGE: bpN:p1:period-convert | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-sc
 EDGE: stepN:p1:qc-conic | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-scale@L171-L171 | implication (b)
 EDGE: stepN:p1:qc-reg | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-scale@L171-L171 | (a)
 EDGE: stepN:p1:qc-trans | blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-scale@L171-L171 | (a)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1104,9 +1104,9 @@ EDGE: bpN:p0:pert#IsAnalyticPerturbation | blueprint-N/parts/p1-interfaces.tex#b
 EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p1-interfaces.tex#bpN:p1:period-convert@L182-L182 | ω_h̃
 EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p1-interfaces.tex#bpN:p1:period-convert@L182-L182 | D²h̃_ℝ
 EDGE: bpN:p0:cdomain#complexDomain | blueprint-N/parts/p1-interfaces.tex#bpN:p1:period-convert@L184-L184 | D_s(R) and B(0,R)_s
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1159,9 +1159,9 @@ ROUTE_FOR: -
 EDGE: stepN:p1:pc-chain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-field@L193-L193 | derivatives of H̃
 EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-field@L193-L193 | X_H, X_{H̃}
 EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-field@L193-L193 | clauses of IsSolutionOn
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1182,7 +1182,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p0:freq#frequencyMap, bpN:p0:realpart#realPart, bpN:p0:qc#IsStrictlyQuasiConvex, bpN:p0:bm#HasDerivativeBounds, bpN:p0:hess#HasComplexHessianBound, bpN:p0:pert#IsAnalyticPerturbation, bpN:p0:strip#complexStrip, bpN:p0:cdomain#complexDomain, K:bp:p1:summation
+DEPS: bpN:p0:freq#frequencyMap, bpN:p0:realpart#realPart, bpN:p0:qc#IsStrictlyQuasiConvex, bpN:p0:bm#HasDerivativeBounds, bpN:p0:hess#HasComplexHessianBound, bpN:p0:pert#IsAnalyticPerturbation, bpN:p0:strip#complexStrip, bpN:p0:cdomain#complexDomain
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-scalar@L195-L195 | ω_h linear in h
@@ -1193,14 +1193,13 @@ EDGE: bpN:p0:hess#HasComplexHessianBound | blueprint-N/parts/p1-interfaces.tex#s
 EDGE: bpN:p0:pert#IsAnalyticPerturbation | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-scalar@L195-L195 | premises (c),(d) on f
 EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-scalar@L195-L195 | strip of width 2πρ
 EDGE: bpN:p0:cdomain#complexDomain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-scalar@L195-L195 | domain substitution
-EDGE: K:bp:p1:summation | blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-scalar@L195-L195 | Fourier series of f(·,I) converges to f
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
+EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: Clause (e) assumes Fourier convergence explicitly at L186. The proof at L195 substitutes φ=2πθ into that given expansion; it does not apply the K summation theorem. The K citation at L186 is a pointer to a sufficient convergence result, not a prerequisite of this conditional substitution.
 
 NODE: bpN:p1:norm-convert
 KIND: lemma
@@ -1224,9 +1223,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p1-interfaces.tex#bpN:p1:nor
 EDGE: bpN:p1:norm-convert#converse | blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L202 | converse comparison included in the lemma
 EDGE: bpN:p1:norm-convert#decay-route | blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L205-L209 | alternative derivation offered by the proof (route)
 EDGE: bpN:p1:norm-convert#summation-route | blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L205-L209 | alternative derivation offered by the proof (route)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1253,12 +1252,12 @@ ROUTE_FOR: -
 EDGE: K:bp:p1:decay | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | Fourier coefficient decay
 EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | strip T_ρ
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
+EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: First forward route only: use coefficient decay, then take the scalar limit ρ′↑ρ. The text offers K summation as an alternative for the aggregate weighted bound; see the parent’s route nodes.
+NOTE: SOURCE_GAP: K Part 1 L37–39 imposes n≥1 wherever a strip occurs. This node has no n≥1 source restriction and applies a K strip theorem at N Part 1 L206. The n=0 case is not attached by the cited theorem or by a separate branch in this record. Preserve the source’s unrestricted n and expose this application obligation; do not add n≥1 to the source statement. First forward route only: use coefficient decay, then take the scalar limit ρ′↑ρ. The text offers K summation as an alternative for the aggregate weighted bound; see the parent’s route nodes.
 
 NODE: stepN:p1:nc-sum
 KIND: step
@@ -1280,9 +1279,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208 | geometric sums (b) with x = 2πδ
 EDGE: stepN:p1:nc-decay | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208 | per-k bound
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1328,9 +1327,9 @@ EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p1-interfaces.tex#bpN:p1:cons
 EDGE: bpN:p1:qc-convert | blueprint-N/parts/p1-interfaces.tex#bpN:p1:constants@L227-L227 | (d): quasi-convexity form
 EDGE: bpN:p1:hessian-convert | blueprint-N/parts/p1-interfaces.tex#bpN:p1:constants@L227-L227 | (d): Hessian bound
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#bpN:p1:constants@L214-L221 | local constants used in all clauses
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1355,9 +1354,9 @@ DEPS: bpN:p1:constants#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-pos@L237-L237 | local dictionary constants used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1383,9 +1382,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p1:co-pos | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-size@L239-L239 | positivity of the constants
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-size@L239-L239 | local dictionary constants used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1412,9 +1411,9 @@ ROUTE_FOR: -
 EDGE: bpN:p1:realdomain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-tubes@L241-L241 | Lemma realdomain (c)
 EDGE: bpN:p4:domains | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-tubes@L241-L241 | tubes V_{r₀}P, U_{r₀}P
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-tubes@L241-L241 | local dictionary constants used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1446,12 +1445,12 @@ EDGE: stepN:p1:co-size | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-qc@L243
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-qc@L243-L243 | local dictionary constants used directly
 EDGE: bpN:p4:domains | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-qc@L243-L243 | V_{r₀}P or its real slice is used directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
+EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: The current hessian-convert contract includes the standing §s-holo data IsAnalyticPerturbation R s ε f (L68–70 and its SOURCE_HYPOTHESES). This application supplies hypotheses on h only and no such f,ε datum. The quoted Hessian estimate is h-only in its proof, but that premise-free projection has not been recorded as a distinct source result. Keep the present source premises unchanged and expose the conditional-application mismatch.
 
 NODE: stepN:p1:co-pert
 KIND: step
@@ -1479,9 +1478,9 @@ EDGE: bpN:p0:cdomain#complexDomain | blueprint-N/parts/p1-interfaces.tex#stepN:p
 EDGE: bpN:p4:norm | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-pert@L245-L245 | Pöschel weighted norm
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-pert@L245-L245 | local dictionary constants used directly
 EDGE: bpN:p4:domains | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-pert@L245-L245 | V_{r₀}P or its real slice is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1508,9 +1507,9 @@ ROUTE_FOR: -
 EDGE: bpN:p1:qc-convert | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-exc@L247-L247 | (c): ¦ω¦₂ ≥ ω_min
 EDGE: bpN:p1:period-convert | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-exc@L247-L247 | ¦ω̃¦₂ = 2π¦ω¦₂
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-exc@L247-L247 | local dictionary constants used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1531,7 +1530,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p1:partials, bpN:p1:qc-convert, bpN:p1:realdomain, bpN:p1:period-convert, bpN:p1:constants#data, bpN:p9:setting
+DEPS: bpN:p1:partials, bpN:p1:qc-convert, bpN:p1:realdomain, bpN:p1:period-convert, bpN:p1:constants#data, bpN:p9:setting, stepN:p1:co-size
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p1:partials | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-time@L249-L249 | ¦ω(I)¦₂ ≤ √n M on 𝓑_s(R)
@@ -1540,13 +1539,14 @@ EDGE: bpN:p1:realdomain | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-time@L
 EDGE: bpN:p1:period-convert | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-time@L249-L249 | ω̃ = 2πω
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-time@L249-L249 | local dictionary constants used directly
 EDGE: bpN:p9:setting | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-time@L249-L249 | Ω₀ is the maximum on the closed Euclidean R₀-ball
+EDGE: stepN:p1:co-size | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-time@L249-L249 | uses R₀≤r₀ and R₀≤R/176 to place the closed frequency ball in B(0,5R/8)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
+EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: the lemma explicitly assumes H1–H5 only in clause (d). This clause needs the corresponding hypotheses on h (H3 for the frequency lower bound; H5 also for the time upper bound). The cited conditional conversions do not supply those premises. No such premise is added to the source contract.
+NOTE: SOURCE_GAP: In addition to the already recorded missing h-bound scope, the current partials contract inherits IsAnalyticPerturbation R s ε f from §s-holo. This application does not bind or supply that datum. No source hypothesis is added here. SOURCE_GAP: the lemma explicitly assumes H1–H5 only in clause (d). This clause needs the corresponding hypotheses on h (H3 for the frequency lower bound; H5 also for the time upper bound). The cited conditional conversions do not supply those premises. No such premise is added to the source contract.
 
 NODE: stepN:p1:co-conc
 KIND: step
@@ -1569,9 +1569,9 @@ ROUTE_FOR: -
 EDGE: stepN:p1:co-time | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-conc@L251-L251 | T_0 ≥ 2T
 EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-conc@L251-L251 | local dictionary constants used directly
 EDGE: bpN:p9:setting | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-conc@L251-L251 | defined parameters of the Theorem-1 formula; this is not an application of its theorem conclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1597,9 +1597,9 @@ ROUTES: -
 ROUTE_FOR: bpN:p1:norm-convert
 EDGE: stepN:p1:nc-decay | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | coefficient bound after scalar limit
 EDGE: stepN:p1:nc-sum | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208 | sum the coefficient bounds
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1625,12 +1625,12 @@ ROUTES: -
 ROUTE_FOR: bpN:p1:norm-convert
 EDGE: K:bp:p1:summation | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | the explicitly offered direct alternative; all bounded holomorphic periodic premises and 0<δ<ρ are supplied
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: new+sol-review-N-a
+EXTRACTOR: new+sol-delta-N-a
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: K Part 1 L37–39 imposes n≥1 wherever a strip occurs. This node has no n≥1 source restriction and applies a K strip theorem at N Part 1 L206. The n=0 case is not attached by the cited theorem or by a separate branch in this record. Preserve the source’s unrestricted n and expose this application obligation; do not add n≥1 to the source statement.
 
 NODE: bpN:p1:norm-convert#converse
 KIND: step
@@ -1652,12 +1652,12 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:summation | blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L203 | Fourier reconstruction and the forward sup bound when the full weighted sum is finite; otherwise the extended upper bound is immediate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: new+sol-review-N-a
+EXTRACTOR: new+sol-delta-N-a
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: The source states this converse at L202; imported summation supplies Fourier reconstruction for the bounded holomorphic periodic u. This is common to both forward routes.
+NOTE: SOURCE_GAP: K Part 1 L37–39 imposes n≥1 wherever a strip occurs. This node has no n≥1 source restriction and applies a K strip theorem at N Part 1 L202. The n=0 case is not attached by the cited theorem or by a separate branch in this record. Preserve the source’s unrestricted n and expose this application obligation; do not add n≥1 to the source statement. The source states this converse at L202; imported summation supplies Fourier reconstruction for the bounded holomorphic periodic u. This is common to both forward routes.
 
 NODE: bpN:p1:constants#data
 KIND: definition
@@ -1677,9 +1677,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-N-a
-REVIEWER: -
+REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

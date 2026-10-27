@@ -892,6 +892,11 @@ Input packet SHA-256:
 - `N-p910.nodes.md`: `88a82dc3397eb9eb179d514aa7dbd059ff2361db1d2db5eea15885ff86e0f885`.
 - `N-p910.coverage.md`: `32fb182972c80dbf37803238b47f02dd4fadc0bd4e15c57409a4556ad3b38994`.
 
-Validation receipts are recorded after the report/applier checks.
+Validation receipts:
+
+- `python3 scripts/depgraph_apply_review.py docs/graph/N/packets N-p910 docs/graph/N/reviews/N-p910-delta.md sol-delta-N-e --dry-run`: `N-p910: 21 replaced, 0 added, 1 coverage items, 0 unresolved FAILs, 49 PASS nodes`. The tool counts PASS rows in both node and coverage tables when their IDs name nodes, so these are not unique node totals; the scope paragraph gives the unique counts.
+- Independent checks: exact proposed-node and proposed-coverage inventories; input snapshot hashes unchanged; locator bounds; replacement metadata preserved; only the named fields/EDGE lines changed; matching DEPS and EDGE inventories; no trailing whitespace. All PASS.
+- Combined in-memory overlay of both reports: `0` dangling dependencies; acyclic; all `26/26` changed nodes reachable from the four frozen roots. No graph files were written for this check.
+- `git diff --check`: exit 0, no output. The newly created reports were also checked directly for trailing whitespace.
 
 READY delta-N-e

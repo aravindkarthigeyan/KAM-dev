@@ -1,5 +1,11 @@
 {
  "replaced": [
+  "bpN:p3:local-exist"
+ ],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
   "bpN:p3:gen-exit",
   "stepN:p3:exit-closed",
   "stepN:p3:exit-min",
@@ -15,24 +21,29 @@
   "stepN:p3:red-diff",
   "bpN:p3:s-N#data",
   "stepN:p3:hi-cite",
-  "bpN:p3:local-exist",
+  "stepN:p3:le-red",
+  "stepN:p3:le-apply",
+  "stepN:p3:uc-apply",
+  "stepN:p3:cg-set",
+  "stepN:p3:cg-glue",
+  "bpN:p3:gen-exit",
+  "stepN:p3:exit-closed",
+  "stepN:p3:exit-min",
+  "stepN:p3:exit-bdry",
+  "stepN:p3:exit-sup",
+  "bpN:p3:ham-smooth",
+  "stepN:p3:hs-comp",
+  "stepN:p3:en-chain",
+  "stepN:p3:en-const",
+  "stepN:p3:per-field",
+  "stepN:p3:per-sol",
+  "stepN:p3:red-mem",
+  "stepN:p3:red-diff",
+  "stepN:p3:hi-cite",
   "stepN:p3:le-red",
   "stepN:p3:le-apply",
   "stepN:p3:uc-apply",
   "stepN:p3:cg-set",
   "stepN:p3:cg-glue"
- ],
- "added": [],
- "items": [],
- "unresolved": {},
- "passes": [
-  "stepN:p3:hs-deriv",
-  "bpN:p3:ham-energy",
-  "stepN:p3:en-cancel",
-  "bpN:p3:ham-periodic",
-  "bpN:p3:ham-reduction",
-  "bpN:p3:holo-input",
-  "bpN:p3:uniqueness-closed",
-  "bpN:p3:confinement-glue"
  ]
 }

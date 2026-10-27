@@ -284,7 +284,7 @@ DISPOSITION: NODE stepI:p7:po-prop
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-h
 
 ITEM: stepI:p7:po-exact
 KIND: proof-region

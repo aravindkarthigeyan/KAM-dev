@@ -201,9 +201,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol#consequences@L95-L95 | elementary consequences of the predicate IsSolIn
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol#consequences@L95-L95 | each a one-line Lean lemma, from the calculus facts (differentiable implies continuous; derivative at a point depends only on a neighbourhood)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -257,9 +257,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sym@L112-L112 | chain rule for t ↦ t+c and t ↦ −t
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sym@L113-L113 | membership in W and derivative of the solution
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -341,9 +341,9 @@ ROUTES: -
 ROUTE_FOR: bpN:p3:gen-lip
 EDGE: stepN:p3:lip-contra | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-explicit@L126-L126 | if no L works, sequences x_k, y_k with the Lipschitz quotient > k
 EDGE: stepN:p3:lip-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-explicit@L130-L130 | convergent subsequence and local Lipschitz constant contradict
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -368,9 +368,9 @@ DEPS: bpN:p3:ext-compact
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-bdd@L124-L124 | continuous image of a compact set is bounded
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -394,9 +394,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepN:p3:lip-bdd
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:lip-bdd | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-contra@L127-L127 | the bound M gives ¦x_k−y_k¦ < 2M/k
+EDGE: stepN:p3:lip-bdd | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-contra@L128-L128 | the bound M gives ¦x_k−y_k¦ < 2M/k
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
+EXTRACTOR: sonnet-extract-N-p3a+sol-delta-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -424,9 +424,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L131-L131 | sequential compactness produces a subsequence converging to p in K
 EDGE: bpN:p3:ext-lip-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L131-L131 | C1 at the chosen limit p supplies L_p and its neighborhood
 EDGE: stepN:p3:lip-contra | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L132-L132 | contradiction with the choice of x_k, y_k
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -535,9 +535,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:gen-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-data@L153-L153 | bound and Lipschitz constant on the compact set K_δ
 EDGE: stepN:p3:uc-delta | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-data@L153-L153 | K_δ ⊂ W compact
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-data@L153-L153 | the resulting bounds on every closedBall(x,delta) supply the three uniform-data clauses
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -594,9 +594,9 @@ EDGE: stepN:p3:uc-delta | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-c
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L163-L163 | compactness of C
 EDGE: bpN:p3:gen-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L164-L164 | M and L_C on the compact C
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L162-L162 | empty-K branch: the uniform-data conditions are vacuous
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -622,9 +622,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:up-cell | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-translate@L166-L166 | cell C and constants M, L_C
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-translate@L167-L168 | translation verifies containment, uniform boundedness and Lipschitzness on each ball
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -677,9 +677,9 @@ DEPS: bpN:p3:gen-symmetry, bpN:p3:gen-sol#consequences
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L181-L181 | case t < t₀ by time reversal (gen-symmetry(b))
-EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L182-L182 | continuity of α on J gives A closed
+EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L183-L183 | continuity of α on J gives A closed
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
+EXTRACTOR: sonnet-extract-N-p3a+sol-delta-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -707,9 +707,9 @@ ROUTE_FOR: -
 EDGE: stepN:p3:short-boot | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-ext@L185-L185 | s* ∈ A and definition of A
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-ext@L185-L185 | continuity of α gives η
 EDGE: K:bp:p1:ext-mvt | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-ext@L186-L186 | mean value inequality for a curve with derivative bounded by M
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -737,9 +737,9 @@ EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-u
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-exist@L194-L194 | the conclusion is IsSolIn on the open time interval; L196 is only end{proposition}
 EDGE: stepN:p3:ue-pl | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-exist@L198-L198 | construction of α by Picard-Lindelöf
 EDGE: stepN:p3:ue-stay | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-exist@L202-L202 | α stays in B̄(x,δ) ⊂ W
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -765,9 +765,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:ext-pl | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-pl@L198-L198 | quantitative Picard-Lindelöf with a = δ, T = ε
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-pl@L198-L198 | bound M and Lipschitz constant L on B̄(x,δ) come from the uniform data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -795,9 +795,9 @@ EDGE: bpN:p3:gen-short | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-st
 EDGE: stepN:p3:ue-pl | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202-L202 | the solution α
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202-L202 | B̄(x,δ) ⊂ W
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202-L202 | the pointwise derivative and membership establish the general solution predicate on the open interval
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -853,9 +853,9 @@ EDGE: bpN:p3:gen-uniform-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#step
 EDGE: bpN:p3:gen-uniform-exist | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212-L212 | local solution of uniform time
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212-L212 | the compact-set lemma supplies the uniform-data package needed for the uniform-time proposition
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212-L212 | the claim constructed by gen-uniform-exist is a solution in the sense of IsSolIn
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -913,9 +913,9 @@ EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L227-L227 | y_i continuous on [t₀,t₁] and the values lie in W
 EDGE: bpN:p3:ext-unique | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L226-L226 | left-derivative form for the mirror case t₁ < t₀
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L227-L228 | the two solution predicates give image containment in W
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -942,9 +942,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:gen-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-lip@L230-L230 | Lipschitz constant on the compact set K
 EDGE: stepN:p3:uq-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-lip@L230-L230 | the compact set K
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-lip@L230-L230 | the compact images used for the Lipschitz application come from the source solutions
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -972,9 +972,9 @@ EDGE: bpN:p3:ext-unique | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-a
 EDGE: stepN:p3:uq-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L232-L232 | F is Lipschitz on K
 EDGE: stepN:p3:uq-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L232-L232 | values in K, continuity
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L232-L233 | the source predicates supply genuine two-sided derivatives, hence the right derivatives used here
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1029,10 +1029,10 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L243-L243 | local solution α through y(b) at t₀ = b
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L245-L245 | two one-sided derivatives give a two-sided one
-EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L245-L245 | local nature: y₁ agrees with y, resp. α, near t
+EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L244-L244 | local nature: y₁ agrees with y, resp. α, near t
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L243-L245 | the given solution supplies y(b) in W and its endpoint derivative for the splice
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
+EXTRACTOR: sonnet-extract-N-p3a+sol-delta-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1060,9 +1060,9 @@ ROUTE_FOR: -
 EDGE: stepN:p3:ext-right | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-left@L248-L248 | apply Step ext-right to the reversed solution
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-left@L248-L248 | time reversal (gen-symmetry(b))
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-left@L248-L248 | the reversed and extended curves are solutions of the appropriate total fields on open W
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1091,9 +1091,9 @@ EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-
 EDGE: stepN:p3:max-union | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L260-L260 | union of open intervals
 EDGE: stepN:p3:max-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L263-L263 | gluing
 EDGE: stepN:p3:max-max | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L266-L266 | maximality
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1119,9 +1119,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-union@L260-L260 | 𝒥 nonempty by local existence
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-union@L260-L260 | the union family is defined using the general solution predicate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1149,9 +1149,9 @@ EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L264-L264 | local nature (iii)
 EDGE: stepN:p3:max-union | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L263-L263 | the family 𝒥 and its union I
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L263-L264 | the glued curve satisfies IsSolIn on the union of its open solution neighborhoods
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1180,9 +1180,9 @@ EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:
 EDGE: stepN:p3:max-union | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L266-L266 | J' ∈ 𝒥 so J' ⊂ I
 EDGE: stepN:p3:max-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L267-L267 | z is a solution on I
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L266-L267 | the maximality comparison and restricted-solution uniqueness concern the solution predicate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1211,9 +1211,9 @@ EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-c
 EDGE: stepN:p3:cont-setup | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L279-L279 | set-up
 EDGE: stepN:p3:cont-alpha | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L281-L281 | solution through z(t₁)
 EDGE: stepN:p3:cont-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L284-L284 | gluing past T₊
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1240,9 +1240,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:gen-uniform-exist | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-setup@L279-L279 | uniform existence time ε = δ/max(M,1)
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-setup@L279-L279 | delta,M are the uniform data fixing the positive common existence time
 EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-setup@L279-L279 | the finite maximal endpoint and its interval permit choosing t1 sufficiently near Tplus
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1271,9 +1271,9 @@ EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:
 EDGE: stepN:p3:cont-setup | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L281-L281 | ε and t₁
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L281-L281 | uniform data on Phi at z(t1) discharge the local-existence premises
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L281-L282 | the newly constructed alpha and maximal z are compared as general solutions on the overlap
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1303,9 +1303,9 @@ EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:con
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L286-L286 | left end by time reversal
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L284-L285 | the pasted curve solves the same equation on the covering open neighborhoods
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L284-L285 | the source continuation setting includes the uniform-data package used to construct the patch
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1333,9 +1333,9 @@ EDGE: bpN:p3:gen-continuation | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:
 EDGE: bpN:p3:gen-uniform-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-compact@L294-L294 | uniform data for the compact set K
 EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-compact@L290-L290 | the corollary is stated for the maximal solution in the setting of the preceding theorem
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-compact@L294-L294 | construct uniform data for K and apply the uniform continuation criterion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1363,9 +1363,9 @@ EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-c
 EDGE: bpN:p3:gen-continuation | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L301-L301 | the proof applies the continuation theorem here; L300 is begin{proof}
 EDGE: bpN:p3:gen-uniform-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L301-L301 | this lemma supplies uniform data for R^n x K here
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L301-L301 | the proof uses the uniform-data package for the periodic cylinder
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1394,9 +1394,9 @@ EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confi
 EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L314-L314 | the conclusion refers to the maximal interval and solution here, not the isolated L316 “there”
 EDGE: stepN:p3:conf-noexit | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L320-L320 | no exit before τ
 EDGE: stepN:p3:conf-concl | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L323-L323 | conclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1424,9 +1424,9 @@ EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:con
 EDGE: bpN:p3:gen-continuation | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@L321-L321 | continuation criterion gives T₊ = ∞
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@L320-L321 | uniform data of Phi are a premise of the applied continuation criterion
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@L320-L320 | the a priori hypothesis is instantiated with the maximal solution on its open interval
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1454,9 +1454,9 @@ EDGE: stepN:p3:conf-noexit | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:c
 EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L323-L323 | uniqueness of solutions on [−L,L]
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L323-L323 | restriction of the genuine maximal solution gives IsSolIn on the closed interval
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L323-L323 | the retained source confinement setting assumes this package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
