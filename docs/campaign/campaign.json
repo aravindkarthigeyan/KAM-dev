@@ -25,8 +25,8 @@
    "model": "Claude Opus 5.5",
    "account": "claude-1",
    "session": null,
-   "assignment": "Blueprint part 2: G1 from HL19 §4–5 and App. B (d = n, canonical, primary, uniform constants)",
-   "state": "running"
+   "assignment": "Blueprint part 2 (G1) written: 1323 lines, 29 results, 91 steps; in review",
+   "state": "done"
   },
   {
    "id": "bp-g2",
@@ -116,6 +116,15 @@
    "account": "codex-1",
    "session": "kam-audit-i",
    "assignment": "Refute-first statement audit of track I drafts",
+   "state": "running"
+  },
+  {
+   "id": "review-p2",
+   "kind": "blueprint reviewer",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Refute-first review of blueprint part 2 (G1)",
    "state": "running"
   }
  ],

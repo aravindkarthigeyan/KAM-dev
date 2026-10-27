@@ -43,9 +43,9 @@ its Fourier series on $T_{\rho}$.
 
 \begin{lemma}[Cohomological equation on strips]\label{bp:p1:cohomological}
 Let $\omega\in\Dio_{\gamma,\tau}$ with $\gamma>0$, $\tau\ge0$, and let $g$ be holomorphic, bounded
-and $1$-periodic on $T_\rho$ with $\avg g=0$. For $0<\delta<\rho$ there is a unique $u$,
-holomorphic and $1$-periodic on $T_{\rho-\delta}$, with $\avg u=0$ and
-$Du(\theta)\omega=g(\theta)$, and
+and $1$-periodic on $T_\rho$ with $\avg g=0$. For $0<\delta<\rho$ there is a unique $u$ in the class of functions
+holomorphic and $1$-periodic on $T_{\rho-\delta}$ (no boundedness assumed), with $\avg u=0$ and
+$Du(\theta)\omega=g(\theta)$; this $u$ is bounded, and
 \[\norm{u}_{\rho-\delta}\le c(n,\tau)\,\gamma^{-1}\delta^{-(\tau+n)}\norm{g}_\rho.\]
 If $g$ is real on real points, so is $u$. The same holds componentwise for vector- and
 matrix-valued $g$.
@@ -96,12 +96,54 @@ holomorphic there, and $D(A^{-1})=-A^{-1}(DA)A^{-1}$.
 \begin{lemma}[Quadratic iteration on nested strips]\label{bp:p1:iteration}
 Let $Q>0$, $p\ge0$ and $y_0,y_1,\dots\ge0$ with $y_{m+1}\le Q2^{pm}y_m^2$ for every $m\ge0$ and
 $Q2^py_0\le\frac12$. Then $y_m\le Q^{-1}2^{-p(m+1)}2^{-2^m}$ for every $m\ge0$; in particular $y_m\to0$.
-(Proved as \texttt{bp:p3:iteration}; Part 2's iteration lemma is to be unified with this one.)
+If moreover only $q\coloneqq Q2^py_0\le1$ is assumed, then $y_m\le q^{2^m-1}2^{-pm}y_0$ for every $m\ge0$
+(linear in $y_0$, as needed for closeness bounds). (Proved as \texttt{bp:p3:iteration} and
+\texttt{bp:p2:error-decay}(a).)
 \end{lemma}
 
 \begin{lemma}[Averages of functions on the real torus]\label{bp:p1:averages-real}
 For $v:\R^n\to\C$ continuous, $1$-periodic and differentiable with continuous derivative:
 $\avg{\partial_{\theta_\ell}v}=0$ and $\avg{Dv\,\omega}=0$.
+\end{lemma}
+
+\subsection{Further interface lemmas (transferred from Part 2, 27 Oct 2026)}
+
+\begin{lemma}[Operator norms, blocks, $\Omega_0$]\label{bp:p1:operator-norms}
+For the max norms of Part~\ref{bp:p0}: the operator norm of a matrix is $\max_i\sum_j\abs{M_{ij}}$; for a block
+matrix $\left(\begin{smallmatrix}A&B\\C&D\end{smallmatrix}\right)$ the norm is at most $\max\{\abs A+\abs B,\abs C+\abs D\}$;
+$\abs{\Omega_0}=1$, $\Omega_0^\top=-\Omega_0$, $\Omega_0^2=-I$. (Proved as \texttt{bp:p2:matrix}(a), (c), (d).)
+\end{lemma}
+
+\begin{lemma}[Cauchy corollaries]\label{bp:p1:cauchy-corollaries}
+For $f$ holomorphic and bounded on $T_\rho$ (scalar, vector or matrix valued) and $0<\delta<\rho$:
+$\norm{(Df)^\top}_{\rho-\delta}\le c\,\delta^{-1}\norm f_\rho$ and
+$\norm{\partial_\omega f}_{\rho-\delta}\le\abs\omega_1\delta^{-1}\norm f_\rho$, with $c$ a dimension factor.
+(Proved as \texttt{bp:p2:cauchy}.)
+\end{lemma}
+
+\begin{lemma}[Averages of matrix-valued functions]\label{bp:p1:averages-matrix}
+For $M$ continuous, $1$-periodic and matrix valued on $\R^n$: $\abs{\avg M}\le\sup_{\R^n}\abs M$, and $\avg{\partial_\omega M}=0$ if
+$M$ is $C^1$. (Proved as \texttt{bp:p2:averages}.)
+\end{lemma}
+
+\begin{lemma}[Cohomological equation in operator norms, a-priori bound]\label{bp:p1:cohomological-operator}
+Lemma~\ref{bp:p1:cohomological} holds for matrix-valued $g$ with the operator norm, and every holomorphic periodic
+solution $u$ with $\avg u=0$ satisfies the same bound. (Proved as \texttt{bp:p2:cohomological}.)
+\end{lemma}
+
+\begin{lemma}[Increments on open sets]\label{bp:p1:increments-open}
+If $F$ is holomorphic on an open $U\subset\C^m$, $\abs{DF}\le A$ on $U$, and the segment $[z,z+w]\subset U$, then
+$\abs{F(z+w)-F(z)}\le A\abs w$.
+\end{lemma}
+
+\begin{lemma}[Real inverses]\label{bp:p1:real-inverse}
+The inverse of an invertible real matrix is real; hence if $A(\theta)$ is real for real $\theta$ and invertible, so is
+$A(\theta)^{-1}$.
+\end{lemma}
+
+\begin{lemma}[Uniform limits]\label{bp:p1:uniform-limits}
+If $K_s$ are holomorphic on an open set and $K_s\to K$, $DK_s\to\Lambda$ uniformly there, then $K$ is holomorphic and
+$DK=\Lambda$; primary periodicity and realness on reals pass to the limit.
 \end{lemma}
 
 \subsection{Diophantine frequencies}

@@ -17,7 +17,7 @@ Locations refer to the pinned versions in [`sources.json`](sources.json); counts
 | GJLV05 (doi:10.1088/0951-7715/18/2/020) | 5 (5 candidate) | 1 |
 | FdlLS09 (arXiv:0903.0311v1) | 2 (2 candidate) | 0 |
 | CCdlL13 (doi:10.1016/j.jde.2013.05.001) | 1 (1 candidate) | 1 |
-| HL19 (arXiv:1711.05515v1) | 2 (2 candidate) | 3 |
+| HL19 (arXiv:1711.05515v1) | 7 (7 candidate) | 3 |
 
 ## Pos01 (arXiv:0908.2234v1)
 
@@ -77,9 +77,14 @@ None.
 
 1. **p. 18, (3.11).** *typo; CANDIDATE* (E-HL19-1). Printed: ‖K∞ − K‖_{ρ∞} < C₂‖E‖_ρ/(γ²ρ^{2τ}). the strict inequality is false when E = 0, where it would require ‖K∞ − K‖ < 0; it should read ≤. Evidence: with E = 0 the bound reads ‖K∞ − K‖ < 0, which no K∞ satisfies. Effect: none; G1 uses ≤.
 2. **p. 42, (5.66).** *typo; CANDIDATE* (E-HL19-2). Printed: denominator σ_B − ‖B‖. in the estimate for the twist term the denominator should be σ_T − |⟨T⟩⁻¹|. Evidence: the left side of the same display (5.66) has σ_T − |⟨T⟩⁻¹|. Effect: none on the statements.
+3. **p. 55, Lemma A.1.** *typo; CANDIDATE* (E-HL19-3). Printed: |M̄⁻¹ − M⁻¹| < 2σ²|M̄ − M|. false for M̄ = M (it would give 0 < 0); should be ≤. Also (A.3)'s '< ½' only follows with ≤. Evidence: take M̄ = M. Effect: none; our Neumann lemma uses ≤.
+4. **p. 33, (5.15)–(5.18); p. 43, (5.68).** *typo; CANDIDATE* (E-HL19-4). Printed: strict inequalities in the step estimates. false when E = 0; should be ≤ (the origin of E-HL19-1). Evidence: E = 0. Effect: none.
+5. **p. 42, after (5.67).** *typo; CANDIDATE* (E-HL19-5). Printed: "(5.12) and (5.16)". should refer to (5.13) and (5.17). Evidence: context. Effect: none.
+6. **p. 44.** *typo; CANDIDATE* (E-HL19-6). Printed: "→ 0 when s → 0". should read s → ∞. Evidence: the iteration index grows. Effect: none.
+7. **p. 44 vs Theorem 3.1 (p. 17).** *gap; CANDIDATE* (E-HL19-7). Printed: proof concludes dist(K∞(Tᵈ), ∂B) > 0; the theorem claims dist(K∞(Tᵈ_{ρ∞}), ∂B) > 0. the proof establishes the margin on the real torus only, while the theorem asserts it on the complex strip; the strip margin needs an extra argument (supplied in our Part 2 via summed per-step changes). Evidence: p. 44 conclusion vs p. 17 statement. Effect: none on G1; our proof gives μ/2 margins on the strip.
 
 ### Deviations
 
 1. **§3.1 (analytic functions and norms).** *convention / reformulation; PLANNED* (D-NORM-1). Estimates are carried out in weighted ℓ¹ Fourier(–Taylor) coefficient norms instead of sup norms on complex strips; hypotheses are stated for real-analytic functions and converted once at the interface. Effect: constants differ from the printed ones; the frozen statements carry their own explicit constants or are qualitative.
 2. **§2 (Hamiltonian systems and invariant tori).** *specialization; PLANNED* (D-COORD-1). Phase space Tⁿ × B is represented in coordinates: angles in ℝⁿ with ℤⁿ-periodicity, actions in an open set of ℝⁿ (no manifold structure, no general symplectic form). Effect: the general exact-symplectic setting of the source is specialized to the standard form on Tⁿ × ℝⁿ.
-3. **Theorem 3.1, pp. 16–18; App. B (5.74)–(5.77).** *reformulation (uniform constants); PLANNED* (D-G1-1). Uniform constants: C₁, C₂ depend only on n, τ, ρ, ρ∞, a bound M for the Hamiltonian's derivatives, σK, σB, σT, a margin μ (gaps σ − ‖·‖ and distance to the boundary) and an upper bound γbar ≥ γ (App. B's constants increase with γ; without γbar the statement is false: machine-checked counterexample). Dropped hypotheses implied up to 2n factors: σ_{Kᵀ}, c_{X_hᵀ,1}; first integrals and the estimate on ⟨c∘K∞⟩ not transcribed. Pointwise operator norms on the open strip instead of sums of sups on the closed strip. Conclusion strengthened to explicit margins (μ/2) and ≤ in the closeness bound (cf. E-HL19-1). Same uniformization in our G2, where no γbar is needed: invariance with H2–H3 bounds |ω|, hence γ. Effect: G1 as drafted v0.2; G2.
+3. **Theorem 3.1, pp. 16–18; App. B (5.74)–(5.77).** *reformulation (uniform constants); PLANNED* (D-G1-1). Uniform constants: C₁, C₂ depend only on n, τ, ρ, ρ∞, a bound M for the Hamiltonian's derivatives, σK, σB, σT, a margin μ (gaps σ − ‖·‖ and distance to the boundary) and an upper bound γbar ≥ γ (App. B's constants increase with γ; without γbar the statement is false: machine-checked counterexample). Dropped hypotheses implied up to 2n factors: σ_{Kᵀ}, c_{X_hᵀ,1}; first integrals and the estimate on ⟨c∘K∞⟩ not transcribed. Pointwise operator norms on the open strip instead of sums of sups on the closed strip. Conclusion strengthened to explicit margins (μ/2) and ≤ in the closeness bound (cf. E-HL19-1). Same uniformization in our G2, where no γbar is needed: invariance with H2–H3 bounds |ω|, hence γ; note: the hypotheses bound the frequency, γ ≤ |ω| ≤ 2nσ_Kσ_B(M + e), so γ̄ is needed only because the smallness condition alone does not bound e (Part 2 uses γ̄ once, to force e ≤ 1). Effect: G1 as drafted v0.2; G2.

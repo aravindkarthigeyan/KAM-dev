@@ -13,7 +13,8 @@ transcriptions, for use by the proofs in Parts~\ref{bp:p1}--\ref{bp:p4}.
   $\T^n=\R^n/\Z^n$ (ruling Q2).
 \item On $\R^m$ and $\C^m$ we use the max norm $\abs{v}=\max_i\abs{v_i}$; on $\C^n\times\C^n$ the
   max of the two components. Linear and multilinear maps carry the induced operator norms; for a
-  matrix this is $\abs{M}=\max_i\sum_j\abs{M_{ij}}$ (HL19 \S2.1). Sup norms over a set $U$ are
+  matrix this is $\abs{M}=\max_i\sum_j\abs{M_{ij}}$ (HL19 \S2.1). In G1 and G2, $\abs{Dh}$ and $\abs{DX_h}$ are
+  operator norms and $\abs{D^2X_h}$ is the bilinear operator norm (Lean \Lean{iteratedFDeriv} with its norm). Sup norms over a set $U$ are
   written $\norm{f}_U=\sup_U\abs{f}$; on a strip, $\norm{f}_\rho=\norm{f}_{T_\rho}$.
 \item The complex strip of width $\rho>0$ is $T_\rho=\{\theta\in\C^n:\abs{\operatorname{Im}\theta_i}<\rho\ \forall i\}$
   (HL19 \S2.1); it is invariant under translations by $\Z^n$ (and by $\R^n$).
