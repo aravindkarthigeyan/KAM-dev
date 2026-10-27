@@ -288,8 +288,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-hess@L98-L99
 PROOF_SOURCE: blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-hess@L98-L99
 CONTRACT_ID: stepI:p6:kb-hess
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step kb-grad; I in R^2 with I_1 > 0
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: kappa,Omega in R; I in R^2 with I_1>0; h=h_{kappa,Omega} of Definition kep-ham
+SOURCE_QUANTIFIERS: For every kappa,Omega in R and every real I with I_1>0
 SOURCE_CONCLUSION: D(frequencyMap h)(I) = Dg(I), first row (-3kappa I_1^-4, 0), second row 0
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -303,7 +303,7 @@ EDGE: stepI:p6:kb-grad | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-hess@L98-L9
 EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-hess@L98-L98 | frequencyMap h
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-hess@L98-L99 | h or h~ is the Hamiltonian fixed by the Kepler package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -317,8 +317,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L101-L104
 PROOF_SOURCE: blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L101-L104
 CONTRACT_ID: stepI:p6:kb-entries
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps kb-grad, kb-hess; Definitions bordered and keplerborder
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: kappa,Omega in R; I in R^2 with I_1>0; h=h_{kappa,Omega} of Definition kep-ham; epsilon is the fixed bijection Fin 3 equiv Fin 2 plus Unit used in the enclosing statement
+SOURCE_QUANTIFIERS: For every kappa,Omega in R and every real I with I_1>0
 SOURCE_CONCLUSION: entries of borderedHessian h I: Dg(I) block, border entries g(I)_a, corner 0; these coincide with the entries of K_{kappa,Omega}(I_1); so borderedHessian h I = reindex_eps K_{kappa,Omega}(I_1)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -334,7 +334,7 @@ EDGE: stepI:p6:kb-grad | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L10
 EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L103-L103 | entrywise comparison with keplerBorder at L = I_1
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L101-L104 | h or h~ is the Hamiltonian fixed by the Kepler package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -348,8 +348,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L106-L107
 PROOF_SOURCE: blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L106-L107
 CONTRACT_ID: stepI:p6:kb-det
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step kb-entries; reindexing by a bijection of the index set
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: kappa,Omega in R; I in R^2 with I_1>0; h=h_{kappa,Omega} of Definition kep-ham; epsilon is that same index bijection
+SOURCE_QUANTIFIERS: For every kappa,Omega in R and every real I with I_1>0
 SOURCE_CONCLUSION: det borderedHessian h I = det K_{kappa,Omega}(I_1) = 3 kappa Omega^2 / I_1^4
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -364,7 +364,7 @@ EDGE: bpI:p6:det-formula | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L107-
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L106-L106 | determinant of the frozen bordered Hessian
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L106-L107 | h or h~ is the Hamiltonian fixed by the Kepler package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -422,9 +422,9 @@ EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p6-kepler.tex#bpI:p6:c
 EDGE: stepI:p6:cv-sympl | blueprint-I/parts/p6-kepler.tex#bpI:p6:conversion@L143-L143 | proof of (a)
 EDGE: stepI:p6:cv-ham | blueprint-I/parts/p6-kepler.tex#bpI:p6:conversion@L149-L149 | proof of (b)
 EDGE: stepI:p6:cv-border | blueprint-I/parts/p6-kepler.tex#bpI:p6:conversion@L151-L151 | proof of (c) and (d)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
-REVIEWER: -
+REVIEWER: sol-delta-I-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -584,8 +584,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162-L162
 PROOF_SOURCE: blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162-L162
 CONTRACT_ID: stepI:p6:nd-concl
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step nd-domain; Lemma conversion (b),(d); Lemma kep-border
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: kappa=Omega=1, h_tilde=h_{(2 pi)^2,1/(2 pi)}; B subset {I in R^2:I_1>0}, 0<r_0<=inf_B I_1/2, as in the enclosing nondegeneracy corollary
+SOURCE_QUANTIFIERS: With kappa=Omega=1 fixed, for every B,r_0 satisfying the enclosing corollary, and every real I in B_{r_0} for the determinant assertion
 SOURCE_CONCLUSION: h~ holomorphic on B_{r_0}, real at real I, and det borderedHessian h~ I = 3/I_1^4 > 0 for real I in B_{r_0}
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -600,7 +600,7 @@ EDGE: bpI:p6:kep-border | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162
 EDGE: stepI:p6:nd-domain | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162-L162 | I_1 != 0 (and > 0 for real I) on B_{r_0}
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162-L162 | h or h~ is the Hamiltonian fixed by the Kepler package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -835,8 +835,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-deriv@L61-L67
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-deriv@L61-L67
 CONTRACT_ID: stepI:p7:he-deriv
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step he-smooth; partial_{q_i}(1/r_j) = -(q - a_j)_i / r_j^3
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: mu in R; z=(q,p) in the collision-free set W_mu of L48-49; r_j=rad(q-primary_j(mu))
+SOURCE_QUANTIFIERS: For every mu in R and every z in W_mu
 SOURCE_CONCLUSION: (d_p H, -d_q H) = ((p_0+q_1, p_1-q_0), (p_1,-p_0) - (1-mu)(q-a_1)/r_1^3 - mu (q-a_2)/r_2^3) = V_mu
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -853,7 +853,7 @@ EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-deriv@L67-L67 | the display of V_mu in Definition restricted
 EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-deriv@L61-L67 | r_j and W_mu are fixed in the section data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -867,8 +867,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69
 CONTRACT_ID: stepI:p7:he-sol
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps he-smooth, he-deriv; Definition restricted
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: mu in R; J subset R; z:R->R^2 x R^2; W_mu and the restricted Hamiltonian/field are the section data of L48-49
+SOURCE_QUANTIFIERS: For every mu in R, J subset R and z:R->R^2 x R^2; equivalence at every t in J
 SOURCE_CONCLUSION: the clauses of RSol_mu are z(t) in W_mu and z'(t) = V_mu(z(t)) = X_H(z(t)); the reduction to IsSolIn is the cited N result
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -885,7 +885,7 @@ EDGE: stepI:p7:he-deriv | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-
 EDGE: bpN:p3:newton-reduction | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | reduction to IsSolIn
 EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | r_j and W_mu are fixed in the section data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1103,8 +1103,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L133-L134
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L133-L134
 CONTRACT_ID: stepI:p7:ke-c
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps ke-contr, ke-hol, part (b); real e with |e| < 1
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: For the real-line assertion ell in R and e in (-1,1); for comparison with the complex branch 0<e_1<1 and (ell,e) a real point of P(e_1), with constants defined in L94-100
+SOURCE_QUANTIFIERS: For every ell in R and e in (-1,1) there exists exactly one real u_R(ell,e); for each e choose e_1 with |e|<e_1<1 to compare the analytic branch; assertions on u_R hold on R x (-1,1)
 SOURCE_CONCLUSION: phi(u) = ell + e sin u is a |e|-contraction of R with a unique real fixed point u_R(ell,e); u = u_R at real points of P; u_R real-analytic on R x (-1,1), d_ell u_R > 0, u_R(.,e) an increasing diffeomorphism of R, u_R(0,e) = 0, u_R(2pi,e) = 2pi
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1121,7 +1121,7 @@ EDGE: stepI:p7:ke-b | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L134-L134 
 EDGE: K:bp:p1:ext-banach | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L133-L133 | the complete nonempty real line carries the contraction with constant abs(e) < 1
 EDGE: K:bp:p1:ext-mvt | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L133-L133 | abs(e cos u) <= abs(e) bounds the derivative on the convex real line
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1334,8 +1334,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-gam@L197-L198
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-gam@L197-L198
 CONTRACT_ID: stepI:p7:oi-gam
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (ell,g,L,G) in D_R; orbit-map formulas with k = G/L, k^2 = 1-e^2; rotations preserve angular momentum and the dot product
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: (ell,g,L,G) in D_R=R^2 x C_0 with 0<G<L; e=e(L,G), k=G/L, (q,p)=Q(ell,g,L,G), u,c,s,D as in the orbit-map definitions
+SOURCE_QUANTIFIERS: For every (ell,g,L,G) in D_R, with the orbit quantities fixed as in the enclosing proposition
 SOURCE_CONCLUSION: Gamma = X P_Y - Y P_X = L k = G and q.p = X P_X + Y P_Y = L e s
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1347,7 +1347,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-gam@L197-L197 | X, Y, P_X, P_Y
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1361,8 +1361,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L200
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L200
 CONTRACT_ID: stepI:p7:oi-en
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps oi-r, oi-gam
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: (ell,g,L,G) in D_R=R^2 x C_0 with 0<G<L; e=e(L,G), k=G/L, (q,p)=Q(ell,g,L,G), u,c,s,D as in the orbit-map definitions
+SOURCE_QUANTIFIERS: For every (ell,g,L,G) in D_R, with the orbit quantities fixed as in the enclosing proposition
 SOURCE_CONCLUSION: E = (1/2)|p|^2 - 1/r = -1/(2L^2); Q(ell,g,L,G) lies in C with elements L, G, L^2, e
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1377,7 +1377,7 @@ EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L2
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L200 | p and q of the orbit map
 EDGE: stepI:p7:oi-gam | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L200 | Gamma(q,p) = G is needed for the strict angular-momentum inequality and recovery of the elements
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1391,8 +1391,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-d@L202-L202
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-d@L202-L202
 CONTRACT_ID: stepI:p7:oi-d
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step oi-r; L^2 e^2 = L^2 - G^2
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: (ell,g,L,G) in D_R=R^2 x C_0 with 0<G<L; e=e(L,G), k=G/L, (q,p)=Q(ell,g,L,G), u,c,s,D as in the orbit-map definitions
+SOURCE_QUANTIFIERS: For every (ell,g,L,G) in D_R, with the orbit quantities fixed as in the enclosing proposition
 SOURCE_CONCLUSION: L^2 e c = L^2 - r and (L e s)^2 = -G^2 + 2r - r^2/L^2
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1405,7 +1405,7 @@ ROUTE_FOR: -
 EDGE: stepI:p7:oi-r | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-d@L202-L202 | r = L^2 (1 - e c)
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-d@L202-L202 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1507,8 +1507,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L23
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232
 CONTRACT_ID: stepI:p7:sy-compare
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps sy-g, sy-coord; d ell = (1 - e c) du - s de
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: (ell,g,L,G) in D_R=R^2 x C_0 with 0<G<L; e=e(L,G), k=G/L, (q,p)=Q(ell,g,L,G), u,c,s,D as in the orbit-map definitions; the one-form calculation is on D_R, F=2Le sin u
+SOURCE_QUANTIFIERS: For every (ell,g,L,G) in D_R, with the orbit quantities fixed as in the enclosing proposition
 SOURCE_CONCLUSION: pi.dxi - L dell = dF with F = 2 L e s; Q^*(sum p_i dq_i) = L dell + G dg + dF
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1523,7 +1523,7 @@ EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | ell = u - e sin u relates dell to du, de
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1537,8 +1537,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
 CONTRACT_ID: stepI:p7:sy-ext
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: on D_R; the one-form identity established by sy-compare; exterior calculus from x-forms (no invertibility premise)
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: Q is the Delaunay map on D_R as fixed in the symplectic proposition; F=2Le sin u; no one-form identity or invertibility is assumed as a source premise
+SOURCE_QUANTIFIERS: For every (ell,g,L,G) in D_R, with the orbit quantities fixed as in the enclosing proposition
 SOURCE_CONCLUSION: Q^*(sum dp_i wedge dq_i) = dL wedge dell + dG wedge dg, i.e. D Q^T J D Q = J, det D Q != 0, D Q J D Q^T = J
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1552,7 +1552,7 @@ EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L2
 EDGE: bpI:p7:x-forms | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L234 | d^2 = 0, pull-back commutes with d, form determined by values on vectors
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1566,8 +1566,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237
 CONTRACT_ID: stepI:p7:sy-field
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step sy-ext; H of class C^1
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: Q is the Delaunay map on D_R; H is C^1 on the stated open domain for composition with Q; the curve assertion concerns C^1 curves w with values in D_R
+SOURCE_QUANTIFIERS: For every C^1 H on the stated open domain and every point of D_R; then for every C^1 curve w in that domain
 SOURCE_CONCLUSION: D Q X_{H o Q} = X_H o Q; for C^1 curves w' = X_{H o Q}(w) iff d/dt Q(w) = X_H(Q(w))
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1580,7 +1580,7 @@ ROUTE_FOR: -
 EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237 | D Q J D Q^T = J
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1638,15 +1638,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:kepler-eq, bpI:p7:orbit-maps, bpI:p7:symplectic, bpI:p7:orbit-identities
+DEPS: bpI:p7:kepler-eq, bpI:p7:orbit-maps, bpI:p7:symplectic, bpI:p7:orbit-identities, bpI:p7:x-hol, K:bp:p1:holomorphic-analytic
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | (c): u_R real-analytic
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | Q built from u_R, e(L,G), R(g)
 EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | invertibility of D Q
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | (c): Q(D_R) subset C
+EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | the positive square-root formula for e extends holomorphically locally on C_0
+EDGE: K:bp:p1:holomorphic-analytic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | restrict the local holomorphic square-root formula to real actions to justify real analyticity of e
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1774,8 +1776,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258
 CONTRACT_ID: stepI:p7:ch-diffeo
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps ch-reg, ch-inj, ch-surj3; periodicity
-SOURCE_QUANTIFIERS: as in the enclosing result
+SOURCE_HYPOTHESES: Q is the Delaunay map D_R -> C defined from the orbit formulas; no regularity, injectivity, surjectivity or periodicity conclusion is an added premise
+SOURCE_QUANTIFIERS: On D_R, for all ell,g,L,G and all integer translates in ell,g; the induced map from (R/(2 pi Z))^2 x C_0 to C is the same quotient map as in the chart theorem
 SOURCE_CONCLUSION: Q is 2pi-periodic in ell, g; the quotient map is a bijective local diffeomorphism, hence a real-analytic diffeomorphism onto C
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1792,7 +1794,7 @@ EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L
 EDGE: bpI:p7:x-ift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | bijective local real-analytic diffeomorphism is a diffeomorphism
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
