@@ -6,6 +6,7 @@ Authors: Scott Armstrong, Zohar Komargodski
 module
 
 public import KAM.Uniq.Frame
+public import KAM.Uniq.Phase
 import KAM.Apost.Hamiltonian
 import KAM.Apost.Periodicity
 import KAM.Matrix.Calculus
@@ -16,7 +17,8 @@ import Mathlib.Tactic.Linarith
 # The difference of two invariant tori in the frame of `K₁` (blueprint `bp:p3:difference-equation`)
 
 Blueprint Part 3, Lemma `bp:p3:difference-equation`. For a real phase `ψ` put
-`Δ(θ) = K₂(θ + ψ) - K₁(θ)` (`KAM.Uniq.diffMap`), and on `T_ρ`
+`Δ(θ) = K₂(θ + ψ) - K₁(θ)` (`KAM.Uniq.diffMap`, defined in `KAM/Uniq/Phase.lean`, which
+`bp:p3:phase` also uses), and on `T_ρ`
 `R = X_h(K₁ + Δ) - X_h(K₁) - DX_h(K₁) Δ` (`KAM.Uniq.remainder`),
 `ξ = P⁻¹ Δ` (`KAM.Uniq.diffXi`) and `q = P⁻¹ R` (`KAM.Uniq.diffQ`). Under (S1) to (S4) and
 `‖Δ‖ < μ` on `T_ρ` (the pointwise form of the blueprint's `‖Δ‖_ρ < μ`),
@@ -49,7 +51,8 @@ the default heartbeats, so `differentiableOn_inv_of_isUnit_det` proves the holom
 any finite index type.
 
 The definitions `diffMap`, `remainder`, `diffXi` and `diffQ` are total functions, as required by
-the totality convention, so no hypothesis of the lemma is the conclusion of another result.
+the totality convention (`diffMap` lives in `KAM/Uniq/Phase.lean`, copied verbatim from Appendix A
+there), so no hypothesis of the lemma is the conclusion of another result.
 -/
 
 @[expose] public noncomputable section
@@ -64,11 +67,6 @@ open KAM.Torus
 variable {n : ℕ} {τ ρ M σK σB σT μ : ℝ} {𝔅 : Set ((Fin n → ℂ) × (Fin n → ℂ))}
   {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ω : Fin n → ℝ} {γ : ℝ}
   {K₁ K₂ : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)}
-
-/-- `Δ = K₂(· + ψ) - K₁`, `eq:p3:Delta`. -/
-def diffMap (K₁ K₂ : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) (ψ : Fin n → ℝ) (θ : Fin n → ℂ) :
-    (Fin n → ℂ) × (Fin n → ℂ) :=
-  K₂ (θ + fun i => (ψ i : ℂ)) - K₁ θ
 
 /-- `R = X_h(K₁ + Δ) - X_h(K₁) - DX_h(K₁) Δ`. -/
 def remainder (h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ)
