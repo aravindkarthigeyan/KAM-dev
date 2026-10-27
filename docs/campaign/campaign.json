@@ -79,8 +79,8 @@
    "model": "GPT-6-Astra xhigh",
    "account": "codex-4",
    "session": "kam-audit-p",
-   "assignment": "Delta audit of track P v0.2",
-   "state": "running"
+   "assignment": "Track P delta audit v0.2: all statements APPROVABLE; P-G true as corrected",
+   "state": "done"
   },
   {
    "id": "audit-I",
@@ -121,7 +121,7 @@
  ],
  "queued": [
   {
-   "title": "Owner approval of track I statements (review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK), then freeze"
+   "title": "Owner approval: track I (claude.ai/artifact/5B9odMattAPViUVYUgNPDK), track P (claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1), track N question 7"
   },
   {
    "title": "Blueprint consolidation (p2/p3 shared geometry, p3 copies, stale request sections; reviews p2 and p3)"

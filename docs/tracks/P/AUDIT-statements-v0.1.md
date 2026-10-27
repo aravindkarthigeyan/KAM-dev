@@ -664,3 +664,422 @@ hashes above.
 
 No heartbeat, recursion-depth or synthesis-heartbeat override was used. Lean
 invocations and the lint command's ABI elaboration were serialized.
+
+## 11. v0.2 delta
+
+Audited 27 October 2026, against the revised draft and `RESPONSE-v0.1.md`.
+**The v0.2 mathematical statements are APPROVABLE.** P-G is true as the explicitly
+corrected, more restrictive contract now proposed. All three v0.1 counterexamples
+are excluded for the right reasons. No additional Lean statement change is
+required by this delta audit. This is a statement verdict, not a Lean proof,
+source-proof completion, owner approval or authorization to freeze.
+
+P4's P-G scope choice and P8's convention choice remain **pending owner decisions**;
+the response correctly labels them that way. P5–P7 now specify the appropriate
+proof repairs and dependencies, but those providers are still unpaid. Two further
+CP10 proof defects found while checking sufficiency are recorded in §11.7. They
+require explicit proof repairs and do not invalidate the revised √r conclusion.
+
+### 11.1 Exact baseline, pins and diff
+
+The v0.1 Lean text was reconstructed from its retained definition blocks and the
+inverse of the documented edits. Its **full SHA-256 matches the original audited
+file**, `8db635bc75f9cf106c32377caa48535c557e2f43e6aa260e009191d0fade80ae`.
+Thus the comparison is against the exact audited bytes, not an inferred similar
+statement. The old mathematical statement recovered read-only from commit
+`9fcd939` also matches its original hash, `e737c911…92e2d9e8`.
+
+| Current audited object | SHA-256 |
+|---|---|
+| `.drafts/P/Statements.lean`, 357 lines | `189047cf6507792945a62bd9ff36e606ff5aca1328f051ef1bdd80052615e833` |
+| `docs/tracks/P/statement.md` | `8caf48afe2be98b08d56df3b6760d30e38df5fb19b108d39db1387211fc8effc` |
+| `docs/tracks/P/RESPONSE-v0.1.md` | `7306b4995e3ab589329ebe3a903de332140f4d2ba4509be11be2a92522c1e4cd` |
+| `docs/tracks/P/sources.md` | `b3253f46fc8431d094f295e056bced3e2decb544eb45085717603372c6f4f73e` |
+| `docs/tracks/P/notes.md` | `34da59e2f862a5f8926747750995f7b7ebc84ad2795294da56d980a6bc30732d` |
+| This report before this append | `89cfa670494652412f6998ac5dcc6ac747c284c6dd8d02292e4e0503bafe76d3` |
+
+Repository HEAD at the delta check was `fc5745396809aea029f53224069833e84389236e`;
+the working tree was initially clean. Current AGENTS, PLAN, DECISIONS and the audit
+brief were reread. No track-P approval was found in DECISIONS. All five PDF hashes
+still match §1; relevant CP10 proof pages were reread, including fresh rendered
+pages 559, 561 and 564. The publisher metadata was also rechecked against the
+[pinned CP10 article's record](https://www.aimsciences.org/article/doi/10.3934/dcdss.2010.3.545);
+no online replacement PDF was substituted for the local source.
+
+The complete Lean diff has precisely these changes:
+
+1. Copyright/authors and the module/P-G/P-PLANAR documentation are updated.
+2. `cylinder` uses a product of oscillator discs.
+3. `HasSecularBirkhoffForm` uses those discs in both its integrability guard and
+   its little-o neighborhood; the fourth-power remainder norm is unchanged.
+4. P-G adds `W`, `hW`, `hVW`, `hboundary`, removes `hH0`, and changes `hfreq`
+   from V to W. Its conclusion text and the order of its small parameters are
+   byte-identical, with the intended new meaning of `cylinder`.
+5. Both physical theorem types remove exactly the factor 4 from `hsep`.
+   Their other binders, conclusions and quantifier order are identical.
+
+A mechanical declaration comparison, after removing comments and trimming only
+outside declarations, found **31 identical declarations and exactly five changed**:
+the two definitions and three theorems above. The exact physical-Hamiltonian and
+reference-configuration section of the mathematical statement is unchanged, as
+are both physical conclusion blocks. The documentary diff adds the source repairs,
+removes the excess separation, and accurately describes the corrected P-G.
+
+Evidence retained under `.drafts/P/audit-scratch/`:
+`Statements-v0.1.lean.txt`, `Statements-v0.2.lean.txt`,
+`Statements-v0.1-v0.2.diff`, `statement-v0.1.md.txt`, and
+`statement-v0.1-v0.2.diff`. The `.txt` snapshots are evidence, not new Lean modules.
+The old counterexample module was not altered.
+
+### 11.2 Findings P1–P9: disposition
+
+| Finding | Delta verdict | Verification and remaining boundary |
+|---|---|---|
+| P1, disc cylinder | **FIXED** | Lean lines 55–58 require `∀ j, p_j²+q_j²<r²`. `cylinderCell`, `hP` and both conclusion uses refer to that exact definition. The two guards at lines 85 and 90 use the same discs; no hidden box measure remains. CP10 p. 561 is the relevant domain evidence. |
+| P2, neighborhood inverse | **FIXED** | Lines 153 and 168 require an open W containing **closure V** and `HasFastDiffeomorphism H0 W`. The inverse is C¹ on an open image, with both identities. All of W and the function data precede the constants. Deleting `hH0` loses nothing: the predicate already supplies analyticity on W. |
+| P3, boundary loss | **FIXED** | Lines 154–157 reproduce the proposed two-sided collar guard exactly. The measured variable I ranges over the entire ambient space; it is not restricted to V. The existential A,d precede the universal collar width t and all KAM constants. It controls both inner and outer losses. |
+| P4, excess premises/scope | **CODE AND DISCLOSURE FIXED; OWNER CHOICE OPEN** | Both numerical factor-four premises are gone. The remaining P-G strengthening is expressly a corrected specialization awaiting Q-P1, not falsely labelled a literal source premise or an existing owner ruling. No additional premise is needed for this audit. |
+| P5, matrix entries | **REPAIR SPECIFIED CORRECTLY; PROVIDER UNPROVED** | The statement includes both mass-index replacements and the missing denominator factor 2, matching (36)–(37). `horizontalSecularMatrix_entries` is identified as future work, not an assumed theorem or a headline binder. |
+| P6, meromorphy/topology | **REPAIR SPECIFIED CORRECTLY; PROVIDER UNPROVED** | Local unit-disc holomorphy and the explicit logarithmic domain replace the false global claims. The log domain is convex, exponentiation is injective there, and ordered ratios have modulus below one and positive real part. The discriminant-complement/eigenvalue-cover argument is explicitly unpaid, rather than asserted proved by choosing a chart. |
+| P7, analytic weak route | **DEPENDENCIES CORRECTLY IDENTIFIED; PROVIDERS UNPROVED** | CP09's analytic gate, Ω=2σ, the fixed zero-coupling chart and the exact averaged kinetic difference are stated separately. Neither physical headline assumes these conclusions. The fixed-center result remains a new deduction. |
+| P8, periods | **INTERFACE CORRECT; OWNER CHOICE OPEN** | Physical 2π shifts and normalized average are unchanged, as are period-one parameter lifts. Source frequencies are divided by 2π. Q-P2 remains explicit; the audit supplies no owner ruling. |
+| P9, authors/pages | **FIXED** | Both authors are named; source metadata says 65 numbered pages and distinguishes the retained 1–62 header. No mathematical content changed. |
+
+“Accepted” in the response is therefore accurate as acceptance and implementation
+of the requested revisions. It must not be read as proof closure of P5–P7 or
+owner resolution of Q-P1/Q-P2.
+
+### 11.3 Retrying the counterexamples and checking the guards
+
+**P1, oscillator box.** The old corner rectangle has p²+q²>r² and is outside the
+new cylinder. For the old integrable example, the slow flow preserves p²+q²
+exactly. All circles of radius less than r stay in the revised disc, so there
+is no fixed missing corner fraction. Scratch `disc_rotation_invariant` proves
+this for every angle, without a KAM hypothesis. `cylinder_literal` checks the
+actual revised carrier by reflexivity.
+
+The changed little-o clause is equivalent to a little-o clause on sup-norm
+neighborhoods: a disc of radius δ lies in the corresponding coordinate box,
+and the box with coordinate radius δ/2 lies in that disc. The denominator in
+the estimate is still the same norm to the fourth power. These two inclusions
+are proved in scratch. The disc guard at radius δ is contained in that at r₀
+because 0<δ≤r₀, also proved in scratch; every remainder integral is therefore
+guarded. Zero lies in every positive-radius disc, so the clause still fixes
+P₀ at zero and does not permit a spurious constant jet.
+
+**P2, flat boundary.** With V=(0,1), closure V contains zero. Thus every allowed
+W contains zero as an interior point. For H₀(I)=I¹⁶/16, the fast map is I¹⁵.
+If g were its C¹ inverse on the open image, differentiating g(I¹⁵)=I at zero
+would give `Dg(0)·0=1`, a contradiction. The scratch theorem
+`flat_frequency_no_differentiable_inverse` proves exactly this local scalar
+obstruction on any open W containing zero. Its reduction from the one-coordinate
+`Fin 1` draft predicate is mathematical, not claimed as a machine-checked
+negation of that entire predicate. The counterexample fails the new premise;
+its old contradiction is not being hidden by a different choice of constants.
+
+**P3, comb.** In the old comb, take t_K=2^(−16K). Every upper half of a finger
+in a batch k≥K lies within t_K of a vertical boundary side: its width is
+2^(−16k−4)<t_K. Hence the two-sided collar has volume at least 2^(−K−4).
+The ratio of that lower bound to t_K is 2^(15K−4), unbounded. For any fixed
+A,d, sufficiently large K has both t_K<d and collar volume>A t_K. Thus the
+comb fails `hboundary`, independently of its identity frequency map.
+Scratch `interval_collar_both_sides` additionally checks that the literal collar
+formula includes both an interior point and an exterior point near an interval
+boundary; it is not an accidentally one-sided set.
+
+No new junk-value route was introduced. All cylinder radii used by P-G are
+positive, even though its total squared-radius formula also has values for
+negative inputs. `HasFastDiffeomorphism` supplies genuine inverse identities
+on an open set, not a totalized singular inverse. The collar is an ordinary
+open metric neighborhood of the frontier; no junk integral or empty domain
+is involved. `IsConnected V` still supplies nonemptiness. The finite-dimensional
+bounded open V has positive finite volume, so converting absolute collar loss
+to relative loss by division by |V| is legitimate. The log/rpow and physical
+collision/mass guards are unchanged from §6.
+
+### 11.4 Why the corrected P-G is true
+
+Excluding three examples is not enough on its own. The following checks connect
+the new hypotheses to the quantitative proof, with constants depending only on
+the data chosen before r and μ. This is a mathematical sufficiency argument using
+the analytic KAM machinery of CP10, not a formal provider receipt.
+
+**Uniform analytic and inverse data.** Since closure V is compact and contained
+in open W, it has a positive neighborhood contained in W. On that compact
+neighborhood the analytic fast map has a genuine inverse derivative: differentiate
+the inverse identity on W. Its inverse Jacobian is continuous and bounded there.
+The C¹ inverse is analytic locally by the analytic inverse-function theorem.
+Shrinking the neighborhood gives uniform local complex inverse charts, which
+suffice for the source's inverse-Jacobian estimates; no inverse bound is inferred
+merely from nonvanishing pointwise determinants on the original open V.
+
+The closed μ interval, closed action set, closed small secular discs and compact
+fast-angle cell give uniform analytic data for P. Periodicity glues the angle
+faces. One may choose a fixed smaller secular complex box inside the initial
+disc domain for analytic estimates; its radius is independent of the later r.
+This does not replace the **real measure domain**, which remains the discs.
+
+The averaged function is analytic, and the symmetric quartic jet is uniquely
+fixed by `hBNF`. Thus P₀, Ω and β on the used carrier are the actual analytic
+Taylor coefficients, despite being supplied as unrestricted functions off that
+carrier. The pointwise little-o annihilates every Taylor term through degree
+four after subtracting the displayed jet. Compactness then gives the uniform
+O(|(p,q)|⁵) remainder used in CP10 (60), p. 563. The determinant bound extends
+with a positive margin to a smaller neighborhood. No unassumed regularity or
+uniformity of a separately chosen jet is being used.
+
+**Small divisors and powers.** Let L=log(1/r). The averaging requirements (61)–(63)
+are met with fast exclusion scale γbar=A₁√r and with source exponent c taken
+sufficiently large, for example larger than 4τ+2 with room for fixed constants
+and fixed radius rescalings. Indeed the critical lower bound has the form
+
+    γbar ≥ C sqrt(μ) L^(2τ+1) / r^(5/2),
+
+and μ<r⁶/L^c makes its right side at most
+C√r L^(2τ+1−c/2). Shrinking rStar absorbs that constant. Take the remaining
+source scales γ₁ and γbar₂ to be sufficiently large fixed multiples of r^(5/2),
+with actual slow Diophantine constant μγbar₂. These are the scales in (17),
+(20), and the two-scale KAM estimates (52)–(54). Their large fixed coefficients
+make the scale-independent smallness ratios small; their upper restrictions
+hold after shrinking rStar. A fixed prefactor in a smallness condition can be
+absorbed by increasing c and shrinking rStar, since L tends to infinity.
+This explains why no separate C₀ multiplying the draft's r⁶/L^c is missing.
+No first-order nonresonance condition on Ω is used: the already assumed quartic
+normal form and invertible β are the inputs of Theorem 1.3, not Theorem 1.2.
+
+**Boundary and whole tori.** Work with central fast actions farther than κ√r
+from frontier V and with slow actions in
+
+    κ r^(5/2) < J_j < r²/2 − κ r^(5/2),
+
+where κ is a sufficiently large fixed constant. This costs O(√r) of the target
+volume: the action loss follows from `hboundary`, and the secular loss follows
+from the exact positive-action product-volume calculation in §11.7. The source's
+uniform action-displacement estimates, (35), (42), (51) and §4, are smaller than
+these margins (or a fixed multiple of r^(5/2) in slow actions). Choose κ larger
+than that fixed multiple. Each retained torus then remains wholly in V and in
+every oscillator disc for **all** parameter values. This uses both the inner
+collar bound and the independent analytic extension neighborhood.
+
+Select entire tori by their central parameters. Do not take an arbitrary spatial
+intersection of a torus union with the target region: that is the source-proof
+gap recorded below. The available margins make the selection possible at the
+same O(√r) cost. Uniform inverse charts, the ordinary resonance measure estimates
+and the outer collar bound control the parameter-to-phase-space measure step.
+The resulting total relative loss is bounded by a constant times
+
+    γbar + γ₁ + γbar₂/r² + √r + (A/|V|) κ√r = O(√r).
+
+The source's analytic symplectic maps and KAM embeddings give analytic,
+Lagrangian, injective immersed tori, with the required fast winding and slow
+periodicity. The physical-time flow is unchanged. Reparameterizing all source
+angles by 2π gives period-one parameters and divides frequencies by 2π; the
+fast O(1), slow O(μ) bounds and a positive Diophantine constant survive. Compact
+parameter restrictions and countable exhaustion give a measurable union.
+
+The upper radial margin leaves a region of positive volume unused, giving the
+strict upper measure inequality. Enlarge C to make the lower inequality strict
+and to dominate both frequency bounds, and shrink rStar to give positive measure
+and rStar<min(r₀,1). All these choices precede r and μ. No hypothetical torus,
+measure conclusion or normal-form theorem is assumed as an extra premise.
+
+This argument also shows non-vacuity after the corrections. An open bounded
+box V, W=the entire space, H₀=ΣI_i²/2 and
+P=ΣJ_j+(1/2)ΣJ_j² satisfy the new data: the boundary collar is O(t), the inverse
+is the identity on W, and the quartic remainder is zero. The full disc domain
+is compatible with the oscillator tori.
+
+### 11.5 Physical headlines and binder delta
+
+Removing factor 4 enlarges the physical targets to all distinct ordered positive
+axes. It creates no collision at zero eccentricity: disjoint circles have a
+positive minimal radial separation for any fixed distinct axes. Choose a smaller
+tube inside the requested η tube and a compact good frequency patch inside it.
+The resulting constants may deteriorate as axes approach each other; the theorem
+chooses them **after** the axes and makes no uniform claim in that limit.
+The local analytic route in §7 therefore still applies. No physical definition,
+force law, barycentric reconstruction, time normalization or measure space changed.
+
+The new log domain in the response is open and convex. Its imaginary strip widths
+make exp injective, and for j<k the log-ratio has negative real part and imaginary
+part between −π/2 and π/2. This proves the stated ratio conditions. Removing a
+nontrivial complex analytic discriminant can be handled on its connected complement
+and then a universal cover; nontriviality and the asymptotic nonplanarity argument
+remain provider work. The response does not use the false topology of the original
+axis domain as an axiom. The P5 matrix corrections and the P7 fixed-center averaging
+argument have no new algebraic change from the accepted remedies in §7–§8.
+
+P-G now has **29 outer binders**, compared with 26: add `W,hW,hVW,hboundary` and
+remove `hH0`. Their classifications are:
+
+| Binder change | Classification and quantifier check |
+|---|---|
+| `W` | Typing/geometric neighborhood data, new corrected-contract scope. |
+| `hW`, `hVW` | Ordinary geometric premises: openness and closure inclusion, not conclusions. |
+| `hboundary` | Ordinary geometric measure premise. Its witnesses A,d can be chosen before all KAM constants; it is not a conclusion-shaped hypothesis. |
+| `hfreq` on W | Strengthened nondegeneracy contract with the same literal inverse predicate; explicitly distinguished from printed A1 on V. |
+| Deleted `hH0` | Redundant, because analyticity on W implies analyticity on closure V. |
+| Retained `hP` | Proposed analytic-family specialization, still awaiting Q-P1. |
+| Both physical `hsep` | Now source ordered-distinct-axis conditions; the former EXCESS factor 4 is absent. |
+
+All other binder classifications and all conclusion quantifier orders in §4 persist.
+The mathematical sufficiency of the added premises does not manufacture an owner
+ruling about whether this stronger scope should be frozen.
+
+### 11.6 Per-declaration v0.2 verdicts
+
+These verdicts concern mathematical statements/definitions as proposed. The common
+owner scope/convention boundary and unpaid provider obligations above still apply.
+
+| Declaration | v0.2 verdict |
+|---|---|
+| `properlyDegenerateKAM` | **APPROVABLE** as the corrected specialization; P1–P3 resolved. |
+| `planarTwoPlanetKAM` | **APPROVABLE**; ordered distinct axes suffice for the qualitative local route. |
+| `fixedSunPlanetaryKAM` | **APPROVABLE** as the stated new deduction, with secular/analytic providers unpaid. |
+| `Phase` | APPROVABLE, unchanged. |
+| `fast` | APPROVABLE, unchanged. |
+| `slow` | APPROVABLE, unchanged. |
+| `assemble` | APPROVABLE, unchanged. |
+| `cylinder` | **APPROVABLE**, corrected product of discs with positive-radius uses. |
+| `cylinderCell` | **APPROVABLE**, now measures the corrected cylinder. |
+| `secularAverage` | APPROVABLE, unchanged. |
+| `oscillatorAction` | APPROVABLE, unchanged. |
+| `HasSecularBirkhoffForm` | **APPROVABLE**, correctly reconciled disc guards and unchanged little-o order. |
+| `fastFrequency` | APPROVABLE, unchanged. |
+| `HasFastDiffeomorphism` | APPROVABLE, unchanged body; P-G now consumes it on W. |
+| `degenerateHamiltonian` | APPROVABLE, unchanged. |
+| `fastShift` | APPROVABLE, unchanged; Q-P2 pending. |
+| `IsCylinderTorus` | APPROVABLE, unchanged body. |
+| `IsCylinderKolmogorovSet` | **APPROVABLE**, now uses the correct domain, still requires whole tori. |
+| `bodyVector` | APPROVABLE, unchanged. |
+| `planeSq` | APPROVABLE, unchanged. |
+| `planeLength` | APPROVABLE, unchanged. |
+| `planeDot` | APPROVABLE, unchanged. |
+| `NoCollision` | APPROVABLE, unchanged. |
+| `movingHamiltonian` | APPROVABLE, unchanged. |
+| `fixedHamiltonian` | APPROVABLE, unchanged. |
+| `circularPoint` | APPROVABLE, unchanged. |
+| `circularTube` | APPROVABLE, unchanged. |
+| `IsPhysicalTorus` | APPROVABLE, unchanged. |
+| `actualMasses` | APPROVABLE, unchanged. |
+| `barycentricPositions` | APPROVABLE, unchanged. |
+| `barycentricVelocities` | APPROVABLE, unchanged. |
+| `IsNewtonSolution` | APPROVABLE, unchanged. |
+| `IsFixedSolution` | APPROVABLE, unchanged. |
+| `PairBounds` | APPROVABLE, unchanged. |
+| `MovingKolmogorovSet` | APPROVABLE, unchanged. |
+| `FixedKolmogorovSet` | APPROVABLE, unchanged. |
+
+### 11.7 Additional source-proof findings from the delta review
+
+These were not introduced by the writer and do not require another Lean statement
+revision. They must be recorded and repaired in the eventual provider. No ledger
+was edited. The relevant printed pages were checked visually, not only by extraction.
+
+**E-P-CP10-ANNULUS, CP10 (47), p. 559, and (56), p. 561; major source-proof
+bookkeeping defect.** The printed annulus has every slow action between
+c₁ ε^(5/2) and c₂ ε². Relative to the correct positive action box
+(0,c₂ ε²)^b, its volume fraction is
+
+    (1 − (c₁/c₂)√ε)^b.
+
+Thus its missing fraction is O(√ε), and for b>1 is not in general O(ε^(b/2))
+as printed in (56) and repeated in the subsequent estimates. Already b=2 gives
+`1−(1−u)²=2u−u²`, which cannot be bounded by C u² for all small u. Both that
+identity and the negation of such a uniform quadratic bound are proved in scratch.
+
+The same paragraph on p. 561 explicitly describes its comparison action ball by
+`{|J_i| < c₂ ε²}`. That signed box has 2^b times the positive box's volume, so
+it cannot serve as the near-full-measure reference in (56) for the positive annulus.
+Use the positive action box for the volume comparison and the exact polar Jacobian;
+a larger signed box may still be used as an auxiliary domain for upper bounds on
+resonant measure. Replace the annulus loss by its correct O(√ε) bound. The final
+P-G rate is already √ε, so this repair does not change the drafted conclusion.
+
+**E-P-CP10-WHOLE, final paragraph of §4, p. 564; source-proof containment gap.**
+The printed conclusion sets `K := K_* ∩ P_{c₂ ε}`. A pointwise intersection of
+a union of invariant tori with a region need not be a union of whole invariant
+tori. The same sentence changes the reference radius by √(2c₂), which also
+needs consistent radius bookkeeping; the two printed radius expressions are
+not identical. Neither operation alone proves the required whole-torus containment.
+
+Use central-action and radial margins and retain entire parameterized tori, as
+in §11.4. Their uniform displacement bounds and the two-sided collar assumption
+pay for this selection with an O(√r) loss. This is an explicit proof repair,
+not permission to weaken `Set.range K ⊆ S` or the all-time invariance clauses.
+The revised Lean statement already contains the right whole-torus conclusion.
+
+### 11.8 Delta validation and handoff
+
+Only this appended section and new scratch evidence were written in the delta audit.
+The v0.1 report text and `CounterexampleChecks.lean` remain unchanged. No draft,
+source, provider, frozen file, manifest, generated file or other track was edited;
+no state-changing git command was used.
+
+The direct v0.2 elaboration, at default budgets, produced:
+
+```text
+$ nice -n 5 lake env lean .drafts/P/Statements.lean
+.drafts/P/Statements.lean:150:8: warning: declaration uses `sorry`
+.drafts/P/Statements.lean:327:8: warning: declaration uses `sorry`
+.drafts/P/Statements.lean:340:8: warning: declaration uses `sorry`
+'KAM.Planetary.properlyDegenerateKAM' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Planetary.planarTwoPlanetKAM' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Planetary.fixedSunPlanetaryKAM' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+exit 0
+```
+
+The new module `.drafts/P/audit-scratch/DeltaV02Checks.lean` has 407 lines and SHA-256
+`1830b9814881130dc2f5ce2cd64cd77a15bb983e7aeb0df926b0f159cdd667fe`. It copies all
+33 v0.2 definitions exactly and contains only proved checking lemmas. Final output:
+
+```text
+$ nice -n 5 lake env lean .drafts/P/audit-scratch/DeltaV02Checks.lean
+'KAM.Planetary.DeltaAudit.cylinder_literal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KAM.Planetary.DeltaAudit.disc_guard_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KAM.Planetary.DeltaAudit.disc_implies_coordinate_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KAM.Planetary.DeltaAudit.smaller_box_in_disc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KAM.Planetary.DeltaAudit.disc_rotation_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KAM.Planetary.DeltaAudit.flat_frequency_no_differentiable_inverse' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'KAM.Planetary.DeltaAudit.interval_collar_both_sides' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KAM.Planetary.DeltaAudit.two_disc_annulus_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KAM.Planetary.DeltaAudit.no_quadratic_annulus_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0
+
+$ scripts/lint_sources.sh
+check_lean_modules: PASS (45 Lean files, 0 comparator configurations)
+FROZEN-ANCHOR GUARD OK
+ABI HASHES OK (25 frozen declarations)
+exit 0
+```
+
+The final scratch run has no warnings or errors. An initial iteration needed an
+explicit `sq_abs` simplification and an explicit composed function for the chain
+rule; both were corrected locally without changing the copied definitions or any
+resource budget. Static checks found no scratch proof escapes, resource overrides,
+forbidden ambient types or lines over 100 columns. The original scratch hash is
+still `f7e8f861b70df1effa0aeb78f774169d4b4cbf1a9c2dd5e3b5569af792e26aa8`.
+Repository lint excludes drafts; their direct elaborations above are the relevant
+targeted checks. No new library module exists to target with `lake build`.
+
+The three draft theorems still depend on `sorryAx`; the delta lemmas do not.
+The mathematical verdict in §11.4 is not asserted to be a Lean theorem. The source
+repairs, analytic KAM providers, physical canonical charts and fixed-center secular
+identification remain proof work. Q-P1–Q-P7 remain owner review questions, and this
+completion marker approves no freeze or root closure.
+
+Final `git diff --check` exited 0 with no output. `git status --short` showed only
+this report as a tracked modification. The integrity check confirmed that the
+entire v0.1 report prefix is byte-identical, all five v0.2 input pins are unchanged,
+all 36 declarations have delta verdicts, and report whitespace/fences/completion
+checks pass.
+
+The unchanged hard rules remain in force:
+
+1. **Never use `set_option maxHeartbeats`** (or any heartbeat-budget override). A default-heartbeat elaboration
+   failure is a design signal to refactor or split the proof, not something to mask with a larger budget. If a
+   proof will not elaborate at default heartbeats, report it as a design signal.
+2. **No Lean file may exceed 1500 lines of code.** When a file approaches the cap, split it into focused modules,
+   preserving public import paths as cheap facades.
