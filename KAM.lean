@@ -18,6 +18,7 @@ public import KAM.Apost.PerturbationTorsion
 public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
 public import KAM.Apost.Tools
+public import KAM.Apost.Triangular
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
 public import KAM.Diophantine.FrequencyDependence
@@ -213,6 +214,7 @@ public import KAM.Strip.Taylor
 public import KAM.Torus.Basic
 public import KAM.Torus.FrozenAgreement
 public import KAM.Torus.Objects
+public import KAM.Uniq.Frame
 public import KAM.Uniq.Standing
 
 /-!
