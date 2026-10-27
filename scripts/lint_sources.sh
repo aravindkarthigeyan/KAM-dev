@@ -37,9 +37,21 @@ check_pattern 'set_option[[:space:]]+(maxHeartbeats|maxRecDepth|synthInstance\.m
   'resource-limit override'
 check_pattern 'EuclideanSpace' 'EuclideanSpace (use `Fin n → ℝ`; see AGENTS.md)'
 
-overlong_lines=$(lean_files | xargs -r awk 'length($0) > 100 && $0 !~ /https?:\/\// && $0 !~ /^(public[ \t]+)?(meta[ \t]+)?import[ \t]/ {
-    print FILENAME ":" FNR ":" length($0)
-  }')
+# Count Unicode characters consistently: some awk versions count UTF-8 bytes.
+overlong_lines=$(python3 -I - "$project_root" <<'PY'
+import re
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1])
+for path in sorted(root.rglob('*.lean')):
+    if path.name == 'lakefile.lean' or {'.lake', '.drafts'} & set(path.relative_to(root).parts):
+        continue
+    for line_number, line in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):
+        if len(line) > 100 and not re.search(r'https?://|^(public\s+)?(meta\s+)?import\s', line):
+            print(f'{path}:{line_number}:{len(line)}')
+PY
+)
 if [ -n "$overlong_lines" ]; then
   printf '%s\n%s\n' 'Lean lines over 100 characters:' "$overlong_lines" >&2
   status=1

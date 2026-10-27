@@ -74,3 +74,20 @@ nonoptimal higher-order constants, and splitting the package across three small 
 
 The remaining Fourier/sup-norm bridge and cohomological equation on strips belong to
 I-STRIP-2 and I-STRIP-3. The five frozen theorem anchors remain unproved.
+
+Validation on 2026-10-27 (Lean 4.35.0, pinned Mathlib 4.35.0):
+
+- `nice -n 5 lake build KAM.Strip.HigherCauchy`: passed, no warnings in the new modules.
+- `nice -n 5 lake build` on integrated `main`: passed, 2882 jobs. The only proof-placeholder
+  warnings are the five existing, manifest-authorized frozen theorem bodies.
+- `scripts/lint_sources.sh`: passed; module check, frozen-anchor guard, and all 25 ABI hashes.
+- `lake env lean AuditCauchy.lean`: all 23 exported results have precisely the standard
+  dependencies listed above. Compatibility examples also elaborate for the frozen
+  angle/action product domain and matrix targets with `Matrix.Norms.Operator`.
+- Frozen source and manifest diff against the starting upstream revision: empty.
+
+Two small tooling fixes let collaborator checkouts run the required checks: the HQ generator
+falls back to recorded worker state when `tmux` is unavailable, and source lint counts Unicode
+characters using Python instead of platform-dependent `awk` byte lengths. Boundary checks
+accept 100 characters and reject 101 for both ASCII and Unicode, retaining the import/URL
+exemptions. Neither fix changes the frozen statements or their guards.
