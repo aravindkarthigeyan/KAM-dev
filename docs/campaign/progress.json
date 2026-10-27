@@ -53,16 +53,16 @@
    "id": "S.BP",
    "title": "Blueprint: every proof step written out against the pinned sources",
    "difficulty": "VH",
-   "done": 0.85,
-   "note": "all five parts written (~5,250 lines); parts 2–4 reviewed ACCEPT WITH FIXES; part 1 proofs complete; consolidation running"
+   "done": 1.0,
+   "note": "59 pages; Parts 2-4 reviewed, consolidated; Part 1 reviewed (ACCEPT WITH FIXES, applied)"
   },
   {
    "group": "Statement and planning",
    "id": "S.GRAPH",
    "title": "Source-level dependency graph anchored to the frozen statements",
    "difficulty": "H",
-   "done": 0.0,
-   "note": ""
+   "done": 0.6,
+   "note": "449 nodes, 1301 edges, structurally clean; independent slice reviews running"
   },
   {
    "group": "Statement and planning",
