@@ -1,0 +1,394 @@
+\section{Conventions, definitions and the frozen statements}\label{bpP:p0}
+
+This part fixes notation and restates, in mathematical form, the three frozen theorems of track~P
+(owner approval D20, 27 October 2026) together with every frozen definition they use: the $33$ definitions of
+\texttt{KAM/Frozen/Planetary/Defs/} and the three track-K definitions \Lean{KAM.IsDiophantine},
+\Lean{KAM.hamiltonianVectorField}, \Lean{KAM.symplecticForm}. The Lean text is authoritative and the statements
+below transcribe it, with the same quantifier order and the same order in which constants are chosen. The D22
+additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX) are not frozen and are deliberately absent; a later part is
+reserved for them (\texttt{PLAN.md}, Part~14).
+
+\subsection{Conventions}\label{bpP:p0:conventions}
+
+\begin{itemize}
+\item \emph{Ambient spaces.} All coordinate spaces are $\R^d=(\texttt{Fin}\,d\to\R)$ with the max norm
+  $\abs{v}_\infty=\max_i\abs{v_i}$ and Lebesgue measure; $\Ph{d}=\R^d\times\R^d$ carries the max norm of the two
+  components and the product Lebesgue measure \Lean{volume}. Fourier indices are $k\in\Z^d$. The Lean block
+  conventions are: for $v\in\R^{a+b}$, the \emph{fast} part is $v^{\rm f}=(v_i)_{i<a}$ and the \emph{slow} part is
+  $v^{\rm s}=(v_{a+j})_{j<b}$.
+\item \emph{Phase order.} A phase point is $z=(z_1,z_2)$ with positions (angles) $z_1$ and momenta (actions) $z_2$.
+  In the properly degenerate setting $z=(\varphi,q;I,p)$, that is $z_1=(\varphi,q)$ and $z_2=(I,p)$, with
+  $\varphi\in\R^a$, $q\in\R^b$ and $I\in\R^a$, $p\in\R^b$ (\Lean{assemble}).
+\item \emph{Physical distance.} On $\R^2$ the physical length is $\pl{x}=\sqrt{x_1^2+x_2^2}$, never the max norm;
+  $x\cdot y=x_1y_1+x_2y_2$. Neighbourhoods in phase space and the norms $\abs{\cdot}$ of tori data use the max
+  norm; physical formulas use $\pl{\cdot}$.
+\item \emph{Bodies.} Positions of $n$ planets are $q\in\R^{2n}$; planet $i$ has position
+  $q^{(i)}=(q_{(i,1)},q_{(i,2)})\in\R^2$, where the index of the pair $(i,k)\in\texttt{Fin}\,n\times\texttt{Fin}\,2$ is
+  $k+2i$ (Lean \Lean{finProdFinEquiv}).
+\item \emph{Torus parameters have period one} for every torus predicate below. For the cylinder tori of P-G
+  (Definition~\ref{bpP:p0:cyltorus}) the \emph{canonical fast angles keep period $2\pi$} (CP10 footnote~1, p.~546), so
+  the parameterization winds by $2\pi$ in the fast directions. Consequently the frequency vector $w$ of a torus is the
+  physical angular frequency divided by $2\pi$ (it changes frequency constants, not the dynamics or the measure ratio;
+  \texttt{statement.md}, ``Conventions''; owner question Q-P2). For the physical tori the parameter lattice is
+  $\Z^d$ and the angles $2\pi\phi$ enter only through \Lean{circularPoint}.
+\item \emph{Constants and quantifier order.} In each theorem, all data precede the small parameters; the proofs must
+  keep the order of Theorems~\ref{bpP:p0:pg}--\ref{bpP:p0:fixed}. In particular the thresholds $r_*,C,c$ of P-G
+  depend on the whole fixed family $(V,W,\dots,P,\dots)$, and $\mu_0,d,D$ (resp.\ $\varepsilon_0,d,D$) are chosen before
+  $\mu$ (resp.\ $\varepsilon$).
+\end{itemize}
+
+\subsection{Track-K definitions used by track P}\label{bpP:p0:kdefs}
+
+The three frozen track-P theorems import exactly these frozen track-K definitions; no definition of track I or N is used.
+
+\begin{definition}[Diophantine vectors]\label{bpP:p0:diophantine}
+For $\gamma,\tau\in\R$ and $\omega\in\R^d$, $\omega$ is \emph{$(\gamma,\tau)$-Diophantine} if
+$\gamma/\abs{k}_1^{\tau}\le\abs{k\cdot\omega}$ for every $k\in\Z^d\setminus\{0\}$, where $\abs{k}_1=\sum_i\abs{k_i}$
+and $k\cdot\omega=\sum_ik_i\omega_i$.
+\frozen{KAM.IsDiophantine}
+\source{HL19 (3.1), p.~14; Pos01 (1), p.~5; same as \Kref{bp:p0:diophantine}.}
+\end{definition}
+
+\begin{definition}[Hamiltonian vector field and symplectic form]\label{bpP:p0:hamsymp}
+For $H:\Ph{d}\to\R$ and $z=(z_1,z_2)$,
+\[X_H(z)=\bigl(\partial_{z_2}H(z),\,-\partial_{z_1}H(z)\bigr),\]
+that is $X_H(z)_{1,i}=DH(z)(0,e_i)$ and $X_H(z)_{2,i}=-DH(z)(e_i,0)$, with $D$ the Fr\'echet derivative (\Lean{fderiv}).
+For $v=(v_1,v_2)$, $w=(w_1,w_2)\in\Ph{d}$,
+\[\Omega(v,w)=\sum_i\bigl(v_{2,i}w_{1,i}-v_{1,i}w_{2,i}\bigr).\]
+With $z_1$ the position and $z_2$ the momentum, $\dot z_1=\partial_{z_2}H$, $\dot z_2=-\partial_{z_1}H$ are the
+usual Hamilton equations, and $\Omega=\sum dz_{2,i}\wedge dz_{1,i}$. The condition $\Omega(Dv,Dw)=0$ defining a
+Lagrangian torus is insensitive to the sign of $\Omega$.
+\frozen{KAM.hamiltonianVectorField, KAM.symplecticForm}
+\source{HL19 Rem.~2.1, p.~6; same as \Kref{bp:p0:hamiltonian}.}
+\end{definition}
+
+\subsection{Elementary planar and index definitions}\label{bpP:p0:elementary}
+
+\begin{definition}[Phase space]\label{bpP:p0:phase}
+$\Ph{d}=\R^d\times\R^d$ (canonical coordinates \emph{(position, momentum)}).
+\frozen{KAM.Planetary.Phase}
+\end{definition}
+
+\begin{definition}[Planar length and scalar product]\label{bpP:p0:plane}
+For $v,w\in\R^2$: $\operatorname{sq}(v)=\sum_kv_k^2$, $\pl{v}=\sqrt{\operatorname{sq}(v)}$ and $v\cdot w=\sum_kv_kw_k$.
+\frozen{KAM.Planetary.planeSq, KAM.Planetary.planeLength, KAM.Planetary.planeDot}
+\source{Fej04r (28), pp.~46--47 (physical Euclidean length; independent of the ambient max norm).}
+\end{definition}
+
+\begin{definition}[Body vectors]\label{bpP:p0:body}
+For $q\in\R^{2n}$ and $i<n$, $\operatorname{body}(q,i)=q^{(i)}=(q_{(i,1)},q_{(i,2)})\in\R^2$.
+\frozen{KAM.Planetary.bodyVector}
+\end{definition}
+
+\begin{definition}[Fast and slow blocks, assembly]\label{bpP:p0:blocks}
+For $v\in\R^{a+b}$, $v^{\rm f}\in\R^a$ and $v^{\rm s}\in\R^b$ are the first $a$ and last $b$ coordinates. For
+$I,\varphi\in\R^a$ and $p,q\in\R^b$,
+$\operatorname{assemble}(I,\varphi,p,q)=\bigl((\varphi,q),(I,p)\bigr)\in\Ph{a+b}$, with the concatenated coordinate vectors.
+\frozen{KAM.Planetary.fast, KAM.Planetary.slow, KAM.Planetary.assemble}
+\source{CP10 (1), p.~546; canonical order $(\varphi,q;I,p)$.}
+\end{definition}
+
+\begin{definition}[Oscillator actions]\label{bpP:p0:oscaction}
+For $p,q\in\R^b$ and $j\le b$: $R_j(p,q)=(p_j^2+q_j^2)/2$.
+\frozen{KAM.Planetary.oscillatorAction}
+\source{CP10 (A2'') and CP11 (A$_2$), pp.~547 and~51.}
+\end{definition}
+
+\begin{definition}[Fast shift]\label{bpP:p0:fastshift}
+For $k\in\Z^a$, $\operatorname{shift}(k)=\bigl(((2\pi k_i)_{i<a},0_b),\,0\bigr)\in\Ph{a+b}$: the fast angles are
+translated by $2\pi k$, the slow position coordinates and all momenta are unchanged.
+\frozen{KAM.Planetary.fastShift}
+\end{definition}
+
+\begin{definition}[Fast frequency map]\label{bpP:p0:fastfreq}
+For $H_0:\R^a\to\R$ and $I\in\R^a$, $\omega_{H_0}(I)_i=DH_0(I)(e_i)$ (the Fr\'echet derivative is $0$ where $H_0$ is not
+differentiable).
+\frozen{KAM.Planetary.fastFrequency}
+\source{CP10 (A1), p.~546.}
+\end{definition}
+
+\subsection{Definitions for the properly degenerate theorem}\label{bpP:p0:pgdefs}
+
+\begin{definition}[Cylinder and its fundamental cell]\label{bpP:p0:cylinder}
+For $V\subset\R^a$ and $r\in\R$,
+\[\mathcal C(V,r)=\Bigl\{z\in\Ph{a+b}:\ z_2^{\rm f}\in V,\ \ (z_2^{\rm s})_j^2+(z_1^{\rm s})_j^2<r^2\ \ \forall j\le b\Bigr\},\]
+that is $I\in V$ and $p_j^2+q_j^2<r^2$ for every $j$: a \emph{product of discs}, not a box. Its fundamental cell for the
+fast angles of period $2\pi$ is
+\[\mathcal F(V,r)=\bigl\{z\in\mathcal C(V,r):\ 0\le z^{\rm f}_{1,i}<2\pi\ \ \forall i\le a\bigr\}.\]
+Uses require $r>0$.
+\frozen{KAM.Planetary.cylinder, KAM.Planetary.cylinderCell}
+\source{CP10 p.~561, below (55) (disc region; audit P1); CP10 footnote~1 (period $2\pi$).}
+\end{definition}
+
+\begin{definition}[The family $H_0+\mu P$]\label{bpP:p0:degham}
+For $H_0:\R^a\to\R$ and $P:\R\times\Ph{a+b}\to\R$, $H_\mu(z)=H_0(z_2^{\rm f})+\mu P(\mu,z)$.
+\frozen{KAM.Planetary.degenerateHamiltonian}
+\source{CP10 (1), p.~546.}
+\end{definition}
+
+\begin{definition}[Averaged perturbation]\label{bpP:p0:secavg}
+For $\mu\in\R$, $I\in\R^a$, $p,q\in\R^b$,
+\[P_{\rm av}(\mu,I;p,q)=(2\pi)^{-a}\int_{[0,2\pi]^a}P\bigl(\mu,\operatorname{assemble}(I,\varphi,p,q)\bigr)\,d\varphi\]
+(Bochner integral; $=0$ for a non-integrable integrand, so every use asserts integrability).
+\frozen{KAM.Planetary.secularAverage}
+\source{CP10 (3), p.~547.}
+\end{definition}
+
+\begin{definition}[Fast diffeomorphism]\label{bpP:p0:fastdiffeo}
+For $H_0$ and $W\subset\R^a$, $\operatorname{HasFastDiffeo}(H_0,W)$ holds if (i) $H_0$ is real analytic at every point of $W$
+(\Lean{AnalyticOnNhd}); (ii) $\omega_{H_0}(W)$ is open; (iii) there is $g:\R^a\to\R^a$, of class $C^1$ on $\omega_{H_0}(W)$,
+with $g(\omega_{H_0}(I))=I$ for $I\in W$, and $g(w)\in W$ and $\omega_{H_0}(g(w))=w$ for $w\in\omega_{H_0}(W)$.
+Thus $\omega_{H_0}$ is a bijection of $W$ onto its open image with $C^1$ inverse $g$ (explicit, not a totalized inverse).
+\frozen{KAM.Planetary.HasFastDiffeomorphism}
+\source{CP10 (A1), p.~547; neighbourhood version by audit P2.}
+\end{definition}
+
+\begin{definition}[Secular Birkhoff form (A2'')]\label{bpP:p0:birkhoff}
+Let $V\subset\R^a$, $r_0,\mu_0\in\R$, and functions $P_0:\R\times\R^a\to\R$, $\Omega:\R\times\R^a\to\R^b$,
+$\beta:\R\times\R^a\to\R^{b\times b}$. $\operatorname{HasBirkhoff}(P,V,r_0,\mu_0,P_0,\Omega,\beta)$ holds if for every
+$\mu\in[0,\mu_0]$ and $I\in V$:
+\begin{enumerate}[label=(\roman*)]
+\item for all $p,q\in\R^b$ with $p_j^2+q_j^2<r_0^2$ for all $j$, $\varphi\mapsto P(\mu,\operatorname{assemble}(I,\varphi,p,q))$
+  is integrable on $[0,2\pi]^a$;
+\item for every $\epsilon>0$ there is $\delta$ with $0<\delta\le r_0$ such that for all $p,q$ with $p_j^2+q_j^2<\delta^2$ for all $j$,
+\[\Bigl\lvert P_{\rm av}(\mu,I;p,q)-\Bigl(P_0(\mu,I)+\sum_j\Omega_j(\mu,I)R_j+\tfrac12\sum_{i,j}\beta_{ij}(\mu,I)R_iR_j\Bigr)\Bigr\rvert
+\le\epsilon\,\abs{(p,q)}_\infty^4,\]
+where $R_j=R_j(p,q)$ and $\abs{(p,q)}_\infty=\max(\abs p_\infty,\abs q_\infty)$. (The case $p=q=0$ is included and fixes $P_{\rm av}(\mu,I;0,0)=P_0(\mu,I)$.)
+\end{enumerate}
+Note that $\delta$ may depend on $(\mu,I,\epsilon)$ in this definition; uniformity must be derived from the joint analyticity
+hypothesis of Theorem~\ref{bpP:p0:pg} (see \texttt{PLAN.md}, Part~5).
+\frozen{KAM.Planetary.HasSecularBirkhoffForm}
+\source{CP10 (A2''), p.~547 (CP11 (A$_2$), p.~51), with the oscillator-disc guards of audit P1.}
+\end{definition}
+
+\begin{definition}[Cylinder torus]\label{bpP:p0:cyltorus}
+Let $H:\Ph{a+b}\to\R$, $U\subset\Ph{a+b}$, $w\in\R^{a+b}$, $K:\R^{a+b}\to\Ph{a+b}$. $\operatorname{IsCylTorus}(H,U,w,K)$
+holds if:
+\begin{enumerate}[label=(\roman*)]
+\item $K$ is real analytic on $\R^{a+b}$;
+\item $K(\theta)\in U$ and $H$ is differentiable at $K(\theta)$, for all $\theta$;
+\item $K(\theta+k)=K(\theta)+\operatorname{shift}\bigl((k_i)_{i<a}\bigr)$ for all $\theta\in\R^{a+b}$, $k\in\Z^{a+b}$;
+\item if $K(\theta')=K(\theta)+\operatorname{shift}(k)$ for some $k\in\Z^a$, then $\theta'-\theta\in\Z^{a+b}$;
+\item $DK(\theta)$ is injective for all $\theta$;
+\item $\Omega(DK(\theta)u,DK(\theta)v)=0$ for all $\theta,u,v$;
+\item for all $\theta,t\in\R$, $s\mapsto K(\theta+sw)$ has derivative $X_H(K(\theta+tw))$ at $s=t$.
+\end{enumerate}
+No Diophantine condition is part of this predicate (see Definition~\ref{bpP:p0:cylkol}).
+\frozen{KAM.Planetary.IsCylinderTorus}
+\source{CP11 Thm.~11.1, pp.~50--51 (analytic conjugacy to a linear flow, Lagrangian); CP10 Thm.~1.3, p.~548.}
+\end{definition}
+
+\begin{definition}[Cylinder Kolmogorov set]\label{bpP:p0:cylkol}
+For $H:\Ph{a+b}\to\R$, $V\subset\R^a$, $r,\mu,C\in\R$ and $S\subset\Ph{a+b}$,
+$\operatorname{IsCylKol}(H,V,r,\mu,C,S)$ holds if $S$ is Lebesgue measurable, $S\subset\mathcal C(V,r)$, and for every $z\in S$ there
+are $w\in\R^{a+b}$, $K:\R^{a+b}\to\Ph{a+b}$ and $\theta$ with: $K(\theta)=z$; $K(\R^{a+b})\subset S$ (a whole torus);
+$\operatorname{IsCylTorus}(H,\mathcal C(V,r),w,K)$; there are $\gamma>0$ and $\tau>a+b$ with $w$ $(\gamma,\tau)$-Diophantine
+(the constant may depend on the torus); $\abs{w^{\rm f}}_\infty\le C$ and $\abs{w^{\rm s}}_\infty\le C\mu$.
+\frozen{KAM.Planetary.IsCylinderKolmogorovSet}
+\source{CP11 Thm.~11.1, pp.~50--51: $\omega_1=O(1)$, $\omega_2=O(\mu)$, Diophantine.}
+\end{definition}
+
+\subsection{Definitions for the physical theorems}\label{bpP:p0:physdefs}
+
+Throughout, $G,m_0>0$ and the planet weights $m_i>0$.
+
+\begin{definition}[Reference circular configurations and the tube]\label{bpP:p0:circular}
+For $m,a\in\R^n$ and $\phi\in\R^n$ (phases in $\R/\Z$),
+\[\operatorname{circ}(\phi)=\Bigl(\bigl(a_i(\cos2\pi\phi_i,\sin2\pi\phi_i)\bigr)_i,\ \bigl(m_i\sqrt{Gm_0/a_i}\,(-\sin2\pi\phi_i,\cos2\pi\phi_i)\bigr)_i\Bigr)\in\Ph{2n}\]
+(circular prograde Kepler configurations at coupling $0$; $a_i>0$, $G,m_0>0$ guard the square root and the division). For
+$\eta\in\R$ the \emph{circular tube} is the open $\eta$-neighbourhood in the phase max norm,
+$U_\eta=\{z\in\Ph{2n}:\exists\phi\in\R^n,\ \abs{z-\operatorname{circ}(\phi)}_\infty<\eta\}$.
+\frozen{KAM.Planetary.circularPoint, KAM.Planetary.circularTube}
+\source{Fej04r Thm.~63, p.~49 (near circular coplanar Kepler motions); ours for the explicit reference point.}
+\end{definition}
+
+\begin{definition}[No collision, pair bounds]\label{bpP:p0:nocoll}
+For $q\in\R^{2n}$: $\operatorname{NoColl}(q)$ means $\pl{q^{(i)}}>0$ for all $i$ and $\pl{q^{(i)}-q^{(j)}}>0$ for all $i\ne j$
+(heliocentric configurations, the Sun at the origin). For $N$ points $Q_0,\dots,Q_{N-1}\in\R^2$,
+$\operatorname{PairBounds}(d,D;Q)$ means $d\le\pl{Q_j-Q_i}\le D$ for all $i\neq j$.
+\frozen{KAM.Planetary.NoCollision, KAM.Planetary.PairBounds}
+\source{Fej04r \S6.1, pp.~45--47.}
+\end{definition}
+
+\begin{definition}[Actual masses, barycentric reconstruction]\label{bpP:p0:barycentric}
+For $\mu\in\R$ let $\operatorname{mass}_\mu=(m_0,\mu m_1,\dots,\mu m_n)\in\R^{n+1}$ (index $0$ is the Sun). For heliocentric positions
+$q\in\R^{2n}$ and scaled momenta $p\in\R^{2n}$,
+\begin{align*}
+x_0(q)&=-\frac{\mu}{m_0+\mu\sum_im_i}\sum_im_iq^{(i)},&x_i(q)&=x_0(q)+q^{(i)},\\
+v_0(p)&=-\frac{\mu}{m_0}\sum_ip^{(i)},&v_i(p)&=\frac1{m_i}p^{(i)}\qquad(1\le i\le n),
+\end{align*}
+with the Sun at index $0$ and planet $i$ at index $i$ in the order of \Lean{Fin.cons}. The denominators are positive for
+$m_i>0$, $\mu>0$.
+\frozen{KAM.Planetary.actualMasses, KAM.Planetary.barycentricPositions, KAM.Planetary.barycentricVelocities}
+\source{Fej04r \S6.1, (28), pp.~46--47; zero total momentum and barycentre; Fej07e p.~3.}
+\end{definition}
+
+\begin{definition}[Newton solutions]\label{bpP:p0:newton}
+Let $N\in\N$, $M\in\R^N$ and $Q,V:\R\to(\R^2)^N$. $\operatorname{IsNewton}(G,M,Q,V)$ holds if for all $t\in\R$ and
+$i\ne j$ (all indices $<N$): (i) $\pl{Q_j(t)-Q_i(t)}>0$; (ii) $Q_i$ has derivative $V_i(t)$ at $t$; (iii) $V_i$ has derivative
+\[\sum_{j\ne i}\frac{GM_j}{\pl{Q_j(t)-Q_i(t)}^3}\,(Q_j(t)-Q_i(t))\quad\text{at }t\]
+(the all-time Newton equations; \Lean{HasDerivAt}).
+\frozen{KAM.Planetary.IsNewtonSolution}
+\source{Fej04r (1), \S6.1, with $G$ restored.}
+\end{definition}
+
+\begin{definition}[Fixed-Sun solutions]\label{bpP:p0:fixedsol}
+For $Q,V:\R\to(\R^2)^n$ and $\varepsilon\in\R$, the predicate $\operatorname{IsFixedSol}(G,m_0,m,\varepsilon,Q,V)$ holds\linebreak if for all $t$ and
+$i\neq j$: $\pl{Q_i(t)}>0$, $\pl{Q_j(t)-Q_i(t)}>0$, $Q_i$ has derivative $V_i(t)$ and $V_i$ has derivative
+\[-\frac{Gm_0}{\pl{Q_i(t)}^3}\,Q_i(t)+\varepsilon\sum_{j\ne i}\frac{Gm_j}{\pl{Q_j(t)-Q_i(t)}^3}(Q_j(t)-Q_i(t)).\]
+The Sun is the constant origin.
+\frozen{KAM.Planetary.IsFixedSolution}
+\source{Ours (fixed-center law obtained by differentiating $H_{\rm fix}$), after Fej04r (28).}
+\end{definition}
+
+\begin{definition}[Moving-Sun Hamiltonian]\label{bpP:p0:movham}
+For $z=(q,p)\in\Ph{2n}$ and $\mu\in\R$,
+\begin{multline*}
+H_{\rm mov}(z)=\sum_i\Bigl[\bigl(\tfrac1{m_i}+\tfrac{\mu}{m_0}\bigr)\tfrac{\pl{p^{(i)}}^2}2-\frac{Gm_0m_i}{\pl{q^{(i)}}}\Bigr]\\
++\mu\sum_{i<j}\Bigl[\frac{p^{(i)}\cdot p^{(j)}}{m_0}-\frac{Gm_im_j}{\pl{q^{(i)}-q^{(j)}}}\Bigr].
+\end{multline*}
+It is the reduced Hamiltonian divided by $\mu$, with $G$ restored, and every term is kept: the Sun moves, and neither the
+self kinetic term $\mu\pl{p^{(i)}}^2/(2m_0)$ nor the cross term is dropped. Equivalently
+$H_{\rm mov}=H_{\rm fix}\big|_{\varepsilon=\mu}+\mu\pl{\sum_ip^{(i)}}^2/(2m_0)$ (a calculation for a later part).
+\frozen{KAM.Planetary.movingHamiltonian}
+\source{Fej04r (28), pp.~46--47, with Fej07e p.~3 (indices $m_jm_k$ corrected) and $G$ restored.}
+\end{definition}
+
+\begin{definition}[Fixed-Sun Hamiltonian]\label{bpP:p0:fixham}
+For $z=(q,p)\in\Ph{2n}$ and $\varepsilon\in\R$,
+\[H_{\rm fix}(z)=\sum_i\Bigl[\frac{\pl{p^{(i)}}^2}{2m_i}-\frac{Gm_0m_i}{\pl{q^{(i)}}}\Bigr]-\varepsilon\sum_{i<j}\frac{Gm_im_j}{\pl{q^{(i)}-q^{(j)}}}.\]
+The Sun is the origin; only the direct planet--planet interaction is kept, with coefficient $\varepsilon$.
+\frozen{KAM.Planetary.fixedHamiltonian}
+\source{Ours (Newtonian fixed-center model; ``our variant of Fej04r (28)''); \texttt{statement.md}, P-FIXED.}
+\end{definition}
+
+\begin{definition}[Physical torus]\label{bpP:p0:phystorus}
+For $H:\Ph{d}\to\R$, $w\in\R^d$ and $K:\R^d\to\Ph{d}$, $\operatorname{IsPhysTorus}(H,w,K)$ holds if:
+\begin{enumerate}[label=(\roman*)]
+\item $K$ is real analytic on $\R^d$;
+\item $H$ is differentiable at $K(\theta)$ for all $\theta$;
+\item $K(\theta+k)=K(\theta)$ for $k\in\Z^d$;
+\item $K(\theta)=K(\theta')$ implies $\theta'-\theta\in\Z^d$;
+\item $DK(\theta)$ is injective;
+\item $\Omega(DK(\theta)u,DK(\theta)v)=0$;
+\item there are $\gamma>0$ and $\tau>d-1$ with $w$ $(\gamma,\tau)$-Diophantine;
+\item for all $\theta,t$, $s\mapsto K(\theta+sw)$ has derivative $X_H(K(\theta+tw))$ at $s=t$.
+\end{enumerate}
+(For such $K$ the image is a compact embedded analytic Lagrangian torus. Track K's primary-torus predicate has affine
+winding and is not reused. Note $\tau>d-1$ here against $\tau>a+b$ in Definition~\ref{bpP:p0:cylkol}.)
+\frozen{KAM.Planetary.IsPhysicalTorus}
+\source{HL19 (2.1), (2.3), pp.~6--7 (modified to period-one embeddings); CP09 Thm.~4, p.~8; ours.}
+\end{definition}
+
+\begin{definition}[Moving-Sun Kolmogorov set]\label{bpP:p0:movkol}
+For $G,m_0>0$, $m,a\in\R^n$, $\mu,\eta,d,D\in\R$, $S\subset\Ph{2n}$: $\operatorname{MovKol}(G,m_0,m,a,\mu,\eta,d,D,S)$ holds if $S$ is
+measurable, $S\subset U_\eta$, and every $z\in S$ has $w,K,\theta$ with $K(\theta)=z$, $K(\R^{2n})\subset S$,
+$\operatorname{IsPhysTorus}(H_{\rm mov},w,K)$ and, for every $\phi\in\R^{2n}$:
+\begin{enumerate}[label=(\alph*)]
+\item $\operatorname{NoColl}\bigl(K(\phi)_1\bigr)$;
+\item $\operatorname{IsNewton}\bigl(G,\operatorname{mass}_\mu,\ t\mapsto x(K(\phi+tw)_1),\ t\mapsto v(K(\phi+tw)_2)\bigr)$, where $x,v$ are the
+  barycentric reconstructions of Definition~\ref{bpP:p0:barycentric};
+\item $\operatorname{PairBounds}\bigl(d,D;\,x(K(\phi)_1)\bigr)$ (all pairs including the Sun; as $\phi$ is arbitrary this covers every point $K(\phi+tw)$ of every orbit, hence all times).
+\end{enumerate}
+\frozen{KAM.Planetary.MovingKolmogorovSet}
+\source{Fej04r Prop.~77 and Fej07e \S7, pp.~3--4, with CP09 Thm.~4; the physical conclusions are ours (\texttt{statement.md}).}
+\end{definition}
+
+\begin{definition}[Fixed-Sun Kolmogorov set]\label{bpP:p0:fixkol}
+For $\varepsilon,\eta,d,D$ and $S\subset\Ph{2n}$ the predicate $\operatorname{FixKol}(G,m_0,m,a,\varepsilon,\eta,d,D,S)$ holds\linebreak if $S$ is measurable, $S\subset U_\eta$, and
+every $z\in S$ has $w,K,\theta$ with $K(\theta)=z$, $K(\R^{2n})\subset S$, $\operatorname{IsPhysTorus}(H_{\rm fix},w,K)$ and for every $\phi$:
+$\operatorname{NoColl}(K(\phi)_1)$; $\operatorname{IsFixedSol}\bigl(G,m_0,m,\varepsilon,\ t\mapsto(K(\phi+tw)_1^{(i)})_i,\ t\mapsto(\tfrac1{m_i}K(\phi+tw)_2^{(i)})_i\bigr)$;
+$\operatorname{PairBounds}\bigl(d,D;\,(0,K(\phi)_1^{(1)},\dots,K(\phi)_1^{(n)})\bigr)$, with the Sun at the origin as point $0$.
+\frozen{KAM.Planetary.FixedKolmogorovSet}
+\source{Ours (new deduction; Fej04r Lemma~64 and Prop.~77, CP09 Thm.~4).}
+\end{definition}
+
+\begin{remark}[Lean totality]\label{bpP:p0:totality}
+The frozen definitions use Lean total functions, and the frozen theorems guard each of them as follows; proofs must
+establish these guarded facts before using the defining formulas.
+\begin{itemize}
+\item \emph{Fr\'echet derivatives} ($\omega_{H_0}$, $X_H$, $DK$) are $0$ at points of non-differentiability. $\omega_{H_0}$ is used only through
+  \Lean{HasFastDiffeomorphism}, which asserts analyticity of $H_0$ on $W\supset\overline V$; $X_H$ appears only in the clauses (vii)/(viii)
+  of the torus predicates, which also assert differentiability of $H$ on the range of $K$ (for the cylinder tori at points of
+  $\mathcal C(V,r)$, where $H_\mu$ is analytic because $r<r_0$ and $\mu\in[0,\mu_0]$, by the hypotheses on $P$ and $H_0$); $DK$ is guarded by analyticity of $K$.
+  Injectivity of $DK$ and $\Omega(DK\cdot,DK\cdot)=0$ are asserted for the genuine derivative.
+\item \emph{Bochner integrals} ($P_{\rm av}$) are $0$ for non-integrable integrands; Definition~\ref{bpP:p0:birkhoff}\,(i) asserts integrability
+  on the disc $p_j^2+q_j^2<r_0^2$, and every point used in (ii) has $\delta\le r_0$.
+\item \emph{Square roots and divisions}: $\sqrt{\cdot}$ in $\pl{\cdot}$ has nonnegative radicand; $1/\pl{\cdot}$ and $1/\pl{\cdot}^3$ occur only after
+  the collision-free clauses (a), $\operatorname{IsNewton}$\,(i), $\operatorname{IsFixedSol}$ (the first two conjuncts) in the same conjunction; in
+  $\operatorname{circ}$, $\sqrt{Gm_0/a_i}$ and $1/a_i$ are guarded by $G,m_0,a_i>0$; in $x_0$ and $v_0$ the denominators $m_0+\mu\sum m_i$ and $m_0$
+  are positive since $\mu>0$; the factor $1/m_i$ needs $m_i>0$.
+\item \emph{Real powers and logarithms}: $r^6/(\log(1/r))^c$ with $0<r<r_*<1$ has positive base $\log(1/r)>0$; $\sqrt r$ has $r>0$;
+  $\abs{k}_1^{\tau}$ in the Diophantine condition has $\abs k_1\ge1$ for $k\ne0$.
+\item \emph{Truncated subtraction}: the lower bound is written with \Lean{ENNReal.ofReal}, so it is the real number $1-C\sqrt r$ when
+  that is positive and $0$ otherwise; the strict inequality $\operatorname{ofReal}(1-C\sqrt r)\,\meas\mathcal F<\meas(S\cap\mathcal F)$ is then nontrivial only when $1-C\sqrt r>0$, but must be proved for every $r<r_*$ as stated (it
+  follows from $0<\meas(S\cap\mathcal F)$ when $1-C\sqrt r\le0$).
+\item \emph{Measure}: $\meas$ is Lebesgue (outer) measure; the sets $\mathcal F(V,r)$ are Borel and $S$ is measurable by the conclusion;
+  $\meas\mathcal F(V,r)<\infty$ since $V$ is bounded.
+\end{itemize}
+\end{remark}
+
+\subsection{The frozen theorems}\label{bpP:p0:theorems}
+
+\begin{theorem}[P-G: corrected properly degenerate KAM]\label{bpP:p0:pg}
+\textbf{Data (all fixed first).} Integers $a,b\ge1$. A set $V\subset\R^a$ that is open, connected and bounded; an open set
+$W\subset\R^a$ with $\overline V\subset W$; a boundary collar condition: there are $A,d>0$ such that for all $0<t<d$
+\[\meas\{I\in\R^a:\ \exists J\in\partial V,\ \abs{I-J}_\infty<t\}\le A\,t.\]
+Reals $r_0,\mu_0,B>0$. Functions $H_0:\R^a\to\R$, $P:\R\times\Ph{a+b}\to\R$, $P_0:\R\times\R^a\to\R$, $\Omega:\R\times\R^a\to\R^b$,
+$\beta:\R\times\R^a\to\R^{b\times b}$.
+
+\textbf{Hypotheses.}
+\begin{enumerate}[label=(H\arabic*)]
+\item $(\mu,z)\mapsto P(\mu,z)$ is real analytic at every point of $[0,\mu_0]\times\overline{\mathcal C(V,r_0)}$ (jointly, as a function on $\R\times\Ph{a+b}$);
+\item for $\mu\in[0,\mu_0]$, $z\in\mathcal C(V,r_0)$ and $k\in\Z^a$: $P(\mu,z+\operatorname{shift}(k))=P(\mu,z)$;
+\item $\operatorname{HasFastDiffeo}(H_0,W)$ (Definition~\ref{bpP:p0:fastdiffeo});
+\item $\operatorname{HasBirkhoff}(P,V,r_0,\mu_0,P_0,\Omega,\beta)$ (Definition~\ref{bpP:p0:birkhoff});
+\item $\abs{\det\beta(\mu,I)}\ge B$ for all $\mu\in[0,\mu_0]$, $I\in V$;
+\item $\beta(\mu,I)$ is symmetric for all $\mu\in[0,\mu_0]$, $I\in V$.
+\end{enumerate}
+\textbf{Conclusion.} There exist $r_*,C,c$ with $0<r_*<r_0$, $r_*<1$, $C>0$, $c>0$ such that for all $r,\mu$ with
+\[0<r<r_*,\qquad 0<\mu<\mu_0,\qquad \mu<\frac{r^6}{(\log(1/r))^c},\]
+there is $S\subset\Ph{a+b}$ with $\operatorname{IsCylKol}(H_\mu,V,r,\mu,C,S)$ (with $H_\mu=H_0+\mu P(\mu,\cdot)$ of Definition~\ref{bpP:p0:degham})
+and
+\[0<\meas(S\cap\mathcal F(V,r)),\qquad
+\operatorname{ofReal}(1-C\sqrt r)\,\meas\mathcal F(V,r)<\meas(S\cap\mathcal F(V,r))<\meas\mathcal F(V,r).\]
+Here $r_*,C,c$ depend on all the data and hypotheses above and not on $r$ or $\mu$; $C$ is simultaneously the frequency bound of
+Definition~\ref{bpP:p0:cylkol} and the measure constant.
+\frozen{KAM.Planetary.properlyDegenerateKAM}
+\source{CP11 Thm.~11.1, pp.~50--51, whose proof is CP10 Thm.~1.3, p.~548 (with $c_*=2b$, $\rho=r$). It is \emph{not} the printed theorem: the
+  neighbourhood $W$ (CP10 p.~556, (58) p.~562), the collar (CP10 p.~561, below (56)), the product of discs (CP10 p.~561, below (55)),
+  joint analyticity of the family (CP10 footnote~3, p.~546 asks only $C^1$ uniform dependence) and the $2\pi$ period are
+  corrected-contract premises (audit P1--P4; D-PG-1 to D-PG-5).}
+\sourcegap{CP11 Thm.~11.1 states $\meas P_\epsilon>\meas K$ without proof; the strict inequality $\meas(S\cap\mathcal F)<\meas\mathcal F$ is obtained in the plan by deleting a
+  small positive-measure subfamily of tori (Part~5), which is possible because the lower bound has slack. CP10 Thm.~1.3 also needs $P_{\rm av}-N=O(\epsilon^5)$ uniformly
+  (CP10 (60), p.~562), which follows from (H1), (H2), (H4) and compactness but is not proved in the source.}
+\end{theorem}
+
+\begin{theorem}[P-PLANAR: two planar planets with a moving Sun]\label{bpP:p0:planar}
+Let $G,m_0>0$; let $m,a:\texttt{Fin}\,2\to\R$ (planets $0,1$; $m$ the planet weights, $a$ the axes) with $m_i>0$ and $a_i>0$ for $i=0,1$ and $a_0<a_1$
+(strictly ordered axes, no numerical separation); let $\eta>0$. Then there exist $\mu_0,d,D$ with $0<\mu_0$ and $0<d<D$ such that for every $\mu$ with
+$0<\mu<\mu_0$ there is $S\subset\Ph{2\cdot2}$ with
+\[0<\meas S<\infty\quad\text{and}\quad\operatorname{MovKol}(G,m_0,m,a,\mu,\eta,d,D,S)\qquad(n=2).\]
+The order is: data $(G,m_0,m,a,\eta)$, then $(\mu_0,d,D)$, then $\mu$, then $S$. The tori are $4$-dimensional in the $8$-dimensional $\Ph{4}$.
+\frozen{KAM.Planetary.planarTwoPlanetKAM}
+\source{CP09 Thm.~4, p.~8 with Fej04r Prop.~77, pp.~56--58, using the recorded source-proof repairs (\texttt{statement.md}, P5--P7); Fej07e p.~3--4 supplies
+  the smooth counterpart. No threshold from CP11 \S8.1 (audit P4).}
+\sourcegap{The route is not signed off as proved: the analytic weak-nondegeneracy gate (CP09 Thm.~4 resting on R\"ussmann's theorem, CP09 Thm.~3, whose source is not pinned),
+  the continuation of eigenvalue branches (Fej04r Lemma~76 is false as printed) and the closeness of the tori to the circular torus (CP09 Thm.~4 says only ``close to''); see \texttt{PLAN.md}.}
+\end{theorem}
+
+\begin{theorem}[P-FIXED: $n$ planar planets around a fixed Sun]\label{bpP:p0:fixed}
+Let $n\ge2$, $G,m_0>0$, $m,a\in\R^n$ with all $m_i>0$ and $a_i>0$, $a_i<a_j$ whenever $i<j$, and $\eta>0$. Then there exist $\varepsilon_0,d,D$ with
+$0<\varepsilon_0$ and $0<d<D$ such that for every $\varepsilon$ with $0<\varepsilon<\varepsilon_0$ there is $S\subset\Ph{n\cdot2}$ with
+\[0<\meas S<\infty\quad\text{and}\quad\operatorname{FixKol}(G,m_0,m,a,\varepsilon,\eta,d,D,S).\]
+The order is data $(n,G,m_0,m,a,\eta)$, then $(\varepsilon_0,d,D)$, then $\varepsilon$, then $S$.
+\frozen{KAM.Planetary.fixedSunPlanetaryKAM}
+\source{Ours: ``our proposed Newtonian fixed-center deduction, not a published fixed-Sun statement''; Fej04r Lemma~64 (p.~49--50) and Prop.~77, CP09 Thm.~4.}
+\sourcegap{The secular identification for the fixed Sun (equal secular quadratic forms and frequency map up to functions of the actions) and the general-$n$ induction of Fej04r Prop.~77 (``par un raisonnement analogue'', p.~58)
+  are proof obligations; no secular nondegeneracy is a premise.}
+\end{theorem}
+
+\begin{remark}[Scope of this part]\label{bpP:p0:scope}
+The three statements are the only frozen theorems of track~P. P-SPATIAL is a sketch only and has no Lean statement. The D22 additions
+are under statement audit and are treated in the reserved last part.
+\end{remark}
