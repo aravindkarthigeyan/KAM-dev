@@ -19,6 +19,7 @@ public import KAM.Apost.Perturbation
 public import KAM.Apost.PerturbationTorsion
 public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
+public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
 public import KAM.Diophantine.Basic
@@ -155,6 +156,7 @@ public import KAM.Frozen.Planetary.Defs.SecularRoot
 public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
+public import KAM.Frozen.Theorems.LocalUniquenessFlow
 public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
 public import KAM.Head.Adapters
 public import KAM.Head.Apply
@@ -177,6 +179,7 @@ public import KAM.Head.MixedDifference
 public import KAM.Head.Normalize
 public import KAM.Head.Parameters
 public import KAM.Head.PhaseAverage
+public import KAM.Head.PreimageMeasure
 public import KAM.Head.RealTorus
 public import KAM.Head.Shift
 public import KAM.Head.Standing
@@ -207,6 +210,7 @@ public import KAM.ODE.Maximal
 public import KAM.ODE.UniformPeriodic
 public import KAM.ODE.Uniqueness
 public import KAM.Provider.Iso.KeplerBorderedDet
+public import KAM.Provider.LocalUniquenessFlow
 public import KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative
 public import KAM.Provider.Nekhoroshev.ZeroPerturbation
 public import KAM.Provider.VolumeNotDiophantineLe
@@ -237,6 +241,7 @@ public import KAM.Torus.FrozenAgreement
 public import KAM.Torus.Objects
 public import KAM.Uniq.Difference
 public import KAM.Uniq.Frame
+public import KAM.Uniq.G2
 public import KAM.Uniq.Phase
 public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
