@@ -1602,9 +1602,9 @@ EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#step:p4:head-negative@L1217-L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.nonneg_of_bound_nonempty (KAM/Head/HeadQ.lean)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-Q-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:head-positive
