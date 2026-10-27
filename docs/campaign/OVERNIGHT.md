@@ -19,6 +19,16 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   - If an audit forces a proof change, dependents re-merge; signatures are fixed by the audited design.
   - P2-7 proves exactness and the cohomology-free geometry steps now, and holds the `geometry` assembly for
     I-STRIP-3.
+- **22:10. Part 4 Lean design adopted, subject to its signature audit.** One design decision is for the owner to
+  confirm: G1, G2 and G3 enter Part 4 through a premise `GValid`.
+  - Its fields are verbatim copies of the frozen G1/G2 bodies at the blueprint's parameter tuples, plus G3's
+    conclusion. Part 4 lemmas are conditional helpers on `GValid`. Only the HEAD and HEAD-Q providers discharge it
+    (`exists_gValid`) from the sealed G1/G2/G3, so the providers are unconditional.
+  - Why: the rule "only provider files import frozen theorems" and the 1500-line cap rule out putting about 2,800
+    lines of G1/G2-using proofs in one provider file. The premise also lets Part 4 be proved now, before the G1/G2
+    seals.
+  - Alternative: allow ordinary modules to import SEALED frozen theorems, and wait for the seals.
+  - Reversal: switch to that rule after the seals. The `GValid` lemmas then specialize trivially.
 
 ## Tracks I, N, P (sub-orchestrator, D23)
 
@@ -66,13 +76,3 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
     - the real C¹ form of `fourier-basic` (a);
     - the Appendix A corollary `KAM.Apost.cohomological`.
   - Reversal: none needed.
-- **22:10. Part 4 Lean design adopted, subject to its signature audit.** One design decision is for the owner to
-  confirm: G1, G2 and G3 enter Part 4 through a premise `GValid`.
-  - Its fields are verbatim copies of the frozen G1/G2 bodies at the blueprint's parameter tuples, plus G3's
-    conclusion. Part 4 lemmas are conditional helpers on `GValid`. Only the HEAD and HEAD-Q providers discharge it
-    (`exists_gValid`) from the sealed G1/G2/G3, so the providers are unconditional.
-  - Why: the rule "only provider files import frozen theorems" and the 1500-line cap rule out putting about 2,800
-    lines of G1/G2-using proofs in one provider file. The premise also lets Part 4 be proved now, before the G1/G2
-    seals.
-  - Alternative: allow ordinary modules to import SEALED frozen theorems, and wait for the seals.
-  - Reversal: switch to that rule after the seals. The `GValid` lemmas then specialize trivially.
