@@ -14,8 +14,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.48,
-   "note": "blueprint complete and reviewed; graph: 10 slices, slice + delta reviews applied, third pass and global review running; I-KEPLER proved (seal audit running)"
+   "done": 0.52,
+   "note": "blueprint complete and reviewed; graph: all slices reviewed through three delta passes (1 node left), global review next; I-KEPLER SEALED"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -30,8 +30,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.46,
-   "note": "blueprint complete (D20+D25); graph: 13 slices, 10 extracted, slice reviews running; N-QC and N-ZERO proved (seal audit running); Part 3 ODE Lean design running"
+   "done": 0.5,
+   "note": "blueprint complete (D20+D25); graph: 13 slices extracted, 10 slice reviews applied, deltas running; N-QC and N-ZERO SEALED; Part 3 ODE Lean design written, Sol design audit running"
   },
   {
    "group": "Track P (planetary)",

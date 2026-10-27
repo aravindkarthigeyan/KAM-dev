@@ -1084,9 +1084,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L15
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L159-L159 | objects or constants of this package occur in the local claim or its proof
 EDGE: stepI:p5:sp-open | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L159-L159 | boundary V = closure V minus V requires the openness proved at L155
 EDGE: bpI:p5:eps0 | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L159-L159 | epsilon < epsilon_0 <= epsilon_1 <= 1 and epsilon_0 <= 1/(2 F_1 L_Phi) discharge the conditional energy-coordinate application
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-delta-I-d
-REVIEWER: -
+REVIEWER: sol-delta-I-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1224,9 +1224,9 @@ EDGE: N:bpN:p3:gen-maximal | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-co
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | Omega = Phi^{-1}(O) subset Phi^{-1}(Q) = K; combine with cf-conf to obtain z(t)_2 in K
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-delta-I-d
-REVIEWER: -
+REVIEWER: sol-delta-I-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

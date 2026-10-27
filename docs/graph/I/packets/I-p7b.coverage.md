@@ -50,7 +50,7 @@ DISPOSITION: NODE stepI:p7:h0-formula
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:means
 KIND: proposition
@@ -140,7 +140,7 @@ DISPOSITION: NODE stepI:p7:cd-uc
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:cd-branch
 KIND: proof-region
@@ -194,7 +194,7 @@ DISPOSITION: NODE stepI:p7:sh-div
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:sh-zero
 KIND: proof-region
@@ -239,7 +239,7 @@ DISPOSITION: NODE stepI:p7:eh-delta
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:eh-hol
 KIND: proof-region
@@ -248,7 +248,7 @@ DISPOSITION: NODE stepI:p7:eh-hol
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:eh-exact
 KIND: proof-region
@@ -257,7 +257,7 @@ DISPOSITION: NODE stepI:p7:eh-exact
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:period-one
 KIND: corollary
@@ -293,7 +293,7 @@ DISPOSITION: NODE stepI:p7:po-exact
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:transfer
 KIND: proposition
@@ -311,7 +311,7 @@ DISPOSITION: NODE stepI:p7:tr-cf
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:tr-open
 KIND: proof-region
@@ -320,7 +320,7 @@ DISPOSITION: NODE stepI:p7:tr-open
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:tr-chain
 KIND: proof-region
@@ -329,7 +329,7 @@ DISPOSITION: NODE stepI:p7:tr-chain
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:nondeg
 KIND: proposition
@@ -338,7 +338,7 @@ DISPOSITION: NODE bpI:p7:nondeg
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:nd-dom
 KIND: proof-region
@@ -347,7 +347,7 @@ DISPOSITION: NODE stepI:p7:nd-dom
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:nd-det
 KIND: proof-region
@@ -356,7 +356,7 @@ DISPOSITION: NODE stepI:p7:nd-det
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:outputs
 KIND: claim

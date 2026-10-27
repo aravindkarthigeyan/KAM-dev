@@ -93,9 +93,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-deriv@L383-L383
 DISPOSITION: NODE stepN:p3:hs-deriv
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:hs-comp
 KIND: proof-region
@@ -111,9 +111,9 @@ KIND: theorem
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L388-L393
 DISPOSITION: NODE bpN:p3:ham-energy
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:en-chain
 KIND: proof-region
@@ -129,9 +129,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-cancel@L397-L397
 DISPOSITION: NODE stepN:p3:en-cancel
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:en-const
 KIND: proof-region
@@ -147,9 +147,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L402-L407
 DISPOSITION: NODE bpN:p3:ham-periodic
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:per-field
 KIND: proof-region
@@ -174,9 +174,9 @@ KIND: proposition
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L416-L427
 DISPOSITION: NODE bpN:p3:ham-reduction
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:red-mem
 KIND: proof-region
@@ -255,9 +255,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L479-L483
 DISPOSITION: NODE bpN:p3:holo-input
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:hi-cite
 KIND: proof-region
@@ -390,9 +390,9 @@ KIND: theorem
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:uniqueness-closed@L535-L539
 DISPOSITION: NODE bpN:p3:uniqueness-closed
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:uc-apply
 KIND: proof-region
@@ -408,9 +408,9 @@ KIND: theorem
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confinement-glue@L544-L552
 DISPOSITION: NODE bpN:p3:confinement-glue
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:cg-set
 KIND: proof-region

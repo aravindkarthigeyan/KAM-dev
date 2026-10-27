@@ -1,12 +1,17 @@
 {
  "replaced": [
+  "stepI:p7:po-prop"
+ ],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
   "stepI:p7:h0-formula",
   "stepI:p7:cd-uc",
   "stepI:p7:sh-div",
   "stepI:p7:eh-delta",
   "stepI:p7:eh-hol",
   "stepI:p7:eh-exact",
-  "stepI:p7:po-prop",
   "stepI:p7:po-exact",
   "stepI:p7:tr-cf",
   "stepI:p7:tr-open",
@@ -14,19 +19,5 @@
   "bpI:p7:nondeg",
   "stepI:p7:nd-dom",
   "stepI:p7:nd-det"
- ],
- "added": [],
- "items": [],
- "unresolved": {},
- "passes": [
-  "bpI:p7:h0",
-  "stepI:p7:eh-shell",
-  "bpI:p7:period-one",
-  "bpI:p7:transfer",
-  "bpI:p7:sec-complex#data",
-  "bpI:p7:h0",
-  "stepI:p7:eh-shell",
-  "bpI:p7:period-one",
-  "bpI:p7:transfer"
  ]
 }

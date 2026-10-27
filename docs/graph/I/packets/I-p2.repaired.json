@@ -1,19 +1,9 @@
 {
- "replaced": [
-  "stepI:p2:it-step"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "bpI:p2:newton-error",
-  "stepI:p2:ne-energy",
-  "bpI:p2:torsion",
-  "stepI:p2:to-frame",
-  "stepI:p2:to-avg",
-  "stepI:p2:to-inv",
-  "stepI:p2:st-small",
-  "bpI:p2:iteration",
-  "stepI:p2:it-sums"
+  "stepI:p2:it-step"
  ]
 }

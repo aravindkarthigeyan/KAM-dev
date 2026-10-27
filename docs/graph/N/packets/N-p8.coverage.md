@@ -12,72 +12,72 @@ KIND: external
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:ext-free@L17-L17
 DISPOSITION: NODE bpN:p8:ext-free
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:ext-gram
 KIND: external
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:ext-gram@L18-L18
 DISPOSITION: NODE bpN:p8:ext-gram
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:ext-schur
 KIND: external
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:ext-schur@L19-L19
 DISPOSITION: NODE bpN:p8:ext-schur
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:ext-units
 KIND: external
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:ext-units@L20-L20
 DISPOSITION: NODE bpN:p8:ext-units
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:ext-indep
 KIND: external
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:ext-indep@L21-L21
 DISPOSITION: NODE bpN:p8:ext-indep
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:ext-basic
 KIND: external
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:ext-basic@L22-L22
 DISPOSITION: NODE bpN:p8:ext-basic
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:lattice
 KIND: definition
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:lattice@L28-L31
 DISPOSITION: NODE bpN:p8:lattice
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:lattice-basis
 KIND: lemma
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:lattice-basis@L33-L41
 DISPOSITION: NODE bpN:p8:lattice-basis
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:lb-basis
 KIND: proof-region
@@ -111,9 +111,9 @@ KIND: definition
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:volume-def@L48-L51
 DISPOSITION: NODE bpN:p8:volume-def
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:projection
 KIND: lemma
@@ -129,27 +129,27 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:pr-alg@L65-L65
 DISPOSITION: NODE stepN:p8:pr-alg
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:pr-dist
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:pr-dist@L66-L66
 DISPOSITION: NODE stepN:p8:pr-dist
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:pr-nest
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:pr-nest@L67-L67
 DISPOSITION: NODE stepN:p8:pr-nest
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:lattice-volume
 KIND: lemma
@@ -192,9 +192,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:lv-e@L86-L86
 DISPOSITION: NODE stepN:p8:lv-e
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:lv-f
 KIND: proof-region
@@ -219,9 +219,9 @@ KIND: definition
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:klattice@L96-L99
 DISPOSITION: NODE bpN:p8:klattice
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:maximal
 KIND: lemma
@@ -237,9 +237,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:mx-char@L113-L113
 DISPOSITION: NODE stepN:p8:mx-char
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:mx-exist
 KIND: proof-region
@@ -291,18 +291,18 @@ KIND: proposition
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:blocks-cover@L129-L132
 DISPOSITION: NODE bpN:p8:blocks-cover
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:bc-finite
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:bc-finite@L134-L134
 DISPOSITION: NODE stepN:p8:bc-finite
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:bc-top
 KIND: proof-region
@@ -318,9 +318,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:sqrt@L140-L143
 DISPOSITION: NODE bpN:p8:sqrt
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:geometric
 KIND: lemma
@@ -354,9 +354,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-theta2@L171-L171
 DISPOSITION: NODE stepN:p8:gl-theta2
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:gl-setup
 KIND: proof-region
@@ -381,27 +381,27 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-proj@L174-L176
 DISPOSITION: NODE stepN:p8:gl-proj
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:gl-div
 KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:gl-div@L177-L179
 DISPOSITION: NODE stepN:p8:gl-div
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: bpN:p8:covering
 KIND: lemma
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#bpN:p8:covering@L184-L195
 DISPOSITION: NODE bpN:p8:covering
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:cv-params
 KIND: proof-region
@@ -426,9 +426,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p8-resonance-geometry.tex#stepN:p8:cv-nonres@L199-L199
 DISPOSITION: NODE stepN:p8:cv-nonres
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p8
-REVIEWER: -
+REVIEWER: sol-review-N-e
 
 ITEM: stepN:p8:cv-radii
 KIND: proof-region

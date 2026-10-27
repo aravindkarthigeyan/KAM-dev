@@ -79,7 +79,7 @@ If another form lands, Part 2 adds an adapter.
 
 | ID | Goal | Graph nodes | Owned files | Status |
 |---|---|---|---|---|
-| I-P4B | More ready Part 4 lemmas | `bp:p4:derivative-bounds`, `torsion-regular`, `shift`, `mixed-difference` | `KAM/Head/*` | claimed (orchestrator, 2026-10-27) |
+| I-P4B | More ready Part 4 lemmas | `bp:p4:derivative-bounds`, `torsion-regular`, `shift`, `mixed-difference` | `KAM/Head/*` | done (bc93762) |
 | I-P1C | Taylor bound (factor ½) and increments on strips | `bp:p1:taylor`, `bp:p1:increments` | `KAM/Strip/{Taylor,Increments}.lean` | done (14ea2b3) |
 | P2-*, P3-* | Parts 2 and 3 (G1, G2), 21 packages in 10 waves | see the design §5 | see the design §4 | design audited (PASS); wave 1: P2-1b done (9d193ec), P2-1a in audit; wave 1 done (P2-1a 0f25ed7, P2-1b 9d193ec); wave 2: P2-11 done, P2-2 and P2-3 claimed (orchestrator, 2026-10-27) |
 
