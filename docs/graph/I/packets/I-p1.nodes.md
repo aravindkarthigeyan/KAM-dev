@@ -204,13 +204,13 @@ EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI
 EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L128-L128 | product of holomorphic functions
 EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L128-L128 | entries of the frozen T_H
 EDGE: K:bp:p1:holomorphic-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L126-L126 | holomorphic inverse in the construction of N, expressly cited
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
-REVIEWER: sol-delta-I-a
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p1+sol-global-I
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: the explicit K:step:p2:fb-holo import assumes A2-A4, including a uniform positive ball margin beta and global bounds for DK and G^{-1} on T_r. The Part 1 setting here supplies only K(T_r) subset D, holomorphy and det G != 0, not those uniform bounds. The parenthetical local assertion that the regularity proof uses no bounds needs a separately modelled direct derivation from holomorphic inversion/differentiation; no stronger imported contract is discharged by the existing k-bridge.
 
 NODE: stepI:p1:eb-period
 KIND: step
@@ -1362,13 +1362,13 @@ EDGE: K:bp:p1:neumann | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-conseque
 EDGE: K:bp:p1:matrix-norms | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L501-L501 | ¦Omega_0 E_sym¦ = ¦E_sym¦
 EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L503-L503 | norm bounds for E_lin
 EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L499-L499 | direct use of the local H, K, omega, domain or standing constants
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
-REVIEWER: sol-delta-I-a
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p1+sol-global-I
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: the source invokes K:bp:p1:neumann under norm E_sym < 1, while that imported result assumes norm A^{-1} norm Delta <= 1/2. With A=I and Delta=-Omega_0 E_sym, the available premise is only norm Delta < 1. No proof of the stronger radius-one invertibility criterion is supplied by the listed dependencies. The residual identities and conditional equivalence under det P != 0 are unaffected; this gap is the sufficient-condition branch for det P != 0.
 
 NODE: bpI:p1:geometry-noA5
 KIND: lemma
@@ -1461,13 +1461,13 @@ EDGE: K:step:p2:geo-domegak | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-r
 EDGE: K:step:p2:geo-ered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L532-L532 | same estimate for E_red
 EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L533-L533 | direct use of the local H, K, omega, domain or standing constants
 EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L533-L533 | definitions of m and C_red used in the displayed bounds
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-delta-I-a
-REVIEWER: sol-delta-I-c
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p1+sol-global-I
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: the represented conjunctive applications of K:step:p2:geo-domegak and K:step:p2:geo-ered assume full K admissibility including A5, by their current imported source contracts. geometry-noA5 supplies A1-A4 and A6 but no ordinary torsion-average invertibility. The common-data k-bridge does not discharge A5. The displayed local calculation from frame-identities, matrix and frame-basic may instead support a separately modelled direct route; it does not make these stronger import premises true.
 
 NODE: stepI:p1:geo-sym
 KIND: step

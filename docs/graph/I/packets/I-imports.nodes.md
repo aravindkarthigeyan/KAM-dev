@@ -1264,13 +1264,13 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-continuation-periodic; shared Lean provider. Cited as \Nref{bpN:p3:gen-continuation-periodic}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-continuation-periodic; shared Lean provider. Cited as \Nref{bpN:p3:gen-continuation-periodic}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-maximal
 KIND: external
@@ -1290,13 +1290,13 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-maximal; shared Lean provider. Cited as \Nref{bpN:p3:gen-maximal}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-maximal; shared Lean provider. Cited as \Nref{bpN:p3:gen-maximal}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-sol
 KIND: external
@@ -1316,13 +1316,13 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-sol; shared Lean provider. Cited as \Nref{bpN:p3:gen-sol}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-sol; shared Lean provider. Cited as \Nref{bpN:p3:gen-sol}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-uniqueness
 KIND: external
@@ -1342,13 +1342,13 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniqueness; shared Lean provider. Cited as \Nref{bpN:p3:gen-uniqueness}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-uniqueness; shared Lean provider. Cited as \Nref{bpN:p3:gen-uniqueness}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:ham-energy
 KIND: external
@@ -1368,13 +1368,13 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-energy; shared Lean provider. Cited as \Nref{bpN:p3:ham-energy}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:ham-energy; shared Lean provider. Cited as \Nref{bpN:p3:ham-energy}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:ham-periodic
 KIND: external
@@ -1394,13 +1394,13 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-periodic; shared Lean provider. Cited as \Nref{bpN:p3:ham-periodic}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:ham-periodic; shared Lean provider. Cited as \Nref{bpN:p3:ham-periodic}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:ham-reduction
 KIND: external
@@ -1420,13 +1420,13 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-reduction; shared Lean provider. Cited as \Nref{bpN:p3:ham-reduction}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:ham-reduction; shared Lean provider. Cited as \Nref{bpN:p3:ham-reduction}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-exit
 KIND: external
@@ -1446,13 +1446,13 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-exit; shared Lean provider. Cited as \Nref{bpN:p3:gen-exit}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-exit; shared Lean provider. Cited as \Nref{bpN:p3:gen-exit}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-symmetry
 KIND: external
@@ -1472,13 +1472,13 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP+sol-review-I-imports
-REVIEWER: sol-delta-I-e
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-symmetry; shared Lean provider. Cited as \Nref{bpN:p3:gen-symmetry}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-symmetry; shared Lean provider. Cited as \Nref{bpN:p3:gen-symmetry}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: P:bpP:p0:fixedsol#IsFixedSolution
 KIND: external

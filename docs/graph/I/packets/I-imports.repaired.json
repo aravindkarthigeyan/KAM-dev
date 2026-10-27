@@ -1,30 +1,17 @@
 {
- "replaced": [],
+ "replaced": [
+  "N:bpN:p3:gen-continuation-periodic",
+  "N:bpN:p3:gen-maximal",
+  "N:bpN:p3:gen-sol",
+  "N:bpN:p3:gen-uniqueness",
+  "N:bpN:p3:ham-energy",
+  "N:bpN:p3:ham-periodic",
+  "N:bpN:p3:ham-reduction",
+  "N:bpN:p3:gen-exit",
+  "N:bpN:p3:gen-symmetry"
+ ],
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": [
-  "K:bp:p1:real-restriction",
-  "K:bp:p1:uniform-limits",
-  "K:bp:p2:constants",
-  "K:bp:p2:frame-identities",
-  "K:bp:p2:matrix",
-  "K:bp:p4:data",
-  "K:step:p2:fb-holo",
-  "K:step:p2:geo-domegak",
-  "K:step:p2:geo-ered",
-  "K:step:p4:db-cauchy",
-  "N:bpN:p3:gen-symmetry",
-  "K:bp:p1:real-restriction",
-  "K:bp:p1:uniform-limits",
-  "K:bp:p2:constants",
-  "K:bp:p2:frame-identities",
-  "K:bp:p2:matrix",
-  "K:bp:p4:data",
-  "K:step:p2:fb-holo",
-  "K:step:p2:geo-domegak",
-  "K:step:p2:geo-ered",
-  "K:step:p4:db-cauchy",
-  "N:bpN:p3:gen-symmetry"
- ]
+ "passes": []
 }

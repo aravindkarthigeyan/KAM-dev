@@ -1,10 +1,11 @@
 {
- "replaced": [],
+ "replaced": [
+  "stepI:p1:geo-red",
+  "stepI:p1:eb-holo",
+  "stepI:p1:rd-consequence"
+ ],
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": [
-  "stepI:p1:geo-red",
-  "stepI:p1:geo-sym"
- ]
+ "passes": []
 }
