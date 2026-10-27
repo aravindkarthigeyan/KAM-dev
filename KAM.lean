@@ -5,7 +5,12 @@ Authors: Scott Armstrong
 -/
 module
 
+public import KAM.Diophantine.Basic
+public import KAM.Diophantine.Cohomological
+public import KAM.Diophantine.FrequencyDependence
+public import KAM.Diophantine.SolverAlgebra
 public import KAM.Fourier.Derivative
+public import KAM.Fourier.ExponentialDecay
 
 /-!
 # KAM
