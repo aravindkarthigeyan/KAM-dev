@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 19:36 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 34.4 %** · frozen statements proved: 1 / 20 · **10,560 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 19:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 34.4 %** · frozen statements proved: 1 / 20 · **11,455 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -125,7 +125,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **10,560** (6,128 excluding blank lines and comments) · **+10,560** since 2026-10-27 13:33 UTC |
+| On `main` now | **11,455** (6,783 excluding blank lines and comments) · **+11,455** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
 | **Estimated total at completion** | **≈ 40,000** |
 | Estimated still to write | ≈ 29,000 |
@@ -134,13 +134,13 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 19:36 UTC from `main` at `aec5b8b` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 19:40 UTC from `main` at `ef03b72` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.
 
 **Frozen statements proved: 1 / 20** · frozen definitions: 120
 
-**Lean on `main`:** 181 modules · 10,560 lines · 231 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 185 modules · 11,455 lines · 266 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 19 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexIsoenergeticDerivative.lean, KAM/Frozen/Nekhoroshev/Theorems/ZeroPerturbation.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean)
@@ -252,9 +252,9 @@ flowchart BT
 | Area | Content | Modules | Lines | Theorems |
 |---|---|---|---|---|
 | [`KAM/Frozen/`](KAM/Frozen) | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 140 | 6,528 | 20 |
-| [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 3 | 359 | 24 |
+| [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 4 | 628 | 33 |
 | [`KAM/Diophantine/`](KAM/Diophantine) | Diophantine vectors, cohomological equation, measure of the Diophantine set | 5 | 543 | 35 |
-| [`KAM/Strip/`](KAM/Strip) | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 5 | 973 | 48 |
+| [`KAM/Strip/`](KAM/Strip) | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 7 | 1,441 | 70 |
 | [`KAM/Matrix/`](KAM/Matrix) | Matrix-valued functions: Neumann series and inverse bounds | 3 | 762 | 54 |
 | `KAM/Newton/` *(not created yet)* | Abstract Newton/KAM convergence on analytic scales | 0 | 0 | 0 |
 | `KAM/Hamiltonian/` *(not created yet)* | Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits | 0 | 0 | 0 |
@@ -277,17 +277,17 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **prover-I-STRIP-5** `worktree /root/code/KAM-w-strip5` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md) | — | — |
 | **audit-I-STRIP-5** `kam-audit-strip5` | package audit (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Independent audit of package I-STRIP-5 (five explicit audit questions) | — | — |
 | **prover-I-ZMAP** `worktree /root/code/KAM-w-zmap` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-ZMAP (docs/campaign/briefs/I-ZMAP.md) | — | — |
 | **prover-I-P1B** `worktree /root/code/KAM-w-p1b` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P1B (docs/campaign/briefs/I-P1B.md) | — | — |
 | **prover-I-P4A** `worktree /root/code/KAM-w-p4a` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P4A (docs/campaign/briefs/I-P4A.md) | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 0 |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 2 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | N-AVERAGING draft v0.5 from the primary AKN06 pages (sources supplied by the owner) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: v0.4 done; idle for owner-requested changes | — | — |
 | **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Refute-first blueprint reviews (I and N): now I Parts 6-7 and N Part 6 | — | — |
-| **bprev-2** `inp-bprev-2` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Refute-first blueprint reviews (P, and I Part 5: ACCEPT WITH FIXES): now P Part 2 and P Part 3 round 2 | — | — |
+| **bprev-2** `inp-bprev-2` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Refute-first blueprint reviews (P, and I Part 5: ACCEPT WITH FIXES): now P Part 2 and P Part 3 round 2 | — | — |
 | **bpN-p10** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N blueprint Part 10: assembly and complete proof of N-HEAD-C | — | — |
 | **bpP-p5** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track P blueprint Part 5: P-G assembly and complete proof | — | — |
 | **bpP-p7** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track P blueprint Part 7: Poincare chart through e = 0, product chart | — | — |
@@ -300,6 +300,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 19:39 | `ef03b72` | Land k/p1b into main |
 | 2026-10-27 19:36 | `aec5b8b` | Blueprint Part 1 conventions: strip widths are positive (made explicit after three proof packages needed it); graph locators remapped |
 | 2026-10-27 19:35 | `5295e01` | Land inp into main |
 | 2026-10-27 19:25 | `6828730` | Land inp into main |
@@ -311,7 +312,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 19:10 | `8f161e6` | I-LIP landed (c9695bc): audit PASS WITH NOTES; graph: 14 nodes PROVED, li-cubes and li-image BYPASSED (alternative Mathlib route) |
 | 2026-10-27 19:09 | `c9695bc` | Land k/lip into main |
 | 2026-10-27 19:04 | `4bbb791` | Pin Neishtadt 1976 (Nei76, Dokl. Akad. Nauk SSSR 226(6) 1295-1298; Math-Net.Ru dan39798) for N-AVERAGING |
-| 2026-10-27 19:03 | `cd2f60d` | Land inp into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
