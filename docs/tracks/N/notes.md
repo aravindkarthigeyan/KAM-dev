@@ -361,7 +361,7 @@ The workspace has concurrent orchestrator activity and its HEAD advanced during 
 add, push, checkout, reset or stash was run by this task. The preservation comparison uses the actual
 pre-edit draft snapshot rather than treating a moving HEAD as the v0.1 baseline.
 
-## Additions (D22), draft v0.3 — implementation and handoff
+## Historical additions (D22), draft v0.3 — implementation and handoff
 
 Four deliverables: appended sections in `docs/tracks/N/statement.md`, `sources.md`, this file, and the new
 untracked `.drafts/N/Additions.lean`. Existing N history and all D20 frozen files are unchanged. This is
@@ -520,3 +520,262 @@ Checks were run on 27 October 2026, sequentially, without resource overrides or 
 No frozen, manifest, generated, other-track or research-report files were edited. No state-changing git
 command was used. The source ambiguities and suspected erratum above remain visible for the independent
 statement audit and owner approval; this receipt certifies the completed Phase 0 packet only.
+
+## Additions (D22), draft v0.4 — audit response and change log
+
+Current worktree and every authored path: `/root/code/KAM-inp`. The preceding v0.3 section and receipt are
+historical; this section and statement.md's v0.4 section supersede its approval recommendations and
+source-conversion plan. `AUDIT-additions-v0.3.md` was read fully, including its counterexample and consumer
+construction. No audit or frozen file was edited.
+
+Lean hard rules (verbatim):
+
+1. Never use set_option maxHeartbeats (or any heartbeat-budget override). A default-heartbeat elaboration failure is a design signal to refactor or split the proof, not something to mask with a larger budget.
+2. No Lean file may exceed 1500 lines of code.
+
+### Finding-to-change map
+
+| Finding | v0.4 change / disposition |
+|---|---|
+| F-NADD-1 | New explicit open convex source domain G′ and closed ρ collar around working G. All h and P bounds extend to G′. Replace the invalid global steepness inference by the direct definite-Hessian instance of source Lemma 10.6, then follow §§7–10. The two quantitative geometric obligations and the exact dependency chain are below. No steepness, projected-gradient bound or drift is a premise. |
+| F-NADD-2 | `averaging_mean` and `averaging_most` remain byte-identical theorem declarations, but both are **DEFERRED from approval** in statement.md and their docstrings. Complete third-edition chapter/proof acquisition checklist and candidate original sources added to sources.md. |
+| F-NADD-3 | Local-existence candidate remains distinct and deferred. No flow/error/confinement premise added to it. Smooth-source applicability or a direct local proof is required to reactivate it. |
+| F-NADD-4 | No stopped conclusion change. Explicit G⊂G′, slow D, fixed collars, normalization, two time directions and P bootstrap scale choices documented below. |
+| F-NADD-5 | Preserve complex Hessian input and fixed-h-before-threshold quantifiers, now on the enlarged source domain. |
+| F-NADD-6 | Preserve 1977 a,b and μ⁻¹ time prefactor. |
+| F-NADD-7 | Preserve absolute phase volume, O(√ε/κ) tradeoff, positive tolerances and their quantifier order in the deferred types. |
+| F-NADD-8 | Preserve guarded error supremum; any future helper must establish nonempty time image and boundedness before invoking real supremum lemmas. |
+| F-NADD-9 | Corrected source text: Neishtadt–Okunev slide 14 corroborates rates only, not the rank alternatives. Re-extracted slide 14, including its 1976 paper reference. |
+| E-N-ADD-1 | Independent confirmation and ledger-candidate record below; no theorem-type change. |
+
+The nine definition **bodies** remain unchanged. `partialConvex_nekhoroshev` keeps its name and entire
+stopped conclusion, solution and initial-erosion antecedents. Fixed binders add G′, its openness and
+convexity, and `∀ I∈G, closedBall∞ I ρ ⊆ G′`. Each h hypothesis and `HasDefiniteFastPart` now uses G′;
+`IsPartialPerturbation` now uses the tube over G′×D. The docstring explains the proof specialization.
+Both averaging **theorem declarations** are unchanged; their docstrings and approval status change.
+The rendered p.29 comparison also corrected two source transcriptions: imaginary bounds are ≤ρ (use
+the smaller source width ρ/2 inside the draft's open tube), and total source dimension is n≥s≥2
+(the draft conservatively requires at least one slow pair). Neither change affects the theorem type.
+No declarations have been frozen or proved. Full exact partial text is in statement.md and the draft.
+
+### F-NADD-1: two quantitative geometric proof obligations, not hypotheses
+
+Write |·|₂ for the square root of Σᵢvᵢ² on the required coordinate type, and use the Euclidean dot product
+Σᵢuᵢvᵢ. These are mathematical operations on `Fin n → ℝ`; no new ambient type is required.
+Let ω=∇(realPart h), let σ be the one global sign in `HasDefiniteFastPart`, and set
+
+    g_source=g/2,   L=(n+1)Mcomplex,   ρ_source=ρ/2,
+    Cᵣ=m/2,        δᵣ=ρ/2,        αᵣ=1     (1≤r≤n−1).
+
+L is a conservative positive Euclidean Hessian bound obtained from the actual complex maximum-norm
+bilinear bound. It also gives |ω(y)−ω(x)|₂≤L|y−x|₂ along segments in G′. The signed lower bound gives
+σ(ω(y)−ω(x))·(y−x)≥m|y−x|₂² on those segments. Real C³, complex C², positivity and openness are
+already explicit inputs; neither inequality is assumed separately.
+
+**Obligation A — full-sphere convex-to-index-one estimate with a collar.** For any I∈G and any
+r-dimensional linear plane V⊂ω(I)⊥, for every 0<η<ρ the full sphere
+
+    S(I,V,η)={I+v : v∈V, |v|₂=η}
+
+is nonempty (r≥1), compact and contained in G′, and every segment [I,I+v] is in G′. Indeed
+|v|∞≤|v|₂<ρ and the new collar implies containment. If πV denotes Euclidean orthogonal projection,
+
+    σ(ω(I+v)−ω(I))·v ≥ mη²,
+    (πV ω(I))=0,
+    |πV ω(I+v)|₂ ≥ mη.
+
+The continuous restricted-gradient lengths on this **nonempty compact full sphere** have a finite real
+infimum ≥mη. For 0<ξ<δᵣ choose η=ξ to obtain
+
+    sup_{0≤η≤ξ} inf_{S(I,V,η)} |πVω|₂ ≥ mξ > Cᵣ ξ.
+
+At η=0 the sphere is the singleton {I} and the restricted gradient is zero. These facts give source-style
+index-one constants at centres in G, with the sphere evaluated in the enlarged domain. They **do not**
+give global §4.1.C steepness at every centre in G′. No empty real infimum, zero default, or unverified
+extended-infimum convention is used. Merely renaming G′ as the source G would repeat F-NADD-1.
+
+**Obligation B — the literal estimate needed by source Lemma 10.6, without boundary infima.** Let V be
+any r-plane, λ any affine translate of V, and let a continuous curve γ satisfy the source's 10.6.A–C:
+γ lies within distance b of λ, joins x to y, |y−x|₂=d>0, lies in the closed d-ball about x, and that
+ball is contained in G′. Retain the source inequalities (10.5)–(10.7), with the constants above. For
+αᵣ=1 the source's exact ε is
+
+    ε=(Cᵣ/5)(d/2)=md/20,       b<min{d/4, ε/(4L)}.
+
+Then at least one endpoint w∈{x,y} has |πVω(w)|₂>ε. Here is the full mathematical argument to formalize.
+Suppose both endpoint projections had length ≤ε. Put Δ=y−x, v=πVΔ, w=Δ−v. Distance of each endpoint
+from λ gives |w|₂<2b, while |v|₂≤d. Along [x,y]⊂G′, signed convexity and the upper Hessian bound yield
+
+    md² ≤ σ(ω(y)−ω(x))·Δ
+         ≤ |πV(ω(y)−ω(x))|₂ |v|₂ + |ω(y)−ω(x)|₂ |w|₂
+         < 2εd + 2Lbd
+         < (5/2)εd = md²/8,
+
+a contradiction. Replacing the first strict estimate by ≤ and keeping the second strict estimate gives
+the same contradiction; no endpoint attainment assumption about the supremum of a curve is involved.
+This proves the exact strict output of source 10.6 with constants Cᵣ=m/2 and αᵣ=1. It works for either
+σ sign. It does not require a full transverse sphere at a boundary centre of G′. In fact it uses only
+endpoints and their segment, so the source ball and small-d hypotheses are stronger than needed here.
+
+**How this imports the source faithfully.** Use the analytic Hamiltonian on the actual tube over G′×D
+in §5.2.B. Prove the definite-Hessian instance of Lemma 10.6 by Obligation B; use it in the disc-diameter
+argument of Proposition 7.4, whose proof calls 10.6. Section 8.7.A then obtains diameter control;
+8.7.B–D use only nonzero ω and the integer-lattice bound to exclude full resonance; 8.7.E uses the
+Hessian bound to propagate the remaining nonresonance. None invokes another sphere infimum.
+Proposition 9.2 and §9.5 then give the same trap/first-exit estimate. Lemma 10.7's numerical system uses
+the fixed constants above, so all αᵣ=1 produce the original a,b. The value-norm variant is Remark 4.5.A. The printed §4.3.A tube has closed imaginary
+inequalities; use the smaller source width ρ_source=ρ/2 inside the draft's open tube, so those literal
+analytic-domain requirements hold without assuming boundary continuity of P at width ρ.
+This is a **proof-level convex specialization of Theorem 4.4**, with the geometric specialization proved
+mathematically above; it is not a false assertion of the global §4.1.C premise on a bounded domain.
+The future Lean provider must prove these geometric estimates and the source normal-form/iteration
+lemmas. Successful draft elaboration is not certification of that provider.
+
+This choice deliberately goes beyond the suggested shorthand, because a larger arbitrary open G′ alone
+still has its own boundary. It retains a sound literal use of the downstream source estimates and exposes
+the one replacement proof with its exact constants. No new standing geometry assumption asserting
+steepness or its output has been added. The new G′/P hypotheses make extension of the whole Hamiltonian
+explicit and keep the inner working action region separate from the source analytic boundary.
+
+### F-NADD-4: fixed larger domains and collars for P, with the N conclusion unchanged
+
+The following construction must be proved by P's providers, before applying N. It concerns P's whole
+**outer** low-AMD region, not just an individual compact supplied trajectory. Its constants precede the
+initial datum and the small mass. The current N type alone does not certify the physical chart.
+
+1. From `AMDBox.Admissible`, use the strict positive action gaps, strict AMD/eccentricity inequalities,
+   eccentricity <1 and radial separation. Increase the working AMD allowance to a fixed
+   Aplus>B.outerAMD, and slightly widen the fast action box, preserving those inequalities and a positive
+   radial gap by continuity. If necessary slightly increase the working eccentricity bound while keeping
+   it below 1. This constructs a product chart domain containing the entire closed physical outer region.
+2. Choose nested positive fast boxes: the closure of P's outer action box lies inside a working G, and
+   closedBall∞(I,ρ)⊆G′ for every I∈G, with G′ still within that larger separated chart. Choose ρ smaller
+   than half each working-to-source action gap and than the uniform imaginary width below. Leave a further
+   fast collar beyond G′ for `actionNbhd G′ ρ` and keep every Λᵢ away from zero. Define
+
+       δG = (1/2) min_i { B.lower i − lowerG i, upperG i − B.upper i } > 0.
+
+   Then every projected point of P's whole outer region, including its closure, belongs to
+   `innerCore G d` whenever 0<d≤δG. This proves the initial erosion and fast-domain typing uniformly.
+3. In planar Poincaré coordinates, physical AMD is exactly (1/2)Σᵢ(ξᵢ²+ηᵢ²). Take
+
+       D = { (ξ,η) : (1/2)Σᵢ(ξᵢ²+ηᵢ²) < Aplus },
+       δD = (sqrt(2Aplus)−sqrt(2 B.outerAMD)) / (2 sqrt(2n)) > 0.
+
+   A maximum-norm slow ball of radius δD changes Euclidean length by at most sqrt(2n)δD. Thus the
+   **closed** slow ball with AMD≤B.outerAMD plus that maximum-norm collar lies strictly inside D.
+   Every point of any supplied P outer-region segment is in `innerCore D d` for 0<d≤δD. Strict
+   membership alone would not prove this if D were the outer projection itself.
+4. Prove the regular planar Poincaré chart for the literal moving-Sun Hamiltonian, including its indirect
+   kinetic term, and lift fast angles along the supplied finite segment. Use n fast actions, k=n slow
+   pairs; transport `Phase (n+n)` to `Phase (n*2)` by the finite-index equivalence. Prove symplectic
+   covariance so the N curve is the image of the **same** physical solution. Its fast coordinates must
+   equal P's `keplerAction`, Λᵢ=mᵢ sqrt(aᵢ), with hK=−Σ mᵢ³/(2Λᵢ²).
+5. On G′ and its extra fast neighborhood, derive g,m,Mcomplex explicitly from
+   ∂ᵢhK=mᵢ³/Λᵢ³ and D²hK=diag(−3mᵢ³/Λᵢ⁴), taking one σ=−1. For positive lower/upper source edges
+   lᵢ,uᵢ and ρ<min lᵢ, safe lower bounds are any positive numbers below
+   minᵢ mᵢ³/(uᵢ+ρ)³ and minᵢ 3mᵢ³/(uᵢ+ρ)⁴. A safe maximum-norm complex bilinear bound is
+   Σᵢ3mᵢ³/(lᵢ−ρ)⁴, or a larger positive number. Compactness modulo the fast-angle lattice, a strict
+   positive radial gap, and analyticity supply a **uniform complex tube over G′×D** and a perturbation
+   value bound B₀≥1, uniform for small μphys. No numerical tube width at observed masses is inferred.
+6. Set ν=B₀μphys and normalize the actual perturbation H₁ by P=H₁/ν (positive μphys). N uses μ=ν,
+   d=ν^b, delta=d/2. Choose μ* so ν is below both N thresholds for ±hK, ν≤1, and
+
+       d < min{δG,δD,ρ/4},
+       B.lower i + 2delta < B.innerLower i,
+       B.innerUpper i + 2delta < B.upper i,
+       B.initialAMD + 2n delta < B.outerAMD.
+
+   Such choices exist since b>0 and all collars/gaps were fixed first. For c≤B₀^(−a), the P horizon
+   exp(c μphys⁻ᵃ) is at most ν⁻¹ exp(ν⁻ᵃ). Coordinatewise action drift is at most delta. The identity
+   aᵢ=Λᵢ²/mᵢ² is uniformly Lipschitz on the fixed positive box, giving the advertised axis drift.
+7. For any supplied segment [l,r] in P's outer region, restrict to each queried [0,t], and use the fixed
+   collars in steps 2–3. For t<0 use the reversed curve and −H, with σ=+1, and intersect the two
+   thresholds; at t=0 the drift is zero. Do not assume confinement after the queried time. This produces
+   P's `StoppedActionBound` for the existential small-μ scales above, not for arbitrary B,μ,T,delta.
+   The separate `amdConfinement` helper then uses actual angular-momentum conservation and continuation
+   to close the bootstrap. It does not itself prove its stopped-action input.
+
+All chart, margin and quantitative analytic claims in this list are obligations, not pre-existing verified
+providers. No N conclusion or slow erosion has been removed to accommodate P. This construction is the
+specific bridge accepted in principle by audit §6, now with the additional explicit G′ required by v0.4.
+
+### Deferred averaging and ledger candidates
+
+Both averaging types are retained for future research, **DEFERRED from this approval packet**. Reactivation
+requires the primary third-edition §6.1.9 statement and its actual quantitative proof, with all standing
+hypotheses checked. The exact pages, proof questions and identified 1975/1976 primary papers are listed
+in sources.md. The mean theorem cannot supply the missing smooth-source import by a binder change, and
+the local corollary cannot be proved by deleting a supplied-flow premise. There is no analytic cutoff.
+NO22's slide 14 confirms the rates only; it does not confirm the printed rank conditions.
+
+Ledger candidates for the orchestrator (this task does not edit the ledger):
+
+- **E-N-ADD-1, CANDIDATE source erratum.** Source: pinned Nek77 English PDF, SHA-256
+  `0bfe624cf108096badd7e27fc40ca800e2948b68dce2bf8b9c653e0eaec4def6`, §1.18, printed p.15.
+  Quote: “the perturbation H−H₀ becomes small” when bodies approach. The v0.3 independent audit confirms
+  that this wording is printed. A reciprocal-distance interaction grows in magnitude near a collision;
+  the ensuing angular-momentum argument prevents losing perturbative smallness. Proposed correction:
+  **“ceases to be small”** (or “becomes large”). This is an English-text typo candidate; the original
+  Russian wording and any publisher correction remain unverified. No Lean theorem depends on that sentence.
+- **D-N-ADD-6, CANDIDATE explicit proof deviation.** The v0.4 partial theorem imports the convex instance
+  of the source proof through the direct Lemma 10.6 endpoint argument, rather than asserting source-global
+  steepness on an arbitrary bounded fast domain. Add explicit G′/P hypotheses and its working-domain collar
+  to the approval record. Do not record the collar alone as a solution to the boundary-infimum issue.
+  A separate claim that the printed definition is erroneous would need a source-convention/proof audit;
+  no new printed-source erratum is asserted on that basis here.
+- **S-N-ADD-2 / F-NADD-2/3, source-acquisition gaps, not source errata.** Both averaging declarations
+  are deferred; neither the transcription nor the author slides supply the full primary quantitative
+  proof and smooth/local continuation hypotheses. F-NADD-9 was our citation overstatement, corrected here.
+
+### Validation receipt — v0.4 in `/root/code/KAM-inp`
+
+Files authored: `/root/code/KAM-inp/.drafts/N/Additions.lean` and this worktree's
+`docs/tracks/N/{statement,sources,notes}.md`. No files in `/root/code/KAM` were edited. No state-changing
+git command, resource override, frozen/manifest edit or whole-library rebuild was used.
+
+- Exact requested targeted elaboration, working directory `/root/code/KAM-inp`:
+  `nice -n 5 lake env lean .drafts/N/Additions.lean` — **exit 0**. Final output:
+
+  ```text
+  .drafts/N/Additions.lean:94:8: warning: declaration uses `sorry`
+  .drafts/N/Additions.lean:151:8: warning: declaration uses `sorry`
+  .drafts/N/Additions.lean:177:8: warning: declaration uses `sorry`
+  'KAM.Nekhoroshev.partialConvex_nekhoroshev' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+  'KAM.Nekhoroshev.averaging_mean' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+  'KAM.Nekhoroshev.averaging_most' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+  ```
+
+  All three theorem bodies are unproved statement drafts. The two averaging declarations are retained
+  but **DEFERRED from approval**; a `sorryAx` dependency is not a proof receipt.
+- Final draft SHA-256:
+  **`ebef5cbca47162d83c5481726408bd4c2977375526c3579d0c791dbd1b80af4d`**.
+  **201 lines**, all at most 100 characters; nine definitions and three theorem bodies. `git ls-files`
+  shows that `.drafts/N/Additions.lean` remains untracked/ignored.
+- `PYTHONDONTWRITEBYTECODE=1 /root/code/KAM-inp/scripts/lint_sources.sh` — **exit 0**:
+
+  ```text
+  check_lean_modules: PASS (124 Lean files, 0 comparator configurations)
+  FROZEN-ANCHOR GUARD OK
+  ABI HASHES OK (94 frozen declarations)
+  ```
+
+  Lean elaboration and the lint's ABI elaboration ran serially. The lint excludes drafts; direct draft
+  elaboration and code-mask checks separately passed, with exactly three theorem-body `sorry` tokens,
+  no prohibited code constructs/resource overrides, and a valid module/author header.
+- Mechanical preservation checks: all nine definition declarations match the audit's literal scratch
+  copies byte for byte. Before comment line wrapping, reversing just the documented v0.4 patch exactly
+  reproduced the audited v0.3 draft SHA-256
+  `f7b3278008de764bf252d5aa02f43ac9234ac79cbb63b5191931e54e4dffbc5e`.
+  Thus the averaging theorem declarations are unchanged, as is the partial theorem's stopped conclusion
+  and its supplied-solution/initial-erosion clauses. Its one changed post-threshold premise is P on G′.
+  The exact partial theorem block in statement.md matches the final Lean text.
+- All documentation before its D22 additions section is preserved byte for byte. The v0.3 notes and
+  receipt are explicitly historical. Owned-path `git diff --check` passes. The pinned Nek77 PDF,
+  AKN transcription and NO22 slide hashes were recomputed and match sources.md; the audit was read only.
+
+Remaining review boundary: the explicit convex endpoint argument and its proof-level substitution require
+independent review before exact-text approval. The subsequent Lean proof campaign must implement the
+source normal-form/parameter-selection arguments. Both averaging candidates remain deferred until the
+listed primary statement and quantitative proof are pinned. P still owes the actual chart and uniform
+larger-domain/collar construction. E-N-ADD-1 is a reported ledger candidate, not an edit to the public ledger.

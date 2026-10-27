@@ -278,7 +278,7 @@ would require an audited quantitative conversion and treatment of the exceptiona
 smuggled in via compactness. All original real B(M) orders are retained to make this a strengthened-input
 variant of the approved class, although this direct route only uses its first-order upper bound.
 
-## Additions (D22), draft v0.3 — source evidence
+## Additions (D22), draft v0.4 — source evidence
 
 This section supports only the new `.drafts/N/Additions.lean` declarations. It leaves the earlier source
 packet and D20's frozen statements intact. Bibliography and hashes were checked again on 27 October 2026.
@@ -300,12 +300,16 @@ Guzzo's attribution. Printed and PDF page numbers coincide.
 - The chapter's s fast actions are renamed n; its total number n is our n+k. No exponent uses the total
   number of slow plus fast degrees of freedom.
 
-**Source setting, §4.3 p.29.** H=H₀(I)+H₁(I,p,φ,q), with 2π-periodic φ, s≥2 fast actions and n>s.
+**Source setting, §4.3 p.29.** H=H₀(I)+H₁(I,p,φ,q), with 2π-periodic φ and total dimension n≥s≥2.
+The draft specializes to n>s (at least one slow pair).
 G⊂ℝˢ and D⊂ℝ²⁽ⁿ⁻ˢ⁾ are arbitrary open domains. The complex set is
 
-> F = {I,p,φ,q : Re I∈G, Re(p,q)∈D, |Im I,p,φ,q|<ρ}.
+> F = {I,p,φ,q : Re I∈G, Re(p,q)∈D, |Im I,p,φ,q|≤ρ}.
 
-The imaginary inequalities are componentwise; other finite-dimensional norms are Euclidean/Hermitian.
+The printed imaginary inequalities are componentwise and **closed** (≤ρ); other finite-dimensional
+norms are Euclidean/Hermitian. The draft uses an open tube of width ρ, so apply the printed source at
+**ρ_source=ρ/2**, whose closed tube lies inside that open tube. This changes the threshold, not the rates
+or the conclusion. This also corrects the former transcription's < sign; no source erratum is alleged.
 H is analytic on F and real on reals. The displayed complex bound is
 
 > m = sup_F ‖∂²H₀(I)/∂I²‖ < ∞.                                      (4.2)
@@ -321,9 +325,11 @@ Its plane-restricted quantity m_{I,λ}(η) is the infimum of the restricted grad
 sphere intersected with the domain; steepness is sup_{0≤η≤ξ} m_{I,λ}(η)>Cξ^α for 0<ξ<δ.
 §1.18 p.14 explicitly identifies same-sign nonzero second derivatives and nonzero gradient as convex,
 quasi-convex and steep; this includes its concave Kepler example. The draft uses a uniform signed definite
-Hessian, stronger than quasi-convexity, and an enlarged real domain. Deriving uniform index-one coefficients
-with the exact domain convention is a provider/audit obligation; we do not quote §1.18 as a quantified
-uniform-family theorem. Substituting all αᵣ=1 in (4.1) gives ζ=s(s−1)/2, with the separate s=2 rule ζ=1.
+Hessian, stronger than quasi-convexity, and an enlarged real domain. The v0.4 theorem requires the perturbation and complex bounds on an explicit enlarged G′ as well.
+Full spheres about centres in the working G give Cᵣ=m/2, δᵣ=ρ/2 and αᵣ=1, but this alone does not
+prove global steepness on G′. The v0.4 source-import route proposed here is the signed-convex
+endpoint proof of Lemma 10.6, followed by the printed proof of Theorem 4.4. The exact proof substitution
+and constants are in notes.md; it is not hidden as a new theorem hypothesis. Substituting all αᵣ=1 in (4.1) gives ζ=s(s−1)/2, with the separate s=2 rule ζ=1.
 
 **Theorem 4.4, p.30, normalized transcription.** Under §4.3 and steepness in G with fixed coefficients and
 indices, the source supplies M₀=M₀(H₀,ρ)>0 independent of the characteristics of H₁ other than ρ. Set
@@ -338,8 +344,8 @@ M=sup_F|grad H₁| and assume 0<M<M₀. For an arbitrary real canonical solution
 > T=(1/M) exp((1/M)ᵃ),  a=2/(12ζ+3s+14).                              (4.5)
 
 §4.2 p.29 defines X−d by requiring the point and its d-neighborhood to lie in X. The draft's closed
-maximum-norm erosion is explicitly stronger. Its slow history implication applies this result with C=t;
-no statement from Pinzari Appendix D is used to justify that quantifier.
+maximum-norm erosion is explicitly stronger. Its slow history implication uses this result's arbitrary-C quantifier with C=t, after the explicit
+v0.4 convex proof specialization below; no statement from Pinzari Appendix D justifies that quantifier.
 
 **Remarks 4.5.A–B, p.30.**
 
@@ -357,7 +363,7 @@ Newtonian potential has a reciprocal-distance singularity, so its magnitude beco
 need for angular momentum to prevent close approaches confirms that reading. Proposed correction: “large”
 or “ceases to be small.” This sentence is not used as a premise; report E-N-ADD-1 to the orchestrator.
 
-### AKN06: mean averaging estimate; book-page verification incomplete
+### AKN06: DEFERRED averaging candidates; complete primary proof still required
 
 Vladimir I. Arnold, Valery V. Kozlov and Anatoly I. Neishtadt, *Mathematical Aspects of Classical and
 Celestial Mechanics*, **third edition**, Encyclopaedia of Mathematical Sciences **3**, Springer, 2006.
@@ -423,9 +429,11 @@ The title, both authors and date are printed on slide 1. This is not a journal p
 
 - File: `sources/incoming-zohar2/nei22slides.pdf`.
 - SHA-256: `df064c4063d93478f343278458190da21972c1c5174dc63a79e746282a59fec7`.
-- Slide 14, “Systems with many frequencies”, gives the same full/projective rank alternatives, mean
-  O(√ε) estimate, O(√ε/κ) error off a set of measure κ, and the balanced ε^(1/4) consequence.
-  It is corroboration only: the draft's theorem locator remains AKN Theorem 6.11/Corollary 6.1.
+- **F-NADD-9 corrected:** slide 14, “Systems with many frequencies”, corroborates the mean O(√ε)
+  rate, O(√ε/κ) accuracy off volume κ, and the balanced ε^(1/4) consequence only. It says “Under a
+  certain non-degeneracy condition” and prints **no full/projective rank formula**. Those alternatives
+  come from the AKN transcription, pending complete primary verification. Slide 14 footnote 7 identifies
+  Neishtadt's 1976 original paper as a candidate source; it does not verify that paper's hypotheses.
 
 ### Excluded routes and discrepancy record
 
@@ -436,3 +444,87 @@ unavailable Niederman 1996 proof do not support a stronger draft. These are exis
 not fresh independent audits of those papers. The only new suspected printed-source typo reported here
 is E-N-ADD-1; the AKN page/smoothness limitations and the steepness-domain conversion are explicit open
 source/translation checks. All introduced specializations and weakenings are listed in statement.md.
+
+### v0.4: exact convex specialization of the Nek77 proof (F-NADD-1)
+
+The source pages 28–30 were reread, and rendered pp.28–30 and 47 were inspected for formulas.
+The proposed shorthand “apply Theorem 4.4 on G′” requires care: §4.1.C quantifies over **every centre in
+its domain**. A collar around G supplies spheres centred in G, not at every centre near ∂G′. Theorem
+4.4 as a black box therefore does not acquire its literal global steepness premise from that collar.
+No real empty-sphere infimum is used in the v0.4 draft or its proposed proof.
+
+Instead, the source proof is specialized at its geometric input. Exact dependency locations read:
+
+| Source location | Use and v0.4 treatment |
+|---|---|
+| §5.2.B–5.3, pp.31–33 | Analytic forbidden-motion estimate on the tube with Re I∈G′, slow Re variables∈D; P must be analytic and bounded there |
+| Proposition 7.4 and its proof, pp.36–37 | Disc-diameter estimate calls Lemma 10.6; use its directly proved definite-Hessian instance |
+| §8.7.A, p.39 | Imports the previous diameter bound |
+| §8.7.B–E, pp.39–41 | Uses the nonzero-frequency bound to exclude full resonance, then the Hessian bound to transport nonresonance; no sphere infimum is used here |
+| Lemma 10.6, p.47, (10.5)–(10.7) | Closed curve ball is contained in the fast domain; ε=(Cᵣ/5)(d/2)^αᵣ. For αᵣ=1,Cᵣ=m/2 this is ε=md/20. The direct endpoint proof in notes.md gives exactly the required strict projected-gradient estimate |
+| Proposition 9.2 and §9.5, pp.41–44 | Trap argument, first exit, and arbitrary supplied interval; retained |
+| Lemma 10.7, pp.47–49 | Chooses the numerical parameters using g,Cᵣ,δᵣ,αᵣ, complex Hessian bound and ρ; choose g_source=g/2, Cᵣ=m/2, δᵣ=ρ/2, αᵣ=1, L=(n+1)Mcomplex and ρ_source=ρ/2 |
+| Remark 4.5.A, p.30 | Value-norm perturbation version, retained |
+
+All h bounds are now on `actionNbhd G′ ρ`, and `IsPartialPerturbation G′ D ρ P` bounds the **same actual
+perturbation on the enlarged real fast tube**. G,G′ are explicit open convex domains with a closed
+maximum-norm ρ collar; initial/visited working fast actions and the drift conclusion retain their old G
+conditions. The proof-level specialization is a declared deviation from black-box use of the printed
+steepness definition, with its complete geometric argument in notes.md. The source's normal-form and
+parameter-selection lemmas remain proof obligations in the formalization, as every Phase 0 theorem does.
+It is not claimed that all of §4.1.C holds on arbitrary bounded G′, or that the audit approved this new route.
+
+### DEFERRED AKN approval: exact acquisition and proof checklist (F-NADD-2/3)
+
+Neither `averaging_mean` nor `averaging_most` is in the v0.4 approval/freeze packet. Their types remain
+unchanged as research candidates. The third-edition chapter is
+[“Perturbation Theory for Integrable Systems”](https://link.springer.com/chapter/10.1007/978-3-540-48926-9_6),
+printed **pp.207–349**. Obtain and hash the complete primary chapter, or the complete third-edition book,
+plus the bibliography, rather than another isolated statement transcription. At minimum inspect:
+
+1. **pp.207–209**, chapter conventions and §6.1.1: all standing smoothness, domain and time assumptions;
+   standard system (6.2), averaged system (6.3), and matched initial conditions.
+2. **pp.242–245**, the complete §6.1.9 context: **p.243** Theorem 6.11, Corollary 6.1,
+   (6.27)–(6.28), both frequency-rank alternatives, the compact initial set, and any adjacent explanation of
+   the proof and parameter dependence. This is the requested inspection range, not a claim that all four
+   pages are part of that subsection; the exact next-subsection boundary must be checked in the book.
+3. The **bibliography, pp.475–506**, specifically entries **[451]**, **[305]**, and **[66]**, which p.243
+   cites for the quantitative theorem and the Anosov/Kasuga technique. The exact individual entry page has
+   **not** been checked; do not invent it. Resolve the original quantitative proof via [451], then obtain
+   every regularity/domain lemma that proof actually uses. If the book only states the result, pinning
+   p.243 alone does not pin its proof.
+4. For the **mean candidate**, identify the full quantitative argument for the O(√ε) mean of the
+   *maximum-in-time* error and both rank alternatives. Check whether invariant phase volume, bounded
+   derivatives, compact containment of averaged trajectories, boundary stopping, or a minimum smoothness
+   order is required; the exact candidate binders may need visible revision.
+5. For the **local-existence candidate**, additionally verify a smooth-source/localized version applicable
+   to an action-cutoff Hamiltonian, or supply a direct local stopped proof. Check uniformity in ε and
+   actual continuation to 1/ε; the supplied-family premise of the mean candidate cannot supply this.
+   An analytic cutoff is not a permitted substitute.
+
+Candidate alternative primary proofs, identified but **not pinned/read here**:
+
+- **A. I. Neishtadt, “Averaging in multifrequency systems. II”**, Doklady Akademii Nauk SSSR
+  **226** (6) (1976), **1295–1298**. [Primary journal metadata, MathNet dan39798](https://www.mathnet.ru/rus/dan39798).
+  These are the **four complete original pages** to obtain, including hypotheses, proof and references.
+  NO22 slide 14 footnote 7 identifies this paper; the MathNet metadata confirms its Russian citation.
+  Its complete proof and correspondence with AKN [451] remain **[unverified]** until the book bibliography
+  and paper are read. The commonly listed English translation is Soviet Physics Doklady **21** (1976),
+  **80–82**; that translation has not been inspected and is not a pinned authority in this packet.
+- **A. I. Neishtadt, “Averaging in multifrequency systems”**, Doklady Akademii Nauk SSSR
+  **223** (2) (1975), **314–317**. [Primary journal metadata, MathNet dan39151](https://www.mathnet.ru/rus/dan39151).
+  Obtain all four pages if Part II invokes them; a separate theorem-level applicability check is required.
+  The commonly listed translation is Soviet Physics Doklady **20** (1975), **492–494**, also uninspected.
+- **T. Kasuga, “On the Adiabatic Theorem for the Hamiltonian System of Differential Equations in the
+  Classical Mechanics. I, II, III”**, Proceedings of the Japan Academy **37** (7) (1961),
+  **366–371, 372–376, 377–382**. The [primary journal issue](https://www.jstage.jst.go.jp/browse/pjab1945/37/7/_contents/-char/en)
+  identifies the three papers and their PDFs. Part I's verified journal DOI is
+  [10.3792/pja/1195577651](https://doi.org/10.3792/pja/1195577651); Part II is
+  [10.3792/pja/1195577652](https://doi.org/10.3792/pja/1195577652).
+  These are potential technique dependencies, **not** a separately verified replacement for the sharp
+  quantitative mean theorem. Obtain only if the original quantitative proof relies on them.
+
+The Russian primary metadata and the author-slide reference identify acquisition candidates; they do not
+verify their theorem statements or prove a smooth-cutoff extension. No source hash is invented for these
+unpinned papers. The old book/slide/transcription hashes remain the pins listed above. F-NADD-9 removes
+the slide as evidence for the rank alternatives altogether.
