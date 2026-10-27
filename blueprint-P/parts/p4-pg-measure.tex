@@ -1,0 +1,233 @@
+\section{Measure estimates for P-G}\label{bpP:p4}
+
+This part supplies the three measure inputs of the proof of \Pref{bpP:p0:pg}: the loss from the boundary collar of $V$, the loss from the non-Diophantine frequencies (CP10 Lemma~3.1, p.~562, proved in Appendix~C, pp.~574--578), and the loss from the singular shell near the oscillator centres, together with the exact volume of the cylinder cell. Part~3 produces a set of whole tori $K_\Omega$ with the measure bound (3.1), whose right side contains $\meas(D\setminus D^{\rm dio})$ and $\meas(\operatorname{Re}(D_{r})\setminus D)$ (Proposition~\ref{bpP:p3:two-scale-kam}); the lemmas below bound both quantities for the action domain $D=\bar D_t\times A$ of CP10 (48), and convert the bound to the relative loss in the frozen cell $\mathcal F(V,r)$ (Proposition~\ref{bpP:p4:cell-budget}). Part~5 chooses the free parameters.
+
+\paragraph{Route.} CP10 estimates the non-Diophantine set by covering the frequency image with $p$ sets $U(I_1^{(i)})$ and slicing each one. For the frequency map of P-G the number $p$ grows as the oscillator radius shrinks, so the constants $c_1,c_2$ of (58) are \emph{not} independent of $\varepsilon$ (Remark~\ref{bpP:p4:lemma-3-1}, errata (E1), (E2)). We replace the covering by a direct slicing argument. In the variables $y=\omega_{H_0}(I)$ (bi-Lipschitz coordinates, by the frozen hypothesis $\operatorname{HasFastDiffeo}$) and $\xi$ (oscillator actions), a resonance with $k_1\ne0$ is a perturbation of the linear form $k_1\cdot y$ whose sections along $y_j$ are short, as long as $\mu|k|$ is small; for $\mu|k|$ large the resonance is cut by the nondegenerate slow block $\beta$, and the sum over such $k$ carries the factor $\mu^{\tau-n}$. This is the use of the full strength $\tau>n$.
+
+\paragraph{Conventions.} $n=a+b$, $n_1=a$, $n_2=b$; $\abs\cdot$ is the max norm on $\R^m$, $\abs{k}_1$ the $\ell^1$ norm of $k\in\Z^m$; $\meas$ is Lebesgue outer measure (as in \Kref{bp:p1:ext-lebesgue}); sets to which Tonelli is applied are Borel. $\mathcal D_{\alpha_1,\alpha_2,\tau}$ is the two-scale set of Definition~\ref{bpP:p1:two-scale}. The frozen radius of the cylinder is $r$ (Definition~\ref{bpP:p0:cylinder}); \emph{Part 3's enlargement radius is written $r_K$} ($=32\hat E\hat\rho$ there). Oscillator actions are $\xi_j=\tfrac12(p_j^2+q_j^2)$, so the frozen disc condition is $\xi_j<r^2/2$.
+
+\subsection{External facts}\label{bpP:p4:ext}
+\begin{enumerate}[label=(X\arabic*)]
+\item\label{bpP:p4:ext-tonelli} \emph{Tonelli.} If $R\subset\R^N$ is Borel, $j\le N$, every section $\{s\in\R:(x',s)\in R\}$ ($x'\in\R^{N-1}$, other coordinates fixed) has outer measure $\le\delta$, and the projection of $R$ forgetting the $j$-th coordinate lies in a set of measure $\le P$, then $\meas R\le\delta P$. A set of diameter $\le\delta$ in $\R$ has outer measure $\le\delta$.
+\item\label{bpP:p4:ext-mvt} Mean value inequality on convex sets (\Kref{bp:p1:ext-mvt}); Lipschitz images (\Kref{bp:p1:lip-image}); Borel images of Borel sets under injective continuous maps (\ref{bpP:p1:ext-borel}).
+\item\label{bpP:p4:ext-deriv} The derivative of a real analytic function on an open set is real analytic (hence $C^1$); a $C^1$ function is continuously differentiable and locally Lipschitz.
+\item\label{bpP:p4:ext-conn} A connected set meeting both $V$ and its complement meets $\partial V$.
+\end{enumerate}
+
+\subsection{The boundary collar}\label{bpP:p4:s-collar}
+
+Let $V,A,d$ be as in \Pref{bpP:p0:pg} ($V\subset\R^a$ open, connected, bounded; $\operatorname{meas}\{I:\exists J\in\partial V,\ \abs{I-J}<t\}\le At$ for $0<t<d$). Then $0<\meas V<\infty$ and $\partial V\ne\emptyset$ ($V\ne\emptyset$ is open and not $\R^a$, which is connected). For $t>0$ put
+\[\bar D_t:=\{I\in V:\ \operatorname{dist}(I,\partial V)\ge t\},\qquad N_s(X):=\{x\in\R^a:\exists J\in X,\ \abs{x-J}<s\}.\]
+
+\begin{lemma}[Collar]\label{bpP:p4:collar}
+\begin{enumerate}[label=(\alph*)]
+\item $\bar D_t$ is compact, $\bar D_t\subset V$, and $V\setminus\bar D_t=\{I\in V:\operatorname{dist}(I,\partial V)<t\}$.
+\item If $0<t<d$ then $\meas(V\setminus\bar D_t)\le At$; hence $\meas\bar D_t\ge\meas V-At$.
+\item If $0<s<t$ then $N_s(\bar D_t)\subset V$, and $N_s(\bar D_t)\setminus\bar D_t\subset V\setminus\bar D_t$; so for $0<s<t<d$, $\meas(N_s(\bar D_t)\setminus\bar D_t)\le At$.
+\end{enumerate}
+\source{Ours. The frozen hypothesis \Lean{hboundary} replaces CP10 p.~561's unproved collar estimate ``$\operatorname{meas}(\operatorname{Re}(V_r)\setminus V)\le C\bar\gamma_2\operatorname{meas}V$'' (audit P3, D-PG-5, errata (E3)); only the \emph{inner} side is needed because every neighbourhood below stays inside $V$.}
+\end{lemma}
+\begin{proof}
+\proofstep{(a) Compact}\label{stepP:p4:co-compact}
+$\bar D_t$ is bounded. If $J_m\in\bar D_t$, $J_m\to J$, then $J\in\overline V$ and $\operatorname{dist}(J,\partial V)\ge t>0$ by continuity of the distance, so $J\notin\partial V$, i.e.\ $J\in V$ ($V$ open): closed. The description of $V\setminus\bar D_t$ is the definition.
+\proofstep{(b) Measure}\label{stepP:p4:co-meas}
+If $I\in V\setminus\bar D_t$ then $\operatorname{dist}(I,\partial V)<t$, so there is $J\in\partial V$ with $\abs{I-J}<t$: $V\setminus\bar D_t$ lies in the set of the hypothesis. Then $\meas\bar D_t=\meas V-\meas(V\setminus\bar D_t)$.
+\proofstep{(c) Neighbourhoods}\label{stepP:p4:co-nbhd}
+Let $J\in\bar D_t$, $B=\{x:\abs{x-J}<s\}$, $s<t$. $B$ is convex, hence connected, contains $J\in V$ and misses $\partial V$; by \ref{bpP:p4:ext-conn} it misses $V^c$, so $B\subset V$. If $x\in N_s(\bar D_t)\setminus\bar D_t$ then $x\in V$ and $x\notin\bar D_t$, which is $x\in V\setminus\bar D_t$.
+\end{proof}
+
+\subsection{Uniform Lipschitz facts}\label{bpP:p4:s-lip}
+
+\begin{lemma}[Uniform Lipschitz bounds on compact sets]\label{bpP:p4:lip-compact}
+Let $\Theta\subset\R^p$ and $K\subset\R^m$ be compact, $O\subset\R^p\times\R^m$ open with $\Theta\times K\subset O$, and $f:O\to\R^q$ continuous with $x\mapsto f(\theta,x)$ of class $C^1$ and $D_xf$ jointly continuous on $O$ ($p=0$ allowed). Then there is $\Lambda$ with $\abs{f(\theta,x)-f(\theta,x')}\le\Lambda\abs{x-x'}$ for $\theta\in\Theta$, $x,x'\in K$.
+\end{lemma}
+\begin{proof}
+\proofstep{Contradiction}\label{stepP:p4:lc-contra}
+If not, there are $\theta_m,x_m\ne x_m'$ with $\abs{f(\theta_m,x_m)-f(\theta_m,x_m')}>m\abs{x_m-x_m'}$. Since $f$ is bounded on $\Theta\times K$, $\abs{x_m-x_m'}\to0$; pass to a subsequence with $\theta_m\to\theta^*$, $x_m,x_m'\to x^*$.
+\proofstep{Local bound}\label{stepP:p4:lc-local}
+Choose $\delta>0$ with $\overline{B_\delta(\theta^*)}\times\overline{B_\delta(x^*)}\subset O$ and $M_*:=\sup\norm{D_xf}$ over it (finite, continuity). For large $m$ the segment $[x_m,x_m']$ lies in $B_\delta(x^*)$ and $\theta_m\in B_\delta(\theta^*)$, so \ref{bpP:p4:ext-mvt} gives $\abs{f(\theta_m,x_m)-f(\theta_m,x_m')}\le M_*\abs{x_m-x_m'}$, contradicting the choice for $m>M_*$.
+\end{proof}
+
+\begin{lemma}[Lipschitz inverse of the fast frequency]\label{bpP:p4:lip-inverse}
+Assume $\operatorname{HasFastDiffeo}(H_0,W)$ (Def.~\ref{bpP:p0:fastdiffeo}) and $\overline V\subset W$ with $V$ bounded. Write $\omega_{H_0}=$ \Lean{fastFrequency} $H_0$, $g$ the frozen inverse. Then $\omega_{H_0}$ is continuous on $W$; $Y_0:=\omega_{H_0}(\overline V)$ is compact and contained in the open set $\omega_{H_0}(W)$; $g(\omega_{H_0}(I))=I$ on $W$; and there is $L_g<\infty$ with $\abs{g(y)-g(y')}\le L_g\abs{y-y'}$ for $y,y'\in Y_0$. Put $R_y:=\max_{Y_0}\abs y$ and $\Lambda_g:=\max\{1,L_g\}$. These depend only on $(H_0,V,W)$.
+\source{Ours; this is the ``Lipschitz inverse of $\omega_0$'' used in CP10 Lemma 3.1 (``extended to a diffeomorphism''), made explicit from the frozen $C^1$ inverse.}
+\end{lemma}
+\begin{proof}
+\proofstep{Continuity and compactness}\label{stepP:p4:li-cont}
+$H_0$ is analytic on $W$, so $\omega_{H_0}$ is analytic on $W$ (\ref{bpP:p4:ext-deriv}); $\overline V$ is compact (bounded, closed), so $Y_0$ is compact, and it lies in $\omega_{H_0}(W)$, which is open by the frozen clause (ii).
+\proofstep{Lipschitz}\label{stepP:p4:li-lip}
+$g$ is $C^1$ on the open set $\omega_{H_0}(W)\supset Y_0$ (frozen clause (iii)): apply Lemma~\ref{bpP:p4:lip-compact} with $p=0$.
+\end{proof}
+
+\begin{lemma}[Uniform inverse of the torsion block]\label{bpP:p4:beta-inverse}
+Let $\beta(\mu,I)$ be symmetric $b\times b$ with $\abs{\det\beta(\mu,I)}\ge B>0$ and entries bounded by $M_\beta$ for $\mu\in(0,\mu_0]$, $I\in V$. Then $\abs\nu\le L_\beta\abs{\beta(\mu,I)^{\top}\nu}$ for all $\nu\in\R^b$, with $L_\beta:=b!\,M_\beta^{b-1}/B$.
+\end{lemma}
+\begin{proof}
+Cramer (\Kref{bp:p1:ext-cramer}): $(\beta^\top)^{-1}=\operatorname{adj}(\beta^\top)/\det\beta$; entries of the adjugate are $(b-1)\times(b-1)$ minors, bounded by $(b-1)!M_\beta^{b-1}$ (Leibniz); so the row-sum operator norm is $\le b!M_\beta^{b-1}/B$.
+\end{proof}
+The boundedness $M_\beta<\infty$ comes from joint analyticity of the family (Part~5, \Pref{bpP:p5:uniform-remainder}), which also gives the regularity (N) below by Lemma~\ref{bpP:p4:lip-compact}.
+
+\subsection{The two-scale Diophantine measure (CP10 Lemma 3.1)}\label{bpP:p4:s-dio}
+
+\begin{definition}[Frequency map of the averaged system]\label{bpP:p4:freq}
+Let $N_\mu(I,\xi)=P_0(\mu,I)+\Omega(\mu,I)\cdot\xi+\tfrac12\xi\cdot\beta(\mu,I)\xi$ ($I\in\R^a$, $\xi\in\R^b$), assume $P_0(\mu,\cdot)$, $\Omega(\mu,\cdot)$, $\beta(\mu,\cdot)$ are $C^1$ near $\bar D$, and put $G_\mu:=\nabla_IN_\mu\in\R^a$, $\omega^{\rm s}_\mu(I,\xi):=\Omega(\mu,I)+\beta(\mu,I)\xi=\nabla_\xi N_\mu\in\R^b$. For $\mu>0$ the \emph{frequency map} (CP angular convention) is
+\[\omega_\mu(I,\xi):=\bigl(\omega_{H_0}(I)+\mu\,G_\mu(I,\xi),\ \mu\,\omega^{\rm s}_\mu(I,\xi)\bigr)=\nabla_{(I,\xi)}\bigl(H_0+\mu N_\mu\bigr).\]
+\emph{Dictionary with Part 3.} Part 3's $h=(H_0+\mu N_\mu)/2\pi$ and $\omega_0=\partial h=\omega_\mu/2\pi$ (Lemma~\ref{bpP:p3:period-dictionary}); since $\mathcal D_{\gamma_1,\gamma_2,\tau}$ is a cone condition, $\omega_\mu/2\pi\in\mathcal D_{\gamma_1,\gamma_2,\tau}$ iff $\omega_\mu\in\mathcal D_{2\pi\gamma_1,2\pi\gamma_2,\tau}$ (Lemma~\ref{bpP:p1:dio-basic}(c) for each line of the definition). So with $\alpha_i=2\pi\gamma_i$: $D\setminus D^{\rm dio}=\{J\in D:\omega_\mu(J)\notin\mathcal D_{\alpha_1,\alpha_2,\tau}\}$.
+\end{definition}
+
+\begin{definition}[Standing data (S4)]\label{bpP:p4:data}
+$\tau>n$. $\bar D\subset V$ compact with $\meas\bar D>0$. $\lambda_0,\mu_1>0$, and constants $\Lambda_N\ge1$, $L_\beta\ge1$ such that for $\mu\in(0,\mu_1]$, $I,I'\in\bar D$, $\abs\xi,\abs{\xi'}\le\lambda_0$:
+\begin{enumerate}[label=(N\arabic*)]
+\item $\abs{G_\mu(I,\xi)-G_\mu(I',\xi)}\le\Lambda_N\abs{I-I'}$ and $\abs{\omega^{\rm s}_\mu(I,\xi)-\omega^{\rm s}_\mu(I',\xi)}\le\Lambda_N\abs{I-I'}$;
+\item $\abs{G_\mu(I,\xi)-G_\mu(I,\xi')}\le\Lambda_N\abs{\xi-\xi'}$;
+\item $\abs\nu\le L_\beta\abs{\beta(\mu,I)^\top\nu}$ for $\nu\in\R^b$ (Lemma~\ref{bpP:p4:beta-inverse}).
+\end{enumerate}
+Constants of Lemma~\ref{bpP:p4:lip-inverse}: $R_y,L_g,\Lambda_g$. Put $M:=2b\Lambda_NL_\beta$ and require $\mu\le\mu_1\le\bigl(2(1+M)a\Lambda_N\Lambda_g\bigr)^{-1}$.
+\end{definition}
+
+\begin{lemma}[Slab with offset]\label{bpP:p4:affine-slab}
+For $\ell\in\R^N\setminus\{0\}$, $c\in\R$, $\lambda,a'>0$: $\meas\{x\in[-\lambda,\lambda]^N:\abs{\ell\cdot x+c}<a'\}\le2a'(2\lambda)^{N-1}/\abs\ell$.
+\end{lemma}
+\begin{proof}
+Take $i$ with $\abs{\ell_i}=\abs\ell$. Each section in $x_i$ lies in an interval of length $2a'/\abs{\ell_i}$; apply \ref{bpP:p4:ext-tonelli} (cf.\ \Kref{bp:p4:slab}).
+\end{proof}
+
+\begin{lemma}[Lattice sums]\label{bpP:p4:lattice-tail}
+(a) $\sum_{k\in\Z^n\setminus0}\abs{k}_1^{-\tau}\le S_1:=2\cdot3^{n-1}\frac{\tau+1-n}{\tau-n}$ ($\tau>n$); $\sum_{k_2\in\Z^b\setminus0}\abs{k_2}_1^{-\tau-1}\le S_2:=2\cdot3^{b-1}\frac{\tau+2-b}{\tau+1-b}$.
+(b) For real $m\ge1$: $\sum_{\abs{k}_1>m}\abs{k}_1^{-\tau-1}\le C_T(2/m)^{\tau+1-n}$, $C_T:=2\cdot3^{n-1}/(\tau+1-n)$.
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p4:lt-a} \Kref{bp:p4:lattice-sum} with $(n,\tau-1)$ (valid as $\tau-1>n-1$) and with $(b,\tau)$.
+\proofstep{(b)}\label{stepP:p4:lt-b} By \Kref{bp:p4:lattice-count} the sum is $\le2\cdot3^{n-1}\sum_{\ell>m}\ell^{-p}$, $p=\tau+2-n>1$. By convexity $\ell^{-p}\le\int_{\ell-1/2}^{\ell+1/2}x^{-p}dx$, and $\ell>m\ge1$ gives $\ell-\frac12\ge m/2$: the sum is $\le\int_{m/2}^\infty x^{-p}dx=(m/2)^{1-p}/(p-1)$.
+\end{proof}
+
+\begin{proposition}[Two-scale Diophantine measure]\label{bpP:p4:two-scale-diophantine-measure}
+Assume (S4), $0<\lambda\le\lambda_0$, $Q\subset(-\lambda,\lambda)^b$ Borel, $\mu\in(0,\mu_1]$, $\alpha_1,\alpha_2>0$, and set
+\[\mathcal R:=\{(I,\xi)\in\bar D\times Q:\ \omega_\mu(I,\xi)\notin\mathcal D_{\alpha_1,\alpha_2,\tau}\},\qquad\bar\gamma:=\alpha_2/\mu.\]
+Then
+\[\meas\mathcal R\le\Bigl[c_1\alpha_1\Bigl(1+\frac{\mu^{\tau-n}}\lambda\Bigr)+c_2\frac{\bar\gamma}{\lambda}\Bigr]\meas(\bar D)\,(2\lambda)^b,\]
+\[c_1:=\frac{\Lambda_g^n}{\meas\bar D}\max\Bigl\{4(2R_y)^{a-1}S_1,\ 4b^2L_\beta(2R_y)^aC_T(4\Lambda_N\Lambda_g)^{\tau+1-n}\Bigr\},\qquad c_2:=bL_\beta S_2.\]
+The constants depend on $(a,b,\tau,H_0,V,W,\Lambda_N,L_\beta,\bar D)$ only, not on $\mu,\lambda,Q,\alpha_i$.
+\source{CP10 Lemma 3.1, p.~562, proof pp.~574--577, in the form needed for (59). The statement and proof are \emph{not} CP10's: see Remark~\ref{bpP:p4:lemma-3-1} and errata (E1), (E2). The constant $c(n,\tau)=\sum\abs k^{-\tau}$ of (58) is $S_1$-type; the factor $\bar\gamma/\lambda=\gamma_2/(\mu\lambda)$ is CP10's $\gamma_2/\hat r$.}
+\end{proposition}
+\begin{proof}
+For $k=(k_1,k_2)\ne0$ put $F_k:=k\cdot\omega_\mu=k_1\cdot\omega_{H_0}(I)+\mu\bigl[k_1\cdot G_\mu+k_2\cdot\omega^{\rm s}_\mu\bigr]$ and $\alpha_k:=\alpha_1\abs{k}_1^{-\tau}$ if $k_1\ne0$, $\alpha_k:=\alpha_2\abs{k}_1^{-\tau}$ if $k_1=0$. Then $\mathcal R=\bigcup_k\mathcal R_k$, $\mathcal R_k=\{(I,\xi)\in\bar D\times Q:\abs{F_k}<\alpha_k\}$ (Borel: $F_k$ is continuous by (N1)--(N2) and Lemma~\ref{bpP:p4:lip-inverse}). Split $\mathcal R=\mathcal R^{(0)}\cup\mathcal R^{(A)}\cup\mathcal R^{(B)}$: $k_1=0$; $k_1\ne0$ in $\mathcal K_A$; $k_1\ne0$ in $\mathcal K_B$, where
+\[\mathcal K_A:=\{k_1\ne0:\ \mu\Lambda_N\Lambda_g\abs{k}_1\le\abs{k_1}_\infty/2\},\qquad\mathcal K_B:=\{k_1\ne0\}\setminus\mathcal K_A.\]
+(Here $\abs{k_1}_\infty$ is the max norm of the block $k_1\in\Z^a$, $\abs{k_1}_1$ its $\ell^1$ norm, and $\abs{k}_1$ the $\ell^1$ norm of $k$.)
+
+\proofstep{Case $k_1=0$ (slow resonances)}\label{stepP:p4:dm-slow}
+Here $F_k=\mu k_2\cdot(\Omega+\beta\xi)$, $\abs{k}_1=\abs{k_2}_1$. For fixed $I$, $\{\xi\in[-\lambda,\lambda]^b:\abs{(\beta^\top k_2)\cdot\xi+k_2\cdot\Omega}<\bar\gamma\abs{k_2}_1^{-\tau}\}$ has measure $\le2\bar\gamma\abs{k_2}_1^{-\tau}(2\lambda)^{b-1}/\abs{\beta^\top k_2}$ by Lemma~\ref{bpP:p4:affine-slab} ($\beta^\top k_2\ne0$ by (N3)). By (N3) and $\abs{k_2}\ge\abs{k_2}_1/b$, $\abs{\beta^\top k_2}\ge\abs{k_2}_1/(bL_\beta)$. Tonelli in $I$ gives $\meas\mathcal R_k\le\meas\bar D\,2\bar\gamma bL_\beta(2\lambda)^{b-1}\abs{k_2}_1^{-\tau-1}$, and by Lemma~\ref{bpP:p4:lattice-tail}(a) $\meas\mathcal R^{(0)}\le\meas\bar D(2\lambda)^b\,bL_\beta S_2\,\bar\gamma/\lambda$. (No injectivity of $\omega_\mu$ is used; $\mu$ cancels because the threshold is $\mu\bar\gamma$.)
+
+\proofstep{Change to frequency coordinates}\label{stepP:p4:dm-y}
+Let $\Phi(I,\xi)=(\omega_{H_0}(I),\xi)$, injective and continuous on $\bar D\times[-\lambda,\lambda]^b$ with inverse $(y,\xi)\mapsto(g(y),\xi)$, which is $\Lambda_g$-Lipschitz on $Y_0\times\R^b$ (Lemma~\ref{bpP:p4:lip-inverse}, max norm). Put $Y=\omega_{H_0}(\bar D)\subset[-R_y,R_y]^a$, $\mathcal R_k'=\Phi(\mathcal R_k)$ (Borel, \ref{bpP:p4:ext-mvt}). By \Kref{bp:p1:lip-image} in $\R^n$: $\meas\mathcal R_k\le\Lambda_g^n\meas\mathcal R_k'$. On $\mathcal R_k'$ the function is $\tilde F_k(y,\xi)=k_1\cdot y+\mu\tilde G_k(y,\xi)$, $\tilde G_k:=k_1\cdot G_\mu(g(y),\xi)+k_2\cdot\omega^{\rm s}_\mu(g(y),\xi)$, and by (N1) and Lemma~\ref{bpP:p4:lip-inverse}
+\[\abs{\tilde G_k(y,\xi)-\tilde G_k(y',\xi)}\le\Lambda_N\Lambda_g\abs{k}_1\abs{y-y'}\quad(y,y'\in Y).\]
+
+\proofstep{Case $\mathcal K_A$ (slicing in $y_j$)}\label{stepP:p4:dm-A}
+Let $k\in\mathcal K_A$ and $j$ with $\abs{k_{1,j}}=\abs{k_1}_\infty\ge1$. For two points $(y+se_j,\xi)$, $(y,\xi)$ of $\mathcal R_k'$:
+$\abs{\tilde F_k(y+se_j,\xi)-\tilde F_k(y,\xi)}\ge\abs{k_{1,j}}\abs s-\mu\Lambda_N\Lambda_g\abs{k}_1\abs s\ge\abs{k_{1,j}}\abs s/2$. Both values have modulus $<\alpha_k$, hence $\abs s<4\alpha_k/\abs{k_{1,j}}\le4\alpha_k$: every $y_j$-section of $\mathcal R'_k$ has diameter $\le4\alpha_k$ (no convexity of $\bar D$ is needed). The projection forgetting $y_j$ lies in $[-R_y,R_y]^{a-1}\times[-\lambda,\lambda]^b$. By \ref{bpP:p4:ext-tonelli}, $\meas\mathcal R_k'\le4\alpha_1\abs{k}_1^{-\tau}(2R_y)^{a-1}(2\lambda)^b$, and summing (Lemma~\ref{bpP:p4:lattice-tail}(a)),
+$\meas\mathcal R^{(A)}\le\Lambda_g^n\,4S_1(2R_y)^{a-1}\alpha_1(2\lambda)^b$.
+
+\proofstep{Structure of $\mathcal K_B$}\label{stepP:p4:dm-Bstruct}
+Let $k\in\mathcal K_B$. (i) $\abs{k}_1>K_\mu:=(2\mu\Lambda_N\Lambda_g)^{-1}$, because $\mu\Lambda_N\Lambda_g\abs{k}_1>\abs{k_1}_\infty/2\ge\frac12$; and $K_\mu\ge1$ since $\mu\le\mu_1$. (ii) $\abs{k_2}_1>M\abs{k_1}_1$: otherwise $\abs{k}_1\le(1+M)\abs{k_1}_1\le(1+M)a\abs{k_1}_\infty$ and $\mu\Lambda_N\Lambda_g\abs{k}_1\le\abs{k_1}_\infty/2$ by $\mu\le\mu_1$, i.e.\ $k\in\mathcal K_A$. Consequently $\abs{k}_1<(1+M^{-1})\abs{k_2}_1\le2b\abs{k_2}_\infty$ and $\Lambda_N\abs{k_1}_1\le\Lambda_Nb\abs{k_2}_\infty/M=\abs{k_2}_\infty/(2L_\beta)$.
+
+\proofstep{Case $\mathcal K_B$ (slicing in $\xi_j$)}\label{stepP:p4:dm-B}
+Fix $k\in\mathcal K_B$ and $j\le b$; let $\mathcal R_{k,j}$ be the part of $\mathcal R'_k$ with $\abs{(\beta(\mu,g(y))^\top k_2)_j}\ge\abs{k_2}_\infty/L_\beta$; by (N3) $\mathcal R_k'=\bigcup_{j\le b}\mathcal R_{k,j}$ (take $j$ maximizing $\abs{(\beta^\top k_2)_j}$). Along $\xi\mapsto\xi+se_j$ ($y$ and the other $\xi$'s fixed, so $I=g(y)$ fixed)
+\[\tilde F_k(y,\xi+se_j)-\tilde F_k(y,\xi)=\mu s\,(\beta^\top k_2)_j+\mu\,k_1\cdot\bigl(G_\mu(I,\xi+se_j)-G_\mu(I,\xi)\bigr),\]
+because $\omega_\mu^{\rm s}$ is affine in $\xi$. By (N2) and \ref{stepP:p4:dm-Bstruct} the modulus is $\ge\mu\abs s\bigl(\abs{k_2}_\infty/L_\beta-\Lambda_N\abs{k_1}_1\bigr)\ge\mu\abs s\abs{k_2}_\infty/(2L_\beta)$. Two points of $\mathcal R_{k,j}$ on one line thus satisfy $\abs s<4L_\beta\alpha_k/(\mu\abs{k_2}_\infty)\le8bL_\beta\alpha_1\abs{k}_1^{-\tau-1}/\mu$. The projection forgetting $\xi_j$ lies in $[-R_y,R_y]^a\times[-\lambda,\lambda]^{b-1}$. Summing over $j\le b$, then over $\abs{k}_1>K_\mu$, with Lemma~\ref{bpP:p4:lattice-tail}(b):
+\[\meas\mathcal R^{(B)}\le\Lambda_g^n\,b\,(2R_y)^a(2\lambda)^{b-1}\frac{8bL_\beta\alpha_1}{\mu}C_T\bigl(2/K_\mu\bigr)^{\tau+1-n}=\Lambda_g^n(2\lambda)^b\,4b^2L_\beta(2R_y)^aC_T(4\Lambda_N\Lambda_g)^{\tau+1-n}\alpha_1\frac{\mu^{\tau-n}}{\lambda}.\]
+(here $2/K_\mu=4\mu\Lambda_N\Lambda_g$.)
+\proofstep{Sum}\label{stepP:p4:dm-sum}
+Add the three bounds; each of the $\Lambda_g^n$-terms is $\le c_1\meas\bar D\,\alpha_1(2\lambda)^b$ times $1$, resp.\ $\mu^{\tau-n}/\lambda$.
+\end{proof}
+
+\begin{remark}[What is and is not claimed; status of CP10 Lemma 3.1]\label{bpP:p4:lemma-3-1}
+CP10 Lemma 3.1 (p.~562) states $\meas\mathcal R\le(c_1\gamma_1+c_2\gamma_2/\hat r)\meas(\bar D\times B_{\hat r})$, with $c_1$ containing an integer $p$, ``for a suitable integer $p$ depending on $\bar D$ and $\omega_1$'', the number of sets $U(I_1^{(i)})$ of (111) needed to cover $\omega(\bar D\times B_{\hat r})$. The lemma is true for each $\hat r$, but $p=p(\hat r)$, and in general $p\gtrsim\hat r^{-1}$: for $n_1=n_2=1$, $\bar D=[0,1]$, $\omega(I_1,I_2)=(I_1,I_1+I_2)$ (a diffeomorphism, $\beta=1$), the resonance $k=(1,-1)$ gives $\abs{k\cdot\omega}=\abs{I_2}<\hat r$, so the whole domain is resonant as soon as $\gamma_1\ge2^\tau\hat r$ (CP10's $\abs k=\abs{k}_1$) while $\gamma_2$ is arbitrary small: the lemma forces $c_1\ge2^{-\tau}\hat r^{-1}$. CP10 then applies it with $\hat r=\check c_2\varepsilon^2$ and asserts ``$c_i$ independent of $\varepsilon$ and $\mu$'' (p.~562, after (59)). That is false for the abstract lemma; Proposition~\ref{bpP:p4:two-scale-diophantine-measure} proves the needed estimate directly, using the \emph{structure} of the frequency map (the fast Hessian is invertible because $\omega_{H_0}$ is bi-Lipschitz, and the slow block is $\mu(\Omega+\beta\xi)$ with $\beta$ nondegenerate), and so the covering lemma is not used. The counting lemmas of track K are reused as follows: \Kref{bp:p4:lattice-count}, \Kref{bp:p4:lattice-sum} (Lemma~\ref{bpP:p4:lattice-tail}); \Kref{bp:p4:slab} (model of Lemma~\ref{bpP:p4:affine-slab}, which needs a real normal and an offset); \Kref{bp:p4:preimage-measure} is \emph{not} reusable (its hypotheses are the pullback by the inverse frequency map $g$ of a full-dimensional single-scale setting with one threshold; it is replaced by Step~\ref{stepP:p4:dm-y}, which is the same Lipschitz-image argument with the product map $(y,\xi)\mapsto(g(y),\xi)$); \Kref{bp:p4:cover-mono} concerns the specific cover \Lean{kamCover} of track K and \Kref{bp:p4:dyadic-approx} serves HEAD-Q (no boundary hypothesis): neither is needed since \Lean{hboundary} is a hypothesis of P-G.
+\end{remark}
+
+\begin{remark}[The hypothesis $\tau>n$ and the factor $\mu^{\tau-n}$]\label{bpP:p4:tau}
+The sums $\sum\abs{k}_1^{-\tau}$ and $\sum\abs{k}_1^{-\tau-1}$ converge iff $\tau>n$ and $\tau>n-1$ resp. The extra term $c_1\alpha_1\mu^{\tau-n}/\lambda$ is harmless when $\mu^{\tau-n}\le\lambda$; since $\mu<r^6$ and $\lambda=r^2/2$, taking $\tau\ge n+1$ gives $\mu^{\tau-n}/\lambda\le2r^4$. Part~5 chooses $\tau$ (the frozen theorem only needs some $\tau>a+b$, Lemma~\ref{bpP:p1:dio-sources}).
+\end{remark}
+
+\subsection{Collar of the domain $D=\bar D_t\times A$}\label{bpP:p4:s-domain}
+
+Fix $0<\lambda_1<\lambda_2$ and $A_{\rm sh}:=(\lambda_1,\lambda_2)^b$ (the oscillator shell $\check c_1\varepsilon^{5/2}<J_{2,i}<\check c_2\varepsilon^2$ of (47); $\lambda_2=r^2/2$ for the frozen radius $r$), $\ell:=\lambda_2-\lambda_1$, and
+\[D:=\bar D_t\times A_{\rm sh}\subset\R^a\times\R^b.\]
+
+\begin{lemma}[Enlargement of $D$]\label{bpP:p4:domain-collar}
+Let $0<t<d$ and $0<r_K<\min\{t,\lambda_1\}$. Then $\operatorname{Re}(D_{r_K})=N_{r_K}(\bar D_t)\times(\lambda_1-r_K,\lambda_2+r_K)^b\subset V\times(0,\infty)^b$, and
+\[\meas\bigl(\operatorname{Re}(D_{r_K})\setminus D\bigr)\le\meas(D)\Bigl[\frac{At}{\meas\bar D_t}\Bigl(1+\frac{2r_K}\ell\Bigr)^b+\frac{2br_K}{\ell}\Bigl(1+\frac{2r_K}\ell\Bigr)^{b-1}\Bigr]=:\meas(D)\,\eta_2.\]
+\end{lemma}
+\begin{proof}
+\proofstep{Product structure}\label{stepP:p4:dc-prod}
+For the max norm, $\operatorname{dist}(x,X\times Y)=\max(\operatorname{dist}(x_1,X),\operatorname{dist}(x_2,Y))$, so the real neighbourhood of a product is the product of the real neighbourhoods; $N_{r_K}(\bar D_t)\subset V$ by Lemma~\ref{bpP:p4:collar}(c) and $\lambda_1-r_K>0$.
+\proofstep{Difference}\label{stepP:p4:dc-diff}
+$(X'\times Y')\setminus(X\times Y)\subset((X'\setminus X)\times Y')\cup(X\times(Y'\setminus Y))$. With $\meas(N_{r_K}(\bar D_t)\setminus\bar D_t)\le At$ (Lemma~\ref{bpP:p4:collar}(c)), $\meas Y'=(\ell+2r_K)^b$ and $(\ell+2r_K)^b-\ell^b\le2br_K(\ell+2r_K)^{b-1}$ (mean value), divide by $\meas D=\meas\bar D_t\,\ell^b$.
+\end{proof}
+
+\subsection{The cylinder cell and the singular shell}\label{bpP:p4:s-disc}
+
+Define the action--angle chart of the oscillators in the frozen coordinates $z=((\varphi,q),(I,p))$, $\varphi\in\R^a$, $I\in\R^a$, $(p_j,q_j)\in\R^2$:
+\[\Pi(I,\xi;\varphi,\psi):=\bigl(\varphi,q=\sqrt{2\xi}\sin\psi\bigr),\ \bigl(I,\ p=\sqrt{2\xi}\cos\psi\bigr),\qquad(I,\xi)\in\R^a\times(0,\infty)^b,\ \varphi\in\R^a,\ \psi\in\R^b,\]
+and, for a period-one angle $\vartheta=(\vartheta_f,\vartheta_s)\in[0,1)^n$, $\mathsf E(I,\xi,\vartheta):=\Pi(I,\xi;2\pi\vartheta_f,2\pi\vartheta_s)$ (the dictionary of Lemma~\ref{bpP:p3:period-dictionary} with $Q$; Part~3's $(J,\vartheta)=((I,\xi),\vartheta)$).
+
+\begin{lemma}[Cell and polar coordinates]\label{bpP:p4:disc-measure}
+(a) $\Pi$ is real analytic and injective on $\R^a\times(0,\infty)^b\times\R^a\times[0,2\pi)^b$ modulo $\varphi\mapsto\varphi+2\pi k$; $\abs{\det D\Pi}=1$. Hence $\mathsf E$ is injective on $\R^a\times(0,\infty)^b\times[0,1)^n$ and $\meas\mathsf E(X)=(2\pi)^n\meas X$ for measurable $X$ there.
+(b) $\mathcal F(V,r)\setminus\mathsf E(V\times(0,r^2/2)^b\times[0,1)^n)$ is null, and
+\[\meas\mathcal F(V,r)=(2\pi)^a\meas V\,(\pi r^2)^b=(2\pi)^n\meas V\,(r^2/2)^b .\]
+(c) (Singular shell.) For $0<\lambda_1<\lambda_2=r^2/2$, the set of $z\in\mathcal F(V,r)$ with $\xi_j\le\lambda_1$ for some $j$ has measure $\le b\frac{\lambda_1}{\lambda_2}\meas\mathcal F(V,r)$; with $\lambda_1=\kappa r^{5/2}$ this is $2b\kappa\sqrt r\,\meas\mathcal F$.
+\end{lemma}
+\begin{proof}
+\proofstep{Jacobian}\label{stepP:p4:dm-jac}
+For one oscillator, $(\xi,\psi)\mapsto(q,p)=\sqrt{2\xi}(\sin\psi,\cos\psi)$ has Jacobian determinant of modulus $1$ ($dp\wedge dq=d\xi\wedge d\psi$, Remark~\ref{bpP:p1:typical}(1); directly, $\partial_\xi=(\sin\psi,\cos\psi)/\sqrt{2\xi}$, $\partial_\psi=\sqrt{2\xi}(\cos\psi,-\sin\psi)$). It is a bijection of $(0,\infty)\times[0,2\pi)$ onto $\R^2\setminus0$. $\Pi$ is the identity on $(I,\varphi)$, so $\abs{\det D\Pi}=1$ after the permutation of coordinates (measure preserving), and the area formula (\Pref{bpP:p1:liouville}, \ref{bpP:p1:ext-area}) gives equality of measures on injectivity sets. $\vartheta\mapsto2\pi\vartheta$ has determinant $(2\pi)^n$.
+\proofstep{(b)}\label{stepP:p4:dm-cell}
+Let $z\in\mathcal F(V,r)$ with $(p_j,q_j)\ne0$ for all $j$ (the excluded set lies in finitely many subspaces of codimension $2$, hence is null). Then $\xi_j\in(0,r^2/2)$, $\psi_j\in[0,2\pi)$ is unique, $\varphi\in[0,2\pi)^a$, $I\in V$: $z=\mathsf E(I,\xi,\vartheta)$ with $\vartheta\in[0,1)^n$; the converse inclusion is the same computation. So $\meas\mathcal F=(2\pi)^n\meas V(r^2/2)^b$.
+\proofstep{(c)}\label{stepP:p4:dm-shell}
+In the chart, the set is $\mathsf E(V\times\{\xi:\exists j,\ \xi_j\le\lambda_1\}\times[0,1)^n)$ with $\{\xi\in(0,\lambda_2)^b:\exists j,\xi_j\le\lambda_1\}$ of measure $\le b\lambda_1\lambda_2^{b-1}$. Divide by (b).
+\end{proof}
+
+\subsection{The budgets consumed by Parts 3 and 5}\label{bpP:p4:s-budget}
+
+\begin{proposition}[Budget on the action side (the right side of (3.1))]\label{bpP:p4:budget}
+Assume (S4); $0<t<d$; $0<\lambda_1\le\lambda_2/2$, $\lambda_2\le\lambda_0$; $0<r_K<\min\{t,\lambda_1\}$; $\mu\in(0,\mu_1]$; and $D=\bar D_t\times A_{\rm sh}$ with $\bar D_t\subset\bar D$-admissible, i.e.\ (S4) holds with $\bar D:=\bar D_t$. Let $\gamma_1\ge\gamma_2>0$ be the Diophantine constants of Proposition~\ref{bpP:p3:two-scale-kam} (for $h=(H_0+\mu N_\mu)/2\pi$), $D^{\rm dio}$ as there, and $K_\Omega$ any set with (3.1) for $r=r_K$. Then
+\[\meas\bigl((D\times\T^n)\setminus K_\Omega\bigr)\le c_n(\eta_1+\eta_2)\meas D,\qquad
+\eta_1:=4^b\Bigl[c_1\,2\pi\gamma_1\Bigl(1+\frac{\mu^{\tau-n}}{\lambda_2}\Bigr)+c_2\frac{2\pi\gamma_2}{\mu\lambda_2}\Bigr],\]
+$\eta_2$ of Lemma~\ref{bpP:p4:domain-collar}, $c_n=1+(1+2^n)(1+(4/3)^n)$ of Proposition~\ref{bpP:p3:two-scale-kam}, $c_1,c_2$ with $\bar D=\bar D_t$.
+\end{proposition}
+\begin{proof}
+\proofstep{Reading (3.1)}\label{stepP:p4:bu-read}
+$D\subset\operatorname{Re}(D_{r_K})$, so $(D\times\T^n)\setminus K_\Omega\subset(\operatorname{Re}(D_{r_K})\times\T^n)\setminus K_\Omega$, of measure $\le c_n(\meas(D\setminus D^{\rm dio})+\meas(\operatorname{Re}(D_{r_K})\setminus D))$ ($\meas\T^n=1$).
+\proofstep{Non-Diophantine part}\label{stepP:p4:bu-dio}
+By the dictionary of Definition~\ref{bpP:p4:freq}, $D\setminus D^{\rm dio}=\mathcal R$ for $Q=A_{\rm sh}\subset(-\lambda_2,\lambda_2)^b$, $\lambda=\lambda_2$, $\alpha_i=2\pi\gamma_i$. Proposition~\ref{bpP:p4:two-scale-diophantine-measure} gives $\meas\mathcal R\le[\dots]\meas(\bar D_t)(2\lambda_2)^b$, and $(2\lambda_2)^b=(2\lambda_2/\ell)^b\ell^b\le4^b\ell^b$ since $\ell\ge\lambda_2/2$; $\meas\bar D_t\,\ell^b=\meas D$.
+\proofstep{Collar part}\label{stepP:p4:bu-collar}
+Lemma~\ref{bpP:p4:domain-collar}.
+\end{proof}
+
+\begin{proposition}[Budget in the frozen cell]\label{bpP:p4:cell-budget}
+In the situation of Proposition~\ref{bpP:p4:budget} with $\lambda_2=r^2/2$ ($r$ the frozen radius), let $K\subset\R^a\times(0,\infty)^b\times\T^n$ be any measurable set with $\meas((D\times\T^n)\setminus K)\le c_n(\eta_1+\eta_2)\meas D$ and let $\mathsf S:=\mathsf E(K\cap(\R^a\times(0,\infty)^b\times[0,1)^n))$. Then
+\[\meas\bigl(\mathcal F(V,r)\setminus\mathsf S\bigr)\le\Bigl[\frac{At}{\meas V}+b\frac{\lambda_1}{\lambda_2}+c_n(\eta_1+\eta_2)\Bigr]\meas\mathcal F(V,r).\]
+\end{proposition}
+\begin{proof}
+\proofstep{Decomposition}\label{stepP:p4:cb-dec}
+Up to a null set, $\mathcal F=\mathsf E(V\times(0,\lambda_2)^b\times[0,1)^n)$ (Lemma~\ref{bpP:p4:disc-measure}(b)), and $\mathcal F_{\rm good}:=\mathsf E(D\times[0,1)^n)\subset\mathcal F$ (since $\bar D_t\subset V$, $A_{\rm sh}\subset(0,\lambda_2)^b$). So $\mathcal F\setminus\mathsf S\subset(\mathcal F\setminus\mathcal F_{\rm good})\cup\mathsf E((D\times\T^n)\setminus K)$ up to a null set.
+\proofstep{Bad action set}\label{stepP:p4:cb-bad}
+By Lemma~\ref{bpP:p4:disc-measure}, $\meas\mathcal F_{\rm good}=(2\pi)^n\meas\bar D_t\,\ell^b$ and $\meas\mathcal F=(2\pi)^n\meas V\lambda_2^b$, so
+$\meas\mathcal F_{\rm good}/\meas\mathcal F=(\meas\bar D_t/\meas V)(1-\lambda_1/\lambda_2)^b\ge1-\frac{At}{\meas V}-b\frac{\lambda_1}{\lambda_2}$ (Lemma~\ref{bpP:p4:collar}(b); $(1-x)^b\ge1-bx$; $(1-u)(1-v)\ge1-u-v$).
+\proofstep{Lost tori}\label{stepP:p4:cb-lost}
+$\meas\mathsf E((D\times\T^n)\setminus K)=(2\pi)^n\meas((D\times\T^n)\setminus K)\le c_n(\eta_1+\eta_2)\meas\mathcal F_{\rm good}\le c_n(\eta_1+\eta_2)\meas\mathcal F$.
+\end{proof}
+
+\begin{remark}[What Part 5 must supply and check]\label{bpP:p4:use5}
+Part~5 chooses, as functions of $r$ and in the order of Theorem~\ref{bpP:p0:pg}: $\tau\ge n+1$; $t=\sqrt r$ (so $At/\meas V\le A\sqrt r/\meas V$, $t<d$ for $r<r_*$); $\lambda_2=r^2/2$, $\lambda_1=\kappa r^{5/2}$ (shell loss $2b\kappa\sqrt r$ by Lemma~\ref{bpP:p4:disc-measure}(c)); and $\gamma_1,\gamma_2$ so that $\eta_1\le C\sqrt r$: $\gamma_1\le Cr^{5/2}$ and $\gamma_2/\mu\le Cr^{5/2}$ (CP10 (20): $\gamma_1=\bar\gamma_2=\gamma_*^2\varepsilon^{5/2}$), and $r_K\le\min\{t,\lambda_1\}$ with $r_K/\ell\le C\sqrt r$ (from $r_K=32\hat E\hat\rho\le C\hat\rho\le C\gamma_2$) (so $\eta_2\le C\sqrt r$). It also checks (S4): (N1)--(N2) with $\Lambda_N$ from joint analyticity of $P_0,\Omega,\beta$ near $[0,\mu_0]\times\overline V$ (Lemma~\ref{bpP:p4:lip-compact}), (N3) from \Lean{htorsion} (Lemma~\ref{bpP:p4:beta-inverse}), $\mu\le\mu_1$ from $\mu<r^6$, injectivity and nondegeneracy of $\omega_\mu$ on the complex neighbourhood required by Proposition~\ref{bpP:p3:two-scale-kam}, and Borelness of $K_\Omega$ (Lemma~\ref{bpP:p1:torus-union}) for the frozen \Lean{MeasurableSet}. Proposition~\ref{bpP:p4:cell-budget} then gives $\meas(\mathcal F\setminus\mathsf S)\le C\sqrt r\meas\mathcal F$. The strict inequalities and positivity are Part~5 (\Pref{bpP:p5:strictness}).
+\end{remark}
+
+\subsection{Suspected misprints and gaps in CP10 (Lemma 3.1, Appendix C, \S3 end)}\label{bpP:p4:errata}
+\begin{enumerate}[label=(E\arabic*)]
+\item \textbf{V (gap).} p.~562, after (59): ``with $c_i$ independent of $\varepsilon$ and $\mu$''. The constant $c_1$ of (58) contains the covering number $p$, which depends on $\hat r=\check c_2\varepsilon^2$ (the lemma, p.~562, says ``for a suitable integer $p$ depending on $\bar D$ and $\omega_1$''); Remark~\ref{bpP:p4:lemma-3-1} gives a counterexample to $\hat r$-independence for the abstract lemma. Repaired by Proposition~\ref{bpP:p4:two-scale-diophantine-measure}.
+\item \textbf{V.} p.~562, (59) and the line before: Lemma~3.1 is applied to $\omega_{\rm resc}=(\partial_{J_1}(H_0+\mu\breve N),\partial_{J_2}\breve N)$, whose $k_1\ne0$ resonances $\abs{k_1\cdot\omega_1+k_2\cdot\omega_2}$ differ from those of $\omega_\mu=(\omega_1,\mu\omega_2)$ (where the term is $\mu k_2\cdot\omega_2$), which define $\mathcal D_{\gamma_1,\mu\bar\gamma_2,\tau}$. The two resonant sets are different; our proof treats $\omega_\mu$ itself.
+\item \textbf{T.} p.~561, below (55), footnote~25 and (57): ``$\operatorname{meas}(\operatorname{Re}(V_r)\setminus V)\le C\bar\gamma_2\operatorname{meas}V$'' (as extracted from the pinned PDF; the exponent/subscript may be a typesetting artifact) is asserted without proof and cannot hold for an arbitrary open $V$; it is replaced by \Lean{hboundary} (audit P3, D-PG-5), and only the inner collar is needed.
+\item \textbf{T (not verified).} p.~561 (56): the loss $C\varepsilon^{n_2/2}$ for the shell $\check c_1\varepsilon^{5/2}<J_{2,i}$. Our computation (Lemma~\ref{bpP:p4:disc-measure}(c)) gives $n_2\check c_1\varepsilon^{1/2}/\check c_2$, which is larger than $\varepsilon^{n_2/2}$ for $n_2\ge2$; CP10's displayed (18) and (20) are consistent with the $\sqrt\varepsilon$ rate only.
+\item \textbf{R.} p.~575 (113) and p.~576: after the change of variables the Jacobian $1/\abs{k_j}$ and the cover $\mathcal C_k^i$ are fine, and the integrals over the slice use the norm $\abs\cdot$; the sum $c(n,\tau)=\sum\abs k^{-\tau}$ needs $\tau>n$, which is why CP10 assumes $\tau_*>n$ (p.~550, footnote 12); Lemma~\ref{bpP:p4:lattice-tail} makes this explicit.
+\end{enumerate}
+
+\subsection{References and imported facts}\label{bpP:p4:forward}
+Part~1: \Pref{bpP:p1:two-scale}, \Pref{bpP:p1:dio-basic}, \Pref{bpP:p1:dio-sources}, \Pref{bpP:p1:liouville}, \Pref{bpP:p1:torus-union}, \Pref{bpP:p1:typical}. Part~3: \Pref{bpP:p3:two-scale-kam} (inequality (3.1), $c_n$), \Pref{bpP:p3:period-dictionary}, \S\ref{bpP:p3:interface}. Track K: \Kref{bp:p4:lattice-count}, \Kref{bp:p4:lattice-sum}, \Kref{bp:p4:slab} (model), \Kref{bp:p1:lip-image}, \Kref{bp:p1:ext-cramer}, \Kref{bp:p1:ext-lebesgue}, \Kref{bp:p1:ext-mvt}. Forward references to Part~5: \Pref{bpP:p5:uniform-remainder}, \Pref{bpP:p5:strictness}. Formalization notes: Lemma~\ref{bpP:p4:lip-compact} is a stand-alone compactness argument; Proposition~\ref{bpP:p4:two-scale-diophantine-measure} is three slicing estimates plus Tonelli on sets of short sections; the polar chart is a bounded stand-alone task.
