@@ -25,70 +25,7 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P additions: revision v0.4 (audit finding F-P-A1), in the inp worktree",
-   "state": "running"
-  },
-  {
-   "id": "audit-add-P",
-   "kind": "statement audit (Codex)",
-   "model": "GPT-6.1-Sol high",
-   "account": "codex-1",
-   "session": "inp-audit-p",
-   "assignment": "Statement audit of the track-P D22 additions: done (1 major finding F-P-A1: inline two result bundles; rest approvable)",
-   "state": "done"
-  },
-  {
-   "id": "audit-add-N",
-   "kind": "statement audit (Codex)",
-   "model": "GPT-6.1-Sol high",
-   "account": "codex-4",
-   "session": "inp-audit-n",
-   "assignment": "Statement audit of the track-N D22 additions: done (F-NADD-1 domain-convention gap; N-AVERAGING primary source missing)",
-   "state": "done"
-  },
-  {
-   "id": "bpI-p0",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track I blueprint: Part 0 (conventions, frozen statements) and part plan (done)",
-   "state": "done"
-  },
-  {
-   "id": "bpN-p0",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track N blueprint: Part 0 (conventions, frozen statements) and part plan (done)",
-   "state": "done"
-  },
-  {
-   "id": "bpP-p0",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track P blueprint: Part 0 (conventions, frozen statements) and part plan (done)",
-   "state": "done"
-  },
-  {
-   "id": "bpN-p3",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track N blueprint Part 3: shared Hamiltonian ODE layer for I, N, P (done)",
-   "state": "done"
-  },
-  {
-   "id": "bpI-p1",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track I blueprint Part 1: extended torsion, bordered triangular system (HL19 Lemma 6.1) (done)",
+   "assignment": "Track P additions: draft v0.4 done (F-P-A1 applied); under delta audit",
    "state": "done"
   },
   {
@@ -134,6 +71,15 @@
    "account": "claude-8",
    "session": null,
    "assignment": "Track I blueprint Part 2: isoenergetic step and iteration; proof of I-G1",
+   "state": "running"
+  },
+  {
+   "id": "delta-P",
+   "kind": "delta statement audit (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "inp-delta-p",
+   "assignment": "Delta audit of the track-P additions v0.3 -> v0.4 and readiness for the owner packet",
    "state": "running"
   }
  ]
