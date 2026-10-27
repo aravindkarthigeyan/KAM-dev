@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 17:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 23.0 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 17:44 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 23.0 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 17:40 UTC from `main` at `61e5031` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 17:44 UTC from `main` at `fb4da26` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks (94 anchors). Track K: blueprint consolidated; Part 1 under review; dependency graph extraction running (464 draft nodes, 9 slices; 6 Sonnet extractors, Part 1 slices after its review). Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints starting.
 
@@ -274,16 +274,16 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **review-p1** `kam-k-review` | blueprint review (Codex) | GPT-6.1-Sol | codex-1 | ✅ handed off | Refute-first review of blueprint Part 1 and of the consolidation pass (67b8129) | — | — |
-| **extract-K-p0** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | ⏸ idle | Dependency graph slice K-p0: confirm edges, fill source fields | — | — |
-| **extract-K-p2a** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | ⏸ idle | Dependency graph slice K-p2a: confirm edges, fill source fields | — | — |
-| **extract-K-p2b** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | ⏸ idle | Dependency graph slice K-p2b: confirm edges, fill source fields | — | — |
-| **extract-K-p3** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | ⏸ idle | Dependency graph slice K-p3: confirm edges, fill source fields | — | — |
-| **extract-K-p4a** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | ⏸ idle | Dependency graph slice K-p4a: confirm edges, fill source fields | — | — |
-| **extract-K-p4b** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | ⏸ idle | Dependency graph slice K-p4b: confirm edges, fill source fields | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 1 |
+| **extract-K-p0** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p0: confirm edges, fill source fields | — | — |
+| **extract-K-p2a** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p2a: confirm edges, fill source fields | — | — |
+| **extract-K-p2b** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p2b: confirm edges, fill source fields | — | — |
+| **extract-K-p3** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p3: confirm edges, fill source fields | — | — |
+| **extract-K-p4a** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p4a: confirm edges, fill source fields | — | — |
+| **extract-K-p4b** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p4b: confirm edges, fill source fields | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 3 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N additions Phase 0 (D22): drafted (READY additions-N, d7ad21c); draft under audit | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P additions Phase 0 (D22): drafted (READY additions-P); draft under audit | — | — |
-| **audit-add-P** `inp-audit-p` | statement audit (Codex) | GPT-6.1-Sol high | codex-1 | 🔄 working | Independent statement audit of the track-P D22 additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX) | — | — |
+| **audit-add-P** `inp-audit-p` | statement audit (Codex) | GPT-6.1-Sol high | codex-1 | ✅ handed off | Independent statement audit of the track-P D22 additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX) | — | — |
 | **audit-add-N** `inp-audit-n` | statement audit (Codex) | GPT-6.1-Sol high | codex-4 | 🔄 working | Independent statement audit of the track-N D22 additions (N-PARTIAL-CONVEX, N-AVERAGING) | — | — |
 | **bpI-p0** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track I blueprint: Part 0 (conventions, frozen statements) and part plan | — | — |
 | **bpN-p0** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N blueprint: Part 0 (conventions, frozen statements) and part plan | — | — |
@@ -297,6 +297,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 17:44 | `fb4da26` | Track K graph: all nine slices extracted (WIP); review brief |
 | 2026-10-27 17:39 | `67b5a4b` | D24: Codex agents on GPT-6.1-Sol medium; Astra sessions moved |
 | 2026-10-27 17:38 | `a5a7105` | Blueprint Part 1 review: ACCEPT WITH FIXES; apply P1-R1 (cauchy-open states δ>0) |
 | 2026-10-27 17:37 | `82caf9e` | HQ: track K graph extraction running |
@@ -308,7 +309,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 17:27 | `67b8129` | Blueprint consolidation: Part 1 canonical, shared geometry, review fixes applied; 59 pages, clean build |
 | 2026-10-27 17:12 | `0c3002b` | Adopt the five research milestones into tracks N and P (D22); Phase 0 started |
 | 2026-10-27 17:00 | `6626668` | Freeze tracks I, N and P (D20); record the proof-campaign model policy (D21) |
-| 2026-10-27 16:56 | `7a88b9f` | HQ: blueprint complete; consolidation pass running |
 <!-- /AUTO:landed -->
 
 ## Decisions
