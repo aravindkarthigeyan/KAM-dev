@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 18:06 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 27.0 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 18:07 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 27.6 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,13 +53,13 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **27.0 %**
+### Estimated completion: **27.6 %**
 
-`███████░░░░░░░░░░░░░░░░░░` 27.0 %
+`███████░░░░░░░░░░░░░░░░░░` 27.6 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
-| Statement and planning | 8 | 26 | 23.1 | `█████████░` 89 % |
+| Statement and planning | 8 | 26 | 24.1 | `█████████░` 93 % |
 | Analytic infrastructure | 8 | 24 | 3.4 | `█░░░░░░░░░` 14 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
 | Measure of the invariant tori | 5 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
@@ -68,7 +68,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | Track N (Nekhoroshev) | 4 | 22 | 5.9 | `███░░░░░░░` 27 % |
 | Track P (planetary) | 5 | 30 | 5.6 | `██░░░░░░░░` 19 % |
 | Sealing of the frozen statements | 15 | 15 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 55 | 170 | 45.9 | **27.0 %** |
+| **Total** | 55 | 170 | 46.9 | **27.6 %** |
 
 **How this is estimated.** The project is divided into 40 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -82,7 +82,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | S.STMT | Mathematical statement of the headline theorem and the gate theorems, with owner rulings | M | ✅ 100 % | docs/statement.md draft 0.2, approved |
 | S.LEAN | Exact Lean statements (headline + gates): independent audit, owner approval, freeze | H | ✅ 100 % | approved (D11) and frozen: 5 theorem anchors + 20 definitions, manifest with file/prefix/ABI hashes |
 | S.BP | Blueprint: every proof step written out against the pinned sources | VH | ✅ 100 % | 59 pages; Parts 2-4 reviewed, consolidated; Part 1 reviewed (ACCEPT WITH FIXES, applied) |
-| S.GRAPH | Source-level dependency graph anchored to the frozen statements | H | 🟨 60 % | 449 nodes, 1301 edges, structurally clean; independent slice reviews running |
+| S.GRAPH | Source-level dependency graph anchored to the frozen statements | H | 🟨 85 % | 454 nodes, 1392 edges; 415 nodes and all coverage reviewed; last 39 and the global review running |
 | S.ERRATA | Errata and deviations ledger for every formalized source (continuous) | L | 🟨 30 % | ledger: 8 candidate errata, 6 planned deviations |
 | F.ALG | Weighted ℓ¹ Fourier algebra on ℤⁿ: Banach algebra, exp, derivatives, averages | H | 🟨 30 % | Zohar: weighted norm, derivative bound (period one), convolution summability and submultiplicativity (KAM/Fourier) |
 | F.FT | Fourier–Taylor algebra in (angles, actions); Cauchy estimates in the actions | H | ⬜ 0 % |  |
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 18:06 UTC from `main` at `59d3894` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 18:07 UTC from `main` at `36bbb49` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks (94 anchors). Track K: blueprint reviewed in full; dependency graph extracted (449 nodes, 1301 edges, structurally clean) and under independent slice review; then a global review and publication. Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints being written.
 
@@ -273,11 +273,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
-| **graph-review-r1** `kam-graph-r1` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Refute-first topology review of slices K-p0, K-p1a, K-p1c | — | — |
-| **graph-review-r2** `kam-graph-r2` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Refute-first topology review of slices K-p1b, K-p2a | — | — |
-| **graph-review-r3** `kam-graph-r3` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Refute-first topology review of slices K-p2b, K-p3 | — | — |
-| **graph-review-r4** `kam-graph-r4` | graph slice review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Refute-first topology review of slices K-p4a, K-p4b | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 1 |
+| **graph-delta2** `kam-graph-d2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Fresh check of the 39 node records rewritten in the delta round | — | — |
+| **graph-global** `kam-graph-global` | graph global review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Global root-closure review of the track K dependency graph | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 2 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Track N additions: draft v0.4 done (N-PARTIAL-CONVEX on an enlarged domain; N-AVERAGING deferred) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: draft v0.4 done (F-P-A1 applied); under delta audit | — | — |
 | **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Refute-first blueprint reviews: Part 0 I/N, N p3, I p1 done (REVISE, fixes queued); now I p2, N p1-2 | — | — |
@@ -294,6 +292,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 18:07 | `36bbb49` | HQ: graph 415/454 reviewed; global review running |
 | 2026-10-27 18:06 | `59d3894` | Track K graph: delta reviews applied; 415/454 nodes and all coverage reviewed; global brief |
 | 2026-10-27 18:03 | `8f2188f` | Land inp into main |
 | 2026-10-27 17:54 | `f6bbe97` | Track K graph: slice reviews applied; 296 nodes reviewed, 157 rewritten nodes sent to delta review |
@@ -305,7 +304,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 17:39 | `67b5a4b` | D24: Codex agents on GPT-6.1-Sol medium; Astra sessions moved |
 | 2026-10-27 17:38 | `a5a7105` | Blueprint Part 1 review: ACCEPT WITH FIXES; apply P1-R1 (cauchy-open states δ>0) |
 | 2026-10-27 17:37 | `82caf9e` | HQ: track K graph extraction running |
-| 2026-10-27 17:37 | `d353460` | Track K dependency graph: extraction spec, mechanical pre-extraction, slice packets |
 <!-- /AUTO:landed -->
 
 ## Decisions
