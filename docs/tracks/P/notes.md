@@ -241,8 +241,31 @@ work around an elaboration failure.
 Repository lint:
 
 ```text
-LINT_OUTPUT_PENDING
+$ scripts/lint_sources.sh
+check_lean_modules: PASS (40 Lean files, 0 comparator configurations)
+FROZEN-ANCHOR GUARD FAILED:
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/P/Statements.lean
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/P/Statements.lean
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/P/Statements.lean
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/N/Statements.lean
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/N/Statements.lean
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/N/Statements.lean
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/I/Statements.lean
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/I/Statements.lean
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/I/Statements.lean
+- unauthorized `sorry` outside manifest-listed DRAFT proof region: .drafts/I/Statements.lean
+ABI HASHES OK (25 frozen declarations)
+exit 1
 ```
+
+**Lint limitation:** the frozen-anchor guard traverses `.drafts/` and rejects the very
+placeholders explicitly required by all three track Phase 0 briefs. Its failure includes
+this track's three intentional theorem-body placeholders and the concurrently drafted
+tracks I/N. This is a tooling/brief mismatch, not a clean-lint receipt. The shell lint
+and module checker themselves exclude drafts; the ABI check passes. Fixing the guard
+is outside the permitted deliverable paths, so it was not edited and no check was
+bypassed. Phase 0 completion here means the four review artifacts and successful direct
+elaboration, with this failed repository check disclosed.
 
 `git diff --check` exited 0 with no output. `git check-ignore` returned exactly
 `.drafts/P/Statements.lean` and `sources/incoming-P/cp10.pdf` for those two queried

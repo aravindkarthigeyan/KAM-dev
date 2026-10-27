@@ -61,8 +61,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N Phase 0: quasi-convex Nekhoroshev (Bounemoura–Marco Thm 2.1; Pöschel 1993)",
-   "state": "running"
+   "assignment": "Track N Phase 0 done: statement draft 0.1 (N-HEAD quasi-convex Nekhoroshev, N-ZERO, N-QC); audit running",
+   "state": "done"
   },
   {
    "id": "track-P",
@@ -89,6 +89,15 @@
    "account": "claude-1",
    "session": null,
    "assignment": "Refute-first review of blueprint part 3 (G2)",
+   "state": "running"
+  },
+  {
+   "id": "audit-N",
+   "kind": "statement audit (Codex)",
+   "model": "GPT-6-Astra xhigh",
+   "account": "codex-3",
+   "session": "kam-audit-n",
+   "assignment": "Refute-first statement audit of track N drafts",
    "state": "running"
   }
  ],
