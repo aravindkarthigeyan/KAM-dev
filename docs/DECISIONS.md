@@ -144,3 +144,9 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   - It keeps its own HQ files `docs/campaign/campaign-INP.json` and `docs/campaign/progress-INP.json`, which the README
     generator merges.
   - Owner questions and approvals go through the main orchestrator. The main orchestrator keeps track K and the HQ.
+- **D24 (2026-10-27) Codex agents run GPT-6.1-Sol at medium effort.** *(Scott: "can you take down your astra subagents
+  to sol-medium please")*
+  - No GPT-6-Astra sessions.
+  - The seven idle Astra sessions of Phase 0 and the research thread were restarted on GPT-6.1-Sol at medium
+    effort, resuming their conversations.
+  - Auditors launched later use medium effort. This refines D21.
