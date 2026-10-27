@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:25 UTC from `main` at `edd0f99` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:25 UTC from `main` at `b29bde3` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.
 
@@ -259,16 +259,15 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | ✅ done | Blueprint part 4 (G3, HEAD, HEAD-Q) written: 1482 lines; in review | — | — |
 | **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | ✅ done | Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | 🔄 running | Track N revision v0.2: N-HEAD as approved plus a complex-bound variant; owner choice of headline | — | — |
-| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | 🔄 running | Track P revision v0.2 addressing the audit (docs/tracks/P/RESPONSE-v0.1.md) | — | — |
+| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ done | Track P v0.2: all nine audit findings adopted (disc cylinder, diffeomorphism on W ⊇ closure V, boundary-layer guard) | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 running | Collaborator's research question, round 2: longer horizons for most initial conditions, one best planetary statement with proof sketch, realistic-parameter feasibility (round 1: docs/explorations/almost-every-shorter-times.md) | — | — |
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | ✅ done | Track N audit v0.1: approvable with changes; F-N1 (BM11 uniformity in h needs a complex Hessian bound) blocks proof-route sign-off | — | — |
-| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ done | Track P audit v0.1: P-G REJECT (box vs disc region, diffeomorphism on a neighbourhood, boundary regularity); P-PLANAR, P-FIXED approvable with changes | — | — |
-| **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 running | Refute-first statement audit of track I drafts | — | — |
-| **review-p2** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 2 (G1) | — | — |
+| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | 🔄 running | Delta audit of track P v0.2 | — | — |
+| **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ done | Track I audit v0.1: all 4 theorems and 15 definitions APPROVABLE; minor fixes applied (author header, three source locators) | — | — |
 | **review-p4** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 4 | — | — |
 | **bp-p1** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Proofs of the 30 part-1 interface lemmas | — | — |
 
-**Queued:** Blueprint consolidation: shared torus geometry between parts 2 and 3; part 3 copies of part 1 lemmas (review p3 F1–F3) · Blueprint part 1 proofs · Dependency graph extraction
+**Queued:** Owner approval of track I statements (review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK), then freeze · Blueprint consolidation (p2/p3 shared geometry, p3 copies, stale request sections; reviews p2 and p3) · Dependency graph extraction for track K
 <!-- /AUTO:workers -->
 
 ### Recent changes on `main`
@@ -276,6 +275,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:25 | `b29bde3` | Record completed averages and Neumann package with proof audit |
 | 2026-10-27 16:25 | `edd0f99` | Merge branch 'proof/averages-neumann' |
 | 2026-10-27 16:23 | `073dee6` | Blueprint Part 4: G3, HEAD and HEAD-Q from G1 and G2, complete proof |
 | 2026-10-27 16:15 | `ddec667` | Track N statement audit v0.1: approvable with changes; source gap F-N1 (uniformity in h needs a complex Hessian bound); revision v0.2 under way |
@@ -287,7 +287,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 16:01 | `fa15db5` | Record D19: owner rulings on track I questions 1-5, as recommended |
 | 2026-10-27 15:56 | `4df9d8c` | Track I Phase 0: sources, statement draft, notes; statement audit running |
 | 2026-10-27 15:54 | `388f8c1` | Track P Phase 0: sources, statement draft, notes; statement audit running |
-| 2026-10-27 15:53 | `dfd5e62` | Record D18: owner rulings on track N questions 2-6, as recommended |
 <!-- /AUTO:landed -->
 
 ## Decisions
@@ -372,7 +371,7 @@ against the pinned PDF.
 | E-HL19-4 | erratum | HL19 | p. 33, (5.15)–(5.18); p. 43, (5.68) | false when E = 0; should be ≤ (the origin of E-HL19-1) | CANDIDATE |
 | E-HL19-5 | erratum | HL19 | p. 42, after (5.67) | should refer to (5.13) and (5.17) | CANDIDATE |
 | E-HL19-6 | erratum | HL19 | p. 44 | should read s → ∞ | CANDIDATE |
-| E-HL19-7 | erratum | HL19 | p. 44 vs Theorem 3.1 (p. 17) | the proof establishes the margin on the real torus only, while the theorem asserts it on the complex strip; the strip margin needs an extra argument (supplied in our Part 2 via summed per-step changes) | CANDIDATE |
+| E-HL19-7 | erratum | HL19 | p. 44 vs Theorem 3.1 (p. 17) | the proof's concluding sentence states the margin on the real torus only, but (5.73) does control dist(K_s(T_{ρ_s}), ∂B) on the complex strips, so the theorem's strip margin is proved; the sentence on p. 44 misstates what (5.73) gives | CANDIDATE |
 | E-Pos01-4 | erratum | Pos01 | p. 6, after the definition of Ω_α | Hausdorff dimension n − 1 of the boundary does not give O(α) boundary layers. Counterexample: n = 1, Ω = (0,1) ∖ {1/k : k ≥ 1}: the boundary has dimension 0 but the inner α-layer has measure ≳ √α. The right condition is finite upper Minkowski content, or a layer bound as in our HEAD | CANDIDATE |
 | E-Pos01-5 | erratum | Pos01 | p. 11, proof of Prop. 2 | the Lipschitz constant must be raised to the power n (Lipschitz maps scale n-dimensional measure by L^n; compare BC17 footnote 32) | CANDIDATE |
 | D-LAG-1 | deviation | HL19 | §2.2, p. 7, eq. (2.3) | Proof supplement: the isotropy (Lagrangian property) of invariant tori with nonresonant frequency, asserted as well known, is proved in blueprint Part 4 (lemma lagrangian), citing GJLV05 Lemma 19 | PLANNED |

@@ -1,8 +1,9 @@
 # Track N — infrastructure, audit notes and handoff
 
-Phase 0, 27 October 2026. The four deliverables are complete for **statement review**. None of these
-statements is approved, frozen or proved. The intentional draft theorem bodies use `sorry` under the
-explicit Phase 0 brief; the repository-wide guard currently rejects such drafts (details below).
+Phase 0 v0.2, 27 October 2026. This is a revised statement-review packet. D17/D18 fix the original
+headline's shape; no declaration is frozen or proved. N-HEAD is unchanged, with F-N1 an explicit open
+source gap. The separately named N-HEAD-C adds fixed complex-Hessian and real-frequency lower bounds.
+The old v0.1 lint failure is historical: the current guard excludes `.drafts/`. Current receipts appear below.
 
 ## Deliverables and approach
 
@@ -10,13 +11,13 @@ explicit Phase 0 brief; the repository-wide guard currently rejects such drafts 
   verification, acquired Pöschel scan, and unsuccessful Lochak retrieval attempts.
 - `docs/tracks/N/statement.md`: source conventions, exact mathematical contracts, constant quantifiers,
   deviations, owner recommendations and the explicit decision to defer N-STEEP.
-- `.drafts/N/Statements.lean`: ten definitions and three theorem drafts in `KAM.Nekhoroshev`.
+- `.drafts/N/Statements.lean`: eleven definitions and four theorem drafts in `KAM.Nekhoroshev`.
   It remains untracked and ignored; no frozen theorem or provider is imported.
 - `docs/tracks/N/notes.md`: this infrastructure and validation handoff.
+- `docs/tracks/N/RESPONSE-v0.1.md`: finding-by-finding revision response, explicitly requested this round.
 
 Additional permitted source acquisition: `sources/incoming-N/poschel1993_gdz.pdf`, downloaded into a newly
-created empty incoming directory, checked for a PDF signature and pinned in sources.md. No other files
-were written by this work. No git index, commit, branch or remote operation was performed.
+created empty incoming directory, checked for a PDF signature and pinned in sources.md. No additional source files were acquired in v0.2; writes were confined to the five deliverable paths. No git index, commit, branch or remote operation was performed.
 
 The route retains BM11's exact QC(m), coordinate derivative B(M), period-one analytic class and uniform
 constants, selects only Theorem 2.1's classical endpoint, and completes its dynamics wording with genuine
@@ -37,9 +38,10 @@ is separate. N-QC selects the source's pointwise geometric argument rather than 
 | N-HEAD continuation | Local existence/uniqueness for smooth Hamiltonian fields; continuation in a compact interior action tube; periodic angle control for the unbounded lift; both time directions and closed endpoints | All tracks |
 
 BM11's proof imports Pöschel-type resonant stability, rather than providing all resonant normal-form
-analysis itself. Source acquisition is now complete for Pöschel but the scanned theorem statements still
-need visual/OCR audit before assigning provider contracts. No resonance theorem is frozen on the strength
-of a secondary citation. The first substantial unpaid estimate is a quantitative resonant normal form
+analysis itself. The v0.2 revision directly inspected Pöschel pp. 189–192 and 206–207, confirming the
+complex bound, quantitative QC, time prefactor, low-frequency exception, and the Theorem 3 locator.
+N-HEAD-C selects **Theorem 1 directly**; it does not need BM11's improved-exponent argument or its faulty
+restart/inverse-radius steps. This checks selected source contracts, not Pöschel's whole proof. The first substantial unpaid estimate is a quantitative resonant normal form
 with an exponentially small remainder, on explicit complex domains with transformation displacement bounds.
 A canonical-transformation construction may use Lie series; the strategy must be chosen before blueprinting.
 
@@ -68,8 +70,10 @@ budget overrides are permitted. The numerical line estimates do not authorize ch
 
 ## Suspected source defects for the orchestrator's ledger
 
-All entries below are **CANDIDATE**, checked against the pinned local PDF text but not independently
-adjudicated. They are reported here; this track does not edit `docs/errata/ledger.json`.
+The ledger entries remain **CANDIDATE** pending orchestrator disposition. The independent audit has
+now confirmed their quoted source passages and supplied Lean refutations of the specific source-step
+assertions F-N2/F-N3; it did not refute N-HEAD. The distinctions are recorded below. This track does
+not edit `docs/errata/ledger.json`.
 
 ### E-N-BM-1 — zero-size case is empty; singular time expression
 
@@ -96,7 +100,13 @@ adjudicated. They are reported here; this track does not edit `docs/errata/ledge
 - Proposed correction: restrict the base points to a specified interior compact set and λ to a compact
   positive interval, or allow constants to depend on their margins; at the actual normalized-frequency
   points used later, derive the needed quantitative bounds explicitly. This supplement is not proved here.
-  N-QC freezes only the pointwise nonsingularity statement, which does not have this issue.
+  N-QC proposes only the pointwise nonsingularity statement, which does not have this issue.
+- v0.2 / **F-N2**: audit §5.1 and `audit-scratch/SourceRefutations.lean`, declaration
+  `KAM.Nekhoroshev.Audit.no_uniform_image_ball`, refute even open-ball coverage for a fixed polynomial
+  Ψ. The audit reports a successful kernel check without `sorryAx`; that scratch result was not rerun
+  or modified here. For an eventual BM quantitative provider, restrict base actions to a compact
+  interior set and analyze the actual normalized λ family; N-QC itself remains pointwise. N-HEAD-C's
+  direct Pöschel route does not invoke this false source assertion.
 
 ### E-N-BM-3 — restart in the same inner ball is not uniform
 
@@ -110,7 +120,13 @@ adjudicated. They are reported here; this track does not edit `docs/errata/ledge
   constants depending on the remaining R/4 outer margin, or localize on translated domains uniformly.
   Merely claiming a smaller uniform ε₀ fixes the printed sentence does not work. The R/4 margin in
   N-HEAD is a useful conclusion but does not by itself repair the imported Lemma 3.2 contract.
-  The headline remains an intended classical theorem; its proof route requires this source repair.
+  The original headline remains an intended classical theorem; its BM proof route requires this repair.
+- v0.2 / **F-N3**: audit §5.2 supplies the checked declaration
+  `KAM.Nekhoroshev.Audit.no_uniform_same_inner_ball_margin`, refuting the displacement-to-membership
+  implication. It is not a drifting Hamiltonian counterexample. A BM resonant provider must accept
+  initial actions in B(0,3R/4), with the remaining R/4 outer margin proved explicitly. This provider is
+  not a new headline premise. The direct Pöschel route for N-HEAD-C chooses the initial set P and its
+  tube once and avoids this restart entirely.
 
 ### E-N-GCB-1 — zero parameter in Theorem 1's time factor
 
@@ -128,9 +144,9 @@ adjudicated. They are reported here; this track does not edit `docs/errata/ledge
   αₙ has not been supplied as steepness data. This appears to be an index typo, not an exponent change.
 - Proposed correction: replace αₙ by α_{n−1}. The draft does not use this sentence.
 
-Deviations introduced by this packet are exhaustively listed as D-N-1 through D-N-7 in statement.md.
+Deviations introduced by this packet are listed as D-N-1 through D-N-10 in statement.md.
 The positive-definite sign version of quasi-convexity is retained; a negative-definite variant by reversing
-H is not added silently. There are no newly claimed errata for the unaudited Pöschel/Lochak theorem text.
+H is not added silently. The inspected Pöschel explanatory sentence is discussed below; no claim is made about unread Lochak text.
 
 ## Why N-STEEP is not drafted
 
@@ -146,7 +162,7 @@ These are manageable tasks for a later dedicated statement audit, but a guessed 
 predicate would not be faithful. Per the explicit N brief, no N-STEEP Lean definition or theorem is included.
 This deferral leaves the four requested Phase 0 deliverables complete for N-HEAD.
 
-## Checks and exact outcomes
+## Historical v0.1 checks and exact outcomes (retained verbatim receipts)
 
 Executed from `/root/code/KAM`; targeted Lean invocations were sequential and used `nice -n 5`.
 The brief's direct draft elaboration command is the targeted check here; no whole-library build was run.
@@ -204,12 +220,100 @@ The brief's direct draft elaboration command is the targeted check here; no whol
    PDF is 31 pages including the GDZ cover; its exact bytes/hash are pinned separately, not inserted in
    the shared source manifest. Lochak's failed download was HTML, not accepted as a source pin.
 
+## v0.2 source gap and additional audit findings
+
+### E-N-BM-4 / F-N1 — missing uniform complex analytic input
+
+Location: BM11 p. 4 B(M), p. 8 “exactly the content of Theorem 3”, versus Pöschel p. 190
+`sup_{I∈V_{r₀}P} ‖Q(I)‖ ≤ M`, used in the Normal Form Lemma p. 192.
+The real B(M) class does not supply this complex bound. The audit's explicit entire family
+
+    h_N(z)=3z₀+(z₀²+z₁²+z₂²)/2+sin(Nz₁)/(4N³)
+
+has fixed n=3, R=s=1, M=6, m=1/2, and even the uniform real frequency lower bound 1, but
+`∂₁²h_N(0,ir,0)=1−i sinh(Nr)/(4N)` grows without bound for every fixed positive r<1.
+The gap survives fixed-width shrinkage and is not fixed by the existential h-value bound.
+
+**Disposition:** no Lean change to N-HEAD or its ten existing definitions. F-N1 blocks its proof-route
+sign-off, not the correctness of the transcription. N-HEAD-C is an additional proposed contract, not
+payment of F-N1 for N-HEAD. No counterexample to either headline conclusion is claimed. A proof retaining
+N-HEAD must avoid this missing import or find a verified source with the exact original uniformity.
+
+### E-N-BM-5 / F-N6 — zero resonance vector
+
+Location: BM11 p. 12, `k′ = qe_i − pe_j`, followed by “since p and q are co-prime”. If i=j and
+p/q=±1 with the corresponding sign, this construction can give zero; coprimality alone is insufficient.
+The displayed `k′ ∈ ℤ` also requires the vector type ℤⁿ.
+
+**Required repair for a BM arithmetic provider:** choose the rational in the central closed half of the
+nondegenerate interval of normalized components. That half lies strictly inside (−1,1). Its length is
+half the original, so Lemma 3.4 gives the bound 12/length instead of 6/length. The selected component
+then has absolute value <1, while a maximizing component has absolute value 1. Hence i≠j; prove k′≠0
+and primitivity from the reduced fraction. Adjust only the stable numerical drift constant. This is a
+specified future proof repair, not an assumed resonance theorem. N-HEAD-C's direct route does not use it.
+
+### E-N-GCB-3 — typo in the deferred source's ℓ¹ norm
+
+GCB16 v1 p. 3, footnote 5 prints `|u| = Σ_i |u₁|` (verified visually by the independent audit).
+The summand should be `|uᵢ|`; the printed expression vanishes on a nonzero vector with first coordinate
+zero. No N-STEEP theorem or definition is introduced, and this typo affects neither selected headline.
+
+### E-N-POS-1 — complex symmetric is not Hermitian
+
+Pöschel p. 190, line following the complex Hessian bound: “For the symmetric operator Q this norm
+amounts to the spectral radius norm.” This is valid for a real symmetric Hessian, but false for a general
+complex symmetric one: the nonzero symmetric matrix `[[i,1],[1,−i]]` squares to zero, hence has zero
+spectral radius and positive operator norm. Retain the actual operator-norm display, and restrict that
+explanatory equality to real points. N-HEAD-C uses the genuine operator norm, never a spectral radius.
+This identifies a faulty explanatory sentence, not a refutation of the source theorem.
+
+### F-N4, F-N5, F-N7, F-N8, F-N9, F-N10
+
+- **F-N4:** remove the unused `3 ≤ n` hypotheses from N-QC and N-ZERO only. Their proofs are dimension
+  independent; N-QC now has the correct interface for track I at n=2. No frozen files were changed.
+- **F-N5:** retain ε>0 in both headline candidates and the actual-size-zero N-ZERO theorem.
+- **F-N7:** both copyright and Authors lines now name Scott Armstrong and Zohar Komargodski under D15.
+- **F-N8:** the original N-HEAD type is byte-identical to v0.1. The new parameters Mcomplex,ωmin in the
+  distinct theorem are fixed before every existential constant, as are n,R,s,M,m.
+- **F-N9:** retain the old failure receipt as history; the current guard excludes `.drafts/` and is rerun
+  below. Production lint does not validate draft theorem types; direct elaboration is separate.
+- **F-N10:** use the shifted quadratic `3z₀+Σzᵢ²/2` at n=3,R=s=1,M=6,m=1 as the nonvacuity model.
+  It has frequency `I+3e₀` with maximum norm >1 on B_s and ≥2 on B; use ωmin=1.
+  The complex iterated maximum-norm Hessian operator has norm 3 (the bilinear form is Σvᵢwᵢ), so
+  Mcomplex=3 is valid. In particular, do not confuse the Euclidean matrix norm 1 with this norm.
+  Entire period-one `f=[ε/(2 cosh(2π))] cos(2πθ₀)` has norm ≤ε/2 on D_s. This is a mathematical
+  nonvacuity calculation, not a Lean proof. The centered quadratic still fails strict QC's nonvanishing
+  premise on a ball containing zero, though it remains a valid N-ZERO example.
+
+## v0.2 new statement infrastructure and limits
+
+N-HEAD-C needs the same resonant normal forms, lattice geometry, confinement and ODE infrastructure
+as a classical Pöschel route, but does not need BM11's improved-exponent passage through normalized
+frequencies. The additional interfaces are the real/complex derivative identification, a dimension-bound
+comparison of the actual bilinear norm with the Euclidean Hessian norm, the quantitative QC conversion,
+period-one to period-2π Hamiltonian rescaling, and a uniform replacement of the source Ω₀ time prefactor.
+Explicit choices appear in sources.md. These require roughly 300–800 lines of additional interface work,
+within the uncertainty of the prior 20k–39.5k estimate; no new proof-cost precision is claimed.
+
+Two new numbers suffice for this strengthened-input route: Mcomplex and ωmin. A uniform upper frequency
+bound is already supplied by real B(M); quantitative ell and reduced curvature μ are explicitly derived,
+not additional inputs. Complex third derivatives are controlled on smaller domains if needed, from the
+complex Hessian bound and positive width. No uniform h-value parameter is used. The entire original
+real B(M) predicate is retained for compatibility, even though the direct route uses only its first order.
+
+The lower frequency bound excludes Pöschel Theorem 1's weaker exceptional branch. We do not claim it
+is logically necessary for every version of Nekhoroshev, or impossible to derive by another argument
+for an appropriate class. This is a proposed visible source-route strengthening requiring owner choice.
+The original D18 uniformity is preserved exactly in the other named theorem.
+
 ## Uncertainties and next decisions
 
-- The endpoint theorem is a source-backed intended contract, not a certification of all quantitative
-  dependencies in the printed proof. Resolve E-N-BM-2 and E-N-BM-3 before proof-route acceptance.
-- Audit Pöschel's scanned normal-form and stability statements and choose the resonant proof route;
-  Lochak acquisition remains open, with original theorem numbers **[unverified]**.
-- Resolve the `.drafts` lint-policy mismatch centrally; do not weaken production frozen-anchor protection.
-- Owner questions are in statement.md. No claimed approval, sealing, Lean theorem proof, planetary
-  collision exclusion, or observed-Solar-System stability follows from this Phase 0 packet.
+- Original N-HEAD: resolve F-N1/E-N-BM-4 and the BM route's F-N2/F-N3/F-N6 obligations before proof-route
+  sign-off. No hidden extra premise has been introduced there.
+- N-HEAD-C: independently audit the explicit source conversions and exact v0.2 type before owner
+  line-by-line approval. Pöschel's full proof still needs a blueprint and Lean providers.
+- Choose the headline in statement.md question 7; recommendation is the new bounded-input version,
+  while retaining the original broader target and its recorded gap. No freezing is performed here.
+- Lochak's original theorem text remains **[unverified]** and is not needed for the selected direct
+  Pöschel route. N-STEEP remains deferred under D18-Q5.
+- These statements do not establish planetary collision exclusion or observed-Solar-System stability.

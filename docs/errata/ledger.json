@@ -314,12 +314,12 @@
    "source": "HL19",
    "location": "p. 44 vs Theorem 3.1 (p. 17)",
    "printed": "proof concludes dist(K∞(Tᵈ), ∂B) > 0; the theorem claims dist(K∞(Tᵈ_{ρ∞}), ∂B) > 0",
-   "claim": "the proof establishes the margin on the real torus only, while the theorem asserts it on the complex strip; the strip margin needs an extra argument (supplied in our Part 2 via summed per-step changes)",
-   "kind": "gap",
-   "evidence": "p. 44 conclusion vs p. 17 statement",
+   "claim": "the proof's concluding sentence states the margin on the real torus only, but (5.73) does control dist(K_s(T_{ρ_s}), ∂B) on the complex strips, so the theorem's strip margin is proved; the sentence on p. 44 misstates what (5.73) gives",
+   "kind": "typo",
+   "evidence": "HL19 (5.73), p. 44 (blueprint Part 2 review, finding 3)",
    "status": "CANDIDATE",
-   "checked_by": "blueprint Part 2 writer 2026-10-27 (to be re-verified)",
-   "effect": "none on G1; our proof gives μ/2 margins on the strip"
+   "checked_by": "blueprint Part 2 writer and Part 2 reviewer 2026-10-27 (to be re-verified)",
+   "effect": "none"
   },
   {
    "id": "E-Pos01-4",
