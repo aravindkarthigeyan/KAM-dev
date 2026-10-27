@@ -5,6 +5,8 @@ Authors: Scott Armstrong
 -/
 module
 
+public import KAM.Fourier.Derivative
+
 /-!
 # KAM
 
