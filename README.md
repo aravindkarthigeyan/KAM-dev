@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:52 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 16.1 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:53 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 16.1 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:52 UTC from `main` at `f0d0bda` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:53 UTC from `main` at `e4266b2` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -261,7 +261,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 4: G3, APPLY, STAB, LIP, McShane and measure, HEAD, HEAD-Q | — | — |
 | **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | 🔄 working | Track I Phase 0: isoenergetic KAM (HL19 Thm 3.6), 2-DOF confinement, restricted three-body problem | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N Phase 0 done: statement draft 0.1 (N-HEAD quasi-convex Nekhoroshev, N-ZERO, N-QC); audit running | — | — |
-| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | 🔄 working | Track P Phase 0: properly degenerate KAM (CP11 Thm 11.1), planar two-planet and fixed-Sun statements | — | — |
+| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P Phase 0: properly degenerate KAM (CP11 Thm 11.1), planar two-planet and fixed-Sun statements | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Stability of almost every initial condition over shorter-than-Nekhoroshev times; compatibility with simulations; candidate theorems (Zohar's question) | — | — |
 | **review-p3** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 3 (G2) | — | — |
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | 🔄 working | Refute-first statement audit of track N drafts | — | — |
@@ -274,6 +274,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:53 | `e4266b2` | Record D17: track N is stated for n >= 3 (owner ruling) |
 | 2026-10-27 15:52 | `f0d0bda` | Track N Phase 0: sources, statement draft 0.1, notes; statement audit running |
 | 2026-10-27 15:51 | `3599e6e` | Blueprint Part 3: local uniqueness for flows (G2), complete proof |
 | 2026-10-27 15:40 | `28ab456` | HQ: exploration of almost-every, shorter-time stability (collaborator's question) |
@@ -285,7 +286,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:19 | `59daeac` | Merge Zohar's Fourier and Diophantine infrastructure into the frozen-statement main |
 | 2026-10-27 15:16 | `1f0d755` | Freeze the approved KAM statements (D11) |
 | 2026-10-27 15:09 | `ed21566` | Statement drafts v0.2 audited; ledger and plan updated; exploration launched |
-| 2026-10-27 14:35 | `4db4826` | Record D10: the errata ledger stays public |
 <!-- /AUTO:landed -->
 
 ## Decisions
