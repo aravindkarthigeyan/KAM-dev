@@ -140,7 +140,7 @@ DISPOSITION: NODE bpI:p2:newton-error
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-d
 
 ITEM: stepI:p2:ne-invert
 KIND: proof-region
@@ -185,7 +185,7 @@ DISPOSITION: NODE stepI:p2:ne-energy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-d
 
 ITEM: bpI:p2:newton-open
 KIND: claim
@@ -203,7 +203,7 @@ DISPOSITION: NODE bpI:p2:torsion
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-d
 
 ITEM: stepI:p2:to-frame
 KIND: proof-region
@@ -212,7 +212,7 @@ DISPOSITION: NODE stepI:p2:to-frame
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-d
 
 ITEM: stepI:p2:to-omega
 KIND: proof-region
@@ -239,7 +239,7 @@ DISPOSITION: NODE stepI:p2:to-avg
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-d
 
 ITEM: stepI:p2:to-inv
 KIND: proof-region
@@ -248,7 +248,7 @@ DISPOSITION: NODE stepI:p2:to-inv
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-d
 
 ITEM: bpI:p2:step
 KIND: proposition
@@ -266,7 +266,7 @@ DISPOSITION: NODE stepI:p2:st-small
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-d
 
 ITEM: stepI:p2:st-error
 KIND: proof-region
@@ -311,7 +311,7 @@ DISPOSITION: NODE bpI:p2:iteration
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-d
 
 ITEM: stepI:p2:it-sums
 KIND: proof-region
@@ -320,7 +320,7 @@ DISPOSITION: NODE stepI:p2:it-sums
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-d
 
 ITEM: stepI:p2:it-stepsmall
 KIND: proof-region
