@@ -223,15 +223,6 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: K:bp:p2:error-decay
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L952-L957
-DISPOSITION: NODE K:bp:p2:error-decay
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
 ITEM: K:bp:p2:exactness
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:exactness@L515-L523
@@ -367,15 +358,6 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: K:step:p2:cor-absorb
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:cor-absorb@L691-L694
-DISPOSITION: NODE K:step:p2:cor-absorb
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
 ITEM: K:step:p2:fb-holo
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L401-L406
@@ -407,15 +389,6 @@ ITEM: K:step:p2:ham-real
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ham-real@L243-L246
 DISPOSITION: NODE K:step:p2:ham-real
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: K:step:p2:it-step
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1021-L1029
-DISPOSITION: NODE K:step:p2:it-step
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP

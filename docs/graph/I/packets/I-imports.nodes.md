@@ -648,32 +648,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p2:constants; shared Lean provider. There: KIND definition, contract bp:p2:constants v1. Cited as \Kref{bp:p2:constants}.
 
-NODE: K:bp:p2:error-decay
-KIND: external
-TITLE: [K] Decay of the errors
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L952-L957
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p2:error-decay
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: schedule (bp:p2:schedule); q:=2^{2a}C_E e/(γ⁴δ_0^{2a})≤1
-SOURCE_QUANTIFIERS: all s≥0; 0≤j≤2a; 0≤j≤2a−1 for the sums
-SOURCE_CONCLUSION: ε_s≤q^{2^s−1}2^{-2as}e≤2^{-2as}e; ε_s/δ_s^j≤2^{-(2a−j)s}e/δ_0^j≤e/δ_0^j for 0≤j≤2a; Σ_sε_s/δ_s^j≤2e/δ_0^j for 0≤j≤2a−1
-CONSTANT_SCOPE: a,C_E from bp:p2:constants (n,τ,M,σ_*); δ_0=δ_0(ρ,ρ_∞); none depends on s
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p2:error-decay; shared Lean provider. There: KIND lemma, contract bp:p2:error-decay v1. Cited as \Kref{bp:p2:error-decay}.
-
 NODE: K:bp:p2:exactness
 KIND: external
 TITLE: [K] Exactness: two vanishing averages
@@ -1064,32 +1038,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p4:h1; shared Lean provider. There: KIND lemma, contract bp:p4:h1 v1. Cited as \Kref{bp:p4:h1}.
 
-NODE: K:step:p2:cor-absorb
-KIND: external
-TITLE: [K] Absorbing powers of $\gamma\delta$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:cor-absorb@L691-L694
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:cor-absorb
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: γ≤Θ (previous step), δ≤1
-SOURCE_QUANTIFIERS: i,j≥0
-SOURCE_CONCLUSION: γδ^j≤Θ; ε≤Θε/(γδ^j); ε/(γδ^j)≤Θε/(γ²δ^{j+i})
-CONSTANT_SCOPE: Θ from bp:p2:constants
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:cor-absorb; shared Lean provider. There: KIND step, contract step:p2:cor-absorb v1. Cited as \Kref{step:p2:cor-absorb}.
-
 NODE: K:step:p2:fb-holo
 KIND: external
 TITLE: [K] Holomorphy
@@ -1193,32 +1141,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node step:p2:ham-real; shared Lean provider. There: KIND step, contract step:p2:ham-real v1. Cited as \Kref{step:p2:ham-real}.
-
-NODE: K:step:p2:it-step
-KIND: external
-TITLE: [K] Inductive step
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1021-L1029
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:it-step
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (i)–(v) at s; summed bounds; smallness at stage s; 4δ_s<r_s, δ_s≤1
-SOURCE_QUANTIFIERS: induction step s→s+1
-SOURCE_CONCLUSION: K_{s+1}:=K̄_s satisfies (vi) and (i)–(v) at s+1
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:it-step; shared Lean provider. There: KIND step, contract step:p2:it-step v1. Cited as \Kref{step:p2:it-step}.
 
 NODE: K:step:p2:pt-small
 KIND: external
