@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 20:38 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 35.5 %** · frozen statements proved: 1 / 22 · **17,020 lines of Lean** of an estimated ≈ 119,000
+> **Last updated: 2026-10-27 20:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 35.5 %** · frozen statements proved: 1 / 22 · **17,020 lines of Lean** of an estimated ≈ 119,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 20:38 UTC from `main` at `0b23778` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 20:40 UTC from `main` at `5736df2` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K: 120/453 graph nodes proved and audited. G1/G2 proof campaign started: Lean design audited (PASS, no corrected signatures); wave 1 running (P2-1a carrier, P2-1b standing/constants); I-P1C running; Zohar's I-STRIP-3 (cohomological equation) gates wave 5. Tracks I, N, P: Opus sub-orchestrator.
 
