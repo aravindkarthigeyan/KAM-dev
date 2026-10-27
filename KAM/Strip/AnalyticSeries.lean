@@ -185,10 +185,13 @@ theorem hasSum_first_variable {m : ℕ} {U : Set (Fin (m + 1) → ℂ)} (hU : Is
   rw [sub_zero, smul_comm, iteratedDeriv_line_eq_iteratedFDeriv hU hF hw]
 
 
-/-- **Multi-index power series on a polydisc (coefficients and expansion).** If `F` is holomorphic
-on an open `U` and the closed polydisc `closedBall z₀ r` lies in `U`, there are coefficients `c α`
-independent of any bound, with `‖c α‖ ≤ A / r ^ |α|` for every upper bound `A` of `‖F‖` on the
-closed polydisc, such that `F z = ∑_α (z - z₀)^α • c α` on the open polydisc. -/
+/-- Blueprint `step:p1:han-series` (coefficients and expansion; proved by induction on the number of
+variables with Taylor's theorem in the first variable, instead of the blueprint's geometric
+expansion of the Cauchy kernel, so the `c α` are not identified with contour integrals).
+If `F` is holomorphic on an open `U` and the closed polydisc `closedBall z₀ r` lies in `U`, there
+are coefficients `c α` independent of any bound, with `‖c α‖ ≤ A / r ^ |α|` for every upper bound
+`A` of `‖F‖` on the closed polydisc, such that `F z = ∑_α (z - z₀)^α • c α` on the open
+polydisc. -/
 theorem exists_powerSeries_coeff : ∀ (m : ℕ) {U : Set (Fin m → ℂ)}, IsOpen U →
     ∀ {F : (Fin m → ℂ) → W}, DifferentiableOn ℂ F U → ∀ {z₀ : Fin m → ℂ} {r : ℝ}, 0 < r →
     closedBall z₀ r ⊆ U → ∃ c : (Fin m → ℕ) → W,

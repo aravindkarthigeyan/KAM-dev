@@ -139,7 +139,7 @@ theorem realRestriction_add_int {n : ℕ} {K : (Fin n → ℂ) → (Fin n → �
   ext i <;> simp
 
 
-/-- **Blueprint `bp:p1:real-restriction-consequences`.** (1) The real restriction `ℓ_ℝ` of a
+/-- Blueprint `bp:p1:real-restriction-consequences`. (1) The real restriction `ℓ_ℝ` of a
 `ℂ`-linear `ℓ : ℂⁿ → ℂᵖ` has `‖ℓ_ℝ‖ ≤ ‖ℓ‖` (max norms), and such a restriction exists when
 `ℓ (ℝⁿ) ⊆ ℝᵖ`. (2) If `K : T_ρ → ℂⁿ × ℂⁿ` is primary on `T_ρ` (`ρ > 0`) and real on reals, its
 restriction `k` to `ℝⁿ` satisfies `k (x + m) = k x + (m, 0)` for `m ∈ ℤⁿ`. -/
@@ -211,7 +211,7 @@ theorem norm_fderiv_realRestriction_le (hρ : 0 < ρ)
     (fderiv ℂ K (realInclusion n x)) (fderiv ℝ (realRestriction K) x)
     fun h => ((realRestriction_fderiv hρ hK hreal x).2 h).symm
 
-/-- **Blueprint `bp:p1:real-restriction`.** Let `K` be holomorphic on `T_ρ` (`ρ > 0`) and real on
+/-- Blueprint `bp:p1:real-restriction`. Let `K` be holomorphic on `T_ρ` (`ρ > 0`) and real on
 reals, with real restriction `k = Re ∘ K ∘ ι`. Then `k` is real-analytic on `ℝⁿ`; it is
 differentiable with real derivative the restriction of the complex derivative,
 `ι (Dk(x) h) = DK(x) (ι h)`; `‖Dk(x)‖ ≤ ‖DK(x)‖`; and if `K` is primary on `T_ρ`,
@@ -242,7 +242,9 @@ section Hamiltonian
 variable {n : ℕ} {V : Set ((Fin n → ℂ) × (Fin n → ℂ))} {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ}
   {z : (Fin n → ℝ) × (Fin n → ℝ)} {H : (Fin n → ℝ) × (Fin n → ℝ) → ℝ}
 
-/-- Blueprint `step:p1:hr-derivative`. -/
+/-- Blueprint `step:p1:hr-derivative`. If `h` is holomorphic on the open `V` and real at real
+points, and `H` agrees with `Re h` near the real point `z`, then `H` is differentiable at `z` and
+`DH(z) e = Dh(z) e` for real `e` (a real number). -/
 theorem hamiltonian_real_fderiv (hV : IsOpen V) (hh : DifferentiableOn ℂ h V)
     (hreal : ∀ y : (Fin n → ℝ) × (Fin n → ℝ), realInclusion₂ n y ∈ V →
       (h (realInclusion₂ n y)).im = 0)
@@ -296,6 +298,10 @@ section MatrixForm
 
 variable {n : ℕ}
 
+/-- `Ω₀² = -I`, so that `J = -Ω₀ = Ω₀⁻¹`. -/
+theorem omegaZero_omegaZero (u : (Fin n → ℂ) × (Fin n → ℂ)) : omegaZero (omegaZero u) = -u := by
+  ext i <;> simp [omegaZero]
+
 /-- The column `(Dφ)ᵀ = (∂_θ φ, ∂_I φ)` of partial derivatives of `φ` at `w`, `θ`-block
 first. -/
 def gradientColumn (φ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ) (w : (Fin n → ℂ) × (Fin n → ℂ)) :
@@ -331,7 +337,7 @@ variable {n : ℕ} {V : Set ((Fin n → ℂ) × (Fin n → ℂ))}
   {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {z : (Fin n → ℝ) × (Fin n → ℝ)}
   {H : (Fin n → ℝ) × (Fin n → ℝ) → ℝ}
 
-/-- **Blueprint `bp:p1:hamiltonian-real`.** Let `V ⊆ ℂⁿ × ℂⁿ` be open, `h` holomorphic on `V` and
+/-- Blueprint `bp:p1:hamiltonian-real`. Let `V ⊆ ℂⁿ × ℂⁿ` be open, `h` holomorphic on `V` and
 real at the real points of `V`, `z` a real point of `V`, and `H : ℝⁿ × ℝⁿ → ℝ` agree with `Re h`
 near `z`. Then `H` is differentiable at `z` and `X_H(z) = X_h(z)` (real points identified with
 their images in `ℂⁿ × ℂⁿ`). For every `φ` (holomorphy is not needed for the algebraic identity),

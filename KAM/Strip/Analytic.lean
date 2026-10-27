@@ -86,7 +86,7 @@ theorem analyticOnNhd_comp_realInclusion {m : ℕ} {U : Set (Fin m → ℂ)} {F 
 
 variable [CompleteSpace W] [SecondCountableTopology W]
 
-/-- **Blueprint `bp:p1:holomorphic-analytic`.** Let `U ⊆ ℂᵐ` be open and `F : U → W`
+/-- Blueprint `bp:p1:holomorphic-analytic`. Let `U ⊆ ℂᵐ` be open and `F : U → W`
 holomorphic.
 
 * (a) For every closed polydisc `closedBall z₀ r ⊆ U` (max norm) there are coefficients `c α`,
@@ -116,7 +116,7 @@ section Real
 
 variable {m p : ℕ} {U : Set (Fin m → ℂ)} {F : (Fin m → ℂ) → (Fin p → ℂ)}
 
-/-- **Blueprint `bp:p1:holomorphic-analytic` (b), real-valued clause.** If `F : U → ℂᵖ` is
+/-- Blueprint `bp:p1:holomorphic-analytic` (b), real-valued clause. If `F : U → ℂᵖ` is
 holomorphic and real on the real points of `U`, then `x ↦ Re F x` is real-analytic on `U ∩ ℝᵐ`
 as a map into `ℝᵖ`, and `F x = (Re F x)` there. -/
 theorem holomorphic_analytic_real (hU : IsOpen U) (hF : DifferentiableOn ℂ F U)
@@ -132,7 +132,7 @@ theorem holomorphic_analytic_real (hU : IsOpen U) (hF : DifferentiableOn ℂ F U
   obtain ⟨y, hy⟩ := hreal x hx
   exact (realInclusion_realPartCLM hy).symm
 
-/-- **Blueprint `step:p1:han-real`.** At a real point `x₀`, with a closed polydisc
+/-- Blueprint `step:p1:han-real`. At a real point `x₀`, with a closed polydisc
 `closedBall (ι x₀) r ⊆ U`, a holomorphic `F : U → ℂᵖ` that is real on the real points of `U` is
 the sum of an absolutely convergent power series in `x - x₀` with *real* coefficients `Re c α`,
 `‖Re c α‖ ≤ ‖c α‖ ≤ A / r ^ |α|`, for real `x` with `‖x - x₀‖ < r`. -/
