@@ -32,9 +32,11 @@ results of \texttt{PLAN.md}. Tracks I and P cite the general results as \Nref{bp
 \item\label{bpN:p3:ext-pl} \emph{Picard--Lindel\"of, quantitative form.} Let $F:E\to E$, $x\in E$, $a,M,L\ge0$ with
   $\norm{F(y)}\le M$ and $F$ $L$-Lipschitz on $\overline B(x,a)$, $T\ge0$ with $MT\le a$. Then there is $\alpha:\R\to E$
   with $\alpha(t_0)=x$ and $\alpha$ has derivative $F(\alpha(t))$ within $[t_0-T,t_0+T]$ at each $t$ of that interval.
-  (Mathlib: \Lean{ODE.IsPicardLindelof} with $r=0$, time-independent field, and
-  \Lean{IsPicardLindelof.exists\_eq\_forall\_mem\_Icc\_hasDerivWithinAt\_0}; the time constraint is the field
-  \Lean{mul\_max\_le}: $M\max(t_{\max}-t_0,t_0-t_{\min})\le a-r$. The contraction on iterates means no smallness of
+  (Mathlib: the root-namespace structure \Lean{IsPicardLindelof}\,$f\,t_0\,x_0\,a\,r\,L\,K$ of
+  \texttt{Analysis/ODE/PicardLindelof.lean}, with $r=0$ and a time-independent field, and
+  \Lean{IsPicardLindelof.exists\_eq\_forall\_mem\_Icc\_hasDerivWithinAt\char`\₀} of \texttt{Analysis/ODE/ExistUnique.lean};
+  Mathlib's norm bound is the parameter $L$ (our $M$) and its Lipschitz parameter is $K$ (our $L$); the time constraint is the field
+  \Lean{mul\_max\_le}: $M\max(t_{\max}-t_0,t_0-t_{\min})\le a-r$. Parameters are \Lean{NNReal}. The contraction on iterates means no smallness of
   $LT$ is needed.) Exists.
 \item\label{bpN:p3:ext-unique} \emph{Uniqueness with a Lipschitz constant on a set.} If $S\subset E$ and $F$ is
   $L$-Lipschitz on $S$, $f,g:[a,b]\to E$ are continuous, have right derivative $F(f(t))$, $F(g(t))$ on $[a,b)$, take
@@ -42,24 +44,36 @@ results of \texttt{PLAN.md}. Tracks I and P cite the general results as \Nref{bp
   derivatives. (Mathlib: \Lean{ODE\_solution\_unique\_of\_mem\_Icc\_right}, \Lean{ODE\_solution\_unique\_of\_mem\_Icc\_left}.)
   Exists.
 \item\label{bpN:p3:ext-lip-local} \emph{$C^1$ implies locally Lipschitz.} If $F$ is $C^1$ at $p$ there are $L$ and a
-  neighbourhood on which $F$ is $L$-Lipschitz (Mathlib: \Lean{ContDiffAt.exists\_lipschitzOnWith}). Exists.
+  neighbourhood on which $F$ is $L$-Lipschitz (Mathlib: \Lean{ContDiffAt.exists\_lipschitzOnWith}); and a function locally Lipschitz on a compact set is Lipschitz there
+  (Mathlib: \Lean{LocallyLipschitzOn.exists\_lipschitzOnWith\_of\_compact}, \texttt{Topology/Algebra/MetricSpace/Lipschitz.lean}),
+  which packages Lemma~\ref{bpN:p3:gen-lip} once local Lipschitzness on $K$ is extracted from $C^1$ on $W$. Exists.
 \item\label{bpN:p3:ext-mvt} \emph{Mean value inequality}: \Kref{bp:p1:ext-mvt}; for a differentiable map on a convex set
   with $\norm{DF}\le L$, $F$ is $L$-Lipschitz there; for a function of one variable with derivative bounded by $M$ on an
   interval, $\norm{\alpha(u)-\alpha(s)}\le M\abs{u-s}$. Exists.
 \item\label{bpN:p3:ext-compact} \emph{Topology.} Heine--Borel in $E$ (\Lean{ProperSpace}); continuous images of compact
-  sets are compact; sequential compactness; $x\mapsto\operatorname{dist}(x,A)$ is continuous and positive on $E\setminus A$
-  for $A$ closed (\Lean{Metric.infDist}). Exists.
+  sets are compact; sequential compactness; for a \emph{nonempty} closed set $A$, $x\mapsto\operatorname{dist}(x,A)$ is continuous and positive exactly on $E\setminus A$
+  (\Lean{Metric.infDist}, \Lean{IsClosed.notMem\_iff\_infDist\_pos}, which requires \Lean{A.Nonempty}; for $A=\emptyset$ Mathlib has
+  $\operatorname{infDist}(x,\emptyset)=0$, \Lean{Metric.infDist\_empty}, so no statement below uses $\operatorname{infDist}$ of an empty set:
+  thickenings are defined by $K_\delta=\{y:\exists x\in K,\ \norm{y-x}\le\delta\}$, which is empty for $K=\emptyset$). Exists.
 \item\label{bpN:p3:ext-calc} \emph{Calculus.} Chain rule \Lean{HasFDerivAt.comp\_hasDerivAt}; a function continuous on
   $[s,t]$ with right derivative $0$ on $[s,t)$ is constant (\Lean{constant\_of\_has\_deriv\_right\_zero}); two one-sided
   derivatives agree $\Rightarrow$ two-sided one (\Lean{HasDerivWithinAt.union} with $(-\infty,b]\cup[b,\infty)=\R$ and
   \Lean{hasDerivWithinAt\_univ}); \Lean{ContDiffOn.fderiv\_of\_isOpen}: if $H$ is $C^{k+1}$ on an open set then $DH$ is
   $C^k$ there. Exists.
+\item\label{bpN:p3:ext-pl-c1} \emph{Uniform existence time near a point.} If $F$ is $C^1$ at $x_0$ and $t_0\in\R$ there are $r,\varepsilon>0$
+  such that for every $x\in\overline B(x_0,r)$ there is $\alpha$ with $\alpha(t_0)=x$ and derivative $F(\alpha(t))$ for all
+  $t\in(t_0-\varepsilon,t_0+\varepsilon)$ (Mathlib:
+  \Lean{ContDiffAt.exists\_forall\_mem\_closedBall\_exists\_eq\_forall\_mem\_Ioo\_hasDerivAt}, \texttt{ExistUnique.lean:145}; note the
+  solution is for the total $F$ and is not asserted to stay in the neighbourhood of $x_0$). Exists. It covers Theorem~\ref{bpN:p3:gen-local}
+  for a single point after the staying-in-$W$ step; the explicit $\delta/\max(M,1)$ time of Proposition~\ref{bpN:p3:gen-uniform-exist}, uniform over
+  arbitrary sets $\Phi$ with uniform data, is derived from \ref{bpN:p3:ext-pl}.
 \end{enumerate}}
-\textbf{Not in Mathlib} (checked: no maximal-solution, continuation, first-exit or uniform-existence-time statement
-in \texttt{Analysis/ODE}): everything of \S\ref{bpN:p3:s-general}--\S\ref{bpN:p3:s-exit} beyond (E1)--(E3), notably
-Lemmas~\ref{bpN:p3:gen-lip}, \ref{bpN:p3:gen-short}, Proposition~\ref{bpN:p3:gen-uniform-exist},
-Theorems~\ref{bpN:p3:gen-uniqueness}, \ref{bpN:p3:gen-maximal}, \ref{bpN:p3:gen-continuation}, and the Hamiltonian
-layer. They must be proved from the blueprint below.
+\textbf{Not in Mathlib} (checked in \texttt{Analysis/ODE} and \texttt{Geometry/Manifold/IntegralCurve}: no maximal-solution, continuation or first-exit statement, and no
+uniqueness on arbitrary intervals with only local Lipschitz constants): the following must be proved from the blueprint below:
+uniform data on arbitrary sets and its compact and periodic instances (Lemmas~\ref{bpN:p3:gen-uniform-compact}, \ref{bpN:p3:gen-uniform-periodic}),
+Lemma~\ref{bpN:p3:gen-short}, Proposition~\ref{bpN:p3:gen-uniform-exist} (derived from \ref{bpN:p3:ext-pl}; the existing statement
+\ref{bpN:p3:ext-pl-c1} may be reused for the single-point case), Theorems~\ref{bpN:p3:gen-uniqueness}, \ref{bpN:p3:gen-maximal},
+\ref{bpN:p3:gen-continuation}, Lemma~\ref{bpN:p3:gen-exit} and the Hamiltonian layer.
 
 \begin{remark}[Lean totality]\label{bpN:p3:totality}
 \Lean{KAM.hamiltonianVectorField}\,$H$ uses \Lean{fderiv}, which is $0$ at a point of non-differentiability, and the
@@ -105,10 +119,12 @@ $\norm{F(x)-F(y)}\le L\norm{x-y}$ for $x,y\in K$.
 \source{Standard.}
 \end{lemma}
 \begin{proof}
+\proofstep{Via Mathlib}\label{stepN:p3:lip-mathlib} Alternatively: $F$ is locally Lipschitz at every point of $W$ (\ref{bpN:p3:ext-lip-local}), hence locally Lipschitz on $K$, and \Lean{LocallyLipschitzOn.exists\_lipschitzOnWith\_of\_compact} (\ref{bpN:p3:ext-lip-local}) gives $L$. The remaining steps are the explanatory proof of that fact.
+
 \proofstep{Bounded}\label{stepN:p3:lip-bdd} $F$ is continuous on $W\supset K$, so $\norm F\le M$ on the compact $K$ (\ref{bpN:p3:ext-compact}).
 
 \proofstep{Contradiction hypothesis}\label{stepN:p3:lip-contra}
-If no $L$ works, for every $k\in\N$ there are $x_k\ne y_k$ in $K$ with $\norm{F(x_k)-F(y_k)}>k\norm{x_k-y_k}$; then
+If no $L$ works, for every $k\in\N$, $k\ge1$, there are $x_k\ne y_k$ in $K$ with $\norm{F(x_k)-F(y_k)}>k\norm{x_k-y_k}$; then
 $\norm{x_k-y_k}<2M/k\to0$.
 
 \proofstep{Compactness}\label{stepN:p3:lip-compact}
@@ -126,12 +142,13 @@ $\norm{DF}\le L$ on $\overline B(x,\delta)\subset W$ gives the Lipschitz clause.
 
 \begin{lemma}[Compact sets have uniform data]\label{bpN:p3:gen-uniform-compact}
 Let $F$ be $C^1$ on the open set $W$ and $K\subset W$ compact. Then $K$ has uniform data $(\delta,M,L)$ for some
-$\delta>0$, and $K_\delta=\{y:\operatorname{dist}(y,K)\le\delta\}\subset W$.
+$\delta>0$, and $K_\delta=\{y:\exists x\in K,\ \norm{y-x}\le\delta\}\subset W$ is compact.
 \end{lemma}
 \begin{proof}
-\proofstep{Choice of $\delta$}\label{stepN:p3:uc-delta} If $W=E$ put $\delta=1$. Otherwise $x\mapsto\operatorname{dist}(x,E\setminus W)$ is continuous and
-positive on $K$, so has a minimum $2\delta>0$ (\ref{bpN:p3:ext-compact}); then $K_\delta\subset W$.
-$K_\delta$ is closed and bounded, hence compact.
+\proofstep{Choice of $\delta$}\label{stepN:p3:uc-delta} If $K=\emptyset$ put $\delta=1$: then $K_\delta=\emptyset$ and all assertions are vacuous
+(no $\operatorname{infDist}$ of the empty set is used). If $W=E$ put $\delta=1$. Otherwise $K\ne\emptyset$ and $A=E\setminus W$ is closed and nonempty, so
+$x\mapsto\operatorname{dist}(x,A)$ is continuous and positive on $K$ (\ref{bpN:p3:ext-compact}); it has a minimum $2\delta>0$ on the compact nonempty $K$, and then $K_\delta\subset W$.
+$K_\delta$ is the image of the compact $K\times\overline B(0,\delta)$ under $(x,w)\mapsto x+w$, hence compact.
 
 \proofstep{Data}\label{stepN:p3:uc-data} Apply Lemma~\ref{bpN:p3:gen-lip} to $K_\delta$: $\norm F\le M$ and $F$ is $L$-Lipschitz on $K_\delta\supset\overline B(x,\delta)$ for $x\in K$.
 \end{proof}
@@ -142,8 +159,8 @@ $F(\theta+k,I)=F(\theta,I)$ for $(\theta,I)\in W$, $k\in\Z^n$. If $K\subset U$ i
 uniform data $(\delta,M,L)$ for some $\delta\in(0,1]$.
 \end{lemma}
 \begin{proof}
-\proofstep{A compact cell}\label{stepN:p3:up-cell} Choose $\delta\in(0,1]$ with $K_\delta=\{I:\operatorname{dist}(I,K)\le\delta\}\subset U$ (as in
-Step~\ref{stepN:p3:uc-delta}). $C=[-1,2]^n\times K_\delta$ is compact and contained in $W$; let $M,L_C$ be the constants of
+\proofstep{A compact cell}\label{stepN:p3:up-cell} If $K=\emptyset$ then $\Phi=\emptyset$ and any $\delta,M,L$ work. Otherwise choose $\delta\in(0,1]$ with $K_\delta=\{I:\exists J\in K,\ \abs{I-J}\le\delta\}\subset U$ (as in
+Step~\ref{stepN:p3:uc-delta}, using the nonempty closed set $\R^n\setminus U$, or $\delta=1$ if $U=\R^n$). $C=[-1,2]^n\times K_\delta$ is compact and contained in $W$; let $M,L_C$ be the constants of
 Lemma~\ref{bpN:p3:gen-lip} for $C$.
 
 \proofstep{Translating a ball into the cell}\label{stepN:p3:up-translate} Let $x=(\theta,I)\in\Phi$, $k=(\lfloor\theta_i\rfloor)_i\in\Z^n$ and $x'=x-(k,0)\in[0,1)^n\times K$. Since the norm is the max
@@ -173,7 +190,7 @@ contradicting the definition of $s^*$. So $s^*=t$.
 \begin{proposition}[Local existence with uniform time]\label{bpN:p3:gen-uniform-exist}
 Let $F$ be $C^1$ on the open set $W$ and $\Phi$ have uniform data $(\delta,M,L)$; put $M'=\max(M,1)$ and
 $\varepsilon=\delta/M'$. Then for every $x\in\Phi$ and every $t_0\in\R$ there is $\alpha:\R\to E$ with $\alpha(t_0)=x$,
-$\norm{\alpha(t)-x}<\delta$ and
+$\norm{\alpha(t)-x}<\delta$ for all $t\in(t_0-\varepsilon,t_0+\varepsilon)$ and
 $\texttt{IsSolIn}\,F\,W\,(t_0-\varepsilon,t_0+\varepsilon)\,\alpha$.
 \source{Standard (Picard--Lindel\"of).}
 \end{proposition}
@@ -247,7 +264,7 @@ The union $I$ of $\mathcal J$ is an open interval $(T_-,T_+)\ni0$ (a union of in
 Each $t\in I$ has an open neighbourhood $J\in\mathcal J$ on which $z=y_J$, so $z$ is a solution on $I$ (local nature, (iii) above).
 
 \proofstep{Maximality}\label{stepN:p3:max-max} If $y$ is a solution on an interval $J\ni0$ with $y(0)=x_0$, Lemma~\ref{bpN:p3:gen-extend} gives an open $J'\supset J$ and a solution $y'$ extending $y$, so $J'\in\mathcal J$, $J\subset J'\subset I$, and $y=y'=z$ on $J$ (Theorem~\ref{bpN:p3:gen-uniqueness}).
-Uniqueness of $(T_-,T_+)$ and $z$ is immediate from the maximality property applied twice.
+Uniqueness of the interval $(T_-,T_+)$, and of $z$ as a function on it (equality on this interval of any two representatives; values outside it are arbitrary), is immediate from the maximality property applied twice.
 \end{proof}
 
 \begin{theorem}[Continuation criterion, uniform form]\label{bpN:p3:gen-continuation}
@@ -286,7 +303,7 @@ Lemma~\ref{bpN:p3:gen-uniform-periodic} gives uniform data for $\Phi=\R^n\times 
 
 \begin{remark}[What the closed-set variant really needs]\label{bpN:p3:gen-uniform-remark}
 Staying in a closed non-compact set $\Phi\subset W$ does \emph{not} suffice in general (the solution of $\dot x=x^2$
-on $E=\R$, $W=\R$, $x_0=1$ stays in the closed set $[1,\infty)$ and blows up at $T_+=1$). What suffices is the
+on $E=\R$, $W=\R$, $x_0=1$, $x(t)=1/(1-t)$, stays in the closed set $[1,\infty)$ for $0\le t<1$ and blows up at $T_+=1$). What suffices is the
 uniform data $(\delta,M,L)$ of Definition~\ref{bpN:p3:gen-uniform}: a $\delta$-neighbourhood of $\Phi$ inside $W$ on which $F$ is bounded and Lipschitz, uniformly. This holds for compact sets, for angle-periodic fields over a compact action set (Lemma~\ref{bpN:p3:gen-uniform-periodic}), and for the Newtonian regions bounded away from collisions with bounded velocities (Corollary~\ref{bpN:p3:newton-continuation}).
 \end{remark}
 
@@ -403,7 +420,7 @@ $W_U=\R^n\times U$. For every $J\subset\R$ and $z:\R\to P$,
 \texttt{IsSolutionOn}\,H\,U\,J\,z\iff\texttt{IsSolIn}\,X_H\,W_U\,J\,z
 \iff\texttt{IsHamiltonianSolutionOn}\,H\,U\,J\,z,
 \]
-and $X_H$ is $C^1$ on $W_U$. (The three predicates are literally the same formula up to the letter naming the action set,
+and $X_H$ is $C^1$ on $W_U$. (The two frozen Hamiltonian predicates have the same formula up to the letter naming the action set, and under the regularity hypotheses both are equivalent to $\texttt{IsSolIn}$ as shown below,
 \Lean{KAM.Nekhoroshev.IsSolutionOn} and \Lean{KAM.Iso.IsHamiltonianSolutionOn}.)
 \frozen{KAM.Nekhoroshev.IsSolutionOn, KAM.Iso.IsHamiltonianSolutionOn}
 \source{Ours (bookkeeping).}
@@ -439,9 +456,9 @@ In all three cases $F$ is $C^\infty$ on the open set $W$ and the general layer a
 \begin{corollary}[Newtonian continuation]\label{bpN:p3:newton-continuation}
 In the setting of Proposition~\ref{bpN:p3:newton-reduction}, let $x$ be the maximal solution through $x_0\in W_N$
 (Theorem~\ref{bpN:p3:gen-maximal}), $\rho>0$, $\bar V\ge0$ and
-$\Phi_{\rho,\bar V}=\{(q,v):\ell(q_j-q_i)\ge\rho\ (i\ne j),\ \abs v\le\bar V\}$. If $T_+<\infty$ then for every $\rho,\bar V$
-and every $t_*\in[0,T_+)$ there is $t\in[t_*,T_+)$ with $x(t)\notin\Phi_{\rho,\bar V}$ (a finite-time singularity needs
-near-collisions or unbounded velocities; positions may be unbounded). The same for $F'$ with the additional condition $\ell(q_i)\ge\rho$, and for $F_\mu$ with $\ell\ge\rho$ from both primaries and $\abs q,\abs p\le\bar V$.
+\[\Phi_{\rho,\bar V}=\{(q,v):\ \ell(q_j-q_i)\ge\rho\ (i\ne j),\ \abs v\le\bar V\}.\]
+If $T_+<\infty$ then for every $\rho,\bar V$ and every $t_*\in[0,T_+)$ there is $t\in[t_*,T_+)$ with $x(t)\notin\Phi_{\rho,\bar V}$
+(a finite-time singularity needs near-collisions or unbounded velocities; positions may be unbounded). The same for $F'$ with the additional condition $\ell(q_i)\ge\rho$, and for $F_\mu$ with $\ell\ge\rho$ from both primaries and $\abs q,\abs p\le\bar V$.
 \end{corollary}
 \begin{proof}
 \proofstep{Uniform data}\label{stepN:p3:nc-data} Let $\delta=\rho/8$. If $\abs{y-x}\le\delta$ (max norm) with $x\in\Phi_{\rho,\bar V}$ then each $\ell(q'_j-q'_i)\ge\rho-2\sqrt2\,\delta\ge\rho/2$, so $y\in W_N$ and $\overline B(x,\delta)\subset W_N$.
@@ -460,9 +477,11 @@ $U\subset B(0,R+s)$ open (in N-HEAD-C, $U=B(0,R)$).
 \begin{lemma}[Input from Part 1: $H$ is smooth on $W_s$]\label{bpN:p3:holo-input}
 $H_{h,f}$ is $C^\infty$ (in particular $C^2$) on the open set $W_s$, $X_{H}=X_{h+f}$ on $W_s\cap(\R^n\times\R^n)$, and
 $H(\theta+k,I)=H(\theta,I)$ for $(\theta,I)\in W_s$, $k\in\Z^n$.
-\source{Part 1 forward label \Nref{bpN:p1:holo-real}; the two ingredients are \Kref{bp:p1:holomorphic-regularity}, \Kref{bp:p1:hamiltonian-real}; periodicity is Definition~\ref{bpN:p0:pert}(ii).}
+\source{Part 1, Lemma~\ref{bpN:p1:holo-real}(b)--(d) (real smoothness on $W_s$, field $X_H=X_{h+f}\circ\iota$, periodicity); ingredients \Kref{bp:p1:holomorphic-regularity}, \Kref{bp:p1:hamiltonian-real}.}
 \end{lemma}
 \begin{proof}
+\proofstep{Citation}\label{stepN:p3:hi-cite} (b), (c), (d) of Lemma~\ref{bpN:p1:holo-real} are exactly the three claims. For orientation, the argument is as follows.
+
 \proofstep{Regularity}\label{stepN:p3:hi-reg} The function $G(\theta,I)=h(I)+f(\theta,I)$ is holomorphic on the open set $D_s(R)\supset W_s$ (real points $(\theta,I)$ with $I\in\mathcal B_s(R)=B(0,R)_s\cap\R^n$ lie in $T_s\times B(0,R)_s$), hence $C^\infty$ in the real sense (\Kref{bp:p1:holomorphic-regularity}); it is real on $W_s$ by Definition~\ref{bpN:p0:integrable}(iv) and \ref{bpN:p0:pert}(iii). So $H=\operatorname{Re}G=G$ on $W_s$ is the restriction of $C^\infty$ map to a real subspace: $C^\infty$ on $W_s$; $X_H=X_G$ at real points is \Kref{bp:p1:hamiltonian-real}. (Packaged as \Nref{bpN:p1:holo-real}.)
 
 \proofstep{Periodicity}\label{stepN:p3:hi-per} $f(\theta+k,I)=f(\theta,I)$ for real $\theta$, $I\in\mathcal B_s(R)$, and $h$ depends on $I$ only.
