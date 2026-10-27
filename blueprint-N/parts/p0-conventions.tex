@@ -15,9 +15,11 @@ not part of this part. Results of track K's blueprint are cited as \Kref{bp:p1:\
   for every $n$. A phase point is $z=(\theta,I)$ with angles $\theta$ and actions $I$, in this order.
 \item Ambient spaces are those of the Lean text: $\R^n=(\texttt{Fin }n\to\R)$, $\C^n=(\texttt{Fin }n\to\C)$,
   with the max norms $\abs v=\max_i\abs{v_i}$ on both. The embedding $\R^n\subset\C^n$ is componentwise. The
-  norm $\norm{\cdot}$ in every frozen statement is the max norm, with two exceptions that are Euclidean on
-  purpose: orthogonality in quasi-convexity uses the dot product $\sum_i\omega_iv_i$, and the phase space of
-  a solution is $\R^n\times\R^n$.
+  norm $\norm{\cdot}$ in every frozen statement is the max norm; on the phase space $\R^n\times\R^n$ it is
+  $\norm{(\theta,I)}=\max(\abs\theta,\abs I)$ (Lean product norm). The only Euclidean structure is the dot product
+  $\sum_i\omega_iv_i$ used for orthogonality in quasi-convexity; Euclidean norms used later for comparison with the
+  sources come with explicit inequalities ($\abs v\le\norm v_2\le\sqrt n\abs v$). For $n=0$ all these spaces are
+  $\{0\}$ and the norm is $0$.
 \item Operator norms of linear and multilinear maps are the induced norms of these max norms. In particular
   $\norm{D^2h(z)}$ for complex $h$ is the norm of $D^2h(z)\in\mathcal L(\C^n,\mathcal L(\C^n,\C))$ (Lean
   \Lean{fderiv} applied twice), i.e.\ $\sup_{\abs u,\abs v\le1}\abs{D^2h(z)[u,v]}$.
@@ -64,7 +66,8 @@ $H_{h,f}(z)=\operatorname{Re}\bigl(h(I)+f(\theta,I)\bigr)$, with $\theta,I$ view
 \end{definition}
 
 \begin{remark}[Strip and neighbourhood notation]\label{bpN:p0:strip}
-\Lean{KAM.complexStrip}\,$n\,s=T_s$ as above; it is empty for $s\le0$.
+\Lean{KAM.complexStrip}\,$n\,s=T_s$ as above; for $n>0$ it is empty when $s\le0$, and for $n=0$ it is the
+whole (one-point) space $\C^0$ for every $s$. No hypothesis $n>0$ is added to N-ZERO or N-QC.
 \frozen{KAM.complexStrip}
 \end{remark}
 
@@ -181,12 +184,15 @@ The frozen definitions and theorems use \Lean{fderiv} (which is $0$ at a point o
 \Lean{iteratedFDeriv}, the operator norm, \Lean{rpow} ($\varepsilon^{\pm1/(2n)}$), \Lean{Real.exp} and the max norm;
 there is no matrix inverse, no Bochner integral and no division by a quantity that may vanish. The guards are:
 \begin{enumerate}[label=(\alph*)]
-\item $\omega_h$ and $D^2h_\R$ are used only on the open set $\mathcal B_s(R)$ where $h_\R$ is $C^3$
-  (Definitions~\ref{bpN:p0:integrable}(v), \ref{bpN:p0:bm}, \ref{bpN:p0:qc}), so the derivatives are the genuine ones.
+\item In N-HEAD-C and N-ZERO, $\omega_h$ and $D^2h_\R$ are used only on the open set $\mathcal B_s(R)$ where $h_\R$
+  is $C^3$ (Definitions~\ref{bpN:p0:integrable}(v), \ref{bpN:p0:bm}, \ref{bpN:p0:qc}), so the derivatives are the
+  genuine ones. N-QC uses them on its arbitrary open $U$, where its hypothesis gives $C^2$ (item (e)). The
+  definitions \texttt{frequencyMap}, \texttt{integrableOrbit} themselves are total and keep Lean's default
+  values outside the differentiability locus.
 \item $D^2h$ for complex $h$ is used only on $B(0,R)_s$, open, where $h$ is $C^2$ (Definition~\ref{bpN:p0:hess}).
 \item $X_H$ is used only inside \texttt{IsSolutionOn}, which requires differentiability of $H$ at every visited point;
   in N-ZERO and N-HEAD-C this is a proof obligation: $H_{h,f}$ is real-differentiable on
-  $\mathcal B_s(R)\times\R^n\supset B(0,R)\times\R^n$ because $h,f$ are holomorphic on open sets containing the real
+  $\R^n\times\mathcal B_s(R)\supseteq\R^n\times B(0,R)$ (angles first, actions restricted) because $h,f$ are holomorphic on open sets containing the real
   points (\Kref{bp:p1:hamiltonian-real}).
 \item $\varepsilon^{-1/(2n)}$ and $\varepsilon^{1/(2n)}$ occur only with $\varepsilon>0$ in N-HEAD-C, and $2n\ne0$.
 \item In N-QC the map $\Psi(I',\lambda)=(h_\R(I'),\lambda\omega_h(I'))$ is differentiable at $(I,\lambda)$ because

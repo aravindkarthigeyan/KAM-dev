@@ -1,0 +1,536 @@
+\section{Extended torsion and the bordered triangular system}\label{bpI:p1}
+
+This part collects the linear-algebra and first-order geometry of the isoenergetic scheme of HL19
+\S6 (pp.~45--51), for the frozen objects $\bar E_H$, $\mathsf T_H$, $\avg{\mathsf T_H}$ and $\mathsf B_h$
+of Definitions~\ref{bpI:p0:extended} and~\ref{bpI:p0:bordered}. It proves five things.
+\begin{enumerate}[label=(\arabic*)]
+\item $\mathsf T_H=\mathsf B_h(I)$ exactly at the trivial torus $\theta\mapsto(\theta,I)$
+  (Lemma~\ref{bpI:p1:trivial}); this is why the nondegeneracy hypothesis of I-HEAD is the isoenergetic
+  condition of I-G1.
+\item The last row of $\mathsf T_H$ is $\omega^\top-(\eta^L)^\top$ exactly, hence $\omega^\top$ on an invariant
+  torus (Lemma~\ref{bpI:p1:last-row}); HL19 Rem.~3.7 only states the invariant case, with a sign slip.
+\item The bordered triangular system of HL19 Lemma~6.1 with its estimates (Lemma~\ref{bpI:p1:border-solve}),
+  and its exact origin as the reduction of the linearized isoenergetic equation in the frame
+  (Lemma~\ref{bpI:p1:reduced}). \emph{This is the only genuinely new analytic lemma}; HL19 print only
+  ``analogous to Lemma~5.1'' for its proof, so the full proof is supplied.
+\item The approximate energy identities (Lemma~\ref{bpI:p1:energy-approx}): $D(H\circ K)=DH(K)DK$,
+  $\partial_\omega(H\circ K)=-DH(K)E$, the compatibility $\avg{\eta^N}=0$, and the size of the energy defect.
+\item Energy conservation of an invariant torus (Lemma~\ref{bpI:p1:energy-conservation}): $E=0$ and
+  $\avg{H\circ K}=E_0$ give $H\circ K=E_0$ pointwise, the pointwise energy conclusion (O3) of I-G1.
+\end{enumerate}
+Everything about the frame $L=DK$, $N$, $P$, $Q$, the symplectic defects and the cohomological equation is
+\emph{cited} from track~K's Part~2 (\Kref{bp:p2:frame-identities}, \Kref{bp:p2:exactness},
+\Kref{bp:p2:geometry}, \Kref{bp:p2:cohomological}, \Kref{bp:p2:triangular}, \dots) and Part~1, not
+re-proved: the canonical Case~III objects of the frozen definitions are those of
+\Kref{bp:p2:objects} with $h$ replaced by $H$.
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Setting, sign dictionary, external facts}\label{bpI:p1:sec-setting}
+
+\begin{assumption}[Standing setting of Part~\ref{bpI:p1}]\label{bpI:p1:setting}
+Let $n\ge2$ and $\tau\ge0$ (I-G1 has $\tau\ge n-1$; only $\tau\ge0$ is used here), $M>0$. Let
+$D\subset\C^n\times\C^n$ be open with $(\theta+k,I)\in D$ for $(\theta,I)\in D$, $k\in\Z^n$ (I1); let
+$H:\C^n\times\C^n\to\C$ be holomorphic on $D$, $1$-periodic in $\theta$, real at real phase points of $D$
+(I2, I3), with $\norm{DH},\norm{X_H},\norm{DX_H},\norm{D^2X_H}\le M$ on $D$ (I4). Let $\gamma>0$ and
+$\omega\in\R^n\cap\Dio_{\gamma,\tau}$. Let $r>0$ and let $K:\C^n\to\C^n\times\C^n$ be holomorphic, primary and real
+on reals on $T_r$, with $K(T_r)\subset D$ (I5, I6). Where the frame is used, $\det G_K\ne0$ on $T_r$.
+\end{assumption}
+
+This is exactly Assumption~\Kref{bp:p2:standing} with $h:=H$, $\mathfrak B:=D$, together with the bound
+$\norm{DH}\le M$, which is used only in Lemma~\ref{bpI:p1:energy-approx}(e) and
+Lemma~\ref{bpI:p1:extended-basic}(b). All objects $L,G,B,N,P,X_N,T,E,A,\Omega_K,E_{\mathrm{sym}},Q,\eta$ and the
+averages are those of \Kref{bp:p2:objects}, with $h:=H$; \Kref{bp:p2:frozen-agreement} identifies them with the
+frozen \Lean{gramMatrix}, \Lean{normalFrame}, \Lean{torsion}, \Lean{invarianceError}. The norms are those of
+Part~\ref{bpI:p0}: max norms, row-sum operator norms $\abs M=\max_i\sum_j\abs{M_{ij}}$ (so a $1\times n$ matrix has
+the norm $\sum_j\abs{M_{1j}}$, which is the norm of $DH(z)$ in (I4)). Write $\Gamma_\delta:=c_R\gamma^{-1}\delta^{-\varkappa}$,
+$\varkappa=\tau+n$, as in \Kref{bp:p2:constants}.
+
+\begin{remark}[Rays: $s\omega^*$ is Diophantine with the constant of $\omega^*$]\label{bpI:p1:ray}
+In I-G1, $\omega=s\omega^*$ with $s>1$ and $\omega^*\in\Dio_{\gamma,\tau}$. For $k\ne0$,
+$\abs{k\cdot s\omega^*}=s\abs{k\cdot\omega^*}\ge\gamma/\bigl(\sum_i\abs{k_i}\bigr)^\tau$, so
+$\omega\in\Dio_{\gamma,\tau}$ with the \emph{same} $\gamma$. Hence every result of K's Part~1 and Part~2 that
+requires $\omega\in\Dio_{\gamma,\tau}$ applies to $\omega=s\omega^*$ with $\Gamma_\delta$ as above.
+\end{remark}
+
+\begin{remark}[Lean totality for this part]\label{bpI:p1:totality}
+Following Remark~\ref{bpI:p0:totality}: every statement below that uses $N$, $T$, $\mathsf T_H$ assumes
+$\det G_K\ne0$ on $T_r$ first, so that $B=G^{-1}$ is the true inverse, holomorphic
+(\Kref{bp:p1:holomorphic-inverse}); every use of $\avg{\mathsf T_H}$ is preceded by continuity of
+$\mathsf T_H$ on $\R^n$ (Lemma~\ref{bpI:p1:extended-basic}(a)), hence integrability
+(\Kref{bp:p1:ext-integral}); every derivative of $H$, $X_H$ is taken at a point of the open set $D$ where $H$ is
+holomorphic, so \Lean{fderiv} is the genuine derivative; the frozen $\mathsf T_H$ entry
+$\Lean{fderiv}\ \C\ H\ (K\theta)\ (N_{\cdot b})$ is then the matrix product $DH(K(\theta))N_{\cdot b}(\theta)$.
+\end{remark}
+
+\begin{remark}[Sign dictionary HL19 $\leftrightarrow$ this blueprint]\label{bpI:p1:signs}
+HL19 use $\mathfrak L_\omega=-\sum_i\omega_i\partial_{\theta_i}=-\partial_\omega$ (4.1), p.~20, and the
+right operator $\mathfrak R_\omega$ of (4.2), $\widehat{(\mathfrak R_\omega v)}_k=-\hat v_k/(2\pi ik\cdot\omega)$. Track~K's operator
+$\mathcal R$ (\Kref{bp:p2:cohomological}) solves $\partial_\omega u=g$, $\avg u=0$, i.e.
+$\widehat{(\mathcal Rg)}_k=\hat g_k/(2\pi ik\cdot\omega)$. Thus
+\[
+\mathfrak L_\omega=-\partial_\omega,\qquad\mathfrak R_\omega=-\mathcal R\quad\text{(on the data of (4.1))}.
+\]
+With the canonical $\Omega=\Omega_0$ and $\Omega X_h=(Dh)^\top$ (Rem.~2.1, p.~6; our
+\Kref{bp:p2:hamiltonian}(d)), HL19's invariance error is $E=X_h(K)-DK\,\omega$ (2.2), p.~7, which p.~45 writes as
+$X_h(K)+\mathfrak L_\omega K$. The linearized system (6.1), p.~45, with $\bar\omega=\omega+\Delta\omega$,
+$\Delta\omega=-\omega\xi^\omega$ (6.3), is therefore
+\[
+A\,\Delta K-\partial_\omega\Delta K-DK\,\Delta\omega=A\,\Delta K-\partial_\omega\Delta K+L\omega\,\xi^\omega=-E,
+\qquad\avg{DH(K)\Delta K}=-E^\omega,
+\]
+$A=DX_H\circ K$, $L=DK$, $E^\omega=\avg{H\circ K}-E_0$, and $\bar\omega=(1-\xi^\omega)\omega$ as on p.~50. The system (6.7) is
+\[
+T\xi^N-\partial_\omega\xi^L+\omega\,\xi^\omega=\eta^L,\qquad-\partial_\omega\xi^N=\eta^N,\qquad\avg{Y\xi^N}=\eta^\omega,
+\]
+and the solution (6.8)--(6.10) reads $\xi^N=\xi^N_0-\mathcal R\eta^N$, $\xi^L=\xi^L_0+\mathcal R\bigl(T\xi^N+\omega\xi^\omega-\eta^L\bigr)$,
+with (6.10) unchanged because $\mathfrak R_\omega=-\mathcal R$. Lemma~\ref{bpI:p1:reduced} verifies that this is the
+equation obtained from (6.1) in the frame, signs included. Here and below $Y(\theta):=DH(K(\theta))N(\theta)\in\C^{1\times n}$ is HL19's
+$H$ of (6.14), renamed to avoid a clash with the Hamiltonian.
+\end{remark}
+
+\paragraph{External facts used in this part.} Besides \Kref{bp:p1:ext-integral} (continuous functions on a compact
+box are integrable, integrals are linear and bounded by the supremum), the proofs use only:
+\begin{enumerate}[label=(X\arabic*),ref=(X\arabic*)]
+\item\label{bpI:p1:ext-chain} \emph{Chain and product rules} for Fr\'echet derivatives of holomorphic maps, and
+  linearity of the derivative (Mathlib \nolinkurl{HasFDerivAt.comp}, \nolinkurl{fderiv_add}, \nolinkurl{fderiv_const}).
+\item\label{bpI:p1:ext-real-direction} \emph{Complex derivative in a real direction.} If $\varphi$ is
+  holomorphic on an open $U\subset\C^n$, $x\in U\cap\R^n$ and $v\in\R^n$, then $\varphi|_{U\cap\R^n}$ has the
+  real directional derivative $D\varphi(x)v$ at $x$; if moreover $\varphi$ is real on $U\cap\R^n$, then
+  $D\varphi(x)v\in\R$ (it is a limit of real difference quotients). See \Kref{bp:p1:hamiltonian-real},
+  step \Kref{step:p1:hr-derivative}.
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The extended torsion}\label{bpI:p1:sec-extended}
+
+\begin{lemma}[Regularity, periodicity, realness and size of the extended torsion]\label{bpI:p1:extended-basic}
+Assume~\ref{bpI:p1:setting} with $\det G_K\ne0$ on $T_r$, and put $Y:=DH(K)N$ on $T_r$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $Y$ and the entries of $\mathsf T_H$ (built from $(H,K,\omega)$) are holomorphic and $1$-periodic on $T_r$ and
+  real at real $\theta$. In particular $\mathsf T_H$ is continuous on $\R^n$ and $\avg{\mathsf T_H}$ is defined, real, and equals
+  the block matrix
+  \[
+  \avg{\mathsf T_H}=\begin{pmatrix}\avg T&\omega\\ \avg Y&0\end{pmatrix}
+  \]
+  with $\avg T=\avg{T_{H,K,\omega}}$ the torsion average of \Kref{bp:p2:objects}.
+\item If $\abs{DK}\le\sigma_K'$ and $\abs B\le\sigma_B'$ on $T_r$, then $\abs Y\le M\sigma_K'\sigma_B'$ on $T_r$, and
+  on any set where $\abs T\le C_T$,
+  $\abs{\mathsf T_H}\le\max\{C_T+\abs\omega,\ M\sigma_K'\sigma_B'\}$ in the row-sum norm of $\C^{(n+1)\times(n+1)}$.
+\end{enumerate}
+\frozen{KAM.Iso.extendedTorsion, KAM.Iso.extendedTorsionAverage}
+\source{HL19 (3.13), p.~19 ($c=H$, $d=n$); HL19 (6.14), p.~47 for $Y$. Estimates: ours.}
+\end{lemma}
+
+\begin{proof}
+\proofstep{Holomorphy}\label{stepI:p1:eb-holo}
+$N$ is holomorphic on $T_r$ (\Kref{bp:p2:frame-basic}(a)), $K(T_r)\subset D$ and $DH$ is holomorphic on $D$
+(\Kref{bp:p1:holomorphic-regularity}), so $Y=DH\circ K\cdot N$ is a product of holomorphic functions
+(\ref{bpI:p1:ext-chain}). The entries of $T$ and the constant block $\omega$ are holomorphic by
+\Kref{bp:p2:frame-basic}(a). Hence every entry of $\mathsf T_H$ is holomorphic, in particular continuous on $\R^n\subset T_r$.
+
+\proofstep{Periodicity and realness}\label{stepI:p1:eb-period}
+Differentiating $H(\theta+k,I)=H(\theta,I)$ gives $DH(z+(k,0))=DH(z)$ on $D$, and $K(\theta+k)=K(\theta)+(k,0)$;
+so $DH(K(\theta+k))=DH(K(\theta))$. $N$ and $T$ are $1$-periodic by \Kref{bp:p2:periodicity}. At real $\theta$,
+$K(\theta)$ is a real phase point of $D$, where $DH$ is real (the argument of \Kref{bp:p2:hamiltonian}(c),
+step \Kref{step:p2:ham-real}, applies to $H$, real at real points), and $N$, $T$ are real
+(\Kref{bp:p2:periodicity}). Hence $Y$ is real at real points.
+
+\proofstep{The average}\label{stepI:p1:eb-average}
+\sloppy By Step~\ref{stepI:p1:eb-holo}, each entry is integrable on $[0,1]^n$
+(\Kref{bp:p1:ext-integral}), so the Bochner
+integral of the frozen $\avg{\mathsf T_H}$ is the entrywise integral, real because the integrand is
+real at real $\theta$; the entries of the border are $\avg\omega=\omega$ (the cube has volume one) and $\avg 0=0$.
+(Lean totality, Remark~\ref{bpI:p1:totality}.)
+
+\proofstep{Bounds}\label{stepI:p1:eb-bounds}
+$\abs Y\le\abs{DH(K)}\abs N\le M\,\abs{\Omega_0}\abs L\abs B\le M\sigma_K'\sigma_B'$, by \Kref{bp:p2:matrix}(b), (d).
+The last column of $\mathsf T_H$ is the $n\times1$ matrix $\omega$, of norm $\abs\omega$; by
+\Kref{bp:p2:matrix}(c) the $(n+1)\times(n+1)$ norm is at most the maximum of the two block-row bounds
+$C_T+\abs\omega$ and $\abs Y$.
+\end{proof}
+
+\begin{lemma}[$\mathsf T_H=\mathsf B_h$ at the trivial torus]\label{bpI:p1:trivial}
+Let $U\subset\C^n$ be open and $h:U\to\C$ holomorphic with $h(J)\in\R$ for every real $J\in U$. Let
+$D=\C^n\times U$, $H(\theta,J):=h(J)$ on $D$, $I\in U\cap\R^n$ and $K(\theta)=(\theta,I)$ ($\theta\in\C^n$). Put
+$\omega:=\nabla h(I)\in\R^n$ (\Lean{frequencyMap}). Then $K$ is holomorphic, primary and real on reals, $K(\C^n)\subset D$,
+$G_K=I_n$, $E_{H,K,\omega}\equiv0$, and for every $\theta\in\C^n$
+\[
+\mathsf T_H(\theta)=\mathsf B_h(I)\quad\text{(the real matrix, viewed in }\C^{(n+1)\times(n+1)}),\qquad
+\avg{\mathsf T_H}=\mathsf B_h(I),
+\]
+the frozen \Lean{borderedHessian}. In particular $\det\avg{\mathsf T_H}\ne0$ iff $\det\mathsf B_h(I)\ne0$ and
+$\abs{\avg{\mathsf T_H}^{-1}}=\abs{\mathsf B_h(I)^{-1}}$.
+\frozen{KAM.Iso.extendedTorsion, KAM.Iso.extendedTorsionAverage, KAM.Iso.borderedHessian}
+\source{ours; HL19 Rem.~3.7, p.~19, and Chi05 p.~17 (determinant $3/L^4$ in the Kepler case). Reading remark:
+Remark~\ref{bpI:p0:head-remarks}(b).}
+\end{lemma}
+
+\begin{proof}
+\proofstep{The torus}\label{stepI:p1:tr-torus}
+$K(\theta+k)=(\theta+k,I)=K(\theta)+(k,0)$, $K$ is affine, hence holomorphic, and real on real $\theta$ because $I$
+is real. $DK(\theta)e_i=(e_i,0)$, so $G_K=(e_i\cdot e_j)=I_n$ (using the bilinear dot of
+Definition~\ref{bpI:p0:stripdata}), $\det G_K=1$ and $B=I_n$.
+
+\proofstep{The normal frame}\label{stepI:p1:tr-frame}
+$N_{\cdot j}=\sum_k\delta_{kj}\Omega_0(e_k,0)=\Omega_0(e_j,0)=(0,e_j)$, a constant function of $\theta$, so
+$D_\theta N_{\cdot j}=0$.
+
+\proofstep{The vector field}\label{stepI:p1:tr-field}
+Since $H(\theta,J)=h(J)$, $X_H(\theta,J)=\bigl((\partial_ah(J))_a,\,0\bigr)$, so $E_{H,K,\omega}(\theta)=X_H(K\theta)-DK\,\omega=
+(\nabla^{\C}h(I)-\omega,0)$, where $\nabla^\C h(I)=(\partial_ah(I))_a$. By~\ref{bpI:p1:ext-real-direction} applied to
+$\varphi=h$ (real on $U\cap\R^n$), $\partial_ah(J)\in\R$ for real $J$, and the real function
+$J\mapsto\operatorname{Re}h(J)=h(J)$ on $U\cap\R^n$ has partial derivative $\partial_ah(J)$ in the direction $e_a$; by the
+definition of \Lean{frequencyMap}, $\omega_a=\partial_ah(I)$. Hence $E\equiv0$, and more generally
+$\nabla h(J)_a=\partial_ah(J)$ for real $J\in U$.
+
+\proofstep{The torsion}\label{stepI:p1:tr-torsion}
+$DX_H(\theta,I)(0,e_j)=\bigl((\partial_j\partial_ah(I))_a,0\bigr)$, and $\Omega_0(w,0)=(0,w)$. Hence
+$T(\theta)_{ij}=N_{\cdot i}\cdot\Omega_0\bigl(DX_H N_{\cdot j}-0\bigr)=(0,e_i)\cdot(0,(\partial_j\partial_ah(I))_a)=\partial_j\partial_ih(I)$.
+
+\proofstep{The border}\label{stepI:p1:tr-border}
+The last column is $\omega=\nabla h(I)$, entries $\omega_a=\partial_ah(I)$. The last row is
+$DH(K\theta)N_{\cdot b}=DH(\theta,I)(0,e_b)=\partial_bh(I)=\omega_b$. The corner is $0$.
+
+\proofstep{Comparison with the bordered Hessian}\label{stepI:p1:tr-compare}
+The $(a,b)$ entry of $\mathsf B_h(I)$ is $D(\nabla h)(I)e_b$ read at $a$, the real derivative in direction $e_b$ of
+$J\mapsto\nabla h(J)_a=\partial_ah(J)$ on $U\cap\R^n$ (Step~\ref{stepI:p1:tr-field}); since $\partial_ah$ is holomorphic,
+this is $\partial_b\partial_ah(I)$ by~\ref{bpI:p1:ext-real-direction}, a real number. So the upper left blocks agree
+(and are symmetric by \Kref{bp:p1:holomorphic-regularity}); the border of $\mathsf B_h(I)$ is $\nabla h(I)$ in the
+last column and row, as found above. Thus $\mathsf T_H(\theta)=\mathsf B_h(I)$ for all $\theta$; the constant has
+average equal to itself since $[0,1]^n$ has volume one. The statements on the determinant and the inverse follow because
+a real matrix and its image in $\C^{(n+1)\times(n+1)}$ have the same determinant and inverse
+(\Kref{bp:p1:real-inverse}) and the same row-sum norm.
+\end{proof}
+
+\begin{remark}[Use]\label{bpI:p1:trivial-use}
+For $H=h+f$ with $f$ small, the torus $K(\theta)=(\theta,I)$ with $\omega=\nabla h(I)$ (or $s\omega^*$ with a
+nearby $I$, see Part~3) has $\avg{\mathsf T_H}=\mathsf B_h(I)+O(\norm f)$ by Lemma~\ref{bpI:p1:last-row}
+below and the Cauchy estimates; this is how (I8) of I-G1 is verified from $\det\mathsf B_h\ne0$, with
+$\sigma_T$ from \Kref{bp:p1:neumann}.
+\end{remark}
+
+\begin{lemma}[The energy row of the extended torsion]\label{bpI:p1:last-row}
+Assume~\ref{bpI:p1:setting} with $\det G_K\ne0$ on $T_r$ and let $E=E_{H,K,\omega}$, $\eta^L=-N^\top\Omega_0E$ as in
+\Kref{bp:p2:objects}. Then on $T_r$:
+\begin{enumerate}[label=(\alph*)]
+\item $Y=DH(K)N=\omega^\top-(\eta^L)^\top$. In particular $\abs{Y-\omega^\top}\le\abs{\eta^L}$ and, entrywise,
+  $Y_b=\omega_b+N_{\cdot b}^\top\Omega_0E$.
+\item If $E=0$ on $T_r$ (invariant torus), then $Y=\omega^\top$ on $T_r$, so
+  \[
+  \mathsf T_H(\theta)=\begin{pmatrix}T(\theta)&\omega\\ \omega^\top&0\end{pmatrix}\quad(\theta\in T_r),\qquad
+  \avg{\mathsf T_H}=\begin{pmatrix}\avg T&\omega\\ \omega^\top&0\end{pmatrix}.
+  \]
+\item In general $\avg{\mathsf T_H}=\mathsf T^{\mathrm{inv}}-\begin{pmatrix}0&0\\ \avg{\eta^L}^\top&0\end{pmatrix}$, where
+  $\mathsf T^{\mathrm{inv}}:=\bigl(\begin{smallmatrix}\avg T&\omega\\ \omega^\top&0\end{smallmatrix}\bigr)$ is built from the same $T$; and if
+  $\abs E\le e$ on $T_r$, $\abs{L}\le\sigma_K'$, $\abs B\le\sigma_B'$, then
+  $\abs{\avg{\mathsf T_H}-\mathsf T^{\mathrm{inv}}}\le2n^2\sigma_K'\sigma_B'\,e$.
+\end{enumerate}
+\frozen{KAM.Iso.extendedTorsion}
+\source{HL19 Rem.~3.7, p.~19 (part (b), (3.17)), proved with the sign corrected (Remark~\ref{bpI:p1:errata}, E3);
+(a), (c) are ours: HL19 (3.13) defines the last row as $Dc(K)N$ without simplifying it off invariance.}
+\end{lemma}
+
+\begin{proof}
+\proofstep{The gradient identity}\label{stepI:p1:lr-gradient}
+By \Kref{bp:p2:hamiltonian}(d) (equivalently \Kref{bp:p1:hamiltonian-real}), $\Omega_0X_H=(DH)^\top$ on $D$, so
+$DH(z)=(\Omega_0X_H(z))^\top=X_H(z)^\top\Omega_0^\top=-X_H(z)^\top\Omega_0$.
+
+\proofstep{Insert the error}\label{stepI:p1:lr-insert}
+At $z=K(\theta)$, $X_H(K)=L\omega+E$ by the definition of $E$. Hence
+\[
+Y=DH(K)N=-(L\omega+E)^\top\Omega_0N=-\omega^\top L^\top\Omega_0N-E^\top\Omega_0N=\omega^\top-E^\top\Omega_0N,
+\]
+using $L^\top\Omega_0N=-I_n$ (\Kref{bp:p2:frame-identities}(a)). The $b$-th entry of the row $E^\top\Omega_0N$ is the scalar
+$E^\top\Omega_0N_{\cdot b}=N_{\cdot b}^\top\Omega_0^\top E=-N_{\cdot b}^\top\Omega_0E=(\eta^L)_b$. This is (a) and the entrywise form. The row-sum norm of
+the $1\times n$ matrix $(\eta^L)^\top$ is $\sum_b\abs{\eta^L_b}\le n\abs{\eta^L}$, so $\abs{Y-\omega^\top}\le n\abs{\eta^L}$.
+
+\proofstep{Invariant torus and average}\label{stepI:p1:lr-average}
+(b) is (a) with $\eta^L=0$ (since $E=0$), together with the definition of $\mathsf T_H$
+(Definition~\ref{bpI:p0:extended}) and Lemma~\ref{bpI:p1:extended-basic}(a). For (c): averaging (a) and using linearity,
+$\avg Y=\omega^\top-\avg{\eta^L}^\top$, so the two matrices differ only in the last row, which has norm
+$\le n\abs{\avg{\eta^L}}\le n\sup_{\R^n}\abs{\eta^L}$ (\Kref{bp:p2:averages}(a)), and
+$\abs{\eta^L}\le\abs{N^\top}\abs{\Omega_0}\abs E\le2n\,\abs N\abs E\le2n\,\sigma_K'\sigma_B'\,e$
+(\Kref{bp:p2:frame-basic}(c), with $\abs N\le\abs L\abs B$). Hence the bound $2n^2\sigma_K'\sigma_B'e$.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Energy identities}\label{bpI:p1:sec-energy}
+
+\begin{lemma}[Approximate energy identities]\label{bpI:p1:energy-approx}
+Assume~\ref{bpI:p1:setting} and let $E=E_{H,K,\omega}$, $E^{\mathrm{en}}:=H\circ K-\avg{H\circ K}$ on $T_r$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $H\circ K$ is holomorphic, $1$-periodic on $T_r$, real on reals, and $D(H\circ K)=DH(K)\,DK$; the average
+  $\avg{H\circ K}=\bar E_H(K)$ is the frozen \Lean{energyAverage}, real.
+\item $\partial_\omega(H\circ K)=D(H\circ K)\omega=-DH(K)\,E$ on $T_r$.
+\item $L^\top\Omega_0E=(D(H\circ K))^\top-\Omega_K\omega$ on $T_r$. If $\det G_K\ne0$, then $\eta^N=L^\top\Omega_0E$.
+\item $\avg{D(H\circ K)}=0$, $\avg{\Omega_K}=0$ and $\avg{\eta^N}=0$ (the compatibility condition of Lemma~\ref{bpI:p1:border-solve}).
+\item If $\abs E\le\varepsilon$ on $T_r$ and $0<\delta<r$, then $\abs{E^{\mathrm{en}}}\le M\Gamma_\delta\varepsilon$ on $T_{r-\delta}$, and for
+  $0<\delta'<r-\delta$, $\abs{D(H\circ K)}\le nM\Gamma_\delta\varepsilon/\delta'$ on $T_{r-\delta-\delta'}$.
+\item (Energy defect.) Let $\det G_K\ne0$ on $T_r$, let $\xi=(\xi^L,\xi^N)$ be holomorphic on a strip $T_{r'}$, $r'\le r$, and
+  $\Delta K=P\xi$. Then on $T_{r'}$
+  \[
+  DH(K)\,\Delta K=Y\xi^N+D(H\circ K)\,\xi^L=Y\xi^N+(\eta^N)^\top\xi^L-\omega^\top\Omega_K\,\xi^L .
+  \]
+  Consequently, if $\avg{Y\xi^N}=\eta^\omega$, then $\avg{DH(K)\Delta K}=\eta^\omega+E^\omega_{\mathrm{lin}}$ with
+  $E^\omega_{\mathrm{lin}}:=\avg{D(H\circ K)\,\xi^L}$, and
+  $\abs{E^\omega_{\mathrm{lin}}}\le\sup_{\R^n}\abs{D(H\circ K)}\,\sup_{\R^n}\abs{\xi^L}\le n\bigl(\sup\abs{\eta^N}+\abs\omega\sup\abs{\Omega_K}\bigr)\sup\abs{\xi^L}$.
+\end{enumerate}
+\frozen{KAM.Iso.energyAverage}
+\source{HL19 Lemma~4.2, (4.3)--(4.5), p.~21, and (4.9) ($\mathfrak L_\omega(c\circ K)=Dc(K)E$, equivalent to (b) with
+$\mathfrak L_\omega=-\partial_\omega$); p.~46 ($Dc(K)L=D(c\circ K)$, $E^\omega_{\mathrm{lin}}$ of p.~49); (6.11)--(6.14), p.~47;
+compatibility $\avg{\eta^N}=0$ from Lemma~4.6 as recalled on p.~47.}
+\end{lemma}
+
+\begin{proof}
+\proofstep{Regularity and chain rule}\label{stepI:p1:ea-chain}
+$K$ is holomorphic on $T_r$ with values in $D$, and $H$ is holomorphic on $D$, so $H\circ K$ is holomorphic with
+$D(H\circ K)=DH(K)DK$ (\ref{bpI:p1:ext-chain}). It is $1$-periodic since $H(K(\theta+k))=H(K(\theta)+(k,0))=H(K(\theta))$,
+and real at real $\theta$ because $K(\theta)$ is a real phase point of $D$ (I3). The average is
+$\int_{[0,1]^n}H(K(\theta))d\theta=\bar E_H(K)$ by definition, integrable by \Kref{bp:p2:averages}(a). This is (a).
+
+\proofstep{The derivative along $\omega$}\label{stepI:p1:ea-omega}
+$D(H\circ K)\omega=DH(K)L\omega=DH(K)\bigl(X_H(K)-E\bigr)$. By \Kref{bp:p2:hamiltonian}(d), $DH=(\Omega_0X_H)^\top$,
+so $DH(z)X_H(z)=X_H^\top\Omega_0^\top X_H=-X_H^\top\Omega_0X_H=0$ ($\Omega_0$ is antisymmetric). Hence $D(H\circ K)\omega=-DH(K)E$, which is (b).
+
+\proofstep{The gradient identity}\label{stepI:p1:ea-gradient}
+This repeats the gradient step of \Kref{bp:p2:exactness}: $L^\top\Omega_0X_H(K)=(DH(K)L)^\top=(D(H\circ K))^\top$,
+hence $L^\top\Omega_0E=(D(H\circ K))^\top-L^\top\Omega_0L\omega=(D(H\circ K))^\top-\Omega_K\omega$. The identification $\eta^N=L^\top\Omega_0E$ is
+the definition of $\eta$ in \Kref{bp:p2:objects}. This is (c).
+
+\proofstep{Averages}\label{stepI:p1:ea-avg}
+$D(H\circ K)$ has the entries $\partial_{\theta_\ell}(H\circ K)$ of a holomorphic periodic function, so the average vanishes
+(\Kref{bp:p2:averages}(b)); $\avg{\Omega_K}=0$ and $\avg{\eta^N}=0$ are \Kref{bp:p2:exactness}. (Also directly:
+$\avg{\eta^N}=\avg{D(H\circ K)}^\top+\avg{\Omega_K}\omega=0$ by (c).)
+
+\proofstep{The size of the energy fluctuation}\label{stepI:p1:ea-size}
+$E^{\mathrm{en}}$ is holomorphic and $1$-periodic on $T_r$, has zero average, and by (b)
+$\abs{\partial_\omega E^{\mathrm{en}}}=\abs{DH(K)E}\le\abs{DH(K)}\abs E\le M\varepsilon$ on $T_r$ (here (I4), $K(T_r)\subset D$, is used).
+\Kref{bp:p2:cohomological}(b), on $T_r$ with loss $\delta$, gives $\abs{E^{\mathrm{en}}}\le\Gamma_\delta M\varepsilon$ on $T_{r-\delta}$. The
+Cauchy estimate \Kref{bp:p1:cauchy-strip} for the bounded holomorphic function $E^{\mathrm{en}}$ on $T_{r-\delta}$ with loss $\delta'$ gives
+$\abs{DE^{\mathrm{en}}}=\abs{D(H\circ K)}\le n\Gamma_\delta M\varepsilon/\delta'$ on $T_{r-\delta-\delta'}$. This is (e).
+
+\proofstep{The energy defect}\label{stepI:p1:ea-defect}
+$P=(L\ N)$, so $\Delta K=L\xi^L+N\xi^N$ and $DH(K)\Delta K=DH(K)L\xi^L+DH(K)N\xi^N=D(H\circ K)\xi^L+Y\xi^N$ by (a).
+By (c), $D(H\circ K)=(\eta^N+\Omega_K\omega)^\top=(\eta^N)^\top+\omega^\top\Omega_K^\top=(\eta^N)^\top-\omega^\top\Omega_K$ since
+$\Omega_K^\top=-\Omega_K$ ($\Omega_K=L^\top\Omega_0L$, $\Omega_0^\top=-\Omega_0$). The average of the sum splits linearly.
+For the bound: $\abs{\avg{D(H\circ K)\xi^L}}\le\sup_{\R^n}\abs{D(H\circ K)\xi^L}$ (\Kref{bp:p2:averages}(a)), and
+$\abs{D(H\circ K)}\le\abs{(\eta^N)^\top}+\abs{\omega^\top\Omega_K}\le n\abs{\eta^N}+n\abs\omega\abs{\Omega_K}$, with
+\Kref{bp:p2:matrix}(a) for transposes (a $1\times n$ row $v^\top$ has $\abs{v^\top}=\sum\abs{v_i}\le n\abs v$).
+\end{proof}
+
+\begin{lemma}[Energy conservation of an invariant torus]\label{bpI:p1:energy-conservation}
+Assume~\ref{bpI:p1:setting} on a strip $T_r$ (with $\omega\in\Dio_{\gamma,\tau}$) and $E_{H,K,\omega}(\theta)=0$ for all $\theta\in T_r$.
+Then:
+\begin{enumerate}[label=(\alph*)]
+\item $H\circ K\equiv\bar E_H(K)$ is constant on $T_r$.
+\item If $E_0\in\R$ (or $\C$) and $\bar E_H(K)=E_0$, then $H(K(\theta))=E_0$ for every $\theta\in T_r$.
+\item Quantitatively, if $E_{H,K,\omega}(\theta)=0$ on $T_r$ then $\sup_{T_r}\abs{H\circ K-E_0}=\abs{\bar E_H(K)-E_0}$.
+\end{enumerate}
+\frozen{KAM.Iso.energyAverage}
+\source{HL19 Rem.~2.2, p.~7 (``quasi-periodicity implies $h(K(\theta))=\avg{h\circ K}$''); here proved. This is the pointwise
+energy conclusion (O3) of I-G1 (decision D-I-ENERGY).}
+\end{lemma}
+
+\begin{proof}
+\proofstep{The derivative vanishes along $\omega$}\label{stepI:p1:ec-derivative}
+Let $u:=H\circ K-\avg{H\circ K}$, holomorphic and $1$-periodic on $T_r$ with $\avg u=0$ (Lemma~\ref{bpI:p1:energy-approx}(a)).
+By Lemma~\ref{bpI:p1:energy-approx}(b), $Du\,\omega=-DH(K)E=0$ on $T_r$.
+
+\proofstep{Uniqueness for the cohomological equation}\label{stepI:p1:ec-unique}
+For every $0<\delta<r$, $u|_{T_{r-\delta}}$ is holomorphic, $1$-periodic, of zero average, and solves $Du\,\omega=g$ with
+$g=0$ (holomorphic, bounded, periodic, $\avg g=0$ on $T_r$). By the uniqueness clause of \Kref{bp:p1:cohomological}
+(no boundedness of the solution assumed), $u=0$ on $T_{r-\delta}$. As $\delta\in(0,r)$ is arbitrary, $u=0$ on $T_r=\bigcup_\delta T_{r-\delta}$,
+which is (a).
+
+\proofstep{Pointwise energy}\label{stepI:p1:ec-pointwise}
+(b) and (c) are (a): $H\circ K\equiv\bar E_H(K)$, so $\abs{H(K(\theta))-E_0}=\abs{\bar E_H(K)-E_0}$ for every $\theta$.
+\end{proof}
+
+\begin{remark}[Where (O3) of I-G1 comes from]\label{bpI:p1:o3}
+In the proof of I-G1 (Part~2), $E_{H,K_\infty,s_\infty\omega^*}=0$ on $T_{\rho_\infty}$ and $\bar E_H(K_\infty)=E_0$: the second follows
+from $\abs{\bar E_{H}(K_j)-E_0}\to0$ along the iteration and the uniform convergence $K_j\to K_\infty$ (continuity of $H$ and of the
+integral on the compact cube), which is part of Part~2; then Lemma~\ref{bpI:p1:energy-conservation}(b), with $\omega=s_\infty\omega^*\in\Dio_{\gamma,\tau}$
+(Remark~\ref{bpI:p1:ray}), gives $H(K_\infty)=E_0$ on $T_{\rho_\infty}$. Neither the Gram determinant of $K_\infty$ nor the frame
+is used (Remark~\ref{bpI:p0:totality}(T2)).
+\end{remark}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The bordered triangular system}\label{bpI:p1:sec-border}
+
+Notation: for $T:T_r\to\C^{n\times n}$ and $Y:T_r\to\C^{1\times n}$ holomorphic and $1$-periodic put
+$\mathcal T:=\begin{pmatrix}\avg T&\omega\\ \avg Y&0\end{pmatrix}\in\C^{(n+1)\times(n+1)}$; with $T=T_{H,K,\omega}$,
+$Y=DH(K)N$, this is $\avg{\mathsf T_H}$ (Lemma~\ref{bpI:p1:extended-basic}(a)). Let $\mathcal R$ be the solution operator of
+\Kref{bp:p2:cohomological}(a): for $g$ holomorphic, periodic with $\avg g=0$, $\mathcal Rg$ is the unique zero-average
+periodic solution of $\partial_\omega u=g$.
+
+\begin{lemma}[Bordered triangular equations (HL19 Lemma 6.1)]\label{bpI:p1:border-solve}
+Let $\gamma>0$, $\tau\ge0$, $\omega\in\R^n\cap\Dio_{\gamma,\tau}$, $r>0$, $\delta>0$ with $2\delta<r$, and $\Gamma_\delta=c_R\gamma^{-1}\delta^{-\varkappa}$.
+Let $\eta^L,\eta^N:T_r\to\C^n$ be holomorphic, $1$-periodic, $\abs{\eta^L}\le H_L$ and $\abs{\eta^N}\le H_N$ on $T_r$,
+with $\avg{\eta^N}=0$, and let $\eta^\omega\in\C$. Let $T:T_r\to\C^{n\times n}$ and $Y:T_r\to\C^{1\times n}$ be holomorphic and $1$-periodic with
+$\abs T\le H_T$, $\abs Y\le H_Y$ on $T_{r-\delta}$. Assume $\det\mathcal T\ne0$ and $\abs{\mathcal T^{-1}}\le\sigma$ (row-sum
+norm of $\C^{(n+1)\times(n+1)}$). Fix $\xi^L_0\in\C^n$ and define, in this order,
+\begin{align*}
+u^N&:=\mathcal R\eta^N\ \text{ on }T_{r-\delta},\\
+\begin{pmatrix}\xi_0\\ \xi^\omega\end{pmatrix}&:=\mathcal T^{-1}\begin{pmatrix}\avg{\eta^L}+\avg{Tu^N}\\ \eta^\omega+\avg{Yu^N}\end{pmatrix}\in\C^{n}\times\C,\\
+\xi^N&:=\xi_0-u^N,\qquad g^L:=T\xi^N+\omega\,\xi^\omega-\eta^L\ \text{ on }T_{r-\delta},\\
+\xi^L&:=\xi^L_0+\mathcal Rg^L\ \text{ on }T_{r-2\delta}.
+\end{align*}
+Then:
+\begin{enumerate}[label=(\alph*)]
+\item (Well defined.) $u^N$, $\xi^N$, $g^L$ are holomorphic and $1$-periodic on $T_{r-\delta}$, $\avg{g^L}=0$, so $\xi^L$ is defined
+  and holomorphic, $1$-periodic on $T_{r-2\delta}$; the averages $\avg{Tu^N}$, $\avg{Yu^N}$ exist.
+\item (The system.) On $T_{r-2\delta}$,
+  \[
+  T\xi^N-\partial_\omega\xi^L+\omega\,\xi^\omega=\eta^L,\qquad-\partial_\omega\xi^N=\eta^N,\qquad\avg{Y\xi^N}=\eta^\omega,
+  \]
+  i.e. $\Lambda\xi-\partial_\omega\xi+\binom{\omega}{0}\xi^\omega=\eta$ with $\Lambda=\bigl(\begin{smallmatrix}0&T\\0&0\end{smallmatrix}\bigr)$,
+  $\xi=(\xi^L,\xi^N)$, $\eta=(\eta^L,\eta^N)$.
+\item (Estimates.) With $S_*:=\sigma\max\{H_L+H_T\Gamma_\delta H_N,\ \abs{\eta^\omega}+H_Y\Gamma_\delta H_N\}$:
+  \begin{gather*}
+  \abs{\xi_0},\ \abs{\xi^\omega}\le\abs{(\xi_0,\xi^\omega)}\le S_*,\qquad\sup_{T_{r-\delta}}\abs{\xi^N}\le S_*+\Gamma_\delta H_N,\\
+  \sup_{T_{r-\delta}}\abs{g^L}\le H_T(S_*+\Gamma_\delta H_N)+\abs\omega S_*+H_L,\qquad
+  \sup_{T_{r-2\delta}}\abs{\xi^L-\xi^L_0}\le\Gamma_\delta\sup_{T_{r-\delta}}\abs{g^L}.
+  \end{gather*}
+\item (Uniqueness.) If $(\tilde\xi^L,\tilde\xi^N,\tilde\xi^\omega)$ are holomorphic, periodic on $T_{r-2\delta}$ ($\tilde\xi^\omega\in\C$) and
+  satisfy the three equations of (b) on $T_{r-2\delta}$, then $\tilde\xi^\omega=\xi^\omega$, $\tilde\xi^N=\xi^N$ and
+  $\tilde\xi^L-\xi^L$ is constant. Thus the solution is unique up to $\avg{\xi^L}$ (the free phase direction, HL19 Rem.~3.5).
+\item (Realness.) If $\omega$ is real and $\eta^L,\eta^N,T,Y$ are real on reals, $\eta^\omega\in\R$, $\mathcal T$ real (automatic), and
+  $\xi^L_0\in\R^n$, then $\xi_0$, $\xi^\omega$, $\xi^N$, $\xi^L$, $g^L$ are real on reals.
+\end{enumerate}
+\source{HL19 Lemma~6.1, pp.~46--47, (6.7)--(6.10), with signs converted by Remark~\ref{bpI:p1:signs}; the estimates are those on
+p.~46, with the additional term $\abs\omega S_*$ in $g^L$ (see Remark~\ref{bpI:p1:border-remarks}). Structure as in
+\Kref{bp:p2:triangular} (HL19 Lemma~5.1, pp.~31--32).}
+\sourcegap{HL19 prove Lemma~6.1 in four lines (``It is analogous to Lemma~5.1\dots''), and Lemma~5.1 is itself only referred to
+(``directly adapted from Lemma~4.14 in [33]''). The proof below is supplied here in full; the new points relative to
+\Kref{bp:p2:triangular} are Steps~\ref{stepI:p1:bs-bordered}, \ref{stepI:p1:bs-energy} and \ref{stepI:p1:bs-second}, and
+uniqueness (d).}
+\end{lemma}
+
+\begin{proof}
+\proofstep{First cohomological equation}\label{stepI:p1:bs-first}
+$\eta^N$ is holomorphic, periodic on $T_r$, bounded by $H_N$, with $\avg{\eta^N}=0$. \Kref{bp:p2:cohomological}(a) gives $u^N=\mathcal R\eta^N$ holomorphic
+and $1$-periodic on $T_{r-\delta}$, $\avg{u^N}=0$, $\partial_\omega u^N=\eta^N$, $\abs{u^N}\le\Gamma_\delta H_N$ on $T_{r-\delta}$, real on reals if $\eta^N$ is.
+
+\proofstep{Averages of the products}\label{stepI:p1:bs-averages}
+$Tu^N$ and $Yu^N$ are holomorphic and periodic on $T_{r-\delta}$, hence continuous on $\R^n$, so their averages exist
+(\Kref{bp:p2:averages}(a)) and $\abs{\avg{Tu^N}}\le H_T\Gamma_\delta H_N$, $\abs{\avg{Yu^N}}\le H_Y\Gamma_\delta H_N$,
+$\abs{\avg{\eta^L}}\le H_L$. Let $w=(\avg{\eta^L}+\avg{Tu^N},\ \eta^\omega+\avg{Yu^N})\in\C^{n+1}$; in the max norm of $\C^{n+1}$,
+$\abs w\le\max\{H_L+H_T\Gamma_\delta H_N,\abs{\eta^\omega}+H_Y\Gamma_\delta H_N\}$.
+
+\proofstep{The bordered average system}\label{stepI:p1:bs-bordered}
+\emph{(new relative to \Kref{bp:p2:triangular}.)} Since $\det\mathcal T\ne0$, $(\xi_0,\xi^\omega):=\mathcal T^{-1}w$ is the unique solution of
+\begin{equation}\label{bpI:p1:bordered-avg}
+\avg T\xi_0+\omega\,\xi^\omega=\avg{\eta^L}+\avg{Tu^N},\qquad\avg Y\xi_0=\eta^\omega+\avg{Yu^N},
+\end{equation}
+and $\abs{(\xi_0,\xi^\omega)}\le\abs{\mathcal T^{-1}}\abs w\le S_*$ (\Kref{bp:p2:matrix}(b)). This is (6.10) of HL19 in our sign convention
+(Remark~\ref{bpI:p1:signs}). Note that $\avg T$ alone need not be invertible: the matrix $\mathcal T$ determines the constant $\xi_0$ and the
+frequency correction $\xi^\omega$ together.
+
+\proofstep{The energy equation and $\xi^N$}\label{stepI:p1:bs-energy}
+By Step~\ref{stepI:p1:bs-first}, $\xi^N=\xi_0-u^N$ is holomorphic, periodic on $T_{r-\delta}$ with $\partial_\omega\xi^N=-\eta^N$ and
+$\abs{\xi^N}\le\abs{\xi_0}+\Gamma_\delta H_N\le S_*+\Gamma_\delta H_N$. By linearity of the average and the second equation of~\eqref{bpI:p1:bordered-avg},
+$\avg{Y\xi^N}=\avg Y\xi_0-\avg{Yu^N}=\eta^\omega$. This is the third equation of (b) and the second one.
+
+\proofstep{The second cohomological equation}\label{stepI:p1:bs-second}
+\emph{(new relative to \Kref{bp:p2:triangular}.)} $g^L=T\xi^N+\omega\xi^\omega-\eta^L$ is holomorphic and periodic on $T_{r-\delta}$ with
+$\abs{g^L}\le H_T(S_*+\Gamma_\delta H_N)+\abs\omega S_*+H_L$. Its average is, by linearity,
+$\avg T\xi_0-\avg{Tu^N}+\omega\xi^\omega-\avg{\eta^L}=0$ by the first equation of~\eqref{bpI:p1:bordered-avg}. This is the point
+of the border: the frequency correction $\xi^\omega$ absorbs the part of the mean of $T\xi^N-\eta^L$ that the constant $\xi_0$ cannot
+adjust once it is spent on the energy equation. \Kref{bp:p2:cohomological}(a) on $T_{r-\delta}$ with loss $\delta$ (valid since $\delta<r-\delta$) gives
+$\mathcal Rg^L$ holomorphic, periodic on $T_{r-2\delta}$, with $\partial_\omega\mathcal Rg^L=g^L$ and $\abs{\mathcal Rg^L}\le\Gamma_\delta\sup\abs{g^L}$. Then
+$T\xi^N-\partial_\omega\xi^L+\omega\xi^\omega=T\xi^N-g^L+\omega\xi^\omega=\eta^L$. With Steps~\ref{stepI:p1:bs-first} and~\ref{stepI:p1:bs-energy} this is (a), (b), (c).
+
+\proofstep{Uniqueness}\label{stepI:p1:bs-unique}
+Let $(\tilde\xi^L,\tilde\xi^N,\tilde\xi^\omega)$ be as in (d). Then $\partial_\omega(\tilde\xi^N+u^N)=-\eta^N+\eta^N=0$ on $T_{r-2\delta}$, and
+$\tilde\xi^N+u^N-\tilde c$, $\tilde c:=\avg{\tilde\xi^N+u^N}$, is a zero-average holomorphic periodic solution of $Du\,\omega=0$; by the
+uniqueness in \Kref{bp:p1:cohomological} (as in Step~\ref{stepI:p1:ec-unique}) it is $0$. So $\tilde\xi^N=\tilde c-u^N$. Averaging the first equation of (b) for the tilde-solution
+($\avg{\partial_\omega\tilde\xi^L}=0$, \Kref{bp:p2:averages}(b)) and using the third gives exactly~\eqref{bpI:p1:bordered-avg} for $(\tilde c,\tilde\xi^\omega)$, whence
+$(\tilde c,\tilde\xi^\omega)=(\xi_0,\xi^\omega)$ by invertibility of $\mathcal T$, and $\tilde\xi^N=\xi^N$. Then $\partial_\omega(\tilde\xi^L-\xi^L)=0$, so
+$\tilde\xi^L-\xi^L$ is constant, by the same uniqueness lemma applied to $\tilde\xi^L-\xi^L-\avg{\tilde\xi^L-\xi^L}$.
+
+\proofstep{Realness}\label{stepI:p1:bs-real}
+If the data are real on reals, $\avg T,\avg Y,\avg{\eta^L},\avg{Tu^N},\avg{Yu^N}$ are real (\Kref{bp:p2:averages}(a)), $\mathcal T$ is a real
+matrix with real inverse (\Kref{bp:p1:real-inverse}), so $\xi_0,\xi^\omega$ are real; $\mathcal R$ preserves realness
+(\Kref{bp:p2:cohomological}(a)), so $u^N,\xi^N,g^L,\xi^L$ are real on reals.
+\end{proof}
+
+\begin{remark}[Differences from HL19's printed statement]\label{bpI:p1:border-remarks}
+(i) HL19's $\mathfrak R_\omega$ discards the average of its argument, so their (6.9) $\xi^L=\xi^L_0+\mathfrak R_\omega(\eta^L-T\xi^N)$ omits the
+constant vector $\omega\xi^\omega$, which has no effect on non-zero Fourier modes; in the operator $\mathcal R$ of
+\Kref{bp:p2:cohomological} (defined on zero-average data) the term is carried explicitly in $g^L$, which costs the extra summand
+$\abs\omega S_*$ in the bound of $\sup\abs{g^L}$. HL19's bound for $\xi^L$ (p.~46, last line) is true but is not obtained from \Kref{bp:p2:cohomological}
+as stated; we do not need it, because $\abs\omega\le\sigma_\omega\abs{\omega^*}$ is available in the application. (ii) HL19 have real data
+and $\xi^L_0\in\R^n$; our lemma holds for complex data and records realness separately. (iii) The estimates of HL19 are in $\max$ of the two
+$\C^{n+1}$ block components, as here. (iv) Uniqueness (d) is not stated in HL19.
+\end{remark}
+
+\begin{lemma}[The linearized isoenergetic equation in the frame]\label{bpI:p1:reduced}
+Assume~\ref{bpI:p1:setting} with $\det G_K\ne0$ on $T_r$ and $\omega\in\R^n$ (any). Let $\xi=(\xi^L,\xi^N)$ be holomorphic on $T_{r'}$, $r'\le r$,
+and $\xi^\omega\in\C$; put $\Delta K=P\xi$, $\Delta\omega=-\omega\xi^\omega$. Then on $T_{r'}$:
+\begin{enumerate}[label=(\alph*)]
+\item $QL=\binom{I_n}{-\Omega_K}$, hence $QL\omega\,\xi^\omega=\binom{\omega}{-\Omega_K\omega}\xi^\omega$.
+\item $Q\bigl(A\,\Delta K-\partial_\omega\Delta K-DK\,\Delta\omega\bigr)+QE=\Lambda\xi-\partial_\omega\xi+\binom{\omega}{0}\xi^\omega-\eta+E_{\mathrm{lin}}$, where
+  \[
+  E_{\mathrm{lin}}:=E_{\mathrm{red}}\xi+\Omega_0E_{\mathrm{sym}}\,\partial_\omega\xi-\binom{0}{\Omega_K\omega}\xi^\omega .
+  \]
+\end{enumerate}
+Consequently $A\Delta K-\partial_\omega\Delta K+L\omega\xi^\omega=-E$ holds exactly when the bordered system of
+Lemma~\ref{bpI:p1:border-solve}(b) holds up to $E_{\mathrm{lin}}$, i.e. when $\Lambda\xi-\partial_\omega\xi+\binom{\omega}{0}\xi^\omega=\eta-E_{\mathrm{lin}}$; the data are
+$\eta^L,\eta^N$ of \Kref{bp:p2:objects}, $T$ the torsion, and $Y=DH(K)N$. In particular, with $\xi$ the solution of Lemma~\ref{bpI:p1:border-solve}
+(whose first two equations give $\Lambda\xi-\partial_\omega\xi+\binom\omega0\xi^\omega=\eta$), the residual of the linearized equation is
+$Q^{-1}E_{\mathrm{lin}}$, and $\abs{E_{\mathrm{lin}}}\le\abs{E_{\mathrm{red}}}\abs\xi+\abs{E_{\mathrm{sym}}}\abs{\partial_\omega\xi}+\abs{\Omega_K}\abs\omega\abs{\xi^\omega}$, all quadratic in $(E,\xi)$ by
+\Kref{bp:p2:geometry}.
+\source{HL19 (6.4)--(6.5), p.~45, with $\Omega=\Omega_0$, $A=0$ (canonical Case~III); (6.34), p.~49 for $E_{\mathrm{lin}}$. Frame identities:
+\Kref{bp:p2:frame-identities}.}
+\end{lemma}
+
+\begin{proof}
+\proofstep{The product $QL$}\label{stepI:p1:rd-ql}
+$Q=-\Omega_0P^\top\Omega_0$ and $P^\top\Omega_0L=\binom{L^\top\Omega_0L}{N^\top\Omega_0L}=\binom{\Omega_K}{I_n}$ by \Kref{bp:p2:frame-identities}(a). By
+\Kref{bp:p2:matrix}(d), $\Omega_0\binom{U_1}{U_2}=\binom{-U_2}{U_1}$, so $QL=-\binom{-I_n}{\Omega_K}=\binom{I_n}{-\Omega_K}$. This is (a).
+
+\proofstep{Expanding the linearized operator}\label{stepI:p1:rd-expand}
+$\partial_\omega(P\xi)=(\partial_\omega P)\xi+P\partial_\omega\xi$, so $A\Delta K-\partial_\omega\Delta K=(AP-\partial_\omega P)\xi-P\partial_\omega\xi$, and
+$-DK\,\Delta\omega=L\omega\,\xi^\omega$. By \Kref{bp:p2:frame-identities}(e), $Q(AP-\partial_\omega P)=\Lambda+E_{\mathrm{red}}$; by (f),
+$QP=I_{2n}-\Omega_0E_{\mathrm{sym}}$; by (a), $QL\omega\xi^\omega=\binom\omega0\xi^\omega-\binom0{\Omega_K\omega}\xi^\omega$. Adding $QE=-\eta$:
+$Q(\dots)+QE=(\Lambda+E_{\mathrm{red}})\xi-\partial_\omega\xi+\Omega_0E_{\mathrm{sym}}\partial_\omega\xi+\binom\omega0\xi^\omega-\binom0{\Omega_K\omega}\xi^\omega-\eta$, which is (b).
+
+\proofstep{Consequence}\label{stepI:p1:rd-consequence}
+If the border system holds, (b) gives $Q\,\mathrm{Res}=E_{\mathrm{lin}}$ for the residual $\mathrm{Res}:=A\Delta K-\partial_\omega\Delta K+L\omega\xi^\omega+E$. $Q=-\Omega_0P^\top\Omega_0$ is
+invertible iff $P$ is, and $\det(P)^2\det\Omega_0=\det(P^\top\Omega_0P)=\det(\Omega_0+E_{\mathrm{sym}})\ne0$ when $\abs{E_{\mathrm{sym}}}<1$
+(Neumann series \Kref{bp:p1:neumann} applied to $I-\Omega_0E_{\mathrm{sym}}$, $\abs{\Omega_0E_{\mathrm{sym}}}=\abs{E_{\mathrm{sym}}}$,
+\Kref{bp:p1:matrix-norms}). The bound on $E_{\mathrm{lin}}$ is \Kref{bp:p2:matrix}(b), (c).
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Suspected errata and sign checks}\label{bpI:p1:sec-errata}
+
+\begin{remark}[Candidate errata of HL19, checked against the pinned PDF {\upshape(\texttt{arxiv\_1711.05515.pdf}, v1)}]\label{bpI:p1:errata}
+All three were checked on the rendered pages 18, 19, 46 (not only on the text layer).
+\begin{description}
+\item[E1 (strict inequalities).] Thm~3.6, (3.16), p.~19: ``$\|K_\infty-K\|_{\rho_\infty}<\dfrac{\mathfrak C_2\|E_c\|_\rho}{\gamma^2\rho^{2\tau}},\quad
+  |\omega_\infty-\omega|<\dfrac{\mathfrak C_3\|E_c\|_\rho}{\gamma^2\rho^{2\tau}}$''; likewise (3.11), p.~18 for Thm~3.1. With $E_c\equiv0$ the right side is $0$,
+  and (3.15) holds, but no $K_\infty$ satisfies $\|K_\infty-K\|<0$. The statements must read ``$\le$'' (the frozen I-G1 does).
+\item[E2 (sign in (3.12)).] p.~18: ``(3.12) $X_h(K(\theta))=\mathfrak L_\omega K(\theta)$, $\langle c\circ K\rangle=c_0$''. With
+  $\mathfrak L_\omega=-\partial_\omega$ (4.1), p.~20, this reads $X_h(K)=-DK\omega$, contradicting the invariance equation
+  (2.1), p.~6, $X_h(K)=DK\,\omega$, and the error (2.2), p.~7, $E=X_h(K)-DK\omega$. The correct form is $X_h(K)+\mathfrak L_\omega K=0$, which is how
+  p.~45 (the total error before (6.1)) and p.~48 (Lemma~6.2, $\bar E_c$) write it. Our Remark~\ref{bpI:p1:signs} uses the consistent convention.
+\item[E3 (Rem.~3.7, first equality).] p.~19: ``$Dh(K(\theta))N(\theta)=X_h(K(\theta))^\top\Omega(K(\theta))N(\theta)=-\omega^\top DK(\theta)^\top\Omega(K(\theta))N(\theta)=(\omega^\top\ 0^\top_{n-d})=\hat\omega^\top$''.
+  By Rem.~2.1, p.~6, $\Omega X_h=(Dh)^\top$, so $Dh=(\Omega X_h)^\top=-X_h^\top\Omega$: the first equality misses a minus sign. The second equality is
+  likewise wrong for $X_h=+DK\omega$ (it would need $X_h=-DK\omega$, the E2 convention). The two slips cancel and the final value
+  $Dh\,N=\hat\omega^\top$ is correct, as Lemma~\ref{bpI:p1:last-row}(a) shows (using $L^\top\Omega_0N=-I_n$, \Kref{bp:p2:frame-identities}(a)); an independent check at the trivial torus is
+  Lemma~\ref{bpI:p1:trivial}, Step~\ref{stepI:p1:tr-border}. The correct chain is
+  $Dh\,N=-X_h^\top\Omega N=-\omega^\top DK^\top\Omega N=\omega^\top$.
+\end{description}
+Other points checked and found consistent (no erratum): (6.7)--(6.10), p.~46, with $\mathfrak L_\omega=-\partial_\omega$, $\mathfrak R_\omega=-\mathcal R$
+(Remark~\ref{bpI:p1:signs}); (6.3) and $\bar\omega=(1-\xi^\omega)\omega$ (p.~50, (6.32)); the equation $QL\omega=\binom\omega0-\binom0{\Omega_K\omega}$ against the display on p.~46
+(Lemma~\ref{bpI:p1:reduced}(a)); the sign $\Delta\omega=-\omega\xi^\omega$. HL19's (6.9) omits the constant $\omega\xi^\omega$ (Remark~\ref{bpI:p1:border-remarks}(i)), which is harmless.
+\end{remark}
+
+\begin{remark}[Doubts about the frozen statements]\label{bpI:p1:doubts}
+None of the frozen statements used in this part looks false. Two reading points. (a) The frozen $\mathsf B_h$ uses the real derivative of $\operatorname{Re}h$ via
+\Lean{frequencyMap}; Lemma~\ref{bpI:p1:trivial} identifies it with the complex Hessian of $h$ only under ``$h$ real on the real points of a neighbourhood of $I$'',
+which I-HEAD assumes on all of $B_{r_0}$; without that hypothesis $\mathsf T_h$ and $\mathsf B_h$ can differ by the imaginary part. (b) The frozen last row of $\mathsf T_H$ is
+$DH(K)N$, not $\omega^\top$ (Definition~\ref{bpI:p0:extended}); Lemma~\ref{bpI:p1:last-row} shows the difference is $(\eta^L)^\top=O(e)$, so the two readings give the same I-G1 up to the
+choice of $\sigma_T$.
+\end{remark}

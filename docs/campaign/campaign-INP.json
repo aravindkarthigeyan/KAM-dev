@@ -16,8 +16,8 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N additions Phase 0 (D22): drafted (READY additions-N, d7ad21c); draft under audit",
-   "state": "done"
+   "assignment": "Track N additions: revision v0.4 (audit F-NADD-1..9), in the inp worktree",
+   "state": "running"
   },
   {
    "id": "track-P",
@@ -43,8 +43,8 @@
    "model": "GPT-6.1-Sol high",
    "account": "codex-4",
    "session": "inp-audit-n",
-   "assignment": "Independent statement audit of the track-N D22 additions (N-PARTIAL-CONVEX, N-AVERAGING)",
-   "state": "running"
+   "assignment": "Statement audit of the track-N D22 additions: done (F-NADD-1 domain-convention gap; N-AVERAGING primary source missing)",
+   "state": "done"
   },
   {
    "id": "bpI-p0",
@@ -88,8 +88,8 @@
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track I blueprint Part 1: extended torsion, bordered triangular system (HL19 Lemma 6.1)",
-   "state": "running"
+   "assignment": "Track I blueprint Part 1: extended torsion, bordered triangular system (HL19 Lemma 6.1) (done)",
+   "state": "done"
   },
   {
    "id": "bprev-1",
@@ -97,7 +97,7 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "inp-bprev-1",
-   "assignment": "Refute-first review of Part 0 of blueprints I and N (frozen-statement transcription) and of the part plans",
+   "assignment": "Refute-first reviews: Part 0 of I and N (done, fixes applied); now N Part 3 and I Part 1",
    "state": "running"
   },
   {
@@ -125,6 +125,15 @@
    "account": "codex-1",
    "session": "inp-route-p11",
    "assignment": "Track P Part 11 route study: weak-nondegeneracy KAM gate for P-PLANAR/P-FIXED (CP09+Russmann vs Fejoz 2004 vs P-G fallback)",
+   "state": "running"
+  },
+  {
+   "id": "bpI-p2",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track I blueprint Part 2: isoenergetic step and iteration; proof of I-G1",
    "state": "running"
   }
  ]

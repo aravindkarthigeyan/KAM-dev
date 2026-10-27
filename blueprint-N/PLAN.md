@@ -41,6 +41,12 @@ only constants. Decide at the start of Part 5.
 (period 1, max norms) once, in Part 1 and Part 10. Alternative (period 1, `e^{2 pi |k| sigma}`) would let Parts 4 to 6 cite
 `\Kref{bp:p1:decay}`, `\Kref{bp:p1:summation}` directly; the sub-orchestrator may choose it, it changes only constants.
 
+## Sub-orchestrator rulings (2026-10-27)
+
+- **Conventions** for all I/N/P blueprints: `.drafts/briefs/bp-part-writer.md`, item 3 (frozen conventions: period 1, max norms; cross-track citations by exact label).
+- **Ownership:** track N owns the shared ODE layer (Part 3, written), weighted norms, Lie transform and normal forms (Parts 4-6); track I owns Kepler fundamentals and Delaunay (I p6-p7) and collision exclusion (I p8); track P owns Newtonian n-body models (P6), the Poincare chart (P7), secular averaging (P8).
+- Apply `reviews/p0-review-1.md` findings N05 (Poschel's quantitative QC is the alternative "|omega.xi| <= ell |xi|_2 implies Q[xi,xi] >= mu |xi|_2^2", never full positive definiteness), N06 (lattice norms: {|k|_1 <= K} is contained in {|k|_2 <= K}; carry the sqrt(n) factor; separate geometry and analytic cutoffs), N07 (the "Conventions inside Parts 5 to 9" paragraph below is overruled: frozen conventions throughout, conversions once in Part 1), N02 (holomorphy gives differentiability on R^n x B_s(R), angles first).
+
 ## Parts
 
 Sizes are estimates of final printed pages in the Part-0 format.
