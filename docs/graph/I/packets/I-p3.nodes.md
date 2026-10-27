@@ -13,14 +13,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p0:bordered#borderedHessian, bpI:p0:domains#complexStrip, K:bp:p4:freq-map
+DEPS: bpI:p0:bordered#borderedHessian, bpI:p0:domains#complexStrip, K:bp:p4:freq-map, bpI:p0:domains#actionNbhd
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting@L36-L36 | det B_h
 EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting@L42-L42 | strip T_{s_0}
 EDGE: K:bp:p4:freq-map | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting@L45-L45 | (i): iota B in B_{r_0}, so B in U
+EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting@L35-L35 | the domain B_{r_0} and its real preimage U
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -34,9 +35,9 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting#k-bri
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting#k-bridge@L48-L50
 CONTRACT_ID: bpI:p3:setting#k-bridge
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Assumption bpI:p3:setting; K Assumption bp:p4:data
+SOURCE_HYPOTHESES: Assumption bpI:p3:setting; only its common analytic/domain data are compared with K Part 4
 SOURCE_QUANTIFIERS: n=2, B open bounded, h holomorphic on B_{r_0}, f as in the data
-SOURCE_CONCLUSION: the setting of K's Part 4 (K:bp:p4:data) is exactly Assumption bpI:p3:setting (n=2, B open bounded, h holomorphic on B_{r_0}, f as above), apart from K's Kolmogorov and boundary-layer hypotheses, which are not used; hence K's shrunken domains and constants (s, delta_*, mu, rho, rho_infty, D, D', M_h, ...) are taken verbatim and the K Part 4 results (freq-map, h1, h-bounded, derivative-bounds and their steps) apply; supplies the premises of every K Part 4 result applied in Part 3
+SOURCE_CONCLUSION: identifies the shared n=2, tau=2, B, s_0, r_0, h and perturbation data with the corresponding components of K Part 4, and imports the same shrunken domains/constants; the Kolmogorov and boundary-layer premises of K are explicitly excluded, not proved; the K tools used here use only this shared core, with epsilon <= 1 supplied where required
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -48,12 +49,12 @@ ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting#k-bridge@L48-L48 | the package of Part 3
 EDGE: K:bp:p4:data | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting#k-bridge@L48-L48 | K's Part 4 setting
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: The paragraph asserts the identification of the settings without a check; the Part 3 data also fixes tau := 2, B' (nonempty, compact closure) and eta, which K's data does not have, and omit K's hypotheses that are not used. Modelled as a bridge step, not a source gap.
+NOTE: This is a restriction to the common analytic/domain core, as the source explicitly says at L48-L50; it does not establish the full stronger K:bp:p4:data package. K h-bounded L173-L180, derivative-bounds L198-L222, freq-map L240-L273, and h1-open/holo L316-L327 use no L_h or C_B. No blanket discharge of every K hypothesis is claimed.
 
 NODE: bpI:p3:constants
 KIND: definition
@@ -65,7 +66,7 @@ CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: none (definition; the data of Part 3; the K Part 4 constants)
 SOURCE_QUANTIFIERS: (B,s_0,r_0,h,B',eta) fixed; then s, delta_*, mu, rho, rho_infty, D, D', M_h, c, c-bar, F_j, M; then d_B, eta_1, S; then m_h, M_g, S_h; then nu, sigma_omega, sigma_K, sigma_B, sigma_T, eps_T, e
 SOURCE_CONCLUSION: defines (a) s := min{s_0,1}, delta_* := (1/4)min{s,r_0}, mu := delta_*/2, rho := s/4, rho_infty := s/8, D-frak := T_{s/2} x B_{r_0/2}, D' := T_{3s/4} x B_{3r_0/4}, M_h := sup{¦h¦: B_{3r_0/4}}, c-bar := max{1,c(2,j),c(4,j): j=1,2,3}, F_j := c-bar delta_*^{-j}, M := c-bar(M_h+1) delta_*^{-3}; (b) d_B := inf{¦I-J¦: I in closure B', J in R^2 minus B} > 0, eta_1 := min{eta,d_B/2}, S := {I: dist(I, closure B') <= d_B/2}; (c) m_h := min_S ¦grad h¦, M_g := max_S ¦grad h¦, S_h := max_S ¦B_h^{-1}¦ (row-sum norm); (d) nu := m_h/4, sigma_omega := 4M_g/m_h + 2, sigma_K := sigma_B := 1+mu, sigma_T := 2S_h+mu, eps_T := 1/(4 S_h F_2), e := F_1 eps (C_e := F_1)
-CONSTANT_SCOPE: all constants depend only on (B,s_0,r_0,h,B',eta) (eta only through eta_1), not on f, epsilon or any point
+CONSTANT_SCOPE: L78 says all the listed quantities depend only on (B,s_0,r_0,h,B',eta), eta only through eta_1, not on f, epsilon or any point. However L76 explicitly defines e = F_1 epsilon; thus that sentence cannot literally include e. All fixed coefficients, including C_e = F_1, have the stated independence; e retains its explicit epsilon dependence. This textual scope inconsistency is reported separately, not silently repaired.
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -81,12 +82,12 @@ EDGE: K:bp:p1:cauchy-open | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:con
 EDGE: bpI:p3:ext-compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:constants@L62-L62 | d_B > 0 for compact closure B' in open B
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:constants@L69-L69 | B_h^{-1} in S_h
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_SCOPE_INCONSISTENCY: e := F_1 epsilon at L76 conflicts with the blanket epsilon-independence sentence at L78 if e is included. No estimate or constant choice here uses independence of e.
 
 NODE: bpI:p3:compact
 KIND: lemma
@@ -111,9 +112,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:compac
 EDGE: stepI:p3:cp-compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:compact@L85-L85 | proof step of this result
 EDGE: stepI:p3:cp-grad | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:compact@L89-L89 | proof step of this result
 EDGE: stepI:p3:cp-inverse | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:compact@L92-L92 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -140,9 +141,9 @@ ROUTE_FOR: -
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-compact@L86-L86 | S, d_B
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-compact@L86-L86 | B' with compact closure in the open bounded B
 EDGE: bpI:p3:ext-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-compact@L86-L86 | closed bounded sets in R^2 are compact; continuity of distance
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -155,7 +156,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L89
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L89-L91
 CONTRACT_ID: stepI:p3:cp-grad
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: det-identity(a); S in U; continuity of grad h
+SOURCE_HYPOTHESES: Part 3 setting and constants
 SOURCE_QUANTIFIERS: as in the lemma
 SOURCE_CONCLUSION: grad h != 0 on U (so on S); grad h continuous, so ¦grad h¦ attains a positive minimum m_h and a finite maximum M_g on S
 CONSTANT_SCOPE: none
@@ -163,7 +164,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:det-identity, K:bp:p4:freq-map, bpI:p3:setting#k-bridge, bpI:p3:ext-compact, bpI:p3:constants, bpI:p3:setting
+DEPS: bpI:p3:det-identity, K:bp:p4:freq-map, bpI:p3:setting#k-bridge, bpI:p3:ext-compact, bpI:p3:constants, bpI:p3:setting, stepI:p3:cp-compact
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:det-identity | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L90-L90 | (a): grad h(I) != 0 on U
@@ -172,8 +173,9 @@ EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#stepI:
 EDGE: bpI:p3:ext-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L91-L91 | extrema on compact sets
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L91-L91 | S, m_h, M_g
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L90-L90 | S in B in U
+EDGE: stepI:p3:cp-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-grad@L91-L91 | S is compact and contained in B, as established above
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -187,7 +189,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@L92-L96
 CONTRACT_ID: stepI:p3:cp-inverse
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: det B_h != 0 on U; continuity of the entries of B_h
+SOURCE_HYPOTHESES: Part 3 setting and constants
 SOURCE_QUANTIFIERS: as in the lemma
 SOURCE_CONCLUSION: B_h^{-1} = adj B_h/det B_h has continuous real entries on U; its row-sum norm is continuous, hence bounded on S: 0<S_h<infinity
 CONSTANT_SCOPE: none
@@ -195,7 +197,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p4:freq-map, bpI:p3:setting#k-bridge, K:bp:p1:holomorphic-regularity, K:bp:p1:ext-cramer, K:bp:p1:real-inverse, bpI:p3:ext-compact, bpI:p3:setting, bpI:p3:constants, bpI:p0:bordered#borderedHessian
+DEPS: K:bp:p4:freq-map, bpI:p3:setting#k-bridge, K:bp:p1:holomorphic-regularity, K:bp:p1:ext-cramer, K:bp:p1:real-inverse, bpI:p3:ext-compact, bpI:p3:setting, bpI:p3:constants, bpI:p0:bordered#borderedHessian, stepI:p3:cp-compact
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p4:freq-map | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@L93-L93 | (iii): entries of B_h continuous
@@ -207,8 +209,9 @@ EDGE: bpI:p3:ext-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@L94-L94 | det B_h != 0 on U (hypothesis), iota U in B_{r_0}
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@L96-L96 | S_h
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@L93-L93 | entries of B_h
+EDGE: stepI:p3:cp-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-inverse@L96-L96 | S is compact and contained in B, as established above
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -233,9 +236,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -259,9 +262,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -285,9 +288,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -317,9 +320,9 @@ EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:det-identity@L118-L118 | det B_h(I)
 EDGE: stepI:p3:di-expand | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:det-identity@L125-L125 | proof step of this result
 EDGE: stepI:p3:di-conseq | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:det-identity@L130-L130 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -332,7 +335,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-expand@L
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-expand@L125-L129
 CONTRACT_ID: stepI:p3:di-expand
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Definition of the bordered Hessian; trivial-torus lemma Step tr-compare; h_ab real, h_12 = h_21
+SOURCE_HYPOTHESES: Part 3 setting; I in U; g and real Hessian as defined in det-identity
 SOURCE_QUANTIFIERS: I in U
 SOURCE_CONCLUSION: B_h = [[h_11,h_12,h_1],[h_12,h_22,h_2],[h_1,h_2,0]]; det B_h = -(h_22 h_1^2 - 2 h_12 h_1 h_2 + h_11 h_2^2) = - g^perp . grad^2 h g^perp
 CONSTANT_SCOPE: none
@@ -340,14 +343,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p0:bordered#borderedHessian, bpI:p1:trivial, stepI:p1:tr-compare
+DEPS: bpI:p0:bordered#borderedHessian, bpI:p1:trivial, stepI:p1:tr-compare, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-expand@L126-L126 | definition of B_h
 EDGE: bpI:p1:trivial | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-expand@L126-L126 | B_h as the torsion of the trivial torus
 EDGE: stepI:p1:tr-compare | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-expand@L126-L126 | identification of the entries of B_h
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-expand@L126-L126 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -361,7 +365,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-conseq@L
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-conseq@L130-L131
 CONTRACT_ID: stepI:p3:di-conseq
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: expansion of det B_h
+SOURCE_HYPOTHESES: Part 3 setting; I in U; for (b), g != 0
 SOURCE_QUANTIFIERS: I in U
 SOURCE_CONCLUSION: (a) g=0 gives 0 = det B_h so det B_h != 0 forces g != 0; (b) det(g,w) = g^perp . w with w = grad^2 h g^perp
 CONSTANT_SCOPE: none
@@ -369,12 +373,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p3:di-expand
+DEPS: stepI:p3:di-expand, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p3:di-expand | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-conseq@L131-L131 | the identity det B_h = - g^perp . grad^2 h g^perp
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-conseq@L131-L131 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -396,15 +401,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:setting, bpI:p3:det-identity, K:bp:p4:freq-map, bpI:p3:setting#k-bridge
+DEPS: bpI:p3:setting, bpI:p3:det-identity, K:bp:p4:freq-map, bpI:p3:setting#k-bridge, K:bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:coordinates@L135-L135 | c in closure B', U, h
 EDGE: bpI:p3:det-identity | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:coordinates@L135-L135 | (a): g_c = grad h(c) != 0
 EDGE: K:bp:p4:freq-map | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:coordinates@L148-L148 | grad h is C^1 on U
 EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:coordinates@L148-L148 | supplies the premises of the applied K Part 4 result under the Part 3 data
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:coordinates@L148-L148 | the Hessian entries are continuous, so the displayed derivative of grad h is continuous
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -426,12 +432,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:coordinates
+DEPS: bpI:p3:coordinates, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:slope-ray@L152-L152 | a_c, sigma_c, m_c, U_c
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:slope-ray@L154-L154 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -446,7 +453,7 @@ PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:chart@L165-L175
 CONTRACT_ID: bpI:p3:chart
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p3:setting; c in closure B'
-SOURCE_QUANTIFIERS: c in closure B'; then W open in U_c
+SOURCE_QUANTIFIERS: for every c in closure B', D Phi_c(c) is invertible; for every prescribed open neighbourhood O of c there is an open W with c in W subset U_c intersect O
 SOURCE_CONCLUSION: D Phi_c(c) is invertible with det D Phi_c(c) = - det B_h(c)/q_c != 0; hence there is an open W in U_c with c in W such that Phi_c|_W: W -> V := Phi_c(W) is a homeomorphism onto an open set with C^1 inverse, and W may be taken inside any prescribed open neighbourhood of c
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -462,7 +469,7 @@ EDGE: stepI:p3:ch-deriv | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:chart
 EDGE: stepI:p3:ch-det | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:chart@L170-L170 | proof step of this result
 EDGE: stepI:p3:ch-ift | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:chart@L173-L173 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -476,22 +483,24 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L1
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L166-L169
 CONTRACT_ID: stepI:p3:ch-deriv
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Dh(c)u = g_c.u; chain rule; D(grad h)(c) = grad^2 h(c) symmetric; Phi_c, sigma_c
-SOURCE_QUANTIFIERS: c in closure B'
+SOURCE_HYPOTHESES: Part 3 setting; c in closure B'; direction u in R^2; coordinates of bpI:p3:coordinates
+SOURCE_QUANTIFIERS: c in closure B' fixed; every real direction u and increment dw
 SOURCE_CONCLUSION: D sigma_c(g_c)[dw] = det(g_c,dw)/q_c; D m_c(c)u = (grad^2 h(c) g_c^perp).u/q_c
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p4:freq-map, bpI:p3:setting#k-bridge, bpI:p3:coordinates
+DEPS: K:bp:p4:freq-map, bpI:p3:setting#k-bridge, bpI:p3:coordinates, bpI:p3:setting, bpI:p1:ext-chain
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p4:freq-map | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L167-L167 | (ii): Dh(c)u = g_c.u; (iii): symmetry
 EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L167-L167 | supplies the premises of the applied K Part 4 result under the Part 3 data
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L167-L167 | sigma_c, m_c, q_c
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L167-L167 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p1:ext-chain | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-deriv@L168-L168 | chain rule for sigma_c composed with grad h
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -505,7 +514,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-det@L170
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-det@L170-L172
 CONTRACT_ID: stepI:p3:ch-det
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: rows of D Phi_c(c); det-identity(b)
+SOURCE_HYPOTHESES: Part 3 setting; c in closure B'; coordinates of bpI:p3:coordinates
 SOURCE_QUANTIFIERS: c in closure B'
 SOURCE_CONCLUSION: det D Phi_c(c) = det(g_c, grad^2 h(c) g_c^perp)/q_c = - det B_h(c)/q_c != 0
 CONSTANT_SCOPE: none
@@ -513,14 +522,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p3:ch-deriv, bpI:p3:det-identity, bpI:p3:setting
+DEPS: stepI:p3:ch-deriv, bpI:p3:det-identity, bpI:p3:setting, bpI:p3:coordinates
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p3:ch-deriv | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-det@L171-L171 | rows g_c^T and (grad^2 h(c) g_c^perp)^T/q_c
 EDGE: bpI:p3:det-identity | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-det@L171-L171 | (b): det(g, grad^2 h g^perp) = - det B_h
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-det@L172-L172 | c in closure B' in B in U, iota U in B_{r_0}, det B_h != 0
+EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-det@L171-L171 | q_c, gradient or slope/chart coordinates
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -534,7 +544,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift@L173
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift@L173-L174
 CONTRACT_ID: stepI:p3:ch-ift
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: U_c open; Phi_c C^1; D Phi_c(c) invertible
+SOURCE_HYPOTHESES: Part 3 setting; c in closure B'; an arbitrary prescribed open neighbourhood of c
 SOURCE_QUANTIFIERS: c in closure B'
 SOURCE_CONCLUSION: the inverse function theorem gives W; intersecting with a prescribed neighbourhood of c keeps the conclusion
 CONSTANT_SCOPE: none
@@ -542,14 +552,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:ext-ift, bpI:p3:coordinates, stepI:p3:ch-det
+DEPS: bpI:p3:ext-ift, bpI:p3:coordinates, stepI:p3:ch-det, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:ext-ift | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift@L174-L174 | inverse function theorem (Y1)
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift@L174-L174 | U_c open, Phi_c C^1
 EDGE: stepI:p3:ch-det | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift@L174-L174 | D Phi_c(c) invertible
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift@L174-L174 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -578,9 +589,9 @@ EDGE: bpI:p3:chart | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch@L178
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch@L178-L178 | Phi_c, m_c
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch@L181-L181 | eta_1, S
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch@L178-L178 | c in closure B'
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -609,9 +620,9 @@ EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:cover@L189
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:cover@L189-L189 | eta_1
 EDGE: stepI:p3:cv-local | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:cover@L194-L194 | proof step of this result
 EDGE: stepI:p3:cv-compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:cover@L197-L197 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -624,7 +635,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-local@L1
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-local@L194-L196
 CONTRACT_ID: stepI:p3:cv-local
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: chart lemma with neighbourhood {¦I-c¦<eta_1/4}; V open; h and m_c continuous on U_c, m_c(c)=0
+SOURCE_HYPOTHESES: Part 3 setting and constants; c in closure B'
 SOURCE_QUANTIFIERS: c in closure B'
 SOURCE_CONCLUSION: a patch exists at every c: W with (P1); delta_E, delta_m small for (P2); rho_c small for (P3)
 CONSTANT_SCOPE: none
@@ -641,7 +652,7 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-local@L195-L195 | eta_1
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-local@L194-L194 | c in closure B'
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -655,7 +666,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compact@
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compact@L197-L198
 CONTRACT_ID: stepI:p3:cv-compact
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: balls {¦I-c¦<rho_c} cover the compact closure B'
+SOURCE_HYPOTHESES: Part 3 setting and constants
 SOURCE_QUANTIFIERS: as in the lemma
 SOURCE_CONCLUSION: finite subcover
 CONSTANT_SCOPE: none
@@ -663,14 +674,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p3:cv-local, bpI:p3:ext-compact, bpI:p3:setting
+DEPS: stepI:p3:cv-local, bpI:p3:ext-compact, bpI:p3:setting, bpI:p3:patch
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p3:cv-local | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compact@L198-L198 | a patch at every c
 EDGE: bpI:p3:ext-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compact@L198-L198 | Heine-Borel
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compact@L198-L198 | closure B' compact
+EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compact@L198-L198 | rho_c is the radius component of the constructed patch
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -699,9 +711,9 @@ EDGE: K:bp:p0:g3 | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:dio-open@L21
 EDGE: bpI:p0:diophantine#IsDiophantine | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:dio-open@L205-L205 | Dio_{gamma,2}
 EDGE: stepI:p3:do-positive | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:dio-open@L211-L211 | proof step of this result
 EDGE: stepI:p3:do-choice | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:dio-open@L213-L213 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -728,9 +740,9 @@ ROUTE_FOR: -
 EDGE: bpI:p3:ext-lebesgue | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-positive@L212-L212 | positivity and finiteness of the measure
 EDGE: K:bp:p0:g3 | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-positive@L212-L212 | measure of non-Diophantine vectors
 EDGE: bpI:p0:diophantine#IsDiophantine | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-positive@L212-L212 | Dio_{alpha,2}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -743,7 +755,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-choice@L
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-choice@L213-L214
 CONTRACT_ID: stepI:p3:do-choice
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 0<meas O<infinity; measure bound meas{omega in O not in Dio_{alpha,2}} <= C alpha
+SOURCE_HYPOTHESES: O nonempty, open and bounded in R^2; tau = 2
 SOURCE_QUANTIFIERS: O fixed
 SOURCE_CONCLUSION: gamma := meas O/(2(C+1)) gives meas{omega in O not in Dio_{gamma,2}} <= C gamma < meas O so O cap Dio_{gamma,2} is nonempty
 CONSTANT_SCOPE: gamma depends on O only
@@ -758,7 +770,7 @@ EDGE: stepI:p3:do-positive | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:
 EDGE: bpI:p3:ext-lebesgue | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-choice@L214-L214 | subadditivity
 EDGE: bpI:p0:diophantine#IsDiophantine | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-choice@L214-L214 | Dio_{gamma,2}
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -780,7 +792,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:setting, bpI:p3:constants, bpI:p3:coordinates, stepI:p3:ry-open, stepI:p3:ry-dio
+DEPS: bpI:p3:setting, bpI:p3:constants, bpI:p3:coordinates, stepI:p3:ry-open, stepI:p3:ry-dio, bpI:p3:compact
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L218-L218 | c in closure B'
@@ -788,8 +800,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L218-L218 | a_c, sigma_c
 EDGE: stepI:p3:ry-open | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L224-L224 | proof step of this result
 EDGE: stepI:p3:ry-dio | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L228-L228 | proof step of this result
+EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L218-L218 | positive finite m_h, M_g, S_h and attained bounds on S
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -803,7 +816,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-open@L22
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-open@L224-L227
 CONTRACT_ID: stepI:p3:ry-open
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: coordinates a_c, sigma_c; m_h; g_c != 0
+SOURCE_HYPOTHESES: Part 3 setting and constants; c in closure B'; J a nonempty open bounded interval
 SOURCE_QUANTIFIERS: c, J fixed
 SOURCE_CONCLUSION: O := {a_c>0, sigma_c in J, m_h/4<¦omega¦<m_h/2} is open, bounded and nonempty (omega_t = t(g_c+varsigma g_c^perp) with t = (3/8)m_h/¦g_c+varsigma g_c^perp¦ lies in O)
 CONSTANT_SCOPE: none
@@ -811,13 +824,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:coordinates, bpI:p3:constants
+DEPS: bpI:p3:coordinates, bpI:p3:constants, bpI:p3:setting, bpI:p3:compact
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-open@L225-L225 | a_c, sigma_c, g_c^perp
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-open@L225-L225 | m_h
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-open@L226-L226 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-open@L227-L227 | positive finite m_h, M_g, S_h and attained bounds on S
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -831,7 +846,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-dio@L228
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-dio@L228-L229
 CONTRACT_ID: stepI:p3:ry-dio
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: O open nonempty bounded (step ry-open)
+SOURCE_HYPOTHESES: Part 3 setting and constants; c in closure B'; J a nonempty open bounded interval; O is the set defined in ry-open
 SOURCE_QUANTIFIERS: c, J fixed
 SOURCE_CONCLUSION: Lemma dio-open applied to O gives gamma>0 and omega* in O cap Dio_{gamma,2}
 CONSTANT_SCOPE: gamma depends on O
@@ -839,13 +854,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:dio-open, stepI:p3:ry-open
+DEPS: bpI:p3:dio-open, stepI:p3:ry-open, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:dio-open | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-dio@L229-L229 | Diophantine vector in the open set O
 EDGE: stepI:p3:ry-open | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-dio@L229-L229 | O is open, bounded, nonempty
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-dio@L229-L229 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -876,9 +892,9 @@ EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch-rays
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch-rays@L237-L237 | sigma_c, a_c
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch-rays@L235-L235 | m_h
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch-rays@L232-L232 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -892,8 +908,8 @@ PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:points@L258-L269
 CONTRACT_ID: bpI:p3:points
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p3:setting; p a patch; E in R with ¦E-h(c)¦<=delta_E; omega*_+-, m_+- the data of Definition patch-rays
-SOURCE_QUANTIFIERS: p, E fixed
-SOURCE_CONCLUSION: (E,m_+-) in Q in V; I_+-(E) := Phi_p^{-1}(E,m_+-) in W real points; (a) h(I_+-)=E, m_c(I_+-)=m_+-, grad h(I_+-) = s_+-^o omega*_+- with s_+-^o = ¦grad h(I_+-)¦/¦omega*_+-¦ in (2, 4M_g/m_h); (b) ¦I_+--c¦<eta_1/4, I_+- in S in B, I_- != I_+, and ¦I_+--I_0¦<eta_1/2 for ¦I_0-c¦<rho_c; (c) m_c(I_-) <= -delta_m/2, m_c(I_+) >= delta_m/2, ¦m_c(I_0)¦<delta_m/4; Phi_p maps {I in W: h(I)=E, ¦m_c(I)¦<=delta_m} homeomorphically onto {E} x [-delta_m,delta_m]
+SOURCE_QUANTIFIERS: patch p and E in its energy window fixed; define I_+-(E); for every I_0 with norm(I_0-c) < rho_c, the additional position and ordering conclusions hold
+SOURCE_CONCLUSION: (E,m_+-) in Q in V; I_+-(E) := Phi_p^{-1}(E,m_+-) in W real points; (a) h(I_+-)=E, m_c(I_+-)=m_+-, grad h(I_+-) = s_+-^o omega*_+- with s_+-^o = ¦grad h(I_+-)¦/¦omega*_+-¦ in (2, 4M_g/m_h); (b) ¦I_+--c¦<eta_1/4, I_+- in S in B, I_- != I_+, and ¦I_+--I_0¦<eta_1/2 for ¦I_0-c¦<rho_c; (c) m_c(I_-) <= -delta_m/2, m_c(I_+) >= delta_m/2, ¦m_c(I_0)¦<delta_m/4; Phi_p maps {I in W: h(I)=E, ¦m_c(I)¦<=delta_m} homeomorphically onto {E} x [-delta_m,delta_m]; claims involving I_0 in (b),(c) are conditional on norm(I_0-c) < rho_c; I_0 is not asserted to lie on h=E
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -912,7 +928,7 @@ EDGE: stepI:p3:pt-parallel | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:po
 EDGE: stepI:p3:pt-position | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:points@L265-L265 | proof step of this result
 EDGE: stepI:p3:pt-segment | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:points@L267-L267 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -926,7 +942,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-exist@L2
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-exist@L259-L260
 CONTRACT_ID: stepI:p3:pt-exist
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: ¦m_+-¦<delta_m; ¦E-h(c)¦<=delta_E; (P2)
+SOURCE_HYPOTHESES: Part 3 setting; p a patch with its selected rays; E real with norm(E-h(c)) <= delta_E
 SOURCE_QUANTIFIERS: p, E fixed
 SOURCE_CONCLUSION: (E,m_+-) in Q in V = Phi_c(W)
 CONSTANT_SCOPE: none
@@ -934,13 +950,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:patch, bpI:p3:patch-rays
+DEPS: bpI:p3:patch, bpI:p3:patch-rays, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-exist@L260-L260 | (P2): Q in V
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-exist@L260-L260 | m_+- in (+-delta_m/2, +-delta_m)
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-exist@L260-L260 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -954,7 +971,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L261-L264
 CONTRACT_ID: stepI:p3:pt-parallel
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Phi_c(I_+-) = (E,m_+-); slope-ray; (P1); norm bounds on omega*_+-; S
+SOURCE_HYPOTHESES: Part 3 setting and constants; p a patch with its selected rays; E real with norm(E-h(c)) <= delta_E
 SOURCE_QUANTIFIERS: p, E fixed
 SOURCE_CONCLUSION: h(I_+-)=E, m_c(I_+-)=sigma_c(omega*_+-); grad h(I_+-) = s^o omega*_+- with s^o = ¦grad h(I_+-)¦/¦omega*_+-¦; I_+- in S so m_h <= ¦grad h(I_+-)¦ <= M_g; hence 2<s^o<4M_g/m_h
 CONSTANT_SCOPE: none
@@ -962,7 +979,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p3:pt-exist, bpI:p3:slope-ray, bpI:p3:patch, bpI:p3:patch-rays, bpI:p3:constants, bpI:p3:coordinates
+DEPS: stepI:p3:pt-exist, bpI:p3:slope-ray, bpI:p3:patch, bpI:p3:patch-rays, bpI:p3:constants, bpI:p3:coordinates, bpI:p3:setting, bpI:p3:compact
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p3:pt-exist | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L262-L262 | I_+-(E) is defined
@@ -971,8 +988,10 @@ EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-paral
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L264-L264 | m_h/4<¦omega*_+-¦<m_h/2, a_c(omega*)>0
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L264-L264 | m_h, M_g, eta_1, d_B, S
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L262-L262 | Phi_c, a_c, U_c
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L262-L262 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-parallel@L264-L264 | positive finite m_h, M_g, S_h and attained bounds on S
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -986,22 +1005,25 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L265-L266
 CONTRACT_ID: stepI:p3:pt-position
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (P1), (P3); ¦I_0-c¦<rho_c<=eta_1/4; m_+- vs (P3)
-SOURCE_QUANTIFIERS: p, E fixed
+SOURCE_HYPOTHESES: Part 3 setting and constants; p a patch with its selected rays; E real with norm(E-h(c)) <= delta_E; for claims about I_0, norm(I_0-c) < rho_c
+SOURCE_QUANTIFIERS: p, E fixed; every I_0 in R^2 with norm(I_0-c) < rho_c
 SOURCE_CONCLUSION: ¦I_+--c¦<eta_1/4; ¦I_+--I_0¦<eta_1/2; I_- != I_+ since m_c(I_-)<0<m_c(I_+); ordering (c)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:patch, stepI:p3:pt-exist, bpI:p3:patch-rays
+DEPS: bpI:p3:patch, stepI:p3:pt-exist, bpI:p3:patch-rays, bpI:p3:setting, bpI:p3:constants, bpI:p3:coordinates
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L266-L266 | (P1), (P3)
 EDGE: stepI:p3:pt-exist | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L266-L266 | I_+-(E) in W
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L266-L266 | signs and ranges of m_+-
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L266-L266 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L266-L266 | standing constants in this step and its local conclusion
+EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-position@L266-L266 | q_c, gradient or slope/chart coordinates
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1015,21 +1037,22 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-segment@
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-segment@L267-L268
 CONTRACT_ID: stepI:p3:pt-segment
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Phi_p: W -> V homeomorphism; {E} x [-delta_m,delta_m] in Q in V
+SOURCE_HYPOTHESES: Part 3 setting; p a patch; E real with norm(E-h(c)) <= delta_E
 SOURCE_QUANTIFIERS: p, E fixed
-SOURCE_CONCLUSION: the preimage of {E} x [-delta_m,delta_m] is exactly {I in W: h(I)=E, ¦m_c(I)¦<=delta_m}
+SOURCE_CONCLUSION: Phi_p restricts to a homeomorphism from {I in W: h(I)=E, norm(m_c(I))<=delta_m} onto {E} x [-delta_m,delta_m], with preimage exactly that set
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:patch, bpI:p3:coordinates
+DEPS: bpI:p3:patch, bpI:p3:coordinates, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-segment@L268-L268 | Phi_p homeomorphism W to V and Q in V
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-segment@L268-L268 | Phi_c = (h, m_c)
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-segment@L268-L268 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1056,13 +1079,13 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L275-L275 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L276-L276 | M, F_j, D-frak
-EDGE: K:bp:p4:h1 | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L278-L278 | (I1)-(I3) via K Part 4's H1
-EDGE: K:bp:p4:derivative-bounds | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L278-L278 | Cauchy bounds on derivatives
-EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L278-L278 | supplies the premises of the applied K Part 4 result under the Part 3 data
+EDGE: K:bp:p4:h1 | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L282-L282 | (I1)-(I3) via K Part 4's H1
+EDGE: K:bp:p4:derivative-bounds | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L285-L285 | Cauchy bounds on derivatives
+EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L282-L282 | supplies the premises of the applied K Part 4 result under the Part 3 data
 EDGE: stepI:p3:hd-open | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L281-L281 | proof step of this result
 EDGE: stepI:p3:hd-bounds | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypothesis-d@L284-L284 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1076,7 +1099,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-open@L28
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-open@L281-L283
 CONTRACT_ID: stepI:p3:hd-open
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K Part 4 H1 steps h1-open, h1-holo; hypotheses of I-HEAD real at real points
+SOURCE_HYPOTHESES: Part 3 setting; epsilon <= 1; D := D-frak
 SOURCE_QUANTIFIERS: D := D-frak
 SOURCE_CONCLUSION: D open and invariant under theta -> theta+k; H holomorphic on D in T_{s_0} x B_{r_0}, 1-periodic in theta, real at real phase points of D
 CONSTANT_SCOPE: none
@@ -1094,7 +1117,7 @@ EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#stepI:
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-open@L282-L282 | D-frak
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-open@L283-L283 | f real at real points; h real
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1108,7 +1131,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-bounds@L
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-bounds@L284-L286
 CONTRACT_ID: stepI:p3:hd-bounds
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K derivative bounds (a),(c),(d) with epsilon<=1
+SOURCE_HYPOTHESES: Part 3 setting; epsilon <= 1; D := D-frak
 SOURCE_QUANTIFIERS: D := D-frak
 SOURCE_CONCLUSION: ¦DH¦,¦X_H¦,¦DX_H¦,¦D^2 X_H¦ <= M on D; ¦D^j H¦ <= c-bar(M_h+epsilon) delta_*^{-j} <= M for j=2; ¦D^j f¦ <= F_j epsilon
 CONSTANT_SCOPE: none
@@ -1125,7 +1148,7 @@ EDGE: bpI:p3:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#stepI:
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-bounds@L286-L286 | M, F_j, c-bar, M_h, delta_*
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-bounds@L285-L285 | epsilon<=1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1141,13 +1164,13 @@ CONTRACT_ID: bpI:p3:torus
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p3:setting with epsilon <= 1; D = D-frak; I in B real; omega* in R^2, s' in R with grad h(I) = s' omega*; omega := s' omega*; K(theta) := (theta,I)
 SOURCE_QUANTIFIERS: I, omega*, s' fixed; then for theta in T_{s/2}
-SOURCE_CONCLUSION: for theta in T_{s/2}: (a) K holomorphic, primary, real on reals, K(T_{s/2}) in D, DK(theta)v = (v,0), ¦DK¦=1, G_K = I_2, ¦G_K^{-1}¦=1, N_{.j} = (0,e_j); for theta in T_rho: B_mu(K(theta)) in D; (b) E_{H,K,omega} = X_f(K(theta)), ¦E¦ <= F_1 epsilon; (c) T_H(theta) = B_h(I)+R(theta), ¦R¦ <= 2 F_2 epsilon, ¦avg T_H - B_h(I)¦ <= 2F_2 epsilon; (d) if I in S and epsilon <= eps_T then det avg T_H != 0, ¦avg T_H^{-1}¦ <= 2S_h = sigma_T - mu; (e) ¦Ebar_H(K)-h(I)¦ <= epsilon, hence ¦Ebar_H(K)-E_0¦ <= epsilon whenever h(I)=E_0
+SOURCE_CONCLUSION: for theta in T_{s/2}: (a) K holomorphic, primary, real on reals, K(T_{s/2}) in D, DK(theta)v = (v,0), ¦DK¦=1, G_K = I_2, ¦G_K^{-1}¦=1, N_{.j} = (0,e_j); for theta in T_rho: B_mu(K(theta)) in D; (b) E_{H,K,omega} = X_f(K(theta)), ¦E¦ <= F_1 epsilon; (c) T_H(theta) = B_h(I)+R(theta), ¦R¦ <= 2 F_2 epsilon, ¦avg T_H - B_h(I)¦ <= 2F_2 epsilon; (d) if I in S and epsilon <= eps_T then det avg T_H != 0, ¦avg T_H^{-1}¦ <= 2S_h = sigma_T - mu; (e) ¦Ebar_H(K)-h(I)¦ <= epsilon, hence ¦Ebar_H(K)-E_0¦ <= epsilon whenever h(I)=E_0; explicitly R(theta) has upper-left block (partial_{I_i} partial_{I_j} f), last row (partial_{I_b} f)^T, and last column zero, all evaluated at (theta,I)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:setting, bpI:p3:constants, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p0:stripdata#IsRealOnReals, bpI:p0:stripdata#gramMatrix, bpI:p0:stripdata#normalFrame, bpI:p0:stripdata#invarianceError, bpI:p0:extended#extendedTorsionAverage, bpI:p0:extended#energyAverage, stepI:p3:to-torus, stepI:p3:to-error, stepI:p3:to-torsion, stepI:p3:to-neumann, stepI:p3:to-energy
+DEPS: bpI:p3:setting, bpI:p3:constants, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p0:stripdata#IsRealOnReals, bpI:p0:stripdata#gramMatrix, bpI:p0:stripdata#normalFrame, bpI:p0:stripdata#invarianceError, bpI:p0:extended#extendedTorsionAverage, bpI:p0:extended#energyAverage, stepI:p3:to-torus, stepI:p3:to-error, stepI:p3:to-torsion, stepI:p3:to-neumann, stepI:p3:to-energy, bpI:p0:extended#extendedTorsion
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:torus@L290-L290 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
@@ -1164,8 +1187,9 @@ EDGE: stepI:p3:to-error | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:torus
 EDGE: stepI:p3:to-torsion | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:torus@L310-L310 | proof step of this result
 EDGE: stepI:p3:to-neumann | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:torus@L314-L314 | proof step of this result
 EDGE: stepI:p3:to-energy | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:torus@L316-L316 | proof step of this result
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:torus@L296-L296 | the unaveraged extended-torsion matrix in the block identity
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1179,7 +1203,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torus@L3
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torus@L304-L307
 CONTRACT_ID: stepI:p3:to-torus
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Steps tr-torus, tr-frame of the trivial-torus lemma (K and the frame do not involve the Hamiltonian); D-frak; mu<=s/8, mu<=r_0/8
+SOURCE_HYPOTHESES: Part 3 setting; epsilon <= 1; D := D-frak; I in B real; grad h(I) = s' omega*, omega := s' omega*; K(theta) := (theta,I)
 SOURCE_QUANTIFIERS: I in B real
 SOURCE_CONCLUSION: K affine, primary, real on reals, DK=(id,0), G_K=I_2, N_{.j}=(0,e_j) constant; ¦DK v¦=¦v¦; K(T_{s/2}) in T_{s/2} x B in D; for theta in T_rho, B_mu(K(theta)) in D
 CONSTANT_SCOPE: none
@@ -1196,7 +1220,7 @@ EDGE: bpI:p1:trivial | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-tor
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torus@L306-L306 | mu, rho, D-frak, s, r_0
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torus@L306-L306 | B in B_{r_0}, I real in B
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1210,7 +1234,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-error@L3
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-error@L308-L309
 CONTRACT_ID: stepI:p3:to-error
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: X_H = ((d_I h + d_I f), -d_theta f); trivial-torus step tr-field; hypothesis-d
+SOURCE_HYPOTHESES: Part 3 setting; epsilon <= 1; D := D-frak; I in B real; omega := grad h(I); K(theta) := (theta,I)
 SOURCE_QUANTIFIERS: I in B real, omega = grad h(I)
 SOURCE_CONCLUSION: E_{H,K,omega} = X_f(K(theta)) and ¦X_f¦ <= F_1 epsilon on D
 CONSTANT_SCOPE: none
@@ -1228,7 +1252,7 @@ EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:t
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-error@L309-L309 | F_1
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-error@L309-L309 | H = h+f
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1242,7 +1266,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L310-L313
 CONTRACT_ID: stepI:p3:to-torsion
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: trivial-torus steps tr-torsion, tr-compare; Part 1 last-row (a) and extended-basic (a); D_theta N_{.j}=0; hypothesis-d
+SOURCE_HYPOTHESES: Part 3 setting; epsilon <= 1; D := D-frak; I in B real; omega := grad h(I); K(theta) := (theta,I)
 SOURCE_QUANTIFIERS: I in B real
 SOURCE_CONCLUSION: T_ij = d_i d_j h(I) + d_{I_i}d_{I_j} f(theta,I); last column omega = grad h(I); last row Y_b = d_b h(I) + d_{I_b} f(theta,I); T_H = B_h(I) + R with R the f-part, ¦R¦ <= 2F_2 epsilon (row-sums), avg T_H defined (integrable) and ¦avg T_H - B_h(I)¦ <= 2F_2 epsilon, avg B_h = B_h
 CONSTANT_SCOPE: F_2 from the constants
@@ -1250,22 +1274,20 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p3:to-torsion#p1-setting, stepI:p1:tr-torsion, bpI:p1:last-row, stepI:p1:tr-compare, bpI:p3:hypothesis-d, bpI:p1:extended-basic, K:bp:p1:ext-integral, stepI:p3:to-torus, stepI:p3:to-error, bpI:p3:constants, bpI:p3:setting
-ROUTES: -
+DEPS: stepI:p1:tr-compare, bpI:p3:hypothesis-d, K:bp:p1:ext-integral, stepI:p3:to-torus, stepI:p3:to-error, bpI:p3:constants, bpI:p3:setting
+ROUTES: stepI:p3:to-torsion#flat-route, stepI:p3:to-torsion#citation-route
 ROUTE_FOR: -
-EDGE: stepI:p3:to-torsion#p1-setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L311-L311 | Assumption bpI:p1:setting under which last-row and extended-basic are applied
-EDGE: stepI:p1:tr-torsion | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L311-L311 | T_ij = d_i d_j H, as for the trivial torus
-EDGE: bpI:p1:last-row | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L312-L312 | (a): last row Y = omega^T - (eta^L)^T
 EDGE: stepI:p1:tr-compare | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | upper-left block and border of B_h(I)
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | ¦D^2 f¦ <= F_2 epsilon, ¦X_f¦ <= F_1 epsilon
-EDGE: bpI:p1:extended-basic | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | (a): average defined, integrable
 EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | ¦avg¦ <= sup
 EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L311-L311 | frame N_{.j} = (0,e_j), D_theta N = 0
 EDGE: stepI:p3:to-error | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L312-L312 | E = X_f so eta^L_b = -d_{I_b} f
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | F_1, F_2
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L313-L313 | H = h+f; B_h from h
+EDGE: stepI:p3:to-torsion#flat-route | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L310-L313 | alternative derivation offered by the proof (route)
+EDGE: stepI:p3:to-torsion#citation-route | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L310-L313 | alternative derivation offered by the proof (route)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1274,34 +1296,33 @@ NOTE: -
 
 NODE: stepI:p3:to-torsion#p1-setting
 KIND: step
-TITLE: Part 1 setting for the flat torus of H = h+f (Part 1 lemmas applied in Part 3)
+TITLE: Unproved full Part 1 setting required by the cited shortcut
 STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L310-L313
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L310-L313
 CONTRACT_ID: stepI:p3:to-torsion#p1-setting
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Assumption bpI:p1:setting for (H, D-frak, K, omega) with K(theta) = (theta,I), omega = s' omega*; det G_K = 1
+SOURCE_HYPOTHESES: Part 3 setting; epsilon <= 1; D := D-frak; I in B real; omega := grad h(I); K(theta) := (theta,I)
 SOURCE_QUANTIFIERS: as in the torus lemma
-SOURCE_CONCLUSION: Assumption bpI:p1:setting holds (so Part 1's last-row and extended-basic lemmas apply to H, K, omega on T_{s/2}): (I1)-(I4) by hypothesis-d, K holomorphic, primary, real on reals with K(T_{s/2}) in D, det G_K != 0
+SOURCE_CONCLUSION: the shortcut invoking Part 1 last-row and extended-basic requires its full standing setting for H, D-frak, K and this same omega; (I1)-(I4), K(T_{s/2}) subset D and det G_K = 1 are supplied locally, but gamma>0 and omega in Dio_{gamma,2} are not established in the generic torus statement
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, bpI:p3:hypothesis-d, stepI:p3:to-torus, bpI:p3:setting
+DEPS: bpI:p1:setting, bpI:p3:hypothesis-d, stepI:p3:to-torus, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p1:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L312-L312 | Assumption bpI:p1:setting, needed by last-row and extended-basic
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L312-L312 | K standing data under the Part 1 setting
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L312-L312 | (I1)-(I4) for (D,H)
 EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L312-L312 | K holomorphic, primary, real on reals; K(T_{s/2}) in D; det G_K = 1
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#p1-setting@L312-L312 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: Part 1's last-row and extended-basic lemmas assume Assumption bpI:p1:setting, which includes gamma>0 and omega in Dio_{gamma,tau}, but the torus lemma is stated for an arbitrary omega* in R^2 with grad h(I) = s' omega* (no Diophantine property); the blueprint cites these lemmas without checking the setting (Diophantine condition holds only in the application, bpI:p3:apply, via patch-rays).
+NOTE: SOURCE_GAP: literal use of the full statements bpI:p1:last-row and extended-basic at L312-L313 lacks a Diophantine premise in the generic torus lemma. This is an attempted premise-discharge obligation, not an assumption that the entire Part 1 setting already holds, and not a gap in the separate direct flat-formula route. The actual ray application later supplies Diophantinity; that does not prove this generic premise.
 
 NODE: stepI:p3:to-neumann
 KIND: step
@@ -1310,7 +1331,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L314-L315
 CONTRACT_ID: stepI:p3:to-neumann
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: ¦B_h^{-1}¦ <= S_h on S; ¦avg R¦ <= 2F_2 epsilon; epsilon <= eps_T = 1/(4 S_h F_2)
+SOURCE_HYPOTHESES: Part 3 setting; epsilon <= 1; D := D-frak; I in B real; omega := grad h(I); K(theta) := (theta,I); I in S; epsilon <= eps_T
 SOURCE_QUANTIFIERS: I in S
 SOURCE_CONCLUSION: ¦B_h^{-1}¦¦avg R¦ <= 1/2 so avg T_H = B_h + avg R is invertible with ¦avg T_H^{-1}¦ <= 2 S_h = sigma_T - mu (real matrix)
 CONSTANT_SCOPE: none
@@ -1318,15 +1339,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:neumann, K:bp:p1:real-inverse, stepI:p3:to-torsion, bpI:p3:constants
+DEPS: K:bp:p1:neumann, K:bp:p1:real-inverse, stepI:p3:to-torsion, bpI:p3:constants, bpI:p3:setting, bpI:p3:compact
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:neumann | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L315-L315 | Neumann series
 EDGE: K:bp:p1:real-inverse | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L315-L315 | real inverse
 EDGE: stepI:p3:to-torsion | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L315-L315 | ¦avg R¦ <= 2F_2 epsilon, avg T_H = B_h + avg R
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L315-L315 | S_h, F_2, eps_T, sigma_T, mu
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L315-L315 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neumann@L315-L315 | positive finite m_h, M_g, S_h and attained bounds on S
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1348,13 +1371,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:setting, bpI:p0:extended#energyAverage
+DEPS: bpI:p3:setting, bpI:p0:extended#energyAverage, K:bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-energy@L317-L317 | ¦f¦ <= epsilon on T_{s_0} x B_{r_0}, H = h+f
 EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-energy@L317-L317 | Ebar_H(K)
+EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-energy@L317-L317 | integral of continuous f on the unit cube; linearity and norm bound
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1376,7 +1400,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:setting, bpI:p3:constants, bpI:p0:g1, bpI:p3:patch, bpI:p3:patch-rays, bpI:p3:points, stepI:p3:ap-d, stepI:p3:ap-k, stepI:p3:ap-t, stepI:p3:ap-ray, stepI:p3:ap-error, stepI:p3:ap-small, stepI:p3:ap-conclusion
+DEPS: bpI:p3:setting, bpI:p3:constants, bpI:p0:g1, bpI:p3:patch, bpI:p3:patch-rays, bpI:p3:points, stepI:p3:ap-d, stepI:p3:ap-k, stepI:p3:ap-t, stepI:p3:ap-ray, stepI:p3:ap-error, stepI:p3:ap-small, stepI:p3:ap-conclusion, bpI:p3:compact, bpI:p3:apply#constants
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L321-L321 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
@@ -1392,8 +1416,10 @@ EDGE: stepI:p3:ap-ray | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L
 EDGE: stepI:p3:ap-error | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L343-L343 | proof step of this result
 EDGE: stepI:p3:ap-small | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L345-L345 | proof step of this result
 EDGE: stepI:p3:ap-conclusion | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L347-L347 | proof step of this result
+EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L322-L322 | positive finite m_h, M_g, S_h and attained bounds on S
+EDGE: bpI:p3:apply#constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L322-L322 | the same per-ray C_i chosen at L321-L322
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1407,7 +1433,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-d@L335-L
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-d@L335-L336
 CONTRACT_ID: stepI:p3:ap-d
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: hypothesis-d with epsilon <= 1
+SOURCE_HYPOTHESES: local data of apply: fixed patch and selected ray; epsilon <= 1, epsilon <= eps_T, epsilon < eps^{p,+-}; E in the patch energy window
 SOURCE_QUANTIFIERS: as in the lemma
 SOURCE_CONCLUSION: (I1)-(I4) of I-G1 hold for D-frak, H = h+f with the constant M
 CONSTANT_SCOPE: none
@@ -1415,13 +1441,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:hypothesis-d, bpI:p3:setting
+DEPS: bpI:p3:hypothesis-d, bpI:p3:setting, bpI:p3:constants
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-d@L336-L336 | (I1)-(I4)
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-d@L336-L336 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
+EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-d@L336-L336 | standing constants in this step and its local conclusion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1435,7 +1462,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L337-L
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L337-L338
 CONTRACT_ID: stepI:p3:ap-k
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: torus (a) with I in B (points(b))
+SOURCE_HYPOTHESES: local data of apply: fixed patch and selected ray; epsilon <= 1, epsilon <= eps_T, epsilon < eps^{p,+-}; E in the patch energy window; I := I_+-(E)
 SOURCE_QUANTIFIERS: as in the lemma
 SOURCE_CONCLUSION: (I5)-(I7): K holomorphic, primary, real on reals on T_rho; B_mu(K) in D, ¦DK¦ = 1 = sigma_K - mu; det G_K = 1, ¦G_K^{-1}¦ = 1 = sigma_B - mu
 CONSTANT_SCOPE: none
@@ -1451,7 +1478,7 @@ EDGE: bpI:p3:points | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L3
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L338-L338 | sigma_K, sigma_B, mu, rho
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L338-L338 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1465,7 +1492,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L339-L
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L339-L340
 CONTRACT_ID: stepI:p3:ap-t
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: grad h(I) = s^o omega*; I in S; torus (d); epsilon <= eps_T
+SOURCE_HYPOTHESES: local data of apply: fixed patch and selected ray; epsilon <= 1, epsilon <= eps_T, epsilon < eps^{p,+-}; E in the patch energy window; I := I_+-(E)
 SOURCE_QUANTIFIERS: as in the lemma
 SOURCE_CONCLUSION: (I8): det avg T_H != 0 and ¦avg T_H^{-1}¦ <= sigma_T - mu
 CONSTANT_SCOPE: none
@@ -1473,14 +1500,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:points, bpI:p3:torus, bpI:p3:constants
+DEPS: bpI:p3:points, bpI:p3:torus, bpI:p3:constants, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:points | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L340-L340 | (a): grad h(I_+-) = s^o omega*; (b): I_+- in S
 EDGE: bpI:p3:torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L340-L340 | (d)
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L340-L340 | sigma_T, mu, eps_T
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L340-L340 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1494,7 +1522,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@L341
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@L341-L342
 CONTRACT_ID: stepI:p3:ap-ray
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: points(a): 2<s^o<4M_g/m_h; m_h/4<¦omega*¦<m_h/2
+SOURCE_HYPOTHESES: local data of apply: fixed patch and selected ray; E in the patch energy window; s := s^o_+-
 SOURCE_QUANTIFIERS: as in the lemma
 SOURCE_CONCLUSION: (I9): 1<s<sigma_omega, (s-1)¦omega*¦ > nu and (sigma_omega-s)¦omega*¦ > nu
 CONSTANT_SCOPE: none
@@ -1502,14 +1530,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:points, bpI:p3:patch-rays, bpI:p3:constants
+DEPS: bpI:p3:points, bpI:p3:patch-rays, bpI:p3:constants, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:points | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@L342-L342 | (a): s^o in (2, 4M_g/m_h)
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@L342-L342 | m_h/4 < ¦omega*¦ < m_h/2
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@L342-L342 | nu, sigma_omega
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray@L342-L342 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1523,7 +1552,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-error@L3
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-error@L343-L344
 CONTRACT_ID: stepI:p3:ap-error
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: patch-rays: 0<gamma, omega* in Dio_{gamma,2}; torus (b),(e); h(I) = E; F_1>=1
+SOURCE_HYPOTHESES: local data of apply: fixed patch and selected ray; epsilon <= 1, epsilon <= eps_T, epsilon < eps^{p,+-}; E in the patch energy window; E_0 := E; e := F_1 epsilon
 SOURCE_QUANTIFIERS: as in the lemma
 SOURCE_CONCLUSION: (I10)-(I12): 0<gamma<=gammabar = gamma, omega* in Dio_{gamma,2}, e = F_1 epsilon >= 0; (I11) E bound from torus (b); (I12) ¦Ebar_H(K)-E_0¦ <= epsilon <= F_1 epsilon = e
 CONSTANT_SCOPE: none
@@ -1540,7 +1569,7 @@ EDGE: bpI:p3:points | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-erro
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-error@L344-L344 | F_1 >= 1, e = F_1 epsilon
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-error@L344-L344 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1562,13 +1591,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:constants, bpI:p3:patch-rays
+DEPS: bpI:p3:constants, bpI:p3:patch-rays, bpI:p3:setting, bpI:p3:apply#constants
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-small@L346-L346 | e = F_1 epsilon, rho = s/4, tau = 2
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-small@L346-L346 | gamma = gamma_{p,+-}
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-small@L346-L346 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p3:apply#constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-small@L346-L346 | the same per-ray C_i chosen at L321-L322
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1582,7 +1613,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusi
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L347-L348
 CONTRACT_ID: stepI:p3:ap-conclusion
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: hypotheses (I1)-(I13) established in steps ap-d ... ap-small
+SOURCE_HYPOTHESES: local data and smallness assumptions of apply; I := I_+-(E), s := s^o_+-, E_0 := E, e := F_1 epsilon; use the constants selected before f, epsilon and E
 SOURCE_QUANTIFIERS: as in the lemma
 SOURCE_CONCLUSION: Theorem I-G1 gives K_infty, s_infty in (1,sigma_omega) with (O1)-(O6); C_2 e/(gamma^2 rho^{2 tau}) = C_2 F_1 epsilon/(gamma^2 rho^4)
 CONSTANT_SCOPE: none
@@ -1590,7 +1621,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p0:g1, stepI:p3:ap-d, stepI:p3:ap-k, stepI:p3:ap-t, stepI:p3:ap-ray, stepI:p3:ap-error, stepI:p3:ap-small, bpI:p3:constants
+DEPS: bpI:p0:g1, stepI:p3:ap-d, stepI:p3:ap-k, stepI:p3:ap-t, stepI:p3:ap-ray, stepI:p3:ap-error, stepI:p3:ap-small, bpI:p3:constants, bpI:p3:setting, bpI:p3:apply#constants
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:g1 | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L348-L348 | I-G1 applied
@@ -1601,8 +1632,10 @@ EDGE: stepI:p3:ap-ray | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-co
 EDGE: stepI:p3:ap-error | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L348-L348 | (I10)-(I12)
 EDGE: stepI:p3:ap-small | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L348-L348 | (I13)
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L348-L348 | F_1, rho
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L348-L348 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p3:apply#constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-conclusion@L348-L348 | the same per-ray C_i chosen at L321-L322
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1633,9 +1666,9 @@ EDGE: bpI:p3:apply | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:uniform@L3
 EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:uniform@L365-L365 | delta_{E,j}
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:uniform@L362-L362 | F_1, eps_T, eta_1, rho
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:uniform@L360-L360 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1649,14 +1682,14 @@ PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L388-L405
 CONTRACT_ID: bpI:p3:tori
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p3:setting (the data of I-HEAD with n=2, B' nonempty, eta>0, tau=2); eps_1, C_K as in Definition uniform; rho_infty = s/8; f, epsilon with the hypotheses of I-HEAD and epsilon<eps_1; I_0 in closure B'; E in R with ¦E-h(I_0)¦<=epsilon
-SOURCE_QUANTIFIERS: (B,s_0,r_0,h,B',eta) fixed; then eps_1, C_K, P, p_j; then for all f, epsilon<eps_1, I_0, E: there are j, then for each sign K_+-, s_+-, I_+-
-SOURCE_CONCLUSION: there are j in P with ¦I_0-c_j¦<rho_j and for each sign a map K_+-, s_+- in (1,sigma_omega) and a real point I_+- in R^2 with, for H = h+f, omega*_+- = omega*_{j,+-}, omega_+- = s_+- omega*_+-: (T1) K_+- holomorphic on T_{rho_infty}, primary, real on reals, real-analytic on R^2; (T2) E_{H,K_+-,omega_+-} = 0 on T_{rho_infty}, omega*_+- in Dio_{gamma_{j,+-},2}, omega_+- in R^2 minus {0}; (T3) H(K_+-(theta)) = E on T_{rho_infty} (pointwise), Ham_{h,f}(K_+-(theta)) = E for real theta; (T4) ¦K_+-(theta) - (theta,I_+-)¦ <= C_K epsilon on T_{rho_infty}, u_+-, v_+- holomorphic 1-periodic with ¦u¦,¦v¦ <= C_K epsilon, ¦Du¦,¦Dv¦ <= 4C_K epsilon/rho_infty on T_{rho_infty/2}; (T5) h(I_+-) = E, grad h(I_+-) = s^o_+- omega*_+- with s^o in (2,4M_g/m_h), ¦omega_+- - grad h(I_+-)¦ <= C_K epsilon, positive multiples of omega*_+-; (T6) I_+- in B, ¦I_+--I_0¦<eta_1/2<=eta/2, ¦K_+-(theta)_2 - I_0¦<eta and K_+-(theta)_2 in S in B for real theta, B_{mu/2}(K_+-(theta)) in D-frak and ¦DK_+-¦ <= sigma_K - mu/2 on T_{rho_infty}; (T7) ordering of slopes: I_+- = Phi_j^{-1}(E,m_{j,+-}), m_{c_j}(I_-) <= -delta_{m,j}/2, m_{c_j}(I_+) >= delta_{m,j}/2, ¦m_{c_j}(I_0)¦<delta_{m,j}/4
+SOURCE_QUANTIFIERS: geometric data (B,s_0,r_0,h,B',eta) fixed; patches, rays, their gamma and C_i fixed in the order of uniform; then eps_1 and C_K; then for every f, 0 <= epsilon < eps_1, I_0 in closure B' and E with norm(E-h(I_0)) <= epsilon, there exist j and for each sign K_+-, s_+-, I_+-
+SOURCE_CONCLUSION: there are j in P with ¦I_0-c_j¦<rho_j and for each sign a map K_+-, s_+- in (1,sigma_omega) and a real point I_+- in R^2 with, for H = h+f, omega*_+- = omega*_{j,+-}, omega_+- = s_+- omega*_+-: (T1) K_+- holomorphic on T_{rho_infty}, primary, real on reals, real-analytic on R^2; (T2) E_{H,K_+-,omega_+-} = 0 on T_{rho_infty}, omega*_+- in Dio_{gamma_{j,+-},2}, omega_+- in R^2 minus {0}; (T3) H(K_+-(theta)) = E on T_{rho_infty} (pointwise), Ham_{h,f}(K_+-(theta)) = E for real theta; (T4) ¦K_+-(theta) - (theta,I_+-)¦ <= C_K epsilon on T_{rho_infty}, u_+-, v_+- holomorphic 1-periodic with ¦u¦,¦v¦ <= C_K epsilon, ¦Du¦,¦Dv¦ <= 4C_K epsilon/rho_infty on T_{rho_infty/2}; (T5) h(I_+-) = E, grad h(I_+-) = s^o_+- omega*_+- with s^o in (2,4M_g/m_h), ¦omega_+- - grad h(I_+-)¦ <= C_K epsilon, positive multiples of omega*_+-; (T6) I_+- in B, ¦I_+--I_0¦<eta_1/2<=eta/2, ¦K_+-(theta)_2 - I_0¦<eta and K_+-(theta)_2 in S in B for real theta, B_{mu/2}(K_+-(theta)) in D-frak and ¦DK_+-¦ <= sigma_K - mu/2 on T_{rho_infty}; (T7) ordering of slopes: I_+- = Phi_j^{-1}(E,m_{j,+-}), m_{c_j}(I_-) <= -delta_{m,j}/2, m_{c_j}(I_+) >= delta_{m,j}/2, ¦m_{c_j}(I_0)¦<delta_{m,j}/4; in T2 omega_+- is nonresonant; in T5 norm(omega_+- - grad h(I_+-)) = abs(s_+- - s^o_+-) norm(omega*_+-); I_0 in T7 need not lie on the energy arc
 CONSTANT_SCOPE: eps_1, C_K, rho_infty, P, sigma_omega, M_g depend only on (B,s_0,r_0,h,B',eta); K_+-, s_+-, I_+-, j depend on f, epsilon, E, I_0
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:setting, bpI:p3:uniform, bpI:p3:constants, bpI:p0:domains#complexStrip, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p0:stripdata#IsRealOnReals, bpI:p0:stripdata#invarianceError, bpI:p0:realham#realHamiltonian, stepI:p3:tori-patch, stepI:p3:tori-base, stepI:p3:tori-ig1, stepI:p3:tori-close, stepI:p3:tori-position
+DEPS: bpI:p3:setting, bpI:p3:uniform, bpI:p3:constants, bpI:p0:domains#complexStrip, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p0:stripdata#IsRealOnReals, bpI:p0:stripdata#invarianceError, bpI:p0:realham#realHamiltonian, stepI:p3:tori-patch, stepI:p3:tori-base, stepI:p3:tori-ig1, stepI:p3:tori-close, stepI:p3:tori-position, bpI:p3:patch, bpI:p3:patch-rays, bpI:p3:coordinates
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L372-L372 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
@@ -1672,8 +1705,11 @@ EDGE: stepI:p3:tori-base | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori
 EDGE: stepI:p3:tori-ig1 | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L394-L394 | proof step of this result
 EDGE: stepI:p3:tori-close | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L398-L398 | proof step of this result
 EDGE: stepI:p3:tori-position | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L401-L401 | proof step of this result
+EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L374-L374 | patch centres, radii and delta_m
+EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L374-L374 | omega*_{j,+-}, gamma_{j,+-}, m_{j,+-}
+EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori@L383-L383 | Phi_j and m_{c_j} in T7
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1687,7 +1723,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-patch@
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-patch@L389-L391
 CONTRACT_ID: stepI:p3:tori-patch
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: balls cover closure B' (cover); (P3); eps<eps_1<=delta_E/2
+SOURCE_HYPOTHESES: Part 3 setting; 0 <= epsilon < eps_1; f as in I-HEAD; I_0 in closure B'; E real with norm(E-h(I_0)) <= epsilon; patches, rays and uniform constants fixed before f, epsilon, E, I_0
 SOURCE_QUANTIFIERS: I_0 in closure B', E fixed
 SOURCE_CONCLUSION: there is j with ¦I_0-c_j¦<rho_j; ¦h(I_0)-h(c)¦<delta_E/2; hence ¦E-h(c)¦ <= epsilon + delta_E/2 <= delta_E
 CONSTANT_SCOPE: none
@@ -1703,7 +1739,7 @@ EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-pat
 EDGE: bpI:p3:uniform | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-patch@L391-L391 | eps_1 <= delta_{E,j}/2
 EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-patch@L390-L390 | data of Part 3 (B, s_0, r_0, h, B', eta, tau=2, f, eps, H=h+f)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1717,7 +1753,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L392-L393
 CONTRACT_ID: stepI:p3:tori-base
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: points lemma for the patch p_j and E
+SOURCE_HYPOTHESES: Part 3 setting; 0 <= epsilon < eps_1; f as in I-HEAD; I_0 in closure B'; E real with norm(E-h(I_0)) <= epsilon; patches, rays and uniform constants fixed before f, epsilon, E, I_0
 SOURCE_QUANTIFIERS: as in the proposition
 SOURCE_CONCLUSION: I_+-:=I_+-(E), s^o_+- from points: T5 (first part), T7, I_+- in B, ¦I_+--I_0¦<eta_1/2
 CONSTANT_SCOPE: none
@@ -1725,13 +1761,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:points, stepI:p3:tori-patch
+DEPS: bpI:p3:points, stepI:p3:tori-patch, bpI:p3:setting, bpI:p3:constants, bpI:p3:coordinates
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:points | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L393-L393 | (a),(b),(c)
 EDGE: stepI:p3:tori-patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L393-L393 | j and ¦E-h(c)¦<=delta_E
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L393-L393 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L393-L393 | standing constants in this step and its local conclusion
+EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-base@L393-L393 | q_c, gradient or slope/chart coordinates
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1745,7 +1784,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L3
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L394-L397
 CONTRACT_ID: stepI:p3:tori-ig1
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: epsilon<eps_1<=min{1,eps_T,eps^{j,+-}}; lemma apply; I-G1 (O1)-(O6) with e = F_1 epsilon, E_0 = E
+SOURCE_HYPOTHESES: Part 3 setting; 0 <= epsilon < eps_1; f as in I-HEAD; I_0 in closure B'; E real with norm(E-h(I_0)) <= epsilon; patches, rays and uniform constants fixed before f, epsilon, E, I_0
 SOURCE_QUANTIFIERS: as in the proposition
 SOURCE_CONCLUSION: K_+- := K_infty, s_+- := s_infty in (1,sigma_omega); T1 from (O1) and real-analyticity on R^n; T2 from (O2), omega*_+- Dio is a property of the ray; T3 from (O3) and Ham_{h,f} = Re H = H at real points; T5: (O6) with C_3 F_1 epsilon/(gamma^2 rho^4) <= C_K epsilon, multiples positive since s_+- > 1, s^o > 2
 CONSTANT_SCOPE: none
@@ -1753,7 +1792,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:apply, bpI:p0:g1, bpI:p3:uniform, stepI:p3:tori-base, bpI:p3:patch-rays, K:bp:p1:real-restriction, bpI:p0:realham#realHamiltonian
+DEPS: bpI:p3:apply, bpI:p0:g1, bpI:p3:uniform, stepI:p3:tori-base, bpI:p3:patch-rays, K:bp:p1:real-restriction, bpI:p0:realham#realHamiltonian, bpI:p3:setting, bpI:p3:constants
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:apply | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L395-L395 | application of I-G1 for the patch p_j and ray +-
@@ -1763,8 +1802,10 @@ EDGE: stepI:p3:tori-base | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L396-L396 | omega*_+- in Dio_{gamma_{j,+-},2}
 EDGE: K:bp:p1:real-restriction | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L396-L396 | real-analytic restriction to R^2
 EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L396-L396 | Ham_{h,f} = Re H = H at real points where H is real
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L396-L396 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-ig1@L395-L395 | standing constants in this step and its local conclusion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1778,7 +1819,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L398-L400
 CONTRACT_ID: stepI:p3:tori-close
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (O5): ¦K_+--K¦ <= C_2 F_1 epsilon/(gamma^2 rho^4) <= C_K epsilon; K = (theta,I_+-); Cauchy estimate
+SOURCE_HYPOTHESES: Part 3 setting; 0 <= epsilon < eps_1; f as in I-HEAD; I_0 in closure B'; E real with norm(E-h(I_0)) <= epsilon; patches, rays and uniform constants fixed before f, epsilon, E, I_0
 SOURCE_QUANTIFIERS: as in the proposition
 SOURCE_CONCLUSION: T4: u_+-,v_+- holomorphic 1-periodic on T_{rho_infty}, ¦u¦,¦v¦ <= C_K epsilon, ¦Du¦,¦Dv¦ <= 4C_K epsilon/rho_infty on T_{rho_infty/2}
 CONSTANT_SCOPE: none
@@ -1786,7 +1827,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p3:tori-ig1, bpI:p3:uniform, K:bp:p1:cauchy-strip, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p3:constants
+DEPS: stepI:p3:tori-ig1, bpI:p3:uniform, K:bp:p1:cauchy-strip, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p3:constants, bpI:p3:setting, bpI:p0:g1
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p3:tori-ig1 | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L399-L399 | (O5) with K_+- = K_infty
@@ -1794,8 +1835,10 @@ EDGE: bpI:p3:uniform | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-c
 EDGE: K:bp:p1:cauchy-strip | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L400-L400 | Cauchy estimate on the strip, n=2, delta = rho_infty/2
 EDGE: bpI:p0:stripdata#IsPrimaryOnStrip | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L399-L399 | K_+- and K primary give 1-periodicity of the difference
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L400-L400 | rho_infty = s/8
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L399-L399 | local Part 3 data, including h, B', f or epsilon
+EDGE: bpI:p0:g1 | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@L399-L399 | the O5 conclusion for the already selected I-G1 output
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1809,7 +1852,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-positi
 PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-position@L401-L404
 CONTRACT_ID: stepI:p3:tori-position
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: eps<eta_1/(2C_K); ¦I_+--I_0¦<eta_1/2; (O4); compact lemma
+SOURCE_HYPOTHESES: Part 3 setting; 0 <= epsilon < eps_1; f as in I-HEAD; I_0 in closure B'; E real with norm(E-h(I_0)) <= epsilon; patches, rays and uniform constants fixed before f, epsilon, E, I_0
 SOURCE_QUANTIFIERS: as in the proposition
 SOURCE_CONCLUSION: T6: ¦K_+-(theta)_2 - I_+-¦ <= C_K epsilon<eta_1/2, so ¦K_+-(theta)_2 - I_0¦ < eta_1 <= eta; dist(K_+-(theta)_2, closure B') < eta_1 <= d_B/2 so K_+-(theta)_2 in S in B; B_{mu/2}(K_+-) in D-frak and ¦DK_+-¦ <= sigma_K - mu/2 are (O4)
 CONSTANT_SCOPE: none
@@ -1817,7 +1860,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p3:compact, bpI:p0:g1, stepI:p3:tori-ig1, stepI:p3:tori-close, stepI:p3:tori-base, bpI:p3:uniform, bpI:p3:constants
+DEPS: bpI:p3:compact, bpI:p0:g1, stepI:p3:tori-ig1, stepI:p3:tori-close, stepI:p3:tori-base, bpI:p3:uniform, bpI:p3:constants, bpI:p3:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-position@L403-L403 | S in B
@@ -1827,10 +1870,116 @@ EDGE: stepI:p3:tori-close | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:t
 EDGE: stepI:p3:tori-base | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-position@L402-L402 | ¦I_+--I_0¦<eta_1/2
 EDGE: bpI:p3:uniform | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-position@L402-L402 | eps_1 <= eta_1/(2C_K)
 EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-position@L402-L402 | eta_1, d_B, S, sigma_K, mu, D-frak
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-position@L403-L403 | local Part 3 data, including h, B', f or epsilon
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p3
+EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
+
+NODE: bpI:p3:apply#constants
+KIND: step
+TITLE: Select the per-ray frozen I-G1 constants before the perturbation
+STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L321-L322
+PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L321-L322
+CONTRACT_ID: bpI:p3:apply#constants
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: geometric/domain data (B,s_0,r_0,h,B',eta); a patch with one selected ray; n=2, tau=2, the fixed constants of p3:constants and gammabar := gamma_{p,+-}
+SOURCE_QUANTIFIERS: geometric data, patch, ray and gamma fixed first; then choose C_1,C_2,C_3 > 0; then for all D,H,K,s,gamma,e,E_0 satisfying the frozen hypotheses
+SOURCE_CONCLUSION: choose one tuple C_i^{p,+-} from bpI:p0:g1 with n=2, tau=2, rho=s/4, rho_infty=s/8, M, sigma_K, sigma_B, sigma_T, mu, sigma_omega, nu, gammabar and omega* fixed as in L321-L322; retain the frozen conditional conclusion for that same tuple
+CONSTANT_SCOPE: C_i depend only on the geometric data and the fixed ray, never on f, epsilon, E, I_0
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpI:p3:setting, bpI:p3:constants, bpI:p3:compact, bpI:p3:patch, bpI:p3:patch-rays, bpI:p0:g1
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L321-L321 | geometric data only
+EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L322-L322 | positive widths and fixed parameters
+EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L322-L322 | m_h, M_g and S_h positive finite
+EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L321-L321 | fixed patch
+EDGE: bpI:p3:patch-rays | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L321-L321 | gamma positive and omega* nonzero
+EDGE: bpI:p0:g1 | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constants@L321-L321 | frozen existential constants with this quantifier order
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-I-p3
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Proposed by independent review; requires a different delta reviewer.
+
+NODE: stepI:p3:to-torsion#flat-route
+KIND: route
+TITLE: Torsion and averaging by direct flat formula
+STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L311-L313
+PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L311-L313
+CONTRACT_ID: stepI:p3:to-torsion#flat-route
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: Part 3 setting; epsilon <= 1; D := D-frak; I in B real; omega := grad h(I); K(theta) := (theta,I)
+SOURCE_QUANTIFIERS: I and omega as in torus; theta in T_{s/2}
+SOURCE_CONCLUSION: T_ij = d_i d_j h(I) + d_{I_i}d_{I_j} f(theta,I); last column omega = grad h(I); last row Y_b = d_b h(I) + d_{I_b} f(theta,I); T_H = B_h(I) + R with R the f-part, ¦R¦ <= 2F_2 epsilon (row-sums), avg T_H defined (integrable) and ¦avg T_H - B_h(I)¦ <= 2F_2 epsilon, avg B_h = B_h
+CONSTANT_SCOPE: F_1,F_2 from p3:constants
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepI:p1:tr-compare, bpI:p3:hypothesis-d, K:bp:p1:ext-integral, stepI:p3:to-torus, stepI:p3:to-error, bpI:p3:constants, bpI:p3:setting, bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain
+ROUTES: -
+ROUTE_FOR: stepI:p3:to-torsion
+EDGE: stepI:p1:tr-compare | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: stepI:p3:to-error | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L312-L312 | the explicitly stated direct value Y_b = DH(K) N_b
+EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | entrywise unit-cube average
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L313-L313 | continuity of the first and second derivative entries in the displayed flat formula
+EDGE: bpI:p1:ext-chain | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#flat-route@L312-L312 | differentiate H=h+f and evaluate on the constant normal frame
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-I-p3
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: The source supplies the direct value DH(K)N_b at L312 and the full R formula at L313 (stated at L296-L297). Continuity of these explicit derivative entries on the compact real cube and the already cited ext-integral give the average and bound; this route does not generalize the Part 1 lemmas or assume a Diophantine omega. Requires independent delta review.
+
+NODE: stepI:p3:to-torsion#citation-route
+KIND: route
+TITLE: Torsion and averaging by the cited Part 1 shortcut
+STATEMENT_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L311-L313
+PROOF_SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L311-L313
+CONTRACT_ID: stepI:p3:to-torsion#citation-route
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: Part 3 setting; epsilon <= 1; D := D-frak; I in B real; omega := grad h(I); K(theta) := (theta,I)
+SOURCE_QUANTIFIERS: I and omega as in torus; theta in T_{s/2}
+SOURCE_CONCLUSION: T_ij = d_i d_j h(I) + d_{I_i}d_{I_j} f(theta,I); last column omega = grad h(I); last row Y_b = d_b h(I) + d_{I_b} f(theta,I); T_H = B_h(I) + R with R the f-part, ¦R¦ <= 2F_2 epsilon (row-sums), avg T_H defined (integrable) and ¦avg T_H - B_h(I)¦ <= 2F_2 epsilon, avg B_h = B_h
+CONSTANT_SCOPE: F_1,F_2 from p3:constants
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepI:p1:tr-compare, bpI:p3:hypothesis-d, K:bp:p1:ext-integral, stepI:p3:to-torus, stepI:p3:to-error, bpI:p3:constants, bpI:p3:setting, stepI:p3:to-torsion#p1-setting, bpI:p1:last-row, bpI:p1:extended-basic
+ROUTES: -
+ROUTE_FOR: stepI:p3:to-torsion
+EDGE: stepI:p1:tr-compare | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: stepI:p3:to-torus | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: stepI:p3:to-error | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | same flat data, frame, error and derivative bounds used in L311-L313
+EDGE: stepI:p3:to-torsion#p1-setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L312-L312 | missing full-package premise discharge for the citations
+EDGE: bpI:p1:last-row | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L312-L312 | last-row identity (a)
+EDGE: bpI:p1:extended-basic | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion#citation-route@L313-L313 | integrability and identification of the average
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-I-p3
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: This route retains the actual Part 1 citations and their exposed SOURCE_GAP premise check. It is an alternative to the direct flat-formula route, not a mandatory extra premise for that route.
