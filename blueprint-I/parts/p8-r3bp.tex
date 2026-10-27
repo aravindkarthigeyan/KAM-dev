@@ -10,7 +10,7 @@ and \Iref{bpI:p8:min-distance}.
 
 \source{ours (D-I-PHYSICAL): the derivation from I-HEAD, I-KEPLER and the Delaunay coordinates, as in Part~\ref{bpI:p7}; the model
 (barycentric rotating frame, unit separation, total mass one) is Chi05 (1.2), p.~2, and (3.34), (3.37), pp.~12--13. Chi05's own
-perturbative analysis (3.38)--(3.43) is heliocentric and truncated and is not used (Remark~\ref{bpI:p7:errata}). The numerical Victoria theorem of CC03 is not used.}
+perturbative analysis (3.38)--(3.43) uses exact alternative (heliocentric/extended-phase-space) coordinates with different normalization and rotating reduction, and is not used (Remark~\ref{bpI:p7:errata}). The numerical Victoria theorem of CC03 is not used.}
 
 \paragraph{Finding I04 of the Part-0 review (how it is applied).} No single positive displacement tolerance can keep the
 orbital elements inside the \emph{original} open intervals uniformly over the open initial region. The frozen conclusion asks
@@ -92,14 +92,14 @@ a point $y_j(\mu)\in X$ (the position of the $j$-th mass at parameter $\mu$; no 
 \begin{enumerate}[label=(\alph*)]
 \item (\emph{quantitative form}) Let $S\subset X$ and $\delta>0$ with $\abs{q-x_j}\ge\delta$ for all $q\in S$ and $j\le m$. Put $\mu_*=\mu_1$ if $c=0$ and $\mu_*=\min\{\mu_1,\delta/(2c)\}$ if $c>0$. Then for every $\mu$ with $\abs\mu\le\mu_*$, every $q\in S$ and every $j$: $\abs{q-y_j(\mu)}\ge\delta/2$.
   The constants $\mu_*,\delta/2$ depend only on $(\delta,c,\mu_1)$, not on $\mu$, $q$ or the particular family $y_j$.
-\item (\emph{compact sets}) If $X$ is finite dimensional, $S\subset X$ is compact and $x_j\notin S$ for all $j$, then $\delta_S:=\min_{j}\ \min_{q\in S}\abs{q-x_j}>0$ (for $S=\emptyset$ any $\delta$ works) and (a) applies with $\delta=\delta_S$; so there are $\mu_*>0$, $d=\delta_S/2>0$ with $\abs{q-y_j(\mu)}\ge d$ for all $q\in S$, $\abs\mu\le\mu_*$, $j\le m$. In particular $q\neq y_j(\mu)$: no collision.
+\item (\emph{compact sets}) If $X$ is finite dimensional, $S\subset X$ is compact and $x_j\notin S$ for all $j$, then, if $S\ne\emptyset$ and $m\ge1$, $\delta_S:=\min_{j}\ \min_{q\in S}\abs{q-x_j}>0$ (the minimum over $S$ is attained because $S$ is nonempty and compact; if $S=\emptyset$ or $m=0$ the statement is vacuous and any $\delta_S>0$, e.g.\ $\delta_S=1$, works) and (a) applies with $\delta=\delta_S$; so there are $\mu_*>0$, $d=\delta_S/2>0$ with $\abs{q-y_j(\mu)}\ge d$ for all $q\in S$, $\abs\mu\le\mu_*$, $j\le m$. In particular $q\neq y_j(\mu)$: no collision.
 \end{enumerate}
 \source{standard; ours (D-I-PHYSICAL). Stated generally for the use of tracks~I, N and P (any finite family of point masses whose positions move by $O(\mu)$, e.g.\ the barycentric shift of the primaries).}
 \end{lemma}
 \begin{proof}
 \proofstep{Quantitative form}\label{stepI:p8:ce-quant} For $q\in S$, $\abs\mu\le\mu_*$: by \ref{bpI:p8:x-norm}, $\abs{q-y_j(\mu)}\ge\abs{q-x_j}-\abs{x_j-y_j(\mu)}\ge\delta-c\abs\mu\ge\delta-\delta/2=\delta/2$, using $c\abs\mu\le c\mu_*\le\delta/2$ (if $c=0$ the bound is $\ge\delta$).
 
-\proofstep{Compact sets}\label{stepI:p8:ce-compact} For each $j$ the continuous function $q\mapsto\abs{q-x_j}$ attains its minimum on the nonempty compact $S$ (\ref{bpI:p8:x-topo}) at a point $q_j\in S$, and $q_j\ne x_j$ because $x_j\notin S$, so the minimum is $>0$; the minimum over the finite set of $j$ is $\delta_S>0$. Apply (a).
+\proofstep{Compact sets}\label{stepI:p8:ce-compact} For each $j$ the continuous function $q\mapsto\abs{q-x_j}$ attains its minimum on the compact $S$, which is nonempty in this case (\ref{bpI:p8:x-topo}; the empty case was treated above) at a point $q_j\in S$, and $q_j\ne x_j$ because $x_j\notin S$, so the minimum is $>0$; the minimum over the finite set of $j$ is $\delta_S>0$. Apply (a).
 \end{proof}
 
 \begin{corollary}[The restricted problem: shell around the primary]\label{bpI:p8:shell-exclusion}
@@ -226,7 +226,7 @@ Let $a_\pm,e_\pm$ satisfy the hypotheses. Openness and nonemptiness of $\mathcal
 
 \proofstep{Distance to the primaries}\label{stepI:p8:pf-dist} $\mu<\mu_0\le\nu_0/2$ and $\nu_0=\min\{r_{\min},1-\rho_{\max}\}$; Corollary~\ref{bpI:p8:shell-exclusion} (instance of Lemma~\ref{bpI:p8:collision-exclusion}) with $q=q(t)$ gives $\operatorname{rad}(q(t)-a_j(\mu))\ge\nu_0/2=d$, $j=1,2$, for all $t\in\R$. (For $\mu=0$ this reads $\operatorname{rad}(q)\ge r_{\min}\ge d$ and $\operatorname{rad}(q-(1,0))\ge1-\rho_{\max}\ge d$.)
 
-\proofstep{Uniqueness}\label{stepI:p8:pf-uniq} Let $a<0<b$ and $y:\R\to\R^2\times\R^2$ with $y(0)=z_0$ and $\mathrm{RSol}_\mu((a,b),y)$. By Lemma~\ref{bpI:p7:ham-eq} and the restricted case of \Nref{bpN:p3:newton-reduction}, with $W_\mu=\{\text{collision-free points}\}$ open and $F_\mu$ the $C^\infty$ extension of $V_\mu$: $\texttt{IsSolIn}\,F_\mu\,W_\mu\,(a,b)\,y$. The same holds for $z$ on $\R$ (Step~\ref{stepI:p8:pf-sol}) and hence on $(a,b)$ by restriction (\Nref{bpN:p3:gen-sol}, consequence (i)). Both start at $z_0$ at $t=0\in(a,b)$. \Nref{bpN:p3:gen-uniqueness} (arbitrary interval $(a,b)$, no confinement) gives $y(t)=z(t)$ for all $t\in(a,b)$.
+\proofstep{Uniqueness}\label{stepI:p8:pf-uniq} Let $a<0<b$ and $y:\R\to\R^2\times\R^2$ with $y(0)=z_0$ and $\mathrm{RSol}_\mu((a,b),y)$. By Lemma~\ref{bpI:p7:ham-eq} and the restricted case of \Nref{bpN:p3:newton-reduction}, with $W_\mu=\{\text{collision-free points}\}$ open and $F_\mu$ the total formula extension of $V_\mu$, $C^\infty$ on the open collision-free set $W_\mu$ (no smoothness across primary collisions is available or needed): $\texttt{IsSolIn}\,F_\mu\,W_\mu\,(a,b)\,y$. The same holds for $z$ on $\R$ (Step~\ref{stepI:p8:pf-sol}) and hence on $(a,b)$ by restriction (\Nref{bpN:p3:gen-sol}, consequence (i)). Both start at $z_0$ at $t=0\in(a,b)$. \Nref{bpN:p3:gen-uniqueness} (arbitrary interval $(a,b)$, no confinement) gives $y(t)=z(t)$ for all $t\in(a,b)$.
 
 The six conclusions (global solution $z$ with $z(0)=z_0$ and $\mathrm{RSol}_\mu(\R,z)$; the two distance bounds; the two radius bounds; uniqueness on every $(a,b)\ni0$) are those of Theorem~\ref{bpI:p0:r3bp}.
 \end{proof}
@@ -245,5 +245,5 @@ The six conclusions (global solution $z$ with $z(0)=z_0$ and $\mathrm{RSol}_\mu(
 (1) Every $\operatorname{rad}(\cdot)$ inverse is guarded by collision freedom (Corollary~\ref{bpI:p8:shell-exclusion}); square roots $\kappa(e)$, $\sqrt{a_\pm}$ are of positive numbers; divisions by $L_*$, $1-e_*$, $6a_+$, $C_F$, $\sqrt{c_*}$, $r_{\min}$ are by positive numbers; $\varepsilon_H/C_F$ uses $C_F>0$ (Lemma~\ref{bpI:p7:shift}).
 (2) \Lean{fderiv} occurs only inside the predicates $\mathrm{Sol}$, $\mathrm{RSol}$ and is genuine there (Proposition~\ref{bpI:p7:transfer}, Remark~\ref{bpI:p7:totality}).
 (3) \Lean{IsRestrictedSolutionOn} on a general interval $(a,b)$ is used via \Nref{bpN:p3:newton-reduction} and \Nref{bpN:p3:gen-uniqueness}; no regularity of the competitor beyond the predicate is assumed.
-(4) Doubts: none. The frozen statement of I-R3BP looked correct as written, in particular $\mu=0$ and the quantifier order. The route differs from PLAN.md p8.3 only in that no displacement margin $\eta$ is needed (finding I04); there are no new source errata. Chi05's heliocentric truncated model is a different problem from the frozen barycentric one (Remark~\ref{bpI:p7:errata}).
+(4) Doubts: none. The frozen statement of I-R3BP looked correct as written, in particular $\mu=0$ and the quantifier order. The route differs from PLAN.md p8.3 only in that no displacement margin $\eta$ is needed (finding I04); there are no new source errata. Chi05 treats the exact problem in different coordinates (heliocentric/extended phase space, other normalization and rotating reduction), so the frozen barycentric statement is derived directly here (Remark~\ref{bpI:p7:errata}).
 \end{remark}
