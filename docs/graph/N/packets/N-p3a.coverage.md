@@ -3,27 +3,27 @@ KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-pl@L32-L40
 DISPOSITION: NODE bpN:p3:ext-pl
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: bpN:p3:ext-unique
 KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-unique@L41-L45
 DISPOSITION: NODE bpN:p3:ext-unique
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: bpN:p3:ext-lip-local
 KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-lip-local@L46-L49
 DISPOSITION: NODE bpN:p3:ext-lip-local
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: bpN:p3:ext-mvt
 KIND: external
@@ -39,18 +39,18 @@ KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-compact@L53-L57
 DISPOSITION: NODE bpN:p3:ext-compact
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: bpN:p3:ext-calc
 KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ext-calc@L58-L62
 DISPOSITION: NODE bpN:p3:ext-calc
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: bpN:p3:ext-pl-c1
 KIND: external
@@ -66,27 +66,27 @@ KIND: claim
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:totality@L78-L84
 DISPOSITION: NODE bpN:p3:totality
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: bpN:p3:gen-sol
 KIND: definition
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol@L88-L93
 DISPOSITION: NODE bpN:p3:gen-sol
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: bpN:p3:gen-symmetry
 KIND: lemma
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetry@L101-L110
 DISPOSITION: NODE bpN:p3:gen-symmetry
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:sym
 KIND: proof-region
@@ -102,18 +102,18 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-lip@L116-L120
 DISPOSITION: NODE bpN:p3:gen-lip
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:lip-mathlib
 KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-mathlib@L122-L122
 DISPOSITION: NODE stepN:p3:lip-mathlib
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:lip-bdd
 KIND: proof-region
@@ -147,27 +147,27 @@ KIND: definition
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform@L136-L141
 DISPOSITION: NODE bpN:p3:gen-uniform
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: bpN:p3:gen-uniform-compact
 KIND: lemma
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-compact@L143-L146
 DISPOSITION: NODE bpN:p3:gen-uniform-compact
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:uc-delta
 KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-delta@L148-L151
 DISPOSITION: NODE stepN:p3:uc-delta
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:uc-data
 KIND: proof-region
@@ -183,9 +183,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-periodic@L156-L160
 DISPOSITION: NODE bpN:p3:gen-uniform-periodic
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:up-cell
 KIND: proof-region
@@ -210,9 +210,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-short@L173-L179
 DISPOSITION: NODE bpN:p3:gen-short
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:short-boot
 KIND: proof-region
@@ -264,9 +264,9 @@ KIND: theorem
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-local@L205-L210
 DISPOSITION: NODE bpN:p3:gen-local
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:loc-red
 KIND: proof-region
@@ -282,9 +282,9 @@ KIND: theorem
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniqueness@L217-L224
 DISPOSITION: NODE bpN:p3:gen-uniqueness
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:uq-compact
 KIND: proof-region
@@ -318,9 +318,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-extend@L238-L241
 DISPOSITION: NODE bpN:p3:gen-extend
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 
 ITEM: stepN:p3:ext-right
 KIND: proof-region

@@ -1,5 +1,9 @@
 {
- "replaced": [
+ "replaced": [],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
   "stepI:p6:kb-hess",
   "stepI:p6:kb-entries",
   "stepI:p6:kb-det",
@@ -15,12 +19,5 @@
   "stepI:p7:sy-field",
   "stepI:p7:ch-reg",
   "stepI:p7:ch-diffeo"
- ],
- "added": [],
- "items": [],
- "unresolved": {},
- "passes": [
-  "bpI:p6:conversion",
-  "bpI:p6:conversion"
  ]
 }

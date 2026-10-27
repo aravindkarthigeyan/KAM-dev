@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -58,7 +58,7 @@ PROOF_SOURCE: -
 CONTRACT_ID: bpN:p7:ext-num
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: none
-SOURCE_QUANTIFIERS: none
+SOURCE_QUANTIFIERS: a,b real and c>0 for Young; x>=0 for x exp(-x)<=exp(-1); the displayed numerical constants are fixed
 SOURCE_CONCLUSION: e>2.7, so 1/(12e)<0.0307, 6/(5e)<0.442, 15e/192>1/5; Young: ab<=a^2/(2c)+c b^2/2 (c>0); x e^{-x}<=e^{-1} for x>=0
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -69,7 +69,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -124,9 +124,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#bpN:p7:setting@L27-L27
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:setting@L28-L28 | class O(r,s) and reality on W_r
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p7-stability.tex#bpN:p7:setting@L29-L29 | IsSolIn F W J z
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:setting@L29-L29 | X_{G^R}=J∇G^R, the frozen Hamiltonian field
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -147,7 +147,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:rs-smooth, stepN:p7:rs-field, bpN:p7:setting, bpN:p3:ham-smooth, bpN:p3:ham-energy, bpN:p3:gen-uniqueness, bpN:p3:gen-maximal, bpN:p3:gen-continuation-periodic, bpN:p3:gen-exit
+DEPS: stepN:p7:rs-smooth, stepN:p7:rs-field, bpN:p7:setting, bpN:p3:ham-smooth, bpN:p3:ham-energy, bpN:p3:gen-uniqueness, bpN:p3:gen-maximal, bpN:p3:gen-continuation-periodic, bpN:p3:gen-exit, bpN:p4:norm, bpN:p4:domains, bpN:p5:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:rs-smooth | blueprint-N/parts/p7-stability.tex#bpN:p7:real-system@L39-L39 | proof step
@@ -159,8 +159,11 @@ EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p7-stability.tex#bpN:p7:real-sys
 EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p7-stability.tex#bpN:p7:real-system@L35-L35 | (d) applicability of the maximal-solution theorem
 EDGE: bpN:p3:gen-continuation-periodic | blueprint-N/parts/p7-stability.tex#bpN:p7:real-system@L35-L35 | (d) applicability of the periodic continuation corollary
 EDGE: bpN:p3:gen-exit | blueprint-N/parts/p7-stability.tex#bpN:p7:real-system@L35-L35 | (d) applicability of the exit lemma
+EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:real-system@L35-L35 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#bpN:p7:real-system@L39-L39 | the smoothness proof uses the open domain D_{r,s}
+EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:real-system@L35-L35 | the consumer uses X_G or the symplectic matrix J directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -182,15 +185,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:holomorphic-regularity, bpN:p1:ext-restrict, bpN:p7:setting, bpN:p4:norm
+DEPS: K:bp:p1:holomorphic-regularity, bpN:p1:ext-restrict, bpN:p7:setting, bpN:p4:norm, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-smooth@L39-L39 | holomorphic implies C^infty in the real sense
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-smooth@L39-L39 | real derivative of the restriction to R^{2n}
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-smooth@L39-L39 | W_r, G^R
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-smooth@L39-L39 | periodicity in the class O(r,s)
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-smooth@L39-L39 | the consumer uses V_rD, D_{r,s} or a strip directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -212,7 +216,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:hamiltonian-real, bpN:p3:ham-smooth, bpN:p3:ham-periodic, stepN:p7:rs-smooth, bpN:p7:setting, bpN:p5:setting
+DEPS: K:bp:p1:hamiltonian-real, bpN:p3:ham-smooth, bpN:p3:ham-periodic, stepN:p7:rs-smooth, bpN:p7:setting, bpN:p5:setting, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:hamiltonian-real | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-field@L40-L40 | X_{G^R}=X_G from reality at real points of an open set
@@ -221,8 +225,9 @@ EDGE: bpN:p3:ham-periodic | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-field
 EDGE: stepN:p7:rs-smooth | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-field@L40-L40 | (a): smoothness and periodicity of G^R
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-field@L40-L40 | W_r, G^R
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-field@L40-L40 | X_G=J∇G
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:rs-field@L40-L40 | the consumer uses V_rD, D_{r,s} or a strip directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -244,15 +249,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:td-loss, stepN:p7:td-lim, bpN:p4:norm, bpN:p7:setting
+DEPS: stepN:p7:td-loss, stepN:p7:td-lim, bpN:p4:norm, bpN:p7:setting, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:td-loss | blueprint-N/parts/p7-stability.tex#bpN:p7:theta-derivative@L49-L49 | proof step
 EDGE: stepN:p7:td-lim | blueprint-N/parts/p7-stability.tex#bpN:p7:theta-derivative@L50-L50 | proof step
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:theta-derivative@L45-L45 | class O(rho,s) and norm
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:theta-derivative@L45-L45 | U_rho D
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#bpN:p7:theta-derivative@L45-L45 | the consumer uses V_rD, D_{r,s} or a strip directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -274,15 +280,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p4:b3-a, bpN:p4:cauchy, stepN:p4:b1-a, bpN:p4:sup-weighted
+DEPS: stepN:p4:b3-a, bpN:p4:cauchy, stepN:p4:b1-a, bpN:p4:sup-weighted, bpN:p4:norm, bpN:p4:domains, bpN:p7:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p4:b3-a | blueprint-N/parts/p7-stability.tex#stepN:p7:td-loss@L49-L49 | Cauchy estimate in the angle strip (Cauchy lemma (a))
 EDGE: bpN:p4:cauchy | blueprint-N/parts/p7-stability.tex#stepN:p7:td-loss@L49-L49 | Lemma cauchy(a) pointwise in I
 EDGE: stepN:p4:b1-a | blueprint-N/parts/p7-stability.tex#stepN:p7:td-loss@L49-L49 | pointwise bound by the weighted norm
 EDGE: bpN:p4:sup-weighted | blueprint-N/parts/p7-stability.tex#stepN:p7:td-loss@L49-L49 | sup bound by the weighted norm
+EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:td-loss@L49-L49 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:td-loss@L49-L49 | the consumer uses V_rD, D_{r,s} or a strip directly
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:td-loss@L49-L49 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -304,14 +313,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:td-loss, bpN:p1:norm-compare, bpN:p4:sup-weighted
+DEPS: stepN:p7:td-loss, bpN:p1:norm-compare, bpN:p4:sup-weighted, bpN:p4:norm
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:td-loss | blueprint-N/parts/p7-stability.tex#stepN:p7:td-lim@L50-L50 | the bound for each s'
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p7-stability.tex#stepN:p7:td-lim@L50-L50 | ‖v‖_2<=sum_j¦v_j¦
 EDGE: bpN:p4:sup-weighted | blueprint-N/parts/p7-stability.tex#stepN:p7:td-lim@L50-L50 | ¦u(x)¦<=¦u¦_{rho,s}
+EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:td-lim@L50-L50 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -341,9 +351,9 @@ EDGE: stepN:p7:rg-zero | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-grad
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-gradient@L54-L54 | W_r, O(r,s)^R
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-gradient@L54-L54 | norm and class
 EDGE: bpN:p4:projections | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-gradient@L54-L54 | P_Lambda g=g
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -364,13 +374,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p4:coefficients, bpN:p4:projections
+DEPS: bpN:p4:coefficients, bpN:p4:projections, bpN:p4:norm, bpN:p7:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:coefficients | blueprint-N/parts/p7-stability.tex#stepN:p7:rg-coef@L58-L58 | (b) Fourier coefficients of the derivatives
 EDGE: bpN:p4:projections | blueprint-N/parts/p7-stability.tex#stepN:p7:rg-coef@L58-L58 | ghat_k=0 for k not in Lambda when g=P_Lambda g
+EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:rg-coef@L58-L58 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:rg-coef@L58-L58 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -392,14 +404,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p4:cauchy, bpN:p4:coefficients, stepN:p7:rg-coef
+DEPS: bpN:p4:cauchy, bpN:p4:coefficients, stepN:p7:rg-coef, bpN:p4:norm, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:cauchy | blueprint-N/parts/p7-stability.tex#stepN:p7:rg-zero@L59-L59 | (a): derivatives have finite norm at a smaller width
 EDGE: bpN:p4:coefficients | blueprint-N/parts/p7-stability.tex#stepN:p7:rg-zero@L59-L59 | (d): coefficients determine the function
 EDGE: stepN:p7:rg-coef | blueprint-N/parts/p7-stability.tex#stepN:p7:rg-zero@L59-L59 | vanishing coefficients
+EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:rg-zero@L59-L59 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:rg-zero@L59-L59 | the consumer uses V_rD, D_{r,s} or a strip directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -421,14 +435,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:cj-real, stepN:p7:cj-chain, bpN:p7:setting
+DEPS: stepN:p7:cj-real, stepN:p7:cj-chain, bpN:p7:setting, bpN:p4:norm, bpN:p4:domains, bpN:p5:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:cj-real | blueprint-N/parts/p7-stability.tex#bpN:p7:conjugation@L69-L69 | proof step
 EDGE: stepN:p7:cj-chain | blueprint-N/parts/p7-stability.tex#bpN:p7:conjugation@L70-L70 | proof step
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:conjugation@L65-L65 | orbits, O(r,s)^R, W_r
+EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:conjugation@L65-L65 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#bpN:p7:conjugation@L65-L65 | the consumer uses V_rD, D_{r,s} or a strip directly
+EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:conjugation@L65-L65 | the consumer uses X_G or the symplectic matrix J directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -450,14 +467,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:real-restriction, stepN:p5:sy-conserve, bpN:p7:setting
+DEPS: stepN:p5:sy-conserve, bpN:p7:setting, bpN:p4:domains, bpN:p5:setting, bpN:p1:ext-restrict
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p1:real-restriction | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-real@L69-L69 | real derivative as the restriction of the complex one
 EDGE: stepN:p5:sy-conserve | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-real@L69-L69 | Y^T J Y=J implies Y J Y^T=J and det Y=±1
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-real@L69-L69 | W_r~, W_r
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-real@L69-L69 | the consumer uses V_rD, D_{r,s} or a strip directly
+EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-real@L69-L69 | the consumer uses X_G or the symplectic matrix J directly
+EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-real@L69-L69 | restriction of scalars and the inclusion chain rule apply on the open action-angle domain
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -486,9 +505,9 @@ EDGE: bpN:p7:real-system | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-chain@
 EDGE: stepN:p7:cj-real | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-chain@L70-L70 | Y J Y^T=J and Psi maps W_r~ into W_r
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-chain@L70-L70 | X_u=J∇u
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:cj-chain@L70-L70 | orbits
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -509,7 +528,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:pi-set, stepN:p7:pi-self, stepN:p7:pi-contr, stepN:p7:pi-fix, bpN:p7:setting, bpN:p5:setting
+DEPS: stepN:p7:pi-set, stepN:p7:pi-self, stepN:p7:pi-contr, stepN:p7:pi-fix, bpN:p7:setting, bpN:p5:setting, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:pi-set | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage@L79-L79 | proof step
@@ -518,8 +537,9 @@ EDGE: stepN:p7:pi-contr | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage@L81
 EDGE: stepN:p7:pi-fix | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage@L82-L82 | proof step
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage@L74-L74 | W_r~, real points
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage@L78-L78 | scaled norm nu(a,b)=max(¦a¦/sigma',¦b¦/rho') of Definition p5:setting
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage@L74-L74 | the consumer uses V_rD, D_{r,s} or a strip directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -546,9 +566,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-set@L79-L79 | W_r~=R^n×U_r~ D and U_r~ D
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-set@L79-L79 | scaled norm nu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -574,9 +594,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:pi-set | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-self@L80-L80 | the set X
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-self@L80-L80 | scaled norm nu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -607,9 +627,9 @@ EDGE: stepN:p7:pi-set | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-contr@L81
 EDGE: stepN:p7:pi-self | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-contr@L81-L81 | T:X->X
 EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-contr@L81-L81 | domain D_{r~,s~}, polydiscs
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-contr@L81-L81 | scaled norm nu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -636,9 +656,9 @@ ROUTE_FOR: -
 EDGE: bpN:p7:ext-banach | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-fix@L82-L82 | fixed point of the contraction T
 EDGE: stepN:p7:pi-self | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-fix@L82-L82 | T maps X into X
 EDGE: stepN:p7:pi-contr | blueprint-N/parts/p7-stability.tex#stepN:p7:pi-fix@L82-L82 | T is a 1/2-contraction
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -659,14 +679,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:pn-apply, bpN:p6:normal-form, bpN:p7:setting
+DEPS: stepN:p7:pn-apply, bpN:p6:normal-form, bpN:p7:setting, bpN:p6:setting, bpN:p6#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:pn-apply | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage-nfl@L89-L89 | proof step
 EDGE: bpN:p6:normal-form | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage-nfl@L86-L86 | hypotheses and the map Psi of the Normal Form Lemma
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage-nfl@L86-L86 | W_{r/2}, real points
+EDGE: bpN:p6:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage-nfl@L86-L86 | the consumer assumes/uses the Part-6 resonant setting or nonresonance
+EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#bpN:p7:preimage-nfl@L86-L86 | the consumer uses q, kappa or Z_K directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -694,9 +716,9 @@ ROUTE_FOR: -
 EDGE: bpN:p7:preimage | blueprint-N/parts/p7-stability.tex#stepN:p7:pn-apply@L89-L89 | conclusion with these data
 EDGE: bpN:p6:normal-form | blueprint-N/parts/p7-stability.tex#stepN:p7:pn-apply@L89-L89 | (d) reality of Psi, (c) displacement bounds, hypothesis (i), (ii)
 EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#stepN:p7:pn-apply@L89-L89 | kappa=2πKs, q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -717,7 +739,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:tr-orbit, stepN:p7:tr-long, stepN:p7:tr-ident, stepN:p7:tr-est, bpN:p7:conjugation, bpN:p7:setting
+DEPS: stepN:p7:tr-orbit, stepN:p7:tr-long, stepN:p7:tr-ident, stepN:p7:tr-est, bpN:p7:conjugation, bpN:p7:setting, bpN:p4:norm, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:tr-orbit | blueprint-N/parts/p7-stability.tex#bpN:p7:transfer@L104-L104 | proof step
@@ -726,8 +748,10 @@ EDGE: stepN:p7:tr-ident | blueprint-N/parts/p7-stability.tex#bpN:p7:transfer@L10
 EDGE: stepN:p7:tr-est | blueprint-N/parts/p7-stability.tex#bpN:p7:transfer@L107-L107 | proof step
 EDGE: bpN:p7:conjugation | blueprint-N/parts/p7-stability.tex#bpN:p7:transfer@L93-L93 | Psi, H, H~ as in Lemma conjugation
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:transfer@L93-L93 | orbits, W_r, O(r,s)^R
+EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:transfer@L93-L93 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#bpN:p7:transfer@L93-L93 | the consumer uses V_rD, D_{r,s} or a strip directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -755,9 +779,9 @@ ROUTE_FOR: -
 EDGE: bpN:p7:real-system | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-orbit@L104-L104 | (d) applicability of the maximal-solution theorem to X_{H~^R} on W_r~
 EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-orbit@L104-L104 | existence of the maximal solution through x
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-orbit@L104-L104 | orbits in W_r~
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -785,9 +809,9 @@ EDGE: bpN:p3:gen-continuation-periodic | blueprint-N/parts/p7-stability.tex#step
 EDGE: bpN:p7:real-system | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-long@L105-L105 | (c) the field is periodic and C^1
 EDGE: stepN:p7:tr-orbit | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-long@L105-L105 | z~ with maximal interval (T_-,T_+)
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-long@L105-L105 | U_r~ D, W_r~
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -808,15 +832,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p7:conjugation, bpN:p3:gen-uniqueness, bpN:p7:real-system, stepN:p7:tr-orbit
+DEPS: bpN:p7:conjugation, bpN:p3:gen-uniqueness, bpN:p7:real-system, stepN:p7:tr-orbit, bpN:p7:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p7:conjugation | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-ident@L106-L106 | Psi∘z~ is an H-orbit
 EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-ident@L106-L106 | uniqueness with F=X_{H^R}, W=W_r
 EDGE: bpN:p7:real-system | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-ident@L106-L106 | (d) applicability of uniqueness
 EDGE: stepN:p7:tr-orbit | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-ident@L106-L106 | the orbit z~
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-ident@L106-L106 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -844,9 +869,9 @@ ROUTE_FOR: -
 EDGE: stepN:p7:tr-ident | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-est@L107-L107 | z(t)=Psi(z~(t))
 EDGE: stepN:p7:tr-long | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-est@L107-L107 | t in the interval of z~ so (T3) applies
 EDGE: stepN:p7:tr-orbit | blueprint-N/parts/p7-stability.tex#stepN:p7:tr-est@L107-L107 | I~(0)=I_x
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -867,14 +892,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:se-stop, stepN:p7:se-noexit, bpN:p7:setting
+DEPS: stepN:p7:se-stop, stepN:p7:se-noexit, bpN:p7:setting, bpN:p4:norm, bpN:p5:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:se-stop | blueprint-N/parts/p7-stability.tex#bpN:p7:stopped-extension@L114-L114 | proof step
 EDGE: stepN:p7:se-noexit | blueprint-N/parts/p7-stability.tex#bpN:p7:stopped-extension@L115-L115 | proof step
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:stopped-extension@L111-L111 | orbits, W_r, U_r D
+EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:stopped-extension@L111-L111 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
+EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:stopped-extension@L111-L111 | the consumer uses X_G or the symplectic matrix J directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -901,9 +928,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p7-stability.tex#stepN:p7:se-stop@L114-L114 | continuity of z and restriction of IsSolIn to the subinterval J'
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:se-stop@L114-L114 | W_r, H-orbit in W_r
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -930,9 +957,9 @@ ROUTE_FOR: -
 EDGE: stepN:p7:se-stop | blueprint-N/parts/p7-stability.tex#stepN:p7:se-noexit@L115-L115 | the component J' and the bound on it
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p7-stability.tex#stepN:p7:se-noexit@L115-L115 | continuity of z at t_e
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:se-noexit@L115-L115 | U_r D, W_r
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -957,9 +984,9 @@ DEPS: stepN:p7:eb-exit
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:eb-exit | blueprint-N/parts/p7-stability.tex#bpN:p7:exit-ball@L122-L122 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -984,9 +1011,9 @@ DEPS: bpN:p3:gen-exit
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-exit | blueprint-N/parts/p7-stability.tex#stepN:p7:eb-exit@L122-L122 | first exit time from the open set V
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1007,7 +1034,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:nr-dataA, stepN:p7:nr-t3, stepN:p7:nr-concA, stepN:p7:nr-caseB, bpN:p7:setting, bpN:p6:setting, bpN:p6#data, bpN:p4:norm
+DEPS: stepN:p7:nr-dataA, stepN:p7:nr-t3, stepN:p7:nr-concA, stepN:p7:nr-caseB, bpN:p7:setting, bpN:p6:setting, bpN:p6#data, bpN:p4:norm, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:nr-dataA | blueprint-N/parts/p7-stability.tex#bpN:p7:nonresonant@L141-L141 | proof step
@@ -1018,8 +1045,9 @@ EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:nonresonant@L12
 EDGE: bpN:p6:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:nonresonant@L131-L131 | condition (N2) (cond-L) and (N1) with Lambda={0} in (i)
 EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#bpN:p7:nonresonant@L128-L128 | p, q, kappa, Z_K, omega
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:nonresonant@L128-L128 | class O(r,s) and norm ¦f¦_{r,s}
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#bpN:p7:nonresonant@L128-L128 | the consumer uses V_rD, D_{r,s} or a strip directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1041,7 +1069,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p6:normal-form, bpN:p6:setting, bpN:p7:preimage-nfl, bpN:p7:setting, bpN:p6#data, bpN:p4:norm
+DEPS: bpN:p6:normal-form, bpN:p6:setting, bpN:p7:preimage-nfl, bpN:p7:setting, bpN:p6#data, bpN:p4:norm, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p6:normal-form | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-dataA@L141-L141 | Theorem applied with Lambda={0}
@@ -1050,8 +1078,9 @@ EDGE: bpN:p7:preimage-nfl | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-dataA
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-dataA@L141-L141 | real points, f_* in O(r/2,s/6)^R
 EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-dataA@L141-L141 | q, kappa
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-dataA@L141-L141 | eta=¦f_*¦_{r/2,s/6}
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-dataA@L141-L141 | the consumer uses V_rD, D_{r,s} or a strip directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1083,9 +1112,9 @@ EDGE: K:bp:p1:ext-mvt | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-t3@L142-L
 EDGE: bpN:p7:ext-num | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-t3@L143-L143 | 6/(5e)<0.442<15/32
 EDGE: stepN:p7:nr-dataA | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-t3@L142-L142 | data Psi, g, f_*, eta, rho, d
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-t3@L142-L142 | orbits in W_r~, U_r~ D
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1112,9 +1141,9 @@ ROUTE_FOR: -
 EDGE: bpN:p7:transfer | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-concA@L145-L145 | conclusion rho+2d_*
 EDGE: stepN:p7:nr-dataA | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-concA@L145-L145 | (T1), (T2), d_*, rho
 EDGE: stepN:p7:nr-t3 | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-concA@L145-L145 | (T3)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1135,7 +1164,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p6:nonresonant-case, stepN:p7:nr-t3, bpN:p7:exit-ball, bpN:p7:theta-derivative, bpN:p7:real-system, K:bp:p1:ext-mvt, bpN:p7:ext-num, bpN:p7:transfer, bpN:p7:setting
+DEPS: bpN:p6:nonresonant-case, stepN:p7:nr-t3, bpN:p7:exit-ball, bpN:p7:theta-derivative, bpN:p7:real-system, K:bp:p1:ext-mvt, bpN:p7:ext-num, bpN:p7:transfer, bpN:p7:setting, bpN:p4:domains, bpN:p6#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p6:nonresonant-case | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-caseB@L146-L146 | Psi=id, g=0, f_*=f
@@ -1147,8 +1176,10 @@ EDGE: K:bp:p1:ext-mvt | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-caseB@L14
 EDGE: bpN:p7:ext-num | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-caseB@L146-L146 | numerics e^{kappa/6}<e
 EDGE: bpN:p7:transfer | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-caseB@L146-L146 | conclusion
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-caseB@L146-L146 | orbits in W_r, U_r D
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-caseB@L146-L146 | the consumer uses V_rD, D_{r,s} or a strip directly
+EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#stepN:p7:nr-caseB@L146-L146 | the consumer uses q, kappa or Z_K directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1170,14 +1201,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p7:resonant-gradient, bpN:p7:setting, bpN:p1:qc-convert
+DEPS: bpN:p7:resonant-gradient, bpN:p7:setting, bpN:p7:ext-linalg
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p7:resonant-gradient | blueprint-N/parts/p7-stability.tex#bpN:p7:resonance-data@L156-L156 | Pi=Pi_Lambda notation of Lemma resonant-gradient
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:resonance-data@L157-L157 | h_R, omega, Q, U_r D
-EDGE: bpN:p1:qc-convert | blueprint-N/parts/p7-stability.tex#bpN:p7:resonance-data@L157-L157 | equivalent form of quasi-convexity, clause (b)
+EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p7-stability.tex#bpN:p7:resonance-data@L156-L156 | norm of the orthogonal projection equals distance to its kernel
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1208,9 +1239,9 @@ EDGE: stepN:p7:ec-taylor | blueprint-N/parts/p7-stability.tex#bpN:p7:energy-core
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p7-stability.tex#bpN:p7:energy-core@L162-L162 | IsSolIn X_{H^R} (R^n×U) J z
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:energy-core@L162-L162 | X_{H^R}=J∇H^R
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:energy-core@L162-L162 | h_R, Q, omega, I(t)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1237,9 +1268,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:ham-energy | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-energy@L173-L173 | conservation of the Hamiltonian along the orbit
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-energy@L173-L173 | z solves X_{H^R} on R^n×U
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-energy@L173-L173 | X_{H^R}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1267,9 +1298,9 @@ EDGE: K:bp:p1:ext-mvt | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-proj@L174
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-proj@L174-L174 | İ is the I-component of X_{H^R}(z)
 EDGE: bpN:p5:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-proj@L174-L174 | X_{H^R}=(∂_I H^R,-∂_theta H^R)
 EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-proj@L174-L174 | Pi^perp linear, ‖Pi^perp v‖_2<=‖v‖_2
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1290,14 +1321,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p7:ext-taylor, bpN:p7:ext-linalg, stepN:p7:ec-energy
+DEPS: bpN:p7:ext-taylor, bpN:p7:ext-linalg, stepN:p7:ec-energy, bpN:p7:setting, bpN:p1:ext-norms
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p7:ext-taylor | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-taylor@L175-L175 | Lagrange remainder for phi(s)=h_R(I_s)
 EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-taylor@L175-L175 | <omega_0,Delta I> split via the orthogonal projection
 EDGE: stepN:p7:ec-energy | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-taylor@L175-L175 | (a) inserted into the Taylor expansion
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-taylor@L175-L175 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
+EDGE: bpN:p1:ext-norms | blueprint-N/parts/p7-stability.tex#stepN:p7:ec-taylor@L175-L175 | Cauchy-Schwarz is used with the orthogonal splitting
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1327,9 +1360,9 @@ EDGE: stepN:p7:ad-close | blueprint-N/parts/p7-stability.tex#bpN:p7:admissible@L
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#bpN:p7:admissible@L182-L182 | (RS) and admissibility
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p7-stability.tex#bpN:p7:admissible@L182-L182 | Pi, delta-closeness
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:admissible@L182-L182 | U_rD, omega, Q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1356,9 +1389,9 @@ ROUTE_FOR: -
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p7-stability.tex#stepN:p7:ad-ball@L185-L185 | ¦x¦<=‖x‖_2
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:ad-ball@L185-L185 | rho and admissibility
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:ad-ball@L185-L185 | U_rD=V_rD∩R^n
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1388,9 +1421,9 @@ EDGE: bpN:p7:resonance-data | blueprint-N/parts/p7-stability.tex#stepN:p7:ad-clo
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:ad-close@L186-L186 | rho=delta/(4M)
 EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p7-stability.tex#stepN:p7:ad-close@L186-L186 | ‖Pi v‖<=‖v‖, Pi linear
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:ad-close@L186-L186 | omega, Q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1419,9 +1452,9 @@ EDGE: stepN:p7:ne-terms | blueprint-N/parts/p7-stability.tex#bpN:p7:no-exit@L203
 EDGE: stepN:p7:ne-contra | blueprint-N/parts/p7-stability.tex#bpN:p7:no-exit@L204-L204 | proof step
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#bpN:p7:no-exit@L190-L190 | (RS), admissible I_0, rho
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:no-exit@L190-L190 | orbits in W_r
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1452,9 +1485,9 @@ EDGE: bpN:p7:energy-core | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-core@L
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-core@L201-L201 | restriction of the orbit to a solution in R^n×U
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-core@L201-L201 | (RS) data, rho<=r/16
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-core@L201-L201 | orbits in W_r, U_rD
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1475,17 +1508,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:ne-core, bpN:p7:theta-derivative, bpN:p7:admissible, bpN:p7:energy-core, bpN:p7:ext-num, bpN:p7:s-energy#rs
+DEPS: stepN:p7:ne-core, bpN:p7:theta-derivative, bpN:p7:admissible, bpN:p7:energy-core, bpN:p7:ext-num, bpN:p7:s-energy#rs, bpN:p4:norm, bpN:p7:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p7:ne-core | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-terms@L202-L203 | definitions of A, B, C and Delta
+EDGE: stepN:p7:ne-core | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-terms@L203-L203 | uses A, B, C and Delta from the preceding core step
 EDGE: bpN:p7:theta-derivative | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-terms@L203-L203 | ¦u¦<=¦u¦_{r,s} for A and ‖∂_theta f_*‖_2<=eta/(es) for C
 EDGE: bpN:p7:admissible | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-terms@L203-L203 | (b) ‖Pi omega_0‖<=5delta/4
 EDGE: bpN:p7:energy-core | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-terms@L203-L203 | (b) ‖Pi^perp Delta I‖<=¦t_1¦ sup‖∂_theta f_*‖
 EDGE: bpN:p7:ext-num | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-terms@L203-L203 | Young, e>2.7
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-terms@L203-L203 | zeta<=mr^2/32, delta<=mr/4
+EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-terms@L203-L203 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-terms@L203-L203 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1514,9 +1549,9 @@ EDGE: stepN:p7:ne-terms | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-contra@
 EDGE: stepN:p7:ne-core | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-contra@L204-L204 | (m/2)Delta^2<=A+B+C
 EDGE: bpN:p7:ext-num | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-contra@L204-L204 | numerics e>2.7
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:ne-contra@L204-L204 | rho<=r/16 gives Delta>=15r/16
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1547,9 +1582,9 @@ EDGE: stepN:p7:l2-conv | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-lemm
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-lemma2@L221-L221 | (RS), admissibility, rho, eta
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-lemma2@L221-L221 | l,m-quasi-convexity on U_rD
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-lemma2@L221-L221 | orbits in W_r, omega
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1570,15 +1605,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p7:exit-ball, bpN:p7:no-exit, bpN:p7:admissible, bpN:p7:s-energy#rs
+DEPS: bpN:p7:exit-ball, bpN:p7:admissible, bpN:p7:s-energy#rs, bpN:p7:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p7:exit-ball | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-exit@L228-L228 | first exit time with ¦.¦_*=‖.‖_2
-EDGE: bpN:p7:no-exit | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-exit@L228-L228 | condition (i) of Lemma no-exit
 EDGE: bpN:p7:admissible | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-exit@L228-L228 | B-bar⊂U_rD convex, so I_s in B-bar
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-exit@L228-L228 | rho<=r/16
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-exit@L228-L228 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1600,13 +1635,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:l2-exit, bpN:p7:s-energy#rs
+DEPS: stepN:p7:l2-exit, bpN:p7:s-energy#rs, bpN:p7:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:l2-exit | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-iii@L229-L229 | t*, ¦t*¦<=T_*
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-iii@L229-L229 | eta
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-iii@L229-L229 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1628,7 +1664,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p7:admissible, bpN:p7:energy-core, bpN:p7:theta-derivative, stepN:p7:l2-iii, stepN:p7:l2-exit, bpN:p7:ext-num, bpN:p7:s-energy#rs
+DEPS: bpN:p7:admissible, bpN:p7:energy-core, bpN:p7:theta-derivative, stepN:p7:l2-iii, stepN:p7:l2-exit, bpN:p7:ext-num, bpN:p7:s-energy#rs, bpN:p7:setting, bpN:p7:resonance-data, bpN:p7:ext-linalg, bpN:p1:ext-norms
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p7:admissible | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-cone@L230-L230 | (b) ‖Pi omega(I_{s'})‖<=5delta/4+Mr
@@ -1638,8 +1674,12 @@ EDGE: stepN:p7:l2-iii | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-cone@L230
 EDGE: stepN:p7:l2-exit | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-cone@L230-L230 | Delta, I_{s'}, t*
 EDGE: bpN:p7:ext-num | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-cone@L230-L230 | 1/(12e) numerics
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-cone@L230-L230 | delta<=mr/4
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-cone@L230-L230 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-cone@L230-L230 | the projection/resonance or quasi-convexity definition is used directly
+EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-cone@L230-L230 | self-adjoint orthogonal splitting of the inner product
+EDGE: bpN:p1:ext-norms | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-cone@L230-L230 | Cauchy-Schwarz is used with the orthogonal splitting
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1661,7 +1701,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:l2-cone, bpN:p7:resonance-data, bpN:p7:no-exit, stepN:p7:l2-exit, stepN:p7:l2-iii
+DEPS: stepN:p7:l2-cone, bpN:p7:resonance-data, bpN:p7:no-exit, stepN:p7:l2-exit, stepN:p7:l2-iii, bpN:p7:s-energy#rs, bpN:p7:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:l2-cone | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-conv@L232-L232 | cone condition along the segment
@@ -1669,8 +1709,10 @@ EDGE: bpN:p7:resonance-data | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-con
 EDGE: bpN:p7:no-exit | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-conv@L232-L232 | (i)-(iii) cannot hold together
 EDGE: stepN:p7:l2-exit | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-conv@L232-L232 | (i) and the segment I_{s'}
 EDGE: stepN:p7:l2-iii | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-conv@L232-L232 | (iii)
+EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-conv@L232-L232 | the no-exit application uses RS, its admissibility and rho
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:l2-conv@L232-L232 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1687,12 +1729,12 @@ CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: n>=1; D subset R^n; r,s,K,alpha>0; 1<p<=3/2, q=p/(p-1)>=3, kappa=2πKs; Lambda subset Z^n a subgroup; 0<m<=M; l,delta>0; h holomorphic on V_rD and real on U_rD with ‖∂_I^2 h(I)‖_{2->2}<=M for all I in V_rD (complex Hessian), h l,m-quasi-convex on U_rD; f in O(r,s)^R with eps=|f|_{r,s}<infinity; H=h+f; (a) |k·omega(I)|>=alpha for I in D, k in Z_K\Lambda, and D delta-close to exact Lambda-resonances; (b) eps<=(p/q)(m r^2/2^7) and delta<=mr/8; (c) r<=min(alpha/(p sqrt(n) M K), 4l/m) and (added) Mr<=l/2
 SOURCE_QUANTIFIERS: n; D; r; s; K; alpha; p; Lambda; m; M; l; delta; h; f; then I_0, J, z
 SOURCE_CONCLUSION: for every interval J∋0 and every H-orbit z in W_r on J with I_0=I(0) in D: ‖I(t)-I_0‖_2<=r/2 (so |I(t)-I_0|<=r) for t in J, |t|<=T(I_0)=s m r^2 e^{kappa/6}/(288 Omega(I_0) eps), Omega(I_0)=max{‖omega(I)‖_2:‖I-I_0‖_2<=r/2} (=infinity if Omega eps=0); and for Lambda=Z^n this holds for all t in J
-CONSTANT_SCOPE: T(I_0) depends on I_0 through Omega(I_0); no other dependence on h,f beyond (m,M,l,delta,eps)
+CONSTANT_SCOPE: Omega(I_0) is the maximum of the Euclidean frequency norm on the closed radius-r/2 ball about I_0; T(I_0)=s m r^2 exp(kappa/6)/(288 Omega(I_0) eps), with the stated infinity convention. The source states no additional uniform dependence claim.
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p7:p2-red, stepN:p7:p2-cases, stepN:p7:p2-t12, stepN:p7:p2-t3, stepN:p7:p2-concl, bpN:p7:setting, bpN:p7:resonance-data, bpN:p6#data, bpN:p4:norm
+DEPS: stepN:p7:p2-red, stepN:p7:p2-cases, stepN:p7:p2-t12, stepN:p7:p2-t3, stepN:p7:p2-concl, bpN:p7:setting, bpN:p7:resonance-data, bpN:p6#data, bpN:p4:norm, bpN:p6:setting, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p7:p2-red | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-prop2@L254-L254 | proof step
@@ -1704,8 +1746,10 @@ EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-prop2@
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-prop2@L238-L242 | delta-closeness, l,m-quasi-convexity, Hessian bound M
 EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-prop2@L238-L238 | p, q, kappa, Z_K
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-prop2@L240-L240 | class O(r,s) and norm
+EDGE: bpN:p6:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-prop2@L242-L242 | the consumer assumes/uses the Part-6 resonant setting or nonresonance
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-prop2@L239-L239 | the complex Hessian is bounded on V_rD
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1727,7 +1771,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p6:setting, bpN:p6:lipschitz, bpN:p1:norm-compare, bpN:p7:resonance-data, bpN:p6#data
+DEPS: bpN:p6:setting, bpN:p6:lipschitz, bpN:p1:norm-compare, bpN:p7:resonance-data, bpN:p6#data, bpN:p7:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p6:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-red@L254-L254 | (N2) cond-L with L=sqrt(n)M and KLr<=alpha/p
@@ -1735,8 +1779,9 @@ EDGE: bpN:p6:lipschitz | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-red@L254
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-red@L254-L254 | ¦x¦_inf<=‖x‖_2<=sqrt(n)¦x¦_inf
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-red@L254-L254 | delta-closeness (monotone in delta), Hessian bound M
 EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-red@L254-L254 | p, q, K
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-red@L254-L254 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1758,19 +1803,22 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p6:normal-form, bpN:p6:setting, stepN:p7:p2-red, bpN:p7:s-energy#rs, bpN:p4:projections, bpN:p6#data, bpN:p4:norm, bpN:p7:ext-num
+DEPS: bpN:p6:normal-form, bpN:p6:setting, stepN:p7:p2-red, bpN:p7:s-energy#rs, bpN:p4:projections, bpN:p6#data, bpN:p4:norm, bpN:p7:ext-num, bpN:p7:setting, bpN:p4:domains, bpN:p4:norm#monotone
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p6:normal-form | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L255-L255 | Theorem applied in case A (conditions (N1), (N2), K>0, (i), (ii); reality)
 EDGE: bpN:p6:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L255-L255 | (N1), (N2), KLr<=alpha/p
-EDGE: stepN:p7:p2-red | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L254-L255 | L=sqrt(n)M, eps<=alpha r/(2^7 qK), r~, delta'
+EDGE: stepN:p7:p2-red | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L255-L255 | L=sqrt(n)M, eps<=alpha r/(2^7 qK), r~, delta'
 EDGE: bpN:p7:s-energy#rs | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L258-L258 | H~ is in (RS) with the new data
-EDGE: bpN:p4:projections | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L257-L257 | Lambda=Z^n: P_Lambda g=g for g=f
+EDGE: bpN:p4:projections | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L255-L257 | case A uses ¦g_0¦<=eps for g_0=P_Lambda T_K f; case C uses P_Lambda f=f
 EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L255-L255 | kappa, q, c=2qK/(alpha r)
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L255-L255 | norm bound for g and f_*
 EDGE: bpN:p7:ext-num | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L255-L255 | e>2: 5/4+1/e<2
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L255-L255 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L255-L255 | the consumer uses V_rD, D_{r,s} or a strip directly
+EDGE: bpN:p4:norm#monotone | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-cases@L256-L257 | the original f is restricted to the half-radius domain in cases B/C
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1801,9 +1849,9 @@ EDGE: bpN:p1:norm-compare | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t12@L
 EDGE: stepN:p7:p2-red | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t12@L259-L259 | rho'=mr/(32M)
 EDGE: stepN:p7:p2-cases | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t12@L259-L259 | cases A, B, C
 EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t12@L259-L259 | q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1824,7 +1872,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p7:resonant-lemma2, bpN:p7:s-energy#rs, stepN:p7:p2-red, stepN:p7:p2-cases, stepN:p7:p2-t12, bpN:p7:ext-num
+DEPS: bpN:p7:resonant-lemma2, bpN:p7:s-energy#rs, stepN:p7:p2-red, stepN:p7:p2-cases, stepN:p7:p2-t12, bpN:p7:ext-num, bpN:p7:setting, bpN:p7:resonance-data, bpN:p6#data, bpN:p6:ext-numerics
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p7:resonant-lemma2 | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | stability in normal-form coordinates
@@ -1833,8 +1881,12 @@ EDGE: stepN:p7:p2-red | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L
 EDGE: stepN:p7:p2-cases | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | H~, eta, s~ in the three cases
 EDGE: stepN:p7:p2-t12 | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | d_*, rho
 EDGE: bpN:p7:ext-num | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | e<6
+EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | the consumer uses W_r, U_rD, real Hamiltonians/orbits, omega or Q directly
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | the projection/resonance or quasi-convexity definition is used directly
+EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | the consumer uses q, kappa or Z_K directly
+EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | the upper bound e<6 follows from the listed e^2<8; Part-7 numerics only gives a lower bound for e
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1865,9 +1917,9 @@ EDGE: stepN:p7:p2-t12 | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-concl@L26
 EDGE: stepN:p7:p2-cases | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-concl@L261-L261 | case C: all t
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-concl@L261-L261 | ¦x¦<=‖x‖_2
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-concl@L261-L261 | orbits
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1888,15 +1940,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p7:setting, bpN:p7:resonance-data, bpN:p4:norm, bpN:p4:projections
+DEPS: bpN:p7:setting, bpN:p7:resonance-data, bpN:p4:norm, bpN:p4:projections, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#bpN:p7:s-energy#rs@L178-L178 | U_rD, W_r, O(r,s)^R, h_R, omega, Q
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p7-stability.tex#bpN:p7:s-energy#rs@L178-L178 | delta-closeness to exact Lambda-resonances, Hessian bound M
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#bpN:p7:s-energy#rs@L178-L178 | norms ¦g¦_{r,s}, ¦f_*¦_{r,s}
 EDGE: bpN:p4:projections | blueprint-N/parts/p7-stability.tex#bpN:p7:s-energy#rs@L178-L178 | P_Lambda g=g
+EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#bpN:p7:s-energy#rs@L178-L178 | the consumer uses V_rD, D_{r,s} or a strip directly
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p7
+EXTRACTOR: sonnet-extract-N-p7+sol-review-N-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

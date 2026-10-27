@@ -10,6 +10,16 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   GPT-6.1-Sol signature audit.
   - Part 4 lemmas that apply G1 or G2 wait for those seals, because quarantine forbids importing DRAFT_SORRY anchors.
 
+- **21:20. Split `KAM/Uniq/Standing.lean` out of the design's package P3-1 as P3-0, to start G2 early.**
+  - Only the packaging changes; no signature changes.
+  - Reversal: none needed.
+- **21:45. Overlapping packages to keep the critical path busy.** P2-5, P2-6, P2-10 and P2-7 were started on the
+  branches of their predecessors while those were still in audit.
+  - Landing order is enforced: a predecessor lands only after its audit passes.
+  - If an audit forces a proof change, dependents re-merge; signatures are fixed by the audited design.
+  - P2-7 proves exactness and the cohomology-free geometry steps now, and holds the `geometry` assembly for
+    I-STRIP-3.
+
 ## Tracks I, N, P (sub-orchestrator, D23)
 
 - **21:15. No new freezes; packets only.** Nothing is pending owner approval from tracks I/N/P tonight (D25 and D28
@@ -33,12 +43,17 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **21:15. Proof waves before full graph publication, off-frontier only where safe.** The first Lean packages are
   self-contained gates (I-KEPLER, N-QC, N-ZERO) and the shared ODE infrastructure (N Part 3), which need no
   unpublished graph topology; everything else waits for the reviewed graphs.
-- **21:20. Split `KAM/Uniq/Standing.lean` out of the design's package P3-1 as P3-0, to start G2 early.**
-  - Only the packaging changes; no signature changes.
-  - Reversal: none needed.
-- **21:45. Overlapping packages to keep the critical path busy.** P2-5, P2-6, P2-10 and P2-7 were started on the
-  branches of their predecessors while those were still in audit.
-  - Landing order is enforced: a predecessor lands only after its audit passes.
-  - If an audit forces a proof change, dependents re-merge; signatures are fixed by the audited design.
-  - P2-7 proves exactness and the cohomology-free geometry steps now, and holds the `geometry` assembly for
-    I-STRIP-3.
+- **21:30. N-AVERAGING blueprint: all six findings of review 1 adopted as proposed** (inverse flow via y(u)=γ(t+u),
+  nonsingular regularizer bounds under total division, coefficient lemma at action width s, three minor fixes). Frozen
+  statements unchanged; round-2 check by the same reviewer before graph extraction. Alternatives: none considered
+  (the reviewer's fixes are local). Reversal: revert the Part 12 fix commit.
+- **21:30. P-FIXED (Part 11a) divisor hand-off: the finite-stage divisor invariant goes into the iteration file 11a-3**
+  (review P11A2-01), and 11a-1's (I3) is corrected afterwards to match, rather than pausing 11a-3 to repair 11a-1
+  first. Reason: the invariant is an inductive statement, which belongs with the induction; keeps the writer busy.
+  Reversal: move the invariant into 11a-1 in the 11a fix round.
+- **21:30. First seal candidates: I-KEPLER, N-QC, N-ZERO** (proved on `inp-w1gates`, axioms standard). They will be
+  sealed per D26 only after an independent Sol seal audit and a kernel replay, and after telling the main orchestrator.
+  Sealing changes only proof bodies (no new freeze), so it is compatible with D29.
+- **21:30. Next proof package: a Lean design with exact signatures for the shared ODE layer (blueprint-N Part 3),
+  audited by Sol before any prover starts** (K lesson). Alternatives: start provers directly from the blueprint.
+  Reversal: none needed.

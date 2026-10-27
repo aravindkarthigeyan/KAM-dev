@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -120,9 +120,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -147,9 +147,9 @@ DEPS: bpN:p0:vf#hamiltonianVectorField
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:totality@L79-L79 | KAM.hamiltonianVectorField uses fderiv (total definition)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -173,9 +173,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -188,8 +188,8 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol@L95-L9
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol@L95-L99
 CONTRACT_ID: bpN:p3:gen-sol#consequences
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: IsSolIn F W J z (bpN:p3:gen-sol); (i) J' ⊂ J; (iii) J' open and a neighbourhood of each of its points, z = y on J'
-SOURCE_QUANTIFIERS: F; W; J; z; J'; y
+SOURCE_HYPOTHESES: typing F:E->E, W subset E, J,Jprime subset R, z,y:R->E; (i),(ii): IsSolIn F W J z; (i): Jprime subset J; (iii): Jprime open and z=y on Jprime
+SOURCE_QUANTIFIERS: F,W,J,z; (i) every Jprime subset J; (ii) all t in J; independently (iii) every open Jprime and y,z agreeing there
 SOURCE_CONCLUSION: (i) IsSolIn F W J' z (restriction); (ii) z is continuous on J; (iii) local nature: for open J' with z = y on J', IsSolIn F W J' y ⇔ IsSolIn F W J' z
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -202,7 +202,7 @@ ROUTE_FOR: -
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol#consequences@L95-L95 | elementary consequences of the predicate IsSolIn
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol#consequences@L95-L95 | each a one-line Lean lemma, from the calculus facts (differentiable implies continuous; derivative at a point depends only on a neighbourhood)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -229,9 +229,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetry@L102-L102 | hypothesis IsSolIn F W J z and conclusion about solutions
 EDGE: stepN:p3:sym | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetry@L112-L112 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -244,7 +244,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sym@L112-L11
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sym@L112-L113
 CONTRACT_ID: stepN:p3:sym
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: IsSolIn F W J z; chain rule; for (c) F(z(t)+v) = F(z(t)) and W + v = W
+SOURCE_HYPOTHESES: IsSolIn F W J z; c in R for (a); for (c) v in E, W+v=W and F(x+v)=F(x) for x in W; the C1 assertion in (b) is conditional on F being C1, not a premise for time reversal
 SOURCE_QUANTIFIERS: as gen-symmetry
 SOURCE_CONCLUSION: (a), (b) by the chain rule for t ↦ t+c, t ↦ −t; (c) z+v has derivative F(z(t)) = F(z(t)+v) and z(t)+v ∈ W+v = W
 CONSTANT_SCOPE: none
@@ -258,7 +258,7 @@ ROUTE_FOR: -
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sym@L112-L112 | chain rule for t ↦ t+c and t ↦ −t
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sym@L113-L113 | membership in W and derivative of the solution
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -286,9 +286,9 @@ ROUTE_FOR: -
 EDGE: stepN:p3:lip-bdd | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-lip@L124-L124 | boundedness of F on K (common to both routes)
 EDGE: stepN:p3:lip-mathlib | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-lip@L122-L122 | route (i): via Mathlib (locally Lipschitz on compact set)
 EDGE: stepN:p3:lip-explicit | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-lip@L124-L124 | route (ii): explanatory proof by contradiction and compactness ('Alternatively')
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -313,9 +313,9 @@ DEPS: bpN:p3:ext-lip-local
 ROUTES: -
 ROUTE_FOR: bpN:p3:gen-lip
 EDGE: bpN:p3:ext-lip-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-mathlib@L122-L122 | C¹ implies locally Lipschitz; locally Lipschitz on a compact set is Lipschitz
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -330,7 +330,7 @@ CONTRACT_ID: stepN:p3:lip-explicit
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: F C¹ on W open; K ⊂ W compact
 SOURCE_QUANTIFIERS: as gen-lip
-SOURCE_CONCLUSION: explanatory proof of the Lipschitz clause: contradiction hypothesis and compactness (the steps lip-contra, lip-compact)
+SOURCE_CONCLUSION: there exists L>=0 such that abs(F(x)-F(y))<=L abs(x-y) for all x,y in K; proved by contradiction using the boundedness step and a compact subsequence
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -342,7 +342,7 @@ ROUTE_FOR: bpN:p3:gen-lip
 EDGE: stepN:p3:lip-contra | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-explicit@L126-L126 | if no L works, sequences x_k, y_k with the Lipschitz quotient > k
 EDGE: stepN:p3:lip-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-explicit@L130-L130 | convergent subsequence and local Lipschitz constant contradict
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -356,10 +356,10 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-bdd@L124
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-bdd@L124-L124
 CONTRACT_ID: stepN:p3:lip-bdd
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: F continuous on W ⊃ K; K compact
-SOURCE_QUANTIFIERS: as gen-lip; M
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; K subset W compact
+SOURCE_QUANTIFIERS: E,W,F,K fixed as in gen-lip; then there exists M>=0
 SOURCE_CONCLUSION: ¦F¦ ≤ M on the compact set K
-CONSTANT_SCOPE: none
+CONSTANT_SCOPE: M is chosen after F,W,K; no uniform numerical bound over later F is asserted
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -369,7 +369,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-bdd@L124-L124 | continuous image of a compact set is bounded
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -383,8 +383,8 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-contra@L
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-contra@L126-L128
 CONTRACT_ID: stepN:p3:lip-contra
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: no L works; M from lip-bdd
-SOURCE_QUANTIFIERS: k ∈ ℕ, k ≥ 1; x_k ≠ y_k ∈ K
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; K subset W compact; contradiction branch: no L>=0 satisfies the Lipschitz inequality on K; M denotes the bound constructed by lip-bdd (not a newly assumed boundedness premise)
+SOURCE_QUANTIFIERS: F,W,K fixed; choose M by lip-bdd; for every integer k>=1 choose x_k,y_k in K with x_k!=y_k
 SOURCE_CONCLUSION: for every k there are x_k ≠ y_k ∈ K with ¦F(x_k)−F(y_k)¦ > k¦x_k−y_k¦, hence ¦x_k−y_k¦ < 2M/k → 0
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -396,7 +396,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:lip-bdd | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-contra@L127-L127 | the bound M gives ¦x_k−y_k¦ < 2M/k
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -410,8 +410,8 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L130-L133
 CONTRACT_ID: stepN:p3:lip-compact
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: sequences x_k, y_k of lip-contra; K compact; F C¹ at p
-SOURCE_QUANTIFIERS: p ∈ K; L_p and neighbourhood N_p of p; large j
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; K subset W compact; contradiction branch of lip-contra; x_k,y_k denote the sequences constructed there, not additional compactness or local-Lipschitz assumptions
+SOURCE_QUANTIFIERS: data of gen-lip and the contradiction sequences; then a strictly increasing subsequence k_j, limit p in K, and L_p and a neighborhood N_p of p; finally sufficiently large j
 SOURCE_CONCLUSION: a subsequence x_{k_j} → p ∈ K and y_{k_j} → p; for large j both lie in the L_p-Lipschitz neighbourhood N_p and k_j > L_p, contradicting lip-contra
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -421,11 +421,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p3:ext-compact, bpN:p3:ext-lip-local, stepN:p3:lip-contra
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L130-L130 | sequential compactness of K
-EDGE: bpN:p3:ext-lip-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L130-L130 | L_p and a neighbourhood N_p of p on which F is L_p-Lipschitz
+EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L131-L131 | sequential compactness produces a subsequence converging to p in K
+EDGE: bpN:p3:ext-lip-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L131-L131 | C1 at the chosen limit p supplies L_p and its neighborhood
 EDGE: stepN:p3:lip-contra | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-compact@L132-L132 | contradiction with the choice of x_k, y_k
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -450,9 +450,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -479,9 +479,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-compact@L144-L144 | conclusion is uniform data
 EDGE: stepN:p3:uc-delta | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-compact@L148-L148 | choice of δ and compactness of K_δ
 EDGE: stepN:p3:uc-data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-compact@L153-L153 | constants M, L on K_δ
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -506,9 +506,9 @@ DEPS: bpN:p3:ext-compact
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-delta@L149-L149 | dist(·,A) continuous and positive on K, minimum on compact K, image of compact set
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -521,21 +521,22 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-data@L153
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-data@L153-L153
 CONTRACT_ID: stepN:p3:uc-data
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K_δ ⊂ W compact (uc-delta); F C¹ on W
-SOURCE_QUANTIFIERS: x ∈ K
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; K subset W compact; delta and K_delta={y:exists x in K, abs(y-x)<=delta} are the objects chosen in uc-delta; their compactness and containment are proved there
+SOURCE_QUANTIFIERS: F,W,K fixed as in gen-uniform-compact; delta,K_delta constructed by uc-delta; then choose M,L>=0 on K_delta by gen-lip; finally every x in K
 SOURCE_CONCLUSION: ¦F¦ ≤ M and F L-Lipschitz on K_δ ⊃ B̄(x,δ) for x ∈ K
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-lip, stepN:p3:uc-delta
+DEPS: bpN:p3:gen-lip, stepN:p3:uc-delta, bpN:p3:gen-uniform
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-data@L153-L153 | bound and Lipschitz constant on the compact set K_δ
 EDGE: stepN:p3:uc-delta | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-data@L153-L153 | K_δ ⊂ W compact
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-data@L153-L153 | the resulting bounds on every closedBall(x,delta) supply the three uniform-data clauses
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -563,9 +564,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-periodic@L157-L157 | conclusion is uniform data
 EDGE: stepN:p3:up-cell | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-periodic@L162-L162 | choice of δ and compact cell C
 EDGE: stepN:p3:up-translate | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-periodic@L166-L166 | translation of balls into the cell
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -578,22 +579,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L162
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L162-L164
 CONTRACT_ID: stepN:p3:up-cell
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: U open, K ⊂ U compact, F C¹ on W
-SOURCE_QUANTIFIERS: case K = ∅; δ ∈ (0,1]; C = [−1,2]ⁿ × K_δ; M, L_C
+SOURCE_HYPOTHESES: E=R^n x R^n with max norm; U subset R^n open; W=R^n x U; F C1 on W and integer-periodic in angles; K subset U compact
+SOURCE_QUANTIFIERS: n,U,F,K fixed as in gen-uniform-periodic; split K empty or not; choose delta in (0,1]; define K_delta,C=[-1,2]^n x K_delta; then choose M,L_C>=0 on C
 SOURCE_CONCLUSION: δ ∈ (0,1] with K_δ ⊂ U; C = [−1,2]ⁿ × K_δ compact ⊂ W; constants M, L_C of F on C
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:uc-delta, bpN:p3:ext-compact, bpN:p3:gen-lip
+DEPS: stepN:p3:uc-delta, bpN:p3:ext-compact, bpN:p3:gen-lip, bpN:p3:gen-uniform
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:uc-delta | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L162-L162 | choice of δ as in Step uc-delta (distance to the closed set ℝⁿ∖U)
+EDGE: stepN:p3:uc-delta | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L162-L163 | choose the action collar by the earlier compact-neighborhood construction, handling K empty and U=R^n
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L163-L163 | compactness of C
 EDGE: bpN:p3:gen-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L164-L164 | M and L_C on the compact C
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-cell@L162-L162 | empty-K branch: the uniform-data conditions are vacuous
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -607,20 +609,21 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-translate
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-translate@L166-L168
 CONTRACT_ID: stepN:p3:up-translate
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: δ ≤ 1; max norm; C, M, L_C from up-cell; F periodic in θ
-SOURCE_QUANTIFIERS: x = (θ,I) ∈ Φ; k = (⌊θ_i⌋)_i; x' = x − (k,0)
+SOURCE_HYPOTHESES: E=R^n x R^n with max norm; U subset R^n open; W=R^n x U; F C1 on W and integer-periodic in angles; K subset U compact; delta,C,M,L_C are the constructed objects from up-cell, with 0<delta<=1; their proved cell bounds are supplied by that dependency
+SOURCE_QUANTIFIERS: the periodic-field source data first; delta,C,M,L_C constructed by up-cell; every x=(theta,I) in Phi, with k=(floor(theta_i))_i and xprime=x-(k,0)
 SOURCE_CONCLUSION: B̄(x',δ) ⊂ C and B̄(x,δ) = B̄(x',δ) + (k,0) ⊂ W; by periodicity ¦F¦ ≤ M and F is L_C-Lipschitz on B̄(x,δ)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:up-cell
+DEPS: stepN:p3:up-cell, bpN:p3:gen-uniform
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:up-cell | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-translate@L166-L166 | cell C and constants M, L_C
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:up-translate@L167-L168 | translation verifies containment, uniform boundedness and Lipschitzness on each ball
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -647,9 +650,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:short-boot | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-short@L181-L181 | bootstrap set A and its supremum
 EDGE: stepN:p3:short-ext | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-short@L185-L185 | extension past s*
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -662,8 +665,8 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L181-L183
 CONTRACT_ID: stepN:p3:short-boot
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: case t₀ < t < t₀+δ/M; α continuous on J
-SOURCE_QUANTIFIERS: t ∈ J; A = {s ∈ [t₀,t] : ¦α(u)−x¦ ≤ M(u−t₀) ∀u ∈ [t₀,s]}; s* = sup A
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; J an interval; t0 in J; alpha:R->E with alpha(t0)=x and two-sided derivative F(alpha(t)) for every t in J; M>0 and abs(F)<=M on closedBall(x,delta); forward branch: t in J and t0<t<t0+delta/M
+SOURCE_QUANTIFIERS: the gen-short data fixed first; t in J in the forward branch; define A={v in [t0,t]:abs(alpha(u)-x)<=M(u-t0) for all u in [t0,v]} and sstar=sSup(A)
 SOURCE_CONCLUSION: t₀ ∈ A, A closed, so s* ∈ A (t < t₀ by time reversal, t = t₀ trivial)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -676,7 +679,7 @@ ROUTE_FOR: -
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L181-L181 | case t < t₀ by time reversal (gen-symmetry(b))
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L182-L182 | continuity of α on J gives A closed
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -690,8 +693,8 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-ext@L1
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-ext@L185-L187
 CONTRACT_ID: stepN:p3:short-ext
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: s* ∈ A (short-boot); s* < t; ¦F¦ ≤ M on B̄(x,δ)
-SOURCE_QUANTIFIERS: η > 0
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; J an interval; t0 in J; alpha:R->E with alpha(t0)=x and two-sided derivative F(alpha(t)) for every t in J; M>0 and abs(F)<=M on closedBall(x,delta); t in J with t0<t<t0+delta/M; A and sstar=sSup(A) are the objects defined by short-boot; examine the contradiction branch sstar<t
+SOURCE_QUANTIFIERS: the parent data, forward t, A,sstar; if sstar<t choose eta>0 with sstar+eta<=t, then every u in [sstar,sstar+eta]
 SOURCE_CONCLUSION: s* = t: otherwise ¦α(s*)−x¦ < δ, continuity gives η with α([s*,s*+η]) ⊂ B̄(x,δ), the mean value inequality gives ¦α(u)−x¦ ≤ M(u−t₀) there, contradicting the definition of s*
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -705,7 +708,7 @@ EDGE: stepN:p3:short-boot | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sh
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-ext@L185-L185 | continuity of α gives η
 EDGE: K:bp:p1:ext-mvt | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-ext@L186-L186 | mean value inequality for a curve with derivative bounded by M
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -731,11 +734,11 @@ DEPS: bpN:p3:gen-uniform, bpN:p3:gen-sol, stepN:p3:ue-pl, stepN:p3:ue-stay
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-exist@L191-L191 | hypothesis: Φ has uniform data (δ,M,L)
-EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-exist@L196-L196 | conclusion IsSolIn
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-exist@L194-L194 | the conclusion is IsSolIn on the open time interval; L196 is only end{proposition}
 EDGE: stepN:p3:ue-pl | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-exist@L198-L198 | construction of α by Picard-Lindelöf
 EDGE: stepN:p3:ue-stay | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-exist@L202-L202 | α stays in B̄(x,δ) ⊂ W
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -749,8 +752,8 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-pl@L198-L
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-pl@L198-L200
 CONTRACT_ID: stepN:p3:ue-pl
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: uniform data (δ,M,L); ε = δ/M'
-SOURCE_QUANTIFIERS: x ∈ Φ; t₀
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; Phi subset E has uniform data (delta,M,L), delta>0, M,L>=0; x in Phi; t0 in R; Mprime=max(M,1), eps=delta/Mprime
+SOURCE_QUANTIFIERS: the uniform-data setting, Mprime=max(M,1), eps=delta/Mprime; every x in Phi and t0 in R; then choose alpha with the within-derivative property
 SOURCE_CONCLUSION: ext-pl with a = δ, bound M', Lipschitz L, T = ε (M'T = δ ≤ a) gives α with α(t₀) = x and derivative F(α(t)) within [t₀−ε,t₀+ε]; two-sided on the open interval
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -763,7 +766,7 @@ ROUTE_FOR: -
 EDGE: bpN:p3:ext-pl | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-pl@L198-L198 | quantitative Picard-Lindelöf with a = δ, T = ε
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-pl@L198-L198 | bound M and Lipschitz constant L on B̄(x,δ) come from the uniform data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -777,22 +780,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202-L202
 CONTRACT_ID: stepN:p3:ue-stay
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: α from ue-pl on J = (t₀−ε,t₀+ε); uniform data
-SOURCE_QUANTIFIERS: t ∈ J
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; Phi subset E has uniform data (delta,M,L), delta>0, M,L>=0; x in Phi; t0 in R; Mprime=max(M,1), eps=delta/Mprime; alpha is the curve constructed by ue-pl, with its within-derivative conclusion supplied by that edge
+SOURCE_QUANTIFIERS: the gen-uniform-exist data and x,t0; alpha constructed by ue-pl; then every t in J=(t0-eps,t0+eps)
 SOURCE_CONCLUSION: ¦α(t)−x¦ ≤ M'¦t−t₀¦ < δ, so α(t) ∈ B̄(x,δ) ⊂ W
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-short, stepN:p3:ue-pl, bpN:p3:gen-uniform
+DEPS: bpN:p3:gen-short, stepN:p3:ue-pl, bpN:p3:gen-uniform, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-short | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202-L202 | a priori short-time confinement on J
 EDGE: stepN:p3:ue-pl | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202-L202 | the solution α
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202-L202 | B̄(x,δ) ⊂ W
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ue-stay@L202-L202 | the pointwise derivative and membership establish the general solution predicate on the open interval
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -819,9 +823,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-local@L207-L207 | conclusion IsSolIn
 EDGE: stepN:p3:loc-red | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-local@L212-L212 | reduction to uniform data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -834,21 +838,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212-L212
 CONTRACT_ID: stepN:p3:loc-red
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: {x₀} resp. K compact; F C¹ on W
-SOURCE_QUANTIFIERS: x₀ or K
-SOURCE_CONCLUSION: uniform data for {x₀} resp. K (gen-uniform-compact) and the claim (gen-uniform-exist)
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; for the point case x0 in W and t0 in R; for uniformity K subset W compact
+SOURCE_QUANTIFIERS: F C1 on open W fixed; the point case x0 in W, or the compact case K subset W; choose delta,M,L by gen-uniform-compact and eps=delta/max(M,1); then every initial point in that set and every initial time t0 admits a curve alpha
+SOURCE_CONCLUSION: the singleton {x0}, respectively K, has uniform data (delta,M,L); hence for eps=delta/max(M,1)>0, every x in that set and every t0 in R admit alpha:R->E with alpha(t0)=x and IsSolIn F W (t0-eps,t0+eps) alpha
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-uniform-compact, bpN:p3:gen-uniform-exist
+DEPS: bpN:p3:gen-uniform-compact, bpN:p3:gen-uniform-exist, bpN:p3:gen-uniform, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-uniform-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212-L212 | uniform data on the compact set
 EDGE: bpN:p3:gen-uniform-exist | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212-L212 | local solution of uniform time
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212-L212 | the compact-set lemma supplies the uniform-data package needed for the uniform-time proposition
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:loc-red@L212-L212 | the claim constructed by gen-uniform-exist is a solution in the sense of IsSolIn
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -877,9 +883,9 @@ EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniqu
 EDGE: stepN:p3:uq-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniqueness@L226-L226 | compact piece
 EDGE: stepN:p3:uq-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniqueness@L230-L230 | Lipschitz constant on K
 EDGE: stepN:p3:uq-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniqueness@L232-L232 | apply the uniqueness external
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -892,22 +898,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L226-L228
 CONTRACT_ID: stepN:p3:uq-compact
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: t₁ ∈ J, t₁ > t₀ (t₁ < t₀ mirror); y_i continuous on [t₀,t₁] ⊂ J
-SOURCE_QUANTIFIERS: t₁; K = y₁([t₀,t₁]) ∪ y₂([t₀,t₁])
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; J an interval; t0 in J; IsSolIn F W J y_i (i=1,2); y_1(t0)=y_2(t0); take t1 in J, t1>t0 in the forward case (mirror case uses the left-derivative external)
+SOURCE_QUANTIFIERS: the gen-uniqueness data fixed first; every t1 in J, with forward branch t1>t0; define K=y_1([t0,t1]) union y_2([t0,t1])
 SOURCE_CONCLUSION: K is compact and K ⊂ W
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ext-compact, bpN:p3:gen-sol#consequences, bpN:p3:ext-unique
+DEPS: bpN:p3:ext-compact, bpN:p3:gen-sol#consequences, bpN:p3:ext-unique, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L227-L227 | continuous images of compact sets are compact
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L227-L227 | y_i continuous on [t₀,t₁] and the values lie in W
 EDGE: bpN:p3:ext-unique | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L226-L226 | left-derivative form for the mirror case t₁ < t₀
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-compact@L227-L228 | the two solution predicates give image containment in W
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -921,21 +928,22 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-lip@L230-
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-lip@L230-L230
 CONTRACT_ID: stepN:p3:uq-lip
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K ⊂ W compact (uq-compact); F C¹ on W
-SOURCE_QUANTIFIERS: L
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; J an interval; t0 in J; IsSolIn F W J y_i (i=1,2); y_1(t0)=y_2(t0); t1 in J with t1>t0; K denotes the union of the two compact curve images constructed by uq-compact
+SOURCE_QUANTIFIERS: the gen-uniqueness data and forward t1; K constructed by uq-compact; then choose L>=0 by gen-lip
 SOURCE_CONCLUSION: F is L-Lipschitz on K
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-lip, stepN:p3:uq-compact
+DEPS: bpN:p3:gen-lip, stepN:p3:uq-compact, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-lip@L230-L230 | Lipschitz constant on the compact set K
 EDGE: stepN:p3:uq-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-lip@L230-L230 | the compact set K
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-lip@L230-L230 | the compact images used for the Lipschitz application come from the source solutions
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -949,22 +957,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L23
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L232-L233
 CONTRACT_ID: stepN:p3:uq-apply
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: y_i continuous on [t₀,t₁], right derivative F(y_i(t)) on [t₀,t₁), values in K, F L-Lipschitz on K
-SOURCE_QUANTIFIERS: t₁
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; J an interval; t0 in J; IsSolIn F W J y_i (i=1,2); y_1(t0)=y_2(t0); t1 in J with t1>t0; K and L are the constructed compact-image set and its Lipschitz constant, supplied by the two preceding steps
+SOURCE_QUANTIFIERS: the gen-uniqueness data first, every forward t1 in J; K and L constructed by uq-compact and uq-lip; apply the uniqueness external on [t0,t1]
 SOURCE_CONCLUSION: y₁(t₁) = y₂(t₁)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ext-unique, stepN:p3:uq-lip, stepN:p3:uq-compact
+DEPS: bpN:p3:ext-unique, stepN:p3:uq-lip, stepN:p3:uq-compact, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:ext-unique | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L232-L232 | uniqueness with a Lipschitz constant on a set
 EDGE: stepN:p3:uq-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L232-L232 | F is Lipschitz on K
 EDGE: stepN:p3:uq-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L232-L232 | values in K, continuity
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uq-apply@L232-L233 | the source predicates supply genuine two-sided derivatives, hence the right derivatives used here
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -992,9 +1001,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-extend@L240-L240 | hypothesis and conclusion IsSolIn
 EDGE: stepN:p3:ext-right | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-extend@L243-L243 | right end
 EDGE: stepN:p3:ext-left | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-extend@L248-L248 | left end
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: -
+REVIEWER: sol-review-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1007,22 +1016,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L2
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L243-L246
 CONTRACT_ID: stepN:p3:ext-right
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: J has a largest element b (else J₁ = J); y(b) ∈ W
-SOURCE_QUANTIFIERS: b; ε; α; y₁
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; J a nonempty interval; IsSolIn F W J y; if J has a largest point call it b; otherwise use the unchanged interval and curve
+SOURCE_QUANTIFIERS: F,W,J,y as in gen-extend; if J has largest point b choose eps>0 and alpha by gen-local, then define J1,y1 by the splice; if J has no largest point put J1=J and y1=y
 SOURCE_CONCLUSION: y₁ = y on s ≤ b, = α on s > b is a solution on J₁ = J ∪ (b,b+ε): two-sided derivative at b from the two one-sided ones
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-local, bpN:p3:ext-calc, bpN:p3:gen-sol#consequences
+DEPS: bpN:p3:gen-local, bpN:p3:ext-calc, bpN:p3:gen-sol#consequences, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L243-L243 | local solution α through y(b) at t₀ = b
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L245-L245 | two one-sided derivatives give a two-sided one
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L245-L245 | local nature: y₁ agrees with y, resp. α, near t
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L243-L245 | the given solution supplies y(b) in W and its endpoint derivative for the splice
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1036,21 +1046,22 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-left@L24
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-left@L248-L248
 CONTRACT_ID: stepN:p3:ext-left
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: ext-right; reversed solution y₁(−·)
-SOURCE_QUANTIFIERS: as ext-right
-SOURCE_CONCLUSION: the result of ext-right applied to y(−·) has no endpoint, so is an open interval
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; J a nonempty interval; IsSolIn F W J y; J1,y1 denote the extension constructed by ext-right; apply the same construction to its reversal
+SOURCE_QUANTIFIERS: the gen-extend source data; J1,y1 constructed by ext-right; reverse, construct the right extension for -F, then reverse back
+SOURCE_CONCLUSION: reverse y1 and J1, extend at its largest endpoint by ext-right for -F, then reverse back; the resulting interval has neither included endpoint and is open, and its curve extends the original solution y on J
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:ext-right, bpN:p3:gen-symmetry
+DEPS: stepN:p3:ext-right, bpN:p3:gen-symmetry, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:ext-right | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-left@L248-L248 | apply Step ext-right to the reversed solution
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-left@L248-L248 | time reversal (gen-symmetry(b))
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-left@L248-L248 | the reversed and extended curves are solutions of the appropriate total fields on open W
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1066,7 +1077,7 @@ CONTRACT_ID: bpN:p3:gen-maximal
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: F C¹ on the open set W; x₀ ∈ W
 SOURCE_QUANTIFIERS: E; W; F; x₀; then T₋, T₊, z
-SOURCE_CONCLUSION: there are T₋ ∈ [−∞,0), T₊ ∈ (0,+∞] and z with z(0) = x₀, IsSolIn F W (T₋,T₊) z, such that every solution y with y(0) = x₀ on an interval J ∋ 0 has J ⊂ (T₋,T₊) and y = z on J; interval and solution unique; for initial time t₀ use gen-symmetry(a)
+SOURCE_CONCLUSION: there exist Tminus in [-infinity,0), Tplus in (0,+infinity] and z:R->E with z(0)=x0 and IsSolIn F W (Tminus,Tplus) z; every solution y through x0 on an interval J containing 0 has J subset (Tminus,Tplus) and y=z on J; the maximal interval and the restricted solution z|(Tminus,Tplus) are unique, with arbitrary values outside it; initial time t0 is handled by gen-symmetry(a)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1076,12 +1087,12 @@ DEPS: bpN:p3:gen-sol, bpN:p3:gen-symmetry, stepN:p3:max-union, stepN:p3:max-glue
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L253-L253 | conclusion IsSolIn
-EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L257-L257 | time shift for initial time t₀
+EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L256-L256 | the source explicitly refers to the time shift here; L257 is provenance
 EDGE: stepN:p3:max-union | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L260-L260 | union of open intervals
 EDGE: stepN:p3:max-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L263-L263 | gluing
 EDGE: stepN:p3:max-max | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-maximal@L266-L266 | maximality
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1095,20 +1106,21 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-union@L2
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-union@L260-L261
 CONTRACT_ID: stepN:p3:max-union
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 𝒥 = open intervals J ∋ 0 carrying a solution y_J with y_J(0) = x₀
-SOURCE_QUANTIFIERS: x₀; J ∈ 𝒥
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; x0 in W
+SOURCE_QUANTIFIERS: E,W,F,x0 fixed; define mathcalJ={open intervals J containing 0 admitting IsSolIn F W J y_J with y_J(0)=x0}; then its union I and extended endpoints Tminus,Tplus
 SOURCE_CONCLUSION: 𝒥 ≠ ∅ and I = ∪𝒥 is an open interval (T₋,T₊) ∋ 0
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-local
+DEPS: bpN:p3:gen-local, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-union@L260-L260 | 𝒥 nonempty by local existence
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-union@L260-L260 | the union family is defined using the general solution predicate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1122,22 +1134,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L26
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L263-L264
 CONTRACT_ID: stepN:p3:max-glue
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 𝒥 and I from max-union
-SOURCE_QUANTIFIERS: t ∈ I; J ∈ 𝒥 with t ∈ J
-SOURCE_CONCLUSION: z(t) = y_J(t) is independent of J, and z is a solution on I
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; x0 in W; mathcalJ and I are defined as in max-union; solutions y_J are chosen witnesses for those intervals
+SOURCE_QUANTIFIERS: F,W,x0 fixed; mathcalJ,I and witnesses y_J from max-union; define the total z pointwise, choosing J containing t when t in I
+SOURCE_CONCLUSION: define z(t)=y_J(t) for t in I using any J in mathcalJ containing t, and z(t)=x0 outside I; uniqueness makes this independent of J; z(0)=x0 and IsSolIn F W I z by the open-neighborhood local property
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-uniqueness, bpN:p3:gen-sol#consequences, stepN:p3:max-union
+DEPS: bpN:p3:gen-uniqueness, bpN:p3:gen-sol#consequences, stepN:p3:max-union, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L263-L263 | y_J = y_{J'} on J∩J' ∋ 0
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L264-L264 | local nature (iii)
 EDGE: stepN:p3:max-union | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L263-L263 | the family 𝒥 and its union I
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-glue@L263-L264 | the glued curve satisfies IsSolIn on the union of its open solution neighborhoods
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1151,23 +1164,24 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L266
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L266-L267
 CONTRACT_ID: stepN:p3:max-max
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: y a solution on J ∋ 0 with y(0) = x₀; z from max-glue
-SOURCE_QUANTIFIERS: y; J; J'; y'
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; x0 in W; mathcalJ,I,z are the constructed family, union and curve from max-union/max-glue; take any IsSolIn F W J y with J an interval containing 0 and y(0)=x0
+SOURCE_QUANTIFIERS: E,W,F,x0 and the earlier constructed objects; every test interval J and solution y through x0; then choose Jprime,yprime by gen-extend
 SOURCE_CONCLUSION: J ⊂ J' ⊂ I and y = y' = z on J; uniqueness of the maximal interval and of z on it
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-extend, bpN:p3:gen-uniqueness, stepN:p3:max-union, stepN:p3:max-glue
+DEPS: bpN:p3:gen-extend, bpN:p3:gen-uniqueness, stepN:p3:max-union, stepN:p3:max-glue, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-extend | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L266-L266 | open J' ⊃ J and solution y' extending y
-EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L267-L267 | y' = z on J'
+EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L266-L266 | the explicit uniqueness citation is at L266, not L267
 EDGE: stepN:p3:max-union | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L266-L266 | J' ∈ 𝒥 so J' ⊂ I
 EDGE: stepN:p3:max-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L267-L267 | z is a solution on I
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:max-max@L266-L267 | the maximality comparison and restricted-solution uniqueness concern the solution predicate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1193,12 +1207,12 @@ DEPS: bpN:p3:gen-maximal, bpN:p3:gen-uniform, stepN:p3:cont-setup, stepN:p3:cont
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L271-L271 | maximal interval and solution
-EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L271-L271 | hypothesis: Φ has uniform data
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L272-L273 | the hypothesis is Phi with uniform data (delta,M,L)
 EDGE: stepN:p3:cont-setup | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L279-L279 | set-up
 EDGE: stepN:p3:cont-alpha | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L281-L281 | solution through z(t₁)
 EDGE: stepN:p3:cont-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation@L284-L284 | gluing past T₊
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1212,20 +1226,22 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-setup@L
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-setup@L279-L279
 CONTRACT_ID: stepN:p3:cont-setup
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: T₊ < ∞; z(t) ∈ Φ on [t_*,T₊); uniform data (δ,M,L)
-SOURCE_QUANTIFIERS: ε = δ/max(M,1); t₁
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; x0 in W; (Tminus,Tplus) and z the maximal interval and solution through x0; Phi has uniform data (delta,M,L); contradiction branch Tplus finite and some tstar in [0,Tplus) has z(t) in Phi on [tstar,Tplus)
+SOURCE_QUANTIFIERS: the gen-continuation data; in the finite-right-endpoint tail branch choose eps=delta/max(M,1)>0 and t1 in [tstar,Tplus) with t1>Tplus-eps
 SOURCE_CONCLUSION: ε as in gen-uniform-exist and t₁ ∈ [t_*,T₊) with t₁ > T₊ − ε
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-uniform-exist
+DEPS: bpN:p3:gen-uniform-exist, bpN:p3:gen-uniform, bpN:p3:gen-maximal
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-uniform-exist | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-setup@L279-L279 | uniform existence time ε = δ/max(M,1)
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-setup@L279-L279 | delta,M are the uniform data fixing the positive common existence time
+EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-setup@L279-L279 | the finite maximal endpoint and its interval permit choosing t1 sufficiently near Tplus
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1239,22 +1255,24 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L281-L282
 CONTRACT_ID: stepN:p3:cont-alpha
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: t₁ from cont-setup; z(t₁) ∈ Φ
-SOURCE_QUANTIFIERS: α on (t₁−ε,t₁+ε)
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; x0 in W; (Tminus,Tplus) and z the maximal interval and solution through x0; Phi has uniform data (delta,M,L); the finite-endpoint tail branch of cont-setup; eps and t1 are the constructed positive time and tail point
+SOURCE_QUANTIFIERS: the gen-continuation data and finite-tail branch; eps,t1 chosen in cont-setup; then choose alpha through z(t1) and compare it with z on the overlap
 SOURCE_CONCLUSION: α with α(t₁) = z(t₁) on (t₁−ε,t₁+ε) and α = z on (t₁−ε,t₁+ε) ∩ (T₋,T₊)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-uniform-exist, bpN:p3:gen-uniqueness, stepN:p3:cont-setup
+DEPS: bpN:p3:gen-uniform-exist, bpN:p3:gen-uniqueness, stepN:p3:cont-setup, bpN:p3:gen-uniform, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-uniform-exist | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L281-L281 | solution α through x = z(t₁) ∈ Φ at t₀ = t₁
 EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L282-L282 | α = z on the overlap
 EDGE: stepN:p3:cont-setup | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L281-L281 | ε and t₁
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L281-L281 | uniform data on Phi at z(t1) discharge the local-existence premises
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-alpha@L281-L282 | the newly constructed alpha and maximal z are compared as general solutions on the overlap
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1268,23 +1286,25 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L2
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L284-L286
 CONTRACT_ID: stepN:p3:cont-glue
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: α from cont-alpha; maximal (T₋,T₊), z
-SOURCE_QUANTIFIERS: y
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; x0 in W; (Tminus,Tplus) and z the maximal interval and solution through x0; Phi has uniform data (delta,M,L); finite-endpoint tail branch; eps,t1,alpha are the objects constructed in cont-setup/cont-alpha, with overlap agreement supplied by those dependencies
+SOURCE_QUANTIFIERS: the gen-continuation data and finite-tail branch; the earlier eps,t1,alpha; define y by the displayed piecewise gluing and extend it arbitrarily outside its solution interval
 SOURCE_CONCLUSION: y = z on (T₋,T₊), y = α on [T₊,t₁+ε) is a solution on (T₋,t₁+ε) ∋ 0 with y(0) = x₀, contradicting gen-maximal; the left end by time reversal
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:cont-alpha, bpN:p3:gen-sol#consequences, bpN:p3:gen-maximal, bpN:p3:gen-symmetry
+DEPS: stepN:p3:cont-alpha, bpN:p3:gen-sol#consequences, bpN:p3:gen-maximal, bpN:p3:gen-symmetry, bpN:p3:gen-sol, bpN:p3:gen-uniform
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:cont-alpha | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L284-L284 | α and its agreement with z
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L285-L285 | local nature on the two open sets covering (T₋,t₁+ε)
-EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L286-L286 | t₁+ε > T₊ contradicts maximality
+EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L285-L285 | the extension past the endpoint contradicts maximality at this line
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L286-L286 | left end by time reversal
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L284-L285 | the pasted curve solves the same equation on the covering open neighborhoods
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cont-glue@L284-L285 | the source continuation setting includes the uniform-data package used to construct the patch
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1298,21 +1318,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuati
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-compact@L293-L295
 CONTRACT_ID: bpN:p3:gen-continuation-compact
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: setting of gen-continuation; K ⊂ W compact; z(t) ∈ K for all t ∈ [t_*,T₊) (some t_* ∈ [0,T₊))
-SOURCE_QUANTIFIERS: as gen-continuation; K; t_*
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; x0 in W; (Tminus,Tplus),z the maximal interval and solution; K subset W compact; some tstar in [0,Tplus) has z(t) in K on [tstar,Tplus); the analogous left-tail alternative for the left conclusion
+SOURCE_QUANTIFIERS: E,W,F,x0 fixed; the maximal solution; compact K; then a tail time tstar as stated
 SOURCE_CONCLUSION: T₊ = +∞; likewise on the left
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-continuation, bpN:p3:gen-uniform-compact
+DEPS: bpN:p3:gen-continuation, bpN:p3:gen-uniform-compact, bpN:p3:gen-maximal, bpN:p3:gen-uniform
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-continuation | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-compact@L290-L290 | setting and continuation criterion applied to Φ = K
 EDGE: bpN:p3:gen-uniform-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-compact@L294-L294 | uniform data for the compact set K
+EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-compact@L290-L290 | the corollary is stated for the maximal solution in the setting of the preceding theorem
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-compact@L294-L294 | construct uniform data for K and apply the uniform continuation criterion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1334,14 +1356,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-maximal, bpN:p3:gen-continuation, bpN:p3:gen-uniform-periodic
+DEPS: bpN:p3:gen-maximal, bpN:p3:gen-continuation, bpN:p3:gen-uniform-periodic, bpN:p3:gen-uniform
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L298-L298 | maximal solution through x₀
-EDGE: bpN:p3:gen-continuation | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L300-L300 | continuation criterion
-EDGE: bpN:p3:gen-uniform-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L300-L300 | uniform data for Φ = ℝⁿ × K
+EDGE: bpN:p3:gen-continuation | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L301-L301 | the proof applies the continuation theorem here; L300 is begin{proof}
+EDGE: bpN:p3:gen-uniform-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L301-L301 | this lemma supplies uniform data for R^n x K here
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-continuation-periodic@L301-L301 | the proof uses the uniform-data package for the periodic cylinder
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1366,13 +1389,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p3:gen-uniform, bpN:p3:gen-sol, bpN:p3:gen-maximal, stepN:p3:conf-noexit, stepN:p3:conf-concl
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L312-L312 | hypothesis: Φ has uniform data
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L311-L312 | Phi is assumed to have uniform data
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L313-L313 | solutions y and conclusion IsSolIn
-EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L316-L316 | maximal interval and solution
+EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L314-L314 | the conclusion refers to the maximal interval and solution here, not the isolated L316 “there”
 EDGE: stepN:p3:conf-noexit | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L320-L320 | no exit before τ
 EDGE: stepN:p3:conf-concl | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L323-L323 | conclusion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1386,21 +1409,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@L320-L321
 CONTRACT_ID: stepN:p3:conf-noexit
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: a priori confinement; maximal (T₋,T₊), z of gen-maximal; Φ has uniform data
-SOURCE_QUANTIFIERS: T₊ ≤ τ assumed
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; x0 in W; tau>0; Phi has uniform data (delta,M,L); for every open interval J containing 0 and every IsSolIn F W J y through x0, y(t) in Phi whenever t in J and abs(t)<=tau; z and (Tminus,Tplus) denote the maximal solution and interval
+SOURCE_QUANTIFIERS: the source data, maximal solution and interval; in the right-end contradiction argument suppose Tplus<=tau; use the analogous left-end argument
 SOURCE_CONCLUSION: T₊ > τ and T₋ < −τ: otherwise z(t) ∈ Φ on [0,T₊) by confinement and gen-continuation gives T₊ = ∞
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-maximal, bpN:p3:gen-continuation
+DEPS: bpN:p3:gen-maximal, bpN:p3:gen-continuation, bpN:p3:gen-uniform, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@L320-L320 | maximal solution z on (T₋,T₊)
 EDGE: bpN:p3:gen-continuation | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@L321-L321 | continuation criterion gives T₊ = ∞
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@L320-L321 | uniform data of Phi are a premise of the applied continuation criterion
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-noexit@L320-L320 | the a priori hypothesis is instantiated with the maximal solution on its open interval
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1414,21 +1439,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L323-L323
 CONTRACT_ID: stepN:p3:conf-concl
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: conf-noexit; confinement applied to z
-SOURCE_QUANTIFIERS: t with ¦t¦ ≤ τ; L ∈ [0,τ]
-SOURCE_CONCLUSION: [−τ,τ] ⊂ (T₋,T₊), z solution on [−τ,τ] with z(t) ∈ Φ for ¦t¦ ≤ τ; uniqueness on [−L,L]
+SOURCE_HYPOTHESES: E finite-dimensional real normed space; F:E->E total; W subset E open; F C1 on W; x0 in W; tau>0; Phi has uniform data (delta,M,L); for every open interval J containing 0 and every IsSolIn F W J y through x0, y(t) in Phi whenever t in J and abs(t)<=tau; z and its maximal interval are the objects of gen-maximal; endpoint inequalities are the conclusion of conf-noexit, not added hypotheses
+SOURCE_QUANTIFIERS: the gen-confinement data and constructed maximal solution z; every t with abs(t)<=tau; every Ltime in [0,tau] and every IsSolIn F W [-Ltime,Ltime] y through x0
+SOURCE_CONCLUSION: [-tau,tau] subset (Tminus,Tplus); IsSolIn F W [-tau,tau] z and z(t) in Phi for abs(t)<=tau; every Ltime in [0,tau] and every solution y through x0 on [-Ltime,Ltime] has y=z on that interval
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:conf-noexit, bpN:p3:gen-uniqueness
+DEPS: stepN:p3:conf-noexit, bpN:p3:gen-uniqueness, bpN:p3:gen-sol, bpN:p3:gen-uniform
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:conf-noexit | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L323-L323 | [−τ,τ] in the maximal interval
 EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L323-L323 | uniqueness of solutions on [−L,L]
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L323-L323 | restriction of the genuine maximal solution gives IsSolIn on the closed interval
+EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:conf-concl@L323-L323 | the retained source confinement setting assumes this package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3a
+EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

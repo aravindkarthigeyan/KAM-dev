@@ -30,33 +30,33 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-bwd@L367-L367
 DISPOSITION: NODE stepN:p3:barrier-bwd
 REASON: labelled unit of track N owned by track I (SPEC ruling, slice I-nown)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: bpN:p3:newton-reduction
 KIND: proposition
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L434-L449
 DISPOSITION: NODE bpN:p3:newton-reduction
 REASON: labelled unit of track N owned by track I (SPEC ruling, slice I-nown)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: stepN:p3:nr-smooth
 KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-smooth@L451-L451
 DISPOSITION: NODE stepN:p3:nr-smooth
 REASON: labelled unit of track N owned by track I (SPEC ruling, slice I-nown)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: stepN:p3:nr-pair
 KIND: proof-region
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-pair@L453-L453
 DISPOSITION: NODE stepN:p3:nr-pair
 REASON: labelled unit of track N owned by track I (SPEC ruling, slice I-nown)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
-REVIEWER: -
+REVIEWER: sol-delta-I-e
