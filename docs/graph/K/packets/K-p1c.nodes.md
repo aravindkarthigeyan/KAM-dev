@@ -99,9 +99,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.real_restriction_consequences
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: Self-contained remark; proof is inline (real h with |h|<=1 are a subset of complex ones; primarity identity at the real point x).
 EDGE: bp:p0:stripdata#IsPrimaryOnStrip | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction-consequences@L1043-L1044 | unfold primarity at the real point x
 EDGE: bp:p0:stripdata#IsRealOnReals | blueprint/parts/p1-analysis.tex#bp:p1:real-restriction-consequences@L1043-L1044 | the restriction takes real values
@@ -131,9 +131,9 @@ EDGE: step:p1:rr-consequences | blueprint/parts/p1-analysis.tex#bp:p1:real-restr
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.real_restriction
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:rr-analytic
@@ -158,9 +158,9 @@ EDGE: bp:p1:holomorphic-analytic | blueprint/parts/p1-analysis.tex#step:p1:rr-an
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.analyticOnNhd_realRestriction
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:rr-derivative
@@ -184,9 +184,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.realRestriction_fderiv
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:rr-consequences
@@ -212,9 +212,9 @@ EDGE: bp:p1:real-restriction-consequences | blueprint/parts/p1-analysis.tex#step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.norm_fderiv_realRestriction_le, KAM.realRestriction_add_int
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:hamiltonian-real
@@ -244,9 +244,9 @@ EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#bp:p1:hamilt
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.hamiltonian_real
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hr-derivative
@@ -270,9 +270,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.hamiltonian_real_fderiv
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hr-components
@@ -299,9 +299,9 @@ EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p1-analysis.te
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.hamiltonianVectorField_eq_of_real
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hr-matrix
@@ -328,9 +328,9 @@ EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:hr-matrix@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.hamiltonianVectorFieldℂ_eq_neg_omegaZero, KAM.omegaZero_hamiltonianVectorFieldℂ
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:lip-image-product

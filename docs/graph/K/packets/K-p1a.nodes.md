@@ -897,9 +897,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.holomorphic_analytic (+ KAM.holomorphic_analytic_real; engine KAM.analyticOnNhd_of_differentiableOn)
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:han-margin
@@ -923,9 +923,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.han_margin
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:han-cauchy
@@ -952,9 +952,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.han_cauchy (torus form)
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:han-series
@@ -980,9 +980,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: BYPASSED
+LEAN_REF: KAM.exists_powerSeries_coeff (expansion only)
+LEAN_NOTE: route substitution (D27): the Lean proof expands by higher Cauchy estimates and Taylor along lines; the contour-integral identification of the coefficients is not formalized and no proved consumer uses it (I-STRIP-5 audits 1-2)
 NOTE: -
 
 NODE: step:p1:han-bounds
@@ -1008,9 +1008,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.holomorphic_series (coefficient bounds, summability, tsum bound A(1-t)^(-m))
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27); the coefficients are the Lean expansion's, not identified with contour integrals (step han-series BYPASSED, D27)
 NOTE: -
 
 NODE: step:p1:han-real
@@ -1035,9 +1035,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.holomorphic_series_real, KAM.holomorphic_analytic_real
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/I-STRIP-5-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:uniform-limits
