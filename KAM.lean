@@ -172,6 +172,7 @@ public import KAM.Head.DerivativeBounds
 public import KAM.Head.DyadicApprox
 public import KAM.Head.DyadicBoxes
 public import KAM.Head.Frequency
+public import KAM.Head.GoodActions
 public import KAM.Head.H1
 public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
@@ -180,6 +181,7 @@ public import KAM.Head.InverseFrequency
 public import KAM.Head.Lagrangian
 public import KAM.Head.Lip
 public import KAM.Head.LipError
+public import KAM.Head.MainMeasure
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
 public import KAM.Head.Normalize
