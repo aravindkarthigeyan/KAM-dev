@@ -474,13 +474,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p5:inv-incl, stepI:p5:inv-sol, stepI:p5:inv-uniq, N:bpN:p3:gen-invariant, N:bpN:p3:gen-sol, bpI:p5:sec-graph#data, bpI:p5:real-ham
+DEPS: stepI:p5:inv-incl, stepI:p5:inv-sol, stepI:p5:inv-uniq, bpN:p3:gen-invariant, N:bpN:p3:gen-sol, bpI:p5:sec-graph#data, bpI:p5:real-ham
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p5:inv-incl | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L111-L111 | proof step
 EDGE: stepI:p5:inv-sol | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L112-L112 | proof step
 EDGE: stepI:p5:inv-uniq | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L113-L113 | proof step
-EDGE: N:bpN:p3:gen-invariant | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L108-L108 | definition of invariant set
+EDGE: bpN:p3:gen-invariant | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L108-L108 | definition of invariant set
 EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L108-L108 | IsSolIn
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L108-L108 | T_pm
 EDGE: bpI:p5:real-ham | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L108-L108 | X_R and W_B
@@ -570,13 +570,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p5:real-ham, stepI:p5:inv-sol, N:bpN:p3:gen-uniqueness, N:bpN:p3:gen-invariant
+DEPS: bpI:p5:real-ham, stepI:p5:inv-sol, N:bpN:p3:gen-uniqueness, bpN:p3:gen-invariant
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p5:real-ham | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-uniq@L113-L113 | (c): X_R C^1 on W_B
 EDGE: stepI:p5:inv-sol | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-uniq@L113-L113 | comparison solution w
 EDGE: N:bpN:p3:gen-uniqueness | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-uniq@L113-L113 | uniqueness on J
-EDGE: N:bpN:p3:gen-invariant | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-uniq@L113-L113 | invariance of a union
+EDGE: bpN:p3:gen-invariant | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-uniq@L113-L113 | invariance of a union
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p5
 REVIEWER: -
@@ -1044,12 +1044,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p5:real-ham, N:bpN:p3:ham-energy, N:bpN:p3:gen-barrier, bpI:p5:invariance, stepI:p5:sp-open, stepI:p5:sp-init, stepI:p5:sp-bdry, bpI:p5:sec-sep#data, N:bpN:p3:gen-sol
+DEPS: bpI:p5:real-ham, N:bpN:p3:ham-energy, bpN:p3:gen-barrier, bpI:p5:invariance, stepI:p5:sp-open, stepI:p5:sp-init, stepI:p5:sp-bdry, bpI:p5:sec-sep#data, N:bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p5:real-ham | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | (c): H_R differentiable with derivative X_R; X_R C^1 on W_B
 EDGE: N:bpN:p3:ham-energy | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | z(J) subset G by energy conservation
-EDGE: N:bpN:p3:gen-barrier | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | barrier lemma with V=calV, S=T_+ union T_-
+EDGE: bpN:p3:gen-barrier | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | barrier lemma with V=calV, S=T_+ union T_-
 EDGE: bpI:p5:invariance | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | S invariant
 EDGE: stepI:p5:sp-open | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | calV open
 EDGE: stepI:p5:sp-init | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | z(0) in calV and not in S

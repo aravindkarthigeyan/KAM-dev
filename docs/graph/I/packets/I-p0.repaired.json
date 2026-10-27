@@ -1,5 +1,16 @@
 {
- "replaced": [
+ "replaced": [],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
+  "bpI:p0:domains#actionNbhd",
+  "bpI:p0:restricted#restrictedHamiltonian",
+  "bpI:p0:restricted#restrictedVectorField",
+  "bpI:p0:restricted#IsRestrictedSolutionOn",
+  "bpI:p0:g1",
+  "bpI:p0:kepler",
+  "bpI:p0:r3bp",
   "bpI:p0:domains#actionNbhd",
   "bpI:p0:restricted#restrictedHamiltonian",
   "bpI:p0:restricted#restrictedVectorField",
@@ -7,42 +18,5 @@
   "bpI:p0:g1",
   "bpI:p0:kepler",
   "bpI:p0:r3bp"
- ],
- "added": [],
- "items": [
-  "bpI:p0:domains#openness",
-  "bpI:p0:restricted#hamiltonian-agreement",
-  "bpI:p0:nearcircular#witness-uniqueness",
-  "bpI:p0:keplerborder#hessian-agreement"
- ],
- "unresolved": {},
- "passes": [
-  "bpI:p0:domains#complexStrip",
-  "bpI:p0:diophantine#IsDiophantine",
-  "bpI:p0:hamiltonian#hamiltonianVectorField",
-  "bpI:p0:hamiltonian#hamiltonianVectorFieldC",
-  "bpI:p0:realham#realHamiltonian",
-  "bpI:p0:realham#frequencyMap",
-  "bpI:p0:stripdata#IsPrimaryOnStrip",
-  "bpI:p0:stripdata#IsRealOnReals",
-  "bpI:p0:stripdata#dotC",
-  "bpI:p0:stripdata#omegaZero",
-  "bpI:p0:stripdata#invarianceError",
-  "bpI:p0:stripdata#gramMatrix",
-  "bpI:p0:stripdata#normalFrame",
-  "bpI:p0:stripdata#torsion",
-  "bpI:p0:extended#energyAverage",
-  "bpI:p0:extended#extendedTorsion",
-  "bpI:p0:extended#extendedTorsionAverage",
-  "bpI:p0:bordered#borderedHessian",
-  "bpI:p0:hamsol#IsHamiltonianSolutionOn",
-  "bpI:p0:primaries#radiusSq",
-  "bpI:p0:primaries#radius",
-  "bpI:p0:primaries#primary1",
-  "bpI:p0:primaries#primary2",
-  "bpI:p0:primaries#CollisionFree",
-  "bpI:p0:nearcircular#NearCircular",
-  "bpI:p0:keplerborder#keplerBorder",
-  "bpI:p0:head"
  ]
 }

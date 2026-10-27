@@ -1,0 +1,224 @@
+\section{Part 11a-1: finite-order nondegeneracy and the measure of the small-divisor set}\label{bpP:p11a1}
+\begingroup\sloppy
+
+\newcommand{\dgn}[1]{\lvert #1\rvert_{\mathrm{dg}}}
+\newcommand{\opn}[1]{\lvert #1\rvert_{\mathrm{op}}}
+\newcommand{\Nbd}[1]{K_{#1}}
+
+This is the first of the five files of Part~11a (the maximal-case analytic weak-nondegeneracy KAM theorem; split plan in \texttt{PLAN-11a.md}). It proves, from scratch and in the frozen conventions, the \emph{measure} half of R\"ussmann's argument: a finite-order index and amount of nondegeneracy on a compact patch of parameters, its stability under $C^\mu$ perturbations, a scalar sublevel estimate, and the measure of the set of parameters whose (perturbed) frequency vector violates a power-law small-divisor condition. No KAM iteration occurs here; Files~11a-2 to 11a-5 consume the results below as black boxes.
+\begin{itemize}
+\item \texttt{rank-compact} (Definition~\ref{bpP:p11a:index-def}, Lemma~\ref{bpP:p11a:rank-compact}, Lemma~\ref{bpP:p11a:stability}, Lemma~\ref{bpP:p11a:M-bound}): index and amount of an R-nondegenerate map on a compact set, in the two scalar conventions $\langle c,\omega\rangle$ and $\langle c,\omega\rangle^2$; stability of the amount under a $C^\mu$-small change of the frequency map (Rus01 \S\S18.2--18.3, pp.~185--186; CP09 Lemma~1, p.~5).
+\item \texttt{scalar-sublevel} (Lemmas~\ref{bpP:p11a:divided-difference}, \ref{bpP:p11a:scalar-sublevel}, \ref{bpP:p11a:ball-sublevel}, Theorem~\ref{bpP:p11a:sublevel}): the sublevel estimate $\operatorname{meas}\{|\tilde g|\le\varepsilon\}\le C(\varepsilon/\beta)^{1/\mu}$ for a function with a finite-order amount $\beta$, stable under $C^\mu$ perturbation (Rus01 Thm~17.1 and Lemmas~17.2, 17.3, pp.~180--183). The one-variable estimate is proved by an elementary divided-difference argument; Bakhtin's theorem, which Rus01 imports, is \emph{not} used.
+\item \texttt{diophantine-measure} (Theorem~\ref{bpP:p11a:diophantine-measure}, Corollary~\ref{bpP:p11a:power-law}, Lemma~\ref{bpP:p11a:chart-scaling}): the measure loss of the set $\{b\in K:\ |k\cdot\tilde\omega_k(b)|\ge\Psi(k)\ \forall k\ne0\}$ for \emph{$k$-dependent} perturbed frequency maps $\tilde\omega_k$ and for the power divisor $\Psi(k)=\gamma|k|_1^{-\tau}$, $\tau>m\mu/\rho-1$, with every constant explicit in the index, the amount, the chart constants $(d,\vartheta,M)$ (Rus01 \S18.5, pp.~189--193, with $p=q=0$).
+\end{itemize}
+
+\subsection{Conventions and external facts}\label{bpP:p11a:conv}
+
+\paragraph{Dimensions and norms.} $N\ge1$ is the dimension of the parameter space (in the application the action space, $N=m$ in the maximal case), $m\ge1$ the dimension of the frequency vector and of the lattice $\Z^m$ of Fourier modes. On $\R^N$ we write $\lvert y\rvert_2$ for the Euclidean and $\lvert y\rvert_\infty$ for the max norm, $\lvert y\rvert_\infty\le\lvert y\rvert_2\le\sqrt N\lvert y\rvert_\infty$; likewise on $\R^m$. \emph{The frozen max norm is used for diameters and boxes} ($d$ below), and for the lattice $\lvert k\rvert_1$ in the Diophantine condition of Definition~\ref{bpP:p0:diophantine}; \emph{the Euclidean norm is used for balls, directions and derivative tensors} (an orthogonal change of variables is needed in Lemma~\ref{bpP:p11a:ball-sublevel}). Every conversion carries an explicit factor $\sqrt N$ or $\sqrt m$ (Rus01 uses $\lvert\cdot\rvert_2$ throughout, p.~123 and \S16.2, p.~178). For $K\subset\R^N$ nonempty compact,
+\[d=d_\infty(K)=\sup_{y,y'\in K}\lvert y-y'\rvert_\infty,\qquad \Nbd\vartheta:=\{y\in\R^N:\ \operatorname{dist}_2(y,K)\le\vartheta\}\ \ (\vartheta>0),\]
+a compact set (Rus01's real thickening $K\oplus\vartheta$, defined in \S10.1.7 and used on p.~180, in the Euclidean norm; $d_\infty\le d_2\le\sqrt Nd_\infty$).
+
+\paragraph{Derivative tensors.} For $V\subset\R^N$ open, $g\in C^k(V,\R^{r})$ ($r\ge1$, Euclidean target), $0\le\nu\le k$, $y\in V$, the $\nu$-th derivative $D^\nu g(y)$ is a symmetric $\nu$-linear map $(\R^N)^\nu\to\R^r$. Put $D^\nu g(y)(a^\nu)=D^\nu g(y)(a,\dots,a)$ and
+\[\dgn{D^\nu g(y)}=\max_{\lvert a\rvert_2=1}\lvert D^\nu g(y)(a^\nu)\rvert_2,\qquad \opn{D^\nu g(y)}=\max_{\lvert a_1\rvert_2=\dots=\lvert a_\nu\rvert_2=1}\lvert D^\nu g(y)(a_1,\dots,a_\nu)\rvert_2,\]
+($\nu=0$: both equal $\lvert g(y)\rvert_2$). Then $\dgn\cdot\le\opn\cdot$. \emph{The two norms are used for different purposes:} the \emph{diagonal} norm $\dgn\cdot$ measures nondegeneracy and the perturbation (it is CP09's and Part~10's $\lvert\partial^\nu g(y)\rvert$, p.~5; Rus01 \S16.2.1, p.~178); the \emph{operator} norm $\opn\cdot$ measures the size of the top derivative in the Taylor step of Theorem~\ref{bpP:p11a:sublevel}. Rus01 has one norm (the diagonal one) and pays the classical polarization constant $\sigma_\nu=\nu^\nu/\nu!$ (p.~178, p.~182); using $\opn\cdot$ for the top derivative avoids polarization altogether (and a computable bound for $\opn{D^kg}$ is Lemma~\ref{bpP:p11a:M-bound}). For $A\subset V$ and $0\le\mu\le k$,
+\[\lVert g\rVert^{\mu}_{\mathrm{dg},A}=\max_{0\le\nu\le\mu}\sup_{y\in A}\dgn{D^\nu g(y)},\qquad \lVert g\rVert^{\mu}_{\mathrm{op},A}=\max_{0\le\nu\le\mu}\sup_{y\in A}\opn{D^\nu g(y)}.\]
+By polarization $\opn{D^\nu g}\le\frac{\nu^\nu}{\nu!}\dgn{D^\nu g}$ (classical; not needed below).
+
+\paragraph{Lean totality.} Every division below is by a positive number ($\beta$, $\varepsilon$, $\lvert k\rvert_2$ with $k\ne0$, $\vartheta$, $s$); real powers $x^{1/\mu}$ are applied to $x\ge0$ and $\lvert k\rvert_1^{-\tau}$ to $\lvert k\rvert_1\ge1$ (as in Remark~\ref{bpP:p0:totality}: the power in Definition~\ref{bpP:p0:diophantine} is the usual one for $k\ne0$). $\operatorname{meas}$ is Lebesgue (outer) measure on $\R^N$; every set measured below is closed, hence measurable.
+
+\emph{External facts} (standard; the Mathlib names are indicative).
+\begin{enumerate}[label=(F\arabic*),ref=(F\arabic*)]
+\item\label{bpP:p11a:f-rolle} \emph{Rolle and Lagrange interpolation.} If $u\in C^q([a,b])$ has $q+1$ distinct zeros, then $u^{(q)}$ has a zero in $(a,b)$ (apply Rolle's theorem $q$ times; \texttt{exists\_deriv\_eq\_zero}). For distinct nodes $t_0,\dots,t_q$ and values $y_i$ the unique polynomial of degree $\le q$ with $P(t_i)=y_i$ is $P=\sum_iy_i\prod_{j\ne i}\frac{t-t_j}{t_i-t_j}$ (\texttt{Lagrange.interpolate}); its coefficient of $t^q$ is $\sum_iy_i/\prod_{j\ne i}(t_i-t_j)$ and $P^{(q)}=q!$ times it.
+\item\label{bpP:p11a:f-meas} \emph{Lebesgue measure.} Countable subadditivity and monotonicity; $t\mapsto\operatorname{meas}(E\cap[a,t])$ is continuous and nondecreasing for measurable $E\subset[a,b]$ (Lebesgue measure has no atoms); a linear isometry $Q$ of $(\R^N,\lvert\cdot\rvert_2)$ (an orthogonal matrix on $\mathrm{Fin}\,N\to\R$) satisfies $\operatorname{meas}(Q(E))=\operatorname{meas}E$ ($\lvert\det Q\rvert=1$; \texttt{MeasureTheory.Measure.addHaar\_image\_linearMap}); Tonelli on $\R^{N-1}\times\R$, \Kref{bp:p1:ext-measure}.
+\item\label{bpP:p11a:f-mvt} \emph{Mean value inequality}, \Kref{bp:p1:ext-mvt}, and the chain rule for $t\mapsto g(x+ta)$ ($g\in C^q$): $\frac{d^q}{dt^q}g(x+ta)=D^qg(x+ta)(a^q)$.
+\item\label{bpP:p11a:f-orth} \emph{Orthonormal completion.} Every unit vector $a\in\R^N$ is the last column of an orthogonal matrix (Gram--Schmidt; \texttt{OrthonormalBasis.exists\_orthonormalBasis\_extension}).
+\item\label{bpP:p11a:f-lattice} The lattice sum $\sum_{k\in\Z^m\setminus\{0\}}\lvert k\rvert_1^{-\tau'-1}\le S(m,\tau')=2\cdot3^{m-1}\frac{\tau'+2-m}{\tau'+1-m}$ for $\tau'>m-1$, \Kref{bp:p4:lattice-sum} (with \Kref{bp:p4:lattice-count}).
+\item\label{bpP:p11a:f-leib} \emph{Leibniz formula} for $\ell$-linear forms: for $f,h\in C^k(V,\R)$ and $a_1,\dots,a_k$, $D^k(fh)(y)(a_1,\dots,a_k)=\sum_{S\subset\{1..k\}}D^{\lvert S\rvert}f(y)(a_S)\,D^{k-\lvert S\rvert}h(y)(a_{S^c})$; for equal arguments it is $\sum_j\binom kjD^jf(a^j)D^{k-j}h(a^{k-j})$ (also Part~10, \ref{bpP:p10:f-leib}).
+\end{enumerate}
+
+\subsection{Index and amount of nondegeneracy; stability}\label{bpP:p11a:sec-rank}
+
+\begin{definition}[Scalar families, index and amount]\label{bpP:p11a:index-def}
+Fix $N,m\ge1$, an open set $V\subset\R^N$, $\omega\in C^\mu(V,\R^m)$, and $\rho\in\{1,2\}$. For $c\in S^{m-1}=\{c\in\R^m:\lvert c\rvert_2=1\}$ put
+\[g_\rho[\omega](c,y):=\langle c,\omega(y)\rangle^\rho\qquad(y\in V).\]
+For a nonempty compact $K\subset V$ and $\mu\in\mathbb N$ set
+\[\beta_{\rho,\mu}(\omega,K):=\min_{c\in S^{m-1},\,y\in K}\ \max_{0\le\nu\le\mu}\dgn{D^\nu g_\rho[\omega](c,y)}\ \ \ge0 .\]
+(A minimum of a continuous function on a nonempty compact set: $(c,y,a)\mapsto\lvert D^\nu g_\rho(c,y)(a^\nu)\rvert$ is continuous, hence so is its maximum over the compact sphere $a\in S^{N-1}$ and then over $\nu\le\mu$, Rus01 18.3.1, p.~186.) $\mu\mapsto\beta_{\rho,\mu}$ is nondecreasing. When some $\beta_{\rho,\mu}(\omega,K)>0$, the \emph{index} $\mu_0=\mu_0(\rho,\omega,K)$ is the least positive integer with $\beta_{\rho,\mu_0}>0$ and the \emph{amount} is $\beta_\rho(\omega,K)=\beta_{\rho,\mu_0}$; for $\mu\ge\mu_0$, $\beta_{\rho,\mu}\ge\beta_\rho(\omega,K)$.
+\source{CP09 Def.~2, p.~6, and Part~10 Definition~\ref{bpP:p10:index-def} for $\rho=2$ (the same object with $\mathcal C=S^{m-1}$); Rus01 \S18.3.1, p.~186, with $\beta(f,\mu,K)$ for $f=\langle c,\omega\rangle$ ($\rho=1$) and $\beta(f,0,K):=0$. The three numbers (Rus01's product family $\langle c,\omega\rangle\langle\hat c,\omega\rangle$, the squared family $\rho=2$, and the unsquared family $\rho=1$) are \emph{different} in general; the theorems below hold for each of $\rho=1,2$ with its own index and amount (deviation D4). Rus01 uses the product family $\langle c,\omega\rangle\langle\hat c,\omega\rangle$ with independent $c,\hat c$ for the squared divisors (p.~187); CP09's displayed data use $\langle c,\omega\rangle^2$.}
+\end{definition}
+
+\begin{lemma}[Finite type on a compact set: $\rho=1,2$]\label{bpP:p11a:rank-compact}
+Let $B\subset\R^N$ be open and connected, $\omega:B\to\R^m$ real analytic and R-nondegenerate (Definition~\ref{bpP:p10:rnd-def}), $K\subset B$ nonempty and compact. Then for $\rho\in\{1,2\}$ there are $\mu_0\in\mathbb N$ and $\beta>0$ such that $\max_{0\le\nu\le\mu_0}\dgn{D^\nu g_\rho[\omega](c,y)}\ge\beta$ for all $c\in S^{m-1}$, $y\in K$; i.e.\ $\mu_0(\rho,\omega,K)$ and $\beta_\rho(\omega,K)>0$ exist, and $\beta_{\rho,\mu}(\omega,K)\ge\beta_\rho(\omega,K)$ for every $\mu\ge\mu_0$.
+\source{Rus01 Lemma~18.2 and \S18.3.1, pp.~185--186; CP09 Lemma~1, p.~5. Proved in Part~10, Corollary~\ref{bpP:p10:cp09-lemma1} (``and for $g=\langle c,\omega\rangle$ without the square'').}
+\end{lemma}
+\begin{proof}
+\proofstep{Reduction to Part 10}\label{stepP:p11a:rc-reduce} $S^{m-1}$ is compact and nonempty ($m\ge1$) and $K\ne\emptyset$. For $\rho=1,2$, $g_\rho[\omega](c,\cdot)$ is real analytic on $B$ and $\not\equiv0$ for each $c\in S^{m-1}$ by R-nondegeneracy (a nonzero real analytic function on a connected open set; its square is not identically zero either), and every $y$-derivative is jointly continuous in $(c,y)$ (polynomial in $c$). Lemma~\ref{bpP:p10:finite-type} (finite type on a compact set) gives $\mu_0,\beta$. The index is the least positive integer $\mu$ with $\beta_{\rho,\mu}>0$, at most the $\mu_0$ found.
+\end{proof}
+
+\begin{lemma}[Finite-order stability of the amount]\label{bpP:p11a:stability}
+Let $V\subset\R^N$ be open, $\omega,\tilde\omega\in C^\mu(V,\R^m)$, $\mu\ge0$, $A\subset V$ nonempty, and
+\[M_0:=\lVert\omega\rVert^\mu_{\mathrm{dg},A},\qquad\theta:=\lVert\tilde\omega-\omega\rVert^\mu_{\mathrm{dg},A}.\]
+For $c\in S^{m-1}$ put $e_c=g_\rho[\tilde\omega](c,\cdot)-g_\rho[\omega](c,\cdot)$. Then for $0\le\nu\le\mu$ and $y\in A$,
+\[\dgn{D^\nu e_c(y)}\le\theta\ \ (\rho=1),\qquad\dgn{D^\nu e_c(y)}\le2^\nu\theta(2M_0+\theta)\ \ (\rho=2).\]
+Write $\eta_\rho(\theta)=\theta$ for $\rho=1$ and $\eta_2(\theta)=2^\mu\theta(2M_0+\theta)$. Consequently, if $K\subset A$ is compact, $\beta_{\rho,\mu}(\tilde\omega,K)\ge\beta_{\rho,\mu}(\omega,K)-\eta_\rho(\theta)$, and if $\beta_{\rho,\mu}(\omega,K)\ge\beta>0$ and $\eta_\rho(\theta)\le\beta/2$, then $\beta_{\rho,\mu}(\tilde\omega,K)\ge\beta/2$ and $\dgn{D^\nu e_c(y)}\le\beta/2$ on $A$ for all $c$, $\nu\le\mu$ (hypothesis (S3) of Theorem~\ref{bpP:p11a:sublevel}). No analyticity of $\tilde\omega$ and no nondegeneracy of $\tilde\omega$ is assumed. The premise $\beta_{\rho,\mu}(\omega,K)>0$ cannot be dropped (Part~10, Lemma~\ref{bpP:p10:stability}, final example).
+\source{Ours; Part~10 Lemma~\ref{bpP:p10:stability} for $\rho=2$ and $\tilde\omega$ analytic (its proof uses only $C^\mu$ and is repeated here for $C^\mu$ and for both $\rho$); the finite-order stability row \texttt{p11a:rank-compact} of \texttt{reviews/p11a-russmann-check.md}.}
+\end{lemma}
+\begin{proof}
+Fix $c$, $y\in A$, a unit $a$, and put $f=\langle c,\omega\rangle$, $\tilde f=\langle c,\tilde\omega\rangle$. By Cauchy--Schwarz ($\lvert c\rvert_2=1$), $\lvert D^kf(y)(a^k)\rvert\le\lvert D^k\omega(y)(a^k)\rvert_2\le M_0$ and $\lvert D^k(\tilde f-f)(y)(a^k)\rvert\le\theta$ for $k\le\mu$.
+\proofstep{$\rho=1$}\label{stepP:p11a:st-1} $D^\nu e_c(y)(a^\nu)=D^\nu(\tilde f-f)(y)(a^\nu)$, of modulus $\le\theta$; maximise over $a$.
+\proofstep{$\rho=2$}\label{stepP:p11a:st-2} $e_c=(\tilde f-f)(\tilde f+f)$ and $\lvert D^k(\tilde f+f)(y)(a^k)\rvert\le2M_0+\theta$ ($\tilde f+f=2f+(\tilde f-f)$). By the Leibniz formula \ref{bpP:p11a:f-leib} with equal arguments, $\lvert D^\nu e_c(y)(a^\nu)\rvert\le\sum_k\binom\nu k\theta(2M_0+\theta)=2^\nu\theta(2M_0+\theta)$.
+\proofstep{Amount}\label{stepP:p11a:st-amount} For each $(c,y)\in S^{m-1}\times K$ and $\nu\le\mu$, $\dgn{D^\nu g_\rho[\tilde\omega](c,y)}\ge\dgn{D^\nu g_\rho[\omega](c,y)}-\dgn{D^\nu e_c(y)}\ge\dgn{D^\nu g_\rho[\omega](c,y)}-\eta_\rho(\theta)$ (triangle inequality for the seminorm $\dgn\cdot$). Maximise over $\nu$, minimise over $(c,y)$ (maxima of two families that differ termwise by at most $\epsilon$ differ by at most $\epsilon$).
+\end{proof}
+
+\begin{lemma}[A computable bound for the top derivative]\label{bpP:p11a:M-bound}
+Let $\omega\in C^{\mu+1}(V,\R^m)$, $A\subset V$, $M_1:=\lVert\omega\rVert^{\mu+1}_{\mathrm{op},A}$. Then for every $c\in S^{m-1}$, $1\le k\le\mu+1$ and $y\in A$: $\opn{D^kg_1[\omega](c,y)}\le M_1$ and $\opn{D^kg_2[\omega](c,y)}\le2^kM_1^2\le2^{\mu+1}M_1^2$.
+\end{lemma}
+\begin{proof}
+$\rho=1$: $D^k\langle c,\omega\rangle(a_1..a_k)=\langle c,D^k\omega(a_1..a_k)\rangle$, Cauchy--Schwarz. $\rho=2$: apply \ref{bpP:p11a:f-leib} to $f=h=\langle c,\omega\rangle$; there are $2^k$ subsets $S$, and each term is bounded by $M_1\cdot M_1$ (orders $\le k\le\mu+1$, including order $0$: $\lvert f\rvert\le\lvert\omega\rvert_2\le M_1$).
+\end{proof}
+
+\subsection{The scalar sublevel estimate}\label{bpP:p11a:sec-sublevel}
+
+\emph{Choice.} The route study offers two proofs of the one-variable estimate: Fej04r Th\'eor\`eme~50 (Pyartli, \texttt{sources/incoming-P/fejoz04\_herman\_arnold\_revised.*}, \S5.2) and the Bakhtin-based Lemma~17.2 of Rus01 (p.~180, which cites [2] and proves only the reduction to it). Th\'eor\`eme~50 is stated for a \emph{$C^\infty$ curve} $\nu:I\to\R^p$ that is $(a,b)$-``gauche'', with an unspecified constant $C_{\tau,p}$ and for $\gamma$ ``assez petit''; it is not stated for a perturbed function of finitely many derivatives and does not display the dependence on $(\mu,\beta)$. We therefore \emph{prove} the one-variable estimate directly (Lemma~\ref{bpP:p11a:scalar-sublevel}); the proof is a few lines, uses nothing beyond Rolle's theorem, and has the same constant as Rus01 (17.4) for $q=1,2$ (for $q=3$: $6$ against $4\cdot3^{1/3}\approx5.77$). Neither Bakhtin's theorem nor Th\'eor\`eme~50 is used.
+
+\begin{lemma}[Divided differences]\label{bpP:p11a:divided-difference}
+Let $q\ge1$, $a<b$, $f\in C^q([a,b],\R)$ and $a\le t_0<t_1<\dots<t_q\le b$. Then there is $\xi\in(t_0,t_q)$ with
+\[\sum_{i=0}^q\frac{f(t_i)}{\prod_{j\ne i}(t_i-t_j)}=\frac{f^{(q)}(\xi)}{q!}.\]
+\end{lemma}
+\begin{proof}
+\proofstep{Interpolation}\label{stepP:p11a:dd-interp} Let $P$ be the Lagrange interpolation polynomial of degree $\le q$ with $P(t_i)=f(t_i)$ (\ref{bpP:p11a:f-rolle}); its $t^q$-coefficient is $c=\sum_if(t_i)/\prod_{j\ne i}(t_i-t_j)$, so $P^{(q)}\equiv q!\,c$.
+\proofstep{Rolle}\label{stepP:p11a:dd-rolle} $u=f-P\in C^q([t_0,t_q])$ has $q+1$ distinct zeros $t_i$; by Rolle \ref{bpP:p11a:f-rolle} there is $\xi\in(t_0,t_q)$ with $u^{(q)}(\xi)=0$, i.e.\ $f^{(q)}(\xi)=q!\,c$.
+\end{proof}
+
+\begin{lemma}[One-variable sublevel estimate; Rus01 Lemma 17.2]\label{bpP:p11a:scalar-sublevel}
+Let $q\ge1$ and $\beta>0$, $a<b$, and $f\in C^q([a,b],\R)$ with $\lvert f^{(q)}(t)\rvert\ge\beta$ for all $t\in[a,b]$. Then for every $\varepsilon>0$
+\[\operatorname{meas}\{t\in[a,b]:\ \lvert f(t)\rvert\le\varepsilon\}\ \le\ 2q\Big(\frac\varepsilon\beta\Big)^{1/q}.\]
+\source{Rus01 Lemma~17.2, p.~180: ``$\operatorname{meas}_1\{t\in[a,b]\mid\lvert f(t)\rvert\le\varepsilon\}\le4\,(q!\,\varepsilon/2\beta)^{1/q}$'' (17.4). The printed proof extends $f$ to $\R$ and \emph{cites} Bakhtin [2] (an extremal property of Chebyshev polynomials); it proves neither. The proof below is ours and replaces it (deviation D1, \sourcegap).}
+\sourcegap{Rus01 \S17.2 imports (17.4) from Bakhtin [2]; the elementary proof given here removes the dependence.}
+\end{lemma}
+\begin{proof}
+Let $E=\{t\in[a,b]:\lvert f(t)\rvert\le\varepsilon\}$ (closed, $f$ continuous), $L=\operatorname{meas}E$. If $L=0$ there is nothing to prove; let $L>0$.
+\proofstep{Distribution function}\label{stepP:p11a:ss-phi} $\phi(t)=\operatorname{meas}(E\cap[a,t])$ is continuous and nondecreasing from $\phi(a)=0$ to $\phi(b)=L$ (\ref{bpP:p11a:f-meas}).
+\proofstep{Equidistributed nodes in $E$}\label{stepP:p11a:ss-nodes} Put $t_0=\min E$ (nonempty compact) and, for $1\le i\le q$, $t_i=\min\{t\in[a,b]:\phi(t)\ge iL/q\}$ (nonempty closed set since $\phi(b)=L$). Then $\phi(t_0)=0$ (as $E\cap[a,t_0)=\emptyset$ and points have measure $0$) and $\phi(t_i)=iL/q$ for $i\ge1$ (continuity; $\phi(t)<iL/q$ for $t<t_i$; $t_i>a$ since $\phi(a)=0<iL/q$). Moreover $t_i\in E$ for $i\ge1$: otherwise, $E$ being closed, $E\cap(t'\!,t_i]=\emptyset$ for some $t'<t_i$, so $\phi(t')=\phi(t_i)=iL/q$, contradicting minimality. For $0\le i<j\le q$,
+\[(j-i)\tfrac Lq=\phi(t_j)-\phi(t_i)=\operatorname{meas}(E\cap(t_i,t_j])\le t_j-t_i,\]
+so $t_0<\dots<t_q$ and $t_j-t_i\ge(j-i)L/q$.
+\proofstep{Product of gaps}\label{stepP:p11a:ss-gaps} For each $i$, $\prod_{j\ne i}\lvert t_i-t_j\rvert\ge\prod_{j<i}(i-j)\frac Lq\prod_{j>i}(j-i)\frac Lq=i!\,(q-i)!\,(L/q)^q$.
+\proofstep{Divided difference}\label{stepP:p11a:ss-dd} By Lemma~\ref{bpP:p11a:divided-difference}, $\beta/q!\le\lvert f^{(q)}(\xi)\rvert/q!=\big\lvert\sum_if(t_i)/\prod_{j\ne i}(t_i-t_j)\big\rvert\le\varepsilon\sum_i\frac1{i!(q-i)!}(q/L)^q=\varepsilon\frac{2^q}{q!}(q/L)^q$, using $\lvert f(t_i)\rvert\le\varepsilon$ ($t_i\in E$) and $\sum_i\frac1{i!(q-i)!}=\frac{2^q}{q!}$. Hence $L^q\le(2q)^q\varepsilon/\beta$.
+\end{proof}
+
+\begin{lemma}[Sublevel set in a ball; Rus01 Lemma 17.3]\label{bpP:p11a:ball-sublevel}
+Let $V\subset\R^N$ be open, $q\ge1$, $g\in C^q(V,\R)$, $U=\{y:\lvert y-y_0\rvert_2\le r\}\subset V$ a closed ball ($r>0$), $a\in\R^N$ with $\lvert a\rvert_2=1$, $\beta>0$ and $\lvert D^qg(y)(a^q)\rvert\ge\beta$ for all $y\in U$. Then for every $\varepsilon>0$
+\[\operatorname{meas}\{y\in U:\lvert g(y)\rvert\le\varepsilon\}\ \le\ 2q\,(2r)^{N-1}\Big(\frac\varepsilon\beta\Big)^{1/q}.\]
+\source{Rus01 Lemma~17.3, p.~180--181 (17.6): the bound there is $(2\pi e/n)^{n/2}\,(q!\varepsilon/2\beta)^{1/q}\,r^{n-1}$ after the Gamma-function estimate (17.9) (Whittaker--Watson, p.~253). Here the projection of the ball is bounded by the circumscribed cube of side $2r$, which removes the Stirling estimate (deviation D2).}
+\end{lemma}
+\begin{proof}
+\proofstep{Rotate}\label{stepP:p11a:bs-rot} Choose an orthogonal $Q$ with last column $a$ (\ref{bpP:p11a:f-orth}); the map $(x',t)\mapsto y_0+Q(x',t)$ preserves Lebesgue measure (\ref{bpP:p11a:f-meas}) and maps $\{(x',t):\lvert x'\rvert_2^2+t^2\le r^2\}$ onto $U$. For $N=1$ there is no $x'$ and $Q=\pm1$.
+\proofstep{Sections}\label{stepP:p11a:bs-sections} Fix $x'\in\R^{N-1}$ with $\lvert x'\rvert_2\le r$; the section is $t\in I_{x'}=[-\sqrt{r^2-\lvert x'\rvert^2},\sqrt{r^2-\lvert x'\rvert^2}]$ and $f_{x'}(t)=g(y_0+Q(x',0)+ta)$ (the base point is $y_0+Q(x',0)$) is $C^q$ on $I_{x'}$ with $f_{x'}^{(q)}(t)=D^qg(\cdot)(a^q)$ (\ref{bpP:p11a:f-mvt}), $\lvert f^{(q)}_{x'}\rvert\ge\beta$. Lemma~\ref{bpP:p11a:scalar-sublevel} gives section measure $\le2q(\varepsilon/\beta)^{1/q}$ (zero if $I_{x'}$ is a point).
+\proofstep{Tonelli}\label{stepP:p11a:bs-tonelli} The set $\{\lvert x'\rvert_2\le r\}\subset[-r,r]^{N-1}$ has measure $\le(2r)^{N-1}$; integrate the section bound (\ref{bpP:p11a:f-meas}).
+\end{proof}
+
+\begin{theorem}[Sublevel estimate for a $C^\mu$-perturbed function of finite type; Rus01 Thm 17.1]\label{bpP:p11a:sublevel}
+Let $N,\mu\ge1$ be integers, $K\subset\R^N$ nonempty compact with $d=d_\infty(K)>0$, $\vartheta>0$, $V\subset\R^N$ open with $K_\vartheta\subset V$, $g\in C^{\mu+1}(V,\R)$, $\tilde g\in C^\mu(V,\R)$, and $\beta>0$, $M\ge\beta$ such that
+\begin{enumerate}[label=(S\arabic*),ref=(S\arabic*)]
+\item\label{bpP:p11a:S1} (finite type) for every $y\in K$ there is $\nu\in\{0,\dots,\mu\}$ with $\dgn{D^\nu g(y)}\ge\beta$;
+\item\label{bpP:p11a:S2} (size) $\opn{D^kg(y)}\le M$ for $1\le k\le\mu+1$, $y\in K_\vartheta$;
+\item\label{bpP:p11a:S3} (closeness) $\dgn{D^\nu(\tilde g-g)(y)}\le\beta/2$ for $0\le\nu\le\mu$, $y\in K_\vartheta$.
+\end{enumerate}
+Then for every $0<\varepsilon<\beta/4$,
+\[\operatorname{meas}\{y\in K:\ \lvert\tilde g(y)\rvert\le\varepsilon\}\ \le\ C_{\mathrm{sub}}\Big(\frac\varepsilon\beta\Big)^{1/\mu},\qquad C_{\mathrm{sub}}=C_{\mathrm{sub}}(N,\mu,d,\vartheta,M/\beta):=2^{N+2}\mu\,(\sqrt Nd)^{N-1}\frac M\beta\Big(1+\big(4+\vartheta^{-1}\big)\sqrt Nd\Big).\]
+The constant depends only on $N,\mu$, the max-diameter $d$ of $K$, the thickening $\vartheta$ and the ratio $M/\beta$ of the size of the top derivatives to the amount.
+\source{Rus01 Thm~17.1, p.~180 (17.2), proof \S17.4, pp.~181--183, where the constant is $\mathcal B\,d^{n-1}(n^{-1/2}+2d+\vartheta^{-1}d)(\ldots)$ with $\mathcal B=3(2\pi e)^{n/2}(\mu_0+1)^{\mu_0+2}[(\mu_0+1)!]^{-1}$ and the range $\varepsilon\le\beta/(2\mu_0+2)$. The covering argument (cubes of side $d/m$, balls $U_j$ around points $b^{(j)}\in K$, Taylor step (17.12)--(17.14)) is followed; deviations D1--D3 (constants, norms, range of $\varepsilon$).}
+\end{theorem}
+\begin{proof}
+Put $\kappa:=\lceil\tfrac M\beta(4+\vartheta^{-1})\sqrt Nd\rceil\ge1$ (the number of subdivisions; Rus01's $m$), $r:=\sqrt Nd/\kappa$. Since $M/\beta\ge1$,
+\[\kappa\ge\tfrac{4M\sqrt Nd}\beta,\qquad\kappa\ge\tfrac{\sqrt Nd}\vartheta,\qquad\kappa\le1+\tfrac M\beta(4+\vartheta^{-1})\sqrt Nd\le\tfrac M\beta\big(1+(4+\vartheta^{-1})\sqrt Nd\big),\]
+so $Mr\le\beta/4$ and $r\le\vartheta$.
+\proofstep{Cover by balls}\label{stepP:p11a:sl-cover} $K\subset Q=\prod_i[l_i,l_i+d]$ with $l_i=\min_{y\in K}y_i$ (each coordinate range of $K$ is $\le d$). Divide $Q$ into $\kappa^N$ closed subcubes $Q_j$ of side $d/\kappa$; for the at most $\kappa^N$ indices with $Q_j\cap K\ne\emptyset$ choose $b_j\in Q_j\cap K$, and let $U_j=\{y:\lvert y-b_j\rvert_2\le r\}$. Every $y\in Q_j$ has $\lvert y-b_j\rvert_\infty\le d/\kappa$, so $\lvert y-b_j\rvert_2\le r$; thus $K\subset\bigcup_jU_j$, and $U_j\subset K_\vartheta\subset V$ ($r\le\vartheta$, $b_j\in K$); $U_j$ is convex.
+\proofstep{A lower bound for the top-order derivative of $\tilde g$ on $U_j$}\label{stepP:p11a:sl-lower} Fix $j$ and by \ref{bpP:p11a:S1} choose $\nu=\nu(j)\le\mu$ with $\dgn{D^\nu g(b_j)}\ge\beta$; if $\nu\ge1$ choose a unit $a=a_j$ with $\lvert D^\nu g(b_j)(a^\nu)\rvert\ge\beta$. For $y\in U_j$, the function $\varphi(s)=D^\nu g(b_j+s(y-b_j))(a^\nu)$ ($s\in[0,1]$) is $C^1$ ($\nu\le\mu$, $g\in C^{\mu+1}$) with $\varphi'(s)=D^{\nu+1}g(\cdot)(a,\dots,a,y-b_j)$, hence $\lvert\varphi'\rvert\le M\lvert y-b_j\rvert_2\le Mr$ by \ref{bpP:p11a:S2} (the segment lies in $U_j\subset K_\vartheta$; $\nu+1\in[1,\mu+1]$), and by the mean value inequality \ref{bpP:p11a:f-mvt} $\lvert D^\nu g(y)(a^\nu)-D^\nu g(b_j)(a^\nu)\rvert\le Mr$. With \ref{bpP:p11a:S3},
+\[\lvert D^\nu\tilde g(y)(a^\nu)\rvert\ \ge\ \beta-Mr-\beta/2\ \ge\ \beta/4\qquad(y\in U_j,\ \nu=\nu(j)\ge1),\]
+and for $\nu(j)=0$ the same computation gives $\lvert\tilde g(y)\rvert\ge\beta/4>\varepsilon$ on $U_j$.
+\proofstep{One ball}\label{stepP:p11a:sl-ball} If $\nu(j)=0$, $\{y\in U_j:\lvert\tilde g\rvert\le\varepsilon\}=\emptyset$. If $q=\nu(j)\ge1$, Lemma~\ref{bpP:p11a:ball-sublevel} for $\tilde g\in C^q(V)$, $\beta/4$ in place of $\beta$, gives $\operatorname{meas}\le2q(2r)^{N-1}(4\varepsilon/\beta)^{1/q}\le2\mu(2r)^{N-1}\cdot4\,(\varepsilon/\beta)^{1/\mu}$, because $\varepsilon/\beta<1$ makes $(\cdot)^{1/q}\le(\cdot)^{1/\mu}$ and $q\le\mu$, $4^{1/\mu}\le4$.
+\proofstep{Sum}\label{stepP:p11a:sl-sum} Summing over $\le\kappa^N$ balls (\ref{bpP:p11a:f-meas}), $\operatorname{meas}\le\kappa^N\cdot8\mu(2r)^{N-1}(\varepsilon/\beta)^{1/\mu}=2^{N+2}\mu(\sqrt Nd)^{N-1}\kappa\,(\varepsilon/\beta)^{1/\mu}$, since $\kappa^Nr^{N-1}=\kappa(\sqrt Nd)^{N-1}$; insert the bound for $\kappa$.
+\end{proof}
+
+\begin{remark}[Comparison with Rus01 17.1, deviations]\label{bpP:p11a:sublevel-dev}
+(D1) The constant $C_{\mathrm{sub}}$ is not Rus01's $\mathcal B\cdots$ (no $(\mu+1)!$, no Gamma function); it is explicit and polynomial in $\mu$ except for the unavoidable $M/\beta$. (D2) Two tensor norms (no polarization constant $\sigma_\nu$). (D3) The range is $\varepsilon<\beta/4$ rather than $\varepsilon\le\beta/(2\mu_0+2)$; for $\mu\ge1$, $2\mu+2\ge4$ so ours is the larger range up to the strict inequality. The order of the arguments in Rus01 (choice of $m$ minimising (17.17), (17.15)) is replaced by the explicit $\kappa$. The case $\mu=0$ (nonvanishing $g$) needs no estimate: by \ref{bpP:p11a:S1}--\ref{bpP:p11a:S3} $\lvert\tilde g\rvert>\varepsilon$ on $K$ for $\varepsilon<\beta/4$.
+\end{remark}
+
+\subsection{The measure of the small-divisor set}\label{bpP:p11a:sec-dio}
+
+\begin{theorem}[Measure of the set where the divisors are large; Rus01 Thm 18.5 with $p=q=0$]\label{bpP:p11a:diophantine-measure}
+Let $N,m,\mu\ge1$, $\rho\in\{1,2\}$, $K\subset\R^N$ nonempty compact with $d=d_\infty(K)>0$, $\vartheta>0$, $V\subset\R^N$ open with $K_\vartheta\subset V$, $\omega\in C^{\mu+1}(V,\R^m)$, and $\beta>0$, $M\ge\beta$ with
+\begin{enumerate}[label=(D\arabic*),ref=(D\arabic*)]
+\item\label{bpP:p11a:D1} (index and amount) $\beta_{\rho,\mu}(\omega,K)\ge\beta$ (Definition~\ref{bpP:p11a:index-def}; e.g.\ $\mu\ge\mu_0(\rho,\omega,K)$ and $\beta=\beta_\rho(\omega,K)$, Lemma~\ref{bpP:p11a:rank-compact});
+\item\label{bpP:p11a:D2} (size) $\opn{D^kg_\rho[\omega](c,y)}\le M$ for all $c\in S^{m-1}$, $1\le k\le\mu+1$, $y\in K_\vartheta$ (by Lemma~\ref{bpP:p11a:M-bound}, $M=\max\{\beta,\,M_1^{(\rho)}\}$ with $M_1^{(1)}=\lVert\omega\rVert^{\mu+1}_{\mathrm{op},K_\vartheta}$, $M_1^{(2)}=2^{\mu+1}(\lVert\omega\rVert^{\mu+1}_{\mathrm{op},K_\vartheta})^2$ works).
+\end{enumerate}
+Let $\Psi:\Z^m\setminus\{0\}\to(0,\infty)$ (a divisor profile) and, for each $k\in\Z^m\setminus\{0\}$, let $\tilde\omega_k\in C^\mu(V,\R^m)$ satisfy
+\begin{enumerate}[label=(D\arabic*),ref=(D\arabic*),resume]
+\item\label{bpP:p11a:D3} (closeness) $\dgn{D^\nu\big(g_\rho[\tilde\omega_k](c,\cdot)-g_\rho[\omega](c,\cdot)\big)(y)}\le\beta/2$ for all $c\in S^{m-1}$, $0\le\nu\le\mu$, $y\in K_\vartheta$ (by Lemma~\ref{bpP:p11a:stability}: it suffices that $\eta_\rho(\theta_k)\le\beta/2$ with $\theta_k=\lVert\tilde\omega_k-\omega\rVert^\mu_{\mathrm{dg},K_\vartheta}$);
+\item\label{bpP:p11a:D4} (smallness of the divisors) $\big(\Psi(k)/\lvert k\rvert_2\big)^\rho<\beta/4$ for all $k\ne0$.
+\end{enumerate}
+Put $H:=\{b\in K:\ \lvert k\cdot\tilde\omega_k(b)\rvert\ge\Psi(k)\ \text{for all }k\in\Z^m\setminus\{0\}\}$. Then $H$ is compact and
+\[\operatorname{meas}(K\setminus H)\ \le\ C_{\mathrm{sub}}\,\beta^{-1/\mu}\sum_{k\in\Z^m\setminus\{0\}}\Big(\frac{\Psi(k)}{\lvert k\rvert_2}\Big)^{\rho/\mu},\]
+with $C_{\mathrm{sub}}=C_{\mathrm{sub}}(N,\mu,d,\vartheta,M/\beta)$ of Theorem~\ref{bpP:p11a:sublevel} (the right side may be $+\infty$, in which case there is no claim).
+\source{Rus01 Thm~18.5, p.~189, proof pp.~190--193, specialised to $p=q=0$ (no elliptic or hyperbolic determinants, amount of degeneracy $\alpha=1$), the maximal case. The $k$-dependence of $\tilde\omega_k$ (Rus01 uses one $\tilde\chi$ per application) is added so that the stage-dependent frequency maps of the iteration (Part~11a-3) enter without a further lemma; deviations D3--D5.}
+\end{theorem}
+\begin{proof}
+\proofstep{Compactness}\label{stepP:p11a:dm-compact} For each $k$, $b\mapsto\lvert k\cdot\tilde\omega_k(b)\rvert$ is continuous ($\mu\ge1$), so $\{b\in K:\lvert k\cdot\tilde\omega_k(b)\rvert\ge\Psi(k)\}$ is closed; an intersection of closed subsets of the compact $K$ is compact.
+\proofstep{Union of sublevel sets}\label{stepP:p11a:dm-union} If $b\in K\setminus H$ there is $k\ne0$ with $\lvert k\cdot\tilde\omega_k(b)\rvert<\Psi(k)$. With $c=k/\lvert k\rvert_2\in S^{m-1}$ this reads $\lvert\langle c,\tilde\omega_k(b)\rvert<\Psi(k)/\lvert k\rvert_2$, hence $\lvert g_\rho[\tilde\omega_k](c,b)\rvert<\varepsilon_k:=(\Psi(k)/\lvert k\rvert_2)^\rho$. Therefore $K\setminus H\subset\bigcup_{k\ne0}\{b\in K:\lvert g_\rho[\tilde\omega_k](c_k,b)\rvert\le\varepsilon_k\}$, $c_k=k/\lvert k\rvert_2$.
+\proofstep{One $k$}\label{stepP:p11a:dm-onek} Apply Theorem~\ref{bpP:p11a:sublevel} to $g=g_\rho[\omega](c_k,\cdot)\in C^{\mu+1}(V)$ (as $\omega\in C^{\mu+1}$), $\tilde g=g_\rho[\tilde\omega_k](c_k,\cdot)\in C^\mu(V)$ and $\varepsilon=\varepsilon_k\in(0,\beta/4)$ (\ref{bpP:p11a:D4}): (S1) is \ref{bpP:p11a:D1} at $c_k$, (S2) is \ref{bpP:p11a:D2}, (S3) is \ref{bpP:p11a:D3}. This gives $\operatorname{meas}\le C_{\mathrm{sub}}(\varepsilon_k/\beta)^{1/\mu}=C_{\mathrm{sub}}\beta^{-1/\mu}(\Psi(k)/\lvert k\rvert_2)^{\rho/\mu}$.
+\proofstep{Sum}\label{stepP:p11a:dm-sum} Countable subadditivity (\ref{bpP:p11a:f-meas}).
+\end{proof}
+
+\begin{corollary}[Power-law divisors; the measure loss]\label{bpP:p11a:power-law}
+In the setting of Theorem~\ref{bpP:p11a:diophantine-measure} let $\tau>\frac{m\mu}\rho-1$ and $s:=\frac{\rho(\tau+1)}\mu-m>0$, and let $\gamma>0$ be such that $(\sqrt m\,\gamma)^\rho<\beta/4$. Suppose \ref{bpP:p11a:D1}--\ref{bpP:p11a:D3} hold (for all $k\ne0$) and put
+\[H_\gamma:=\{b\in K:\ \lvert k\cdot\tilde\omega_k(b)\rvert\ge\gamma\lvert k\rvert_1^{-\tau}\ \ \forall k\in\Z^m\setminus\{0\}\}\qquad(\text{the frozen form, Definition~\ref{bpP:p0:diophantine}, for the vector }\tilde\omega_k(b)).\]
+Then $H_\gamma$ is compact and
+\[\operatorname{meas}(K\setminus H_\gamma)\le C_{\mathrm{Dio}}\,\gamma^{\rho/\mu},\qquad C_{\mathrm{Dio}}:=C_{\mathrm{sub}}\,\beta^{-1/\mu}\,m^{\rho/(2\mu)}\cdot2\cdot3^{m-1}\Big(1+\frac1s\Big).\]
+Consequently, for every $\varepsilon^*\in(0,\operatorname{meas}K)$ and every $\gamma$ with
+\[0<\gamma\le\gamma_*(\varepsilon^*):=\min\Big\{\tfrac12\,m^{-1/2}(\beta/4)^{1/\rho},\ \big(\varepsilon^*/C_{\mathrm{Dio}}\big)^{\mu/\rho}\Big\}\]
+one has $\operatorname{meas}H_\gamma\ge\operatorname{meas}K-\varepsilon^*$. The data on which $\gamma_*$ depends: $(N,m,\mu,\rho,\tau)$, the index and amount $(\mu,\beta)$, the chart constants $(d,\vartheta,M)$ and $\varepsilon^*$; it does \emph{not} depend on $\omega$ or $\tilde\omega_k$ otherwise.
+\source{Rus01 \S18.5, pp.~191--193: the lattice summation with $\Phi_{m\mu_0}=\sup_{T\ge1}T^m\Phi(T)^{1/\mu_0}$ (p.~193) is replaced by the explicit lattice sum of Track K (\ref{bpP:p11a:f-lattice}, \Kref{bp:p4:lattice-sum}); CP09 Lemma~8, p.~18 (the loss exponent $\mu/2$ in $\gamma$ is the case $\rho=2$ of the exponent $\rho/\mu$ above). Deviation D5: for the power $\Phi(T)=T^{-\tau_D}$ the summability condition is $\rho(\tau+1)/\mu>m$, i.e.\ $\tau>m\mu/\rho-1$, weaker than Rus01/CP09's $\tau_D>m\mu$.}
+\end{corollary}
+\begin{proof}
+\proofstep{Profile}\label{stepP:p11a:pl-profile} Put $\Psi(k)=\gamma\lvert k\rvert_1^{-\tau}$. For $k\ne0$, $\lvert k\rvert_1\ge1$ and $\lvert k\rvert_2\ge\lvert k\rvert_1/\sqrt m$, so $\Psi(k)/\lvert k\rvert_2\le\sqrt m\,\gamma\lvert k\rvert_1^{-\tau-1}\le\sqrt m\,\gamma$ and \ref{bpP:p11a:D4} follows from $(\sqrt m\gamma)^\rho<\beta/4$.
+\proofstep{Lattice sum}\label{stepP:p11a:pl-sum} $\sum_{k\ne0}(\Psi(k)/\lvert k\rvert_2)^{\rho/\mu}\le(\sqrt m\gamma)^{\rho/\mu}\sum_{k\ne0}\lvert k\rvert_1^{-\rho(\tau+1)/\mu}$. Put $\tau'=\rho(\tau+1)/\mu-1$, so that $\tau'+1-m=s>0$, i.e.\ $\tau'>m-1$; by \ref{bpP:p11a:f-lattice} the sum is $\le S(m,\tau')=2\cdot3^{m-1}(s+1)/s$.
+\proofstep{Conclusion}\label{stepP:p11a:pl-conc} Theorem~\ref{bpP:p11a:diophantine-measure} gives $\operatorname{meas}(K\setminus H_\gamma)\le C_{\mathrm{sub}}\beta^{-1/\mu}m^{\rho/2\mu}\gamma^{\rho/\mu}\cdot2\cdot3^{m-1}(1+1/s)=C_{\mathrm{Dio}}\gamma^{\rho/\mu}$. If $\gamma\le\gamma_*$, then $(\sqrt m\gamma)^\rho\le2^{-\rho}\beta/4<\beta/4$ and $C_{\mathrm{Dio}}\gamma^{\rho/\mu}\le\varepsilon^*$.
+\end{proof}
+
+\begin{lemma}[Change of chart: affine similarities]\label{bpP:p11a:chart-scaling}
+Let $y=y_0+\lambda y'$ with $\lambda>0$, $K'=\lambda^{-1}(K-y_0)$, $V'=\lambda^{-1}(V-y_0)$, $\omega'(y')=\omega(y_0+\lambda y')$ (and likewise $\tilde\omega_k'$). Then $g_\rho[\omega'](c,y')=g_\rho[\omega](c,y_0+\lambda y')$ and $D^kg_\rho[\omega'](c,y')=\lambda^kD^kg_\rho[\omega](c,y_0+\lambda y')$ for both tensor norms; $d'=d/\lambda$, $\vartheta'=\vartheta/\lambda$, $(K')_{\vartheta'}=\lambda^{-1}(K_\vartheta-y_0)$, and $\operatorname{meas}E'=\lambda^{-N}\operatorname{meas}E$ for $E'=\lambda^{-1}(E-y_0)$. Consequently:
+\begin{enumerate}[label=(\alph*)]
+\item $\beta_{\rho,\mu}(\omega',K')\ge\min\{1,\lambda^\mu\}\,\beta_{\rho,\mu}(\omega,K)$; thus \ref{bpP:p11a:D1} holds in the chart $y'$ with $\beta'=\min\{1,\lambda^\mu\}\beta$;
+\item \ref{bpP:p11a:D2} holds in the chart $y'$ with $M'=\max\{1,\lambda^{\mu+1}\}M\ge\beta'$;
+\item \ref{bpP:p11a:D3} is \emph{not} scale invariant: its left side is multiplied by $\lambda^\nu$, so in the chart $y'$ it must be (re)checked with the bound $\beta'/2$ (it holds if the original left side is $\le\min\{\lambda^{-\mu},1\}\,\beta'/2$, in particular if it is $\le\min\{1,\lambda^\mu\}\min\{1,\lambda^{-\mu}\}\beta/2$);
+\item the Diophantine sets $H$, $H_\gamma$ of Theorem~\ref{bpP:p11a:diophantine-measure} and Corollary~\ref{bpP:p11a:power-law} are defined by the same inequalities $\lvert k\cdot\tilde\omega_k\rvert\ge\Psi(k)$, so $H=y_0+\lambda H'$ and $\operatorname{meas}(K\setminus H)=\lambda^N\operatorname{meas}(K'\setminus H')$.
+\end{enumerate}
+\source{Ours (elementary); the chart changes that CP09's polar and action rescalings produce enter here, \texttt{reviews/p11a-russmann-check.md} (``chart constants'').}
+\end{lemma}
+\begin{proof}
+Chain rule for the affine map: $D^k(g\circ A)(y')(a_1,\dots,a_k)=\lambda^kD^kg(Ay')(a_1,\dots,a_k)$; and $\max_{0\le\nu\le\mu}\lambda^\nu x_\nu\ge\min\{1,\lambda^\mu\}\max_\nu x_\nu$ for $x_\nu\ge0$; for (b), $\lambda^k\le\max\{1,\lambda^{\mu+1}\}$ for $1\le k\le\mu+1$. Diameters and thickenings scale by $\lambda^{-1}$, Lebesgue measure by $\lambda^{-N}$ (\ref{bpP:p11a:f-meas}).
+\end{proof}
+
+\begin{remark}[Use of the chart lemma, and what consumers must supply]\label{bpP:p11a:consumers}
+\emph{(a) What the finite preparation (Part 11) and the measure statement need.} Part~10 (Theorem~\ref{bpP:p10:interface}(c),(d), Corollary~\ref{bpP:p10:cp09-lemma1}) provides, on a good patch $K=\Lambda(K_a)\subset B^\Lambda$, the index $\mu_0$ and amount $\beta$ of the planetary frequency data $\tilde\varpi=(\nu,\Omega)$ in the squared convention ($\rho=2$, $m=2n$, $N=n$), independent of the coupling. Part~11 (CP09 finite preparation, Lemmas~4--7 and Proposition~2) must then supply, for the \emph{prepared maximal frequency map} $\omega_\varepsilon$ (defined on a neighbourhood of a rescaled patch, after the polar change of variables), \emph{(i)} a patch $K_\varepsilon$ with $d_\varepsilon,\vartheta_\varepsilon$ and an index/amount $(\mu,\beta_\varepsilon)$ of $\omega_\varepsilon$, obtained by Lemma~\ref{bpP:p11a:stability} from Part~10's $\beta$ and a \emph{$C^\mu$-estimate} for $\omega_\varepsilon-\omega_0$ on $K_{\varepsilon,\vartheta}$ (this is CP09 Prop.~2 with derivative control, defect R-CP-2 of the review: a $C^0$ bound does not suffice); \emph{(ii)} the size $M_\varepsilon$ of \ref{bpP:p11a:D2}. With these, Corollary~\ref{bpP:p11a:power-law} gives the measure of the set of Diophantine frequencies in the prepared chart. \emph{(b) File~11a-3} applies Theorem~\ref{bpP:p11a:diophantine-measure} with $k$-dependent $\tilde\omega_k=\omega_{\nu(k)}$, the iteration's frequency map at the stage $\nu(k)$ with $\lvert k\rvert_2\in(T_{\nu-1},T_\nu]$ (the truncation order of the stage), exactly as Rus01 uses one measure estimate per stage (\S20.5, pp.~201--202); the closeness \ref{bpP:p11a:D3} is then the $C^\mu$-size of the accumulated frequency shift $\sum_{\nu'<\nu}\Delta\omega_{\nu'}$ on the shrinking sets (Rus01 (16.1)--(16.4), pp.~179), supplied by the Cauchy estimates of File~11a-3 and the extension of \S\S19--20 (finite differentiability only, File~11a-3). \emph{(c)} All of Part~11a is formulated with period-one angles (characters $e^{2\pi ik\cdot\theta}$), so the divisors are the frozen ones, $\lvert k\cdot w\rvert\ge\gamma\lvert k\rvert_1^{-\tau}$ (Definition~\ref{bpP:p0:diophantine}), and only the comparison $\lvert k\rvert_2\ge\lvert k\rvert_1/\sqrt m$ enters here. Data given with CP's $2\pi$-angles are converted once by Part~11 (\texttt{bpP:p1:period-convert}); Rus01's own $2\pi$-periodic constants are not reused. For $\omega$ real analytic the constant $M$ of \ref{bpP:p11a:D2} is obtained from the general Cauchy estimate of arbitrary order (\Nref{bpN:p4:general-cauchy}; \Kref{bp:p1:cauchy-open} covers only orders $j\le3$) and Lemma~\ref{bpP:p11a:M-bound}; this is carried out in File~11a-5.
+\end{remark}
+
+\subsection{Sources, deviations, errata, forward references}\label{bpP:p11a:notes}
+
+\paragraph{Sources read.} Rus01 \S\S17.1--17.4 (pp.~180--183), 17.5 (p.~183, determinant derivatives; not needed for $p=q=0$), 18.1--18.5 (pp.~185--193), \S16.2 (p.~178), Thm~16.7 (p.~179) for the consumer interface, \S\S7.2--7.5 (pp.~134--136) for the neighbouring cutoff; the Rus01 pages were read from the pinned PDF (print page $=$ pdf page $+118$). Fej04r \S5.2, Th\'eor\`eme~50 (statement only). CP09 pp.~5--6 (Lemma~1, Def.~2, via Part~10). \texttt{reviews/p11a-russmann-check.md} (rows \texttt{rank-compact}, \texttt{scalar-sublevel}, \texttt{diophantine-measure}, errata A3, R-CP-2), Part~10.
+
+\paragraph{Deviations from the source (all recorded).} (D1) The one-variable estimate (17.4) is proved (Lemma~\ref{bpP:p11a:scalar-sublevel}) instead of imported from Bakhtin; constants are ours, explicit and polynomial in $\mu$. (D2) Two tensor norms; no polarization constant; no Gamma-function estimates (ball volume bounded by the circumscribed cube). (D3) Range $\varepsilon<\beta/4$ in place of $\beta/(2\mu_0+2)$; the constants $C_{\mathrm{sub}},C_{\mathrm{Dio}}$ are recomputed (not Rus01's (18.12), (18.13), (18.30)). (D4) Index and amount are those of the scalar family $\langle c,\omega\rangle^\rho$, $\rho\in\{1,2\}$, rather than of the product family of Rus01 \S18.3.4 ($\langle c,\omega\rangle\langle\hat c,\omega\rangle$); each theorem holds for each $\rho$ with its own $(\mu,\beta)$, and the consumer picks one convention and keeps it. No comparison between the numbers of different conventions is claimed (review, \S18.3 note). (D5) The summability condition is $\tau>m\mu/\rho-1$ via the explicit lattice sum of Track K; it covers CP09's $\tau_D>m\mu$ (with CP09's squared index) and Rus01's $\Phi_{m\mu_0}<\infty$ for the power $\Phi(T)=T^{-\tau_D}$ (finite exactly when $\tau_D\ge m\mu_0$ in the normalised case, and $\Phi\equiv1$ on $[0,1]$). (D6) The Diophantine condition is stated with $\lvert k\rvert_1$ (frozen Definition~\ref{bpP:p0:diophantine}); Rus01 uses $\lvert k\rvert_2$ with a general $\Phi$; the comparison costs the factor $\sqrt m$ (in $\gamma_*$). (D7) $k$-dependent perturbed frequency maps (new but a trivial generalisation of the proof). (D8) Elliptic/hyperbolic divisors ($p,q>0$), $\alpha$ (amount of degeneracy, Rus01 \S18.1) and \S17.5 (derivatives of determinants) are not needed in the maximal case and are dropped.
+
+\paragraph{Suspected errata.} None found in the pages used. Rus01 Lemma~17.2 depends on an unproved citation (\sourcegap above); this is a gap, not an error.
+
+\paragraph{Doubts about frozen statements.} None (Part~11a-1 touches no frozen declaration; the conclusion of Part~11a is assembled in File~11a-5).
+
+\paragraph{External facts used.} \ref{bpP:p11a:f-rolle}--\ref{bpP:p11a:f-leib}; \ref{bpP:p10:f-pol}, \ref{bpP:p10:f-leib}, \ref{bpP:p10:f-id} through Part~10. Not in Mathlib in this form as far as we know: iterated Rolle for $q$ nodes in the form of Lemma~\ref{bpP:p11a:divided-difference} (a few lines from \texttt{exists\_deriv\_eq\_zero} and \texttt{Lagrange}); the divided-difference estimate is proved in the text.
+
+\paragraph{Numerical check.} \texttt{.drafts/P/bp-scratch-bpP-p11a-1/chk2.py} samples $4000$ random polynomials $f$ with $\lvert f^{(q)}\rvert\ge\beta$ on random intervals, $q\le5$, and compares the grid-measured sublevel measure with $2q(\varepsilon/\beta)^{1/q}$: the maximal ratio is $0.991\le1$ (sharp for $q=1$). Evidence only.
+
+\paragraph{Forward references and consumers.} File~11a-3 (parameter selection): Theorem~\ref{bpP:p11a:diophantine-measure}, Corollary~\ref{bpP:p11a:power-law}, Lemma~\ref{bpP:p11a:stability}. File~11a-5 (quantitative theorem and budget): Corollary~\ref{bpP:p11a:power-law} (constants $C_{\mathrm{sub}},C_{\mathrm{Dio}},\gamma_*$), Lemma~\ref{bpP:p11a:chart-scaling}, Lemma~\ref{bpP:p11a:rank-compact}. Part~11 (finite preparation): Lemma~\ref{bpP:p11a:stability}, Remark~\ref{bpP:p11a:consumers}(a). No forward reference to an unwritten label other than those named in \texttt{PLAN-11a.md}.
+
+\paragraph{Label index.} \texttt{index-def}, \texttt{rank-compact}, \texttt{stability}, \texttt{M-bound}, \texttt{divided-difference}, \texttt{scalar-sublevel}, \texttt{ball-sublevel}, \texttt{sublevel}, \texttt{sublevel-dev}, \texttt{diophantine-measure}, \texttt{power-law}, \texttt{chart-scaling}, \texttt{consumers}.
+\par\endgroup

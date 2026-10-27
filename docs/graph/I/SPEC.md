@@ -308,3 +308,11 @@ the pre-extraction.
   track-I external; either is acceptable if recorded.
 - Imports cited only in `\source{}` or in prose that no node uses (e.g. `K:bp:p2:constants-register`) are pruned by
   `inp_depgraph_imports.py --prune` after extraction.
+
+- **2026-10-27, after the track-N graph SPEC** (`docs/graph/N/SPEC.md`): three track-N results that track I uses feed no
+  track-N root and are EXCLUDED from N's graph: `bpN:p3:gen-barrier` (with `stepN:p3:barrier-fwd`, `barrier-bwd`),
+  `bpN:p3:gen-invariant`, `bpN:p3:newton-reduction` (with `stepN:p3:nr-smooth`, `nr-pair`). Track I's graph OWNS them as
+  ordinary nodes (IDs = their blueprint-N labels, corpus `blueprint-N/parts/p3-hamiltonian-ode.tex`, pinned in
+  CORPUS.sha256), in the writer-created slice `I-nown`; the `N:` imports of them are removed and their consumers'
+  edges retargeted. Also: K's Part 1 edit `aec5b8b` (strip widths positive) moved 40 import locators, remapped
+  mechanically; IMPORTS.sha256 re-pinned.

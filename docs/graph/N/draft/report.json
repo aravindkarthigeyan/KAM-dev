@@ -1,0 +1,64 @@
+{
+ "skipped": [
+  "blueprint-N/parts/p0-conventions.tex:L9: \\Kref{bp:p1:\\dots} (wildcard)",
+  "blueprint-N/parts/p3-hamiltonian-ode.tex:L373: \\Kref{bp:p0:hamiltonian} (K frozen definitions transcribed as own anchors; not transcribed here, hence not nodes of this graph: bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero)",
+  "blueprint-N/parts/p4-weighted-norms.tex:L13: \\Kref{bp:p0:domains} (K frozen definitions transcribed as own anchors; not transcribed here, hence not nodes of this graph: bp:p0:domains#fundamentalDomain)",
+  "blueprint-N/parts/p4-weighted-norms.tex:L96: \\Kref{bp:p0:domains} (K frozen definitions transcribed as own anchors; not transcribed here, hence not nodes of this graph: bp:p0:domains#fundamentalDomain)"
+ ],
+ "unresolved": [],
+ "frozen_unresolved": [],
+ "source_dropped": 2,
+ "cycles": [
+  "bpN:p1:hessian-convert -> stepN:p1:hc-eucl -> bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-red -> bpN:p6:lipschitz -> bpN:p1:hessian-convert",
+  "bpN:p4:cauchy -> bpN:p4:sharp -> stepN:p4:sh-b4 -> stepN:p4:b4-prod -> bpN:p4:cauchy",
+  "bpN:p4:cauchy -> bpN:p4:sharp -> bpN:p4:sup-weighted -> bpN:p4:dictionary -> bpN:p4:cauchy",
+  "bpN:p4:cauchy -> bpN:p4:sharp -> bpN:p4:cauchy",
+  "bpN:p5:setting -> bpN:p5:lie-derivative -> stepN:p5:ld-one -> bpN:p5:setting",
+  "bpN:p5:composition -> bpN:p5:route -> bpN:p5:composition",
+  "bpN:p6:normal-form -> bpN:p6:deviations -> bpN:p6:normal-form",
+  "bpN:p1:holo-real -> bpN:p3:holo-input -> stepN:p3:hi-cite -> bpN:p1:holo-real",
+  "bpN:p1:holo-real -> bpN:p3:holo-input -> stepN:p3:hi-reg -> bpN:p1:holo-real",
+  "bpN:p1:holo-real -> bpN:p3:holo-input -> bpN:p1:holo-real",
+  "bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> stepN:p7:l2-exit -> bpN:p7:resonant-lemma1 -> stepN:p7:l1-exit -> bpN:p7:no-exit -> stepN:p7:ne-terms -> bpN:p7:theta-derivative -> stepN:p7:td-lim -> bpN:p1:norm-compare",
+  "bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p7:resonant-lemma2",
+  "bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p7:resonant-prop2",
+  "bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p7:resonant-prop2",
+  "bpN:p7:errata -> bpN:p9:errata -> bpN:p7:errata",
+  "bpN:p1:qc-convert -> stepN:p1:qc-reg -> bpN:p1:hessian-convert -> stepN:p1:hc-eucl -> bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:setting -> bpN:p7:resonance-data -> bpN:p1:qc-convert",
+  "bpN:p9:setting -> bpN:p9:omega0 -> stepN:p9:om-incl -> bpN:p9:elementary -> stepN:p9:el-a -> bpN:p9:setting",
+  "bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:setting -> bpN:p9:omega0 -> stepN:p9:om-incl -> bpN:p1:norm-compare",
+  "bpN:p9:setting -> bpN:p9:omega0 -> stepN:p9:om-max -> bpN:p9:setting",
+  "bpN:p9:errata -> bpN:p9:setting -> bpN:p9:errata",
+  "bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:block-hyp -> stepN:p9:bh-nr -> bpN:p8:cutoffs -> stepN:p8:co-incl -> bpN:p1:norm-compare",
+  "bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:block-hyp -> stepN:p9:bh-nr -> bpN:p8:cutoffs -> bpN:p1:norm-compare",
+  "bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:block-hyp -> stepN:p9:bh-nr -> bpN:p8:cutoffs -> bpN:p7:resonant-prop2",
+  "bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:block-hyp -> stepN:p9:bh-nr -> bpN:p8:cutoffs -> bpN:p8:direction",
+  "bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:block-hyp -> stepN:p9:bh-lip -> bpN:p1:norm-compare",
+  "bpN:p6:nonresonant-case -> bpN:p7:factor-e -> bpN:p6:nonresonant-case",
+  "bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:block-hyp -> bpN:p7:resonant-prop2",
+  "bpN:p9:errata -> bpN:p9:block-hyp -> bpN:p9:errata",
+  "bpN:p1:constants -> stepN:p1:co-qc -> bpN:p1:qc-convert -> stepN:p1:qc-reg -> bpN:p1:hessian-convert -> stepN:p1:hc-eucl -> bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p1:constants",
+  "bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:dictionary -> bpN:p9:thm1 -> stepN:p9:t1-b -> bpN:p9:block-stab -> stepN:p9:bs-res -> bpN:p7:resonant-prop2",
+  "bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:dictionary -> bpN:p9:thm1 -> stepN:p9:t1-b -> bpN:p9:block-stab -> bpN:p7:resonant-prop2",
+  "bpN:p9:errata -> bpN:p9:dictionary -> bpN:p9:thm1 -> bpN:p9:errata",
+  "bpN:p9:dictionary -> bpN:p9:thm1 -> bpN:p9:dictionary",
+  "bpN:p1:constants -> stepN:p1:co-qc -> bpN:p1:qc-convert -> stepN:p1:qc-reg -> bpN:p1:hessian-convert -> stepN:p1:hc-eucl -> bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:dictionary -> bpN:p1:constants",
+  "bpN:p1:qc-convert -> stepN:p1:qc-reg -> bpN:p1:hessian-convert -> stepN:p1:hc-eucl -> bpN:p1:norm-compare -> bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p9:dictionary -> bpN:p1:qc-convert",
+  "bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p8:direction",
+  "bpN:p8:direction -> bpN:p7:resonant-prop2 -> stepN:p7:p2-t3 -> bpN:p7:resonant-lemma2 -> bpN:p7:errata -> bpN:p9:errata -> bpN:p8:errata -> bpN:p8:direction",
+  "bpN:p11:constants -> bpN:p11:b-change -> bpN:p11:block-data -> bpN:p11:block-setting -> bpN:p11:constants"
+ ],
+ "unlabelled": [
+  "blueprint-N/parts/p7-stability.tex:L41 unlabelled proofstep '(d)'"
+ ],
+ "aliases": {
+  "K:bp:p0:domains": [
+   "bpN:p0:actionnbhd#actionNbhd",
+   "bpN:p0:strip#complexStrip"
+  ],
+  "K:bp:p0:hamiltonian": [
+   "bpN:p0:vf#hamiltonianVectorField"
+  ]
+ },
+ "missing_proof_owner": []
+}

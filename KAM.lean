@@ -7,6 +7,7 @@ module
 
 public import KAM.Analysis.Iteration
 public import KAM.Apost.Constants
+public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
