@@ -162,10 +162,12 @@ public import KAM.Strip.Fourier
 public import KAM.Strip.FourierBasic
 public import KAM.Strip.FourierSeries
 public import KAM.Strip.HigherCauchy
+public import KAM.Strip.Increments
 public import KAM.Strip.Limits
 public import KAM.Strip.Periodic
 public import KAM.Strip.RealRestriction
 public import KAM.Strip.Regularity
+public import KAM.Strip.Taylor
 
 /-!
 # KAM
