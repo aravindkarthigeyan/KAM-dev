@@ -92,7 +92,8 @@ holomorphic.
 * (a) For every closed polydisc `closedBall z₀ r ⊆ U` (max norm) there are coefficients `c α`,
   independent of any bound, with `‖c α‖ ≤ A / r ^ |α|` for every upper bound `A` of `‖F‖` on the
   closed polydisc (in particular for `A = max ‖F‖`), such that `F z = ∑_α (z - z₀)^α • c α` on the
-  open polydisc, the series converging absolutely.
+  open polydisc, the series converging absolutely with
+  `∑_α ‖c α‖ ‖(z - z₀)^α‖ ≤ A ∑_α t^|α| = A (1 - t)^(-m)`, `t = ‖z - z₀‖ / r`.
 * `F` is analytic on `U`.
 * (b) The restriction of `F` to the real points `U ∩ ℝᵐ` is real-analytic.
 
@@ -104,7 +105,12 @@ theorem holomorphic_analytic {m : ℕ} {U : Set (Fin m → ℂ)} (hU : IsOpen U)
         (∀ A : ℝ, (∀ z ∈ closedBall z₀ r, ‖F z‖ ≤ A) → ∀ α, ‖c α‖ ≤ A / r ^ (∑ j, α j)) ∧
         ∀ z ∈ ball z₀ r,
           Summable (fun α : Fin m → ℕ => ‖(∏ j, (z j - z₀ j) ^ α j) • c α‖) ∧
-          HasSum (fun α : Fin m → ℕ => (∏ j, (z j - z₀ j) ^ α j) • c α) (F z)) ∧
+          HasSum (fun α : Fin m → ℕ => (∏ j, (z j - z₀ j) ^ α j) • c α) (F z) ∧
+          HasSum (fun α : Fin m → ℕ => (‖z - z₀‖ / r) ^ (∑ j, α j))
+            ((1 - ‖z - z₀‖ / r)⁻¹ ^ m) ∧
+          ∀ A : ℝ, (∀ z' ∈ closedBall z₀ r, ‖F z'‖ ≤ A) →
+            ∑' α : Fin m → ℕ, ‖(∏ j, (z j - z₀ j) ^ α j) • c α‖ ≤
+              A * (1 - ‖z - z₀‖ / r)⁻¹ ^ m) ∧
     AnalyticOnNhd ℂ F U ∧
     AnalyticOnNhd ℝ (fun x : Fin m → ℝ => F (realInclusion m x)) (realInclusion m ⁻¹' U) :=
   ⟨fun hr hcl => holomorphic_series hU hF hr hcl, analyticOnNhd_of_differentiableOn hU hF,
@@ -151,7 +157,7 @@ theorem holomorphic_series_real (hU : IsOpen U) (hF : DifferentiableOn ℂ F U)
   refine ⟨fun α => realPartCLM p (c α), fun A hA α => ?_, fun x hx => ?_⟩
   · exact (norm_realPartCLM_le _).trans (hc1 A hA α)
   have hxb : realInclusion m x ∈ ball (realInclusion m x₀) r := realInclusion_mem_ball_iff.mpr hx
-  obtain ⟨hs, hsum⟩ := hc2 _ hxb
+  obtain ⟨hs, hsum, -, -⟩ := hc2 _ hxb
   have hscal : ∀ α : Fin m → ℕ,
       (∏ j, (realInclusion m x j - realInclusion m x₀ j) ^ α j) =
         (((∏ j, (x j - x₀ j) ^ α j : ℝ)) : ℂ) := fun α => by simp

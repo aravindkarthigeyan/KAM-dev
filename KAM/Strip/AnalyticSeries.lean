@@ -33,33 +33,52 @@ namespace KAM
 
 /-! ### Geometric series over multi-indices -/
 
-theorem summable_prod_pow_zero (t : Fin 0 → ℝ) :
-    Summable (fun α : Fin 0 → ℕ => ∏ i, t i ^ α i) := by
-  have : Finite (Fin 0 → ℕ) := inferInstance
-  exact Summable.of_finite
+theorem hasSum_prod_pow_zero (t : Fin 0 → ℝ) :
+    HasSum (fun α : Fin 0 → ℕ => ∏ i, t i ^ α i) (∏ i, (1 - t i)⁻¹) := by
+  convert hasSum_single (default : Fin 0 → ℕ) (fun b hb => absurd (Subsingleton.elim _ _) hb)
+    using 1
+  simp
 
-theorem summable_prod_pow_succ (m : ℕ) (t : Fin (m + 1) → ℝ) (h0 : ∀ i, 0 ≤ t i)
+theorem hasSum_prod_pow_succ (m : ℕ) (t : Fin (m + 1) → ℝ) (h0 : ∀ i, 0 ≤ t i)
     (h1 : ∀ i, t i < 1)
-    (ih : Summable (fun α : Fin m → ℕ => ∏ i, t i.succ ^ α i)) :
-    Summable (fun α : Fin (m + 1) → ℕ => ∏ i, t i ^ α i) := by
-  have hg : Summable (fun a : ℕ => t 0 ^ a) := summable_geometric_of_lt_one (h0 0) (h1 0)
+    (ih : HasSum (fun α : Fin m → ℕ => ∏ i : Fin m, t i.succ ^ α i)
+      (∏ i : Fin m, (1 - t i.succ)⁻¹))
+    (ihs : Summable (fun α : Fin m → ℕ => ∏ i : Fin m, t i.succ ^ α i)) :
+    HasSum (fun α : Fin (m + 1) → ℕ => ∏ i, t i ^ α i) (∏ i, (1 - t i)⁻¹) := by
+  have hg : HasSum (fun a : ℕ => t 0 ^ a) (1 - t 0)⁻¹ := hasSum_geometric_of_lt_one (h0 0) (h1 0)
+  have hgs : Summable (fun a : ℕ => t 0 ^ a) := hg.summable
   have hf' : (0 : ℕ → ℝ) ≤ fun a : ℕ => t 0 ^ a := fun a => pow_nonneg (h0 0) a
   have hg' : (0 : (Fin m → ℕ) → ℝ) ≤ fun α : Fin m → ℕ => ∏ i, t i.succ ^ α i :=
     fun α => Finset.prod_nonneg fun i _ => pow_nonneg (h0 _) _
-  have hprod := Summable.mul_of_nonneg hg ih hf' hg'
-  have key : Summable ((fun α : Fin (m + 1) → ℕ => ∏ i, t i ^ α i) ∘
-      (Fin.consEquiv (fun _ : Fin (m + 1) => ℕ))) := by
-    refine hprod.congr fun p => ?_
+  have hsum := Summable.mul_of_nonneg hgs ihs hf' hg'
+  have hprod := hg.mul ih hsum
+  have key : HasSum ((fun α : Fin (m + 1) → ℕ => ∏ i, t i ^ α i) ∘
+      (Fin.consEquiv (fun _ : Fin (m + 1) => ℕ))) (∏ i, (1 - t i)⁻¹) := by
+    rw [Fin.prod_univ_succ]
+    refine hprod.congr_fun fun p => ?_
     simp only [Function.comp_apply, Fin.consEquiv_apply, Fin.prod_univ_succ, Fin.cons_zero,
       Fin.cons_succ]
-  exact (Equiv.summable_iff _).mp key
+  exact (Equiv.hasSum_iff _).mp key
+
+/-- Geometric series over multi-indices: `∑_α ∏ᵢ tᵢ^{αᵢ} = ∏ᵢ (1 - tᵢ)⁻¹` when `0 ≤ tᵢ < 1`. -/
+theorem hasSum_prod_pow : ∀ (m : ℕ) (t : Fin m → ℝ), (∀ i, 0 ≤ t i) → (∀ i, t i < 1) →
+    HasSum (fun α : Fin m → ℕ => ∏ i, t i ^ α i) (∏ i, (1 - t i)⁻¹)
+  | 0, t, _, _ => hasSum_prod_pow_zero t
+  | m + 1, t, h0, h1 =>
+      hasSum_prod_pow_succ m t h0 h1
+        (hasSum_prod_pow m (fun i => t i.succ) (fun _ => h0 _) (fun _ => h1 _))
+        (hasSum_prod_pow m (fun i => t i.succ) (fun _ => h0 _) (fun _ => h1 _)).summable
 
 /-- Geometric series over multi-indices: `∑_α ∏ᵢ tᵢ^{αᵢ} < ∞` when `0 ≤ tᵢ < 1`. -/
-theorem summable_prod_pow : ∀ (m : ℕ) (t : Fin m → ℝ), (∀ i, 0 ≤ t i) → (∀ i, t i < 1) →
-    Summable (fun α : Fin m → ℕ => ∏ i, t i ^ α i)
-  | 0, t, _, _ => summable_prod_pow_zero t
-  | m + 1, t, h0, h1 => summable_prod_pow_succ m t h0 h1
-      (summable_prod_pow m (fun i => t i.succ) (fun _ => h0 _) (fun _ => h1 _))
+theorem summable_prod_pow (m : ℕ) (t : Fin m → ℝ) (h0 : ∀ i, 0 ≤ t i) (h1 : ∀ i, t i < 1) :
+    Summable (fun α : Fin m → ℕ => ∏ i, t i ^ α i) :=
+  (hasSum_prod_pow m t h0 h1).summable
+
+/-- With equal ratios `t`: `∑_α t^{|α|} = (1 - t)^{-m}` for `0 ≤ t < 1`. -/
+theorem hasSum_pow_sum (m : ℕ) {t : ℝ} (h0 : 0 ≤ t) (h1 : t < 1) :
+    HasSum (fun α : Fin m → ℕ => t ^ (∑ i, α i)) ((1 - t)⁻¹ ^ m) := by
+  have h := hasSum_prod_pow m (fun _ => t) (fun _ => h0) (fun _ => h1)
+  simpa [Finset.prod_pow_eq_pow_sum] using h
 
 /-! ### Splitting off the first variable -/
 
@@ -294,7 +313,9 @@ theorem exists_powerSeries_coeff : ∀ (m : ℕ) {U : Set (Fin m → ℂ)}, IsOp
 /-- Blueprint `step:p1:han-bounds`, series part of `bp:p1:holomorphic-analytic` (a). The
 expansion `F z = ∑_α (z - z₀)^α • c α` on the open polydisc converges absolutely, and the
 coefficients obey `‖c α‖ ≤ A / r ^ |α|` for every bound `A` of `‖F‖` on the closed polydisc
-(in particular for `A = max ‖F‖`), with `c α` independent of `A`. -/
+(in particular for `A = max ‖F‖`), with `c α` independent of `A`. Moreover, with
+`t = ‖z - z₀‖ / r < 1`, `∑_α t^|α| = (1 - t)^(-m)` and, for every such bound `A`,
+`∑_α ‖c α‖ ‖(z - z₀)^α‖ ≤ A ∑_α t^|α| = A (1 - t)^(-m)`. -/
 theorem holomorphic_series {m : ℕ} {U : Set (Fin m → ℂ)} (hU : IsOpen U)
     {F : (Fin m → ℂ) → W} (hF : DifferentiableOn ℂ F U) {z₀ : Fin m → ℂ} {r : ℝ} (hr : 0 < r)
     (hcl : closedBall z₀ r ⊆ U) :
@@ -302,27 +323,37 @@ theorem holomorphic_series {m : ℕ} {U : Set (Fin m → ℂ)} (hU : IsOpen U)
       (∀ A : ℝ, (∀ z ∈ closedBall z₀ r, ‖F z‖ ≤ A) → ∀ α, ‖c α‖ ≤ A / r ^ (∑ j, α j)) ∧
       ∀ z ∈ ball z₀ r,
         Summable (fun α : Fin m → ℕ => ‖(∏ j, (z j - z₀ j) ^ α j) • c α‖) ∧
-        HasSum (fun α : Fin m → ℕ => (∏ j, (z j - z₀ j) ^ α j) • c α) (F z) := by
+        HasSum (fun α : Fin m → ℕ => (∏ j, (z j - z₀ j) ^ α j) • c α) (F z) ∧
+        HasSum (fun α : Fin m → ℕ => (‖z - z₀‖ / r) ^ (∑ j, α j))
+          ((1 - ‖z - z₀‖ / r)⁻¹ ^ m) ∧
+        ∀ A : ℝ, (∀ z' ∈ closedBall z₀ r, ‖F z'‖ ≤ A) →
+          ∑' α : Fin m → ℕ, ‖(∏ j, (z j - z₀ j) ^ α j) • c α‖ ≤
+            A * (1 - ‖z - z₀‖ / r)⁻¹ ^ m := by
   obtain ⟨c, hc1, hc2⟩ := exists_powerSeries_coeff m hU hF hr hcl
-  refine ⟨c, hc1, fun z hz => ⟨?_, hc2 z hz⟩⟩
+  refine ⟨c, hc1, fun z hz => ?_⟩
   obtain ⟨A₀, hA₀⟩ := (han_margin hU hF hr hcl).2
-  have hA0 : 0 ≤ A₀ := (norm_nonneg _).trans (hA₀ z₀ (mem_closedBall_self hr.le))
-  set t : Fin m → ℝ := fun j => ‖z j - z₀ j‖ / r with htdef
-  have ht : ∀ j, 0 ≤ t j := fun j => by positivity
-  have ht' : ∀ j, t j < 1 := fun j => by
-    rw [htdef]
-    dsimp only
+  have ht0 : 0 ≤ ‖z - z₀‖ / r := by positivity
+  have ht1 : ‖z - z₀‖ / r < 1 := by
     rw [div_lt_one hr]
-    rw [mem_ball, dist_pi_lt_iff hr] at hz
-    simpa [dist_eq_norm] using hz j
-  refine Summable.of_nonneg_of_le (fun α => norm_nonneg _) (fun α => ?_)
-    ((summable_prod_pow m t ht ht').mul_left A₀)
-  have hck := hc1 A₀ hA₀ α
-  have hkey : ∏ j, t j ^ α j = (∏ j, ‖z j - z₀ j‖ ^ α j) / r ^ (∑ j, α j) := by
-    simp only [htdef, div_pow, Finset.prod_div_distrib, Finset.prod_pow_eq_pow_sum]
-  calc ‖(∏ j, (z j - z₀ j) ^ α j) • c α‖
-      = (∏ j, ‖z j - z₀ j‖ ^ α j) * ‖c α‖ := by simp only [norm_smul, norm_pow, norm_prod]
-    _ ≤ (∏ j, ‖z j - z₀ j‖ ^ α j) * (A₀ / r ^ (∑ j, α j)) := by gcongr
-    _ = A₀ * ∏ j, t j ^ α j := by rw [hkey]; ring
+    simpa [mem_ball, dist_eq_norm] using hz
+  have hgeo := hasSum_pow_sum m ht0 ht1
+  -- termwise domination by the geometric series, for every bound `A`
+  have hdom : ∀ A : ℝ, (∀ z' ∈ closedBall z₀ r, ‖F z'‖ ≤ A) → ∀ α : Fin m → ℕ,
+      ‖(∏ j, (z j - z₀ j) ^ α j) • c α‖ ≤ A * (‖z - z₀‖ / r) ^ (∑ j, α j) := by
+    intro A hA α
+    have hck := hc1 A hA α
+    have hprod : ∏ j, ‖z j - z₀ j‖ ^ α j ≤ ‖z - z₀‖ ^ (∑ j, α j) := by
+      rw [← Finset.prod_pow_eq_pow_sum]
+      exact Finset.prod_le_prod₀ (fun j _ => by positivity)
+        (fun j _ => pow_le_pow_left₀ (norm_nonneg _) (norm_le_pi_norm (z - z₀) j) _)
+    calc ‖(∏ j, (z j - z₀ j) ^ α j) • c α‖
+        = (∏ j, ‖z j - z₀ j‖ ^ α j) * ‖c α‖ := by simp only [norm_smul, norm_pow, norm_prod]
+      _ ≤ ‖z - z₀‖ ^ (∑ j, α j) * (A / r ^ (∑ j, α j)) := by
+          exact mul_le_mul hprod hck (norm_nonneg _) (by positivity)
+      _ = A * (‖z - z₀‖ / r) ^ (∑ j, α j) := by rw [div_pow]; ring
+  have hsum : Summable (fun α : Fin m → ℕ => ‖(∏ j, (z j - z₀ j) ^ α j) • c α‖) :=
+    Summable.of_nonneg_of_le (fun α => norm_nonneg _) (hdom A₀ hA₀) (hgeo.summable.mul_left A₀)
+  refine ⟨hsum, hc2 z hz, hgeo, fun A hA => ?_⟩
+  exact hasSum_le (hdom A hA) hsum.hasSum (hgeo.mul_left A)
 
 end KAM
