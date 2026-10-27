@@ -19,8 +19,8 @@ end with a date and reason.
 ## Corpus
 - The five files `blueprint/parts/p{0,1,2,3,4}-*.tex`, pinned in `docs/graph/K/CORPUS.sha256` (blueprint after the
   consolidation commit `67b8129`).
-- **Part 1 is under refute-first review.** Its slices are extracted after the review's fixes land. Any change to a
-  pinned file is recorded below with the new hashes, and the affected slices are re-checked.
+- Part 1 was reviewed (ACCEPT WITH FIXES; the one fix is applied). Any later change to a pinned file is recorded
+  below with the new hashes, and the affected slices are re-checked.
 - Nothing outside the corpus is a graph source. Pinned papers (HL19, GJLV05, CCdlL13, Pos01, …) are provenance
   only, because the blueprint proves everything it uses except the external inputs below.
 
@@ -111,3 +111,6 @@ end with a date and reason.
 
 ## Change log
 - 2026-10-27: initial specification.
+- 2026-10-27: the Part 1 review (`blueprint/reviews/p1-review-1.md`) returned ACCEPT WITH FIXES with one minor
+  finding, P1-R1. `bp:p1:cauchy-open` now states `δ>0`. The change stays within the line, so every locator is
+  unchanged. `CORPUS.sha256` is updated (Part 1 only). The Part 1 slices are released for extraction.
