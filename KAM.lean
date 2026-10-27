@@ -134,6 +134,7 @@ public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
 public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
+public import KAM.Matrix.Bridges
 public import KAM.Matrix.Inverse
 public import KAM.Matrix.Neumann
 public import KAM.Matrix.Norms
