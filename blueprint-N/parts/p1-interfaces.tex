@@ -15,8 +15,10 @@ $\max(\abs\theta_\infty,\abs I_\infty)$, Euclidean structure is used only for th
 
 \subsection{External facts}\label{bpN:p1:s-ext}
 \begin{enumerate}[label=(E\arabic*),leftmargin=2.2em]
-\item\label{bpN:p1:ext-linalg} \emph{Finite-dimensional linear algebra.} An injective linear map between real vector spaces of equal finite dimension is bijective
-  (rank--nullity; Mathlib \Lean{LinearMap.injective\_iff\_surjective}). Exists.
+\item\label{bpN:p1:ext-linalg} \emph{Finite-dimensional linear algebra.} An injective linear map $L:V\to W$ between finite-dimensional real vector spaces with $\dim V=\dim W$ is bijective
+  (rank--nullity; Mathlib \Lean{LinearMap.injective\_iff\_surjective\_of\_finrank\_eq\_finrank}, in
+  \texttt{LinearAlgebra/FiniteDimensional/Lemmas.lean}; the endomorphism form \Lean{LinearMap.injective\_iff\_surjective} does not apply directly to $V\ne W$).
+  The finranks used below are $\dim(\R^n\times\R)=\dim(\R\times\R^n)=n+1$ (\Lean{Module.finrank\_prod}, \Lean{Module.finrank\_fin\_fun}). Exists.
 \item\label{bpN:p1:ext-norms} \emph{Norm comparison and Cauchy--Schwarz.} For $x\in\R^n$ or $\C^n$: $\abs x_\infty\le\abs x_2\le\sqrt n\abs x_\infty$ and
   $\abs x_1\le\sqrt n\abs x_2$, $\abs x_2\le\abs x_1$; $\abs{x\cdot y}\le\abs x_2\abs y_2$ (for the bilinear, not Hermitian, product too). Exists.
 \item\label{bpN:p1:ext-restrict} \emph{Restriction of scalars and chain rule.} A $\C$-differentiable (resp.\ $C^k$) map is $\R$-differentiable (resp.\ $C^k$) with the
@@ -31,14 +33,13 @@ Track-K results used: \Kref{bp:p1:holomorphic-regularity}, \Kref{bp:p1:real-rest
 \subsection{Domains and norms}\label{bpN:p1:s-domains}
 
 \begin{lemma}[Norm and lattice comparisons]\label{bpN:p1:norm-compare}
-(a) For $x\in\R^n$ (or $\C^n$): $\abs x_\infty\le\abs x_2\le\sqrt n\,\abs x_\infty$, hence $\abs x_\infty^2\ge\abs x_2^2/n$ and
-$\abs x_\infty\le\abs x_2$. (b) For $k\in\Z^n$: $\abs k_2\le\abs k_1\le\sqrt n\abs k_2$. Consequently $\{\abs k_1\le K\}\subset\{\abs k_2\le K\}$ and
+(a) For $x\in\R^n$ (or $\C^n$), every $n\ge0$ (all norms are $0$ when $n=0$): $\abs x_\infty\le\abs x_2\le\sqrt n\,\abs x_\infty$, i.e.\ $\abs x_2^2\le n\abs x_\infty^2$; for $n>0$ this gives $\abs x_\infty^2\ge\abs x_2^2/n$. (b) For $k\in\Z^n$: $\abs k_2\le\abs k_1\le\sqrt n\abs k_2$. Consequently $\{\abs k_1\le K\}\subset\{\abs k_2\le K\}$ and
 $\{\abs k_2\le K\}\subset\{\abs k_1\le\sqrt nK\}$; so a geometric cutoff $K_g$ in the Euclidean norm and an analytic cutoff $K_a$ in $\abs\cdot_1$ are compatible when
 $\sqrt n\,K_g\le K_a$. (c) The bilinear bound: if $\abs{Q_{ij}}\le M_0$ for a matrix $Q$ then $\abs{x^{\!\top}Qy}\le nM_0\abs x_2\abs y_2$ for $x,y\in\C^n$.
 \source{Standard (\ref{bpN:p1:ext-norms}); the lattice inclusions correct the direction stated in \texttt{PLAN.md} (review N06).}
 \end{lemma}
 \begin{proof}
-\proofstep{Vectors}\label{stepN:p1:nc-vec} (a),(b) are \ref{bpN:p1:ext-norms}: $\abs x_2^2=\sum x_i^2\le n\max x_i^2$, $\abs x_1\le\sqrt n\abs x_2$ is Cauchy--Schwarz with $(1,\dots,1)$.
+\proofstep{Vectors}\label{stepN:p1:nc-vec} (a),(b) are \ref{bpN:p1:ext-norms}: $\abs x_2^2=\sum\abs{x_i}^2\le n\max\abs{x_i}^2$, $\abs x_1\le\sqrt n\abs x_2$ is Cauchy--Schwarz with $(1,\dots,1)$.
 
 \proofstep{Matrices}\label{stepN:p1:nc-mat} $\abs{x^\top Qy}\le M_0\abs x_1\abs y_1\le M_0\,n\abs x_2\abs y_2$ by (b).
 \end{proof}
@@ -156,7 +157,7 @@ $I\in B(0,R)$, writing $\omega=\omega_h(I)$, $Q=D^2h_\R(I)$:
 \item $\abs\omega_2\ge\abs\omega_\infty\ge\omega_{\min}$ and $\abs\omega_2\le\sqrt n\abs\omega_\infty$.
 \end{enumerate}
 The constants $q,B_c,\mu,\ell$ depend only on $(n,m,M_\C,\omega_{\min})$. In P\"oschel's normalisation ($\tilde h=2\pi h$, Lemma~\ref{bpN:p1:period-convert}) the same holds with $(\tilde\ell,\tilde\mu,\tilde B_c,\tilde\omega,\tilde Q)=2\pi(\ell,\mu,B_c,\omega,Q)$.
-\emph{Warning.} Full positive definiteness $Q[\xi,\xi]\ge\mu\abs\xi_2^2$ for all $\xi$ is false in general and is not claimed: for $h(I)=I_1+\tfrac12(I_2^2+I_3^2)$ one has $\omega=e_1\ne0$, $QC$ holds on every bounded set, but $Q[e_1,e_1]=0$. The estimate (b) is only needed (and only true) in the cone $\abs{\omega\cdot\xi}\le\ell\abs\xi_2$.
+\emph{Warning.} Full positive definiteness $Q[\xi,\xi]\ge\mu\abs\xi_2^2$ for all $\xi$ is false in general and is not claimed: for $h(I)=I_1+\tfrac12(I_2^2+I_3^2)$ one has $\omega(I)=(1,I_2,I_3)\ne0$ (equal to $e_1$ on $I_2=I_3=0$), $QC(m)$ holds on every bounded set for some $m>0$ depending on the set (for $\omega\cdot v=0$: $Q[v,v]=v_2^2+v_3^2$ and $\abs{v_1}\le(\abs{I_2}+\abs{I_3})\max(\abs{v_2},\abs{v_3})$, so $m=(1+2K)^{-2}$ works on $\abs I_\infty\le K$), but $Q[e_1,e_1]=0$ at every point. The estimate (b) is only needed (and only true) in the cone $\abs{\omega\cdot\xi}\le\ell\abs\xi_2$.
 \source{Pos93 p.~190 (anchors POS190-QC, POS190-HESS, POS191-LOW; I read the scan, p.~190, $\ell,m$-quasi-convexity, hypothesis $r_0\le4\ell/m$); conversion: \texttt{docs/tracks/N/sources.md}, ``Uniform conversion''; BM11 p.~4 for $QC(m)$. Review N05.}
 \end{lemma}
 \begin{proof}
@@ -174,15 +175,16 @@ The constants $q,B_c,\mu,\ell$ depend only on $(n,m,M_\C,\omega_{\min})$. In P\"
 \subsection{Normalisations}\label{bpN:p1:s-period}
 
 \begin{lemma}[Period conversion]\label{bpN:p1:period-convert}
-Let $\Lambda(\theta,I)=(2\pi\theta,I)$ and, for $H:\R^n\times\R^n\to\R$ and $h,f$ complex, define
+Let $\Lambda(\theta,I)=(2\pi\theta,I)$ and, for $H:\R^n\times\R^n\to\R$ and arbitrary $h:\C^n\to\C$, $f:\C^n\times\C^n\to\C$, define
 \[\tilde H(\varphi,I)=2\pi H(\varphi/2\pi,I),\qquad\tilde h=2\pi h,\qquad\tilde f(\varphi,I)=2\pi f(\varphi/2\pi,I),\]
-so $\tilde H=H_{\tilde h,\tilde f}$ when $H=H_{h,f}$, and $\tilde f$ is $2\pi\Z^n$-periodic in $\varphi$. Then:
+so $\tilde H=H_{\tilde h,\tilde f}$ when $H=H_{h,f}$. Clauses (a), (b) are unconditional (no analyticity or periodicity is assumed). Clauses (c), (d) and the periodicity statement (e) are about $f$ satisfying $\texttt{IsAnalyticPerturbation}\,R\,s\,\varepsilon\,f$ (Definition~\ref{bpN:p0:pert}), $R,s>0$. Then:
 \begin{enumerate}[label=(\alph*)]
 \item (Dynamics) For $U\subset\R^n$, $J\subset\R$: $z$ satisfies $\texttt{IsSolutionOn}\,H\,U\,J\,z$ iff $\Lambda\circ z$ satisfies $\texttt{IsSolutionOn}\,\tilde H\,U\,J$ (same time, same actions). In particular $\abs{(\Lambda z)_2-I_0}=\abs{z_2-I_0}$.
 \item (Quantities) $\omega_{\tilde h}=2\pi\omega_h$, $D^2\tilde h_\R=2\pi D^2h_\R$, and so: $\texttt{IsStrictlyQuasiConvex}\,U\,h\,m\Rightarrow\texttt{IsStrictlyQuasiConvex}\,U\,\tilde h\,2\pi m$;
   $B(M)\Rightarrow$ coordinate partials of $\tilde h_\R$ of order $1,2,3$ bounded by $2\pi M$; the complex Hessian bound $M_\C\to2\pi M_\C$; $\omega_{\min}\to2\pi\omega_{\min}$; Euclidean sizes of $\omega$: $\abs{\tilde\omega}_2=2\pi\abs\omega_2$. Time is unchanged.
-\item (Domains) $\tilde f$ is holomorphic on $\{\abs{\operatorname{Im}\varphi}<2\pi s\}\times B(0,R)_s$, with $\abs{\tilde f}\le2\pi\varepsilon$ if $\abs f\le\varepsilon$ on $D_s(R)$; the strip $T_\rho$ ($\rho$ in $\theta$) corresponds to the strip of width $2\pi\rho$ in $\varphi$.
-\item (Fourier) $\tilde f(\varphi,I)=\sum_k\hat f_k(I)e^{ik\cdot\varphi}$ with the same coefficients $\hat f_k(I)=\int_{[0,1]^n}f(\theta,I)e^{-2\pi ik\cdot\theta}\,d\theta$ times $2\pi$; the coefficient radius $s'$ of P\"oschel's weight $e^{\abs k_1s'}$ equals $2\pi\rho$.
+\item (Domains; needs holomorphy of $f$ on $D_s(R)$ and the bound $\abs f\le\varepsilon$) $\tilde f$ is holomorphic on $\{\abs{\operatorname{Im}\varphi}<2\pi s\}\times B(0,R)_s$ and $\abs{\tilde f}\le2\pi\varepsilon$ there; the strip $T_\rho$ ($\rho$ in $\theta$) corresponds to the strip of width $2\pi\rho$ in $\varphi$.
+\item (Periodicity; needs $f(\theta+k,I)=f(\theta,I)$ on $D_s(R)$) $\tilde f(\varphi+2\pi k,I)=\tilde f(\varphi,I)$ for $k\in\Z^n$ and $\varphi$ in that strip. (Without this premise the claim fails: $f=\theta_1$ gives $\tilde f=\varphi_1$.)
+\item (Fourier; needs (c), (e)) $\tilde f(\varphi,I)=\sum_k\tilde{\hat f}_k(I)e^{ik\cdot\varphi}$ with $\tilde{\hat f}_k(I)=2\pi\hat f_k(I)$, $\hat f_k(I)=\int_{[0,1]^n}f(\theta,I)e^{-2\pi ik\cdot\theta}\,d\theta$, whenever the Fourier series of $f(\cdot,I)$ converges to it (\Kref{bp:p1:summation}); the coefficient radius $s'$ of P\"oschel's weight $e^{\abs k_1s'}$ equals $2\pi\rho$.
 \end{enumerate}
 \source{\texttt{docs/tracks/N/sources.md} (``For the period conversion''); Pos93 p.~189 (set-up: $\theta\in\R^n/2\pi\Z^n$, strip $W_{s_0}$ of width $s_0$ in the max norm of $\operatorname{Im}\theta$).}
 \end{lemma}
@@ -191,7 +193,7 @@ so $\tilde H=H_{\tilde h,\tilde f}$ when $H=H_{h,f}$, and $\tilde f$ is $2\pi\Z^
 
 \proofstep{Vector field}\label{stepN:p1:pc-field} Hence $X_{\tilde H}(\Lambda z)=(2\pi\partial_IH(z),-\partial_\theta H(z))=(2\pi\dot\theta,\dot I)=\frac d{dt}\Lambda z$ when $\dot z=X_H(z)$, and conversely; the condition $z(t)_2\in U$ is unchanged. This is (a). (Rescaling the angle without the factor $2\pi$ in $H$ would change time.)
 
-\proofstep{Scalars}\label{stepN:p1:pc-scalar} (b) is linearity of $h\mapsto\omega_h,D^2h_\R,D^kh_\R$ and of the operator norm. (c),(d) are the substitution $\varphi=2\pi\theta$, $\abs{\operatorname{Im}\varphi}=2\pi\abs{\operatorname{Im}\theta}$, and $e^{ik\cdot\varphi}=e^{2\pi ik\cdot\theta}$.
+\proofstep{Scalars}\label{stepN:p1:pc-scalar} (b) is linearity of $h\mapsto\omega_h,D^2h_\R,D^kh_\R$ and of the operator norm. (c)--(f) are, under the stated premises, the substitution $\varphi=2\pi\theta$, $\abs{\operatorname{Im}\varphi}=2\pi\abs{\operatorname{Im}\theta}$, and $e^{ik\cdot\varphi}=e^{2\pi ik\cdot\theta}$.
 \end{proof}
 
 \begin{lemma}[From sup norm on a strip to the weighted Fourier norm]\label{bpN:p1:norm-convert}
@@ -226,8 +228,8 @@ Then:
 \item (Hypotheses of Theorem~1) If $h$ satisfies (H1)--(H5) of Theorem~\ref{bpN:p0:head}, then for $I\in U_{r_0}P$: $\tilde h$ is $\ell_P,\mu_P$-quasi-convex (Lemma~\ref{bpN:p1:qc-convert}) with $\mu_P=2\pi\mu$; the complex Hessian operator norm (Euclidean) of $\tilde h$ on $V_{r_0}P$ is $\le M_P$ (Lemma~\ref{bpN:p1:hessian-convert}); P\"oschel's $m,M$ are $m_P,M_P$ and his hypothesis $r_0\le4\ell_P/m_P$ holds.
 \item (Perturbation) If $f$ satisfies (H6) with $\varepsilon$, then P\"oschel's norm of $\tilde f$ on $V_{r_0}P\times$(strip of width $s_0$) is $\le F\varepsilon$; and $F\varepsilon\le\varepsilon_{0,P}$ if $\varepsilon\le\varepsilon_0$.
 \item (Exceptional branch is empty) For $I_0\in B(0,R/2)$: $\abs{\tilde\omega(I_0)}_2\ge2\pi\omega_{\min}>\pi\omega_{\min}\ge m_Pr_0/8$.
-\item (Time prefactor) For $I_0\in B(0,R/2)$, $\Omega_0=\sup_{\abs{I-I_0}_2\le R_0}\abs{\tilde\omega(I)}_2\le2\pi\sqrt nM\le2\pi nM$, so P\"oschel's $T_0=A_P^2s_0/\Omega_0\ge2T$.
-\item (Conclusion shape) P\"oschel's $R_0(\varepsilon_P/\varepsilon_{0,P})^a$ and $T_0\exp\bigl(\frac{s_0}6(\varepsilon_{0,P}/\varepsilon_P)^a\bigr)$ with $\varepsilon_P=F\varepsilon$ are $C\varepsilon^a$ and $T_0\exp(c\varepsilon^{-a})$, and $T\exp(c\varepsilon^{-a})\le\tfrac12T_0\exp(c\varepsilon^{-a})$.
+\item (Time prefactor) For $I_0\in B(0,R/2)$, $0<2\pi\omega_{\min}\le\Omega_0=\sup_{\abs{I-I_0}_2\le R_0}\abs{\tilde\omega(I)}_2\le2\pi\sqrt nM\le2\pi nM$, so P\"oschel's $T_0=A_P^2s_0/\Omega_0\ge2T$.
+\item (Conclusion shape, for $\varepsilon>0$; $\varepsilon=0$ is N-ZERO) P\"oschel's $R_0(\varepsilon_P/\varepsilon_{0,P})^a$ and $T_0\exp\bigl(\frac{s_0}6(\varepsilon_{0,P}/\varepsilon_P)^a\bigr)$ with $\varepsilon_P=F\varepsilon$ are $C\varepsilon^a$ and $T_0\exp(c\varepsilon^{-a})$, and $T\exp(c\varepsilon^{-a})\le\tfrac12T_0\exp(c\varepsilon^{-a})$.
 \end{enumerate}
 \source{\texttt{docs/tracks/N/sources.md} ``Uniform conversion'' (all constants), checked against Pos93 p.~190 (hypotheses, $A=11M/m$, $\varepsilon_0=mr_0^2/(2^{10}A^{2n})$, $r_0\le4\ell/m$), p.~191 (parameters $a,R_0,T_0$, exceptional branch) and p.~204 (assembly: $K=(\varepsilon_0/\varepsilon)^a$). Pos93 requires $\|f_\varepsilon\|\le\varepsilon$ (p.~190) with $\varepsilon\le\varepsilon_{0,P}$.}
 \sourcegap{Pos93 states no theorem about the $\omega_{\min}$-conversion and the frozen-to-source dictionary: it exists only in \texttt{sources.md} and here (Part~0 \texttt{bpN:p0:head}). The choice of $T$ with the factor $1/2$ is slack, not needed by the source.}
@@ -241,11 +243,11 @@ Then:
 
 \proofstep{Quasi-convexity and Hessian}\label{stepN:p1:co-qc} For (d): $U_{r_0}P\subset B(0,R)$ by (c), so Lemma~\ref{bpN:p1:qc-convert}(b) applies at every point of $U_{r_0}P$ and, after Lemma~\ref{bpN:p1:period-convert}(b), gives the $(\ell_P,\mu_P)$-alternative for $\tilde h$. For $I\in V_{r_0}P\subset B(0,R)_s$ the Euclidean operator norm of $\tilde Q(I)$ is $\le2\pi nM_\C\le2\pi B_c=M_P$ (Lemma~\ref{bpN:p1:hessian-convert}). P\"oschel's $A=11M/m$ with $M=M_P$ and $m=\mu_P=m_P$ is $11B_c/\mu=A$.
 
-\proofstep{Perturbation}\label{stepN:p1:co-pert} By (H6) $\abs f\le\varepsilon$ on $D_s(R)\supset T_{3s/4}\times V_{r_0}P$ ($V_{r_0}P\subset B(0,R)_s$, (c)). For each fixed $I\in V_{r_0}P$ apply Lemma~\ref{bpN:p1:norm-convert} to $u=f(\cdot,I)$ with $\rho=3s/4$, $\delta=s/4$: $\sum_k\abs{\hat f_k(I)}e^{2\pi\abs k_1s/2}\le\coth(\pi s/4)^n\varepsilon$. Multiplying by $2\pi$ (Lemma~\ref{bpN:p1:period-convert}(d)) and noting $2\pi\cdot s/2=\pi s=s_0$ gives $\le F\varepsilon$. (In P\"oschel's terms $s_0+2\sigma=3\pi s/2=2\pi\cdot\frac{3s}4$.) $\varepsilon\le\varepsilon_*/F$ gives $F\varepsilon\le\varepsilon_*=\varepsilon_{0,P}$. This is (e).
+\proofstep{Perturbation}\label{stepN:p1:co-pert} By (H6) $\abs f\le\varepsilon$ on $D_s(R)\supset T_{3s/4}\times V_{r_0}P$ ($V_{r_0}P\subset B(0,R)_s$, (c)). For each fixed $I\in V_{r_0}P$ apply Lemma~\ref{bpN:p1:norm-convert} to $u=f(\cdot,I)$ with $\rho=3s/4$, $\delta=s/4$: $\sum_k\abs{\hat f_k(I)}e^{2\pi\abs k_1s/2}\le\coth(\pi s/4)^n\varepsilon$. Multiplying by $2\pi$ (Lemma~\ref{bpN:p1:period-convert}(f); $f$ satisfies (H6), so (c), (e) apply) and noting $2\pi\cdot s/2=\pi s=s_0$ gives $\le F\varepsilon$. (In P\"oschel's terms $s_0+2\sigma=3\pi s/2=2\pi\cdot\frac{3s}4$.) $\varepsilon\le\varepsilon_*/F$ gives $F\varepsilon\le\varepsilon_*=\varepsilon_{0,P}$. This is (e).
 
 \proofstep{Exceptional branch}\label{stepN:p1:co-exc} $I_0\in B(0,R/2)\subset B(0,R)$ so $\abs{\omega(I_0)}_2\ge\omega_{\min}$ (Lemma~\ref{bpN:p1:qc-convert}(c)) and $\abs{\tilde\omega}_2=2\pi\abs\omega_2$. And $m_Pr_0/8=2\pi\mu r_0/8\le2\pi\mu\cdot\frac{4\omega_{\min}}{8\mu}=\pi\omega_{\min}$ by $r_0\le4\omega_{\min}/\mu$. This is (f).
 
-\proofstep{Time}\label{stepN:p1:co-time} The Euclidean ball $\{\abs{I-I_0}_2\le R_0\}$ with $R_0\le r_0$ lies in $\{\abs I_\infty<R/2+R_0\}\subset B(0,5R/8)$ ($\abs{I-I_0}_\infty\le\abs{I-I_0}_2$), inside $\mathcal B_s(R)$ where Lemma~\ref{bpN:p1:partials} gives $\abs{\omega(I)}_2\le\sqrt nM$. So $\Omega_0\le2\pi\sqrt nM\le2\pi nM$ and $T_0=A^2s_0/\Omega_0\ge A^2s_0/(2\pi nM)=2T$. (g).
+\proofstep{Time}\label{stepN:p1:co-time} The Euclidean ball $\{\abs{I-I_0}_2\le R_0\}$ with $R_0\le r_0$ lies in $\{\abs I_\infty<R/2+R_0\}\subset B(0,5R/8)$ ($\abs{I-I_0}_\infty\le\abs{I-I_0}_2$), inside $\mathcal B_s(R)$ where Lemma~\ref{bpN:p1:partials} gives $\abs{\omega(I)}_2\le\sqrt nM$. So $\Omega_0\le2\pi\sqrt nM\le2\pi nM$ (finite); also $I_0$ belongs to the closed ball, $I_0\in B(0,R)$, so $\Omega_0\ge\abs{\tilde\omega(I_0)}_2\ge2\pi\omega_{\min}>0$ (Lemma~\ref{bpN:p1:qc-convert}(c)). Inverting the positive quantities, $T_0=A^2s_0/\Omega_0\ge A^2s_0/(2\pi nM)=2T$. (g).
 
 \proofstep{Exponent and constants}\label{stepN:p1:co-conc} $R_0(F\varepsilon/\varepsilon_*)^a=\frac{r_0}A(F/\varepsilon_*)^a\varepsilon^a=C\varepsilon^a$ and $\frac{s_0}6(\varepsilon_*/(F\varepsilon))^a=c\varepsilon^{-a}$. (h) follows from $T\le T_0/2$.
 \end{proof}

@@ -23,7 +23,7 @@ In particular this holds if $\lambda>0$, $\omega\ne0$ and $v^\top Av\ge m\abs v^
 
 \proofstep{The scalar}\label{stepN:p2:qk-scalar} With $v=0$: $u\omega=0$; as $\omega\ne0$, $u=0$.
 
-\proofstep{Bijectivity}\label{stepN:p2:qk-bij} $L$ is a linear map between spaces of dimension $n+1$ with trivial kernel, hence bijective by \ref{bpN:p1:ext-linalg}.
+\proofstep{Bijectivity}\label{stepN:p2:qk-bij} $L$ is a linear map between spaces of dimension $n+1$ with trivial kernel, hence bijective by \ref{bpN:p1:ext-linalg} (\Lean{LinearMap.injective\_iff\_surjective\_of\_finrank\_eq\_finrank}, with $\dim(\R^n\times\R)=\dim(\R\times\R^n)=n+1$).
 \end{proof}
 
 \begin{remark}[$n=0$]\label{bpN:p2:n0}
