@@ -73,38 +73,6 @@
    "note": "ledger: 8 candidate errata, 6 planned deviations"
   },
   {
-   "group": "Campaign infrastructure",
-   "id": "I.REPO",
-   "title": "Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint",
-   "difficulty": "L",
-   "done": 1.0,
-   "note": ""
-  },
-  {
-   "group": "Campaign infrastructure",
-   "id": "I.HQ",
-   "title": "Campaign HQ: this README, generator, 20-minute cron and post-commit hook",
-   "difficulty": "L",
-   "done": 0.8,
-   "note": ""
-  },
-  {
-   "group": "Campaign infrastructure",
-   "id": "I.GUARDS",
-   "title": "Freeze machinery: manifest, anchor guard, quarantine, kernel replay, mutation suite",
-   "difficulty": "M",
-   "done": 0.6,
-   "note": "anchor guard (Unicode-aware), ABI hashes, lint; manual mutation tests pass (3/3); kernel replay and mutation suite to do"
-  },
-  {
-   "group": "Campaign infrastructure",
-   "id": "I.BUILD",
-   "title": "Shared build snapshot for worktrees and machine-wide compile gate",
-   "difficulty": "L",
-   "done": 0.0,
-   "note": ""
-  },
-  {
    "group": "Analytic infrastructure",
    "id": "F.ALG",
    "title": "Weighted ℓ¹ Fourier algebra on ℤⁿ: Banach algebra, exp, derivatives, averages",
@@ -237,94 +205,6 @@
    "id": "M.ASSEMBLY",
    "title": "Assembly of the headline theorem",
    "difficulty": "M",
-   "done": 0.0,
-   "note": ""
-  },
-  {
-   "group": "Track I (isoenergetic, confinement, R3BP)",
-   "id": "I.PHASE0",
-   "title": "Sources, statements, owner approval, freeze",
-   "difficulty": "H",
-   "done": 1.0,
-   "note": "approved and frozen (D20)"
-  },
-  {
-   "group": "Track I (isoenergetic, confinement, R3BP)",
-   "id": "I.PROOF",
-   "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
-   "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
-  },
-  {
-   "group": "Track N (Nekhoroshev)",
-   "id": "N.PHASE0",
-   "title": "Sources, statements, owner approval, freeze",
-   "difficulty": "H",
-   "done": 1.0,
-   "note": "approved and frozen (D20)"
-  },
-  {
-   "group": "Track N (Nekhoroshev)",
-   "id": "N.PROOF",
-   "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
-   "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
-  },
-  {
-   "group": "Track P (planetary)",
-   "id": "P.PHASE0",
-   "title": "Sources, statements, owner approval, freeze",
-   "difficulty": "H",
-   "done": 1.0,
-   "note": "approved and frozen (D20)"
-  },
-  {
-   "group": "Track P (planetary)",
-   "id": "P.PROOF.PDKAM",
-   "title": "Properly degenerate KAM: blueprint, graph, proofs",
-   "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
-  },
-  {
-   "group": "Track P (planetary)",
-   "id": "P.PROOF.PLANAR",
-   "title": "Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy",
-   "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
-  },
-  {
-   "group": "Track N (Nekhoroshev)",
-   "id": "N.ADD.PHASE0",
-   "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
-   "difficulty": "M",
-   "done": 0.0,
-   "note": ""
-  },
-  {
-   "group": "Track N (Nekhoroshev)",
-   "id": "N.ADD.PROOF",
-   "title": "N-PARTIAL-CONVEX and N-AVERAGING: blueprint, graph, proofs",
-   "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
-  },
-  {
-   "group": "Track P (planetary)",
-   "id": "P.ADD.PHASE0",
-   "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze",
-   "difficulty": "M",
-   "done": 0.0,
-   "note": ""
-  },
-  {
-   "group": "Track P (planetary)",
-   "id": "P.ADD.PROOF",
-   "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: blueprint, graph, proofs",
-   "difficulty": "VH",
    "done": 0.0,
    "note": ""
   }

@@ -136,3 +136,11 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
     exponents), P-AMD-CONFINEMENT (the angular-momentum confinement helper) and P-SECULAR-BOX (the
     Sun–Jupiter–Saturn averaged-model box at the actual masses).
   - Each goes through Phase 0: drafting, independent audit, owner approval of the exact text, then freezing.
+- **D23 (2026-10-27) Sub-orchestrator for tracks I, N, P.** *(Scott: "use the Opus suborchestrator for tracks I, N and P")*
+  - A second Opus 5.5 orchestrator (account claude-8, tmux `kam-suborch`) runs tracks I, N and P end to end: the D22
+    additions, blueprints, dependency graphs and proof campaigns, under the D21 model policy.
+  - It works in the worktree `/root/code/KAM-inp` on branch `inp`, and lands through `scripts/land-branch.sh inp`
+    (lint and build before every landing).
+  - It keeps its own HQ files `docs/campaign/campaign-INP.json` and `docs/campaign/progress-INP.json`, which the README
+    generator merges.
+  - Owner questions and approvals go through the main orchestrator. The main orchestrator keeps track K and the HQ.

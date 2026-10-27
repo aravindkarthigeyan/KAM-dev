@@ -1,0 +1,22 @@
+{
+ "workers": [
+  {
+   "id": "track-N",
+   "kind": "Phase 0 (Codex)",
+   "model": "GPT-6-Astra high",
+   "account": "codex-3",
+   "session": "kam-track-n",
+   "assignment": "Track N additions Phase 0 (D22): N-PARTIAL-CONVEX, N-AVERAGING",
+   "state": "running"
+  },
+  {
+   "id": "track-P",
+   "kind": "Phase 0 (Codex)",
+   "model": "GPT-6-Astra high",
+   "account": "codex-4",
+   "session": "kam-track-p",
+   "assignment": "Track P additions Phase 0 (D22): P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX",
+   "state": "running"
+  }
+ ]
+}

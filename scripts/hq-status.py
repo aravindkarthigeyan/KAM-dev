@@ -21,6 +21,15 @@ campaign = json.loads((root / 'docs/campaign/campaign.json').read_text())
 progress = json.loads((root / 'docs/campaign/progress.json').read_text())
 ledger = json.loads((root / 'docs/errata/ledger.json').read_text())
 sources = json.loads((root / 'docs/sources.json').read_text())['sources']
+# The sub-orchestrator for tracks I, N, P keeps its own campaign and progress files (merged here).
+for extra, key in (('docs/campaign/campaign-INP.json', 'workers'),):
+    xp = root / extra
+    if xp.exists():
+        campaign['workers'] = campaign['workers'] + json.loads(xp.read_text()).get(key, [])
+xp = root / 'docs/campaign/progress-INP.json'
+if xp.exists():
+    ids = {it['id'] for it in progress['items']}
+    progress['items'] = progress['items'] + [it for it in json.loads(xp.read_text())['items'] if it['id'] not in ids]
 NOW = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
 LIB = [root / 'KAM']
 

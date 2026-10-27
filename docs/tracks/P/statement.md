@@ -428,3 +428,262 @@ reviewable contract, not an owner ruling; no freeze occurs in Phase 0.
 
 The exact source quotations, defects and responses are in
 [RESPONSE-v0.1.md](RESPONSE-v0.1.md). No source ledger, frozen file or manifest is edited.
+
+## Additions (D22), draft v0.3
+
+This section proposes **P-EXP-SAFE**, **P-AMD-CONFINEMENT**, and **P-SECULAR-BOX**.
+It does not revise the D20 frozen v0.2 statements above. The exact new Lean surface is
+[Additions.lean](../../../.drafts/P/Additions.lean). All four theorem bodies there are
+unproved draft placeholders; the fourth theorem specializes P-SECULAR-BOX to the cited
+rational model masses. Independent audit and owner approval precede freezing.
+
+### Physical conventions and fixed region
+
+Use G = m₀ = 1, n ≥ 2, fixed positive weights mᵢ, actual masses (1, μm₁,…,μmₙ), μ>0.
+The full moving-Sun Hamiltonian is precisely frozen `movingHamiltonian 1 1 m mu`:
+
+    Hμ(q,p) = Σᵢ (|pᵢ|²/(2mᵢ) − mᵢ/|qᵢ|)
+              + μ (|Σᵢpᵢ|²/2 − Σᵢ<ⱼ mᵢmⱼ/|qᵢ−qⱼ|).
+
+Here q is heliocentric position and p is the mass-scaled canonical barycentric
+momentum. Scaling the original Hamiltonian and symplectic form by μ leaves physical
+time unchanged. In particular, pᵢ/mᵢ is the **barycentric** velocity used by this
+zero-coupling Kepler split; it is not the full heliocentric velocity. Reconstruction
+uses the frozen `barycentricPositions`, `barycentricVelocities`, and `actualMasses`.
+All physical lengths use frozen `planeLength`, not the max norm on `Fin 2 → ℝ`.
+Sources: LP17 (1)–(11), p. 2; round 3 §2 Hamiltonian/AMD check.
+
+The literal osculating quantities in the draft are
+
+    Eᵢ = |pᵢ|²/(2mᵢ) − mᵢ/|qᵢ|,   aᵢ = −mᵢ/(2Eᵢ),   Λᵢ = mᵢ√aᵢ,
+    Lᵢ = qᵢ × pᵢ,   J = Σᵢ Lᵢ,   A = Σᵢ Λᵢ − J,
+    e⃗ᵢ = (|pᵢ|²/mᵢ² − 1/|qᵢ|)qᵢ − (qᵢ·pᵢ/mᵢ²)pᵢ.
+
+`ProgradeElliptic` requires mᵢ>0, |qᵢ|>0, Eᵢ<0 and Lᵢ>0, guarding every
+division and square root. On it eᵢ=|e⃗ᵢ|<1 and
+A=ΣΛᵢ(1−√(1−eᵢ²)). Angular momentum J is exactly conserved in the full
+system; **A generally is not**. These identities are deductions from the Kepler
+block and LP17 (9)–(11), not assumptions of the headline theorem.
+
+Fix an `AMDBox B`, before μ, satisfying `B.Admissible`. Its data are m, lower/upper
+action bounds ℓ,u, inner bounds ℓ⁰,u⁰, eccentricity ceiling e*, AMD levels A₀,A₁,
+and physical constants d,R. The exact premises are
+
+    0 < ℓᵢ < ℓ⁰ᵢ < u⁰ᵢ < uᵢ,  mᵢ>0,   0<e*<1,   0<A₀<A₁,
+    A₁ < ℓᵢ (1−√(1−e*²))  for every i,   d>0, R>0,
+    d ≤ (ℓᵢ/mᵢ)²(1−e*),   (uᵢ/mᵢ)²(1+e*) ≤ R,
+    (uᵢ/mᵢ)²(1+e*) + d ≤ (ℓⱼ/mⱼ)²(1−e*)  for every i<j.
+
+The fixed initial region consists of prograde elliptic points with
+ℓ⁰ᵢ<Λᵢ<u⁰ᵢ and A<A₀. The outer region uses ℓ,u,A₁. Circular orbits are
+included. The region is independent of μ, has nonempty interior near the circular
+action box, and permits every phase. There is no factor-four or mass-dependent
+axis hierarchy. The displayed separated-annulus and low-AMD conditions are the
+explicit sufficient geometric specialization adopted by D22, not a claim about
+all of Nek77's spatial planetary-motion domains.
+
+### P-AMD-CONFINEMENT — deterministic stopped-input helper
+
+Exact name: `KAM.Planetary.amdConfinement`. Fix admissible B and μ,T,δ>0 with
+
+    ℓᵢ+2δ < ℓ⁰ᵢ,   u⁰ᵢ+2δ < uᵢ,   A₀+2nδ < A₁.
+
+For each initial point z₀ in the fixed region, the sole dynamical input is
+`StoppedActionBound B mu T delta z0`. This means: **for every finite interval
+[l,r] containing 0**, and every actual local reduced solution z with z(0)=z₀
+which stays in the outer region on that interval,
+
+    |Λᵢ(z(t))−Λᵢ(z₀)| ≤ δ    for t∈[l,r]∩[−T,T], for every i.
+
+One-sided intervals [0,r] and [l,0] are included. The premise does not assert that
+any solution stays in the region until T. It is the stopped conclusion shape of
+**Nek77 Theorem 4.4, p. 30**, after the Poincaré-coordinate/analytic-domain bridge;
+the source's arbitrary C and minimum min(C,T) are load-bearing. Pinzari D.1 with
+its whole-horizon slow-domain premise is not the provider for this interface.
+Negative time is handled by applying the estimate to −H. This helper is distinct
+from P-EXP-SAFE, which has no stopped estimate among its premises.
+
+Conclusion: an exhibited solution on [−T,T], agreeing with every other local
+solution on the overlap, remains in the outer region and satisfies the stopped
+bound on the entire interval. Moreover A(t)≤A₀+nδ and J(t)=J(0), eᵢ(t)<e*,
+d≤|qᵢ(t)|≤R, and every barycentric pair distance lies in [d,2R]. Reconstructed
+Q,V satisfy the literal Newton equations, including Q′=V and the gravitational
+acceleration, for every t in the closed interval. `AMDSafeOn` includes these
+clauses. Functions are typed on ℝ only to state derivatives; no dynamics is
+asserted outside the specified interval. Frozen `IsNewtonSolution` asserts all
+time, so the new `IsNewtonSolutionOn` is its explicit interval restriction at G=1.
+The frozen `KAM.Iso.IsHamiltonianSolutionOn` supplies the differentiability guard
+for the Hamiltonian vector field.
+
+The proof obligation is the exact identity A(t)−A(0)=Σ(Λᵢ(t)−Λᵢ(0)), followed
+by first-exit exclusion and ODE continuation on a smaller compact collision-free
+physical region. Conservation of J is derived from rotational invariance of the
+literal Hμ, not postulated as another premise. The half-margin conditions above
+prevent circularity at the first exit. Escape is excluded by relative distances
+in the center-of-mass frame; no bound on a freely translating inertial origin is
+claimed. This is an elementary new helper implementing round 2 §2 lemmas 1,2,5,6,
+with the stopped-source correction of round 3.
+
+### P-EXP-SAFE — every datum, source exponential rate
+
+Exact name: `KAM.Planetary.planetaryExponentialSafety`. Put
+
+    a = 2/(6n²−3n+14),    b = 3a/2.
+
+For every admissible fixed B there exist μ*>0, c>0, C>0, depending on B and n,
+**before** μ or z₀, such that for every 0<μ<μ* and **every** z₀ in the initial
+region, an actual solution exists on
+
+    |t| ≤ exp(c μ^(−a)),
+
+has all the physical safety and uniqueness conclusions of `AMDSafeOn`, and
+
+    |aᵢ(t)−aᵢ(0)| ≤ C μ^b    for every planet i.
+
+There is no exceptional set, Diophantine premise, assumed invariant torus,
+assumed drift estimate or assumed confinement. The constants are asymptotic;
+this theorem does not certify that the actual Solar System masses are below μ*.
+
+Source: **Nek77 §12, Theorem 12.3, printed pp. 55–56, (12.3)–(12.5)**. Its literal
+horizon is (C₁μ)⁻¹ exp((C₁μ)^(−a)). Shrinking μ* absorbs the prefactor and gives
+the displayed lower horizon. Its elements are barycentric; our zero-coupling
+heliocentric-canonical elements differ uniformly by O(μ) on the fixed compact
+region. Since b<1 for n≥2, this is absorbed into Cμ^b. Cover the closure of the
+initial region by finitely many narrow source axis boxes B(α,β,γ) with
+γ₀(α,β)<γ<γₘ(α,β); choose γ just below the point's angular momentum and exploit
+the strict eccentricity/radial margins. The planar invariant subsystem and time
+reversal give the symmetric interval. Compact continuation and the deterministic
+helper give the explicit no-escape, all-pair bounds and uniqueness. These are
+proof obligations of the specialization, not additional theorem premises.
+The exponent 1/(2n) is neither used nor advertised.
+
+### P-SECULAR-BOX — literal full average and rational certificate
+
+The model has two planets, G=m₀=1, weights m=(1,s) with
+29/100≤s≤31/100, and any fixed μ>0. Canonical variables are
+w=(λ,ξ;Λ,η), assembled and projected by the frozen `assemble`, `fast`, and
+`slow`. The angles λ are **radians**, period 2π, conjugate to Λ=m√a.
+Conversion to track K's period-one convention uses θ=λ/(2π), I=2πΛ;
+θ is not paired with unchanged Λ. The slow variables obey
+
+    Γᵢ = (ξᵢ²+ηᵢ²)/2,   A = Γ₁+Γ₂,
+    sᵢ = 1−Γᵢ/Λᵢ,   vᵢ = √((1−Γᵢ/(2Λᵢ))/Λᵢ) (ξᵢ,ηᵢ),
+    aᵢ = (Λᵢ/mᵢ)².
+
+Here sᵢ=√(1−eᵢ²) and vᵢ is the eccentricity vector. With u(F)=(cos F,sin F)
+and J₂(x,y)=(-y,x), the explicit, circular-regular orbit map is
+
+    qᵢ(F) = aᵢ [sᵢu(F)−vᵢ+(vᵢ·u(F))/(1+sᵢ) vᵢ],
+    pᵢ(F) = mᵢ²/[Λᵢ(1−vᵢ·u(F))]
+              [J₂u(F)−(vᵢ·u(F))/(1+sᵢ) J₂vᵢ].
+
+Kepler's equation is λᵢ=Fᵢ−vᵢₓ sin Fᵢ+vᵢᵧ cos Fᵢ, with strictly positive
+Jacobian 1−vᵢ·u(Fᵢ). It is a degree-one circle change of variables. Thus the
+following literal integral is **exactly the full double mean-longitude average**:
+
+    Hsec(Λ,ξ,η;μ) = (2π)^(-2) ∫_[0,2π]²
+      Hμ(q(F),p(F)) ∏ᵢ(1−vᵢ·u(Fᵢ)) dF₁ dF₂.
+
+`exactSecularHamiltonian` evaluates this using the frozen `secularAverage` on
+`secularIntegrand`. There is no selected inverse Kepler solver, arbitrary chart,
+default branch, truncated eccentricity polynomial, discarded indirect term, or
+higher-order normal-form interpretation. Though Hμ is linear in μ in these fixed
+coordinates, its entire interaction is retained. The displayed orbit formulas
+are algebraic rewritings of the Kepler ellipse and momentum, to be proved in the
+coordinate bridge; LP17 (7), (10)–(11), (B.5), (B.8) characterize the construction.
+`SecularRegular` certifies positive actions, 0≤Γᵢ<Λᵢ, positive longitude
+Jacobians, collision-free ellipses for every phase, integrability, and
+differentiability of Hsec. These guards are **conclusions** derived from the
+input box, not assumptions that hide an undefined integral or vector field.
+
+The initial box is literal rational data, with every phase allowed:
+
+| Quantity | Closed input interval or upper bound |
+|---|---|
+| aJ | [103/20, 21/4] |
+| aS | [189/20, 193/20] |
+| eJ | ≤3/50 |
+| eS | ≤7/100 |
+
+`SecularInputBox` also imposes Λᵢ>0 and 0≤Γᵢ<Λᵢ to select the prograde
+elliptic chart. Its circular members are included. The axes are measured in au
+under the stated normalization. This is an illustrative canonical-element box,
+not a validated ephemeris uncertainty set.
+
+Exact main name: `KAM.Planetary.secularBoxSafety`. For every s in its stated
+interval, every μ>0 and every w₀ in that input box, there exists an all-time
+solution of **X_Hsec** through w₀, unique among local solutions on the regular
+domain. For every real time it has
+
+    Λ(t)=Λ(0),   A(t)=A(0)<16373/2500000,
+    eJ(t)<3/20,   eS(t)<3/20.
+
+For every choice of eccentric longitudes (equivalently, every mean longitude),
+the reconstructed ellipses satisfy
+
+    1751/400 ≤ |qᵢ| ≤ 4439/400,
+    |qS|−|qJ| ≥ 399/200,
+    every barycentric pair distance ∈ [399/200, 4439/200].
+
+All-time means all t∈ℝ, with no exceptional data and no smallness threshold for μ
+in this averaged model. `SecularBoxConclusion` makes no Newton-equation claim
+about the reconstructed ellipses. The dynamical equation is explicitly the
+Hamiltonian equation for Hsec, and the geometric bounds hold for all phases.
+
+The rational arithmetic behind the certificate is
+
+    ΛJ<23/10,   ΛS<97/100,   ΛJ,ΛS>87/100,
+    1−√(1−(3/50)²)<181/100000,
+    1−√(1−(7/100)²)<123/50000,
+    A < (23/10)(181/100000)+(97/100)(123/50000) = 16373/2500000,
+    1−√(1−(3/20)²)>11/1000,
+    16373/2500000 < (87/100)(11/1000) = 957/100000.
+
+The radius and gap bounds follow by multiplying the axis endpoints by
+1±3/20. All inequalities have strict slack. Conserved actions follow from
+independence of λ; rotational invariance conserves ΣΛ−A and hence A. Compact
+continuation in the slow variables, with bounded angle speeds, proves existence
+for all time. No assertion that the lifted λ coordinates themselves are bounded
+is needed. LP17 Appendix B supports the conservation mechanism; the explicit
+box theorem is a new elementary deduction, not a theorem quoted verbatim there.
+
+The exact parameter specialization `secularBoxAtCitedMasses` sets
+
+    μ = 4773/5000000 = 0.0009546,
+    s = 476/1591 ∈ [29/100,31/100],
+    μs = 357/1250000 = 0.0002856.
+
+These are precisely the decimal model masses in FH24v1 §4, p. 6. “Actual masses”
+here means those cited realistic model parameters; it does not mean that measured
+masses are exact rational numbers. A future ephemeris/time-unit certification is
+separate. The theorem cannot be transferred to the full Newtonian problem without
+a quantitative approximation/drift estimate over the requested time.
+
+### Owner questions for the additions
+
+These are recommendations awaiting the D22 statement audit and approval, not
+assumed new rulings. They do not interrupt preparation of the complete draft.
+
+- **Q-P-A1 — physical scope.** Approve G=m₀=1, fixed positive planetary weights,
+  planar prograde data, and the explicit separated-annulus/low-AMD `AMDBox` region?
+  **Recommend yes.** These are the requested specialization, with no factor-four
+  restriction; restoring arbitrary G,m₀ can be a later scaling corollary.
+- **Q-P-A2 — rate and source adaptation.** Approve the literal Nek77 a,b, symmetric
+  exponential horizon, and the O(μ) conversion to heliocentric-canonical elements?
+  **Recommend yes**, with the finite-cover, coordinate-transfer and continuation
+  arguments recorded as proof work. Do not replace these with the unverified
+  optimized exponent or an assumed analytic estimate in the headline.
+- **Q-P-A3 — stopped interface.** Approve `amdConfinement` as a distinct conditional
+  helper whose only dynamical input is the arbitrary-duration stopped estimate?
+  **Recommend yes.** N-PARTIAL-CONVEX must discharge it after the analytic bridge;
+  conservation of J is proved inside the helper for the literal physical system.
+- **Q-P-A4 — precise secular model.** Approve the raw, untruncated full
+  mean-longitude average in the fixed zero-coupling chart, including its weighted
+  eccentric-longitude integral implementation and circular points?
+  **Recommend yes.** This fixes the model without invoking a truncated series or
+  a finite-order secular normal form; the mean-angle substitution is proof work.
+- **Q-P-A5 — actual-mass language and box.** Approve the rational illustrative
+  canonical-element box and the exact FH24v1 decimal-mass specialization, alongside
+  the stronger parameter-family theorem?
+  **Recommend yes.** Keep “not an ephemeris certificate” and the averaged-model
+  boundary; no physical-year or full-system realistic-mass claim is supported.

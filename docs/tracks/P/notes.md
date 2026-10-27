@@ -295,3 +295,167 @@ three expected placeholder warnings and the printed axiom inventories above.
 There is concurrent unrelated work in the shared checkout (including blueprint and
 other-track paths). Repository-wide lint reports the current shared snapshot; ownership
 claims here concern only the four deliverables and the allowed incoming-P source data.
+
+## Additions (D22), draft v0.3
+
+The four deliverables for this round are additions to `statement.md`, `sources.md`,
+this file, and the new ignored `.drafts/P/Additions.lean`. Earlier v0.2 content is
+preserved. The new draft reuses frozen definitions and does not import theorem
+anchors or providers. No freezing, proof work, state-changing git, generated-file
+edit or other-track change belongs to this task.
+
+### Design and proof dependencies
+
+The physical initial region is given directly in Cartesian coordinates by
+negative Kepler energies, positive angular momenta, action bounds and total AMD.
+It is not an opaque chosen chart image. The mean-longitude average is evaluated
+through an explicit eccentric-longitude orbital map and its positive Jacobian.
+This avoids selecting an inverse of Kepler's equation, remains regular at e=0,
+and retains the full frozen moving-Sun interaction, including the indirect term.
+The frozen `secularAverage` supplies the normalization and integration domain.
+
+| Work package | Required content and shared interface | Rough additional Lean size |
+|---|---|---|
+| Physical Kepler/AMD geometry | Energy, Runge–Lenz vector, L=Λ√(1−e²), radial inequalities, coordinate reconstruction. Reuse all frozen physical formulas. | 2,000–4,000 lines |
+| P-AMD-CONFINEMENT | Rotation/Noether calculation, first-exit argument, strict margins, local uniqueness, compact continuation, finite-interval Newton equations. `hstop` is a separately named conditional input. | 1,500–3,000 lines after ODE infrastructure |
+| Poincaré and mean-angle bridge | Circular-regular chart, symplectic sign, Kepler equation, positive-Jacobian change of variables, analytic complex neighbourhoods. Fast angle λ is paired with Λ; period-one θ is paired with 2πΛ. | 3,000–6,000 lines |
+| N-to-P stopped bridge | Analytic domain/margins, definite fast Kepler Hessian, perturbation derivative norm ≤Cμ, action coordinate conversion and negative time. Does not reuse nondegenerate frozen N-HEAD-C as if it were partial convexity. | 2,000–4,000 lines beyond N-PARTIAL-CONVEX |
+| P-EXP-SAFE assembly | Finite compact source cover, source exponents, O(μ) element transfer, threshold selection, physical conclusions and time reversal. | 1,000–2,000 lines after the preceding gates |
+| P-SECULAR-BOX | Differentiation/integrability of exact average, rotation invariance, constant actions/AMD, rational inequalities and all-time continuation in slow variables. | 1,000–3,000 lines after the coordinate/integral bridge |
+
+These are planning estimates, not accepted budgets or proof completion. N's
+partial-convex normal-form work is additional and likely dominant. Keep every
+Lean module below 1500 lines, splitting geometry, coordinates, averaging and
+continuation into focused modules with cheap interface imports.
+
+The stopped interface quantifies over **all** finite [l,r] containing 0, with
+control on [l,r]∩[−T,T]. It is deliberately available on intervals shorter than
+the desired horizon. When applying N-PARTIAL-CONVEX, choose its fixed slow domain
+large enough that the outer AMD ball is contained in its trimmed domain, and
+its fast analytic box large enough to contain the outer action box with a fixed
+margin. Do not assume the physical solution remains there for time T. Uniform
+constants follow from the fixed compact region and the source's analytic norms;
+N's real/complex Hessian and dimension conditions must be checked at this bridge.
+The number of fast actions is n, while the planar system has 2n canonical pairs.
+
+The exact raw average can be globally complete for any μ>0 in this protected
+box because averaging fixes the actions and rotational symmetry fixes the AMD.
+This is a property of that model. The full Newtonian vector field changes the
+individual actions, so no actual-mass full-system conclusion follows from the
+secular certificate. The first unpaid quantitative inequality for that extension
+is a validated stopped fast-action bound small enough to fit both action and AMD
+margins over the requested physical duration.
+
+### Definition and domain audit
+
+- Every new definition is a literal formula or predicate. No arbitrary witness,
+  fallback branch, assumed chart, or hidden inverse solver is used.
+- Physical divisions require positive weights/radii and negative Kepler energy;
+  `ProgradeElliptic` supplies them in every physical statement. The eccentricity
+  vector uses `planeLength`, whose square-root argument is a sum of squares.
+- `AMDBox.Admissible` supplies 0<e*<1 for its square root, and positive masses
+  for the axis formulas. μ>0 guards all real powers in P-EXP-SAFE and makes the
+  frozen barycentric denominator 1+μΣm positive.
+- The secular input requires Λ>0 and 0≤Γ<Λ. Thus the eccentricity-vector radicand
+  is positive and 1+sqrt(1−e²) is nonzero. Theorems conclude `SecularRegular`,
+  including positive longitude Jacobians and all-phase collision avoidance.
+- Integral and derivative guards are explicit conclusions from the numerical
+  input, not extra hypotheses of `secularBoxSafety`. The ODE predicate itself
+  retains frozen `DifferentiableAt` guards; no off-domain `fderiv` is used as a
+  physical vector field.
+- Only `amdConfinement` accepts an analytic estimate as input, precisely because
+  it is the requested deterministic conditional helper. Both headline results
+  carry only their standing physical/model data and initial-region premises.
+- Finite-time reconstruction is a new interval predicate because frozen
+  `IsNewtonSolution` has all-time quantifiers. Frozen functions and meanings are
+  reused without shadowing. No physical solution is asserted for the secular
+  reconstruction, only for the full-system finite-time result.
+
+### Uncertainties, errata and owner decisions
+
+All new statements await an independent audit and owner approval. Questions
+Q-P-A1–Q-P-A5 and recommendations are in the appended statement section. Their
+recommendations fix the draft for review without pretending they are new rulings.
+In particular, the source-to-Cartesian finite-cover transfer and the symplectic
+regular orbit-map derivation are proof obligations, not already certified lemmas.
+The local PDF pins and metadata are verified; no unverified optimized exponent,
+missing Niederman proof or Pinzari whole-horizon statement is relied upon.
+
+Suspected typographical defects E-P-A-N77-1 (12.3.A/12.4.A cross-reference) and
+E-P-A-LP17-1 (F instead of K between (B.9)–(B.10)) are quoted with locations and
+recommended corrections in `sources.md`. Neither changes the adopted mathematical
+contract. Deviations D-P-A1–D-P-A4 record normalization/planar specialization,
+coordinate transfer and time/geometry deductions, the eccentric-longitude integral
+representation, and the explicit averaged-model numerical scope. The orchestrator
+must review any ledger additions; the ledger and frozen files were left untouched.
+
+The hard Lean rules used for this draft are:
+
+1. Never use `set_option maxHeartbeats` (or any heartbeat-budget override). A default-heartbeat elaboration
+   failure is a design signal to refactor or split the proof, not something to mask with a larger budget.
+2. No Lean file may exceed 1500 lines of code.
+
+The additions brief expressly permits theorem-body `sorry` in this ignored draft;
+that task-specific exception does not authorize library placeholders. There are
+four such bodies and no definition placeholders. A direct draft elaboration is
+the targeted build check for this artifact; no new library module exists to pass
+to `lake build`.
+
+### Validation receipt — additions only
+
+Final targeted elaboration, with default resource budgets:
+
+```text
+$ nice -n 5 lake env lean .drafts/P/Additions.lean
+.drafts/P/Additions.lean:159:8: warning: declaration uses `sorry`
+.drafts/P/Additions.lean:182:8: warning: declaration uses `sorry`
+.drafts/P/Additions.lean:325:8: warning: declaration uses `sorry`
+.drafts/P/Additions.lean:333:8: warning: declaration uses `sorry`
+'KAM.Planetary.amdConfinement' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Planetary.planetaryExponentialSafety' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Planetary.secularBoxSafety' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'KAM.Planetary.secularBoxAtCitedMasses' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+exit 0
+```
+
+There were no errors or warnings other than these four theorem-body placeholders.
+All four theorems remain unproved and depend on `sorryAx`; this receipt establishes
+elaboration of the statement surface, not truth or proof closure.
+
+```text
+$ scripts/lint_sources.sh
+check_lean_modules: PASS (124 Lean files, 0 comparator configurations)
+FROZEN-ANCHOR GUARD OK
+ABI HASHES OK (94 frozen declarations)
+exit 0
+```
+
+Repository lint excludes `.drafts/`. A separate comment-stripped static check of
+`Additions.lean` found 345 lines, 35 definitions plus one structure, four theorems,
+exactly four `:= by sorry` bodies, no definition placeholders, no proof-escape
+keywords, no resource-option commands, no forbidden ambient type, no arbitrary
+choice/inverse solver, and only frozen-definition imports. No additional build
+was required after the successful final elaboration.
+
+A Python `fractions.Fraction` check independently reproduced 15 exact rational
+checks: both action upper bounds; both action lower bounds; both eccentricity
+square-root upper bounds (by squaring positive rational comparators); the AMD
+sum; the critical-deficit lower bound; the strict AMD margin; radial gap; inner
+and outer radii; the all-pair lower-bound comparison; Saturn weight interval
+membership; and the exact product giving Saturn's physical mass. **15/15 PASS.**
+These checks support the arithmetic transcription and do not replace Lean proofs.
+The three PDF SHA-256 values in the appended source table were recomputed and
+matched. Nek77 pp. 55–56 and the LP17 p. 17 symbol typo were checked as page images.
+
+`git diff --check -- docs/tracks/P/statement.md docs/tracks/P/sources.md
+ docs/tracks/P/notes.md` exited 0 with no output. A separate direct check including
+the ignored Lean draft found no trailing whitespace or control characters.
+All three Markdown files retain their HEAD contents as exact prefixes: edits
+are append-only. `git check-ignore .drafts/P/Additions.lean` returned that path;
+`git ls-files .drafts/P/Additions.lean` returned nothing. The four deliverables
+are present and the draft is untracked as requested.
+
+There is concurrent unrelated blueprint work in the shared checkout. It was
+neither edited nor reverted here; the lint receipt describes the shared snapshot
+at validation time. No state-changing git, full-library build, cleanup, frozen-file
+edit, manifest edit or generated-file edit was performed for this task.

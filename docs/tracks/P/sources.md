@@ -230,3 +230,172 @@ and Remark 11.1(ii), p. 52, document that his detailed proof covered the planar 
 case. CP11 p. 34 footnote 53 points to Arnold p. 138, (3.4.31), including a reported
 exponent correction. This is secondary evidence about Arnold, not an independently
 verified quotation of his original PDF.
+
+## Additions (D22), draft v0.3
+
+The three primary PDFs below were inspected locally for this addition. Hashes were
+recomputed from their bytes. Existing exact Crossref responses were read, matching
+DOI, title, authors, volume and pagination/article identity; versioned arXiv abs
+pages retained in `sources/incoming-zohar2/` were also checked. This is verification
+against retained metadata, not a claim of a fresh network fetch. No new download
+or source-directory mutation was needed. The round-3 corrections override round 2.
+
+| Key | Citation and inspected version | PDF and SHA-256 |
+|---|---|---|
+| Nek77 | N. N. Nekhoroshev, *An exponential estimate of the time of stability of nearly-integrable Hamiltonian systems*, Russian Mathematical Surveys **32**(6) (1977), 1–65. English translation. DOI [10.1070/RM1977v032n06ABEH003859](https://doi.org/10.1070/RM1977v032n06ABEH003859). | `sources/incoming-round3/nek77-eng.pdf`; `0bfe624cf108096badd7e27fc40ca800e2948b68dce2bf8b9c653e0eaec4def6` |
+| LP17 | J. Laskar and A. C. Petit, *AMD-stability and the classification of planetary systems*, Astronomy & Astrophysics **605** (2017), A72. Inspected [arXiv:1703.07125v2](https://arxiv.org/abs/1703.07125v2), submitted 22 March 2017, 18 pages. DOI [10.1051/0004-6361/201630022](https://doi.org/10.1051/0004-6361/201630022). The PDF byline abbreviates the second author as A. Petit. | `sources/incoming-zohar2/r2-amd17.pdf`; `6b3c7aad2c2bf69612c0e0a65a5409f40a03e330253f8b3880f8e53d40f09361` |
+| FH24v1 | Jordi-Lluís Figueras and Alex Haro, *Sun-Jupiter-Saturn System may exist: A verified computation of quasiperiodic solutions for the planar three body problem*, [arXiv:2403.10152v1](https://arxiv.org/abs/2403.10152v1), 15 March 2024. Later journal record: Journal of Nonlinear Science **35**(1) (2025), DOI [10.1007/s00332-024-10109-4](https://doi.org/10.1007/s00332-024-10109-4), online 16 November 2024. Locators here refer to **v1**, not the later journal pagination. | `sources/incoming-zohar2/r2-fhl24.pdf`; `379c8b41b53a1fd50cbc890cca06d646ccd93f5c0d5e0226d1303885d2df7cf7` |
+
+Metadata records are `r2-nekhoroshev77-crossref.json`, `r2-amd17-crossref.json`,
+`r2-figueras-haro25-crossref.json`, `arxiv-1703.07125v2.html`, and
+`arxiv-2403.10152v1.html`, all under `sources/incoming-zohar2/`.
+The existing `r2-secular-box-arithmetic.json` supplies the intended rational
+checks; they were independently reproduced for this draft, not treated as proofs.
+
+### Nek77: exact source contracts and the stopped condition
+
+Printed pp. 55–56 were checked as rendered page images because text extraction
+corrupts the exponent and fraction notation. The following transcription preserves
+the mathematical quantifiers, with symbols normalized to Unicode.
+
+**§12.2, (12.1)–(12.2), p. 55:**
+
+> αᵢ ≤ aᵢ(v) ≤ βᵢ (i=1,…,s), |N(v)| ≥ γ.
+>
+> 0 < α₁ ≤ β₁ < α₂ ≤ β₂ < … < αₛ ≤ βₛ.
+
+**Definition 12.2.A, p. 55:**
+
+> A set B(α,β,γ) such that (12.1) holds and γ₀(α,β)<γ<γₘ(α,β) is called a
+> domain of planetary motions.
+
+The immediately preceding text defines γₘ as the largest γ with nonempty B and
+γ₀ as the largest γ whose boundary contains a collision, either between planets
+or with the center of attraction. N is the unperturbed sum of planetary angular
+momenta divided by μ, expressed in the barycentric frame of the perturbed system.
+These are not heliocentric-canonical osculating elements at nonzero μ.
+
+**Theorem 12.3, pp. 55–56, (12.3)–(12.5):**
+
+> Let B be any domain of planetary motions. Then there are positive constants
+> C₁, C₂, C₃, and μ₀, depending only on the constants κ=κ₁,…,κₛ and on B,
+> with the following property. Let μ be an arbitrary point of (0,μ₀). Let v(t)
+> be any solution of the perturbed system with this value of μ, such that
+> v(0)∈B. We put T=(1/M) exp(1/Mᵃ), where M=C₁μ,
+> a=2/(6s²−3s+14).
+>
+> Then the bodies in the system cannot collide during the time interval [0,T].
+> Moreover, for all t∈[0,T], |aᵢ(v(t))−aᵢ(v(0))|<C₂μᵇ (i=1,…,s), where
+> b=(3/2)a, |N(v(t))−N(v(0))|<C₃μ.
+
+The small-μ subscript in the first sentence is normalized to match the subsequent
+interval (0,μ₀). The source's full vector N estimate is recorded here for fidelity;
+the draft instead proves exact conservation of the canonical planar scalar J and
+uses the resulting AMD identity. It does not assert the source's approximate N is
+exactly conserved.
+
+**Theorem 4.4, p. 30:** after the analytic-domain and steepness premises of
+§4.3, with M=sup_F |grad H₁| sufficiently small, the source explicitly requires
+
+> I(0)∈G−d and p(t),q(t)∈D−d for all t∈[0,C], where C>0 is arbitrary.
+> Then |I(t)−I(0)|<d/2 for all t∈[0,min{C,T}].
+
+This arbitrary-duration assertion is the input shape of `StoppedActionBound`.
+The source analytic extension, Hessian/steepness bounds, perturbation scale and
+coordinate losses must be paid by N-PARTIAL-CONVEX and its planetary bridge.
+They are not assumed in the physical headline. P does not import the frozen
+N-HEAD-C as a substitute: that theorem has a different nondegenerate action
+setup and dimension restriction. Pinzari's whole-duration statement is not used
+as a stopped theorem. Neither an optimized 1/(2n) exponent nor a secondary
+attribution to Niederman is an input.
+
+**Coordinate and continuation locators:** §12.4, pp. 56–59, (12.6)–(12.12),
+Lemma 12.4.C (analytic coordinates near the compact domain), Lemma 12.4.D
+(O(μ) action comparison), and Lemma 12.4.E (Hamiltonian form). The first compactness
+lemma is printed “12.3.A” on p. 56; see the numbering note below. The proof ends
+in §12.6.C, p. 63. The planar finite-cover transfer, time reversal, explicit
+relative-distance constants, uniqueness and continuation clauses are deductions
+proposed here, not additional sentences falsely attributed to Theorem 12.3.
+
+### LP17: physical coordinates, AMD, and literal averaging
+
+**§2.1–§2.2, p. 2, (4)–(11):** the source splits H=H₀+H₁, with
+
+> H₀ = (1/2)Σᵢ |r̃ᵢ|²/mᵢ − GΣᵢ m₀mᵢ/rᵢ,
+> H₁ = |ũ₀|²/(2m₀) − GΣᵢ<ⱼ mᵢmⱼ/Δᵢⱼ.                         (5)–(6)
+>
+> G = Σᵢ₌₀ⁿ uᵢ∧ũᵢ = Σᵢ₌₁ⁿ rᵢ∧r̃ᵢ.                       (9)
+>
+> G = Σₖ Λₖ√(1−eₖ²) cos iₖ,  Λₖ=mₖ√(μ aₖ),
+> C = Σₖ Λₖ(1−√(1−eₖ²) cos iₖ).                            (10)–(11)
+
+The source uses μ=Gm₀ as the central Kepler parameter. **That μ is not the small
+planetary mass parameter in our draft.** Set its Gm₀=1, then rescale planetary
+masses and momenta by our μ to obtain exactly the frozen moving Hamiltonian and
+J=Σq×p used here. This distinction also fixes the zero-coupling action normalization.
+The Runge–Lenz vector and circular-regular ellipse formulas in the draft are
+explicit algebraic derivations of this Kepler block, not equations copied from LP17.
+
+**§3, p. 4, (26):** the limiting planar orbit-crossing equation is
+
+> a(1+e)=a′(1−e′).
+
+Our uniform radial-annulus inequalities are sufficient conditions stronger than
+merely testing this limiting contact. They retain strict room for continuation.
+
+**Appendix B, pp. 16–17, especially p. 16 (B.5), (B.8):**
+
+> ⟨G⟩λ = (1/(2π)ᵐ) ∫ G dᵐλ.                                (B.5)
+>
+> ⟨{K,G}⟩λ = {K,⟨G⟩λ}.                                     (B.8)
+
+Here K is an integral independent of λ. Independence of the full average from
+λ gives constant fast actions, while the bracket identity preserves angular
+momentum. Therefore the AMD is conserved in the raw averaged model. This uses
+only the single exact average, not the convergence of a formal all-orders
+normalization. LP17's broader discussion does not license transferring secular
+AMD conservation to full Newtonian trajectories.
+
+The explicit rational Jupiter–Saturn safety theorem is a new consequence of this
+mechanism and the arithmetic in round 2 §3. No LP17 theorem number is invented
+for it. The source's abstract and §3 distinguish the secular criterion from a
+conjectural full-system interpretation; our conclusion keeps that distinction.
+
+### FH24v1: parameter values only
+
+**§4, p. 6, immediately before (4.1):**
+
+> The masses of Jupiter and Saturn are 0.9546·10⁻³ and 0.2856·10⁻³, respectively,
+> so m₁=0.9546, m₂=0.2856 and μ₀=10⁻³.
+
+Renormalizing Jupiter's weight to 1 gives μ=4773/5000000 and mS=476/1591.
+This source supplies the decimal model parameters, not an all-time certificate
+for the input box. Its torus computation is not used as a premise. No claim of
+validated observational uncertainty or a physical-year conversion is made.
+
+### Suspected source defects and explicit deviations
+
+- **E-P-A-N77-1 (numbering only):** p. 56 prints “12.3.A. LEMMA. Every domain of
+  planetary motions is compact.” The p. 58 proof of Lemma 12.4.C cites
+  “Lemma 12.4.A” for that compactness fact. Recommend indexing the result by
+  page and title, retaining the printed label and recording the internal
+  cross-reference mismatch. No mathematical correction is required.
+- **E-P-A-LP17-1 (symbol typo):** p. 17, between (B.9) and (B.10), reads
+  “Using the Jacobi identity, as {F,H₀}=0”. The integral in (B.1)–(B.9) is K;
+  F is not defined in that argument. Recommend reading {K,H₀}=0, already
+  established on p. 16. The additions use (B.5), (B.8) and direct rotational
+  invariance, not the later all-orders argument.
+- **D-P-A1:** specialize spatial source domains to planar prograde separated
+  annuli, G=m₀=1, and use exact heliocentric-canonical elements. O(μ) comparison,
+  a finite compact cover and physical reconstruction remain proof obligations.
+- **D-P-A2:** weaken the literal prefactored time to exp(cμ⁻ᵃ), extend by time
+  reversal, and state explicit existence, uniqueness and geometric bounds.
+- **D-P-A3:** use an explicit weighted eccentric-longitude representation of the
+  unweighted mean-longitude average, with regular variables at e=0; prove the
+  change of variables rather than stipulating an arbitrary chart.
+- **D-P-A4:** the rational box and cited decimal masses are an illustrative
+  averaged-model certificate. No full-system realistic-mass theorem, optimized
+  exponent, observational enclosure or time-in-years claim is introduced.
+
+No frozen or manifest file, central source registry, or errata ledger was edited.
+The two numbering/symbol observations are handed to the orchestrator for review.
