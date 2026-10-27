@@ -77,7 +77,8 @@ theorem norm_gram_sub_one_le (hn : 0 < n) {L : Matrix (Fin n ⊕ Fin n) (Fin n) 
   calc _ ≤ ‖(frameL0 n)ᵀ * D + Dᵀ * frameL0 n‖ + ‖Dᵀ * D‖ := norm_add_le _ _
     _ ≤ ‖(frameL0 n)ᵀ * D‖ + ‖Dᵀ * frameL0 n‖ + ‖Dᵀ * D‖ := by gcongr; exact norm_add_le _ _
     _ ≤ a + 2 * n * a + 2 * n * a * a := by gcongr
-    _ ≤ 5 * n * a := by nlinarith [mul_nonneg ha0 (sub_nonneg.2 ha1), mul_nonneg ha0 (sub_nonneg.2 hn1)]
+    _ ≤ 5 * n * a := by
+        nlinarith [mul_nonneg ha0 (sub_nonneg.2 ha1), mul_nonneg ha0 (sub_nonneg.2 hn1)]
 
 
 /-- Neumann step for the Gram matrix. -/
@@ -364,7 +365,8 @@ theorem eta_small (hn : 2 ≤ n) (hs₀ : 0 < s₀) (hr₀ : 0 < r₀) {δ η : 
   · rw [div_le_div_iff₀ (by positivity) (by positivity)]
     nlinarith
   · have hn2 : (n : ℝ) ^ 2 ≤ cT s₀ r₀ B h := by
-      have : (n : ℝ) ^ 2 ≤ 304 * (n : ℝ) ^ 3 := by nlinarith [sq_nonneg (n : ℝ), mul_nonneg (sq_nonneg (n : ℝ)) (sub_nonneg.2 hn1)]
+      have : (n : ℝ) ^ 2 ≤ 304 * (n : ℝ) ^ 3 := by
+        nlinarith [sq_nonneg (n : ℝ), mul_nonneg (sq_nonneg (n : ℝ)) (sub_nonneg.2 hn1)]
       linarith
     have h1 : 16 * (n : ℝ) ^ 2 * η ≤ δ := by
       have e1 : 16 * (n : ℝ) ^ 2 * η ≤ η * (16 * cT s₀ r₀ B h * Lplus Lh) := by
