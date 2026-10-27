@@ -33,6 +33,9 @@ public import KAM.Frozen.Defs.RealHamiltonian
 public import KAM.Frozen.Defs.SymplecticForm
 public import KAM.Frozen.Defs.Torsion
 public import KAM.Frozen.Defs.TorsionAverage
+public import KAM.Strip.Cauchy
+public import KAM.Strip.HigherCauchy
+public import KAM.Strip.Regularity
 
 /-!
 # KAM
