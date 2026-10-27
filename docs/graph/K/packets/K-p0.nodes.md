@@ -637,9 +637,9 @@ EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p0-conventions.tex#bp:p0:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.aposteriori_kam (SEALED: by exact KAM.Provider.aposteriori_kam …; provider ⟨_, _, KAM.Apost.g1_explicit …⟩)
+LEAN_NOTE: SEALED 2026-10-27 (D26): provider package P2-14, audit docs/campaign/audits/P2-14-audit-1.md PASS WITH NOTES (exact-type probe); axioms propext/Classical.choice/Quot.sound; leanchecker replay of the frozen module, provider, KAM.Apost.G1 and KAM.Apost.Limit exit 0
 NOTE: -
 
 NODE: bp:p0:g2
