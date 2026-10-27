@@ -732,9 +732,9 @@ EDGE: step:p3:diff-bounds | blueprint/parts/p3-uniqueness.tex#bp:p3:difference-e
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.difference_equation (defs remainder, diffXi, diffQ; diffMap in Uniq/Phase)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:diff-regularity
@@ -763,9 +763,9 @@ EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.DiffAux.step_regularity
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:diff-linearized
@@ -789,9 +789,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.DiffAux.step_linearized
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:diff-triangular
@@ -819,9 +819,9 @@ EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.DiffAux.step_triangular (fderiv_diffXi_eq)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:diff-bounds
@@ -852,9 +852,9 @@ EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L40
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.DiffAux.step_bounds
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p3:quadratic
@@ -888,9 +888,9 @@ EDGE: step:p3:quad-combine | blueprint/parts/p3-uniqueness.tex#bp:p3:quadratic@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.quadratic
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:quad-remainder
@@ -915,9 +915,9 @@ EDGE: bp:p3:difference-equation | blueprint/parts/p3-uniqueness.tex#step:p3:quad
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inside KAM.Uniq.quadratic
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:quad-normal-osc
@@ -945,9 +945,9 @@ EDGE: step:p3:quad-remainder | blueprint/parts/p3-uniqueness.tex#step:p3:quad-no
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.QuadAux.osc_bound
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:quad-normal-avg
@@ -976,9 +976,9 @@ EDGE: step:p3:quad-remainder | blueprint/parts/p3-uniqueness.tex#step:p3:quad-no
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.QuadAux.norm_avg_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:quad-normal
@@ -1006,9 +1006,9 @@ EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#step:p3:quad-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.QuadAux.normal_bound + local hN in KAM.Uniq.quadratic
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:quad-tangent
@@ -1040,9 +1040,9 @@ EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#step:p3:quad-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inside KAM.Uniq.quadratic
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:quad-combine
@@ -1072,9 +1072,9 @@ EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#step:p3:quad-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inside KAM.Uniq.quadratic
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:g2-constant
@@ -1300,7 +1300,7 @@ EDGE: bp:p3:frequency-bound | blueprint/parts/p3-uniqueness.tex#bp:p3:quadratic#
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inside KAM.Uniq.quadratic
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: ADDED step: reused intermediate inequality (eq:p3:absorb), used in four steps
