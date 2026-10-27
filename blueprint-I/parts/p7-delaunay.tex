@@ -207,9 +207,11 @@ On $\mathcal D_\R$ (open in $\R^4$), with $F=2Le\sin u$:
 \[
 \mathsf Q^*\Bigl(\sum_{i=0}^{1}p_i\,dq_i\Bigr)=L\,d\ell+G\,dg+dF,\qquad\text{hence}\qquad D\mathsf Q^{\top}\mathbb JD\mathsf Q=\mathbb J=D\mathsf Q\,\mathbb J\,D\mathsf Q^{\top},
 \]
-i.e.\ $\mathsf Q^*(dq_0\wedge dp_0+dq_1\wedge dp_1)=d\ell\wedge dL+dg\wedge dG$ in the order $(\ell,g;L,G)$, and $D\mathsf Q(w)$ is invertible at every point. Consequently, for every $C^1$ function $H$ on an open subset of $\R^4$ on which $\mathsf Q$ is defined,
+i.e.\ $\mathsf Q^*(dq_0\wedge dp_0+dq_1\wedge dp_1)=d\ell\wedge dL+dg\wedge dG$ in the order $(\ell,g;L,G)$, and $D\mathsf Q(w)$ is invertible at every point. Consequently, let $U\subset\R^4$ be open (the target, with coordinates $(q,p)$), let $H:U\to\R$ be $C^1$, and put
+$W:=\{w\in\mathcal D_\R:\ \mathsf Q(w)\in U\}$, which is open in $\R^4$ because $\mathsf Q$ is continuous on the open set $\mathcal D_\R$
+(the source of $\mathsf Q$ is $\mathcal D_\R$, the domain of $H$ is $U$; $H\circ\mathsf Q$ is defined, and $C^1$, exactly on $W$). Then on $W$
 \[
-D\mathsf Q\;X_{H\circ\mathsf Q}=X_H\circ\mathsf Q,\qquad\text{i.e.}\qquad \dot w=X_{H\circ\mathsf Q}(w)\iff\tfrac{d}{dt}\mathsf Q(w)=X_H(\mathsf Q(w))\ \ (\text{for }w\in C^1).
+D\mathsf Q\;X_{H\circ\mathsf Q}=X_H\circ\mathsf Q,\qquad\text{i.e.}\qquad \dot w=X_{H\circ\mathsf Q}(w)\iff\tfrac{d}{dt}\mathsf Q(w)=X_H(\mathsf Q(w))\ \ (\text{for }C^1\text{ curves }w\text{ in }W).
 \]
 \source{Chi05 pp.~8--9 obtains the same canonicity by generating functions $S_0,S_1,S_2$ (not reproduced); the direct verification below is ours.}
 \end{proposition}
@@ -234,7 +236,7 @@ So $\pi\cdot d\xi=L(1+ec)\,du+2es\,dL+Ls\,de$.
 \proofstep{Exterior derivative}\label{stepI:p7:sy-ext} Apply $d$ (\ref{bpI:p7:x-forms}): $\mathsf Q^*(\sum dp_i\wedge dq_i)=dL\wedge d\ell+dG\wedge dg$, i.e.\ $\mathsf Q^*\sum dq_i\wedge dp_i=d\ell\wedge dL+dg\wedge dG$, which in matrices is $D\mathsf Q^{\top}\mathbb JD\mathsf Q=\mathbb J$. Taking determinants, $\det D\mathsf Q\ne0$.
 Since $M^\top\mathbb JM=\mathbb J$ with $M$ invertible gives $M\mathbb JM^{\top}=\mathbb J$ ($M^{-1}\mathbb J M^{-\top}=\mathbb J$ is obtained by inverting both sides and using $\mathbb J^{-1}=-\mathbb J$, then replace $M$ by $M^{-1}$ in the first identity), the second identity follows.
 
-\proofstep{Hamiltonian fields}\label{stepI:p7:sy-field} $\nabla(H\circ\mathsf Q)=D\mathsf Q^{\top}\nabla H\circ\mathsf Q$, so $D\mathsf Q\,X_{H\circ\mathsf Q}=D\mathsf Q\,\mathbb JD\mathsf Q^{\top}\nabla H\circ\mathsf Q=\mathbb J\nabla H\circ\mathsf Q=X_H\circ\mathsf Q$; the statement on curves is the chain rule.
+\proofstep{Hamiltonian fields}\label{stepI:p7:sy-field} On the open set $W$ (so $\mathsf Q(w)$ lies in the open domain $U$ of $H$, and the chain rule applies at every $w\in W$), $\nabla(H\circ\mathsf Q)=D\mathsf Q^{\top}\nabla H\circ\mathsf Q$, so $D\mathsf Q\,X_{H\circ\mathsf Q}=D\mathsf Q\,\mathbb JD\mathsf Q^{\top}\nabla H\circ\mathsf Q=\mathbb J\nabla H\circ\mathsf Q=X_H\circ\mathsf Q$; the statement on curves is the chain rule.
 \end{proof}
 
 \begin{theorem}[Delaunay chart]\label{bpI:p7:chart}

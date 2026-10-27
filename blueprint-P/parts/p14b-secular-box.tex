@@ -9,7 +9,7 @@ Throughout $G=m_0=1$, there are two planets, indexed $i\in\{0,1\}$ (Jupiter, Sat
 \paragraph{Idea.} The averaged Hamiltonian $H_{\rm sec}$ does not depend on the mean longitudes, so the actions $\Lambda_i$ are constant. It is invariant under the simultaneous rotation of both eccentricity vectors, so
 $\mathcal A=\Gamma_0+\Gamma_1$ is constant as well. For a point of the input box, $\mathcal A$ is smaller than $\frac{16373}{2500000}$, while a single eccentricity as large as $\frac3{20}$ would already force
 $\Gamma_i>\frac{87}{100}\cdot\frac{11}{1000}>\mathcal A$. Hence the slow variables $(\xi,\eta)$ stay in a compact subset of the region where $H_{\rm sec}$ is smooth, for every $\mu>0$ (no smallness: $\mu$ enters only the speeds).
-The mean longitudes are recovered by one quadrature; the radial bounds are the identity $\abs{q_i}=a_i(1-v_i\cdot u(F_i))$ and rational arithmetic. Nothing here concerns the Newtonian problem.
+The mean longitudes are recovered by one quadrature; the radial bounds are the identity $\pl{q_i}=a_i(1-v_i\cdot u(F_i))$ and rational arithmetic. Nothing here concerns the Newtonian problem.
 
 \begin{itemize}
 \item \S\ref{bpP:p14:sb-frozen}: transcription of \Lean{SecularInputBox}, \Lean{SecularRegular}, and the two frozen theorems;
@@ -23,7 +23,7 @@ The mean longitudes are recovered by one quadrature; the radial bounds are the i
 \subsection{Conventions and external facts}\label{bpP:p14:sb-conv}
 
 \emph{Coordinates.} $w=((\lambda,\xi),(\Lambda,\eta))\in\texttt{Phase}(2+2)$, with \texttt{fast}\,$w_1=\lambda$, \texttt{slow}\,$w_1=\xi$, \texttt{fast}\,$w_2=\Lambda$, \texttt{slow}\,$w_2=\eta$ (Section~\ref{bpP:p7:sec-d25}). Write
-$u_i=(\xi_i,\eta_i)\in\R^2$, $\Gamma_i=\tfrac12\abs{u_i}^2$ (\texttt{secularGamma}), $\mathcal A=\Gamma_0+\Gamma_1$ (\texttt{secularAMD}), $k_i=1-\Gamma_i/\Lambda_i$ (\texttt{secularRoot}),
+$u_i=(\xi_i,\eta_i)\in\R^2$, $\Gamma_i=\tfrac12(\xi_i^2+\eta_i^2)=\tfrac12\pl{u_i}^2$ (\texttt{secularGamma}), $\mathcal A=\Gamma_0+\Gamma_1$ (\texttt{secularAMD}), $k_i=1-\Gamma_i/\Lambda_i$ (\texttt{secularRoot}),
 $v_i=\rho_iu_i$ with $\rho_i=\sqrt{(1-\Gamma_i/(2\Lambda_i))/\Lambda_i}$ (\texttt{secularEccVector}), $e_i=\pl{v_i}$, $a_i=(\Lambda_i/m_i)^2$ (\texttt{secularAxis}), $c(F)=(\cos F,\sin F)$ (\texttt{orbitalUnit}),
 $x_i(F)=v_i\cdot c(F)$, $\mathcal J_i(F)=1-x_i(F)$ (\texttt{longitudeJacobian}), and $q_i(w;F)$, $p_i(w;F)$ the values of \texttt{ellipsePosition}, \texttt{ellipseMomentum}; so
 \[q_i=a_i\bigl(k_ic(F)-v_i+\tfrac{x_i}{1+k_i}v_i\bigr),\qquad p_i=\tfrac{m_i^2}{\Lambda_i\mathcal J_i}\bigl(J_0c(F)-\tfrac{x_i}{1+k_i}J_0v_i\bigr),\quad J_0(a,b)=(-b,a)\ (\texttt{quarterTurn}).\]
@@ -33,7 +33,7 @@ $\dot\lambda=\partial_\Lambda H$, $\dot\xi=\partial_\eta H$, $\dot\Lambda=-\part
 
 \emph{External facts} (Mathlib level; used by label).
 \begin{enumerate}[label=(X\arabic*),ref=(X\arabic*)]
-\item\label{bpP:p14:sb-x-alg} Real algebra: $\sqrt{\cdot}$ is increasing, $\sqrt{y}^2=y$ for $y\ge0$; $\abs{c(F)}_2=1$, $c(F+2\pi)=c(F)$, $R_\theta c(F)=c(F+\theta)$; rotations preserve $\cdot$, $\pl\cdot$ and commute with $J_0$; \texttt{norm\_num}/\texttt{linear\_combination} for rational identities and polynomial identities modulo given relations.
+\item\label{bpP:p14:sb-x-alg} Real algebra: $\sqrt{\cdot}$ is increasing, $\sqrt{y}^2=y$ for $y\ge0$; $\pl{c(F)}=1$, $c(F+2\pi)=c(F)$, $R_\theta c(F)=c(F+\theta)$; rotations preserve $\cdot$, $\pl\cdot$ and commute with $J_0$; \texttt{norm\_num}/\texttt{linear\_combination} for rational identities and polynomial identities modulo given relations.
 \item\label{bpP:p14:sb-x-top} Topology: open sets are preserved by finite intersections and preimages under continuous maps; closed bounded sets of $\R^N$ are compact; a continuous function on a compact set is bounded; a continuous function on an open set that is positive on a compact $K$ is bounded below on $K$; an interval is connected, and a subset of a connected set that is nonempty, open and closed in it is all of it.
 \item\label{bpP:p14:sb-x-int} Integration: continuous functions are integrable on compact boxes; Fubini on $\Delta$; for a continuous $g:\R\to\R$ of period $2\pi$, $\int_0^{2\pi}g(s-\theta)\,ds=\int_0^{2\pi}g(s)\,ds$ (\Lean{Function.Periodic.intervalIntegral\_add\_eq}); fundamental theorem of calculus: $t\mapsto\int_0^t f$ has derivative $f(t)$ at $t$ if $f$ is continuous.
 \item\label{bpP:p14:sb-x-diff} Differentiation under the integral: Part~8 \ref{bpP:p8:e-diff}, used for $k=2$.
@@ -94,7 +94,7 @@ The conclusion of Theorem~\ref{bpP:p14:sb-safety}, literally, with $\sigma=\frac
 \begin{remark}[Lean totality]\label{bpP:p14:sb-totality}
 Division by $\Lambda_i$, $1+k_i$, $\Lambda_i\mathcal J_i$, $\pl{q_i}$, $\pl{q_0-q_1}$, $\sqrt{\cdot}$ in $\rho_i$ and in \texttt{planeLength}, and the Bochner integral and \texttt{fderiv} in $H_{\rm sec}$ are all guarded:
 at every point where they are used (the region $\mathcal S$ below), $\Lambda_i>0$, $k_i>\frac{49}{50}$, $\mathcal J_i\ge1-e_i>\frac45$, the radicand of $\rho_i$ exceeds $\frac{99}{100\Lambda_i}$, and
-$\pl{q_i}>0$, $\pl{q_0-q_1}>0$ for every $F$ (Lemma~\ref{bpP:p14:sb-S}); the integrand is continuous on the compact $\Delta$, hence integrable, so the integral is the genuine one (Lemma~\ref{bpP:p14:sb-smooth}); $H_{\rm sec}$ is $C^\infty$ on $\mathcal S$, so \texttt{fderiv} is the derivative.
+$\pl{q_i}>0$, $\pl{q_0-q_1}>0$ for every $F$ (Lemma~\ref{bpP:p14:sb-S}); the integrand is continuous on the compact $\Delta$, hence integrable, so the integral is the genuine one (Proposition~\ref{bpP:p14:sb-smooth-prop}); $H_{\rm sec}$ is $C^\infty$ on $\mathcal S$, so \texttt{fderiv} is the derivative.
 The theorem asserts regularity as a conclusion; the hypotheses give only $\Lambda_i>0$, $0\le\Gamma_i<\Lambda_i$ and the box.
 \end{remark}
 
@@ -103,6 +103,7 @@ The theorem asserts regularity as a conclusion; the hypotheses give only $\Lambd
 \begin{lemma}[Numerical certificate]\label{bpP:p14:sb-numerics}
 Each of the following is an equality or inequality between explicit rational numbers (no square root appears). Let $\Lambda_{\rm J}=\sqrt{a_0}$, $\Lambda_{\rm S}=\sigma\sqrt{a_1}$ be the actions of a box point.
 \begin{center}\small
+\renewcommand{\arraystretch}{1.05}\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lll}
 \hline
 label & statement & value\\
@@ -128,6 +129,7 @@ N7d & $\frac{4439}{400}+\frac{483}{80}\le\frac{4439}{200}$ & $17.135\le22.195$\\
 \end{center}
 \emph{Source's own chain} (checked, not used): $(\frac{989}{1000})^2>1-(\frac3{20})^2$ (so $1-\sqrt{1-(3/20)^2}>\frac{11}{1000}$) and $\frac{87}{100}\cdot\frac{11}{1000}=\frac{957}{100000}>\frac{16373}{2500000}$.
 All were verified in exact rational arithmetic (Python \texttt{fractions}, \texttt{.drafts/P/bp-scratch-bpP-p14b/check.py}; every line prints \texttt{OK}). In Lean each is a \texttt{norm\_num} goal.
+\source{Ours; new elementary arithmetic (the box and its rational certificate), checked in exact rational arithmetic.}
 \end{lemma}
 \begin{proof}
 Arithmetic; the script evaluates both sides exactly. The decimal values are for orientation. \qedhere
@@ -146,24 +148,26 @@ Let $m_i>0$, $\Lambda_i>0$, $0\le\Gamma_i<\Lambda_i$ (a point with these propert
 \item $\mathcal J_i(F)\ge1-e_i>0$;
 \item $\pl{q_i(w;F)}=a_i(1-x_i(F))$; hence $a_i(1-e_i)\le\pl{q_i}\le a_i(1+e_i)$ and $\pl{q_i}>0$.
 \end{enumerate}
+\source{Ours; direct calculation from the frozen definitions (the explicit chart formulas are not taken verbatim from LP17).}
 \end{lemma}
 \begin{proof}
-\proofstep{(a)}\label{stepP:p14:sb-ch-a} $0\le\Gamma_i/\Lambda_i<1$ gives $k_i\in(0,1]$ and $1-\Gamma_i/(2\Lambda_i)>\frac12$, so $\rho_i^2=(1-\Gamma_i/(2\Lambda_i))/\Lambda_i>0$. With $\abs{u_i}^2=2\Gamma_i$:
+\proofstep{(a)}\label{stepP:p14:sb-ch-a} $0\le\Gamma_i/\Lambda_i<1$ gives $k_i\in(0,1]$ and $1-\Gamma_i/(2\Lambda_i)>\frac12$, so $\rho_i^2=(1-\Gamma_i/(2\Lambda_i))/\Lambda_i>0$. With $\pl{u_i}^2=2\Gamma_i$:
 $\pl{v_i}^2=\rho_i^2\cdot2\Gamma_i=\frac{2\Gamma_i}{\Lambda_i}-\frac{\Gamma_i^2}{\Lambda_i^2}=1-k_i^2$ (this is Proposition~\ref{bpP:p7:d25}(a)). As $k_i>0$: $e_i^2<1$ and $k_i=\sqrt{1-e_i^2}$; $\Gamma_i=\Lambda_i(1-k_i)$ is the definition of $k_i$.
-\proofstep{(b)}\label{stepP:p14:sb-ch-b} Cauchy--Schwarz: $x_i=v_i\cdot c\le\pl{v_i}\,\abs c=e_i$, so $\mathcal J_i=1-x_i\ge1-e_i>0$.
+\proofstep{(b)}\label{stepP:p14:sb-ch-b} Cauchy--Schwarz: $x_i=v_i\cdot c\le\pl{v_i}\,\pl c=e_i$, so $\mathcal J_i=1-x_i\ge1-e_i>0$.
 \proofstep{(c) the identity}\label{stepP:p14:sb-ch-c} Drop the index, put $k=k_i$, $x=x_i(F)$, $c=c(F)$, $\kappa=1-\frac x{1+k}$, so that $q/a=kc-\kappa v$ and
-$\abs{q/a}^2=k^2-2k\kappa x+\kappa^2e^2$ ($\abs c=1$, $v\cdot c=x$). Use $e^2=1-k^2=(1-k)(1+k)$ and $\kappa=\frac{1+k-x}{1+k}$; multiplying by $1+k$,
-\[(1+k)\abs{q/a}^2=k^2(1+k)-2kx(1+k-x)+(1+k-x)^2(1-k).\]
-Collect with $A=1+k$: the coefficient of $x^2$ is $2k+(1-k)=A$, that of $x$ is $-2kA-2A(1-k)=-2A$, the constant term is $k^2A+A^2(1-k)=A(k^2+1-k^2)=A$. Hence $(1+k)\abs{q/a}^2=A(1-x)^2$ and $\abs{q/a}^2=(1-x)^2$; as $1-x>0$ (b), $\pl q=a(1-x)$.
+$\pl{q/a}^2=k^2-2k\kappa x+\kappa^2e^2$ ($\pl c=1$, $v\cdot c=x$). Use $e^2=1-k^2=(1-k)(1+k)$ and $\kappa=\frac{1+k-x}{1+k}$; multiplying by $1+k$,
+\[(1+k)\pl{q/a}^2=k^2(1+k)-2kx(1+k-x)+(1+k-x)^2(1-k).\]
+Collect with $A=1+k$: the coefficient of $x^2$ is $2k+(1-k)=A$, that of $x$ is $-2kA-2A(1-k)=-2A$, the constant term is $k^2A+A^2(1-k)=A(k^2+1-k^2)=A$. Hence $(1+k)\pl{q/a}^2=A(1-x)^2$ and $\pl{q/a}^2=(1-x)^2$; as $1-x>0$ (b), $\pl q=a(1-x)$.
 \proofstep{Radial bounds}\label{stepP:p14:sb-ch-d} $-e\le x\le e$ (Cauchy--Schwarz) gives $a(1-e)\le\pl q\le a(1+e)$, and $\pl q\ge a(1-e)>0$ ($a>0$).
 \end{proof}
 
 \begin{lemma}[Rotation covariance]\label{bpP:p14:sb-cov}
 Let $w$ be elliptic (both planets), $\theta\in\R$, and let $w^\theta$ have the same $\lambda$ and $\Lambda$, and $(\xi_i',\eta_i')=R_\theta(\xi_i,\eta_i)$ for $i=0,1$. Then $\Gamma_i,k_i,a_i$ are unchanged, $v_i(w^\theta)=R_\theta v_i(w)$, and for all $F\in\R$
-\[x_i(w^\theta;F)=x_i(w;F-\theta),\quad \mathcal J_i(w^\theta;F)=\mathcal J_i(w;F-\theta),\quad q_i(w^\theta;F)=R_\theta q_i(w;F-\theta),\quad p_i(w^\theta;F)=R_\theta p_i(w;F-\theta).\]
+\begin{gather*}x_i(w^\theta;F)=x_i(w;F-\theta),\qquad \mathcal J_i(w^\theta;F)=\mathcal J_i(w;F-\theta),\\ q_i(w^\theta;F)=R_\theta q_i(w;F-\theta),\qquad p_i(w^\theta;F)=R_\theta p_i(w;F-\theta).\end{gather*}
+\source{Ours; direct calculation from the frozen definitions (the explicit chart formulas are not taken verbatim from LP17).}
 \end{lemma}
 \begin{proof}
-\proofstep{Slow data}\label{stepP:p14:sb-cv-1} $\abs{R_\theta u_i}=\abs{u_i}$, so $\Gamma_i,k_i,\rho_i,a_i$ are unchanged and $v_i(w^\theta)=\rho_iR_\theta u_i=R_\theta v_i$.
+\proofstep{Slow data}\label{stepP:p14:sb-cv-1} $\pl{R_\theta u_i}=\pl{u_i}$, so $\Gamma_i,k_i,\rho_i,a_i$ are unchanged and $v_i(w^\theta)=\rho_iR_\theta u_i=R_\theta v_i$.
 \proofstep{Scalars}\label{stepP:p14:sb-cv-2} $c(F)=R_\theta c(F-\theta)$, hence $x_i(w^\theta;F)=R_\theta v_i\cdot R_\theta c(F-\theta)=v_i\cdot c(F-\theta)$ (\ref{bpP:p14:sb-x-alg}); likewise $\mathcal J_i$.
 \proofstep{Vectors}\label{stepP:p14:sb-cv-3} Insert $c(F)=R_\theta c(F-\theta)$, $v'=R_\theta v$, the unchanged scalars $k,a,\Lambda,x/(1+k)$ into the formulas for $q,p$: $q'=a(kR_\theta c-R_\theta v+\frac x{1+k}R_\theta v)=R_\theta q(w;F-\theta)$; and $J_0R_\theta=R_\theta J_0$ gives $p'=R_\theta p(w;F-\theta)$.
 \end{proof}
@@ -175,10 +179,12 @@ Fix $\sigma\in[\frac{29}{100},\frac{31}{100}]$ (so $m=(1,\sigma)$, $m_i>0$) and 
 \begin{definition}[The region $\mathcal S$]\label{bpP:p14:sb-Sdef}
 $\mathcal S=\mathcal S_\sigma$ is the set of $w\in\texttt{Phase}(2+2)$ with, for $i=0,1$: $\Lambda_i>0$ and $50\,\Gamma_i<\Lambda_i$; and $\frac{51}{10}<a_0<\frac{53}{10}$, $\frac{47}5<a_1<\frac{97}{10}$.
 $\mathcal S$ does not constrain $\lambda$, and is invariant under the maps $w\mapsto w^\theta$. It is open: it is a finite intersection of strict inequalities between continuous functions of $w$ (\ref{bpP:p14:sb-x-top}; $a_i$ is continuous, $m_i\ne0$).
+\source{Ours; direct calculation from the frozen definitions (the explicit chart formulas are not taken verbatim from LP17).}
 \end{definition}
 
 \begin{lemma}[Geometry on $\mathcal S$]\label{bpP:p14:sb-S}
 For $w\in\mathcal S$, $F\in\R^2$: $k_i>\frac{49}{50}$, $e_i<\frac15$, $\mathcal J_i(F_i)>\frac45$; $\pl{q_0(w;F_0)}<\frac{53}{10}\cdot\frac65$ and $\pl{q_1(w;F_1)}>\frac{47}5\cdot\frac45$; so $\pl{q_0}<\pl{q_1}$, all of $\pl{q_i}$, $\pl{q_0-q_1}$ are positive, and the radicand of $\rho_i$ exceeds $\frac{99}{100\,\Lambda_i}$. In particular every $w\in\mathcal S$ is elliptic, $\operatorname{Reg}$(i), (ii) hold at $w$, and $\mathbf z(w;F)_1$ has $\operatorname{NoColl}$.
+\source{Ours; direct calculation from the frozen definitions (the explicit chart formulas are not taken verbatim from LP17).}
 \end{lemma}
 \begin{proof}
 \proofstep{Elliptic}\label{stepP:p14:sb-S-1} $\Gamma_i\ge0$, $50\Gamma_i<\Lambda_i$ gives $\Gamma_i<\Lambda_i$, $k_i=1-\Gamma_i/\Lambda_i>\frac{49}{50}$ and $1-\Gamma_i/(2\Lambda_i)>\frac{99}{100}$.
@@ -189,6 +195,7 @@ For $w\in\mathcal S$, $F\in\R^2$: $k_i>\frac{49}{50}$, $e_i<\frac15$, $\mathcal 
 \begin{proposition}[Smoothness of $H_{\rm sec}$]\label{bpP:p14:sb-smooth-prop}
 Let $m=(1,\sigma)$, $\mu\in\R$. (a) For $w\in\mathcal S$: $H_{\rm sec}(w)=(2\pi)^{-2}\int_\Delta\widehat{\mathcal I}(w;F)\,dF$ with $\widehat{\mathcal I}(w;F)=H_{\rm mov}^{(\mu,m)}(\mathbf z(w;F))\prod_i\mathcal J_i(w;F_i)$, and $H_{\rm sec}(w)$ does not depend on $\lambda$ (indeed on $\mathcal S$, $H_{\rm sec}(\lambda+s,\xi;\Lambda,\eta)=H_{\rm sec}(\lambda,\xi;\Lambda,\eta)$ for all $s\in\R^2$).
 (b) $\widehat{\mathcal I}$ is $C^\infty$ on $\mathcal S\times\R^2$ and $2\pi$-periodic in each $F_i$. (c) $H_{\rm sec}$ is $C^\infty$ on $\mathcal S$; in particular $C^2$, differentiable at every point of $\mathcal S$, and $\operatorname{Reg}_{\sigma,\mu}(w)$ (iii), (iv) hold for $w\in\mathcal S$.
+\source{Ours; direct calculation from the frozen definitions, with \Nref{bpN:p3:ham-smooth} used downstream (differentiation under the integral: \ref{bpP:p8:e-diff}).}
 \end{proposition}
 \begin{proof}
 \proofstep{$\lambda$-independence}\label{stepP:p14:sb-sm-1} \texttt{fast}\,$(\texttt{assemble}\,\Lambda\,F\,\eta\,\xi)_1=F$ and \texttt{slow}$(\cdot)_1=\xi$, \texttt{fast}$(\cdot)_2=\Lambda$, \texttt{slow}$(\cdot)_2=\eta$ (\Lean{Fin.append} lemmas). The definitions of $q_i,p_i,v_i,k_i,a_i,\mathcal J_i$ use only $\xi,\eta,\Lambda$ and the argument $F$ (they never read \texttt{fast}\,$w_1$ except through \texttt{ellipsePhase}'s argument), hence $\mathcal I_\mu((F,\xi;\Lambda,\eta);F)=\widehat{\mathcal I}(w;F)$ for every $w$ with these slow data. This is (a).
@@ -199,6 +206,7 @@ Let $m=(1,\sigma)$, $\mu\in\R$. (a) For $w\in\mathcal S$: $H_{\rm sec}(w)=(2\pi)
 
 \begin{proposition}[Rotation invariance]\label{bpP:p14:sb-rot}
 For $w\in\mathcal S$ and $\theta\in\R$: $w^\theta\in\mathcal S$ and $H_{\rm sec}(w^\theta)=H_{\rm sec}(w)$.
+\source{Ours; direct calculation from the frozen definitions (the explicit chart formulas are not taken verbatim from LP17).}
 \end{proposition}
 \begin{proof}
 \proofstep{Membership}\label{stepP:p14:sb-rot-1} Lemma~\ref{bpP:p14:sb-cov}: $\Gamma_i,\Lambda_i,a_i$ are unchanged.
@@ -218,6 +226,7 @@ For $w\in\mathcal S$ put $\omega(w)=\partial_{\Lambda}H_{\rm sec}(w)\in\R^2$ (th
 \begin{lemma}[Predicate and field on $\mathcal S$]\label{bpP:p14:sb-pred}
 $H=H_{\rm sec}$ is $C^2$ on the open set $\mathcal S\subset\texttt{Phase}(2+2)$, $X_H$ is $C^1$ on $\mathcal S$, and for $J\subset\R$, $z:\R\to\texttt{Phase}(2+2)$ with $z(t)\in\mathcal S$ for $t\in J$:
 $\texttt{IsHamiltonianSolutionOn}\,H\,\texttt{univ}\,J\,z\iff\texttt{IsSolIn}\,X_H\,\mathcal S\,J\,z$ (\Nref{bpN:p3:gen-sol}).
+\source{Ours; unfolding of the frozen predicates, with \Nref{bpN:p3:gen-sol} and \Nref{bpN:p3:ham-smooth}.}
 \end{lemma}
 \begin{proof}
 \proofstep{Regularity}\label{stepP:p14:sb-pr-1} \Nref{bpN:p3:ham-smooth} ($n=4$, $k=1$) with Proposition~\ref{bpP:p14:sb-smooth-prop}(c).
@@ -227,6 +236,7 @@ $\texttt{IsHamiltonianSolutionOn}\,H\,\texttt{univ}\,J\,z\iff\texttt{IsSolIn}\,X
 \begin{lemma}[Structure of $X_H$]\label{bpP:p14:sb-field}
 For $w\in\mathcal S$ and $H=H_{\rm sec}$: $X_H(w)=\bigl((\omega(w),\partial_\eta H(w)),(0,-\partial_\xi H(w))\bigr)$, in the block order $((\lambda,\xi),(\Lambda,\eta))$; and for $y=(\xi,\eta)$ fixed, $\Lambda$ fixed, $\partial_\xi H,\partial_\eta H$ are the partial derivatives of $h_\Lambda(y)=H(0,\xi;\Lambda,\eta)$.
 Moreover, with $A(y)=\Gamma_0+\Gamma_1$, $\ \sum_i\bigl(\xi_i\partial_{\eta_i}H-\eta_i\partial_{\xi_i}H\bigr)(w)=0$.
+\source{Ours; direct calculation from the frozen \texttt{hamiltonianVectorField} and Proposition~\ref{bpP:p14:sb-smooth-prop}, with \Nref{bpN:p3:ham-reduction}.}
 \end{lemma}
 \begin{proof}
 \proofstep{Components}\label{stepP:p14:sb-fd-1} Read off \Lean{hamiltonianVectorField}: $\lambda_i$-component $\partial_{\Lambda_i}H$, $\xi_i$-component $\partial_{\eta_i}H$, $\Lambda_i$-component $-\partial_{\lambda_i}H$, $\eta_i$-component $-\partial_{\xi_i}H$. Proposition~\ref{bpP:p14:sb-smooth-prop}(a): $s\mapsto H(w+s\,e_{\lambda_i})$ is constant, so $\partial_{\lambda_i}H(w)=0$ (\ref{bpP:p14:sb-x-calc}). The statement on $h_\Lambda$ is the chain rule for the affine map $y\mapsto(0,\xi;\Lambda,\eta)$.
@@ -235,6 +245,7 @@ Moreover, with $A(y)=\Gamma_0+\Gamma_1$, $\ \sum_i\bigl(\xi_i\partial_{\eta_i}H-
 
 \begin{lemma}[Global slow flow]\label{bpP:p14:sb-slow}
 Let $w_0\in\mathcal S$ with $\mathcal A(w_0)<\frac{16373}{2500000}$ and with $\Lambda_i(w_0)>\frac{87}{100}$ ($i=0,1$). Put $\Lambda^0=\texttt{fast}\,(w_0)_2$ and $\mathcal S'=\{y=(\xi,\eta)\in\R^2\times\R^2:\ (0,\xi;\Lambda^0,\eta)\in\mathcal S\}$ (open). There is a continuous $y=(\xi,\eta):\R\to\mathcal S'$ with $y(0)=(\xi(w_0),\eta(w_0))$ such that $y$ has derivative $\bigl(\partial_\eta h(y(t)),-\partial_\xi h(y(t))\bigr)$ at every $t\in\R$ (with $h=h_{\Lambda^0}$), $A(y(t))=A(y(0))$ for all $t$, and $y(t)\in\mathcal S'$ for all $t$.
+\source{Ours; application of \Nref{bpN:p3:gen-continuation-compact} on the compact set of the proof, with the conservation of $\Lambda$ and of $\mathcal A$ proved directly.}
 \end{lemma}
 \begin{proof}
 \proofstep{The field}\label{stepP:p14:sb-sl-1} $h$ is $C^\infty$ on $\mathcal S'$ (composition with an affine map), $\mathcal S'$ is open, and $X_h=(\partial_\eta h,-\partial_\xi h)$ is $C^1$ on $\mathcal S'$ (\Nref{bpN:p3:ham-smooth}, with the phase space $\R^2\times\R^2$, positions $\xi$, momenta $\eta$). $y(0)\in\mathcal S'$ since $w_0\in\mathcal S$.
@@ -246,6 +257,7 @@ Let $w_0\in\mathcal S$ with $\mathcal A(w_0)<\frac{16373}{2500000}$ and with $\L
 
 \begin{proposition}[Global solution of the full system]\label{bpP:p14:sb-global}
 Let $w_0$ be as in Lemma~\ref{bpP:p14:sb-slow}. Then there is $w:\R\to\texttt{Phase}(2+2)$ with $w(0)=w_0$, $w(t)\in\mathcal S$, $\Lambda(w(t))=\Lambda^0$, $\mathcal A(w(t))=\mathcal A(w_0)$ for all $t$, and $\texttt{IsHamiltonianSolutionOn}\,H_{\rm sec}\,\texttt{univ}\,\texttt{univ}\,w$.
+\source{Ours; application of \Nref{bpN:p3:gen-sol}, \Nref{bpN:p3:gen-maximal} and \Nref{bpN:p3:gen-continuation-compact}, with the conserved quantities of Lemma~\ref{bpP:p14:sb-slow}.}
 \end{proposition}
 \begin{proof}
 \proofstep{Quadrature}\label{stepP:p14:sb-gl-1} Put $\omega_*(t)=\omega\bigl((0,\xi(t);\Lambda^0,\eta(t))\bigr)$, continuous in $t$ ($\omega$ is continuous on $\mathcal S$, $y$ is continuous). Let $\lambda(t)=\lambda(w_0)+\int_0^t\omega_*(s)\,ds$ (\ref{bpP:p14:sb-x-int}), so $\dot\lambda=\omega_*$.
@@ -255,6 +267,7 @@ Let $w_0$ be as in Lemma~\ref{bpP:p14:sb-slow}. Then there is $w:\R\to\texttt{Ph
 
 \begin{proposition}[Uniqueness]\label{bpP:p14:sb-unique}
 Let $w$ be as in Proposition~\ref{bpP:p14:sb-global}. Let $U\subset\R$ be open and convex, $0\in U$, $v:\R\to\texttt{Phase}(2+2)$ with $v(0)=w_0$ and $\texttt{IsHamiltonianSolutionOn}\,H_{\rm sec}\,\texttt{univ}\,U\,v$. Then $v=w$ on $U$. (No regularity of $v(t)$ is used beyond the predicate.)
+\source{Ours; application of \Nref{bpN:p3:gen-uniqueness} (and \Nref{bpN:p3:gen-maximal}) to the field of Lemma~\ref{bpP:p14:sb-field}.}
 \end{proposition}
 \begin{proof}
 \proofstep{The agreement set}\label{stepP:p14:sb-un-1} $D=\{t\in U:\ v(t)=w(t)\}\ni0$. $v$ and $w$ are continuous on $U$ (differentiable at each point), so $D$ is closed in $U$.
@@ -302,7 +315,7 @@ All clauses of the theorem are proved. $\qedhere$
 
 \paragraph{Module plan (all under the hard rules).} The proof is parameter-uniform, so both providers should be one-line wrappers around ordinary (non-provider) library modules; \texttt{secularBoxAtCitedMasses} cannot import the \texttt{secularBoxSafety} provider and instead uses the library theorem. Suggested split, each file well under 1500 lines:
 (1) \texttt{KAM/Planetary/SecularBox/Numerics} (Lemma~\ref{bpP:p14:sb-numerics}, \texttt{norm\_num} only; the scratch script is the oracle);
-(2) \texttt{.../Chart} (Lemmas~\ref{bpP:p14:sb-chart}, \ref{bpP:p14:sb-cov}; the polynomial identity of Step~\ref{stepP:p14:sb-ch-c} is a \texttt{linear\_combination} with the relations $\abs c^2=1$, $\abs v^2=(1-k)(1+k)$, after \texttt{field\_simp} by $1+k>0$);
+(2) \texttt{.../Chart} (Lemmas~\ref{bpP:p14:sb-chart}, \ref{bpP:p14:sb-cov}; the polynomial identity of Step~\ref{stepP:p14:sb-ch-c} is a \texttt{linear\_combination} with the relations $\pl c^2=1$, $\pl v^2=(1-k)(1+k)$, after \texttt{field\_simp} by $1+k>0$);
 (3) \texttt{.../Region} (Definition~\ref{bpP:p14:sb-Sdef}, Lemma~\ref{bpP:p14:sb-S});
 (4) \texttt{.../Smooth} (Proposition~\ref{bpP:p14:sb-smooth-prop}; the one analytic input is \ref{bpP:p8:e-diff}; if Mathlib has no ready $C^k$-parametric-integral lemma over a compact box, it is proved by induction from the first-derivative dominated-convergence theorem);
 (5) \texttt{.../Rotation} (Proposition~\ref{bpP:p14:sb-rot}, Lemma~\ref{bpP:p14:sb-field});

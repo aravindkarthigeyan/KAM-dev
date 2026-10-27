@@ -5,7 +5,7 @@ Fixed before extraction (skill `build-proof-dependency-graph`, Phase 1). It foll
 for extractors and reviewers. Changes are recorded at the end with a date and reason.
 
 ## Roots and anchors
-- **Roots:** the four frozen theorem anchors of track N (three of D20, one of D25), as node IDs:
+- **Roots:** the six frozen theorem anchors of track N (three of D20, one of D25, two of D28), as node IDs:
 
   | Node | Lean export | Manifest anchor | Proved in |
   |---|---|---|---|
@@ -13,6 +13,8 @@ for extractors and reviewers. Changes are recorded at the end with a date and re
   | `bpN:p0:zero` | `KAM.Nekhoroshev.zero_perturbation` | `nekhoroshev.zero_perturbation.v1` | Part 2, `bpN:p2:zero` (carries the tag) |
   | `bpN:p0:qcthm` | `KAM.Nekhoroshev.quasiConvex_isoenergetic_derivative` | `nekhoroshev.quasiConvex_isoenergetic_derivative.v1` | Part 2, `bpN:p2:qc-bij` (carries the tag) |
   | `bpN:p0:partial` | `KAM.Nekhoroshev.partialConvex_nekhoroshev` | `nekhoroshev.d25.partialConvex_nekhoroshev.v1` | Part 11c, proof L159–169 ("Proof of Theorem `bpN:p0:partial`"), steps `stepN:p11:final-*` |
+  | `bpN:p0:avg-mean` | `KAM.Nekhoroshev.averaging_mean` | `nekhoroshev.d28.averaging_mean.v1` | Part 12 (`blueprint-N/parts/p12-averaging.tex`) |
+  | `bpN:p0:avg-most` | `KAM.Nekhoroshev.averaging_most` | `nekhoroshev.d28.averaging_most.v1` | Part 12 |
 
 - **Frozen definitions (28 anchors, `KIND: definition`).** One node per declaration, ID `<Part 0 label>#<Lean name>`:
   - the 11 D20 track-N definitions of `KAM/Frozen/Nekhoroshev/Defs/` (manifest IDs `nekhoroshev.*`): `bpN:p0:ball#actionBall`,
@@ -52,9 +54,13 @@ for extractors and reviewers. Changes are recorded at the end with a date and re
 - **Manifest.** Anchor identity (file, export, anchor ID, contract ID/version, ABI hash) is copied from
   `manifest/frozen-anchors.json` and bound by the linter. It is never edited in the graph. All 32 anchors (28
   definitions, 4 theorems) belong to slice `N-p02`.
-- **N-AVERAGING is not in scope.** It was approved by D28 (2026-10-27) and is being frozen, but blueprint-N contains
-  neither its Part 0 transcription nor its proof. It is not a root here. When its blueprint part exists and has passed
-  review, the graph gains its anchors by a SPEC revision (new corpus file, new slice); shared nodes are reused.
+- **N-AVERAGING** (D28) was out of scope until Part 12 existed; it is now in scope (see "D28 additions" below).
+- **D28 additions (SPEC revision 2026-10-27 21:5x, GRAPH_VERSION 4 unchanged until publication).** N-AVERAGING is now
+  in scope: roots `bpN:p0:avg-mean`, `bpN:p0:avg-most`; two more frozen definition anchors
+  `bpN:p0:avg-rank#HasAveragingFrequencyRank`, `bpN:p0:avg-error#averagingError` (manifest IDs `nekhoroshev.d28.*`).
+  The Part 0 D28 subsection (L341–end) and all of Part 12 form the new slice `N-p12`; these four anchors belong to
+  `N-p12` (not `N-p02`). Part 12 passed review round 2 (`blueprint-N/reviews/p12-review-2.md`: ACCEPT WITH FIXES,
+  ready for graph extraction; N12R2-01 applied in af26b1a).
 
 ## Corpus
 - The fourteen files `blueprint-N/parts/{p0,…,p10,p11a,p11b,p11c}-*.tex`, pinned in `docs/graph/N/CORPUS.sha256`. The
@@ -323,7 +329,7 @@ the pre-extraction (`--all-prose`).
 
 | Slice | Source range | Nodes | Coverage items |
 |---|---|---|---|
-| `N-p02` | all of Part 0 (the 32 anchors and 3 remarks) and all of Part 2 (proofs of N-QC and N-ZERO) | 63 | 109 |
+| `N-p02` | Part 0 L1–340 (the 32 D20/D25 anchors and 3 remarks) and all of Part 2 (proofs of N-QC and N-ZERO) | 63 | 109 |
 | `N-p1` | all of Part 1 (interfaces, conversions, constants dictionary) | 52 | 74 |
 | `N-p3a` | Part 3 L1–325 (conventions, externals, general layer up to the general confinement glue) | 52 | 73 |
 | `N-p3b` | Part 3 L326–end (first exit, barrier, Hamiltonian layer, frozen predicates, track-N statements, label index) | 48 | 69 |
@@ -335,12 +341,13 @@ the pre-extraction (`--all-prose`).
 | `N-p910` | all of Parts 9 and 10 (Pöschel's Theorem 1; assembly of N-HEAD-C, including `bpN:p10:head` and `stepN:p10:hd-*`) | 73 | 102 |
 | `N-p11ab` | all of Parts 11a and 11b (route, conversion, constants; extended class, Lie transform, normal form) | 51 | 70 |
 | `N-p11c` | all of Part 11c (real extended systems, stability, block theorem, proof of N-PARTIAL-CONVEX `stepN:p11:final-*`) | 65 | 77 |
+| `N-p12` | Part 0 L341–end (D28 subsection: 2 definition anchors, 2 theorem anchors, totality remark) and all of Part 12 (N-AVERAGING proof) | 83 | 120 |
 | `N-imports` | imported nodes `K:*` (13), `I:*` (2), `P:*` (3); writer-owned, not extracted | 18 | 18 |
 
 Total 674 nodes (656 corpus nodes, 18 imports) and 972 coverage items, 60 of them with DISPOSITION TODO.
 - A node belongs to the slice containing the first line of its STATEMENT_SOURCE. The anchors belong to `N-p02`.
 - The anchors' proof steps belong to the slice containing them: N-HEAD-C's (`stepN:p10:hd-*`) to `N-p910`;
-  N-PARTIAL-CONVEX's (`stepN:p11:final-*`) to `N-p11c`.
+  N-PARTIAL-CONVEX's (`stepN:p11:final-*`) to `N-p11c`; N-AVERAGING's anchors and proof to `N-p12`.
 - Coverage items follow their SOURCE line.
 
 ## Change log
@@ -362,6 +369,11 @@ Total 674 nodes (656 corpus nodes, 18 imports) and 972 coverage items, 60 of the
 
   The writer then filled the source fields of the five I/P imports in `N-imports.nodes.md` (the K imports' fields are
   copied from K's graph by the pre-extraction).
+
+- 2026-10-27 21:5x: D28 revision. Corpus + `p12-averaging.tex`; `p0-conventions.tex` re-pinned after the Part 12
+  fix round's one-line Part 0 intro edit (N-p02 locators remapped by `inp_depgraph_remap_locators.py 8d4662e`,
+  a45a6d1). Pre-extraction re-run into a scratch draft with `--proved-in ...,bpN:p0:avg-mean=p12,bpN:p0:avg-most=p12`
+  and the prose anchors shifted by -1; only the new slice `N-p12` was split out and copied (no other slice touched).
 
 ## Sub-orchestrator rulings (2026-10-27, before extraction)
 - **Cross-graph ownership (track N exports).** Track N owns the shared infrastructure that tracks I and P import
