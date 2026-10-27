@@ -1,0 +1,202 @@
+\section{P-FIXED: assembly of the frozen fixed-Sun theorem}\label{bpP:p13}
+\begingroup\sloppy
+
+This part proves the frozen theorem P-FIXED (Theorem~\ref{bpP:p0:fixed}, \Lean{KAM.Planetary.fixedSunPlanetaryKAM}) from results proved elsewhere in track~P. Nothing about KAM theory is proved here: the part fixes the data in the order demanded by the frozen quantifiers, checks every binder and every Lean totality guard, and joins the physical clauses of Part~6 to the torus statements of Parts~11 and~12. There are two routes, and the statement is organised so that the first does not use Part~11a.
+\begin{itemize}
+\item \emph{$n=2$, route (c)} (Theorem~\ref{bpP:p13:n2}). The frozen P-G (Theorem~\ref{bpP:p0:pg}) is applied to the fixed-Sun secular Birkhoff form. By Part~8 the fixed-Sun and moving-Sun Hamiltonians have the same Kepler part, the same secular quadratic form and, after the Birkhoff map of Part~11b, the same torsion; their secular averages differ by an action-only function (Theorem~\ref{bpP:p8:identification}, Corollary~\ref{bpP:p8:same-jets}). So the proof of P-PLANAR (Part~12) transcribes line by line, and the constants of that proof are recomputed for the fixed-Sun perturbation (Proposition~\ref{bpP:p13:fixed-hamiltonian-form}, Definition~\ref{bpP:p13:data}, Propositions~\ref{bpP:p13:pg-hypotheses}, \ref{bpP:p13:transport}). This route needs Parts~1--10, 11b, 12 and the proof of P-G (Part~5); it does not need Part~11 or Part~11a.
+\item \emph{General $n\ge2$, route (a)} (Theorem~\ref{bpP:p13:n-general}). It consumes exactly the local wrapper of Part~11 (Theorem~\ref{bpP:p11:wrapper}) and then the physical clauses of Proposition~\ref{bpP:p6:fixkol-assembly}. The wrapper rests on the KAM input of Definition~\ref{bpP:p11:kam-input}, which is Part~11a-5 (not yet written); this is the only open dependency of the part.
+\end{itemize}
+Theorem~\ref{bpP:p13:fixed} is the frozen statement: it is Theorem~\ref{bpP:p13:n2} when $n=2$ and Theorem~\ref{bpP:p13:n-general} when $n\ge3$. The binders of the frozen statement and the guards for the Lean total functions are in \S\ref{bpP:p13:sec-binders}.
+
+\subsection{Binders, totality, index conventions}\label{bpP:p13:sec-binders}
+
+\emph{Index dictionary.} The Lean planets are $0,\dots,n-1$ with $a_0<\dots<a_{n-1}$ (\texttt{hsep}: \texttt{$\forall i\,j,\ i<j\to a\,i<a\,j$}); in Parts~7--12 and in the statement of Theorem~\ref{bpP:p11:wrapper} they are $1,\dots,n$, inner planet first. I write $a=(a_1,\dots,a_n)$ in this part. For $n=2$, $\Ph{n\cdot2}=\Ph{2\cdot2}=\Ph4$ is the type used in Part~12 (the types \texttt{Fin (2*2)} and \texttt{Fin 4} agree by \texttt{rfl}), and the case $n=2$ is obtained from the general statement by \texttt{subst} of $n=2$, which is legitimate because $n$ occurs in the types only through $n\cdot2$. Throughout $\kappa=Gm_0$, $\Lambda_i^*=m_i\sqrt{\kappa a_i}$.
+
+\begin{remark}[Binders of the frozen statement and where each is consumed]\label{bpP:p13:binders}
+The frozen theorem has the binders $n$, \texttt{hn}$:2\le n$, $G,m_0$, $m,a:\texttt{Fin}\,n\to\R$, \texttt{hG}, \texttt{hm0}, \texttt{hm}, \texttt{ha}, \texttt{hsep}, $\eta$, \texttt{heta}, and the conclusion $\exists\,\varepsilon_0,d,D$ ($0<\varepsilon_0$, $0<d$, $d<D$) $\forall\varepsilon\in(0,\varepsilon_0)\ \exists S$ with $0<\meas S<\infty$ and $\operatorname{FixKol}$. Every hypothesis is used; none is a conclusion in disguise, and none is a secular non-degeneracy (that is proved in Parts~9--11b).
+\begin{center}\small
+\begin{tabular}{@{}p{2.1cm}p{5.2cm}p{4.6cm}@{}}
+\hline
+Binder & Role & Consumed in\\
+\hline
+\texttt{hn}: $2\le n$ & at least two planets, so the secular matrix $Q_h$ exists and $(\nu,2\sigma)$ can be R-nondegenerate (for $n=1$ there is no pair and $\Omega\equiv0$) & Parts~10 (Thm.~\ref{bpP:p10:interface}, $n\ge2$ throughout; Thm.~\ref{bpP:p10:good-point}, Thm.~\ref{bpP:p10:F-nonzero}) and~11 (via the wrapper); for $n=2$ it fixes the rank in Part~11b and in Theorem~\ref{bpP:p13:n2}\\
+\texttt{hG}, \texttt{hm0} & $\kappa=Gm_0>0$: $\Lambda^*_i>0$, the square root in $\operatorname{circ}$, $h(\Lambda)=-\sum\kappa^2m_i^3/2\Lambda_i^2$, the scaling of $Q_h$ & Parts~6--9 (Lemma~\ref{bpP:p6:split}, Thm.~\ref{bpP:p7:product-chart}, Thm.~\ref{bpP:p8:quadratic-form}); Lemmas~\ref{bpP:p12:forward-tube}, \ref{bpP:p11:forward-tube}\\
+\texttt{hm}: $m_i>0$ & $\Lambda^*_i>0$; the division by $m_i$ in the velocity $V_i=p_i/m_i$ of $\operatorname{IsFixedSol}$ and in $H_{\rm fix}$; definiteness $\sigma_j<0$ & Prop.~\ref{bpP:p6:fixkol-assembly}, Prop.~\ref{bpP:p6:reconstruction-fixed}; Part~9 (Prop.~\ref{bpP:p9:definite})\\
+\texttt{ha}: $a_i>0$ & $\Lambda_i^*>0$, $\gamma_a>0$, the division in $\operatorname{circ}$ & Def.~\ref{bpP:p6:tube-constants}; Lemma~\ref{bpP:p6:tube-geometry}; Part~10 (patch in $\mathcal A_n$)\\
+\texttt{hsep} & $a\in\mathcal A_n=\{0<a_1<\dots<a_n\}$: $\gamma_a>0$ hence $d>0$ and the tube is collision free; $\operatorname{Re}s_{ij}\ge\frac12(a_j-a_i)^2$ & Def.~\ref{bpP:p6:tube-constants}, Lemma~\ref{bpP:p6:tube-geometry}(d), Prop.~\ref{bpP:p8:perturbation-analytic}(a); patch of Part~10 (Thm.~\ref{bpP:p10:interface}); Def.~\ref{bpP:p13:data}\,\ref{bpP:p13:d-tube}\\
+$\eta$, \texttt{heta} & tube radius: $\zeta_*=\min\{\eta,\gamma_a/6\}>0$, $S\subset U_{\zeta_*}\subset U_\eta$; $\eta$ only shrinks the axis neighbourhood and the coupling window & Lemma~\ref{bpP:p6:tube-geometry}(a); Def.~\ref{bpP:p13:data}\,\ref{bpP:p13:d-eta}; Step~\ref{stepP:p11:wr-tube} of Thm.~\ref{bpP:p11:wrapper}\\
+$m$, $a$, $G$, $m_0$ & the datum of all constants & Remark~\ref{bpP:p13:quantifiers}\\
+\hline
+\end{tabular}
+\end{center}
+The conclusion's quantifier order is data $\to(\varepsilon_0,d,D)\to\varepsilon\to S$. The numbers $d,D$ depend on $a$ alone (Definition~\ref{bpP:p6:tube-constants}); $\varepsilon_0$ on all the data; $S$ on $\varepsilon$ as well.
+\end{remark}
+
+\begin{remark}[Lean totality for P-FIXED]\label{bpP:p13:totality}
+Complementing Remark~\ref{bpP:p0:totality}, the total functions in the frozen statement are guarded as follows; a proof must establish the guard before it uses the formula.
+\begin{enumerate}[label=(T\arabic*)]
+\item \emph{Divisions by lengths in $H_{\rm fix}$ and in $\operatorname{IsFixedSol}$.} $\texttt{fixedHamiltonian}$ contains $1/\pl{q^{(i)}}$ and $1/\pl{q^{(i)}-q^{(j)}}$ with Lean's $1/0=0$. Every point of $S$ lies in $U_{\zeta_*}$, where all these lengths are $\ge d>0$ (Lemma~\ref{bpP:p6:tube-geometry}(d)); on the collision-free open set $W$ of Lemma~\ref{bpP:p6:domain} the function $H_{\rm fix}$ is real analytic. The conjuncts $\pl{Q_i}>0$, $\pl{Q_j-Q_i}>0$ of $\operatorname{IsFixedSol}$ precede the cubes $\pl{\cdot}^3$ in the force, and $\operatorname{NoColl}(K(\phi)_1)$ is the separate frozen clause; both are Lemma~\ref{bpP:p6:tube-geometry}(d) applied to $K(\phi)\in S$.
+\item \emph{Fr\'echet derivatives.} $X_{H_{\rm fix}}$ in clause (viii) of $\operatorname{IsPhysTorus}$ is the genuine vector field because clause (ii) asserts differentiability at $K(\theta)$, and $K(\theta)\in S\subset U_{\zeta_*}\subset W$; $DK$ is the derivative of an analytic map (clause (i)). In Part~11 and Part~12 the corresponding facts are Proposition~\ref{bpP:p1:torus-transport} and Proposition~\ref{bpP:p12:transport}.
+\item \emph{Square roots and powers.} $\operatorname{circ}$ needs $Gm_0/a_i>0$ (\texttt{hG}, \texttt{hm0}, \texttt{ha}); $\pl\cdot=\sqrt{\operatorname{sq}(\cdot)}$ has radicand $\ge0$; the real powers $r^6/(\log(1/r))^{c}$ of Theorem~\ref{bpP:p13:n2} have $0<r<1$, so $\log(1/r)>0$; $|k|_1^\tau$ in the Diophantine clause has $|k|_1\ge1$ for $k\ne0$.
+\item \emph{Pair bounds with the Sun.} The frozen point list is $\texttt{Fin.cons}\ 0\ (i\mapsto\texttt{body}(K(\phi)_1,i))\in(\R^2)^{n+1}$: the Sun is the origin, index $0$, and the pairs $(0,i)$ give $d\le\pl{q^{(i)}}\le D$ (Lemma~\ref{bpP:p6:tube-geometry}(e)); pairs of planets give $d\le\pl{q^{(j)}-q^{(i)}}\le D$.
+\item \emph{Measure.} \texttt{volume} on $\Ph{n\cdot2}$ is Lebesgue measure on $\R^{4n}$; $\meas S<\infty$ because $S\subset U_\eta$ is bounded (Lemma~\ref{bpP:p6:measure-positive}(a)); $0<\meas S$ is part of the conclusions of Theorems~\ref{bpP:p13:n2}, \ref{bpP:p13:n-general}; $S$ is Borel, hence \texttt{MeasurableSet}.
+\item \emph{Index maps.} $\operatorname{body}(q,i)$ uses $\texttt{finProdFinEquiv}$, a bijection $\texttt{Fin}\,n\times\texttt{Fin}\,2\simeq\texttt{Fin}\,(n\cdot2)$ (Part~0, Definition~\ref{bpP:p0:body}); no out-of-range index occurs.
+\end{enumerate}
+\end{remark}
+
+\subsection{The fixed-Sun Hamiltonian in the chart}\label{bpP:p13:sec-form}
+
+Let $\Psi=\Psi^{(n)}$ be the product Poincar\'e chart of Theorem~\ref{bpP:p7:product-chart}, $f_{\rm fix},f_{\rm mov}$ the perturbations of Lemma~\ref{bpP:p6:split}, $\hat f=f\circ\Psi$, and $S_{\rm fix}=\langle\hat f_{\rm fix}\rangle$, $S_{\rm mov}=\langle\hat f_{\rm mov}\rangle$ the averages of Part~8. For $n=2$ let $K_a$, $\mathcal O_a$, $\varrho$, $\chi$, $r_*$, $C_*$, $\mathcal O'$, $\mathcal T$ and $T=\Phi_\varrho^{-1}\circ\Phi_\chi$ be those of Theorem~\ref{bpP:p11b:birkhoff-form}; they depend only on $(G,m_0,m,K_a)$ and not on $f$.
+
+\begin{proposition}[The fixed-Sun Hamiltonian has the same form as the moving-Sun one]\label{bpP:p13:fixed-hamiltonian-form}
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{Chart}) For every $n\ge1$, every real $\varepsilon$ and every $w\in\mathcal O_n$: $H_{\rm fix}(\Psi(w))=h(\Lambda)+\varepsilon\hat f_{\rm fix}(w)$, with $h$ and $\hat f_{\rm fix}$ independent of $\varepsilon$; the chart $\Psi$ and $h$ are those of $H_{\rm mov}$. $\hat f_{\rm fix}=-G\sum_{i<j}m_im_j\,s_{ij}^{-1/2}$ is real analytic on $\Psi^{-1}(W)$.
+\item (\emph{Direct interaction versus moving Sun}) $\hat f_{\rm mov}-\hat f_{\rm fix}=\abs{\sum_ip^{(i)}}^2/(2m_0)$, whose $\lambda$-average is the function $\delta(\Lambda)$ of Theorem~\ref{bpP:p8:identification}. Hence all $(\xi,\eta)$-derivatives of order $\ge1$ of $S_{\rm mov}$ and $S_{\rm fix}$ agree, $S_{\rm fix}=C_0+\xi^\top Q_h\xi+\eta^\top Q_h\eta+O(\abs{(\xi,\eta)}^4)$, and the frequency data $(\nu,\Omega)$, $\Omega=2\sigma$, the matrix $Q_h$, the quartic jet $\mathcal Q_4$ and the torsion $\hat\beta$ are the same for the two models. Consequently the R-nondegeneracy of $(\nu,\Omega)$ and its index and amount (Theorem~\ref{bpP:p10:interface}) hold for the fixed-Sun model without change: they are statements about $h$ and $Q_h$ only.
+\item (\emph{Birkhoff form, $n=2$}) Put $P_{\rm fix}:=\hat f_{\rm fix}\circ T$ on $\mathcal T$ (and $0$ elsewhere). Then $T(\mathcal T)$ lies in the analyticity domain of $\hat f_{\rm fix}$, $P_{\rm fix}$ is real analytic on $\mathcal T$, $2\pi$-periodic in $\lambda$, independent of $\varepsilon$, $H_{\rm fix}(\Psi\circ T(w))=h(\Lambda)+\varepsilon P_{\rm fix}(w)$ for all real $\varepsilon$ and $w\in\mathcal T$, and for every $\mu_0>0$ and $r_0\in(0,r_*/\sqrt2]$
+\[\operatorname{HasBirkhoff}\bigl(P_{\rm fix},\operatorname{int}K,r_0,\mu_0,P_0^{\rm fix},\Omega,\beta\bigr),\quad P_0^{\rm fix}=C_0(a(I)),\ \ \Omega=2\sigma(a(I)),\ \ \beta=\hat\beta(a(I)),\]
+in the dictionary $(I,\varphi,p,q)=(\Lambda,\lambda,y,x)$ of Part~12. The data $\Omega,\beta$ coincide with those of the moving-Sun model (Theorem~\ref{bpP:p12:pg-hypotheses}), and $P_0^{\rm mov}-P_0^{\rm fix}=\delta$.
+\end{enumerate}
+\frozen{KAM.Planetary.fixedHamiltonian}
+\source{Ours: Fej04r Lemma~64, pp.~49--50 (action--reaction), as made exact in Part~8; the form $h+\varepsilon f'$ is ``our variant of Fej04r (28)'' (Definition~\ref{bpP:p0:fixham}).}
+\end{proposition}
+\begin{proof}
+\proofstep{(a) Chart}\label{stepP:p13:fh-chart} Lemma~\ref{bpP:p6:split}: $H_{\rm fix}=H_{\rm Kep}+\varepsilon f_{\rm fix}$ on all of $\Ph{2n}$ (total functions). Compose with $\Psi$ and use $H_{\rm Kep}\circ\Psi=h(\Lambda)$ (Theorem~\ref{bpP:p7:product-chart}(b),(c)); analyticity is Theorem~\ref{bpP:p7:product-chart}(c) and Proposition~\ref{bpP:p8:perturbation-analytic}(b).
+\proofstep{(b) Identification}\label{stepP:p13:fh-id} The difference formula is Lemma~\ref{bpP:p6:split}; its average is Theorem~\ref{bpP:p8:identification} (the cross terms vanish exactly, Proposition~\ref{bpP:p8:lemma64}). The equality of jets, of $Q_h$, $\Omega$, $\mathcal Q_4$ and $\hat\beta$ is Corollary~\ref{bpP:p8:same-jets}(a) and Definition~\ref{bpP:p11b:beta-def} (``the same for $S_{\rm fix}$ and $S_{\rm mov}$''). The frequency map $(\nu,\Omega)$ is built from $h$ and $Q_h$, so the statements of Theorem~\ref{bpP:p10:interface}, which never mention $f$ beyond $Q_h$, are inherited.
+\proofstep{(c) Birkhoff form}\label{stepP:p13:fh-bnf} Theorem~\ref{bpP:p11b:birkhoff-form} is stated for $\hat f\in\{\hat f_{\rm fix},\hat f_{\rm mov}\}$ with the same $T$; for $\hat f_{\rm fix}$ its proof (Steps~\ref{stepP:p11b:bt-K}--\ref{stepP:p11b:bt-avg}) works with $K=S_{\rm fix}(\Lambda,\varrho x,\varrho y)$ itself, so no $\delta$ occurs and $P_0=C_0$. Parts (a), (b) of that theorem give the values in the analyticity domain, the average and the remainder $C_*\abs z^6$; part (c) gives $\operatorname{HasBirkhoff}$. As a check, Corollary~\ref{bpP:p8:same-jets}(c) transfers $\operatorname{HasBirkhoff}(P_{\rm mov},\dots,P_0^{\rm mov},\Omega,\beta)$ to $\operatorname{HasBirkhoff}(P_{\rm fix},\dots,P_0^{\rm mov}-\delta,\Omega,\beta)$ for the slow-variable change $T$ (it depends on $\Lambda$ only as a parameter), which is the same statement. The identity $H_{\rm fix}\circ\Psi\circ T=h+\varepsilon P_{\rm fix}$ is (a) and the fact that $T$ preserves $\Lambda$ (Proposition~\ref{bpP:p11b:lift-map}).
+\end{proof}
+
+\subsection{$n=2$: assembly through the frozen P-G (no Part~11a)}\label{bpP:p13:sec-n2}
+
+Let $n=2$ and fix $(G,m_0,m,a,\eta)$ as in Theorem~\ref{bpP:p0:fixed}. The coupling $\varepsilon$ plays the role of $\mu$ in P-G. I use all of Definition~\ref{bpP:p12:data} and its numbering, with the single change that the perturbation is $P_{\rm fix}$.
+
+\begin{definition}[Data of P-G for the fixed-Sun model]\label{bpP:p13:data}
+Choose successively, exactly as in Definition~\ref{bpP:p12:data}:
+\begin{enumerate}[label=(D\arabic*)]
+\item\label{bpP:p13:d-tube} $\zeta_*=\min\{\eta,\gamma_a/6\}$, $d=\gamma_a/2$, $D=2a_{\max}+\gamma_a$ (Definition~\ref{bpP:p6:tube-constants}) and $\delta=\delta_{\zeta_*}$ of Lemma~\ref{bpP:p12:forward-tube};
+\item\label{bpP:p13:d-eta} $\eta'$ with $\abs{a'-a}_\infty<\eta'\Rightarrow a'\in\mathcal A_2$, $\abs{\Lambda(a')-\Lambda^*}_\infty<\delta$;
+\item\label{bpP:p13:d-patch} the patch $a^\circ,\rho_a$, $K_a=\overline B_\infty(a^\circ,\rho_a)$, $O_a$ and $B=\min_{K_a}\abs{\det\hat\beta}>0$ (Corollary~\ref{bpP:p11b:patch});
+\item\label{bpP:p13:d-box} the boxes $K,\mathcal O,V,W$ (the same as \ref{bpP:p12:d-box}) and the collar constants $A_c,d_{\rm c}$ (Lemma~\ref{bpP:p12:collar});
+\item\label{bpP:p13:d-bnf} the Birkhoff data $\varrho,\chi,r_*,C_*,\mathcal O',\mathcal T,T$ of Theorem~\ref{bpP:p11b:birkhoff-form} for $K_a$;
+\item\label{bpP:p13:d-pg} the P-G data $a=b=2$, $V,W$, $A_c,d_{\rm c}$, $r_0=r_*/2$, $\mu_0^{\rm G}=1$, $B$, and the functions
+\[H_0=h,\quad P=P_{\rm fix},\quad P_0=C_0\circ a,\quad\Omega=2\sigma\circ a,\quad\beta=\hat\beta\circ a\quad(\text{on }V;\ 0\text{ outside}),\]
+with $P_{\rm fix}$ extended by $0$ outside $\mathcal T$ (Proposition~\ref{bpP:p13:fixed-hamiltonian-form}(c));
+\item\label{bpP:p13:d-G} the constants $r_{\rm G},C_{\rm G},c_{\rm G}$ given by Theorem~\ref{bpP:p0:pg} for \ref{bpP:p13:d-pg} (these are new constants: $P_{\rm fix}\ne P_{\rm mov}$);
+\item\label{bpP:p13:d-r} $r=\tfrac12\min\{r_{\rm G},\sqrt{\delta/2}\}$, and $\varepsilon_0=\min\{1,\ r^6/(\log(1/r))^{c_{\rm G}}\}$.
+\end{enumerate}
+Items \ref{bpP:p13:d-tube}--\ref{bpP:p13:d-bnf} are the items \ref{bpP:p12:d-tube}--\ref{bpP:p12:d-bnf} of Part~12: they do not involve the perturbation and are \emph{unchanged}. Nothing depends on $\varepsilon$.
+\end{definition}
+
+\begin{proposition}[The total chart for the fixed Sun]\label{bpP:p13:chart}
+Put $\Psi_{\rm tot}=\Psi^{(2)}\circ T$ on $\mathcal T$ (and $0$ elsewhere) and $H_\varepsilon=h+\varepsilon P_{\rm fix}$ (Definition~\ref{bpP:p0:degham}). Parts (a), (b), (c), (e) of Proposition~\ref{bpP:p12:chart} hold verbatim (they concern $\mathcal T$, $T$, $\Psi^{(2)}$ and not the perturbation), and (d) becomes: for every real $\varepsilon$ and $w\in\mathcal T$,
+\[H_{\rm fix}(\Psi_{\rm tot}(w))=H_0(\Lambda)+\varepsilon P_{\rm fix}(w),\qquad\text{i.e. }H_{\rm fix}^{\Psi_{\rm tot}}=H_\varepsilon\text{ on }\mathcal T.\]
+\end{proposition}
+\begin{proof}
+\proofstep{Unchanged parts}\label{stepP:p13:ch-same} Steps~\ref{stepP:p12:ch-dom}, \ref{stepP:p12:ch-chart}, \ref{stepP:p12:ch-lat}, \ref{stepP:p12:ch-tube} do not mention the Hamiltonian; the image inclusion of Step~\ref{stepP:p12:ch-dom} is the statement of Theorem~\ref{bpP:p11b:birkhoff-form} for both $\hat f$.
+\proofstep{The Hamiltonian}\label{stepP:p13:ch-ham} Proposition~\ref{bpP:p13:fixed-hamiltonian-form}(c).
+\end{proof}
+
+\begin{proposition}[All data and hypotheses of P-G hold for the fixed Sun]\label{bpP:p13:pg-hypotheses}
+With the data of Definition~\ref{bpP:p13:data}, every datum and every hypothesis (H1)--(H6) of Theorem~\ref{bpP:p0:pg} ($a=b=2$) holds.
+\end{proposition}
+\begin{proof}
+\proofstep{Sets, collar, constants}\label{stepP:p13:pg-sets} As Step~\ref{stepP:p12:pg-sets}; these involve $V,W,A_c,d_{\rm c},r_0,B$ only.
+\proofstep{(H1) Joint analyticity}\label{stepP:p13:pg-h1} For $w\in\overline{\mathcal C(V,r_0)}$ one has $w\in\mathcal T$ (Step~\ref{stepP:p12:pg-h1}). On $\R\times\mathcal T$ the function $(\varepsilon,w)\mapsto\hat f_{\rm fix}(T(w))$ is real analytic: $T$ is analytic, $T(\mathcal T)$ lies in the domain where $\hat f_{\rm fix}$ is analytic (Proposition~\ref{bpP:p13:fixed-hamiltonian-form}(c)), and it does not depend on $\varepsilon$; \ref{bpP:p12:f-comp}.
+\proofstep{(H2) Periodicity}\label{stepP:p13:pg-h2} $T(w+\iota'_k)=T(w)+\iota'_k$ (Proposition~\ref{bpP:p11b:lift-map}) and $\hat f_{\rm fix}=f_{\rm fix}\circ\Psi^{(2)}$ is $2\pi$-periodic in each $\lambda_i$ (Theorem~\ref{bpP:p7:product-chart}(a)); $\iota'_k=\operatorname{shift}(k)$.
+\proofstep{(H3) Fast diffeomorphism}\label{stepP:p13:pg-h3} Lemma~\ref{bpP:p12:fast-diffeo} ($H_0=h$ is the same function).
+\proofstep{(H4) Birkhoff form}\label{stepP:p13:pg-h4} Proposition~\ref{bpP:p13:fixed-hamiltonian-form}(c) gives $\operatorname{HasBirkhoff}(P_{\rm fix},V,r_*/\sqrt2,\mu_0,P_0,\Omega,\beta)$ for every $\mu_0>0$; shrinking the radius to $r_0=r_*/2$ is the monotonicity argument of Step~\ref{stepP:p12:pg-h4}, and the zero extension of $P_{\rm fix}$ outside $\mathcal T$ is invisible there.
+\proofstep{(H5), (H6)}\label{stepP:p13:pg-h56} $\beta=\hat\beta\circ a$ is symmetric and $\abs{\det\beta}\ge B$ on $V$ (Step~\ref{stepP:p12:pg-h56}; $\hat\beta$ is the same function for the two models, Proposition~\ref{bpP:p13:fixed-hamiltonian-form}(b)).
+\end{proof}
+
+\begin{proposition}[Cylinder tori of $H_\varepsilon$ are physical tori of $H_{\rm fix}$]\label{bpP:p13:transport}
+Let $\varepsilon\in\R$, $0<r\le r_0$, $w\in\R^4$, $K:\R^4\to\Ph4$ with $\operatorname{IsCylTorus}(H_\varepsilon,\mathcal C(V,r),w,K)$, and let $w$ be $(\gamma,\tau)$-Diophantine with $\gamma>0$, $\tau>4$. Then $\mathcal K_{\rm ph}=\Psi_{\rm tot}\circ K$ satisfies $\operatorname{IsPhysTorus}(H_{\rm fix},w,\mathcal K_{\rm ph})$ with $H_{\rm fix}=\texttt{fixedHamiltonian}\,G\,m_0\,m\,\varepsilon$ ($d=4$), and $\mathcal K_{\rm ph}(\R^4)=\Psi_{\rm tot}(K(\R^4))$. Moreover, if $0<r<r_0$, $2r^2\le\delta$, $S\subset\Ph4$ satisfies $\operatorname{IsCylKol}(H_\varepsilon,V,r,\varepsilon,C,S)$ and $0<\meas(S\cap\mathcal F(V,r))$, then $\Psi_{\rm tot}(S)$ is Borel, contained in $U_{\zeta_*}$, and $0<\meas\Psi_{\rm tot}(S)<\infty$.
+\end{proposition}
+\begin{proof}
+\proofstep{Torus predicate}\label{stepP:p13:tr-torus} Steps~\ref{stepP:p12:tr-an}--\ref{stepP:p12:tr-dio} of Proposition~\ref{bpP:p12:transport}, with $H_{\rm mov}$ and $H_\mu$ replaced by $H_{\rm fix}$ and $H_\varepsilon$. They use about the Hamiltonian only the identity $H_{\rm fix}^{\Psi_{\rm tot}}=H_\varepsilon$ on the open set $\mathcal T$ (Proposition~\ref{bpP:p13:chart}), the differentiability of $H_\varepsilon$ at $K(\theta)$ (IsCylTorus (ii)) and Lemma~\ref{bpP:p1:chart-field}, Corollary~\ref{bpP:p1:chart-orbit}.
+\proofstep{Measure}\label{stepP:p13:tr-meas} Proposition~\ref{bpP:p12:measure} uses $H_\mu$ only as the argument of the predicate $\operatorname{IsCylKol}$; its proof (a union of whole tori is invariant under the fast lattice, $\Psi_{\rm tot}$ is injective on the cell, Lemma~\ref{bpP:p1:liouville}, tube inclusion of Proposition~\ref{bpP:p12:chart}(e)) applies verbatim.
+\end{proof}
+
+\begin{theorem}[P-FIXED for $n=2$, route (c)]\label{bpP:p13:n2}
+Theorem~\ref{bpP:p0:fixed} holds for $n=2$: there are $\varepsilon_0>0$ and $0<d<D$ such that for every $0<\varepsilon<\varepsilon_0$ there is $S\subset\Ph{2\cdot2}$ with $0<\meas S<\infty$ and $\operatorname{FixKol}(G,m_0,m,a,\varepsilon,\eta,d,D,S)$. The proof uses no result of Parts~11 or~11a.
+\frozen{KAM.Planetary.fixedSunPlanetaryKAM}
+\source{CP09 Thm.~4, p.~8 and Fej04r Prop.~77 in the route (c) form of \texttt{PLAN.md}: the frozen P-G (CP11 Thm.~11.1) applied to the fixed-Sun secular Birkhoff form; same proof as Theorem~\ref{bpP:p12:planar}.}
+\end{theorem}
+\begin{proof}
+\proofstep{Constants}\label{stepP:p13:n2-const} Choose all constants of Definition~\ref{bpP:p13:data}. $0<d<D$ (Definition~\ref{bpP:p6:tube-constants}); $\varepsilon_0>0$ since $0<r<1$ and $\log(1/r)>0$ \ref{bpP:p12:f-mono}. They depend on $(G,m_0,m,a,\eta)$ only (Remark~\ref{bpP:p13:quantifiers}).
+\proofstep{P-G applies}\label{stepP:p13:n2-pg} Proposition~\ref{bpP:p13:pg-hypotheses} verifies the data and (H1)--(H6); Theorem~\ref{bpP:p0:pg} yields $r_{\rm G},C_{\rm G},c_{\rm G}$ ($0<r_{\rm G}<r_0$, $r_{\rm G}<1$).
+\proofstep{The coupling}\label{stepP:p13:n2-mu} Let $0<\varepsilon<\varepsilon_0$. Then $0<r<r_{\rm G}$, $0<\varepsilon<1=\mu_0^{\rm G}$ and $\varepsilon<r^6/(\log(1/r))^{c_{\rm G}}$, so P-G gives $S_{\rm cyl}$ with $\operatorname{IsCylKol}(H_\varepsilon,V,r,\varepsilon,C_{\rm G},S_{\rm cyl})$ and $0<\meas(S_{\rm cyl}\cap\mathcal F(V,r))$, where $H_\varepsilon=H_0+\varepsilon P_{\rm fix}(\varepsilon,\cdot)$.
+\proofstep{The physical set}\label{stepP:p13:n2-S} $S=\Psi_{\rm tot}(S_{\rm cyl})$: Proposition~\ref{bpP:p13:transport} ($2r^2\le\delta/2<\delta$, $r<r_0$) gives $S$ Borel, $S\subset U_{\zeta_*}$, $0<\meas S<\infty$.
+\proofstep{Tori}\label{stepP:p13:n2-tori} For $z=\Psi_{\rm tot}(s)\in S$, $s\in S_{\rm cyl}$, $\operatorname{IsCylKol}$ gives $w,K,\theta$ with $K(\theta)=s$, $K(\R^4)\subset S_{\rm cyl}$, $\operatorname{IsCylTorus}(H_\varepsilon,\mathcal C(V,r),w,K)$ and $\gamma>0$, $\tau>2+2$ with $w$ Diophantine; Proposition~\ref{bpP:p13:transport} gives $\operatorname{IsPhysTorus}(H_{\rm fix},w,\Psi_{\rm tot}\circ K)$, $\Psi_{\rm tot}(K(\theta))=z$, and $\Psi_{\rm tot}(K(\R^4))\subset S$.
+\proofstep{Physical clauses}\label{stepP:p13:n2-phys} Proposition~\ref{bpP:p6:fixkol-assembly} (with $\zeta_*,d,D$ of \ref{bpP:p13:d-tube}, $S\subset U_{\zeta_*}$ Borel, every point on an $\operatorname{IsPhysTorus}(H_{\rm fix},\cdot)$ torus inside $S$) gives $\operatorname{FixKol}$: $\operatorname{NoColl}$ by Lemma~\ref{bpP:p6:tube-geometry}(d); $\operatorname{IsFixedSol}$ by Corollary~\ref{bpP:p6:orbit-transfer}(b); $\operatorname{PairBounds}$ with the Sun at the origin by Lemma~\ref{bpP:p6:tube-geometry}(e). The measure bounds are Step~\ref{stepP:p13:n2-S}.
+\end{proof}
+
+\subsection{General $n\ge2$: the wrapper of Part~11}\label{bpP:p13:sec-ngen}
+
+\begin{theorem}[P-FIXED for every $n\ge2$, route (a)]\label{bpP:p13:n-general}
+Theorem~\ref{bpP:p0:fixed} holds for every $n\ge2$ (in particular for $n=2$ as a second proof): with $\zeta_*,d,D$ of Definition~\ref{bpP:p6:tube-constants} there is $\varepsilon_0>0$ such that for every $0<\varepsilon<\varepsilon_0$ there is $S\subset\Ph{n\cdot2}$ with $0<\meas S<\infty$ and $\operatorname{FixKol}(G,m_0,m,a,\varepsilon,\eta,d,D,S)$.
+\frozen{KAM.Planetary.fixedSunPlanetaryKAM}
+\source{CP09 Thm.~4, p.~8 (via R\"ussmann) with Fej04r Lemma~64 and Prop.~77; the proof is Part~11 and Part~11a; the fixed-Sun form of the assembly is ours.}
+\sourcegap{Depends on Part~11a-4/11a-5 (forward references of Definition~\ref{bpP:p11:kam-input}): \Pref{bpP:p11a:weak-kam-quantitative}, \Pref{bpP:p11a:limit-torus}, \Pref{bpP:p11a:displacement}, \Pref{bpP:p11a:evaluation-bilipschitz}, \Pref{bpP:p11a:lipschitz-family}, \Pref{bpP:p11a:budget}; the part cites the wrapper only.}
+\end{theorem}
+\begin{proof}
+\proofstep{Constants}\label{stepP:p13:ng-const} $\zeta_*,d,D$ are those of Definition~\ref{bpP:p6:tube-constants}, so $0<d<D$ and they depend on $(a,\eta)$ only. Let $\varepsilon_0$ be the number of Theorem~\ref{bpP:p11:wrapper} for the data $(n,G,m_0,m,a,\eta)$ ($\texttt{hn}$, $\texttt{hG}$, $\texttt{hm0}$, $\texttt{hm}$, $\texttt{ha}$, $\texttt{hsep}$, $\texttt{heta}$ are its hypotheses); $\varepsilon_0>0$. It depends on the data only, not on $\varepsilon$.
+\proofstep{The wrapper}\label{stepP:p13:ng-wrap} Let $0<\varepsilon<\varepsilon_0$. Theorem~\ref{bpP:p11:wrapper} gives a Borel $S\subset\Ph{n\cdot2}$ with $0<\meas S<\infty$, $S\subset U_{\zeta_*}$, and for every $z\in S$ data $w,\mathcal K,\theta_0$ with $z=\mathcal K(\theta_0)$, $\mathcal K(\R^{2n})\subset S$, $\operatorname{IsPhysTorus}(H_{\rm fix},w,\mathcal K)$. This is hypothesis (S1)--(S2) of Proposition~\ref{bpP:p6:fixkol-assembly} (with $H_{\rm fix}$).
+\proofstep{Physical clauses}\label{stepP:p13:ng-phys} Proposition~\ref{bpP:p6:fixkol-assembly} gives $\operatorname{FixKol}(G,m_0,m,a,\varepsilon,\eta,d,D,S)$ (clauses as in Step~\ref{stepP:p13:n2-phys}: Lemma~\ref{bpP:p6:tube-geometry}(d),(e), Corollary~\ref{bpP:p6:orbit-transfer}(b)); the measure bounds are those of the wrapper.
+\end{proof}
+
+\begin{remark}[What the general-$n$ assembly consumes]\label{bpP:p13:consumed}
+Only the statement of Theorem~\ref{bpP:p11:wrapper} and Proposition~\ref{bpP:p6:fixkol-assembly} (and, through the latter, Lemma~\ref{bpP:p6:tube-geometry}, Corollary~\ref{bpP:p6:orbit-transfer}). Part~10's R-nondegeneracy (Theorem~\ref{bpP:p10:interface}, whose general-$n$ case rests on Theorems~\ref{bpP:p10:good-point}, \ref{bpP:p10:F-nonzero}, the peeling induction that replaces the sketch ``par un raisonnement analogue'' of Fej04r p.~58; \texttt{PLAN.md}'s label \texttt{bpP:p10:induction} is realised by these two theorems) and the KAM input of Part~11a enter only inside Part~11. The wrapper's conclusion has the frequency $w$ depend on the point and asserts no $\varepsilon$-uniform Diophantine constant, exactly as Definition~\ref{bpP:p0:fixkol} requires.
+\end{remark}
+
+\subsection{The frozen theorem and order of constants}\label{bpP:p13:sec-main}
+
+\begin{theorem}[P-FIXED: $n$ planar planets around a fixed Sun]\label{bpP:p13:fixed}
+Theorem~\ref{bpP:p0:fixed} holds. For $n=2$ the proof is Theorem~\ref{bpP:p13:n2}, independent of Parts~11 and~11a; for $n\ge3$ it is Theorem~\ref{bpP:p13:n-general}.
+\frozen{KAM.Planetary.fixedSunPlanetaryKAM}
+\end{theorem}
+\begin{proof}
+\proofstep{Case split}\label{stepP:p13:fx-split} By \texttt{hn}, $n=2$ or $n\ge3$.
+\proofstep{$n=2$}\label{stepP:p13:fx-2} Theorem~\ref{bpP:p13:n2} (after \texttt{subst}, Remark of \S\ref{bpP:p13:sec-binders}); $\Ph{2\cdot2}$ is the phase space of that theorem.
+\proofstep{$n\ge3$}\label{stepP:p13:fx-n} Theorem~\ref{bpP:p13:n-general}. Both conclude $\exists\,\varepsilon_0>0,\,0<d<D\ \forall\varepsilon\in(0,\varepsilon_0)\ \exists S$ with $0<\meas S<\infty$ and $\operatorname{FixKol}$, in the frozen order.
+\end{proof}
+
+\begin{remark}[Order of the constants against the frozen quantifiers]\label{bpP:p13:quantifiers}
+\emph{$n=2$.} The table of Remark~\ref{bpP:p12:quantifiers} applies with the changes: $r_{\rm G},C_{\rm G},c_{\rm G}$ depend on the data of \ref{bpP:p13:d-pg} (including $P_{\rm fix}$); $r$, $\varepsilon_0$ as in \ref{bpP:p13:d-r}; $d,D$ depend on $a$ alone and $\varepsilon_0$ on $(G,m_0,m,a,\eta)$ through $\delta$, the patch and P-G. Only after $(\varepsilon_0,d,D)$ does $\varepsilon\in(0,\varepsilon_0)$ enter, selecting $S_{\rm cyl}$ in P-G and then $S=\Psi_{\rm tot}(S_{\rm cyl})$. The fixed Sun makes $\varepsilon$ the coefficient of the interaction \emph{only}: the Kepler part, the chart, the patch and $T$ do not depend on it (Proposition~\ref{bpP:p13:fixed-hamiltonian-form}(a)), so there is no analogue of the barycentre issue of P-PLANAR.
+\emph{General $n$.} Data $\to$ patch, $(\bar\mu,\bar\beta)$, $J_0,\gamma_0$ $\to$ chart constants $\to$ the fixed part of the KAM datum and its constants $\to\nu_2\to\varepsilon_0\to\varepsilon$ (Theorem~\ref{bpP:p11:wrapper}); $d,D$ are chosen first and depend only on $a$.
+\end{remark}
+
+\subsection{Notes: dependencies, deviations, doubts, errata, forward references}\label{bpP:p13:notes}
+
+\paragraph{Dependency summary.}
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\hline
+Ingredient & Case $n=2$ (Thm.~\ref{bpP:p13:n2}) & Case general (Thm.~\ref{bpP:p13:n-general})\\
+\hline
+Frozen P-G (Thm.~\ref{bpP:p0:pg}; proved by Part~5) & used & not used\\
+Parts 6--9 (models, chart, secular form, spectrum) & used & used (inside Part~11)\\
+Part 10 (good patch) & used (patch) & used (inside Part~11)\\
+Part 11b (planar torsion, Birkhoff map $T$) & used & not used\\
+Part 11, wrapper (Thm.~\ref{bpP:p11:wrapper}) & not used & used\\
+Part 11a-1..3 & not used & used (inside Part~11: (K5))\\
+Part 11a-4/5 (forward: $\mathcal K_b$, displacement, family) & not used & used (Def.~\ref{bpP:p11:kam-input}, (K2)--(K4), (K6))\\
+Part 12 (lemmas \ref{bpP:p12:forward-tube}, \ref{bpP:p12:collar}, \ref{bpP:p12:fast-diffeo}, Prop.~\ref{bpP:p12:chart}) & used & not used\\
+\hline
+\end{tabular}
+\end{center}
+
+\paragraph{Replaced plan items.} \texttt{fixed-hamiltonian-form} $\to$ Proposition~\ref{bpP:p13:fixed-hamiltonian-form}; \texttt{assembly} $\to$ Theorem~\ref{bpP:p13:n2} (and Proposition~\ref{bpP:p13:transport}); \texttt{n-general} $\to$ Theorem~\ref{bpP:p13:n-general}, which no longer depends on an induction of this part: the induction of Fej04r Prop.~77 is Part~10 (Theorem~\ref{bpP:p10:good-point}).
+
+\paragraph{Deviations.} (1) As for Part~12, the pair bounds and tube are the explicit ones of Definition~\ref{bpP:p6:tube-constants} (a fixed Sun has no barycentre term at all). (2) For $n=2$ the proof is route (c) rather than CP09 Thm.~4 and R\"ussmann; recorded in \texttt{docs/campaign/OVERNIGHT.md} (21:15). (3) Part~12's Proposition~\ref{bpP:p12:measure} is quoted for the fixed predicate, by the remark that the Hamiltonian enters only through the label of $\operatorname{IsCylKol}$.
+
+\paragraph{Doubts about frozen statements.} None. The conclusion asks $S\subset U_\eta$ and the clauses of $\operatorname{FixKol}$ for all $\varepsilon\in(0,\varepsilon_0)$ with $d,D$ independent of $\varepsilon$; both are met (Remark~\ref{bpP:p13:totality}). \texttt{hn}$:2\le n$ is necessary for the proof (for $n=1$ the frequency map $(\nu,\Omega)=(\nu,0)$ is not R-nondegenerate); the frozen statement does not claim $n=1$.
+
+\paragraph{Suspected source errata.} None new; E-P-Fej04r-2, E-P-Fej04r-3, E-P-CP11-1, E-P-CP11-2, E-P-CP09-1 to -7 (Parts~8, 11, 11b) enter only through the cited parts.
+
+\paragraph{Open points.} The general-$n$ case is conditional on Part~11a-4/11a-5 through (K2)--(K4), (K6) of Definition~\ref{bpP:p11:kam-input}. The case $n=2$ is conditional on the proof of P-G (Part~5), on Part~11b's quartic coefficients and on the Birkhoff map $T$ taking values in the analyticity domain of $\hat f_{\rm fix}$ (Theorem~\ref{bpP:p11b:birkhoff-form}).
+
+\paragraph{External facts used.} \ref{bpP:p12:f-comp} (composition of analytic maps), \ref{bpP:p12:f-mono} (elementary positivity of $r^6/\log^c$), \texttt{subst} of $n=2$ in a dependent type (no mathematical content), and those of Parts~6, 11, 12 as cited.
+
+\paragraph{Forward references.} Through Part~11 only: \Pref{bpP:p11a:weak-kam-quantitative}, \Pref{bpP:p11a:limit-torus}, \Pref{bpP:p11a:displacement}, \Pref{bpP:p11a:evaluation-bilipschitz}, \Pref{bpP:p11a:lipschitz-family}, \Pref{bpP:p11a:budget}, \Pref{bpP:p11a:physical-interface} (planned labels of \texttt{PLAN-11a.md}, Files 11a-4 and 11a-5).
+
+\paragraph{Label index.} \texttt{binders}, \texttt{totality}, \texttt{fixed-hamiltonian-form}, \texttt{data}, \texttt{chart}, \texttt{pg-hypotheses}, \texttt{transport}, \texttt{n2}, \texttt{n-general}, \texttt{consumed}, \texttt{fixed}, \texttt{quantifiers}.
+\par\endgroup
