@@ -1,0 +1,85 @@
+\section{N-PARTIAL-CONVEX: route, normalisation, slow variables as parameters}\label{bpN:p11}
+\providecommand{\wn}[3]{\lvert #1\rvert_{#2,#3}}
+\providecommand{\Dom}[2]{\mathcal D_{#1,#2}}
+\providecommand{\Os}[2]{\mathcal O(#1,#2)}
+\providecommand{\UD}[1]{U_{#1}D}
+\providecommand{\ip}[2]{\langle #1,#2\rangle}
+\providecommand{\Pj}{\Pi}
+\providecommand{\Eb}{\mathcal E}
+\providecommand{\ba}{\bar\alpha}
+\begingroup\sloppy
+
+This part proves the frozen theorem N-PARTIAL-CONVEX (Theorem~\ref{bpN:p0:partial}, \Lean{partialConvex\_nekhoroshev}) in its stopped form. It is written in three files: \texttt{p11a} (route decision, normalisation, constants), \texttt{p11b} (the extension of Parts~\ref{bpN:p4}--\ref{bpN:p6} to functions that also depend on the slow variables as parameters, Normal Form Lemma with slow variables) and \texttt{p11c} (stability estimates in the extended phase space, with an $\omega$-free energy error; the block theorem; assembly of the frozen statement, constants, quantifier order). Conventions are the frozen ones of Parts~\ref{bpN:p4}--\ref{bpN:p10}: angles of period $1$ (the frozen fast angles of period $2\pi$ are converted once, Lemma~\ref{bpN:p11:orbit}), weight $e^{2\pi\abs k_1s}$, max norms; the Euclidean norm $\norm\cdot_2$ is used only where Part~\ref{bpN:p7} uses it.
+
+\subsection{Route decision}\label{bpN:p11:s-route}
+
+\begin{remark}[Route (i): Nekhoroshev's \S\S5--10 adapted to the convex case. Route (ii): a P\"oschel-type proof with the slow variables as parameters. Decision: (ii)]\label{bpN:p11:route}
+\emph{What Nek77's proof consists of} (pinned file \texttt{sources/incoming-round3/nek77-eng.pdf}, printed pages = PDF pages). The main theorem is Theorem~4.4 (p.~30). Its proof (stated p.~28: ``formulated in \S4 and proved in \S\S5--9, based on the lemma about eliminating non-resonance harmonics and on certain technical lemmas in \S10'') has four layers:
+(a)~\emph{forbidden motions} (\S5, pp.~30--33): Definition 5.1.D and Proposition 5.2.B, whose proof (pp.~32--33) is a consequence of \emph{Lemma 10.3} (elimination of non-resonance harmonics, stated pp.~45--46 for $H=H_0(I)+H_1(I,p,\varphi,q)$ on a tube over a closed set $A$ of $(I,p,q)$ with a loss $b$ in the slow variables: ``$B$ maps a set contained in $\Delta F$ onto $\Delta F_1=\{I,p,q\in A-b,\ \abs{\operatorname{Im}\varphi}<\rho_1\}$'');
+(b)~\emph{combinatorics of resonances}: zones and blocks (\S6, pp.~33--35), discs of fast drift and Proposition~7.4 (\S7, pp.~36--37; it calls Lemma~10.6, p.~47, and Lemma~10.5, p.~46--47), the non-overlapping condition and Proposition~8.6 (\S8, pp.~37--40), traps and Proposition~9.2 (\S9, pp.~41--43);
+(c)~\emph{assembly} \S9.5 (pp.~43--44), where the parameters $(9.7)$ must satisfy $(9.1)$--$(9.5)$, $(10.1)$--$(10.4)$, $(5.2)$--$(5.4)$, $(8.1)$--$(8.9)$; \emph{Lemma 10.7} (pp.~47--49) asserts that this system is solvable for $M<M_0$ with $d,T$ given by $(4.4)$--$(4.5)$;
+(d)~the exponents $a,b$ of $(4.4)$, $(4.5)$ come out of (c).
+
+\emph{Why route (i) is not available as a complete blueprint from the pinned source.} The summary on p.~1 (and p.~3) of the pinned file says that the proofs of ``certain lemmas used to prove the main theorem, \dots stated in \S10'' ``will be given elsewhere'' (``\dots II'', Proceedings of the Petrovskii Seminar, No.~5). Thus the proofs of Lemmas 10.3, 10.5 and 10.7 (including the numerical system with the formulas (10.1)--(10.4), (10.9), whose printed formulas are in addition images that the text layer of the scan loses) are \emph{not} in the pinned source, and Proposition~5.2.B and \S9.5 depend on them. \sourcegap{Nek77 Lemma 10.3 (p.~45--46), Lemma 10.5, Lemma 10.7 (pp.~46--49): statements only; proofs announced for Part~II. A blueprint of route (i) would have to supply an independent proof of Lemma 10.3 (a parametric normal form lemma with a loss in $(p,q)$), which is precisely the content of route (ii), and, in addition, the full block/disc/trap combinatorics of \S\S6--9 and the parameter system of Lemma 10.7.}
+
+\emph{Route (ii).} The analytic input of Nek77 (Lemma 10.3) is a parametric resonant normal form: Hamiltonian $h(I)+f(\varphi,I,p,q)$, nonresonant harmonics eliminated on a tube over a set of slow variables, with a loss in the slow width. P\"oschel's normal form (Parts~\ref{bpN:p4}--\ref{bpN:p6}), stability estimates (Part~\ref{bpN:p7}) and geometry (Part~\ref{bpN:p8}; Part~\ref{bpN:p9} for the assembly) already provide, with explicit constants, everything except the slow variables. Because $h$ does not depend on the slow variables, they enter the homological equation only as parameters, and in the Poisson bracket through one extra term, the bracket of the slow pairs, whose Cauchy loss is controlled by the slow width $w$ (Lemma~\ref{bpN:p11:bracket}). We therefore blueprint:
+\begin{enumerate}[label=(\arabic*)]
+\item the Part~4--6 infrastructure for the extended class (Part~11b), with one new hypothesis on the slow width, (SL) of Definition~\ref{bpN:p11:ext-class}, under which the slow bracket is dominated by the fast one and all numerical constants of Parts~\ref{bpN:p5}--\ref{bpN:p6} survive unchanged (the constant $2/e$ in the bracket estimate is replaced by $1$ and every place where Part~\ref{bpN:p6} uses it only through $2/e\le1$ is checked);
+\item the stability estimates of Part~\ref{bpN:p7} in the extended phase space, with one new argument: an \emph{$\omega$-free} energy error (Lemma~\ref{bpN:p11:energy-free}), needed because the frozen domain $G$ may be unbounded and $\norm{\omega}$ is then not bounded on $G'$ (Remark~\ref{bpN:p11:omega-unbounded});
+\item the geometry of Part~\ref{bpN:p8} at the single point $I_0=I(0)$ (Part~\ref{bpN:p9}, Proposition~\ref{bpN:p9:block-hyp}).
+\end{enumerate}
+\emph{Exponents.} The route proves the stopped statement with the exponents $a'=b'=\frac1{2n}$ (time $T_0'\exp(c\mu^{-1/(2n)})$, drift $\le C\mu^{1/(2n)}$), which are \emph{larger} than the frozen ones: $a_n<\frac1{2n}$ and $b_n<\frac1{2n}$ (Lemma~\ref{bpN:p11:exponents}). The frozen conclusion (time window $\mu^{-1}\exp(\mu^{-a_n})$, drift $\le\frac12\mu^{b_n}$) is monotone in the exponents, so it follows for $\mu$ small (Step~\ref{stepN:p11:final-time} and Step~\ref{stepN:p11:final-drift}). The frozen exponents $a_n,b_n$ are therefore \emph{not} reproduced by the proof; they are consequences. This is stated as a deviation of the proof, not of the theorem. Margin dependence: the slow width is $w=\mu^{b_n}/4$ and (SL) reads $r_\Lambda\le c\,w^2$; it holds for small $\mu$ because $r_\Lambda\le R_0/K\sim\mu^{1/(2n)}$ and $2b_n<\frac1{2n}$ (Lemma~\ref{bpN:p11:exponents}). Nek77's own size relations between $d$ and the slow width are not used.
+\end{remark}
+
+\begin{remark}[Unbounded $G$ and $\omega$-free time bound]\label{bpN:p11:omega-unbounded}
+The frozen hypotheses do not bound $G$; for $h=\frac12\abs I_2^2$ on $G=\{I_1>1\}$ all of them hold and $\norm{\omega}$ is unbounded on $G$. P\"oschel's resonant estimate (Part~\ref{bpN:p7}, Lemma~\ref{bpN:p7:no-exit}, hypothesis (iii); Part~\ref{bpN:p9}, $T_\Lambda\propto1/\Omega_\Lambda(I_0)$) has a time bound proportional to $1/\sup\norm\omega$ on the ball, so it cannot be uniform in $I_0\in G$. Lemma~\ref{bpN:p11:energy-free} removes $\norm{\omega(I_0)}$ from the energy error by an exact identity ($\omega(I)\cdot\partial_\theta f_*=\frac d{dt}f_*-\{f_*,g\}$ along the normal-form orbit). Nek77's own argument (forbidden motions plus traps) never uses an upper bound for $\norm\omega$; the new lemma is our replacement. \sourcegap{Pos93 p.~198--199 and Part~\ref{bpN:p9} give $T\propto1/\Omega$; no uniform statement for unbounded $G$ is in the sources; Lemma~\ref{bpN:p11:energy-free} is ours and must be audited.}
+\end{remark}
+
+\subsection{External facts}\label{bpN:p11:s-ext}
+\begin{enumerate}[label=(E\arabic*),leftmargin=2.2em]
+\item\label{bpN:p11:ext-num} \emph{Numerics.} $e>2.718$, $2/e<0.736$, $1/e<0.368$; $\coth(x)>1$ for $x>0$; for $0<\beta<\gamma$ and $x\in(0,1)$: $x^{\gamma}<x^{\beta}$. Exists.
+\item\label{bpN:p11:ext-rpow} \emph{Powers.} For $x>0$, $x^{\alpha}x^{\beta}=x^{\alpha+\beta}$, $(x^\alpha)^{-1}=x^{-\alpha}$, $x\mapsto x^{\alpha}$ is monotone (increasing for $\alpha>0$); $\exp(y)\ge1+y\ge y$; $y\mapsto\exp(\epsilon y)/y^{N}\to\infty$ as $y\to\infty$ for $\epsilon>0$ (Mathlib \Lean{Real.rpow\_add}, \Lean{Real.tendsto\_exp\_div\_rpow\_atTop}). Exists.
+\item\label{bpN:p11:ext-chain} \emph{Chain rule for a linear change of variables and for differentiable curves.} Exists (\Kref{bp:p1:ext-mvt} for the mean value inequality).
+\end{enumerate}
+Besides these: Part~\ref{bpN:p3} (Definition~\ref{bpN:p3:gen-sol}, Theorems~\ref{bpN:p3:gen-uniqueness}, \ref{bpN:p3:gen-maximal}, Corollary~\ref{bpN:p3:gen-continuation-periodic}, Lemma~\ref{bpN:p3:gen-exit}); Part~\ref{bpN:p4} (Definition~\ref{bpN:p4:domains}, Lemmas~\ref{bpN:p4:coefficients}, \ref{bpN:p4:sup-weighted}, \ref{bpN:p4:algebra}, \ref{bpN:p4:cauchy}, \ref{bpN:p4:general-cauchy}, \ref{bpN:p4:projections}); Part~\ref{bpN:p5} (Lemma~\ref{bpN:p5:flow}, Lemma~\ref{bpN:p5:taylor}); Part~\ref{bpN:p6}; Part~\ref{bpN:p7}; Part~\ref{bpN:p8} (Lemma~\ref{bpN:p8:covering}, Corollary~\ref{bpN:p8:cutoffs}); Part~\ref{bpN:p9} (Definition~\ref{bpN:p9:setting}, Lemma~\ref{bpN:p9:elementary}).
+
+\subsection{From the frozen system to the period-one weighted system}\label{bpN:p11:s-conv}
+
+\begin{definition}[Weighted Hamiltonian field]\label{bpN:p11:wfield}
+For $c>0$ and $\hat H:\R^n\times\R^n\times\R^k\times\R^k\to\R$ (points $y=(\theta,I;q,p)$: fast angles, fast actions, slow positions, slow momenta) differentiable at $y$,
+\[X^{c}_{\hat H}(y)=\bigl(\partial_I\hat H,\ -\partial_\theta\hat H,\ c\,\partial_p\hat H,\ -c\,\partial_q\hat H\bigr)(y),\qquad\]
+and
+\[ \{u,v\}_c=\partial_\theta u\cdot\partial_Iv-\partial_Iu\cdot\partial_\theta v+c\bigl(\partial_qu\cdot\partial_pv-\partial_pu\cdot\partial_qv\bigr)=Du\cdot X^c_v,\]
+
+the same formulas for holomorphic $u,v$ with complex partials ($\{u,v\}_c=-\{v,u\}_c$). $\Omega_c=\operatorname{diag}(J_n,cJ_k)$ with $J_d=\begin{psmallmatrix}0&\mathbf1\\-\mathbf1&0\end{psmallmatrix}$ so that $X_u^c=\Omega_c\nabla u$ for $\nabla u=(\partial_\theta u,\partial_Iu,\partial_qu,\partial_pu)$ in the pairing order $(\theta,I)$, $(q,p)$.
+\source{Ours; $c=1$ with $k=0$ is Definition~\ref{bpN:p5:setting}.}
+\end{definition}
+
+\begin{lemma}[Period conversion with slow variables]\label{bpN:p11:orbit}
+Let $H:\mathrm{Ph}_{n+k}\to\R$, $\hat H(\theta,I;q,p)=\frac1{2\pi}H\bigl((2\pi\theta,q),(I,p)\bigr)$ (so that for the frozen Hamiltonian $H_\mu$, $\hat H_\mu=\frac1{2\pi}\operatorname{Re}h(I)+\frac\mu{2\pi}\operatorname{Re}P(\ldots)$). Let $\Theta:\mathrm{Ph}_{n+k}\to\R^n\times\R^n\times\R^k\times\R^k$, $\Theta((\varphi_{\rm f},q),(I,p))=(\varphi_{\rm f}/2\pi,I;q,p)$. A curve $z$ satisfies $z'(t)=X_H(z(t))$ at $t$ (with $H$ differentiable at $z(t)$) iff $y=\Theta\circ z$ satisfies $y'(t)=X^{2\pi}_{\hat H}(y(t))$ ($\hat H$ differentiable at $y(t)$). $\Theta$ is a linear isomorphism, $\Theta^{-1}$ also; the fast actions, slow variables and time are unchanged, the fast angles are divided by $2\pi$.
+\source{Ours; Lemma~\ref{bpN:p1:period-convert} for $k=0$ (there with the opposite normalisation). Nek77 \S4.3: $\varphi$ of period $2\pi$.}
+\end{lemma}
+\begin{proof}
+\proofstep{Chain rule}\label{stepN:p11:or-chain} $\hat H=\frac1{2\pi}H\circ\Theta^{-1}$ with $\Theta^{-1}(\theta,I;q,p)=((2\pi\theta,q),(I,p))$ linear; so $\hat H$ is differentiable at $y=\Theta z$ iff $H$ is at $z$, and $\partial_\theta\hat H=\partial_{\varphi_{\rm f}}H$, $\partial_I\hat H=\frac1{2\pi}\partial_IH$, $\partial_q\hat H=\frac1{2\pi}\partial_qH$, $\partial_p\hat H=\frac1{2\pi}\partial_pH$ (all at corresponding points).
+\proofstep{Equations}\label{stepN:p11:or-eq} The frozen field is $X_H=(\partial_{\mathsf I}H,-\partial_\varphi H)$ (Definition~\ref{bpN:p0:vf} for $\mathrm{Ph}_{n+k}$): $\dot\varphi_{\rm f}=\partial_IH$, $\dot q=\partial_pH$, $\dot I=-\partial_{\varphi_{\rm f}}H$, $\dot p=-\partial_qH$. Then $\dot\theta=\dot\varphi_{\rm f}/2\pi=\partial_IH/2\pi=\partial_I\hat H$; $\dot I=-\partial_{\varphi_{\rm f}}H=-\partial_\theta\hat H$; $\dot q=\partial_pH=2\pi\partial_p\hat H$; $\dot p=-\partial_qH=-2\pi\partial_q\hat H$. These are the components of $X^{2\pi}_{\hat H}$. Reversing the computation gives the converse.
+\end{proof}
+
+\begin{lemma}[Exponents]\label{bpN:p11:exponents}
+For $n\ge2$ put $a_n=\frac2{6n^2-3n+14}$, $b_n=\frac3{6n^2-3n+14}$ (Definition~\ref{bpN:p0:partial-exponents}). Then $0<a_n<b_n<\frac1{2n}$ and $2b_n<\frac1{2n}$; hence $\gamma_1:=\frac1{2n}-2b_n>0$, $\gamma_2:=\frac1{2n}-b_n>0$, $\gamma_3:=\frac1{2n}-a_n>0$.
+\end{lemma}
+\begin{proof}
+\proofstep{Denominator}\label{stepN:p11:ex-den} $q_n:=6n^2-3n+14\ge32>0$. $a_n<b_n$ is $2<3$.
+\proofstep{Comparison}\label{stepN:p11:ex-cmp} $2b_n<\frac1{2n}\iff12n<6n^2-3n+14\iff6n^2-15n+14>0$, true since the discriminant $225-336<0$ and the leading coefficient is positive. Then $a_n<b_n<2b_n<\frac1{2n}$.
+\end{proof}
+
+\subsection{Constants and order of choice}\label{bpN:p11:s-const}
+
+\begin{definition}[Data and constants of the stopped proof]\label{bpN:p11:constants}
+Fix the data $n\ge2$, $k\ge1$, $G,G',D,\rho,g,m,M_{\C},h$ of Theorem~\ref{bpN:p0:partial} with $\sigma\in\{1,-1\}$ from \texttt{HasDefiniteFastPart}. Put (all depend only on these data)
+\[s=\frac\rho{4\pi},\quad m_1=\frac m{2\pi},\quad M_1=\frac{M_{\C}}{2\pi},\quad g_1=\frac g{2\pi},\quad r_0=\min\Bigl\{\frac\rho2,\ \frac{8g}m\Bigr\},\quad A=\frac{11M_1}{m_1}=\frac{11M_{\C}}m,\]
+\[\varepsilon_0=\frac{m_1r_0^2}{2^{10}A^{2n}},\qquad R_0=\frac{r_0}A,\qquad\kappa_C=\coth(\pi s)^n,\qquad c_K=\Bigl(\frac{2\pi\varepsilon_0}{\kappa_C}\Bigr)^{1/(2n)}.\]
+For $\mu>0$ put $\varepsilon=\varepsilon(\mu)=\kappa_C\mu/(2\pi)$, $K=K(\mu)=(\varepsilon_0/\varepsilon)^{1/(2n)}=c_K\mu^{-1/(2n)}$ (when $\varepsilon\le\varepsilon_0$), $d=\mu^{b_n}$, $w=d/4$, $K_a=K/\sqrt n$, $\kappa=2\pi K_as=2\pi Ks/\sqrt n$.
+The threshold $\mu_0$ is the minimum of the positive numbers $\mu_a,\dots,\mu_f$ of Step~\ref{stepN:p11:final-mu}; it depends only on the data. In the notation of Part~\ref{bpN:p9}: $(n,r_0,s,m_1,M_1)$ (with $\ell=2M_1r_0$; convexity makes quasi-convexity hold for every $\ell$, Theorem~\ref{bpN:p11:block}) give the constants $A,\varepsilon_0,R_0$ of Definition~\ref{bpN:p9:setting}, $a=\frac1{2n}$, and $q=9$, $p=\frac98$, $b=\frac18$ (Part~\ref{bpN:p9}); $K_a=K/\sqrt n$.
+\source{Ours; Part~\ref{bpN:p9} (Definition~\ref{bpN:p9:setting}); \texttt{docs/tracks/N/notes.md}, F-NADD-1 (there $L=(n+1)M_{\C}$; here the Euclidean operator norm of the complex Hessian is bounded by $M_{\C}$ itself, Lemma~\ref{bpN:p11:hessian}, because $\abs u_\infty\le\norm u_2$).}
+\end{definition}
+\endgroup
