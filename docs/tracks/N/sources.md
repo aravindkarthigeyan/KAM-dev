@@ -528,3 +528,143 @@ The Russian primary metadata and the author-slide reference identify acquisition
 verify their theorem statements or prove a smooth-cutoff extension. No source hash is invented for these
 unpinned papers. The old book/slide/transcription hashes remain the pins listed above. F-NADD-9 removes
 the slide as evidence for the rank alternatives altogether.
+
+## N-AVERAGING, draft v0.5 — primary-source packet
+
+This section supersedes the historical v0.4 acquisition hold for averaging. The owner supplied the complete
+AKN06 third edition, and the quantitative original paper [451] was obtained and read in this revision.
+The current draft is `.drafts/N/Averaging.lean`; D25's frozen partial theorem and `Additions.lean` are
+unchanged. No statement or proof is approved by this source packet alone.
+
+### AKN06: full third edition, verified local pin
+
+V. I. Arnold, V. V. Kozlov, A. I. Neishtadt, *Mathematical Aspects of Classical and Celestial Mechanics*,
+third edition, Encyclopaedia of Mathematical Sciences **3**, Springer, 2006.
+[Book DOI](https://doi.org/10.1007/978-3-540-48926-9), ISBN 978-3-540-28246-4 / 978-3-540-48926-9.
+The citation and edition were previously verified against the exact Crossref/publisher records; the owner
+has now registered this full PDF under **AKN06** in `docs/sources.json`.
+
+- File: `/root/code/KAM-inp/sources/pdf/AKN06_3rd_ed_978-3-540-48926-9.pdf`.
+- Recomputed SHA-256: **`77b7670103aa4d040ad724275356645ad8ee79c63b1dabf5a90fd803d67ba208`**, matching the registry.
+- Read all **§6.1.9, printed pp.242–244** (PDF pp.253–255). It ends before §6.1.10 on p.244.
+  Theorem 6.11, Corollary 6.1, (6.27)–(6.28) are **printed p.243 = PDF p.254**, also visually inspected.
+- Read the standing smoothness convention, **printed p.3 footnote 1 = PDF p.16**, visually inspected;
+  chapter constants **p.207 = PDF p.218**; standard and averaged equations **pp.208–209 = PDF pp.219–220**;
+  Remark 6.4 **pp.217–218 = PDF pp.228–229**; and the analytic assumption in the formal-series calculation,
+  **p.212 = PDF p.223**. The last is a local assumption of §6.1.2, not a global analyticity restriction on
+  Theorem 6.11. The explicit analytic assumption in §6.1.8 p.237 is likewise local to that subsection.
+- Bibliography checked: **[66] p.475 = PDF p.483**, **[305] p.489 = PDF p.497**,
+  **[451] p.497 = PDF p.505**. The book's printed-to-PDF offset is +11 in the relevant chapter-6 pages;
+  that offset is **not global** in this supplied file, so these other locators were checked directly.
+
+**Standing assumptions and exact source content.**
+
+- P.3 footnote 1: “We assume that all the functions occurring in dynamics are smooth.” The analytic
+  Hamiltonian class in the draft is a conservative specialization and supplies arbitrary derivative orders
+  on compact interior sets; no numerical derivative bound uniform over later choices of h or f is claimed.
+- P.207: constants cᵢ,Cᵢ>0 are independent of ε; the convention asserts existence whenever they appear.
+  The draft fixes the system, radii and compact initial set before A,ε₀ and does not claim more uniformity.
+- P.208 (6.1)–(6.2): I∈B⊂ℝⁿ, φ∈Tᵐ, torus period 2π, and
+
+      İ=εa(I,φ,ε),   φ̇=ω(I)+εb(I,φ,ε).
+
+  The source writes f,g for a,b; different letters here avoid confusing the vector field with the draft's
+  scalar Hamiltonian perturbation f. B is the action/slow-variable domain.
+- P.208 (6.3): the averaged action field is F(J)=(2π)⁻ᵐ∫a(J,φ,0)dφ, and J̇=εF(J).
+  P.209 matches J(0)=I(0) and studies [0,1/ε]. For Hε=h+εf, a=−∂θf; its average vanishes by periodic
+  integration, so J(t)=I(0). This is a deduction, not an assumption about the perturbed orbit.
+- Remark 6.4, pp.217–218, explicitly omits natural continuability conditions from later statements:
+  the **averaged** trajectory over [0,1/ε] is assumed to remain away from the domain boundary.
+  It does not assume that every exact trajectory already exists there. The draft's B(R/2) collar and
+  constant averaged orbit discharge this condition on an interior compact source domain.
+- P.243 Theorem 6.11 requires **either** full rank of I↦ω(I), **or** projective rank m−1 of
+  I↦(ω₁:⋯:ωₘ). It prints the intrinsic projective map, so its nonzero-frequency domain is required.
+  The Lean augmented-map predicate expresses that rank without a singular chart division.
+- P.243 (6.27), normalized typography:
+
+  > ∫ max_{0≤t≤1/ε}|I(t)−J(t)| dI₀ dφ₀ < c₁√ε.
+
+  This is an integral over initial phase volume with the maximum **inside** the integral. It is neither
+  an expectation under a specified probability law nor the supremum of fixed-time integrals.
+- P.243 Corollary 6.1 takes data in a fixed compact initial set, error at least ρ, and states
+
+  > meas E(ε,ρ) < c₁√ε/ρ.                                             (6.28)
+
+  Its next displayed formula is accuracy c₁√ε/κ outside an exceptional set of measure κ. Weak ≤ in the
+  draft is a weakening. The draft uses η for ρ. Norm and period changes enter A. An arbitrary compact
+  lifted angular window is covered by finitely many period cells, with constants depending on that window.
+
+The whole subsection contains the residence-time explanation on p.242, the statements on p.243 and
+additional results/discussion on pp.243–244; it does **not** contain a full proof of Theorem 6.11.
+The quantitative citation **[451]** is Neishtadt 1976 below. [66] is Anosov's qualitative averaging theorem,
+and [305] is Kasuga's method. The present proof route reproduces the corrector argument written in [451]
+with an explicit maximum-error repair; it does not import an unstated theorem from [66] or [305].
+
+### Nei76: complete original quantitative theorem and proof, newly pinned
+
+A. I. Neishtadt, “Об осреднении в многочастотных системах. II” (*Averaging in multifrequency systems. II*),
+Doklady Akademii Nauk SSSR **226** (6) (1976), **1295–1298**. AKN06 [451], printed p.497, identifies
+this exact original and the English translation, Soviet Physics Doklady **21** (1976), **80–82**.
+The version read here is the **four-page Russian original**, not that uninspected translation.
+
+- File: `/root/code/KAM-inp/sources/incoming-N/averaging-v0.5/Neishtadt76_DAN_226_6_1295-1298.pdf`.
+- SHA-256: **`57459a2221141e0fb0fce2143009107b30ce39ceb08acff0a6d7b8cc150b98f6`**.
+- [Primary journal metadata](https://www.mathnet.ru/rus/dan39798), item dan39798; the citation matches the
+  primary metadata and AKN's bibliography. No DOI is asserted for this original.
+- Download: [journal full-text endpoint](https://www.mathnet.ru/php/getFT.phtml?jrnid=dan&paperid=39798&what=fullt).
+  The successful request redirected to a MathNet `links/.../dan39798.pdf` URL. Earlier metadata requests
+  returned 403; a later direct full-text request succeeded. The file begins with PDF data, not an error page.
+- Read all four pages; all four were visually inspected, including equations omitted/mangled by OCR.
+  Printed 1295–1298 correspond to PDF 1–4. Source mathematical typography below is normalized.
+
+**Hypotheses 1°–4°, pp.1295–1296.** The standard system and averaged system are (1)–(2). The right-hand
+sides are smooth on a compact region G times the phase torus times 0≤ε≤ε₁. Hypothesis 2° asks for m+1
+continuous phase derivatives of a(I,φ,0) and D_Ia(I,φ,0), where m counts frequencies. Our analytic data
+satisfy these on a compact interior region. Hypothesis 3° is full rank Dω=m **or**, in the printed chart,
+ω₁≠0 and full rank m−1 for the ratios (ω₂/ω₁,…,ωₘ/ω₁). Hypothesis 4° specifies a measurable initial
+G₁ and a fixed ρ₁>0 such that the **averaged** trajectories exist to 1/ε and stay at least ρ₁ from ∂G.
+No full-window exact solution is part of that hypothesis. The coordinate-free translation from the chart
+condition to AKN's intrinsic rank alternative is a specific proof obligation in notes.md, not an added
+nonzero-component premise in Lean.
+
+**Good data and statements, p.1296.** U=G₁×Tᵐ. The good set Φ(ρ,ε) requires that the **exact** solution
+be defined for all 0≤t≤1/ε and that its maximum error h be ≤ρ. H(ρ,ε)=U\Φ(ρ,ε). Put
+U′=Φ(ρ₁/2,ε), U″=H(ρ₁/2,ε). Theorem 1 (7) asserts
+
+    ∫_{U′} h ≤ K₁√ε,       meas U″ ≤ K₂√ε.
+
+Theorem 2 (8) gives meas H(ρ,ε)≤K₃√ε/ρ for 0<ρ<ρ₁/2; K₃ is independent of ε and ρ. This explicitly
+includes failure of exact-solution existence among bad data. It directly supports the *shape* of
+`averaging_most`; no deletion of a supplied-flow premise or analytic cutoff is needed.
+
+**Proof, §§3–4 pp.1296–1298.** Lemma 1, p.1297 (11), constructs a resonance-regularized Fourier
+corrector w with integral bounds: residual O(κ), D_Iw O(κ⁻¹), w and D_φw O(|logκ|).
+Equations (12)–(16) use the corrector identity, Gronwall, and the flow Jacobian bound (15).
+Section 4 p.1298 constructs the regularized Fourier denominator and uses rank to estimate its integrals.
+The later p.1298 stopping argument includes initial data whose exact solution leaves G, extends successive
+surviving cohorts by times comparable to 1/ε, and sums a bounded number of loss estimates.
+
+**New proof defect, E-NAVG-NEI-17 (CANDIDATE).** Equation (17), p.1298, prints
+
+> sup_t z(t) = ∫_{U′} h dI₀ dφ₀,
+
+where p.1297 defines z(t)=∫_{U′}|I(t)−J(t)| and (4), p.1295, defines h as the pointwise time supremum.
+That equality is not justified: in general only sup_t∫e_t≤∫sup_t e_t holds. The subsequent stopping estimate
+also needs the stronger maximum-error estimate. This is a suspected proof gap in **Nei76**, not a
+counterexample to AKN06's statement and not evidence of an AKN06 formula error. The explicit Fourier-envelope
+repair plan in notes.md controls ∫sup directly and retains O(√ε); independent audit of that repair is required.
+
+The piecewise reciprocal regularization θ on p.1298 is C¹ but generally not C² at ±κ. C¹ suffices for
+its displayed first-derivative bounds and chain rule; our plan may use a genuine C∞ interpolation with
+the same estimates. Do not silently treat that particular printed piecewise formula as C∞. No separate
+source erratum is asserted without clarifying the author's use of “smooth” in this finite-regularity setting.
+
+### v0.5 source disposition and remaining limits
+
+F-NADD-2's missing-primary-pages objection is addressed by the complete AKN pin, its global smoothness and
+boundary convention, and the complete [451] theorem/proof. F-NADD-3's existence import is addressed by
+[451]'s definition of Φ and its exit-cohort argument, with an explicit proof plan and the E-NAVG-NEI-17
+repair. Both declarations are current **unapproved v0.5 candidates**, not frozen or independently approved.
+The normal source proof obligations and the newly exposed maximum-error repair remain to be implemented
+and audited. No AKN06 mathematical erratum was identified. NO22 slide 14 remains corroboration of rates
+only; it is no longer needed as evidence for the theorem or its rank assumptions.

@@ -133,12 +133,19 @@ public import KAM.Frozen.Planetary.Defs.SecularRoot
 public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
+public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
+public import KAM.Matrix.Inverse
 public import KAM.Matrix.Neumann
+public import KAM.Matrix.Norms
+public import KAM.Measure.Lattice
 public import KAM.Measure.Lipeo
 public import KAM.Measure.Lipschitz
 public import KAM.Measure.McShane
+public import KAM.Measure.Slab
+public import KAM.Provider.VolumeNotDiophantineLe
 public import KAM.Strip.Averages
 public import KAM.Strip.Cauchy
+public import KAM.Strip.Fourier
 public import KAM.Strip.HigherCauchy
 public import KAM.Strip.Regularity
 

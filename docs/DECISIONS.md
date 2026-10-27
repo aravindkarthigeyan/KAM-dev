@@ -166,3 +166,15 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
     - E-N-ADD-1 recorded as a candidate erratum, and the specialization as a deviation.
   - Review pages: claude.ai/artifact/7ENmWAuf34EGcwtLyBryPH (P), claude.ai/artifact/4RfC5jjTbqfgGksuQZvk1i (N).
   - The sub-orchestrator freezes them as for D20.
+- **D26 (2026-10-27) First seal: G3. Two corrections to the frozen-anchor guard.** *(orchestrator; technical)*
+  - **Seal.** `KAM.volume_not_diophantine_le` is SEALED. Its provider is `KAM.Provider.volume_not_diophantine_le`:
+    the Sonnet prover for package P-G3, an independent GPT-6.1-Sol medium audit (PASS WITH NOTES), and a
+    `leanchecker` kernel replay. Its axioms are `propext`, `Classical.choice` and `Quot.sound` only.
+  - **Guard correction 1.** The guard's lexer treated the `'` of Lean's `∑'` as opening a character literal, which
+    hid the rest of a file from the guard. It now masks only genuine character literals, matching
+    `check_lean_modules.py`.
+  - **Guard correction 2.** A frozen theorem whose explicit binders precede the colon cannot be sealed by a bare
+    `by exact <export>`. A sealed body may now apply the export to exactly those binder names, all of them, in
+    order, and to nothing else.
+  - The upstream skill script `check_frozen_anchors.py` has the same two limitations (reported to the owner).
+

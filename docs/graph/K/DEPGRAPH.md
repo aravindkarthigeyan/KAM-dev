@@ -7,7 +7,7 @@ CONVENTIONS: docs/graph/K/SPEC.md "Conventions to watch": max norm on C^m and in
 STANDING_ASSUMPTIONS: -
 EXTERNAL_POLICY: the eleven Mathlib-level inputs (E1)-(E11) of Part 1 are KIND external nodes bp:p1:ext-*; any other unproved fact is a step node with NOTE SOURCE_GAP
 FROZEN_ANCHORS: bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:domains#actionNbhd, bp:p0:domains#fundamentalDomain, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:torus#IsInvariantLagrangianTorus, bp:p0:cover#kamCover, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#dotC, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage, bp:p0:head, bp:p0:headq, bp:p0:g1, bp:p0:g2, bp:p0:g3
-FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:8be8871b726f78aca2d9ad235157c693662486bef05830c229ee5d5440d06ca8
+FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:4ddae7948f05799a2824ff96b11bcb3025ac3373d98a5098634555919bfffc49
 WRITER: claude-main-orchestrator
 GLOBAL_REVIEWER: sol-global-K
 GLOBAL_REVIEW_REF: docs/graph/K/reviews/GLOBAL-review.md and docs/graph/K/reviews/GLOBAL-recheck.md (Codex GPT-6.1-Sol medium, tmux kam-graph-global)
@@ -726,9 +726,9 @@ EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p0-conventions.tex#bp:p0
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.volume_not_diophantine_le (SEALED via KAM.Provider.volume_not_diophantine_le)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:ext-cauchy
@@ -1015,9 +1015,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.operator_norms
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:opn-rowsum
@@ -1041,9 +1041,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_operator_norm_rowSum
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:opn-blocks
@@ -1068,9 +1068,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_operator_norm_blocks
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:opn-omega
@@ -1096,9 +1096,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_operator_norm_omegaZero
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:matrix-norms
@@ -1125,9 +1125,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_norms
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:mn-products
@@ -1152,9 +1152,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_norm_products
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:mn-transpose
@@ -1178,9 +1178,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_norm_transpose
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:mn-signed
@@ -1205,9 +1205,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_norm_signed
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:neumann
@@ -1374,9 +1374,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.real_inverse
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:ri-adjugate
@@ -1401,9 +1401,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.real_inverse_adjugate
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:holomorphic-regularity
@@ -1936,9 +1936,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.holomorphic_inverse
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hi-holomorphic
@@ -1963,9 +1963,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.holomorphic_inverse_differentiableOn
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hi-derivative
@@ -1990,9 +1990,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.fderiv_matrix_inv_apply
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:increments-open
@@ -9434,9 +9434,9 @@ EDGE: step:p4:count-projection | blueprint/parts/p4-measure.tex#bp:p4:lattice-co
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Measure.lattice_count
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:count-projection
@@ -9460,9 +9460,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Measure.card_l1Sphere_succ_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:lattice-sum
@@ -9488,9 +9488,9 @@ EDGE: step:p4:latsum-integral | blueprint/parts/p4-measure.tex#bp:p4:lattice-sum
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Measure.lattice_sum
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:latsum-shells
@@ -9515,9 +9515,9 @@ EDGE: bp:p4:lattice-count | blueprint/parts/p4-measure.tex#step:p4:latsum-shells
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Measure.sum_finset_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:latsum-integral
@@ -9541,9 +9541,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Measure.tsum_rpow_neg_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:slab
@@ -9569,9 +9569,9 @@ EDGE: step:p4:slab-fubini | blueprint/parts/p4-measure.tex#bp:p4:slab@L95-L95 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Measure.slab_measure_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:slab-coordinate
@@ -9595,9 +9595,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Measure.exists_dominant_coord
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:slab-fubini
@@ -9623,9 +9623,9 @@ EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L96
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-d3
 REVIEWER: sol-review-d4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Measure.volume_slab_le_of_coord
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: repaired F1: uses Tonelli for the indicator of a measurable set (E11); formerly a source gap before (E11) was listed
 
 NODE: step:p4:g3-n0
@@ -9650,9 +9650,9 @@ EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p4-measure.tex#step:p4:g
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Provider.isDiophantine_of_dim_zero
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:g3-cube
@@ -9677,9 +9677,9 @@ EDGE: bp:p4:lattice-sum | blueprint/parts/p4-measure.tex#step:p4:g3-cube@L111-L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Provider.exists_cube_superset
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:g3-union
@@ -9705,9 +9705,9 @@ EDGE: step:p4:g3-cube | blueprint/parts/p4-measure.tex#step:p4:g3-union@L115-L12
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Provider.not_diophantine_subset_iUnion
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:g3-sum
@@ -9736,9 +9736,9 @@ EDGE: bp:p1:ext-lebesgue | blueprint/parts/p4-measure.tex#step:p4:g3-sum@L123-L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Provider.volume_not_diophantine_le_of_cube
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:data

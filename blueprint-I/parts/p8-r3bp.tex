@@ -1,0 +1,249 @@
+\section{Proof of I-R3BP}\label{bpI:p8}
+
+This part proves Theorem~\ref{bpI:p0:r3bp} completely. The proof applies the \emph{frozen} theorem I-HEAD
+(Theorem~\ref{bpI:p0:head}) to the period-one Delaunay data of Part~\ref{bpI:p7} and transfers the result to the
+physical problem. Its ingredients are: the topology of the physical region $\mathcal N$ (\S\ref{bpI:p8:sec-top}); a general
+\emph{collision-exclusion lemma}, owned here for tracks~I and~P (\S\ref{bpI:p8:sec-coll}); the choice of an enlarged
+safe action region and the hypotheses of I-HEAD (\S\ref{bpI:p8:sec-safe}); and the assembly with the constants chosen in the
+order of the frozen quantifiers (\S\ref{bpI:p8:sec-proof}). Track~P cites \Iref{bpI:p8:collision-exclusion}, \Iref{bpI:p8:shell-exclusion}
+and \Iref{bpI:p8:min-distance}.
+
+\source{ours (D-I-PHYSICAL): the derivation from I-HEAD, I-KEPLER and the Delaunay coordinates, as in Part~\ref{bpI:p7}; the model
+(barycentric rotating frame, unit separation, total mass one) is Chi05 (1.2), p.~2, and (3.34), (3.37), pp.~12--13. Chi05's own
+perturbative analysis (3.38)--(3.43) uses exact alternative (heliocentric/extended-phase-space) coordinates with different normalization and rotating reduction, and is not used (Remark~\ref{bpI:p7:errata}). The numerical Victoria theorem of CC03 is not used.}
+
+\paragraph{Finding I04 of the Part-0 review (how it is applied).} No single positive displacement tolerance can keep the
+orbital elements inside the \emph{original} open intervals uniformly over the open initial region. The frozen conclusion asks
+for global existence, boundedness and collision exclusion, not for invariance of the element intervals. Hence the action domain
+$B$ passed to I-HEAD is a \emph{larger} open region $2\pi\,U\supset\overline{2\pi A}$ (Definition~\ref{bpI:p8:safe}), still at positive
+distance from $e=0$, $e=1$, $L=0$ and from the secondary's orbit; the solution's actions stay in $B$ because they are part of the
+solution predicate $\mathrm{Sol}(\cdot,B,\cdot,\cdot)$. No margin condition on $\eta$ is needed (we take $\eta=1$).
+
+%----------------------------------------------------------------------------------------------------
+\subsection{External facts and notation}\label{bpI:p8:sec-ext}
+
+\paragraph{External facts.}
+{\raggedright
+\begin{enumerate}[label=(Y\arabic*),ref=(Y\arabic*)]
+\item\label{bpI:p8:x-topo} \emph{Topology of $\R^k$.} Closed bounded sets are compact; a continuous real function on a nonempty compact set attains its minimum and maximum;
+  for a compact $S$ and a point $x\notin S$, $\operatorname{dist}(x,S)=\min_{q\in S}\abs{q-x}>0$; preimages of open sets under continuous maps are open;
+  a linear isomorphism of $\R^k$ is a homeomorphism, so it maps open sets to open sets and closures to closures; a closed subset of a compact set is compact.
+  (\Lean{IsCompact.exists\_isMinOn}, \Lean{IsCompact.exists\_infDist\_eq\_dist}, \Lean{Continuous.isOpen\_preimage}.)
+\item\label{bpI:p8:x-norm} \emph{Triangle inequality} $\abs{u-w}\ge\abs{u-v}-\abs{v-w}$ in a normed space.
+\item\label{bpI:p8:x-cont} \emph{Monotone functions.} $\kappa(e)=\sqrt{1-e^2}$ is continuous and strictly decreasing on $[0,1]$, with $\kappa(0)=1$, $\kappa(e)\in(0,1)$ for $e\in(0,1)$. (\Lean{Real.sqrt\_lt\_sqrt}.)
+\end{enumerate}\par}
+
+\paragraph{Notation.} $\abs\cdot_2$ and $\operatorname{rad}$ are the Euclidean length on $\R^2$ (Definition~\ref{bpI:p0:primaries}); $\mathcal C_0$, $e(L,G)$, $\mathsf Q$, $\mathcal C$, $\mathsf S$ are as in Parts~\ref{bpI:p6}--\ref{bpI:p7},
+$\kappa(e)=\sqrt{1-e^2}$. For $(L,G)\in\mathcal C_0$, $G/L\in(0,1)$ and, by \ref{bpI:p8:x-cont},
+\begin{equation}\label{bpI:p8:e-vs-k}
+\begin{aligned}
+e(L,G)\in(e',e'')&\iff G/L\in(\kappa(e''),\kappa(e')),\\
+e(L,G)\in[e',e'']&\iff G/L\in[\kappa(e''),\kappa(e')]\qquad(0\le e'<e''<1),
+\end{aligned}
+\end{equation}
+since $e=\kappa(G/L)$ and $\kappa$ is a strictly decreasing involution of $[0,1]$ ($\kappa(\kappa(x))=x$).
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Topology of the physical region}\label{bpI:p8:sec-top}
+
+\begin{definition}[The action region of $\mathcal N$]\label{bpI:p8:A}
+For $0<a_-<a_+$ and $0<e_-<e_+<1$ put
+\[
+A=A(a_\pm,e_\pm)=\bigl\{(L,G)\in\R^2:\ \sqrt{a_-}<L<\sqrt{a_+},\ \ \kappa(e_+)L<G<\kappa(e_-)L\bigr\},
+\]
+\[
+A^{\rm cl}=\bigl\{(L,G)\in\R^2:\ \sqrt{a_-}\le L\le\sqrt{a_+},\ \ \kappa(e_+)L\le G\le\kappa(e_-)L\bigr\}.
+\]
+$A$ is open and bounded, $A^{\rm cl}$ is compact (closed and bounded), $\overline A\subset A^{\rm cl}$ (\ref{bpI:p8:x-topo}), and
+$A^{\rm cl}\subset\mathcal C_0$ because $G\ge\kappa(e_+)L>0$ and $G\le\kappa(e_-)L<L$.
+\end{definition}
+
+\begin{proposition}[Topology of $\mathcal N$]\label{bpI:p8:topology}
+Let $a_\pm,e_\pm$ be as in Theorem~\ref{bpI:p0:r3bp}. Then
+\begin{enumerate}[label=(\alph*)]
+\item $A\subset\mathcal C_0$ and for $(L,G)\in\mathcal C_0$: $\bigl(a_-<L^2<a_+$ and $e_-<e(L,G)<e_+\bigr)\iff(L,G)\in A$;
+\item $\mathcal N=\mathsf Q(\R^2\times A)$, and for every $z_0\in\mathcal N$ there are $\ell_0,g_0\in\R$ and $(L_0,G_0)\in A$ with $\mathsf Q(\ell_0,g_0,L_0,G_0)=z_0$;
+\item $\mathcal N$ is open in $\R^2\times\R^2$;
+\item $\mathcal N$ is nonempty: with $a_*=\frac{a_-+a_+}2$, $e_*=\frac{e_-+e_+}2$, $L_*=\sqrt{a_*}$, $G_*=L_*\kappa(e_*)$ one has $(L_*,G_*)\in A$ and
+  $\bigl((a_*(1-e_*),0),\,(0,\ \kappa(e_*)/(L_*(1-e_*)))\bigr)=\mathsf Q(0,0,L_*,G_*)\in\mathcal N$ (the pericentre of an orbit of semi-major axis $a_*$ and eccentricity $e_*$).
+\end{enumerate}
+\frozen{KAM.Iso.NearCircular}
+\source{Chi05 (2.24)--(2.26), p.~9 through Part~\ref{bpI:p7}; ours.}
+\end{proposition}
+\begin{proof}
+\proofstep{Elements as inequalities on $G/L$}\label{stepI:p8:tp-A} $A\subset A^{\rm cl}\subset\mathcal C_0$ (Definition~\ref{bpI:p8:A}). For $(L,G)\in\mathcal C_0$: $a_-<L^2<a_+\iff\sqrt{a_-}<L<\sqrt{a_+}$ ($L>0$), and by \eqref{bpI:p8:e-vs-k}, $e_-<e<e_+\iff\kappa(e_+)<G/L<\kappa(e_-)\iff\kappa(e_+)L<G<\kappa(e_-)L$. This is (a).
+
+\proofstep{Chart description}\label{stepI:p8:tp-chart} Lemma~\ref{bpI:p7:near-circular} gives $\mathcal N=\mathsf Q(\{(\ell,g,L,G)\in\mathcal D_\R:a_-<L^2<a_+,\ e_-<e(L,G)<e_+\})$, which is $\mathsf Q(\R^2\times A)$ by (a). If $z_0\in\mathcal N$, a preimage exists by definition of the image.
+
+\proofstep{Openness}\label{stepI:p8:tp-open} Lemma~\ref{bpI:p7:near-circular} states that $\mathcal N=\{(q,p)\in\mathcal C:a_-<a(q,p)<a_+,\ e_-<e(q,p)<e_+\}$ with $a,e$ continuous on the open set $\mathcal C$ (Definition~\ref{bpI:p7:elements}); a finite intersection of preimages of open intervals under continuous maps, inside an open set, is open (\ref{bpI:p8:x-topo}).
+
+\proofstep{Nonemptiness}\label{stepI:p8:tp-nonempty} $a_-<a_*<a_+$, $e_-<e_*<e_+<1$, so $\sqrt{a_-}<L_*<\sqrt{a_+}$ and $G_*=\kappa(e_*)L_*\in(\kappa(e_+)L_*,\kappa(e_-)L_*)$ by strict monotonicity: $(L_*,G_*)\in A$ and $\mathsf Q(0,0,L_*,G_*)\in\mathcal N$ by (b). The displayed value: $u(0,e)=0$ (Proposition~\ref{bpI:p7:kepler-eq}(c)), so $c=1$, $s=0$, $\mathsf D=1-e_*$, $k=\kappa(e_*)$, $\mathsf R(0)=\mathrm{id}$ in Definition~\ref{bpI:p7:orbit-maps}: $q=(L_*^2(1-e_*),0)$, $p=(0,\,k/(L_*(1-e_*)))$.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Collision exclusion (shared with tracks N and P)}\label{bpI:p8:sec-coll}
+
+\begin{lemma}[Collision exclusion from a compact safe set]\label{bpI:p8:collision-exclusion}
+Let $(X,\abs\cdot)$ be a normed space over $\R$, $m\in\N$, and $x_1,\dots,x_m\in X$ (the \emph{point masses at the reference parameter}). Let $c\ge0$, $\mu_1>0$ and, for each $j\le m$ and each $\mu\in\R$ with $\abs\mu\le\mu_1$,
+a point $y_j(\mu)\in X$ (the position of the $j$-th mass at parameter $\mu$; no continuity assumed) with
+\[
+\abs{y_j(\mu)-x_j}\le c\,\abs\mu .
+\]
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{quantitative form}) Let $S\subset X$ and $\delta>0$ with $\abs{q-x_j}\ge\delta$ for all $q\in S$ and $j\le m$. Put $\mu_*=\mu_1$ if $c=0$ and $\mu_*=\min\{\mu_1,\delta/(2c)\}$ if $c>0$. Then for every $\mu$ with $\abs\mu\le\mu_*$, every $q\in S$ and every $j$: $\abs{q-y_j(\mu)}\ge\delta/2$.
+  The constants $\mu_*,\delta/2$ depend only on $(\delta,c,\mu_1)$, not on $\mu$, $q$ or the particular family $y_j$.
+\item (\emph{compact sets}) If $X$ is finite dimensional, $S\subset X$ is compact and $x_j\notin S$ for all $j$, then, if $S\ne\emptyset$ and $m\ge1$, $\delta_S:=\min_{j}\ \min_{q\in S}\abs{q-x_j}>0$ (the minimum over $S$ is attained because $S$ is nonempty and compact; if $S=\emptyset$ or $m=0$ the statement is vacuous and any $\delta_S>0$, e.g.\ $\delta_S=1$, works) and (a) applies with $\delta=\delta_S$; so there are $\mu_*>0$, $d=\delta_S/2>0$ with $\abs{q-y_j(\mu)}\ge d$ for all $q\in S$, $\abs\mu\le\mu_*$, $j\le m$. In particular $q\neq y_j(\mu)$: no collision.
+\end{enumerate}
+\source{standard; ours (D-I-PHYSICAL). Stated generally for the use of tracks~I, N and P (any finite family of point masses whose positions move by $O(\mu)$, e.g.\ the barycentric shift of the primaries).}
+\end{lemma}
+\begin{proof}
+\proofstep{Quantitative form}\label{stepI:p8:ce-quant} For $q\in S$, $\abs\mu\le\mu_*$: by \ref{bpI:p8:x-norm}, $\abs{q-y_j(\mu)}\ge\abs{q-x_j}-\abs{x_j-y_j(\mu)}\ge\delta-c\abs\mu\ge\delta-\delta/2=\delta/2$, using $c\abs\mu\le c\mu_*\le\delta/2$ (if $c=0$ the bound is $\ge\delta$).
+
+\proofstep{Compact sets}\label{stepI:p8:ce-compact} For each $j$ the continuous function $q\mapsto\abs{q-x_j}$ attains its minimum on the compact $S$, which is nonempty in this case (\ref{bpI:p8:x-topo}; the empty case was treated above) at a point $q_j\in S$, and $q_j\ne x_j$ because $x_j\notin S$, so the minimum is $>0$; the minimum over the finite set of $j$ is $\delta_S>0$. Apply (a).
+\end{proof}
+
+\begin{corollary}[The restricted problem: shell around the primary]\label{bpI:p8:shell-exclusion}
+Let $0<r_{\min}\le\rho_{\max}<1$, $\nu_0=\min\{r_{\min},\,1-\rho_{\max}\}>0$ and $\mu\in\R$ with $\abs\mu\le\nu_0/2$. For every $q\in\R^2$ with $r_{\min}\le\operatorname{rad}(q)\le\rho_{\max}$:
+\[
+\operatorname{rad}\bigl(q-a_1(\mu)\bigr)\ge\nu_0/2,\qquad\operatorname{rad}\bigl(q-a_2(\mu)\bigr)\ge\nu_0/2,
+\]
+and every $(q,p)\in\R^2\times\R^2$ with such a $q$ is collision free for this $\mu$ (Definition~\ref{bpI:p0:primaries}).
+\source{ours; the barycentric shift $a_1(\mu)=(-\mu,0)$, $a_2(\mu)=(1-\mu,0)$ of Definition~\ref{bpI:p0:primaries}.}
+\end{corollary}
+\begin{proof}
+\proofstep{Instance of the lemma}\label{stepI:p8:se-inst} $X=\R^2$ with $\abs\cdot_2=\operatorname{rad}$, $m=2$, $x_1=(0,0)$, $x_2=(1,0)$, $y_1(\mu)=a_1(\mu)$, $y_2(\mu)=a_2(\mu)$, $c=1$ ($\abs{y_j(\mu)-x_j}_2=\abs\mu$), any $\mu_1\ge\nu_0/2$, and $S$ the shell $\{r_{\min}\le\abs q_2\le\rho_{\max}\}$ (closed and bounded). For $q\in S$: $\abs{q-x_1}_2=\abs q_2\ge r_{\min}\ge\nu_0$, and $\abs{q-x_2}_2\ge\abs{x_2}_2-\abs q_2\ge1-\rho_{\max}\ge\nu_0$ (\ref{bpI:p8:x-norm}). Lemma~\ref{bpI:p8:collision-exclusion}(a) with $\delta=\nu_0$ ($\delta/(2c)=\nu_0/2$) gives the two bounds. Positive radii mean $\operatorname{rad}>0$, which is collision freedom.
+\end{proof}
+
+\begin{corollary}[Minimal separation of a compact set of $N$-body configurations]\label{bpI:p8:min-distance}
+Let $k,N\in\N$, $N\ge2$, and $S\subset(\R^k)^N$ compact with $q_i\ne q_j$ for all $q=(q_1,\dots,q_N)\in S$, $i\ne j$. Then $\delta_S:=\min_{q\in S}\min_{i\neq j}\abs{q_i-q_j}>0$ (for $S\ne\emptyset$).
+\source{standard; ours (for track~P's Newtonian collision exclusion).}
+\end{corollary}
+\begin{proof}
+\proofstep{Minimum on a compact set}\label{stepI:p8:md-min} $q\mapsto\min_{i\ne j}\abs{q_i-q_j}$ is continuous on $(\R^k)^N$ (a finite minimum of continuous functions) and positive on $S$, so its minimum on the nonempty compact $S$ is attained (\ref{bpI:p8:x-topo}) at a point of $S$, where it is positive.
+\end{proof}
+
+\begin{remark}[Moving frames]\label{bpI:p8:rotating}
+If the primaries rotate rigidly, $x_j(t)=\mathsf R(t)y_j$, the distances to a point $x=\mathsf R(t)q$ equal those of $q$ to $y_j$ (rotation is an isometry of $\abs\cdot_2$, Lemma~\ref{bpI:p7:newton}); so the corollary above covers the inertial frame as well. For the frozen statement only the rotating frame is used.
+\end{remark}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The enlarged safe action region and the data of I-HEAD}\label{bpI:p8:sec-safe}
+
+Fix $a_\pm,e_\pm$ as in Theorem~\ref{bpI:p0:r3bp}: $0<a_-<a_+$, $0<e_-<e_+<\tfrac14$, $\rho_*:=a_+(1+e_+)<1$. Let $A$, $A^{\rm cl}$ be as in Definition~\ref{bpI:p8:A}.
+
+\begin{definition}[Enlargement and safe region]\label{bpI:p8:safe}
+\[
+t=\min\Bigl\{\tfrac18,\ \frac{1-\rho_*}{6a_+}\Bigr\}>0,\qquad a_-'=\tfrac{a_-}{2},\quad a_+'=a_+(1+t),\quad e_-'=\tfrac{e_-}2,\quad e_+'=e_++t,
+\]
+\begin{align*}
+U&=\bigl\{(L,G)\in\R^2:\sqrt{a_-'}<L<\sqrt{a_+'},\ \kappa(e_+')L<G<\kappa(e_-')L\bigr\},\\
+\mathcal K&=\bigl\{(L,G)\in\R^2:\sqrt{a_-'}\le L\le\sqrt{a_+'},\ \kappa(e_+')L\le G\le\kappa(e_-')L\bigr\}.
+\end{align*}
+These are $A,A^{\rm cl}$ of Definition~\ref{bpI:p8:A} for the parameters $(a_\pm',e_\pm')$; $0<e_-'<e_+'<\tfrac38<1$. Put
+\[
+B=2\pi U=\{2\pi(L,G):(L,G)\in U\},\qquad B'=2\pi A,\qquad\eta=1,
+\]
+and let $r_{\min},\rho_{\max}$ be those of Part~\ref{bpI:p7}, \S\ref{bpI:p7:sec-complex}, for $\mathcal K$.
+\end{definition}
+
+\begin{lemma}[Safe region]\label{bpI:p8:safe-region}
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal K\subset\mathcal C_0$ is compact and nonempty, $U\subset\mathcal K$ is open and bounded, and $\overline A\subset A^{\rm cl}\subset U\subset\mathcal K$ (so $\overline A$ lies in the \emph{interior} of the safe region, with the explicit margin below).
+\item For $(L,G)\in\mathcal K$: $a_-'\le L^2\le a_+'$ and $e'_-\le e(L,G)\le e_+'$.
+\item $\rho_{\max}=\max_{\mathcal K}L^2(1+e)\le a_+'(1+e_+')\le\frac{1+\rho_*}2<1$ and $r_{\min}=\min_{\mathcal K}L^2(1-e)\ge a_-'(1-e_+')>0$; also $r_{\min}\le\rho_{\max}$.
+\item $B\subset2\pi\mathcal K$ is open, bounded, nonempty; $B'$ is open, $\overline{B'}=2\pi\overline A$ is compact and $\overline{B'}\subset B$.
+\item Every quantity above ($t,a_\pm',e_\pm',U,\mathcal K,B,B',r_{\min},\rho_{\max}$) depends only on $(a_\pm,e_\pm)$.
+\end{enumerate}
+This is the repair demanded by finding I04: $\mathcal K$ is strictly larger than the closure of the initial region, still away from $e=0$ ($e\ge e_-'>0$), $e=1$ ($e\le e_+'<1$), $L=0$ and the secondary's orbit ($\rho_{\max}<1$).
+\source{ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{Inclusions}\label{stepI:p8:sr-incl} $\mathcal K\subset\mathcal C_0$, compactness and $U$ open and bounded are Definition~\ref{bpI:p8:A} for $(a_\pm',e_\pm')$; $\mathcal K\ne\emptyset$ since $U\supset A\ne\emptyset$ (Proposition~\ref{bpI:p8:topology}(d)). For $(L,G)\in A^{\rm cl}$: $\sqrt{a_-'}<\sqrt{a_-}\le L\le\sqrt{a_+}<\sqrt{a_+'}$, and, as $L>0$ and $\kappa$ is strictly decreasing ($e_+'>e_+$, $e_-'<e_-$; \ref{bpI:p8:x-cont}), $\kappa(e_+')L<\kappa(e_+)L\le G\le\kappa(e_-)L<\kappa(e_-')L$: $(L,G)\in U$. $\overline A\subset A^{\rm cl}$ by Definition~\ref{bpI:p8:A}.
+
+\proofstep{Elements on $\mathcal K$}\label{stepI:p8:sr-elements} For $(L,G)\in\mathcal K$ ($\subset\mathcal C_0$): $L^2\in[a_-',a_+']$ and, by \eqref{bpI:p8:e-vs-k}, $e(L,G)\in[e_-',e_+']$. This is (b).
+
+\proofstep{The radii}\label{stepI:p8:sr-radii} By (b): $L^2(1+e)\le a_+'(1+e_+')=a_+(1+t)(1+e_++t)=a_+\bigl[(1+e_+)+t(2+e_+)+t^2\bigr]$. Since $t\le\tfrac18$ and $e_+<\tfrac14$: $t(2+e_+)+t^2\le t(2+\tfrac14+\tfrac18)\le3t\le\frac{1-\rho_*}{2a_+}$. Hence $a_+'(1+e_+')\le\rho_*+\frac{1-\rho_*}2=\frac{1+\rho_*}2<1$. Also $L^2(1-e)\ge a_-'(1-e_+')>0$ since $e_+'<\tfrac14+\tfrac18<1$; the max and min exist by compactness (\ref{bpI:p8:x-topo}) and $r_{\min}\le L^2(1-e)\le L^2(1+e)\le\rho_{\max}$ at any point.
+
+\proofstep{The action domain}\label{stepI:p8:sr-B} $B=2\pi U$ is the image of the open bounded nonempty $U$ under a linear isomorphism, hence open, bounded, nonempty, and $B\subset2\pi\mathcal K$ by (a). $B'=2\pi A$ is open and $\overline{B'}=2\pi\overline A$ (\ref{bpI:p8:x-topo}) is compact, inside $2\pi U=B$ by (a). (e): all are explicit functions of $(a_\pm,e_\pm)$.
+\end{proof}
+
+\begin{proposition}[The period-one data of I-HEAD for the restricted problem]\label{bpI:p8:head-data}
+With $\mathcal K,B,B',\eta$ as in Definition~\ref{bpI:p8:safe}, let $\delta_2,\mu_2,C_F,F$ be given by Proposition~\ref{bpI:p7:exact-ham} for $\mathcal K$ (admissible: $\mathcal K\ne\emptyset$ compact in $\mathcal C_0$, $\rho_{\max}<1$ by Lemma~\ref{bpI:p8:safe-region}(c)), and $s_0=\delta_2/(2\pi)$, $r_0=2\pi\delta_2$, $\tilde h=h_{(2\pi)^2,1/(2\pi)}$, $\tilde f_\mu$ as in Corollary~\ref{bpI:p7:period-one}, extended by $\tilde f_\mu:=0$ outside $T_{s_0}\times B_{r_0}$ so that it is a function on $\C^2\times\C^2$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item the hypotheses of Theorem~\ref{bpI:p0:head} on $(B,s_0,r_0,\tilde h,B',\eta)$ hold: $B$ open, bounded, nonempty; $s_0,r_0>0$; $\tilde h$ holomorphic on $B_{r_0}$ with $\operatorname{Im}\tilde h(I)=0$ and $\det\mathsf B_{\tilde h}(I)=3/I_1^4\neq0$ for every real $I\in B_{r_0}$; $B'$ open with $\overline{B'}$ compact and $\overline{B'}\subset B$; $\eta>0$;
+\item for every real $\mu$ with $0\le\mu<\mu_2$, the function $f=\tilde f_\mu$ and the number $\varepsilon=C_F\mu\ge0$ satisfy the hypotheses on $(f,\varepsilon)$ of Theorem~\ref{bpI:p0:head} \emph{except} the smallness $\varepsilon<\varepsilon_0$: holomorphy and $\Z^2$-periodicity in $\theta$ on $T_{s_0}\times B_{r_0}$, $\operatorname{Im}f=0$ at real $\theta$ and real $I\in B_{r_0}$, $\abs f\le\varepsilon$ on $T_{s_0}\times B_{r_0}$;
+\item $s_0,r_0,\mu_2,C_F$ depend only on $(a_\pm,e_\pm)$.
+\end{enumerate}
+\source{ours; Corollary~\ref{bpI:p7:period-one}, Proposition~\ref{bpI:p7:nondeg}.}
+\end{proposition}
+\begin{proof}
+\proofstep{The Hamiltonian}\label{stepI:p8:hd-h} Corollary~\ref{bpI:p7:period-one}(b): $\tilde h$ is holomorphic on $B_{r_0}$, real at real $I$; Proposition~\ref{bpI:p7:nondeg}: $\det\mathsf B_{\tilde h}(I)=3/I_1^4>0$ for every real $I\in B_{r_0}$ (it holds for all real $I$ with $I_1>0$, and real $I\in B_{r_0}$ has $I_1>0$).
+
+\proofstep{The perturbation}\label{stepI:p8:hd-f} Corollary~\ref{bpI:p7:period-one}(c): $\tilde f_\mu$ is holomorphic on $T_{s_0}\times B_{r_0}$, $1$-periodic, real at real $(\theta,I)$ and bounded by $\abs\mu C_F=\varepsilon$ for real $\abs\mu<\mu_2$; the extension by $0$ changes nothing on that domain, where the hypotheses are imposed.
+
+\proofstep{Sets}\label{stepI:p8:hd-sets} Lemma~\ref{bpI:p8:safe-region}(d); $r_0,s_0>0$ since $\delta_2>0$. (c) is Corollary~\ref{bpI:p7:period-one}(e) and Lemma~\ref{bpI:p8:safe-region}(e).
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Constants and the proof of I-R3BP}\label{bpI:p8:sec-proof}
+
+\begin{definition}[Choice of $\mu_0$, $d$, $R$]\label{bpI:p8:constants}
+In this order, depending on nothing but $(a_\pm,e_\pm)$:
+\begin{enumerate}[label=(\arabic*)]
+\item $t,a_\pm',e_\pm',U,\mathcal K,B,B',\eta=1$ (Definition~\ref{bpI:p8:safe}), $r_{\min},\rho_{\max}$ (Lemma~\ref{bpI:p8:safe-region}).
+\item $\delta_2,\mu_2,C_F,s_0,r_0,\tilde h$ (Proposition~\ref{bpI:p8:head-data}; $C_F=6/(\varepsilon_0^{\rm sh}\sqrt{c_*})>0$ of Lemma~\ref{bpI:p7:shift}).
+\item $\varepsilon_H>0$: the constant $\varepsilon_0$ of Theorem~\ref{bpI:p0:head} for $(B,s_0,r_0,\tilde h,B',\eta)$ (it depends on these data only, Remark~\ref{bpI:p0:head-remarks}(a)).
+\item $\nu_0=\min\{r_{\min},1-\rho_{\max}\}>0$ and
+\[
+\mu_0=\min\Bigl\{\tfrac12,\ \mu_2,\ \frac{\varepsilon_H}{C_F},\ \frac{\nu_0}2\Bigr\}\in(0,\tfrac12],\qquad d=\frac{\nu_0}2,\qquad R=\sqrt{2/r_{\min}} .
+\]
+\end{enumerate}
+The frozen quantifier order is respected: $\mu_0,d,R$ are fixed before $\mu$ and $z_0$ and depend on $a_\pm,e_\pm$ only. Note $R>1>\rho_{\max}$ because $r_{\min}\le\rho_{\max}<1$.
+\end{definition}
+
+\begin{lemma}[Bounds along a Delaunay orbit]\label{bpI:p8:bounds}
+Let $(L,G)\in\mathcal K$, $\ell,g\in\R$, $(q,p)=\mathsf Q(\ell,g,L,G)$. Then $r_{\min}\le\operatorname{rad}(q)\le\rho_{\max}$ and $\operatorname{rad}(p)\le R$.
+\source{ours; Part~\ref{bpI:p7}.}
+\end{lemma}
+\begin{proof}
+\proofstep{Radius}\label{stepI:p8:bd-r} Proposition~\ref{bpI:p7:orbit-identities}(a): $L^2(1-e)\le\abs q_2\le L^2(1+e)$ with $e=e(L,G)$; take the min/max over $\mathcal K$ (definition of $r_{\min},\rho_{\max}$).
+
+\proofstep{Momentum}\label{stepI:p8:bd-p} Proposition~\ref{bpI:p7:orbit-identities}(c): $E(q,p)=\frac12\abs p_2^2-\frac1{\abs q_2}=-\frac1{2L^2}$, so $\abs p_2^2=\frac2{\abs q_2}-\frac1{L^2}\le\frac2{r_{\min}}=R^2$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{bpI:p0:r3bp}]
+Let $a_\pm,e_\pm$ satisfy the hypotheses. Openness and nonemptiness of $\mathcal N$ are Proposition~\ref{bpI:p8:topology}(c),(d). Let $\mu_0,d,R$ be as in Definition~\ref{bpI:p8:constants}; $0<\mu_0\le\tfrac12$, $d>0$, $R>0$. Let $\mu\in[0,\mu_0)$ and $z_0\in\mathcal N$.
+
+\proofstep{Delaunay coordinates of $z_0$}\label{stepI:p8:pf-coord} By Proposition~\ref{bpI:p8:topology}(b), $z_0=\mathsf Q(\ell_0,g_0,L_0,G_0)$ with $(L_0,G_0)\in A$. Put $\tilde z_0=(\theta_0,I_0):=\mathsf S^{-1}(\ell_0,g_0,L_0,G_0)=\bigl((\ell_0,g_0)/2\pi,\ 2\pi(L_0,G_0)\bigr)\in\R^2\times\R^2$, so $\mathsf Q(\mathsf S(\tilde z_0))=z_0$ and $I_0\in2\pi A=B'$.
+
+\proofstep{Smallness for I-HEAD}\label{stepI:p8:pf-small} $0\le\mu<\mu_0\le\mu_2$, hence Proposition~\ref{bpI:p8:head-data}(b) applies with $f=\tilde f_\mu$, $\varepsilon=C_F\mu$, and $\varepsilon=C_F\mu<C_F\mu_0\le\varepsilon_H$. Proposition~\ref{bpI:p8:head-data}(a) gives the remaining hypotheses of Theorem~\ref{bpI:p0:head}.
+
+\proofstep{Apply I-HEAD}\label{stepI:p8:pf-head} Theorem~\ref{bpI:p0:head} (as a frozen result, not re-proved) gives $\tilde z:\R\to\R^2\times\R^2$ with $\tilde z(0)=\tilde z_0$ and $\mathrm{Sol}(\Ham_{\tilde h,\tilde f_\mu},B,\R,\tilde z)$, i.e.\ for all $t$: $\tilde z(t)_2\in B$, $\Ham_{\tilde h,\tilde f_\mu}=\Lean{realHamiltonian}\,\tilde h\,\tilde f_\mu$ is differentiable at $\tilde z(t)$ and $\tilde z'(t)=X(\tilde z(t))$. (Its confinement $\norm{\tilde z(t)_2-I_0}<\eta$ and its uniqueness clause are not needed; the safe region is guaranteed by $\tilde z(t)_2\in B$.)
+
+\proofstep{The physical solution}\label{stepI:p8:pf-sol} Put $z=\mathsf Q\circ\mathsf S\circ\tilde z:\R\to\R^2\times\R^2$. Then $z(0)=z_0$ (Step~\ref{stepI:p8:pf-coord}). Proposition~\ref{bpI:p7:transfer} (admissible: $\abs\mu<\mu_2$, $B\subset2\pi\mathcal K$, $J=\R$) gives $\mathrm{RSol}_\mu(\R,z)$.
+
+\proofstep{Radius bounds}\label{stepI:p8:pf-bounds} For $t\in\R$, $\mathsf S\tilde z(t)=(\ell,g,L,G)$ with $(L,G)=\tilde z(t)_2/2\pi\in U\subset\mathcal K$ (as $\tilde z(t)_2\in B=2\pi U$) and $z(t)=\mathsf Q(\ell,g,L,G)=(q(t),p(t))$. Lemma~\ref{bpI:p8:bounds}: $r_{\min}\le\operatorname{rad}(q(t))\le\rho_{\max}<1<R$ and $\operatorname{rad}(p(t))\le R$.
+
+\proofstep{Distance to the primaries}\label{stepI:p8:pf-dist} $\mu<\mu_0\le\nu_0/2$ and $\nu_0=\min\{r_{\min},1-\rho_{\max}\}$; Corollary~\ref{bpI:p8:shell-exclusion} (instance of Lemma~\ref{bpI:p8:collision-exclusion}) with $q=q(t)$ gives $\operatorname{rad}(q(t)-a_j(\mu))\ge\nu_0/2=d$, $j=1,2$, for all $t\in\R$. (For $\mu=0$ this reads $\operatorname{rad}(q)\ge r_{\min}\ge d$ and $\operatorname{rad}(q-(1,0))\ge1-\rho_{\max}\ge d$.)
+
+\proofstep{Uniqueness}\label{stepI:p8:pf-uniq} Let $a<0<b$ and $y:\R\to\R^2\times\R^2$ with $y(0)=z_0$ and $\mathrm{RSol}_\mu((a,b),y)$. By Lemma~\ref{bpI:p7:ham-eq} and the restricted case of \Nref{bpN:p3:newton-reduction}, with $W_\mu=\{\text{collision-free points}\}$ open and $F_\mu$ the total formula extension of $V_\mu$, $C^\infty$ on the open collision-free set $W_\mu$ (no smoothness across primary collisions is available or needed): $\texttt{IsSolIn}\,F_\mu\,W_\mu\,(a,b)\,y$. The same holds for $z$ on $\R$ (Step~\ref{stepI:p8:pf-sol}) and hence on $(a,b)$ by restriction (\Nref{bpN:p3:gen-sol}, consequence (i)). Both start at $z_0$ at $t=0\in(a,b)$. \Nref{bpN:p3:gen-uniqueness} (arbitrary interval $(a,b)$, no confinement) gives $y(t)=z(t)$ for all $t\in(a,b)$.
+
+The six conclusions (global solution $z$ with $z(0)=z_0$ and $\mathrm{RSol}_\mu(\R,z)$; the two distance bounds; the two radius bounds; uniqueness on every $(a,b)\ni0$) are those of Theorem~\ref{bpI:p0:r3bp}.
+\end{proof}
+
+\begin{remark}[Dependence of the constants and where each hypothesis enters]\label{bpI:p8:dependence}
+\begin{itemize}
+\item \emph{Order of choice.} $(a_\pm,e_\pm)\to(t,\mathcal K,B,B')\to(\delta_2,\mu_2,C_F,s_0,r_0)\to\varepsilon_H$ (I-HEAD; $\eta=1$) $\to(\mu_0,d,R)$; only then $\mu\in[0,\mu_0)$ and $z_0\in\mathcal N$.
+\item \emph{$a_+(1+e_+)<1$} is used exactly once: $\rho_{\max}<1$ (Lemma~\ref{bpI:p8:safe-region}(c)), which Proposition~\ref{bpI:p7:exact-ham} needs for the analyticity of the shift potential and which keeps $d>0$ from the secondary. $0<e_-$ and $e_+<\frac14$ give $e'_->0$ and $e'_+<1$, i.e.\ distance from $e=0,1$ in the Delaunay chart (here $e_+<\tfrac14$ is used only through $e_+<1$ and the numerical estimate $t(2+e_+)+t^2\le3t$).
+\item \emph{$\mu=0$} is included: then $\tilde f_0\equiv0$ ($F_\mu$ enters multiplied by $\mu$), $\varepsilon=0$, and the solution is the Kepler orbit (confinement is I-HEAD with $f=0$).
+\item The uniqueness clause is proved \emph{in the physical variables} by ODE uniqueness, not through I-HEAD: a competitor $y$ need not stay in $\mathsf Q\mathsf S(\R^2\times B)$.
+\item The set $\mathcal N$ is \emph{not} shown to be invariant, and the elements $(a,e)$ of $z(t)$ need not stay in $(a_-,a_+)\times(e_-,e_+)$; they stay in $[a_-',a_+']\times[e_-',e_+']$ (finding I04).
+\end{itemize}
+\end{remark}
+
+\begin{remark}[Lean totality and doubts]\label{bpI:p8:totality}
+(1) Every $\operatorname{rad}(\cdot)$ inverse is guarded by collision freedom (Corollary~\ref{bpI:p8:shell-exclusion}); square roots $\kappa(e)$, $\sqrt{a_\pm}$ are of positive numbers; divisions by $L_*$, $1-e_*$, $6a_+$, $C_F$, $\sqrt{c_*}$, $r_{\min}$ are by positive numbers; $\varepsilon_H/C_F$ uses $C_F>0$ (Lemma~\ref{bpI:p7:shift}).
+(2) \Lean{fderiv} occurs only inside the predicates $\mathrm{Sol}$, $\mathrm{RSol}$ and is genuine there (Proposition~\ref{bpI:p7:transfer}, Remark~\ref{bpI:p7:totality}).
+(3) \Lean{IsRestrictedSolutionOn} on a general interval $(a,b)$ is used via \Nref{bpN:p3:newton-reduction} and \Nref{bpN:p3:gen-uniqueness}; no regularity of the competitor beyond the predicate is assumed.
+(4) Doubts: none. The frozen statement of I-R3BP looked correct as written, in particular $\mu=0$ and the quantifier order. The route differs from PLAN.md p8.3 only in that no displacement margin $\eta$ is needed (finding I04); there are no new source errata. Chi05 treats the exact problem in different coordinates (heliocentric/extended phase space, other normalization and rotating reduction), so the frozen barycentric statement is derived directly here (Remark~\ref{bpI:p7:errata}).
+\end{remark}

@@ -33,7 +33,7 @@ $\abs{\partial_{I_i}\phi}\le\abs\phi_{r,s}/\rho$, $\abs{\partial_{\theta_i}\phi}
 \source{Pos93 p.~212 (``$\abs{\phi_I}_\infty\le q\delta/(\alpha\rho)$, $\abs{WX_\phi}\le q\delta/(\alpha\rho\sigma)$'').}
 \end{lemma}
 \begin{proof}
-\proofstep{Derivatives}\label{stepN:p5:vf-deriv} Lemma~\ref{bpN:p4:cauchy} (with $r_0=r$, $s_0=s$ and the target widths $r-\rho$, $s-\sigma$) gives $\max_i\wn{\partial_{I_i}\phi}{r-\rho}{s}\le\rho^{-1}\wn\phi rs$ and $\sum_j\wn{\partial_{\theta_j}\phi}{r}{s-\sigma}\le(e\sigma)^{-1}\wn\phi rs$; each single term is at most the sum.
+\proofstep{Derivatives}\label{stepN:p5:vf-deriv} Lemma~\ref{bpN:p4:cauchy} (with $r_0=r$, $s_0=s$ and the target widths $r-\rho$, $s-\sigma$) gives, for each single index, $\wn{\partial_{I_i}\phi}{r-\rho}{s}\le\rho^{-1}\wn\phi rs$ and $\wn{\partial_{\theta_j}\phi}{r}{s-\sigma}\le(e\sigma)^{-1}\wn\phi rs$ (the individual global angular estimate, not a sum of global norms).
 Restrict to $\Dom{r-\rho}{s-\sigma}$ (monotonicity), and apply Lemma~\ref{bpN:p4:sup-weighted}(a) to each derivative.
 
 \proofstep{The field}\label{stepN:p5:vf-field} Insert into the definition of $\nu_{\rho,\sigma}$: $\frac1\sigma\cdot\frac{\abs\phi}\rho=\frac{\abs\phi}{\rho\sigma}$ and $\frac1\rho\cdot\frac{\abs\phi}{e\sigma}\le\frac{\abs\phi}{\rho\sigma}$.
@@ -229,6 +229,17 @@ Let $D\subset\C^n$, $\phi\in\Os rs$ with finite norm, $0<\rho<r/2$, $0<\sigma<s/
 \proofstep{(a),(b)}\label{stepN:p5:cm-ab} Lemma~\ref{bpN:p5:flow}(a),(b),(d),(e) (with $\tau=(k,0)$: $\Omega+\tau=\Omega$ and $X_\phi$ is periodic, as $\phi$ is). $X^t(z)\in\bar P(z;\varepsilon\sigma,\varepsilon\rho)\subset\Dom{r-\rho}{s-\sigma}$ for $z\in\Dom{r-\frac32\rho}{s-\frac32\sigma}$ because $\varepsilon\le\frac12$. The explicit component bounds are $\abs{X^t_\theta-\theta}\le\abs t\sup\abs{\partial_I\phi}\le\abs t\abs\phi/\rho$ and $\abs{X^t_I-I}\le\abs t\sup\abs{\partial_\theta\phi}\le\abs t\abs\phi/(e\sigma)$ (mean value inequality along the trajectory and Lemma~\ref{bpN:p5:vf-bound}). For $\Psi=X^{-1}_\phi=X^1_{-\phi}$ the same with $-\phi$.
 
 \proofstep{(c)--(e)}\label{stepN:p5:cm-cde} (c) is Lemma~\ref{bpN:p5:flow}(c) with $\Omega^1$ and Step~\ref{stepN:p5:cm-field}. (d) is Lemma~\ref{bpN:p5:symplectic} and Corollary~\ref{bpN:p5:canonical}. (e): Lemma~\ref{bpN:p5:flow}(c) for $z\in\Omega^1$ gives $\Psi(\Phi z)=z$ and $\Phi(\Psi z)=z$; and $\Phi(z)\in\bar B_\nu(z,\varepsilon)\subset\Dom{r-\frac32\rho}{s-\frac32\sigma}$ for $z\in\Dom{r-2\rho}{s-2\sigma}$ ($\varepsilon\le\frac12$).
+\end{proof}
+
+\subsection{Variants for the norm $\sharp$}\label{bpN:p5:s-sharp}
+
+\begin{proposition}[Composition in the norm $\sharp$]\label{bpN:p5:sharp-composition}
+Lemma~\ref{bpN:p5:vf-bound}, Lemma~\ref{bpN:p5:adjoint}, Theorem~\ref{bpN:p5:composition}(i)--(iv), Proposition~\ref{bpN:p5:transform}, Corollary~\ref{bpN:p5:composition-integral} and Proposition~\ref{bpN:p5:canonical-map} hold with every weighted norm $\wn\cdot{}{}$ replaced by $\wn\cdot{}{}^\sharp$ (Lemma~\ref{bpN:p4:sharp}), with the same constants and the same hypothesis $\eta=2\wn\phi{r'}{s'}^\sharp/(\rho\sigma)\le\frac12$.
+For the consumer with coefficient radius $\Sigma=2\pi s$ and loss $\Delta\Sigma=2\pi\sigma$ the parameter is $\eta=4\pi\wn\phi{}{}^\sharp/(\rho\,\Delta\Sigma)$ (Section~\ref{bpN:p4:s-sharp}).
+\end{proposition}
+\begin{proof}
+\proofstep{Where the norm enters}\label{stepN:p5:sh-where} The geometry (flow, symplecticity, Taylor, displacement) uses the norm only through sup bounds $\abs{u(z)}\le\wn u{}{}^\sharp$ (Lemma~\ref{bpN:p4:sharp}, B.1(a)), which hold for $\sharp$ as for the pointwise norm; the vector-field bound Lemma~\ref{bpN:p5:vf-bound} uses the individual derivative estimates, valid for $\sharp$.
+\proofstep{Series}\label{stepN:p5:sh-series} Lemma~\ref{bpN:p5:adjoint} uses only the bracket estimate; Theorem~\ref{bpN:p5:composition} Step~\ref{stepN:p5:co-series} uses the triangle inequality, valid for $\sharp$ since $\sup_I\abs{\sum_hc^h_k(I)}\le\sum_h\sup_I\abs{c^h_k}$. The integral corollary uses $\sup_I\int_0^1\abs{\hat{(g_t)}_k}\,dt\le\int_0^1\sup_I\abs{\hat{(g_t)}_k}\,dt$ and Tonelli.
 \end{proof}
 
 \begin{remark}[Use by Part~6 and track P; what is not provided]\label{bpN:p5:use}

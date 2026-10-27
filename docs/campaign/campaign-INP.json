@@ -16,8 +16,8 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N additions: draft v0.4 done (N-PARTIAL-CONVEX on an enlarged domain; N-AVERAGING deferred)",
-   "state": "idle"
+   "assignment": "N-AVERAGING draft v0.5 from the primary AKN06 pages (sources supplied by the owner)",
+   "state": "running"
   },
   {
    "id": "track-P",
@@ -34,34 +34,7 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "inp-bprev-1",
-   "assignment": "Refute-first blueprint reviews: Part 0 I/N, N p3, I p1 done (REVISE, fixes queued); now I p2, N p1-2",
-   "state": "running"
-  },
-  {
-   "id": "bpI-p67",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track I blueprint Parts 6-7: I-KEPLER; Kepler fundamentals (shared with P), Delaunay chart, exact restricted Hamiltonian",
-   "state": "running"
-  },
-  {
-   "id": "bpN-p6",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track N blueprint Part 6: Iterative Lemma and Normal Form Lemma (shared with P)",
-   "state": "running"
-  },
-  {
-   "id": "bpP-p1",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track P blueprint Part 1: torus transport, period and Diophantine conversions, Liouville",
+   "assignment": "Refute-first blueprint reviews (I and N): now I Parts 6-7 and N Part 6",
    "state": "running"
   },
   {
@@ -70,7 +43,34 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-1",
    "session": "inp-bprev-2",
-   "assignment": "Refute-first review of track-P blueprint parts (now Part 3, two-scale KAM)",
+   "assignment": "Refute-first blueprint reviews (P, and I Part 5: ACCEPT WITH FIXES): now P Part 2 and P Part 3 round 2",
+   "state": "running"
+  },
+  {
+   "id": "bpN-p10",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track N blueprint Part 10: assembly and complete proof of N-HEAD-C",
+   "state": "running"
+  },
+  {
+   "id": "bpP-p5",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track P blueprint Part 5: P-G assembly and complete proof",
+   "state": "running"
+  },
+  {
+   "id": "bpP-p7",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track P blueprint Part 7: Poincare chart through e = 0, product chart",
    "state": "running"
   }
  ]

@@ -133,3 +133,4 @@ end with a date and reason.
     corollary.
   - **Part 4 `ml-mixed`** proves the 1-Lipschitz property of the distance to `B^c` inline.
   - The global review's F2–F5 replacement records are applied.
+- 2026-10-27: Part 4 L96 wording fixed in place (P-G3 audit finding 1: open slab ∩ closed cube is measurable); no locator moved; `CORPUS.sha256` updated.

@@ -282,9 +282,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.operator_norms
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:opn-rowsum
@@ -308,9 +308,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_operator_norm_rowSum
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:opn-blocks
@@ -335,9 +335,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_operator_norm_blocks
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:opn-omega
@@ -363,9 +363,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_operator_norm_omegaZero
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:matrix-norms
@@ -392,9 +392,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_norms
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:mn-products
@@ -419,9 +419,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_norm_products
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:mn-transpose
@@ -445,9 +445,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_norm_transpose
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:mn-signed
@@ -472,9 +472,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.matrix_norm_signed
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:neumann
@@ -641,9 +641,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.real_inverse
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:ri-adjugate
@@ -668,9 +668,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.real_inverse_adjugate
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:holomorphic-regularity
@@ -1203,9 +1203,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.holomorphic_inverse
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hi-holomorphic
@@ -1230,9 +1230,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.holomorphic_inverse_differentiableOn
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hi-derivative
@@ -1257,9 +1257,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.fderiv_matrix_inv_apply
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-MAT-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:increments-open

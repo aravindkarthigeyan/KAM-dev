@@ -1,0 +1,283 @@
+\section{Stability estimates: nonresonant, convex, quasi-convex and resonant (shared by tracks N, I)}\label{bpN:p7}
+\providecommand{\wn}[3]{\lvert #1\rvert_{#2,#3}}
+\providecommand{\Dom}[2]{\mathcal D_{#1,#2}}
+\providecommand{\Os}[2]{\mathcal O(#1,#2)}
+\providecommand{\ip}[2]{\langle #1,#2\rangle}
+\providecommand{\UD}[1]{U_{#1}D}
+\begingroup\sloppy
+
+This part is Section~3 of P\"oschel~1993 (pp.~196--200): the nonresonant Proposition~1, the two energy estimates near a resonance (Lemma~1 for $m$-convex $h$, Lemma~2 for $\ell,m$-quasi-convex $h$) and the Resonant Stability Lemma (Proposition~2), which carries these estimates from normal-form coordinates back to the original ones.
+The idea is that in normal form the action of an orbit moves only through the non-resonant remainder $f_*$ (exponentially small) and through the resonant part $g$, whose gradient lies in the span of $\Lambda$. Energy conservation and convexity of $h$ transverse to that span then bound the motion in the resonant directions by $\sqrt{\zeta/m}$, without any further small-divisor analysis; the span itself is handled because $D$ is close to the exact resonance space.
+
+\paragraph{Conventions.} Everything is in the frozen conventions of Parts~\ref{bpN:p4}--\ref{bpN:p6}: angles of period $1$, $\chi_k(\theta)=e^{2\pi ik\cdot\theta}$, geometric strip width $s$, weight $e^{2\pi\abs k_1s}$, max norms $\abs\cdot=\abs\cdot_\infty$ on actions, $\kappa=2\pi Ks$, $\bar\alpha=2\pi\alpha$.
+The convexity argument needs an inner product: there the Euclidean norm $\norm\cdot_2$ on $\R^n$ is used, with the comparisons of Lemma~\ref{bpN:p1:norm-compare} ($\abs x\le\norm x_2\le\sqrt n\abs x$). Time and the values of Hamiltonians are those of the frozen system $\dot\theta=\partial_IH$, $\dot I=-\partial_\theta H$ with period-$1$ angles; no rescaling to P\"oschel's $2\pi$-normalisation is needed, because Part~\ref{bpN:p4} (Remark~\ref{bpN:p4:dictionary}) shows that the quantities $s\,r$, $s\,m\,r^2/\omega$, $\abs\phi/(\rho\sigma)$ are the same numbers in both normalisations (checked below where they occur, Remark~\ref{bpN:p7:dictionary}). We assume $n\ge1$.
+
+\subsection{External facts}\label{bpN:p7:s-ext}
+\begin{enumerate}[label=(E\arabic*),leftmargin=2.2em]
+\item\label{bpN:p7:ext-banach} \emph{Banach fixed point theorem.} A contraction of a nonempty closed subset of $\R^N$ into itself has a fixed point (Mathlib \Lean{ContractingWith.exists\_fixedPoint}). Exists.
+\item\label{bpN:p7:ext-taylor} \emph{Taylor, Lagrange form, order one.} If $\varphi:[0,1]\to\R$ is $C^2$, then $\varphi(1)=\varphi(0)+\varphi'(0)+\frac12\varphi''(\xi)$ for some $\xi\in(0,1)$ (Mathlib \Lean{taylor\_mean\_remainder\_lagrange}). Exists.
+\item\label{bpN:p7:ext-num} \emph{Numerics.} $e>2.7$, so $\frac1{12e}<0.0307$, $\frac{6}{5e}<0.442$, $\frac{15e}{192}>\frac15$; Young's inequality $ab\le\frac{a^2}{2c}+\frac{cb^2}2$ ($c>0$); $xe^{-x}\le e^{-1}$ for $x\ge0$. Exists.
+\item\label{bpN:p7:ext-linalg} \emph{Orthogonal projections.} For a subspace $E\subset\R^n$ with orthogonal projection $\Pi$ and $\Pi^\perp=1-\Pi$: $\Pi$ is self-adjoint, $\norm{\Pi v}_2\le\norm v_2$, $\ip u{\Pi v}=\ip{\Pi u}v$, and $\norm{\Pi v}_2=\operatorname{dist}_2(v,E^\perp)$. Exists.
+\end{enumerate}
+Track-K and earlier-part results used: \Kref{bp:p1:ext-mvt}, \Kref{bp:p1:holomorphic-regularity}, \Kref{bp:p1:hamiltonian-real}, \Kref{bp:p1:real-restriction}; \ref{bpN:p1:ext-restrict}, Lemma~\ref{bpN:p1:norm-compare}, Lemma~\ref{bpN:p1:qc-convert}; Part~\ref{bpN:p3} (Definition~\ref{bpN:p3:gen-sol}, Lemma~\ref{bpN:p3:gen-exit}, Theorems~\ref{bpN:p3:gen-uniqueness}, \ref{bpN:p3:gen-maximal}, Corollary~\ref{bpN:p3:gen-continuation-periodic}, Lemma~\ref{bpN:p3:ham-smooth}, Theorem~\ref{bpN:p3:ham-energy}); Part~\ref{bpN:p4} (Definition~\ref{bpN:p4:domains}, \ref{bpN:p4:norm}, Lemmas~\ref{bpN:p4:coefficients}, \ref{bpN:p4:sup-weighted}, \ref{bpN:p4:cauchy}, \ref{bpN:p4:general-cauchy}, \ref{bpN:p4:projections}); Lemma~\ref{bpN:p5:symplectic}; Part~\ref{bpN:p6} (Definition~\ref{bpN:p6:setting}, Lemma~\ref{bpN:p6:lipschitz}, Theorem~\ref{bpN:p6:normal-form}, Proposition~\ref{bpN:p6:nonresonant-case}).
+
+\subsection{Real systems on a real neighbourhood of $D$}\label{bpN:p7:s-real}
+
+\begin{definition}[Real neighbourhoods, real systems, orbits]\label{bpN:p7:setting}
+Let $D\subset\R^n$ and $\varrho,s>0$. Put $\UD\varrho=V_\varrho D\cap\R^n=\{I\in\R^n:\exists J\in D,\ \abs{I-J}<\varrho\}$ (Definition~\ref{bpN:p4:domains}); it is open, and $W_\varrho:=\R^n\times\UD\varrho$ is open in $\R^{2n}$ and equals $\Dom\varrho s\cap\R^{2n}$ (real $\theta$ lies in $T_s$). For $0<\varrho\le r$, $W_\varrho\subset W_r$.
+$\Os rs^{\R}$ denotes the set of $G\in\Os rs$ with $G(x)\in\R$ for $x\in W_r$ (``real on real points''). For such $G$ the \emph{real Hamiltonian} is $G^{\R}(x)=G(x)$ for $x\in W_r$ and $G^\R(x)=0$ otherwise (a total function $\R^{2n}\to\R$; its values off $W_r$ never matter, Remark~\ref{bpN:p3:totality}).
+A \emph{$G$-orbit in $W_\varrho$ on $J$} ($J\subset\R$ an interval, $0<\varrho\le r$) is a $z:\R\to\R^{2n}$ with $\texttt{IsSolIn}\,X_{G^\R}\,W_\varrho\,J\,z$ (Definition~\ref{bpN:p3:gen-sol}). We write $z=(\theta,I)$ and $I(t)=z(t)_2$.
+For $h$ holomorphic on $V_rD$ and real on $\UD r$: $h_\R=h|_{\UD r}$, $\omega=\nabla h_\R$ (real, $=\partial_Ih$), $Q(I)=D^2h_\R(I)$ (symmetric).
+\source{Ours (bookkeeping for \Kref{bp:p1:hamiltonian-real} and Part~\ref{bpN:p3}); P\"oschel's $U_rD$, $V_rD$ (p.~189) in max norm.}
+\end{definition}
+
+\begin{lemma}[Holomorphic real systems]\label{bpN:p7:real-system}
+Let $G\in\Os rs^\R$, $0<\varrho\le r$. Then (a) $G^\R$ is $C^\infty$ on $W_r$ and $G^\R(\theta+k,I)=G^\R(\theta,I)$; (b) at $x\in W_r$, $G^\R$ is differentiable and $X_{G^\R}(x)=X_G(x)=\bigl((\partial_{I_i}G(x))_i,(-\partial_{\theta_i}G(x))_i\bigr)\in\R^{2n}$ (complex partials at the real point); (c) $X_{G^\R}$ is $C^1$ on $W_r$ and $1$-periodic in $\theta$; (d) Theorems~\ref{bpN:p3:ham-energy}, \ref{bpN:p3:gen-uniqueness}, \ref{bpN:p3:gen-maximal}, Corollary~\ref{bpN:p3:gen-continuation-periodic} and Lemma~\ref{bpN:p3:gen-exit} apply to $F=X_{G^\R}$ on the open set $W_\varrho$; in particular $G^\R$ is constant along every $G$-orbit on every interval (energy conservation).
+\source{Ours; \Kref{bp:p1:hamiltonian-real}, \Kref{bp:p1:holomorphic-regularity}; the special case $G=h+f$ of N-HEAD-C is Lemma~\ref{bpN:p1:holo-real}.}
+\end{lemma}
+\begin{proof}
+\proofstep{Smoothness}\label{stepN:p7:rs-smooth} $G$ is holomorphic on $\Dom rs$, hence $C^\infty$ in the real sense (\Kref{bp:p1:holomorphic-regularity}, \ref{bpN:p1:ext-restrict}); $W_r=\iota^{-1}(\Dom rs)$ is open and $G^\R=G\circ\iota$ on it, so $G^\R\in C^\infty(W_r)$, with $D^kG^\R=D^kG\circ\iota$ on real vectors. Periodicity is the periodicity in $\Os rs$.
+\proofstep{Field}\label{stepN:p7:rs-field} \Kref{bp:p1:hamiltonian-real} with $V=\Dom rs$ (open, $G$ holomorphic, real at the real points of $V$ since $V\cap\R^{2n}=W_r$): $G^\R$ agrees with $\operatorname{Re}G$ on the neighbourhood $W_r$ of each real point of $V$, so $X_{G^\R}=X_G$ there. The field is $C^1$ by Lemma~\ref{bpN:p3:ham-smooth}, periodic by (a) and Lemma~\ref{bpN:p3:ham-periodic}.
+\proofstep{(d)} Lemma~\ref{bpN:p3:ham-smooth} ($G^\R\in C^2$ on the open set $W_\varrho$); the cited results need only $F$ $C^1$ on the open set $W_\varrho$, periodicity (for the corollary) and, for energy, differentiability of $G^\R$ at the points of the orbit.
+\end{proof}
+
+\begin{lemma}[Derivative bound at real points]\label{bpN:p7:theta-derivative}
+Let $u\in\Os\varrho s$ have finite norm. Then for all $\theta\in\R^n$, $I\in\UD\varrho$: $\sum_{j=1}^n\abs{\partial_{\theta_j}u(\theta,I)}\le\wn u\varrho s/(e\,s)$; in particular $\norm{\partial_\theta u(\theta,I)}_2\le\wn u\varrho s/(es)$. Also $\abs{u(x)}\le\wn u\varrho s$ for $x\in\Dom\varrho s$.
+\source{Pos93 p.~198 (``by the Cauchy estimate of Lemma B.3'': $\sup\norm{\partial_\theta f_*}\le\frac1{es}\abs{f_*}_{r,s}$); the limit $s'\downarrow0$ in Lemma~\ref{bpN:p4:cauchy}(a) is ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{Strip loss}\label{stepN:p7:td-loss} For $0<s'<s$ and fixed $I$, Step~\ref{stepN:p4:b3-a} gives $\sum_j\wn{\partial_{\theta_j}u}{I}{s'}\le\wn uIs/(e(s-s'))$ (Lemma~\ref{bpN:p4:cauchy}(a)). By the pointwise bound in Step~\ref{stepN:p4:b1-a} (Lemma~\ref{bpN:p4:sup-weighted}(a)), $\abs{v(\theta,I)}\le\wn vI{s'}$ for $\theta\in T_{s'}\supset\R^n$.
+\proofstep{Limit}\label{stepN:p7:td-lim} Let $s'\downarrow0$; $\norm v_2\le\sum_j\abs{v_j}$ (Lemma~\ref{bpN:p1:norm-compare}). The last claim is Lemma~\ref{bpN:p4:sup-weighted}(a).
+\end{proof}
+
+\begin{lemma}[Resonant gradients lie in the span of $\Lambda$]\label{bpN:p7:resonant-gradient}
+Let $\Lambda\subset\Z^n$, $\Pi=\Pi_\Lambda$ the Euclidean orthogonal projection onto $\operatorname{span}_\R\Lambda$, $\Pi^\perp=1-\Pi$. If $g\in\Os rs^\R$ has finite norm and $P_\Lambda g=g$, then $\partial_\theta g(\theta,I)\in\operatorname{ran}\Pi$, i.e.\ $\Pi^\perp\partial_\theta g=0$, for all $(\theta,I)\in W_r$.
+\source{Pos93 p.~198 (``the vector $Q\Delta I$ is given by the integral \dots of $\partial_\theta f_*$ only, since $g$ is in $\Lambda$-resonant normal form'').}
+\end{lemma}
+\begin{proof}
+\proofstep{Coefficients}\label{stepN:p7:rg-coef} The components of $u=\Pi^\perp\partial_\theta g$ are finite combinations of $\partial_{\theta_j}g\in\Os rs$ with coefficients $\hat u_k=2\pi i\,\Pi^\perp k\,\hat g_k$ (Lemma~\ref{bpN:p4:coefficients}(b)). For $k\in\Lambda$, $\Pi^\perp k=0$; for $k\notin\Lambda$, $\hat g_k=0$ because $g=P_\Lambda g$ (Lemma~\ref{bpN:p4:projections}). So $\hat u_k=0$ for all $k$.
+\proofstep{Vanishing}\label{stepN:p7:rg-zero} For $s'<s$, $u$ has finite norm at width $s'$ (Lemma~\ref{bpN:p4:cauchy}(a)), so $u=\sum_k\hat u_k\chi_k=0$ on $\Dom r{s'}$ (Lemma~\ref{bpN:p4:coefficients}(d)); real points lie in it.
+\end{proof}
+
+\subsection{Transfer through a symplectic change of variables}\label{bpN:p7:s-transfer}
+
+\begin{lemma}[Conjugation of orbits]\label{bpN:p7:conjugation}
+Let $H\in\Os rs^\R$, $\tilde H\in\Os{\tilde r}{\tilde s}^\R$, and $\Psi:\Dom{\tilde r}{\tilde s}\to\Dom rs$ holomorphic, real at real points, with $(D\Psi)^\top JD\Psi=J$ and $\tilde H=H\circ\Psi$. If $\tilde z$ is an $\tilde H$-orbit in $W_{\tilde r}$ on $J$, then $z=\Psi\circ\tilde z$ is an $H$-orbit in $W_r$ on $J$.
+\source{Standard; Corollary~\ref{bpN:p5:canonical}(c) for a single flow map, here for an arbitrary symplectic $\Psi$.}
+\end{lemma}
+\begin{proof}
+\proofstep{Real points}\label{stepN:p7:cj-real} $\Psi$ maps $W_{\tilde r}=\Dom{\tilde r}{\tilde s}\cap\R^{2n}$ into $\Dom rs\cap\R^{2n}=W_r$; the real derivative $Y=D\Psi(x)$ at $x\in W_{\tilde r}$ is the (real) restriction of the complex one (\Kref{bp:p1:real-restriction}), and $Y^\top JY=J$; hence $\det Y=\pm1$ and $YJY^\top=J$ (Step~\ref{stepN:p5:sy-conserve}).
+\proofstep{Chain rule}\label{stepN:p7:cj-chain} $\tilde H^\R=H^\R\circ\Psi$ on $W_{\tilde r}$, so $\nabla\tilde H^\R(x)=Y^\top\nabla H^\R(\Psi x)$ and, with $X_u=J\nabla u$, $\frac d{dt}\Psi(\tilde z)=Y\tilde z'=YJY^\top\nabla H^\R(\Psi\tilde z)=X_{H^\R}(\Psi\tilde z)$ for $t\in J$ (Lemma~\ref{bpN:p7:real-system}(b)); $z(t)\in W_r$ by Step~\ref{stepN:p7:cj-real}.
+\end{proof}
+
+\begin{lemma}[Real preimages of a near-identity map]\label{bpN:p7:preimage}
+Let $D\subset\R^n$, $\tilde r,\tilde s>0$, $\Psi:\Dom{\tilde r}{\tilde s}\to\C^{2n}$ holomorphic, real at real points, $G=\Psi-\mathrm{id}$, with $\abs{G_\theta}\le d_\theta$, $\abs{G_I}\le d_I$ on $\Dom{\tilde r}{\tilde s}$. Suppose there are $0<\varrho'\le\tilde r$, $0<\sigma'\le2\tilde s$ with $\kappa_*:=\max(d_\theta/\sigma',d_I/\varrho')\le\frac14$. Then for every $y=(\theta_y,I_y)\in\R^n\times D$ there is $x=(\theta_x,I_x)\in W_{\tilde r}$ with $\Psi(x)=y$, $\abs{\theta_x-\theta_y}\le d_\theta$, $\abs{I_x-I_y}\le d_I$.
+\source{Ours. P\"oschel p.~196 and p.~200 assert (``$\Psi^{-1}$ takes any given initial position in $D\times\T^n$ to some initial position in $U_\rho D\times\T^n$'') without proof; a left inverse (Proposition~\ref{bpN:p5:canonical-map}(e)) does not give this.}
+\end{lemma}
+\begin{proof}
+Let $\nu(a,b)=\max(\abs a/\sigma',\abs b/\varrho')$ on $\C^{2n}$ (the scaled norm of Definition~\ref{bpN:p5:setting}), so $\nu(G)\le\kappa_*$.
+\proofstep{A closed convex set}\label{stepN:p7:pi-set} $X=\{x\in\R^{2n}:\nu(x-y)\le\kappa_*\}$ is closed, convex, nonempty. For $x\in X$: $\abs{I_x-I_y}\le\varrho'/4<\tilde r$ and $I_y\in D$, so $x\in W_{\tilde r}$.
+\proofstep{Self-map}\label{stepN:p7:pi-self} $T(x)=y-G(x)$ is real ($\Psi$ real at real points) and $\nu(T(x)-y)=\nu(G(x))\le\kappa_*$: $T:X\to X$.
+\proofstep{Contraction}\label{stepN:p7:pi-contr} For $x\in X$ the complex $\nu$-ball $\{\nu(z-x)<\frac12\}$ lies in $\Dom{\tilde r}{\tilde s}$: $\abs{\operatorname{Im}\theta'}\le\abs{\theta'-\theta_x}<\sigma'/2\le\tilde s$ and $\abs{I'-I_y}<\varrho'/2+\varrho'/4<\tilde r$. On it $G$ is holomorphic with $\nu(G)\le\kappa_*$, so Lemma~\ref{bpN:p4:general-cauchy} ($R=\frac12$) gives $\abs{DG(x)}_{\nu}\le2\kappa_*\le\frac12$. The real derivative of $G|_{\R^{2n}}$ is the restriction (\ref{bpN:p1:ext-restrict}); \Kref{bp:p1:ext-mvt} on the convex set $X$ gives $\nu(T(x)-T(x'))\le\frac12\nu(x-x')$.
+\proofstep{Fixed point}\label{stepN:p7:pi-fix} \ref{bpN:p7:ext-banach} gives $x=y-G(x)$, i.e.\ $\Psi(x)=x+G(x)=y$, and $y-x=G(x)$ gives the displacement bounds.
+\end{proof}
+
+\begin{corollary}[Preimages for the Normal Form Lemma]\label{bpN:p7:preimage-nfl}
+In Theorem~\ref{bpN:p6:normal-form} with $\Lambda=-\Lambda$, $h,f$ real on real points, $\kappa\ge6$: every $y\in\R^n\times D$ is $\Psi(x)$ for some $x\in W_{r/2}$ with $\abs{I_x-I_y}\le qK\varepsilon/\alpha\ (\le r/2^7)$.
+\end{corollary}
+\begin{proof}
+\proofstep{Apply Lemma~\ref{bpN:p7:preimage}}\label{stepN:p7:pn-apply} $\Psi$ is real at real points (Theorem~\ref{bpN:p6:normal-form}(d)); $\tilde r=r/2$, $\tilde s=s/6$, $d_I=qK\varepsilon/\alpha\le r/2^7$ (hypothesis (i)), $d_\theta=10q\varepsilon/(2\pi\alpha r)$ (item (c)). Take $\varrho'=r/2$, $\sigma'=s/3=2\tilde s$: $d_I/\varrho'\le\frac1{64}$ and, by (i), $d_\theta/\sigma'=\frac{30q\varepsilon}{2\pi\alpha rs}\le\frac{30}{2\pi2^7Ks}=\frac{30}{2^7\kappa}\le\frac{30}{768}<\frac14$.
+\end{proof}
+
+\begin{lemma}[Transfer of an a priori confinement through a symplectic map]\label{bpN:p7:transfer}
+Let $D\subset\R^n$, $H\in\Os rs^\R$, $\tilde H\in\Os{\tilde r}{\tilde s}^\R$, $\Psi:\Dom{\tilde r}{\tilde s}\to\Dom rs$ as in Lemma~\ref{bpN:p7:conjugation}, and $\abs\cdot_*$ a norm on $\R^n$ with $\abs\cdot\le\abs\cdot_*$. Assume
+\begin{enumerate}[label=(T\arabic*)]
+\item $\abs{\Pi_I\Psi(x)-I_x}_*\le d_*$ for all $x\in W_{\tilde r}$;
+\item every $y\in\R^n\times D$ equals $\Psi(x)$ for some $x\in W_{\tilde r}$;
+\item (\emph{a priori confinement in the new variables}) there are $\varrho>0$ with $d_*+\varrho<\tilde r$ and $T:D\to(0,\infty]$ such that for every $I_y\in D$, every interval $\tilde J\ni0$ and every $\tilde H$-orbit $\tilde z$ in $W_{\tilde r}$ on $\tilde J$ with $\abs{\tilde I(0)-I_y}_*\le d_*$: $\abs{\tilde I(t)-\tilde I(0)}_*\le\varrho$ for all $t\in\tilde J$, $\abs t\le T(I_y)$.
+\end{enumerate}
+Then for every interval $J\ni0$ and every $H$-orbit $z$ in $W_r$ on $J$ with $I_y:=I(0)\in D$:
+\[\abs{I(t)-I(0)}_*\le\varrho+2d_*\qquad(t\in J,\ \abs t\le T(I_y)).\]
+\source{Ours; this is the transfer step of P\"oschel pp.~196, 200 (``Going back to original coordinates''), in stopped form so that Part~10 can connect it with existence (Theorem~\ref{bpN:p3:confinement-glue}).}
+\end{lemma}
+\begin{proof}
+\proofstep{A normal-form orbit}\label{stepN:p7:tr-orbit} By (T2) choose $x\in W_{\tilde r}$ with $\Psi(x)=z(0)$; by (T1) $\abs{I_x-I_y}_*\le d_*$. Let $\tilde z$ with maximal interval $(T_-,T_+)$ be the maximal solution of $X_{\tilde H^\R}$ in $W_{\tilde r}$ through $x$ (Lemma~\ref{bpN:p7:real-system}(d), Theorem~\ref{bpN:p3:gen-maximal}).
+\proofstep{It lives long enough}\label{stepN:p7:tr-long} (T3) applies on $(T_-,T_+)$. The set $K=\{I:\abs{I-I_x}_*\le\varrho\}$ is compact and, since $\abs{I-I_y}\le\abs{I-I_y}_*\le\varrho+d_*<\tilde r$ and $I_y\in D$, contained in $\UD{\tilde r}$. If some $t\ge0$ with $t\le T(I_y)$ had $t\ge T_+$, then $T_+<\infty$ and $\tilde I(t')\in K$ for all $t'\in[0,T_+)$, so $T_+=\infty$ by Corollary~\ref{bpN:p3:gen-continuation-periodic} (the field is periodic, Lemma~\ref{bpN:p7:real-system}(c)): a contradiction. Likewise for $t\le0$. Thus $\{\abs t\le T(I_y)\}\subset(T_-,T_+)$.
+\proofstep{Identification}\label{stepN:p7:tr-ident} $\Psi\circ\tilde z$ is an $H$-orbit in $W_r$ on $(T_-,T_+)$ (Lemma~\ref{bpN:p7:conjugation}) with value $y$ at $0$, as is $z$ on $J$; Theorem~\ref{bpN:p3:gen-uniqueness} (with $F=X_{H^\R}$, $W=W_r$) gives $z=\Psi\circ\tilde z$ on $J\cap(T_-,T_+)$.
+\proofstep{Estimate}\label{stepN:p7:tr-est} For $t\in J$, $\abs t\le T(I_y)$: $I(t)-I(0)=(\Pi_I\Psi(\tilde z(t))-\tilde I(t))+(\tilde I(t)-\tilde I(0))+(\tilde I(0)-I_y)$, of size $\le d_*+\varrho+d_*$ by (T1), (T3) and $\tilde I(0)=I_x$.
+\end{proof}
+
+\begin{corollary}[Stopped form for any extension of the field]\label{bpN:p7:stopped-extension}
+Let $H\in\Os rs^\R$, $\abs\cdot_*\ge\abs\cdot$ a norm, $0<\varrho<r$, $T\in(0,\infty]$ and suppose that every $H$-orbit in $W_r$ on every interval $J\ni0$ with $I(0)\in D$ satisfies $\abs{I(t)-I(0)}_*\le\varrho$ for $t\in J$, $\abs t\le T$. Let $F:\R^{2n}\to\R^{2n}$ be any function with $F=X_{H^\R}$ on $W_r$ and $z:\R\to\R^{2n}$, $J\ni0$ an interval with $z$ differentiable and $z'(t)=F(z(t))$ for $t\in J$ (i.e.\ \texttt{HasDerivAt}\ $z\,(F(z(t)))\,t$ for all $t\in J$, one-sided at endpoints of $J$) and $z(0)\in\R^n\times D$. Then $\abs{I(t)-I(0)}_*\le\varrho$ for $t\in J$, $\abs t\le T$; in particular $z(t)\in W_r$ there.
+\end{corollary}
+\begin{proof}
+\proofstep{The stopped interval}\label{stepN:p7:se-stop} $\{t\in J:z(t)\in W_r\}$ is relatively open in $J$ and contains $0$; let $J'$ be its connected component through $0$. $z$ is an $H$-orbit in $W_r$ on $J'$, so the bound holds on $J'\cap[-T,T]$.
+\proofstep{No exit}\label{stepN:p7:se-noexit} If $t_e\in J\cap[-T,T]$ were an endpoint of $J'$ not in $J'$, continuity would give $\abs{I(t_e)-I(0)}_*\le\varrho$, hence $\abs{I(t_e)-I(0)}<r$ and $I(t_e)\in\UD r$ ($I(0)\in D$), so $t_e$ would belong to the component: contradiction.
+\end{proof}
+
+\begin{lemma}[First exit from a norm ball]\label{bpN:p7:exit-ball}
+Let $\abs\cdot_*$ be a norm on $\R^n$, $J\ni0$ an interval, $z:J\to\R^{2n}$ continuous, $I_0=I(0)$, $\varrho>0$. If $\abs{I(t_1)-I_0}_*>\varrho$ for some $t_1\in J$, then there is $t^*\in J$ between $0$ and $t_1$ with $\abs{I(t^*)-I_0}_*=\varrho$ and $\abs{I(\tau)-I_0}_*\le\varrho$ for all $\tau$ between $0$ and $t^*$.
+\end{lemma}
+\begin{proof}
+\proofstep{Exit set}\label{stepN:p7:eb-exit} Apply Lemma~\ref{bpN:p3:gen-exit} to $V=\R^n\times\{\abs{I-I_0}_*<\varrho\}$ (open; $z(0)\in V$), forward if $t_1>0$, and to $t\mapsto z(-t)$ if $t_1<0$ (only continuity is used): $t^*$ exists, $z(\tau)\in V$ before it and $z(t^*)\in\overline V\setminus V$, i.e.\ $\abs{I(t^*)-I_0}_*\le\varrho$ and $\not<\varrho$.
+\end{proof}
+
+\subsection{Proposition 1: nonresonant stability}\label{bpN:p7:s-nr}
+
+\begin{proposition}[Nonresonant stability estimate]\label{bpN:p7:nonresonant}
+Let $n\ge1$, $D\subset\R^n$, $r,s,K,\alpha>0$, $L\ge0$, $p>1$, $q=p/(p-1)$, $\kappa=2\pi Ks$. Let $h$ be holomorphic on $V_rD$, real on $\UD r$, $f\in\Os rs^\R$ with $\varepsilon:=\wn frs<\infty$, and $H=h+f$. Assume
+\begin{enumerate}[label=(\roman*)]
+\item (\emph{completely $\alpha,K$-nonresonant}) $\abs{k\cdot\omega(I)}\ge\alpha$ for $I\in D$ and $k\in\Z^n$, $0<\abs k_1\le K$;
+\item the Lipschitz bound \ref{bpN:p6:cond-L} for $\omega$ with constant $L$, and $KLr\le\alpha/p$;
+\item $\varepsilon\le\dfrac{\alpha r}{2^7qK}$.
+\end{enumerate}
+Put $T_{\mathrm{nr}}=\dfrac{s\,r}{5\varepsilon}e^{\kappa/6}$ ($=+\infty$ if $\varepsilon=0$). Then for every interval $J\ni0$ and every $H$-orbit $z$ in $W_r$ on $J$ with $I(0)\in D$:
+\[\abs{I(t)-I(0)}\le\tfrac r2\ \ (\le r)\qquad\text{for all }t\in J,\ \abs t\le T_{\mathrm{nr}}.\]
+No convexity is used. The constants depend only on $(r,s,K,\alpha,p)$ and $\varepsilon$.
+\source{Pos93 p.~196 (Proposition~1: conclusion $\norm{I(t)-I_0}\le r$ for $\abs t\le\frac{sr}{5\varepsilon}e^{Ks/6}$; hypotheses $\varepsilon\le\frac1{2^7q}\frac{\alpha r}K$, $r\le\min(\alpha/(pMK),r_0)$). Deviations: the conclusion is $r/2$ (the proof gives it); the case $\kappa<6$ (his one line p.~197) is done with $\Psi=\mathrm{id}$ and no loss of width, so the factor $e$ of Proposition~\ref{bpN:p6:nonresonant-case} is absorbed (Remark~\ref{bpN:p7:factor-e}); the transfer to the original coordinates includes the surjectivity of $\Psi$, which the source does not prove.}
+\end{proposition}
+\begin{proof}
+Let $\tilde H=h+g+f_*$ be the normal form below.
+\proofstep{Case A, $\kappa\ge6$: data}\label{stepN:p7:nr-dataA} Theorem~\ref{bpN:p6:normal-form} with $\Lambda=\{0\}$ ($\Lambda\cap Z_K=\{0\}$) applies: \ref{bpN:p6:cond-nr} is (i), \ref{bpN:p6:cond-L} and $KLr\le\alpha/p$ are (ii), $\varepsilon\le\alpha r/(2^7qK)$ is (iii). It gives $\Psi:\Dom{r/2}{s/6}\to\Dom rs$ holomorphic, symplectic, real at real points, $H\circ\Psi=h+g+f_*$ with $g$ independent of $\theta$, $f_*\in\Os{r/2}{s/6}^\R$, $\eta:=\wn{f_*}{r/2}{s/6}\le e^{-\kappa/6}\varepsilon$, and $\abs{\Pi_I\Psi-I}\le d:=qK\varepsilon/\alpha\le r/2^7$. Put $\tilde r=r/2$, $\tilde s=s/6$, $\varrho=\frac{15}{32}r$, $d_*=d$, $\abs\cdot_*=\abs\cdot$, $T=T_{\mathrm{nr}}$. (T1) is the displacement bound, (T2) is Corollary~\ref{bpN:p7:preimage-nfl}; $d_*+\varrho\le\frac{61}{128}r<\tilde r$.
+\proofstep{Case A: (T3)}\label{stepN:p7:nr-t3} Let $\tilde z$ be an $\tilde H$-orbit in $W_{\tilde r}$ on $\tilde J$, $\abs{\tilde I(0)-I_y}\le d$, $I_y\in D$, and suppose $\abs{\tilde I(t_1)-\tilde I(0)}>\varrho$ for some $t_1\in\tilde J$, $\abs{t_1}\le T_{\mathrm{nr}}$. Lemma~\ref{bpN:p7:exit-ball} gives $t^*$, $\abs{t^*}\le\abs{t_1}$, $\abs{\tilde I(t^*)-\tilde I(0)}=\varrho$, with $\tilde I(\tau)$ in the closed ball $B$ of radius $\varrho$ about $\tilde I(0)$ for $\tau$ between $0$ and $t^*$; $B\subset\UD{\tilde r}$ as $\varrho+d<\tilde r$. On this stretch $\dot{\tilde I}=-\partial_\theta\tilde H^\R=-\partial_\theta f_*(\tilde z)$ ($h$ and $g$ do not depend on $\theta$; Lemma~\ref{bpN:p7:real-system}(b)), so by Lemma~\ref{bpN:p7:theta-derivative} $\abs{\dot{\tilde I}}\le\eta/(e\tilde s)=6\eta/(es)$ and, by the mean value inequality (\Kref{bp:p1:ext-mvt}),
+\[\varrho=\abs{\tilde I(t^*)-\tilde I(0)}\le\frac{6\eta\abs{t^*}}{es}\le\frac{6e^{-\kappa/6}\varepsilon}{es}\cdot\frac{sr\,e^{\kappa/6}}{5\varepsilon}=\frac{6}{5e}r<0.442\,r<\tfrac{15}{32}r=\varrho,\]
+a contradiction (\ref{bpN:p7:ext-num}; if $\varepsilon=0$ then $\eta=0$ and the left side is $0$). So (T3) holds with $T(I_y)=T_{\mathrm{nr}}$.
+\proofstep{Case A: conclusion}\label{stepN:p7:nr-concA} Lemma~\ref{bpN:p7:transfer}: $\abs{I(t)-I(0)}\le\frac{15}{32}r+\frac2{2^7}r=\frac{31}{64}r\le\frac r2$.
+\proofstep{Case B, $\kappa<6$}\label{stepN:p7:nr-caseB} Take $\Psi=\mathrm{id}$ on $\Dom rs$, $\tilde H=H$, $g=0$, $f_*=f$ (Proposition~\ref{bpN:p6:nonresonant-case}), $\tilde r=r$, $\tilde s=s$, $d_*=0$, $\varrho=r/2$: (T1), (T2) are trivial. For (T3): as in Step~\ref{stepN:p7:nr-t3}, with $\tilde I(\tau)$ in the ball of radius $r/2$ about $\tilde I(0)\in D$ ($\subset\UD r$), $\abs{\dot{\tilde I}}\le\varepsilon/(es)$ and $\abs{\tilde I(t^*)-\tilde I(0)}\le\frac{\varepsilon}{es}\cdot\frac{sr\,e^{\kappa/6}}{5\varepsilon}<\frac r5<\frac r2$ (as $e^{\kappa/6}<e$): contradiction. Lemma~\ref{bpN:p7:transfer} gives $\abs{I(t)-I(0)}\le r/2$.
+\end{proof}
+
+\begin{remark}[The factor $e$ in the nonresonant case]\label{bpN:p7:factor-e}
+Proposition~\ref{bpN:p6:nonresonant-case} gives only $\wn{f_*}rs\le e\cdot e^{-\kappa/6}\varepsilon$ for $\kappa<6$. Used with the widths $(r/2,s/6)$ of the case $\kappa\ge6$ it would give the coefficient $31/384<\frac15$ in the time bound. Case~B avoids this by not losing width ($\tilde s=s$, $\eta=\varepsilon$): the available time is $\frac{es\,r}{2\varepsilon}>\frac{sr}{5\varepsilon}e^{\kappa/6}$ for all $\kappa<6$, so the stated $T_{\mathrm{nr}}$ is attained with room to spare, and no factor $e$ is lost in the final statement.
+\end{remark}
+
+\subsection{The energy argument}\label{bpN:p7:s-energy}
+
+\begin{definition}[Resonance data, convexity, quasi-convexity]\label{bpN:p7:resonance-data}
+Let $D\subset\R^n$, $\Lambda\subset\Z^n$, $\Pi=\Pi_\Lambda$ (Lemma~\ref{bpN:p7:resonant-gradient}), $R_\Lambda=\{\omega\in\R^n:k\cdot\omega=0\ \forall k\in\Lambda\}=\ker\Pi$. $D$ is \emph{$\delta$-close to exact $\Lambda$-resonances} if $\norm{\Pi\omega(I)}_2=\operatorname{dist}_2(\omega(I),R_\Lambda)\le\delta$ for all $I\in D$.
+For $h$ as in Definition~\ref{bpN:p7:setting} and $U\subset\UD r$: $h$ is \emph{$m$-convex on $U$} if $Q(I)[\xi,\xi]\ge m\norm\xi_2^2$ for $I\in U$, $\xi\in\R^n$; \emph{$\ell,m$-quasi-convex on $U$} if for all $I\in U$ and $\xi\in\R^n$: $\abs{\ip{\omega(I)}\xi}>\ell\norm\xi_2$ or $Q(I)[\xi,\xi]\ge m\norm\xi_2^2$ (equivalently $\abs{\ip{\omega}{\xi}}\le\ell\norm\xi_2\Rightarrow Q[\xi,\xi]\ge m\norm\xi_2^2$, Lemma~\ref{bpN:p1:qc-convert}(b); never full positive definiteness, review N05). $M\ge m$ denotes a bound $\norm{Q(I)}_{2\to2}\le M$ on $\UD r$ (the normalisation $m\le M$ is always achievable by enlarging $M$).
+\source{Pos93 pp.~190, 197.}
+\end{definition}
+
+\begin{lemma}[Energy--convexity inequality (reusable core)]\label{bpN:p7:energy-core}
+Let $U\subset\R^n$ be open, $h_\R\in C^2(U)$, $g,f\in C^1(\R^n\times U;\R)$, $H^\R=h_\R(I)+g+f$ on $\R^n\times U$ (any values elsewhere), $\Pi$ an orthogonal projection of $(\R^n,\norm\cdot_2)$ with $\Pi^\perp\partial_\theta g\equiv0$. Let $J\ni0$ be an interval, $z$ with $\texttt{IsSolIn}\,X_{H^\R}\,(\R^n\times U)\,J\,z$, $t_1\in J$, $I_0=I(0)$, $\Delta I=I(t_1)-I_0$, $I_s=I_0+s\Delta I$, $\omega_0=\nabla h_\R(I_0)$, and assume $I_s\in U$ for $s\in[0,1]$. Then
+\begin{enumerate}[label=(\alph*)]
+\item (energy) $h_\R(I(t_1))-h_\R(I_0)=-\bigl[(g+f)(z(t_1))-(g+f)(z(0))\bigr]$;
+\item (resonant directions) $\norm{\Pi^\perp\Delta I}_2\le\abs{t_1}\sup_\tau\norm{\partial_\theta f(z(\tau))}_2$, $\tau$ between $0$ and $t_1$;
+\item (Taylor) $h_\R(I(t_1))-h_\R(I_0)-\ip{\omega_0}{\Delta I}=\frac12Q(I_\xi)[\Delta I,\Delta I]$ for some $\xi\in(0,1)$;
+\item if $Q(I_s)[\Delta I,\Delta I]\ge m\norm{\Delta I}_2^2$ for all $s\in[0,1]$, then
+\[\frac m2\norm{\Delta I}_2^2\le\bigl\lvert(g+f)(z(t_1))-(g+f)(z(0))\bigr\rvert+\norm{\Pi\omega_0}_2\norm{\Delta I}_2+\norm{\omega_0}_2\norm{\Pi^\perp\Delta I}_2 .\]
+\end{enumerate}
+\source{Pos93 p.~198 (``Following Lochak \dots expanding around $I_0$'', $\Delta h=\ip{\omega_0}{\Delta I}+\int_0^1(1-s)\ip{Q(I(s))\Delta I}{\Delta I}ds$, energy conservation, the vector $Q\Delta I$ \dots), with the Lagrange remainder instead of the integral one. This is the part wanted by track~I (energy confinement).}
+\end{lemma}
+\begin{proof}
+\proofstep{Energy}\label{stepN:p7:ec-energy} $H^\R$ is $C^1$ on the open set $\R^n\times U$, hence differentiable along the orbit, and Theorem~\ref{bpN:p3:ham-energy} on the interval between $0$ and $t_1$ gives $H^\R(z(t_1))=H^\R(z(0))$; this is (a).
+\proofstep{Resonant projection}\label{stepN:p7:ec-proj} $\dot I=-\partial_\theta H^\R(z)=-\partial_\theta g-\partial_\theta f$ ($h_\R$ is $\theta$-independent). Hence $t\mapsto\Pi^\perp I(t)$ has derivative $-\Pi^\perp\partial_\theta f(z(t))$, of norm $\le\norm{\partial_\theta f(z(t))}_2$; the mean value inequality (\Kref{bp:p1:ext-mvt}, $\Pi^\perp$ linear) gives (b).
+\proofstep{Taylor and combination}\label{stepN:p7:ec-taylor} (c) is \ref{bpN:p7:ext-taylor} for $\varphi(s)=h_\R(I_s)$ ($\varphi'(0)=\ip{\omega_0}{\Delta I}$, $\varphi''=Q(I_s)[\Delta I,\Delta I]$). Under the hypothesis of (d), (c) gives $\frac m2\norm{\Delta I}^2\le h_\R(I(t_1))-h_\R(I_0)-\ip{\omega_0}{\Delta I}$; insert (a), and $\ip{\omega_0}{\Delta I}=\ip{\Pi\omega_0}{\Delta I}+\ip{\omega_0}{\Pi^\perp\Delta I}$ (\ref{bpN:p7:ext-linalg}) with Cauchy--Schwarz.
+\end{proof}
+
+\paragraph{The resonant setting (RS).} $n\ge1$, $D\subset\R^n$, $r,s>0$, $\Lambda\subset\Z^n$, $h$ holomorphic on $V_rD$ and real on $\UD r$, $0<m\le M$ with $\norm{Q(I)}_{2\to2}\le M$ on $\UD r$, $g,f_*\in\Os rs^\R$ of finite norm with $P_\Lambda g=g$, $\zeta\ge\wn grs+\wn{f_*}rs$, $\eta=\wn{f_*}rs$, $H=h+g+f_*$, $\delta>0$ with $D$ $\delta$-close to exact $\Lambda$-resonances, $\delta\le mr/4$, $\zeta\le mr^2/32$, and $\rho:=\delta/(4M)\ \bigl(\le r/16\bigr)$.
+An initial action $I_0$ is \emph{admissible} if $\norm{I_0-J_0}_2<\rho$ for some $J_0\in D$.
+
+\begin{lemma}[Admissible initial actions]\label{bpN:p7:admissible}
+In (RS), for admissible $I_0$ (with $J_0$): (a) the closed ball $\bar B=\{I:\norm{I-I_0}_2\le r-\rho\}\subset\UD r$; (b) $\norm{\Pi\omega(I)}_2\le\frac54\delta+M\norm{I-I_0}_2$ for $I\in\bar B$; in particular $\norm{\Pi\omega(I_0)}_2\le\frac54\delta$.
+\end{lemma}
+\begin{proof}
+\proofstep{Ball}\label{stepN:p7:ad-ball} $\abs{I-J_0}\le\norm{I-J_0}_2<(r-\rho)+\rho=r$, so $I\in\UD r$; likewise the segment $[J_0,I_0]\subset\UD r$.
+\proofstep{Closeness}\label{stepN:p7:ad-close} By the mean value inequality for $\omega$ in $\norm\cdot_2$ ($D\omega=Q$, $\norm Q\le M$, convex segments inside $\UD r$): $\norm{\omega(I_0)-\omega(J_0)}_2\le M\rho=\delta/4$, so $\norm{\Pi\omega(I_0)}\le\delta+\delta/4$; and $\norm{\Pi\omega(I)}\le\norm{\Pi\omega(I_0)}+M\norm{I-I_0}_2$.
+\end{proof}
+
+\begin{lemma}[No exit under convexity along the segment]\label{bpN:p7:no-exit}
+In (RS) let $z$ be an $H$-orbit in $W_r$ on $J\ni0$, $I_0=I(0)$ admissible, and $t_1\in J\setminus\{0\}$ with
+\begin{enumerate}[label=(\roman*)]
+\item $\norm{I(\tau)-I_0}_2\le r-\rho$ for $\tau$ between $0$ and $t_1$, and $\norm{I(t_1)-I_0}_2=r-\rho$;
+\item $Q(I_s)[\Delta I,\Delta I]\ge m\norm{\Delta I}_2^2$ for all $s\in[0,1]$ ($\Delta I=I(t_1)-I_0$, $I_s=I_0+s\Delta I$);
+\item $\abs{t_1}\,\norm{\omega(I_0)}_2\,\eta\le s\,m\,r^2/12$.
+\end{enumerate}
+Then a contradiction arises (so these three cannot hold together).
+\source{Pos93 p.~198 (end of the proof of Lemma~1): $\frac m3\norm{\Delta I}^2\le2\zeta+\frac5{2m}\delta^2+T\norm{\omega_0}\frac1{es}\abs{f_*}\le\frac{mr^2}4<\frac m3(r-\rho)^2$; all numbers recomputed.}
+\end{lemma}
+\begin{proof}
+Put $\Delta=\norm{\Delta I}_2=r-\rho\ge\frac{15}{16}r$.
+\proofstep{Apply the core}\label{stepN:p7:ne-core} $U=\UD r$, $\bar B\subset U$ (Lemma~\ref{bpN:p7:admissible}) is convex so $I_s\in U$; $g,f_*$ are $C^\infty$ on $W_r$ (Lemma~\ref{bpN:p7:real-system}), $\Pi^\perp\partial_\theta g=0$ (Lemma~\ref{bpN:p7:resonant-gradient}), the orbit is a solution of $X_{H^\R}$ in $\R^n\times U$. Lemma~\ref{bpN:p7:energy-core}(d) with (ii):
+$\frac m2\Delta^2\le A+B+C$, $A=\abs{\Delta(g+f_*)}$, $B=\norm{\Pi\omega_0}\Delta$, $C=\norm{\omega_0}\norm{\Pi^\perp\Delta I}$.
+\proofstep{Three terms}\label{stepN:p7:ne-terms} $A\le2(\wn grs+\wn{f_*}rs)\le2\zeta\le\frac{mr^2}{16}$ (Lemma~\ref{bpN:p7:theta-derivative}, last claim). $B\le\frac54\delta\Delta\le\frac5{2m}\delta^2+\frac m6\Delta^2$ (Lemma~\ref{bpN:p7:admissible}, Young), and $\frac5{2m}\delta^2\le\frac{5mr^2}{32}$. By Lemma~\ref{bpN:p7:energy-core}(b), (i) and Lemma~\ref{bpN:p7:theta-derivative}, $C\le\norm{\omega_0}\abs{t_1}\frac\eta{es}\le\frac{mr^2}{12e}<0.0307\,mr^2$ by (iii).
+\proofstep{Contradiction}\label{stepN:p7:ne-contra} Hence $\frac m3\Delta^2\le mr^2(\frac1{16}+\frac5{32}+\frac1{12e})<\frac{mr^2}4$, while $\frac m3\Delta^2\ge\frac m3\cdot\frac{225}{256}r^2>0.29\,mr^2$ (\ref{bpN:p7:ext-num}).
+\end{proof}
+
+\subsection{Lemma 1 and Lemma 2}\label{bpN:p7:s-lemmas}
+
+\begin{lemma}[Lemma 1: stability for $m$-convex $h$ in normal form]\label{bpN:p7:resonant-lemma1}
+In (RS) let $h$ be $m$-convex on $\UD r$. Then for every interval $J\ni0$ and every $H$-orbit $z$ in $W_r$ on $J$ with $I_0=I(0)$ admissible:
+\[\norm{I(t)-I_0}_2\le r-\rho\qquad(t\in J,\ \abs t\le T_*),\qquad T_*=\frac{s\,m\,r^2}{12\,\norm{\omega(I_0)}_2\,\eta},\]
+with $T_*=+\infty$ if $\norm{\omega(I_0)}_2\eta=0$. (In particular for $\Lambda=\Z^n$, $f_*=0$: all $t\in J$.)
+\source{Pos93 p.~197 (Lemma 1: $\delta\le mr/4$, $\zeta\le mr^2/32$, $\rho=\delta/4M$, $T_*=\frac s{12\norm{\omega(I_0)}}\frac{mr^2}\eta$). Statement in stopped form (``as long as the action stays in $W_r$'': the orbit is an orbit in $W_r$ on $J$); with exit analysis by Lemma~\ref{bpN:p7:exit-ball}.}
+\end{lemma}
+\begin{proof}
+\proofstep{Exit}\label{stepN:p7:l1-exit} Suppose $\norm{I(t_1)-I_0}_2>r-\rho$ for some $t_1\in J$, $\abs{t_1}\le T_*$. Lemma~\ref{bpN:p7:exit-ball} ($\abs\cdot_*=\norm\cdot_2$) gives $t^*\in J$, $\abs{t^*}\le\abs{t_1}$, with (i) of Lemma~\ref{bpN:p7:no-exit} for $t^*$.
+\proofstep{Hypotheses (ii), (iii)}\label{stepN:p7:l1-hyp} $I_s\in\bar B\subset\UD r$ (Lemma~\ref{bpN:p7:admissible}), so (ii) is $m$-convexity; (iii) is $\abs{t^*}\le T_*$. Lemma~\ref{bpN:p7:no-exit} gives the contradiction.
+\end{proof}
+
+\begin{lemma}[Lemma 2: stability for $\ell,m$-quasi-convex $h$ in normal form]\label{bpN:p7:resonant-lemma2}
+In (RS) let $h$ be $\ell,m$-quasi-convex on $\UD r$ and assume
+\[r\le2\ell/m\qquad\text{and}\qquad Mr\le\ell/4\tag{R}\]
+(the second is an \emph{added} hypothesis, Remark~\ref{bpN:p7:errata}(1)). For admissible $I_0$ let $\Omega=\max\{\norm{\omega(I)}_2:\norm{I-I_0}_2\le r-\rho\}$. Then for every $H$-orbit $z$ in $W_r$ on $J\ni0$ with $I(0)=I_0$ admissible,
+\[\norm{I(t)-I_0}_2\le r-\rho\quad(t\in J,\ \abs t\le T_*),\qquad T_*=\frac{s\,m\,r^2}{12\,\Omega\,\eta}\ (=+\infty\text{ if }\Omega\eta=0).\]
+\source{Pos93 p.~199 (Lemma 2: $r\le2\ell/m$, $\Omega=\sup_{\norm{I-I_0}\le r-\rho}\norm{\omega(I)}$, proof by contradiction at the first exit time). The hypothesis $Mr\le\ell/4$ repairs a gap of the proof (Remark~\ref{bpN:p7:errata}(1)).}
+\end{lemma}
+\begin{proof}
+\proofstep{Exit}\label{stepN:p7:l2-exit} As in Lemma~\ref{bpN:p7:resonant-lemma1}, a violation yields $t^*$, $\abs{t^*}\le T_*$ with (i) of Lemma~\ref{bpN:p7:no-exit}. Put $\Delta I$, $I_s$ as there, $\Delta=r-\rho\ge\frac{15}{16}r$; $I_s\in\bar B$ and $\norm{\omega(I_s)}\le\Omega$.
+\proofstep{(iii)}\label{stepN:p7:l2-iii} $\norm{\omega(I_0)}\le\Omega$, so $\abs{t^*}\norm{\omega(I_0)}\eta\le\abs{t^*}\Omega\eta\le smr^2/12$.
+\proofstep{The cone condition along the segment}\label{stepN:p7:l2-cone} Fix $s'\in[0,1]$. Then $\abs{\ip{\omega(I_{s'})}{\Delta I}}\le\norm{\Pi\omega(I_{s'})}\Delta+\norm{\omega(I_{s'})}\norm{\Pi^\perp\Delta I}$. By Lemma~\ref{bpN:p7:admissible}(b) ($\norm{I_{s'}-I_0}\le\Delta\le r$) the first term is $\le(\frac54\delta+Mr)\Delta\le(\frac5{16}mr+Mr)\Delta$. By Lemma~\ref{bpN:p7:energy-core}(b), Lemma~\ref{bpN:p7:theta-derivative} and Step~\ref{stepN:p7:l2-iii} the second is $\le\Omega\abs{t^*}\frac\eta{es}\le\frac{mr^2}{12e}\le\frac{16}{15}\cdot\frac{mr}{12e}\Delta<0.0328\,mr\,\Delta$. With $mr\le2\ell$ and $Mr\le\ell/4$:
+\[\abs{\ip{\omega(I_{s'})}{\Delta I}}\le\bigl(0.3453\cdot2\ell+\tfrac\ell4\bigr)\Delta<0.941\,\ell\,\norm{\Delta I}_2 .\]
+\proofstep{Convexity along the segment}\label{stepN:p7:l2-conv} Since $\abs{\ip{\omega(I_{s'})}{\Delta I}}\le\ell\norm{\Delta I}_2$, the first alternative of quasi-convexity at $I_{s'}\in\UD r$ fails for $\xi=\Delta I$, so $Q(I_{s'})[\Delta I,\Delta I]\ge m\norm{\Delta I}^2$: (ii) of Lemma~\ref{bpN:p7:no-exit} holds. That lemma gives the contradiction.
+\end{proof}
+
+\subsection{Proposition 2: the Resonant Stability Lemma}\label{bpN:p7:s-prop2}
+
+\begin{proposition}[Resonant Stability Lemma]\label{bpN:p7:resonant-prop2}
+Let $n\ge1$, $D\subset\R^n$, $r,s,K,\alpha>0$, $1<p\le\frac32$ and $q=p/(p-1)\ (\ge3)$, $\kappa=2\pi Ks$. Let $\Lambda\subset\Z^n$ be a subgroup, $0<m\le M$, $\ell,\delta>0$, $h$ holomorphic on $V_rD$ and real on $\UD r$ with
+\[\norm{\partial_I^2h(I)}_{2\to2}\le M\quad\text{for all }I\in V_rD\ (\text{complex Hessian, operator norm on }(\C^n,\norm\cdot_2)),\]
+$h$ $\ell,m$-quasi-convex on $\UD r$, $f\in\Os rs^\R$ with $\varepsilon=\wn frs<\infty$, $H=h+f$. Assume:
+\begin{enumerate}[label=(\alph*)]
+\item $D$ is $\alpha,K$-nonresonant modulo $\Lambda$: $\abs{k\cdot\omega(I)}\ge\alpha$ for $I\in D$, $k\in Z_K\setminus\Lambda$, and $\delta$-close to exact $\Lambda$-resonances;
+\item $\varepsilon\le\dfrac pq\cdot\dfrac{mr^2}{2^7}$ and $\delta\le\dfrac{mr}8$;
+\item $r\le\min\Bigl(\dfrac\alpha{p\sqrt n\,MK},\ \dfrac{4\ell}m\Bigr)$ and (added) $Mr\le\ell/2$.
+\end{enumerate}
+For $I_0\in D$ let $\Omega(I_0)=\max\{\norm{\omega(I)}_2:\norm{I-I_0}_2\le r/2\}$ and
+\[T(I_0)=\frac{s\,m\,r^2}{288\,\Omega(I_0)\,\varepsilon}\,e^{\kappa/6}\qquad(=+\infty\text{ if }\Omega\varepsilon=0).\]
+Then for every interval $J\ni0$ and every $H$-orbit $z$ in $W_r$ on $J$ with $I_0=I(0)\in D$,
+\[\norm{I(t)-I_0}_2\le\tfrac r2\ (\text{so }\abs{I(t)-I_0}\le r)\qquad(t\in J,\ \abs t\le T(I_0)),\]
+and if $\Lambda=\Z^n$ this holds for all $t\in J$.
+\source{Pos93 pp.~199--200 (Proposition~2: $\varepsilon\le\frac pq\frac{mr^2}{2^7}$, $\delta\le\frac{mr}8$, $r\le\min(\frac\alpha{pMK},\frac{4\ell}m,r_0)$, $q\ge3$; $\norm{I(t)-I_0}\le r$ for $\abs t\le\frac s{288\Omega}\frac{mr^2}\varepsilon e^{Ks/6}$; $\Lambda=\Z^n$: all $t$). Deviations: $\sqrt n$ in the first bound of (c) (Euclidean Hessian bound $M$ against the max-norm Lipschitz bound $L=\sqrt nM$ of Part~\ref{bpN:p6}); added hypothesis $Mr\le\ell/2$ and the radius $r/2$ for $\kappa<6$ (Remark~\ref{bpN:p7:errata}(1),(2)); $\Omega$ taken over the radius $r/2$ (the proof confines to $r/2$).}
+\end{proposition}
+\begin{proof}
+\proofstep{Reductions}\label{stepN:p7:p2-red} Replace $\delta$ by $\delta'=mr/8\ge\delta$ ($D$ is $\delta'$-close). Then $\rho':=\delta'/(4M)=\frac{mr}{32M}$. Since $\frac pq=\frac1{q-1}\le\frac12$, (b) gives $\varepsilon\le mr^2/2^8$. By (c) and $m\le M$: $L:=\sqrt nM$ satisfies $KLr\le\alpha/p$, and $\varepsilon\le\frac{pmr^2}{q2^7}\le\frac{p\,Mr^2}{q2^7}\le\frac{\alpha r}{2^7qK}$. The complex Hessian bound gives \ref{bpN:p6:cond-L} with $L=\sqrt nM$ (Lemma~\ref{bpN:p6:lipschitz}: $\abs{Qv}_\infty\le\norm{Qv}_2\le M\norm v_2\le\sqrt nM\abs v_\infty$). Put $\tilde r=r/2$; $M\tilde r\le\ell/4$, $\tilde r\le2\ell/m$, $\delta'=m\tilde r/4$.
+\proofstep{Three cases}\label{stepN:p7:p2-cases} (A) $\Lambda\ne\Z^n$, $\kappa\ge6$: Theorem~\ref{bpN:p6:normal-form} (conditions \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L}, $K>0$, (i), (ii) hold; $\Lambda=-\Lambda$, reality) gives $\Psi:\Dom{r/2}{s/6}\to\Dom rs$ with $H\circ\Psi=h+g+f_*$, $P_\Lambda g=g$, $\tilde s=s/6$, $\eta\le e^{-\kappa/6}\varepsilon$ and $\wn grs$-type bound: $\wn g{r/2}{s/6}\le\wn{g_0}rs+16c\varepsilon^2$, where $16c\varepsilon^2=\frac{32qK\varepsilon^2}{\alpha r}\le\frac\varepsilon4$ by (i), so $\wn g{r/2}{s/6}+\eta\le\frac54\varepsilon+\frac\varepsilon e<2\varepsilon=:\zeta$.
+(B) $\Lambda\ne\Z^n$, $\kappa<6$: $\Psi=\mathrm{id}$ on $\Dom{r/2}{s}$, $g=0$, $f_*=f$, $\tilde s=s$, $\eta=\varepsilon$, $\zeta=\varepsilon$.
+(C) $\Lambda=\Z^n$: $\Psi=\mathrm{id}$, $\tilde s=s$, $g=f$ ($P_\Lambda g=g$), $f_*=0$, $\eta=0$, $\zeta=\varepsilon$.
+In all cases $\tilde H=h+g+f_*$ on $\Dom{\tilde r}{\tilde s}$ is in (RS) with $(r,s)\to(\tilde r,\tilde s)$ and $\delta'$: $\delta'=m\tilde r/4$, and $\zeta\le2\varepsilon\le mr^2/128=m\tilde r^2/32$.
+\proofstep{(T1), (T2)}\label{stepN:p7:p2-t12} Case A: $\norm{\Pi_I\Psi-I}_2\le\sqrt n\frac{qK\varepsilon}\alpha\le\frac{q\varepsilon}{pMr}\le\frac{mr}{2^7M}=\frac{\rho'}4=:d_*$ (Theorem~\ref{bpN:p6:normal-form}(c), $\alpha\ge p\sqrt nMKr$, (b)); (T2) is Corollary~\ref{bpN:p7:preimage-nfl}. Cases B, C: $d_*=0$, trivial. Norm $\abs\cdot_*=\norm\cdot_2$; $\varrho:=\tilde r-\rho'$; then $d_*+\varrho<\tilde r$.
+\proofstep{(T3)}\label{stepN:p7:p2-t3} Let $\tilde z$ be an $\tilde H$-orbit in $W_{\tilde r}$, $\norm{\tilde I(0)-I_y}_2\le d_*<\rho'$, $I_y\in D$: $\tilde I(0)$ is admissible. Lemma~\ref{bpN:p7:resonant-lemma2} (hypotheses (R) at radius $\tilde r$) gives $\norm{\tilde I(t)-\tilde I(0)}_2\le\varrho$ for $\abs t\le\tilde T_*=\frac{\tilde s\,m\tilde r^2}{12\tilde\Omega\eta}$, $\tilde\Omega=\max_{\norm{I-\tilde I(0)}_2\le\varrho}\norm{\omega}_2$. Since $\varrho+d_*\le\tilde r-\rho'+\rho'/4$, the ball lies in $\{\norm{I-I_y}_2\le r/2\}$ so $\tilde\Omega\le\Omega(I_y)$. Case A: $\tilde T_*\ge\frac{(s/6)(mr^2/4)}{12\Omega\,e^{-\kappa/6}\varepsilon}=T(I_y)$. Case B: $\tilde T_*=\frac{smr^2}{48\Omega\varepsilon}\ge T(I_y)$ because $e^{\kappa/6}<e<6$. Case C: $\tilde T_*=\infty$.
+\proofstep{Conclusion}\label{stepN:p7:p2-concl} Lemma~\ref{bpN:p7:transfer}: $\norm{I(t)-I_0}_2\le\varrho+2d_*\le\tilde r-\rho'+\rho'/2<\frac r2$ for $\abs t\le T(I_0)$ ($t\in J$), and all $t$ in case C. Finally $\abs\cdot\le\norm\cdot_2$.
+\end{proof}
+
+\subsection{Errata, deviations, dictionary, consumers}\label{bpN:p7:s-errata}
+
+\begin{remark}[Suspected defects in Pos93 (to the ledger)]\label{bpN:p7:errata}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{p.~199, proof of Lemma 2}: ``$\abs{\langle\omega(I(s)),P\Delta I\rangle}\le\frac54\delta\norm{\Delta I}$''. The closeness $\frac54\delta$ was derived (p.~198) only for $U_\rho D$, but $I(s)$ ranges over the ball of radius $r-\rho$ about $I_0$, where the mean value theorem gives only $\norm{P\omega(I(s))}\le\frac54\delta+M\norm{I(s)-I_0}$. Without a bound on $Mr$ the cone condition $\abs{\langle\omega(I(s)),\Delta I\rangle}\le\ell\norm{\Delta I}$ need not hold, so Lemma 2 (and Proposition 2, which uses it) is not proved as printed. Repair: the hypothesis $Mr\le\ell/4$ (Lemma~\ref{bpN:p7:resonant-lemma2}), resp.\ $Mr\le\ell/2$ in Proposition~\ref{bpN:p7:resonant-prop2}. In Theorem~1 (p.~190) one has $r\le r_0/(AK)$, $r_0\le4\ell/m$, $A=11M/m$, so $Mr\le\frac{4\ell}{11K}$, and Part~9 must check $Mr\le\ell/2$ there: $K\ge1$ suffices only for the blocks $\Lambda\ne\Z^n$; on the block $\Z^n$ ($r=r_0$) it needs $r_0\le\ell/(2M)$ (Part~\ref{bpN:p9}, Remark~\ref{bpN:p9:errata}(1)). The lemma may be true without it; we do not claim so.
+\item \emph{p.~200, Proposition 2, case $Ks<6$}: ``we simply apply those two lemmata to the given hamiltonian $H$ with $g=0$ and $f_*=f_\varepsilon$'' at radius $r$, but Lemma 2 needs $r\le2\ell/m$ while only $r\le4\ell/m$ is assumed. \emph{Classification (review N7-02):} the scan says only to apply the two lemmas to $H$ with $g=0$; the radius is not stated (the preceding proof had already introduced a half-radius), so this is an \emph{omitted radius choice}, not a confirmed false application. We supply it explicitly: apply them at radius $r/2$ (case B).
+\item \emph{p.~196, Proposition 1 and p.~200}: ``$\Psi^{-1}$ takes any given initial position in $D\times\T^n$ to some initial position in $U_\rho D\times\T^n$'' needs surjectivity of $\Psi$ onto a neighbourhood of $D\times\T^n$; not argued (Lemma~\ref{bpN:p7:preimage} supplies it by a contraction argument using the displacement bounds of Theorem~\ref{bpN:p6:normal-form}(c)).
+\item \emph{p.~197, first line}: ``For $Ks\le6$ \dots $f_*=f_\varepsilon$''. \emph{Allegation rejected (review N7-03):} the bound $\abs{f_*}\le e^{-Ks/6}\varepsilon$ is false for $f_*=f\ne0$ (Part~\ref{bpN:p6}, Proposition~\ref{bpN:p6:nonresonant-case}), but p.~197 never asserts it; it proves Proposition~1 directly in the original coordinates. Not a source defect; our direct small-$Ks$ argument is Remark~\ref{bpN:p7:factor-e}.
+\item Misprint-free checks: the numbers $\frac m3\norm{\Delta I}^2\le\frac{mr^2}4<\frac m3(r-\rho)^2$ (p.~198) and $T_*$, $\frac s{288\Omega}$ (p.~200) were recomputed and agree; the transfer constants in Proposition~\ref{bpN:p7:resonant-prop2} are sharper than printed ($\Psi$-displacement $qK\varepsilon/\alpha$ instead of $2qK\varepsilon/\alpha$ in the max norm).
+\end{enumerate}
+\end{remark}
+
+\begin{remark}[Dictionary with P\"oschel's normalisation]\label{bpN:p7:dictionary}
+With $\varphi=2\pi\theta$, $I_P=I/2\pi$ (Remark~\ref{bpN:p4:dictionary}): $s_P=2\pi s$, $r_P=r/2\pi$, $\omega_P=2\pi\omega$, $m_P=(2\pi)^2m$, $M_P=(2\pi)^2M$, $\ell_P=2\pi\ell$, $\delta_P=2\pi\delta$ (distance of the frequency to a resonance subspace scales like $\omega$; review N7-01), $\rho_P=\rho/2\pi$, while the Hamiltonian and remainder sizes $\eta,\varepsilon,\zeta$ are unchanged (the substitution is symplectic), up to the Euclidean/max conventions. Then $s_Pr_P=sr$, $s_Pm_Pr_P^2/\omega_P=s\,m\,r^2/\omega$, so $T_*$, $T_{\mathrm{nr}}$ and $T$ have the printed form; and $\partial_\varphi f_*=\partial_\theta f_*/2\pi$ makes $\abs{\partial_\theta f_*}\le\eta/(es)$ the same estimate as his $\abs{\partial_\theta f_*}\le\eta/(es_P)$.
+\end{remark}
+
+\begin{remark}[Consumers]\label{bpN:p7:consumers}
+Part~9 (Theorem~1 of P\"oschel) takes $q=9$, $p=\frac98$ ($\frac pq=\frac18$, $q\ge3$), $\Lambda$ a maximal $K$-lattice, $D$ a block of Part~8 (with $K=K_a$ and $K_g=\sqrt nK_a$: $K_a\le K_g$ transfers nonresonance from the Euclidean ball to $Z_{K_a}$ and $K_g\ge\sqrt nK_a$ is the compatibility with the radius condition $r\le\alpha/(p\sqrt nMK_a)$ of Proposition~\ref{bpN:p7:resonant-prop2}; Part~\ref{bpN:p8}, Remark~\ref{bpN:p8:direction}, Corollary~\ref{bpN:p8:cutoffs}), and uses Proposition~\ref{bpN:p7:nonresonant} for $\Lambda=\{0\}$ and Proposition~\ref{bpN:p7:resonant-prop2} otherwise. The added hypothesis $Mr\le\ell/2$ holds for every block with $K\ge1$ \emph{other than the block $\Z^n$}, where $r=r_0$ and it requires $r_0\le\ell/(2M)$ (Part~\ref{bpN:p9}, Remark~\ref{bpN:p9:errata}(1); in Part~\ref{bpN:p1} this is the entry $\ell/(2B_c)$ of $r_0$). With Part~1: $M=B_c$ (Lemma~\ref{bpN:p1:hessian-convert}), $\ell$ as defined in Lemma~\ref{bpN:p1:qc-convert} and the curvature parameter $m=\mu$ of its clause (b) (two distinct constants); the Hessian bound on $V_rD$ requires $V_rD\subset B(0,R)_s$ (Lemma~\ref{bpN:p1:realdomain}(c)), and the quasi-convexity conversion, stated on $B(0,R)$, requires $\UD r\subset B(0,R)$, to be proved at the import (it holds for $U_{r_0}P\subset B(0,5R/8)$, Lemma~\ref{bpN:p1:constants}(c)); containment of the complex tube in the analytic domain alone does not give it. Part~10 connects the stopped form with existence through Corollary~\ref{bpN:p7:stopped-extension} (take $F=X_{H_{h,f}}$, which equals $X_{H^\R}$ on $W_r$ when $\UD r\subset\mathcal B_s(R)$) and Theorem~\ref{bpN:p3:confinement-glue}. Track~I takes Lemma~\ref{bpN:p7:energy-core} and Lemmas~\ref{bpN:p7:no-exit}, \ref{bpN:p7:resonant-lemma1}, \ref{bpN:p7:resonant-lemma2}, which use no property of $h,g,f_*$ beyond the stated ones.
+\end{remark}
+\endgroup

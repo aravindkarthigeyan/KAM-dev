@@ -205,9 +205,9 @@ D-N-9 is also visible for exact-text approval. These questions do not interrupt 
 ## Additions (D22), draft v0.4
 
 Revision under D23 in `/root/code/KAM-inp`, responding to `AUDIT-additions-v0.3.md` in full.
-The approval candidate is **N-PARTIAL-CONVEX only**, subject to independent review of the explicit
-convex proof specialization below. **N-AVERAGING-MEAN and N-AVERAGING-MOST are DEFERRED** pending their
-complete primary source and proof. All three exact drafts remain in `.drafts/N/Additions.lean`; each has
+This v0.4 partial-stability record is historical: D25 subsequently approved and froze N-PARTIAL-CONVEX.
+The v0.5 N-AVERAGING section below supersedes the former averaging deferral after acquisition of the
+complete primary source and original proof. All three exact drafts remain in `.drafts/N/Additions.lean`; each has
 one `sorry` body. D20's frozen surface remains authoritative. The v0.3 audit describes the former draft;
 this section supersedes its proposed source conversion rather than asserting audit approval of v0.4.
 
@@ -334,71 +334,245 @@ on G′×D and choose μ small enough for the two fixed collars to dominate d. T
 scaling, both time directions and bootstrap inequalities are in notes.md. Strict membership in P's outer
 open region alone is not membership in an N erosion. None of P's physical safety conclusions is a premise.
 
-### N-AVERAGING — DEFERRED from approval: `averaging_mean` and `averaging_most`
+### N-AVERAGING, draft v0.5 — primary-source candidates
 
-**Approval disposition (F-NADD-2/3): DEFERRED.** Both `averaging_mean` and
-`averaging_most` remain in the Lean file with exactly their v0.3 theorem types. Neither belongs to the
-v0.4 approval/freeze packet. Reactivation requires a complete primary third-edition source and the
-proof underlying Theorem 6.11, including its standing regularity and domain hypotheses. The acquisition
-checklist is in sources.md; no new source premise or full-window flow premise has been invented.
+**Status.** The complete owner-supplied AKN06 third edition and its cited original quantitative paper
+Neishtadt 1976 are now pinned and read. This section supersedes the v0.4 deferral for `averaging_mean`
+and `averaging_most`. Both are **unapproved v0.5 candidates for a new independent audit**, with exact
+text in `/root/code/KAM-inp/.drafts/N/Averaging.lean`. Their mathematical contracts are retained; the
+source proof route now uses the original's actual-existence/exit definition and an explicit repair of its
+maximum-error estimate. The two old audit findings are addressed as described below. A newly found source
+proof defect is recorded visibly; finding the PDF does not certify every printed proof step.
+D25's partial theorem is frozen and is outside this revision.
 
-**Fixed data.** n≥2, R,s>0, fixed h and f satisfying the existing `IsAnalyticIntegrable R s h` and
-`IsAnalyticPerturbation R s 1 f`, and a fixed compact set K of real phase points with actions in B(0,R/2).
-The perturbed Hamiltonian is the **actual** Hε=h+εf, represented by frozen `realHamiltonian`.
-K is any compact subset of a lifted angular window and the action ball, not a fictitious distribution of
-orbits. Measure is ordinary product Lebesgue volume on ℝⁿ×ℝⁿ, **not normalized probability**.
-An angular fundamental cell can be used via its compact closure; its boundary has zero volume.
+**Primary authorities and standing conventions.** AKN06 §6.1.9 is printed pp.242–244; Theorem 6.11,
+Corollary 6.1 and (6.27)–(6.28) are p.243 (PDF p.254). The global smoothness convention is p.3 footnote 1,
+the ε-independent constants convention p.207, standard/averaged systems pp.208–209, and the averaged-orbit
+boundary requirement Remark 6.4 pp.217–218. Its quantitative reference [451] is the complete original
+Neishtadt 1976 pp.1295–1298, whose good-data set requires full-window **actual solution existence**.
+Source pins, exact printed/PDF locators and source quotations are in sources.md.
 
-On all of B(0,R), assume one of the following global alternatives:
+**Fixed inputs and quantifiers.** n≥2, R,s>0, a fixed h in the frozen `IsAnalyticIntegrable R s h`
+class, a fixed scalar f in `IsAnalyticPerturbation R s 1 f`, and a fixed compact real phase set K with
+initial actions in B∞(0,R/2). The real Hamiltonian is the literal frozen
+`realHamiltonian h (fun w => (ε:ℂ)*f w)`. Phase points are (θ,I) in `(Fin n→ℝ)×(Fin n→ℝ)`; no
+planetary definition or frozen theorem anchor is imported. Analyticity is a conservative specialization
+of the primary smooth setting and supplies all finite derivatives on compact interior sets. h and f
+precede A,ε₀, and their actual derivative bounds may enter the constants. No norm-one class uniformity
+before choosing f or h is asserted. No quantitative rank bound is fixed before h.
 
-- Dω(I) is onto ℝⁿ for every I; or
-- ω(I)≠0 and (v,c) ↦ Dω(I)v+cω(I) is onto ℝⁿ for every I.
+**Rank.** On B∞(0,R), require one of two global alternatives: Dω(I) is onto ℝⁿ at every I, or ω(I)≠0
+and (v,c)↦Dω(I)v+cω(I) is onto at every I. Here ω is the frozen genuine `frequencyMap h`.
+The latter is exactly projective rank n−1. AKN's intrinsic projective condition is retained; the original
+1976 paper uses ratios with a nonzero first component. The compact rank-to-volume proof in notes.md
+reconciles them without assuming a single globally nonzero component or choosing a chart in Lean.
+Full rank may hold at a zero frequency; the nonzero-frequency clause belongs only to the projective branch.
 
-Here ω is the frozen genuine `frequencyMap h`. The second condition is precisely full projective rank
-n−1, expressed without division or a chart choice. We retain the source's global disjunction, rather than
-allowing an unmentioned pointwise switch between alternatives. No quantitative lower rank bound or
-constant uniform over varying h is asserted. Rank margins on interior compact sets may enter the constants.
+**Averaged dynamics, periods and measures.** The average of −∂θf vanishes by periodic integration, so
+the genuine averaged action orbit is J(t)=I₀. It stays uniformly inside a compact source region, satisfying
+Remark 6.4 and original hypothesis 4°. The real analytic data on B(R) extend smoothly to a neighborhood
+of that compact region. Period-one θ is converted to source radian φ=2πθ in the ODE; Ω=2πω and the
+angular correction is rescaled as well. This preserves time and both ranks, and multiplies volume by a
+fixed factor. Ambient norms are maximum norms; Euclidean source norms change constants only.
+All exceptional measures are **absolute product Lebesgue phase volumes**, as dI₀dφ₀ in (6.27), not
+relative probabilities. Compact lifted angular windows reduce to finitely many fundamental cells.
 
-For this Hamiltonian specialization, the average action equation in AKN (6.3) is J̇=0, because the average
-of −∂θf over the periodic torus vanishes. Thus J(t)=I(0). This identity requires the periodic differentiation
-and integration lemma; it is not an assumption of integrability of the perturbed motion.
+**Mean and κ theorem.** After the fixed data, there exist A,ε₀>0. For every 0<ε≤ε₀ and every family Φ
+of actual solutions on [0,1/ε] from x∈K, with actions in B(R), the supremum
 
-**Mean theorem and κ form.** After h,f,K and the fixed data, ∃ A,ε₀>0. For every 0<ε≤ε₀ and every
-family Φ of actual solutions on [0,1/ε] starting at x∈K and remaining in B(0,R), define
+    eε(x)=sup_{0≤t≤1/ε} ‖(Φ(x,t)).I−x.I‖∞
 
-    eε(x) = sup { ‖(Φ(x,t)).I − x.I‖∞ : 0≤t≤1/ε }.
+is integrable on K and ∫_K eε≤A√ε. The Lean nonnegative integral is the lintegral of `ENNReal.ofReal eε`;
+integrability is also concluded, rather than using a possibly junk Bochner integral. The positive ε,
+nonempty compact time interval, continuous actual trajectories and bounded actions guard the real supremum.
+For every κ>0 there is measurable E⊆K, volume(E)≤κ, and for every x∈K\E and every t∈[0,1/ε],
 
-Then eε is integrable on K and
+    ‖(Φ(x,t)).I−x.I‖∞ ≤ A√ε/κ.
 
-    ∫_K eε(x) dx ≤ A√ε.
+A and ε₀ precede ε,Φ,κ. The supplied-family premise is actual existence/typing data for the mean
+expression, not an error estimate or a premise for the next theorem. Uniqueness identifies any such
+family with the actual flow on K, even if its arbitrary values away from K are not measurable.
 
-For **every κ>0**, there exists a measurable E⊆K with volume(E)≤κ such that **every** x∈K\E satisfies
+**Most-data actual existence theorem.** Retain `averaging_most`. With the same fixed inputs, there are
+A,ε₀,η₀>0, η₀≤R/4, such that for every 0<ε≤ε₀ and every 0<η≤η₀ there is measurable E⊆K with
 
-    ‖(Φ(x,t)).I − x.I‖∞ ≤ A√ε/κ    for every 0≤t≤1/ε.
+    volume(E)≤A√ε/η,
 
-A and ε₀ precede ε, Φ and κ; they are not claimed uniform in f or h. The flow premise is explicit existence
-and typing data for the source's mean of errors. It contains no error estimate, no measure estimate, and
-no exceptional set. This theorem alone does not assert that every initial point has a full-window solution.
+and every x∈K\E admits an actual Hε solution from x on all of [0,1/ε], with actions in B(R) and
+maximum drift ≤η. This theorem has **no supplied-flow or future-confinement premise**. To recover a κ
+form with existence set η=A√ε/κ, when that quantity is at most η₀. Source Neishtadt Theorem 2 imposes
+ρ<ρ₁/2; choosing, for example, the auxiliary ρ₁=R/8 and η₀≤R/32 meets that strict restriction.
+Those are proof choices inside the existential constants, not extra binders. The statement permits
+η₀≤R/4 and therefore permits this smaller choice.
 
-**Local-domain existence corollary.** `averaging_most` has the same fixed inputs, but **no supplied-flow
-premise**. There exist A,ε₀,η₀>0 with η₀≤R/4 such that for every 0<ε≤ε₀ and every 0<η≤η₀ there is a
-measurable E⊆K with
+**F-NADD-2/3 and the proof-review boundary.** The missing primary hypotheses are now explicit: smoothness,
+compact source region, averaged-orbit collar, high phase regularity, rank and fixed-system constants.
+Neishtadt's p.1296 definition of Φ(ρ,ε) includes existence to 1/ε; its complement H includes domain exits.
+Theorem 1 controls the good-data mean and coarse bad volume; Theorem 2 gives the tolerance-dependent bad
+volume. Thus the local theorem is supported by primary text. Its p.1298 stopped-cohort argument is laid
+out with constants in notes.md. The former cutoff proposal is replaced entirely.
 
-    volume(E) ≤ A√ε/η,
+However, the original proof's equation (17) prints an unjustified equality between sup_t∫e_t and
+∫sup_t e_t. The notes give a specific Fourier-envelope bound and a Gronwall argument for the **integral
+of the maximum itself**, then the source's finite cohort/continuation argument. This is a new declared
+proof repair, E-NAVG-NEI-17, requiring independent review. No source theorem is declared disproved, and no
+maximum-error estimate is assumed as a hypothesis. Neither candidate gives simultaneous O(√ε) error
+and O(√ε) exceptional volume. The balanced consequence is O(ε^(1/4)) for both quantities.
 
-and for every x∈K\E there **exists a genuine Hε solution** from x on [0,1/ε], in B(0,R), whose action
-drift is ≤η at every time. To obtain the requested κ formulation with existence, set η=A√ε/κ, provided
-A√ε/κ≤η₀. This boundary admissibility is explicit, not hidden in a κ-dependent constant. Uniqueness of
-smooth Hamiltonian ODEs identifies these curves with any other solution through x on their common interval;
-this corollary does not use a nonphysical averaged solution in place of the actual one.
+**Exact Lean module.** The two new definitions were not frozen by D25. All other reused definitions
+are imports from frozen modules. The following is the exact current draft, including its two placeholders:
 
-This is a derived localization target, not a literal quotation of Theorem 6.11. The proposed proof uses
-smooth localization and Markov's inequality; its source-regularity and continuation audit is still open
-(see notes.md). It has a separate name so the source mean theorem is not replaced by a stronger unaudited
-existence claim. Neither theorem claims √ε error outside a √ε exceptional set. The balanced consequence is
-error and exceptional volume O(ε^(1/4)); for fixed κ the error is O(√ε).
+```lean
+/-
+Copyright (c) 2026 Scott Armstrong, Zohar Komargodski. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Scott Armstrong, Zohar Komargodski
+-/
+module
 
-### Clause-to-source map and revision dispositions
+public import KAM.Frozen.Nekhoroshev.Defs.IsAnalyticIntegrable
+public import KAM.Frozen.Nekhoroshev.Defs.IsAnalyticPerturbation
+public import KAM.Frozen.Nekhoroshev.Defs.IsSolutionOn
+public import Mathlib.Analysis.Real.Sqrt
+public import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+public import Mathlib.MeasureTheory.Measure.Prod
+public import Mathlib.MeasureTheory.Integral.IntegrableOn
+public import Mathlib.MeasureTheory.Integral.Lebesgue.Basic
+
+/-!
+# N-AVERAGING draft v0.5, primary-source revision
+
+AKN06 (third edition), pp.3, 207--209, 217--218, 242--244; Neishtadt 1976,
+pp.1295--1298. New unapproved statements, independent of the partial theorem.
+The maximum-in-time estimate needs the explicit proof repair in notes.md:
+Neishtadt's printed equation (17) interchanges a supremum and an integral.
+
+1. Never use set_option maxHeartbeats (or any heartbeat-budget override). A
+   default-heartbeat elaboration failure is a design signal to refactor or split the proof,
+   not something to mask with a larger budget.
+2. No Lean file may exceed 1500 lines of code.
+-/
+
+@[expose] public noncomputable section
+
+open MeasureTheory
+open scoped ENNReal
+
+namespace KAM.Nekhoroshev
+
+/-- The two global rank alternatives in AKN Theorem 6.11, p. 243.
+The augmented map is surjective exactly when the nonzero frequency has projective
+rank n-1. There is no chart choice or division by a frequency component.
+The source projective rank is intrinsic. Neishtadt 1976 p.1296 uses a chart
+with a nonzero first component; the coordinate-free rank estimate in notes.md
+explains that translation. Analytic hypotheses guard the derivatives here. -/
+def HasAveragingFrequencyRank {n : ℕ} (U : Set (Fin n → ℝ))
+    (h : (Fin n → ℂ) → ℂ) : Prop :=
+  (∀ I ∈ U, Function.Surjective (fderiv ℝ (KAM.frequencyMap h) I)) ∨
+    (∀ I ∈ U, KAM.frequencyMap h I ≠ 0 ∧
+      Function.Surjective (fun v : (Fin n → ℝ) × ℝ =>
+        fderiv ℝ (KAM.frequencyMap h) I v.1 + v.2 • KAM.frequencyMap h I))
+
+/-- Supremum error from the constant averaged action, AKN (6.27).
+Used with ε>0 and genuine solutions on [0,1/ε] in a bounded action domain;
+these hypotheses make the image nonempty and bounded above. -/
+def averagingError {n : ℕ} (ε : ℝ)
+    (Φ : ((Fin n → ℝ) × (Fin n → ℝ)) → ℝ → ((Fin n → ℝ) × (Fin n → ℝ)))
+    (x : ((Fin n → ℝ) × (Fin n → ℝ))) : ℝ :=
+  sSup ((fun t => ‖(Φ x t).2 - x.2‖) '' Set.Icc 0 (1 / ε))
+
+/-- N-AVERAGING-MEAN, analytic Hamiltonian specialization of AKN06 p.243 (6.27)--(6.28).
+AKN Theorem 6.11 and Corollary 6.1 for genuine solution families.
+The flow premise is only typing/existence on the stated interval;
+there is no hypothesis about its error or about an exceptional set.
+Constants are chosen after the fixed analytic system and compact initial set,
+before ε, the solution family, and κ. Measure is unnormalized phase volume. -/
+theorem averaging_mean
+    {n : ℕ} (hn : 2 ≤ n) (R s : ℝ) (hR : 0 < R) (hs : 0 < s)
+    (h : (Fin n → ℂ) → ℂ) (f : (Fin n → ℂ) × (Fin n → ℂ) → ℂ)
+    (hh : IsAnalyticIntegrable R s h) (hf : IsAnalyticPerturbation R s 1 f)
+    (hrank : HasAveragingFrequencyRank (actionBall n R) h)
+    (K : Set ((Fin n → ℝ) × (Fin n → ℝ))) (hK : IsCompact K)
+    (hKI : ∀ x ∈ K, x.2 ∈ actionBall n (R / 2)) :
+    ∃ A ε₀ : ℝ, 0 < A ∧ 0 < ε₀ ∧ ∀ ε : ℝ, 0 < ε → ε ≤ ε₀ →
+      ∀ Φ : ((Fin n → ℝ) × (Fin n → ℝ)) → ℝ → ((Fin n → ℝ) × (Fin n → ℝ)),
+      (∀ x ∈ K, Φ x 0 = x ∧
+        IsSolutionOn (KAM.realHamiltonian h (fun w => (ε : ℂ) * f w))
+          (actionBall n R) (Set.Icc 0 (1 / ε)) (Φ x)) →
+      IntegrableOn (averagingError ε Φ) K ∧
+      (∫⁻ x in K, ENNReal.ofReal (averagingError ε Φ x) ∂volume)
+        ≤ ENNReal.ofReal (A * Real.sqrt ε) ∧
+      ∀ κ : ℝ, 0 < κ → ∃ E : Set ((Fin n → ℝ) × (Fin n → ℝ)),
+        MeasurableSet E ∧ E ⊆ K ∧ volume E ≤ ENNReal.ofReal κ ∧
+        ∀ x ∈ K \ E, ∀ t ∈ Set.Icc 0 (1 / ε),
+          ‖(Φ x t).2 - x.2‖ ≤ A * Real.sqrt ε / κ := by
+  sorry
+
+/-- N-AVERAGING-MOST, derived from AKN06 p.243 and Neishtadt 1976 pp.1295--1298.
+Local-domain, actual-solution consequence of AKN (6.28).
+Existence and confinement are conclusions on the good data, not premises.
+The source smoothness convention is AKN06 p.3 footnote 1; the averaged-orbit
+collar is Remark 6.4, pp.217--218. Neishtadt Theorem 2 includes existence
+in its good-data definition; notes.md gives the stopped proof plan and corrects
+the maximum-error step. No flow or future confinement is assumed here. -/
+theorem averaging_most
+    {n : ℕ} (hn : 2 ≤ n) (R s : ℝ) (hR : 0 < R) (hs : 0 < s)
+    (h : (Fin n → ℂ) → ℂ) (f : (Fin n → ℂ) × (Fin n → ℂ) → ℂ)
+    (hh : IsAnalyticIntegrable R s h) (hf : IsAnalyticPerturbation R s 1 f)
+    (hrank : HasAveragingFrequencyRank (actionBall n R) h)
+    (K : Set ((Fin n → ℝ) × (Fin n → ℝ))) (hK : IsCompact K)
+    (hKI : ∀ x ∈ K, x.2 ∈ actionBall n (R / 2)) :
+    ∃ A ε₀ η₀ : ℝ, 0 < A ∧ 0 < ε₀ ∧ 0 < η₀ ∧ η₀ ≤ R / 4 ∧
+      ∀ ε : ℝ, 0 < ε → ε ≤ ε₀ → ∀ η : ℝ, 0 < η → η ≤ η₀ →
+      ∃ E : Set ((Fin n → ℝ) × (Fin n → ℝ)), MeasurableSet E ∧ E ⊆ K ∧
+        volume E ≤ ENNReal.ofReal (A * Real.sqrt ε / η) ∧
+        ∀ x ∈ K \ E, ∃ z : ℝ → ((Fin n → ℝ) × (Fin n → ℝ)),
+          z 0 = x ∧
+          IsSolutionOn (KAM.realHamiltonian h (fun w => (ε : ℂ) * f w))
+            (actionBall n R) (Set.Icc 0 (1 / ε)) z ∧
+          ∀ t ∈ Set.Icc 0 (1 / ε), ‖(z t).2 - x.2‖ ≤ η := by
+  sorry
+
+#print axioms averaging_mean
+#print axioms averaging_most
+
+end KAM.Nekhoroshev
+
+end
+```
+
+#### v0.5 clause-to-primary-source map
+
+| Clause | Printed primary locator / explicit specialization |
+|---|---|
+| Smooth data | AKN06 p.3 footnote 1; Nei76 hypotheses 1°–2°, pp.1295–1296; analytic class is stronger |
+| ε-independent fixed-system constants | AKN06 p.207; Nei76 p.1295 after (6), p.1296 (7)–(8); h,f,K fixed first |
+| Standard system and period 2π | AKN06 p.208 (6.1)–(6.2); Nei76 p.1295 (1); period-one ODE transport stated above |
+| Averaged system and matched initial data | AKN06 pp.208–209 (6.3); Nei76 p.1295 (2)–(3); zero averaged action from periodic Hamiltonian derivative |
+| Boundary convention | AKN06 Remark 6.4 pp.217–218; Nei76 4°, p.1296; B(R/2) plus the compact interior source region supplies the collar |
+| Two global rank alternatives | AKN06 p.243 Theorem 6.11; Nei76 3°, p.1296 has a ratio chart; intrinsic rank-to-volume lemma is an explicit obligation |
+| Mean of maximum and time 1/ε | AKN06 p.243 (6.27); Nei76 pp.1295–1296 (4), Theorem 1 (7), with the explicit maximum-error proof repair |
+| Initial volume, compact K, measure/accuracy tradeoff | AKN06 p.243 Corollary 6.1 (6.28); Nei76 p.1296 Theorem 2 (8); finite-cell restriction handles lifted K |
+| Actual existence for most data | Nei76 p.1296 definition Φ and Theorem 2; p.1298 exit-cohort proof; explicit η collar rather than a fictitious preselected global flow |
+| Mean on all supplied actual trajectories | Nei76 good-data mean plus coarse bad volume, bounded error on the remaining actual trajectories; notes.md gives this deduction |
+| Integrability and supremum guards | Analytic ODE uniqueness/dependence and compactness, explicit standing type data and output; no unguarded supremum or integral |
+| Proof repair rather than assuming the desired estimate | Nei76 p.1298 (17), corrected by the Fourier-envelope/Gronwall plan in notes.md; new independent-audit obligation |
+
+#### Owner questions and recommendations for averaging v0.5
+
+1. **Approve this analytic Hamiltonian specialization and fixed-system constant order?** Recommend yes after
+   the v0.5 independent audit; it is a conservative source class and avoids an unsupported uniform-in-h/f claim.
+2. **Retain both mean/κ and actual-existence candidates?** Recommend yes. The original quantitative paper
+   explicitly treats exiting data. Keep their distinct names and the visible η collar; do not turn the
+   supplied-family premise into an existence premise for the most-data theorem.
+3. **Adopt the explicit maximum-error proof repair and record E-NAVG-NEI-17?** Recommend yes as a candidate
+   source-proof gap plus a declared formalization deviation, with independent review of the Fourier envelopes
+   before proof-route sign-off. The printed equality is not a valid automatic interchange.
+4. **Freeze now or audit first?** Recommend a fresh audit of this exact new module and proof plan, then
+   exact-text approval. D25 did not approve these averaging statements. No change to frozen partial stability
+   is proposed, and no observed-mass or all-time physical stability result follows from averaging alone.
+
+### Historical v0.4 clause-to-source map and revision dispositions
 
 | Clause / finding | Source or v0.4 disposition |
 |---|---|
@@ -414,7 +588,7 @@ error and exceptional volume O(ε^(1/4)); for fixed κ the error is O(√ε).
 | F-NADD-9: slide corroboration | Corrected: NO22 slide 14 corroborates rates only; no full/projective rank formula is printed there |
 | E-N-ADD-1 | Nek77 §1.18 p.15 suspected “small” typo; ledger candidate in notes.md, no Lean change |
 
-### Owner questions and recommendations for v0.4
+### Historical owner questions and recommendations for v0.4 (adopted D25)
 
 1. **Accept this explicit convex proof specialization, rather than a purported verbatim black-box import
    with unproved global steepness?** Recommend yes after independent review of the endpoint lemma and

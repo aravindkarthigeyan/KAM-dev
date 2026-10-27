@@ -1061,7 +1061,7 @@
     "module": "KAM.Provider.VolumeNotDiophantineLe",
     "export": "KAM.Provider.volume_not_diophantine_le"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "821afa8b4f91865c1f7c8876d1081f51524ae988d188fba8e4ed90ff43760132",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {
