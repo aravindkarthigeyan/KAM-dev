@@ -45,6 +45,42 @@
    "session": "kam-suborch",
    "assignment": "Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp",
    "state": "active"
+  },
+  {
+   "id": "prover-P-G3",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-g3",
+   "assignment": "Package P-G3 (docs/campaign/briefs/P-G3.md)",
+   "state": "running"
+  },
+  {
+   "id": "prover-I-MAT",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-mat",
+   "assignment": "Package I-MAT (docs/campaign/briefs/I-MAT.md)",
+   "state": "running"
+  },
+  {
+   "id": "prover-I-LIP",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-lip",
+   "assignment": "Package I-LIP (docs/campaign/briefs/I-LIP.md)",
+   "state": "running"
+  },
+  {
+   "id": "prover-I-STRIP-5",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-strip5",
+   "assignment": "Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md)",
+   "state": "running"
   }
  ],
  "queued": [

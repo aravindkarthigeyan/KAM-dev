@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 18:29 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 27.9 %** · frozen statements proved: 0 / 20 · **8,536 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 18:30 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 28.1 %** · frozen statements proved: 0 / 20 · **8,536 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,22 +53,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **27.9 %**
+### Estimated completion: **28.1 %**
 
-`███████░░░░░░░░░░░░░░░░░░` 27.9 %
+`███████░░░░░░░░░░░░░░░░░░` 28.1 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
 | Statement and planning | 8 | 26 | 24.8 | `██████████` 95 % |
 | Analytic infrastructure | 8 | 24 | 3.4 | `█░░░░░░░░░` 14 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
-| Measure of the invariant tori | 5 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
+| Measure of the invariant tori | 5 | 12 | 0.2 | `░░░░░░░░░░` 2 % |
 | Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
 | Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 5.0 | `████░░░░░░` 42 % |
 | Track N (Nekhoroshev) | 4 | 22 | 6.4 | `███░░░░░░░` 29 % |
 | Track P (planetary) | 5 | 30 | 6.3 | `██░░░░░░░░` 21 % |
 | Sealing of the frozen statements | 20 | 20 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 60 | 175 | 48.9 | **27.9 %** |
+| **Total** | 60 | 175 | 49.1 | **28.1 %** |
 
 **How this is estimated.** The project is divided into 40 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -98,7 +98,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | K.UNIQ | Local uniqueness modulo phase for flows (no published version: adapt GJLV05 Thm 2, §6, §8) | VH | ⬜ 0 % |  |
 | M.APPLY | Invariant torus for every Diophantine frequency of a nearly-integrable Hamiltonian | M | ⬜ 0 % |  |
 | M.LIP | Lipschitz dependence of the tori on the frequency (re-application; defect O(ε/γ⁴)) | H | ⬜ 0 % |  |
-| M.DMEAS | Measure of the non-Diophantine frequencies | M | ⬜ 0 % |  |
+| M.DMEAS | Measure of the non-Diophantine frequencies | M | 🟨 10 % | P-G3 provider package running |
 | M.IMAGE | McShane extension of F̂ − id and the lipeomorphism: the complement is the image of the complement | M | ⬜ 0 % |  |
 | M.ASSEMBLY | Assembly of the headline theorem | M | ⬜ 0 % |  |
 | I.REPO | Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint | L | ✅ 100 % |  |
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 18:29 UTC from `main` at `1079a73` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 18:30 UTC from `main` at `5ea892d` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks. Track K: blueprint and source dependency graph published (docs/graph/K/DEPGRAPH.md: 453 nodes, 1420 edges, 0 source gaps, fully reviewed); proof campaign starting (Sonnet provers, GPT-6.1-Sol medium auditors). Tracks I, N, P: Opus sub-orchestrator (D23): D25 additions being frozen, blueprints being written.
 
@@ -278,6 +278,10 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **prover-P-G3** `worktree /root/code/KAM-w-g3` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package P-G3 (docs/campaign/briefs/P-G3.md) | — | — |
+| **prover-I-MAT** `worktree /root/code/KAM-w-mat` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-MAT (docs/campaign/briefs/I-MAT.md) | — | — |
+| **prover-I-LIP** `worktree /root/code/KAM-w-lip` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-LIP (docs/campaign/briefs/I-LIP.md) | — | — |
+| **prover-I-STRIP-5** `worktree /root/code/KAM-w-strip5` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md) | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 2 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Track N additions: draft v0.4 done (N-PARTIAL-CONVEX on an enlarged domain; N-AVERAGING deferred) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: v0.4 done; idle for owner-requested changes | — | — |
@@ -295,6 +299,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 18:30 | `5ea892d` | HQ: track K proof campaign wave 1 running (four Sonnet provers) |
 | 2026-10-27 18:29 | `1079a73` | Track K proof campaign, wave 1: prover briefs and package claims (P-G3, I-MAT, I-LIP, I-STRIP-5) |
 | 2026-10-27 18:27 | `fa9d55a` | Land inp into main |
 | 2026-10-27 18:27 | `dcec16a` | Publish track K's source dependency graph: 453 nodes, 1420 edges, fully reviewed |
@@ -306,7 +311,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 18:10 | `4d3abbe` | Land inp into main |
 | 2026-10-27 18:07 | `36bbb49` | HQ: graph 415/454 reviewed; global review running |
 | 2026-10-27 18:06 | `59d3894` | Track K graph: delta reviews applied; 415/454 nodes and all coverage reviewed; global brief |
-| 2026-10-27 18:03 | `8f2188f` | Land inp into main |
 <!-- /AUTO:landed -->
 
 ## Decisions

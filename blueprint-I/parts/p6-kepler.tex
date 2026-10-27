@@ -119,8 +119,8 @@ It is a linear isomorphism, and it maps $\Z^2$-translations of $\theta$ to $2\pi
 \begin{lemma}[Conversion]\label{bpI:p6:conversion}
 Let $\kappa,\Omega\in\R$, and $\kappa'=\kappa(2\pi)^2$, $\Omega'=\Omega/(2\pi)$.
 \begin{enumerate}[label=(\alph*)]
-\item \emph{Symplectic.} $\mathsf S^*\bigl(d\ell_1\wedge dL_1+d\ell_2\wedge dL_2\bigr)=d\theta_1\wedge dI_1+d\theta_2\wedge dI_2$, i.e. with $\Omega_0=\begin{pmatrix}0&\mathbf 1\\-\mathbf 1&0\end{pmatrix}$
-  (the matrix of the standard form in the order angles, actions): $D\mathsf S^{\top}\Omega_0D\mathsf S=\Omega_0$ and $D\mathsf S\,\Omega_0\,D\mathsf S^{\top}=\Omega_0$.
+\item \emph{Symplectic.} $\mathsf S^*\bigl(d\ell_1\wedge dL_1+d\ell_2\wedge dL_2\bigr)=d\theta_1\wedge dI_1+d\theta_2\wedge dI_2$, i.e. with $\mathbb J=\begin{pmatrix}0&\mathbf 1\\-\mathbf 1&0\end{pmatrix}$
+  (the matrix of the standard form in the order angles, actions; $\mathbb J=-\Lean{KAM.omegaZero}$, see Part~\ref{bpI:p7}, not to be identified with the frozen matrix): $D\mathsf S^{\top}\mathbb JD\mathsf S=\mathbb J$ and $D\mathsf S\,\mathbb J\,D\mathsf S^{\top}=\mathbb J$.
   Consequently, for $H$ differentiable, $D\mathsf S\,X_{H\circ\mathsf S}=X_H\circ\mathsf S$ (with $X_H=(\partial_IH,-\partial_\theta H)$),
   and a curve $w$ solves $\dot w=X_{H\circ\mathsf S}(w)$ iff $\mathsf Sw$ solves $\dot y=X_H(y)$.
 \item \emph{Hamiltonian.} For all $I\in\C^2$ with $I_1\neq0$: $h_{\kappa,\Omega}\bigl(I/(2\pi)\bigr)=h_{\kappa',\Omega'}(I)$. Thus $\tilde h:=h_{\kappa,\Omega}\circ(I\mapsto I/2\pi)$ is the Kepler--rotation Hamiltonian
@@ -141,9 +141,9 @@ Finding I06 of the Part-0 review.}
 \end{lemma}
 \begin{proof}
 \proofstep{Symplectic}\label{stepI:p6:cv-sympl} $D\mathsf S=\mathrm{diag}(2\pi,2\pi,\tfrac1{2\pi},\tfrac1{2\pi})$ in the order $(\theta_1,\theta_2,I_1,I_2)$. A block computation gives
-$D\mathsf S^{\top}\Omega_0D\mathsf S=\begin{pmatrix}0&2\pi\cdot\frac1{2\pi}\mathbf 1\\-\frac1{2\pi}\cdot2\pi\mathbf 1&0\end{pmatrix}=\Omega_0$, and likewise for $D\mathsf S\Omega_0D\mathsf S^{\top}$ (the matrix is diagonal, hence equal to its transpose).
-Since $X_H=\Omega_0\nabla H$ and $\nabla(H\circ\mathsf S)=D\mathsf S^{\top}\nabla H\circ\mathsf S$:
-$D\mathsf S\,X_{H\circ\mathsf S}=D\mathsf S\,\Omega_0D\mathsf S^{\top}\nabla H\circ\mathsf S=\Omega_0\nabla H\circ\mathsf S$. For a curve, the chain rule gives
+$D\mathsf S^{\top}\mathbb JD\mathsf S=\begin{pmatrix}0&2\pi\cdot\frac1{2\pi}\mathbf 1\\-\frac1{2\pi}\cdot2\pi\mathbf 1&0\end{pmatrix}=\mathbb J$, and likewise for $D\mathsf S\mathbb JD\mathsf S^{\top}$ (the matrix is diagonal, hence equal to its transpose).
+Since $X_H=\mathbb J\nabla H$ and $\nabla(H\circ\mathsf S)=D\mathsf S^{\top}\nabla H\circ\mathsf S$:
+$D\mathsf S\,X_{H\circ\mathsf S}=D\mathsf S\,\mathbb JD\mathsf S^{\top}\nabla H\circ\mathsf S=\mathbb J\nabla H\circ\mathsf S$. For a curve, the chain rule gives
 $\frac{d}{dt}(\mathsf Sw)=D\mathsf S\dot w$.
 
 \proofstep{Hamiltonian}\label{stepI:p6:cv-ham} For $I_1\ne0$: $-\kappa/(2(I_1/2\pi)^2)=-\kappa(2\pi)^2/(2I_1^2)$ and $\Omega\,I_2/(2\pi)=\Omega'I_2$ (field arithmetic).

@@ -1,0 +1,201 @@
+\section{Separation by invariant tori; proof of I-HEAD}\label{bpI:p5}
+
+This part proves Theorem~\ref{bpI:p0:head} from Proposition~\ref{bpI:p3:tori} (Part~\ref{bpI:p3}) and the shared ODE layer of
+track~N (\Nref{bpN:p3:gen-uniqueness}, \Nref{bpN:p3:gen-barrier}, \Nref{bpN:p3:gen-continuation-periodic},
+\Nref{bpN:p3:ham-energy}, \Nref{bpN:p3:ham-periodic}, \Nref{bpN:p3:ham-reduction}).
+
+\paragraph{Idea.} A solution with initial point $z_0=(\theta_0,I_0)$ stays on the energy level $\{\Ham_{h,f}=E\}$, $E=\Ham_{h,f}(z_0)$. Part~\ref{bpI:p3}
+supplies two invariant tori $\mathcal T_\pm$ of exact energy $E$, one on each side of $I_0$ along the energy curve of the
+unperturbed problem. We do not invoke a Jordan-type separation theorem. Instead, near $I_0$ we use the coordinate $m_c$ of the
+energy chart (Definition~\ref{bpI:p3:coordinates}) as a continuous function, and we describe each torus as a graph $I=Y_\pm(\varphi)$ over
+\emph{all} real angles $\varphi\in\R^2$ (Lemma~\ref{bpI:p5:graph}). The set
+$\mathcal V=\{(\varphi,I):\ m_c(Y_-(\varphi))<m_c(I)<m_c(Y_+(\varphi)),\ I\in\Omega\}$ is open and contains $z_0$.
+On the energy level, a point of the boundary of $\mathcal V$ has $m_c(I)=m_c(Y_\pm(\varphi))$ and the same energy as
+$(\varphi,Y_\pm(\varphi))$; the energy equation is uniquely solvable for the energy coordinate $e=h(I)$ because $f$ is small
+(Lemma~\ref{bpI:p5:energy-coordinate}), so $I=Y_\pm(\varphi)$ and the boundary point lies on a torus. A solution that starts in
+$\mathcal V$ therefore cannot leave it (the barrier lemma \Nref{bpN:p3:gen-barrier}); $\mathcal V$ projects into a compact subset of $B$ at distance $<\eta$ from $I_0$
+(Proposition~\ref{bpI:p5:separation}), and the continuation theorem gives global existence. The constant $\varepsilon_0$ is the
+minimum of $\varepsilon_1$ of Part~\ref{bpI:p3} and finitely many patch constants (Definition~\ref{bpI:p5:eps0}).
+
+\source{ours (D-I-CONFINEMENT). CC03 Theorem~1.1, p.~7 (read on the page image) asserts, for one numerical Hamiltonian, ``a $\phi^t$-invariant region $\mathcal J$,
+whose boundary is given by two KAM tori''; it is a precedent for the mechanism only and is not used as an input. Arnold's original
+paper (Arn63b) is \textbf{[unverified]} for the corresponding statement (docs/tracks/I/sources.md); nothing below depends on it.}
+\sourcegap{No pinned source proves, for a general real-analytic $h$ with $\det\mathsf B_h\ne0$, the separation of the energy level by two invariant tori or the
+resulting all-time confinement; Propositions~\ref{bpI:p5:separation} and the proof of Theorem~\ref{bpI:p0:head} below supply this bridge.}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The real Hamiltonian and external facts}\label{bpI:p5:sec-real}
+
+Standing data: Assumption~\ref{bpI:p3:setting} ($n=2$, $\tau=2$, $B'\ne\emptyset$), the constants of Definition~\ref{bpI:p3:constants} and the patches, rays and constants of
+Part~\ref{bpI:p3}. Write $H_{\R}:=\Ham_{h,f}:\R^2\times\R^2\to\R$ (Definition~\ref{bpI:p0:realham}), $U=\iota^{-1}(B_{r_0})\supset B$ (open), $W_B:=\R^2\times B$ (open in $\R^2\times\R^2$),
+$P=\R^2\times\R^2$ with the max norm, and $X_{\R}:=X_{H_\R}$.
+
+\begin{lemma}[Regularity and ODE reduction]\label{bpI:p5:real-ham}
+For $f,\varepsilon$ as in Theorem~\ref{bpI:p0:head}:
+\begin{enumerate}[label=(\alph*)]
+\item $H_\R(\theta,I)=h(\iota I)+f(\iota\theta,\iota I)$ on $\R^2\times U$ (the real part is the value), and $H_\R$ is $C^\infty$ on the open set $\R^2\times U\supset W_B$; $H_\R(\theta+k,I)=H_\R(\theta,I)$ for $k\in\Z^2$.
+\item At every real $z\in\R^2\times U$, $X_\R(z)=X_H(z)$, where $H=h+f$ is the holomorphic function on $T_{s_0}\times B_{r_0}$ and $X_H$ its complex Hamiltonian field.
+\item $X_\R$ is $C^1$ on $W_B$ and $X_\R(\theta+k,I)=X_\R(\theta,I)$ on $W_B$. For $J\subset\R$ and $z:\R\to P$:
+$\texttt{IsHamiltonianSolutionOn}\,H_\R\,B\,J\,z\iff\texttt{IsSolIn}\,X_\R\,W_B\,J\,z$.
+\item For real $(\varphi,I)\in\R^2\times B$ and $v\in\R^2$: $\abs{\partial_t f(\varphi,I+tv)|_{t=0}}\le F_1\varepsilon\norm v$ (real derivative), provided $\varepsilon\le1$.
+\item $\abs{H_\R(\theta,I)-h(\iota I)}\le\varepsilon$ on $\R^2\times U$.
+\end{enumerate}
+\source{standard; \Kref{bp:p1:holomorphic-regularity}, \Kref{bp:p1:hamiltonian-real}, \Nref{bpN:p3:ham-reduction}.}
+\end{lemma}
+\begin{proof}
+\proofstep{Values}\label{stepI:p5:rh-values} For $(\theta,I)\in\R^2\times U$: $\iota\theta\in T_{s_0}$ ($s_0>0$) and $\iota I\in B_{r_0}$. $h(\iota I)$ and $f(\iota\theta,\iota I)$ are real by hypothesis, so $H_\R=h\circ\iota+f\circ(\iota,\iota)$, and $\abs{f}\le\varepsilon$ gives (e).
+\proofstep{Smoothness and periodicity}\label{stepI:p5:rh-smooth} $H=h+f$ is holomorphic on the open set $T_{s_0}\times B_{r_0}$, hence $C^\infty$ (\Kref{bp:p1:holomorphic-regularity}); $H_\R$ is its composition with the $\R$-linear inclusion, hence $C^\infty$ on $\R^2\times U$. Periodicity is that of $f$.
+\proofstep{The fields}\label{stepI:p5:rh-field} (b) is \Kref{bp:p1:hamiltonian-real} ($H$ real at the real points of its domain, $H_\R=\operatorname{Re}H$). (c): \Nref{bpN:p3:ham-reduction} with the open set $U':=B$, $W=\R^2\times U$ and $H_\R$ $C^2$ on $W$; periodicity of $X_\R$ is \Nref{bpN:p3:ham-periodic}.
+\proofstep{Derivative bound}\label{stepI:p5:rh-deriv} $\R^2\times B\subset\mathfrak D=T_{s/2}\times B_{r_0/2}$ ($B\subset B_{r_0/2}$ since $\norm{I-I}=0<r_0/2$), so Lemma~\ref{bpI:p3:hypothesis-d} gives $\norm{Df(z)}\le F_1\varepsilon$. By the chain rule the real directional derivative is $Df(\varphi,I)(0,v)$ of modulus $\le F_1\varepsilon\norm v$.
+\end{proof}
+
+\paragraph{External facts used in this part.}
+\begin{enumerate}[label=(Z\arabic*),ref=(Z\arabic*)]
+\item\label{bpI:p5:ext-banach} Banach's fixed point theorem: \Kref{bp:p1:ext-banach}; mean value inequality \Kref{bp:p1:ext-mvt}.
+\item\label{bpI:p5:ext-top} \emph{Topology.} A continuous image of a compact set is compact, hence closed; a compact set and a disjoint closed set have positive distance; a continuous real function on a compact set attains its maximum;
+the closure of a subset of a closed set lies in it; for $A$ open, $\partial A=\overline A\setminus A$. (Mathlib: \Lean{IsCompact.exists\_forall\_ge}, \Lean{IsCompact.isClosed}, \Lean{IsCompact.exists\_infDist\_eq\_dist}, \Lean{closure\_minimal}.)
+\item\label{bpI:p5:ext-ift} Inverse function theorem in the form used in Part~\ref{bpI:p3} (\ref{bpI:p3:ext-ift}): $\Phi_c|_W$ is a homeomorphism onto the open set $V$ with $C^1$ inverse.
+\end{enumerate}
+No Jordan curve/surface theorem and no theorem on connected components is used.
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Patch constants}\label{bpI:p5:sec-patch}
+
+Let $\mathfrak p=(c,W,\delta_E,\delta_m,\rho_c)$ be a patch of Lemma~\ref{bpI:p3:cover}, $\Phi=\Phi_c$, $V=\Phi(W)$, $Q=[E_c-\delta_E,E_c+\delta_E]\times[-\delta_m,\delta_m]\subset V$ with
+$E_c:=h(c)$, $O:=(E_c-\delta_E,E_c+\delta_E)\times(-\delta_m,\delta_m)$, $\Omega:=\Phi^{-1}(O)\subset W$ (open), $\mathcal K:=\Phi^{-1}(Q)\subset W$. Let $m_\pm=m_{\mathfrak p,\pm}$ be the slopes of its rays
+(Definition~\ref{bpI:p3:patch-rays}).
+
+\begin{definition}[Patch constants]\label{bpI:p5:patch-const}
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal K$ is compact (image of compact $Q$ under the continuous $\Phi^{-1}$); $r_{\mathfrak p}:=\min\{1,\tfrac12\operatorname{dist}(\mathcal K,\R^2\setminus W)\}>0$ ($W$ is bounded, by \ref{bpI:p3:P1}, so the complement is nonempty and closed);
+$\mathcal N:=\{I:\operatorname{dist}(I,\mathcal K)\le r_{\mathfrak p}\}$, compact, $\mathcal N\subset W$.
+\item $L_m:=\max\{1,\max_{I\in\mathcal N}\norm{Dm_c(I)}\}$ ($m_c$ is $C^1$ on $\mathcal U_c\supset W$).
+\item $L_\Phi:=\max\{1,\max_{(e,m)\in Q}\norm{D(\Phi^{-1})(e,m)}\}$.
+\item $\kappa_{\mathfrak p}:=\min\{\delta_m/4,\ \delta_m-m_+,\ \delta_m+m_-\}>0$ (Definition~\ref{bpI:p3:patch-rays}: $m_+\in(\delta_m/2,\delta_m)$, $m_-\in(-\delta_m,-\delta_m/2)$).
+\end{enumerate}
+They depend only on $\mathfrak p$ and its rays, hence only on $(B,s_0,r_0,h,B',\eta)$.
+\end{definition}
+
+\begin{definition}[The constant $\varepsilon_0$]\label{bpI:p5:eps0}
+With $\varepsilon_1,C_K,F_1,\rho_\infty$ from Part~\ref{bpI:p3}:
+\[
+\varepsilon_0:=\min\Bigl\{\varepsilon_1,\ \min_{j\in\mathcal P}\ \min\Bigl\{\tfrac{\delta_{E,j}}4,\ \tfrac{\rho_\infty}{8C_K},\ \tfrac{r_j}{C_K},\ \tfrac{\kappa_j}{L_{m,j}C_K},\ \tfrac1{2F_1L_{\Phi,j}}\Bigr\}\Bigr\}>0 .
+\]
+Order of choice: all data of Part~\ref{bpI:p3} $\to$ patch constants $\to\varepsilon_0$; independent of $f,\varepsilon,z_0$. In the sequel $\varepsilon<\varepsilon_0$ (so every listed bound holds with $\varepsilon$, strictly).
+\end{definition}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The tori are graphs over all angles, and are invariant}\label{bpI:p5:sec-graph}
+
+Fix $f,\varepsilon$ as in Theorem~\ref{bpI:p0:head} with $\varepsilon<\varepsilon_0$, $I_0\in\overline{B'}$, $E$ with $\abs{E-h(I_0)}\le\varepsilon$, and the output of Proposition~\ref{bpI:p3:tori} ($j$, $K_\pm$, $I_\pm$, $\omega_\pm$). Let $k_\pm:\R^2\to\R^2\times\R^2$ be the real restriction of $K_\pm$, $k_\pm(\theta)=(\theta+u_\pm(\theta),I_\pm+v_\pm(\theta))$, $u_\pm,v_\pm:\R^2\to\R^2$ real-analytic (\ref{bpI:p3:T1}, \Kref{bp:p1:real-restriction}), and $\mathcal T_\pm:=k_\pm(\R^2)$.
+
+\begin{lemma}[Graph property]\label{bpI:p5:graph}
+For each sign, with $\Psi:=\theta\mapsto\theta+u_\pm(\theta)$ and $\norm{\cdot}$ the max norm:
+\begin{enumerate}[label=(\alph*)]
+\item $\Psi:\R^2\to\R^2$ is a bijection, $\norm{\Psi\theta-\Psi\theta'}\ge\tfrac12\norm{\theta-\theta'}$, and $\Psi^{-1}$ is $2$-Lipschitz (in particular continuous).
+\item $Y_\pm:=I_\pm+v_\pm\circ\Psi^{-1}:\R^2\to\R^2$ is continuous, $\norm{Y_\pm(\varphi)-I_\pm}\le C_K\varepsilon$, and $\mathcal T_\pm=\{(\varphi,Y_\pm(\varphi)):\varphi\in\R^2\}$.
+\item $H_\R(\varphi,Y_\pm(\varphi))=E$ for all $\varphi$, and $Y_\pm(\varphi)\in\mathcal N$, $\abs{h(Y_\pm(\varphi))-E}\le\varepsilon$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{Contraction}\label{stepI:p5:gr-contr} By \ref{bpI:p3:T4}, $\norm{Du_\pm}_{\rho_\infty/2}\le4C_K\varepsilon/\rho_\infty\le\tfrac12$ ($\varepsilon<\rho_\infty/(8C_K)$) and $\R^2\subset T_{\rho_\infty/2}$; the real derivative has norm at most the complex one (\Kref{bp:p1:real-restriction}). By \Kref{bp:p1:ext-mvt} on the convex set $\R^2$, $u_\pm$ is $\tfrac12$-Lipschitz.
+\proofstep{Bijectivity}\label{stepI:p5:gr-bij} For $\varphi\in\R^2$ the map $\theta\mapsto\varphi-u_\pm(\theta)$ is a $\tfrac12$-contraction of the complete space $\R^2$; its unique fixed point $\theta$ is the unique solution of $\Psi\theta=\varphi$ (\ref{bpI:p5:ext-banach}). Moreover $\norm{\Psi\theta-\Psi\theta'}\ge\norm{\theta-\theta'}-\tfrac12\norm{\theta-\theta'}$, which is the lower bound and the Lipschitz bound of $\Psi^{-1}$.
+\proofstep{Graph}\label{stepI:p5:gr-graph} $k_\pm(\theta)=(\Psi\theta,I_\pm+v_\pm(\theta))$; substituting $\theta=\Psi^{-1}\varphi$ gives (b); $\norm{v_\pm}\le C_K\varepsilon$ is \ref{bpI:p3:T4}.
+\proofstep{Energy and position}\label{stepI:p5:gr-energy} $H_\R(k_\pm(\theta))=\operatorname{Re}H(K_\pm(\theta))=E$ by \ref{bpI:p3:T3}. $I_\pm=\Phi^{-1}(E,m_\pm)\in\mathcal K$ since $(E,m_\pm)\in Q$ (Lemma~\ref{bpI:p3:points}), and $C_K\varepsilon<r_j$, so $Y_\pm(\varphi)\in\mathcal N$. Finally $h(Y)=H_\R(\varphi,Y)-f=E-f$ and $\abs f\le\varepsilon$ (Lemma~\ref{bpI:p5:real-ham}(e)).
+\end{proof}
+
+\begin{lemma}[Invariance]\label{bpI:p5:invariance}
+$\mathcal T_\pm\subset W_B$ and $\mathcal T_+\cup\mathcal T_-$ is invariant for $(X_\R,W_B)$ (Definition \Nref{bpN:p3:gen-invariant}): if $J'$ is an interval, $y$ satisfies $\texttt{IsSolIn}\,X_\R\,W_B\,J'\,y$ and $y(t_1)\in\mathcal T_\pm$ for one $t_1\in J'$, then $y(t)\in\mathcal T_\pm$ for all $t\in J'$.
+\end{lemma}
+\begin{proof}
+\proofstep{Inclusion}\label{stepI:p5:inv-incl} $k_\pm(\theta)_2=Y_\pm(\Psi\theta)\in\mathcal N\subset W\subset B$ by Lemma~\ref{bpI:p5:graph}(c) and \ref{bpI:p3:P1} (this uses the smallness in $\varepsilon_0$, not T6 alone).
+\proofstep{The torus solution}\label{stepI:p5:inv-sol} If $y(t_1)=k_\pm(\theta_1)$, put $w(t):=k_\pm(\theta_1+(t-t_1)\omega_\pm)$. By \Kref{bp:p1:real-restriction}, $w$ is differentiable with $w'(t)=DK_\pm(\theta)\omega_\pm|_{\theta=\theta_1+(t-t_1)\omega_\pm}=X_H(K_\pm(\theta))$ (\ref{bpI:p3:T2}, $E_{H,K,\omega}=0$ on $T_{\rho_\infty}\supset\R^2$) $=X_\R(w(t))$ (Lemma~\ref{bpI:p5:real-ham}(b)). With Step~\ref{stepI:p5:inv-incl}, $\texttt{IsSolIn}\,X_\R\,W_B\,\R\,w$.
+\proofstep{Uniqueness}\label{stepI:p5:inv-uniq} $w(t_1)=y(t_1)$; \Nref{bpN:p3:gen-uniqueness} (with $F=X_\R$ $C^1$ on $W_B$, Lemma~\ref{bpI:p5:real-ham}(c)) on $J'$ gives $y=w$ on $J'$, and $w(J')\subset\mathcal T_\pm$. The union of two invariant sets is invariant.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The energy coordinate}\label{bpI:p5:sec-energy}
+
+\begin{lemma}[Energy equation is uniquely solvable in $e=h(I)$]\label{bpI:p5:energy-coordinate}
+Let $\varepsilon\le\min\{1,1/(2F_1L_\Phi)\}$, $\varphi\in\R^2$, $(e_1,m),(e_2,m)\in Q$ and $I_i=\Phi^{-1}(e_i,m)$. If $H_\R(\varphi,I_1)=H_\R(\varphi,I_2)$ then $I_1=I_2$.
+(Equivalently: on the level $\{H_\R=E\}$ the points over $(\varphi,m)$ with chart energy in the window are at most one --- the energy level is a graph over $(\varphi,m_c)$, where uniqueness is the part used.)
+\end{lemma}
+\begin{proof}
+\proofstep{Reduction to one variable}\label{stepI:p5:ec-reduce} Put $g(e)=e+f(\varphi,\Phi^{-1}(e,m))$ on $[E_c-\delta_E,E_c+\delta_E]$; since $h(\Phi^{-1}(e,m))=e$ (first component of $\Phi$) and Lemma~\ref{bpI:p5:real-ham}(a), $H_\R(\varphi,\Phi^{-1}(e,m))=g(e)$ (these points lie in $\mathcal K\subset W\subset B$).
+\proofstep{Contraction}\label{stepI:p5:ec-lip} $e\mapsto\Phi^{-1}(e,m)$ is $C^1$ with derivative of norm $\le L_\Phi$ (the segment $\{(e,m)\}$ lies in the convex box $Q$). By Lemma~\ref{bpI:p5:real-ham}(d) and the chain rule, $\abs{\frac{d}{de}f(\varphi,\Phi^{-1}(e,m))}\le F_1\varepsilon L_\Phi\le\tfrac12$; so by \Kref{bp:p1:ext-mvt}, $\abs{e_1-e_2}=\abs{g(e_1)-g(e_2)-(f_1-f_2)}$ with $g(e_1)=g(e_2)$ gives $\abs{e_1-e_2}=\abs{f(\varphi,I_1)-f(\varphi,I_2)}\le\tfrac12\abs{e_1-e_2}$, hence $e_1=e_2$ and $I_1=I_2$.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Separation}\label{bpI:p5:sec-sep}
+
+Keep the notation of \S\ref{bpI:p5:sec-graph} ($j$ is the patch with $\norm{I_0-c_j}<\rho_j$; we write $c,\Phi,Q,O,\Omega,\mathcal K,\mathcal N,\delta_E,\delta_m,\kappa$ for its data) and put
+\begin{align*}
+\mu_\pm(\varphi)&:=m_c(Y_\pm(\varphi)),\qquad G:=\{z\in P:H_\R(z)=E\},\\
+\mathcal V&:=\{(\varphi,I)\in\R^2\times\Omega:\ \mu_-(\varphi)<m_c(I)<\mu_+(\varphi)\}.
+\end{align*}
+
+\begin{lemma}[Position of the graphs in the chart]\label{bpI:p5:mu}
+$\mu_\pm$ is continuous on $\R^2$, $\abs{\mu_\pm(\varphi)-m_\pm}\le L_mC_K\varepsilon<\kappa\le\delta_m/4$. Hence $\mu_-(\varphi)<-\delta_m/4$, $\mu_+(\varphi)>\delta_m/4$ and $\mu_\pm(\varphi)\in(-\delta_m,\delta_m)$ for all $\varphi$.
+\end{lemma}
+\begin{proof}
+\proofstep{Continuity}\label{stepI:p5:mu-cont} $Y_\pm$ is continuous with values in $\mathcal N\subset W\subset\mathcal U_c$, where $m_c$ is continuous (Lemma~\ref{bpI:p5:graph}).
+\proofstep{Lipschitz comparison}\label{stepI:p5:mu-lip} $I_\pm\in\mathcal K$ and $\norm{Y_\pm(\varphi)-I_\pm}\le C_K\varepsilon\le r_j$, so the segment between them lies in $\mathcal N$, where $\norm{Dm_c}\le L_m$ (\Kref{bp:p1:ext-mvt}); $m_c(I_\pm)=m_\pm$ (Lemma~\ref{bpI:p3:points}). The bound $L_mC_K\varepsilon<\kappa$ is $\varepsilon<\varepsilon_0$.
+\proofstep{Ordering}\label{stepI:p5:mu-order} $m_+\ge\delta_m/2$ and $m_-\le-\delta_m/2$ (patch rays) give $\mu_+>\delta_m/2-\delta_m/4$, $\mu_-<-\delta_m/4$; and $\mu_+<m_++\kappa\le\delta_m$, $\mu_->m_--\kappa\ge-\delta_m$.
+\end{proof}
+
+\begin{proposition}[Separation by two invariant tori]\label{bpI:p5:separation}
+Let $z_0=(\theta_0,I_0)$ with $I_0\in B'$, $E:=H_\R(z_0)$, and $\varepsilon<\varepsilon_0$ as above (so Proposition~\ref{bpI:p3:tori} applies with this $E$). Then:
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal V$ is open in $P$, $z_0\in\mathcal V$, $z_0\notin\mathcal T_+\cup\mathcal T_-$.
+\item $\overline{\mathcal V}\subset\R^2\times\mathcal K$ and $\partial\mathcal V\cap G\subset\mathcal T_+\cup\mathcal T_-$.
+\item (Separation) If $J$ is an interval with $0\in J$ and $\texttt{IsSolIn}\,X_\R\,W_B\,J\,z$ with $z(0)=z_0$, then $z(t)\in\mathcal V$ for all $t\in J$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\proofstep{Openness}\label{stepI:p5:sp-open} $\Omega$ is open, $m_c$ is continuous on $\Omega\subset\mathcal U_c$, and $\mu_\pm$ are continuous (Lemma~\ref{bpI:p5:mu}); $\mathcal V$ is the intersection of $\R^2\times\Omega$ with two open strict-inequality sets.
+\proofstep{The initial point}\label{stepI:p5:sp-init} Since $\norm{I_0-c}<\rho_c$: $\abs{h(I_0)-E_c}<\delta_E/2$, $\abs{m_c(I_0)}<\delta_m/4$ (\ref{bpI:p3:P3}), so $\Phi(I_0)\in O$, $I_0\in\Omega$, and $\mu_-(\theta_0)<-\delta_m/4<m_c(I_0)<\delta_m/4<\mu_+(\theta_0)$ (Lemma~\ref{bpI:p5:mu}): $z_0\in\mathcal V$. If $z_0\in\mathcal T_\pm$, Lemma~\ref{bpI:p5:graph}(b) gives $I_0=Y_\pm(\theta_0)$ and $m_c(I_0)=\mu_\pm(\theta_0)$, contradicting the strict inequalities.
+\proofstep{Closure}\label{stepI:p5:sp-closure} $\overline\Omega\subset\mathcal K$, because $\Omega\subset\mathcal K$ and $\mathcal K$ is compact, hence closed (\ref{bpI:p5:ext-top}); thus $\overline{\mathcal V}\subset\R^2\times\mathcal K$.
+\proofstep{Energy window}\label{stepI:p5:sp-window} By $\abs{E-h(I_0)}\le\varepsilon$ (Lemma~\ref{bpI:p5:real-ham}(e)) and $\abs{h(I_0)-E_c}<\delta_E/2$: $\abs{E-E_c}<\delta_E/2+\varepsilon$. If $(\varphi,I)\in G$ with $I\in\mathcal K$, then $h(I)=E-f(\varphi,I)$ so $\abs{h(I)-E_c}<\delta_E/2+2\varepsilon\le\delta_E$ ($\varepsilon<\delta_E/4$).
+\proofstep{Boundary on the level}\label{stepI:p5:sp-bdry} Let $p=(\varphi,I)\in\partial\mathcal V\cap G$, $p=\lim p_k$, $p_k=(\varphi_k,I_k)\in\mathcal V$. By Step~\ref{stepI:p5:sp-closure}, $I\in\mathcal K\subset W$; as $m_c$ and $\mu_\pm$ are continuous, $\mu_-(\varphi)\le m_c(I)\le\mu_+(\varphi)$. Suppose $\mu_-(\varphi)<m_c(I)<\mu_+(\varphi)$. Then $\abs{m_c(I)}<\delta_m$ (Lemma~\ref{bpI:p5:mu}) and $\abs{h(I)-E_c}<\delta_E$ (Step~\ref{stepI:p5:sp-window}), i.e. $\Phi(I)\in O$, $I\in\Omega$, $p\in\mathcal V$, contradicting $p\in\partial\mathcal V=\overline{\mathcal V}\setminus\mathcal V$. So $m_c(I)=\mu_s(\varphi)$ for one sign $s\in\{\pm\}$. Put $Y=Y_s(\varphi)\in\mathcal N\subset W$; by Lemma~\ref{bpI:p5:graph}(c), $H_\R(\varphi,Y)=E=H_\R(\varphi,I)$, and $\Phi(Y)=(h(Y),\mu_s(\varphi))$ with $\abs{h(Y)-E}\le\varepsilon$, so $(h(Y),\mu_s(\varphi))\in Q$ (Lemma~\ref{bpI:p5:mu}, Step~\ref{stepI:p5:sp-window}); also $\Phi(I)\in Q$. Both have the same second coordinate $\mu_s(\varphi)$, and $Y=\Phi^{-1}\Phi(Y)$, $I=\Phi^{-1}\Phi(I)$ ($\Phi$ is injective on $W$). Lemma~\ref{bpI:p5:energy-coordinate} gives $I=Y_s(\varphi)$, i.e.\ $p\in\mathcal T_s$ (Lemma~\ref{bpI:p5:graph}(b)). This is (b).
+\proofstep{Barrier}\label{stepI:p5:sp-barrier} $z(J)\subset G$ by \Nref{bpN:p3:ham-energy} (Lemma~\ref{bpI:p5:real-ham}(c): the predicate gives differentiability of $H_\R$ and the derivative $X_\R$). Apply \Nref{bpN:p3:gen-barrier} with $F=X_\R$, $W=W_B$, $V=\mathcal V$, $S=\mathcal T_+\cup\mathcal T_-$ (invariant, Lemma~\ref{bpI:p5:invariance}), $G$ as above, $\partial\mathcal V\cap G\subset S$ by (b), $z(0)\notin S$ by (a): $z(t)\in\mathcal V$ for all $t\in J$.
+\end{proof}
+
+\begin{remark}[On the topology]\label{bpI:p5:topology-remark}
+The statement used is exactly (c): a continuous-function description of the region between the tori, namely $\mathcal V=\{\Lambda>0\}\cap(\R^2\times\Omega)$ with $\Lambda(\varphi,I)=(m_c(I)-\mu_-(\varphi))(\mu_+(\varphi)-m_c(I))$,
+together with the boundary identification (b). What replaces the Jordan theorem is Lemma~\ref{bpI:p5:graph} (the tori are global graphs over $\R^2$, by a contraction argument) and Lemma~\ref{bpI:p5:energy-coordinate}.
+Passing to $\T^2$ is not needed: the lifted angles are unbounded but only the action components are confined. The full energy level in $\R^2\times B$ may contain further components (other points with $h\approx E$); they are irrelevant, since the solution never leaves $\mathcal V$.
+\end{remark}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Confinement, global existence, and the proof of I-HEAD}\label{bpI:p5:sec-head}
+
+\begin{proposition}[Confinement and global existence]\label{bpI:p5:confinement}
+In the setting of Proposition~\ref{bpI:p5:separation}, let $z$ be the maximal solution of $\dot z=X_\R(z)$ in $W_B$ with $z(0)=z_0$ (\Nref{bpN:p3:gen-maximal}), with maximal interval $(T_-,T_+)$. Then $T_-=-\infty$, $T_+=+\infty$, and for all $t\in\R$: $z(t)\in\mathcal V$, $z(t)_2\in\mathcal K\subset\mathcal S\subset B$ and $\norm{z(t)_2-I_0}<\eta/2<\eta$.
+\end{proposition}
+\begin{proof}
+\proofstep{Confinement on the maximal interval}\label{stepI:p5:cf-conf} Proposition~\ref{bpI:p5:separation}(c) with $J=(T_-,T_+)$: $z(t)\in\mathcal V$, hence $z(t)_2\in\Omega\subset W$. By \ref{bpI:p3:P1}, $\norm{z(t)_2-c}<\eta_1/4$, and $\norm{I_0-c}<\rho_c\le\eta_1/4$: $\norm{z(t)_2-I_0}<\eta_1/2\le\eta/2$.
+\proofstep{Continuation}\label{stepI:p5:cf-cont} $\mathcal K$ is a compact subset of $B$, $X_\R$ is $C^1$ and $\Z^2$-periodic in the angles on $\R^2\times B$ (Lemma~\ref{bpI:p5:real-ham}(c)), and $z(t)_2\in\mathcal K$ on $[0,T_+)$ and $(T_-,0]$; \Nref{bpN:p3:gen-continuation-periodic} (the angles $z(t)_1$ may be unbounded) gives $T_\pm=\pm\infty$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{bpI:p0:head}]
+\proofstep{The constant}\label{stepI:p5:hd-eps} If $B'=\emptyset$ the conclusion is vacuous and $\varepsilon_0=1$ works. Otherwise let $\varepsilon_0$ be that of Definition~\ref{bpI:p5:eps0}; it depends only on $(B,s_0,r_0,h,B',\eta)$ --- all fixed before $f,\varepsilon,z_0$, matching the frozen quantifier order (Remark~\ref{bpI:p0:head-remarks}(a)); nothing depends on $f,\varepsilon,z_0$.
+\proofstep{Fixing $f,\varepsilon,z_0$}\label{stepI:p5:hd-fix} Let $f,\varepsilon$ satisfy the hypotheses with $0\le\varepsilon<\varepsilon_0$ ($\varepsilon=0$ allowed: then $f\equiv0$ on the domain and all objects above exist as stated, with $u_\pm=v_\pm=0$), and $z_0=(\theta_0,I_0)$ with $I_0\in B'$ (all $\theta_0\in\R^2$). Put $E=H_\R(z_0)$; then $\abs{E-h(I_0)}\le\varepsilon$ (Lemma~\ref{bpI:p5:real-ham}(e)) and $I_0\in\overline{B'}$, so Proposition~\ref{bpI:p3:tori} applies.
+\proofstep{The solution}\label{stepI:p5:hd-sol} Let $z$ be the maximal solution through $z_0$ in $W_B$; by Proposition~\ref{bpI:p5:confinement} it is defined on $\R$, so $\texttt{IsSolIn}\,X_\R\,W_B\,\R\,z$, which by Lemma~\ref{bpI:p5:real-ham}(c) is $\texttt{IsHamiltonianSolutionOn}\,H_\R\,B\,\mathrm{univ}\,z$, i.e.\ $\mathrm{Sol}(\Ham_{h,f},B,\R,z)$; $z(0)=z_0$; $\norm{z(t)_2-I_0}<\eta$ for all $t$ (Proposition~\ref{bpI:p5:confinement}).
+\proofstep{Uniqueness among all solutions}\label{stepI:p5:hd-uniq} Let $a<0<b$, $y(0)=z_0$ and $\mathrm{Sol}(\Ham_{h,f},B,(a,b),y)$. By Lemma~\ref{bpI:p5:real-ham}(c), $\texttt{IsSolIn}\,X_\R\,W_B\,(a,b)\,y$; \Nref{bpN:p3:gen-uniqueness} on the interval $(a,b)\ni0$ gives $y=z$ on $(a,b)$. No smallness, confinement in $\mathcal V$ or in $\Omega$ is assumed of $y$: only that its actions stay in $B$, as in the definition of $\mathrm{Sol}$.
+\end{proof}
+
+\begin{remark}[What Part~\ref{bpI:p3} does not provide, and where it is proved here]\label{bpI:p5:p3-gap}
+Following the review of Part~\ref{bpI:p3} (findings I3-01, I3-02): (T7) orders the \emph{base points} $I_\pm$ in the slope coordinate only, and $I_0$ need not lie on $\{h=E\}$ (only $\abs{E-h(I_0)}\le\varepsilon$);
+we never place $I_0$ on that curve --- the initial point is handled by the strict inequalities $\abs{m_c(I_0)}<\delta_m/4$ and $\abs{h(I_0)-E_c}<\delta_E/2$ (Step~\ref{stepI:p5:sp-init}); the point $\tilde I_0=\Phi^{-1}(E,m_c(I_0))$ is not needed.
+The \emph{deformed} tori are controlled here: that their actions lie in the chart domain ($Y_\pm(\varphi)\in\mathcal N\subset W$) and that their slope coordinates satisfy $\mu_-<-\delta_m/4$, $\mu_+>\delta_m/4$, $\mu_\pm\in(-\delta_m,\delta_m)$ is Lemma~\ref{bpI:p5:mu}, proved with the explicit smallness
+$\varepsilon<\min\{r_j/C_K,\kappa_j/(L_{m,j}C_K)\}$ added to $\varepsilon_0$ (Definition~\ref{bpI:p5:eps0}). The \emph{whole} enclosed region is bounded: $\mathcal V\subset\R^2\times\Omega$ and $\Omega\subset W\subset\{\norm{I-c}<\eta_1/4\}$ (Proposition~\ref{bpI:p5:confinement}); confinement is not deduced from (T6), and the remark \ref{bpI:p3:consumption} is superseded on this point. No strengthening of Part~\ref{bpI:p3} is required.
+\end{remark}
+
+\begin{remark}[Guards, dependence, doubts]\label{bpI:p5:doubts}
+(1) Lean totality: $\mathrm{Sol}$ asserts differentiability of $H_\R$ at $z(t)$ and a two-sided derivative; Lemma~\ref{bpI:p5:real-ham} shows that $H_\R$ is $C^\infty$ on $\R^2\times U\supset W_B$ so the clause is automatic (\Nref{bpN:p3:ham-reduction}); derivatives of $f,h$ are genuine on the open domains (Remark~\ref{bpI:p0:totality}). The values of $m_c,\Phi^{-1}$ are used only on $W\subset\mathcal U_c$, where $a_c(\nabla h)>0$ guards the division in $\sigma_c$.
+(2) Hypothesis use: $\det\mathsf B_h\ne0$ is used only through Part~\ref{bpI:p3} on $\mathcal S$; the part used of the energy level is the bounded region $\mathcal V$.
+(3) The case where $\overline{B'}$ meets several patches is handled pointwise: the patch is chosen from $I_0$, and only finitely many constants are involved.
+(4) The tori $\mathcal T_\pm$ are needed only at the energy of $z_0$ (the point of the pointwise energy identity \ref{bpI:p3:T3}); no foliation of a neighbourhood is used.
+(5) The frozen statement I-HEAD looked correct as written; no frozen statement is doubtful for this part.
+(6) Forward/backward references: all cited labels exist (Part~\ref{bpI:p3}, \Nref{bpN:p3:*} as in the label index of track N Part~3, \Kref{bp:p1:*}).
+\end{remark}

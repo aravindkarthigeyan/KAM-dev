@@ -34,34 +34,7 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "inp-bprev-1",
-   "assignment": "Refute-first blueprint reviews: Part 0 I/N, N p3, I p1 done (REVISE, fixes queued); now I p2, N p1-2",
-   "state": "running"
-  },
-  {
-   "id": "bpI-p67",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track I blueprint Parts 6-7: I-KEPLER; Kepler fundamentals (shared with P), Delaunay chart, exact restricted Hamiltonian",
-   "state": "running"
-  },
-  {
-   "id": "bpN-p6",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track N blueprint Part 6: Iterative Lemma and Normal Form Lemma (shared with P)",
-   "state": "running"
-  },
-  {
-   "id": "bpP-p1",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track P blueprint Part 1: torus transport, period and Diophantine conversions, Liouville",
+   "assignment": "Refute-first blueprint reviews (I and N): now I Parts 6-7 and N Part 6",
    "state": "running"
   },
   {
@@ -70,7 +43,34 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-1",
    "session": "inp-bprev-2",
-   "assignment": "Refute-first review of track-P blueprint parts (now Part 3, two-scale KAM)",
+   "assignment": "Refute-first blueprint reviews (P, and I Part 5: ACCEPT WITH FIXES): now P Part 2 and P Part 3 round 2",
+   "state": "running"
+  },
+  {
+   "id": "bpI-p8",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track I blueprint Part 8: proof of I-R3BP; shared collision exclusion",
+   "state": "running"
+  },
+  {
+   "id": "bpN-p8",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track N blueprint Part 8: geometry of resonances (lattice volumes, blocks, Geometric and Covering Lemmas)",
+   "state": "running"
+  },
+  {
+   "id": "bpN-p45-fix",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track N blueprint Parts 4-5: review fixes (angular Cauchy estimate)",
    "state": "running"
   }
  ]

@@ -2,38 +2,6 @@
  "method": "Items of tracks I, N, P, maintained by the sub-orchestrator; merged into the HQ by scripts/hq-status.py.",
  "items": [
   {
-   "group": "Campaign infrastructure",
-   "id": "I.REPO",
-   "title": "Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint",
-   "difficulty": "L",
-   "done": 1.0,
-   "note": ""
-  },
-  {
-   "group": "Campaign infrastructure",
-   "id": "I.HQ",
-   "title": "Campaign HQ: this README, generator, 20-minute cron and post-commit hook",
-   "difficulty": "L",
-   "done": 0.8,
-   "note": ""
-  },
-  {
-   "group": "Campaign infrastructure",
-   "id": "I.GUARDS",
-   "title": "Freeze machinery: manifest, anchor guard, quarantine, kernel replay, mutation suite",
-   "difficulty": "M",
-   "done": 0.6,
-   "note": "anchor guard (Unicode-aware), ABI hashes, lint; manual mutation tests pass (3/3); kernel replay and mutation suite to do"
-  },
-  {
-   "group": "Campaign infrastructure",
-   "id": "I.BUILD",
-   "title": "Shared build snapshot for worktrees and machine-wide compile gate",
-   "difficulty": "L",
-   "done": 0.0,
-   "note": ""
-  },
-  {
    "group": "Track I (isoenergetic, confinement, R3BP)",
    "id": "I.PHASE0",
    "title": "Sources, statements, owner approval, freeze",
@@ -46,8 +14,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.13,
-   "note": "blueprint-I: Parts 0-3 written and Part 1 revised after review; Parts 6-7 being written"
+   "done": 0.3,
+   "note": "blueprint-I complete (Parts 0-3, 5-8: proofs of I-G1, I-HEAD, I-KEPLER, I-R3BP); review fix rounds in progress; next: dependency graph"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -62,8 +30,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.15,
-   "note": "blueprint-N: Parts 0-5 written (shared ODE layer revised after review); Part 6 being written"
+   "done": 0.3,
+   "note": "blueprint-N: Parts 0-8 written (shared ODE, norms, Lie maps, normal form, stability, resonance geometry); Part 9 (Poschel Thm 1) being written"
   },
   {
    "group": "Track P (planetary)",
@@ -78,8 +46,8 @@
    "id": "P.PROOF.PDKAM",
    "title": "Properly degenerate KAM: blueprint, graph, proofs",
    "difficulty": "VH",
-   "done": 0.08,
-   "note": "blueprint-P: Part 0, plan, Part 3 (two-scale KAM) written; Part 1 being written; Part 3 under review"
+   "done": 0.15,
+   "note": "blueprint-P: Parts 0-3 written and revised (two-scale averaging and KAM); Parts 4-5 next"
   },
   {
    "group": "Track P (planetary)",
@@ -94,8 +62,8 @@
    "id": "N.ADD.PHASE0",
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.6,
-   "note": "N-PARTIAL-CONVEX packet with the owner (docs/tracks/N/REVIEW-additions.md); N-AVERAGING deferred pending the AKN source"
+   "done": 0.8,
+   "note": "N-PARTIAL-CONVEX approved and frozen (D25, 8 anchors); N-AVERAGING deferred pending the AKN source"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -110,8 +78,8 @@
    "id": "P.ADD.PHASE0",
    "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.8,
-   "note": "approval packet with the owner (docs/tracks/P/REVIEW-additions.md)"
+   "done": 1.0,
+   "note": "approved and frozen (D25): 38 anchors"
   },
   {
    "group": "Track P (planetary)",
