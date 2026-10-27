@@ -1,0 +1,253 @@
+\section{Averaging with two frequency scales}\label{bpP:p2}
+\providecommand{\wn}[3]{\lvert #1\rvert_{#2,#3}}
+\providecommand{\Dom}[2]{\mathcal D_{#1,#2}}
+\providecommand{\Os}[2]{\mathcal O(#1,#2)}
+\begingroup\sloppy
+
+This part proves the averaging statement that Part~3 consumes, Lemma~\ref{bpP:p3:avg} (CP10 Proposition~1 with $m=0$ and two non-resonance scales
+$\alpha_1\ge\alpha_2$), and the averaging step of CP10 \S4, Step~1 (p.~563) that Part~5 consumes. CP10 proves its Lemma~A.1 only by reference to
+the unpinned [4, Lemma~A.5]; here everything is derived from track~N's Parts~4--6.
+
+\paragraph{What track N gives, and what it does not.} The one-scale Normal Form Lemma \Nref{bpN:p6:normal-form} cannot simply be applied with $\alpha=\alpha_2$,
+for four reasons, each of which is repaired below.
+(1)~\emph{Exponential averaging needs an iteration}: one homological solve and one flow leave an angle-dependent quadratic remainder; the exponential bound
+$e^{-Ks/6}E$ comes from the finite iteration of \Nref{bpN:p6:iterative} (as in \Nref{bpN:p6:normal-form}, CP10 p.~565), not from one step.
+(2)~\emph{The strip.} \Nref{bpN:p6:normal-form} shrinks the strip from $S$ to $S/6$; the interface needs $\bar s+s\to\bar s+s/6$, that is, a loss budget $s$ that is
+unrelated to the initial width. The iteration is therefore re-run with N's step lemma as a black box (Proposition~\ref{bpP:p2:nfb}).
+(3)~\emph{Two scales.} The first-action displacement with $\alpha_1$ is not a consequence of the scalar statement (since $\alpha_1/\alpha_2$ is unbounded);
+it comes from the splitting of the generating function (Lemma~\ref{bpP:p2:split}, CP10 (70)--(71)).
+(4)~\emph{Hypotheses.} \Nref{bpN:p6:iterative} asks for non-resonance on the base set plus a Lipschitz bound $L$ with $KLr\le\alpha/p$; Part~3 provides non-resonance on the whole
+complex neighbourhood, and no Lipschitz constant enters the statement. Lemma~\ref{bpP:p2:direct} records that N's proof only uses the divisor bound on the neighbourhood.
+
+\subsection{Conventions: norm, widths, dictionary}\label{bpP:p2:conv}
+
+\paragraph{Norm ruling.} Track~P uses track~N's norm (\Nref{bpN:p4:norm}, ruling of the coordinator after review P3-03): for $u$ holomorphic on $\Dom rs=T_s\times V_rD$ and $1$-periodic in $\theta$,
+$\wn urs=\sup_{I\in V_rD}\sum_k\abs{\hat u_k(I)}e^{2\pi\abs k_1s}$, where $s$ is the \emph{geometric} half-width of the strip $T_s=\{\abs{\operatorname{Im}\theta}_\infty<s\}$ and
+$V_rD=\{I\in\C^n:\operatorname{dist}_\infty(I,D)<r\}$ (\Nref{bpN:p4:domains}). This is not the norm $\sum_k\sup_I$ used in Part~3 as printed; only $\wn{\cdot}{}{}\le\sum_k\sup_I$ holds.
+
+\paragraph{Dictionary to Part~3} (Lemma~\ref{bpP:p3:period-dictionary} and \Nref{bpN:p4:dictionary}). Part~3 writes widths as \emph{coefficient radii} $\sigma$ (weight $e^{\sigma\abs k_1}$, strip $\{\abs{\operatorname{Im}\theta}<\sigma/2\pi\}$, notation $\T_\sigma$).
+Hence $\T_{\sigma}^{\text{P3}}=T_{\sigma/2\pi}$, and Part~3's $(\bar s,s)$ correspond to $(\bar s/2\pi,s/2\pi)$ here. Frequencies, divisors, the Hamilton equations $\dot\theta=\partial_IH$, $\dot I=-\partial_\theta H$ and the period-one angles are the same in both; N's $\bar\alpha=2\pi\alpha$ and $\kappa=2\pi Ks$ are
+the quantities $2\pi\alpha$ and ``$Ks$ of Part~3''. Throughout this part
+\[ s\ \text{(geometric)},\qquad \kappa:=2\pi Ks\quad(\text{so }\kappa=K s_{\text{P3}}),\qquad\bar\alpha_j:=2\pi\alpha_j,\qquad Z_K=\{k\in\Z^n:\abs k_1\le K\}. \]
+The statement for Part~3 in its own notation is Corollary~\ref{bpP:p2:avg}.
+
+\paragraph{Splitting of indices.} $n=n_1+n_2$, $k=(k_1,k_2)$, $\theta=(\theta_1,\theta_2)$, $I=(I_1,I_2)$. A function is \emph{independent of $\theta_1$} if all its Fourier modes have $k_1=0$.
+
+\paragraph{External facts} (all inherited): those of \Nref{bpN:p4:s-ext}, \Nref{bpN:p6:s-ext}; $12\ln2>8$ and $\sum_{i\ge1}4^{1-i}=\tfrac43$ (\Nref{bpN:p6:ext-numerics}); $\abs{k\cdot v}\le\abs k_1\abs v_\infty$.
+
+\subsection{N's step lemma under a direct divisor hypothesis}\label{bpP:p2:s-direct}
+
+\begin{definition}[Direct divisor setting]\label{bpP:p2:setting}
+Let $D\subset\C^n$, $r>0$, $K\ge0$, $\alpha>0$, $q\ge1$, $\Lambda\subset\Z^n$, and $h$ holomorphic on $V_rD$, $\omega=\partial_Ih$. The data satisfy $(\mathrm{Div}_q)$ if
+$\abs{k\cdot\omega(I)}\ge\alpha/q$ for all $I\in V_rD$ and $k\in Z_K\setminus\Lambda$.
+\end{definition}
+
+\begin{lemma}[Iterative Lemma, direct form]\label{bpP:p2:direct}
+\Nref{bpN:p6:homological} and \Nref{bpN:p6:iterative} (with its Remark \Nref{bpN:p6:iterative-special}) hold verbatim, with the same $\phi=\sum_{k\in Z_K\setminus\Lambda}\frac{\hat f_k}{2\pi ik\cdot\omega}\chi_k$, the same constants and the same estimates, if the hypotheses
+\Nref{bpN:p6:cond-nr}, \Nref{bpN:p6:cond-L}, $KLr\le\alpha/p$ are replaced by $(\mathrm{Div}_q)$, $q\ge1$ arbitrary. In particular $q=1$ is allowed.
+\source{ours; N Part~6 as written.}
+\sourcegap{This is a variant of the written N statement. N's own proof is unchanged (check below); N may adopt $(\mathrm{Div}_q)$ as its primary hypothesis.}
+\end{lemma}
+\begin{proof}
+\proofstep{Where the hypotheses are used}\label{stepP:p2:dr-use} In \Nref{bpN:p6:homological}, \Nref{bpN:p6:cond-nr}, \Nref{bpN:p6:cond-L} and $KLr\le\alpha/p$ enter only through \Nref{bpN:p6:divisor}, whose
+conclusion is exactly $(\mathrm{Div}_q)$; and \Nref{bpN:p6:divisor} is used only in Steps \Nref{stepN:p6:hom-def} (holomorphy, nonvanishing denominators) and \Nref{stepN:p6:hom-norm} (the bound $\abs{\hat\phi_k}\le q\abs{\hat f_k}/\bar\alpha$).
+The proof of \Nref{bpN:p6:iterative} uses the hypotheses only through \Nref{bpN:p6:homological}; the identity $p^{-1}+q^{-1}=1$ occurs only in \Nref{bpN:p6:divisor}. The rest (Lemmas \Nref{bpN:p5:flow}, \Nref{bpN:p5:composition}, \Nref{bpN:p5:canonical-map}, \Nref{bpN:p5:transform}, \Nref{bpN:p4:bracket}) never mentions $\omega$.
+\end{proof}
+
+\begin{lemma}[Two-scale step: splitting of $\phi$ and componentwise displacement]\label{bpP:p2:split}
+Let $D\subset\C^n$, $r,s>0$, $0<\alpha_2\le\alpha_1$, $q\ge1$, $\Lambda=\{0\}$, $K\ge0$, and assume
+\[(\mathrm{Div}_q^{(2)})\qquad \abs{k\cdot\omega(I)}\ge\alpha_1/q\ \ (k_1\ne0),\qquad \abs{k\cdot\omega(I)}\ge\alpha_2/q\ \ (k_1=0,\ k\ne0),\qquad I\in V_rD,\ k\in Z_K.\]
+Let $f\in\Os rs$ with $\delta=\wn frs$, $0<\rho<r/2$, $0<\sigma<s/2$, $u=q\delta/(\bar\alpha_2\rho\sigma)\le\frac14$ (the hypothesis of Lemma~\ref{bpP:p2:direct} with $\alpha=\alpha_2$), $\phi$ and $\Phi=X^1_\phi$ as there. Put $\phi^{(1)}=\sum_{k\in Z_K,k_1\ne0}\hat\phi_k\chi_k$, $\phi^{(2)}=\phi-\phi^{(1)}$. Then
+\begin{enumerate}[label=(\alph*)]
+\item $\phi^{(2)}$ is independent of $\theta_1$; $\wn{\phi^{(1)}}rs\le q\delta/\bar\alpha_1$ and $\wn\phi rs\le q\delta/\bar\alpha_2$;
+\item on $\Dom{r-\frac32\rho}{s-\frac32\sigma}$:
+\[\abs{\Phi_{I_1}-I_1}\le\frac{q\delta}{e\,\bar\alpha_1\sigma},\qquad\abs{\Phi_{I_2}-I_2}\le\frac{q\delta}{e\,\bar\alpha_2\sigma},\qquad\abs{\Phi_\theta-\theta}\le\frac{q\delta}{\bar\alpha_2\rho}.\]
+\end{enumerate}
+\source{CP10 (70)--(71), p.~565 (splitting of $H_\phi$, bound for $\abs{I_1-I_1'}$); the displacement bookkeeping is ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{Coefficients}\label{stepP:p2:sp-coef} By the formula for $\phi$ (\Nref{bpN:p6:homological}), $\hat\phi_k=\hat f_k/(2\pi ik\cdot\omega)$, a finite family of holomorphic functions. For $k_1\ne0$, $(\mathrm{Div}^{(2)}_q)$ gives $\abs{\hat\phi_k}\le q\abs{\hat f_k}/\bar\alpha_1$; for every $k\in Z_K\setminus\{0\}$, $\alpha_1\ge\alpha_2$ gives $\abs{\hat\phi_k}\le q\abs{\hat f_k}/\bar\alpha_2$.
+Multiply by $e^{2\pi\abs k_1s}$, sum, take the supremum: (a) except independence, which holds because $\phi^{(2)}$ has only modes with $k_1=0$. Both $\phi^{(i)}$ lie in $\Os rs$ with finite norm (\Nref{bpN:p4:coefficients}(c)).
+\proofstep{Field}\label{stepP:p2:sp-field} Put $\varepsilon=\wn\phi rs/(\rho\sigma)\le u\le\frac14$, $\Omega=\Dom{r-\rho}{s-\sigma}$, $\nu=\nu_{\rho,\sigma}$ (\Nref{bpN:p5:setting}). By \Nref{bpN:p5:flow}(a) and Step \Nref{stepN:p5:cm-ab} of \Nref{bpN:p5:canonical-map}, for $z\in\Dom{r-\frac32\rho}{s-\frac32\sigma}$ the trajectory $\gamma(t)=X^t_\phi(z)$, $0\le t\le1$, stays in $\bar B_\nu(z,\varepsilon)\subset\Omega$ and solves $\dot\gamma=X_\phi(\gamma)=(\partial_I\phi,-\partial_\theta\phi)$.
+The first $n_1$ components of $\dot\gamma_I$ are $-\partial_{\theta_1}\phi=-\partial_{\theta_1}\phi^{(1)}$ because $\partial_{\theta_1}\phi^{(2)}=0$. By \Nref{bpN:p5:vf-bound} applied to $\phi^{(1)}$, $\abs{\partial_{\theta_1}\phi^{(1)}}\le\wn{\phi^{(1)}}rs/(e\sigma)\le q\delta/(e\bar\alpha_1\sigma)$ on $\Omega$. Likewise \Nref{bpN:p5:vf-bound} for $\phi$ bounds $\abs{\partial_{\theta_2}\phi}\le q\delta/(e\bar\alpha_2\sigma)$ and $\abs{\partial_I\phi}\le q\delta/(\bar\alpha_2\rho)$ on $\Omega$.
+\proofstep{Integrate}\label{stepP:p2:sp-int} The mean value inequality along $\gamma$ (\Kref{bp:p1:ext-mvt}) gives (b) with $t=1$.
+\end{proof}
+
+\subsection{The averaging proposition in N's conventions}\label{bpP:p2:s-nfb}
+
+\begin{proposition}[Averaging with a loss budget and two scales]\label{bpP:p2:nfb}
+Let $n=n_1+n_2$, $D\subset\R^n$, $r>0$, $\bar s\ge0$, $s>0$, $K>0$ with $\kappa=2\pi Ks\ge6$, $0<\alpha_2\le\alpha_1$. Let $h$ be holomorphic on $V_rD$ and real on $V_rD\cap\R^n$, $\omega=\partial_Ih$, and assume
+\begin{enumerate}[label=(\textup{A}\arabic*)]
+\item\label{bpP:p2:a1} $\abs{k\cdot\omega(I)}\ge\alpha_1$ if $k_1\ne0$, $\ge\alpha_2$ if $k_1=0$, for all $I\in V_rD$ and $k\in Z_K\setminus\{0\}$;
+\item\label{bpP:p2:a2} $f\in\Os r{\bar s+s}$, real on real points, with $E:=\wn f{r}{\bar s+s}\le\dfrac{\alpha_2r}{128K}$.
+\end{enumerate}
+Then there is a map $\Psi:\Dom{r/2}{\bar s+s/6}\to\Dom r{\bar s+s}$, $\Psi(\theta',I')=(\theta,I)$, and functions $g,f_*$ on $\Dom{r/2}{\bar s+s/6}$ such that
+\begin{enumerate}[label=(\alph*)]
+\item $\Psi$ is holomorphic, injective, real on real points, $\Psi(\theta'+k,I')=\Psi(\theta',I')+(k,0)$ ($k\in\Z^n$), and $(D\Psi)^\top J\,D\Psi=J$ ($\Psi$ preserves $d\theta\wedge dI$, hence $dI\wedge d\theta$);
+\item $H\circ\Psi=h+g+f_*$, $H=h+f$, with $g=g(I')$ independent of $\theta'$, real on real points, and $\sup_{V_{r/2}D}\abs{g-\hat f_0}\le\wn{g-\hat f_0}{r/2}{\bar s+s/6}\le E/4$ (indeed $\le E/\kappa$);
+\item $f_*$ is holomorphic, periodic, real on real points and $\wn{f_*}{r/2}{\bar s+s/6}\le e^{-\kappa/6}E$;
+\item $\bar\alpha_1s\,\abs{I_1-I_1'}\le3E$, $\ \bar\alpha_2s\,\abs{I_2-I_2'}\le3E$, $\ \bar\alpha_2r\,\abs{\theta-\theta'}\le9E$ on $\Dom{r/2}{\bar s+s/6}$.
+\end{enumerate}
+Constants depend on nothing: no $n$, $\tau$, $q$ or $L$ enter.
+\source{CP10 Prop.~1 (p.~552) with $m=0$, Lemma~A.1 (p.~564), proof pp.~564--565; Pöschel 1993 pp.~193--196 via \Nref{bpN:p6:normal-form}. Constants recomputed (see Remark~\ref{bpP:p2:nums}).}
+\end{proposition}
+\begin{proof}
+Throughout $q=1$: by \ref{bpP:p2:a1}, $(\mathrm{Div}^{(2)}_1)$ holds on $V_rD$ with $\Lambda=\{0\}$, and for every $r'\le r$ and $D'\subset D$-neighbourhoods inside $V_rD$. Write $\bar\alpha=\bar\alpha_2$, $\varepsilon:=E$, $S_i:=\bar s+s_i$ for the strip widths, where $s_i$ (the \emph{budget} still to be spent) is chosen below.
+From \ref{bpP:p2:a2}: $\varepsilon\le\alpha_2r/(128K)=\bar\alpha rs/(128\kappa)$. Every application of Lemma~\ref{bpP:p2:direct} below is on $\Dom{r_i}{S_i}$ with $r_i\le r$ and $S_i\ge s$, so its non-resonance hypothesis is \ref{bpP:p2:a1}; its requirements $2\rho<r_i$, $2\sigma<S_i$ hold since the strip is at least the budget.
+Because the weights $\abs g_*$ of \Nref{bpN:p6:setting} contain the widths only through the \emph{differences} $s_j-s_i$, the strip offset $\bar s$ plays no role in any estimate.
+
+\proofstep{Step 0}\label{stepP:p2:nfb-first} Take $\rho_0=r/8$, $\sigma_0=s/6$ and $g=0$ in Lemma~\ref{bpP:p2:direct}. Then $y_0:=\varepsilon/(\bar\alpha\rho_0\sigma_0)=48\varepsilon/(\bar\alpha rs)\le\frac{3}{8\kappa}\le\frac1{16}$, so $u=y_0\le\frac14$. Lemma~\ref{bpP:p2:direct}(d) with $\abs g_*=0$ gives
+\[\wn{f_1}{\tfrac34r}{\bar s+\tfrac23s}\le(1-2y_0)^{-1}\bigl(\tfrac2ey_0+e^{-\kappa/6}\bigr)\varepsilon,\qquad(1-2y_0)^{-1}\le\tfrac87\]
+($2\pi K\sigma_0=\kappa/6\ge1$).
+\emph{Case A: $e^{-\kappa/6}\le y_0$.} Then
+\[\varepsilon_1:=\wn{f_1}{}{}\le\tfrac87\bigl(1+\tfrac2e\bigr)y_0\varepsilon\le1.984\cdot\tfrac3{8\kappa}\,\varepsilon\le\frac{3\varepsilon}{4\kappa}\le\frac\varepsilon8.\tag{2.1}\]
+\emph{Case B: $e^{-\kappa/6}>y_0$.} Repeat Step~0 with the doubled losses $\rho'=r/4$, $\sigma'=s/3$ ($u'=y_0/4$): $\wn{f_1}{r/2}{\bar s+s/3}\le(1-y_0/2)^{-1}(\tfrac2e\tfrac{y_0}4+e^{-\kappa/3})\varepsilon\le\tfrac{32}{31}(\tfrac1{2e}+\tfrac1e)e^{-\kappa/6}\varepsilon\le e^{-\kappa/6}\varepsilon$, using $e^{-\kappa/3}\le e^{-1}e^{-\kappa/6}$. We stop with $\Psi=\Phi_0'$ on $\Dom{r/2}{\bar s+s/3}\supset\Dom{r/2}{\bar s+s/6}$, $g=\hat f_0$, $f_*=f_1$. Clauses (a)--(c) follow from Lemma~\ref{bpP:p2:direct}; (d): Lemma~\ref{bpP:p2:split}(b) gives $\abs{\Delta I_j}\le\varepsilon/(e\bar\alpha_j\sigma')=3\varepsilon/(e\bar\alpha_js)\le1.1\,\varepsilon/(\bar\alpha_js)$ and $\abs{\Delta\theta}\le\varepsilon/(\bar\alpha\rho')=4\varepsilon/(\bar\alpha r)$.
+From now on Case~A.
+
+\proofstep{Number of steps}\label{stepP:p2:nfb-N} $N:=\lfloor\kappa/(12\ln2)\rfloor$, so $N<\kappa/8$. If $N=0$: $\kappa<12\ln2$, hence $e^{-\kappa/6}>\frac14$, and $\varepsilon_1\le\varepsilon/8\le e^{-\kappa/6}\varepsilon$ by (2.1); set $\Psi=\Phi_0$, $g=\hat f_0$, $f_*=f_1$ on $\Dom{3r/4}{\bar s+2s/3}$. Displacements: $\abs{\Delta I_j}\le\varepsilon/(e\bar\alpha_j\sigma_0)=6\varepsilon/(e\bar\alpha_js)\le2.21\,\varepsilon/(\bar\alpha_j s)$, $\abs{\Delta\theta}\le8\varepsilon/(\bar\alpha r)$. (a)--(d) follow.
+Let $N\ge1$ and for $1\le i\le N$
+\[\rho_i=\rho=\frac r{8N},\ \ \sigma_i=\sigma=\frac s{4N},\qquad r_i=\tfrac34r-2(i-1)\rho,\ \ s_i=\tfrac23s-2(i-1)\sigma,\quad S_i=\bar s+s_i;\]
+then $r_{N+1}=r/2$, $s_{N+1}=s/6$. $2\pi K\sigma=\kappa/(4N)\ge3\ln 2$, so $e^{-2\pi K\sigma}\le\frac18$; $\rho\sigma=rs/(32N^2)$. From $\kappa>8N$, \ref{bpP:p2:a2} and (2.1):
+\[\varepsilon\le\frac{\bar\alpha rs}{2^{10}N},\qquad \varepsilon_1\le\frac{3}{4\kappa}\varepsilon<\frac{3\varepsilon}{32N}\le\frac{3\,\bar\alpha rs}{2^{15}N^2}<\frac{\bar\alpha\rho\sigma}{2^8}.\tag{2.2}\]
+
+\proofstep{Induction}\label{stepP:p2:nfb-ind} \emph{Claim:} for $1\le i\le N$ step $i$ (Lemma~\ref{bpP:p2:direct} on $\Dom{r_i}{S_i}$, losses $(\rho,\sigma)$) is admissible, and $\varepsilon_{i+1}:=\wn{f_{i+1}}{r_{i+1}}{S_{i+1}}\le\varepsilon_i/4$; hence $\varepsilon_i\le4^{1-i}\varepsilon_1$ ($1\le i\le N+1$).
+Here $f_{i+1}$, $g_i=g_{i-1}+\hat{(f_i)}_0$ are produced by the step, $g_0:=\hat f_0$, $\abs{g_i-g_{i-1}}\le\varepsilon_i$ (\Nref{bpN:p4:projections}).
+\emph{Admissibility:} $u_i=\varepsilon_i/(\bar\alpha\rho\sigma)\le2^{-8}$ by (2.2). \emph{Weights:} decompose $g_{i-1}=g_0+\sum_{j=1}^{i-1}(g_j-g_{j-1})$; the term $j\ge1$ lives on $\Dom{r_j}{S_j}$ with $r_j-r_i\ge2\rho$, $s_j-s_i\ge2\sigma$, weight $\le\frac12(\frac13+\frac13)\le\frac12$; the term $g_0$ lives on $\Dom r{\bar s+s}$ with $r-r_i\ge r/4$, $s-s_i\ge s/3$, weight $\le\frac12(\frac{1}{2N}+\frac3{4N})\le\frac1N$. Thus
+$\abs{g_{i-1}}_*\le\frac12\cdot\frac43\varepsilon_1+\varepsilon/N\le\varepsilon_1+\varepsilon/N\le\bar\alpha\rho\sigma\,(2^{-8}+2^{-5})\le\bar\alpha\rho\sigma/2^4$ (by (2.2) and $\varepsilon/N\le\bar\alpha rs/(2^{10}N^2)=2^{-5}\bar\alpha\rho\sigma$). \emph{The step:} Lemma~\ref{bpP:p2:direct}(d) with $\delta=\varepsilon_i$ gives
+$\varepsilon_{i+1}\le\tfrac{128}{127}\bigl(\tfrac2e(\tfrac1{16}+\tfrac1{2^8})+\tfrac18\bigr)\varepsilon_i\le\tfrac{128}{127}\cdot0.1915\,\varepsilon_i<\tfrac14\varepsilon_i$. (This is the computation of \Nref{bpN:p6:normal-form}, Step \Nref{stepN:p6:nf-induct}, with $q=1$.)
+
+\proofstep{Conclusion of the construction}\label{stepP:p2:nfb-concl} Put $\Psi=\Phi_0\circ\dots\circ\Phi_N$ on $\Dom{r/2}{\bar s+s/6}$, $g=g_N$, $f_*=f_{N+1}$. Since $H_{i+1}=H_i\circ\Phi_i$, $H\circ\Psi=h+g+f_*$. $g$ is a finite sum of $\theta$-independent functions (each $\hat{(f_i)}_0$), so $g=g(I')$; $\hat f_0=g_0$. \Nref{bpN:p6:telescope} with $U_i=\Dom{r_i}{S_i}$ gives (a) (holomorphic, canonical, injective; periodicity and reality are inherited from each $\Phi_i$, \Nref{bpN:p6:iterative}(a),(e)), and reality of $g,f_*$ is \Nref{bpN:p6:iterative}(e).
+(c): $\varepsilon_{N+1}\le4^{-N}\varepsilon_1\le4^{-N-1}\varepsilon\le e^{-\kappa/6}\varepsilon$, since $N+1>\kappa/(12\ln2)$ gives $4^{-(N+1)}<e^{-\kappa/6}$.
+(b): $\abs{g-g_0}\le\sum_{i=1}^N\varepsilon_i\le\frac43\varepsilon_1\le\varepsilon/\kappa\le\varepsilon/6$ by (2.1); this is the bound of CP10 (25) in which no $K$ appears in the numerator (review P3-04). The sup bound follows from \Nref{bpN:p4:sup-weighted}(a).
+
+\proofstep{(d) Displacement}\label{stepP:p2:nfb-disp} By \Nref{bpN:p6:telescope} (seminorms $\abs{\Pi_{I_1}\cdot}$, $\abs{\Pi_{I_2}\cdot}$, $\abs{\Pi_\theta\cdot}$) and Lemma~\ref{bpP:p2:split}(b) for each step (valid on $V_{i+1}\subset\Dom{r_i-\frac32\rho_i}{S_i-\frac32\sigma_i}$, \Nref{bpN:p6:iterative}(a)):
+\[\abs{\Delta I_j}\le\frac{\varepsilon}{e\bar\alpha_j\sigma_0}+\sum_{i=1}^N\frac{\varepsilon_i}{e\bar\alpha_j\sigma}\le\frac1{e\bar\alpha_js}\Bigl(6\varepsilon+4N\cdot\tfrac43\varepsilon_1\Bigr),\qquad
+\abs{\Delta\theta}\le\frac\varepsilon{\bar\alpha\rho_0}+\sum_{i=1}^N\frac{\varepsilon_i}{\bar\alpha\rho}\le\frac1{\bar\alpha r}\Bigl(8\varepsilon+8N\cdot\tfrac43\varepsilon_1\Bigr).\]
+By (2.1) and $N<\kappa/8$: $N\varepsilon_1\le\frac{3N}{4\kappa}\varepsilon<\frac3{32}\varepsilon$. Hence $\frac{1}{e}(6+\frac{16}3\cdot\frac3{32})=\frac{6.5}e<2.4\le3$ and $8+\frac{32}3\cdot\frac3{32}=9$ (strict inequality, since $N<\kappa/8$ strictly). Both bounds are $\le$ the claimed ones.
+\end{proof}
+
+\begin{remark}[Where the constants come from]\label{bpP:p2:nums}
+Smallness: \ref{bpP:p2:a2} is the one-scale hypothesis (i) of \Nref{bpN:p6:normal-form} with $q=1$ ($2^7qK\varepsilon\le\alpha r$). The weaker requirement of CP10, $64e\,KE<\alpha_2r$ (CP10 (23) with $m=0$, $c_0=e/2$, $d=rs$), implies it since $64e>128$. The number of steps $N$, the losses, $4^{1-i}$ and $e^{-\kappa/6}$ are those of \Nref{bpN:p6:normal-form}; the improvements ($E/\kappa$ instead of $16c\varepsilon^2$, $3E$ instead of $9E$ for the actions) come from keeping the exact expressions $6/e$ and $y_0\le3/(8\kappa)$ instead of the cruder $\kappa\ge6\Rightarrow1/(\bar\alpha s)\le K/(6\alpha)$ of \Nref{bpN:p6:normal-form}(c), which is a bound in $K$ and is useless for the interface (the interface displacement is independent of $K$).
+The deviation of \Nref{bpN:p6:deviations}(1) is respected: all steps satisfy $\abs\phi\le\rho\sigma/4$.
+\end{remark}
+
+\subsection{The interface of Lemma~\ref{bpP:p3:avg}}\label{bpP:p2:s-avg}
+
+\begin{corollary}[Averaging with two scales, in Part~3's notation]\label{bpP:p2:avg}
+Let $0<\alpha_2\le\alpha_1$, $D\subset\R^n$, $r>0$, $\bar s,s>0$, $K>0$ with $Ks\ge6$. Let $h$ be real analytic on $D_r$ (holomorphic on $D_r=V_rD$, real on real points) with $\omega=\partial h$, and let $f$ be holomorphic on $D_r\times\T_{\bar s+s}$, real analytic, $1$-periodic in $\theta$, with the \emph{N-norm}
+$E:=\sup_{I\in D_r}\sum_k\abs{\hat f_k(I)}e^{(\bar s+s)\abs k_1}<\infty$. Assume \ref{bpP:p2:a1} (that is, (N1) of Lemma~\ref{bpP:p3:avg}) and
+\[64e\,KE<\alpha_2r.\]
+Then there is a holomorphic, injective, real, symplectic ($\Psi^*(dI\wedge d\theta)=dI'\wedge d\theta'$) map $\Psi:D_{r/2}\times\T_{\bar s+s/6}\to D_r\times\T_{\bar s+s}$ with $\Psi-\mathrm{id}$ $\Z^n$-periodic in $\theta'$, and $g=g(I')$, $f_*$ with $H\circ\Psi=h+g+f_*$ on $D_{r/2}\times\T_{\bar s+s/6}$ and, in the N-norm with weight $e^{(\bar s+s/6)\abs k_1}$ on $D_{r/2}$,
+\begin{align*}
+&\sup_{D_{r/2}}\abs{g-f_0}\le E/4,\qquad \norm{f_*}_{r/2,\bar s+s/6}\le e^{-Ks/6}E,\\
+&\alpha_1s\abs{I_1-I_1'}\le3E\ (\le 9E),\quad\alpha_2s\abs{I_2-I_2'}\le3E\ (\le9E),\quad2\pi\alpha_2r\abs{\theta-\theta'}\le9E.
+\end{align*}
+\source{CP10 Prop.~1 (p.~552) with $m=0$, $\Lambda=\{0\}$; proof: Proposition~\ref{bpP:p2:nfb}.}
+\end{corollary}
+\begin{proof}
+\proofstep{Dictionary}\label{stepP:p2:av-dict} Put $\bar s_N=\bar s/2\pi$, $s_N=s/2\pi$ (geometric). Then $\T_{\bar s+s}=T_{\bar s_N+s_N}$, the weight $e^{(\bar s+s)\abs k_1}=e^{2\pi\abs k_1(\bar s_N+s_N)}$, so $E=\wn f{r}{\bar s_N+s_N}$ in the notation of Proposition~\ref{bpP:p2:nfb}; $\kappa=2\pi Ks_N=Ks\ge6$; $\bar\alpha_js_N=\alpha_js$ and $\bar\alpha_2r=2\pi\alpha_2r$.
+\proofstep{Hypotheses}\label{stepP:p2:av-hyp} $64e>128$, so $64eKE<\alpha_2r$ gives $E\le\alpha_2r/(128K)$. The remaining hypotheses are identical. Proposition~\ref{bpP:p2:nfb}(a)--(d) are the claims; $e^{-\kappa/6}=e^{-Ks/6}$.
+\end{proof}
+
+\begin{remark}[What Part~3 must change (the interface report)]\label{bpP:p2:diff}
+Lemma~\ref{bpP:p3:avg} is \emph{provable as stated, with the single change of norm}: replace the Part~3 norm $\norm{\cdot}_{r,\sigma}=\sum_k\sup_I\abs{f_k}e^{\sigma\abs k}$ by N's $\sup_I\sum_k\abs{\hat f_k(I)}e^{\sigma\abs k_1}$ (this is Corollary~\ref{bpP:p2:avg}). Precisely:
+\begin{enumerate}
+\item Every occurrence of the norm (hypothesis $E\ge\norm f_{\rho,\bar s+s}$ of \Pref{bpP:p3:two-scale-kam}, $E_j$ in the iteration, outputs $\norm{f_*}$) is read in N's norm. Used properties: monotone under restriction of $r$, $\sigma$ and of the base set; $\sup\abs f\le\norm f$ (\Nref{bpN:p4:sup-weighted}(a)); Cauchy estimates for $g$ use only $\sup$. Nothing in Part~3 uses the finer $\sum_k\sup_I$ structure, except the printed definition.
+\item The numerical constants: hypothesis (N2) $64eKE<\alpha_2r$ and the conclusions $E/4$, $e^{-Ks/6}E$, $\alpha_2r2\pi\abs{\Delta\theta}\le9E$ are unchanged; $\alpha_is\abs{\Delta I_i}\le9E$ may be replaced by $3E$ (so the constant $\tfrac34$ of \texttt{st-avg} may become $\tfrac14$); no other constant of Part~3 changes.
+\item Hypothesis (N1) is used on the full complex neighbourhood $D_r$, exactly as in Lemma~\ref{bpP:p3:avg}; \emph{no Lipschitz hypothesis is added} (Lemma~\ref{bpP:p2:direct}). Reality of $h$ and $f$ on real points is used, as in Part~3's setting.
+\item The proof plan of Lemma~\ref{bpP:p3:avg} (one homological solve, one flow) must be replaced by Proposition~\ref{bpP:p2:nfb}: a finite iteration; the Fourier-tail remark of \texttt{avg-flow} is not the source of the exponential.
+\end{enumerate}
+\end{remark}
+
+\subsection{Averaging with an oscillator pair (CP10 \S4, Step~1)}\label{bpP:p2:s-osc}
+
+CP10 \S4, Step~1 (p.~563) averages over the $n_1$ fast angles while the oscillator variables $(p,q)\in\C^{n_2}\times\C^{n_2}$ are dynamical: the transformation moves them, symplectically for $dI\wedge d\theta+dp\wedge dq$.
+Track~N's Parts~4--6 are written for $(\theta,I)$ only. The extension is mechanical but must be recorded; we do it with its own constants.
+
+\paragraph{Setting.} $n,m\ge1$, $D\subset\R^n$, $v=(r,r_p,r_q)$, $s>0$, $\bar s\ge0$. $\Dom{v}{S}:=T_S\times V_rD\times B_{r_p}\times B_{r_q}\ni(\theta,I,p,q)$ with $B_a=\{x\in\C^m:\abs x_\infty<a\}$ (the complex neighbourhood of $\{0\}$ in the max norm; the Euclidean ball of CP10 contains it up to $\sqrt m$ in radius), $\Os vS$ and $\wn\cdot vS$ as in \Nref{bpN:p4:norm} with the sup over $(I,p,q)$ ($I,p,q$ together play the r\^ole of N's parameter $I$; only $\theta$ is Fourier expanded). The field of $u$ is $X_u=(\partial_Iu,-\partial_\theta u;\ \partial_pu,-\partial_qu)$ in the order $(\dot\theta,\dot I;\dot q,\dot p)$ and
+$\{u,w\}=\sum_i(\partial_{\theta_i}u\,\partial_{I_i}w-\partial_{I_i}u\,\partial_{\theta_i}w)+\sum_j(\partial_{q_j}u\,\partial_{p_j}w-\partial_{p_j}u\,\partial_{q_j}w)=Du\cdot X_w$. Put $d:=\min\{rs,r_pr_q\}$ and $b:=1+m$.
+For losses $\nu=(\rho,\rho_p,\rho_q,\sigma)$ put $\delta_\nu:=\min\{\rho\sigma,\rho_p\rho_q\}$ and the scaled norm $\nu(a,b_I,c_q,c_p)=\max(\abs a/\sigma,\abs{b_I}/\rho,\abs{c_q}/\rho_q,\abs{c_p}/\rho_p)$, whose balls are the polydiscs of the four domain losses.
+
+\begin{lemma}[Extended bracket and field estimates]\label{bpP:p2:osc-bracket}
+Let $u\in\Os{v_0}{S_0}$, $w\in\Os vS$ with finite norms, $0<\rho<r$, $0<\rho_p<r_p$, $0<\rho_q<r_q$, $0<\sigma<S$, $v-\nu<v_0$ componentwise, $S-\sigma<S_0$. Then $\{u,w\}\in\Os{v-\nu}{S-\sigma}$ and
+\[\wn{\{u,w\}}{v-\nu}{S-\sigma}\le\frac{W}{\delta_\nu}\wn u{v_0}{S_0}\wn wvS,\quad W=\tfrac1e\Bigl(\tfrac{\rho}{r_0-r+\rho}+\tfrac{\sigma}{S_0-S+\sigma}\Bigr)+m\Bigl(\tfrac{\rho_q}{r_{q0}-r_q+\rho_q}+\tfrac{\rho_p}{r_{p0}-r_p+\rho_p}\Bigr)\le2b\,R,\]
+where $R$ is the largest of the four ratios. Moreover for $\phi\in\Os vS$: on $\Dom{v-\nu}{S-\sigma}$, $\nu(X_\phi)\le\wn\phi vS/\delta_\nu$.
+\end{lemma}
+\begin{proof}
+\proofstep{Derivative bounds}\label{stepP:p2:ob-der} \Nref{bpN:p4:cauchy}(b) is a statement about each coordinate of the parameter separately (its proof is a one-variable Cauchy integral in that coordinate; $\partial_{p_j}$ costs the loss in the $p$-radius), and (a) concerns $\theta$ only. So, with the same proofs, $\sum_j\wn{\partial_{p_j}u}{}{}\le m\max_j\le m\wn u/(r_{p0}-r_p+\rho_p)$ after restriction, and likewise for $q$.
+\proofstep{Products}\label{stepP:p2:ob-prod} \Nref{bpN:p4:algebra} and the triangle inequality as in \Nref{bpN:p4:bracket}: the $(\theta,I)$ part gives $\frac1e(\frac1{(r_0-r+\rho)\sigma}+\frac1{(S_0-S+\sigma)\rho})$, the $(q,p)$ part $m(\frac1{(r_{q0}-r_q+\rho_q)\rho_p}+\frac1{(r_{p0}-r_p+\rho_p)\rho_q})$. Since $\frac1{(r_0-r+\rho)\sigma}=\frac{1}{\rho\sigma}\cdot\frac{\rho}{r_0-r+\rho}$ etc. and $\rho\sigma,\rho_p\rho_q\ge\delta_\nu$, the bound follows; $\frac1e+\frac1e\le2$ gives $W\le2bR$.
+\proofstep{Field}\label{stepP:p2:ob-field} As in \Nref{bpN:p5:vf-bound}: $\abs{\partial_I\phi}/\sigma\le\wn{\phi}{}{}/(\rho\sigma)$, $\abs{\partial_\theta\phi}/\rho\le\wn{\phi}{}{}/(e\sigma\rho)$, $\abs{\partial_p\phi}/\rho_q\le\wn{\phi}{}{}/(\rho_p\rho_q)$, $\abs{\partial_q\phi}/\rho_p\le\wn{\phi}{}{}/(\rho_q\rho_p)$.
+\end{proof}
+
+\begin{lemma}[Iterative Lemma with an oscillator pair]\label{bpP:p2:osc-iter}
+\Nref{bpN:p6:iterative} (in direct form, Lemma~\ref{bpP:p2:direct}, $\Lambda=\{0\}$, $q=1$) holds on $\Dom vS$ with all losses $\nu$, with $\rho\sigma$ replaced by $\delta_\nu$, the factor $\frac2e$ in the bracket estimate replaced by $2b$ (so $\abs g_*$ is replaced by $\abs g_R:=\sum_jR_j\wn{g_j}{}{}$), and $\Phi=X^1_\phi$ symplectic for $d\theta\wedge dI+dq\wedge dp$:
+\begin{enumerate}[label=(\alph*)]
+\item if $\wn f{v}{S}=\delta\le\bar\alpha\delta_\nu/(16b)$ then $\abs{\Phi_\theta-\theta}\le\delta/(\bar\alpha\rho)$, $\abs{\Phi_I-I}\le\delta/(e\bar\alpha\sigma)$, $\abs{\Phi_q-q}\le\delta/(\bar\alpha\rho_p)$, $\abs{\Phi_p-p}\le\delta/(\bar\alpha\rho_q)$;
+\item $\wn{f_+}{v-2\nu}{S-2\sigma}\le(1-2b\delta/(\bar\alpha\delta_\nu))^{-1}\bigl(\frac{2b}{\bar\alpha\delta_\nu}(\abs g_R+\delta)+e^{-2\pi K\sigma}\bigr)\delta$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{Transfer}\label{stepP:p2:oi-transfer} \Nref{bpN:p6:homological} involves $\theta$ and the parameters only through coefficients and is unchanged ($\wn\phi{}{}\le\delta/\bar\alpha$). \Nref{bpN:p5:flow} is for an arbitrary complex norm and open set; \Nref{bpN:p5:symplectic} uses only $DF=JS$ with $S$ symmetric and $J^\top=-J$, true for the enlarged $J$; Corollary \Nref{bpN:p5:canonical} follows. Lemma \Nref{bpN:p5:adjoint}, Theorem \Nref{bpN:p5:composition}, Propositions \Nref{bpN:p5:transform}, \Nref{bpN:p5:canonical-map} use the geometry only through the bracket bound and the field bound: replace \Nref{bpN:p4:bracket} and \Nref{bpN:p5:vf-bound} by Lemma~\ref{bpP:p2:osc-bracket} and $\rho\sigma$ by $\delta_\nu$; the ratio of the Lie series of \Nref{bpN:p5:composition} is multiplied by at most $e\,b$ (the bracket constant $2/e$ becomes $2b$), see the next step.
+\proofstep{Smallness range}\label{stepP:p2:oi-range} With the new bracket constant the Lie series converges and equals the composition (\Nref{bpN:p5:composition}) as soon as $e\,b\,\eta\le\frac12$, $\eta=2\wn{\phi}{}{}/\delta_\nu$, that is $\wn{\phi}{}{}\le\delta_\nu/(4eb)$. We therefore \emph{assume} $\delta\le\bar\alpha\delta_\nu/(16b)$ (this replaces $u\le\frac14$); it holds at every step of Proposition~\ref{bpP:p2:osc-averaging} (there $\delta/(\bar\alpha\delta_\nu)\le y_0\le1/(64b\kappa)$ or is smaller by (2.3)). Then (a) and (b) follow as in \Nref{bpN:p6:iterative} with $\frac2e\mapsto2b$ and $1-\frac{2q\delta}{\bar\alpha\rho\sigma}\mapsto1-\frac{2b\delta}{\bar\alpha\delta_\nu}$.
+\proofstep{Displacement}\label{stepP:p2:oi-disp} As in Step~\ref{stepP:p2:sp-field}: components of $X_\phi$ and Lemma~\ref{bpP:p2:osc-bracket}: $\abs{\partial_I\phi}\le\wn{\phi}{}{}/\rho$, $\abs{\partial_\theta\phi}\le\wn{\phi}{}{}/(e\sigma)$, $\abs{\partial_p\phi}\le\wn{\phi}{}{}/\rho_p$, $\abs{\partial_q\phi}\le\wn{\phi}{}{}/\rho_q$.
+\end{proof}
+\sourcegap{Lemma~\ref{bpP:p2:osc-iter} extends N Parts~5--6 by an oscillator pair; the extension is stated by its (short) list of changes, not rewritten in N. It is the oscillator part of CP10 Lemma~A.1 / [4, Lemma~A.5]. If track~N prefers, it can be absorbed into N Part~5 ($\{\cdot,\cdot\}$ on $\C^n\times\C^n\times\C^m\times\C^m$). Constants differ from CP10's $c_m=e(1+em)/2$.}
+
+\begin{proposition}[Averaging with oscillators, one scale]\label{bpP:p2:osc-averaging}
+In the setting above, let $h$ be holomorphic on $V_rD$, real on real points, $\omega=\partial h$ ($h$ independent of $p,q$), $\alpha>0$, $K>0$, $\kappa=2\pi Ks\ge6$,
+\begin{enumerate}[label=(\textup{O}\arabic*)]
+\item\label{bpP:p2:o1} $\abs{k\cdot\omega(I)}\ge\alpha$ for $I\in V_rD$, $0<\abs k_1\le K$;
+\item\label{bpP:p2:o2} $f\in\Os v{\bar s+s}$ real on real points, $E:=\wn fv{\bar s+s}$ with $2^{12}\,b\,KE\,s\le\alpha d$.
+\end{enumerate}
+Then there is $\Psi:\Dom{v/2}{\bar s+s/6}\to\Dom v{\bar s+s}$ holomorphic, injective, real, $\Psi-\mathrm{id}$ periodic in $\theta$, symplectic for $d\theta\wedge dI+dq\wedge dp$, with $H\circ\Psi=h+g+f_*$ on $\Dom{v/2}{\bar s+s/6}$, $H=h+f$, $g=g(I,p,q)$ independent of $\theta$, real, and with $\bar\alpha=2\pi\alpha$
+\begin{align*}
+&\wn{g-\hat f_0}{v/2}{\bar s+s/6}\le\frac{400\,b\,E^2}{\bar\alpha d},\qquad\wn{f_*}{v/2}{\bar s+s/6}\le e^{-\kappa/6}E,\\
+&\bar\alpha s\abs{I-I'}\le3E,\quad\bar\alpha r\abs{\theta-\theta'}\le9E,\quad\bar\alpha r_q\abs{p-p'}\le9E,\quad\bar\alpha r_p\abs{q-q'}\le9E .
+\end{align*}
+\source{CP10 Prop.~1 (p.~552), Lemma~A.1 (p.~564) with $\ell_2=0$, $\Lambda=\{0\}$; (25), (26). Constants ours.}
+\end{proposition}
+\begin{proof}
+Use the notation of Proposition~\ref{bpP:p2:nfb} ($q=1$, $\varepsilon=E$, $\bar\alpha=2\pi\alpha$); \ref{bpP:p2:o2} reads $\varepsilon\le\bar\alpha d/(2^{12}b\kappa)$. Step~0 losses $\rho_0=r/8$, $\rho_{p0}=r_p/8$, $\rho_{q0}=r_q/8$, $\sigma_0=s/6$; then $\delta_{\nu_0}=\min\{rs/48,r_pr_q/64\}\ge d/64$ and $y_0:=\varepsilon/(\bar\alpha\delta_{\nu_0})\le64\varepsilon/(\bar\alpha d)\le\frac1{64b\kappa}\le\frac1{16}$.
+\proofstep{Step 0}\label{stepP:p2:oa-first} Lemma~\ref{bpP:p2:osc-iter}(b) with $\abs g_R=0$: $\varepsilon_1\le\frac87(2by_0+e^{-\kappa/6})\varepsilon$.
+\emph{Case A: $e^{-\kappa/6}\le2by_0$.} $\varepsilon_1\le\frac{32}7by_0\varepsilon\le\frac{32}{7}\cdot\frac1{64\kappa}\varepsilon\le0.08\,\varepsilon/\kappa$, and $\varepsilon_1\le\frac{32}7\cdot64\,b\varepsilon^2/(\bar\alpha d)\le294\,b\varepsilon^2/(\bar\alpha d)$.
+\emph{Case B: $e^{-\kappa/6}>2by_0$.} Doubled losses ($\delta_{\nu'}=4\delta_{\nu_0}$): $\wn{f_1}{}{}\le(1-y_0/2)^{-1}(2b\frac{y_0}4+e^{-\kappa/3})\varepsilon\le\frac{32}{31}(\frac14+\frac1e)e^{-\kappa/6}\varepsilon\le e^{-\kappa/6}\varepsilon$; stop, $g=\hat f_0$, displacements $\le\varepsilon/(e\bar\alpha\sigma')\le1.1\varepsilon/(\bar\alpha s)$, $\le4\varepsilon/(\bar\alpha r)$, $\le4\varepsilon/(\bar\alpha r_{q}),4\varepsilon/(\bar\alpha r_p)$.
+\proofstep{Iteration (Case A)}\label{stepP:p2:oa-iter} $N=\lfloor\kappa/(12\ln2)\rfloor<\kappa/8$; $N=0$: stop, since then $e^{-\kappa/6}>\frac14>\varepsilon_1/\varepsilon$. $N\ge1$: losses $\rho=r/8N$, $\rho_p=r_p/8N$, $\rho_q=r_q/8N$, $\sigma=s/4N$, all four radii and the budget following the schedule of Step~\ref{stepP:p2:nfb-N} (so every ratio $R_j$ is $\le\frac13$ for $j\ge1$ and $\le\frac3{4N}$ for $g_0$). Then $\delta_\nu\ge d/(64N^2)$ and by $\kappa>8N$
+\[\frac\varepsilon N\le\frac{\bar\alpha d}{2^{15}bN^2}\le\frac{\bar\alpha\delta_\nu}{2^{9}b}\quad(\text{since }d\le64N^2\delta_\nu),\qquad\varepsilon_1\le\frac{0.08\,\varepsilon}{8N}.\tag{2.3}\]
+Then $\abs{g_{i-1}}_R+\varepsilon_i\le2\varepsilon_1+\varepsilon/N\le1.02\,\varepsilon/N$ and $x:=\frac{2b}{\bar\alpha\delta_\nu}(\abs{g_{i-1}}_R+\varepsilon_i)\le0.004$; Lemma~\ref{bpP:p2:osc-iter}(b) gives $\varepsilon_{i+1}\le\frac{128}{127}(0.004+\frac18)\varepsilon_i<\frac14\varepsilon_i$ (using $e^{-2\pi K\sigma}\le\frac18$, $u_i\le2^{-7}$). Hence $\varepsilon_i\le4^{1-i}\varepsilon_1$.
+\proofstep{Conclusion}\label{stepP:p2:oa-concl} As Step~\ref{stepP:p2:nfb-concl}: $\wn{f_*}{}{}\le4^{-(N+1)}\varepsilon\le e^{-\kappa/6}\varepsilon$; $\wn{g-\hat f_0}{}{}\le\frac43\varepsilon_1\le\frac43\cdot294\,b\varepsilon^2/(\bar\alpha d)\le400\,b\varepsilon^2/(\bar\alpha d)$. Displacements by Lemma~\ref{bpP:p2:osc-iter}(a) and \Nref{bpN:p6:telescope}: $I$: $\frac1{e\bar\alpha s}(6\varepsilon+4N\frac43\varepsilon_1)\le2.3\,\varepsilon/(\bar\alpha s)$; $\theta$: $\frac1{\bar\alpha r}(8\varepsilon+\frac{32}3N\varepsilon_1)\le8.2\,\varepsilon/(\bar\alpha r)$ since $N\varepsilon_1\le0.01\varepsilon$; the same for $p,q$ with $r_q$, $r_p$.
+\end{proof}
+
+\begin{proposition}[Averaged remainder for \Pref{bpP:p0:pg}: CP10 \S4, Step~1]\label{bpP:p2:averaged-remainder}
+Let $n=n_1\ge1$, $m=n_2\ge1$, $\bar D\subset\R^n$, $\bar\rho,\epsilon_0>0$, $s_0>0$ (geometric), $0<\epsilon<e^{-1/5}$, $\mu>0$, $v_0=(\bar\rho,\epsilon_0,\epsilon_0)$. Let $H=H_0(I)+\mu P(\theta,I,p,q)$, $H_0$ holomorphic on $V_{\bar\rho}\bar D$ and real, $P\in\Os{v_0}{s_0}$ real with $\wn P{v_0}{s_0}\le1$, and
+$\langle P\rangle(I,p,q):=\int_{\T^n}P\,d\theta=\hat P_0$. Choose $K$ by $e^{-2\pi Ks_0/6}=\epsilon^5$, i.e.\ $K=\frac{15}{\pi s_0}\log\frac1\epsilon$ (so $\kappa=30\log\frac1\epsilon\ge6$; CP10 (36) with $2\pi$-conversion $K_{\mathrm{CP}}=K$, $s_{\mathrm{CP}}=2\pi s_0$). Assume, with $\bar\alpha=2\pi\alpha$, $d=\min\{\bar\rho s_0,\epsilon_0^2\}$,
+\begin{enumerate}[label=(\textup{R}\arabic*)]
+\item $\abs{k\cdot\partial H_0(I)}\ge\alpha$ for $I\in V_{\bar\rho}\bar D$, $0<\abs k_1\le K$ (non-resonance on the complex neighbourhood, CP10 (39));
+\item $2^{12}(1+m)\,K s_0\,\mu\le\alpha d$ (CP10 (65), implied by (61)).
+\end{enumerate}
+Then there is a map $\bar\varphi:\Dom{v_0/2}{s_0/6}\to\Dom{v_0}{s_0}$ as in Proposition~\ref{bpP:p2:osc-averaging} (with $\bar s=0$, $s=s_0$) such that on $\Dom{v_0/2}{s_0/6}$
+\[H\circ\bar\varphi=H_0+\mu\langle P\rangle+\widetilde P,\qquad\wn{\widetilde P}{v_0/2}{s_0/6}\le\frac{400(1+m)\,\mu^2}{\bar\alpha d}+\mu\,\epsilon^5,\]
+where $\widetilde P=(g-\mu\langle P\rangle)+f_*$, $g=g(I,p,q)$, $\wn{f_*}{}{}\le\mu\epsilon^5$ (so $f_*=\mu\epsilon^5\bar P$ with $\wn{\bar P}{}{}\le1$, in CP10's (40) notation), and
+\[\bar\alpha s_0\abs{I-\bar I}\le3\mu,\quad\bar\alpha\bar\rho\abs{\theta-\bar\theta}\le9\mu,\quad\bar\alpha\epsilon_0\abs{p-\bar p},\ \bar\alpha\epsilon_0\abs{q-\bar q}\le9\mu.\]
+\source{CP10 \S4, Step~1, p.~563 (36)--(40), (62)--(63); the estimates (41)--(42) of Step~1 of \S3 (p.~557). Perturbation size: $E=\mu$ before averaging and $\mu\epsilon^5$ after (CP10 p.~560: $f=\mu\epsilon^5\breve P$, $E=C\mu\epsilon^5$; \emph{not} $\mu^5$).}
+\end{proposition}
+\begin{proof}
+\proofstep{Apply}\label{stepP:p2:ar-apply} $f=\mu P$, $E=\mu$, $\bar s=0$, $s=s_0$, $r=\bar\rho$, $r_p=r_q=\epsilon_0$, $h=H_0$; (R1), (R2) are \ref{bpP:p2:o1}, \ref{bpP:p2:o2}. Proposition~\ref{bpP:p2:osc-averaging} gives $H\circ\bar\varphi=H_0+g+f_*$, and $\hat f_0=\mu\langle P\rangle$.
+\proofstep{Collect}\label{stepP:p2:ar-collect} $\widetilde P:=(g-\mu\langle P\rangle)+f_*$; its norm is bounded by the sum of the two bounds of Proposition~\ref{bpP:p2:osc-averaging}, and $e^{-\kappa/6}\mu=\epsilon^5\mu$ by the choice of $K$.
+\end{proof}
+
+\begin{remark}[How Part~5 uses this]\label{bpP:p2:use5}
+(1) The two terms of CP10 (63) correspond to $\mu^2/(\bar\alpha d)$ (the average-correction) and $\mu\epsilon^5$ (the tail). Part~5 must verify $\mu/(\bar\alpha d)\le C\epsilon^5$ from its choice of $\bar\gamma$ (CP10 (61), with $\mu<\epsilon^6/(\log\frac1\epsilon)^{c}$ of \Pref{bpP:p0:pg}); this is a different inequality from CP10's (since the proof here has no $K^{2\tau+1}/\bar\gamma^2$), and it is implied by (61) together with $\mu\le\epsilon^5$.
+(2) Distinguish three radii: the physical oscillator radius $\epsilon$ (only through $K$ and the later domain), the ambient radius $\epsilon_0$ of $P$, and Part~3's enlargement radius $\hat\rho$.
+(3) Period conversion: $\alpha=\tilde\alpha/2\pi$, $\mu$ unchanged, $s_0=s_{\mathrm{CP}}/2\pi$ (Lemma~\ref{bpP:p3:period-dictionary}). The max-norm polydisc $B_{\epsilon_0}$ replaces CP10's Euclidean ball.
+\end{remark}
+
+\subsection{Suspected errata in CP10 and open points}\label{bpP:p2:errata}
+
+\begin{enumerate}
+\item CP10 p.~564, Lemma~A.1, (66): the target is printed as $W_{v,\sigma}$; it must be $W_{v,s}$ (the map lands in the original domain).
+\item CP10 p.~563, Step~1: ``$r_p=r_q=0$'' together with $\rho_p=\rho_q=\epsilon_0/4$ and $B=B'=\{0\}$ is inconsistent with the hypotheses $\rho_p<r_p/2$ of Lemma~A.1; the intended value is $r_p=r_q=\epsilon_0$ (the resulting domain $\tilde v=(\bar\rho/2,\epsilon_0/2)$ on the same page confirms it). Also p.~556 (Step~1 of \S3) prints $r_p=r_q=\epsilon_0$ for the same set-up.
+\item CP10 p.~565 proves the exponential bound by ``applying A.1 once and then proceeding as in (A21)--(A26) of [4]'': the iteration is not in the pinned sources; it is Proposition~\ref{bpP:p2:nfb}, Steps~\ref{stepP:p2:nfb-N}--\ref{stepP:p2:nfb-concl}.
+\item Part~3's proof plan of Lemma~\ref{bpP:p3:avg} (one flow) does not give $e^{-Ks/6}E$ (review P3-01); the corrected proof is above.
+\end{enumerate}
+\emph{Forward and cross-track references used:} \Nref{bpN:p4:norm}, \Nref{bpN:p4:domains}, \Nref{bpN:p4:cauchy}, \Nref{bpN:p4:bracket}, \Nref{bpN:p4:projections}, \Nref{bpN:p4:sup-weighted}, \Nref{bpN:p4:coefficients}, \Nref{bpN:p4:algebra}, \Nref{bpN:p4:dictionary}, \Nref{bpN:p5:setting}, \Nref{bpN:p5:vf-bound}, \Nref{bpN:p5:flow}, \Nref{bpN:p5:symplectic}, \Nref{bpN:p5:canonical}, \Nref{bpN:p5:adjoint}, \Nref{bpN:p5:composition}, \Nref{bpN:p5:transform}, \Nref{bpN:p5:canonical-map}, \Nref{bpN:p6:setting}, \Nref{bpN:p6:homological}, \Nref{bpN:p6:divisor}, \Nref{bpN:p6:iterative}, \Nref{bpN:p6:iterative-special}, \Nref{bpN:p6:telescope}, \Nref{bpN:p6:normal-form}, \Nref{bpN:p6:deviations}, \Kref{bp:p1:ext-mvt}, \Pref{bpP:p0:pg}.
+\endgroup

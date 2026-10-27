@@ -46,8 +46,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.13,
-   "note": "blueprint-I: Parts 0-3 written and Part 1 revised after review; Parts 6-7 being written"
+   "done": 0.25,
+   "note": "blueprint-I: Parts 0-3, 5-7 written (I-G1, I-HEAD, I-KEPLER proofs complete in blueprint; reviews round 1 done for 0-3, 5); Part 8 (I-R3BP) being written"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -62,8 +62,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.15,
-   "note": "blueprint-N: Parts 0-5 written (shared ODE layer revised after review); Part 6 being written"
+   "done": 0.22,
+   "note": "blueprint-N: Parts 0-7 written (N-QC, N-ZERO complete; shared ODE, norms, Lie maps, normal form, stability); Part 8 being written"
   },
   {
    "group": "Track P (planetary)",
@@ -78,8 +78,8 @@
    "id": "P.PROOF.PDKAM",
    "title": "Properly degenerate KAM: blueprint, graph, proofs",
    "difficulty": "VH",
-   "done": 0.08,
-   "note": "blueprint-P: Part 0, plan, Part 3 (two-scale KAM) written; Part 1 being written; Part 3 under review"
+   "done": 0.15,
+   "note": "blueprint-P: Parts 0-3 written and revised (two-scale averaging and KAM); Parts 4-5 next"
   },
   {
    "group": "Track P (planetary)",
@@ -94,8 +94,8 @@
    "id": "N.ADD.PHASE0",
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.6,
-   "note": "N-PARTIAL-CONVEX packet with the owner (docs/tracks/N/REVIEW-additions.md); N-AVERAGING deferred pending the AKN source"
+   "done": 0.8,
+   "note": "N-PARTIAL-CONVEX approved and frozen (D25, 8 anchors); N-AVERAGING deferred pending the AKN source"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -110,8 +110,8 @@
    "id": "P.ADD.PHASE0",
    "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.8,
-   "note": "approval packet with the owner (docs/tracks/P/REVIEW-additions.md)"
+   "done": 1.0,
+   "note": "approved and frozen (D25): 38 anchors"
   },
   {
    "group": "Track P (planetary)",
