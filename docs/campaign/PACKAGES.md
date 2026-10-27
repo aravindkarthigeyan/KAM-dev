@@ -59,7 +59,7 @@ Fourier and Diophantine packages.
 | ID | Goal | Graph nodes | Owned files | Status |
 |---|---|---|---|---|
 | I-ZMAP | Map Zohar's existing results to graph nodes; adapters for gaps | `bp:p1:neumann`, `holomorphic-regularity`, `cauchy-open`, `cauchy-strip`, `cauchy-corollaries`, `averages(-real,-matrix)`, `decay` | `KAM/{Strip,Matrix}/Bridges.lean`, `docs/campaign/audits/I-ZMAP-map.md` | claimed (orchestrator, 2026-10-27) |
-| I-P1B | Remaining ready Part 1 lemmas | `bp:p1:uniform-limits`, `increments-open`, `periodic-bounded`, `strip-identity`, `periodic-average`, `exp-sums`, `iteration` | `KAM/Strip/{Limits,Periodic}.lean`, `KAM/Fourier/ExpSums.lean`, `KAM/Analysis/Iteration.lean` | claimed (orchestrator, 2026-10-27) |
+| I-P1B | Remaining ready Part 1 lemmas | `bp:p1:uniform-limits`, `increments-open`, `periodic-bounded`, `strip-identity`, `periodic-average`, `exp-sums`, `iteration` | `KAM/Strip/{Limits,Periodic}.lean`, `KAM/Fourier/ExpSums.lean`, `KAM/Analysis/Iteration.lean` | done (ef03b72) |
 | I-P4A | Early Part 4 lemmas | `bp:p4:h-bounded`, `matrix-norms`, `phase-average`, `cover-mono`, `dyadic-approx` (+ `data`) | `KAM/Head/*` | claimed (orchestrator, 2026-10-27) |
 
 ## Waiting for the blueprint

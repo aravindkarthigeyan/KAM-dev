@@ -1,0 +1,127 @@
+{
+ "I-p0": {
+  "ranges": [
+   {
+    "part": "p0",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-I-p0",
+  "nodes": 38,
+  "coverage": 62
+ },
+ "I-p1": {
+  "ranges": [
+   {
+    "part": "p1",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-I-p1",
+  "nodes": 59,
+  "coverage": 81
+ },
+ "I-p2": {
+  "ranges": [
+   {
+    "part": "p2",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-I-p2",
+  "nodes": 58,
+  "coverage": 79
+ },
+ "I-p3": {
+  "ranges": [
+   {
+    "part": "p3",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-I-p3",
+  "nodes": 61,
+  "coverage": 79
+ },
+ "I-p5": {
+  "ranges": [
+   {
+    "part": "p5",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-I-p5",
+  "nodes": 43,
+  "coverage": 59
+ },
+ "I-p67a": {
+  "ranges": [
+   {
+    "part": "p6",
+    "lines": [
+     1,
+     1000000000
+    ]
+   },
+   {
+    "part": "p7",
+    "lines": [
+     1,
+     259
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-I-p67a",
+  "nodes": 70,
+  "coverage": 101
+ },
+ "I-p7b": {
+  "ranges": [
+   {
+    "part": "p7",
+    "lines": [
+     260,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-I-p7b",
+  "nodes": 43,
+  "coverage": 58
+ },
+ "I-p8": {
+  "ranges": [
+   {
+    "part": "p8",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-I-p8",
+  "nodes": 40,
+  "coverage": 58
+ },
+ "I-imports": {
+  "imports": true,
+  "extractor": "claude-suborch-INP",
+  "nodes": 72,
+  "coverage": 72
+ }
+}
