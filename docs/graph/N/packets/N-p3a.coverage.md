@@ -66,9 +66,9 @@ KIND: claim
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:totality@L78-L84
 DISPOSITION: EXCLUDED
 REASON: writer: administrative Lean-totality convention; its only consumer edge (bpN:p5:flow, L56 zero extension) was removed by sol-delta-N-b as a pointer, not a proved prerequisite (N-p5-delta.md), so no root proof consumes it
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+writer-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta4-N-a
 
 ITEM: bpN:p3:gen-sol
 KIND: definition

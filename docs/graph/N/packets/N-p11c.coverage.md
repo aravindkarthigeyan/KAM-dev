@@ -705,6 +705,6 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115
 DISPOSITION: NODE bpN:p11:hessian#real-hessian
 REASON: writer: coverage item for the step node added by the slice review sol-review-N-f (real and complex Hessians on the partial-theorem tube)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta4-N-a
