@@ -120,9 +120,9 @@ KIND: definition
 SOURCE: blueprint/parts/p4-measure.tex#bp:p4:data@L138-L163
 DISPOSITION: NODE bp:p4:data
 REASON: fixed HEAD data, Hamiltonian hbold, shrunken domains and basic constants
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-r4
-REVIEWER: -
+REVIEWER: sol-review-r2
 
 ITEM: bp:p4:h-bounded
 KIND: lemma
@@ -633,15 +633,15 @@ KIND: citation
 SOURCE: blueprint/parts/p4-measure.tex#source@L48-L51
 DISPOSITION: EXCLUDED
 REASON: provenance note (Pos01); the blueprint proves the two cited estimates in Lemmas lattice-sum and slab
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
-REVIEWER: -
+REVIEWER: sol-review-r2
 
 ITEM: bp:p4:SA
 KIND: display
 SOURCE: blueprint/parts/p4-measure.tex#bp:p4:SA@L438-L443
 DISPOSITION: NODE bp:p4:SA
 REASON: explicit local hypothesis package and definitions used throughout the applications
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-r4
-REVIEWER: -
+REVIEWER: sol-review-r2

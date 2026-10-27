@@ -1,0 +1,84 @@
+{
+ "d2": {
+  "K-p0": {
+   "nodes": [],
+   "items": []
+  },
+  "K-p1a": {
+   "nodes": [],
+   "items": []
+  },
+  "K-p1c": {
+   "nodes": [],
+   "items": []
+  },
+  "K-p1b": {
+   "nodes": [],
+   "items": []
+  },
+  "K-p2a": {
+   "nodes": [
+    "step:p2:coh-apriori",
+    "step:p2:per-real",
+    "step:p2:fb-holo"
+   ],
+   "items": []
+  },
+  "K-p2b": {
+   "nodes": [
+    "step:p2:ne-expand",
+    "step:p2:pt-twist",
+    "step:p2:st-ball",
+    "step:p2:it-stepsmall",
+    "step:p2:lim-dk",
+    "step:p2:lim-primary",
+    "step:p2:lim-close",
+    "step:p2:lim-invariance"
+   ],
+   "items": []
+  },
+  "K-p3": {
+   "nodes": [
+    "step:p3:torsion-holomorphy",
+    "step:p3:phase-fixed-point",
+    "step:p3:phase-contraction",
+    "step:p3:diff-regularity",
+    "step:p3:diff-triangular",
+    "step:p3:diff-bounds"
+   ],
+   "items": []
+  },
+  "K-p4a": {
+   "nodes": [
+    "bp:p4:data",
+    "step:p4:db-vectorfield",
+    "bp:p4:freq-map",
+    "bp:p4:smallness"
+   ],
+   "items": []
+  },
+  "K-p4b": {
+   "nodes": [
+    "step:p4:shift-phase",
+    "bp:p4:normalized-torus",
+    "step:p4:normalize-proof",
+    "bp:p4:lip-error",
+    "bp:p4:lip",
+    "step:p4:lip-g1",
+    "bp:p4:real-torus",
+    "step:p4:rt-analytic",
+    "bp:p4:good-actions",
+    "bp:p4:map-lipschitz",
+    "step:p4:ml-size",
+    "step:p4:ml-good",
+    "bp:p4:main-measure",
+    "step:p4:mm-count",
+    "step:p4:dy-exhaust",
+    "step:p4:hq-approx",
+    "step:p4:hq-transfer",
+    "step:p4:hq-cover"
+   ],
+   "items": []
+  }
+ }
+}

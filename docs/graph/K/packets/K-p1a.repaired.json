@@ -1,5 +1,9 @@
 {
- "replaced": [
+ "replaced": [],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
   "step:p1:opn-blocks",
   "step:p1:opn-omega",
   "step:p1:mn-products",
@@ -29,45 +33,5 @@
   "step:p1:co-second",
   "step:p1:co-third",
   "step:p1:co-constants"
- ],
- "added": [
-  "bp:p1:mixed-difference",
-  "step:p1:md-inner",
-  "step:p1:md-outer"
- ],
- "items": [
-  "bp:p1:mixed-difference",
-  "step:p1:md-inner",
-  "step:p1:md-outer"
- ],
- "unresolved": {},
- "passes": [
-  "bp:p1:ext-cauchy",
-  "bp:p1:ext-rectangle",
-  "bp:p1:ext-identity",
-  "bp:p1:ext-mvt",
-  "bp:p1:ext-schwarz",
-  "bp:p1:ext-integral",
-  "bp:p1:ext-fourier",
-  "bp:p1:ext-lebesgue",
-  "bp:p1:ext-banach",
-  "bp:p1:ext-cramer",
-  "bp:p1:operator-norms",
-  "step:p1:opn-rowsum",
-  "bp:p1:matrix-norms",
-  "step:p1:mn-transpose",
-  "step:p1:mn-signed",
-  "bp:p1:neumann",
-  "step:p1:neu-pointwise",
-  "bp:p1:real-inverse",
-  "bp:p1:holomorphic-regularity",
-  "bp:p1:holomorphic-analytic",
-  "step:p1:han-margin",
-  "bp:p1:uniform-limits",
-  "step:p1:ul-primary",
-  "bp:p1:holomorphic-inverse",
-  "bp:p1:increments-open",
-  "bp:p1:taylor",
-  "bp:p1:cauchy-open"
  ]
 }
