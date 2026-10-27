@@ -312,7 +312,202 @@ theorem dK_arith :
 
 end Arith
 
+/-! ### Step `step:p2:cor-reg`: regularity of `ξ = (ξᴸ, ξᴺ)` and `ΔK = P ξ` -/
+
+section Regularity
+
+variable {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)} {r : ℝ}
+
+theorem diffOn_sumElim {ξL ξN : (Fin n → ℂ) → Fin n → ℂ} {S : Set (Fin n → ℂ)}
+    (hL : DifferentiableOn ℂ ξL S) (hN : DifferentiableOn ℂ ξN S) :
+    DifferentiableOn ℂ (fun θ => (Sum.elim (ξL θ) (ξN θ) : Fin n ⊕ Fin n → ℂ)) S := by
+  refine differentiableOn_pi.2 ?_
+  rintro (i | i)
+  · exact differentiableOn_pi.1 hL i
+  · exact differentiableOn_pi.1 hN i
+
+theorem periodic_sumElim {ξL ξN : (Fin n → ℂ) → Fin n → ℂ} {ρ : ℝ}
+    (hL : IsPeriodicOn ξL ρ) (hN : IsPeriodicOn ξN ρ) :
+    IsPeriodicOn (fun θ => (Sum.elim (ξL θ) (ξN θ) : Fin n ⊕ Fin n → ℂ)) ρ :=
+  fun i z hz => by simp only [hL i z hz, hN i z hz]
+
+theorem isRealVec_sumElim {ξL ξN : (Fin n → ℂ) → Fin n → ℂ}
+    (hL : IsRealVec ξL) (hN : IsRealVec ξN) :
+    IsRealVec (fun θ => (Sum.elim (ξL θ) (ξN θ) : Fin n ⊕ Fin n → ℂ)) := by
+  intro x s
+  rcases s with s | s
+  · exact hL x s
+  · exact hN x s
+
+theorem fderiv_sumElim_apply {ξL ξN : (Fin n → ℂ) → Fin n → ℂ} {θ : Fin n → ℂ}
+    (hL : DifferentiableAt ℂ ξL θ) (hN : DifferentiableAt ℂ ξN θ) (v : Fin n → ℂ) :
+    fderiv ℂ (fun θ => (Sum.elim (ξL θ) (ξN θ) : Fin n ⊕ Fin n → ℂ)) θ v =
+      Sum.elim (fderiv ℂ ξL θ v) (fderiv ℂ ξN θ v) := by
+  have hd : ∀ s : Fin n ⊕ Fin n,
+      DifferentiableAt ℂ (fun x => (Sum.elim (ξL x) (ξN x) : Fin n ⊕ Fin n → ℂ) s) θ := by
+    rintro (s | s)
+    · exact differentiableAt_pi.1 hL s
+    · exact differentiableAt_pi.1 hN s
+  rw [fderiv_pi hd]
+  funext s
+  rcases s with s | s
+  · simp only [ContinuousLinearMap.pi_apply, Sum.elim_inl]
+    rw [(hasFDerivAt_pi'.1 hL.hasFDerivAt s).fderiv]
+    rfl
+  · simp only [ContinuousLinearMap.pi_apply, Sum.elim_inr]
+    rw [(hasFDerivAt_pi'.1 hN.hasFDerivAt s).fderiv]
+    rfl
+
+theorem norm_sumElim_le {a b : Fin n → ℂ} {C : ℝ} (ha : ‖a‖ ≤ C) (hb : ‖b‖ ≤ C) :
+    ‖(Sum.elim a b : Fin n ⊕ Fin n → ℂ)‖ ≤ C := by
+  refine (pi_norm_le_iff_of_nonneg ((norm_nonneg _).trans ha)).2 ?_
+  rintro (i | i)
+  · exact (norm_le_pi_norm a i).trans ha
+  · exact (norm_le_pi_norm b i).trans hb
+
+theorem sumVec_correction (θ : Fin n → ℂ) :
+    sumVec n (correction h K ω θ) = frameMat K θ *ᵥ xi h K ω θ :=
+  (sumVec n).apply_symm_apply _
+
+theorem diffOn_correction {S : Set (Fin n → ℂ)} (hP : DifferentiableOn ℂ (frameMat K) S)
+    (hξ : DifferentiableOn ℂ (xi h K ω) S) : DifferentiableOn ℂ (correction h K ω) S :=
+  (sumVecIso n).symm.differentiable.comp_differentiableOn (hP.matrix_mulVec hξ)
+
+theorem periodic_correction (hP : IsPeriodicOn (frameMat K) r)
+    (hξ : IsPeriodicOn (xi h K ω) r) : IsPeriodicOn (correction h K ω) r :=
+  fun i z hz => by simp only [correction, hP i z hz, hξ i z hz]
+
+theorem isRealOnReals_correction (hP : IsRealMat (frameMat K)) (hξ : IsRealVec (xi h K ω)) :
+    IsRealOnReals (correction h K ω) := by
+  rw [← isRealVec_sumVec_iff]
+  intro x s
+  simp only [sumVec_correction]
+  exact Triangular.mulVec_im_eq_zero (hP x) (hξ x) s
+
+theorem norm_correction_le {θ : Fin n → ℂ} {B X : ℝ} (hB : ‖frameMat K θ‖ ≤ B)
+    (hX : ‖xi h K ω θ‖ ≤ X) : ‖correction h K ω θ‖ ≤ B * X := by
+  rw [← norm_sumVec, sumVec_correction]
+  calc _ ≤ ‖frameMat K θ‖ * ‖xi h K ω θ‖ := Matrix.linfty_opNorm_mulVec _ _
+    _ ≤ B * X := mul_le_mul hB hX (norm_nonneg _) ((norm_nonneg _).trans hB)
+
+end Regularity
+
 end Correction
+
+/-- Blueprint `bp:p2:correction`. -/
+theorem correction_spec (hS : Standing n τ M σK σB σT 𝔅 h ω γ) {r β ε δ : ℝ}
+    {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)} (hK : Admissible σK σB σT 𝔅 h ω r β ε K)
+    (hδ : 0 < δ) (hδ1 : δ ≤ 1) (h2δ : 2 * δ < r) :
+    (DifferentiableOn ℂ (xi h K ω) (complexStrip n (r - 2 * δ)) ∧
+      IsPeriodicOn (xi h K ω) (r - 2 * δ) ∧ IsRealVec (xi h K ω) ∧
+      DifferentiableOn ℂ (correction h K ω) (complexStrip n (r - 2 * δ)) ∧
+      IsPeriodicOn (correction h K ω) (r - 2 * δ) ∧ IsRealOnReals (correction h K ω)) ∧
+    (∀ θ ∈ complexStrip n (r - δ),
+      ‖triXiN ω (etaL h K ω) (etaN h K ω) (torsion h K ω) θ‖ ≤
+        C_xiN n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 1)) ∧
+      ‖triGL ω (etaL h K ω) (etaN h K ω) (torsion h K ω) θ‖ ≤
+        C_g n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 2))) ∧
+    (∀ θ ∈ complexStrip n (r - 2 * δ),
+      ‖xi h K ω θ‖ ≤ C_xi n τ M σK σB σT * ε / (γ ^ 2 * δ ^ aExp n τ) ∧
+      ‖correction h K ω θ‖ ≤ C_DK n τ M σK σB σT * ε / (γ ^ 2 * δ ^ aExp n τ) ∧
+      ‖fderiv ℂ (xi h K ω) θ (fun l => (ω l : ℂ))‖ ≤
+        C_g n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 2))) := by
+  have hr := hK.r_pos
+  have hε0 := hK.ε_nonneg
+  have hP := hS.toParams
+  have hγ := hS.gamma_pos
+  have hr1 : 0 < r - δ := by linarith
+  have hr2 : 0 < r - 2 * δ := by linarith
+  have hsub : complexStrip n (r - 2 * δ) ⊆ complexStrip n (r - δ) :=
+    Triangular.strip_mono (by linarith)
+  have hK𝔅 : ∀ θ ∈ complexStrip n r, K θ ∈ 𝔅 := fun θ hθ =>
+    hK.ball_sub θ hθ (Metric.mem_ball_self hK.β_pos)
+  have hGu : ∀ θ ∈ complexStrip n r, IsUnit (gramMatrix K θ).det := fun θ hθ => (hK.gram θ hθ).1
+  -- step `cor-data`: frequency, holomorphy, periodicity, realness, bounds, `⟨ηᴺ⟩ = 0`
+  obtain ⟨hγω, hω1, hω2⟩ := frequency hS hK.r_pos hK.ε_le_one hK𝔅 hK.deriv_le hK.gram hK.error_le
+  have hω : ‖ω‖ ≤ Theta n M σK σB σT := hω1.trans hω2
+  have hγΘ : γ ≤ Theta n M σK σB σT := hγω.trans hω
+  obtain ⟨⟨-, -, -, -, -, -, -, hPd, -, hTd, -, -, hηd, -, hTc⟩, hnorm, hηb, hTb⟩ :=
+    frame_basic hS hr hK.β_pos hK.holo hK.ball_sub hK.deriv_le hK.gram
+  obtain ⟨-, hperiod, hreal⟩ := periodicity hS hr hK.holo hK.primary hK𝔅
+  obtain ⟨-, -, hPp, -, hTp, -, hηp⟩ := hperiod hGu
+  obtain ⟨-, -, -, -, -, -, -, -, -, -, hPr, -, hTr, -, hηr, -⟩ := hreal hGu hK.real
+  have hTavg : torsionAverage h K ω = avg (torsion h K ω) := torsionAverage_eq_avg h K ω hTc
+  have hTinv : IsUnit (avg (torsion h K ω)).det := by
+    rw [← hTavg]
+    exact hK.twist.1
+  have hσ : ‖(avg (torsion h K ω))⁻¹‖ ≤ σT := by
+    rw [← hTavg]
+    exact hK.twist.2
+  have hηN0 : avg (etaN h K ω) = 0 := (exactness hS hr hK.holo hK.primary hK𝔅).2
+  have hHL : ∀ θ ∈ complexStrip n r,
+      ‖etaL h K ω θ‖ ≤ 2 * n * mSize M σK σB σT ^ 2 * ε := fun θ hθ =>
+    (hηb ε hK.error_le θ hθ).1
+  have hHN : ∀ θ ∈ complexStrip n r,
+      ‖etaN h K ω θ‖ ≤ 2 * n * mSize M σK σB σT * ε := fun θ hθ =>
+    (hηb ε hK.error_le θ hθ).2
+  have hHT : ∀ θ ∈ complexStrip n (r - δ),
+      ‖torsion h K ω θ‖ ≤ C_T n M σK σB σT / δ := fun θ hθ =>
+    (hTb hω δ hδ hδ1 (by linarith) θ hθ).2
+  -- the triangular lemma for the data of `K`
+  obtain ⟨⟨-, hXNd, hXNp, -, -, hXLd, hXLp⟩, ⟨hdXN, hdXL⟩, ⟨hxi0, hxiN, hgb, hxiL⟩, hrealTri⟩ :=
+    triangular hS hr hδ h2δ (ηL := etaL h K ω) (ηN := etaN h K ω) (T := torsion h K ω)
+      (HL := 2 * n * mSize M σK σB σT ^ 2 * ε) (HN := 2 * n * mSize M σK σB σT * ε)
+      (HT := C_T n M σK σB σT / δ) (σ := σT)
+      (Correction.diffOn_etaL hηd) (Correction.periodic_etaL hηp)
+      (Correction.diffOn_etaN hηd) (Correction.periodic_etaN hηp) hHL hHN hηN0 hTd hTp hHT
+      hTinv hσ
+  obtain ⟨-, hXLr, hXNr, -⟩ := hrealTri (Correction.isRealVec_etaL hηr)
+    (Correction.isRealVec_etaN hηr) hTr
+  -- steps `cor-absorb`, `cor-xin`: `ξᴺ₀`, `ξᴺ`, `gᴸ`
+  have hX0 := hxi0.trans (Correction.xi0_arith hP hγ hγΘ hδ hδ1 hε0 σT_le_mSize)
+  have hXN : ∀ θ ∈ complexStrip n (r - δ),
+      ‖triXiN ω (etaL h K ω) (etaN h K ω) (torsion h K ω) θ‖ ≤
+        C_xiN n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 1)) := fun θ hθ =>
+    (hxiN θ hθ).trans (Correction.xiN_arith hγ hδ hδ1 hε0 hX0)
+  have hGL : ∀ θ ∈ complexStrip n (r - δ),
+      ‖triGL ω (etaL h K ω) (etaN h K ω) (torsion h K ω) θ‖ ≤
+        C_g n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 2)) := fun θ hθ =>
+    (hgb _ hXN θ hθ).trans (Correction.gL_arith hP hγ hγΘ hδ hδ1 hε0)
+  -- step `cor-xi`: `ξ`
+  have hXL : ∀ θ ∈ complexStrip n (r - 2 * δ),
+      ‖triXiL ω (etaL h K ω) (etaN h K ω) (torsion h K ω) θ‖ ≤
+        C_xi n τ M σK σB σT * ε / (γ ^ 2 * δ ^ aExp n τ) := fun θ hθ =>
+    Correction.xi_arith hP hγ hδ hε0 (Or.inl (by
+      rw [← Correction.xiL_arith hγ hδ]
+      exact hxiL _ hGL θ hθ))
+  have hXi : ∀ θ ∈ complexStrip n (r - 2 * δ),
+      ‖xi h K ω θ‖ ≤ C_xi n τ M σK σB σT * ε / (γ ^ 2 * δ ^ aExp n τ) := fun θ hθ =>
+    Correction.norm_sumElim_le (hXL θ hθ)
+      (Correction.xi_arith hP hγ hδ hε0 (Or.inr
+        ((hXN θ (hsub hθ)).trans (Correction.xiN_absorb hP hγ hγΘ hδ hδ1 hε0))))
+  -- regularity of `ξ` and `ΔK` (step `cor-reg`)
+  have hξd : DifferentiableOn ℂ (xi h K ω) (complexStrip n (r - 2 * δ)) :=
+    Correction.diffOn_sumElim hXLd (hXNd.mono hsub)
+  have hξp : IsPeriodicOn (xi h K ω) (r - 2 * δ) :=
+    Correction.periodic_sumElim hXLp (Triangular.isPeriodicOn_mono (by linarith) hXNp)
+  have hξr : IsRealVec (xi h K ω) := Correction.isRealVec_sumElim hXLr hXNr
+  have hPd' : DifferentiableOn ℂ (frameMat K) (complexStrip n (r - 2 * δ)) :=
+    hPd.mono (Triangular.strip_mono (by linarith))
+  refine ⟨⟨hξd, hξp, hξr, Correction.diffOn_correction hPd' hξd,
+    Correction.periodic_correction (Triangular.isPeriodicOn_mono (by linarith) hPp) hξp,
+    Correction.isRealOnReals_correction hPr hξr⟩,
+    fun θ hθ => ⟨hXN θ hθ, hGL θ hθ⟩, fun θ hθ => ⟨hXi θ hθ, ?_, ?_⟩⟩
+  · have hθr : θ ∈ complexStrip n r := Triangular.strip_mono (by linarith) hθ
+    obtain ⟨-, -, -, -, -, hPn, -⟩ := hnorm θ hθr
+    rw [← Correction.dK_arith]
+    exact Correction.norm_correction_le hPn (hXi θ hθ)
+  · have hθ1 : θ ∈ complexStrip n (r - δ) := hsub hθ
+    have hopen : (complexStrip n (r - 2 * δ)) ∈ 𝓝 θ := (isOpen_complexStrip n _).mem_nhds hθ
+    rw [show xi h K ω = fun θ => (Sum.elim
+      (triXiL ω (etaL h K ω) (etaN h K ω) (torsion h K ω) θ)
+      (triXiN ω (etaL h K ω) (etaN h K ω) (torsion h K ω) θ) : Fin n ⊕ Fin n → ℂ) from rfl,
+      Correction.fderiv_sumElim_apply (hXLd.differentiableAt hopen)
+        ((hXNd.mono hsub).differentiableAt hopen), hdXL θ hθ, hdXN θ hθ1]
+    refine Correction.norm_sumElim_le (hGL θ hθ1) ?_
+    rw [norm_neg]
+    exact (hHN θ (Triangular.strip_mono (by linarith) hθ)).trans
+      (Correction.dxi_arith hP hγ hγΘ hδ hδ1 hε0)
 
 end KAM.Apost
 
