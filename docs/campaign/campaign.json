@@ -1,5 +1,5 @@
 {
- "current_phase": "Phase 0: statements. Exact Lean drafts v0.2 of the headline (rate and qualitative), G1 (a-posteriori), G2 (local uniqueness for flows), G3 (Diophantine measure) and 20 definitions passed the independent audit (v0.1 G1 was false without a bound on γ; fixed). Waiting for owner approval on the review page; then freeze. A Codex exploration of the collaborator's planetary/Nekhoroshev suggestions runs in parallel.",
+ "current_phase": "Phase 0 complete: the headline (rate and qualitative), G1, G2, G3 and 20 definitions are approved and frozen (D11). Phase 1 next: blueprint and source-level dependency graph anchored to the frozen statements; infrastructure (weighted Fourier algebras) can start in parallel.",
  "workers": [
   {
    "id": "orchestrator",
@@ -22,7 +22,10 @@
  ],
  "queued": [
   {
-   "title": "Owner approval of the exact Lean statements v0.2, then freeze (manifest, DRAFT_SORRY anchors)"
+   "title": "Blueprint and dependency graph (Phase 1)"
+  },
+  {
+   "title": "Infrastructure: weighted ℓ¹ Fourier algebra (F.ALG)"
   }
  ],
  "graph": {
@@ -159,5 +162,11 @@
    ]
   ]
  },
- "statement_notes": {}
+ "statement_notes": {
+  "kam.kam_positive_measure.v1": "HEAD",
+  "kam.kam_positive_measure_qualitative.v1": "HEAD-Q",
+  "kam.aposteriori_kam.v1": "G1",
+  "kam.local_uniqueness_flow.v1": "G2",
+  "kam.volume_not_diophantine_le.v1": "G3"
+ }
 }

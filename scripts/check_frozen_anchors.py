@@ -15,7 +15,13 @@ from pathlib import Path
 from typing import Any
 
 HEX = re.compile(r"^[0-9a-f]{64}$")
-FQ = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)+$")
+# Lean identifier atoms (repository change: the skill's copy was ASCII-only and rejected names such
+# as `dotℂ`). Start: ASCII letters, `_`, Greek except λ Π Σ, letterlike symbols, mathematical
+# alphanumerics. Continuation also allows digits, `'`, `!`, `?` and sub/superscript digits.
+_ID0 = r"[A-Za-z_\u0370-\u039F\u03A1-\u03A2\u03A4-\u03BA\u03BC-\u03FF\u1F00-\u1FFE\u2100-\u214F\U0001D49C-\U0001D59F]"
+_IDC = r"[A-Za-z0-9_'!?\u0370-\u039F\u03A1-\u03A2\u03A4-\u03BA\u03BC-\u03FF\u1F00-\u1FFE\u2100-\u214F\U0001D49C-\U0001D59F\u2070-\u209C\u1D62-\u1D6A]"
+_ID = _ID0 + _IDC + "*"
+FQ = re.compile(r"^" + _ID + r"(?:\." + _ID + r")+$")
 MARKERS = ("FROZEN_ANCHOR_PREFIX_BEGIN", "FROZEN_ANCHOR_PROOF_BEGIN",
            "FROZEN_ANCHOR_PROOF_END", "FROZEN_ANCHOR_SUFFIX_BEGIN",
            "FROZEN_ANCHOR_SUFFIX_END")
@@ -25,9 +31,9 @@ DECL = re.compile(
     r"(?m)^[ \t]*(?:@\[[^\]\n]*\][ \t]*)*"
     r"((?:(?:private|protected|public|noncomputable|unsafe|partial|nonrec|meta)\s+)*)"
     r"(theorem|lemma|def|abbrev|opaque|structure|class|inductive|axiom|constant|instance|example)\b"
-    r"(?:\s+([A-Za-z_][A-Za-z0-9_']*(?:\.[A-Za-z_][A-Za-z0-9_']*)*))?"
+    r"(?:\s+(" + _ID + r"(?:\." + _ID + r")*))?"
 )
-NAMESPACE = re.compile(r"^[ \t]*namespace\s+([A-Za-z_][A-Za-z0-9_']*(?:\.[A-Za-z_][A-Za-z0-9_']*)*)\b")
+NAMESPACE = re.compile(r"^[ \t]*namespace\s+(" + _ID + r"(?:\." + _ID + r")*)\b")
 SECTION = re.compile(
     r"^[ \t]*(?:@\[[^\]\n]*\][ \t]*)*((?:(?:public|private|noncomputable)\s+)*)"
     r"section(?:\s+[A-Za-z_][A-Za-z0-9_']*(?:\.[A-Za-z_][A-Za-z0-9_']*)*)?[ \t]*$")

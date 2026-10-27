@@ -137,8 +137,8 @@ SEALED: 0 / 0
 
 | Phase | Content | Status |
 |---|---|---|
-| 0 | Survey, pinned sources, route verdict, mathematical statement, exact Lean statements approved and frozen | **in progress** |
-| 1 | Blueprint (every step written out against the pinned sources), source-level dependency graph, gate statements | not started |
+| 0 | Survey, pinned sources, route verdict, mathematical statement, exact Lean statements approved and frozen | **done 2026-10-27** (D11) |
+| 1 | Blueprint (every step written out against the pinned sources), source-level dependency graph | **next** |
 | 2 | Proof campaign: infrastructure, a-posteriori KAM, measure layer, assembly | not started |
 | 3 | Clean-up, elaboration test, errata and deviations record, public release | not started |
 
@@ -257,6 +257,7 @@ Full text: [`docs/DECISIONS.md`](docs/DECISIONS.md).
 - **D6** This README is regenerated at least every 20 minutes and after every commit; an errata and deviations
   ledger is kept for every formalized source. *(Scott, 2026-10-27)*
 - **D7** Hosting: public GitHub repository `scottnarmstrong/KAM-dev` (source PDFs stay out of git). *(Scott)*
+- **D11** Statements approved and frozen: 5 theorem anchors and 20 definitions. *(Scott, 2026-10-27)*
 - **D8** Route verdict: rate ε^{1/4}; local uniqueness for flows is proved by us; Lipschitz dependence by
   re-application (CCdlL13); measure step by McShane extension (Pos01). *(orchestrator, 2026-10-27; revisable)*
 

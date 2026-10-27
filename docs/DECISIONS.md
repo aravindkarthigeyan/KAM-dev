@@ -42,3 +42,12 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
     on a uniform complex neighbourhood of Tⁿ × B̄.
 - **D10 (2026-10-27) Public ledger.** The errata and deviations ledger stays public, CANDIDATE entries included;
   each is labelled unverified until checked against the pinned PDF. *(Scott: "keep the ledger public, it's fine")*
+- **D11 (2026-10-27) Statements approved and frozen.** *(Scott: "approve all", on the review page of statement draft
+  v0.2, claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2)* The approval covers the three decisions on that page: the
+  inner boundary-layer reading of "regular boundary"; G1's uniform constants with margin μ and bound γ̄
+  (ledger D-G1-1); and G1's explicit conclusion margins. Frozen: 5 theorem anchors (`KAM/Frozen/Theorems/`,
+  `DRAFT_SORRY`) and 20 definitions (`KAM/Frozen/Defs/`, sealed whole files), byte-identical to the approved text,
+  hashed in `manifest/frozen-anchors.json` (file, prefix/suffix and elaborated ABI hashes). Providers:
+  `KAM/Provider/<Name>.lean`, quarantined until sealing. Draft and audit evidence, including the Lean refutation of
+  draft G1 v0.1, archived at `/mnt/HC_Volume_106379410/kam-evidence/2026-10-27-statements-v0.2/`.
+

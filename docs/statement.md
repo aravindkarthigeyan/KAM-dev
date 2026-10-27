@@ -1,8 +1,8 @@
-# Statements (draft 0.2)
+# Statements (draft 0.2, approved and frozen 2026-10-27)
 
 The mathematical statements to be frozen, with their sources and quantifier orders, following the owner's
-rulings D1, D2, D8 and D9. This is planning evidence. What the owner approves is the exact Lean text drafted from
-this file, line by line.
+rulings D1, D2, D8 and D9. This is planning evidence. The owner approved the exact Lean text drafted from this file (D11); the frozen
+statements live in `KAM/Frozen/` and are the only authoritative versions.
 
 ## Conventions
 

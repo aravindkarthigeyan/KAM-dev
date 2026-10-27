@@ -1,6 +1,1073 @@
 {
-  "schema_version": 1,
-  "manifest_state": "AUTHOR_APPROVED",
-  "seal_limits": { "max_body_lines": 3, "max_body_bytes": 240 },
-  "anchors": []
+ "schema_version": 1,
+ "manifest_state": "AUTHOR_APPROVED",
+ "seal_limits": {
+  "max_body_lines": 3,
+  "max_body_bytes": 240
+ },
+ "anchors": [
+  {
+   "id": "kam.actionNbhd.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@ed21566 docs/DECISIONS.md",
+    "range": "D9 (Q5): uniform complex neighbourhood of B"
+   },
+   "contract": {
+    "id": "kam.actionNbhd",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/ActionNbhd.lean",
+   "export": "KAM.actionNbhd",
+   "split_policy": {
+    "source_group": "kam.actionNbhd",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "b05e2aeddf393c0b232bd809f64d9d8040e0fdf54248c4f880ab1ad98c040f21",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "b21b378158b62609d3b06f00a4ad9d674fd4262b1c42ae95d9b2eb7fe68b517c"
+  },
+  {
+   "id": "kam.complexStrip.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "§2.1, p. 5 (U_ρ with U = ℝⁿ)"
+   },
+   "contract": {
+    "id": "kam.complexStrip",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/ComplexStrip.lean",
+   "export": "KAM.complexStrip",
+   "split_policy": {
+    "source_group": "kam.complexStrip",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "91cedb11be4f33139d30fcc5103f7ed5370fa5d89a68f9a3aaf0b061ae2920e7",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+  },
+  {
+   "id": "kam.dotℂ.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "§2.1, p. 5 (transpose ⊤ of complex matrices)"
+   },
+   "contract": {
+    "id": "kam.dotℂ",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/DotC.lean",
+   "export": "KAM.dotℂ",
+   "split_policy": {
+    "source_group": "kam.dotℂ",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "6d938a769932067b5668f7e0b3bb92a62331b9be8f6a13b7a625af3b5eed362b",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+  },
+  {
+   "id": "kam.frequencyMap.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "Pos01 arXiv:0908.2234v1 arxiv_0908.2234.pdf sha256:95503c181ede41948041b65963390244680457ab9d8d24b1a4716c81c5735d35",
+    "range": "Classical KAM Theorem, p. 6 (frequency map h_p); D9 (Q5)"
+   },
+   "contract": {
+    "id": "kam.frequencyMap",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/FrequencyMap.lean",
+   "export": "KAM.frequencyMap",
+   "split_policy": {
+    "source_group": "kam.frequencyMap",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "c9326077b299282bff92fdb8a3a849f512167fd4dc8e859bb0fdf1662f525cc5",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "19d0c074ec173e08bf900c6246553b780efff8b561bdf09fba486eb70c70487e"
+  },
+  {
+   "id": "kam.fundamentalDomain.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@ed21566 docs/DECISIONS.md",
+    "range": "D9 (Q2): Tⁿ = ℝⁿ/ℤⁿ"
+   },
+   "contract": {
+    "id": "kam.fundamentalDomain",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/FundamentalDomain.lean",
+   "export": "KAM.fundamentalDomain",
+   "split_policy": {
+    "source_group": "kam.fundamentalDomain",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "810177265bdc6565103c4424a87272ae1769c4479cde418f98ce4b0c917946c2",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "6a31ab117965ed7b7734a9faf47542f04708b56eacfdfd4a1e4a0d0afe48a30f"
+  },
+  {
+   "id": "kam.gramMatrix.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "(3.4), (3.8), p. 16 (d = n, G = I)"
+   },
+   "contract": {
+    "id": "kam.gramMatrix",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/GramMatrix.lean",
+   "export": "KAM.gramMatrix",
+   "split_policy": {
+    "source_group": "kam.gramMatrix",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "3990b90567c6199a3443b1021021aab73e8e5b521b377b96f62981c2b57834ef",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/DotC.lean",
+     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+  },
+  {
+   "id": "kam.hamiltonianVectorField.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "Rem. 2.1 and §2.2, p. 6 (X_h = Ω⁻¹(Dh)ᵀ, Ω₀)"
+   },
+   "contract": {
+    "id": "kam.hamiltonianVectorField",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/HamiltonianVectorField.lean",
+   "export": "KAM.hamiltonianVectorField",
+   "split_policy": {
+    "source_group": "kam.hamiltonianVectorField",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "427a145572df4c3e14079cf88feb16d60e1cd92fcd1770faddd36ad706562ca6",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+  },
+  {
+   "id": "kam.hamiltonianVectorFieldℂ.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "Rem. 2.1 and §2.2, p. 6, complexified per §3.1"
+   },
+   "contract": {
+    "id": "kam.hamiltonianVectorFieldℂ",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
+   "export": "KAM.hamiltonianVectorFieldℂ",
+   "split_policy": {
+    "source_group": "kam.hamiltonianVectorFieldℂ",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "482764b7e8e1691b3c3c182bca9b959f0d657e126c6b21b837ff0516f91e4f0d",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+  },
+  {
+   "id": "kam.invarianceError.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "(2.2), p. 7; (3.9), p. 17"
+   },
+   "contract": {
+    "id": "kam.invarianceError",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/InvarianceError.lean",
+   "export": "KAM.invarianceError",
+   "split_policy": {
+    "source_group": "kam.invarianceError",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "775e46d01cc020277055f39825a2dbea7f42d822652ba4c92b95c3159fc0a273",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
+     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "5f86c8eb69471c4fda13d1c945fae47b7af9508d11859d02f3be5324bb3956b5"
+  },
+  {
+   "id": "kam.IsDiophantine.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "(3.1), p. 14; also Pos01 (1), p. 5"
+   },
+   "contract": {
+    "id": "kam.IsDiophantine",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/IsDiophantine.lean",
+   "export": "KAM.IsDiophantine",
+   "split_policy": {
+    "source_group": "kam.IsDiophantine",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "24a486c6ccc5648791465ec3577c2e37fd464ecaec8f0dab9c74a5588535e717",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+  },
+  {
+   "id": "kam.IsInvariantLagrangianTorus.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "(2.1), (2.3), Rem. 2.2–2.3, pp. 6–7; D9 (Q3)"
+   },
+   "contract": {
+    "id": "kam.IsInvariantLagrangianTorus",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/IsInvariantLagrangianTorus.lean",
+   "export": "KAM.IsInvariantLagrangianTorus",
+   "split_policy": {
+    "source_group": "kam.IsInvariantLagrangianTorus",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "6b48dce61c4419bba274f6bb9fb3d9ae3eb888906c7eb1b5b35e1345d36fb925",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/HamiltonianVectorField.lean",
+     "sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+    },
+    {
+     "path": "KAM/Frozen/Defs/SymplecticForm.lean",
+     "sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "c837104045533b515a9c5888e446025d4ac9d1ba88031f99d7a3ef72339eda59"
+  },
+  {
+   "id": "kam.IsPrimaryOnStrip.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "Rem. 2.3, p. 7 (primary tori)"
+   },
+   "contract": {
+    "id": "kam.IsPrimaryOnStrip",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/IsPrimaryOnStrip.lean",
+   "export": "KAM.IsPrimaryOnStrip",
+   "split_policy": {
+    "source_group": "kam.IsPrimaryOnStrip",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "3e3ec50a4ddc91e4ce8c9cc082a1bfb7387ad08b9dba70baed76847df2f86680",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/ComplexStrip.lean",
+     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "8c7064198b15296e739dfc037508917e8f8c8dd9e647dbf4e674a8a1a6a02025"
+  },
+  {
+   "id": "kam.IsRealOnReals.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "§3.1, p. 15 (A(T_ρ): real on Tᵈ)"
+   },
+   "contract": {
+    "id": "kam.IsRealOnReals",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/IsRealOnReals.lean",
+   "export": "KAM.IsRealOnReals",
+   "split_policy": {
+    "source_group": "kam.IsRealOnReals",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "6549c22016139f44ca97ba901aa4927905970838ce283fef53b30c223dfabbb5",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "10cb108921d9f8330b919edd7c234a4b1d94db17ec2bdd4ac1a06c7fcdbfb324"
+  },
+  {
+   "id": "kam.kamCover.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "Pos01 arXiv:0908.2234v1 arxiv_0908.2234.pdf sha256:95503c181ede41948041b65963390244680457ab9d8d24b1a4716c81c5735d35",
+    "range": "Classical KAM Theorem, p. 6 (persisting Kronecker tori); D9 (Q3)"
+   },
+   "contract": {
+    "id": "kam.kamCover",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/KamCover.lean",
+   "export": "KAM.kamCover",
+   "split_policy": {
+    "source_group": "kam.kamCover",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "f9c676f0007ab98884cb96e9c3f8fb979465c5dcf587d8178451fb7846709f62",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/FrequencyMap.lean",
+     "sha256": "19d0c074ec173e08bf900c6246553b780efff8b561bdf09fba486eb70c70487e"
+    },
+    {
+     "path": "KAM/Frozen/Defs/HamiltonianVectorField.lean",
+     "sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsDiophantine.lean",
+     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsInvariantLagrangianTorus.lean",
+     "sha256": "c837104045533b515a9c5888e446025d4ac9d1ba88031f99d7a3ef72339eda59"
+    },
+    {
+     "path": "KAM/Frozen/Defs/RealHamiltonian.lean",
+     "sha256": "1125f89ff6edb8439c98989b455f62c5827fe4d15b3bba036223047967b863d2"
+    },
+    {
+     "path": "KAM/Frozen/Defs/SymplecticForm.lean",
+     "sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "decaaff915a403edabd0799d8dfc96f066fb61159f8517d277f66a2acc68054c"
+  },
+  {
+   "id": "kam.normalFrame.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "(3.2)–(3.5), p. 16 (Case III, A = 0)"
+   },
+   "contract": {
+    "id": "kam.normalFrame",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/NormalFrame.lean",
+   "export": "KAM.normalFrame",
+   "split_policy": {
+    "source_group": "kam.normalFrame",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "86b86c14c2624b16a514c56a00d7ae7b1798ef789d9f1556d2a2c2ac8c4af95b",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/DotC.lean",
+     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+    },
+    {
+     "path": "KAM/Frozen/Defs/GramMatrix.lean",
+     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+    },
+    {
+     "path": "KAM/Frozen/Defs/OmegaZero.lean",
+     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+  },
+  {
+   "id": "kam.omegaZero.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "Rem. 2.1, p. 6; Rem. 3.3, p. 18 (J = Ω₀)"
+   },
+   "contract": {
+    "id": "kam.omegaZero",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/OmegaZero.lean",
+   "export": "KAM.omegaZero",
+   "split_policy": {
+    "source_group": "kam.omegaZero",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "32a39d2730c3b399c1bb81f1b709931dbdea47635807e8036db3b25116ef457b",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+  },
+  {
+   "id": "kam.realHamiltonian.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "Pos01 arXiv:0908.2234v1 arxiv_0908.2234.pdf sha256:95503c181ede41948041b65963390244680457ab9d8d24b1a4716c81c5735d35",
+    "range": "Classical KAM Theorem, p. 6 (H = h + f)"
+   },
+   "contract": {
+    "id": "kam.realHamiltonian",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/RealHamiltonian.lean",
+   "export": "KAM.realHamiltonian",
+   "split_policy": {
+    "source_group": "kam.realHamiltonian",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "ea510392f643a3fce65df6d4bc826d902d7b2277f67b0c009e3522d5659a0fab",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "1125f89ff6edb8439c98989b455f62c5827fe4d15b3bba036223047967b863d2"
+  },
+  {
+   "id": "kam.symplecticForm.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "Rem. 2.1, p. 6 (ω₀ = Σ dz_{n+i} ∧ dz_i)"
+   },
+   "contract": {
+    "id": "kam.symplecticForm",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/SymplecticForm.lean",
+   "export": "KAM.symplecticForm",
+   "split_policy": {
+    "source_group": "kam.symplecticForm",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "542b8d8eb08283f5c961a969dd96003cbb23fc447da8ea444498cb92a48f6d75",
+   "definition_closure": [],
+   "state": "SEALED",
+   "full_file_sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+  },
+  {
+   "id": "kam.torsion.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "(3.6)–(3.7), p. 16"
+   },
+   "contract": {
+    "id": "kam.torsion",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/Torsion.lean",
+   "export": "KAM.torsion",
+   "split_policy": {
+    "source_group": "kam.torsion",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "6248d8a94564264c3e8525e65f1a6a645815608c795c7def60f04eea1c61a493",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/DotC.lean",
+     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+    },
+    {
+     "path": "KAM/Frozen/Defs/GramMatrix.lean",
+     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+    },
+    {
+     "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
+     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+    },
+    {
+     "path": "KAM/Frozen/Defs/NormalFrame.lean",
+     "sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+    },
+    {
+     "path": "KAM/Frozen/Defs/OmegaZero.lean",
+     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "d82729d0215472184c30875155f1c0b09abdbd063624a0fe14333f3dbe9a9be7"
+  },
+  {
+   "id": "kam.torsionAverage.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "§2.1, p. 6 (⟨u⟩ = û₀); H4, p. 17"
+   },
+   "contract": {
+    "id": "kam.torsionAverage",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Defs/TorsionAverage.lean",
+   "export": "KAM.torsionAverage",
+   "split_policy": {
+    "source_group": "kam.torsionAverage",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "40ce1d2056d5a44fae79b3f6a61108242c23a931d7d577028d8a70b9352e655d",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/DotC.lean",
+     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+    },
+    {
+     "path": "KAM/Frozen/Defs/GramMatrix.lean",
+     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+    },
+    {
+     "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
+     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+    },
+    {
+     "path": "KAM/Frozen/Defs/NormalFrame.lean",
+     "sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+    },
+    {
+     "path": "KAM/Frozen/Defs/OmegaZero.lean",
+     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+    },
+    {
+     "path": "KAM/Frozen/Defs/Torsion.lean",
+     "sha256": "d82729d0215472184c30875155f1c0b09abdbd063624a0fe14333f3dbe9a9be7"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "c1a49df033c8e8b2754a6c41519a9b9aefc8b718ce66ced0dfe51374772c87db"
+  },
+  {
+   "id": "kam.aposteriori_kam.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "HL19 arXiv:1711.05515v1 arxiv_1711.05515.pdf sha256:ed457633b5c4f0412b7f2c81c3818ef88829dee3420b97864e42223b77eb5241",
+    "range": "Theorem 3.1, pp. 16–18; Rem. 2.3, 3.2, 3.3; App. B (5.74)–(5.77) (ledger D-G1-1)"
+   },
+   "contract": {
+    "id": "kam.aposteriori_kam",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Theorems/AposterioriKam.lean",
+   "export": "KAM.aposteriori_kam",
+   "split_policy": {
+    "source_group": "kam.aposteriori_kam",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "15dbaab5a036f69e52d0659874d64abe6fdd36e0f235973db368792c615ee293",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/ComplexStrip.lean",
+     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+    },
+    {
+     "path": "KAM/Frozen/Defs/DotC.lean",
+     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+    },
+    {
+     "path": "KAM/Frozen/Defs/GramMatrix.lean",
+     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+    },
+    {
+     "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
+     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+    },
+    {
+     "path": "KAM/Frozen/Defs/InvarianceError.lean",
+     "sha256": "5f86c8eb69471c4fda13d1c945fae47b7af9508d11859d02f3be5324bb3956b5"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsDiophantine.lean",
+     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsPrimaryOnStrip.lean",
+     "sha256": "8c7064198b15296e739dfc037508917e8f8c8dd9e647dbf4e674a8a1a6a02025"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsRealOnReals.lean",
+     "sha256": "10cb108921d9f8330b919edd7c234a4b1d94db17ec2bdd4ac1a06c7fcdbfb324"
+    },
+    {
+     "path": "KAM/Frozen/Defs/NormalFrame.lean",
+     "sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+    },
+    {
+     "path": "KAM/Frozen/Defs/OmegaZero.lean",
+     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+    },
+    {
+     "path": "KAM/Frozen/Defs/Torsion.lean",
+     "sha256": "d82729d0215472184c30875155f1c0b09abdbd063624a0fe14333f3dbe9a9be7"
+    },
+    {
+     "path": "KAM/Frozen/Defs/TorsionAverage.lean",
+     "sha256": "c1a49df033c8e8b2754a6c41519a9b9aefc8b718ce66ced0dfe51374772c87db"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.AposterioriKam",
+    "export": "KAM.Provider.aposteriori_kam"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "fe1dfa6b39d4531ad54c980fee5db9df55e3f18889e6364e02c4561ae2dbecc5",
+   "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "kam.kam_positive_measure.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "Pos01 arXiv:0908.2234v1 arxiv_0908.2234.pdf sha256:95503c181ede41948041b65963390244680457ab9d8d24b1a4716c81c5735d35",
+    "range": "Classical KAM Theorem, p. 6, at rate ε^{1/4} (D8, D9; ledger D-MEAS-1)"
+   },
+   "contract": {
+    "id": "kam.kam_positive_measure",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Theorems/KamPositiveMeasure.lean",
+   "export": "KAM.kam_positive_measure",
+   "split_policy": {
+    "source_group": "kam.kam_positive_measure",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "4c734e37b56b161f141cf03c217a4b47c7014dac1370c1f7863676c39c7c1538",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/ActionNbhd.lean",
+     "sha256": "b21b378158b62609d3b06f00a4ad9d674fd4262b1c42ae95d9b2eb7fe68b517c"
+    },
+    {
+     "path": "KAM/Frozen/Defs/ComplexStrip.lean",
+     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+    },
+    {
+     "path": "KAM/Frozen/Defs/FrequencyMap.lean",
+     "sha256": "19d0c074ec173e08bf900c6246553b780efff8b561bdf09fba486eb70c70487e"
+    },
+    {
+     "path": "KAM/Frozen/Defs/FundamentalDomain.lean",
+     "sha256": "6a31ab117965ed7b7734a9faf47542f04708b56eacfdfd4a1e4a0d0afe48a30f"
+    },
+    {
+     "path": "KAM/Frozen/Defs/HamiltonianVectorField.lean",
+     "sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsDiophantine.lean",
+     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsInvariantLagrangianTorus.lean",
+     "sha256": "c837104045533b515a9c5888e446025d4ac9d1ba88031f99d7a3ef72339eda59"
+    },
+    {
+     "path": "KAM/Frozen/Defs/KamCover.lean",
+     "sha256": "decaaff915a403edabd0799d8dfc96f066fb61159f8517d277f66a2acc68054c"
+    },
+    {
+     "path": "KAM/Frozen/Defs/RealHamiltonian.lean",
+     "sha256": "1125f89ff6edb8439c98989b455f62c5827fe4d15b3bba036223047967b863d2"
+    },
+    {
+     "path": "KAM/Frozen/Defs/SymplecticForm.lean",
+     "sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.KamPositiveMeasure",
+    "export": "KAM.Provider.kam_positive_measure"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "63ddbbf21c3f5b8206d6ae2660f7ae6f5d644fe9e3752cc23073783034501a14",
+   "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "kam.kam_positive_measure_qualitative.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "Pos01 arXiv:0908.2234v1 arxiv_0908.2234.pdf sha256:95503c181ede41948041b65963390244680457ab9d8d24b1a4716c81c5735d35",
+    "range": "Classical KAM Theorem, p. 6 (D9 Q1: qualitative corollary)"
+   },
+   "contract": {
+    "id": "kam.kam_positive_measure_qualitative",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean",
+   "export": "KAM.kam_positive_measure_qualitative",
+   "split_policy": {
+    "source_group": "kam.kam_positive_measure_qualitative",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "3cac1e4650a580f08a539ba876442f6608e36106126a0d57948d4e246c090a21",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/ActionNbhd.lean",
+     "sha256": "b21b378158b62609d3b06f00a4ad9d674fd4262b1c42ae95d9b2eb7fe68b517c"
+    },
+    {
+     "path": "KAM/Frozen/Defs/ComplexStrip.lean",
+     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+    },
+    {
+     "path": "KAM/Frozen/Defs/FrequencyMap.lean",
+     "sha256": "19d0c074ec173e08bf900c6246553b780efff8b561bdf09fba486eb70c70487e"
+    },
+    {
+     "path": "KAM/Frozen/Defs/FundamentalDomain.lean",
+     "sha256": "6a31ab117965ed7b7734a9faf47542f04708b56eacfdfd4a1e4a0d0afe48a30f"
+    },
+    {
+     "path": "KAM/Frozen/Defs/HamiltonianVectorField.lean",
+     "sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsDiophantine.lean",
+     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsInvariantLagrangianTorus.lean",
+     "sha256": "c837104045533b515a9c5888e446025d4ac9d1ba88031f99d7a3ef72339eda59"
+    },
+    {
+     "path": "KAM/Frozen/Defs/KamCover.lean",
+     "sha256": "decaaff915a403edabd0799d8dfc96f066fb61159f8517d277f66a2acc68054c"
+    },
+    {
+     "path": "KAM/Frozen/Defs/RealHamiltonian.lean",
+     "sha256": "1125f89ff6edb8439c98989b455f62c5827fe4d15b3bba036223047967b863d2"
+    },
+    {
+     "path": "KAM/Frozen/Defs/SymplecticForm.lean",
+     "sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.KamPositiveMeasureQualitative",
+    "export": "KAM.Provider.kam_positive_measure_qualitative"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "d3b5159438eb59ef0a91396b65f0d980fb54e806d87171249b6c9af93053484e",
+   "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "kam.local_uniqueness_flow.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "GJLV05 doi:10.1088/0951-7715/18/2/020 gjlv.pdf sha256:eec921dc45889c6a7148d12653d84f6994d395811ccf40f2bdfd6057d119a9ee",
+    "range": "Theorem 2, p. 862 (template for flows; ledger D-UNIQ-1)"
+   },
+   "contract": {
+    "id": "kam.local_uniqueness_flow",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Theorems/LocalUniquenessFlow.lean",
+   "export": "KAM.local_uniqueness_flow",
+   "split_policy": {
+    "source_group": "kam.local_uniqueness_flow",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "60351404d1e73fe60603199359120cf75ed2012677c70fc7a56d21e117a0f2e7",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/ComplexStrip.lean",
+     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+    },
+    {
+     "path": "KAM/Frozen/Defs/DotC.lean",
+     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+    },
+    {
+     "path": "KAM/Frozen/Defs/GramMatrix.lean",
+     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+    },
+    {
+     "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
+     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+    },
+    {
+     "path": "KAM/Frozen/Defs/InvarianceError.lean",
+     "sha256": "5f86c8eb69471c4fda13d1c945fae47b7af9508d11859d02f3be5324bb3956b5"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsDiophantine.lean",
+     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsPrimaryOnStrip.lean",
+     "sha256": "8c7064198b15296e739dfc037508917e8f8c8dd9e647dbf4e674a8a1a6a02025"
+    },
+    {
+     "path": "KAM/Frozen/Defs/IsRealOnReals.lean",
+     "sha256": "10cb108921d9f8330b919edd7c234a4b1d94db17ec2bdd4ac1a06c7fcdbfb324"
+    },
+    {
+     "path": "KAM/Frozen/Defs/NormalFrame.lean",
+     "sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+    },
+    {
+     "path": "KAM/Frozen/Defs/OmegaZero.lean",
+     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+    },
+    {
+     "path": "KAM/Frozen/Defs/Torsion.lean",
+     "sha256": "d82729d0215472184c30875155f1c0b09abdbd063624a0fe14333f3dbe9a9be7"
+    },
+    {
+     "path": "KAM/Frozen/Defs/TorsionAverage.lean",
+     "sha256": "c1a49df033c8e8b2754a6c41519a9b9aefc8b718ce66ced0dfe51374772c87db"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.LocalUniquenessFlow",
+    "export": "KAM.Provider.local_uniqueness_flow"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "915a06100e1adb1c2389c4e25d59fa3406b9493885f965baaacd3d827553f886",
+   "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "kam.volume_not_diophantine_le.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve all' to the review page of statement draft v0.2 (claude.ai/artifact/WP8cHuhjvWTSSMkubhU8f2); docs/DECISIONS.md D11",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "Pos01 arXiv:0908.2234v1 arxiv_0908.2234.pdf sha256:95503c181ede41948041b65963390244680457ab9d8d24b1a4716c81c5735d35",
+    "range": "§1d, p. 5"
+   },
+   "contract": {
+    "id": "kam.volume_not_diophantine_le",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean",
+   "export": "KAM.volume_not_diophantine_le",
+   "split_policy": {
+    "source_group": "kam.volume_not_diophantine_le",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D11"
+   },
+   "abi_sha256": "719393036634dc4d232cc3586abd37667f6ec654c42eb21f15aac7eaeb4f374a",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Defs/IsDiophantine.lean",
+     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.VolumeNotDiophantineLe",
+    "export": "KAM.Provider.volume_not_diophantine_le"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "99df1003d6e080d93edee40741de16fa787e140f90435c3ab6b556d017955f35",
+   "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  }
+ ]
 }

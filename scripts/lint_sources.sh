@@ -9,7 +9,7 @@ project_root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 status=0
 
 lean_files() {
-  find "$project_root" -type f -name '*.lean' ! -path '*/.lake/*' ! -name 'lakefile.lean'
+  find "$project_root" -type f -name '*.lean' ! -path '*/.lake/*' ! -path '*/.drafts/*' ! -name 'lakefile.lean'
 }
 
 check_pattern() {
@@ -61,6 +61,8 @@ if python3 -I -c 'import json, sys; sys.exit(0 if json.load(open(sys.argv[1]))["
     "$manifest"; then
   python3 -I "$project_root/scripts/check_frozen_anchors.py" --root "$project_root" \
     --manifest "$manifest" || status=1
+  # Elaborated statement hashes (needs the frozen modules built: `lake build`).
+  python3 -I "$project_root/scripts/abi_hashes.py" "$project_root" "$manifest" --check || status=1
 else
   frozen=$(find "$project_root/KAM/Frozen" -type f -name '*.lean' 2>/dev/null || true)
   if [ -n "$frozen" ]; then
