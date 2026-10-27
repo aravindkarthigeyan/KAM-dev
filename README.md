@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:55 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 24.5 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:56 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 25.4 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,13 +53,13 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **24.5 %**
+### Estimated completion: **25.4 %**
 
-`██████░░░░░░░░░░░░░░░░░░░` 24.5 %
+`██████░░░░░░░░░░░░░░░░░░░` 25.4 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
-| Statement and planning | 8 | 26 | 18.3 | `███████░░░` 71 % |
+| Statement and planning | 8 | 26 | 19.6 | `████████░░` 75 % |
 | Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
 | Analytic infrastructure | 8 | 24 | 3.4 | `█░░░░░░░░░` 14 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
@@ -68,7 +68,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | Track N (Nekhoroshev) | 2 | 12 | 3.2 | `███░░░░░░░` 27 % |
 | Track P (planetary) | 3 | 20 | 3.2 | `██░░░░░░░░` 16 % |
 | Sealing of the frozen statements | 5 | 5 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 41 | 140 | 34.4 | **24.5 %** |
+| **Total** | 41 | 140 | 35.6 | **25.4 %** |
 
 **How this is estimated.** The project is divided into 36 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -81,7 +81,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | S.ROUTE | Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency) | H | 🟨 90 % | verdict: route works; rate ε^{1/4}; flow local uniqueness must be proved by us (no published version) |
 | S.STMT | Mathematical statement of the headline theorem and the gate theorems, with owner rulings | M | ✅ 100 % | docs/statement.md draft 0.2, approved |
 | S.LEAN | Exact Lean statements (headline + gates): independent audit, owner approval, freeze | H | ✅ 100 % | approved (D11) and frozen: 5 theorem anchors + 20 definitions, manifest with file/prefix/ABI hashes |
-| S.BP | Blueprint: every proof step written out against the pinned sources | VH | 🟨 70 % | all parts drafted (p2, p3, p4 complete; p1 interface of 30 lemmas, proofs being written); p3 review passed with fixes; p2, p4 reviews running |
+| S.BP | Blueprint: every proof step written out against the pinned sources | VH | 🟨 85 % | all five parts written (~5,250 lines); parts 2–4 reviewed ACCEPT WITH FIXES; part 1 proofs complete; consolidation running |
 | S.GRAPH | Source-level dependency graph anchored to the frozen statements | H | ⬜ 0 % |  |
 | S.ERRATA | Errata and deviations ledger for every formalized source (continuous) | L | 🟨 30 % | ledger: 8 candidate errata, 6 planned deviations |
 | I.REPO | Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint | L | ✅ 100 % |  |
@@ -130,9 +130,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:55 UTC from `main` at `f095eaa` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:56 UTC from `main` at `7a88b9f` by `scripts/hq-status.py`.*
 
-**Current phase:** Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.
+**Current phase:** Track K Phase 1: blueprint complete (parts 0–4, ~5,250 lines; all reviewed or proved); consolidation pass running, then Part 1 review and dependency-graph extraction. Tracks I, N, P: statements audited, awaiting owner approval.
 
 **Frozen statements proved: 0 / 5** · frozen definitions: 20
 
@@ -256,7 +256,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 |---|---|---|---|---|---|---|---|
 | **orchestrator** | lead | Claude Opus 5.5 | claude-1 | 🔄 active | Campaign lead: sources, statements, assignments, landings, owner questions, this README | — | — |
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
-| **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | ✅ done | Blueprint part 4 (G3, HEAD, HEAD-Q) written: 1482 lines; in review | — | — |
 | **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | ✅ handed off | Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N v0.2: N-HEAD kept (F-N1 open) plus N-HEAD-C with complex Hessian bound and frequency lower bound (Poschel 1993 Thm 1) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P v0.2: all nine audit findings adopted (disc cylinder, diffeomorphism on W ⊇ closure V, boundary-layer guard) | — | — |
@@ -264,9 +263,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | ✅ handed off | Track N delta audit v0.2: N-HEAD-C approvable; N-HEAD faithful with source gap F-N1 open | — | — |
 | **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ handed off | Track P delta audit v0.2: all statements APPROVABLE; P-G true as corrected | — | — |
 | **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Track I audit v0.1: all 4 theorems and 15 definitions APPROVABLE; minor fixes applied (author header, three source locators) | — | — |
-| **bp-p1** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Proofs of the 30 part-1 interface lemmas | — | — |
+| **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 
-**Queued:** Owner approval: track I (claude.ai/artifact/5B9odMattAPViUVYUgNPDK), track P (claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1), track N (claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H) · Blueprint consolidation (p2/p3 shared geometry, p3 copies, stale request sections; reviews p2 and p3) · Dependency graph extraction for track K
+**Queued:** Owner approval: track I (claude.ai/artifact/5B9odMattAPViUVYUgNPDK), track P (claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1), track N (claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H) · Dependency graph extraction for track K
 <!-- /AUTO:workers -->
 
 ### Recent changes on `main`
@@ -274,6 +273,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:56 | `7a88b9f` | HQ: blueprint complete; consolidation pass running |
 | 2026-10-27 16:55 | `f095eaa` | Blueprint Part 1: complete proofs of all interface lemmas, including several-variable holomorphic implies analytic |
 | 2026-10-27 16:53 | `f32337b` | Exploration round 3 (independent refutation): P-EXP-SAFE confirmed with corrections (Nekhoroshev 1977 Thm 12.3; source exponents), secular box and averaging correction confirmed; proposed milestones recorded |
 | 2026-10-27 16:51 | `fa8f631` | Track N delta audit v0.2: N-HEAD-C approvable; review pages for tracks I, N, P await owner approval |
@@ -285,7 +285,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 16:29 | `a034fc9` | Track N v0.2: complex-bound headline variant N-HEAD-C; delta audit running |
 | 2026-10-27 16:25 | `f08858a` | Track P v0.2: all audit findings adopted; delta audit running |
 | 2026-10-27 16:24 | `42c831a` | Blueprint Part 2 review: ACCEPT WITH FIXES (minor only); E-HL19-7 reclassified; track I review page published |
-| 2026-10-27 16:23 | `6d0dfa8` | Track I statement audit v0.1: all statements approvable; minor locator corrections applied |
 <!-- /AUTO:landed -->
 
 ## Decisions
