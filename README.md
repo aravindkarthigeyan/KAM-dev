@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:56 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 19.0 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 19.0 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:56 UTC from `main` at `4df9d8c` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:00 UTC from `main` at `f9ec180` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
