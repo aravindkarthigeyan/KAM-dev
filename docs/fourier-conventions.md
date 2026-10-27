@@ -30,6 +30,13 @@ m a positive integer, take δ = 1/m and s > δ. The ratio
 ‖∂_{θ₁} f‖_{s−δ}/‖f‖_s is exactly 2πm/e, whereas the previous bound was m/e.
 The same example works for any dimension n ≥ 1.
 
+The coefficient estimate is formalized in
+[`KAM/Fourier/Derivative.lean`](../KAM/Fourier/Derivative.lean):
+`SummableWeighted.partialCoeff` proves summability at radius s − δ, and
+`weightedNorm_partialCoeff_le` proves the bound 2π/(exp(1)δ). Their only analytic hypothesis is
+weighted summability at s, together with δ > 0; no summability of the derivative is assumed.
+Identifying these coefficients with derivatives of the represented function remains part of BRIDGE.
+
 ## Cohomological equation
 
 Suppose |k·ω| ≥ γ/|k|₁^τ for k ≠ 0, with γ > 0 and τ ≥ 0. The zero-average solution of
