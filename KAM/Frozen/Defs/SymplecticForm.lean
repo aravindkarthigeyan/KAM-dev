@@ -1,7 +1,7 @@
 /-
-Copyright (c) 2026 Scott Armstrong. All rights reserved.
+Copyright (c) 2026 Scott Armstrong, Zohar Komargodski. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Scott Armstrong
+Authors: Scott Armstrong, Zohar Komargodski
 -/
 module
 

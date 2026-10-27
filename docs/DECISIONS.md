@@ -73,4 +73,11 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   Each track runs the full pipeline, with its own owner approval of exact Lean statements before freezing.
 - **D15 (2026-10-27) Authors.** The repository's authors are Scott Armstrong and Zohar Komargodski (GitHub
   zkomargo). *(Scott)*
+- **D16 (2026-10-27) Author headers of the frozen files.** *(Scott: "yes change the frozen file authors too")*
+  - The copyright and `Authors:` lines of the 25 frozen files (and of the provider stubs) now name Scott Armstrong
+    and Zohar Komargodski.
+  - This is a hash move that does not change meaning. Every byte after the header comment is unchanged (checked
+    file by file), and all 25 elaborated ABI hashes are identical before and after.
+  - Only `full_file_sha256`, `prefix_sha256` and `definition_closure` hashes in `manifest/frozen-anchors.json`
+    changed. Log: `docs/MANIFEST-CHANGES.md`.
 

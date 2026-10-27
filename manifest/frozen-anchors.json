@@ -33,7 +33,7 @@
    "abi_sha256": "b05e2aeddf393c0b232bd809f64d9d8040e0fdf54248c4f880ab1ad98c040f21",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "b21b378158b62609d3b06f00a4ad9d674fd4262b1c42ae95d9b2eb7fe68b517c"
+   "full_file_sha256": "a3d0fe1c21946ded08e554c696710a795fc45cd67a1948c31887a850abb5ba80"
   },
   {
    "id": "kam.complexStrip.v1",
@@ -62,7 +62,7 @@
    "abi_sha256": "91cedb11be4f33139d30fcc5103f7ed5370fa5d89a68f9a3aaf0b061ae2920e7",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+   "full_file_sha256": "e09d35d4c4c71ad6dad5dfb1995c842840f1c35bffbd3494bb6ff62f78c3da99"
   },
   {
    "id": "kam.dotℂ.v1",
@@ -91,7 +91,7 @@
    "abi_sha256": "6d938a769932067b5668f7e0b3bb92a62331b9be8f6a13b7a625af3b5eed362b",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+   "full_file_sha256": "5471d86c669a72170ae2a0ac9af9bdd980f09c63391ac4810e7847992b9320ab"
   },
   {
    "id": "kam.frequencyMap.v1",
@@ -120,7 +120,7 @@
    "abi_sha256": "c9326077b299282bff92fdb8a3a849f512167fd4dc8e859bb0fdf1662f525cc5",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "19d0c074ec173e08bf900c6246553b780efff8b561bdf09fba486eb70c70487e"
+   "full_file_sha256": "a1f9fe8cb6281f57cc68cfcbc5b7c3020bd207d681b45665e7c31ebd8593ee8f"
   },
   {
    "id": "kam.fundamentalDomain.v1",
@@ -149,7 +149,7 @@
    "abi_sha256": "810177265bdc6565103c4424a87272ae1769c4479cde418f98ce4b0c917946c2",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "6a31ab117965ed7b7734a9faf47542f04708b56eacfdfd4a1e4a0d0afe48a30f"
+   "full_file_sha256": "e1de1632361c6de0d3e3b6cf5edaa1d92de0b12d7dd3934fed673da896e8f709"
   },
   {
    "id": "kam.gramMatrix.v1",
@@ -179,11 +179,11 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/DotC.lean",
-     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+     "sha256": "5471d86c669a72170ae2a0ac9af9bdd980f09c63391ac4810e7847992b9320ab"
     }
    ],
    "state": "SEALED",
-   "full_file_sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+   "full_file_sha256": "b157a0ddfd02c5a1e123beae25f18a085c10ff2d5378d542bb2623bda7c39573"
   },
   {
    "id": "kam.hamiltonianVectorField.v1",
@@ -212,7 +212,7 @@
    "abi_sha256": "427a145572df4c3e14079cf88feb16d60e1cd92fcd1770faddd36ad706562ca6",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+   "full_file_sha256": "1592cf15aadef80f7e2017860494a1e067de8698ff8f6075c055a2d138877a79"
   },
   {
    "id": "kam.hamiltonianVectorFieldℂ.v1",
@@ -241,7 +241,7 @@
    "abi_sha256": "482764b7e8e1691b3c3c182bca9b959f0d657e126c6b21b837ff0516f91e4f0d",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+   "full_file_sha256": "6943acf3f4c92ac007afeb274bd6f82ae422279617ca433d8c84898341d0edf5"
   },
   {
    "id": "kam.invarianceError.v1",
@@ -271,11 +271,11 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
-     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+     "sha256": "6943acf3f4c92ac007afeb274bd6f82ae422279617ca433d8c84898341d0edf5"
     }
    ],
    "state": "SEALED",
-   "full_file_sha256": "5f86c8eb69471c4fda13d1c945fae47b7af9508d11859d02f3be5324bb3956b5"
+   "full_file_sha256": "d3dff384bd1d7c3c5799f3d9630319cf67dd8dd8c9ab05160fd527356d5bcf94"
   },
   {
    "id": "kam.IsDiophantine.v1",
@@ -304,7 +304,7 @@
    "abi_sha256": "24a486c6ccc5648791465ec3577c2e37fd464ecaec8f0dab9c74a5588535e717",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+   "full_file_sha256": "45ac03a3d80f3be86018b756497d11e520e59e40beff85bc92e6bec6d873aea9"
   },
   {
    "id": "kam.IsInvariantLagrangianTorus.v1",
@@ -334,15 +334,15 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/HamiltonianVectorField.lean",
-     "sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+     "sha256": "1592cf15aadef80f7e2017860494a1e067de8698ff8f6075c055a2d138877a79"
     },
     {
      "path": "KAM/Frozen/Defs/SymplecticForm.lean",
-     "sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+     "sha256": "cb406afe9c796cec050b1d0f340bf2327766481865dcaf001063c9b8d53df60a"
     }
    ],
    "state": "SEALED",
-   "full_file_sha256": "c837104045533b515a9c5888e446025d4ac9d1ba88031f99d7a3ef72339eda59"
+   "full_file_sha256": "b1d24c95075bf730d40213f70ee354ac4d86f135570a1a93310ca4cfebb7f0c0"
   },
   {
    "id": "kam.IsPrimaryOnStrip.v1",
@@ -372,11 +372,11 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/ComplexStrip.lean",
-     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+     "sha256": "e09d35d4c4c71ad6dad5dfb1995c842840f1c35bffbd3494bb6ff62f78c3da99"
     }
    ],
    "state": "SEALED",
-   "full_file_sha256": "8c7064198b15296e739dfc037508917e8f8c8dd9e647dbf4e674a8a1a6a02025"
+   "full_file_sha256": "24f6d108dceb1596bb50f1037229c7c76e217a724bdd1e32ff6d4832a4256ec6"
   },
   {
    "id": "kam.IsRealOnReals.v1",
@@ -405,7 +405,7 @@
    "abi_sha256": "6549c22016139f44ca97ba901aa4927905970838ce283fef53b30c223dfabbb5",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "10cb108921d9f8330b919edd7c234a4b1d94db17ec2bdd4ac1a06c7fcdbfb324"
+   "full_file_sha256": "e0ebadd672b8483c426b4af5b934850c0dfd2a683013d82fca3a5ece965c035c"
   },
   {
    "id": "kam.kamCover.v1",
@@ -435,31 +435,31 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/FrequencyMap.lean",
-     "sha256": "19d0c074ec173e08bf900c6246553b780efff8b561bdf09fba486eb70c70487e"
+     "sha256": "a1f9fe8cb6281f57cc68cfcbc5b7c3020bd207d681b45665e7c31ebd8593ee8f"
     },
     {
      "path": "KAM/Frozen/Defs/HamiltonianVectorField.lean",
-     "sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+     "sha256": "1592cf15aadef80f7e2017860494a1e067de8698ff8f6075c055a2d138877a79"
     },
     {
      "path": "KAM/Frozen/Defs/IsDiophantine.lean",
-     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+     "sha256": "45ac03a3d80f3be86018b756497d11e520e59e40beff85bc92e6bec6d873aea9"
     },
     {
      "path": "KAM/Frozen/Defs/IsInvariantLagrangianTorus.lean",
-     "sha256": "c837104045533b515a9c5888e446025d4ac9d1ba88031f99d7a3ef72339eda59"
+     "sha256": "b1d24c95075bf730d40213f70ee354ac4d86f135570a1a93310ca4cfebb7f0c0"
     },
     {
      "path": "KAM/Frozen/Defs/RealHamiltonian.lean",
-     "sha256": "1125f89ff6edb8439c98989b455f62c5827fe4d15b3bba036223047967b863d2"
+     "sha256": "d2e526b9c26f37128281d928c668b6ae14c389f5ef63007634c1985e1ac6e2a4"
     },
     {
      "path": "KAM/Frozen/Defs/SymplecticForm.lean",
-     "sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+     "sha256": "cb406afe9c796cec050b1d0f340bf2327766481865dcaf001063c9b8d53df60a"
     }
    ],
    "state": "SEALED",
-   "full_file_sha256": "decaaff915a403edabd0799d8dfc96f066fb61159f8517d277f66a2acc68054c"
+   "full_file_sha256": "3bf4fddd08a4a3bac1dff67a08c47f8d18985cd2dc76b839f0bc04f74090825c"
   },
   {
    "id": "kam.normalFrame.v1",
@@ -489,19 +489,19 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/DotC.lean",
-     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+     "sha256": "5471d86c669a72170ae2a0ac9af9bdd980f09c63391ac4810e7847992b9320ab"
     },
     {
      "path": "KAM/Frozen/Defs/GramMatrix.lean",
-     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+     "sha256": "b157a0ddfd02c5a1e123beae25f18a085c10ff2d5378d542bb2623bda7c39573"
     },
     {
      "path": "KAM/Frozen/Defs/OmegaZero.lean",
-     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+     "sha256": "bdcb1908159f564c665ee352347f7e50f00e232233b8a040909f1179f1eec23a"
     }
    ],
    "state": "SEALED",
-   "full_file_sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+   "full_file_sha256": "832d539e946112dfdf5e07463e3cbb656b2ed466780760bdf62022912f3d1de4"
   },
   {
    "id": "kam.omegaZero.v1",
@@ -530,7 +530,7 @@
    "abi_sha256": "32a39d2730c3b399c1bb81f1b709931dbdea47635807e8036db3b25116ef457b",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+   "full_file_sha256": "bdcb1908159f564c665ee352347f7e50f00e232233b8a040909f1179f1eec23a"
   },
   {
    "id": "kam.realHamiltonian.v1",
@@ -559,7 +559,7 @@
    "abi_sha256": "ea510392f643a3fce65df6d4bc826d902d7b2277f67b0c009e3522d5659a0fab",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "1125f89ff6edb8439c98989b455f62c5827fe4d15b3bba036223047967b863d2"
+   "full_file_sha256": "d2e526b9c26f37128281d928c668b6ae14c389f5ef63007634c1985e1ac6e2a4"
   },
   {
    "id": "kam.symplecticForm.v1",
@@ -588,7 +588,7 @@
    "abi_sha256": "542b8d8eb08283f5c961a969dd96003cbb23fc447da8ea444498cb92a48f6d75",
    "definition_closure": [],
    "state": "SEALED",
-   "full_file_sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+   "full_file_sha256": "cb406afe9c796cec050b1d0f340bf2327766481865dcaf001063c9b8d53df60a"
   },
   {
    "id": "kam.torsion.v1",
@@ -618,27 +618,27 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/DotC.lean",
-     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+     "sha256": "5471d86c669a72170ae2a0ac9af9bdd980f09c63391ac4810e7847992b9320ab"
     },
     {
      "path": "KAM/Frozen/Defs/GramMatrix.lean",
-     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+     "sha256": "b157a0ddfd02c5a1e123beae25f18a085c10ff2d5378d542bb2623bda7c39573"
     },
     {
      "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
-     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+     "sha256": "6943acf3f4c92ac007afeb274bd6f82ae422279617ca433d8c84898341d0edf5"
     },
     {
      "path": "KAM/Frozen/Defs/NormalFrame.lean",
-     "sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+     "sha256": "832d539e946112dfdf5e07463e3cbb656b2ed466780760bdf62022912f3d1de4"
     },
     {
      "path": "KAM/Frozen/Defs/OmegaZero.lean",
-     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+     "sha256": "bdcb1908159f564c665ee352347f7e50f00e232233b8a040909f1179f1eec23a"
     }
    ],
    "state": "SEALED",
-   "full_file_sha256": "d82729d0215472184c30875155f1c0b09abdbd063624a0fe14333f3dbe9a9be7"
+   "full_file_sha256": "a82cbd3098b2dddec29fd8cf1ca7189f6e08f5c879053996d8c516a0e7ba319e"
   },
   {
    "id": "kam.torsionAverage.v1",
@@ -668,31 +668,31 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/DotC.lean",
-     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+     "sha256": "5471d86c669a72170ae2a0ac9af9bdd980f09c63391ac4810e7847992b9320ab"
     },
     {
      "path": "KAM/Frozen/Defs/GramMatrix.lean",
-     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+     "sha256": "b157a0ddfd02c5a1e123beae25f18a085c10ff2d5378d542bb2623bda7c39573"
     },
     {
      "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
-     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+     "sha256": "6943acf3f4c92ac007afeb274bd6f82ae422279617ca433d8c84898341d0edf5"
     },
     {
      "path": "KAM/Frozen/Defs/NormalFrame.lean",
-     "sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+     "sha256": "832d539e946112dfdf5e07463e3cbb656b2ed466780760bdf62022912f3d1de4"
     },
     {
      "path": "KAM/Frozen/Defs/OmegaZero.lean",
-     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+     "sha256": "bdcb1908159f564c665ee352347f7e50f00e232233b8a040909f1179f1eec23a"
     },
     {
      "path": "KAM/Frozen/Defs/Torsion.lean",
-     "sha256": "d82729d0215472184c30875155f1c0b09abdbd063624a0fe14333f3dbe9a9be7"
+     "sha256": "a82cbd3098b2dddec29fd8cf1ca7189f6e08f5c879053996d8c516a0e7ba319e"
     }
    ],
    "state": "SEALED",
-   "full_file_sha256": "c1a49df033c8e8b2754a6c41519a9b9aefc8b718ce66ced0dfe51374772c87db"
+   "full_file_sha256": "93a5fc1d91409f115c2a718016ad50c0c3d983b1e34e297ee22133881ad1f482"
   },
   {
    "id": "kam.aposteriori_kam.v1",
@@ -722,51 +722,51 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/ComplexStrip.lean",
-     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+     "sha256": "e09d35d4c4c71ad6dad5dfb1995c842840f1c35bffbd3494bb6ff62f78c3da99"
     },
     {
      "path": "KAM/Frozen/Defs/DotC.lean",
-     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+     "sha256": "5471d86c669a72170ae2a0ac9af9bdd980f09c63391ac4810e7847992b9320ab"
     },
     {
      "path": "KAM/Frozen/Defs/GramMatrix.lean",
-     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+     "sha256": "b157a0ddfd02c5a1e123beae25f18a085c10ff2d5378d542bb2623bda7c39573"
     },
     {
      "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
-     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+     "sha256": "6943acf3f4c92ac007afeb274bd6f82ae422279617ca433d8c84898341d0edf5"
     },
     {
      "path": "KAM/Frozen/Defs/InvarianceError.lean",
-     "sha256": "5f86c8eb69471c4fda13d1c945fae47b7af9508d11859d02f3be5324bb3956b5"
+     "sha256": "d3dff384bd1d7c3c5799f3d9630319cf67dd8dd8c9ab05160fd527356d5bcf94"
     },
     {
      "path": "KAM/Frozen/Defs/IsDiophantine.lean",
-     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+     "sha256": "45ac03a3d80f3be86018b756497d11e520e59e40beff85bc92e6bec6d873aea9"
     },
     {
      "path": "KAM/Frozen/Defs/IsPrimaryOnStrip.lean",
-     "sha256": "8c7064198b15296e739dfc037508917e8f8c8dd9e647dbf4e674a8a1a6a02025"
+     "sha256": "24f6d108dceb1596bb50f1037229c7c76e217a724bdd1e32ff6d4832a4256ec6"
     },
     {
      "path": "KAM/Frozen/Defs/IsRealOnReals.lean",
-     "sha256": "10cb108921d9f8330b919edd7c234a4b1d94db17ec2bdd4ac1a06c7fcdbfb324"
+     "sha256": "e0ebadd672b8483c426b4af5b934850c0dfd2a683013d82fca3a5ece965c035c"
     },
     {
      "path": "KAM/Frozen/Defs/NormalFrame.lean",
-     "sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+     "sha256": "832d539e946112dfdf5e07463e3cbb656b2ed466780760bdf62022912f3d1de4"
     },
     {
      "path": "KAM/Frozen/Defs/OmegaZero.lean",
-     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+     "sha256": "bdcb1908159f564c665ee352347f7e50f00e232233b8a040909f1179f1eec23a"
     },
     {
      "path": "KAM/Frozen/Defs/Torsion.lean",
-     "sha256": "d82729d0215472184c30875155f1c0b09abdbd063624a0fe14333f3dbe9a9be7"
+     "sha256": "a82cbd3098b2dddec29fd8cf1ca7189f6e08f5c879053996d8c516a0e7ba319e"
     },
     {
      "path": "KAM/Frozen/Defs/TorsionAverage.lean",
-     "sha256": "c1a49df033c8e8b2754a6c41519a9b9aefc8b718ce66ced0dfe51374772c87db"
+     "sha256": "93a5fc1d91409f115c2a718016ad50c0c3d983b1e34e297ee22133881ad1f482"
     }
    ],
    "implementation": {
@@ -774,7 +774,7 @@
     "export": "KAM.Provider.aposteriori_kam"
    },
    "state": "DRAFT_SORRY",
-   "prefix_sha256": "fe1dfa6b39d4531ad54c980fee5db9df55e3f18889e6364e02c4561ae2dbecc5",
+   "prefix_sha256": "a9f69097bd77eb62431b08692dc3a4da40d06d6fc45befed0369f0d394494811",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {
     "frozen_paths": [],
@@ -809,43 +809,43 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/ActionNbhd.lean",
-     "sha256": "b21b378158b62609d3b06f00a4ad9d674fd4262b1c42ae95d9b2eb7fe68b517c"
+     "sha256": "a3d0fe1c21946ded08e554c696710a795fc45cd67a1948c31887a850abb5ba80"
     },
     {
      "path": "KAM/Frozen/Defs/ComplexStrip.lean",
-     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+     "sha256": "e09d35d4c4c71ad6dad5dfb1995c842840f1c35bffbd3494bb6ff62f78c3da99"
     },
     {
      "path": "KAM/Frozen/Defs/FrequencyMap.lean",
-     "sha256": "19d0c074ec173e08bf900c6246553b780efff8b561bdf09fba486eb70c70487e"
+     "sha256": "a1f9fe8cb6281f57cc68cfcbc5b7c3020bd207d681b45665e7c31ebd8593ee8f"
     },
     {
      "path": "KAM/Frozen/Defs/FundamentalDomain.lean",
-     "sha256": "6a31ab117965ed7b7734a9faf47542f04708b56eacfdfd4a1e4a0d0afe48a30f"
+     "sha256": "e1de1632361c6de0d3e3b6cf5edaa1d92de0b12d7dd3934fed673da896e8f709"
     },
     {
      "path": "KAM/Frozen/Defs/HamiltonianVectorField.lean",
-     "sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+     "sha256": "1592cf15aadef80f7e2017860494a1e067de8698ff8f6075c055a2d138877a79"
     },
     {
      "path": "KAM/Frozen/Defs/IsDiophantine.lean",
-     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+     "sha256": "45ac03a3d80f3be86018b756497d11e520e59e40beff85bc92e6bec6d873aea9"
     },
     {
      "path": "KAM/Frozen/Defs/IsInvariantLagrangianTorus.lean",
-     "sha256": "c837104045533b515a9c5888e446025d4ac9d1ba88031f99d7a3ef72339eda59"
+     "sha256": "b1d24c95075bf730d40213f70ee354ac4d86f135570a1a93310ca4cfebb7f0c0"
     },
     {
      "path": "KAM/Frozen/Defs/KamCover.lean",
-     "sha256": "decaaff915a403edabd0799d8dfc96f066fb61159f8517d277f66a2acc68054c"
+     "sha256": "3bf4fddd08a4a3bac1dff67a08c47f8d18985cd2dc76b839f0bc04f74090825c"
     },
     {
      "path": "KAM/Frozen/Defs/RealHamiltonian.lean",
-     "sha256": "1125f89ff6edb8439c98989b455f62c5827fe4d15b3bba036223047967b863d2"
+     "sha256": "d2e526b9c26f37128281d928c668b6ae14c389f5ef63007634c1985e1ac6e2a4"
     },
     {
      "path": "KAM/Frozen/Defs/SymplecticForm.lean",
-     "sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+     "sha256": "cb406afe9c796cec050b1d0f340bf2327766481865dcaf001063c9b8d53df60a"
     }
    ],
    "implementation": {
@@ -853,7 +853,7 @@
     "export": "KAM.Provider.kam_positive_measure"
    },
    "state": "DRAFT_SORRY",
-   "prefix_sha256": "63ddbbf21c3f5b8206d6ae2660f7ae6f5d644fe9e3752cc23073783034501a14",
+   "prefix_sha256": "ab7f79977075464917571d65d92fa597f467b0fd28d5934e71d335fc6dd07ffb",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {
     "frozen_paths": [],
@@ -888,43 +888,43 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/ActionNbhd.lean",
-     "sha256": "b21b378158b62609d3b06f00a4ad9d674fd4262b1c42ae95d9b2eb7fe68b517c"
+     "sha256": "a3d0fe1c21946ded08e554c696710a795fc45cd67a1948c31887a850abb5ba80"
     },
     {
      "path": "KAM/Frozen/Defs/ComplexStrip.lean",
-     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+     "sha256": "e09d35d4c4c71ad6dad5dfb1995c842840f1c35bffbd3494bb6ff62f78c3da99"
     },
     {
      "path": "KAM/Frozen/Defs/FrequencyMap.lean",
-     "sha256": "19d0c074ec173e08bf900c6246553b780efff8b561bdf09fba486eb70c70487e"
+     "sha256": "a1f9fe8cb6281f57cc68cfcbc5b7c3020bd207d681b45665e7c31ebd8593ee8f"
     },
     {
      "path": "KAM/Frozen/Defs/FundamentalDomain.lean",
-     "sha256": "6a31ab117965ed7b7734a9faf47542f04708b56eacfdfd4a1e4a0d0afe48a30f"
+     "sha256": "e1de1632361c6de0d3e3b6cf5edaa1d92de0b12d7dd3934fed673da896e8f709"
     },
     {
      "path": "KAM/Frozen/Defs/HamiltonianVectorField.lean",
-     "sha256": "7d2453cd9ad81d98df53f8ee95a995456bee6ab0113a3e47c6fb1793345de5eb"
+     "sha256": "1592cf15aadef80f7e2017860494a1e067de8698ff8f6075c055a2d138877a79"
     },
     {
      "path": "KAM/Frozen/Defs/IsDiophantine.lean",
-     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+     "sha256": "45ac03a3d80f3be86018b756497d11e520e59e40beff85bc92e6bec6d873aea9"
     },
     {
      "path": "KAM/Frozen/Defs/IsInvariantLagrangianTorus.lean",
-     "sha256": "c837104045533b515a9c5888e446025d4ac9d1ba88031f99d7a3ef72339eda59"
+     "sha256": "b1d24c95075bf730d40213f70ee354ac4d86f135570a1a93310ca4cfebb7f0c0"
     },
     {
      "path": "KAM/Frozen/Defs/KamCover.lean",
-     "sha256": "decaaff915a403edabd0799d8dfc96f066fb61159f8517d277f66a2acc68054c"
+     "sha256": "3bf4fddd08a4a3bac1dff67a08c47f8d18985cd2dc76b839f0bc04f74090825c"
     },
     {
      "path": "KAM/Frozen/Defs/RealHamiltonian.lean",
-     "sha256": "1125f89ff6edb8439c98989b455f62c5827fe4d15b3bba036223047967b863d2"
+     "sha256": "d2e526b9c26f37128281d928c668b6ae14c389f5ef63007634c1985e1ac6e2a4"
     },
     {
      "path": "KAM/Frozen/Defs/SymplecticForm.lean",
-     "sha256": "87f68ab07b9a957ec31367eb3284e8cd32b2a14c6e633774284a57bb1bdb359d"
+     "sha256": "cb406afe9c796cec050b1d0f340bf2327766481865dcaf001063c9b8d53df60a"
     }
    ],
    "implementation": {
@@ -932,7 +932,7 @@
     "export": "KAM.Provider.kam_positive_measure_qualitative"
    },
    "state": "DRAFT_SORRY",
-   "prefix_sha256": "d3b5159438eb59ef0a91396b65f0d980fb54e806d87171249b6c9af93053484e",
+   "prefix_sha256": "07c696d5fb6426eae7d3434d764cf37fe529691cfaaf6c69a6ad687426cc6dce",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {
     "frozen_paths": [],
@@ -967,51 +967,51 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/ComplexStrip.lean",
-     "sha256": "2ec86f72e977c5cb46ccbfadc434d28fc2542dd7aadc9b4b5557ee1cd1c10577"
+     "sha256": "e09d35d4c4c71ad6dad5dfb1995c842840f1c35bffbd3494bb6ff62f78c3da99"
     },
     {
      "path": "KAM/Frozen/Defs/DotC.lean",
-     "sha256": "01cd1adb02146ce68ce550db047b94f3792fc7260beef3cdf98ebdda3b5fd490"
+     "sha256": "5471d86c669a72170ae2a0ac9af9bdd980f09c63391ac4810e7847992b9320ab"
     },
     {
      "path": "KAM/Frozen/Defs/GramMatrix.lean",
-     "sha256": "df0a0e2029e6807e987b2072d1f1e958bb19abecbb5acddb152ad55f08742a85"
+     "sha256": "b157a0ddfd02c5a1e123beae25f18a085c10ff2d5378d542bb2623bda7c39573"
     },
     {
      "path": "KAM/Frozen/Defs/HamiltonianVectorFieldC.lean",
-     "sha256": "80f029e8ed72679299c6201f7b109fccdd01d814bba7ca3bcf59fcb5fe5aadc9"
+     "sha256": "6943acf3f4c92ac007afeb274bd6f82ae422279617ca433d8c84898341d0edf5"
     },
     {
      "path": "KAM/Frozen/Defs/InvarianceError.lean",
-     "sha256": "5f86c8eb69471c4fda13d1c945fae47b7af9508d11859d02f3be5324bb3956b5"
+     "sha256": "d3dff384bd1d7c3c5799f3d9630319cf67dd8dd8c9ab05160fd527356d5bcf94"
     },
     {
      "path": "KAM/Frozen/Defs/IsDiophantine.lean",
-     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+     "sha256": "45ac03a3d80f3be86018b756497d11e520e59e40beff85bc92e6bec6d873aea9"
     },
     {
      "path": "KAM/Frozen/Defs/IsPrimaryOnStrip.lean",
-     "sha256": "8c7064198b15296e739dfc037508917e8f8c8dd9e647dbf4e674a8a1a6a02025"
+     "sha256": "24f6d108dceb1596bb50f1037229c7c76e217a724bdd1e32ff6d4832a4256ec6"
     },
     {
      "path": "KAM/Frozen/Defs/IsRealOnReals.lean",
-     "sha256": "10cb108921d9f8330b919edd7c234a4b1d94db17ec2bdd4ac1a06c7fcdbfb324"
+     "sha256": "e0ebadd672b8483c426b4af5b934850c0dfd2a683013d82fca3a5ece965c035c"
     },
     {
      "path": "KAM/Frozen/Defs/NormalFrame.lean",
-     "sha256": "e7dbc26e53044bde536ed4c2be52aba47508dee4fc869099f1867d078dc22a2b"
+     "sha256": "832d539e946112dfdf5e07463e3cbb656b2ed466780760bdf62022912f3d1de4"
     },
     {
      "path": "KAM/Frozen/Defs/OmegaZero.lean",
-     "sha256": "035717b28ce9caf551ec19afc26194fcd20464ce26665078f777f654b0484b43"
+     "sha256": "bdcb1908159f564c665ee352347f7e50f00e232233b8a040909f1179f1eec23a"
     },
     {
      "path": "KAM/Frozen/Defs/Torsion.lean",
-     "sha256": "d82729d0215472184c30875155f1c0b09abdbd063624a0fe14333f3dbe9a9be7"
+     "sha256": "a82cbd3098b2dddec29fd8cf1ca7189f6e08f5c879053996d8c516a0e7ba319e"
     },
     {
      "path": "KAM/Frozen/Defs/TorsionAverage.lean",
-     "sha256": "c1a49df033c8e8b2754a6c41519a9b9aefc8b718ce66ced0dfe51374772c87db"
+     "sha256": "93a5fc1d91409f115c2a718016ad50c0c3d983b1e34e297ee22133881ad1f482"
     }
    ],
    "implementation": {
@@ -1019,7 +1019,7 @@
     "export": "KAM.Provider.local_uniqueness_flow"
    },
    "state": "DRAFT_SORRY",
-   "prefix_sha256": "915a06100e1adb1c2389c4e25d59fa3406b9493885f965baaacd3d827553f886",
+   "prefix_sha256": "29c64527d6bc0dddfa02e7c33170a261fb301f7b3653d09f0d93797b3b6760d3",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {
     "frozen_paths": [],
@@ -1054,7 +1054,7 @@
    "definition_closure": [
     {
      "path": "KAM/Frozen/Defs/IsDiophantine.lean",
-     "sha256": "206adca8618d149d18fac4f57b8fb37ed78dd5951963b8874f2a2e547703924a"
+     "sha256": "45ac03a3d80f3be86018b756497d11e520e59e40beff85bc92e6bec6d873aea9"
     }
    ],
    "implementation": {
@@ -1062,7 +1062,7 @@
     "export": "KAM.Provider.volume_not_diophantine_le"
    },
    "state": "DRAFT_SORRY",
-   "prefix_sha256": "99df1003d6e080d93edee40741de16fa787e140f90435c3ab6b556d017955f35",
+   "prefix_sha256": "821afa8b4f91865c1f7c8876d1081f51524ae988d188fba8e4ed90ff43760132",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {
     "frozen_paths": [],
