@@ -19,16 +19,18 @@ Blueprint Part 1, "Matrices". Vectors carry the max norm and matrices the operat
 induces, which is the maximum row sum (`Matrix.linfty_opNorm_def`). The norm on matrices is the
 one of `open scoped Matrix.Norms.Operator`, the one used by `KAM/Matrix/Neumann.lean`.
 
-* `KAM.isGreatest_norm_mulVec` and `KAM.norm_toContinuousLinearMap_mulVecLin`
-  (`step:p1:opn-rowsum`): the supremum of `‖M v‖` over `‖v‖ ≤ 1` is attained and equals `‖M‖`,
-  the largest row sum; it is also the norm of the associated continuous linear map.
-* `KAM.norm_fromBlocks_le` (`step:p1:opn-blocks`): the norm of a block matrix.
-* `KAM.omegaZeroMatrix` and its properties (`step:p1:opn-omega`): `Ω₀ = (0 -I; I 0)`, indexed by
-  `Fin n ⊕ Fin n`; the identification of `ℂⁿ × ℂⁿ` with `Fin n ⊕ Fin n → ℂ` is
-  `Equiv.sumArrowEquivProdArrow`.
+* `KAM.matrix_operator_norm_rowSum` (`step:p1:opn-rowsum`; built from `KAM.isGreatest_norm_mulVec`
+  and `KAM.norm_toContinuousLinearMap_mulVecLin`): the supremum of `‖M v‖` over `‖v‖ ≤ 1` is
+  attained and equals `‖M‖`, the largest row sum; it is also the norm of the associated continuous
+  linear map.
+* `KAM.matrix_operator_norm_blocks` (`step:p1:opn-blocks`; from `KAM.norm_fromBlocks_le`): the
+  norm of a block matrix.
+* `KAM.matrix_operator_norm_omegaZero` (`step:p1:opn-omega`; about `KAM.omegaZeroMatrix`):
+  `Ω₀ = (0 -I; I 0)`, indexed by `Fin n ⊕ Fin n`; the identification of `ℂⁿ × ℂⁿ` with
+  `Fin n ⊕ Fin n → ℂ` is `Equiv.sumArrowEquivProdArrow`.
 * `KAM.operator_norms` bundles the three steps (`bp:p1:operator-norms`).
-* `KAM.matrix_norms` (`bp:p1:matrix-norms`): products, transposes, `Ω₀ M` and `M Ω₀`, and stacked
-  blocks (steps `mn-products`, `mn-transpose`, `mn-signed`).
+* `KAM.matrix_norms` (`bp:p1:matrix-norms`): products (`KAM.matrix_norm_products`), transposes
+  (`KAM.matrix_norm_transpose`), `Ω₀ M`, `M Ω₀` and stacked blocks (`KAM.matrix_norm_signed`).
 
 All index types are finite types; `Fin p` and `Fin q` are the case of `p × q` matrices.
 -/
@@ -135,9 +137,9 @@ theorem isGreatest_norm_mulVec (M : Matrix m n ℂ) :
       refine ⟨v, by simpa using hv, le_antisymm ?_ ?_⟩
       · exact (Matrix.linfty_opNorm_mulVec M v).trans
           (mul_le_of_le_one_right (norm_nonneg _) hv)
-      · calc ‖M‖ = ‖((∑ j, ‖M i₀ j‖ : ℝ) : ℂ)‖ := by
-              rw [Complex.norm_real, Real.norm_of_nonneg (Finset.sum_nonneg fun _ _ => norm_nonneg _),
-                hi₀]
+      · have hnn : 0 ≤ ∑ j, ‖M i₀ j‖ := Finset.sum_nonneg fun _ _ => norm_nonneg _
+        calc ‖M‖ = ‖((∑ j, ‖M i₀ j‖ : ℝ) : ℂ)‖ := by
+              rw [Complex.norm_real, Real.norm_of_nonneg hnn, hi₀]
           _ = ‖(M.mulVec v) i₀‖ := by rw [hMv]
           _ ≤ _ := norm_le_pi_norm (M.mulVec v) i₀
   · rintro _ ⟨v, hv, rfl⟩
@@ -265,11 +267,41 @@ end OmegaZero
 
 /-! ### Operator norms (`bp:p1:operator-norms`) -/
 
+/-- Blueprint `step:p1:opn-rowsum`. The supremum of `‖M v‖` over `‖v‖ ≤ 1` is attained and equals
+`‖M‖`, which is `max_i ∑_j |M_ij|` and also the operator norm of the continuous linear map
+`v ↦ M v`. -/
+theorem matrix_operator_norm_rowSum :
+    ∀ (p q : ℕ) (M : Matrix (Fin p) (Fin q) ℂ),
+      IsGreatest ((fun v : Fin q → ℂ => ‖M.mulVec v‖) '' Metric.closedBall 0 1) ‖M‖ ∧
+      ‖M‖ = ⨆ i, ∑ j, ‖M i j‖ ∧
+      ‖LinearMap.toContinuousLinearMap (Matrix.mulVecLin M)‖ = ‖M‖ :=
+  fun _ _ M => ⟨isGreatest_norm_mulVec M, norm_eq_iSup_rowSum M,
+    norm_toContinuousLinearMap_mulVecLin M⟩
+
+/-- Blueprint `step:p1:opn-blocks`. -/
+theorem matrix_operator_norm_blocks :
+    ∀ (a b c d : ℕ) (A : Matrix (Fin a) (Fin b) ℂ) (B : Matrix (Fin a) (Fin c) ℂ)
+      (C : Matrix (Fin d) (Fin b) ℂ) (D : Matrix (Fin d) (Fin c) ℂ),
+      ‖Matrix.fromBlocks A B C D‖ ≤ max (‖A‖ + ‖B‖) (‖C‖ + ‖D‖) :=
+  fun _ _ _ _ A B C D => norm_fromBlocks_le A B C D
+
+/-- Blueprint `step:p1:opn-omega`. `Ω₀` is the matrix of the frozen `omegaZero`, with `Ω₀ᵀ = -Ω₀`,
+`Ω₀² = -I` and `‖Ω₀‖ = 1` (for `n ≥ 1`; the empty matrix has norm `0`). -/
+theorem matrix_operator_norm_omegaZero :
+    ∀ n : ℕ,
+      (∀ u : (Fin n → ℂ) × (Fin n → ℂ), (omegaZeroMatrix n).mulVec
+        ((Equiv.sumArrowEquivProdArrow _ _ _).symm u) =
+          (Equiv.sumArrowEquivProdArrow _ _ _).symm (omegaZero u)) ∧
+      (omegaZeroMatrix n).transpose = -omegaZeroMatrix n ∧
+      omegaZeroMatrix n * omegaZeroMatrix n = -1 ∧
+      (0 < n → ‖omegaZeroMatrix n‖ = 1) :=
+  fun _ => ⟨omegaZeroMatrix_mulVec, omegaZeroMatrix_transpose, omegaZeroMatrix_mul_self,
+    norm_omegaZeroMatrix⟩
+
 /-- Blueprint `bp:p1:operator-norms`. For the max norms: the operator norm of a matrix is the
-largest row sum (the supremum of `‖M v‖` over `‖v‖ ≤ 1` is attained, and equals the norm of the
-matrix, of the continuous linear map `v ↦ M v`, and `max_i ∑_j |M_ij|`); the block matrix
-`(A B; C D)` has norm at most `max {‖A‖ + ‖B‖, ‖C‖ + ‖D‖}`; and `Ω₀` is the matrix of the frozen
-`omegaZero`, with `Ω₀ᵀ = -Ω₀`, `Ω₀² = -I` and `‖Ω₀‖ = 1` (for `n ≥ 1`). -/
+largest row sum; the block matrix `(A B; C D)` has norm at most `max {‖A‖ + ‖B‖, ‖C‖ + ‖D‖}`;
+and `Ω₀` is the matrix of the frozen `omegaZero`, with `Ω₀ᵀ = -Ω₀`, `Ω₀² = -I`, `‖Ω₀‖ = 1`. The
+`2n` rows and columns of `Ω₀` are indexed by `Fin n ⊕ Fin n`. -/
 theorem operator_norms :
     (∀ (p q : ℕ) (M : Matrix (Fin p) (Fin q) ℂ),
       IsGreatest ((fun v : Fin q → ℂ => ‖M.mulVec v‖) '' Metric.closedBall 0 1) ‖M‖ ∧
@@ -285,11 +317,7 @@ theorem operator_norms :
       (omegaZeroMatrix n).transpose = -omegaZeroMatrix n ∧
       omegaZeroMatrix n * omegaZeroMatrix n = -1 ∧
       (0 < n → ‖omegaZeroMatrix n‖ = 1)) :=
-  ⟨fun _ _ M => ⟨isGreatest_norm_mulVec M, norm_eq_iSup_rowSum M,
-      norm_toContinuousLinearMap_mulVecLin M⟩,
-    fun _ _ _ _ A B C D => norm_fromBlocks_le A B C D,
-    fun _ => ⟨omegaZeroMatrix_mulVec, omegaZeroMatrix_transpose, omegaZeroMatrix_mul_self,
-      norm_omegaZeroMatrix⟩⟩
+  ⟨matrix_operator_norm_rowSum, matrix_operator_norm_blocks, matrix_operator_norm_omegaZero⟩
 
 /-! ### Max-norm matrix facts (`bp:p1:matrix-norms`) -/
 
