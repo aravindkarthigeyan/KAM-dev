@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:53 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 24.5 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:55 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 24.5 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:53 UTC from `main` at `f32337b` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:55 UTC from `main` at `f095eaa` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.
 
@@ -274,6 +274,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:55 | `f095eaa` | Blueprint Part 1: complete proofs of all interface lemmas, including several-variable holomorphic implies analytic |
 | 2026-10-27 16:53 | `f32337b` | Exploration round 3 (independent refutation): P-EXP-SAFE confirmed with corrections (Nekhoroshev 1977 Thm 12.3; source exponents), secular box and averaging correction confirmed; proposed milestones recorded |
 | 2026-10-27 16:51 | `fa8f631` | Track N delta audit v0.2: N-HEAD-C approvable; review pages for tracks I, N, P await owner approval |
 | 2026-10-27 16:41 | `34dbf4d` | Packages: I-STRIP-5 (several-variable holomorphic implies analytic) opened; Zohar's I-STRIP-4 credited |
@@ -285,7 +286,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 16:25 | `f08858a` | Track P v0.2: all audit findings adopted; delta audit running |
 | 2026-10-27 16:24 | `42c831a` | Blueprint Part 2 review: ACCEPT WITH FIXES (minor only); E-HL19-7 reclassified; track I review page published |
 | 2026-10-27 16:23 | `6d0dfa8` | Track I statement audit v0.1: all statements approvable; minor locator corrections applied |
-| 2026-10-27 16:23 | `073dee6` | Blueprint Part 4: G3, HEAD and HEAD-Q from G1 and G2, complete proof |
 <!-- /AUTO:landed -->
 
 ## Decisions
