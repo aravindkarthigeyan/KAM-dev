@@ -56,15 +56,6 @@
    "state": "running"
   },
   {
-   "id": "prover-I-P4B",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree",
-   "assignment": "I-P4B: derivative bounds, torsion regularity, shifts, mixed differences",
-   "state": "running"
-  },
-  {
    "id": "design-P4",
    "kind": "Lean architect",
    "model": "Claude Opus 5.5",
