@@ -36,3 +36,9 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **21:20. Split `KAM/Uniq/Standing.lean` out of the design's package P3-1 as P3-0, to start G2 early.**
   - Only the packaging changes; no signature changes.
   - Reversal: none needed.
+- **21:45. Overlapping packages to keep the critical path busy.** P2-5, P2-6, P2-10 and P2-7 were started on the
+  branches of their predecessors while those were still in audit.
+  - Landing order is enforced: a predecessor lands only after its audit passes.
+  - If an audit forces a proof change, dependents re-merge; signatures are fixed by the audited design.
+  - P2-7 proves exactness and the cohomology-free geometry steps now, and holds the `geometry` assembly for
+    I-STRIP-3.
