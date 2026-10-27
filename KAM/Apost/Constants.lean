@@ -725,6 +725,200 @@ theorem step_small (hP : Params n τ M σK σB σT) {γ δ ε β : ℝ} (hγ : 0
     rw [hrw]
     linarith
 
+/-! ### The induction: error decay, summed bounds, step smallness (`bp:p2:iteration`) -/
+
+/-- The hypothesis of Lemma `bp:p2:error-decay` from `𝔠_* e / (γ⁴ δ₀^{2a}) ≤ 1`, since
+`𝔠_* ≥ 2^{2a} C_E`. (`step:p2:it-sums`, first sentence.) -/
+theorem error_decay_hyp {γ d0 e μ : ℝ} (hγ : 0 < γ) (hd0 : 0 < d0) (he : 0 ≤ e)
+    (hsmall : c_star n τ M σK σB σT μ * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ 1) :
+    (2 : ℝ) ^ (2 * aExp n τ) * C_E n τ M σK σB σT * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ 1 := by
+  refine le_trans ?_ hsmall
+  apply div_le_div_of_nonneg_right _ (mul_pos (pow_pos hγ 4) (Real.rpow_pos_of_pos hd0 _)).le
+  exact mul_le_mul_of_nonneg_right (two_rpow_mul_C_E_le_c_star μ) he
+
+/-- `𝔠_sum e / (γ⁴ δ₀^{2a}) ≤ μ/2` from `𝔠_* e / (γ⁴ δ₀^{2a}) ≤ 1`, since
+`𝔠_* ≥ 2 𝔠_sum / μ`. -/
+theorem c_sum_small {γ d0 e μ : ℝ} (hγ : 0 < γ) (hd0 : 0 < d0) (he : 0 ≤ e) (hμ : 0 < μ)
+    (hsmall : c_star n τ M σK σB σT μ * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ 1) :
+    c_sum n τ M σK σB σT * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ μ / 2 := by
+  have hD : 0 < γ ^ 4 * d0 ^ (2 * aExp n τ) :=
+    mul_pos (pow_pos hγ 4) (Real.rpow_pos_of_pos hd0 _)
+  have h1 : 2 * c_sum n τ M σK σB σT ≤ c_star n τ M σK σB σT μ * μ :=
+    (div_le_iff₀ hμ).1 (two_mul_c_sum_div_le_c_star μ)
+  have h2 : c_sum n τ M σK σB σT * e ≤ (μ / 2) * (c_star n τ M σK σB σT μ * e) := by
+    have := mul_le_mul_of_nonneg_right h1 he
+    nlinarith
+  have h3 : c_star n τ M σK σB σT μ * e ≤ γ ^ 4 * d0 ^ (2 * aExp n τ) :=
+    (div_le_one hD).1 hsmall
+  rw [div_le_iff₀ hD]
+  calc c_sum n τ M σK σB σT * e ≤ (μ / 2) * (c_star n τ M σK σB σT μ * e) := h2
+    _ ≤ (μ / 2) * (γ ^ 4 * d0 ^ (2 * aExp n τ)) :=
+        mul_le_mul_of_nonneg_left h3 (by linarith)
+
+/-- `step:p2:it-stepsmall`: `𝔠_step e / (γ⁴ δ₀^{2a}) ≤ min {1, μ/2}`, since
+`𝔠_* ≥ 𝔠_step max {1, 2/μ}`. -/
+theorem iteration_step_small (hP : Params n τ M σK σB σT) {γ d0 e μ : ℝ} (hγ : 0 < γ)
+    (hd0 : 0 < d0) (he : 0 ≤ e) (hμ : 0 < μ)
+    (hsmall : c_star n τ M σK σB σT μ * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ 1) :
+    c_step n τ M σK σB σT * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ min 1 (μ / 2) := by
+  have hD : 0 < γ ^ 4 * d0 ^ (2 * aExp n τ) :=
+    mul_pos (pow_pos hγ 4) (Real.rpow_pos_of_pos hd0 _)
+  have hc0 := zero_le_one.trans (one_le_c_step hP)
+  have h3 : c_star n τ M σK σB σT μ * e ≤ γ ^ 4 * d0 ^ (2 * aExp n τ) :=
+    (div_le_one hD).1 hsmall
+  have hmax := c_step_mul_max_le_c_star (n := n) (τ := τ) (M := M) (σK := σK) (σB := σB)
+    (σT := σT) μ
+  have hA : c_step n τ M σK σB σT ≤ c_star n τ M σK σB σT μ :=
+    le_trans (le_mul_of_one_le_right hc0 (le_max_left _ _)) hmax
+  have hB : c_step n τ M σK σB σT * (2 / μ) ≤ c_star n τ M σK σB σT μ :=
+    le_trans (mul_le_mul_of_nonneg_left (le_max_right _ _) hc0) hmax
+  refine le_min ?_ ?_
+  · rw [div_le_one hD]
+    exact (mul_le_mul_of_nonneg_right hA he).trans h3
+  · rw [div_le_iff₀ hD]
+    have h4 : c_step n τ M σK σB σT * (2 / μ) * e ≤ γ ^ 4 * d0 ^ (2 * aExp n τ) :=
+      (mul_le_mul_of_nonneg_right hB he).trans h3
+    have h5 : c_step n τ M σK σB σT * e = (μ / 2) * (c_step n τ M σK σB σT * (2 / μ) * e) := by
+      field_simp
+    rw [h5]
+    exact mul_le_mul_of_nonneg_left h4 (by linarith)
+
+/-- The summed bounds of `step:p2:it-sums`. For a coefficient `X ≥ 0` with
+`4 Θ² X ≤ 𝔠_sum` and an exponent `j ≤ 2a`, `(X/γ²) · (2e/δ₀^j) ≤ μ/4`. Here `2e/δ₀^j` is the bound
+of `∑_s ε_s/δ_s^j` of Lemma `bp:p2:error-decay`. -/
+theorem sum_coef_le {γ d0 e μ X j : ℝ} (hγ : 0 < γ) (hγΘ : γ ≤ Theta n M σK σB σT)
+    (hd0 : 0 < d0) (hd01 : d0 ≤ 1) (he : 0 ≤ e) (hμ : 0 < μ) (hX : 0 ≤ X)
+    (hXc : 4 * Theta n M σK σB σT ^ 2 * X ≤ c_sum n τ M σK σB σT) (hj : j ≤ 2 * aExp n τ)
+    (hsmall : c_star n τ M σK σB σT μ * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ 1) :
+    X / γ ^ 2 * (2 * e / d0 ^ j) ≤ μ / 4 := by
+  have hrw : X / γ ^ 2 * (2 * e / d0 ^ j) = (2 * X) * e / (γ ^ 2 * d0 ^ j) := by
+    have : d0 ^ j ≠ 0 := (Real.rpow_pos_of_pos hd0 _).ne'
+    field_simp
+  have hcs : c_sum n τ M σK σB σT * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ μ / 2 :=
+    c_sum_small hγ hd0 he hμ hsmall
+  have h := absorb_mul_le (i := 2) (k := 4) (X := 2 * X) (j := j) (J := 2 * aExp n τ)
+    (c := c_sum n τ M σK σB σT / 2) hγ hγΘ hd0 hd01 (by norm_num) hj he (by linarith)
+    (by simp only [show (4 - 2 : ℕ) = 2 from rfl]; linarith)
+  have h2 : c_sum n τ M σK σB σT / 2 * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) =
+      c_sum n τ M σK σB σT * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) / 2 := by ring
+  rw [hrw]
+  rw [h2] at h
+  linarith
+
+/-- The four summed bounds of `step:p2:it-sums`, in the form
+`coefficient / γ² · (2e/δ₀^j) ≤ …`, for `j = a, a+1, a+1, a+2`, namely the bounds for
+`∑ d_s`, `∑ n d_s/δ_s`, `∑ C_B d_s/δ_s` and `∑ 2𝔪² C_ΔT d_s/δ_s²`. -/
+theorem iteration_sums (hP : Params n τ M σK σB σT) {γ d0 e μ : ℝ} (hγ : 0 < γ)
+    (hγΘ : γ ≤ Theta n M σK σB σT) (hd0 : 0 < d0) (hd01 : d0 ≤ 1) (he : 0 ≤ e) (hμ : 0 < μ)
+    (hsmall : c_star n τ M σK σB σT μ * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ 1) :
+    C_DK n τ M σK σB σT / γ ^ 2 * (2 * e / d0 ^ aExp n τ) ≤ μ / 4 ∧
+    (n : ℝ) * C_DK n τ M σK σB σT / γ ^ 2 * (2 * e / d0 ^ (aExp n τ + 1)) ≤ μ / 4 ∧
+    C_B n M σK σB σT * C_DK n τ M σK σB σT / γ ^ 2 * (2 * e / d0 ^ (aExp n τ + 1)) ≤ μ / 4 ∧
+    2 * mSize M σK σB σT ^ 2 * C_DT n M σK σB σT * C_DK n τ M σK σB σT / γ ^ 2 *
+      (2 * e / d0 ^ (aExp n τ + 2)) ≤ μ / 2 := by
+  have ha := eight_le_aExp hP
+  have hn := zero_le_one.trans hP.one_le_cast
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · exact sum_coef_le hγ hγΘ hd0 hd01 he hμ (zero_le_one.trans (one_le_C_DK hP))
+      (four_Theta_sq_mul_C_DK_le_c_sum hP) (by linarith) hsmall
+  · have h := sum_coef_le (X := (n : ℝ) * C_DK n τ M σK σB σT) (j := aExp n τ + 1) hγ hγΘ hd0
+      hd01 he hμ (mul_nonneg hn (zero_le_one.trans (one_le_C_DK hP)))
+      (four_Theta_sq_mul_n_mul_C_DK_le_c_sum hP) (by linarith) hsmall
+    exact h
+  · exact sum_coef_le (X := C_B n M σK σB σT * C_DK n τ M σK σB σT) (j := aExp n τ + 1) hγ hγΘ
+      hd0 hd01 he hμ (mul_nonneg (zero_le_one.trans (one_le_C_B hP))
+        (zero_le_one.trans (one_le_C_DK hP)))
+      (four_Theta_sq_mul_C_B_mul_C_DK_le_c_sum hP) (by linarith) hsmall
+  · have hY : 0 ≤ mSize M σK σB σT ^ 2 * C_DT n M σK σB σT * C_DK n τ M σK σB σT := by
+      have := zero_le_one.trans (one_le_C_DT hP)
+      have := zero_le_one.trans (one_le_C_DK hP)
+      have := zero_le_one.trans (one_le_mSize (M := M) (σK := σK) (σB := σB) (σT := σT))
+      positivity
+    have h := sum_coef_le
+      (X := mSize M σK σB σT ^ 2 * C_DT n M σK σB σT * C_DK n τ M σK σB σT)
+      (j := aExp n τ + 2) hγ hγΘ hd0 hd01 he hμ hY
+      (four_Theta_sq_mul_mSize_sq_mul_le_c_sum hP) (by linarith) hsmall
+    have heq : 2 * mSize M σK σB σT ^ 2 * C_DT n M σK σB σT * C_DK n τ M σK σB σT / γ ^ 2 *
+        (2 * e / d0 ^ (aExp n τ + 2)) =
+        2 * (mSize M σK σB σT ^ 2 * C_DT n M σK σB σT * C_DK n τ M σK σB σT / γ ^ 2 *
+          (2 * e / d0 ^ (aExp n τ + 2))) := by ring
+    rw [heq]
+    linarith
+
+/-- The closeness bound of Proposition `bp:p2:limit`(c):
+`2 C_ΔK e / (γ² δ₀^a) ≤ μ/4`. -/
+theorem closeness_le (hP : Params n τ M σK σB σT) {γ d0 e μ : ℝ} (hγ : 0 < γ)
+    (hγΘ : γ ≤ Theta n M σK σB σT) (hd0 : 0 < d0) (hd01 : d0 ≤ 1) (he : 0 ≤ e) (hμ : 0 < μ)
+    (hsmall : c_star n τ M σK σB σT μ * e / (γ ^ 4 * d0 ^ (2 * aExp n τ)) ≤ 1) :
+    2 * C_DK n τ M σK σB σT * e / (γ ^ 2 * d0 ^ aExp n τ) ≤ μ / 4 := by
+  have h := (iteration_sums hP hγ hγΘ hd0 hd01 he hμ hsmall).1
+  have hd : d0 ^ aExp n τ ≠ 0 := (Real.rpow_pos_of_pos hd0 _).ne'
+  have heq : C_DK n τ M σK σB σT / γ ^ 2 * (2 * e / d0 ^ aExp n τ) =
+      2 * C_DK n τ M σK σB σT * e / (γ ^ 2 * d0 ^ aExp n τ) := by
+    field_simp
+  rw [← heq]
+  exact h
+
+/-! ### Proof of Theorem G1 (`step:p2:g1-e`) -/
+
+/-- `step:p2:g1-e` for abstract data: from `C₁ e / (γ⁴ ρ^{4τ}) < 1`, with
+`C₁ = ρ^{4τ} max {γ̄⁴, c δ₀^{-2a}}`, `0 < γ ≤ γ̄` and `c ≥ 0`, we get `e < 1` and
+`c e / (γ⁴ δ₀^{2a}) < 1`. -/
+theorem g1_error_small_aux {ρ γ γbar e c d0 τ' a : ℝ} (hρ : 0 < ρ) (hγ : 0 < γ)
+    (hγγbar : γ ≤ γbar) (hd0 : 0 < d0) (hc : 0 ≤ c)
+    (h : ρ ^ (4 * τ') * max (γbar ^ 4) (c * d0 ^ (-(2 * a))) * e / (γ ^ 4 * ρ ^ (4 * τ')) < 1) :
+    e < 1 ∧ c * e / (γ ^ 4 * d0 ^ (2 * a)) < 1 := by
+  have hP : 0 < ρ ^ (4 * τ') := Real.rpow_pos_of_pos hρ _
+  have hD : 0 < d0 ^ (2 * a) := Real.rpow_pos_of_pos hd0 _
+  have hγ4 : 0 < γ ^ 4 := pow_pos hγ 4
+  have hγbar0 : 0 < γbar := hγ.trans_le hγγbar
+  have hγbar4 : 0 < γbar ^ 4 := pow_pos hγbar0 4
+  set Mx := max (γbar ^ 4) (c * d0 ^ (-(2 * a))) with hMx
+  have h1 : Mx * e < γ ^ 4 := by
+    have hrw : ρ ^ (4 * τ') * Mx * e / (γ ^ 4 * ρ ^ (4 * τ')) = Mx * e / γ ^ 4 := by
+      field_simp
+    rw [hrw, div_lt_one hγ4] at h
+    exact h
+  have hneg : d0 ^ (-(2 * a)) = (d0 ^ (2 * a))⁻¹ := Real.rpow_neg hd0.le _
+  rcases le_or_gt e 0 with he | he
+  · refine ⟨by linarith, ?_⟩
+    have : c * e ≤ 0 := mul_nonpos_of_nonneg_of_nonpos hc he
+    have h0 : c * e / (γ ^ 4 * d0 ^ (2 * a)) ≤ 0 :=
+      div_nonpos_of_nonpos_of_nonneg this (mul_pos hγ4 hD).le
+    linarith
+  · constructor
+    · have h2 : γbar ^ 4 * e ≤ Mx * e := mul_le_mul_of_nonneg_right (le_max_left _ _) he.le
+      have h3 : γ ^ 4 ≤ γbar ^ 4 := pow_le_pow_left₀ hγ.le hγγbar 4
+      have : γbar ^ 4 * e < γbar ^ 4 * 1 := by linarith
+      exact lt_of_mul_lt_mul_left this hγbar4.le
+    · have h2 : c * d0 ^ (-(2 * a)) * e ≤ Mx * e :=
+        mul_le_mul_of_nonneg_right (le_max_right _ _) he.le
+      rw [div_lt_one (mul_pos hγ4 hD)]
+      have h4 : c * e = (c * d0 ^ (-(2 * a)) * e) * d0 ^ (2 * a) := by
+        rw [hneg]; field_simp
+      rw [h4]
+      exact mul_lt_mul_of_pos_right (lt_of_le_of_lt h2 h1) hD
+
+/-- `step:p2:g1-e`: the hypothesis `C₁ e/(γ⁴ ρ^{4τ}) < 1` of Theorem `bp:p2:g1`, with
+`C₁ = ρ^{4τ} max {γ̄⁴, 𝔠_* δ₀^{-2a}}`, gives `e < 1` and `𝔠_* e/(γ⁴ δ₀^{2a}) < 1`. -/
+theorem g1_error_small (hP : Params n τ M σK σB σT) {ρ ρinf γ γbar μ e : ℝ} (hρinf : 0 < ρinf)
+    (hρ : ρinf < ρ) (hγ : 0 < γ) (hγγbar : γ ≤ γbar)
+    (h : ρ ^ (4 * τ) * max (γbar ^ 4) (c_star n τ M σK σB σT μ *
+      delta0 ρ ρinf ^ (-(2 * aExp n τ))) * e / (γ ^ 4 * ρ ^ (4 * τ)) < 1) :
+    e < 1 ∧ c_star n τ M σK σB σT μ * e / (γ ^ 4 * delta0 ρ ρinf ^ (2 * aExp n τ)) < 1 :=
+  g1_error_small_aux (hρinf.trans hρ) hγ hγγbar (delta0_pos hρ)
+    (zero_le_one.trans (one_le_c_star hP μ)) h
+
+/-- `step:p2:g1-check`: `2 C_ΔK e/(γ² δ₀^a) = C₂ e/(γ² ρ^{2τ})` with
+`C₂ = 2 C_ΔK ρ^{2τ} δ₀^{-a}`. -/
+theorem g1_closeness_eq {ρ γ d0 C e τ' a : ℝ} (hρ : 0 < ρ) (hγ : 0 < γ) (hd0 : 0 < d0) :
+    2 * C * e / (γ ^ 2 * d0 ^ a) =
+      2 * C * ρ ^ (2 * τ') * d0 ^ (-a) * e / (γ ^ 2 * ρ ^ (2 * τ')) := by
+  have h1 : ρ ^ (2 * τ') ≠ 0 := (Real.rpow_pos_of_pos hρ _).ne'
+  have h2 : d0 ^ a ≠ 0 := (Real.rpow_pos_of_pos hd0 _).ne'
+  rw [Real.rpow_neg hd0.le]
+  field_simp
+
 end KAM.Apost
 
 end
