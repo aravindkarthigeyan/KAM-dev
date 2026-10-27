@@ -52,6 +52,9 @@ $I\in V_rD$, put
 componentwise and $\abs{\hat u_k}_\infty=\max_a\abs{\hat u_{a,k}}$ replaces $\abs{\hat u_k}$ in $\wn uIs$. If $\wn urs<\infty$ we say $u$ has \emph{finite norm}.
 \source{Pos93 p.~213 (definition of $\abs u_{I,s}$, $\abs u_{r,s}$), in the frozen convention of \texttt{docs/fourier-conventions.md} (``Bridge to strip sup norms'': weight $e^{2\pi\abs k_1s}$).}
 \end{definition}
+\begin{remark}[The case $n=0$ (no angles)]\label{bpN:p4:n-zero}
+Track K's strip results (\Kref{bp:p1:decay}, \Kref{bp:p1:summation}, \Kref{bp:p1:fourier-basic}(c), \Kref{bp:p1:exp-sums}) are stated for $n\ge1$ (K Part~1, standing convention ``$n\ge1$ wherever a strip occurs''), whereas here $m,n\ge0$. For $n\ge1$ they apply as cited below. For $n=0$ every such use is replaced by the following singleton branch, which needs no K result. Then $T_s=\C^0$ is a point, $\Z^0=\{0\}$, $\chi_0\equiv1$, $\abs0_1=0$ and $[0,1]^0$ is a point of measure one, so $\hat u_0(I)=u(I)$, $\wn uIs=\abs{u(I)}$, $\wn urs=\sup_{V_rD}\abs u$ (independent of $s$) and $\coth(\pi\sigma)^0=1$. A series $\sum_{k\in\Z^0}a_k\chi_k$ is the single term $a_0$ (no convergence question), and $u=\hat u_0\chi_0$ identically.
+\end{remark}
 Monotonicity: $\wn u{r'}{s'}\le\wn urs$ for $r'\le r$, $s'\le s$ (restriction to $\Dom{r'}{s'}$; the coefficients at $I\in V_{r'}D$ are unchanged). For a vector, $\max_a\wn{u_a}rs\le\wn urs\le\sum_a\wn{u_a}rs$.
 
 \begin{lemma}[Coefficients, derivatives, series]\label{bpN:p4:coefficients}
@@ -73,10 +76,10 @@ $D_IG$ is continuous there, because $Du$ is holomorphic (\Kref{bp:p1:holomorphic
 (the restriction of $u(\cdot,I)$ to $\R^n$ is continuous, periodic and $C^1$). The formula for $I_i$ is the derivative formula of \ref{bpN:p4:ext-param} as in Step~\ref{stepN:p4:co-holo}.
 
 \proofstep{(c)}\label{stepN:p4:co-series} Each hypothesis $\abs{a_k(I)}e^{2\pi\abs k_1s}\le S$ gives, on $\Dom r{s'}$, $\abs{a_k(I)\chi_k(\theta)}\le\abs{a_k(I)}e^{2\pi\abs k_1s'}\le Se^{-2\pi\abs k_1(s-s')}$, which is summable
-(\Kref{bp:p1:exp-sums}(b)). By the Weierstrass test the series converges uniformly on $\Dom r{s'}$, and each term is holomorphic, so $v$ is holomorphic there (\ref{bpN:p4:ext-weier}); as $s'<s$ is arbitrary, $v$ is holomorphic on $\Dom rs$.
+(\Kref{bp:p1:exp-sums}(b) for $n\ge1$; for $n=0$ the index set $\Z^0=\{0\}$ is a singleton, so the sum has one term, Remark~\ref{bpN:p4:n-zero}). By the Weierstrass test the series converges uniformly on $\Dom r{s'}$, and each term is holomorphic, so $v$ is holomorphic there (\ref{bpN:p4:ext-weier}); as $s'<s$ is arbitrary, $v$ is holomorphic on $\Dom rs$.
 It is periodic since each $\chi_k$ is. Integrating termwise (\ref{bpN:p4:ext-series}) against $\chi_{-k}$ over $[0,1]^n$ gives $\hat v_k=a_k$ (as in the coefficient step of \Kref{bp:p1:summation}); the norm identity is then the definition.
 
-\proofstep{(d)}\label{stepN:p4:co-repr} The bound is a single term of the sum $\wn uIs\le\wn urs$. Fix $I$. The function $v=\sum_k\hat u_k(I)\chi_k$ is holomorphic and $1$-periodic on $T_s$ with coefficients $\hat u_k(I)$ (\Kref{bp:p1:summation}, first part), and
+\proofstep{(d)}\label{stepN:p4:co-repr} The bound is a single term of the sum $\wn uIs\le\wn urs$. Fix $I$. \emph{Case $n=0$:} $u(\cdot,I)$ is the number $u(I)=\hat u_0(I)\chi_0$, so the representation is trivial (Remark~\ref{bpN:p4:n-zero}). \emph{Case $n\ge1$:} the function $v=\sum_k\hat u_k(I)\chi_k$ is holomorphic and $1$-periodic on $T_s$ with coefficients $\hat u_k(I)$ (\Kref{bp:p1:summation}, first part), and
 $u(\cdot,I)-v$ is holomorphic, $1$-periodic, with all coefficients zero, so $u(\cdot,I)=v$ by \Kref{bp:p1:fourier-basic}(c).
 \end{proof}
 
@@ -92,10 +95,10 @@ In P\"oschel's form: $\abs u^{\sup}_{r,s}\le\abs u_{r,s}\le\coth^n\!\sigma_P\,\a
 \source{Pos93 p.~213, Lemma~B.1; frozen-convention form: \Kref{bp:p1:summation}, \Kref{bp:p1:decay}, \Kref{bp:p1:exp-sums}(b); this is Lemma~\ref{bpN:p1:norm-convert} with the $I$-dependence made explicit.}
 \end{lemma}
 \begin{proof}
-\proofstep{(a)}\label{stepN:p4:b1-a} If $\wn urs=\infty$ there is nothing to prove. Otherwise Lemma~\ref{bpN:p4:coefficients}(d) gives, for $(\theta,I)\in\Dom rs$, $\abs{u(\theta,I)}\le\sum_k\abs{\hat u_k(I)}\abs{\chi_k(\theta)}\le\sum_k\abs{\hat u_k(I)}e^{2\pi\abs k_1s}$,
+\proofstep{(a)}\label{stepN:p4:b1-a} If $\wn urs=\infty$ there is nothing to prove. (For $n=0$ the claim is the identity $\wn uIs=\abs{u(I)}$, Remark~\ref{bpN:p4:n-zero}; the display below is the single term $k=0$.) Otherwise Lemma~\ref{bpN:p4:coefficients}(d) gives, for $(\theta,I)\in\Dom rs$, $\abs{u(\theta,I)}\le\sum_k\abs{\hat u_k(I)}\abs{\chi_k(\theta)}\le\sum_k\abs{\hat u_k(I)}e^{2\pi\abs k_1s}$,
 using $\abs{\chi_k(\theta)}\le e^{2\pi\abs k_1\abs{\operatorname{Im}\theta}_\infty}$ (\Kref{bp:p0:domains}). For vector values apply this to each component and note $\abs{\hat u_{a,k}}\le\abs{\hat u_k}_\infty$.
 
-\proofstep{(b)}\label{stepN:p4:b1-b} Fix $I\in V_rD$. The function $u(\cdot,I)$ is holomorphic, periodic and bounded by $M$ on $T_{s+\sigma}$, so \Kref{bp:p1:decay} gives $\abs{\hat u_k(I)}_\infty\le e^{-2\pi\abs k_1(s+\sigma)}M$ (limit $\rho'\uparrow s+\sigma$), and
+\proofstep{(b)}\label{stepN:p4:b1-b} Fix $I\in V_rD$. \emph{Case $n=0$:} $\wn uIs=\abs{u(I)}\le M=\coth(\pi\sigma)^0M$ (Remark~\ref{bpN:p4:n-zero}). \emph{Case $n\ge1$:} the function $u(\cdot,I)$ is holomorphic, periodic and bounded by $M$ on $T_{s+\sigma}$, so \Kref{bp:p1:decay} gives $\abs{\hat u_k(I)}_\infty\le e^{-2\pi\abs k_1(s+\sigma)}M$ (limit $\rho'\uparrow s+\sigma$), and
 \[\wn uIs\le M\sum_ke^{-2\pi\abs k_1\sigma}=\coth(\pi\sigma)^nM\qquad(\Kref{bp:p1:exp-sums}(b),\ x=2\pi\sigma).\]
 Take the supremum over $I$.
 \end{proof}
