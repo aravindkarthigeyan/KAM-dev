@@ -184,6 +184,8 @@ public import KAM.Head.Parameters
 public import KAM.Head.PhaseAverage
 public import KAM.Head.PreimageMeasure
 public import KAM.Head.Shift
+public import KAM.Head.Stab
+public import KAM.Head.StabFrame
 public import KAM.Head.Standing
 public import KAM.Head.TorsionRegular
 public import KAM.Head.TorsionRegularGeneral
