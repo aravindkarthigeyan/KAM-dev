@@ -502,9 +502,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: matrix_isUnit_add_of_inv_norm_mul_le_half, matrix_norm_inv_add_le, matrix_norm_inv_add_sub_inv_le, matrix_neumann_uniform (KAM/Matrix/Neumann.lean:104,110,116,124); ring level isUn
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:neu-series
@@ -530,9 +530,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: BYPASSED
+LEAN_REF: none: invertibility of I + X comes from Mathlib's isUnit_one_sub_of_norm_lt_one (used at Neumann.lean:39); S = Σ(-X)^j, ‖S‖ ≤ 2, S(I+X) = I are never stated
+LEAN_NOTE: route substitution (D27): parent proved by Zohar's route; docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md)
 NOTE: -
 
 NODE: step:p1:neu-inverse
@@ -558,9 +558,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isUnit_add_of_inverse_norm_mul_le_half (:33), norm_inverse_add_le (:51)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:neu-difference
@@ -586,9 +586,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inverse_sub_inverse_add (:45), norm_inverse_add_sub_inverse_le (:67)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:neu-pointwise
@@ -614,9 +614,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: matrix_neumann_uniform (:124); adapter neumann_pointwise
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:real-inverse
@@ -700,9 +700,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: differentiableOn_fderiv_of_isOpen (KAM/Strip/Regularity.lean:178), ..._pi (:120), contDiffOn_infty_of_differentiableOn (:163), contDiffOn_nat_of_differentiableOn (:173)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hreg-line
@@ -727,9 +727,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: norm_fderiv_le_of_closedBall_bound (Cauchy.lean:53; the blueprint cites it)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hreg-integral
@@ -754,9 +754,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: BYPASSED
+LEAN_REF: none: the Cauchy integral for DF(x)v is used inside the proof of the next declaration (Mathlib deriv_eq_smul_circleIntegral)
+LEAN_NOTE: route substitution (D27): parent proved by Zohar's route; docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md)
 NOTE: -
 
 NODE: step:p1:hreg-differentiate
@@ -784,9 +784,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: differentiableAt_fderiv_apply_of_bounded (Regularity.lean:47; the blueprint cites it)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hreg-full
@@ -811,9 +811,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: differentiableOn_fderiv_of_isOpen_pi (:120), differentiableOn_fderiv_of_isOpen (:178)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hreg-orders
@@ -838,9 +838,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: contDiffOn_infty_of_differentiableOn (:163)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:hreg-symmetry
@@ -866,9 +866,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
+LEAN_STATUS: PROVED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:holomorphic-analytic
@@ -1426,9 +1426,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: norm_coordinate_fderiv_le_of_closedBall (KAM/Strip/Cauchy.lean:87), norm_fderiv_le_of_closedBall (:80), norm_iteratedFDeriv_two_le_of_closedBall (KAM/Strip/HigherCauchy.lean:45), n
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:co-first
@@ -1453,9 +1453,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: norm_fderiv_le_of_closedBall (Cauchy.lean:80), norm_coordinate_fderiv_le_of_closedBall (:87)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:co-second
@@ -1481,9 +1481,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: norm_iteratedFDeriv_two_le_of_closedBall (HigherCauchy.lean:45; uses norm_fderiv_le_on_half_closedBall :31)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:co-third
@@ -1509,9 +1509,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: norm_iteratedFDeriv_three_le_of_closedBall (:60)
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:co-constants
@@ -1538,9 +1538,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: the numerals 1, 4, 32 in the statements above
+LEAN_NOTE: Zohar's lemmas + I-ZMAP adapters (KAM/Strip/Bridges.lean, KAM/Matrix/Bridges.lean); audits docs/campaign/audits/I-ZMAP-audit-1.md and -audit-2.md (map: docs/campaign/audits/I-ZMAP-map.md); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:ext-measure

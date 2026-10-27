@@ -1,5 +1,5 @@
 {
- "current_phase": "G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.",
+ "current_phase": "G3 sealed (D26). Track K: 120/453 graph nodes proved and audited. G1/G2 proof campaign started: Lean design audited (PASS, no corrected signatures); wave 1 running (P2-1a carrier, P2-1b standing/constants); I-P1C running; Zohar's I-STRIP-3 (cohomological equation) gates wave 5. Tracks I, N, P: Opus sub-orchestrator.",
  "workers": [
   {
    "id": "orchestrator",
@@ -47,48 +47,30 @@
    "state": "active"
   },
   {
-   "id": "prover-I-STRIP-5",
+   "id": "prover-I-P1C",
    "kind": "Lean prover",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-strip5",
-   "assignment": "Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md)",
-   "state": "done; in audit"
-  },
-  {
-   "id": "audit-I-STRIP-5",
-   "kind": "package audit (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-4",
-   "session": "kam-audit-strip5",
-   "assignment": "Independent audit of package I-STRIP-5 (five explicit audit questions)",
+   "session": "worktree /root/code/KAM-w-p1c",
+   "assignment": "Package I-P1C: Taylor (factor 1/2) and increments",
    "state": "running"
   },
   {
-   "id": "prover-I-ZMAP",
-   "kind": "Lean prover",
+   "id": "prover-P2-1a",
+   "kind": "Lean prover (G1 design wave 1)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-zmap",
-   "assignment": "Package I-ZMAP (docs/campaign/briefs/I-ZMAP.md)",
+   "session": "worktree /root/code/KAM-w-p2-1a",
+   "assignment": "Package P2-1a (docs/campaign/briefs/P2-1a.md)",
    "state": "running"
   },
   {
-   "id": "prover-I-P1B",
-   "kind": "Lean prover",
+   "id": "prover-P2-1b",
+   "kind": "Lean prover (G1 design wave 1)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p1b",
-   "assignment": "Package I-P1B (docs/campaign/briefs/I-P1B.md)",
-   "state": "running"
-  },
-  {
-   "id": "prover-I-P4A",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p4a",
-   "assignment": "Package I-P4A (docs/campaign/briefs/I-P4A.md)",
+   "session": "worktree /root/code/KAM-w-p2-1b",
+   "assignment": "Package P2-1b (docs/campaign/briefs/P2-1b.md)",
    "state": "running"
   }
  ],

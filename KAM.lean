@@ -143,6 +143,7 @@ public import KAM.Head.DyadicBoxes
 public import KAM.Head.HBounded
 public import KAM.Head.MatrixNorms
 public import KAM.Head.PhaseAverage
+public import KAM.Matrix.Bridges
 public import KAM.Matrix.Inverse
 public import KAM.Matrix.Neumann
 public import KAM.Matrix.Norms
@@ -157,6 +158,7 @@ public import KAM.Strip.AnalyticCauchy
 public import KAM.Strip.AnalyticSeries
 public import KAM.Strip.AnalyticTaylor
 public import KAM.Strip.Averages
+public import KAM.Strip.Bridges
 public import KAM.Strip.Cauchy
 public import KAM.Strip.Fourier
 public import KAM.Strip.FourierBasic

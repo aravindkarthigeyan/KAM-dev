@@ -58,9 +58,11 @@ Fourier and Diophantine packages.
 
 | ID | Goal | Graph nodes | Owned files | Status |
 |---|---|---|---|---|
-| I-ZMAP | Map Zohar's existing results to graph nodes; adapters for gaps | `bp:p1:neumann`, `holomorphic-regularity`, `cauchy-open`, `cauchy-strip`, `cauchy-corollaries`, `averages(-real,-matrix)`, `decay` | `KAM/{Strip,Matrix}/Bridges.lean`, `docs/campaign/audits/I-ZMAP-map.md` | claimed (orchestrator, 2026-10-27) |
+| I-ZMAP | Map Zohar's existing results to graph nodes; adapters for gaps | `bp:p1:neumann`, `holomorphic-regularity`, `cauchy-open`, `cauchy-strip`, `cauchy-corollaries`, `averages(-real,-matrix)`, `decay` | `KAM/{Strip,Matrix}/Bridges.lean`, `docs/campaign/audits/I-ZMAP-map.md` | done (825613e) |
 | I-P1B | Remaining ready Part 1 lemmas | `bp:p1:uniform-limits`, `increments-open`, `periodic-bounded`, `strip-identity`, `periodic-average`, `exp-sums`, `iteration` | `KAM/Strip/{Limits,Periodic}.lean`, `KAM/Fourier/ExpSums.lean`, `KAM/Analysis/Iteration.lean` | done (ef03b72) |
 | I-P4A | Early Part 4 lemmas | `bp:p4:h-bounded`, `matrix-norms`, `phase-average`, `cover-mono`, `dyadic-approx` (+ `data`) | `KAM/Head/*` | done (ac75cab) |
+
+**Note:** package P2-1b lands the definitions `KAM.cohConst` and `KAM.cohSolution` (definitions only, `KAM/Strip/CohomologicalDefs.lean`). I-STRIP-3 states its theorems about them.
 
 **Interface request for I-STRIP-3 (Zohar), from the Part 2/3 design (`docs/campaign/design/PART23-LEAN-DESIGN.md`
 §2.4).** Please state `bp:p1:cohomological` about a total solution operator, so that Part 2 can use it as a function:
@@ -78,7 +80,7 @@ If another form lands, Part 2 adds an adapter.
 | ID | Goal | Graph nodes | Owned files | Status |
 |---|---|---|---|---|
 | I-P1C | Taylor bound (factor ½) and increments on strips | `bp:p1:taylor`, `bp:p1:increments` | `KAM/Strip/Taylor.lean` | claimed (orchestrator, 2026-10-27) |
-| P2-*, P3-* | Parts 2 and 3 (G1, G2), 21 packages in 10 waves | see the design §5 | see the design §4 | waiting for the design's signature audit |
+| P2-*, P3-* | Parts 2 and 3 (G1, G2), 21 packages in 10 waves | see the design §5 | see the design §4 | design audited (PASS); wave 1 claimed (orchestrator, 2026-10-27): P2-1a, P2-1b |
 
 ## Waiting for the blueprint
 
