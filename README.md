@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 17:44 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 23.0 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 17:45 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 23.0 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 17:44 UTC from `main` at `fb4da26` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 17:45 UTC from `main` at `4957368` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks (94 anchors). Track K: blueprint consolidated; Part 1 under review; dependency graph extraction running (464 draft nodes, 9 slices; 6 Sonnet extractors, Part 1 slices after its review). Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints starting.
 
@@ -297,6 +297,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 17:45 | `4957368` | Track K graph: extraction complete and structurally clean (449 nodes, 1301 edges) |
 | 2026-10-27 17:44 | `fb4da26` | Track K graph: all nine slices extracted (WIP); review brief |
 | 2026-10-27 17:39 | `67b5a4b` | D24: Codex agents on GPT-6.1-Sol medium; Astra sessions moved |
 | 2026-10-27 17:38 | `a5a7105` | Blueprint Part 1 review: ACCEPT WITH FIXES; apply P1-R1 (cauchy-open states δ>0) |
@@ -308,7 +309,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 17:28 | `6e1e22a` | Sub-orchestrator for tracks I, N, P (D23): landing script, split HQ files; track P additions draft docs |
 | 2026-10-27 17:27 | `67b8129` | Blueprint consolidation: Part 1 canonical, shared geometry, review fixes applied; 59 pages, clean build |
 | 2026-10-27 17:12 | `0c3002b` | Adopt the five research milestones into tracks N and P (D22); Phase 0 started |
-| 2026-10-27 17:00 | `6626668` | Freeze tracks I, N and P (D20); record the proof-campaign model policy (D21) |
 <!-- /AUTO:landed -->
 
 ## Decisions
