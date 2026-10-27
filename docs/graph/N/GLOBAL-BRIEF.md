@@ -8,7 +8,7 @@ find a global modelling error.
 - `docs/graph/N/SPEC.md`: roots, anchors, packages and section data, imports, conventions, node threshold,
   reachability, edge policy and rulings. It is binding.
 - The assembled graph `docs/graph/N/DEPGRAPH.md` and the coverage manifest `docs/graph/N/DEPGRAPH_COVERAGE.md`.
-- The full corpus `blueprint-N/parts/p0-conventions.tex` … `p11c-partial-stability.tex` (fourteen files).
+- The full corpus `blueprint-N/parts/p0-conventions.tex` … `p12-averaging.tex` (fifteen files; Part 12 and the D28 roots were added by the SPEC revision "D28 additions").
 - The statements of the imported nodes, at their locators in `blueprint/parts/` (track K), `blueprint-I/parts/` and
   `blueprint-P/parts/`. The reviewed track-K graph `docs/graph/K/DEPGRAPH.md` is background for the K imports.
 - The manifest `manifest/frozen-anchors.json` (identity fields) and the frozen declaration files
@@ -19,9 +19,9 @@ find a global modelling error.
 - The slice reviews in `docs/graph/N/reviews/` are background only. Do not take their verdicts on trust.
 
 ## Do
-1. **Roots.** For each of the four roots, `bpN:p0:head`, `bpN:p0:zero`, `bpN:p0:qcthm` and `bpN:p0:partial`:
+1. **Roots.** For each of the six roots, `bpN:p0:head`, `bpN:p0:zero`, `bpN:p0:qcthm`, `bpN:p0:partial`, `bpN:p0:avg-mean` and `bpN:p0:avg-most`:
    - Reconstruct `SOURCE_HYPOTHESES`, `SOURCE_QUANTIFIERS`, `SOURCE_CONCLUSION` and `CONSTANT_SCOPE` directly from
-     Part 0 and the frozen theorem file. Compare all four fields with the node.
+     Part 0 and the frozen theorem file. Compare all four source fields with the node.
    - Check that the anchor identity fields match the manifest.
    - Trace the root backward through its whole closure.
    - **N-HEAD-C:** n ≥ 3; C, T, c, ε₀ depend only on (n, R, s, M, m, M_ℂ, ω_min) and precede (h, f, ε, θ₀, I₀);

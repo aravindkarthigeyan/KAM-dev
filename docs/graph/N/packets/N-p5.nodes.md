@@ -81,9 +81,9 @@ EDGE: bpN:p4:sup-weighted | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:vf-
 EDGE: bpN:p4:norm#monotone | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:vf-deriv@L37-L37 | restriction to 𝒟_{r−ρ,s−σ} (monotonicity)
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:vf-deriv@L36-L36 | ¦·¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:vf-deriv@L37-L37 | 𝒟_{r−ρ,s−σ}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -98,7 +98,7 @@ CONTRACT_ID: stepN:p5:vf-field
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: D ⊂ ℂⁿ; φ ∈ 𝒪(r,s) with finite norm; 0<ρ<r and 0<σ<s
 SOURCE_QUANTIFIERS: D,n; r,s>0; φ; 0<ρ<r, 0<σ<s; then the coordinate indices
-SOURCE_CONCLUSION: ν_{ρ,σ}(X_φ) = max(max_i¦∂_{I_i}φ¦/σ, max_i¦∂_{θ_i}φ¦/ρ) ≤ ¦φ¦_{r,s}/(ρσ); the angular block alone is bounded by ¦φ¦_{r,s}/(eρσ)
+SOURCE_CONCLUSION: ν_{ρ,σ}(X_φ) = max(max_i¦∂_{I_i}φ¦/σ, max_i¦∂_{θ_i}φ¦/ρ) ≤ ¦φ¦_{r,s}/(ρσ); the action block alone is bounded by ¦φ¦_{r,s}/(eρσ)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -110,9 +110,9 @@ ROUTE_FOR: -
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:vf-field@L39-L39 | definition of ν_{ρ,σ} and X_φ
 EDGE: stepN:p5:vf-deriv | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:vf-field@L39-L39 | the two derivative bounds inserted
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:vf-field@L39-L39 | Uses 𝒪 or its finite weighted norm, including the inherited source data
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -133,7 +133,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p5:fl-max, stepN:p5:fl-picard, stepN:p5:fl-limit, stepN:p5:fl-inverse, stepN:p5:fl-symmetry, bpN:p3:gen-sol, bpN:p3:totality, K:bp:p1:holomorphic-regularity, bpN:p1:ext-restrict
+DEPS: stepN:p5:fl-max, stepN:p5:fl-picard, stepN:p5:fl-limit, stepN:p5:fl-inverse, stepN:p5:fl-symmetry, bpN:p3:gen-sol, K:bp:p1:holomorphic-regularity, bpN:p1:ext-restrict
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p5:fl-max | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:flow@L58-L60 | proof step (a)
@@ -142,12 +142,11 @@ EDGE: stepN:p5:fl-limit | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:flow@L6
 EDGE: stepN:p5:fl-inverse | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:flow@L69-L70 | proof step (c)
 EDGE: stepN:p5:fl-symmetry | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:flow@L72-L73 | proof steps (d),(e)
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:flow@L47-L47 | the predicate IsSolIn F Ω [−1,1] γ_z in the statement of (a)
-EDGE: bpN:p3:totality | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:flow@L56-L56 | F extended by 0 outside Ω (Remark totality)
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:flow@L56-L56 | F is C¹ on Ω (restriction of scalars)
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:flow@L56-L56 | Restrict the holomorphic vector field to the real normed space for the Part 3 ODE results
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -179,9 +178,9 @@ EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-
 EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-max@L60-L60 | uniqueness on an interval J ∋ 0
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-max@L58-L58 | The field is C¹ on Ω, as checked in the proof preamble L56
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-max@L58-L58 | Use C¹ after restriction of scalars, as checked in the proof preamble L56
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -208,9 +207,9 @@ ROUTE_FOR: -
 EDGE: K:bp:p1:ext-mvt | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-picard@L62-L62 | The derivative supremum Λ gives the Lipschitz bound on the convex ball
 EDGE: bpN:p4:ext-param | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-picard@L64-L64 | holomorphy and continuity of D_zy_k from the parameter integral
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-picard@L62-L62 | DF is continuous, so its supremum on the compact larger ball is finite
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -238,9 +237,9 @@ EDGE: stepN:p5:fl-picard | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-l
 EDGE: stepN:p5:fl-max | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-limit@L66-L66 | y_∞(t,z) = X^t(z) by (a) (uniqueness)
 EDGE: bpN:p4:ext-weier | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-limit@L67-L67 | uniform limit of holomorphic maps is holomorphic and derivatives converge
 EDGE: bpN:p4:ext-param | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-limit@L67-L67 | differentiation under the integral for the equation for Y
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -269,9 +268,9 @@ EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:f
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-inverse@L69-L69 | The reverse composition is obtained by time reversal, item (b)
 EDGE: stepN:p5:fl-limit | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-inverse@L70-L70 | G = X^t − id holomorphic by (b)
 EDGE: bpN:p4:general-cauchy | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-inverse@L70-L70 | Lemma general-cauchy with R = ½: ¦DG(z)¦_ν ≤ 2ε
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -299,9 +298,9 @@ EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-
 EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-symmetry@L72-L72 | γ_z + τ equals γ_{z+τ} by uniqueness
 EDGE: stepN:p5:fl-symmetry#real-restriction | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-symmetry@L73-L73 | C¹ real restriction on W required before the real ODE argument
 EDGE: stepN:p5:fl-max | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-symmetry@L73-L73 | (a) applied to E = ℝ^N, W = Ω∩ℝ^N: real solution on [−1,1]
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -358,9 +357,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:sy-var@L83-L83 | (b): regularity of the flow and the integral equation for Y
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:sy-var@L83-L83 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -415,9 +414,9 @@ ROUTE_FOR: -
 EDGE: stepN:p5:sy-var | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:sy-conserve@L87-L87 | the variational equation for Y
 EDGE: stepN:p5:sy-field | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:sy-conserve@L87-L87 | DFᵀJ + J DF = 0
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:sy-conserve@L87-L87 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -474,9 +473,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ca-chain@L100-L100 | (b): X^t holomorphic
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ca-chain@L100-L100 | ∇ notation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -503,9 +502,9 @@ ROUTE_FOR: -
 EDGE: bpN:p5:symplectic | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ca-a@L102-L102 | YJYᵀ = J
 EDGE: stepN:p5:ca-chain | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ca-a@L102-L102 | ∇(u∘Φ) = DΦᵀ(∇u)∘Φ
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ca-a@L102-L102 | {u,v} = ∇uᵀJ∇v
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -532,9 +531,9 @@ ROUTE_FOR: -
 EDGE: bpN:p5:symplectic | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ca-b@L104-L104 | YJYᵀ = J
 EDGE: stepN:p5:ca-chain | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ca-b@L104-L104 | chain rule ∇(H∘Φ) and Φ differentiable
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ca-b@L104-L104 | X_H = J∇H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -561,10 +560,10 @@ ROUTE_FOR: -
 EDGE: stepN:p5:ld-one | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:lie-derivative@L116-L116 | proof step
 EDGE: stepN:p5:ld-ind | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:lie-derivative@L118-L118 | proof step
 EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:lie-derivative@L111-L111 | the flow X^t, Ω^{1/2}
-EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:lie-derivative@L113-L114 | ad^j_φ
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:lie-derivative@L112-L112 | ad^j_φ
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -590,9 +589,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ld-one@L116-L116 | {v,φ} = Dv·X_φ
 EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ld-one@L116-L116 | (a): γ has derivative X_φ(γ)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -619,9 +618,9 @@ ROUTE_FOR: -
 EDGE: stepN:p5:ld-one | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ld-ind@L118-L118 | the one-derivative step
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ld-ind@L118-L118 | ad^j_φu holomorphic on Ω_1
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ld-ind@L118-L118 | ad^j_φ
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -648,10 +647,10 @@ ROUTE_FOR: -
 EDGE: stepN:p5:ta-taylor | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:taylor@L134-L134 | proof step
 EDGE: stepN:p5:ta-poschel | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:taylor@L136-L136 | proof step
 EDGE: bpN:p5:lie-derivative | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:taylor@L122-L122 | setting of Lemma lie-derivative
-EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:taylor@L123-L123 | Uses the iterated brackets or Hamiltonian flow of the fixed convention
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:taylor@L124-L125 | Uses the iterated brackets or Hamiltonian flow of the fixed convention
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -664,7 +663,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-taylor@L13
 PROOF_SOURCE: blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-taylor@L134-L134
 CONTRACT_ID: stepN:p5:ta-taylor
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: ν a complex norm on ℂ^N; Ω open; F holomorphic on Ω; ν(F)≤ε on Ω with 0≤ε≤1/2; N=2n; Ω ⊂ ℂⁿ×ℂⁿ; F=X_φ with φ holomorphic on Ω; Ω₁⊂Ω open; u holomorphic on Ω₁; z∈Ω^{1/2}; X^t(z)∈Ω₁ for ¦t¦≤1; N≥1
+SOURCE_HYPOTHESES: ν a complex norm on ℂ^{2n}; Ω open; F holomorphic on Ω; ν(F)≤ε on Ω with 0≤ε≤1/2; Ω ⊂ ℂⁿ×ℂⁿ; F=X_φ with φ holomorphic on Ω; Ω₁⊂Ω open; u holomorphic on Ω₁; z∈Ω^{1/2}; X^t(z)∈Ω₁ for ¦t¦≤1; N≥1
 SOURCE_QUANTIFIERS: n; ν; Ω; φ; ε∈[0,1/2]; Ω₁⊂Ω; u (or h,f₀ in ta-poschel); z with the trajectory in Ω₁; then the derivative/Taylor order
 SOURCE_CONCLUSION: u(X^1z) = Σ_{j<N}(ad^j_φu)(z)/j! + R_N(z) with the stated integral form and bound 1/N! (∫_0^1(1−t)^{N−1}/(N−1)! dt = 1/N!)
 CONSTANT_SCOPE: none
@@ -676,11 +675,11 @@ DEPS: bpN:p5:lie-derivative, K:bp:p1:ext-integral, bpN:p5:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p5:lie-derivative | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-taylor@L134-L134 | g^{(j)}(0) = (ad^j_φu)(z), g^{(N)}(t) = (ad^N_φu)(X^tz)
-EDGE: K:bp:p1:ext-integral | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-taylor@L134-L134 | Taylor's formula with integral remainder (external)
+EDGE: K:bp:p1:ext-integral | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-taylor@L134-L134 | FTC and integral bounds used in the source-indicated induction with integration by parts; the imported statement does not itself assert Taylor's formula
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-taylor@L134-L134 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -706,9 +705,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p5:ta-taylor | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-poschel@L136-L136 | Taylor's formula for N = 2 (h) and N = 1 (f_0)
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-poschel@L136-L136 | ad²h = {{h,φ},φ}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -768,9 +767,9 @@ EDGE: bpN:p4:bracket | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-setup
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-setup@L147-L147 | ad^i_φ
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-setup@L147-L147 | class 𝒪(r_i,s_i)
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-setup@L147-L147 | Uses the analytic domains or the action neighbourhood in the source context
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -799,9 +798,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-step@
 EDGE: stepN:p5:ad-setup | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-step@L149-L149 | r_i, s_i, κ, λ, ad^{i−1}u ∈ 𝒪(r_{i−1},s_{i−1})
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-step@L150-L150 | ¦·¦_{r_i,s_i}
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-step@L150-L150 | Uses the analytic domains or the action neighbourhood in the source context
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -829,9 +828,9 @@ EDGE: stepN:p5:ad-step | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-pro
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-product@L154-L154 | Uses 𝒪 or its finite weighted norm, including the inherited source data
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-product@L154-L154 | Uses the analytic domains or the action neighbourhood in the source context
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ad-product@L154-L154 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -894,9 +893,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-field
 EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-field@L171-L171 | (a): displacement ν(X^t(z)−z) ≤ ¦t¦ε
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-field@L171-L171 | closed ν-ball = P̄(z;cσ,cρ)
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-field@L170-L170 | φ ∈ 𝒪(r',s')
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -927,9 +926,9 @@ EDGE: bpN:p4:ext-series | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-se
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-series@L174-L174 | ¦S¦_{r−ρ,s−σ} = sup Σ¦Ŝ_k¦e^{2π¦k¦₁(s−σ)}
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-series@L173-L173 | 𝒟_{r−ρ,s−σ}
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-series@L173-L173 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -961,9 +960,9 @@ EDGE: stepN:p5:co-series | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-r
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-remainder@L176-L176 | 𝒟_{r−ρ̂,s−σ̂} ⊂ 𝒟_{r,s}
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-remainder@L177-L177 | ¦u¦_{r,s}
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-remainder@L177-L177 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -993,9 +992,9 @@ EDGE: stepN:p5:co-remainder | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:c
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-t@L180-L180 | X_{tφ} = tX_φ
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-t@L180-L180 | Uses 𝒪 or its finite weighted norm, including the inherited source data
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:co-t@L180-L180 | Uses the analytic domains or the action neighbourhood in the source context
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1028,9 +1027,9 @@ EDGE: bpN:p5:taylor | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:transform@L
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:transform@L184-L188 | ¦·¦_{r,s}, 𝒪(r,s)
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:transform@L185-L186 | {h,φ}, ad^j_φ
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:transform@L184-L184 | The statement uses 𝒟 and the inherited domain data directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1062,9 +1061,9 @@ EDGE: bpN:p5:adjoint | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-h@L19
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-h@L192-L192 | ad^1_φh = {h,φ} = w
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-h@L193-L193 | Uses 𝒪 or its finite weighted norm, including the inherited source data
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-h@L193-L193 | Uses the analytic domains or the action neighbourhood in the source context
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1092,9 +1091,9 @@ EDGE: bpN:p5:composition | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-f
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-f@L196-L196 | Uses 𝒪 or its finite weighted norm, including the inherited source data
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-f@L196-L196 | Uses the analytic domains or the action neighbourhood in the source context
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-f@L196-L196 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1125,9 +1124,9 @@ EDGE: stepN:p5:co-series | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-s
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-sum@L198-L198 | Uses 𝒪 or its finite weighted norm, including the inherited source data
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-sum@L198-L198 | Uses the analytic domains or the action neighbourhood in the source context
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-sum@L198-L198 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1148,16 +1147,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p5:taylor, stepN:p5:co-field, bpN:p4:domains, bpN:p5:setting
+DEPS: bpN:p5:taylor, stepN:p5:co-field, bpN:p4:domains, bpN:p5:setting, bpN:p4:norm
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p5:taylor | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-int@L200-L200 | eq poschel (displayed Taylor formula)
 EDGE: stepN:p5:co-field | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-int@L200-L200 | the trajectory stays in 𝒟_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-int@L200-L200 | Uses the analytic domains or the action neighbourhood in the source context
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-int@L200-L200 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:tr-int@L200-L200 | the transform context fixes h,w,f₀ in 𝒪(r,s) and the finite weighted norms of w,f₀
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1187,9 +1187,9 @@ EDGE: bpN:p5:composition | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:compos
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:composition-integral@L204-L206 | 𝒪(r,s), ¦·¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:composition-integral@L204-L204 | The statement uses 𝒟 and the inherited domain data directly
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:composition-integral@L204-L204 | Uses the iterated brackets or Hamiltonian flow of the fixed convention
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1218,9 +1218,9 @@ EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ci-integran
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ci-integrand@L208-L208 | ¦·¦_{r−ρ,s−σ}
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ci-integrand@L208-L208 | Uses the analytic domains or the action neighbourhood in the source context
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ci-integrand@L208-L208 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1241,7 +1241,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p4:ext-param, bpN:p4:ext-series, stepN:p5:ci-integrand, bpN:p4:norm, bpN:p4:domains, K:bp:p1:ext-integral
+DEPS: bpN:p4:ext-param, bpN:p4:ext-series, stepN:p5:ci-integrand, bpN:p4:norm, bpN:p4:domains, K:bp:p1:ext-integral, bpN:p5:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:ext-param | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ci-coeff@L210-L210 | holomorphy of the parameter integral G
@@ -1250,9 +1250,10 @@ EDGE: stepN:p5:ci-integrand | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:c
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ci-coeff@L210-L210 | û_k(I), ¦·¦_{I,s−σ}
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ci-coeff@L210-L210 | Uses the analytic domains or the action neighbourhood in the source context
 EDGE: K:bp:p1:ext-integral | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ci-coeff@L210-L210 | Fubini for the continuous complex-valued integrand on [0,1]×[0,1]^n and the integral norm inequality
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ci-coeff@L210-L210 | X^t_φ in the parameter integrand and the inherited Hamiltonian/scaled-norm setting
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1283,10 +1284,10 @@ EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:canonical-map
 EDGE: bpN:p5:canonical | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:canonical-map@L221-L221 | Item (d) invokes Corollary canonical
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:canonical-map@L216-L216 | 𝒪(r,s), ¦·¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:canonical-map@L216-L217 | Ω = 𝒟_{r−ρ,s−σ}
-EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:canonical-map@L217-L217 | ν = ν_{ρ,σ}, X_φ
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:canonical-map@L216-L216 | ν = ν_{ρ,σ}, X_φ
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1315,9 +1316,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-field
 EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-field@L227-L227 | Ω^c defined in Lemma flow
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-field@L227-L227 | closed ν-ball = P̄(z;cσ,cρ)
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-field@L227-L227 | Uses 𝒪 or its finite weighted norm, including the inherited source data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1348,9 +1349,9 @@ EDGE: stepN:p5:cm-field | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-ab
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-ab@L229-L229 | Uses 𝒪 or its finite weighted norm, including the inherited source data
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-ab@L229-L229 | Uses the analytic domains or the action neighbourhood in the source context
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-ab@L229-L229 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1381,9 +1382,9 @@ EDGE: bpN:p5:canonical | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-cde
 EDGE: bpN:p4:norm | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-cde@L231-L231 | Uses 𝒪 or its finite weighted norm, including the inherited source data
 EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-cde@L231-L231 | Uses the analytic domains or the action neighbourhood in the source context
 EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-cde@L231-L231 | Uses X_φ, J, the scaled norm, or the iterated Poisson brackets
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1409,9 +1410,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-symmetry@L73-L73 | holomorphy supplies real smoothness before restriction
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-symmetry@L73-L73 | available scalar-restriction input for the intended general-domain bridge
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-N-b
-REVIEWER: -
+REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
