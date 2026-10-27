@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 23:10 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.8 %** · frozen statements proved: 5 / 22 · **33,298 lines of Lean** of an estimated ≈ 232,000
+> **Last updated: 2026-10-27 23:14 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.8 %** · frozen statements proved: 5 / 22 · **33,298 lines of Lean** of an estimated ≈ 232,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 23:10 UTC from `main` at `c9dec45` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 23:14 UTC from `main` at `bda1459` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 23:14 | `bda1459` | Brief for P4-10 |
 | 2026-10-27 23:10 | `c9dec45` | Seal G2: KAM.local_uniqueness_flow is proved (second sealed frozen theorem) |
 | 2026-10-27 23:06 | `ec1dbe3` | Land k/p4-6 into main |
 | 2026-10-27 23:04 | `3f7a461` | Land k/p4-5 into main |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 22:52 | `5d10d4c` | P3-3 (difference equation), P2-9 (Newton error), P3-4 (quadratic), P4-8 (Lagrangian) landed; lag-regular BYPASSED (route) |
 | 2026-10-27 22:51 | `1a5e851` | Land k/p4-8 into main |
 | 2026-10-27 22:49 | `25dd502` | Land k/p3-4 into main |
-| 2026-10-27 22:48 | `1ae7c49` | Land k/p2-9 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
