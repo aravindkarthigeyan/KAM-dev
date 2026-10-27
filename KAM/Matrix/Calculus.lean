@@ -113,6 +113,11 @@ def matTransposeCLE : Matrix l m ℂ ≃L[ℂ] Matrix m l ℂ :=
 
 @[simp] theorem matTransposeCLE_apply (A : Matrix l m ℂ) : matTransposeCLE A = Aᵀ := rfl
 
+/-- Transposition as a continuous linear map of matrix spaces. -/
+def matTransposeCLM : Matrix l m ℂ →L[ℂ] Matrix m l ℂ := matTransposeCLE.toContinuousLinearMap
+
+@[simp] theorem matTransposeCLM_apply (A : Matrix l m ℂ) : matTransposeCLM A = Aᵀ := rfl
+
 end Maps
 
 
@@ -211,13 +216,12 @@ theorem fderiv_matrix_mulVec_apply {A : E → Matrix l m ℂ} {u : E → m → �
 `v ↦ (D A v)ᵀ`. -/
 theorem _root_.HasFDerivAt.matrix_transpose {A : E → Matrix l m ℂ} {A' : E →L[ℂ] Matrix l m ℂ}
     (hA : HasFDerivAt A A' x) :
-    HasFDerivAt (fun y => (A y)ᵀ) ((matTransposeCLE (l := l) (m := m)).toContinuousLinearMap.comp A') x :=
-  (matTransposeCLE (l := l) (m := m)).toContinuousLinearMap.hasFDerivAt.comp x hA
+    HasFDerivAt (fun y => (A y)ᵀ) ((matTransposeCLM (l := l) (m := m)).comp A') x :=
+  (matTransposeCLM (l := l) (m := m)).hasFDerivAt.comp x hA
 
 theorem _root_.DifferentiableWithinAt.matrix_transpose {A : E → Matrix l m ℂ} {s : Set E}
     (hA : DifferentiableWithinAt ℂ A s x) : DifferentiableWithinAt ℂ (fun y => (A y)ᵀ) s x :=
-  (matTransposeCLE (l := l) (m := m)).toContinuousLinearMap.differentiableAt.comp_differentiableWithinAt
-    x hA
+  (matTransposeCLM (l := l) (m := m)).differentiableAt.comp_differentiableWithinAt x hA
 
 theorem _root_.DifferentiableAt.matrix_transpose {A : E → Matrix l m ℂ}
     (hA : DifferentiableAt ℂ A x) : DifferentiableAt ℂ (fun y => (A y)ᵀ) x :=
