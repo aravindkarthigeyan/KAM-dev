@@ -286,9 +286,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L820-L829 | Miss
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r2
 REVIEWER: sol-review-d2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.lip_error
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-basic
@@ -317,9 +317,9 @@ EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:le-basic@L833-L83
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.lip_error (normalize clauses), invarianceError_shift_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-split
@@ -345,9 +345,9 @@ EDGE: bp:p4:freq-map | blueprint/parts/p4-measure.tex#step:p4:le-split@L842-L842
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.invarianceError_shift_eq, hamiltonianVectorField_hbold, lipError_split
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-h
@@ -376,9 +376,9 @@ EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:le-h@L854-L858 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.gradC_mixed_difference, norm_iteratedFDeriv_two_gradC_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-f
@@ -407,9 +407,9 @@ EDGE: step:p4:le-basic | blueprint/parts/p4-measure.tex#step:p4:le-f@L861-L861 |
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.norm_hamiltonianVectorField_f_shift_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-transport
@@ -435,9 +435,9 @@ EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:le-transport@L868
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.norm_fderiv_sub_unperturbed_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-sum
@@ -466,9 +466,9 @@ EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:le-sum@L872-L872
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.lipError_const_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:lip
