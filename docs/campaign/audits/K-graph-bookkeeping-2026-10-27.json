@@ -1,0 +1,470 @@
+{
+ "step:p1:fb-derivative": {
+  "status": "PROVED",
+  "ref": "KAM.torusCoeff_fderiv_coordinate_real, KAM.torusCoeff_fderiv_real (KAM/Strip/FourierDerivative.lean:83,152); holomorphic form KAM.torusCoeff_fderiv (KAM/Strip/Cohomological.lean:66)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "Real C^1 periodic v: coefficients of d_ell v are 2 pi i k_ell v^_k and of d_omega v (complex omega) are 2 pi i (k.omega) v^_k; audit table row \"bp:p1:fourier-basic (a); step:p1:fb-derivative\" PASS."
+ },
+ "step:p1:fb-series": {
+  "status": "PROVED",
+  "ref": "KAM.hasSum_torusCoeff_mul_character, KAM.eq_zero_of_torusCoeff_eq_zero (KAM/Strip/FourierBasic.lean:162,182)",
+  "audit": "none dedicated: Zohar's I-STRIP-2 Fourier code (KAM/Strip/FourierBasic.lean, FourierSeries.lean; commits e38c03a, 5459d7a) has no independent audit; docs/campaign/audits/I-STRIP-3b-audit-1.md only lists it as a pre-existing dependency and explicitly does not re-audit it",
+  "why": "Continuous 1-periodic v with summable coefficients: HasSum of v^_k chi_k to v(x) for every x, and v=0 when all coefficients vanish (via Mathlib UnitAddTorus Fourier series)."
+ },
+ "step:p1:fb-holomorphic": {
+  "status": "PROVED",
+  "ref": "KAM.eq_zero_of_torusCoeff_holomorphic (KAM/Strip/FourierBasic.lean:193)",
+  "audit": "none dedicated: Zohar's I-STRIP-2 Fourier code (KAM/Strip/FourierBasic.lean, FourierSeries.lean; commits e38c03a, 5459d7a) has no independent audit; docs/campaign/audits/I-STRIP-3b-audit-1.md only lists it as a pre-existing dependency and explicitly does not re-audit it",
+  "why": "Holomorphic 1-periodic v on T_r (no boundedness) with all real-torus coefficients 0 gives v=0 on T_r, through KAM.strip_identity and the (b) statement."
+ },
+ "bp:p1:fourier-basic": {
+  "status": "PROVED",
+  "ref": "(a) KAM.torusCoeff_fderiv_real, KAM.torusCoeff_fderiv_coordinate_real (KAM/Strip/FourierDerivative.lean), KAM.torusCoeff_fderiv (KAM/Strip/Cohomological.lean); (b) KAM.hasSum_torusCoeff_mul_character, KAM.eq_zero_of_torusCoeff_eq_zero; (c) KAM.eq_zero_of_torusCoeff_holomorphic (KAM/Strip/FourierBasic.lean)",
+  "audit": "part (a): docs/campaign/audits/I-STRIP-3b-audit-1.md; parts (b),(c): none dedicated: Zohar's I-STRIP-2 Fourier code (KAM/Strip/FourierBasic.lean, FourierSeries.lean; commits e38c03a, 5459d7a) has no independent audit; docs/campaign/audits/I-STRIP-3b-audit-1.md only lists it as a pre-existing dependency and explicitly does not re-audit it",
+  "why": "All three clauses (a),(b),(c) have a declaration with the blueprint hypotheses; only clause (a) was independently audited."
+ },
+ "bp:p1:summation": {
+  "status": "PROVED",
+  "ref": "forward: KAM.differentiableOn_fourierSum, KAM.fourierSum_add_single, KAM.torusCoeff_fourierSum, KAM.norm_fourierSum_le (KAM/Strip/FourierSeries.lean:161-221); converse: KAM.summableWeighted_torusCoeff (FourierSeries.lean:271); representation: KAM.eq_fourierSum_torusCoeff (KAM/Strip/FourierBasic.lean:230)",
+  "audit": "none dedicated: Zohar's I-STRIP-2 Fourier code (KAM/Strip/FourierBasic.lean, FourierSeries.lean; commits e38c03a, 5459d7a) has no independent audit; docs/campaign/audits/I-STRIP-3b-audit-1.md only lists it as a pre-existing dependency and explicitly does not re-audit it",
+  "why": "Holomorphy, periodicity, v^_k=a_k and sup bound by the weighted sum; converse sum |u^_k| e^{2 pi|k|_1(rho-delta)} <= (cosh/sinh(pi delta))^n A; u equals its Fourier series on T_rho; no single packaged theorem, the clauses are separate declarations."
+ },
+ "step:p1:sum-bound": {
+  "status": "PARTIAL",
+  "ref": "KAM.summable_coeff_mul_character, KAM.norm_fourierSum_le, KAM.fourierSum_add_single (KAM/Strip/FourierSeries.lean:154,161,168)",
+  "audit": "none dedicated: Zohar's I-STRIP-2 Fourier code (KAM/Strip/FourierBasic.lean, FourierSeries.lean; commits e38c03a, 5459d7a) has no independent audit; docs/campaign/audits/I-STRIP-3b-audit-1.md only lists it as a pre-existing dependency and explicitly does not re-audit it",
+  "why": "Pointwise absolute convergence, |u|<=M and 1-periodicity are stated; uniform convergence of the partial sums S_N on T_rho is never stated as a declaration (the termwise bound is used inside differentiableOn_fourierSum)."
+ },
+ "step:p1:sum-holo": {
+  "status": "PROVED",
+  "ref": "KAM.differentiableOn_fourierSum (KAM/Strip/FourierSeries.lean:173)",
+  "audit": "none dedicated: Zohar's I-STRIP-2 Fourier code (KAM/Strip/FourierBasic.lean, FourierSeries.lean; commits e38c03a, 5459d7a) has no independent audit; docs/campaign/audits/I-STRIP-3b-audit-1.md only lists it as a pre-existing dependency and explicitly does not re-audit it",
+  "why": "Conclusion u holomorphic on T_rho from SummableWeighted(2 pi rho) coefficients; proved by hasFDerivAt_tsum_of_isPreconnected with an explicit termwise Cauchy-type bound, not via bp:p1:uniform-limits/exp-sums as the graph DEPS list (route differs, conclusion covered)."
+ },
+ "step:p1:sum-coeff": {
+  "status": "PROVED",
+  "ref": "KAM.torusCoeff_fourierSum (KAM/Strip/FourierSeries.lean:221)",
+  "audit": "none dedicated: Zohar's I-STRIP-2 Fourier code (KAM/Strip/FourierBasic.lean, FourierSeries.lean; commits e38c03a, 5459d7a) has no independent audit; docs/campaign/audits/I-STRIP-3b-audit-1.md only lists it as a pre-existing dependency and explicitly does not re-audit it",
+  "why": "Real-torus Fourier coefficient of the series is a_k for summable-weighted a (termwise integration via integral_tsum), with torusAverage_character."
+ },
+ "step:p1:sum-converse": {
+  "status": "PROVED",
+  "ref": "KAM.summableWeighted_torusCoeff (KAM/Strip/FourierSeries.lean:271)",
+  "audit": "none dedicated: Zohar's I-STRIP-2 Fourier code (KAM/Strip/FourierBasic.lean, FourierSeries.lean; commits e38c03a, 5459d7a) has no independent audit; docs/campaign/audits/I-STRIP-3b-audit-1.md only lists it as a pre-existing dependency and explicitly does not re-audit it; its input KAM.norm_torusCoeff_le (decay boundary radius) is audited in docs/campaign/audits/I-ZMAP-audit-1.md and I-ZMAP-audit-2.md",
+  "why": "States Summable and weightedNorm(2 pi (rho-delta)) <= (cosh(pi delta)/sinh(pi delta))^n * A, i.e. coth(pi delta)^n ||u||_rho, for 0<delta<rho."
+ },
+ "step:p1:sum-representation": {
+  "status": "PROVED",
+  "ref": "KAM.eq_fourierSum_torusCoeff (KAM/Strip/FourierBasic.lean:230)",
+  "audit": "none dedicated: Zohar's I-STRIP-2 Fourier code (KAM/Strip/FourierBasic.lean, FourierSeries.lean; commits e38c03a, 5459d7a) has no independent audit; docs/campaign/audits/I-STRIP-3b-audit-1.md only lists it as a pre-existing dependency and explicitly does not re-audit it",
+  "why": "Bounded holomorphic 1-periodic u on T_rho (rho>0) equals fourierSum of its coefficients at every theta in T_rho, using converse estimate, sum-holo, sum-coeff and fourier-basic (c)."
+ },
+ "step:p1:coh-data": {
+  "status": "PROVED",
+  "ref": "KAM.torusCoeff_zero (KAM/Strip/Cohomological.lean:52) with zero average; KAM.norm_torusCoeff_le (KAM/Strip/Fourier.lean:291)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md (parent KAM.cohomological); decay input audited in docs/campaign/audits/I-ZMAP-audit-1.md, I-ZMAP-audit-2.md",
+  "why": "g^_0 = average = 0 and |g^_k| <= e^{-2 pi|k|_1 rho}||g||; both facts are combined inline in weightedNorm_torusCoeff_le_of_avg_zero (Cohomological.lean:134) rather than one exported statement."
+ },
+ "step:p1:coh-coefficients": {
+  "status": "PROVED",
+  "ref": "KAM.Diophantine.solve, solve_zero_mode, directionalCoeff_solve, norm_solve_le (KAM/Diophantine/Cohomological.lean:50,~78,82,104); KAM.sum_mul_eq_flowMultiplier (KAM/Strip/Cohomological.lean:121)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md (consumer KAM.cohomological; Diophantine solver itself not separately audited)",
+  "why": "a_0=0, a_k=g^_k/(2 pi i k.omega) solve the coefficient equation and ||solve a k|| <= (2 pi gamma)^-1 |k|_1^tau ||a k|| under the Diophantine condition."
+ },
+ "step:p1:coh-weighted": {
+  "status": "PROVED",
+  "ref": "KAM.weightedNorm_torusCoeff_le_of_avg_zero, KAM.summableWeighted_solve_torusCoeff (KAM/Strip/Cohomological.lean:134,183)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md (parent KAM.cohomological)",
+  "why": "Weighted sum of solve-coefficients at radius 2 pi(rho-delta) is summable and <= cohConst n tau/(gamma delta^(tau+n)) A, with the s=2pi(rho-delta/2) split of the blueprint; cohConst checked as the exact c(n,tau) in the audit."
+ },
+ "step:p1:coh-existence": {
+  "status": "PROVED",
+  "ref": "KAM.differentiableOn_cohSolution, cohSolution_add_single, torusCoeff_cohSolution, torusAverage_cohSolution, norm_cohSolution_le (KAM/Strip/Cohomological.lean:222-250); packaged in KAM.cohomological (KAM/Strip/CohomologicalNodes.lean:57)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "Solution is holomorphic, 1-periodic, bounded by the exact constant, with coefficients a_k and zero average on T_{rho-delta}."
+ },
+ "step:p1:coh-equation": {
+  "status": "PROVED",
+  "ref": "KAM.fderiv_cohSolution (KAM/Strip/Cohomological.lean:257); KAM.cohomological (KAM/Strip/CohomologicalNodes.lean:57)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "fderiv of cohSolution applied to omega equals g on T_{rho-delta}."
+ },
+ "step:p1:coh-unique": {
+  "status": "PROVED",
+  "ref": "KAM.eq_cohSolution (KAM/Strip/Cohomological.lean:302); KAM.cohomological (last conjunct)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "Any holomorphic periodic zero-average solution on T_{rho-delta} equals cohSolution, no boundedness hypothesis; audit checked g=0 gives only u=0."
+ },
+ "step:p1:coh-real": {
+  "status": "PROVED",
+  "ref": "KAM.cohSolution_im_eq_zero (KAM/Strip/Cohomological.lean:385); KAM.cohomological",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "g real on R^n implies cohSolution real on R^n (conjugate-symmetric coefficients)."
+ },
+ "step:p1:coh-vector": {
+  "status": "PROVED",
+  "ref": "KAM.cohSolutionPi family (cohSolutionPi, differentiableOn_cohSolutionPi, norm_cohSolutionPi_le, eq_cohSolutionPi, ... KAM/Strip/Cohomological.lean:399-500); KAM.cohomological second conjunct (CohomologicalNodes.lean)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "C^p-valued g gives unique componentwise solution with same constant in the max norm and realness; matrix entries are covered by cohSolutionMat (KAM/Strip/CohomologicalOperator.lean)."
+ },
+ "step:p1:coo-entries": {
+  "status": "PROVED",
+  "ref": "KAM.cohSolutionMat, differentiableOn_cohSolutionMat, torusAverage_cohSolutionMat, fderiv_cohSolutionMat, eq_cohSolutionMat (KAM/Strip/CohomologicalOperator.lean:192-265); KAM.cohomological_operator (CohomologicalNodes.lean:119)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "Entrywise solution on T_{rho-delta} with zero average and equation, and every zero-average periodic solution equals it."
+ },
+ "step:p1:coo-vectors": {
+  "status": "PROVED",
+  "ref": "KAM.norm_cohSolutionMat_le (KAM/Strip/CohomologicalOperator.lean:286); helper KAM.mulVec_transfer (:89)",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "Audit maps this step to the cohSolutionMat theorems (PASS); the vector bound |u v|<=Gamma||g|| is realized inline in the proof of norm_cohSolutionMat_le (hsol via eq_cohSolutionPi + norm_cohSolutionPi_le), not as a separately exported statement."
+ },
+ "step:p1:coo-norm": {
+  "status": "PROVED",
+  "ref": "KAM.norm_cohSolutionMat_le, KAM.eq_cohSolutionMat (KAM/Strip/CohomologicalOperator.lean:265,286); KAM.cohomological_operator",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "Operator-norm bound with exactly the scalar constant, and uniqueness transfers it to every zero-average periodic solution."
+ },
+ "step:p1:coo-apriori": {
+  "status": "PROVED",
+  "ref": "KAM.cohomological_apriori, cohomological_apriori_pi, cohomological_apriori_operator (KAM/Strip/CohomologicalOperator.lean:119,144,165); second conjunct of KAM.cohomological_operator",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md",
+  "why": "u holomorphic 1-periodic zero average on T_rho with ||d_omega u||<=H gives ||u||<=cohConst/(gamma delta^(tau+n)) H on T_{rho-delta}, without boundedness of u; scalar, vector and matrix."
+ },
+ "step:p2:coh-components": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.cohomological (KAM/Apost/Tools.lean:322), first conjunct; via KAM.cohomological",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md (supersedes the \"blocked\" rows of docs/campaign/audits/P2-3-audit-1.md)",
+  "why": "Vector solution cohR is holomorphic, periodic, zero average, solves d_omega u=g, |u|<=Gamma_delta H, real if g real, and unique; Appendix A signature byte-compared in audit."
+ },
+ "step:p2:coh-apriori": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.cohomological (KAM/Apost/Tools.lean:322), second conjunct; via KAM.cohomological_apriori_operator",
+  "audit": "docs/campaign/audits/I-STRIP-3b-audit-1.md (supersedes \"PARTIAL/blocked\" row of docs/campaign/audits/P2-3-audit-1.md)",
+  "why": "u:T_r->C^{pxq} holomorphic periodic zero average with |d_omega u|<=H gives |u|<=Gamma_delta H on T_{r-delta}."
+ },
+ "step:p2:ham-regular": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.differentiableOn_fderiv_h, differentiableOn_ham, differentiableOn_fderiv_ham, norm_fderiv_fderiv_eq, ham_regularity (KAM/Apost/Hamiltonian.lean:140-165)",
+  "audit": "docs/campaign/audits/P2-4-audit-1.md",
+  "why": "Dh, X_h, DX_h holomorphic on B(frak) and ||D(DX_h)|| = ||D^2X_h||; higher derivatives of h come from KAM.holomorphic_regularity."
+ },
+ "step:p2:ham-periodic": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.fderiv_h_translate, ham_translate, fderiv_ham_translate, ham_periodic (KAM/Apost/Hamiltonian.lean:178-203)",
+  "audit": "docs/campaign/audits/P2-4-audit-1.md",
+  "why": "X_h and DX_h are invariant under integer angle translations on B(frak)."
+ },
+ "step:p2:ham-real": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.im_fderiv_real_direction, im_ham_eq_zero, im_sqMat_ham, ham_real (KAM/Apost/Hamiltonian.lean:75,212,244,258)",
+  "audit": "docs/campaign/audits/P2-4-audit-1.md",
+  "why": "Dh/X_h/DX_h are real at real points (vector and matrix coordinates)."
+ },
+ "step:p2:ham-symplectic": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.sumVec_omegaZero_ham, fderiv_fderiv_comm, omegaZeroMatrix_mul_sqMat_apply, ham_symplectic (KAM/Apost/Hamiltonian.lean:269-329)",
+  "audit": "docs/campaign/audits/P2-4-audit-1.md",
+  "why": "Omega_0 X_h=(Dh)^T, Omega_0 DX_h symmetric, DX_h^T Omega_0 + Omega_0 DX_h = 0, exactly as ham_symplectic states."
+ },
+ "step:p2:ham-mvt": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.ham_mvt (KAM/Apost/Hamiltonian.lean:351)",
+  "audit": "docs/campaign/audits/P2-4-audit-1.md",
+  "why": "Both estimates |DX_h(z+w)-DX_h(z)|<=M|w| and the Taylor remainder bound; the exported form is the weaker M|w|^2 (the intermediate (M/2)|w|^2 is local to the proof via KAM.taylor_iteratedFDeriv)."
+ },
+ "step:p2:per-dk": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.isPeriodicOn_fderiv_of_shift, periodic_fderiv_K, periodic_K_snd (KAM/Apost/Periodicity.lean:61,99,135)",
+  "audit": "docs/campaign/audits/P2-4-audit-1.md",
+  "why": "Primary K gives periodic DK and K^I; D^2K by applying the generic derivative lemma again (audit note)."
+ },
+ "step:p2:per-compose": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.ham_translate_single, periodic_tangentMat ... periodic_eta (KAM/Apost/Periodicity.lean:88-192)",
+  "audit": "docs/campaign/audits/P2-4-audit-1.md",
+  "why": "Composed objects X_h o K, DX_h o K, h o K, Gram/normal/frame/torsion/eta periodic, inverse-dependent ones under det G != 0."
+ },
+ "step:p2:per-real": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.im_sumVec_fderiv_real, hasRealEntries_* , hasRealVec_eta, im_action_dot, im_torsionAverage (KAM/Apost/Periodicity.lean:281-438)",
+  "audit": "docs/campaign/audits/P2-4-audit-1.md",
+  "why": "All listed objects are real at real points and avg T is real."
+ },
+ "step:p2:avg-deriv#real-route": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.Tools.torusAverage_fderiv_apply_eq_zero (KAM/Apost/Tools.lean:158); scalar predecessors KAM.torusAverage_complex_direction_eq_zero, KAM.torusAverage_complex_coordinate_eq_zero, KAM.continuous_fderiv_real_of_holomorphic (KAM/Strip/Averages.lean)",
+  "audit": "docs/campaign/audits/P2-3-audit-1.md",
+  "why": "Selected route: restriction to the real torus is C^1 for holomorphic periodic v, so avg(d_ell v)=avg(d_omega v)=0; audit row PASS / selected."
+ },
+ "step:p2:avg-deriv#bounded-route": {
+  "status": "BYPASSED",
+  "ref": "none (alternative route not used)",
+  "audit": "docs/campaign/audits/P2-3-audit-1.md",
+  "why": "Audit row marks it BYPASSED (alternative): the proof does not shrink the strip or use periodic_bounded; the parent step is proved via the real route."
+ },
+ "step:p2:tri-first": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.cohomological (KAM/Apost/Tools.lean:322) applied inline in KAM.Apost.triangular (KAM/Apost/Triangular.lean:270, lines 307-315); KAM.Apost.Triangular.triXiN_differentiableOn, triXiN_periodic, fderiv_triXiN, norm_triXiN_le (:175-193)",
+  "audit": "docs/campaign/audits/P2-8a-audit-1.md",
+  "why": "u^N holomorphic, periodic, d_omega u^N = eta^N, bound Gamma_delta H_N and realness from cohomological; xi^N facts (d_omega xi^N=-eta^N, bound) from the helpers and triangular; audit note: no single helper packages the whole step."
+ },
+ "step:p2:tri-xi0": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.Triangular.norm_triXi0_le, avg_mulVec_triXi0, avg_triGL_eq_zero (KAM/Apost/Triangular.lean:131,152,157); KAM.Apost.triangular",
+  "audit": "docs/campaign/audits/P2-8a-audit-1.md",
+  "why": "Bound |xi^N_0|<=sigma(H_L+H_T Gamma_delta H_N) and avg g^L = 0."
+ },
+ "step:p2:tri-second": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.triangular (KAM/Apost/Triangular.lean:270, lines 328-340) with KAM.Apost.cohomological; helpers triGL_differentiableOn, triGL_periodic, norm_triGL_le (:201-212)",
+  "audit": "docs/campaign/audits/P2-8a-audit-1.md",
+  "why": "xi^L = cohR g^L on T_{r-2 delta} with d_omega xi^L = g^L and the Gamma_delta sup|g^L| bound is stated by triangular; the cohomological application is inline (audit: no single helper for the step)."
+ },
+ "step:p2:tri-form": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.Triangular.fderiv_triXiN (KAM/Apost/Triangular.lean:185); KAM.Apost.triangular (component equations, line 333) with triGL (:56)",
+  "audit": "docs/campaign/audits/P2-8a-audit-1.md",
+  "why": "The two component equations d_omega xi^N=-eta^N, d_omega xi^L = T xi^N - eta^L are stated in triangular; the block form (Lambda xi - d_omega xi = (eta^L, eta^N)) follows by subtraction (audit checked)."
+ },
+ "step:p2:tri-real": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.Triangular.triXi0_im_eq_zero, isRealVec_triXiN, isRealVec_triGL (KAM/Apost/Triangular.lean:228,253,259); KAM.Apost.triangular (last conjunct)",
+  "audit": "docs/campaign/audits/P2-8a-audit-1.md",
+  "why": "Real data give real xi^N_0, xi^N, g^L and xi^L, exactly the conditional realness clause of triangular."
+ },
+ "bp:p2:g1": {
+  "status": "PROVED",
+  "ref": "KAM.Apost.g1_explicit (KAM/Apost/G1.lean:76), with KAM.Apost.C_1, C_2, C_1_pos, C_2_pos (G1.lean:48-61)",
+  "audit": "docs/campaign/audits/P2-14-audit-1.md",
+  "why": "Audit PASS: g1_explicit is the frozen G1 body with C_1=rho^{4tau}max{gammabar^4, c_* delta0^{-2a}}, C_2=2 C_DK rho^{2tau} delta0^{-a}; provider KAM.Provider.aposteriori_kam is the one-line constructor from it."
+ },
+ "step:p3:norms-frame": {
+  "status": "PROVED",
+  "ref": "KAM.Uniq.matrix_norms (KAM/Uniq/Frame.lean:220)",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md",
+  "why": "All seven bounds (L, B, N, B L^T, L^T Omega_0, P, stacked Q) on the whole strip with C_P = 2 n sigma_K (1+sigma_B); signature byte-matched to Appendix A."
+ },
+ "step:p3:lagrangian-transport": {
+  "status": "PROVED",
+  "ref": "KAM.Uniq.FrameAux.fderiv_lagrangeMat_eq_zero (KAM/Uniq/Frame.lean:165); KAM.Apost.periodic_lagrangeMat (KAM/Apost/Periodicity.lean:123); KAM.Apost.exactness, first conjunct (KAM/Apost/Exactness.lean:292)",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md (route note D1); inputs: docs/campaign/audits/P2-6-audit-1.md (frame-identities), docs/campaign/audits/P2-7-audit-1.md (exactness), docs/campaign/audits/P2-4-audit-1.md (periodicity)",
+  "why": "d_omega Omega_{K1}=0 (frame_identities (d) with DE_1=0 from errDerivMat_eq_zero), 1-periodicity and avg=0 are three separate declarations, combined inside KAM.Uniq.lagrangian."
+ },
+ "step:p3:frequency-omega": {
+  "status": "PROVED",
+  "ref": "KAM.Uniq.frequency_bound (first conjunct, KAM/Uniq/Frame.lean:255) from KAM.Apost.frequency (KAM/Apost/Frame.lean:423) with eps=0",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md",
+  "why": "||omega||<=2 n sigma_K sigma_B M <= C_Gamma (= C_P M) as stated."
+ },
+ "step:p3:frequency-gamma": {
+  "status": "PROVED",
+  "ref": "KAM.Uniq.frequency_bound (second conjunct, KAM/Uniq/Frame.lean:255)",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md",
+  "why": "gamma <= ||omega|| <= C_Gamma, gamma<=||omega|| from Apost.frequency (Diophantine lower bound)."
+ },
+ "step:p3:red-holomorphy": {
+  "status": "PROVED",
+  "ref": "KAM.Uniq.reducibility (first three conjuncts, KAM/Uniq/Frame.lean:267: B, N, P holomorphic); KAM.Torus.differentiableOn_tangentMat, differentiableOn_gramMatrix (KAM/Torus/FrozenAgreement.lean:91,105) for L and L^T L",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md",
+  "why": "B=(L^T L)^{-1}, N, P holomorphic is exported by reducibility; L and L^T L holomorphy are the Torus declarations used in its proof."
+ },
+ "step:p3:red-frame": {
+  "status": "PROVED",
+  "ref": "KAM.Uniq.reducibility (KAM/Uniq/Frame.lean:267): IsUnit det P, P^{-1}=Q=(B L^T; -L^T Omega_0), P^T Omega_0 P = Omega_0, torsion = B L^T X_N",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md",
+  "why": "Uses lagrangian (symDefect=0) and frame_identities; all four claims are conjuncts of reducibility."
+ },
+ "step:p3:red-tangent": {
+  "status": "BYPASSED",
+  "ref": "none as a statement; ingredients KAM.Apost.frame_identities (d) (KAM/Apost/Identities.lean:445) and KAM.Uniq.FrameAux.errDerivMat_eq_zero (KAM/Uniq/Frame.lean:152)",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md (reducibility parent only)",
+  "why": "X_L = DX_h L - d_omega L = 0 is never formed: reducibility uses frame_identities (e) with redDefect=0 (from DE_1=0) to get the assembled identity directly, so the column-wise step has no separate content."
+ },
+ "step:p3:red-normal": {
+  "status": "BYPASSED",
+  "ref": "none as a statement; ingredients KAM.Apost.frame_identities (e) and KAM.Uniq.FrameAux.errDerivMat_eq_zero",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md (reducibility parent only)",
+  "why": "X_N = L T is not stated; the last conjunct of reducibility is obtained from the reduced identity reducer*(A P - d_omega P)=Lambda+redDefect with redDefect=0, bypassing the column split."
+ },
+ "step:p3:red-assembly": {
+  "status": "PROVED",
+  "ref": "KAM.Uniq.reducibility, last conjunct (KAM/Uniq/Frame.lean:267): linMat*frameMat - d_omega frameMat = frameMat * triangularMat(torsion)",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md",
+  "why": "DX_h(K1) P - d_omega P = P Lambda, with Lambda=triangularMat T, proved from the reduced identity and redDefect=0."
+ },
+ "step:p3:torsion-holomorphy": {
+  "status": "PROVED",
+  "ref": "KAM.Uniq.torsion_bound (first two conjuncts, KAM/Uniq/Frame.lean:313: T holomorphic on T_rho, continuous on R^n); X_N via KAM.Apost.FrameAux.differentiableOn_normalFieldMat (used inside torsion_bound)",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md",
+  "why": "T holomorphic and continuous on R^n are exported; X_N holomorphy is the Apost.FrameAux lemma applied inside the proof, not a statement of torsion_bound."
+ },
+ "step:p3:torsion-bound-step": {
+  "status": "PROVED",
+  "ref": "KAM.Uniq.torsion_bound (third conjunct, KAM/Uniq/Frame.lean:313) with local facts hdir' (Cauchy, delta=rho/4, via KAM.cauchy_corollaries_directional_real) and hX in its proof",
+  "audit": "docs/campaign/audits/P3-1-audit-1.md",
+  "why": "T bound on T_{3rho/4} by C_tor is exported; the intermediate bounds ||d_omega N||<=4 n Gamma sigma_K sigma_B/rho and ||X_N||<=sigma_K sigma_B M(1+4 n C_P/rho) are proved inline (hdir', hX), no step-level audit row."
+ },
+ "bp:p4:SA": {
+  "status": "PROVED",
+  "ref": "KAM.Head.SA (structure), KAM.Head.eta0, KAM.Head.OmegaGamma (KAM/Head/Defs.lean:262-275)",
+  "audit": "docs/campaign/audits/P4-0-audit-1.md; docs/campaign/audits/DESIGN-P4-audit-1.md",
+  "why": "Definitions only: SA = 0<gamma<=1, 0<=eps<=c_* gamma^4; eta0 = A0 eps/gamma^2; OmegaGamma = frequencyMap h \"\" B intersect Dio; audit PASS (exact formulas)."
+ },
+ "bp:p4:normalized-torus": {
+  "status": "PROVED",
+  "ref": "KAM.Head.applyTorus, KAM.Head.normTorus, KAM.Head.normDisp (KAM/Head/Defs.lean:292-310)",
+  "audit": "docs/campaign/audits/P4-0-audit-1.md; docs/campaign/audits/DESIGN-P4-audit-1.md (consumption: docs/campaign/audits/P4-9-audit-2.md)",
+  "why": "Literal constructions K_omega=(K^inf)^[-ph], W_omega=K_omega-K0_omega (K^inf chosen by Classical.epsilon of the APPLY clauses); no existence theorem is part of this definition node, audited PASS as prescribed constructions."
+ },
+ "step:p4:hq-trivial": {
+  "status": "PROVED",
+  "ref": "KAM.Head.headq_of_head (KAM/Head/HeadQ.lean:107, lines 126-134); KAM.Head.volume_fundamentalDomain (:46), volume_pi_Ico_zero_one (:40)",
+  "audit": "docs/campaign/audits/P4-Q-audit-1.md",
+  "why": "Empty B gives eps_0=1; otherwise 0<vol B<inf and vol F_B = vol B; empty/positivity cases are inline in headq_of_head."
+ },
+ "step:p4:hq-approx": {
+  "status": "PROVED",
+  "ref": "KAM.Head.headq_of_head (lines 134-137) using KAM.Head.dyadic_approx (KAM/Head/DyadicApprox.lean:265)",
+  "audit": "docs/campaign/audits/P4-Q-audit-1.md",
+  "why": "dyadic_approx gives open B subset B with vol(B minus B)<=eta and a boundary-layer constant; headq_of_head applies it with eta = kappa vol(B)/2."
+ },
+ "step:p4:hq-head": {
+  "status": "PROVED",
+  "ref": "KAM.Head.headq_of_head (lines 139-148); KAM.Head.actionNbhd_subset_of_subset (HeadQ.lean:52)",
+  "audit": "docs/campaign/audits/P4-Q-audit-1.md",
+  "why": "HEAD hypotheses (incl. nondegeneracy on closure) transferred to B-prime; eps_0 is exactly the blueprint minimum."
+ },
+ "step:p4:hq-transfer": {
+  "status": "PROVED",
+  "ref": "KAM.Head.headq_of_head (lines 150-156); KAM.Head.nonneg_of_bound_nonempty (:72), headq_epsilon_bounds (:82)",
+  "audit": "docs/campaign/audits/P4-Q-audit-1.md",
+  "why": "Perturbation hypotheses restricted to B-prime, eps>=0 from the nonempty original B, and C eps^{1/4}<=kappa vol(B)/2."
+ },
+ "step:p4:hq-cover": {
+  "status": "PROVED",
+  "ref": "KAM.Head.headq_of_head (lines 158-174); KAM.Head.fundamentalDomain_diff_subset (:59), KAM.Head.kamCover_mono (KAM/Head/CoverMono.lean:25)",
+  "audit": "docs/campaign/audits/P4-Q-audit-1.md",
+  "why": "Measure of F_B minus kamCover_B(kappa) <= vol F_(B minus B-prime) + vol(F_B-prime minus cover) <= kappa vol B = kappa vol F_B."
+ },
+ "bp:p0:diophantine#IsDiophantine": {
+  "status": "PROVED",
+  "ref": "KAM.IsDiophantine (KAM/Frozen/Defs/IsDiophantine.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.IsDiophantine",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:domains#complexStrip": {
+  "status": "PROVED",
+  "ref": "KAM.complexStrip (KAM/Frozen/Defs/ComplexStrip.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.complexStrip",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:domains#actionNbhd": {
+  "status": "PROVED",
+  "ref": "KAM.actionNbhd (KAM/Frozen/Defs/ActionNbhd.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.actionNbhd",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:domains#fundamentalDomain": {
+  "status": "PROVED",
+  "ref": "KAM.fundamentalDomain (KAM/Frozen/Defs/FundamentalDomain.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.fundamentalDomain",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:hamiltonian#hamiltonianVectorField": {
+  "status": "PROVED",
+  "ref": "KAM.hamiltonianVectorField (KAM/Frozen/Defs/HamiltonianVectorField.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.hamiltonianVectorField",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:hamiltonian#hamiltonianVectorFieldC": {
+  "status": "PROVED",
+  "ref": "KAM.hamiltonianVectorFieldℂ (KAM/Frozen/Defs/HamiltonianVectorFieldC.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.hamiltonianVectorFieldℂ",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:hamiltonian#symplecticForm": {
+  "status": "PROVED",
+  "ref": "KAM.symplecticForm (KAM/Frozen/Defs/SymplecticForm.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.symplecticForm",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:hamiltonian#omegaZero": {
+  "status": "PROVED",
+  "ref": "KAM.omegaZero (KAM/Frozen/Defs/OmegaZero.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.omegaZero",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:nearlyintegrable#realHamiltonian": {
+  "status": "PROVED",
+  "ref": "KAM.realHamiltonian (KAM/Frozen/Defs/RealHamiltonian.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.realHamiltonian",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:nearlyintegrable#frequencyMap": {
+  "status": "PROVED",
+  "ref": "KAM.frequencyMap (KAM/Frozen/Defs/FrequencyMap.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.frequencyMap",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:torus#IsInvariantLagrangianTorus": {
+  "status": "PROVED",
+  "ref": "KAM.IsInvariantLagrangianTorus (KAM/Frozen/Defs/IsInvariantLagrangianTorus.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.IsInvariantLagrangianTorus",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:cover#kamCover": {
+  "status": "PROVED",
+  "ref": "KAM.kamCover (KAM/Frozen/Defs/KamCover.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.kamCover",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:stripdata#IsPrimaryOnStrip": {
+  "status": "PROVED",
+  "ref": "KAM.IsPrimaryOnStrip (KAM/Frozen/Defs/IsPrimaryOnStrip.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.IsPrimaryOnStrip",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:stripdata#IsRealOnReals": {
+  "status": "PROVED",
+  "ref": "KAM.IsRealOnReals (KAM/Frozen/Defs/IsRealOnReals.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.IsRealOnReals",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:stripdata#invarianceError": {
+  "status": "PROVED",
+  "ref": "KAM.invarianceError (KAM/Frozen/Defs/InvarianceError.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.invarianceError",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:stripdata#dotC": {
+  "status": "PROVED",
+  "ref": "KAM.dotℂ (KAM/Frozen/Defs/DotC.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.dotℂ",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:stripdata#gramMatrix": {
+  "status": "PROVED",
+  "ref": "KAM.gramMatrix (KAM/Frozen/Defs/GramMatrix.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.gramMatrix",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:stripdata#normalFrame": {
+  "status": "PROVED",
+  "ref": "KAM.normalFrame (KAM/Frozen/Defs/NormalFrame.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.normalFrame",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:stripdata#torsion": {
+  "status": "PROVED",
+  "ref": "KAM.torsion (KAM/Frozen/Defs/Torsion.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.torsion",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ },
+ "bp:p0:stripdata#torsionAverage": {
+  "status": "PROVED",
+  "ref": "KAM.torsionAverage (KAM/Frozen/Defs/TorsionAverage.lean)",
+  "audit": "frozen manifest (SEALED definition): manifest/frozen-anchors.json, state SEALED, export KAM.torsionAverage",
+  "why": "Author-approved frozen definition, SEALED in manifest/frozen-anchors.json (ABI hash checked by scripts/lint_sources.sh); the Lean definition is the node."
+ }
+}
