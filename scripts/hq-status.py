@@ -377,9 +377,8 @@ def section_errata():
 def section_papers():
     out = ['| Key | Reference | arXiv | DOI | Role |', '|---|---|---|---|---|']
     for s in sources:
-        ax = (f'[{s["arxiv"]}](https://arxiv.org/abs/{s["arxiv"]})' if s.get('arxiv')
-              else f'[doi:{s["doi"]}](https://doi.org/{s["doi"]})' if s.get('doi') else '—')
-        doi = f'[{s["doi"]}](https://doi.org/{s["doi"]})' if s['doi'] else '—'
+        ax = f'[{s["arxiv"]}](https://arxiv.org/abs/{s["arxiv"]})' if s.get('arxiv') else '—'
+        doi = f'[{s["doi"]}](https://doi.org/{s["doi"]})' if s.get('doi') else '—'
         out.append(f'| {s["key"]} | {s["citation"]} | {ax} | {doi} | {s["role"]} |')
     return '\n'.join(out)
 
