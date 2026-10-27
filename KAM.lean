@@ -19,6 +19,7 @@ public import KAM.Apost.Perturbation
 public import KAM.Apost.PerturbationTorsion
 public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
+public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
 public import KAM.Diophantine.Basic
@@ -236,6 +237,7 @@ public import KAM.Torus.FrozenAgreement
 public import KAM.Torus.Objects
 public import KAM.Uniq.Difference
 public import KAM.Uniq.Frame
+public import KAM.Uniq.G2
 public import KAM.Uniq.Phase
 public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
