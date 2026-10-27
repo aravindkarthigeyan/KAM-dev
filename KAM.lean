@@ -157,8 +157,10 @@ public import KAM.Frozen.Planetary.Defs.SecularRoot
 public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
+public import KAM.Frozen.Theorems.LocalUniquenessFlow
 public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
 public import KAM.Head.Adapters
+public import KAM.Head.Apply
 public import KAM.Head.CohUnique
 public import KAM.Head.CoverMono
 public import KAM.Head.Data
@@ -167,6 +169,7 @@ public import KAM.Head.DerivativeBounds
 public import KAM.Head.DyadicApprox
 public import KAM.Head.DyadicBoxes
 public import KAM.Head.Frequency
+public import KAM.Head.H1
 public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
 public import KAM.Head.HeadQ
@@ -174,12 +177,16 @@ public import KAM.Head.InverseFrequency
 public import KAM.Head.Lagrangian
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
+public import KAM.Head.Normalize
 public import KAM.Head.Parameters
 public import KAM.Head.PhaseAverage
+public import KAM.Head.PreimageMeasure
 public import KAM.Head.Shift
 public import KAM.Head.Standing
 public import KAM.Head.TorsionRegular
 public import KAM.Head.TorsionRegularGeneral
+public import KAM.Head.Unperturbed
+public import KAM.Head.UnperturbedFrame
 public import KAM.Iso.Kepler
 public import KAM.Matrix.Bridges
 public import KAM.Matrix.Calculus
@@ -203,6 +210,7 @@ public import KAM.ODE.Maximal
 public import KAM.ODE.UniformPeriodic
 public import KAM.ODE.Uniqueness
 public import KAM.Provider.Iso.KeplerBorderedDet
+public import KAM.Provider.LocalUniquenessFlow
 public import KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative
 public import KAM.Provider.Nekhoroshev.ZeroPerturbation
 public import KAM.Provider.VolumeNotDiophantineLe
@@ -233,6 +241,7 @@ public import KAM.Torus.FrozenAgreement
 public import KAM.Torus.Objects
 public import KAM.Uniq.Difference
 public import KAM.Uniq.Frame
+public import KAM.Uniq.G2
 public import KAM.Uniq.Phase
 public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
