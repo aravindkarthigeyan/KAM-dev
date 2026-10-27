@@ -92,15 +92,6 @@
    "state": "done"
   },
   {
-   "id": "review-p2",
-   "kind": "blueprint reviewer",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1",
-   "session": null,
-   "assignment": "Refute-first review of blueprint part 2 (G1)",
-   "state": "running"
-  },
-  {
    "id": "review-p4",
    "kind": "blueprint reviewer",
    "model": "Claude Opus 5.5",
@@ -121,13 +112,13 @@
  ],
  "queued": [
   {
-   "title": "Blueprint consolidation: shared torus geometry between parts 2 and 3; part 3 copies of part 1 lemmas (review p3 F1–F3)"
+   "title": "Owner approval of track I statements (review page claude.ai/artifact/5B9odMattAPViUVYUgNPDK), then freeze"
   },
   {
-   "title": "Blueprint part 1 proofs"
+   "title": "Blueprint consolidation (p2/p3 shared geometry, p3 copies, stale request sections; reviews p2 and p3)"
   },
   {
-   "title": "Dependency graph extraction"
+   "title": "Dependency graph extraction for track K"
   }
  ],
  "graph": {

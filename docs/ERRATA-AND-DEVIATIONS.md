@@ -83,7 +83,7 @@ None.
 4. **p. 33, (5.15)–(5.18); p. 43, (5.68).** *typo; CANDIDATE* (E-HL19-4). Printed: strict inequalities in the step estimates. false when E = 0; should be ≤ (the origin of E-HL19-1). Evidence: E = 0. Effect: none.
 5. **p. 42, after (5.67).** *typo; CANDIDATE* (E-HL19-5). Printed: "(5.12) and (5.16)". should refer to (5.13) and (5.17). Evidence: context. Effect: none.
 6. **p. 44.** *typo; CANDIDATE* (E-HL19-6). Printed: "→ 0 when s → 0". should read s → ∞. Evidence: the iteration index grows. Effect: none.
-7. **p. 44 vs Theorem 3.1 (p. 17).** *gap; CANDIDATE* (E-HL19-7). Printed: proof concludes dist(K∞(Tᵈ), ∂B) > 0; the theorem claims dist(K∞(Tᵈ_{ρ∞}), ∂B) > 0. the proof establishes the margin on the real torus only, while the theorem asserts it on the complex strip; the strip margin needs an extra argument (supplied in our Part 2 via summed per-step changes). Evidence: p. 44 conclusion vs p. 17 statement. Effect: none on G1; our proof gives μ/2 margins on the strip.
+7. **p. 44 vs Theorem 3.1 (p. 17).** *typo; CANDIDATE* (E-HL19-7). Printed: proof concludes dist(K∞(Tᵈ), ∂B) > 0; the theorem claims dist(K∞(Tᵈ_{ρ∞}), ∂B) > 0. the proof's concluding sentence states the margin on the real torus only, but (5.73) does control dist(K_s(T_{ρ_s}), ∂B) on the complex strips, so the theorem's strip margin is proved; the sentence on p. 44 misstates what (5.73) gives. Evidence: HL19 (5.73), p. 44 (blueprint Part 2 review, finding 3). Effect: none.
 
 ### Deviations
 
