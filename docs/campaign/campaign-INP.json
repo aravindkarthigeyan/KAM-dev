@@ -16,8 +16,8 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N additions: draft v0.4 done (N-PARTIAL-CONVEX on an enlarged domain; N-AVERAGING deferred)",
-   "state": "idle"
+   "assignment": "N-AVERAGING draft v0.5 from the primary AKN06 pages (sources supplied by the owner)",
+   "state": "running"
   },
   {
    "id": "track-P",
@@ -47,30 +47,30 @@
    "state": "running"
   },
   {
-   "id": "bpI-p8",
+   "id": "bpN-p10",
    "kind": "blueprint writer (subagent)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track I blueprint Part 8: proof of I-R3BP; shared collision exclusion",
+   "assignment": "Track N blueprint Part 10: assembly and complete proof of N-HEAD-C",
    "state": "running"
   },
   {
-   "id": "bpN-p8",
+   "id": "bpP-p5",
    "kind": "blueprint writer (subagent)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track N blueprint Part 8: geometry of resonances (lattice volumes, blocks, Geometric and Covering Lemmas)",
+   "assignment": "Track P blueprint Part 5: P-G assembly and complete proof",
    "state": "running"
   },
   {
-   "id": "bpN-p45-fix",
+   "id": "bpP-p7",
    "kind": "blueprint writer (subagent)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track N blueprint Parts 4-5: review fixes (angular Cauchy estimate)",
+   "assignment": "Track P blueprint Part 7: Poincare chart through e = 0, product chart",
    "state": "running"
   }
  ]
