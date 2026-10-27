@@ -1,18 +1,18 @@
 # Lean design for blueprint-I Part 5 (I-HEAD) and Part 8 (I-R3BP)
 
-Design v1, 2026-10-27, branch `inp-design-i58` (brief: design the Lean architecture for `bpI:p5:*` and
+Design v2 (revision after audit `PART58-design-audit-1.md`, see "Audit fixes"), 2026-10-27, branch `inp-design-i58` (brief: design the Lean architecture for `bpI:p5:*` and
 `bpI:p8:*`, including the providers of `KAM.Iso.all_time_confinement` and `KAM.Iso.restricted_near_circular`).
 Planning evidence, not approved Lean. Nothing here is frozen. Modeled on `docs/tracks/N/design/PART3-LEAN-DESIGN.md`
 (with its "Audit fixes") and on track K's `PART23-LEAN-DESIGN.md`.
 
 **The signatures.** Every result node of Parts 5 and 8 has its exact Lean statement in
 `.drafts/design/IPart58Signatures.lean` (untracked; copied verbatim in Appendix A).
-- The file is 1155 lines, sha256 `5de07dae4bfb179f0862b4f7a56308df5096f992587109426d60852dc45838e4`.
+- The file is 1238 lines, sha256 `7aff03fdfc2ebf640555f871b74f147c4547cb47f79df5b689676359a3b372dd`.
 - `cd /root/code/KAM-inp-design-i58 && nice -n 5 lake env lean .drafts/design/IPart58Signatures.lean` exits 0 against the
   build of `inp` at `a5c68cd` (plus `lake build KAM.ODE.Exit KAM.ODE.Continuation KAM.ODE.Hamiltonian
-  KAM.Strip.RealRestriction` in the worktree) in about 15 s. It prints 96 diagnostics, all `declaration uses 'sorry'`;
+  KAM.Strip.RealRestriction` in the worktree) in about 15 s. It prints 102 diagnostics, all `declaration uses 'sorry'`;
   no other warning, no `set_option`, no `maxHeartbeats`, no `EuclideanSpace`.
-- 94 theorems, 46 definitions, 14 structures. Everything outside section U (stubs of upstream declarations) is this design.
+- 104 theorems, 56 definitions, 14 structures. Everything outside section U (stubs of upstream declarations) is this design.
 - Not `sorry`: the two **provider bodies** (section P) are written out in full against the stubs. They type-check the whole
   assembly, and two `example : @KAM.Provider.Iso.X = @KAM.Iso.X := rfl` checks prove that the provider types ARE the exact
   frozen types (`all_time_confinement`, `restricted_near_circular`; the scratch file imports the two frozen anchors for this,
@@ -42,7 +42,7 @@ Planning evidence, not approved Lean. Nothing here is frozen. Modeled on `docs/t
    `ε < ε₀`), `exists_eps0` (`ε₀ := min {...}` as `∃ ε₀ > 0` with all bounds, over the finite patch set). Only positivity and
    the bounds are used downstream, so no `sInf`/`sSup`/`Finset.inf'` appears.
 5. **`radius` is not the ambient norm (blueprint issue B1).** The collision-exclusion lemma is stated for an abstract length
-   `ℓ` (subadditive, even) on an abelian group; `radius` is the instance (`radius_add_le`, proved from Cauchy-Schwarz).
+   `ℓ` (subadditive, even) on an abelian group; `radius` is the instance (`radius_add_le` (from `KAM.Kepler.planeLength_add_le`)).
 6. **No flow, no quotient types.** Uniqueness in Part 5 is `gen_uniqueness` on `Ioo a b`; in Part 8 it is
    `restricted_reduction` + `gen_uniqueness` (the competitor need not stay in the Delaunay region). The Delaunay preimage is
    `∃ w, w.2 ∈ actionRegion ∧ delaunay w = z₀` (Kepler design `nearCircular_eq_image`).
@@ -159,8 +159,8 @@ same holds for Part 8 with I-HEAD and the 6-line step in its provider.
 | `mu` | `slope_close`, `slope_window_plus`, `slope_window_minus`, `slope_continuous`; steps `mu-cont`, `mu-lip`, `mu-order` | `Position` | `Convex.norm_image_sub_le_of_norm_fderiv_le` on a segment |
 | `separation` (a) | `separation_isOpen`, `separation_init`; steps `sp-open`, `sp-init` | `Separation` | |
 | `separation` (b) | `separation_closure`, `separation_window`, `separation_boundary`; steps `sp-closure`, `sp-window`, `sp-bdry` | `Separation` | `closure_prod_eq`, `IsOpen.frontier_eq`, `energy_coordinate` |
-| `separation` (c) | `separation_confined`; step `sp-barrier` | `Separation` | `gen_barrier`, `realHam_energy_const`, `isInvariantSet_union` |
-| `confinement` | `confinement_prop`; steps `cf-conf`, `cf-cont` | `Confinement` | `gen_continuation_periodic`, `eIoo_bot_top` |
+| `separation` (c) | `separation_confined` (source-facing, derives invariance), `separation_confined_of_invariant` (helper); step `sp-barrier` | `Separation` | `gen_barrier`, `realHam_energy_const`, `torus_invariant`, `isInvariantSet_union` |
+| `confinement` | `confinement_prop` (source-facing), `confinement_prop_of_invariant` (helper); steps `cf-conf`, `cf-cont` | `Confinement` | `gen_continuation_periodic`, `eIoo_bot_top` |
 | `hd-eps`, `hd-fix`, `hd-sol`, `hd-uniq` (proof of I-HEAD) | `confinement_main_of_tori`; `confinement_main` (provider module) | `Main`, `Provider/Iso/AllTimeConfinement` | `gen_maximal`, `realHam_solution_iff`, `realHam_unique` |
 | `p3-gap`, `topology-remark`, `doubts` (remarks) | no declaration | | |
 
@@ -219,7 +219,7 @@ same holds for Part 8 with I-HEAD and the 6-line step in its provider.
 | D5 | `p5:graph`, `separation` | per-sign statements for one `TorusOutput`; `SepSetting` carries both | the signs are symmetric; avoids `Fin 2`-indexed families |
 | D6 | `p5:real-ham` (d) | operator norm of the real derivative of `I ↦ Re f(ι φ, ι I)` | the blueprint's "real derivative" of a complex-valued `f` that is real on real points |
 | D7 | `p5:confinement` | premise `IsMaximalSolution` instead of "let `z` be the maximal solution" | source premise (N design decision 3); existence from `gen_maximal` |
-| D8 | `p5:separation` (c) | `hinv` (invariance of `𝒯₊ ∪ 𝒯₋`) is a binder | the blueprint uses Lemma invariance as input; `torus_invariant` + `isInvariantSet_union` produce it |
+| D8 | `p5:separation` (c), `confinement` | helpers `*_of_invariant` take `hinv`; the source-facing `separation_confined`, `confinement_prop` take `TorusOutput` for both tori and `range (realRestriction K_±) = graphSet Y_±` and derive invariance (audit F03) | `hinv` is a proof dependency, not a source premise |
 | D9 | `p8:collision-exclusion` | abstract length `ℓ`; `exclusionMu` as `if c = 0 then μ₁ else min μ₁ (δ/(2c))` | issue B1; `δ/(2c)` is junk for `c = 0` |
 | D10 | `p8:min-distance` | `Finite ι`, any continuous definite length | same |
 | D11 | `p8:topology` (b) | `∃ w, w.2 ∈ actionRegion ∧ delaunay w = z₀` | Kepler design carries `w = ((ℓ,g),(L,G))`; no `ℝ² × A` image notation |
@@ -235,7 +235,7 @@ instantiates the lemma with `X = ℝ²`, `|·| = rad`. In Lean `Fin 2 → ℝ` c
 length) is not that norm, so the lemma cannot be instantiated with `|·| := ‖·‖` and cannot be stated for `radius` as written.
 Correct: `collision_exclusion_quant`/`_compact` take any `ℓ : X → ℝ` on an abelian group with `ℓ(u+v) ≤ ℓ u + ℓ v`,
 `ℓ(-u) = ℓ u`; `radius_add_le`, `radius_neg`, `radius_eq_zero_iff`, `continuous_radius` show that `radius` is such a length.
-`min-distance` (track P: `|q_i - q_j|` in `(ℝ^k)^N` with the Euclidean norm) likewise takes `ℓ` continuous and definite.
+`min-distance` (track P: `|q_i - q_j|` in `(ℝ^k)^N` with the Euclidean norm) likewise takes `ℓ` continuous, nonnegative and definite (nonnegativity is part of a norm and is needed: `ℓ ≡ -1` is a counterexample, audit F02; same fix in `collision_exclusion_compact`).
 Track P should instantiate it with its own `planeLength` (`= radius`, N3 `radius_eq_planeLength` is `rfl`).
 
 **B2. `bpI:p8:constants`: `ε_H/C_F` needs `C_F > 0`.** `C_F = 6/(ε₀ˢʰ √c*)` is positive by `bpI:p7:shift`, but the Kepler design
@@ -311,8 +311,8 @@ all of the above                         ← Confinement.Main
 Frozen.Iso.Defs.{Radius, Primary1, Primary2, CollisionFree}                         ← Iso.Collision
 [Kepler: delaunay, nearCircular_eq_image, isOpen_nearCircular], Confinement.Setting ← R3bp.Region   (Setting only for later modules)
 R3bp.Region, [Kepler: SafeAction, kRmin, kRhoMax]                                   ← R3bp.Safe
-R3bp.Safe, Confinement.Setting, [Kepler: period_one, nondeg_exact, exactDelta_pos]  ← R3bp.HeadData
-R3bp.HeadData, Iso.Collision, [Kepler: transfer, delaunay_energy, delaunay_radius_bounds] ← R3bp.Constants
+R3bp.Safe, Confinement.Setting, [Kepler: period_one, nondeg_exact, exact_ham]  ← R3bp.HeadData
+R3bp.HeadData, Iso.Collision, [Kepler: transfer, orbitMapR_energy, orbitMapR_radius_bounds] ← R3bp.Constants
 [ODE.NewtonReduction: restricted_reduction], ODE.Uniqueness                         ← R3bp.Uniqueness
 R3bp.Constants, R3bp.Uniqueness, [frozen Iso.Theorems.AllTimeConfinement, after its seal] ← Provider.Iso.RestrictedNearCircular
 ```
@@ -351,11 +351,11 @@ Critical path: P5-0 -> P5-2 -> P5-3/P5-5 -> P5-7 -> P5-8 -> P5-9 (6 waves). Wave
 
 | Package | Declarations | Modules | Lines | After | Wave | Status |
 |---|---|---|---|---|---|---|
-| P8-1 Collision | section K | `Iso/Collision` | 450 | (frozen defs only) | 1 | now (independent of everything) |
+| P8-1 Collision | section K | `Iso/Collision` | 350 | (frozen defs only) | 1 | now (independent of everything) |
 | P8-2 Region | section L | `R3bp/Region` | 500 | Kepler: `delaunay`, `eccOf`, `nearCircular_eq_image`, `isOpen_nearCircular` | 1 (when upstream) | upstream-gated |
 | P8-3 Safe | section M | `R3bp/Safe` | 600 | P8-2, Kepler `SafeAction`, `kRmin`, `kRhoMax` | 2 | upstream-gated |
-| P8-4 Head data | `r3bp_headData`, `r3bp_perturbData` | `R3bp/HeadData` | 350 | P8-3, P5-0, Kepler `period_one`, `nondeg_exact`, `exactDelta_pos` | 3 | upstream-gated |
-| P8-5 Constants and core | `shellNu` ... `r3bp_core` | `R3bp/Constants` | 650 | P8-1, P8-3, P8-4, Kepler `transfer`, `delaunay_energy`, `delaunay_radius_bounds`, `exactMu2_pos` | 4 | upstream-gated |
+| P8-4 Head data | `r3bp_headData`, `r3bp_perturbData` | `R3bp/HeadData` | 350 | P8-3, P5-0, Kepler `period_one`, `nondeg_exact`, `exact_ham` | 3 | upstream-gated |
+| P8-5 Constants and core | `shellNu` ... `r3bp_core` | `R3bp/Constants` | 650 | P8-1, P8-3, P8-4, Kepler `transfer`, `orbitMapR_energy`, `orbitMapR_radius_bounds` | 4 | upstream-gated |
 | P8-6 Uniqueness | `restricted_unique` | `R3bp/Uniqueness` | 120 | N3-8 (`restricted_reduction`) | 2 (when N3-8) | upstream-gated |
 | P8-P Provider | provider | `Provider/Iso/RestrictedNearCircular` | 60 | P8-5, P8-6, **I-HEAD seal** | after seal | **waits for I-HEAD** |
 
@@ -384,7 +384,7 @@ replace by `min r 1` (`cthickening_mono`); `Lm`: `m` is `C¹` on `W`, `ContDiffO
 
 **P5-2.** `isOpen_realAct`: `actionNbhd B r = ⋃ J ∈ B, ball (toC J) r` (see whether `KAM` already has `isOpen_actionNbhd`), preimage under the continuous
 `toC`. (a): `realHamiltonian h f z = (totalH h f (realInclusion₂ 2 z)).re` is `rfl`; the complex identity from `hb.real` and
-`hf.real` by `Complex.ext`. Smoothness: `DifferentiableOn.contDiffOn` for `ℂ` on the open `V = complexStrip ×ˢ actionNbhd`, `.restrict_scalars ℝ`, compose
+`hf.real` by `Complex.ext`. Smoothness (audit F05: Mathlib's `DifferentiableOn.contDiffOn` has domain `ℂ`, not `ℂ²×ℂ²`): `KAM.holomorphic_regularity_of_finiteDimensional` (`Strip/Bridges.lean`, any finite-dimensional complex `E`, so it applies to `(Fin 2 → ℂ) × (Fin 2 → ℂ)` directly; `KAM.Head.isOpen_actionNbhd` for openness) gives `ContDiffOn ℂ ∞`, then `.restrict_scalars ℝ`, compose
 with `realInclusion₂` (`ContDiffOn.comp`, the set `univ ×ˢ realAct ⊆ ι₂⁻¹' V` uses `0 < s₀`), then `Complex.reCLM.contDiff.comp_contDiffOn`. Periodicity from
 `hf.periodic` and `h` not depending on `θ`. (b): `KAM.hamiltonian_real` with `V`, `hh := hb.holo.comp ... + hf.holo`, `hH` by `rfl`. (c): `ham_smooth_c1` with
 `ContDiffOn.of_le`, `ContDiffOn.mono` to `univ ×ˢ B`; `ham_periodic` with `W := univ ×ˢ realAct` (`hWk`: `Set.image_add_right` and `angleShift` only moves the first
@@ -428,10 +428,9 @@ for `z ∈ closure 𝒱`: `μ₋ ≤ m z.2 ≤ μ₊` by `closure_minimal` for t
 (`U := B`, `hU := hB`, `hF := realHam_field_contDiffOn`, `hper := realHam_field_periodic`, `hK := p.isCompact_K`, `hKU := K ⊆ W ⊆ B`) with `t_star := 0`: `Tp = ⊤`, `Tm = ⊥`. Then
 `t` arbitrary: `eIoo_bot_top`. Distance: `p.W_subset_ball`, `ball_subset`, `ρc_le`: `‖(z t).2 - z₀.2‖ < η₁/4 + η₁/4`.
 
-**P5-9.** (1) `exists_eps0` with `ρinf := rhoInf s₀`, `ε₁, C_K` from `htor`, `F₁` from `hcov`. (2) Given `f ε z₀`: `E := realHamiltonian h f z₀`, `|E - realPart h I₀| ≤ ε` (`realHam_sub_le`, `I₀ ∈ B ⊆ realAct`),
+**P5-9.** (0) the source-facing `confinement_prop` takes `Tp, Tm, hgp, hgm`; the graph identifications come from `torus_graph`. (1) `exists_eps0` with `ρinf := rhoInf s₀`, `ε₁, C_K` from `htor`, `F₁` from `hcov`. (2) Given `f ε z₀`: `E := realHamiltonian h f z₀`, `|E - realPart h I₀| ≤ ε` (`realHam_sub_le`, `I₀ ∈ B ⊆ realAct`),
 `I₀ ∈ B' ⊆ closure B'`, `ε < ε₀ ≤ ε₁`; `htor.tori` gives `p`, `Kp`, `Km`. (3) `pc, hsm` for `p` from `exists_eps0`. (4) `torus_graph` for each sign (`hs` from `hd.hs`, `8 C_K ε < ρinf` from `hsm.lt_rho`);
-base points: `|E - hR p.c| < δE` (`ball_h`, `lt_dE`) so `(E, mPlus) ∈ p.Q`, `Ψ_mem`, `Ψ_right` give `Ip ∈ p.K`, `p.m Ip = mPlus`; `torus_graph_mem` gives `hmem`. (5) `torus_invariant` twice, rewrite
-`range k = graphSet Y`, `isInvariantSet_union`. (6) `gen_maximal` (`hW := isOpen_univ.prod hd.isOpen`, `hF := realHam_field_contDiffOn`, `hx₀`). (7) `confinement_prop`;
+base points: `|E - hR p.c| < δE` (`ball_h`, `lt_dE`) so `(E, mPlus) ∈ p.Q`, `Ψ_mem`, `Ψ_right` give `Ip ∈ p.K`, `p.m Ip = mPlus`; `torus_graph_mem` gives `hmem`. (5) no invariance step is needed here: `confinement_prop` derives it. (6) `gen_maximal` (`hW := isOpen_univ.prod hd.isOpen`, `hF := realHam_field_contDiffOn`, `hx₀`). (7) `confinement_prop`;
 `eIoo_bot_top` and `IsMaximalSolution.isSolution` give `IsSolutionIn ... univ z`; `realHam_solution_iff`; distance `η₁/2 < η`. (8) `realHam_unique` for the uniqueness clause. Split the proof
 into `main_step_tori`, `main_step_graph`, `main_step_solution` (three lemmas of about 100 lines) if the single proof is slow.
 
@@ -463,8 +462,8 @@ nonempty (`actionRegion` nonempty by the witness of P8-2), cone. `safe_elements`
 (WANTED in upstream list: `(keplerRotH κ Ω (toC J)).im = 0`); `iso`: `nondeg_exact` gives `det = 3 / I 0 ^ 4`, nonzero (`div_ne_zero`, `pow_ne_zero`, `I 0 > 0`). `r3bp_perturbData`: from `period_one`; the reality clause
 of the frozen shape is the Kepler clause at `z = (θ, I)` (`toC θ ∈ complexStrip 2 s₀` as `s₀ > 0`); `0 ≤ μ C_F` from the bound at a point of the nonempty domain (any `I ∈ B`, `θ = 0`); `|μ| = μ`.
 
-**P8-5.** `r3bp_constants_pos`: `exactMu2_pos`, `shellNu > 0` (`safe_radii`), `εH/(|C_F|+1) > 0`, `r3bpR > 0` (`kRmin > 0`). `r3bp_small`: `min_le_*`, `μ C_F ≤ |C_F| μ < |C_F| εH/(|C_F|+1) ≤ εH`.
-`delaunay_orbit_bounds`: `delaunay_radius_bounds` (`L²(1-e) ≤ radius q ≤ L²(1+e)`) with `kRmin_le`, `le_kRhoMax` at `x := w.2 ∈ K`; momentum: `delaunay_energy`
+**P8-5.** `r3bp_constants_pos`: `exactMu2_safe_pos`, `shellNu > 0` (`safe_radii`), `εH/(|C_F|+1) > 0`, `r3bpR > 0` (`kRmin > 0`). `r3bp_small`: `min_le_*`, `μ C_F ≤ |C_F| μ < |C_F| εH/(|C_F|+1) ≤ εH`.
+`delaunay_orbit_bounds`: adapter `delaunay_radius_bounds` (`L²(1-e) ≤ radius q ≤ L²(1+e)`) with `kRmin_le`, `le_kRhoMax` at `x := w.2 ∈ K`; momentum: `delaunay_energy`
 `radiusSq p / 2 - 1 / radius q = -1/(2L²)` so `radiusSq p ≤ 2/radius q ≤ 2/rmin`; `radius p = √(radiusSq p) ≤ √(2/rmin)` (`Real.sqrt_le_sqrt`).
 `r3bp_core`: take `μ₀, d, R` from section N; for `μ`, `r3bp_small` and `r3bp_perturbData`; for `z₀`: `exists_delaunay_preimage` gives `w = ((ℓ,g),(L,G))`, `w₀ := ((2π)⁻¹ • w.1, (2π) • w.2)`,
 `periodOneMap w₀ = w` (`smul_smul`, `mul_inv_cancel₀`), `w₀.2 ∈ safeB'`; given `zt`: Kepler `transfer` (`hB := safe_domain`, `|μ| < exactMu2`) gives `IsRestrictedSolutionOn μ univ`;
@@ -487,24 +486,22 @@ Part 5 needs from Part 3 exactly: (i) `ChartCover`: finite `patches : Set (Energ
 - the rays by G3 (sealed) belong to `ChartCover`/`EnergyPatch`; the I-G1 application, the constants `ε₁`, `C_K` and `(T1)-(T4)` belong to `ToriExistence`.
 - `ToriExistence` is stated for `closure B'`, `E` with `|E - realPart h I₀| ≤ ε`, `ε < ε₁`, any `f` with `PerturbData`.
 
-### 10.2 Kepler design (`KEPLER-LEAN-DESIGN.md`, under audit; declarations are designed, not proved)
-Used by Part 8 (stubs in section U of the signatures file):
+### 10.2 Kepler design (`KEPLER-LEAN-DESIGN.md` revision 2, audited PASS, merged into `inp`)
+Section U now copies the final signatures literally (bodies of `orbitMapR`, `shiftCsh`, `complexDelta`, `ExactHamData`, `exactDelta`, `tildeF` omitted). Proved on `inp`: `KAM/Kepler/{Basic,Plane,Energy}`; of
+those Part 8 uses `planeLength_add_le`, `planeLength_neg`, `planeLength_eq_zero_iff`, `radius_eq_planeLength` (`KAM.Kepler.Plane`), so `radius_add_le`, `radius_neg`, `radius_eq_zero_iff` of `Collision` are one-line term proofs (no Cauchy-Schwarz work left in P8-1).
 
-| Declaration | Used for | Stub difference |
+| Declaration | Used for | Status of the stub |
 |---|---|---|
-| `eccOf`, `deDom`, `delaunay`, `eccOf_mem_Ioo` | Region, Safe, Constants | `delaunay` body omitted |
-| `nearCircular_eq_image`, `isOpen_nearCircular` | `topology` | none |
-| `SafeAction`, `kRmin`, `kRhoMax` | Safe, Constants | none |
-| `keplerRotH`, `periodOneMap`, `tildeF`, `exactDelta`, `exactMu2`, `exactCF` | HeadData | bodies omitted |
-| `period_one` | `r3bp_headData`, `r3bp_perturbData` | the stub omits the clauses Part 8 does not use (`UDelta`, the Hamiltonian identity); its reality clause has the Kepler shape (`z : Phase 2`, strip membership) |
-| `nondeg_exact` | `iso` | none |
-| `transfer` | `r3bp_core` | only the first conjunct (`IsRestrictedSolutionOn`); the radius conjunct is not used |
-| `exact_ham` | WANTED consequences `exactDelta_pos`, `exactMu2_pos` | one-line extractions (`exactMu2 = shiftEps/2`) |
-| `delaunay_energy` (`kE (delaunay w) = -1/(2L²)`) | momentum bound | WANTED: one line from `orbitMapR_energy`, `eccOf_mem_Ioo` |
-| `delaunay_radius_bounds` | radius bound | from `orbitMapR_radius_bounds` |
-| `keplerRotH_real` | reality of `h̃` | not stubbed; `KEPLER-LEAN-DESIGN` has it |
+| `eccOf`, `deDom`, `delaunay` (= `orbitMapR ...`), `kE`, `eccOf_mem_Ioo` (final shape: `h : ![L,G] 1 < ![L,G] 0`, `hG`) | Region, Safe, Constants | literal |
+| `orbitMapR_radius_bounds`, `orbitMapR_energy` | adapters `delaunay_radius_bounds`, `delaunay_energy` (Part 8, one-liners: `delaunay` unfolds to `orbitMapR`, `eccOf_mem_Ioo`) | literal; adapters are Part 8 declarations (audit F06) |
+| `nearCircular_eq_image`, `isOpen_nearCircular` | `topology` | literal |
+| `SafeAction`, `kLMin`, `kRmin`, `kRhoMax` | Safe, Constants | literal |
+| `keplerRotH`, `keplerRotH_real`, `periodOneMap`, `periodOneMapC`, `phaseToC`, `UDelta`, `shiftEps`, `exactEps`, `exactMu2`, `exactCF` | HeadData, Constants | literal (`shiftCsh`, `exactDelta`, `tildeF`, `complexDelta`, `ExactHamData` bodies omitted) |
+| `exact_ham` | `0 < exactDelta K` is its first conjunct (no `exactDelta_pos` extraction needed) | literal (three conjuncts) |
+| `period_one`, `nondeg_exact`, `transfer` | `r3bp_headData`, `r3bp_perturbData`, `r3bp_core` | literal (full conjunctions; Part 8 projects) |
+| `exactMu2 > 0` | `μ₀ > 0` | not upstream: `exactMu2_safe_pos` (Part 8) from the `shiftEps` formula and `safe_radii` |
 
-The Kepler names may change in the audit; P8-2 ... P8-5 are pinned to the stubs and must be re-synchronized with the final upstream signatures (a 10-minute task per package).
+Audit F06 resolved: the previous stubs were projections; the stubs are now literal, and the two repackagings are named Part 8 adapters (`delaunay_radius_bounds`, `delaunay_energy`, `exactMu2_safe_pos`). Pin: Kepler design revision 2 as in `inp` at `b58352f`; P8-2 ... P8-5 stay upstream-gated and must re-synchronize if its signatures change.
 
 ### 10.3 N3-8 (`PART3-LEAN-DESIGN.md`)
 `KAM.ODE.restrictedDomain`, `restrictedField`, `restricted_reduction` (collision-free set open, field `C^∞`, `IsRestrictedSolutionOn ↔ IsSolutionIn`). Not on `inp` yet (only `KAM/ODE/{Basic,Lipschitz,Existence,Uniqueness,Exit,Maximal,UniformPeriodic,Continuation,Hamiltonian}`).
@@ -569,14 +566,14 @@ I-G1 is consumed only by Part 3 (`ToriExistence`). I-KEPLER (`keplerBorder_det`)
 ### 12.1 Elaboration
 - `EnergyPatch` has 28 fields and `SepSetting` 13 parameters. Keep them behind `variable` blocks and projections; never `simp` through a structure literal; state each use as `p.field`.
 - `separation_boundary` and `confinement_main_of_tori` are the longest proofs. Planned splits: `boundary_slope_eq`, `boundary_mem_Q`, `main_step_tori/graph/solution`. A heartbeat failure there is a design signal (hard rule 1): split further, never raise a budget.
-- `ContDiffOn ℝ ∞ (realHamiltonian h f)` through `DifferentiableOn.contDiffOn` for `ℂ` then `restrict_scalars`: keep the open set `V` and the composition `ι₂` as named terms; do not unfold `realHamiltonian` beyond `rfl`.
+- `ContDiffOn ℝ ∞ (realHamiltonian h f)` through `holomorphic_regularity_of_finiteDimensional` then `restrict_scalars`: keep the open set `V` and the composition `ι₂` as named terms; do not unfold `realHamiltonian` beyond `rfl`.
 - `torus_phase_*`: `fderiv ℂ (fun θ => (K θ).1 - θ)` versus the pair `K θ - (θ, ι I)`; prove the pair bound once (`Graph` lemma `pair_fderiv_norm_le`) and project.
 - `kRmin`, `kRhoMax` are `sInf/sSup` of images; `csInf_le/le_csSup` need `BddBelow/BddAbove` from compactness (`IsCompact.bddBelow_image`) and continuity of `eccOf` on the cone: isolate in `kRmin_le`, `le_kRhoMax`.
 - The arithmetic of `safe_radii` is the only place with nonlinear real arithmetic beyond `positivity`: `safe_rho_arith` is a stand-alone lemma.
 
 ### 12.2 Interfaces
 - `ToriExistence` is the highest-risk statement: it fixes how Part 3 exposes its patches. If the Part 3 design changes `EnergyPatch`, `ChartCover` and `ToriExistence` must change in lock step; only `Setting.lean` and `Main.lean` are affected (the other Part 5 modules take explicit hypotheses).
-- The Kepler design is under audit; stubs of section U must be re-synchronized (10.2). N3-8 is not on `inp`: `restricted_unique` waits.
+- Section U is synced with the audited Kepler design (10.2); N3-8 is being proved (not on `inp` yet): `restricted_unique` waits.
 - `toC` is an `abbrev` over `fun i => (x i : ℂ)`: statements typed with `toC` unify with the frozen lambda (checked by the provider compile); do not make it a `def`.
 - Part 5 names (`PerturbData`, `HeadData`, `BaseData`, `P2`, `toC`) are imported by Part 8; keep `Setting.lean` free of heavy imports.
 
@@ -589,9 +586,22 @@ and `closure_prod_eq`).
 - `p8-r3bp.tex`, `bpI:p8:constants` item (4): `ε_H/C_F` uses `C_F > 0` established in Part 7, not stated at the point of use (B2).
 - `p5-confinement.tex`, `bpI:p5:eps0` and Part 3 `bpI:p3:tori`: `Φ_j⁻¹`, patch window and `F₁` are not exposed by the proposition (B3).
 
+## 13. Audit fixes (audit 1, `PART58-design-audit-1.md`, verdict FAIL)
+
+| Finding | Resolution |
+|---|---|
+| F01 blocking: `realHam_fderiv_bound` false without holomorphy of `f` (countermodel `f = conj(I 0)`, total `fderiv = 0`) | Added the binder `hf : PerturbData B s₀ r₀ f ε`; `hD` stays (the named Part 3 derivative bound, `ChartCover.dbound`). All callers (`energy_coordinate`, `SepSetting.perturb`) already carry `PerturbData`. |
+| F02 blocking: `min_distance` false for a negative length (`ℓ ≡ -1`) | Added `hnonneg : ∀ u, 0 ≤ ℓ u` to `min_distance` and to `collision_exclusion_compact` (same defect: the minimum over `S` could be negative); added `radius_nonneg`. |
+| F03 major: `separation_confined`, `confinement_prop` carried the produced premise `hinv` | Renamed to `separation_confined_of_invariant`, `confinement_prop_of_invariant` (conditional helpers). New source-facing `separation_confined`, `confinement_prop` take `TorusOutput` for both tori and `range (realRestriction K_±) = graphSet Y_±`, and derive invariance inside (`torus_invariant` twice, `isInvariantSet_union`, membership `(k θ).2 ∈ B` from `GraphData.near/base_mem`, `PatchConst.thick_subset`, `Smallness.lt_r`). `confinement_main_of_tori` uses the wrapper. |
+| F04 major: `part3_tori` is a planned producer, not a discharge | Accepted as stated: `confinement_main_of_tori` is CONDITIONAL; `confinement_main` and the provider stay unproved until Part 3's `ChartCover`/`ToriExistence` producer and the I-G1 seal land (section 2 already says so; section 8.1 marks P5-P "waits"). No signature change. |
+| F05 minor: `DifferentiableOn.contDiffOn` has domain `ℂ` | Proof plan P5-2 and risk 12.1 now use `KAM.holomorphic_regularity_of_finiteDimensional` (finite-dimensional complex `E`, applies to `ℂ²×ℂ²`) and `KAM.Head.isOpen_actionNbhd`. Signatures unchanged. |
+| F06 minor: stubs were projections of the Kepler design, file absent | Kepler design is now audited PASS and on `inp`; section U copies its final signatures literally (10.2), the repackagings are named Part 8 adapters; `radius_*` reuse the proved `KAM.Kepler.Plane` helpers. Also resynced: `eccOf_mem_Ioo` final shape; `exact_ham` three conjuncts; `period_one`/`transfer` full conjunctions. |
+
+Re-elaborated: exit 0, 102 diagnostics, all `declaration uses 'sorry'`; provider `rfl` checks still pass.
+
 ## Appendix A. `.drafts/design/IPart58Signatures.lean` (verbatim)
 
-The file below is the exact text elaborated with `nice -n 5 lake env lean`, sha256 `5de07dae4bfb179f0862b4f7a56308df5096f992587109426d60852dc45838e4`.
+The file below is the exact text elaborated with `nice -n 5 lake env lean`, sha256 `7aff03fdfc2ebf640555f871b74f147c4547cb47f79df5b689676359a3b372dd`.
 
 ```lean
 /-
@@ -623,6 +633,9 @@ public import KAM.Frozen.Iso.Defs.Primary1
 public import KAM.Frozen.Iso.Defs.Primary2
 public import KAM.Frozen.Iso.Defs.CollisionFree
 public import KAM.Frozen.Iso.Defs.RestrictedVectorField
+public import KAM.Frozen.Iso.Defs.RestrictedHamiltonian
+public import KAM.Frozen.Planetary.Defs.PlaneSq
+public import KAM.Frozen.Planetary.Defs.PlaneLength
 public import KAM.Frozen.Iso.Theorems.AllTimeConfinement -- SCRATCH ONLY: typechecks the provider glue; a real module may import it only once I-HEAD is sealed
 public import KAM.Frozen.Iso.Theorems.RestrictedNearCircular -- SCRATCH ONLY: used for `rfl` type-equality checks
 
@@ -656,16 +669,41 @@ open scoped NNReal ContDiff
 
 namespace KAM.Kepler
 
-/-- Eccentricity `e(L, G) = √(1 - G²/L²)` (Kepler design, `KAM/Kepler/Orbit`). -/
+open KAM.Planetary
+
+/-! PROVED on `inp` (`KAM/Kepler/Plane.lean`); signatures copied. -/
+theorem planeLength_add_le (v w : Fin 2 → ℝ) :
+    planeLength (v + w) ≤ planeLength v + planeLength w := sorry
+theorem planeLength_neg (v : Fin 2 → ℝ) : planeLength (-v) = planeLength v := sorry
+theorem planeLength_eq_zero_iff {v : Fin 2 → ℝ} : planeLength v = 0 ↔ v = 0 := sorry
+theorem radius_eq_planeLength : KAM.Iso.radius = planeLength := rfl
+
+/-! Kepler design (audited PASS, `KEPLER-LEAN-DESIGN.md` revision 2), signatures literal;
+bodies of defs omitted where marked. -/
+
+/-- Eccentricity `e(L, G) = √(1 - G²/L²)`. -/
 def eccOf (L G : ℝ) : ℝ := √(1 - G ^ 2 / L ^ 2)
+
+/-- `orbitMapR ℓ g L e` (BODY OMITTED). -/
+def orbitMapR (ℓ g L e : ℝ) : (Fin 2 → ℝ) × (Fin 2 → ℝ) := sorry
 
 /-- Domain of the Delaunay variables `w = ((ℓ, g), (L, G))`, `0 < G < L`. -/
 def deDom : Set ((Fin 2 → ℝ) × (Fin 2 → ℝ)) := {w | 0 < w.2 1 ∧ w.2 1 < w.2 0}
 
-/-- The Delaunay map `𝖰(ℓ, g, L, G)` (STUB: body irrelevant here). -/
-def delaunay (w : (Fin 2 → ℝ) × (Fin 2 → ℝ)) : (Fin 2 → ℝ) × (Fin 2 → ℝ) := sorry
+def delaunay (w : (Fin 2 → ℝ) × (Fin 2 → ℝ)) : (Fin 2 → ℝ) × (Fin 2 → ℝ) :=
+  orbitMapR (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1))
 
-theorem eccOf_mem_Ioo {L G : ℝ} (hG : 0 < G) (hGL : G < L) : 0 < eccOf L G ∧ eccOf L G < 1 := sorry
+def kE (z : (Fin 2 → ℝ) × (Fin 2 → ℝ)) : ℝ := planeSq z.2 / 2 - 1 / planeLength z.1
+
+theorem eccOf_mem_Ioo {L G : ℝ} (h : (![L, G] : Fin 2 → ℝ) 1 < (![L, G] : Fin 2 → ℝ) 0)
+    (hG : 0 < G) : 0 < eccOf L G ∧ eccOf L G < 1 := sorry
+
+theorem orbitMapR_radius_bounds {ℓ g L e : ℝ} (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e < 1) :
+    L ^ 2 * (1 - e) ≤ planeLength (orbitMapR ℓ g L e).1 ∧
+      planeLength (orbitMapR ℓ g L e).1 ≤ L ^ 2 * (1 + e) := sorry
+
+theorem orbitMapR_energy {ℓ g L e : ℝ} (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e < 1) :
+    kE (orbitMapR ℓ g L e) = -1 / (2 * L ^ 2) := sorry
 
 theorem nearCircular_eq_image (aMinus aPlus eMinus ePlus : ℝ) :
     KAM.Iso.NearCircular aMinus aPlus eMinus ePlus =
@@ -675,84 +713,91 @@ theorem nearCircular_eq_image (aMinus aPlus eMinus ePlus : ℝ) :
 theorem isOpen_nearCircular (aMinus aPlus eMinus ePlus : ℝ) :
     IsOpen (KAM.Iso.NearCircular aMinus aPlus eMinus ePlus) := sorry
 
-/-- Strength-one Kepler energy `E(q, p) = ½|p|² - 1/|q|`. -/
-def kE (z : (Fin 2 → ℝ) × (Fin 2 → ℝ)) : ℝ :=
-  KAM.Iso.radiusSq z.2 / 2 - 1 / KAM.Iso.radius z.1
-
-/-- Kepler design, `orbitMapR_energy` specialised to the Delaunay map (WANTED: one line there). -/
-theorem delaunay_energy {w : (Fin 2 → ℝ) × (Fin 2 → ℝ)} (hw : w ∈ deDom) :
-    kE (delaunay w) = -1 / (2 * w.2 0 ^ 2) := sorry
-
-theorem delaunay_radius_bounds {w : (Fin 2 → ℝ) × (Fin 2 → ℝ)} (hw : w ∈ deDom) :
-    w.2 0 ^ 2 * (1 - eccOf (w.2 0) (w.2 1)) ≤ KAM.Iso.radius (delaunay w).1 ∧
-      KAM.Iso.radius (delaunay w).1 ≤ w.2 0 ^ 2 * (1 + eccOf (w.2 0) (w.2 1)) := sorry
+/-- Entrywise complexification of a real phase point. -/
+def phaseToC {d : ℕ} (z : (Fin d → ℝ) × (Fin d → ℝ)) : (Fin d → ℂ) × (Fin d → ℂ) :=
+  (fun i => (z.1 i : ℂ), fun i => (z.2 i : ℂ))
 
 end KAM.Kepler
 
 namespace KAM.Iso
 
-open KAM.Kepler
+open KAM.Kepler KAM.Planetary
 
-/-- Safe action region (Kepler design `SafeAction`): `K` compact, nonempty, in the cone. -/
 structure SafeAction (K : Set (Fin 2 → ℝ)) : Prop where
   isCompact : IsCompact K
   nonempty : K.Nonempty
   sub_cone : ∀ x ∈ K, 0 < x 1 ∧ x 1 < x 0
 
+def kLMin (K : Set (Fin 2 → ℝ)) : ℝ := sInf ((fun x => x 0) '' K)
 def kRmin (K : Set (Fin 2 → ℝ)) : ℝ := sInf ((fun x => x 0 ^ 2 * (1 - eccOf (x 0) (x 1))) '' K)
 def kRhoMax (K : Set (Fin 2 → ℝ)) : ℝ := sSup ((fun x => x 0 ^ 2 * (1 + eccOf (x 0) (x 1))) '' K)
 
-/-- `h_{κ,Ω}(I) = -κ/(2 I₁²) - Ω I₂`. -/
 def keplerRotH (κ Ω : ℝ) (I : Fin 2 → ℂ) : ℂ := -(κ : ℂ) / (2 * I 0 ^ 2) - Ω * I 1
 
-/-- `𝖲(θ, I) = (2πθ, I/(2π))`. -/
-def periodOneMap (z : (Fin 2 → ℝ) × (Fin 2 → ℝ)) : (Fin 2 → ℝ) × (Fin 2 → ℝ) :=
+theorem keplerRotH_real (κ Ω : ℝ) (J : Fin 2 → ℝ) :
+    keplerRotH κ Ω (fun i => (J i : ℂ)) = ((-κ / (2 * J 0 ^ 2) - Ω * J 1 : ℝ) : ℂ) := sorry
+
+def periodOneMap {n : ℕ} (z : (Fin n → ℝ) × (Fin n → ℝ)) : (Fin n → ℝ) × (Fin n → ℝ) :=
   ((2 * Real.pi) • z.1, (2 * Real.pi)⁻¹ • z.2)
+def periodOneMapC {n : ℕ} (z : (Fin n → ℂ) × (Fin n → ℂ)) : (Fin n → ℂ) × (Fin n → ℂ) :=
+  (((2 * Real.pi : ℝ) : ℂ) • z.1, (((2 * Real.pi)⁻¹ : ℝ) : ℂ) • z.2)
 
-def exactDelta (K : Set (Fin 2 → ℝ)) : ℝ := sorry
-def exactMu2 (K : Set (Fin 2 → ℝ)) : ℝ := sorry
-def exactCF (K : Set (Fin 2 → ℝ)) : ℝ := sorry
-def tildeF (K : Set (Fin 2 → ℝ)) (μ : ℝ) (z : (Fin 2 → ℂ) × (Fin 2 → ℂ)) : ℂ := sorry
+/-- `𝒰(δ)` (literal). -/
+def UDelta (K : Set (Fin 2 → ℝ)) (δ : ℝ) : Set ((Fin 2 → ℂ) × (Fin 2 → ℂ)) :=
+  {w | (∀ i, |(w.1 i).im| < δ) ∧ w.2 ∈ KAM.actionNbhd K δ}
 
-/-- Kepler design `exact_ham` (`0 < exactDelta K`) and `shiftConst_shiftEps` (`0 < exactMu2 K`):
-two one-line consequences WANTED from the Kepler design. -/
-theorem exactDelta_pos {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
-    0 < exactDelta K := sorry
+def shiftEps (rmin ρmax : ℝ) : ℝ := min (rmin ^ 2) ((1 - ρmax) ^ 2) / 16
+def shiftCsh (rmin ρmax ε : ℝ) : ℝ := sorry          -- BODY OMITTED
+def exactEps (K : Set (Fin 2 → ℝ)) : ℝ := shiftEps (kRmin K) (kRhoMax K)
+def exactMu2 (K : Set (Fin 2 → ℝ)) : ℝ := exactEps K / 2
+def exactCF (K : Set (Fin 2 → ℝ)) : ℝ := shiftCsh (kRmin K) (kRhoMax K) (exactEps K)
+def complexDelta (K : Set (Fin 2 → ℝ)) : ℝ := sorry  -- BODY OMITTED
+def ExactHamData (K : Set (Fin 2 → ℝ)) (δ₂ : ℝ) : Prop := sorry -- BODY OMITTED
+def exactDelta (K : Set (Fin 2 → ℝ)) : ℝ := sorry    -- BODY OMITTED (classical choice)
+def tildeF (K : Set (Fin 2 → ℝ)) (μ : ℝ) (z : (Fin 2 → ℂ) × (Fin 2 → ℂ)) : ℂ := sorry -- BODY OMITTED
 
-theorem exactMu2_pos {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
-    0 < exactMu2 K := sorry
+theorem exact_ham {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
+    0 < exactDelta K ∧ exactDelta K ≤ complexDelta K ∧ ExactHamData K (exactDelta K) := sorry
 
-/-- `bpI:p7:period-one` (Kepler design `period_one`), the clauses Part 8 uses. -/
 theorem period_one {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
     {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * Real.pi)) ∈ K) :
     let s₀ := exactDelta K / (2 * Real.pi)
     let r₀ := 2 * Real.pi * exactDelta K
     0 < s₀ ∧ 0 < r₀ ∧
-    (DifferentiableOn ℂ (keplerRotH ((2 * Real.pi) ^ 2) (1 / (2 * Real.pi))) (KAM.actionNbhd B r₀)) ∧
+    (∀ z ∈ KAM.complexStrip 2 s₀ ×ˢ KAM.actionNbhd B r₀, periodOneMapC z ∈ UDelta K (exactDelta K)) ∧
+    (DifferentiableOn ℂ (keplerRotH ((2 * Real.pi) ^ 2) (1 / (2 * Real.pi))) (KAM.actionNbhd B r₀) ∧
+      ∀ I ∈ KAM.actionNbhd B r₀, Real.pi * kLMin K < (I 0).re) ∧
     (∀ μ : ℝ, |μ| < exactMu2 K →
       DifferentiableOn ℂ (tildeF K μ) (KAM.complexStrip 2 s₀ ×ˢ KAM.actionNbhd B r₀) ∧
       (∀ z ∈ KAM.complexStrip 2 s₀ ×ˢ KAM.actionNbhd B r₀, ‖tildeF K μ z‖ ≤ |μ| * exactCF K) ∧
       (∀ z ∈ KAM.complexStrip 2 s₀ ×ˢ KAM.actionNbhd B r₀, ∀ k : Fin 2 → ℤ,
-        tildeF K μ (z.1 + fun i => (k i : ℂ), z.2) = tildeF K μ z) ∧
-      (∀ z : (Fin 2 → ℝ) × (Fin 2 → ℝ),
-        (fun i => (z.1 i : ℂ), fun i => (z.2 i : ℂ)) ∈
-            KAM.complexStrip 2 s₀ ×ˢ KAM.actionNbhd B r₀ →
-        (tildeF K μ (fun i => (z.1 i : ℂ), fun i => (z.2 i : ℂ))).im = 0)) := sorry
+        tildeF K μ (z.1 + fun i => (k i : ℂ), z.2) = tildeF K μ z)) ∧
+    (∀ μ : ℝ, |μ| < exactMu2 K → ∀ z : (Fin 2 → ℝ) × (Fin 2 → ℝ),
+      (fun i => (z.1 i : ℂ), fun i => (z.2 i : ℂ)) ∈
+          KAM.complexStrip 2 s₀ ×ˢ KAM.actionNbhd B r₀ →
+      (tildeF K μ (phaseToC z)).im = 0 ∧
+      ∃ hcf : CollisionFree μ (delaunay (periodOneMap z)),
+        restrictedHamiltonian μ ⟨delaunay (periodOneMap z), hcf⟩ =
+          KAM.realHamiltonian (keplerRotH ((2 * Real.pi) ^ 2) (1 / (2 * Real.pi))) (tildeF K μ) z) :=
+  sorry
 
-/-- `bpI:p7:nondeg` / Kepler design `nondeg_exact`. -/
 theorem nondeg_exact {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
     {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * Real.pi)) ∈ K) :
     ∀ I : Fin 2 → ℝ, (fun i => (I i : ℂ)) ∈ KAM.actionNbhd B (2 * Real.pi * exactDelta K) →
-      0 < I 0 ∧ (KAM.Iso.borderedHessian (keplerRotH ((2 * Real.pi) ^ 2) (1 / (2 * Real.pi))) I).det
+      0 < I 0 ∧ (borderedHessian (keplerRotH ((2 * Real.pi) ^ 2) (1 / (2 * Real.pi))) I).det
         = 3 / I 0 ^ 4 := sorry
 
-/-- `bpI:p7:transfer` (Kepler design `transfer`), the clauses Part 8 uses. -/
 theorem transfer {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
     {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * Real.pi)) ∈ K) {μ : ℝ}
     (hμ : |μ| < exactMu2 K) {J : Set ℝ} {zt : ℝ → (Fin 2 → ℝ) × (Fin 2 → ℝ)}
     (hz : IsHamiltonianSolutionOn
       (KAM.realHamiltonian (keplerRotH ((2 * Real.pi) ^ 2) (1 / (2 * Real.pi))) (tildeF K μ)) B J zt) :
-    IsRestrictedSolutionOn μ J (fun t => delaunay (periodOneMap (zt t))) := sorry
+    IsRestrictedSolutionOn μ J (fun t => delaunay (periodOneMap (zt t))) ∧
+    ∀ t ∈ J, planeLength (delaunay (periodOneMap (zt t))).1 ∈
+      Icc ((zt t).2 0 ^ 2 / (2 * Real.pi) ^ 2 *
+          (1 - eccOf ((zt t).2 0 / (2 * Real.pi)) ((zt t).2 1 / (2 * Real.pi))))
+        ((zt t).2 0 ^ 2 / (2 * Real.pi) ^ 2 *
+          (1 + eccOf ((zt t).2 0 / (2 * Real.pi)) ((zt t).2 1 / (2 * Real.pi)))) := sorry
 
 end KAM.Iso
 
@@ -987,8 +1032,9 @@ theorem realHam_solution_iff (hb : BaseData B s₀ r₀ h) (hf : PerturbData B s
       IsSolutionIn (hamiltonianVectorField (realHamiltonian h f)) (univ ×ˢ B) J z := sorry
 
 /-- (d) `|∂_t f(φ, I + t v)|_{t=0} ≤ F₁ ε ‖v‖`, as the operator norm of the real derivative of
-`I ↦ Re f(ι φ, ι I)`, for `I ∈ B`; `hD` is the derivative bound of `bpI:p3:hypothesis-d`. -/
-theorem realHam_fderiv_bound (hb : BaseData B s₀ r₀ h) {F₁ : ℝ}
+`I ↦ Re f(ι φ, ι I)`, for `I ∈ B`; `hD` is the derivative bound of `bpI:p3:hypothesis-d`; `hf` (holomorphy of `f`) is REQUIRED:
+without it the total `fderiv` is `0` for non-holomorphic `f` and the bound is false (audit F01). -/
+theorem realHam_fderiv_bound (hb : BaseData B s₀ r₀ h) (hf : PerturbData B s₀ r₀ f ε) {F₁ : ℝ}
     (hD : ∀ z ∈ fractD B s₀ r₀, ‖fderiv ℂ f z‖ ≤ F₁ * ε) (φ : Fin 2 → ℝ) {I : Fin 2 → ℝ}
     (hI : I ∈ B) :
     DifferentiableAt ℝ (fun x : Fin 2 → ℝ => (f (toC φ, toC x)).re) I ∧
@@ -1232,13 +1278,28 @@ theorem separation_boundary (S : SepSetting B s₀ r₀ h f ε η₁ F₁ C_K p 
     frontier (sepRegion p Yp Ym) ∩ levelSet (realHamiltonian h f) E ⊆
       graphSet Yp ∪ graphSet Ym := sorry
 
-/-- (c), the barrier (step `sp-barrier`): a solution of `X_ℝ` in `W_B` on an interval `J ∋ 0`
+/-- (c), the barrier, CONDITIONAL HELPER (distinct name; audit F03): `hinv` is a produced fact.
+The source-facing `separation_confined` below derives it. The barrier (step `sp-barrier`): a solution of `X_ℝ` in `W_B` on an interval `J ∋ 0`
 through `z₀` stays in `𝒱`. `hinv` is Lemma `invariance` for `𝒯₊ ∪ 𝒯₋` (`range k_± = graphSet Y_±`,
 `isInvariantSet_union`). -/
-theorem separation_confined (S : SepSetting B s₀ r₀ h f ε η₁ F₁ C_K p r Lm LΦ κ E Yp Ym Ip Im)
+theorem separation_confined_of_invariant (S : SepSetting B s₀ r₀ h f ε η₁ F₁ C_K p r Lm LΦ κ E Yp Ym Ip Im)
     {z₀ : P2} (hz₀ : ‖z₀.2 - p.c‖ < p.ρc) (hE : E = realHamiltonian h f z₀)
     (hinv : IsInvariantSet (hamiltonianVectorField (realHamiltonian h f)) (univ ×ˢ B)
       (graphSet Yp ∪ graphSet Ym))
+    {J : Set ℝ} (hJ : J.OrdConnected) (h0 : (0 : ℝ) ∈ J) {z : ℝ → P2}
+    (hz : IsSolutionIn (hamiltonianVectorField (realHamiltonian h f)) (univ ×ˢ B) J z)
+    (hz0 : z 0 = z₀) : ∀ t ∈ J, z t ∈ sepRegion p Yp Ym := sorry
+
+/-- (c), SOURCE-FACING (`bpI:p5:separation` (c)): premises are the named output of Part 3
+(`TorusOutput` for both tori) and the graph identifications `𝒯_± = graph Y_±` of `§sec-graph`;
+`𝒯₊ ∪ 𝒯₋` invariance is derived inside (`torus_invariant` twice, `isInvariantSet_union`), with
+`(k θ).2 ∈ B` recovered from `GraphData.near`, `base_mem`, `PatchConst.thick_subset`, `Smallness.lt_r`. -/
+theorem separation_confined (S : SepSetting B s₀ r₀ h f ε η₁ F₁ C_K p r Lm LΦ κ E Yp Ym Ip Im)
+    {Kp Km : (Fin 2 → ℂ) → (Fin 2 → ℂ) × (Fin 2 → ℂ)} {ωp ωm : Fin 2 → ℝ}
+    (Tp : TorusOutput h f ε C_K s₀ E Kp Ip ωp) (Tm : TorusOutput h f ε C_K s₀ E Km Im ωm)
+    (hgp : Set.range (realRestriction Kp) = graphSet Yp)
+    (hgm : Set.range (realRestriction Km) = graphSet Ym)
+    {z₀ : P2} (hz₀ : ‖z₀.2 - p.c‖ < p.ρc) (hE : E = realHamiltonian h f z₀)
     {J : Set ℝ} (hJ : J.OrdConnected) (h0 : (0 : ℝ) ∈ J) {z : ℝ → P2}
     (hz : IsSolutionIn (hamiltonianVectorField (realHamiltonian h f)) (univ ×ˢ B) J z)
     (hz0 : z 0 = z₀) : ∀ t ∈ J, z t ∈ sepRegion p Yp Ym := sorry
@@ -1256,13 +1317,26 @@ variable {B : Set (Fin 2 → ℝ)} {s₀ r₀ : ℝ} {h : (Fin 2 → ℂ) → �
 /-- `bpI:p5:confinement`: for the maximal solution `z` of `ż = X_ℝ(z)` in `W_B` through `z₀`
 (`IsMaximalSolution`, a source premise), `T_± = ±∞`, `z(t) ∈ 𝒱`, `z(t)₂ ∈ 𝒦`, and
 `‖z(t)₂ - I₀‖ < η₁/2`. -/
-theorem confinement_prop (S : SepSetting B s₀ r₀ h f ε η₁ F₁ C_K p r Lm LΦ κ E Yp Ym Ip Im)
+theorem confinement_prop_of_invariant (S : SepSetting B s₀ r₀ h f ε η₁ F₁ C_K p r Lm LΦ κ E Yp Ym Ip Im)
     (hB : IsOpen B) {z₀ : P2} (hz₀ : ‖z₀.2 - p.c‖ < p.ρc) (hE : E = realHamiltonian h f z₀)
     (hinv : IsInvariantSet (hamiltonianVectorField (realHamiltonian h f)) (univ ×ˢ B)
       (graphSet Yp ∪ graphSet Ym))
     {Tm Tp : EReal} {z : ℝ → P2}
     (hz : IsMaximalSolution (hamiltonianVectorField (realHamiltonian h f)) (univ ×ˢ B) z₀ Tm Tp z) :
     Tm = ⊥ ∧ Tp = ⊤ ∧ (∀ t, z t ∈ sepRegion p Yp Ym) ∧ (∀ t, (z t).2 ∈ p.K) ∧
+      ∀ t, ‖(z t).2 - z₀.2‖ < η₁ / 2 := sorry
+
+/-- SOURCE-FACING `bpI:p5:confinement` (audit F03): as `confinement_prop_of_invariant`, with the
+named Part 3 output and the graph identifications instead of `hinv`. -/
+theorem confinement_prop (S : SepSetting B s₀ r₀ h f ε η₁ F₁ C_K p r Lm LΦ κ E Yp Ym Ip Im)
+    {Kp Km : (Fin 2 → ℂ) → (Fin 2 → ℂ) × (Fin 2 → ℂ)} {ωp ωm : Fin 2 → ℝ}
+    (Tp : TorusOutput h f ε C_K s₀ E Kp Ip ωp) (Tm : TorusOutput h f ε C_K s₀ E Km Im ωm)
+    (hgp : Set.range (realRestriction Kp) = graphSet Yp)
+    (hgm : Set.range (realRestriction Km) = graphSet Ym)
+    (hB : IsOpen B) {z₀ : P2} (hz₀ : ‖z₀.2 - p.c‖ < p.ρc)
+    (hE : E = realHamiltonian h f z₀) {Tm' Tp' : EReal} {z : ℝ → P2}
+    (hz : IsMaximalSolution (hamiltonianVectorField (realHamiltonian h f)) (univ ×ˢ B) z₀ Tm' Tp' z) :
+    Tm' = ⊥ ∧ Tp' = ⊤ ∧ (∀ t, z t ∈ sepRegion p Yp Ym) ∧ (∀ t, (z t).2 ∈ p.K) ∧
       ∀ t, ‖(z t).2 - z₀.2‖ < η₁ / 2 := sorry
 
 end Confinement
@@ -1365,13 +1439,17 @@ namespace KAM.Iso.Collision
 
 open KAM.Iso
 
-/-- Helper: the frozen `radius` is subadditive on `ℝ²` (no `EuclideanSpace`); `radius` is NOT the
-ambient sup norm of `Fin 2 → ℝ`, which is why `collision_exclusion_*` take an abstract length. -/
-theorem radius_add_le (u v : Fin 2 → ℝ) : radius (u + v) ≤ radius u + radius v := sorry
+/-- `radius` is a length: the plane-length helpers of `KAM.Kepler.Plane` (proved on `inp`) via
+`radius_eq_planeLength` (`rfl`). `radius` is NOT the ambient sup norm of `Fin 2 → ℝ`. -/
+theorem radius_add_le (u v : Fin 2 → ℝ) : radius (u + v) ≤ radius u + radius v :=
+  KAM.Kepler.planeLength_add_le u v
 
-theorem radius_neg (u : Fin 2 → ℝ) : radius (-u) = radius u := sorry
+theorem radius_neg (u : Fin 2 → ℝ) : radius (-u) = radius u := KAM.Kepler.planeLength_neg u
 
-theorem radius_eq_zero_iff (u : Fin 2 → ℝ) : radius u = 0 ↔ u = 0 := sorry
+theorem radius_eq_zero_iff (u : Fin 2 → ℝ) : radius u = 0 ↔ u = 0 :=
+  KAM.Kepler.planeLength_eq_zero_iff
+
+theorem radius_nonneg (u : Fin 2 → ℝ) : 0 ≤ radius u := Real.sqrt_nonneg _
 
 theorem continuous_radius : Continuous radius := sorry
 
@@ -1394,7 +1472,8 @@ theorem collision_exclusion_quant {X : Type*} [AddCommGroup X] (ℓ : X → ℝ)
 (any `δ_S = 1` if `S = ∅` or `m = 0`) with `ℓ(q - x_j) ≥ δ_S` and the conclusion of (a). -/
 theorem collision_exclusion_compact {X : Type*} [AddCommGroup X] [TopologicalSpace X]
     [IsTopologicalAddGroup X] (ℓ : X → ℝ) (htri : ∀ u v, ℓ (u + v) ≤ ℓ u + ℓ v)
-    (hneg : ∀ u, ℓ (-u) = ℓ u) (hcont : Continuous ℓ) (hzero : ∀ u, ℓ u = 0 → u = 0)
+    (hneg : ∀ u, ℓ (-u) = ℓ u) (hcont : Continuous ℓ) (hnonneg : ∀ u, 0 ≤ ℓ u)
+    (hzero : ∀ u, ℓ u = 0 → u = 0)
     {m : ℕ} (x : Fin m → X) {c μ₁ : ℝ} (hc : 0 ≤ c) (hμ₁ : 0 < μ₁) (y : Fin m → ℝ → X)
     (hy : ∀ j μ, |μ| ≤ μ₁ → ℓ (y j μ - x j) ≤ c * |μ|) {S : Set X} (hS : IsCompact S)
     (hxS : ∀ j, x j ∉ S) :
@@ -1416,7 +1495,8 @@ theorem shell_collisionFree {rmin ρmax : ℝ} (h0 : 0 < rmin) (h1 : rmin ≤ ρ
 /-- `bpI:p8:min-distance` (track P): a compact set of `N`-body configurations of pairwise
 distinct points has a positive minimal separation, for any continuous definite length `ℓ`. -/
 theorem min_distance {ι X : Type*} [Finite ι] [AddCommGroup X] [TopologicalSpace X]
-    [IsTopologicalAddGroup X] (ℓ : X → ℝ) (hcont : Continuous ℓ) (hzero : ∀ u, ℓ u = 0 → u = 0)
+    [IsTopologicalAddGroup X] (ℓ : X → ℝ) (hcont : Continuous ℓ) (hnonneg : ∀ u, 0 ≤ ℓ u)
+    (hzero : ∀ u, ℓ u = 0 → u = 0)
     {S : Set (ι → X)} (hS : IsCompact S) (hsep : ∀ q ∈ S, ∀ i j, i ≠ j → q i ≠ q j) :
     ∃ δ : ℝ, 0 < δ ∧ ∀ q ∈ S, ∀ i j, i ≠ j → δ ≤ ℓ (q i - q j) := sorry
 
@@ -1629,6 +1709,19 @@ theorem r3bp_small (hp : R3bpParams am ap em ep) {εH μ : ℝ} (hεH : 0 < εH)
     (hμ : μ < r3bpMu0 (safeK am ap em ep) εH) :
     μ < exactMu2 (safeK am ap em ep) ∧ μ * exactCF (safeK am ap em ep) < εH ∧
       |μ| ≤ shellNu (safeK am ap em ep) / 2 := sorry
+
+/-- ADAPTER from Kepler `orbitMapR_radius_bounds` (`delaunay` unfolds to `orbitMapR`, `rfl`) and
+`eccOf_mem_Ioo`. -/
+theorem delaunay_radius_bounds {w : (Fin 2 → ℝ) × (Fin 2 → ℝ)} (hw : w ∈ deDom) :
+    w.2 0 ^ 2 * (1 - eccOf (w.2 0) (w.2 1)) ≤ radius (delaunay w).1 ∧
+      radius (delaunay w).1 ≤ w.2 0 ^ 2 * (1 + eccOf (w.2 0) (w.2 1)) := sorry
+
+/-- ADAPTER from Kepler `orbitMapR_energy` and `eccOf_mem_Ioo`. -/
+theorem delaunay_energy {w : (Fin 2 → ℝ) × (Fin 2 → ℝ)} (hw : w ∈ deDom) :
+    kE (delaunay w) = -1 / (2 * w.2 0 ^ 2) := sorry
+
+/-- `exactMu2 𝒦 > 0` for the safe region (`shiftEps` formula, `safe_radii`): no upstream lemma. -/
+theorem exactMu2_safe_pos (hp : R3bpParams am ap em ep) : 0 < exactMu2 (safeK am ap em ep) := sorry
 
 /-- `bpI:p8:bounds`: along a Delaunay orbit over `𝒦`: `r_min ≤ rad q ≤ ρ_max`, `rad p ≤ R`. -/
 theorem delaunay_orbit_bounds {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hr : 0 < kRmin K)
