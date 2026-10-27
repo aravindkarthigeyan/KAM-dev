@@ -39,7 +39,7 @@ only through the premise `KAM.Head.GValid` (`GValid.g1b` and `GValid.g2`).
 * `step:p4:lip-close`: `KAM.Head.Lip.close_case`, with the arithmetic of
   `KAM.Head.Lip.final_arith`.
 
-Every constant stays opaque: the estimates between constants are the abstract real lemmas
+No constant is unfolded: the estimates between constants are the abstract real lemmas
 `far_arith`, `err_le`, `close_arith`, `final_arith` and the items of `KAM.Head.smallness`.
 -/
 
@@ -130,9 +130,11 @@ theorem norm_phaseAverage_sub_le {ρ : ℝ} (hρ : 0 < ρ)
     ‖phaseAverage K₁ - phaseAverage K₂‖ ≤ C := by
   refine (pi_norm_le_iff_of_nonneg ((norm_nonneg _).trans (hC 0))).2 fun i => ?_
   have c1 : Continuous fun x : Fin n → ℝ => (angleDisplacement K₁ (fun l => (x l : ℂ)) i).re :=
-    Complex.continuous_re.comp ((continuous_apply i).comp (continuous_angleDisplacement_ofReal hρ h₁))
+    Complex.continuous_re.comp
+      ((continuous_apply i).comp (continuous_angleDisplacement_ofReal hρ h₁))
   have c2 : Continuous fun x : Fin n → ℝ => (angleDisplacement K₂ (fun l => (x l : ℂ)) i).re :=
-    Complex.continuous_re.comp ((continuous_apply i).comp (continuous_angleDisplacement_ofReal hρ h₂))
+    Complex.continuous_re.comp
+      ((continuous_apply i).comp (continuous_angleDisplacement_ofReal hρ h₂))
   have hsub : (phaseAverage K₁ - phaseAverage K₂) i =
       torusAverage fun x : Fin n → ℝ => (angleDisplacement K₁ (fun l => (x l : ℂ)) i).re -
         (angleDisplacement K₂ (fun l => (x l : ℂ)) i).re := by
@@ -257,7 +259,8 @@ theorem g1_step (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀ B f ε)
 /-! ### Close pairs: local uniqueness (`step:p4:lip-g2`) -/
 
 /-- Step `step:p4:lip-g2`: the frozen G2 at `ρ = s/16`, with reference torus `K_{ω'}` and second
-torus the output `K̃` of G1. It gives a phase `φ ∈ ℝⁿ` with `K̃(θ) = K_{ω'}(θ + ι φ)` on `T_{s/32}`. -/
+torus the output `K̃` of G1. It gives a phase `φ ∈ ℝⁿ` with `K̃(θ) = K_{ω'}(θ + ι φ)` on
+`T_{s/32}`. -/
 theorem g2_step (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀ B f ε)
     (hgc : GValid τ s₀ r₀ B h Lh gc) (hSA : SA τ s₀ r₀ B h Lh gc ε γ) {ω ω' : Fin n → ℝ}
     (hω : ω ∈ OmegaGamma h B τ γ) (hω' : ω' ∈ OmegaGamma h B τ γ)
@@ -411,7 +414,8 @@ theorem close_case (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀ B f ε)
     (A1 := A1 τ s₀ r₀ B h Lh gc) (d := ‖ω' - ω‖) hSA.gamma_pos hX2 (ε := ε)
   rw [hW, hKθ]
   calc ‖Kt (θ - fun i => (φ i : ℂ)) - shiftedTorus τ s₀ r₀ B h f gc ε γ ω ω' θ‖
-      = ‖(Kt (θ - fun i => (φ i : ℂ)) - Kt θ) + (Kt θ - shiftedTorus τ s₀ r₀ B h f gc ε γ ω ω' θ)‖ := by
+      = ‖(Kt (θ - fun i => (φ i : ℂ)) - Kt θ) +
+          (Kt θ - shiftedTorus τ s₀ r₀ B h f gc ε γ ω ω' θ)‖ := by
         congr 1; abel
     _ ≤ ‖Kt (θ - fun i => (φ i : ℂ)) - Kt θ‖ +
           ‖Kt θ - shiftedTorus τ s₀ r₀ B h f gc ε γ ω ω' θ‖ := norm_add_le _ _
