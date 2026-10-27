@@ -22,9 +22,9 @@ EDGE: stepN:p3:exit-closed | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen
 EDGE: stepN:p3:exit-min | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L345-L345 | t* = min A
 EDGE: stepN:p3:exit-bdry | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L347-L347 | boundary point
 EDGE: stepN:p3:exit-sup | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L349-L349 | supremum formula
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -50,9 +50,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-closed@L343-L343 | z continuous on J (consequence (ii))
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-closed@L343-L343 | the source solution supplies continuity and membership; earlier step conclusions are not new premises
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -78,9 +78,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:exit-closed | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-min@L345-L345 | by closedness t* ∈ A
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-min@L345-L345 | the source solution supplies continuity and membership; earlier step conclusions are not new premises
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -107,9 +107,9 @@ ROUTE_FOR: -
 EDGE: stepN:p3:exit-min | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-bdry@L347-L347 | t* and z(t*) ∉ V
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-bdry@L347-L347 | continuity of z at t*
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-bdry@L347-L347 | the source solution supplies continuity and membership; earlier step conclusions are not new premises
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -136,9 +136,9 @@ ROUTE_FOR: -
 EDGE: stepN:p3:exit-min | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-sup@L349-L349 | t* = min A
 EDGE: stepN:p3:exit-bdry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-sup@L349-L349 | z(t) ∈ V on [0,t*)
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-sup@L349-L349 | the source solution supplies continuity and membership; earlier step conclusions are not new premises
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -165,9 +165,9 @@ ROUTE_FOR: -
 EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L378-L378 | the Ck conclusion is about the frozen X_H
 EDGE: stepN:p3:hs-deriv | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L383-L383 | DH is C^k
 EDGE: stepN:p3:hs-comp | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L385-L385 | components of X_H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -220,9 +220,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:hs-deriv | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-comp@L385-L385 | DH is C^k
 EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-comp@L385-L385 | coordinates of X_H in terms of DH
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -278,9 +278,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-chain@L395-L395 | chain rule HasFDerivAt.comp_hasDerivAt
 EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-chain@L395-L395 | the chain-rule expression uses the frozen X_H at the visited point
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -334,9 +334,9 @@ ROUTE_FOR: -
 EDGE: stepN:p3:en-chain | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-const@L399-L399 | H∘z differentiable with derivative DH(z)[X_H(z)]
 EDGE: stepN:p3:en-cancel | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-const@L399-L399 | that derivative is 0
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-const@L399-L399 | continuous with right derivative 0 implies constant
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -392,9 +392,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-field@L409-L409 | derivative of a translate (chain rule)
 EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-field@L409-L409 | evaluate DH on (0,e_i), (e_i,0) to get X_H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -421,9 +421,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-sol@L411-L411 | space translation gen-symmetry(c) with v = (k,0), F = X_H
 EDGE: stepN:p3:per-field | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-sol@L411-L411 | F(x+v) = F(x) on W
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-sol@L411-L411 | the translated curve is a solution for the same source predicate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -479,9 +479,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -511,9 +511,9 @@ EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p
 EDGE: I:bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L431-L431 | same formula in track I's predicate
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L431-L431 | the predicate equivalence explicitly includes IsSolIn
 EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L431-L431 | the regularity conclusion concerns X_H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -541,9 +541,9 @@ EDGE: bpN:p0:integrable#IsAnalyticIntegrable | blueprint-N/parts/p3-hamiltonian-
 EDGE: bpN:p0:pert#IsAnalyticPerturbation | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-N#data@L474-L474 | f satisfies the size-eps perturbation predicate
 EDGE: bpN:p0:realH#realHamiltonian | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-N#data@L475-L475 | H is defined to be H_{h,f}
 EDGE: bpN:p0:rdomain-eq | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-N#data@L475-L475 | the real action domain equals B(0,R+s)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -598,9 +598,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p1:holo-real | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-cite@L485-L485 | (b), (c), (d) are exactly the three claims
 EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-cite@L485-L485 | match the fixed analytic h,f,H and real domain with the Part 1 lemma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -624,13 +624,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p3:s-N#data, bpN:p0:sol#IsSolutionOn, stepN:p3:le-red, stepN:p3:le-apply
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L502-L502 | standing data of §s-N (H, U)
+EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L503-L504 | standing data of §s-N (H, U)
 EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L504-L505 | the source local-existence and uniqueness clauses use IsSolutionOn here
 EDGE: stepN:p3:le-red | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L509-L509 | reduction to the general predicate
 EDGE: stepN:p3:le-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L510-L510 | existence and uniqueness
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p3b+sol-delta-N-c
+REVIEWER: sol-delta2-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -659,9 +659,9 @@ EDGE: bpN:p3:holo-input | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-r
 EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-L509 | W_s and U ⊂ B(0,R+s)
 EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-L509 | convert the frozen solution predicate to the general predicate
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-L509 | the converted predicate is IsSolIn
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -691,9 +691,9 @@ EDGE: stepN:p3:le-red | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-app
 EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L510-L510 | the local-time and uniqueness application uses the fixed H,U and their analytic setting
 EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L510-L510 | the local theorem constructs and compares frozen Hamiltonian solutions
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L510-L510 | apply the general existence and uniqueness results after reduction
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -749,9 +749,9 @@ ROUTE_FOR: -
 EDGE: bpN:p3:local-exist | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-apply@L541-L541 | uniqueness part with J = [−L,L], t₀ = 0
 EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-apply@L541-L541 | the local-exist theorem uses the standing analytic H,U setting
 EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-apply@L541-L541 | the compared curves satisfy the frozen Hamiltonian solution predicate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -812,9 +812,9 @@ EDGE: bpN:p3:ham-reduction | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:c
 EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554 | H,U and W_s are the standing section objects needed for all regularity/periodicity premises
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554 | the closed finite-dimensional action ball K is compact
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554 | the conclusion is uniform data for the cylinder Phi
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -845,9 +845,9 @@ EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glu
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L555-L556 | uniform data for Phi discharge gen-confinement
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L555-L556 | the a priori hypothesis is converted for every general solution on an open interval
 EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L555-L556 | convert the source hypothesis and the resulting closed-interval conclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
-REVIEWER: -
+REVIEWER: sol-delta-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
