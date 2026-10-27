@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 18.9 %** · frozen statements proved: 0 / 5 · **1,912 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:26 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 19.7 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -51,19 +51,19 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **18.9 %**
+### Estimated completion: **19.7 %**
 
-`█████░░░░░░░░░░░░░░░░░░░░` 18.9 %
+`█████░░░░░░░░░░░░░░░░░░░░` 19.7 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
-| Statement and planning | 8 | 26 | 12.8 | `█████░░░░░` 49 % |
+| Statement and planning | 8 | 26 | 13.6 | `█████░░░░░` 52 % |
 | Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
 | Analytic infrastructure | 8 | 24 | 2.4 | `█░░░░░░░░░` 10 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
 | Measure of the invariant tori | 5 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
 | Sealing of the frozen statements | 5 | 5 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 34 | 96 | 18.1 | **18.9 %** |
+| **Total** | 34 | 96 | 18.9 | **19.7 %** |
 
 **How this is estimated.** The project is divided into 29 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 15:25 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -76,7 +76,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | S.ROUTE | Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency) | H | 🟨 90 % | verdict: route works; rate ε^{1/4}; flow local uniqueness must be proved by us (no published version) |
 | S.STMT | Mathematical statement of the headline theorem and the gate theorems, with owner rulings | M | ✅ 100 % | docs/statement.md draft 0.2, approved |
 | S.LEAN | Exact Lean statements (headline + gates): independent audit, owner approval, freeze | H | ✅ 100 % | approved (D11) and frozen: 5 theorem anchors + 20 definitions, manifest with file/prefix/ABI hashes |
-| S.BP | Blueprint: every proof step written out against the pinned sources | VH | ⬜ 0 % |  |
+| S.BP | Blueprint: every proof step written out against the pinned sources | VH | 🟨 10 % | p0 and the p1 interface written; p2, p3, p4 being drafted |
 | S.GRAPH | Source-level dependency graph anchored to the frozen statements | H | ⬜ 0 % |  |
 | S.ERRATA | Errata and deviations ledger for every formalized source (continuous) | L | 🟨 30 % | ledger: 8 candidate errata, 6 planned deviations |
 | I.REPO | Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint | L | ✅ 100 % |  |
@@ -109,7 +109,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **1,912** (1,013 excluding blank lines and comments) · **+1,912** since 2026-10-27 13:33 UTC |
+| On `main` now | **1,948** (1,026 excluding blank lines and comments) · **+1,948** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
 | **Estimated total at completion** | **≈ 40,000** |
 | Estimated still to write | ≈ 38,000 |
@@ -118,13 +118,13 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:20 UTC from `main` at `83b6e08` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:26 UTC from `main` at `725e81c` by `scripts/hq-status.py`.*
 
-**Current phase:** Phase 0 complete: the headline (rate and qualitative), G1, G2, G3 and 20 definitions are approved and frozen (D11). Phase 1 next: blueprint and source-level dependency graph anchored to the frozen statements; infrastructure (weighted Fourier algebras) can start in parallel.
+**Current phase:** Phase 1: blueprint (LaTeX, blueprint/) and dependency graph. p0 (conventions, frozen statements) and the p1 interface are written; Opus writers draft p2 (G1, HL19 §4–5), p3 (G2, uniqueness for flows) and p4 (measure layer, HEAD, HEAD-Q, G3). Infrastructure packages are open on docs/campaign/PACKAGES.md.
 
 **Frozen statements proved: 0 / 5** · frozen definitions: 20
 
-**Lean on `main`:** 37 modules · 1,912 lines · 63 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 38 modules · 1,948 lines · 64 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 5 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean)
@@ -209,7 +209,9 @@ flowchart BT
 |---|---|---|---|---|
 | [`KAM/Frozen/`](KAM/Frozen) | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 25 | 974 | 5 |
 | [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 3 | 359 | 24 |
-| [`KAM/Diophantine/`](KAM/Diophantine) | Diophantine vectors, cohomological equation, measure of the Diophantine set | 4 | 507 | 34 |
+| [`KAM/Diophantine/`](KAM/Diophantine) | Diophantine vectors, cohomological equation, measure of the Diophantine set | 5 | 543 | 35 |
+| `KAM/Strip/` *(not created yet)* | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 0 | 0 | 0 |
+| `KAM/Matrix/` *(not created yet)* | Matrix-valued functions: Neumann series and inverse bounds | 0 | 0 | 0 |
 | `KAM/Newton/` *(not created yet)* | Abstract Newton/KAM convergence on analytic scales | 0 | 0 | 0 |
 | `KAM/Hamiltonian/` *(not created yet)* | Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits | 0 | 0 | 0 |
 | `KAM/APosteriori/` *(not created yet)* | A-posteriori KAM theorem at fixed frequency and local uniqueness | 0 | 0 | 0 |
@@ -230,8 +232,11 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **orchestrator** | lead | Claude Opus 5.5 | claude-1 | 🔄 active | Campaign lead: sources, statements, assignments, landings, owner questions, this README | — | — |
 | **zohar-exploration** `kam-zohar` | exploration (Codex) | GPT-6-Astra high | codex-1 | 🔄 working | Planetary KAM, open-region stability (2 DOF, Nekhoroshev) and follow-up headline candidates, from the collaborator's comments | — | — |
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine), pushed to main | — | — |
+| **bp-g1** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 2: G1 from HL19 §4–5 and App. B (d = n, canonical, primary, uniform constants) | — | — |
+| **bp-g2** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 3: G2, local uniqueness for flows (adapting GJLV05 §6, §8) | — | — |
+| **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 4: G3, APPLY, STAB, LIP, McShane and measure, HEAD, HEAD-Q | — | — |
 
-**Queued:** Blueprint and dependency graph (Phase 1) · Infrastructure: weighted ℓ¹ Fourier algebra (F.ALG)
+**Queued:** Blueprint part 1 proofs · Independent review of each blueprint part · Dependency graph extraction
 <!-- /AUTO:workers -->
 
 ### Recent changes on `main`
@@ -239,6 +244,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:26 | `725e81c` | Start Phase 1: blueprint skeleton, package board, Diophantine bridge |
 | 2026-10-27 15:20 | `83b6e08` | HQ: credit the collaborator's Fourier and Diophantine infrastructure |
 | 2026-10-27 15:19 | `1f4bdd2` | HQ updater: merge collaborators' pushes to main before regenerating |
 | 2026-10-27 15:19 | `59daeac` | Merge Zohar's Fourier and Diophantine infrastructure into the frozen-statement main |
