@@ -298,7 +298,8 @@ theorem hasRealEntries_gramMatrix (hr : 0 < r) (hK : DifferentiableOn ℂ K (com
     (hreal : IsRealOnReals K) (x : Fin n → ℝ) :
     HasRealEntries (gramMatrix K fun i => (x i : ℂ)) := by
   rw [gramMatrix_eq_tangentMat_transpose_mul]
-  exact (hasRealEntries_tangentMat hr hK hreal x).transpose.mul (hasRealEntries_tangentMat hr hK hreal x)
+  exact (hasRealEntries_tangentMat hr hK hreal x).transpose.mul
+    (hasRealEntries_tangentMat hr hK hreal x)
 
 theorem exists_map_of_hasRealEntries {ι κ : Type*} {A : Matrix ι κ ℂ} (hA : HasRealEntries A) :
     ∃ B : Matrix ι κ ℝ, A = B.map Complex.ofReal :=

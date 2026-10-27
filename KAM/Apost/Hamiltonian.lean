@@ -221,7 +221,8 @@ theorem im_ham_eq_zero (hS : Standing n τ M σK σB σT 𝔅 h ω γ) {θ I : F
     rw [key _ (fun j => by simp [Pi.single_apply]; split_ifs <;> simp) (fun j => by simp)]
     simp
 
-/-- The `s`-th coordinate of `sumVec ∘ f` differentiates to the `s`-th coordinate of `sumVec (Df)`. -/
+/-- The `s`-th coordinate of `sumVec ∘ f` differentiates to the `s`-th coordinate of
+`sumVec (Df)`. -/
 theorem fderiv_sumVec_coord {E : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E]
     {f : E → (Fin n → ℂ) × (Fin n → ℂ)} {x : E} (hf : DifferentiableAt ℂ f x)
     (s : Fin n ⊕ Fin n) (u : E) :
