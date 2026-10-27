@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 19:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 33.2 %** · frozen statements proved: 1 / 20 · **10,047 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 19:04 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 33.2 %** · frozen statements proved: 1 / 20 · **10,047 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 19:00 UTC from `main` at `0f2fbb1` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 19:04 UTC from `main` at `4bbb791` by `scripts/hq-status.py`.*
 
 **Current phase:** First seal: G3 (KAM.volume_not_diophantine_le) proved, audited, kernel-replayed (D26). Track K proof campaign: I-MAT landed; I-LIP in audit; I-STRIP-5 (several-variable analyticity) running. Tracks I, N, P: Opus sub-orchestrator; blueprints nearly complete (track I done), N-AVERAGING re-transcription from the pinned source.
 
@@ -277,11 +277,11 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **prover-I-LIP** `worktree /root/code/KAM-w-lip` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-LIP (docs/campaign/briefs/I-LIP.md) | — | — |
 | **prover-I-STRIP-5** `worktree /root/code/KAM-w-strip5` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md) | — | — |
 | **audit-I-LIP** `kam-audit-lip` | package audit (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Independent audit of package I-LIP | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 1 |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 1 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | N-AVERAGING draft v0.5 from the primary AKN06 pages (sources supplied by the owner) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: v0.4 done; idle for owner-requested changes | — | — |
 | **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Refute-first blueprint reviews (I and N): now I Parts 6-7 and N Part 6 | — | — |
@@ -298,6 +298,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 19:04 | `4bbb791` | Pin Neishtadt 1976 (Nei76, Dokl. Akad. Nauk SSSR 226(6) 1295-1298; Math-Net.Ru dan39798) for N-AVERAGING |
+| 2026-10-27 19:03 | `cd2f60d` | Land inp into main |
 | 2026-10-27 18:58 | `e73c0f5` | HQ generator: optional arXiv and DOI fields |
 | 2026-10-27 18:58 | `da33733` | Land inp into main |
 | 2026-10-27 18:58 | `2c8e060` | HQ generator: sources without an arXiv id link their DOI (fixes the KeyError after pinning AKN06, Rus01, Rus05) |
@@ -308,8 +310,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 14:48 | `e38c03a` | Prove coefficient decay for periodic holomorphic functions on strips |
 | 2026-10-27 18:46 | `3dbc19a` | Land inp into main |
 | 2026-10-27 18:46 | `b691caf` | HQ: infrastructure items back in the main progress file; untrack scripts/__pycache__ |
-| 2026-10-27 18:45 | `0480788` | Package audit brief for the track K proof campaign |
-| 2026-10-27 18:37 | `bd2f002` | Pin Rüssmann's 2005 addendum (Rus05), supplied by the owner |
 <!-- /AUTO:landed -->
 
 ## Decisions
@@ -455,6 +455,7 @@ API or exact Crossref title matches. Registry: [`docs/sources.json`](docs/source
 | AKN06 | V. I. Arnold, V. V. Kozlov, A. I. Neishtadt, *Mathematical Aspects of Classical and Celestial Mechanics*, 3rd ed., Encyclopaedia of Mathematical Sciences 3, Springer (2006) | — | [10.1007/978-3-540-48926-9](https://doi.org/10.1007/978-3-540-48926-9) | N-AVERAGING: §6.1.9, Theorem 6.11 and Corollary 6.1, printed p. 243 (PDF page 254; printed page = PDF page - 11). Supplied by the owner 2026-10-27. |
 | Rus01 | H. Rüssmann, *Invariant tori in non-degenerate nearly integrable Hamiltonian systems*, Regul. Chaotic Dyn. 6(2) (2001) 119-204 (MR1843664) | — | [10.1070/RD2001v006n02ABEH000169](https://doi.org/10.1070/RD2001v006n02ABEH000169) | P-FIXED: the analytic weak-nondegeneracy KAM theorem, Theorem 1.7 (p. 127), cited by CP09 Thm 4. Its proof relies on the 2005 addendum, pinned as Rus05. Supplied by the owner 2026-10-27. |
 | Rus05 | H. Rüssmann, *Addendum to "Invariant tori in non-degenerate nearly integrable Hamiltonian systems", RCD 6(2) 2001*, Regul. Chaotic Dyn. 10(1) (2005) 21-31 | — | [10.1070/RD2005v010n01ABEH000297](https://doi.org/10.1070/RD2005v010n01ABEH000297) | Proves the theorem on approximation of periodic holomorphic functions by trigonometric polynomials that Rus01 relies on. Supplied by the owner 2026-10-27. |
+| Nei76 | A. I. Neishtadt, *Averaging in multifrequency systems. II* (Russian: Об осреднении в многочастотных системах. II), Dokl. Akad. Nauk SSSR 226(6) (1976) 1295-1298 | — | — | N-AVERAGING: original proof behind AKN06 Thm 6.11 / Cor. 6.1 (source-proof gap E-NAVG-NEI-17, the sup/integral interchange in (17), is repaired in the proof route). Russian original; the English translation (Soviet Phys. Dokl. 21 (1976)) is not pinned. |
 <!-- /AUTO:papers -->
 
 ## Prior and related formal work
