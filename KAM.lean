@@ -177,6 +177,7 @@ public import KAM.Head.MixedDifference
 public import KAM.Head.Normalize
 public import KAM.Head.Parameters
 public import KAM.Head.PhaseAverage
+public import KAM.Head.RealTorus
 public import KAM.Head.Shift
 public import KAM.Head.Standing
 public import KAM.Head.TorsionRegular

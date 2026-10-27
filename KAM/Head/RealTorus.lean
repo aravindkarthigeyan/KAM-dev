@@ -96,14 +96,16 @@ theorem rt_small_complex (hρ : 0 < ρ) (hK : DifferentiableOn ℂ K (complexStr
   rw [h1]
   calc ‖(fderiv ℂ (fun θ => K θ - unperturbedTorus I θ) θ v).1‖
       ≤ ‖fderiv ℂ (fun θ => K θ - unperturbedTorus I θ) θ v‖ := norm_fst_le _
-    _ ≤ ‖fderiv ℂ (fun θ => K θ - unperturbedTorus I θ) θ‖ * ‖v‖ := ContinuousLinearMap.le_opNorm _ _
+    _ ≤ ‖fderiv ℂ (fun θ => K θ - unperturbedTorus I θ) θ‖ * ‖v‖ :=
+        ContinuousLinearMap.le_opNorm _ _
     _ ≤ 1 / 2 * ‖v‖ := by
         gcongr
         exact hc.trans hsm
 
-/-- Blueprint `step:p4:rt-small`. For `K` holomorphic on `T_ρ` and real on reals, with `‖K - K⁰_I‖ ≤ η`
-there and `n (ρ/2)⁻¹ η ≤ 1/2`: the angle displacement `ũ(x) = k(x)₁ - x` of the real restriction
-is differentiable with `‖Dũ(x)‖ ≤ 1/2` at every real `x`, and `Dũ(x) v = (Dk(x) v)₁ - v`. -/
+/-- Blueprint `step:p4:rt-small`. For `K` holomorphic on `T_ρ` and real on reals, with
+`‖K - K⁰_I‖ ≤ η` there and `n (ρ/2)⁻¹ η ≤ 1/2`: the angle displacement `ũ(x) = k(x)₁ - x` of
+the real restriction is differentiable with `Dũ(x) v = (Dk(x) v)₁ - v` and `‖Dũ(x)‖ ≤ 1/2` at
+every real `x`. -/
 theorem rt_small (hρ : 0 < ρ) (hK : DifferentiableOn ℂ K (complexStrip n ρ))
     (hKr : IsRealOnReals K) {I : Fin n → ℝ} {η : ℝ}
     (hη : ∀ θ ∈ complexStrip n ρ, ‖K θ - unperturbedTorus I θ‖ ≤ η)
@@ -141,7 +143,8 @@ theorem rt_immersion {k : (Fin n → ℝ) → (Fin n → ℝ) × (Fin n → ℝ)
     Function.Injective (fderiv ℝ k x) := by
   rw [injective_iff_map_eq_zero]
   intro v hv
-  have h1 := (ContinuousLinearMap.le_opNorm _ v).trans (mul_le_mul_of_nonneg_right h (norm_nonneg v))
+  have h1 := (ContinuousLinearMap.le_opNorm _ v).trans
+    (mul_le_mul_of_nonneg_right h (norm_nonneg v))
   simp only [_root_.sub_apply, ContinuousLinearMap.comp_apply, hv,
     ContinuousLinearMap.coe_id', id_eq, ContinuousLinearMap.coe_fst', Prod.fst_zero, zero_sub,
     norm_neg] at h1
