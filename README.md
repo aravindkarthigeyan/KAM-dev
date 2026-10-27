@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:01 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 19.0 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:04 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 19.0 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:01 UTC from `main` at `fa15db5` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:04 UTC from `main` at `060f2b3` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -262,7 +262,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | ✅ handed off | Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N Phase 0 done: statement draft 0.1 (N-HEAD quasi-convex Nekhoroshev, N-ZERO, N-QC); audit running | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P Phase 0 done: statement draft (P-G properly degenerate KAM, P-PLANAR, P-FIXED; spatial sketch); audit running | — | — |
-| **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Stability of almost every initial condition over shorter-than-Nekhoroshev times; compatibility with simulations; candidate theorems (Zohar's question) | — | — |
+| **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Collaborator's research question, round 2: longer horizons for most initial conditions, one best planetary statement with proof sketch, realistic-parameter feasibility (round 1: docs/explorations/almost-every-shorter-times.md) | — | — |
 | **review-p3** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 3 (G2) | — | — |
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | 🔄 working | Refute-first statement audit of track N drafts | — | — |
 | **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | 🔄 working | Refute-first statement audit of track P drafts | — | — |
@@ -276,6 +276,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:04 | `060f2b3` | Exploration round 1 of the collaborator's almost-every/shorter-time question; round 2 launched |
 | 2026-10-27 16:01 | `fa15db5` | Record D19: owner rulings on track I questions 1-5, as recommended |
 | 2026-10-27 15:56 | `4df9d8c` | Track I Phase 0: sources, statement draft, notes; statement audit running |
 | 2026-10-27 15:54 | `388f8c1` | Track P Phase 0: sources, statement draft, notes; statement audit running |
@@ -287,7 +288,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:37 | `6f73a2b` | Name both authors in the frozen and project file headers (D16) |
 | 2026-10-27 15:33 | `544042a` | Plan four parallel tracks; add Zohar Komargodski as author; pin new sources |
 | 2026-10-27 15:26 | `725e81c` | Start Phase 1: blueprint skeleton, package board, Diophantine bridge |
-| 2026-10-27 15:20 | `83b6e08` | HQ: credit the collaborator's Fourier and Diophantine infrastructure |
 <!-- /AUTO:landed -->
 
 ## Decisions
