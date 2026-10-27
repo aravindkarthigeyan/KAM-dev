@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 18:30 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 28.1 %** · frozen statements proved: 0 / 20 · **8,536 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 18:58 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 32.2 %** · frozen statements proved: 1 / 20 · **10,047 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,22 +53,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **28.1 %**
+### Estimated completion: **32.2 %**
 
-`███████░░░░░░░░░░░░░░░░░░` 28.1 %
+`████████░░░░░░░░░░░░░░░░░` 32.2 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
-| Statement and planning | 8 | 26 | 24.8 | `██████████` 95 % |
-| Analytic infrastructure | 8 | 24 | 3.4 | `█░░░░░░░░░` 14 % |
-| A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
-| Measure of the invariant tori | 5 | 12 | 0.2 | `░░░░░░░░░░` 2 % |
 | Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
-| Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 5.0 | `████░░░░░░` 42 % |
-| Track N (Nekhoroshev) | 4 | 22 | 6.4 | `███░░░░░░░` 29 % |
-| Track P (planetary) | 5 | 30 | 6.3 | `██░░░░░░░░` 21 % |
-| Sealing of the frozen statements | 20 | 20 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 60 | 175 | 49.1 | **28.1 %** |
+| Statement and planning | 8 | 26 | 24.8 | `██████████` 95 % |
+| Analytic infrastructure | 8 | 24 | 4.0 | `██░░░░░░░░` 17 % |
+| A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
+| Measure of the invariant tori | 5 | 12 | 2.0 | `██░░░░░░░░` 17 % |
+| Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 6.4 | `█████░░░░░` 53 % |
+| Track N (Nekhoroshev) | 4 | 22 | 8.0 | `████░░░░░░` 36 % |
+| Track P (planetary) | 5 | 30 | 7.3 | `██░░░░░░░░` 24 % |
+| Sealing of the frozen statements | 20 | 20 | 1.0 | `░░░░░░░░░░` 5 % |
+| **Total** | 60 | 175 | 56.4 | **32.2 %** |
 
 **How this is estimated.** The project is divided into 40 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -76,6 +76,10 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | ID | Item | Difficulty | Done | Note |
 |---|---|---|---|---|
+| I.REPO | Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint | L | ✅ 100 % |  |
+| I.HQ | Campaign HQ: this README, generator, 20-minute cron and post-commit hook | L | 🟨 80 % |  |
+| I.GUARDS | Freeze machinery: manifest, anchor guard, quarantine, kernel replay, mutation suite | M | 🟨 60 % | anchor guard (Unicode-aware), ABI hashes, lint; manual mutation tests pass (3/3); kernel replay and mutation suite to do |
+| I.BUILD | Shared build snapshot for worktrees and machine-wide compile gate | L | ⬜ 0 % |  |
 | S.SURVEY | Literature survey: candidate sources, prior formal work, Mathlib inventory | M | ✅ 100 % | three research reports (2026-10-27): sources, warm-ups and norms, prior formalizations |
 | S.SOURCES | Pinned source library: PDFs with SHA-256, bibliographic data checked against arXiv and Crossref | L | 🟨 85 % | 50 PDFs pinned in sources/SHA256SUMS; 20 in the registry; per-paper summaries still to write |
 | S.ROUTE | Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency) | H | 🟨 90 % | verdict: route works; rate ε^{1/4}; flow local uniqueness must be proved by us (no published version) |
@@ -87,7 +91,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | F.ALG | Weighted ℓ¹ Fourier algebra on ℤⁿ: Banach algebra, exp, derivatives, averages | H | 🟨 30 % | Zohar: weighted norm, derivative bound (period one), convolution summability and submultiplicativity (KAM/Fourier) |
 | F.FT | Fourier–Taylor algebra in (angles, actions); Cauchy estimates in the actions | H | ⬜ 0 % |  |
 | F.COMP | Composition f∘(id+u) and Taylor remainders in the weighted norms | H | ⬜ 0 % |  |
-| F.MAT | Matrix-valued functions: products, Neumann-series inverses, averages | M | 🟨 50 % | Zohar: quantitative matrix Neumann estimates (KAM/Matrix) |
+| F.MAT | Matrix-valued functions: products, Neumann-series inverses, averages | M | 🟨 80 % | Neumann (Zohar) + operator norms, matrix norms, real/holomorphic inverses (I-MAT, audited) |
 | F.BRIDGE | Bridge between real-analytic functions on complex strips and coefficient spaces | H | ⬜ 0 % |  |
 | F.DIOPH | Diophantine vectors; cohomological equation with Rüssmann's exponent | M | 🟨 60 % | Zohar: zero-average cohomological solver, uniqueness, small-divisor estimate, Lipschitz in ω (KAM/Diophantine); bridge to frozen KAM.IsDiophantine still to add |
 | F.NEWTON | Abstract Newton/KAM convergence on a scale of analytic spaces | M | ⬜ 0 % |  |
@@ -98,23 +102,19 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | K.UNIQ | Local uniqueness modulo phase for flows (no published version: adapt GJLV05 Thm 2, §6, §8) | VH | ⬜ 0 % |  |
 | M.APPLY | Invariant torus for every Diophantine frequency of a nearly-integrable Hamiltonian | M | ⬜ 0 % |  |
 | M.LIP | Lipschitz dependence of the tori on the frequency (re-application; defect O(ε/γ⁴)) | H | ⬜ 0 % |  |
-| M.DMEAS | Measure of the non-Diophantine frequencies | M | 🟨 10 % | P-G3 provider package running |
+| M.DMEAS | Measure of the non-Diophantine frequencies | M | ✅ 100 % | G3 SEALED (D26): KAM.volume_not_diophantine_le proved, audited, kernel-replayed |
 | M.IMAGE | McShane extension of F̂ − id and the lipeomorphism: the complement is the image of the complement | M | ⬜ 0 % |  |
 | M.ASSEMBLY | Assembly of the headline theorem | M | ⬜ 0 % |  |
-| I.REPO | Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint | L | ✅ 100 % |  |
-| I.HQ | Campaign HQ: this README, generator, 20-minute cron and post-commit hook | L | 🟨 80 % |  |
-| I.GUARDS | Freeze machinery: manifest, anchor guard, quarantine, kernel replay, mutation suite | M | 🟨 60 % | anchor guard (Unicode-aware), ABI hashes, lint; manual mutation tests pass (3/3); kernel replay and mutation suite to do |
-| I.BUILD | Shared build snapshot for worktrees and machine-wide compile gate | L | ⬜ 0 % |  |
 | I.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
-| I.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 13 % | blueprint-I: Parts 0-3 written and Part 1 revised after review; Parts 6-7 being written |
+| I.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 30 % | blueprint-I complete (Parts 0-3, 5-8: proofs of I-G1, I-HEAD, I-KEPLER, I-R3BP); review fix rounds in progress; next: dependency graph |
 | N.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
-| N.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 15 % | blueprint-N: Parts 0-5 written (shared ODE layer revised after review); Part 6 being written |
+| N.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 30 % | blueprint-N: Parts 0-8 written (shared ODE, norms, Lie maps, normal form, stability, resonance geometry); Part 9 (Poschel Thm 1) being written |
 | P.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
-| P.PROOF.PDKAM | Properly degenerate KAM: blueprint, graph, proofs | VH | 🟨 8 % | blueprint-P: Part 0, plan, Part 3 (two-scale KAM) written; Part 1 being written; Part 3 under review |
+| P.PROOF.PDKAM | Properly degenerate KAM: blueprint, graph, proofs | VH | 🟨 15 % | blueprint-P: Parts 0-3 written and revised (two-scale averaging and KAM); Parts 4-5 next |
 | P.PROOF.PLANAR | Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy | VH | 🟨 1 % | route decided: P-PLANAR via P-G + CP11 planar torsion; P-FIXED KAM gate blocked on pinning Russmann 2001 |
-| N.ADD.PHASE0 | N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze | M | 🟨 60 % | N-PARTIAL-CONVEX packet with the owner (docs/tracks/N/REVIEW-additions.md); N-AVERAGING deferred pending the AKN source |
+| N.ADD.PHASE0 | N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze | M | 🟨 80 % | N-PARTIAL-CONVEX approved and frozen (D25, 8 anchors); N-AVERAGING deferred pending the AKN source |
 | N.ADD.PROOF | N-PARTIAL-CONVEX and N-AVERAGING: blueprint, graph, proofs | VH | ⬜ 0 % |  |
-| P.ADD.PHASE0 | P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze | M | 🟨 80 % | approval packet with the owner (docs/tracks/P/REVIEW-additions.md) |
+| P.ADD.PHASE0 | P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze | M | ✅ 100 % | approved and frozen (D25): 38 anchors |
 | P.ADD.PROOF | P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: blueprint, graph, proofs | VH | ⬜ 0 % |  |
 
 </details>
@@ -125,28 +125,28 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **8,536** (4,692 excluding blank lines and comments) · **+8,536** since 2026-10-27 13:33 UTC |
+| On `main` now | **10,047** (5,794 excluding blank lines and comments) · **+10,047** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
 | **Estimated total at completion** | **≈ 40,000** |
-| Estimated still to write | ≈ 31,000 |
+| Estimated still to write | ≈ 30,000 |
 
 **How the size is estimated.** The estimate is a planning figure (infrastructure ≈ 12k, a-posteriori theorem ≈ 15k, measure layer ≈ 8k, interfaces ≈ 5k lines); it switches to a rate-based estimate once 8 weight units of Lean work are done. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 18:30 UTC from `main` at `5ea892d` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 18:58 UTC from `main` at `2c8e060` by `scripts/hq-status.py`.*
 
-**Current phase:** Statements frozen on all four tracks. Track K: blueprint and source dependency graph published (docs/graph/K/DEPGRAPH.md: 453 nodes, 1420 edges, 0 source gaps, fully reviewed); proof campaign starting (Sonnet provers, GPT-6.1-Sol medium auditors). Tracks I, N, P: Opus sub-orchestrator (D23): D25 additions being frozen, blueprints being written.
+**Current phase:** First seal: G3 (KAM.volume_not_diophantine_le) proved, audited, kernel-replayed (D26). Track K proof campaign: I-MAT landed; I-LIP in audit; I-STRIP-5 (several-variable analyticity) running. Tracks I, N, P: Opus sub-orchestrator; blueprints nearly complete (track I done), N-AVERAGING re-transcription from the pinned source.
 
-**Frozen statements proved: 0 / 20** · frozen definitions: 120
+**Frozen statements proved: 1 / 20** · frozen definitions: 120
 
-**Lean on `main`:** 173 modules · 8,536 lines · 126 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 178 modules · 10,047 lines · 207 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
-DRAFT_ANCHORS: 20 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexIsoenergeticDerivative.lean, KAM/Frozen/Nekhoroshev/Theorems/ZeroPerturbation.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean)
+DRAFT_ANCHORS: 19 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexIsoenergeticDerivative.lean, KAM/Frozen/Nekhoroshev/Theorems/ZeroPerturbation.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean)
 UNREGISTERED_SORRIES: 0
 DRAFT_IMPORT_VIOLATIONS: 0 (frozen-anchor guard, run at every landing)
-SEALED: 0 / 20
+SEALED: 1 / 20 (kam.volume_not_diophantine_le.v1)
 ```
 <!-- /AUTO:glance -->
 
@@ -181,7 +181,7 @@ The phase table below is track K's.
 | **kam.kam_positive_measure.v1** | Classical KAM Theorem, p. 6, at rate ε^{1/4} (D8, D9; ledger D-MEAS-1) | [`kam_positive_measure`](KAM/Frozen/Theorems/KamPositiveMeasure.lean) | ⬜ not yet | HEAD |
 | **kam.kam_positive_measure_qualitative.v1** | Classical KAM Theorem, p. 6 (D9 Q1: qualitative corollary) | [`kam_positive_measure_qualitative`](KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean) | ⬜ not yet | HEAD-Q |
 | **kam.local_uniqueness_flow.v1** | Theorem 2, p. 862 (template for flows; ledger D-UNIQ-1) | [`local_uniqueness_flow`](KAM/Frozen/Theorems/LocalUniquenessFlow.lean) | ⬜ not yet | G2 |
-| **kam.volume_not_diophantine_le.v1** | §1d, p. 5 | [`volume_not_diophantine_le`](KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean) | ⬜ not yet | G3 |
+| **kam.volume_not_diophantine_le.v1** | §1d, p. 5 | [`volume_not_diophantine_le`](KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean) | ✅ proved and sealed | G3 |
 | **iso.isoenergetic_kam.v1** | HL19 Theorem 3.6 and Remark 3.7, pp. 18–19 (statement.md §I-G1) | [`isoenergetic_kam`](KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean) | ⬜ not yet |  |
 | **iso.all_time_confinement.v1** | statement.md §I-HEAD (our deduction: KAM tori separate the energy surface) | [`all_time_confinement`](KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean) | ⬜ not yet |  |
 | **iso.kepler_bordered_det.v1** | statement.md §I-KEPLER (direct calculation) | [`kepler_bordered_det`](KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean) | ⬜ not yet |  |
@@ -254,13 +254,13 @@ flowchart BT
 | [`KAM/Frozen/`](KAM/Frozen) | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 140 | 6,528 | 20 |
 | [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 3 | 359 | 24 |
 | [`KAM/Diophantine/`](KAM/Diophantine) | Diophantine vectors, cohomological equation, measure of the Diophantine set | 5 | 543 | 35 |
-| [`KAM/Strip/`](KAM/Strip) | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 4 | 665 | 38 |
-| [`KAM/Matrix/`](KAM/Matrix) | Matrix-valued functions: Neumann series and inverse bounds | 1 | 145 | 9 |
+| [`KAM/Strip/`](KAM/Strip) | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 5 | 973 | 48 |
+| [`KAM/Matrix/`](KAM/Matrix) | Matrix-valued functions: Neumann series and inverse bounds | 3 | 762 | 54 |
 | `KAM/Newton/` *(not created yet)* | Abstract Newton/KAM convergence on analytic scales | 0 | 0 | 0 |
 | `KAM/Hamiltonian/` *(not created yet)* | Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits | 0 | 0 | 0 |
 | `KAM/APosteriori/` *(not created yet)* | A-posteriori KAM theorem at fixed frequency and local uniqueness | 0 | 0 | 0 |
-| `KAM/Measure/` *(not created yet)* | Lipschitz dependence on the frequency and the measure of the union of tori | 0 | 0 | 0 |
-| [`KAM/Provider/`](KAM/Provider) | One provider module per frozen theorem, where its proof is assembled | 20 | 296 | 0 |
+| [`KAM/Measure/`](KAM/Measure) | Lipschitz dependence on the frequency and the measure of the union of tori | 2 | 452 | 20 |
+| [`KAM/Provider/`](KAM/Provider) | One provider module per frozen theorem, where its proof is assembled | 20 | 430 | 6 |
 <!-- /AUTO:areas -->
 
 ## What the agents are doing now
@@ -278,18 +278,17 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
-| **prover-P-G3** `worktree /root/code/KAM-w-g3` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package P-G3 (docs/campaign/briefs/P-G3.md) | — | — |
-| **prover-I-MAT** `worktree /root/code/KAM-w-mat` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-MAT (docs/campaign/briefs/I-MAT.md) | — | — |
 | **prover-I-LIP** `worktree /root/code/KAM-w-lip` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-LIP (docs/campaign/briefs/I-LIP.md) | — | — |
 | **prover-I-STRIP-5** `worktree /root/code/KAM-w-strip5` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md) | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 2 |
+| **audit-I-LIP** `kam-audit-lip` | package audit (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Independent audit of package I-LIP | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 15 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Track N additions: draft v0.4 done (N-PARTIAL-CONVEX on an enlarged domain; N-AVERAGING deferred) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: v0.4 done; idle for owner-requested changes | — | — |
-| **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Refute-first blueprint reviews: Part 0 I/N, N p3, I p1 done (REVISE, fixes queued); now I p2, N p1-2 | — | — |
-| **bpI-p67** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track I blueprint Parts 6-7: I-KEPLER; Kepler fundamentals (shared with P), Delaunay chart, exact restricted Hamiltonian | — | — |
-| **bpN-p6** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N blueprint Part 6: Iterative Lemma and Normal Form Lemma (shared with P) | — | — |
-| **bpP-p1** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track P blueprint Part 1: torus transport, period and Diophantine conversions, Liouville | — | — |
-| **bprev-2** `inp-bprev-2` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Refute-first review of track-P blueprint parts (now Part 3, two-scale KAM) | — | — |
+| **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Refute-first blueprint reviews (I and N): now I Parts 6-7 and N Part 6 | — | — |
+| **bprev-2** `inp-bprev-2` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Refute-first blueprint reviews (P, and I Part 5: ACCEPT WITH FIXES): now P Part 2 and P Part 3 round 2 | — | — |
+| **bpI-p8** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track I blueprint Part 8: proof of I-R3BP; shared collision exclusion | — | — |
+| **bpN-p8** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N blueprint Part 8: geometry of resonances (lattice volumes, blocks, Geometric and Covering Lemmas) | — | — |
+| **bpN-p45-fix** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N blueprint Parts 4-5: review fixes (angular Cauchy estimate) | — | — |
 
 **Queued:** Dependency graph extraction for track K
 <!-- /AUTO:workers -->
@@ -299,18 +298,18 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
-| 2026-10-27 18:30 | `5ea892d` | HQ: track K proof campaign wave 1 running (four Sonnet provers) |
-| 2026-10-27 18:29 | `1079a73` | Track K proof campaign, wave 1: prover briefs and package claims (P-G3, I-MAT, I-LIP, I-STRIP-5) |
-| 2026-10-27 18:27 | `fa9d55a` | Land inp into main |
-| 2026-10-27 18:27 | `dcec16a` | Publish track K's source dependency graph: 453 nodes, 1420 edges, fully reviewed |
-| 2026-10-27 18:24 | `762235d` | Track K graph: global recheck PASS (all five roots, 0 gaps); final record fixes applied |
-| 2026-10-27 18:23 | `1ce921b` | D25: owner approves the track P additions and N-PARTIAL-CONVEX |
-| 2026-10-27 18:19 | `2f355ea` | Repair the ten blueprint source gaps found by the global graph review; graph gap-free |
-| 2026-10-27 18:16 | `7a0d052` | Track K graph: delta-2 and global reviews in; delta-2 fixes applied |
-| 2026-10-27 18:11 | `4475a0a` | Land inp into main |
-| 2026-10-27 18:10 | `4d3abbe` | Land inp into main |
-| 2026-10-27 18:07 | `36bbb49` | HQ: graph 415/454 reviewed; global review running |
-| 2026-10-27 18:06 | `59d3894` | Track K graph: delta reviews applied; 415/454 nodes and all coverage reviewed; global brief |
+| 2026-10-27 18:58 | `2c8e060` | HQ generator: sources without an arXiv id link their DOI (fixes the KeyError after pinning AKN06, Rus01, Rus05) |
+| 2026-10-27 18:58 | `dde9832` | Seal G3: KAM.volume_not_diophantine_le is proved (first sealed frozen theorem) |
+| 2026-10-27 18:51 | `3cdaf89` | Land k/mat into main |
+| 2026-10-27 18:50 | `1bde59b` | Land k/g3 into main |
+| 2026-10-27 14:48 | `5eb1e04` | Exploration: realistic KAM and bodies of finite size |
+| 2026-10-27 14:48 | `e38c03a` | Prove coefficient decay for periodic holomorphic functions on strips |
+| 2026-10-27 18:46 | `3dbc19a` | Land inp into main |
+| 2026-10-27 18:46 | `b691caf` | HQ: infrastructure items back in the main progress file; untrack scripts/__pycache__ |
+| 2026-10-27 18:45 | `0480788` | Package audit brief for the track K proof campaign |
+| 2026-10-27 18:37 | `bd2f002` | Pin Rüssmann's 2005 addendum (Rus05), supplied by the owner |
+| 2026-10-27 18:37 | `3396f00` | Pin the owner-supplied sources AKN06 (3rd ed.) and Rüssmann 2001; ignore sources/incoming/ |
+| 2026-10-27 18:35 | `9b28c4a` | Land inp into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
@@ -424,35 +423,38 @@ API or exact Crossref title matches. Registry: [`docs/sources.json`](docs/source
 | Key | Reference | arXiv | DOI | Role |
 |---|---|---|---|---|
 | HL19 | A. Haro, A. Luque, *A-posteriori KAM theory with optimal estimates for partially integrable systems*, J. Differential Equations (2019) | [1711.05515v1](https://arxiv.org/abs/1711.05515v1) | [10.1016/j.jde.2018.08.003](https://doi.org/10.1016/j.jde.2018.08.003) | Primary for the fixed-frequency a-posteriori theorem: Thm 3.1 (§3.2) with d = n, explicit constants in App. B |
-| GJLV05 | R. de la Llave, A. González, À. Jorba, J. Villanueva, *KAM theory without action-angle variables*, Nonlinearity 18 (2005) 855–895 | — | [10.1088/0951-7715/18/2/020](https://doi.org/10.1088/0951-7715/18/2/020) | A-posteriori theorem for flows (Thm 5, p. 865) and maps (Thm 1); local uniqueness for maps (Thm 2, p. 862; proof §6, pp. 883–885), the template for our flow version; automatic Lagrangian property (Lemma 19 / Prop. 18) |
-| CCdlL13 | R. Calleja, A. Celletti, R. de la Llave, *A KAM theory for conformally symplectic systems: efficient algorithms and their validation*, J. Differential Equations 255 (2013) 978–1049 | — | [10.1016/j.jde.2013.05.001](https://doi.org/10.1016/j.jde.2013.05.001) | Lipschitz dependence on the frequency by re-applying the a-posteriori theorem (Cor. 29–30, normalization (5.3)); pinned preprint mp_arc 11-188 |
+| GJLV05 | R. de la Llave, A. González, À. Jorba, J. Villanueva, *KAM theory without action-angle variables*, Nonlinearity 18 (2005) 855–895 | [doi:10.1088/0951-7715/18/2/020](https://doi.org/10.1088/0951-7715/18/2/020) | [10.1088/0951-7715/18/2/020](https://doi.org/10.1088/0951-7715/18/2/020) | A-posteriori theorem for flows (Thm 5, p. 865) and maps (Thm 1); local uniqueness for maps (Thm 2, p. 862; proof §6, pp. 883–885), the template for our flow version; automatic Lagrangian property (Lemma 19 / Prop. 18) |
+| CCdlL13 | R. Calleja, A. Celletti, R. de la Llave, *A KAM theory for conformally symplectic systems: efficient algorithms and their validation*, J. Differential Equations 255 (2013) 978–1049 | [doi:10.1016/j.jde.2013.05.001](https://doi.org/10.1016/j.jde.2013.05.001) | [10.1016/j.jde.2013.05.001](https://doi.org/10.1016/j.jde.2013.05.001) | Lipschitz dependence on the frequency by re-applying the a-posteriori theorem (Cor. 29–30, normalization (5.3)); pinned preprint mp_arc 11-188 |
 | Pos01 | J. Pöschel, *A lecture on the classical KAM theorem*, Proc. Symp. Pure Math. 69 (2001) 707–732 | [0908.2234v1](https://arxiv.org/abs/0908.2234v1) | — | Measure assembly: Prop. 1–2 (p. 11) with the Lipschitz (McShane) extension of App. B (p. 31); measure of Diophantine vectors (§1d, p. 5); pinned arXiv text is Version 1.3 (2009) |
 | BC17 | L. Biasco, L. Chierchia, *Explicit estimates on the measure of primary KAM tori*, Ann. Mat. Pura Appl. (2018) | [1612.01903v1](https://arxiv.org/abs/1612.01903v1) | [10.1007/s10231-017-0678-8](https://doi.org/10.1007/s10231-017-0678-8) | Measure assembly in phase space: §6.5–6.6, Lemmas 5–6 (arXiv pp. 15–18) |
 | FHL17 | J.-Ll. Figueras, A. Haro, A. Luque, *Rigorous computer assisted application of KAM theory: a modern approach*, Found. Comput. Math. 17 (2017) | [1601.00084v1](https://arxiv.org/abs/1601.00084v1) | [10.1007/s10208-016-9339-3](https://doi.org/10.1007/s10208-016-9339-3) | Explicit a-posteriori constants (Thm 2.5, maps); measure of Diophantine vectors (§4.1); Rüssmann estimates (§4.2) |
 | FdlLS09 | E. Fontich, R. de la Llave, Y. Sire, *Construction of invariant whiskered tori by a parameterization method. Part I: Maps and flows in finite dimensions*, J. Differential Equations 246 (2009) 3136–3213 | [0903.0311v1](https://arxiv.org/abs/0903.0311v1) | [10.1016/j.jde.2009.01.037](https://doi.org/10.1016/j.jde.2009.01.037) | Local uniqueness (Thm 3.14) and dependence on the frequency (§7.1) |
-| Vil17 | J. Villanueva, *A new approach to the parameterization method for Lagrangian tori of Hamiltonian systems*, J. Nonlinear Sci. 27 (2017) 495–530 | — | [10.1007/s00332-016-9342-5](https://doi.org/10.1007/s00332-016-9342-5) | Sharper a-posteriori theorem (Thm 2.6) with split error terms; pinned author copy |
+| Vil17 | J. Villanueva, *A new approach to the parameterization method for Lagrangian tori of Hamiltonian systems*, J. Nonlinear Sci. 27 (2017) 495–530 | [doi:10.1007/s00332-016-9342-5](https://doi.org/10.1007/s00332-016-9342-5) | [10.1007/s00332-016-9342-5](https://doi.org/10.1007/s00332-016-9342-5) | Sharper a-posteriori theorem (Thm 2.6) with split error terms; pinned author copy |
 | CK21 | L. Chierchia, C. E. Koudjinan, *V. I. Arnold's "global" KAM theorem and geometric measure estimates*, Regul. Chaotic Dyn. 26 (2021) | [2010.13243v1](https://arxiv.org/abs/2010.13243v1) | [10.1134/S1560354721010044](https://doi.org/10.1134/S1560354721010044) | Explicit measure estimates (cross-check of exponents and constants) |
 | Sal04 | D. A. Salamon, *The Kolmogorov–Arnold–Moser theorem*, Math. Phys. Electron. J. 10 (2004), Paper 3 | — | — | Single-torus theorem with explicit constants (Thm 1); cross-check |
 | Chi03 | L. Chierchia, *KAM lectures*, in: Dynamical Systems Part I, Pubbl. Cent. Ric. Mat. Ennio De Giorgi, SNS Pisa (2003) 1–56 | — | — | Configuration-space a-posteriori theorem (Thm 6) and weighted Fourier norms (App. B); scanned two-up PDF |
 | CF24 | L. Chierchia, I. Fascitiello, *Nineteen fifty-four: Kolmogorov's new "metrical approach" to Hamiltonian dynamics*, Regul. Chaotic Dyn. (2024) | [2402.00178v1](https://arxiv.org/abs/2402.00178v1) | [10.1134/S1560354724550021](https://doi.org/10.1134/S1560354724550021) | Faithful restatement of Kolmogorov's 1954 theorems (statement fidelity) |
-| Vil08 | J. Villanueva, *Kolmogorov theorem revisited*, J. Differential Equations 244 (2008) 2251–2276 | — | [10.1016/j.jde.2008.02.010](https://doi.org/10.1016/j.jde.2008.02.010) | Benchmarks γ ~ ε^{1/2} and action displacement O(ε/γ) (canonical route) |
+| Vil08 | J. Villanueva, *Kolmogorov theorem revisited*, J. Differential Equations 244 (2008) 2251–2276 | [doi:10.1016/j.jde.2008.02.010](https://doi.org/10.1016/j.jde.2008.02.010) | [10.1016/j.jde.2008.02.010](https://doi.org/10.1016/j.jde.2008.02.010) | Benchmarks γ ~ ε^{1/2} and action displacement O(ε/γ) (canonical route) |
 | FHL20 | J.-Ll. Figueras, A. Haro, A. Luque, *Effective bounds for the measure of rotations*, Nonlinearity 33 (2020) 700–741 | [1806.05517v1](https://arxiv.org/abs/1806.05517v1) | [10.1088/1361-6544/ab500d](https://doi.org/10.1088/1361-6544/ab500d) | Lipschitz tracking through the Newton scheme (Lemma 2.2, Thm 4.1); one-dimensional template |
 | Bou20b | A. Bounemoura, *Positive measure of KAM tori for finitely differentiable Hamiltonians*, J. Éc. polytech. Math. 7 (2020) 1113–1132 | [1812.03067v2](https://arxiv.org/abs/1812.03067v2) | [10.5802/jep.137](https://doi.org/10.5802/jep.137) | Graph-Lipschitz viewpoint for the measure step (Thm B) |
 | Bou20 | A. Bounemoura, *Some remarks on the classical KAM theorem, following Pöschel*, arXiv preprint (2020) | [2006.04453v1](https://arxiv.org/abs/2006.04453v1) | — | Reported flaw in Pos01 (ledger E-Pos01-2) |
 | Kou19 | C. E. Koudjinan, *Quantitative KAM normal forms and sharp measure estimates*, PhD thesis, Roma Tre (2019) | [1904.13062v1](https://arxiv.org/abs/1904.13062v1) | — | Corrected version of Pöschel's argument; sharp measure estimates |
 | Vano02 | J. Vano, *A Whitney–Zehnder implicit function theorem*, PhD thesis, University of Texas at Austin (2002) | — | — | Abstract Whitney-regularity implicit function theorem (mp_arc 02-276) |
-| Arn63 | V. I. Arnold, *Proof of a theorem of A. N. Kolmogorov on the invariance of quasi-periodic motions under small perturbations of the Hamiltonian*, Russian Math. Surveys 18(5) (1963) 9–36 | — | [10.1070/RM1963v018n05ABEH004130](https://doi.org/10.1070/RM1963v018n05ABEH004130) | Original positive-measure theorem (not downloaded) |
+| Arn63 | V. I. Arnold, *Proof of a theorem of A. N. Kolmogorov on the invariance of quasi-periodic motions under small perturbations of the Hamiltonian*, Russian Math. Surveys 18(5) (1963) 9–36 | [doi:10.1070/RM1963v018n05ABEH004130](https://doi.org/10.1070/RM1963v018n05ABEH004130) | [10.1070/RM1963v018n05ABEH004130](https://doi.org/10.1070/RM1963v018n05ABEH004130) | Original positive-measure theorem (not downloaded) |
 | Kol54 | A. N. Kolmogorov, *On the conservation of conditionally periodic motions under small perturbation of the Hamiltonian*, Dokl. Akad. Nauk SSSR 98 (1954) 527–530 | — | — | Original theorem (restated in CF24; not downloaded) |
-| CP11 | L. Chierchia, G. Pinzari, *The planetary N-body problem: symplectic foliation, reductions and invariant tori*, Invent. Math. 186 (2011) 1–77 | — | [10.1007/s00222-011-0313-z](https://doi.org/10.1007/s00222-011-0313-z) | Track P: properly degenerate KAM (Thm 11.1, pp. 50–51) and the spatial planetary theorem |
-| CP10 | L. Chierchia, G. Pinzari, *Properly-degenerate KAM theory (following V. I. Arnold)*, Discrete Contin. Dyn. Syst. Ser. S 3 (2010) 545–578 | — | [10.3934/dcdss.2010.3.545](https://doi.org/10.3934/dcdss.2010.3.545) | Track P: provider of CP11 Thm 11.1 (Thm 1.3); not yet obtained |
-| Fej04 | J. Féjoz, *Démonstration du « théorème d'Arnold » sur la stabilité du système planétaire (d'après Herman)*, Ergodic Theory Dynam. Systems 24 (2004) 1521–1582 | — | [10.1017/s0143385704000410](https://doi.org/10.1017/s0143385704000410) | Track P: Herman–Féjoz proof of Arnold's planetary theorem (revised version; erratum fejoz04_erratum.pdf) |
-| Arn63b | V. I. Arnold, *Small denominators and problems of stability of motion in classical and celestial mechanics*, Russian Math. Surveys 18(6) (1963) 85–191 | — | [10.1070/RM1963v018n06ABEH001143](https://doi.org/10.1070/RM1963v018n06ABEH001143) | Track P: Arnold's planetary theorem (not downloaded) |
+| CP11 | L. Chierchia, G. Pinzari, *The planetary N-body problem: symplectic foliation, reductions and invariant tori*, Invent. Math. 186 (2011) 1–77 | [doi:10.1007/s00222-011-0313-z](https://doi.org/10.1007/s00222-011-0313-z) | [10.1007/s00222-011-0313-z](https://doi.org/10.1007/s00222-011-0313-z) | Track P: properly degenerate KAM (Thm 11.1, pp. 50–51) and the spatial planetary theorem |
+| CP10 | L. Chierchia, G. Pinzari, *Properly-degenerate KAM theory (following V. I. Arnold)*, Discrete Contin. Dyn. Syst. Ser. S 3 (2010) 545–578 | [doi:10.3934/dcdss.2010.3.545](https://doi.org/10.3934/dcdss.2010.3.545) | [10.3934/dcdss.2010.3.545](https://doi.org/10.3934/dcdss.2010.3.545) | Track P: provider of CP11 Thm 11.1 (Thm 1.3); not yet obtained |
+| Fej04 | J. Féjoz, *Démonstration du « théorème d'Arnold » sur la stabilité du système planétaire (d'après Herman)*, Ergodic Theory Dynam. Systems 24 (2004) 1521–1582 | [doi:10.1017/s0143385704000410](https://doi.org/10.1017/s0143385704000410) | [10.1017/s0143385704000410](https://doi.org/10.1017/s0143385704000410) | Track P: Herman–Féjoz proof of Arnold's planetary theorem (revised version; erratum fejoz04_erratum.pdf) |
+| Arn63b | V. I. Arnold, *Small denominators and problems of stability of motion in classical and celestial mechanics*, Russian Math. Surveys 18(6) (1963) 85–191 | [doi:10.1070/RM1963v018n06ABEH001143](https://doi.org/10.1070/RM1963v018n06ABEH001143) | [10.1070/RM1963v018n06ABEH001143](https://doi.org/10.1070/RM1963v018n06ABEH001143) | Track P: Arnold's planetary theorem (not downloaded) |
 | BM11 | A. Bounemoura, J.-P. Marco, *Improved exponential stability for near-integrable quasi-convex Hamiltonians*, Nonlinearity 24 (2011) 97–112 | [1004.1014v2](https://arxiv.org/abs/1004.1014v2) | [10.1088/0951-7715/24/1/005](https://doi.org/10.1088/0951-7715/24/1/005) | Track N: quasi-convex Nekhoroshev, Thm 2.1, p. 5 (classical exponents at the endpoint) |
-| Pos93 | J. Pöschel, *Nekhoroshev estimates for quasi-convex Hamiltonian systems*, Math. Z. 213 (1993) 187–216 | — | [10.1007/BF03025718](https://doi.org/10.1007/BF03025718) | Track N: classical quasi-convex route (not yet obtained) |
+| Pos93 | J. Pöschel, *Nekhoroshev estimates for quasi-convex Hamiltonian systems*, Math. Z. 213 (1993) 187–216 | [doi:10.1007/BF03025718](https://doi.org/10.1007/BF03025718) | [10.1007/BF03025718](https://doi.org/10.1007/BF03025718) | Track N: classical quasi-convex route (not yet obtained) |
 | GCB16 | M. Guzzo, L. Chierchia, G. Benettin, *The steep Nekhoroshev's theorem*, Comm. Math. Phys. 342 (2016) 569–601 | [1403.6776v1](https://arxiv.org/abs/1403.6776v1) | [10.1007/s00220-015-2555-x](https://doi.org/10.1007/s00220-015-2555-x) | Track N (later): steep systems, Thm 1 |
 | BN18 | S. Barbieri, L. Niederman, *Sharp Nekhoroshev estimates for the three-body problem around periodic orbits*, arXiv preprint (2018) | [1810.05987v1](https://arxiv.org/abs/1810.05987v1) | — | Tracks N/P: planetary and restricted problems near periodic Kepler tori |
-| LG09 | J. Laskar, M. Gastineau, *Existence of collisional trajectories of Mercury, Mars and Venus with the Earth*, Nature 459 (2009) 817–819 | — | [10.1038/nature08096](https://doi.org/10.1038/nature08096) | Context: numerical instability of the observed Solar System |
-| CFG24 | J. Clarke, J. Féjoz, M. Guardia, *A counterexample to the theorem of Laplace–Lagrange on the stability of semimajor axes*, Arch. Ration. Mech. Anal. 248 (2024) | — | [10.1007/s00205-024-01960-6](https://doi.org/10.1007/s00205-024-01960-6) | Context: analytic instability in a hierarchical three-planet problem |
+| LG09 | J. Laskar, M. Gastineau, *Existence of collisional trajectories of Mercury, Mars and Venus with the Earth*, Nature 459 (2009) 817–819 | [doi:10.1038/nature08096](https://doi.org/10.1038/nature08096) | [10.1038/nature08096](https://doi.org/10.1038/nature08096) | Context: numerical instability of the observed Solar System |
+| CFG24 | J. Clarke, J. Féjoz, M. Guardia, *A counterexample to the theorem of Laplace–Lagrange on the stability of semimajor axes*, Arch. Ration. Mech. Anal. 248 (2024) | [doi:10.1007/s00205-024-01960-6](https://doi.org/10.1007/s00205-024-01960-6) | [10.1007/s00205-024-01960-6](https://doi.org/10.1007/s00205-024-01960-6) | Context: analytic instability in a hierarchical three-planet problem |
+| AKN06 | V. I. Arnold, V. V. Kozlov, A. I. Neishtadt, *Mathematical Aspects of Classical and Celestial Mechanics*, 3rd ed., Encyclopaedia of Mathematical Sciences 3, Springer (2006) | [doi:10.1007/978-3-540-48926-9](https://doi.org/10.1007/978-3-540-48926-9) | [10.1007/978-3-540-48926-9](https://doi.org/10.1007/978-3-540-48926-9) | N-AVERAGING: §6.1.9, Theorem 6.11 and Corollary 6.1, printed p. 243 (PDF page 254; printed page = PDF page - 11). Supplied by the owner 2026-10-27. |
+| Rus01 | H. Rüssmann, *Invariant tori in non-degenerate nearly integrable Hamiltonian systems*, Regul. Chaotic Dyn. 6(2) (2001) 119-204 (MR1843664) | [doi:10.1070/RD2001v006n02ABEH000169](https://doi.org/10.1070/RD2001v006n02ABEH000169) | [10.1070/RD2001v006n02ABEH000169](https://doi.org/10.1070/RD2001v006n02ABEH000169) | P-FIXED: the analytic weak-nondegeneracy KAM theorem, Theorem 1.7 (p. 127), cited by CP09 Thm 4. Its proof relies on the 2005 addendum, pinned as Rus05. Supplied by the owner 2026-10-27. |
+| Rus05 | H. Rüssmann, *Addendum to "Invariant tori in non-degenerate nearly integrable Hamiltonian systems", RCD 6(2) 2001*, Regul. Chaotic Dyn. 10(1) (2005) 21-31 | [doi:10.1070/RD2005v010n01ABEH000297](https://doi.org/10.1070/RD2005v010n01ABEH000297) | [10.1070/RD2005v010n01ABEH000297](https://doi.org/10.1070/RD2005v010n01ABEH000297) | Proves the theorem on approximation of periodic holomorphic functions by trigonometric polynomials that Rus01 relies on. Supplied by the owner 2026-10-27. |
 <!-- /AUTO:papers -->
 
 ## Prior and related formal work
