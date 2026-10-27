@@ -21,7 +21,8 @@ holomorphic on `T_ρ` (`ρ > 0`) with `K(T_ρ) ⊆ 𝔅` and `det G_K ≠ 0` on 
   `∂_ω(G⁻¹) = -G⁻¹ (∂_ω G) G⁻¹`.
 * `step:p4:tr-torsion`, (b), (c): `KAM.Head.normalFrame_regular` (`N` holomorphic, and the
   derivative term of the frozen torsion is `∂_ω N`), `KAM.Head.differentiableOn_linMat`
-  (`DX_H ∘ K` holomorphic) and `KAM.Head.torsion_regular` (`T = Nᵀ Ω₀ X_N` holomorphic, `⟨T⟩` the
+  (`DX_H ∘ K` holomorphic) and `KAM.Head.torsion_regular_of_isOpen` (`T = Nᵀ Ω₀ X_N` holomorphic,
+  `⟨T⟩` the
   integral of a continuous function).
 * `step:p4:tr-periodic`, (d): `KAM.Head.periodic_regular`, for `K` primary and `H` periodic in
   `θ`: the angle displacement, `v`, `L`, `G`, `N`, `T` are `ℤⁿ`-periodic on `T_ρ`.
