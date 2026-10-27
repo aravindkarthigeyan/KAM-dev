@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:51 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 24.5 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:53 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 24.5 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:51 UTC from `main` at `fa8f631` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:53 UTC from `main` at `f32337b` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.
 
@@ -260,12 +260,11 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | ✅ handed off | Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N v0.2: N-HEAD kept (F-N1 open) plus N-HEAD-C with complex Hessian bound and frequency lower bound (Poschel 1993 Thm 1) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P v0.2: all nine audit findings adopted (disc cylinder, diffeomorphism on W ⊇ closure V, boundary-layer guard) | — | — |
-| **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–2 done (docs/explorations/almost-every-*.md); round 3 refutation running | — | — |
+| **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | ✅ handed off | Track N delta audit v0.2: N-HEAD-C approvable; N-HEAD faithful with source gap F-N1 open | — | — |
 | **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ handed off | Track P delta audit v0.2: all statements APPROVABLE; P-G true as corrected | — | — |
 | **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Track I audit v0.1: all 4 theorems and 15 definitions APPROVABLE; minor fixes applied (author header, three source locators) | — | — |
 | **bp-p1** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Proofs of the 30 part-1 interface lemmas | — | — |
-| **round3-refute** | research referee | Claude Opus 5.5 | claude-1 | 🔄 running | Round 3: refute-first check of the round-2 planetary claims (P-EXP-SAFE, secular box, averaging corrections) | — | — |
 
 **Queued:** Owner approval: track I (claude.ai/artifact/5B9odMattAPViUVYUgNPDK), track P (claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1), track N (claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H) · Blueprint consolidation (p2/p3 shared geometry, p3 copies, stale request sections; reviews p2 and p3) · Dependency graph extraction for track K
 <!-- /AUTO:workers -->
@@ -275,6 +274,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:53 | `f32337b` | Exploration round 3 (independent refutation): P-EXP-SAFE confirmed with corrections (Nekhoroshev 1977 Thm 12.3; source exponents), secular box and averaging correction confirmed; proposed milestones recorded |
 | 2026-10-27 16:51 | `fa8f631` | Track N delta audit v0.2: N-HEAD-C approvable; review pages for tracks I, N, P await owner approval |
 | 2026-10-27 16:41 | `34dbf4d` | Packages: I-STRIP-5 (several-variable holomorphic implies analytic) opened; Zohar's I-STRIP-4 credited |
 | 2026-10-27 16:41 | `da61a77` | Blueprint Part 4 review: ACCEPT WITH FIXES; major F1 (several-variable holomorphic implies analytic) becomes a Part 1 lemma and package I-STRIP-5 |
@@ -286,7 +286,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 16:24 | `42c831a` | Blueprint Part 2 review: ACCEPT WITH FIXES (minor only); E-HL19-7 reclassified; track I review page published |
 | 2026-10-27 16:23 | `6d0dfa8` | Track I statement audit v0.1: all statements approvable; minor locator corrections applied |
 | 2026-10-27 16:23 | `073dee6` | Blueprint Part 4: G3, HEAD and HEAD-Q from G1 and G2, complete proof |
-| 2026-10-27 16:15 | `ddec667` | Track N statement audit v0.1: approvable with changes; source gap F-N1 (uniformity in h needs a complex Hessian bound); revision v0.2 under way |
 <!-- /AUTO:landed -->
 
 ## Decisions
