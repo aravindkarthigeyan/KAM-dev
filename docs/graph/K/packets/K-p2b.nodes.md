@@ -1224,9 +1224,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L972-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.iteration (def KAM.Apost.kamSeq)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:it-sums
@@ -1254,9 +1254,9 @@ EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L1001-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.sums_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:it-stepsmall
@@ -1284,9 +1284,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.stepsmall_seq
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:it-base
@@ -1311,9 +1311,9 @@ EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L101
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.stage_zero
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:it-step
@@ -1342,9 +1342,9 @@ EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1023-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.stage_succ
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:limit
