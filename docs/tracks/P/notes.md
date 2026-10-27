@@ -1,4 +1,12 @@
-# Track P notes and Phase 0 handoff
+# Track P notes and Phase 0 handoff — historical v0.1
+
+**Superseded for current contracts and checks.** The independent v0.1 audit refuted
+P-G and extended the source-errata findings. This file preserves the original handoff
+and its historical validation output, which did not establish statement truth.
+Use [statement.md](statement.md) for v0.2 and [RESPONSE-v0.1.md](RESPONSE-v0.1.md)
+for all P1–P9 changes, current checks, corrected domain/uniformity assumptions and
+source-proof obligations. In particular the factor-four restriction and the old
+rectangular P-G domain are withdrawn; the old line counts below describe v0.1.
 
 27 October 2026. Four deliverables completed as a **statement-review packet**. This is
 not owner approval, a freeze, a theorem proof or a provider receipt.

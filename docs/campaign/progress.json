@@ -53,8 +53,8 @@
    "id": "S.BP",
    "title": "Blueprint: every proof step written out against the pinned sources",
    "difficulty": "VH",
-   "done": 0.5,
-   "note": "p0, p1 interface (with transfers), p2 (G1, 1323 lines), p3 (G2, 830 lines) written; p4 being written; p2, p3 in review"
+   "done": 0.7,
+   "note": "all parts drafted (p2, p3, p4 complete; p1 interface of 30 lemmas, proofs being written); p3 review passed with fixes; p2, p4 reviews running"
   },
   {
    "group": "Statement and planning",

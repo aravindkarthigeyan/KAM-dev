@@ -50,7 +50,7 @@
    "kind": "typo",
    "evidence": "context of the measure estimate",
    "status": "CANDIDATE",
-   "checked_by": "measure-layer research 2026-10-27 (unverified by writer/verifier)",
+   "checked_by": "research survey; confirmed against the pinned PDF by the blueprint Part 4 writer 2026-10-27 (independent verifier pending)",
    "effect": "none"
   },
   {
@@ -134,7 +134,7 @@
    "type": "deviation",
    "source": "Pos01",
    "location": "Theorem (p. 6), Prop. 1–2 (p. 11)",
-   "claim": "Rate: our route proves meas(complement) ≤ C·ε^{1/4} (γ ~ ε^{1/4}), not Pöschel's O(√ε); the measure step applies the McShane extension of App. B to F̂ − id in frequency coordinates",
+   "claim": "Rate: our route proves meas(complement) ≤ C·ε^{1/4} (γ ~ ε^{1/4}), not Pöschel's O(√ε); the measure step applies the McShane extension of App. B to F̂ − id in frequency coordinates; in the proof the tori are parameterized by actions (not frequencies), so ∇h(B) needs no regular boundary (blueprint Part 4, V1–V2)",
    "kind": "scope (weaker rate)",
    "status": "PLANNED",
    "effect": "the headline's exponent is 1/4 (owner question Q1)"
@@ -176,7 +176,7 @@
    "type": "deviation",
    "source": "CCdlL13",
    "location": "Cor. 29–30",
-   "claim": "Lipschitz dependence on the frequency by re-applying the a-posteriori theorem at a nearby frequency (CCdlL13 template), with the error estimate ‖E′‖ ≲ (ε + ‖K_ω − K⁰_ω‖_{C¹})·|ω − ω′| and Lipschitz defect O(ε/γ⁴)",
+   "claim": "Lipschitz dependence on the frequency by re-applying the a-posteriori theorem at a nearby frequency (CCdlL13 template), with the error estimate ‖E′‖ ≲ (ε + ‖K_ω − K⁰_ω‖_{C¹})·|ω − ω′| and Lipschitz defect O(ε/γ⁴); refinements: stability always relative to the unperturbed torus, phase controlled by the average normalization, far pairs above λ_*γ² (blueprint Part 4, V3)",
    "kind": "proof supplement",
    "status": "PLANNED",
    "effect": "explicit constants of our own"
@@ -320,6 +320,42 @@
    "status": "CANDIDATE",
    "checked_by": "blueprint Part 2 writer 2026-10-27 (to be re-verified)",
    "effect": "none on G1; our proof gives μ/2 margins on the strip"
+  },
+  {
+   "id": "E-Pos01-4",
+   "type": "erratum",
+   "source": "Pos01",
+   "location": "p. 6, after the definition of Ω_α",
+   "printed": "\"or at least of dimension n − 1 so that the measure of a boundary layer of size α is O(α)\"",
+   "claim": "Hausdorff dimension n − 1 of the boundary does not give O(α) boundary layers. Counterexample: n = 1, Ω = (0,1) ∖ {1/k : k ≥ 1}: the boundary has dimension 0 but the inner α-layer has measure ≳ √α. The right condition is finite upper Minkowski content, or a layer bound as in our HEAD",
+   "kind": "false as stated",
+   "evidence": "the counterexample",
+   "status": "CANDIDATE",
+   "checked_by": "blueprint Part 4 writer 2026-10-27 (to be re-verified)",
+   "effect": "none; HEAD assumes the layer bound directly"
+  },
+  {
+   "id": "E-Pos01-5",
+   "type": "erratum",
+   "source": "Pos01",
+   "location": "p. 11, proof of Prop. 2",
+   "printed": "≤ |ϕ̄|_{L,Ω} m(Ω − Ω_α)",
+   "claim": "the Lipschitz constant must be raised to the power n (Lipschitz maps scale n-dimensional measure by L^n; compare BC17 footnote 32)",
+   "kind": "wrong constant",
+   "evidence": "scaling of Lebesgue measure under Lipschitz maps",
+   "status": "CANDIDATE",
+   "checked_by": "blueprint Part 4 writer 2026-10-27 (to be re-verified)",
+   "effect": "none; our measure lemma uses Λ^d"
+  },
+  {
+   "id": "D-LAG-1",
+   "type": "deviation",
+   "source": "HL19",
+   "location": "§2.2, p. 7, eq. (2.3)",
+   "claim": "Proof supplement: the isotropy (Lagrangian property) of invariant tori with nonresonant frequency, asserted as well known, is proved in blueprint Part 4 (lemma lagrangian), citing GJLV05 Lemma 19",
+   "kind": "proof supplement",
+   "status": "PLANNED",
+   "effect": "none on statements"
   }
  ]
 }

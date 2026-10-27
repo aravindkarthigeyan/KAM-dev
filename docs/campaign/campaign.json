@@ -1,5 +1,5 @@
 {
- "current_phase": "Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).",
+ "current_phase": "Track K Phase 1: all blueprint parts drafted (p2 G1 1323 lines, p3 G2 830, p4 measure 1482); p3 review ACCEPT WITH FIXES; p2 and p4 reviews and the part-1 proofs running; then consolidation and graph extraction. Tracks I, N, P: statement audits and revisions.",
  "workers": [
   {
    "id": "orchestrator",
@@ -20,31 +20,13 @@
    "state": "active"
   },
   {
-   "id": "bp-g1",
-   "kind": "blueprint writer",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1",
-   "session": null,
-   "assignment": "Blueprint part 2 (G1) written: 1323 lines, 29 results, 91 steps; in review",
-   "state": "done"
-  },
-  {
-   "id": "bp-g2",
-   "kind": "blueprint writer",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1",
-   "session": null,
-   "assignment": "Blueprint part 3 (G2) written: 830 lines, complete proof; in review",
-   "state": "done"
-  },
-  {
    "id": "bp-meas",
    "kind": "blueprint writer",
    "model": "Claude Opus 5.5",
    "account": "claude-1",
    "session": null,
-   "assignment": "Blueprint part 4: G3, APPLY, STAB, LIP, McShane and measure, HEAD, HEAD-Q",
-   "state": "running"
+   "assignment": "Blueprint part 4 (G3, HEAD, HEAD-Q) written: 1482 lines; in review",
+   "state": "done"
   },
   {
    "id": "track-I",
@@ -116,6 +98,24 @@
    "account": "claude-1",
    "session": null,
    "assignment": "Refute-first review of blueprint part 2 (G1)",
+   "state": "running"
+  },
+  {
+   "id": "review-p4",
+   "kind": "blueprint reviewer",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Refute-first review of blueprint part 4",
+   "state": "running"
+  },
+  {
+   "id": "bp-p1",
+   "kind": "blueprint writer",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Proofs of the 30 part-1 interface lemmas",
    "state": "running"
   }
  ],

@@ -13,11 +13,11 @@ Locations refer to the pinned versions in [`sources.json`](sources.json); counts
 
 | Source | Errata | Deviations |
 |---|---|---|
-| Pos01 (arXiv:0908.2234v1) | 3 (3 candidate) | 2 |
+| Pos01 (arXiv:0908.2234v1) | 5 (5 candidate) | 2 |
 | GJLV05 (doi:10.1088/0951-7715/18/2/020) | 5 (5 candidate) | 1 |
 | FdlLS09 (arXiv:0903.0311v1) | 2 (2 candidate) | 0 |
 | CCdlL13 (doi:10.1016/j.jde.2013.05.001) | 1 (1 candidate) | 1 |
-| HL19 (arXiv:1711.05515v1) | 7 (7 candidate) | 3 |
+| HL19 (arXiv:1711.05515v1) | 7 (7 candidate) | 4 |
 
 ## Pos01 (arXiv:0908.2234v1)
 
@@ -26,11 +26,13 @@ Locations refer to the pinned versions in [`sources.json`](sources.json); counts
 1. **p. 29 (arXiv v1.3), footnote to Lemma A.2.** *missing hypothesis; CANDIDATE* (E-Pos01-1). Printed: (print version, PSPUM 69) condition Kσ ≥ 1 absent. missing hypothesis: the condition Kσ ≥ 1 is missing in the printed version; the author's own footnote in arXiv v1.3 says so and the pinned arXiv version contains it. Evidence: author's footnote, arXiv v1.3 p. 29. Effect: none on the pinned version; relevant only if the measure layer uses Pöschel's Appendix A.
 2. **p. 23 (arXiv v1.3), choice of h₀ and K₀ in the proof of Theorem A.** *gap; CANDIDATE* (E-Pos01-2). Printed: (to be quoted from the pinned PDF). the choices of h₀ and K₀ violate h₀ ≤ α(2K₀^ν)⁻¹ (Bou20, footnote 1); Kou19 Rem. 2.1.5(4), p. 28: 'Theorem A and B are not valid for ν = τ+1' with that proof; Bou20 restores Theorem A as stated by Rüssmann approximation and a linear scheme. Evidence: Bou20 (arXiv:2006.04453v1) footnote 1; Kou19 (arXiv:1904.13062v1) Rem. 2.1.5(4). Effect: relevant only if the measure layer follows Pöschel's proof.
 3. **p. 13 (arXiv v1.3), measure statement after Theorem A.** *typo; CANDIDATE* (E-Pos01-3). Printed: "measure of Ωα × Tn". should be the measure of (Ω ∖ Ωα) × Tⁿ. Evidence: context of the measure estimate. Effect: none.
+4. **p. 6, after the definition of Ω_α.** *false as stated; CANDIDATE* (E-Pos01-4). Printed: "or at least of dimension n − 1 so that the measure of a boundary layer of size α is O(α)". Hausdorff dimension n − 1 of the boundary does not give O(α) boundary layers. Counterexample: n = 1, Ω = (0,1) ∖ {1/k : k ≥ 1}: the boundary has dimension 0 but the inner α-layer has measure ≳ √α. The right condition is finite upper Minkowski content, or a layer bound as in our HEAD. Evidence: the counterexample. Effect: none; HEAD assumes the layer bound directly.
+5. **p. 11, proof of Prop. 2.** *wrong constant; CANDIDATE* (E-Pos01-5). Printed: ≤ |ϕ̄|_{L,Ω} m(Ω − Ω_α). the Lipschitz constant must be raised to the power n (Lipschitz maps scale n-dimensional measure by L^n; compare BC17 footnote 32). Evidence: scaling of Lebesgue measure under Lipschitz maps. Effect: none; our measure lemma uses Λ^d.
 
 ### Deviations
 
 1. **whole proof.** *different proof route; PLANNED* (D-ROUTE-1). Proof route: the tori are obtained from an a-posteriori fixed-frequency KAM theorem (parameterization method, no canonical changes of variables) applied at each Diophantine frequency, not by Pöschel's iteration of symplectic transformations. Effect: no effect on the statement; recorded for readers comparing the proofs.
-2. **Theorem (p. 6), Prop. 1–2 (p. 11).** *scope (weaker rate); PLANNED* (D-MEAS-1). Rate: our route proves meas(complement) ≤ C·ε^{1/4} (γ ~ ε^{1/4}), not Pöschel's O(√ε); the measure step applies the McShane extension of App. B to F̂ − id in frequency coordinates. Effect: the headline's exponent is 1/4 (owner question Q1).
+2. **Theorem (p. 6), Prop. 1–2 (p. 11).** *scope (weaker rate); PLANNED* (D-MEAS-1). Rate: our route proves meas(complement) ≤ C·ε^{1/4} (γ ~ ε^{1/4}), not Pöschel's O(√ε); the measure step applies the McShane extension of App. B to F̂ − id in frequency coordinates; in the proof the tori are parameterized by actions (not frequencies), so ∇h(B) needs no regular boundary (blueprint Part 4, V1–V2). Effect: the headline's exponent is 1/4 (owner question Q1).
 
 
 ## GJLV05 (doi:10.1088/0951-7715/18/2/020)
@@ -68,7 +70,7 @@ None.
 
 ### Deviations
 
-1. **Cor. 29–30.** *proof supplement; PLANNED* (D-LIP-1). Lipschitz dependence on the frequency by re-applying the a-posteriori theorem at a nearby frequency (CCdlL13 template), with the error estimate ‖E′‖ ≲ (ε + ‖K_ω − K⁰_ω‖_{C¹})·|ω − ω′| and Lipschitz defect O(ε/γ⁴). Effect: explicit constants of our own.
+1. **Cor. 29–30.** *proof supplement; PLANNED* (D-LIP-1). Lipschitz dependence on the frequency by re-applying the a-posteriori theorem at a nearby frequency (CCdlL13 template), with the error estimate ‖E′‖ ≲ (ε + ‖K_ω − K⁰_ω‖_{C¹})·|ω − ω′| and Lipschitz defect O(ε/γ⁴); refinements: stability always relative to the unperturbed torus, phase controlled by the average normalization, far pairs above λ_*γ² (blueprint Part 4, V3). Effect: explicit constants of our own.
 
 
 ## HL19 (arXiv:1711.05515v1)
@@ -88,3 +90,4 @@ None.
 1. **§3.1 (analytic functions and norms).** *convention / reformulation; PLANNED* (D-NORM-1). Estimates are carried out in weighted ℓ¹ Fourier(–Taylor) coefficient norms instead of sup norms on complex strips; hypotheses are stated for real-analytic functions and converted once at the interface. Effect: constants differ from the printed ones; the frozen statements carry their own explicit constants or are qualitative.
 2. **§2 (Hamiltonian systems and invariant tori).** *specialization; PLANNED* (D-COORD-1). Phase space Tⁿ × B is represented in coordinates: angles in ℝⁿ with ℤⁿ-periodicity, actions in an open set of ℝⁿ (no manifold structure, no general symplectic form). Effect: the general exact-symplectic setting of the source is specialized to the standard form on Tⁿ × ℝⁿ.
 3. **Theorem 3.1, pp. 16–18; App. B (5.74)–(5.77).** *reformulation (uniform constants); PLANNED* (D-G1-1). Uniform constants: C₁, C₂ depend only on n, τ, ρ, ρ∞, a bound M for the Hamiltonian's derivatives, σK, σB, σT, a margin μ (gaps σ − ‖·‖ and distance to the boundary) and an upper bound γbar ≥ γ (App. B's constants increase with γ; without γbar the statement is false: machine-checked counterexample). Dropped hypotheses implied up to 2n factors: σ_{Kᵀ}, c_{X_hᵀ,1}; first integrals and the estimate on ⟨c∘K∞⟩ not transcribed. Pointwise operator norms on the open strip instead of sums of sups on the closed strip. Conclusion strengthened to explicit margins (μ/2) and ≤ in the closeness bound (cf. E-HL19-1). Same uniformization in our G2, where no γbar is needed: invariance with H2–H3 bounds |ω|, hence γ; note: the hypotheses bound the frequency, γ ≤ |ω| ≤ 2nσ_Kσ_B(M + e), so γ̄ is needed only because the smallness condition alone does not bound e (Part 2 uses γ̄ once, to force e ≤ 1). Effect: G1 as drafted v0.2; G2.
+4. **§2.2, p. 7, eq. (2.3).** *proof supplement; PLANNED* (D-LAG-1). Proof supplement: the isotropy (Lagrangian property) of invariant tori with nonresonant frequency, asserted as well known, is proved in blueprint Part 4 (lemma lagrangian), citing GJLV05 Lemma 19. Effect: none on statements.

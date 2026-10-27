@@ -20,7 +20,8 @@ $u$ with the norms of Part~\ref{bp:p0}.
 \begin{lemma}[Cauchy estimate on open sets]\label{bp:p1:cauchy-open}
 Let $f$ be holomorphic on an open $U\subset\C^m$ with $\abs f\le A$ on $U$, and let the closed
 polydisc of radius $\delta$ around $z$ lie in $U$. Then $\abs{\partial_\ell f(z)}\le A/\delta$, and
-$\abs{D^jf(z)}\le c(m,j)A\delta^{-j}$ for $j=1,2,3$.
+$\abs{D^jf(z)}\le c(m,j)A\delta^{-j}$ for $j=1,2,3$, where $D^j$ is the iterated Fréchet derivative and
+$\abs{\cdot}$ its operator norm (Lean \Lean{iteratedFDeriv}).
 \end{lemma}
 
 \subsection{Fourier coefficients of periodic holomorphic functions}
@@ -144,6 +145,47 @@ $A(\theta)^{-1}$.
 \begin{lemma}[Uniform limits]\label{bp:p1:uniform-limits}
 If $K_s$ are holomorphic on an open set and $K_s\to K$, $DK_s\to\Lambda$ uniformly there, then $K$ is holomorphic and
 $DK=\Lambda$; primary periodicity and realness on reals pass to the limit.
+\end{lemma}
+
+\subsection{Further interface lemmas (transferred from Part 4, 27 Oct 2026)}
+
+\begin{lemma}[Second-derivative Cauchy estimate on strips]\label{bp:p1:cauchy-strip-2}
+For $u$ holomorphic and bounded on $T_\rho$ and $0<\delta<\rho$: $\norm{D^2u}_{\rho-\delta}\le c(n)\delta^{-2}\norm u_\rho$.
+\end{lemma}
+
+\begin{lemma}[Translation invariance of averages]\label{bp:p1:periodic-average}
+For $v$ continuous and $1$-periodic on $\R^n$ and $a\in\R^n$: $\avg{v(\cdot+a)}=\avg v$. (Proved as \texttt{bp:p4:periodic-average}.)
+\end{lemma}
+
+\begin{lemma}[Real restriction]\label{bp:p1:real-restriction}
+If $K$ is holomorphic on $T_\rho$ and real on reals, its restriction to $\R^n$ is real-analytic, and its real derivative is
+the restriction of its complex derivative. (Proved as \texttt{bp:p4:real-restriction}.)
+\end{lemma}
+
+\begin{lemma}[Real and complex Hamiltonian fields]\label{bp:p1:hamiltonian-real}
+If $h$ is holomorphic near a real point $z$ and real on real points, then $X_{\operatorname{Re}h}(z)=X_h(z)$, and
+$X_\varphi=J\,D\varphi^\top$ in the frozen conventions. (Proved as \texttt{bp:p4:hamiltonian-real}.)
+\end{lemma}
+
+\begin{lemma}[Mixed second differences]\label{bp:p1:mixed-difference}
+For $F$ holomorphic on a convex open set with $\abs{D^2F}\le A$:
+$\abs{F(z+v+w)-F(z+v)-F(z+w)+F(z)}\le A\abs v\abs w$. (Proved as \texttt{bp:p4:mixed-difference}.)
+\end{lemma}
+
+\begin{lemma}[Lipschitz images and preimages]\label{bp:p1:lip-image}
+A $\Lambda$-Lipschitz map on $\R^d$ (max norm) multiplies outer Lebesgue measure by at most $\Lambda^d$; the preimage of a
+null set under a map with Lipschitz inverse is null. (Proved as \texttt{bp:p4:lip-image}, \texttt{bp:p4:preimage-measure}.)
+\end{lemma}
+
+\begin{lemma}[McShane extension]\label{bp:p1:mcshane}
+A $\Lambda$-Lipschitz map from a subset of a metric space to $\R^d$ with the max norm extends to a $\Lambda$-Lipschitz map on
+the whole space; it can be clamped to keep a given sup bound. (Mathlib \Lean{LipschitzOnWith.extend\_pi}; proved as
+\texttt{bp:p4:mcshane}.)
+\end{lemma}
+
+\begin{lemma}[Lipeomorphisms]\label{bp:p1:lipeo}
+If $G:\R^d\to\R^d$ is $\lambda$-Lipschitz with $\lambda<1$, then $\mathrm{id}+G$ is a bi-Lipschitz bijection of $\R^d$.
+(Proved as \texttt{bp:p4:lipeo}.)
 \end{lemma}
 
 \subsection{Diophantine frequencies}

@@ -153,8 +153,9 @@ translation require a dedicated packet; see notes.md.
    Local pin: `sources/incoming-N/poschel1993_gdz.pdf`.
    SHA-256: `27568ec63af069ab6d6c02e0327aa2d822998be47888f20dea0c6418552dc869`.
    This is the journal scan, not the unavailable author copy. Its article pages have no extractable text.
-   No original theorem number or wording is relied upon here; BM11's attribution of its Theorem 3.1
-   to Pöschel's Theorem 3 is a secondary locator, **[unverified against the original]**.
+   In v0.1 no original theorem wording was relied upon. In v0.2, printed pp. 189–192 and
+   206–207 have been visually checked: Theorem 1 is on pp. 190–191, the Normal Form Lemma on p. 192,
+   and Theorem 3 on pp. 206–207. See the precise source-line anchors and transcription below.
 2. Pierre Lochak, *Canonical perturbation theory via simultaneous approximation*, Russian Mathematical
    Surveys **47(6)** (1992), 57–133,
    [DOI 10.1070/RM1992v047n06ABEH000965](https://doi.org/10.1070/RM1992v047n06ABEH000965).
@@ -167,3 +168,112 @@ translation require a dedicated packet; see notes.md.
 
 No statement depends on an unavailable historical PDF. New source downloads, if obtained, belong only to
 `sources/incoming-N/`; no shared source registry or manifest is modified by this packet.
+
+## v0.2 direct Pöschel source audit and source-line anchors
+
+The journal scan above is now a primary source for the **separate** N-HEAD-C proposal. Its SHA-256 was
+rechecked unchanged. Printed pp. 189–192 and 206–207 were read visually in the audit's rendered pages
+`.drafts/N/audit-scratch/Pos-04.png` through `Pos-07.png`, `Pos-21.png`, and `Pos-22.png`.
+The scan has no numbered lines or equation numbers in these passages. The following identifiers name
+specific printed lines/displays, not invented source line numbers. PDF page = printed page − 185.
+
+| Anchor | Exact location and source text/display | Input or obligation |
+|---|---|---|
+| POS189-DOM | p. 189, §1 “Set up”, last two paragraphs: `V_{r₀,s₀}P = V_{r₀}P × W_{s₀}Tⁿ`; `V_r D := {I : ‖I−D‖ < r}`; `Tⁿ = ℝⁿ/2πℤⁿ` | Fixed complex width; Euclidean action distance, 2π-periodic angles. |
+| POS190-NORM | p. 190, first two norm displays: `|f_ε|_{P,r₀,s₀} ≤ ε`; `|u|_{D,r,s} = sup_{I∈V_rD} Σ_k |u_k(I)| e^{|k|s}` | Perturbation size in the weighted Fourier norm. |
+| POS190-BRIDGE | p. 190, display immediately before “The Hessian”: sup norm ≤ weighted norm ≤ `cothⁿ σ` times the sup norm at width `s+2σ` | Pays the strip-sup to Fourier-norm conversion by a fixed width loss. |
+| POS190-HESS | p. 190, “The Hessian of the integrable hamiltonian h”, next two displays: `Q(I)=∂²_Ih(I)` and `sup_{I∈V_{r₀}P} ‖Q(I)‖ ≤ M < ∞` | A uniform **complex** Euclidean operator-norm bound. This is the new Mcomplex input after norm conversion. |
+| POS190-QC | p. 190, “More generally”, final display before Theorem 1: `|⟨ω(I),ξ⟩| > l‖ξ‖` or `⟨Q(I)ξ,ξ⟩ ≥ m‖ξ‖²`, for every real ξ and I∈U_{r₀}P | Uniform quantitative quasi-convexity. It is derived below, not assumed as a normal-form conclusion. |
+| POS190-T1 | p. 190, Theorem 1, smallness and concluding displays: `ε₀ = mr₀²/(2¹⁰A^{2n})`, `r₀ ≤ 4l/m`, `A=11M/m`; action and time estimates below | Classical exponent and admissible radius; these auxiliary quantities must be chosen from fixed parameters. |
+| POS191-LOW | p. 191, first line continuing Theorem 1: “except when ‖ω(I₀)‖ ≤ mr₀/8 in which case ‖I(t)−I₀‖ ≤ r₀ for all t” | The printed low-frequency branch gives a fixed radius, not the requested ε^{1/(2n)} radius. A fixed frequency lower bound excludes this branch for the selected direct route. |
+| POS191-TIME | p. 191, first two displays: `a=1/(2n)`, `R₀=r₀/A`, `T₀=A²s₀/Ω₀`, `Ω₀ = sup_{‖I−I₀‖≤R₀} ‖ω(I)‖` | A uniform frequency **upper** bound is also needed for a uniform positive time prefactor; existing real first-derivative bounds supply it. |
+| POS192-NF | p. 192, Normal Form Lemma, first display: `ε ≤ αr/(2⁷qK)`, `r ≤ min(α/(pMK),r₀)` | Confirms that the complex M enters the normal-form radius; it cannot be silently replaced by BM11's real B(M). |
+| POS206-T3 | p. 206, Theorem 3 and p. 207 continuation | Verifies the original resonant-theorem locator used by BM11 p. 8. The same complex bound and quantitative l,m setup apply. |
+
+### Exact theorem selected for N-HEAD-C: Theorem 1, printed pp. 190–191
+
+With the analytic and norm setup just transcribed, its mathematical displays read:
+
+> Suppose h is l,m-quasi-convex, and
+> |f_ε|_{P,r₀,s₀} ≤ ε ≤ ε₀ = mr₀²/(2¹⁰A^{2n}),
+> where r₀ ≤ 4l/m and A=11M/m. Then for every orbit with initial position (I₀,θ₀) in P×Tⁿ one has
+>
+> ‖I(t)−I₀‖ ≤ R₀(ε/ε₀)^a,
+> |t| ≤ T₀ exp((s₀/6)(ε₀/ε)^a),
+>
+> except when ‖ω(I₀)‖ ≤ mr₀/8 in which case ‖I(t)−I₀‖ ≤ r₀ for all t.
+> The parameters are a=1/(2n), R₀=r₀/A, T₀=A²s₀/Ω₀,
+> where Ω₀=sup_{‖I−I₀‖≤R₀}‖ω(I)‖.
+
+This is a transcription of the supplied pinned scan. We select its positive-ε, nonexceptional branch;
+zero size is handled by N-ZERO. No theorem from the unavailable Lochak PDF is relied upon. In particular,
+we do not claim to have verified that Lochak uses an identical hypothesis package.
+
+### Uniform conversion from the proposed inputs to every source input
+
+Besides the existing n,R,s,M,m and BM analytic/QC/B(M) premises, N-HEAD-C fixes **Mcomplex>0 and ωmin>0
+before all existential constants**. Its new assumptions are:
+
+- `HasComplexHessianBound R s h Mcomplex`: complex C² on B_s^ℂ and
+  `‖fderiv ℂ (fderiv ℂ h) z‖ ≤ Mcomplex` for every z∈B_s^ℂ.
+  Complex C² is a redundant regularity guard under holomorphy on this open set. The norm is the iterated
+  operator norm on the existing maximum-norm spaces, never the spectral radius of a complex symmetric matrix.
+- `ωmin ≤ ‖KAM.frequencyMap h I‖` for every I∈B(0,R), with the maximum norm.
+  This is a **proposed additional source-route input**, not a premise of D18's original N-HEAD and not a
+  literal blanket hypothesis in Pöschel's Theorem 1. Its precise source reasons are POS190-QC and
+  POS191-LOW. Qualitative nonvanishing on each fixed h is not treated as a uniform lower bound.
+
+Here are explicit choices demonstrating the parameter dependence; they are mathematical conversion work,
+not Lean proofs or a proof of the normal-form theorem. Put
+
+    q = m/n,       Bc = n Mcomplex + q,       μ = q/2,
+    ell = ωmin q / (8(Bc+q)).
+
+Every Hessian entry is bounded by Mcomplex, so its Euclidean operator norm is at most n Mcomplex≤Bc.
+For a unit Euclidean vector v, decompose v=u+t e with e=ω/‖ω‖₂ and u perpendicular to ω.
+If |ω·v|≤ell, then |t|≤ell/ωmin=q/[8(Bc+q)]<1. BM's transverse condition gives
+
+    Q[v,v] ≥ q(1−t²) − 2Bc|t| − Bc t²
+           = q − (q+Bc)t² − 2Bc|t| ≥ q − q/8 − q/4 ≥ μ.
+
+Homogeneity gives POS190-QC with ell,μ for all v, including v=0, throughout B. Thus **no independent ell
+parameter or extra quantitative-QC hypothesis is needed** in this strengthened package. First-order B(M)
+also gives ‖ω‖₂≤√n M≤nM on the real domain, supplying POS191-TIME. No additional frequency upper-bound
+parameter, complex third-derivative bound, or uniform bound on h's value is required. Adding a constant to
+h has no effect on these inputs.
+
+For the period conversion use φ=2πθ and the source Hamiltonian
+
+    H̃(φ,I)=2π H(φ/(2π),I),   h̃=2πh,   f̃=2π f(φ/(2π),I).
+
+This preserves time in Hamilton's equations; changing the angle without the Hamiltonian factor would not.
+The source curvature, Hessian, quantitative-QC and frequency bounds are multiplied by 2π.
+Take P to be the closed maximum-norm ball of radius R/2 and choose
+
+    r₀ = min(s/2, R/8, 2ell/μ, 4ωmin/μ) > 0,
+    s₀ = πs,    σ = πs/4,    F = 2π cothⁿ(πs/4),    A = 11 Bc/μ.
+
+The complex Euclidean r₀-tube of P lies in B_s^ℂ; its real slice lies in B(0,3R/4), where the lower
+frequency bound holds. The source inequality r₀≤4ell/μ holds. Its exceptional threshold is at most
+(2πμ)r₀/8≤πωmin, strictly below every source initial frequency ≥2πωmin. Moreover A≥22, so the source
+R₀-ball used to define Ω₀ remains inside B. The source perturbation norm is ≤Fε by POS190-BRIDGE:
+s₀+2σ=3πs/2<2πs. All domain and width choices are independent of h,f and the initial point.
+
+With ε*= (2πμ)r₀²/(2¹⁰A^{2n}), the source estimates give the required exponent a=1/(2n) and permit
+
+    C = (r₀/A)(F/ε*)^a,
+    c = (s₀/6)(ε*/F)^a,
+    T = (A²s₀)/(4π n M).
+
+The time prefactor is at most half the source prefactor since Ω₀≤2πnM. Shrink ε₀≤ε*/F further so that
+Cε₀^a≤R/4. Ordinary local ODE existence/uniqueness and continuation in the resulting interior action tube
+supply the same explicit solution conclusions as N-HEAD. These are remaining formal proof obligations,
+not new hypotheses. This direct Theorem 1 route avoids BM11's λ-uniform inversion and same-inner-ball restart.
+
+**Scope of necessity.** The complex bound is a literal analytic premise of this source. The added ωmin is a
+sufficient, explicitly quantified way to obtain the source's quantitative QC and stay in its sharp-radius
+branch. We do not claim that every true classical Nekhoroshev theorem needs a lower frequency bound, or
+that the bound cannot be derived by a new argument from the original class. Removing it from this package
+would require an audited quantitative conversion and treatment of the exceptional branch; neither is
+smuggled in via compactness. All original real B(M) orders are retained to make this a strengthened-input
+variant of the approved class, although this direct route only uses its first-order upper bound.
