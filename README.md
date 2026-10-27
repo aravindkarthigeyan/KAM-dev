@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 20:00 UTC from `main` at `825613e` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 20:00 UTC from `main` at `af1fbf4` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.
 
@@ -300,6 +300,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 20:00 | `af1fbf4` | I-ZMAP landed (825613e): Zohar's Part 1 results mapped onto the graph; audits PASS WITH NOTES |
 | 2026-10-27 19:59 | `825613e` | Land k/zmap into main |
 | 2026-10-27 19:58 | `bc2331e` | Claim I-P1C (Taylor, increments); interface request for I-STRIP-3 from the Part 2/3 design |
 | 2026-10-27 19:57 | `9cc85c1` | Design audit brief for Parts 2/3 signatures |
@@ -311,7 +312,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 19:45 | `ac75cab` | Land k/p4a into main |
 | 2026-10-27 19:43 | `a28a623` | I-P1B landed (ef03b72): audit PASS WITH NOTES; 20 graph nodes PROVED |
 | 2026-10-27 19:39 | `ef03b72` | Land k/p1b into main |
-| 2026-10-27 19:36 | `aec5b8b` | Blueprint Part 1 conventions: strip widths are positive (made explicit after three proof packages needed it); graph locators remapped |
 <!-- /AUTO:landed -->
 
 ## Decisions
