@@ -113,7 +113,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 13:33 UTC from `main` at `(no commit yet)` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 13:33 UTC from `main` at `980b703` by `scripts/hq-status.py`.*
 
 **Current phase:** Phase 0: sources and statements. Headline chosen by the owner (positive-measure KAM for nearly-integrable real-analytic Hamiltonians); route chosen (a-posteriori KAM without action-angle changes of variables, weighted ℓ¹ norms); pinning the source for the measure layer; next: mathematical statement, then exact Lean statements for approval.
 
@@ -223,7 +223,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 ### Recent changes on `main`
 
 <!-- AUTO:landed -->
-*No commits on `main` yet.*
+| When (UTC) | Commit | Change |
+|---|---|---|
+| 2026-10-27 13:33 | `980b703` | Set up the KAM campaign: Lean project, sources, HQ and ledgers |
 <!-- /AUTO:landed -->
 
 ## Decisions
