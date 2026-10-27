@@ -1,5 +1,5 @@
 {
- "current_phase": "G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.",
+ "current_phase": "G3 sealed (D26). Track K: waves 1-2 landed (P-G3, I-MAT, I-LIP, I-STRIP-5, I-ZMAP, I-P1B, I-P4A): 120/453 graph nodes proved and audited. Part 2/3 (G1, G2) Lean design done (21 packages, 10 waves); its signatures under independent audit; I-P1C running; Zohar: I-STRIP-2 done, I-STRIP-3 (cohomological equation) next. Tracks I, N, P: Opus sub-orchestrator; track I graph under construction.",
  "workers": [
   {
    "id": "orchestrator",
@@ -47,48 +47,30 @@
    "state": "active"
   },
   {
-   "id": "prover-I-STRIP-5",
+   "id": "prover-I-P1C",
    "kind": "Lean prover",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-strip5",
-   "assignment": "Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md)",
-   "state": "done; in audit"
+   "session": "worktree /root/code/KAM-w-p1c",
+   "assignment": "Package I-P1C: Taylor (factor 1/2) and increments",
+   "state": "running"
   },
   {
-   "id": "audit-I-STRIP-5",
-   "kind": "package audit (Codex)",
+   "id": "design-audit-P2",
+   "kind": "design audit (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "kam-dsgn-p2",
+   "assignment": "Refute-first audit of the Part 2 (G1) Lean signatures and assembly",
+   "state": "running"
+  },
+  {
+   "id": "design-audit-P3",
+   "kind": "design audit (Codex)",
    "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
-   "session": "kam-audit-strip5",
-   "assignment": "Independent audit of package I-STRIP-5 (five explicit audit questions)",
-   "state": "running"
-  },
-  {
-   "id": "prover-I-ZMAP",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-zmap",
-   "assignment": "Package I-ZMAP (docs/campaign/briefs/I-ZMAP.md)",
-   "state": "running"
-  },
-  {
-   "id": "prover-I-P1B",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p1b",
-   "assignment": "Package I-P1B (docs/campaign/briefs/I-P1B.md)",
-   "state": "running"
-  },
-  {
-   "id": "prover-I-P4A",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p4a",
-   "assignment": "Package I-P4A (docs/campaign/briefs/I-P4A.md)",
+   "session": "kam-dsgn-p3",
+   "assignment": "Refute-first audit of the Part 3 (G2) Lean signatures, assembly and Part 1 interfaces",
    "state": "running"
   }
  ],

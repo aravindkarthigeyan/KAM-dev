@@ -26,10 +26,10 @@ Uses of `KAM.IsDiophantine` and `KAM.Diophantine.Condition` convert through
 | I-DIOPH-1 | Coefficient cohomological solver, small-divisor estimate, Lipschitz dependence on ω | `docs/cohomological-equation.md` | `KAM/Diophantine/` | I-FOURIER-1 | done (Zohar, a987e91) |
 | I-DIOPH-2 | Bridge `Condition ↔ IsDiophantine` | — | `KAM/Diophantine/Frozen.lean` | I-DIOPH-1 | done (orchestrator) |
 | I-STRIP-1 | Cauchy estimates on strips and on open sets | `bp:p1:cauchy-strip`, `bp:p1:cauchy-open` | `KAM/Strip/Cauchy.lean`, `Regularity.lean`, `HigherCauchy.lean` | — | done (Zohar, a664728) |
-| I-STRIP-2 | Fourier coefficients of periodic holomorphic functions: decay and summation | `bp:p1:decay`, `bp:p1:summation` | `KAM/Strip/Fourier.lean` | I-FOURIER-1 | claimed (Zohar, 2026-10-27); `bp:p1:decay` done, `bp:p1:summation` in progress |
+| I-STRIP-2 | Fourier coefficients of periodic holomorphic functions: decay and summation | `bp:p1:decay`, `bp:p1:summation` | `KAM/Strip/Fourier.lean` | I-FOURIER-1 | done (Zohar, 2026-10-27): `bp:p1:decay` (`KAM/Strip/Fourier.lean`), `bp:p1:summation` (`KAM/Strip/FourierSeries.lean`, `FourierBasic.lean`), with `bp:p1:fourier-basic` (b, c); uses I-P1B's `exp-sums` and `strip-identity` |
 | I-STRIP-3 | Cohomological equation on strips (sup norms, crude exponent τ + n), real on reals | `bp:p1:cohomological` | `KAM/Strip/Cohomological.lean` | I-STRIP-2, I-DIOPH-1 | open |
 | I-STRIP-4 | Averages of derivatives; Neumann series for matrix-valued functions | `bp:p1:averages`, `bp:p1:neumann` | `KAM/Strip/Averages.lean`, `KAM/Matrix/Neumann.lean` | — | done (Zohar, c2b079d) |
-| I-STRIP-5 | Holomorphic on an open subset of ℂᵐ implies analytic (power series); real restriction is real-analytic. Not in Mathlib beyond one variable; worth upstreaming | `bp:p1:holomorphic-analytic`, `bp:p1:real-restriction` | `KAM/Strip/Analytic.lean` | I-STRIP-1 (Regularity) | claimed (orchestrator, Sonnet prover, 2026-10-27; brief docs/campaign/briefs/I-STRIP-5.md) |
+| I-STRIP-5 | Holomorphic on an open subset of ℂᵐ implies analytic (power series); real restriction is real-analytic. Not in Mathlib beyond one variable; worth upstreaming | `bp:p1:holomorphic-analytic`, `bp:p1:real-restriction` | `KAM/Strip/Analytic.lean` | I-STRIP-1 (Regularity) | done (43c6f7b) |
 
 Notes for the `I-STRIP` packages:
 - Use the frozen `KAM.complexStrip` for strips.
@@ -49,7 +49,7 @@ Sonnet provers in their own worktrees; GPT-6.1-Sol medium audits before landing 
 | P-G3 | Provider of the frozen G3 `KAM.volume_not_diophantine_le` | closure of `bp:p0:g3` (Part 4 §G3) | `KAM/Measure/{Lattice,Slab}.lean`, `KAM/Provider/VolumeNotDiophantineLe.lean` | done (1bde59b); G3 SEALED (D26) |
 | I-MAT | Matrix norms, real and holomorphic inverses | `bp:p1:operator-norms`, `matrix-norms`, `real-inverse`, `holomorphic-inverse` | `KAM/Matrix/{Norms,Inverse}.lean` | done (3cdaf89) |
 | I-LIP | Lipschitz images, McShane, lipeomorphisms | `bp:p1:lip-image(-product)`, `mcshane`, `lipeo(-fixed)` | `KAM/Measure/{Lipschitz,McShane,Lipeo}.lean` | done (c9695bc) |
-| I-STRIP-5 | Several-variable analyticity; real restrictions | `bp:p1:holomorphic-analytic`, `real-restriction(-consequences)`, `hamiltonian-real` | `KAM/Strip/{Analytic,RealRestriction}.lean` | claimed (orchestrator, 2026-10-27) |
+| I-STRIP-5 | Several-variable analyticity; real restrictions | `bp:p1:holomorphic-analytic`, `real-restriction(-consequences)`, `hamiltonian-real` | `KAM/Strip/{Analytic,RealRestriction}.lean` | done (43c6f7b) |
 
 I-STRIP-2 (decay, summation) and I-STRIP-3 (cohomological equation on strips) stay open for Zohar, building on his
 Fourier and Diophantine packages.
@@ -58,9 +58,27 @@ Fourier and Diophantine packages.
 
 | ID | Goal | Graph nodes | Owned files | Status |
 |---|---|---|---|---|
-| I-ZMAP | Map Zohar's existing results to graph nodes; adapters for gaps | `bp:p1:neumann`, `holomorphic-regularity`, `cauchy-open`, `cauchy-strip`, `cauchy-corollaries`, `averages(-real,-matrix)`, `decay` | `KAM/{Strip,Matrix}/Bridges.lean`, `docs/campaign/audits/I-ZMAP-map.md` | claimed (orchestrator, 2026-10-27) |
-| I-P1B | Remaining ready Part 1 lemmas | `bp:p1:uniform-limits`, `increments-open`, `periodic-bounded`, `strip-identity`, `periodic-average`, `exp-sums`, `iteration` | `KAM/Strip/{Limits,Periodic}.lean`, `KAM/Fourier/ExpSums.lean`, `KAM/Analysis/Iteration.lean` | claimed (orchestrator, 2026-10-27) |
-| I-P4A | Early Part 4 lemmas | `bp:p4:h-bounded`, `matrix-norms`, `phase-average`, `cover-mono`, `dyadic-approx` (+ `data`) | `KAM/Head/*` | claimed (orchestrator, 2026-10-27) |
+| I-ZMAP | Map Zohar's existing results to graph nodes; adapters for gaps | `bp:p1:neumann`, `holomorphic-regularity`, `cauchy-open`, `cauchy-strip`, `cauchy-corollaries`, `averages(-real,-matrix)`, `decay` | `KAM/{Strip,Matrix}/Bridges.lean`, `docs/campaign/audits/I-ZMAP-map.md` | done (825613e) |
+| I-P1B | Remaining ready Part 1 lemmas | `bp:p1:uniform-limits`, `increments-open`, `periodic-bounded`, `strip-identity`, `periodic-average`, `exp-sums`, `iteration` | `KAM/Strip/{Limits,Periodic}.lean`, `KAM/Fourier/ExpSums.lean`, `KAM/Analysis/Iteration.lean` | done (ef03b72) |
+| I-P4A | Early Part 4 lemmas | `bp:p4:h-bounded`, `matrix-norms`, `phase-average`, `cover-mono`, `dyadic-approx` (+ `data`) | `KAM/Head/*` | done (ac75cab) |
+
+**Interface request for I-STRIP-3 (Zohar), from the Part 2/3 design (`docs/campaign/design/PART23-LEAN-DESIGN.md`
+§2.4).** Please state `bp:p1:cohomological` about a total solution operator, so that Part 2 can use it as a function:
+- the constant `KAM.cohConst`;
+- `KAM.cohSolution ω g θ := ∑' k, Diophantine.solve ω (torusCoeff (g ∘ ofReal)) k * character k θ`, definitionally
+  `KAM.fourierSum (…)` of `KAM/Strip/FourierSeries.lean`;
+- existence, uniqueness among holomorphic periodic zero-average solutions, the bound and realness, componentwise
+  for `Fin p → ℂ`;
+- `bp:p1:cohomological-operator`, the a-priori operator-norm bound for `Matrix (Fin p) (Fin q) ℂ`.
+
+If another form lands, Part 2 adds an adapter.
+
+## Track K proof campaign: wave 3 (claimed 2026-10-27)
+
+| ID | Goal | Graph nodes | Owned files | Status |
+|---|---|---|---|---|
+| I-P1C | Taylor bound (factor ½) and increments on strips | `bp:p1:taylor`, `bp:p1:increments` | `KAM/Strip/Taylor.lean` | claimed (orchestrator, 2026-10-27) |
+| P2-*, P3-* | Parts 2 and 3 (G1, G2), 21 packages in 10 waves | see the design §5 | see the design §4 | waiting for the design's signature audit |
 
 ## Waiting for the blueprint
 

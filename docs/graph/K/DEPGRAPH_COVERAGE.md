@@ -357,7 +357,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-cauchy
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cauchy@L54-L64
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cauchy@L56-L66
 DISPOSITION: NODE bp:p1:ext-cauchy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -366,7 +366,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-rectangle
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-rectangle@L65-L68
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-rectangle@L67-L70
 DISPOSITION: NODE bp:p1:ext-rectangle
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -375,7 +375,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-identity
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-identity@L69-L72
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-identity@L71-L74
 DISPOSITION: NODE bp:p1:ext-identity
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -384,7 +384,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-mvt
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-mvt@L73-L76
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-mvt@L75-L78
 DISPOSITION: NODE bp:p1:ext-mvt
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -393,7 +393,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-schwarz
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-schwarz@L77-L79
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-schwarz@L79-L81
 DISPOSITION: NODE bp:p1:ext-schwarz
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -402,7 +402,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-integral
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L80-L84
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L82-L86
 DISPOSITION: NODE bp:p1:ext-integral
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -411,7 +411,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-fourier
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-fourier@L85-L89
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-fourier@L87-L91
 DISPOSITION: NODE bp:p1:ext-fourier
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -420,7 +420,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-lebesgue
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-lebesgue@L90-L92
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-lebesgue@L92-L94
 DISPOSITION: NODE bp:p1:ext-lebesgue
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -429,7 +429,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-banach
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-banach@L93-L94
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-banach@L95-L96
 DISPOSITION: NODE bp:p1:ext-banach
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -438,7 +438,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-cramer
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cramer@L95-L97
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cramer@L97-L99
 DISPOSITION: NODE bp:p1:ext-cramer
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -447,7 +447,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:operator-norms
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L117-L121
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L119-L123
 DISPOSITION: NODE bp:p1:operator-norms
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -456,7 +456,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:opn-rowsum
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-rowsum@L124-L131
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-rowsum@L126-L133
 DISPOSITION: NODE step:p1:opn-rowsum
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -465,7 +465,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:opn-blocks
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L133-L136
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L135-L138
 DISPOSITION: NODE step:p1:opn-blocks
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -474,7 +474,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:opn-omega
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L138-L143
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L140-L145
 DISPOSITION: NODE step:p1:opn-omega
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -483,7 +483,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:matrix-norms
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L146-L151
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L148-L153
 DISPOSITION: NODE bp:p1:matrix-norms
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -492,7 +492,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:mn-products
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L154-L158
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L156-L160
 DISPOSITION: NODE step:p1:mn-products
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -501,7 +501,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:mn-transpose
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-transpose@L160-L163
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-transpose@L162-L165
 DISPOSITION: NODE step:p1:mn-transpose
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -510,7 +510,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:mn-signed
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-signed@L165-L172
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-signed@L167-L174
 DISPOSITION: NODE step:p1:mn-signed
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -519,7 +519,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:neumann
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L175-L179
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L177-L181
 DISPOSITION: NODE bp:p1:neumann
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -528,7 +528,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:neu-series
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L182-L187
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L184-L189
 DISPOSITION: NODE step:p1:neu-series
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -537,7 +537,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:neu-inverse
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L189-L191
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L191-L193
 DISPOSITION: NODE step:p1:neu-inverse
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -546,7 +546,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:neu-difference
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L193-L195
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L195-L197
 DISPOSITION: NODE step:p1:neu-difference
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -555,7 +555,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:neu-pointwise
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L197-L200
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L199-L202
 DISPOSITION: NODE step:p1:neu-pointwise
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -564,7 +564,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:real-inverse
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L203-L206
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L205-L208
 DISPOSITION: NODE bp:p1:real-inverse
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -573,7 +573,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:ri-adjugate
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L209-L213
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L211-L215
 DISPOSITION: NODE step:p1:ri-adjugate
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -582,7 +582,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:holomorphic-regularity
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L225-L234
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L227-L236
 DISPOSITION: NODE bp:p1:holomorphic-regularity
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -591,7 +591,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hreg-line
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L237-L243
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L239-L245
 DISPOSITION: NODE step:p1:hreg-line
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -600,7 +600,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hreg-integral
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L245-L252
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L247-L254
 DISPOSITION: NODE step:p1:hreg-integral
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -609,7 +609,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hreg-differentiate
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L254-L270
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L256-L272
 DISPOSITION: NODE step:p1:hreg-differentiate
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -618,7 +618,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hreg-full
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L272-L277
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L274-L279
 DISPOSITION: NODE step:p1:hreg-full
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -627,7 +627,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hreg-orders
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L279-L286
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L281-L288
 DISPOSITION: NODE step:p1:hreg-orders
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -636,7 +636,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hreg-symmetry
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L288-L291
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L290-L293
 DISPOSITION: NODE step:p1:hreg-symmetry
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -645,7 +645,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:holomorphic-analytic
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L294-L310
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L296-L312
 DISPOSITION: NODE bp:p1:holomorphic-analytic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -654,7 +654,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:han-margin
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-margin@L313-L315
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-margin@L315-L317
 DISPOSITION: NODE step:p1:han-margin
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -663,7 +663,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:han-cauchy
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L317-L329
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L319-L331
 DISPOSITION: NODE step:p1:han-cauchy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -672,7 +672,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:han-series
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L331-L341
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L333-L343
 DISPOSITION: NODE step:p1:han-series
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -681,7 +681,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:han-bounds
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L343-L348
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L345-L350
 DISPOSITION: NODE step:p1:han-bounds
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -690,7 +690,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:han-real
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L350-L359
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L352-L361
 DISPOSITION: NODE step:p1:han-real
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -699,7 +699,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:uniform-limits
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L362-L366
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L364-L368
 DISPOSITION: NODE bp:p1:uniform-limits
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -708,7 +708,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:ul-differences
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L372-L377
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L374-L379
 DISPOSITION: NODE step:p1:ul-differences
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -717,7 +717,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:ul-limit
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L379-L384
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L381-L386
 DISPOSITION: NODE step:p1:ul-limit
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -726,7 +726,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:ul-derivative
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L386-L392
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L388-L394
 DISPOSITION: NODE step:p1:ul-derivative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -735,7 +735,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:ul-primary
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L394-L399
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L396-L401
 DISPOSITION: NODE step:p1:ul-primary
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -744,7 +744,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:holomorphic-inverse
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L402-L405
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L404-L407
 DISPOSITION: NODE bp:p1:holomorphic-inverse
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -753,7 +753,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hi-holomorphic
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L410-L414
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L412-L416
 DISPOSITION: NODE step:p1:hi-holomorphic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -762,7 +762,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hi-derivative
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L416-L420
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L418-L422
 DISPOSITION: NODE step:p1:hi-derivative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -771,7 +771,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:increments-open
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L423-L426
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L425-L428
 DISPOSITION: NODE bp:p1:increments-open
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -780,7 +780,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:io-mvt
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L429-L431
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L431-L433
 DISPOSITION: NODE step:p1:io-mvt
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -789,7 +789,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:taylor
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L434-L437
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L436-L439
 DISPOSITION: NODE bp:p1:taylor
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -798,7 +798,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:tay-lipschitz
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L440-L443
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L442-L445
 DISPOSITION: NODE step:p1:tay-lipschitz
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -807,7 +807,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:tay-integrate
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L445-L449
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L447-L451
 DISPOSITION: NODE step:p1:tay-integrate
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -816,7 +816,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:mixed-difference
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mixed-difference@L452-L455
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mixed-difference@L454-L457
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: REVIEWED
@@ -825,7 +825,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p1:md-inner
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-inner@L460-L463
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-inner@L462-L465
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: REVIEWED
@@ -834,7 +834,7 @@ REVIEWER: sol-review-r3
 
 ITEM: step:p1:md-outer
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-outer@L465-L469
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-outer@L467-L471
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: REVIEWED
@@ -843,7 +843,7 @@ REVIEWER: sol-review-r3
 
 ITEM: bp:p1:cauchy-open
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L472-L477
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L474-L479
 DISPOSITION: NODE bp:p1:cauchy-open
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -852,7 +852,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:co-first
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L482-L486
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L484-L488
 DISPOSITION: NODE step:p1:co-first
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -861,7 +861,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:co-second
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L488-L495
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L490-L497
 DISPOSITION: NODE step:p1:co-second
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -870,7 +870,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:co-third
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L497-L502
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L499-L504
 DISPOSITION: NODE step:p1:co-third
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -879,7 +879,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:co-constants
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L504-L505
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L506-L507
 DISPOSITION: NODE step:p1:co-constants
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -897,7 +897,7 @@ REVIEWER: sol-review-r1
 
 ITEM: heading:bp:p1:sec-matrices
 KIND: heading
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-matrices@L112-L112
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-matrices@L114-L114
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -906,7 +906,7 @@ REVIEWER: sol-review-r1
 
 ITEM: heading:bp:p1:sec-holomorphic
 KIND: heading
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-holomorphic@L217-L217
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-holomorphic@L219-L219
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -915,7 +915,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:ext-measure
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L98-L107
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L100-L109
 DISPOSITION: NODE bp:p1:ext-measure
 REASON: external input (E11)
 COVERAGE_STATUS: REVIEWED
@@ -924,7 +924,7 @@ REVIEWER: sol-review-d4
 
 ITEM: bp:p1:periodic-bounded
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:periodic-bounded@L515-L517
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:periodic-bounded@L517-L519
 DISPOSITION: NODE bp:p1:periodic-bounded
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -933,7 +933,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:pb-compact
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pb-compact@L520-L526
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pb-compact@L522-L528
 DISPOSITION: NODE step:p1:pb-compact
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -942,7 +942,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:strip-identity
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:strip-identity@L529-L532
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:strip-identity@L531-L534
 DISPOSITION: NODE bp:p1:strip-identity
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -951,7 +951,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:si-induction
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:si-induction@L535-L543
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:si-induction@L537-L545
 DISPOSITION: NODE step:p1:si-induction
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -960,7 +960,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:increments
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments@L549-L553
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments@L551-L555
 DISPOSITION: NODE bp:p1:increments
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -969,7 +969,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:inc-mvt
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:inc-mvt@L556-L559
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:inc-mvt@L558-L561
 DISPOSITION: NODE step:p1:inc-mvt
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -978,7 +978,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:inc-cauchy
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:inc-cauchy@L561-L563
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:inc-cauchy@L563-L565
 DISPOSITION: NODE step:p1:inc-cauchy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -987,7 +987,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:cauchy-strip
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L566-L572
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L568-L574
 DISPOSITION: NODE bp:p1:cauchy-strip
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -996,7 +996,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:cs-coordinate
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs-coordinate@L577-L585
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs-coordinate@L579-L587
 DISPOSITION: NODE step:p1:cs-coordinate
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1005,7 +1005,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:cs-full
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs-full@L587-L594
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs-full@L589-L596
 DISPOSITION: NODE step:p1:cs-full
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1014,7 +1014,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:cauchy-strip-2
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L602-L604
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L604-L606
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: REVIEWED
@@ -1023,7 +1023,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p1:cs2-polydisc
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs2-polydisc@L607-L612
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs2-polydisc@L609-L614
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
 COVERAGE_STATUS: REVIEWED
@@ -1032,7 +1032,7 @@ REVIEWER: sol-review-r4
 
 ITEM: bp:p1:cauchy-corollaries
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L615-L619
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L617-L621
 DISPOSITION: NODE bp:p1:cauchy-corollaries
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1041,7 +1041,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:cc-transpose
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cc-transpose@L624-L629
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cc-transpose@L626-L631
 DISPOSITION: NODE step:p1:cc-transpose
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1050,7 +1050,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:cc-omega
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cc-omega@L631-L634
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cc-omega@L633-L636
 DISPOSITION: NODE step:p1:cc-omega
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1059,7 +1059,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:averages-real
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages-real@L644-L647
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages-real@L646-L649
 DISPOSITION: NODE bp:p1:averages-real
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1068,7 +1068,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:ar-one
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ar-one@L650-L654
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ar-one@L652-L656
 DISPOSITION: NODE step:p1:ar-one
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1077,7 +1077,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:ar-fubini
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ar-fubini@L656-L660
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ar-fubini@L658-L662
 DISPOSITION: NODE step:p1:ar-fubini
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1086,7 +1086,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:averages
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages@L663-L667
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages@L665-L669
 DISPOSITION: NODE bp:p1:averages
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1095,7 +1095,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:av-derivatives
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:av-derivatives@L670-L675
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:av-derivatives@L672-L677
 DISPOSITION: NODE step:p1:av-derivatives
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1104,7 +1104,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:av-bound
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:av-bound@L677-L681
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:av-bound@L679-L683
 DISPOSITION: NODE step:p1:av-bound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1113,7 +1113,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:averages-matrix
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages-matrix@L684-L687
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:averages-matrix@L686-L689
 DISPOSITION: NODE bp:p1:averages-matrix
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1122,7 +1122,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:am-bound
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:am-bound@L690-L692
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:am-bound@L692-L694
 DISPOSITION: NODE step:p1:am-bound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1131,7 +1131,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:am-derivative
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:am-derivative@L694-L696
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:am-derivative@L696-L698
 DISPOSITION: NODE step:p1:am-derivative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1140,7 +1140,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:periodic-average
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:periodic-average@L699-L701
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:periodic-average@L701-L703
 DISPOSITION: NODE bp:p1:periodic-average
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1149,7 +1149,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:pa-one
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pa-one@L704-L707
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pa-one@L706-L709
 DISPOSITION: NODE step:p1:pa-one
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1158,7 +1158,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:pa-induction
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pa-induction@L709-L714
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:pa-induction@L711-L716
 DISPOSITION: NODE step:p1:pa-induction
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1167,7 +1167,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:exp-sums
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:exp-sums@L725-L732
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:exp-sums@L727-L734
 DISPOSITION: NODE bp:p1:exp-sums
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1176,7 +1176,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:es-power
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:es-power@L735-L738
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:es-power@L737-L740
 DISPOSITION: NODE step:p1:es-power
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1185,7 +1185,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:es-product
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:es-product@L740-L743
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:es-product@L742-L745
 DISPOSITION: NODE step:p1:es-product
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1194,7 +1194,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:es-nonzero
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:es-nonzero@L745-L752
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:es-nonzero@L747-L754
 DISPOSITION: NODE step:p1:es-nonzero
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1203,7 +1203,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:fourier-basic
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:fourier-basic@L755-L766
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:fourier-basic@L757-L768
 DISPOSITION: NODE bp:p1:fourier-basic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1212,7 +1212,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:fb-derivative
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:fb-derivative@L769-L774
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:fb-derivative@L771-L776
 DISPOSITION: NODE step:p1:fb-derivative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1221,7 +1221,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:fb-series
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:fb-series@L776-L777
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:fb-series@L778-L779
 DISPOSITION: NODE step:p1:fb-series
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1230,7 +1230,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:fb-holomorphic
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:fb-holomorphic@L779-L781
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:fb-holomorphic@L781-L783
 DISPOSITION: NODE step:p1:fb-holomorphic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1239,7 +1239,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:decay
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay@L784-L787
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay@L786-L789
 DISPOSITION: NODE bp:p1:decay
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1248,7 +1248,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:dec-shift
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:dec-shift@L798-L809
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:dec-shift@L800-L811
 DISPOSITION: NODE step:p1:dec-shift
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1257,7 +1257,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:dec-bound
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:dec-bound@L811-L816
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:dec-bound@L813-L818
 DISPOSITION: NODE step:p1:dec-bound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1266,7 +1266,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:summation
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:summation@L822-L829
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:summation@L824-L831
 DISPOSITION: NODE bp:p1:summation
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1275,7 +1275,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:sum-bound
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-bound@L834-L837
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-bound@L836-L839
 DISPOSITION: NODE step:p1:sum-bound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1284,7 +1284,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:sum-holo
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-holo@L839-L849
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-holo@L841-L851
 DISPOSITION: NODE step:p1:sum-holo
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1293,7 +1293,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:sum-coeff
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-coeff@L851-L857
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-coeff@L853-L859
 DISPOSITION: NODE step:p1:sum-coeff
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1302,7 +1302,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:sum-converse
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L859-L865
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-converse@L861-L867
 DISPOSITION: NODE step:p1:sum-converse
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1311,7 +1311,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:sum-representation
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-representation@L867-L872
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:sum-representation@L869-L874
 DISPOSITION: NODE step:p1:sum-representation
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1320,7 +1320,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:cohomological
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L885-L895
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L887-L897
 DISPOSITION: NODE bp:p1:cohomological
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1329,7 +1329,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coh-data
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-data@L904-L906
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-data@L906-L908
 DISPOSITION: NODE step:p1:coh-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1338,7 +1338,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coh-coefficients
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L908-L913
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-coefficients@L910-L915
 DISPOSITION: NODE step:p1:coh-coefficients
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1347,7 +1347,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coh-weighted
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-weighted@L915-L930
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-weighted@L917-L932
 DISPOSITION: NODE step:p1:coh-weighted
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1356,7 +1356,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coh-existence
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-existence@L932-L935
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-existence@L934-L937
 DISPOSITION: NODE step:p1:coh-existence
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1365,7 +1365,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coh-equation
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-equation@L937-L942
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-equation@L939-L944
 DISPOSITION: NODE step:p1:coh-equation
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1374,7 +1374,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coh-unique
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-unique@L944-L951
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-unique@L946-L953
 DISPOSITION: NODE step:p1:coh-unique
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1383,7 +1383,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coh-real
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-real@L953-L958
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-real@L955-L960
 DISPOSITION: NODE step:p1:coh-real
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1392,7 +1392,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coh-vector
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-vector@L960-L966
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coh-vector@L962-L968
 DISPOSITION: NODE step:p1:coh-vector
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1401,7 +1401,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:cohomological-operator
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological-operator@L969-L972
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological-operator@L971-L974
 DISPOSITION: NODE bp:p1:cohomological-operator
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1410,7 +1410,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coo-entries
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-entries@L978-L981
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-entries@L980-L983
 DISPOSITION: NODE step:p1:coo-entries
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1419,7 +1419,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coo-vectors
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-vectors@L983-L988
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-vectors@L985-L990
 DISPOSITION: NODE step:p1:coo-vectors
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1428,7 +1428,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coo-norm
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-norm@L990-L993
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-norm@L992-L995
 DISPOSITION: NODE step:p1:coo-norm
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1437,7 +1437,7 @@ REVIEWER: sol-review-r2
 
 ITEM: step:p1:coo-apriori
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-apriori@L995-L1001
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:coo-apriori@L997-L1003
 DISPOSITION: NODE step:p1:coo-apriori
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1446,7 +1446,7 @@ REVIEWER: sol-review-r2
 
 ITEM: heading:bp:p1:sec-strips
 KIND: heading
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-strips@L509-L509
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-strips@L511-L511
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -1455,7 +1455,7 @@ REVIEWER: sol-review-r2
 
 ITEM: heading:bp:p1:sec-averages
 KIND: heading
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-averages@L638-L638
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-averages@L640-L640
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -1464,7 +1464,7 @@ REVIEWER: sol-review-r2
 
 ITEM: heading:bp:p1:sec-fourier
 KIND: heading
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-fourier@L718-L718
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-fourier@L720-L720
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -1473,7 +1473,7 @@ REVIEWER: sol-review-r2
 
 ITEM: heading:bp:p1:sec-cohomological
 KIND: heading
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-cohomological@L876-L876
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-cohomological@L878-L878
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -1482,7 +1482,7 @@ REVIEWER: sol-review-r2
 
 ITEM: p1:source-L561
 KIND: citation
-SOURCE: blueprint/parts/p1-analysis.tex#source@L571-L571
+SOURCE: blueprint/parts/p1-analysis.tex#source@L573-L573
 DISPOSITION: EXCLUDED
 REASON: provenance note (HL19 citation) for a result proved in the blueprint; no unproved input is relied on
 COVERAGE_STATUS: REVIEWED
@@ -1491,7 +1491,7 @@ REVIEWER: sol-review-r2
 
 ITEM: p1:source-L883
 KIND: citation
-SOURCE: blueprint/parts/p1-analysis.tex#source@L893-L893
+SOURCE: blueprint/parts/p1-analysis.tex#source@L895-L895
 DISPOSITION: EXCLUDED
 REASON: provenance note (HL19 citation) for a result proved in the blueprint; no unproved input is relied on
 COVERAGE_STATUS: REVIEWED
@@ -1500,7 +1500,7 @@ REVIEWER: sol-review-r2
 
 ITEM: bp:p1:decay#boundary-radius
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L819-L820
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L821-L822
 DISPOSITION: NODE bp:p1:decay#boundary-radius
 REASON: A reused intermediate claim, applied at L850-L851 and L895-L896.
 COVERAGE_STATUS: REVIEWED
@@ -1509,7 +1509,7 @@ REVIEWER: sol-review-r4
 
 ITEM: bp:p1:iteration
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1007-L1012
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1009-L1014
 DISPOSITION: NODE bp:p1:iteration
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1518,7 +1518,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:it-super
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-super@L1015-L1020
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-super@L1017-L1022
 DISPOSITION: NODE step:p1:it-super
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1527,7 +1527,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:it-linear
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-linear@L1022-L1027
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:it-linear@L1024-L1029
 DISPOSITION: NODE step:p1:it-linear
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1536,7 +1536,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:real-restriction-consequences
 KIND: claim
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction-consequences@L1037-L1043
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction-consequences@L1039-L1045
 DISPOSITION: NODE bp:p1:real-restriction-consequences
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1545,7 +1545,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:real-restriction
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1045-L1049
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L1051
 DISPOSITION: NODE bp:p1:real-restriction
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1554,7 +1554,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:rr-analytic
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-analytic@L1055-L1057
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-analytic@L1057-L1059
 DISPOSITION: NODE step:p1:rr-analytic
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1563,7 +1563,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:rr-derivative
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-derivative@L1059-L1063
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-derivative@L1061-L1065
 DISPOSITION: NODE step:p1:rr-derivative
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1572,7 +1572,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:rr-consequences
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1065-L1068
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1067-L1070
 DISPOSITION: NODE step:p1:rr-consequences
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1581,7 +1581,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:hamiltonian-real
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1071-L1077
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1073-L1079
 DISPOSITION: NODE bp:p1:hamiltonian-real
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1590,7 +1590,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hr-derivative
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-derivative@L1083-L1089
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-derivative@L1085-L1091
 DISPOSITION: NODE step:p1:hr-derivative
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1599,7 +1599,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hr-components
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1091-L1097
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1093-L1099
 DISPOSITION: NODE step:p1:hr-components
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1608,7 +1608,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:hr-matrix
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-matrix@L1099-L1105
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-matrix@L1101-L1107
 DISPOSITION: NODE step:p1:hr-matrix
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1617,7 +1617,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:lip-image-product
 KIND: claim
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1116-L1120
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1118-L1122
 DISPOSITION: NODE bp:p1:lip-image-product
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1626,7 +1626,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:lip-image-product#product-lebesgue
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1117-L1119
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1119-L1121
 DISPOSITION: NODE bp:p1:lip-image-product
 REASON: SOURCE_GAP step added for the unproved product-measure identification
 COVERAGE_STATUS: REVIEWED
@@ -1635,7 +1635,7 @@ REVIEWER: sol-review-d3
 
 ITEM: bp:p1:lip-image
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1122-L1127
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1124-L1129
 DISPOSITION: NODE bp:p1:lip-image
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1644,7 +1644,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:li-cubes
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1133-L1140
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1135-L1142
 DISPOSITION: NODE step:p1:li-cubes
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1653,7 +1653,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:li-image
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-image@L1142-L1146
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-image@L1144-L1148
 DISPOSITION: NODE step:p1:li-image
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1662,7 +1662,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:li-sum
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1148-L1153
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1150-L1155
 DISPOSITION: NODE step:p1:li-sum
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1671,7 +1671,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:li-preimage
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1155-L1159
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1157-L1161
 DISPOSITION: NODE step:p1:li-preimage
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1680,7 +1680,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:li-product
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-product@L1161-L1163
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:li-product@L1163-L1165
 DISPOSITION: NODE step:p1:li-product
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1689,7 +1689,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:mcshane
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1166-L1169
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1168-L1171
 DISPOSITION: NODE bp:p1:mcshane
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1698,7 +1698,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:mc-component
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-component@L1175-L1181
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-component@L1177-L1183
 DISPOSITION: NODE step:p1:mc-component
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1707,7 +1707,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:mc-components
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-components@L1183-L1186
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-components@L1185-L1188
 DISPOSITION: NODE step:p1:mc-components
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1716,7 +1716,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:mc-clamp
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1188-L1191
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1190-L1193
 DISPOSITION: NODE step:p1:mc-clamp
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1725,7 +1725,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:lipeo-fixed
 KIND: claim
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo-fixed@L1194-L1199
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo-fixed@L1196-L1201
 DISPOSITION: NODE bp:p1:lipeo-fixed
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1734,7 +1734,7 @@ REVIEWER: sol-review-r1
 
 ITEM: bp:p1:lipeo
 KIND: lemma
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1201-L1205
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1203-L1207
 DISPOSITION: NODE bp:p1:lipeo
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1743,7 +1743,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:lipeo-bounds
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-bounds@L1210-L1213
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-bounds@L1212-L1215
 DISPOSITION: NODE step:p1:lipeo-bounds
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1752,7 +1752,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:lipeo-onto
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-onto@L1215-L1218
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-onto@L1217-L1220
 DISPOSITION: NODE step:p1:lipeo-onto
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1761,7 +1761,7 @@ REVIEWER: sol-review-r1
 
 ITEM: step:p1:lipeo-zero
 KIND: proof-region
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1220-L1222
+SOURCE: blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1222-L1224
 DISPOSITION: NODE step:p1:lipeo-zero
 REASON: labelled unit of the slice, filled by extraction
 COVERAGE_STATUS: REVIEWED
@@ -1770,7 +1770,7 @@ REVIEWER: sol-review-r1
 
 ITEM: heading:bp:p1:sec-iteration
 KIND: heading
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-iteration@L1005-L1005
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-iteration@L1007-L1007
 DISPOSITION: EXCLUDED
 REASON: section heading; no mathematical content
 COVERAGE_STATUS: REVIEWED
@@ -1779,7 +1779,7 @@ REVIEWER: sol-review-r1
 
 ITEM: heading:bp:p1:sec-real
 KIND: heading
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-real@L1031-L1031
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-real@L1033-L1033
 DISPOSITION: EXCLUDED
 REASON: section heading; no mathematical content
 COVERAGE_STATUS: REVIEWED
@@ -1788,7 +1788,7 @@ REVIEWER: sol-review-r1
 
 ITEM: heading:bp:p1:sec-measure
 KIND: heading
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-measure@L1109-L1109
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:sec-measure@L1111-L1111
 DISPOSITION: EXCLUDED
 REASON: section heading; no mathematical content
 COVERAGE_STATUS: REVIEWED

@@ -134,3 +134,7 @@ end with a date and reason.
   - **Part 4 `ml-mixed`** proves the 1-Lipschitz property of the distance to `B^c` inline.
   - The global review's F2–F5 replacement records are applied.
 - 2026-10-27: Part 4 L96 wording fixed in place (P-G3 audit finding 1: open slab ∩ closed cube is measurable); no locator moved; `CORPUS.sha256` updated.
+- 2026-10-27: Part 1 conventions state that strip widths are positive and `n ≥ 1` wherever a strip occurs. Three
+  proof packages (I-STRIP-5, I-P1B, I-P4A) independently needed it explicitly; Part 0 already implied it. The
+  change adds two lines, so Part 1 locators were remapped mechanically, and `CORPUS.sha256` is updated.
+
