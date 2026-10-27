@@ -7,7 +7,7 @@ CONVENTIONS: docs/graph/K/SPEC.md "Conventions to watch": max norm on C^m and in
 STANDING_ASSUMPTIONS: -
 EXTERNAL_POLICY: the eleven Mathlib-level inputs (E1)-(E11) of Part 1 are KIND external nodes bp:p1:ext-*; any other unproved fact is a step node with NOTE SOURCE_GAP
 FROZEN_ANCHORS: bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:domains#actionNbhd, bp:p0:domains#fundamentalDomain, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:torus#IsInvariantLagrangianTorus, bp:p0:cover#kamCover, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#dotC, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage, bp:p0:head, bp:p0:headq, bp:p0:g1, bp:p0:g2, bp:p0:g3
-FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:4ddae7948f05799a2824ff96b11bcb3025ac3373d98a5098634555919bfffc49
+FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:95ab954c0479944c1a314487276da31c6bf1af8eebbfbd49e88c06cd01cf4cdf
 WRITER: claude-main-orchestrator
 GLOBAL_REVIEWER: sol-global-K
 GLOBAL_REVIEW_REF: docs/graph/K/reviews/GLOBAL-review.md and docs/graph/K/reviews/GLOBAL-recheck.md (Codex GPT-6.1-Sol medium, tmux kam-graph-global)
@@ -4715,9 +4715,9 @@ EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p2-aposteriori.tex#bp:p2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Params, KAM.Apost.Standing
+LEAN_NOTE: definitions/standing data per the audited Part 2/3 design; prover evidence + independent audit docs/campaign/audits/P2-1b-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:constants
@@ -4743,9 +4743,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:constants@L99-L9
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.{kappa … delta0}, KAM.Apost.constants_spec
+LEAN_NOTE: definitions/standing data per the audited Part 2/3 design; prover evidence + independent audit docs/campaign/audits/P2-1b-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:matrix
@@ -5298,9 +5298,9 @@ EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p2-aposteriori.tex#bp:p2:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Admissible
+LEAN_NOTE: definitions/standing data per the audited Part 2/3 design; prover evidence + independent audit docs/campaign/audits/P2-1b-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:periodicity

@@ -54,15 +54,6 @@
    "session": "worktree /root/code/KAM-w-p2-1a",
    "assignment": "Package P2-1a (docs/campaign/briefs/P2-1a.md)",
    "state": "running"
-  },
-  {
-   "id": "prover-P2-1b",
-   "kind": "Lean prover (G1 design wave 1)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p2-1b",
-   "assignment": "Package P2-1b (docs/campaign/briefs/P2-1b.md)",
-   "state": "running"
   }
  ],
  "queued": [
