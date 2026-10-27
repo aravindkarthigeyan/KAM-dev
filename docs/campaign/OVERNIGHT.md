@@ -112,6 +112,16 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   `FourierSeries.lean` never had a dedicated package audit, so their 9 graph nodes stay unmarked until it passes.
   The bookkeeping pass flagged `step:p1:sum-bound` as partial: uniform convergence of the partial sums is not stated.
 
+### 23:55: HEAD sealed (orchestrator, Opus)
+- **HEAD sealed (e4ca720).** `KAM.kam_positive_measure` has the body
+  `by exact KAM.Provider.kam_positive_measure hn hτ hs₀ hr₀ hB_open hB_bdd hB_layer hh hh_real h_nondeg`.
+  - The provider discharges the Part 4 `GValid` premise from the sealed G1, G2 and G3 anchors
+    (`KAM.Provider.exists_gValid`), then applies `KAM.Head.head_of_gValid`.
+  - Audits: P4-12 PASS; P4-S1 PASS, including the exact-type probe.
+  - Checks: axioms are standard only; leanchecker exits 0.
+- **Next:** P4-S2, the HEAD-Q provider, is running. After its audit, HEAD-Q is sealed, and every frozen theorem of
+  track K is then proved.
+
 ## Tracks I, N, P (sub-orchestrator, D23)
 
 - **21:15. No new freezes; packets only.** Nothing is pending owner approval from tracks I/N/P tonight (D25 and D28
