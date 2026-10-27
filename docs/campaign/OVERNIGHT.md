@@ -57,3 +57,12 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **21:30. Next proof package: a Lean design with exact signatures for the shared ODE layer (blueprint-N Part 3),
   audited by Sol before any prover starts** (K lesson). Alternatives: start provers directly from the blueprint.
   Reversal: none needed.
+- **22:05. I-STRIP-3 collision resolved in Zohar's favour.** Zohar landed his own I-STRIP-3 (43a8dd5) at about the
+  time of our overnight claim. It is built on our design §2.4 interface (`cohSolution`, `cohConst`), so his file is
+  kept unchanged.
+  - Our prover's branch `k/strip3` is kept, unmerged, for reference.
+  - Its non-overlapping parts are ported onto Zohar's names as I-STRIP-3b:
+    - the operator-norm node `bp:p1:cohomological-operator`;
+    - the real C¹ form of `fourier-basic` (a);
+    - the Appendix A corollary `KAM.Apost.cohomological`.
+  - Reversal: none needed.
