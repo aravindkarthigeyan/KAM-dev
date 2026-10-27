@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 19:12 UTC from `main` at `0969b0d` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 19:12 UTC from `main` at `2dd88cf` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.
 
@@ -279,7 +279,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **prover-I-STRIP-5** `worktree /root/code/KAM-w-strip5` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md) | — | — |
-| **audit-I-STRIP-5** `kam-audit-strip5` | package audit (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Independent audit of package I-STRIP-5 (five explicit audit questions) | — | — |
+| **audit-I-STRIP-5** `kam-audit-strip5` | package audit (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Independent audit of package I-STRIP-5 (five explicit audit questions) | — | — |
 | **prover-I-ZMAP** `worktree /root/code/KAM-w-zmap` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-ZMAP (docs/campaign/briefs/I-ZMAP.md) | — | — |
 | **prover-I-P1B** `worktree /root/code/KAM-w-p1b` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P1B (docs/campaign/briefs/I-P1B.md) | — | — |
 | **prover-I-P4A** `worktree /root/code/KAM-w-p4a` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P4A (docs/campaign/briefs/I-P4A.md) | — | — |
@@ -300,6 +300,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 19:12 | `2dd88cf` | Design brief: Lean architecture for blueprint Parts 2 and 3 |
 | 2026-10-27 19:12 | `0969b0d` | HQ: wave 2 running (I-ZMAP, I-P1B, I-P4A) |
 | 2026-10-27 19:12 | `e356ab5` | Claim wave-2 packages |
 | 2026-10-27 19:12 | `22a8b42` | Track K proof campaign, wave 2 briefs: I-ZMAP, I-P1B, I-P4A |
@@ -311,7 +312,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 18:58 | `da33733` | Land inp into main |
 | 2026-10-27 18:58 | `2c8e060` | HQ generator: sources without an arXiv id link their DOI (fixes the KeyError after pinning AKN06, Rus01, Rus05) |
 | 2026-10-27 18:58 | `dde9832` | Seal G3: KAM.volume_not_diophantine_le is proved (first sealed frozen theorem) |
-| 2026-10-27 18:51 | `3cdaf89` | Land k/mat into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
