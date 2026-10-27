@@ -36,7 +36,8 @@ The two steps of the blueprint are:
 
 The target `W` is any complex normed space: scalars, vectors with the max norm, pairs, or matrices
 with the row-sum operator norm. The blueprint hypothesis `δ < ρ` is not needed: the strips are
-nested as soon as `0 ≤ δ`, and `θ ∈ T_{ρ-δ}` already forces `ρ - δ > 0`.
+nested as soon as `0 ≤ δ`, and for `n ≥ 1`, `θ ∈ T_{ρ-δ}` already forces `ρ - δ > 0` (for `n = 0`
+the strip condition is vacuous and the proof treats that case separately).
 -/
 
 @[expose] public section
