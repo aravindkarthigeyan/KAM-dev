@@ -37,3 +37,5 @@ The pending I identity is independently present at docs/graph/I/packets/I-p0.nod
 Suspected blueprint defects: none found in these copied statements.
 
 Validation: imports and corpus SHA-256 pins pass; slice checker reports 16 nodes, 0 edges, 16 coverage items, 0 problems. No replacement fragments are required.
+
+Final validation: every current node has exactly one verdict; proposed Part 11 records have matching DEPS/EDGE targets, existing targets and in-bounds locators; the in-memory combined graph has no cycles. Review application dry run has no unresolved FAILs.

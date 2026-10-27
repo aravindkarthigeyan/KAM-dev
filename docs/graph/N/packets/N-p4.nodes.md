@@ -788,9 +788,9 @@ EDGE: stepN:p4:b4-four | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-pro
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L160-L160 | I ∈ V_{r_0}D since r−ρ < r_0
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L160-L162 | ¦·¦_{I,s}, ¦·¦_{r,s}
 EDGE: bpN:p5:setting | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L163-L163 | Uses the Hamiltonian Poisson bracket fixed in Part 5; SPEC requires its package edge
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-delta-N-b
-REVIEWER: -
+REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

@@ -221,7 +221,7 @@ DISPOSITION: NODE stepN:p4:b4-prod
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 
 ITEM: bpN:p4:general-cauchy
 KIND: lemma

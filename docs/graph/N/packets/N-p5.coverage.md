@@ -41,7 +41,7 @@ DISPOSITION: NODE stepN:p5:vf-field
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 
 ITEM: bpN:p5:flow
 KIND: lemma
@@ -50,7 +50,7 @@ DISPOSITION: NODE bpN:p5:flow
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 
 ITEM: stepN:p5:fl-max
 KIND: proof-region
@@ -176,7 +176,7 @@ DISPOSITION: NODE bpN:p5:lie-derivative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 
 ITEM: stepN:p5:ld-one
 KIND: proof-region
@@ -203,7 +203,7 @@ DISPOSITION: NODE bpN:p5:taylor
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 
 ITEM: stepN:p5:ta-taylor
 KIND: proof-region
@@ -212,7 +212,7 @@ DISPOSITION: NODE stepN:p5:ta-taylor
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 
 ITEM: stepN:p5:ta-poschel
 KIND: proof-region
@@ -347,7 +347,7 @@ DISPOSITION: NODE stepN:p5:tr-int
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 
 ITEM: bpN:p5:composition-integral
 KIND: corollary
@@ -374,7 +374,7 @@ DISPOSITION: NODE stepN:p5:ci-coeff
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 
 ITEM: bpN:p5:canonical-map
 KIND: proposition
@@ -383,7 +383,7 @@ DISPOSITION: NODE bpN:p5:canonical-map
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta2-N-b
 
 ITEM: stepN:p5:cm-field
 KIND: proof-region

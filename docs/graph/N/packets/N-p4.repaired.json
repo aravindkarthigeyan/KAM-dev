@@ -1,44 +1,9 @@
 {
- "replaced": [
-  "stepN:p4:b4-prod"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "bpN:p4:ext-weier",
-  "stepN:p4:dom-open",
-  "stepN:p4:dom-poly",
-  "stepN:p4:co-deriv",
-  "stepN:p4:co-repr",
-  "stepN:p4:b1-a",
-  "stepN:p4:b2-class",
-  "stepN:p4:b2-coeff",
-  "stepN:p4:b2-norm",
-  "stepN:p4:b3-a",
-  "stepN:p4:b3-b",
-  "bpN:p4:bracket",
-  "stepN:p4:b4-four",
-  "stepN:p4:c1-line",
-  "stepN:p4:c1-cauchy",
-  "stepN:p4:pr-class",
-  "stepN:p4:pr-tail",
-  "bpN:p4:ext-weier",
-  "stepN:p4:dom-open",
-  "stepN:p4:dom-poly",
-  "stepN:p4:co-deriv",
-  "stepN:p4:co-repr",
-  "stepN:p4:b1-a",
-  "stepN:p4:b2-class",
-  "stepN:p4:b2-coeff",
-  "stepN:p4:b2-norm",
-  "stepN:p4:b3-a",
-  "stepN:p4:b3-b",
-  "bpN:p4:bracket",
-  "stepN:p4:b4-four",
-  "stepN:p4:c1-line",
-  "stepN:p4:c1-cauchy",
-  "stepN:p4:pr-class",
-  "stepN:p4:pr-tail"
+  "stepN:p4:b4-prod"
  ]
 }

@@ -21,81 +21,81 @@ KIND: external
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#bpN:p11:ext-num@L40-L40
 DISPOSITION: NODE bpN:p11:ext-num
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: bpN:p11:ext-rpow
 KIND: external
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#bpN:p11:ext-rpow@L41-L41
 DISPOSITION: NODE bpN:p11:ext-rpow
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: bpN:p11:ext-chain
 KIND: external
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#bpN:p11:ext-chain@L42-L42
 DISPOSITION: NODE bpN:p11:ext-chain
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: bpN:p11:wfield
 KIND: definition
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#bpN:p11:wfield@L48-L56
 DISPOSITION: NODE bpN:p11:wfield
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: bpN:p11:orbit
 KIND: lemma
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#bpN:p11:orbit@L58-L61
 DISPOSITION: NODE bpN:p11:orbit
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:or-chain
 KIND: proof-region
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#stepN:p11:or-chain@L63-L63
 DISPOSITION: NODE stepN:p11:or-chain
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:or-eq
 KIND: proof-region
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#stepN:p11:or-eq@L64-L64
 DISPOSITION: NODE stepN:p11:or-eq
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: bpN:p11:exponents
 KIND: lemma
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#bpN:p11:exponents@L67-L69
 DISPOSITION: NODE bpN:p11:exponents
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:ex-den
 KIND: proof-region
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-den@L71-L71
 DISPOSITION: NODE stepN:p11:ex-den
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:ex-cmp
 KIND: proof-region
@@ -111,9 +111,9 @@ KIND: definition
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#bpN:p11:constants@L77-L84
 DISPOSITION: NODE bpN:p11:constants
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: heading:bpN:p11
 KIND: heading
@@ -164,7 +164,7 @@ ITEM: p11a:sourcegap-L23
 KIND: proof-region
 SOURCE: blueprint-N/parts/p11a-partial-route.tex#sourcegap@L23-L23
 DISPOSITION: NODE bpN:p11:nf
-REASON: gap in Nek77 (proofs of Lemmas 10.3, 10.5, 10.7 announced for Part II): the blueprint takes route (ii), whose parametric normal form with slow loss is Theorem nf (with the extended class and Part 6 machinery); the gap is filled, not left open
+REASON: the chosen route (ii) asserts its normal-form bridge at bpN:p11:nf; topology mapping only. The unsupported factorial and extended-telescoping inputs are exposed as SOURCE_GAP in its proof steps; this disposition makes no proof-closure claim.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p11ab
 REVIEWER: -
@@ -228,27 +228,27 @@ KIND: definition
 SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-class@L8-L14
 DISPOSITION: NODE bpN:p11:ext-class
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: bpN:p11:ext-part4
 KIND: lemma
 SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-part4@L16-L18
 DISPOSITION: NODE bpN:p11:ext-part4
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: bpN:p11:bracket
 KIND: lemma
 SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket@L20-L24
 DISPOSITION: NODE bpN:p11:bracket
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:br-fast
 KIND: proof-region
@@ -273,9 +273,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-dom@L28-L28
 DISPOSITION: NODE stepN:p11:br-dom
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: bpN:p11:bracket-g
 KIND: lemma
@@ -291,9 +291,9 @@ KIND: definition
 SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:scaled@L40-L42
 DISPOSITION: NODE bpN:p11:scaled
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: bpN:p11:vf
 KIND: lemma
@@ -327,9 +327,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:adjoint@L65-L68
 DISPOSITION: NODE bpN:p11:adjoint
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:ad-setup
 KIND: proof-region
@@ -363,9 +363,9 @@ KIND: theorem
 SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:composition@L75-L80
 DISPOSITION: NODE bpN:p11:composition
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:co-field
 KIND: proof-region
@@ -498,9 +498,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-sl@L137-L137
 DISPOSITION: NODE stepN:p11:nf-sl
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:nf-first
 KIND: proof-region

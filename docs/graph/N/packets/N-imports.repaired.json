@@ -1,0 +1,24 @@
+{
+ "replaced": [],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
+  "I:bpI:p0:hamsol#IsHamiltonianSolutionOn",
+  "K:bp:p1:decay",
+  "K:bp:p1:exp-sums",
+  "K:bp:p1:ext-cauchy",
+  "K:bp:p1:ext-integral",
+  "K:bp:p1:ext-mvt",
+  "K:bp:p1:ext-schwarz",
+  "K:bp:p1:fourier-basic",
+  "K:bp:p1:hamiltonian-real",
+  "K:bp:p1:holomorphic-regularity",
+  "K:bp:p1:real-restriction",
+  "K:bp:p1:summation",
+  "K:bp:p1:uniform-limits",
+  "K:bp:p1:averages",
+  "K:bp:p1:cauchy-open",
+  "K:bp:p1:ext-measure"
+ ]
+}

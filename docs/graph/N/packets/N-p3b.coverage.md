@@ -320,7 +320,7 @@ DISPOSITION: NODE bpN:p3:local-exist
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
-REVIEWER: sol-delta-N-c
+REVIEWER: sol-delta2-N-c
 
 ITEM: stepN:p3:le-red
 KIND: proof-region

@@ -66,9 +66,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:continuation@L35-L37
 DISPOSITION: NODE bpN:p11:continuation
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:ct-data
 KIND: proof-region
@@ -471,18 +471,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L160-L160
 DISPOSITION: NODE stepN:p11:final-empty
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:final-data
 KIND: proof-region
 SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L161-L161
 DISPOSITION: NODE stepN:p11:final-data
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: -
+REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:final-mu
 KIND: proof-region
@@ -689,4 +689,13 @@ DISPOSITION: NODE bpN:p11:s-real#data
 REASON: standing data of Section s-real (W^e_rho, G^R, G-orbits in W^e_rho): section-data node consumed by real-system, conj, preimage, transfer, nonresonant, energy-free, resonant, domain and the block theorem
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p11c
+REVIEWER: -
+
+ITEM: bpN:p11:eq:lie
+KIND: equation
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:eq:lie@L91-L91
+DISPOSITION: NODE stepN:p11:ef-id
+REASON: the labelled Lie identity is the conclusion of step ef-id, already represented by that node; no separate mathematical claim is added
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-N-f
 REVIEWER: -

@@ -131,7 +131,7 @@ DISPOSITION: NODE stepN:p3:lip-contra
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: sol-delta-N-c
+REVIEWER: sol-delta2-N-c
 
 ITEM: stepN:p3:lip-compact
 KIND: proof-region
@@ -221,7 +221,7 @@ DISPOSITION: NODE stepN:p3:short-boot
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: sol-delta-N-c
+REVIEWER: sol-delta2-N-c
 
 ITEM: stepN:p3:short-ext
 KIND: proof-region
@@ -329,7 +329,7 @@ DISPOSITION: NODE stepN:p3:ext-right
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
-REVIEWER: sol-delta-N-c
+REVIEWER: sol-delta2-N-c
 
 ITEM: stepN:p3:ext-left
 KIND: proof-region

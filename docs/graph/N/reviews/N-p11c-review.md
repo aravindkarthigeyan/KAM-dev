@@ -60,20 +60,20 @@ Reviewed every one of the 62 nodes and 77 coverage items against the raw source;
 | `stepN:p11:bl-res` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | missing direct uses: bpN:p11:ext-class, bpN:p11:constants, bpN:p11:block-setting; source premises omitted or replaced by derived proof-state assertions; restore enclosing hypotheses and keep branch assumptions local |
 | `stepN:p11:final-empty` | PASS | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L160-L160 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L160-L160 | Source fields, direct uses and source applicability agree. |
 | `stepN:p11:final-data` | PASS | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L161-L161 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L161-L161 | Source fields, direct uses and source applicability agree. |
-| `stepN:p11:final-mu` | PASS | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | Source fields, direct uses and source applicability agree. |
-| `stepN:p11:final-time` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163 | missing direct uses: bpN:p0:partial-exponents#partialTimeExponent; source premises omitted or replaced by derived proof-state assertions; restore enclosing hypotheses and keep branch assumptions local |
+| `stepN:p11:final-mu` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | threshold witness choice must precede subsequent universal variables |
+| `stepN:p11:final-time` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163 | missing direct uses: bpN:p0:partial-exponents#partialTimeExponent; source premises omitted or replaced by derived proof-state assertions; restore enclosing hypotheses and keep branch assumptions local; threshold witness choice must precede subsequent universal variables |
 | `stepN:p11:final-given` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164 | missing direct uses: bpN:p11:constants, bpN:p0:partial-exponents#partialTimeExponent, bpN:p0:partial-exponents#partialDriftExponent |
 | `stepN:p11:final-orbit` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | missing direct uses: bpN:p11:wfield, bpN:p11:s-real#data, bpN:p3:gen-sol, bpN:p11:constants; source premises omitted or replaced by derived proof-state assertions; restore enclosing hypotheses and keep branch assumptions local |
 | `stepN:p11:final-sign` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | missing direct uses: bpN:p11:wfield, bpN:p11:block-setting, bpN:p11:constants; source premises omitted or replaced by derived proof-state assertions; restore enclosing hypotheses and keep branch assumptions local |
 | `stepN:p11:final-drift` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167 | missing direct uses: bpN:p11:constants, bpN:p0:partial-sec#fast, bpN:p0:partial-exponents#partialDriftExponent; source premises omitted or replaced by derived proof-state assertions; restore enclosing hypotheses and keep branch assumptions local |
-| `stepN:p11:final-order` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168 | explicit constant dependence/order omitted |
+| `stepN:p11:final-order` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168 ; blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168 | explicit constant dependence/order omitted; threshold witness choice must precede subsequent universal variables |
 | `bpN:p11:s-real#data` | FAIL | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-real#data@L4-L5 | missing direct uses: bpN:p4:norm, bpN:p4:domains |
 
 Coverage failures:
 
 | Coverage item | Verdict | Reason |
 |---|---|---|
-| — | — | No failing coverage dispositions. |
+| `bpN:p11:eq:lie` | FAIL | Missing explicit disposition for the labelled display at Part 11c L91; map to stepN:p11:ef-id. |
 
 All other coverage items PASS. Labelled conclusions/steps are mapped, section-data paragraphs are retained, and administrative remarks, aliases and provenance-only citations are correctly excluded.
 
@@ -1893,7 +1893,7 @@ PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@
 CONTRACT_ID: stepN:p11:final-time
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p0:partial; branch G nonempty; prior proof steps are derived through DEPS, not extra assumptions
-SOURCE_QUANTIFIERS: mu
+SOURCE_QUANTIFIERS: the fixed data first; there exists mu_f>0 depending only on those data such that the time comparison holds for every mu with 0<mu<mu_f
 SOURCE_CONCLUSION: T_P=C_T mu^{-1/2}exp(c_2 mu^{-1/(2n)}) with C_T=(s m r_0/(240 M_C (A c_K)^n))(2 pi/kappa_C)>0, c_2=pi s c_K/(3 sqrt n)>0; mu T_P e^{-mu^{-a_n}}>=C_T mu^{1/2}e^{(c_2/2)mu^{-1/(2n)}}->infinity, which defines mu_f
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -2069,7 +2069,7 @@ PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order
 CONTRACT_ID: stepN:p11:final-order
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the thresholds mu_a..mu_f
-SOURCE_QUANTIFIERS: data
+SOURCE_QUANTIFIERS: n,k,G,G-prime,D,rho,g,m,M_C,h with their hypotheses; choose mu_0 before universally quantified mu,P,C,z,t
 SOURCE_CONCLUSION: mu_0 depends only on (n,k,rho,g,m,M_C) and is chosen before mu,P,C,z,t
 CONSTANT_SCOPE: mu_0 depends only on (n,k,rho,g,m,M_C), and is chosen before mu,P,C,z,t
 FROZEN_FILE: -
@@ -2157,3 +2157,51 @@ NOTE: SOURCE_GAP: L115 cites bpN:p1:holo-real, stated for centred action balls w
 ```
 
 Validation: source and imports SHA-256 pins verified; original slice structure checked; replacement/parser checks recorded below. No Lean or state-changing git command was run.
+
+```text
+NODE: stepN:p11:final-mu
+KIND: step
+TITLE: The threshold
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162
+CONTRACT_ID: stepN:p11:final-mu
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: G nonempty; gamma_1,gamma_2 of Lemma exponents; the constants
+SOURCE_QUANTIFIERS: the fixed data first; choose positive mu_a,...,mu_e and mu_f from final-time, then mu_0=min(mu_a,...,mu_f); for every mu with 0<mu<mu_0
+SOURCE_CONCLUSION: mu_0=min{mu_a..mu_f} with mu_a=2 pi eps_0/kappa_C, mu_b=rho^{1/b_n}, mu_c=(pi s c_K/(3 sqrt n))^{2n}, mu_d=(c_K/(256 k rho R_0))^{1/gamma_1}, mu_e=(c_K/R_0)^{1/gamma_2}, mu_f of step final-time; for 0<mu<mu_0: eps<=eps_0, d<=rho, kappa>=6 (B1), K>=256 k rho R_0 mu^{-2 b_n} (B2), R_0/(2K)<=mu^{b_n}/2
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpN:p11:exponents, stepN:p11:final-time, stepN:p11:final-data, bpN:p11:constants, bpN:p11:ext-rpow, bpN:p11:block-setting, bpN:p11:block
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpN:p11:exponents | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | gamma_1,gamma_2>0 (Lemma exponents)
+EDGE: stepN:p11:final-time | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | mu_f from step final-time
+EDGE: stepN:p11:final-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | eps_0, R_0, c_K
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | kappa_C, s, K(mu), kappa(mu), d
+EDGE: bpN:p11:ext-rpow | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | power rules and monotonicity of mu->mu^gamma
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | the conditions eps<=eps_0, d<=rho of Definition block-setting that mu_0 secures
+EDGE: bpN:p11:block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | hypotheses (B1),(B2) of Theorem block that mu_0 secures
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11c
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+```text
+ITEM: bpN:p11:eq:lie
+KIND: equation
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:eq:lie@L91-L91
+DISPOSITION: NODE stepN:p11:ef-id
+REASON: the labelled Lie identity is the conclusion of step ef-id, already represented by that node; no separate mathematical claim is added
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-N-f
+REVIEWER: -
+```
+
+Final validation: every current node has exactly one verdict; proposed Part 11 records have matching DEPS/EDGE targets, existing targets and in-bounds locators; the in-memory combined graph has no cycles. Review application dry run has no unresolved FAILs.

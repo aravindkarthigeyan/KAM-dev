@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -125,9 +125,9 @@ EDGE: stepN:p11:or-eq | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:orbit@L
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:orbit@L59-L59 | X^{2pi}_Hhat is the weight-2pi field of Definition wfield
 EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:orbit@L59-L59 | z'=X_H(z) with the frozen field of Ph_{n+k}
 EDGE: bpN:p0:partial-sec#Phase | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:orbit@L58-L58 | H is defined on Ph_{n+k}, Theta on its coordinates
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -152,9 +152,9 @@ DEPS: bpN:p11:ext-chain
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:ext-chain | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:or-chain@L63-L63 | chain rule for the linear change of variables Theta
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -181,9 +181,9 @@ ROUTE_FOR: -
 EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:or-eq@L64-L64 | the frozen field X_H=(d_I H,-d_phi H) for Ph_{n+k}
 EDGE: stepN:p11:or-chain | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:or-eq@L64-L64 | the partials of Hhat in terms of those of H
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:or-eq@L64-L64 | these are the components of X^{2pi}_Hhat
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -211,9 +211,9 @@ EDGE: stepN:p11:ex-den | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:expone
 EDGE: stepN:p11:ex-cmp | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:exponents@L72-L72 | proof step (comparison)
 EDGE: bpN:p0:partial-exponents#partialTimeExponent | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:exponents@L68-L68 | a_n of the frozen statement
 EDGE: bpN:p0:partial-exponents#partialDriftExponent | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:exponents@L68-L68 | b_n of the frozen statement
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -239,9 +239,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p0:partial-exponents#partialTimeExponent | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-den@L71-L71 | a_n=2/q_n
 EDGE: bpN:p0:partial-exponents#partialDriftExponent | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-den@L71-L71 | b_n=3/q_n
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -254,7 +254,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-cmp@L72-
 PROOF_SOURCE: blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-cmp@L72-L72
 CONTRACT_ID: stepN:p11:ex-cmp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: n>=2; q_n>0 and a_n<b_n (step ex-den); the quadratic 6n^2-15n+14 has negative discriminant
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:exponents; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: n
 SOURCE_CONCLUSION: 2 b_n<1/(2n) iff 6n^2-15n+14>0 (true); hence a_n<b_n<2b_n<1/(2n)
 CONSTANT_SCOPE: none
@@ -268,7 +268,7 @@ ROUTE_FOR: -
 EDGE: stepN:p11:ex-den | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-cmp@L72-L72 | q_n>0 and a_n<b_n
 EDGE: bpN:p0:partial-exponents#partialDriftExponent | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-cmp@L72-L72 | b_n
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -295,9 +295,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p0:partial-definite#HasDefiniteFastPart | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:constants@L78-L78 | sigma from HasDefiniteFastPart; the data g, m, h, rho
 EDGE: bpN:p0:partial-exponents#partialDriftExponent | blueprint-N/parts/p11a-partial-route.tex#bpN:p11:constants@L81-L81 | d=mu^{b_n}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -325,9 +325,9 @@ EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-class@L9-L
 EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-class@L9-L10 | V_R D-hat, D_{R,s}=T_s x V_R D-hat
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-class@L10-L10 | the bracket {u,v}_c in the variables (theta,I,x-tilde)
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-class@L9-L11 | I_c, S-tilde, r_B, c (and lambda) of the block data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -360,9 +360,9 @@ EDGE: bpN:p4:algebra | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-part4@L
 EDGE: bpN:p4:cauchy | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-part4@L16-L16 | statement of Lemma cauchy (B.3) transferred
 EDGE: bpN:p4:general-cauchy | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-part4@L16-L16 | statement of Lemma general-cauchy transferred
 EDGE: bpN:p4:projections | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-part4@L16-L16 | statement of Lemma projections transferred
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -396,9 +396,9 @@ EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket@L22-L2
 EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket@L21-L21 | D^e_{R-rho,s-sigma}
 EDGE: bpN:p4:sup-weighted | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket@L23-L23 | pointwise values bounded by the weighted norm (Lemma sup-weighted(a))
 EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket@L23-L23 | sup-weighted(a) for the extended class
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -419,7 +419,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p4:bracket, bpN:p4:algebra, bpN:p4:cauchy, bpN:p11:ext-part4
+DEPS: bpN:p4:bracket, bpN:p4:algebra, bpN:p4:cauchy, bpN:p11:ext-part4, bpN:p4:norm, bpN:p11:ext-class, bpN:p11:wfield
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-fast@L26-L26 | direct package or input used by this proof step
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-fast@L26-L26 | direct package or input used by this proof step
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-fast@L26-L26 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:bracket | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-fast@L26-L26 | the fast estimate is that of Lemma bracket (B.4), re-run for O^e
@@ -427,7 +430,7 @@ EDGE: bpN:p4:algebra | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-fast@L
 EDGE: bpN:p4:cauchy | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-fast@L26-L26 | its proof uses cauchy
 EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-fast@L26-L26 | algebra and cauchy hold for O^e with the same constants
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -449,7 +452,11 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p4:algebra, bpN:p4:cauchy, bpN:p11:ext-part4, bpN:p11:s-ext-class#data
+DEPS: bpN:p4:algebra, bpN:p4:cauchy, bpN:p11:ext-part4, bpN:p11:s-ext-class#data, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p11:wfield
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-slow@L27-L27 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-slow@L27-L27 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-slow@L27-L27 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-slow@L27-L27 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:algebra | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-slow@L27-L27 | pointwise product estimate (Lemma algebra)
@@ -457,7 +464,7 @@ EDGE: bpN:p4:cauchy | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-slow@L2
 EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-slow@L27-L27 | algebra and cauchy(b) for the extended class
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-slow@L27-L27 | the weight c
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -484,9 +491,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-dom@L28-L28 | (SL)_{rho,sigma}
 EDGE: bpN:p11:ext-num | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:br-dom@L28-L28 | e>2.718 so 1/e<0.368
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -507,7 +514,9 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:bracket, bpN:p6:setting, bpN:p11:ext-class, bpN:p11:wfield
+DEPS: bpN:p11:bracket, bpN:p6:setting, bpN:p11:ext-class, bpN:p11:wfield, bpN:p4:norm, bpN:p4:domains
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket-g@L34-L36 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket-g@L34-L36 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:bracket | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket-g@L35-L35 | Lemma bracket applied to each g_j
@@ -515,7 +524,7 @@ EDGE: bpN:p6:setting | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket-g@L
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket-g@L32-L32 | O^e and (SL)_{rho,sigma}
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:bracket-g@L32-L32 | the bracket {g,phi}_c
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -544,9 +553,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:scaled@L42-
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:scaled@L41-L41 | X^c_phi=Omega_c grad phi
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:scaled@L42-L42 | D^e_{R,s}
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:scaled@L41-L41 | the weight c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -567,7 +576,9 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:ext-part4, bpN:p4:cauchy, bpN:p4:sup-weighted, bpN:p5:vf-bound, bpN:p11:ext-class, bpN:p11:scaled, bpN:p4:norm, bpN:p11:s-ext-class#data
+DEPS: bpN:p11:ext-part4, bpN:p4:cauchy, bpN:p4:sup-weighted, bpN:p5:vf-bound, bpN:p11:ext-class, bpN:p11:scaled, bpN:p4:norm, bpN:p11:s-ext-class#data, bpN:p4:domains, bpN:p11:wfield
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:vf@L47-L49 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:vf@L47-L49 | direct use of bpN:p11:wfield in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:vf@L48-L48 | B.3 and B.1(a) for the extended class (Lemma ext-part4)
@@ -579,7 +590,7 @@ EDGE: bpN:p11:scaled | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:vf@L45-L45 
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:vf@L45-L45 | weighted norm
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:vf@L48-L48 | the weight c
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -601,14 +612,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p5:flow, bpN:p11:scaled, bpN:p11:ext-class
+DEPS: bpN:p5:flow, bpN:p11:scaled, bpN:p11:ext-class, bpN:p4:domains
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:flow@L54-L56 | direct use of bpN:p4:domains in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p5:flow | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:flow@L52-L52 | Lemma flow applied verbatim (its conclusions (a)-(e)) to N=2n+2k
 EDGE: bpN:p11:scaled | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:flow@L52-L52 | the norm nu_{rho,sigma}
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:flow@L52-L52 | Omega=D^e_{R',s'}
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -630,7 +642,8 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:flow, bpN:p5:flow, K:bp:p1:ext-schwarz, bpN:p11:wfield, bpN:p11:ext-chain
+DEPS: bpN:p11:flow, bpN:p5:flow, K:bp:p1:ext-schwarz, bpN:p11:wfield, bpN:p11:ext-chain, bpN:p11:s-ext-class#data
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:symplectic@L61-L63 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:flow | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:symplectic@L59-L59 | the flow package of the hypothesis
@@ -639,7 +652,7 @@ EDGE: K:bp:p1:ext-schwarz | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:symple
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:symplectic@L62-L62 | Omega_c, X^c, {u,v}_c=grad u^T Omega_c grad v
 EDGE: bpN:p11:ext-chain | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:symplectic@L62-L62 | chain rule for grad(u o Phi) and (b), (c)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -671,9 +684,9 @@ EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:adjoint@
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:adjoint@L66-L66 | ad^h_phi u defined with {.,.}_c
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:adjoint@L67-L67 | weighted norm
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:adjoint@L66-L66 | weight c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -694,12 +707,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:ext-class
+DEPS: bpN:p11:ext-class, bpN:p4:norm, bpN:p11:wfield, bpN:p4:domains
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-setup@L70-L70 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-setup@L70-L70 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-setup@L70-L70 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-setup@L70-L70 | (SL)_{rho,sigma} depends only on the ratio sigma/rho
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -713,7 +729,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-step@L71-L7
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-step@L71-L71
 CONTRACT_ID: stepN:p11:ad-step
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: setup of step ad-setup; ad^{i-1}_phi u in O(R_{i-1},s_{i-1})^e
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:adjoint; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: i
 SOURCE_CONCLUSION: ¦ad^i_phi u¦_{R_i,s_i}<=(1/2)(2/((h+i)kappa lambda_h))¦phi¦¦ad^{i-1}_phi u¦_{R_{i-1},s_{i-1}}
 CONSTANT_SCOPE: none
@@ -721,14 +737,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:bracket, bpN:p11:wfield, stepN:p11:ad-setup
+DEPS: bpN:p11:bracket, bpN:p11:wfield, stepN:p11:ad-setup, bpN:p4:norm, bpN:p11:s-ext-class#data, bpN:p11:ext-class
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-step@L71-L71 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-step@L71-L71 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-step@L71-L71 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:bracket | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-step@L71-L71 | Lemma bracket with u:=phi (radius R', width s'), v:=ad^{i-1}_phi u and losses kappa, lambda_h
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-step@L71-L71 | {a,b}_c=-{b,a}_c
 EDGE: stepN:p11:ad-setup | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-step@L71-L71 | the radii R_i, s_i and (SL)_{kappa,lambda_h}
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -742,7 +761,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L7
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72
 CONTRACT_ID: stepN:p11:ad-prod
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the one-step bound of step ad-step
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:adjoint; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: h
 SOURCE_CONCLUSION: prod_{i=1}^h (h+i)=(2h)!/h! and kappa lambda_h=rho sigma/h^2 give (1/h!)¦ad^h_phi u¦<=((eta h^2/2)^h/(2h)!)¦u¦<=(e^2 eta/8)^h ¦u¦, using (2h)!>=(2h/e)^{2h}
 CONSTANT_SCOPE: none
@@ -750,18 +769,20 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p11:ad-step, bpN:p11:ext-num
+DEPS: stepN:p11:ad-step, bpN:p4:norm, bpN:p11:ext-class, bpN:p11:wfield
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | direct package or input used by this proof step
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:ad-step | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | the recursive bound being iterated
-EDGE: bpN:p11:ext-num | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | (2h)!>=(2h/e)^{2h} (cited as ext-num)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SUSPECTED DEFECT: ext-num (E1) lists e>2.718, 2/e<0.736, coth>1 and x^gamma<x^beta but not the factorial bound (2h)!>=(2h/e)^{2h} that the step cites it for; modelled as the cited edge, no gap node added
+NOTE: SOURCE_GAP: Part 11b L72 needs (2h)! >= (2h/e)^{2h} for h>=1. The cited ext-num at Part 11a L40 does not state it, and no proof or other permitted input supplies it. Preserve the claimed estimate; do not add the factorial bound as a hypothesis.
 
 NODE: bpN:p11:composition
 KIND: theorem
@@ -791,9 +812,9 @@ EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:composition
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:composition@L76-L76 | finite weighted norm
 EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:composition@L76-L76 | D^e_{R,s}, Omega^{1/2}
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:composition@L76-L76 | weight c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -814,7 +835,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:vf, bpN:p11:scaled, bpN:p11:flow, bpN:p11:ext-class
+DEPS: bpN:p11:vf, bpN:p11:scaled, bpN:p11:flow, bpN:p11:ext-class, bpN:p4:norm, bpN:p4:domains, bpN:p11:wfield
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-field@L82-L82 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-field@L82-L82 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-field@L82-L82 | direct use of bpN:p11:wfield in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:vf | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-field@L82-L82 | Lemma vf with losses rho, sigma gives nu(X^c_phi)<=¦phi¦/(rho sigma)
@@ -822,7 +846,7 @@ EDGE: bpN:p11:scaled | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-field@
 EDGE: bpN:p11:flow | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-field@L82-L82 | Lemma flow(a): X^t(z) in B-bar_nu(z,eps)
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-field@L82-L82 | D^e_{R,s} and its monotone family
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -836,7 +860,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83
 CONTRACT_ID: stepN:p11:co-series
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Lemma adjoint for u in O(R,s)^e; eta<=1/2
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:composition; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: u
 SOURCE_CONCLUSION: (1/h!)ad^h_phi u in O(R-rho,s-sigma)^e has norm <=(e^2 eta/8)^h¦u¦, sum<=(1-e^2 eta/8)^{-1}<=(1-eta)^{-1} (e^2/8<0.93); partial sums converge uniformly (B.1(a)), the limit S is holomorphic and periodic, its Fourier coefficients are the sums of the coefficients (termwise integration), and the norm bound follows by the triangle inequality
 CONSTANT_SCOPE: none
@@ -844,7 +868,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:adjoint, bpN:p4:sup-weighted, bpN:p11:ext-part4, bpN:p4:ext-weier, bpN:p4:ext-series, bpN:p4:norm, bpN:p11:ext-num
+DEPS: bpN:p11:adjoint, bpN:p4:sup-weighted, bpN:p11:ext-part4, bpN:p4:ext-weier, bpN:p4:ext-series, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p6:ext-numerics
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | direct use of bpN:p6:ext-numerics in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | the term bounds (e^2 eta/8)^h
@@ -853,14 +880,13 @@ EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-ser
 EDGE: bpN:p4:ext-weier | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | limit holomorphic and periodic
 EDGE: bpN:p4:ext-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | termwise integration of the Fourier coefficients
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | Fourier coefficients and norm of the limit
-EDGE: bpN:p11:ext-num | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | e>2.718 so e^2/8<0.93
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: the source additionally uses e^2/8<0.93, which is not supplied by Part 11 ext-num or the weaker Part 6 e^2<8. The printed sharpening is preserved as an unsupported numerical input, not silently included in an external contract.
 
 NODE: stepN:p11:co-remainder
 KIND: step
@@ -869,7 +895,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84
 CONTRACT_ID: stepN:p11:co-remainder
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: z in D^e_{R-rho,s-sigma}; w=X^t(z); hat-rho=(1-eps)rho, hat-sigma=(1-eps)sigma; hat-eta=eta/(1-eps)^2<=8/9
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:composition; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: N; z
 SOURCE_CONCLUSION: ¦ad^N_phi u¦_{R-hat-rho,s-hat-sigma}<=N!(e^2 hat-eta/8)^N¦u¦ with e^2 hat-eta/8<0.83; Taylor with integral remainder gives ¦R_N(z)¦<=(e^2 hat-eta/8)^N¦u¦->0 so u(X^1 z)=S(z); (iii) is (ii) for t phi; (iv) by Lemma flow(e)
 CONSTANT_SCOPE: none
@@ -877,7 +903,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:adjoint, bpN:p5:taylor, bpN:p11:symplectic, bpN:p11:flow, bpN:p11:wfield, bpN:p11:ext-num
+DEPS: bpN:p11:adjoint, bpN:p5:taylor, bpN:p11:symplectic, bpN:p11:flow, bpN:p11:wfield, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p6:ext-numerics, stepN:p11:co-field
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | direct use of bpN:p6:ext-numerics in the statement or proof at this span
+EDGE: stepN:p11:co-field | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | Lemma adjoint with (hat-rho,hat-sigma)
@@ -885,14 +916,13 @@ EDGE: bpN:p5:taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remaind
 EDGE: bpN:p11:symplectic | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | derivatives g^(j)=ad^j_phi u o X^t
 EDGE: bpN:p11:flow | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | (iv) by Lemma flow(e); trajectory in D^e
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | d/dt v(X^t z)=Dv.X^c_phi={v,phi}_c
-EDGE: bpN:p11:ext-num | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | e>2.718 so e^2/9<0.83
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: the source additionally uses e^2/9<0.83, which is not supplied by Part 11 ext-num or the weaker Part 6 e^2<8. The printed sharpening is preserved as an unsupported numerical input, not silently included in an external contract.
 
 NODE: bpN:p11:transform
 KIND: proposition
@@ -909,7 +939,8 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p11:tr-taylor, stepN:p11:tr-int, bpN:p11:composition, bpN:p11:ext-class, bpN:p11:wfield, bpN:p4:norm, bpN:p11:s-ext-class#data
+DEPS: stepN:p11:tr-taylor, stepN:p11:tr-int, bpN:p11:composition, bpN:p11:ext-class, bpN:p11:wfield, bpN:p4:norm, bpN:p11:s-ext-class#data, bpN:p4:domains
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L90-L93 | direct use of bpN:p4:domains in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:tr-taylor | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L91-L91 | proof step (Taylor)
@@ -920,7 +951,7 @@ EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L88-L88 | finite norm
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L88-L88 | weight c
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -934,7 +965,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91
 CONTRACT_ID: stepN:p11:tr-taylor
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: setting of Theorem composition; trajectory in D^e_{R,s} by Theorem composition(i)
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:transform; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: z
 SOURCE_CONCLUSION: the Taylor identity (h+f_0)(X^1 z)=h+w+f_0+R pointwise; series form: h o X^1=h+sum_{i>=0}(1/(i+1)!)ad^i_phi w, f_0 o X^1=sum(1/j!)ad^j_phi f_0, hence R=sum_{j>=1}(...) and the bound sum_{j>=1}(e^2 eta/8)^j(¦w¦/(j+1)+¦f_0¦)<=eta/(1-eta)((1/2)¦w¦+¦f_0¦)
 CONSTANT_SCOPE: none
@@ -942,15 +973,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p5:taylor, bpN:p11:composition, bpN:p11:adjoint, bpN:p11:ext-num
+DEPS: bpN:p5:taylor, bpN:p11:composition, bpN:p11:adjoint, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p6:ext-numerics, bpN:p11:wfield
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | direct use of bpN:p6:ext-numerics in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p5:taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | Taylor formula of order 2 for h, order 1 for f_0
 EDGE: bpN:p11:composition | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | trajectory stays in D^e_{R,s} (i)
 EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | bounds (e^2 hat-eta/8)^{N-1} for ad^{N-1}_phi w and the series terms
-EDGE: bpN:p11:ext-num | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | e>2.718 so e^2/8<1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -972,14 +1007,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:composition, bpN:p4:ext-param, bpN:p4:ext-series
+DEPS: bpN:p11:composition, bpN:p4:ext-param, bpN:p4:ext-series, bpN:p4:norm, bpN:p11:ext-class, K:bp:p1:ext-integral
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: K:bp:p1:ext-integral | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92 | direct use of K:bp:p1:ext-integral in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:composition | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92 | (iii): ¦g_t¦<=(1-eta)^{-1}V
 EDGE: bpN:p4:ext-param | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92 | holomorphy of G (holomorphic parameter integral)
 EDGE: bpN:p4:ext-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92 | Fubini and Tonelli for the Fourier-coefficient integrals
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1001,7 +1039,8 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p5:canonical-map, bpN:p11:vf, bpN:p11:scaled, bpN:p11:flow, bpN:p11:symplectic, K:bp:p1:ext-mvt, bpN:p11:ext-class, bpN:p4:norm, bpN:p4:domains, bpN:p11:s-ext-class#data
+DEPS: bpN:p5:canonical-map, bpN:p11:vf, bpN:p11:scaled, bpN:p11:flow, bpN:p11:symplectic, K:bp:p1:ext-mvt, bpN:p11:ext-class, bpN:p4:norm, bpN:p4:domains, bpN:p11:s-ext-class#data, bpN:p11:wfield
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@L98-L100 | direct use of bpN:p11:wfield in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p5:canonical-map | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@L99-L99 | as Proposition p5:canonical-map, step by step (same conclusions (a)-(e) for the extended class)
@@ -1015,7 +1054,7 @@ EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@
 EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@L96-L96 | D^e_{R-rho,s-sigma}
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@L96-L96 | weight c
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1037,7 +1076,8 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p6:homological, bpN:p6:iterative-direct, stepN:p6:hom-real, bpN:p11:ext-part4, bpN:p4:projections, bpN:p11:ext-class, bpN:p11:wfield, bpN:p11:s-nf#data, bpN:p6#data, bpN:p4:norm, bpN:p11:s-ext-class#data
+DEPS: bpN:p6:homological, bpN:p6:iterative-direct, stepN:p6:hom-real, bpN:p11:ext-part4, bpN:p4:projections, bpN:p11:ext-class, bpN:p11:wfield, bpN:p11:s-nf#data, bpN:p6#data, bpN:p4:norm, bpN:p11:s-ext-class#data, bpN:p4:domains
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L109-L111 | direct use of bpN:p4:domains in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p6:homological | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L110-L110 | identical to Proposition homological (Fourier coefficients at fixed I-hat; same formulas and the norm bounds q delta/abar)
@@ -1052,7 +1092,7 @@ EDGE: bpN:p6#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L106-L107 
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L106-L106 | weighted norm and Fourier coefficients
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L106-L106 | I-hat=(I,x-tilde)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1074,7 +1114,8 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p11:it-gen, stepN:p11:it-map, stepN:p11:it-taylor, stepN:p11:it-est, bpN:p6:setting, bpN:p11:hom, bpN:p11:s-nf#data, bpN:p11:ext-class, bpN:p11:wfield, bpN:p4:norm, bpN:p11:s-ext-class#data
+DEPS: stepN:p11:it-gen, stepN:p11:it-map, stepN:p11:it-taylor, stepN:p11:it-est, bpN:p6:setting, bpN:p11:hom, bpN:p11:s-nf#data, bpN:p11:ext-class, bpN:p11:wfield, bpN:p4:norm, bpN:p11:s-ext-class#data, bpN:p4:domains
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L121-L126 | direct use of bpN:p4:domains in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:it-gen | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L122-L122 | proof step (generating function)
@@ -1089,7 +1130,7 @@ EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L114-L114 | weighted norm
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L113-L113 | weight c
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1103,7 +1144,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-gen@L122-L1
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-gen@L122-L122
 CONTRACT_ID: stepN:p11:it-gen
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Proposition hom; delta<=abar rho sigma/(4q)
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:iterative; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: f
 SOURCE_CONCLUSION: ¦phi¦<=q delta/abar and eta:=2¦phi¦/(rho sigma)<=2 q delta/(abar rho sigma)<=1/2
 CONSTANT_SCOPE: none
@@ -1111,12 +1152,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:hom
+DEPS: bpN:p11:hom, bpN:p4:norm, bpN:p11:s-nf#data
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-gen@L122-L122 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-gen@L122-L122 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:hom | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-gen@L122-L122 | ¦phi¦<=q delta/abar
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1130,7 +1173,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-map@L123-L1
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-map@L123-L123
 CONTRACT_ID: stepN:p11:it-map
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: eta<=1/2 of step it-gen
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:iterative; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: phi
 SOURCE_CONCLUSION: (a),(b): eps=¦phi¦/(rho sigma)<=eta/2<=1/4 and rho<R/2, sigma<s/2 so Proposition canonical-map gives the map properties and displacement bounds
 CONSTANT_SCOPE: none
@@ -1144,7 +1187,7 @@ ROUTE_FOR: -
 EDGE: bpN:p11:canonical-map | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-map@L123-L123 | Proposition canonical-map applies (rho<R/2, sigma<s/2, eps<=1/4)
 EDGE: stepN:p11:it-gen | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-map@L123-L123 | eta<=1/2 and ¦phi¦<=q delta/abar
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1158,7 +1201,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124
 CONTRACT_ID: stepN:p11:it-taylor
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: f_0=g+T_{K_a}f of finite norm; w={h,phi}_c=xi-T_{K_a}f (Proposition hom); 2 rho<R, 2 sigma<s
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:iterative; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: phi
 SOURCE_CONCLUSION: on D^e_{R-2rho,s-2sigma}: (h+f_0) o Phi=h+g+xi+R=h+g_+ +R, R=int_0^1{g+f_t,phi}_c o X^t dt, f_t=(1-t)xi+t T_{K_a}f; hence H o Phi=h+g_+ +f_+ with f_+=R+(f-T_{K_a}f) o Phi
 CONSTANT_SCOPE: none
@@ -1166,14 +1209,20 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:transform, bpN:p11:hom, stepN:p11:it-gen
+DEPS: bpN:p11:transform, bpN:p11:hom, stepN:p11:it-gen, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p11:wfield, bpN:p11:s-ext-class#data, bpN:p11:s-nf#data
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:transform | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | Proposition transform with data (R-rho,s-sigma;R,s)
 EDGE: bpN:p11:hom | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | w={h,phi}_c=xi-T_{K_a}f and xi=P_Lambda T_{K_a}f
 EDGE: stepN:p11:it-gen | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | eta<=1/2, the hypotheses of the transform
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1187,7 +1236,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L1
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125
 CONTRACT_ID: stepN:p11:it-est
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: v_t={g+f_t,phi}_c affine in t; step it-taylor
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:iterative; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: t
 SOURCE_CONCLUSION: ¦v_t¦_{R-rho,s-sigma}<=(1/(rho sigma))(¦g¦_*+delta)q delta/abar=V; ¦R¦<=(1-eta)^{-1}V; ¦f-T_{K_a}f¦_{R,s-sigma}<=e^{-2 pi K_a sigma}delta and ¦(f-T_{K_a}f) o Phi¦<=(1-eta)^{-1}e^{-2 pi K_a sigma}delta; this is (d); (e) as Step it-real
 CONSTANT_SCOPE: none
@@ -1195,7 +1244,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:bracket-g, bpN:p11:transform, bpN:p4:projections, bpN:p11:composition, stepN:p6:it-real, stepN:p11:it-taylor, stepN:p11:it-gen
+DEPS: bpN:p11:bracket-g, bpN:p11:transform, bpN:p4:projections, bpN:p11:composition, stepN:p6:it-real, stepN:p11:it-taylor, stepN:p11:it-gen, bpN:p4:norm, bpN:p11:wfield, bpN:p11:s-nf#data, bpN:p6:setting, bpN:p11:ext-class, bpN:p11:ext-part4
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
+EDGE: bpN:p6:setting | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125 | direct use of bpN:p6:setting in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125 | direct package or input used by this proof step
+EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:bracket-g | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125 | decomposition g_j plus the term f_t with weight 1
@@ -1206,7 +1261,7 @@ EDGE: stepN:p6:it-real | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@
 EDGE: stepN:p11:it-taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125 | the identity for f_+ and f_t
 EDGE: stepN:p11:it-gen | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125 | ¦phi¦<=q delta/abar and eta
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1228,7 +1283,9 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p11:nf-sl, stepN:p11:nf-first, stepN:p11:nf-case, stepN:p11:nf-N, stepN:p11:nf-induct, stepN:p11:nf-concl, stepN:p11:nf-disp, stepN:p11:nf-real, bpN:p6:setting, bpN:p6:divisor, bpN:p6:normal-form, bpN:p11:iterative, bpN:p11:s-nf#data, bpN:p11:s-ext-class#data, bpN:p11:ext-class, bpN:p4:projections, bpN:p6#data, bpN:p4:norm
+DEPS: stepN:p11:nf-sl, stepN:p11:nf-first, stepN:p11:nf-case, stepN:p11:nf-N, stepN:p11:nf-induct, stepN:p11:nf-concl, stepN:p11:nf-disp, stepN:p11:nf-real, bpN:p6:setting, bpN:p6:divisor, bpN:p6:normal-form, bpN:p11:iterative, bpN:p11:s-nf#data, bpN:p11:s-ext-class#data, bpN:p11:ext-class, bpN:p4:projections, bpN:p6#data, bpN:p4:norm, bpN:p4:domains, bpN:p11:wfield
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:nf@L135-L147 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:nf@L135-L147 | direct use of bpN:p11:wfield in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:nf-sl | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:nf@L137-L137 | proof step ((SL) at every step)
@@ -1250,7 +1307,7 @@ EDGE: bpN:p4:projections | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:nf@L131
 EDGE: bpN:p6#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:nf@L130-L130 | kappa=2 pi K_a s, Z_{K_a}
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:nf@L129-L129 | weighted norm
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1276,9 +1333,9 @@ DEPS: bpN:p11:ext-class
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-sl@L137-L137 | (SL) implies (SL)_{rho,sigma} whenever sigma<=2 s rho/r_B
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1291,7 +1348,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-first@L138-
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-first@L138-L138
 CONTRACT_ID: stepN:p11:nf-first
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 2 rho_0<R, 2 sigma_0<s; hypothesis (i), (ii) of the theorem
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:nf; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: eps
 SOURCE_CONCLUSION: eps<=alpha R/(2^7 q K_a)<=abar rho_0 sigma_0/(16 q) so y_0:=q eps/(abar rho_0 sigma_0)<=1/16 and the hypothesis delta<=abar rho sigma/(4q) of Theorem iterative holds
 CONSTANT_SCOPE: none
@@ -1299,12 +1356,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:iterative
+DEPS: bpN:p11:iterative, bpN:p11:s-nf#data
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-first@L138-L138 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:iterative | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-first@L138-L138 | hypothesis delta<=abar rho sigma/(4q) to be verified
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1318,7 +1376,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L141
 CONTRACT_ID: stepN:p11:nf-case
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step 0 with losses (R/8,s/6); y_0<=1/16
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:nf; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: eps
 SOURCE_CONCLUSION: Theorem iterative(d) with g=0: ¦f_1¦<=(1-2y_0)^{-1}(y_0+e^{-kappa/6})eps; Case A (e^{-kappa/6}<=y_0): eps_1<=(16/7)y_0 eps<=eps/kappa<=eps/4 (6.1); Case B: repeat with losses (R/4,s/3): ¦f_1¦_{R/2,s/3}<0.64 e^{-kappa/6}eps; stop with Psi=Phi_0', g=g_0, f_*=f_1 so (a),(b) hold
 CONSTANT_SCOPE: none
@@ -1326,7 +1384,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:iterative, stepN:p11:nf-first, bpN:p6:ext-numerics, bpN:p11:ext-num
+DEPS: bpN:p11:iterative, stepN:p11:nf-first, bpN:p6:ext-numerics, bpN:p11:ext-num, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p11:s-nf#data, stepN:p11:nf-sl, bpN:p6:divisor
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L141 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L141 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L141 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L141 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
+EDGE: stepN:p11:nf-sl | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L141 | direct use of stepN:p11:nf-sl in the statement or proof at this span
+EDGE: bpN:p6:divisor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L141 | direct use of bpN:p6:divisor in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:iterative | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L139 | Theorem iterative(d) with g=0
@@ -1334,7 +1398,7 @@ EDGE: stepN:p11:nf-first | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-ca
 EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L139 | (1-2y_0)^{-1}<=8/7 etc. (numerics of Part 6)
 EDGE: bpN:p11:ext-num | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L141-L141 | e>2.718 so 1/e<0.368
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1348,7 +1412,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-N@L142-L142
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-N@L142-L142
 CONTRACT_ID: stepN:p11:nf-N
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Case A of step nf-case; kappa>=6
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:nf; inside Case A, splitting N=0 and N>=1; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: N
 SOURCE_CONCLUSION: N=floor(kappa/(12 ln 2)), kappa>8N; N=0: Psi=Phi_0, g=g_0, f_*=f_1, ¦f_*¦<=eps/4<=e^{-kappa/6}eps; N>=1: rho=R/(8N), sigma=s/(4N), R_i=3R/4-2(i-1)rho, s_i=2s/3-2(i-1)sigma, R_{N+1}=R_*, s_{N+1}=s_*, e^{-2 pi K_a sigma}<=1/8, rho sigma=Rs/(32N^2), eps<=abar R s/(2^10 q N), hence by (6.1) eps_1<=abar rho sigma/(2^8 q) (6.2)
 CONSTANT_SCOPE: none
@@ -1356,13 +1420,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p11:nf-case, bpN:p6:ext-numerics
+DEPS: stepN:p11:nf-case, bpN:p6:ext-numerics, bpN:p4:norm, bpN:p11:s-nf#data
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-N@L142-L142 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-N@L142-L142 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:nf-case | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-N@L142-L142 | (6.1) eps_1<=eps/4 and eps_1<=2^7 q eps^2/(abar R s)
 EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-N@L142-L142 | 12 ln 2>8, ln 2>2/3, e^{-3 ln 2}=1/8
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1376,7 +1442,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143-L143
 CONTRACT_ID: stepN:p11:nf-induct
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: steps 1..N with the data of step nf-N; (6.2)
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:nf; inside Case A with N>=1, using the usual induction hypothesis at step i; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: i in 1..N
 SOURCE_CONCLUSION: step i is admissible and eps_{i+1}<=eps_i/4 (<0.1930 eps_i), so eps_i<=4^{1-i}eps_1; ¦g_{i-1}¦_*<=abar rho sigma/(2^4 q) with weights <=1/2 for g_j-g_{j-1} on V_j (j>=1) and <=1/N for g_0
 CONSTANT_SCOPE: none
@@ -1384,7 +1450,11 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:iterative, stepN:p11:nf-N, stepN:p11:nf-case, stepN:p11:nf-sl, bpN:p6:setting, bpN:p6:ext-numerics
+DEPS: bpN:p11:iterative, stepN:p11:nf-N, stepN:p11:nf-case, stepN:p11:nf-sl, bpN:p6:setting, bpN:p6:ext-numerics, bpN:p4:domains, bpN:p11:s-nf#data, bpN:p4:norm, bpN:p11:ext-class
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143-L143 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143-L143 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143-L143 | direct package or input used by this proof step
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143-L143 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:iterative | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143-L143 | Theorem iterative(d) at step i
@@ -1394,7 +1464,7 @@ EDGE: stepN:p11:nf-sl | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induc
 EDGE: bpN:p6:setting | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143-L143 | ¦g_{i-1}¦_* computed from the decomposition with its weights
 EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143-L143 | (1-2^{-7})^{-1}=128/127 and 4^{1-i} sums
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1408,7 +1478,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144
 CONTRACT_ID: stepN:p11:nf-concl
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Psi=Phi_0 o ... o Phi_N, g=g_N, f_*=f_{N+1}
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:nf; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: N
 SOURCE_CONCLUSION: H o Psi=h+g+f_*, holomorphy, symplecticity (D Phi_i Omega_c D Phi_i^T=Omega_c), periodicity, injectivity from the telescoping lemma; (b) eps_{N+1}<=4^{-N-1}eps<=e^{-kappa/6}eps; (a) ¦g-g_0¦<=(4/3)eps_1<=16 c_1 eps^2
 CONSTANT_SCOPE: none
@@ -1416,7 +1486,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p6:telescope, bpN:p11:iterative, stepN:p11:nf-induct, stepN:p11:nf-N, stepN:p11:nf-case
+DEPS: bpN:p6:telescope, bpN:p11:iterative, stepN:p11:nf-induct, stepN:p11:nf-N, stepN:p11:nf-case, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p11:wfield, bpN:p11:s-nf#data
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p6:telescope | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | Lemma telescope for subsets of C^{2n+2k} and maps with D Phi_i Omega_c D Phi_i^T=Omega_c
@@ -1425,12 +1500,12 @@ EDGE: stepN:p11:nf-induct | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-c
 EDGE: stepN:p11:nf-N | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | N, kappa>8, N+1>kappa/(12 ln 2)
 EDGE: stepN:p11:nf-case | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | eps_1<=2^7 q eps^2/(abar R s)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SUSPECTED DEFECT / uncertainty: bpN:p6:telescope is stated for subsets of C^{2n} with (DPhi)^T J DPhi=J; it is applied to C^{2n+2k} with DPhi Omega_c DPhi^T=Omega_c (the other form of the identity), and the text credits it with periodicity, which the Part 6 statement does not list (trivial, but not stated). The telescoping argument is dimension-free; the symplectic clause needs the Omega_c version
+NOTE: SOURCE_GAP: Part 11b L144-L145 asserts the extended telescoping application. Part 6 telescope is stated on C^{2n} with (DPhi)^T J DPhi=J, not for the arbitrary constant form Omega_c in the extended space. Its proof is a template; the required extension (and, at L144, translation equivariance under composition) is not stated there. No additional symplectic premise is imposed on nf.
 
 NODE: stepN:p11:nf-disp
 KIND: step
@@ -1439,7 +1514,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-disp@L145-L
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-disp@L145-L145
 CONTRACT_ID: stepN:p11:nf-disp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Case A and Case B of step nf-case; the per-step displacement bounds of Theorem iterative(b)
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:nf; handle Case A and Case B separately (not their conjunction); prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: i
 SOURCE_CONCLUSION: by telescoping with the seminorms Pi_I, Pi_theta, Pi_{x-tilde}: Case A ¦Pi_I Psi-I¦<=1.17 q K_a eps/(e alpha)<=q K_a eps/alpha, ¦Pi_theta Psi-theta¦<=10 q eps/(abar R), ¦Pi_{x-tilde}Psi-x-tilde¦<=(e/16)1.17 q K_a eps/(e alpha)<(1/8)q K_a eps/alpha<=R/2^10 (by (i)); Case B: half of these
 CONSTANT_SCOPE: none
@@ -1447,7 +1522,8 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p6:telescope, bpN:p11:iterative, stepN:p11:nf-case, stepN:p11:nf-N, stepN:p11:nf-induct, stepN:p6:nf-disp, bpN:p11:ext-num, bpN:p6:ext-numerics
+DEPS: bpN:p6:telescope, bpN:p11:iterative, stepN:p11:nf-case, stepN:p11:nf-N, stepN:p11:nf-induct, stepN:p6:nf-disp, bpN:p11:ext-num, bpN:p6:ext-numerics, bpN:p11:s-nf#data
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-disp@L145-L145 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p6:telescope | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-disp@L145-L145 | Lemma telescope with the seminorms
@@ -1459,12 +1535,12 @@ EDGE: stepN:p6:nf-disp | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-disp
 EDGE: bpN:p11:ext-num | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-disp@L145-L145 | e>2.718 for the constants 1.17 and (e/16)
 EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-disp@L145-L145 | 12 ln 2>8
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: the Case B/(a),(b) forward pointer from nf-case is dropped; the dependence runs from this step to nf-case
+NOTE: SOURCE_GAP: Part 11b L144-L145 asserts the extended telescoping application. Part 6 telescope is stated on C^{2n} with (DPhi)^T J DPhi=J, not for the arbitrary constant form Omega_c in the extended space. Its proof is a template; the required extension (and, at L144, translation equivariance under composition) is not stated there. No additional symplectic premise is imposed on nf.
 
 NODE: stepN:p11:nf-real
 KIND: step
@@ -1473,7 +1549,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-real@L146-L
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-real@L146-L146
 CONTRACT_ID: stepN:p11:nf-real
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Theorem iterative(e) at each step; Lambda=-Lambda, h,f real on real points
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:nf; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: i
 SOURCE_CONCLUSION: Psi is real at real points and g,f_* real
 CONSTANT_SCOPE: none
@@ -1486,7 +1562,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p11:iterative | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-real@L146-L146 | Theorem iterative(e) at each step
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11ab
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1511,9 +1587,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1542,9 +1618,9 @@ EDGE: bpN:p6#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:s-nf#data@L104
 EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:s-nf#data@L104-L104 | V_R(I_c) is V_R applied to the base set {I_c}
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:s-nf#data@L104-L104 | I_c, R=r_B-scaled radii, the extended variables
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:s-nf#data@L104-L104 | D^e_{R,s}, on which h is regarded as a function
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: -
+REVIEWER: sol-review-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

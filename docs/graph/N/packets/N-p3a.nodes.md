@@ -395,9 +395,9 @@ DEPS: stepN:p3:lip-bdd
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p3:lip-bdd | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-contra@L128-L128 | the bound M gives ¦x_k−y_k¦ < 2M/k
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-delta-N-c
-REVIEWER: -
+REVIEWER: sol-delta2-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -678,9 +678,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L181-L181 | case t < t₀ by time reversal (gen-symmetry(b))
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:short-boot@L183-L183 | continuity of α on J gives A closed
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-delta-N-c
-REVIEWER: -
+REVIEWER: sol-delta2-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1031,9 +1031,9 @@ EDGE: bpN:p3:gen-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-r
 EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L245-L245 | two one-sided derivatives give a two-sided one
 EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L244-L244 | local nature: y₁ agrees with y, resp. α, near t
 EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:ext-right@L243-L245 | the given solution supplies y(b) in W and its endpoint derivative for the splice
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-delta-N-c
-REVIEWER: -
+REVIEWER: sol-delta2-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

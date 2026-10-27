@@ -1187,3 +1187,5 @@ REVIEWER: -
 ```
 
 Validation: source and imports SHA-256 pins verified; original slice structure checked; replacement/parser checks recorded below. No Lean or state-changing git command was run.
+
+Final validation: every current node has exactly one verdict; proposed Part 11 records have matching DEPS/EDGE targets, existing targets and in-bounds locators; the in-memory combined graph has no cycles. Review application dry run has no unresolved FAILs.

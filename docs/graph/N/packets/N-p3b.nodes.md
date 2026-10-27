@@ -628,9 +628,9 @@ EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-ex
 EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L504-L505 | the source local-existence and uniqueness clauses use IsSolutionOn here
 EDGE: stepN:p3:le-red | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L509-L509 | reduction to the general predicate
 EDGE: stepN:p3:le-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L510-L510 | existence and uniqueness
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-delta-N-c
-REVIEWER: -
+REVIEWER: sol-delta2-N-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
