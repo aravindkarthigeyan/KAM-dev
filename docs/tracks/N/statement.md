@@ -121,16 +121,16 @@ simpler predicate. This is not a missing Phase 0 deliverable for the selected qu
 1. **Dimension:** approve n≥3 for this packet? **Ruled yes by the owner (D17, 2026-10-27).** Recommendation was yes, matching the selected campaign scope;
    retain n=2 as a separately audited extension (its denominator is valid, and stronger track-I statements
    exist, but no unverified all-time inference is used here).
-2. **Endpoint convention:** approve ≤ε with explicit factor-two rescaling and a separate all-time size-zero
+2. **Endpoint convention:** **Ruled as recommended by the owner (D18, 2026-10-27).** approve ≤ε with explicit factor-two rescaling and a separate all-time size-zero
    theorem? **Recommend yes**; it avoids the source's empty zero case and preserves all exponents.
-3. **Uniformity:** approve constants uniform in h as well as f under the fixed n,R,s,M,m? **Recommend yes**,
+3. **Uniformity:** **Ruled as recommended by the owner (D18, 2026-10-27).** approve constants uniform in h as well as f under the fixed n,R,s,M,m? **Recommend yes**,
    exactly as BM11 defines stable constants. Do not silently add a frequency lower-bound parameter. Audit
    the quantitative proof route before freezing; a required new premise would need a separate owner ruling.
-4. **Physical/ODE content:** approve the existence, equality with other solutions, and R/4 margin clauses?
+4. **Physical/ODE content:** **Ruled as recommended by the owner (D18, 2026-10-27).** approve the existence, equality with other solutions, and R/4 margin clauses?
    **Recommend yes**. They make the promised time interval and “every solution” explicit.
-5. **Gate boundary:** approve N-QC and N-ZERO, and defer N-STEEP and the uniform inverse-radius claim?
+5. **Gate boundary:** **Ruled as recommended by the owner (D18, 2026-10-27).** approve N-QC and N-ZERO, and defer N-STEEP and the uniform inverse-radius claim?
    **Recommend yes**. The former have exact local contracts; the latter require further source analysis.
-6. **Source defects:** require resolution of E-N-BM-1 through E-N-BM-3 before proof-route sign-off?
+6. **Source defects:** **Ruled as recommended by the owner (D18, 2026-10-27).** require resolution of E-N-BM-1 through E-N-BM-3 before proof-route sign-off?
    **Recommend yes**. The headline is an intended theorem; this packet does not certify the printed proof.
 
 These are recommendations for orchestrator/owner review, not requests to interrupt this Phase 0 task.
