@@ -5,7 +5,7 @@ ROOTS: bpI:p0:g1, bpI:p0:head, bpI:p0:kepler, bpI:p0:r3bp
 CORPUS: blueprint-I/parts/{p0-conventions,p1-iso-linear,p2-iso-iteration,p3-iso-local-charts,p5-confinement,p6-kepler,p7-delaunay,p8-r3bp}.tex pinned by SHA-256 in docs/graph/I/CORPUS.sha256 (KAM-inp branch inp, blueprint-I after fe7e4a5, 2026-10-27); imported-node locators point into blueprint/ and blueprint-N/ files pinned in docs/graph/I/IMPORTS.sha256
 CONVENTIONS: docs/graph/I/SPEC.md "Conventions to watch": 1-periodic angles, averages over [0,1]^n; max norms on R^m, C^m and products, row-sum operator norms in (I7)-(I8); Euclidean rad only in I-R3BP; angles-first (theta,I) in I-G1/I-HEAD vs position-first (q,p) in I-R3BP; isoenergetic ray omega = s omega*, 1 < s < sigma_omega, Diophantine condition on omega*; nu = endpoint margin of the segment relative to the line R omega*; energy row DH(K)N of the extended torsion (omega^T only on invariant tori); C1,C2,C3 of I-G1 chosen after (n,tau,rho,rho_inf,M,sigma_K,sigma_B,sigma_T,mu,gammabar,sigma_omega,nu,omega*) and before (D,H,K,s,gamma,e,E0); (O3) pointwise; eps = 0 allowed in I-HEAD, eps0 depends on (B,s0,r0,h,B',eta) only; mu in [0,mu0) with 0 < mu0 <= 1/2 in I-R3BP, mu0,d,R depend on a+-,e+- only; HL19 signs (L_omega = -d_omega, R_omega = -R); 2pi-periodic Delaunay angles vs period one
 STANDING_ASSUMPTIONS: -
-EXTERNAL_POLICY: track-I external inputs are the labelled items of the parts' external-fact lists (bpI:p1:ext-*, bpI:p3:ext-*, bpI:p5:ext-*, bpI:p7:x-*, bpI:p8:x-*; an item that only restates another external or points to a proved result is excluded as an alias); every result of another track's blueprint cited by \Kref or \Nref is an IMPORTED node K:<label> or N:<label> (KIND external, LEAN_STATUS EXTERNAL, STATEMENT_SOURCE in the owning blueprint, NOTE IMPORTED: proved in the track-K (resp. N) graph, node <label>; shared Lean provider), K's Mathlib-level externals included (K:bp:p1:ext-*); any other unproved fact is a step node with NOTE SOURCE_GAP
+EXTERNAL_POLICY: track-I external inputs are the labelled items of the parts' external-fact lists (bpI:p1:ext-*, bpI:p3:ext-*, bpI:p5:ext-*, bpI:p7:x-*, bpI:p8:x-*; an item that only restates another external or points to a proved result is excluded as an alias); every result of another track's blueprint cited by \Kref or \Nref is an IMPORTED node K:<label> or N:<label> (plus the two authorized track-P definition imports P:bpP:p0:fixedsol#IsFixedSolution, P:bpP:p0:newton#IsNewtonSolution, SPEC revision G05) (KIND external, LEAN_STATUS EXTERNAL, STATEMENT_SOURCE in the owning blueprint, NOTE IMPORTED: proved in the track-K (resp. N) graph, node <label>; shared Lean provider), K's Mathlib-level externals included (K:bp:p1:ext-*); any other unproved fact is a step node with NOTE SOURCE_GAP
 FROZEN_ANCHORS: bpI:p0:domains#complexStrip, bpI:p0:domains#actionNbhd, bpI:p0:diophantine#IsDiophantine, bpI:p0:hamiltonian#hamiltonianVectorField, bpI:p0:hamiltonian#hamiltonianVectorFieldC, bpI:p0:realham#realHamiltonian, bpI:p0:realham#frequencyMap, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p0:stripdata#IsRealOnReals, bpI:p0:stripdata#dotC, bpI:p0:stripdata#omegaZero, bpI:p0:stripdata#invarianceError, bpI:p0:stripdata#gramMatrix, bpI:p0:stripdata#normalFrame, bpI:p0:stripdata#torsion, bpI:p0:extended#energyAverage, bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, bpI:p0:bordered#borderedHessian, bpI:p0:hamsol#IsHamiltonianSolutionOn, bpI:p0:primaries#radiusSq, bpI:p0:primaries#radius, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:primaries#CollisionFree, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:restricted#restrictedVectorField, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:nearcircular#NearCircular, bpI:p0:keplerborder#keplerBorder, bpI:p0:g1, bpI:p0:head, bpI:p0:kepler, bpI:p0:r3bp
 FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:96109bf3ff71b0a0ce6e52c842cb291f8a169e699f29f63280fde14f79221234
 WRITER: claude-suborch-INP
@@ -1172,12 +1172,12 @@ EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L1
 EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L128-L128 | entries of the frozen T_H
 EDGE: K:bp:p1:holomorphic-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L126-L126 | holomorphic inverse in the construction of N, expressly cited
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
-REVIEWER: sol-delta-I-a
+EXTRACTOR: sonnet-extract-I-p1+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: the explicit K:step:p2:fb-holo import assumes A2-A4, including a uniform positive ball margin beta and global bounds for DK and G^{-1} on T_r. The Part 1 setting here supplies only K(T_r) subset D, holomorphy and det G != 0, not those uniform bounds. The parenthetical local assertion that the regularity proof uses no bounds needs a separately modelled direct derivation from holomorphic inversion/differentiation; no stronger imported contract is discharged by the existing k-bridge.
 
 NODE: stepI:p1:eb-period
 KIND: step
@@ -2330,12 +2330,12 @@ EDGE: K:bp:p1:matrix-norms | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-con
 EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L503-L503 | norm bounds for E_lin
 EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L499-L499 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
-REVIEWER: sol-delta-I-a
+EXTRACTOR: sonnet-extract-I-p1+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: the source invokes K:bp:p1:neumann under norm E_sym < 1, while that imported result assumes norm A^{-1} norm Delta <= 1/2. With A=I and Delta=-Omega_0 E_sym, the available premise is only norm Delta < 1. No proof of the stronger radius-one invertibility criterion is supplied by the listed dependencies. The residual identities and conditional equivalence under det P != 0 are unaffected; this gap is the sufficient-condition branch for det P != 0.
 
 NODE: bpI:p1:geometry-noA5
 KIND: lemma
@@ -2429,12 +2429,12 @@ EDGE: K:step:p2:geo-ered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@
 EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L533-L533 | direct use of the local H, K, omega, domain or standing constants
 EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L533-L533 | definitions of m and C_red used in the displayed bounds
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-delta-I-a
-REVIEWER: sol-delta-I-c
+EXTRACTOR: sonnet-extract-I-p1+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: the represented conjunctive applications of K:step:p2:geo-domegak and K:step:p2:geo-ered assume full K admissibility including A5, by their current imported source contracts. geometry-noA5 supplies A1-A4 and A6 but no ordinary torsion-average invertibility. The common-data k-bridge does not discharge A5. The displayed local calculation from frame-identities, matrix and frame-basic may instead support a separately modelled direct route; it does not make these stronger import premises true.
 
 NODE: stepI:p1:geo-sym
 KIND: step
@@ -3563,7 +3563,7 @@ CONTRACT_ID: bpI:p2:step
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: standing data; r>0, 0<delta<=1, 4delta<r, beta>0, 0<=eps<=1, s>1; K (r,beta,eps,s)-admissible; c_step eps/(gamma^4 delta^{2a}) <= min{1,beta}; Kbar, omegabar as in correction and new-error; d := C_Delta eps/(gamma^2 delta^a)
 SOURCE_QUANTIFIERS: standing data, constants fixed; r, delta, beta, eps, s, K
-SOURCE_CONCLUSION: (a) Kbar holomorphic, primary on T_{r-2delta}, real on reals; (b) ¦Kbar-K¦ <= d <= beta/2 on T_{r-2delta}, B_{beta-d}(Kbar(theta)) in D, ¦sbar-s¦¦omega*¦ <= d; (c) ¦E_{H,Kbar,omegabar}¦ <= C_E eps^2/(gamma^4 delta^{2a}) on T_{r-2delta} and ¦Ebar_H(Kbar)-E_0¦ <= C_E eps^2/(gamma^4 delta^{2a}); (d) ¦DKbar-DK¦ <= nd/delta, det Gbar != 0, ¦Bbar-B¦ <= C_B d/delta on T_{r-3delta}; (e) avg T_H(Kbar,omegabar) invertible with ¦avg Tbar^{-1}-avg T^{-1}¦ <= 2 m^2 C_DeltaT d/delta^2
+SOURCE_CONCLUSION: (a) Kbar holomorphic, primary on T_{r-2delta}, real on reals; (b) ¦Kbar-K¦ <= d <= beta/2 on T_{r-2delta}, B_{beta-d}(Kbar(theta)) in D, ¦sbar-s¦¦omega*¦ <= d; (c) ¦E_{H,Kbar,omegabar}¦ <= C_E eps^2/(gamma^4 delta^{2a}) on T_{r-2delta} and ¦Ebar_H(Kbar)-E_0¦ <= C_E eps^2/(gamma^4 delta^{2a}); (d) ¦DKbar-DK¦ <= nd/delta, det Gbar != 0, ¦Bbar-B¦ <= C_B d/delta on T_{r-3delta}; (e) avg T_H(Kbar,omegabar) invertible with ¦avg Tbar^{-1}-avg T^{-1}¦ <= 2 m^2 C_DeltaScriptT d/delta^2
 CONSTANT_SCOPE: Constants of Definition bpI:p2:constants: all depend only on (n,tau,M,sigma_K,sigma_B,sigma_T); hat-c_* also on (mu,nu); delta_0 on (rho,rho_infty); no dependence on K, s, e, gamma, omega*, sigma_omega
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -3573,7 +3573,7 @@ DEPS: bpI:p2:standing, bpI:p2:constants, bpI:p2:admissible, bpI:p2:correction, b
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L228-L228 | standing data
-EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L230-L230 | c_step, C_Delta, C_E, C_B, C_DeltaT, a, m
+EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L230-L230 | c_step, C_Delta, C_E, C_B, C_DeltaScriptT, a, m
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L228-L228 | K is (r,beta,eps,s)-admissible; B1-B7 and the frequency bound
 EDGE: bpI:p2:correction | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L232-L232 | Kbar, omegabar, d from the correction lemma
 EDGE: bpI:p2:newton-error | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L232-L232 | errors of Kbar
@@ -3581,8 +3581,8 @@ EDGE: stepI:p2:st-small | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L24
 EDGE: stepI:p2:st-error | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L246-L246 | proof step of this result
 EDGE: stepI:p2:st-frame | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L248-L248 | proof step of this result
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -13032,12 +13032,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-continuation-periodic; shared Lean provider. Cited as \Nref{bpN:p3:gen-continuation-periodic}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-continuation-periodic; shared Lean provider. Cited as \Nref{bpN:p3:gen-continuation-periodic}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-maximal
 KIND: external
@@ -13058,12 +13058,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-maximal; shared Lean provider. Cited as \Nref{bpN:p3:gen-maximal}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-maximal; shared Lean provider. Cited as \Nref{bpN:p3:gen-maximal}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-sol
 KIND: external
@@ -13084,12 +13084,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-sol; shared Lean provider. Cited as \Nref{bpN:p3:gen-sol}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-sol; shared Lean provider. Cited as \Nref{bpN:p3:gen-sol}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-uniqueness
 KIND: external
@@ -13110,12 +13110,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniqueness; shared Lean provider. Cited as \Nref{bpN:p3:gen-uniqueness}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-uniqueness; shared Lean provider. Cited as \Nref{bpN:p3:gen-uniqueness}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:ham-energy
 KIND: external
@@ -13136,12 +13136,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-energy; shared Lean provider. Cited as \Nref{bpN:p3:ham-energy}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:ham-energy; shared Lean provider. Cited as \Nref{bpN:p3:ham-energy}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:ham-periodic
 KIND: external
@@ -13162,12 +13162,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-periodic; shared Lean provider. Cited as \Nref{bpN:p3:ham-periodic}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:ham-periodic; shared Lean provider. Cited as \Nref{bpN:p3:ham-periodic}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:ham-reduction
 KIND: external
@@ -13188,12 +13188,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-reduction; shared Lean provider. Cited as \Nref{bpN:p3:ham-reduction}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:ham-reduction; shared Lean provider. Cited as \Nref{bpN:p3:ham-reduction}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-exit
 KIND: external
@@ -13214,12 +13214,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-exit; shared Lean provider. Cited as \Nref{bpN:p3:gen-exit}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-exit; shared Lean provider. Cited as \Nref{bpN:p3:gen-exit}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-symmetry
 KIND: external
@@ -13240,12 +13240,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP+sol-review-I-imports
-REVIEWER: sol-delta-I-e
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-symmetry; shared Lean provider. Cited as \Nref{bpN:p3:gen-symmetry}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-symmetry; shared Lean provider. Cited as \Nref{bpN:p3:gen-symmetry}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: P:bpP:p0:fixedsol#IsFixedSolution
 KIND: external

@@ -1,5 +1,9 @@
 {
- "replaced": [
+ "replaced": [],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
   "N:bpN:p3:gen-continuation-periodic",
   "N:bpN:p3:gen-maximal",
   "N:bpN:p3:gen-sol",
@@ -9,9 +13,5 @@
   "N:bpN:p3:ham-reduction",
   "N:bpN:p3:gen-exit",
   "N:bpN:p3:gen-symmetry"
- ],
- "added": [],
- "items": [],
- "unresolved": {},
- "passes": []
+ ]
 }

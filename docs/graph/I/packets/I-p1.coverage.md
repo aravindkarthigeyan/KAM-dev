@@ -68,7 +68,7 @@ DISPOSITION: NODE stepI:p1:eb-holo
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-a
+REVIEWER: sol-delta-I-global
 
 ITEM: stepI:p1:eb-period
 KIND: proof-region
@@ -428,7 +428,7 @@ DISPOSITION: NODE stepI:p1:rd-consequence
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-a
+REVIEWER: sol-delta-I-global
 
 ITEM: bpI:p1:geometry-noA5
 KIND: lemma
@@ -455,7 +455,7 @@ DISPOSITION: NODE stepI:p1:geo-red
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-global
 
 ITEM: stepI:p1:geo-sym
 KIND: proof-region

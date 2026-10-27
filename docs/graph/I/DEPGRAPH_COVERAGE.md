@@ -668,7 +668,7 @@ DISPOSITION: NODE stepI:p1:eb-holo
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-a
+REVIEWER: sol-delta-I-global
 
 ITEM: stepI:p1:eb-period
 KIND: proof-region
@@ -1028,7 +1028,7 @@ DISPOSITION: NODE stepI:p1:rd-consequence
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-a
+REVIEWER: sol-delta-I-global
 
 ITEM: bpI:p1:geometry-noA5
 KIND: lemma
@@ -1055,7 +1055,7 @@ DISPOSITION: NODE stepI:p1:geo-red
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-global
 
 ITEM: stepI:p1:geo-sym
 KIND: proof-region
@@ -1586,7 +1586,7 @@ DISPOSITION: NODE bpI:p2:step
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-review-I-p2
+REVIEWER: sol-delta-I-global
 
 ITEM: stepI:p2:st-small
 KIND: proof-region
@@ -5852,7 +5852,7 @@ DISPOSITION: NODE N:bpN:p3:gen-continuation-periodic
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-maximal
 KIND: external
@@ -5861,7 +5861,7 @@ DISPOSITION: NODE N:bpN:p3:gen-maximal
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-sol
 KIND: external
@@ -5870,7 +5870,7 @@ DISPOSITION: NODE N:bpN:p3:gen-sol
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-uniqueness
 KIND: external
@@ -5879,7 +5879,7 @@ DISPOSITION: NODE N:bpN:p3:gen-uniqueness
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:ham-energy
 KIND: external
@@ -5888,7 +5888,7 @@ DISPOSITION: NODE N:bpN:p3:ham-energy
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:ham-periodic
 KIND: external
@@ -5897,7 +5897,7 @@ DISPOSITION: NODE N:bpN:p3:ham-periodic
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:ham-reduction
 KIND: external
@@ -5906,7 +5906,7 @@ DISPOSITION: NODE N:bpN:p3:ham-reduction
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-exit
 KIND: external
@@ -5915,7 +5915,7 @@ DISPOSITION: NODE N:bpN:p3:gen-exit
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-symmetry
 KIND: external
@@ -5924,7 +5924,7 @@ DISPOSITION: NODE N:bpN:p3:gen-symmetry
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
+REVIEWER: sol-delta-I-global
 
 ITEM: P:bpP:p0:fixedsol#IsFixedSolution
 KIND: external

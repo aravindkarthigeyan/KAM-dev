@@ -1,9 +1,9 @@
 {
- "replaced": [
-  "bpI:p2:step"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": []
+ "passes": [
+  "bpI:p2:step"
+ ]
 }
