@@ -328,6 +328,17 @@
    "pdf": "Russmann05_RCD_10_1_21-31_addendum.pdf",
    "sha256": "8c0951b8945992b849d3cb4a405d370c317e7b1bfd11e919db23e28a2d98c879",
    "role": "Proves the theorem on approximation of periodic holomorphic functions by trigonometric polynomials that Rus01 relies on. Supplied by the owner 2026-10-27."
+  },
+  {
+   "key": "Nei76",
+   "tier": "track N",
+   "citation": "A. I. Neishtadt, *Averaging in multifrequency systems. II* (Russian: Об осреднении в многочастотных системах. II), Dokl. Akad. Nauk SSSR 226(6) (1976) 1295-1298",
+   "doi": "",
+   "mathnet": "dan39798",
+   "url": "https://www.mathnet.ru/rus/dan39798",
+   "pdf": "Neishtadt76_DAN_226_6_1295-1298.pdf",
+   "sha256": "57459a2221141e0fb0fce2143009107b30ce39ceb08acff0a6d7b8cc150b98f6",
+   "role": "N-AVERAGING: original proof behind AKN06 Thm 6.11 / Cor. 6.1 (source-proof gap E-NAVG-NEI-17, the sup/integral interchange in (17), is repaired in the proof route). Russian original; the English translation (Soviet Phys. Dokl. 21 (1976)) is not pinned."
   }
  ]
 }
