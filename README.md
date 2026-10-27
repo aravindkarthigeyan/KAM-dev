@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 22:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **30,198 lines of Lean** of an estimated ≈ 211,000
+> **Last updated: 2026-10-27 22:55 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **31,879 lines of Lean** of an estimated ≈ 222,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -125,22 +125,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **30,198** (19,773 excluding blank lines and comments) · **+30,198** since 2026-10-27 13:33 UTC |
+| On `main` now | **31,879** (20,967 excluding blank lines and comments) · **+31,879** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
-| **Estimated total at completion** | **≈ 211,000** |
-| Estimated still to write | ≈ 180,000 |
+| **Estimated total at completion** | **≈ 222,000** |
+| Estimated still to write | ≈ 191,000 |
 
 **How the size is estimated.** The estimate scales the lines per completed Lean weight unit to all Lean work items. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 22:40 UTC from `main` at `01b8088` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 22:55 UTC from `main` at `5895584` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
 **Frozen statements proved: 4 / 22** · frozen definitions: 122
 
-**Lean on `main`:** 261 modules · 30,198 lines · 1,271 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 265 modules · 31,879 lines · 1,336 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 18 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMean.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMost.lean)
@@ -302,18 +302,18 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 22:55 | `5895584` | Brief for P2-14 (G1 provider) |
+| 2026-10-27 22:52 | `5d10d4c` | P3-3 (difference equation), P2-9 (Newton error), P3-4 (quadratic), P4-8 (Lagrangian) landed; lag-regular BYPASSED (route) |
+| 2026-10-27 22:51 | `1a5e851` | Land k/p4-8 into main |
+| 2026-10-27 22:49 | `25dd502` | Land k/p3-4 into main |
+| 2026-10-27 22:48 | `1ae7c49` | Land k/p2-9 into main |
+| 2026-10-27 22:46 | `64d7ade` | Land k/p3-3 into main |
+| 2026-10-27 22:42 | `4852b8f` | Briefs for P2-13, P4-4, P4-5, P4-6 |
 | 2026-10-27 22:40 | `01b8088` | P2-8b (correction) landed; audit PASS |
 | 2026-10-27 22:39 | `dc1230f` | Land k/p2-8b into main |
 | 2026-10-27 22:38 | `1e50c58` | OVERNIGHT: track K decisions 22:10–22:45 |
 | 2026-10-27 22:37 | `ba52564` | Brief for P3-5 (G2 provider) |
 | 2026-10-27 22:35 | `8c68b90` | Brief for P2-12 |
-| 2026-10-27 22:34 | `3e68670` | P4-1 (frequency maps), P4-3 (parameters, smallness), P4-Q (HEAD-Q helper), P3-2 (phase) landed; audits PASS / PASS WITH NOTES |
-| 2026-10-27 22:33 | `5bae51f` | Land k/p3-2 into main |
-| 2026-10-27 22:31 | `c752345` | Land k/p4-q into main |
-| 2026-10-27 22:29 | `a97c15d` | Land k/p4-3 into main |
-| 2026-10-27 22:26 | `f279a01` | Land k/p4-1 into main |
-| 2026-10-27 22:24 | `3c1575c` | Brief for P3-4 |
-| 2026-10-27 22:20 | `d15c8ce` | Briefs for P2-9, P4-2, P4-8 |
 <!-- /AUTO:landed -->
 
 ## Decisions
