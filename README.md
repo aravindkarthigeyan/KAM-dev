@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 19:10 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 33.2 %** · frozen statements proved: 1 / 20 · **10,560 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 19:12 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 33.2 %** · frozen statements proved: 1 / 20 · **10,560 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 19:10 UTC from `main` at `8f161e6` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 19:12 UTC from `main` at `e356ab5` by `scripts/hq-status.py`.*
 
 **Current phase:** First seal: G3 (KAM.volume_not_diophantine_le) proved, audited, kernel-replayed (D26). Track K proof campaign: I-MAT landed; I-LIP in audit; I-STRIP-5 (several-variable analyticity) running. Tracks I, N, P: Opus sub-orchestrator; blueprints nearly complete (track I done), N-AVERAGING re-transcription from the pinned source.
 
@@ -297,6 +297,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 19:12 | `e356ab5` | Claim wave-2 packages |
+| 2026-10-27 19:12 | `22a8b42` | Track K proof campaign, wave 2 briefs: I-ZMAP, I-P1B, I-P4A |
 | 2026-10-27 19:10 | `8f161e6` | I-LIP landed (c9695bc): audit PASS WITH NOTES; graph: 14 nodes PROVED, li-cubes and li-image BYPASSED (alternative Mathlib route) |
 | 2026-10-27 19:09 | `c9695bc` | Land k/lip into main |
 | 2026-10-27 19:04 | `4bbb791` | Pin Neishtadt 1976 (Nei76, Dokl. Akad. Nauk SSSR 226(6) 1295-1298; Math-Net.Ru dan39798) for N-AVERAGING |
@@ -307,8 +309,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 18:58 | `dde9832` | Seal G3: KAM.volume_not_diophantine_le is proved (first sealed frozen theorem) |
 | 2026-10-27 18:51 | `3cdaf89` | Land k/mat into main |
 | 2026-10-27 18:50 | `1bde59b` | Land k/g3 into main |
-| 2026-10-27 14:48 | `5eb1e04` | Exploration: realistic KAM and bodies of finite size |
-| 2026-10-27 14:48 | `e38c03a` | Prove coefficient decay for periodic holomorphic functions on strips |
 <!-- /AUTO:landed -->
 
 ## Decisions
