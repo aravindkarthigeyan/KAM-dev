@@ -322,9 +322,9 @@ EDGE: bpN:p4:sup-weighted | blueprint-N/parts/p7-stability.tex#stepN:p7:td-lim@L
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:td-lim@L50-L50 | the consumer uses O(r,s), Fourier coefficients or the weighted norm directly
 EDGE: bpN:p7:setting | blueprint-N/parts/p7-stability.tex#stepN:p7:td-lim@L50-L50 | the derivative bound is at real theta and I in U_varrho D, the real neighbourhood fixed by this package
 EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:td-lim@L50-L50 | the last claim is for x in D_{varrho,s}, the complex domain in the enclosing statement
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7+sol-delta2-N-d
-REVIEWER: -
+REVIEWER: sol-delta3-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1888,9 +1888,9 @@ EDGE: bpN:p6#data | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 
 EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | the upper bound e<6 follows from the listed e^2<8; Part-7 numerics only gives a lower bound for e
 EDGE: bpN:p4:norm | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | epsilon and eta are the weighted norms of f and the constructed f_*, used in the time comparison
 EDGE: bpN:p4:domains | blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t3@L260-L260 | inherited h and f domain premises on V_rD and D_{r,s}, and their normal-form restrictions
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7+sol-delta2-N-d
-REVIEWER: -
+REVIEWER: sol-delta3-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

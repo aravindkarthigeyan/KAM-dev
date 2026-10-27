@@ -157,9 +157,9 @@ EDGE: stepN:p11:cj | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:conj@L
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:conj@L21-L22 | O^{e,R}, D^e
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:conj@L21-L21 | H-orbits in W^e
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:conj@L21-L21 | Omega_c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -225,9 +225,9 @@ EDGE: bpN:p7:ext-banach | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:p
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:preimage@L28-L28 | D^e_{r-tilde,s-tilde}, W^e_{r-tilde}
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:preimage@L28-L28 | W^e_{r-tilde}, S-tilde, real points
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:preimage@L28-L28 | S-tilde and I_c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -285,9 +285,9 @@ EDGE: stepN:p3:uc-delta | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11
 EDGE: bpN:p3:gen-lip | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ct-data@L39-L39 | bound M and Lipschitz constant L of F on the compact C
 EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ct-data@L39-L39 | the notion of uniform data (delta,M,L) being verified
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ct-data@L39-L39 | compactness of the finite product C=[-1,2]^n x K_delta used before gen-lip
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -353,9 +353,9 @@ EDGE: bpN:p11:conj | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:transf
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:transfer@L43-L52 | W^e, orbits, S-tilde
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:transfer@L44-L44 | O^{e,R}, D^e
 EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:transfer@L54-L54 | t_1<0 reduced to t_1>0 by time reversal y(-u), -H, -H-tilde
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -515,9 +515,9 @@ EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p
 EDGE: stepN:p11:tr-E | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:tr-closed@L59-L59 | E, sup E
 EDGE: stepN:p11:tr-orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:tr-closed@L59-L59 | (T_-,T_+)
 EDGE: bpN:p3:ext-compact | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:tr-closed@L59-L59 | continuous image x-tilde([0,t_1]), its closed bounded d_x-neighbourhood, and the resulting compact transverse product K
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -586,9 +586,9 @@ EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:n
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:nonresonant@L66-L67 | O^{e,R}, (SL)
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:nonresonant@L66-L66 | W^e_r, S-tilde, orbits
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:nonresonant@L66-L66 | r=r_B, c, lambda
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -785,9 +785,9 @@ ROUTE_FOR: -
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-tube@L87-L87 | D^e_{r-tilde/2,s-tilde/2} (membership of the real points)
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-tube@L87-L87 | W^e and the orbit y-tilde
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-tube@L87-L87 | the max action displacement is at most its Euclidean norm, giving membership in the smaller max-norm tube
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -814,9 +814,9 @@ ROUTE_FOR: -
 EDGE: K:bp:p1:ext-mvt | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-adm@L88-L88 | mean value inequality on the convex ball
 EDGE: bpN:p7:setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-adm@L88-L88 | omega=d_I h and Q (Hessian bound M)
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-adm@L88-L88 | Pi is the Euclidean orthogonal projection used in the bound for Pi omega_0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -879,9 +879,9 @@ ROUTE_FOR: -
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L91 | {u,v}_c=Du.X^c_v, antisymmetry
 EDGE: bpN:p11:ext-chain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L90 | chain rule along the curve
 EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L90 | X^c_{H-tilde^R} on W^e (Lemma real-system(a))
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -921,9 +921,9 @@ EDGE: stepN:p11:ef-en | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:e
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L94-L94 | (SL)_{rho,sigma} for the losses (r-tilde/2,s-tilde/2) is 16 k c s-tilde<=r-tilde
 EDGE: bpN:p11:ext-num | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L94-L95 | the listed 1/e<0.368 suffices for 5/4096+(5/64+1/4)/e<0.1220; the stronger printed decimal 0.3679 is not asserted by that external
 EDGE: bpN:p1:ext-norms | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L94-L94 | Euclidean norm of d_theta f_* is at most the sum of the component moduli bounded by real-system(c)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -992,9 +992,9 @@ EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:r
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L101-L101 | O^{e,R}, (SL)
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L101-L101 | W^e_r, S-tilde, orbits
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L101-L101 | r=r_B, c, lambda
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1007,7 +1007,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@
 PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L105-L105
 CONTRACT_ID: stepN:p11:rs-red
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K_a L r<=alpha/p, L=sqrt(n)M, m<=M, q/p=8
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:resonant, in particular 0<eps<=m r^2/2^14; K_a L r<=alpha/p, L=sqrt(n)M, m<=M, q/p=8
 SOURCE_QUANTIFIERS: eps
 SOURCE_CONCLUSION: eps<=m r^2/2^14<=alpha r/(2^7 q K_a) (as alpha r/(2^7 q K_a)>=p sqrt(n)M r^2/(2^7 q)>=M r^2/2^10), so Theorem nf applies (Lambda=-Lambda)
 CONSTANT_SCOPE: none
@@ -1020,7 +1020,7 @@ EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
+EXTRACTOR: sonnet-extract-N-p11c+sol-delta2-N-g
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1054,9 +1054,9 @@ EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11
 EDGE: bpN:p4:projections | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | g_0=P_Lambda T_{K_a}f has weighted norm at most the perturbation norm eps
 EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | the projection estimate is used for the extended Fourier class
 EDGE: bpN:p4:norm#monotone | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | the g_0 projection bound is restricted from the initial domain to D^e_{r/2,s/6}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1086,9 +1086,9 @@ EDGE: stepN:p11:nr-t12 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:
 EDGE: bpN:p11:nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107 | displacement bounds of Theorem nf(c)
 EDGE: stepN:p11:rs-nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107 | r-tilde,s-tilde,rho'
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107 | Euclidean displacement is at most sqrt(n) times the max displacement in nf(c)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1180,9 +1180,9 @@ EDGE: stepN:p11:hs-op | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hes
 EDGE: bpN:p0:partial-definite#HasDefiniteFastPart | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L114-L115 | sigma and the definite fast part: ¦omega¦_inf>=g, m¦xi¦^2<=sigma Q[xi,xi]
 EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115 | G'_rho and its real slice U
 EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115 | m_1,M_1,g_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1210,9 +1210,9 @@ ROUTE_FOR: -
 EDGE: bpN:p0:partial-definite#HasDefiniteFastPart | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118 | the definition of HasDefiniteFastPart (m¦xi¦^2<=sigma D^2 h_R[xi,xi], ¦omega¦_inf>=g)
 EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118 | G'_rho and I in bar B(I,rho) subset G'
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118 | max norms of the real or complex vectors are bounded by their Euclidean norms in the bilinear estimate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1242,9 +1242,9 @@ EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.t
 EDGE: bpN:p0:partial-pert#IsPartialPerturbation | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L122-L122 | P of the perturbation pair is the IsPartialPerturbation function of the theorem
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L122-L123 | lambda=w/r_B, c=2 pi/lambda^2, x-tilde and the block data
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L122-L122 | W^e_varrho as in Section s-real
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1280,9 +1280,9 @@ EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L126-L126 | O^{e,R}, W^e
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L126-L126 | W^e_{r_B}
 EDGE: bpN:p11:orbit | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L126-L126 | H-hat_mu=(1/(2 pi))H_mu o Theta^{-1}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1423,9 +1423,9 @@ EDGE: bpN:p8:klattice | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:blo
 EDGE: bpN:p8:blocks | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L136-L136 | D_Lambda, r_Lambda, alpha_Lambda, delta_Lambda, Theta
 EDGE: bpN:p6:setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L136-L136 | cond-L
 EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L134-L135 | K, K_a, kappa, eps_0, A, R_0, r_0, b_c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1457,9 +1457,9 @@ EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:b
 EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | r_0<=32 g/m so m_1 r_0/32<=g_1; R_0=r_0/A
 EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | omega_{h_1}
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | the Euclidean frequency norm is at least its max norm in the full-rank exclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1492,9 +1492,9 @@ EDGE: bpN:p11:domain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd
 EDGE: stepN:p11:bd-cover | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | Lambda, r=r_Lambda, alpha=alpha_Lambda
 EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | Euclidean Hessian bound M_1 for h_1
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | max<=Euclidean<=sqrt(n) max converts the Euclidean Hessian bound to the max-norm frequency Lipschitz constant
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1562,9 +1562,9 @@ EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p
 EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L145-L146 | K, K_a, kappa, A, R_0, r_0, eps, d, s, m_1, M_1
 EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L145-L145 | x(u) in core(D,d)
 EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L154-L154 | the resonant branch gives a Euclidean action bound, which implies the max-norm conclusion of the block theorem
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1594,9 +1594,9 @@ ROUTE_FOR: -
 EDGE: bpN:p11:block-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150 | Lemma block-data gives Lambda, r_Lambda, alpha
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150 | lambda=w/r_B, c=2 pi r_B^2/w^2
 EDGE: bpN:p8:blocks | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150 | the chosen lattice radius r_Lambda and alpha are block data used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1817,9 +1817,9 @@ EDGE: stepN:p11:final-time | blueprint-N/parts/p11c-partial-stability.tex#stepN:
 EDGE: stepN:p11:final-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | eps_0, R_0, c_K
 EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | kappa_C, s, K(mu), kappa(mu), d
 EDGE: bpN:p11:ext-rpow | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | power rules and monotonicity of mu->mu^gamma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1951,9 +1951,9 @@ EDGE: bpN:p11:block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:fin
 EDGE: stepN:p11:final-orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | y, F_0 and the identification on W(I_0,r_0)
 EDGE: stepN:p11:final-given | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | t<=T_P, [0,t] subset [0,C]
 EDGE: bpN:p11:ext-chain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | chain rule for the time-reversed curve y(-u)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
-REVIEWER: -
+REVIEWER: sol-delta2-N-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

@@ -104,7 +104,7 @@ DISPOSITION: NODE stepN:p11:ex-cmp
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: bpN:p11:constants
 KIND: definition
@@ -383,7 +383,7 @@ DISPOSITION: NODE stepN:p11:co-series
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:co-remainder
 KIND: proof-region
@@ -392,7 +392,7 @@ DISPOSITION: NODE stepN:p11:co-remainder
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: bpN:p11:transform
 KIND: proposition
@@ -401,7 +401,7 @@ DISPOSITION: NODE bpN:p11:transform
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:tr-taylor
 KIND: proof-region
@@ -410,7 +410,7 @@ DISPOSITION: NODE stepN:p11:tr-taylor
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:tr-int
 KIND: proof-region
@@ -419,7 +419,7 @@ DISPOSITION: NODE stepN:p11:tr-int
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: bpN:p11:canonical-map
 KIND: proposition
@@ -428,7 +428,7 @@ DISPOSITION: NODE bpN:p11:canonical-map
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: bpN:p11:hom
 KIND: proposition
@@ -437,7 +437,7 @@ DISPOSITION: NODE bpN:p11:hom
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: bpN:p11:iterative
 KIND: theorem
@@ -446,7 +446,7 @@ DISPOSITION: NODE bpN:p11:iterative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:it-gen
 KIND: proof-region
@@ -464,7 +464,7 @@ DISPOSITION: NODE stepN:p11:it-map
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:it-taylor
 KIND: proof-region
@@ -473,7 +473,7 @@ DISPOSITION: NODE stepN:p11:it-taylor
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:it-est
 KIND: proof-region
@@ -509,7 +509,7 @@ DISPOSITION: NODE stepN:p11:nf-first
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:nf-case
 KIND: proof-region
@@ -545,7 +545,7 @@ DISPOSITION: NODE stepN:p11:nf-concl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:nf-disp
 KIND: proof-region

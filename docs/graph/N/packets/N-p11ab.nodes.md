@@ -268,9 +268,9 @@ ROUTE_FOR: -
 EDGE: stepN:p11:ex-den | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-cmp@L72-L72 | q_n>0 and a_n<b_n
 EDGE: bpN:p0:partial-exponents#partialDriftExponent | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-cmp@L72-L72 | b_n
 EDGE: bpN:p0:partial-exponents#partialTimeExponent | blueprint-N/parts/p11a-partial-route.tex#stepN:p11:ex-cmp@L72-L72 | a_n in the concluding comparison is the frozen time exponent 2/(6n^2-3n+14)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -880,9 +880,9 @@ EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-ser
 EDGE: bpN:p4:ext-weier | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | limit holomorphic and periodic
 EDGE: bpN:p4:ext-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | termwise integration of the Fourier coefficients
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83 | Fourier coefficients and norm of the limit
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -916,9 +916,9 @@ EDGE: bpN:p11:symplectic | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-re
 EDGE: bpN:p11:flow | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | (iv) by Lemma flow(e); trajectory in D^e
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | d/dt v(X^t z)=Dv.X^c_phi={v,phi}_c
 EDGE: stepN:p11:co-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84 | S(z) is the holomorphic series limit constructed in the preceding Series step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -950,9 +950,9 @@ EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transfor
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L88-L88 | w={h,phi}_c
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L88-L88 | finite norm
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L88-L88 | weight c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -985,9 +985,9 @@ EDGE: bpN:p5:taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@
 EDGE: bpN:p11:composition | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | trajectory stays in D^e_{R,s} (i)
 EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | bounds (e^2 hat-eta/8)^{N-1} for ad^{N-1}_phi w and the series terms
 EDGE: stepN:p11:co-remainder | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91 | the hatted-loss Taylor remainder estimate and its decay are reused from the composition remainder argument
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1019,9 +1019,9 @@ EDGE: bpN:p4:ext-param | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@
 EDGE: bpN:p4:ext-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92 | Fubini and Tonelli for the Fourier-coefficient integrals
 EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92 | the integration domain D^e_{R-rho,s-sigma} is the extended instance of the Part 4 domain
 EDGE: bpN:p11:flow | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92 | flow(b) supplies joint continuity of X^t and D_z X^t used in the parameter-integral hypothesis
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1056,9 +1056,9 @@ EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonica
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@L96-L96 | finite norm
 EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@L96-L96 | D^e_{R-rho,s-sigma}
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@L96-L96 | weight c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1094,9 +1094,9 @@ EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L104
 EDGE: bpN:p6#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L106-L107 | Z_{K_a}, q, abar
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L107-L107 | weighted norm and Fourier coefficients
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L110-L110 | I-hat=(I,x-tilde)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1132,9 +1132,9 @@ EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterativ
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L114-L114 | Phi=X^{1,c}_phi
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L114-L114 | weighted norm
 EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L114-L114 | weight c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1190,9 +1190,9 @@ ROUTE_FOR: -
 EDGE: bpN:p11:canonical-map | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-map@L123-L123 | Proposition canonical-map applies (rho<R/2, sigma<s/2, eps<=1/4)
 EDGE: stepN:p11:it-gen | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-map@L123-L123 | eta<=1/2 and ¦phi¦<=q delta/abar
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-map@L123-L123 | epsilon=¦phi¦/(rho sigma) is the weighted-norm quantity in the canonical-map hypotheses
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1227,9 +1227,9 @@ EDGE: bpN:p11:hom | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L1
 EDGE: stepN:p11:it-gen | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | eta<=1/2, the hypotheses of the transform
 EDGE: bpN:p4:projections | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | f_0=g+T_{K_a}f and f-T_{K_a}f use the Fourier truncation operator
 EDGE: bpN:p6:setting | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124 | the finite decomposition g=sum_j g_j supplies the stated finite-norm bound for f_0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1366,9 +1366,9 @@ DEPS: bpN:p11:s-nf#data
 EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-first@L138-L138 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1505,9 +1505,9 @@ EDGE: stepN:p11:nf-induct | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-c
 EDGE: stepN:p11:nf-N | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | N, kappa>8, N+1>kappa/(12 ln 2)
 EDGE: stepN:p11:nf-case | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | eps_1<=2^7 q eps^2/(abar R s)
 EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144 | sum of the geometric increment bounds gives the printed factor 4/3
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: -
+REVIEWER: sol-delta2-N-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

@@ -1,30 +1,10 @@
 {
- "replaced": [
-  "stepN:p10:cf-branch",
-  "stepN:p10:cf-trans"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "stepN:p10:hc-h",
-  "stepN:p10:hc-qc",
-  "stepN:p10:hc-f",
-  "stepN:p10:hc-field",
-  "stepN:p10:cf-setting",
-  "stepN:p10:ex-rho",
-  "stepN:p10:ex-apriori",
-  "stepN:p10:ex-glue",
-  "stepN:p10:hd-abc",
-  "stepN:p10:hd-d",
-  "stepN:p10:hd-dep",
-  "stepN:p9:om-max",
-  "stepN:p9:bh-eps",
-  "stepN:p9:bh-rad",
-  "stepN:p9:bh-small",
-  "stepN:p9:bs-stop",
-  "stepN:p9:om-max#local-real-regularity",
-  "bpN:p9:block-stab#local-field",
-  "bpN:p9:block-stab#frequency-size"
+  "stepN:p10:cf-branch",
+  "stepN:p10:cf-trans"
  ]
 }

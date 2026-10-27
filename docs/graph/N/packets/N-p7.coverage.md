@@ -95,7 +95,7 @@ DISPOSITION: NODE stepN:p7:td-lim
 REASON: labelled unit; node confirmed
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: sol-delta-N-d
+REVIEWER: sol-delta3-N-a
 
 ITEM: bpN:p7:resonant-gradient
 KIND: lemma
@@ -581,7 +581,7 @@ DISPOSITION: NODE stepN:p7:p2-t3
 REASON: labelled unit; node confirmed
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: sol-delta-N-d
+REVIEWER: sol-delta3-N-a
 
 ITEM: stepN:p7:p2-concl
 KIND: proof-region

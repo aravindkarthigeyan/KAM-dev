@@ -41,7 +41,7 @@ DISPOSITION: NODE bpN:p11:conj
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:cj
 KIND: proof-region
@@ -59,7 +59,7 @@ DISPOSITION: NODE bpN:p11:preimage
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: bpN:p11:continuation
 KIND: lemma
@@ -77,7 +77,7 @@ DISPOSITION: NODE stepN:p11:ct-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ct-concl
 KIND: proof-region
@@ -95,7 +95,7 @@ DISPOSITION: NODE bpN:p11:transfer
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:tr-orbit
 KIND: proof-region
@@ -140,7 +140,7 @@ DISPOSITION: NODE stepN:p11:tr-closed
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:tr-concl
 KIND: proof-region
@@ -158,7 +158,7 @@ DISPOSITION: NODE bpN:p11:nonresonant
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:nr-nf
 KIND: proof-region
@@ -212,7 +212,7 @@ DISPOSITION: NODE stepN:p11:ef-tube
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-adm
 KIND: proof-region
@@ -221,7 +221,7 @@ DISPOSITION: NODE stepN:p11:ef-adm
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-en
 KIND: proof-region
@@ -239,7 +239,7 @@ DISPOSITION: NODE stepN:p11:ef-id
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-C
 KIND: proof-region
@@ -248,7 +248,7 @@ DISPOSITION: NODE stepN:p11:ef-C
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-contra
 KIND: proof-region
@@ -266,7 +266,7 @@ DISPOSITION: NODE bpN:p11:resonant
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:rs-red
 KIND: proof-region
@@ -284,7 +284,7 @@ DISPOSITION: NODE stepN:p11:rs-nf
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:rs-t12
 KIND: proof-region
@@ -293,7 +293,7 @@ DISPOSITION: NODE stepN:p11:rs-t12
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:rs-t3
 KIND: proof-region
@@ -320,7 +320,7 @@ DISPOSITION: NODE bpN:p11:hessian
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:hs-op
 KIND: proof-region
@@ -329,7 +329,7 @@ DISPOSITION: NODE stepN:p11:hs-op
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: bpN:p11:block-setting
 KIND: definition
@@ -338,7 +338,7 @@ DISPOSITION: NODE bpN:p11:block-setting
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: bpN:p11:domain
 KIND: lemma
@@ -347,7 +347,7 @@ DISPOSITION: NODE bpN:p11:domain
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:dm-pts
 KIND: proof-region
@@ -383,7 +383,7 @@ DISPOSITION: NODE bpN:p11:block-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bd-cover
 KIND: proof-region
@@ -392,7 +392,7 @@ DISPOSITION: NODE stepN:p11:bd-cover
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bd-24
 KIND: proof-region
@@ -401,7 +401,7 @@ DISPOSITION: NODE stepN:p11:bd-24
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bd-5
 KIND: proof-region
@@ -419,7 +419,7 @@ DISPOSITION: NODE bpN:p11:block
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bl-block
 KIND: proof-region
@@ -428,7 +428,7 @@ DISPOSITION: NODE stepN:p11:bl-block
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bl-sl
 KIND: proof-region
@@ -491,7 +491,7 @@ DISPOSITION: NODE stepN:p11:final-mu
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:final-time
 KIND: proof-region
@@ -527,7 +527,7 @@ DISPOSITION: NODE stepN:p11:final-sign
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:final-drift
 KIND: proof-region
