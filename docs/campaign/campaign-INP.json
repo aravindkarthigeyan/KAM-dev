@@ -6,61 +6,97 @@
    "model": "Claude Opus 5.5",
    "account": "claude-8",
    "session": "kam-suborch",
-   "assignment": "Tracks I, N, P: additions (D25, D28 frozen), blueprints, dependency graphs, proof campaigns",
+   "assignment": "Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29)",
    "state": "active"
   },
   {
-   "id": "bpN-p12",
+   "id": "bpP-p11a2",
    "kind": "blueprint writer (subagent)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track N Part 12: N-AVERAGING blueprint (D28)",
+   "assignment": "Track P Part 11a-2: cutoff, homological equation, KAM step (Russmann route for P-FIXED)",
    "state": "running"
   },
   {
    "id": "graphN-ext",
-   "kind": "graph extractors (subagents)",
+   "kind": "graph extractor (subagent)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track N dependency graph: slice extraction (Parts 4-7 now)",
+   "assignment": "Track N dependency graph: slices N-p11ab, N-p11c (N-PARTIAL-CONVEX)",
+   "state": "running"
+  },
+  {
+   "id": "design-N3",
+   "kind": "Lean design writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Lean design with exact signatures for blueprint-N Part 3 (shared Hamiltonian ODE layer)",
+   "state": "running"
+  },
+  {
+   "id": "seal-W1",
+   "kind": "seal audit (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-seal-1",
+   "assignment": "Seal audit of package W1: I-KEPLER, N-QC, N-ZERO providers",
    "state": "running"
   },
   {
    "id": "grev-1",
-   "kind": "graph delta review (Codex)",
+   "kind": "graph review (Codex)",
    "model": "GPT-6.1-Sol medium",
    "account": "codex-1",
    "session": "inp-grev-1",
-   "assignment": "Track I graph: delta reviews (I-p67a, I-p7b, I-p1, I-p3)",
-   "state": "running"
-  },
-  {
-   "id": "grev-2",
-   "kind": "graph delta review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-4",
-   "session": "inp-grev-2",
-   "assignment": "Track I graph: delta reviews (I-p5, I-p8, I-p2)",
+   "assignment": "Track I graph: third-pass review of I-imports, I-nown",
    "state": "running"
   },
   {
    "id": "bprev-2",
-   "kind": "blueprint/graph review (Codex)",
+   "kind": "graph review (Codex)",
    "model": "GPT-6.1-Sol medium",
    "account": "codex-1",
    "session": "inp-bprev-2",
-   "assignment": "Track I graph: slice I-nown review; track P blueprint reviews",
+   "assignment": "Track I graph: third-pass review of I-p2, I-p5, I-p8",
+   "state": "running"
+  },
+  {
+   "id": "grev-3",
+   "kind": "graph review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "inp-grev-3",
+   "assignment": "Track I graph: third-pass review of I-p67a, I-p7b",
+   "state": "running"
+  },
+  {
+   "id": "grev-2",
+   "kind": "graph review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "inp-grev-2",
+   "assignment": "Track N graph: slice review N-p02, N-p1",
+   "state": "running"
+  },
+  {
+   "id": "grev-4",
+   "kind": "graph review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-grev-4",
+   "assignment": "Track N graph: slice review N-p4, N-p5",
    "state": "running"
   },
   {
    "id": "rev-n11",
-   "kind": "critical review (Codex)",
+   "kind": "graph review (Codex)",
    "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
    "session": "inp-rev-n11",
-   "assignment": "Track I graph: imports review; earlier N Part 11 (3 rounds, ACCEPT) and P Part 11b reviews",
+   "assignment": "Track N graph: slice review N-p3a, N-p3b (earlier: N Part 12 review, REVISE)",
    "state": "running"
   },
   {
