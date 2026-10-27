@@ -33,10 +33,10 @@ end with a date and reason.
 
   Each is a `definition` (or `display`) node. A result that assumes a package depends on its node. Every
   application of such a result must show where the package is supplied (an EDGE or a step node at the consumer).
-- **External inputs:** exactly the eleven items (E1)–(E11) of Part 1 ((E11) added after the global review) (`bp:p1:ext-*`), as `KIND: external`,
-  `LEAN_STATUS: EXTERNAL`.
-  - A proof that uses a fact which is neither proved in the blueprint nor one of (E1)–(E10) gets a step node whose
-    NOTE begins `SOURCE_GAP:`. Never a silent edge, and never a new external.
+- **External inputs:** exactly the eleven items (E1)–(E11) of Part 1 ((E11) added after the global review)
+  (`bp:p1:ext-*`), as `KIND: external`, `LEAN_STATUS: EXTERNAL`.
+  - A proof that uses a fact which is neither proved in the blueprint nor one of (E1)–(E11) gets a step node whose
+    NOTE begins `SOURCE_GAP:`. Never a silent edge, and never an additional external without a recorded SPEC revision.
 
 ## Conventions to watch (the global reviewer checks these across slices)
 - **Norms:**

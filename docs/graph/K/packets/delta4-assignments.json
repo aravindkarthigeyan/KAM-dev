@@ -1,0 +1,33 @@
+{
+ "d4": {
+  "K-p2b": {
+   "nodes": [],
+   "items": [
+    "p2:perturbation-average-applicability"
+   ]
+  },
+  "K-p4a": {
+   "nodes": [
+    "step:p4:slab-fubini"
+   ],
+   "items": []
+  },
+  "K-p4b": {
+   "nodes": [
+    "step:p4:head-zero",
+    "step:p4:dy-exhaust",
+    "step:p4:dy-open",
+    "step:p4:ml-mixed"
+   ],
+   "items": []
+  },
+  "K-p1a": {
+   "nodes": [
+    "bp:p1:ext-measure"
+   ],
+   "items": [
+    "bp:p1:ext-measure"
+   ]
+  }
+ }
+}

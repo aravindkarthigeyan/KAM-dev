@@ -1,15 +1,13 @@
 {
- "replaced": [
+ "replaced": [],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
   "step:p3:torsion-holomorphy",
   "step:p3:phase-contraction",
   "step:p3:diff-regularity",
   "step:p3:diff-triangular",
   "step:p3:diff-bounds"
- ],
- "added": [],
- "items": [],
- "unresolved": {},
- "passes": [
-  "step:p3:phase-fixed-point"
  ]
 }

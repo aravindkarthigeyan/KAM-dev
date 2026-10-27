@@ -1550,7 +1550,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L98-L107
 PROOF_SOURCE: -
 CONTRACT_ID: bp:p1:ext-measure
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: d1, d2 >= 1; A, B, E measurable; E_1 subset E_2 subset ... measurable; a box prod_i [a_i,b_i]
+SOURCE_HYPOTHESES: finite dimensions d1, d2 >= 0; A, B, E measurable; E_1 subset E_2 subset ... measurable; a box prod_i [a_i,b_i]
 SOURCE_QUANTIFIERS: for all measurable A, B, E and increasing measurable sequences E_j, and all boxes
 SOURCE_CONCLUSION: Lebesgue measure on R^{d1} x R^{d2} = R^{d1+d2} is the product measure: meas(A x B) = meas A meas B and meas E = int meas(E_x) dx (Tonelli); meas(union E_j) = lim meas E_j; closed and open boxes with the same corners have measure prod (b_i - a_i), so box boundaries are null
 CONSTANT_SCOPE: none
@@ -1561,9 +1561,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d4
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -

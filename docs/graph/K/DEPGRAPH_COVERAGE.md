@@ -918,9 +918,9 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L98-L107
 DISPOSITION: NODE bp:p1:ext-measure
 REASON: external input (E11)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d4
 
 ITEM: bp:p1:periodic-bounded
 KIND: lemma
@@ -1631,7 +1631,7 @@ DISPOSITION: NODE bp:p1:lip-image-product
 REASON: SOURCE_GAP step added for the unproved product-measure identification
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
-REVIEWER: sol-review-r1
+REVIEWER: sol-review-d3
 
 ITEM: bp:p1:lip-image
 KIND: lemma
@@ -2466,54 +2466,54 @@ KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A1@L310-L310
 DISPOSITION: NODE bp:p2:admissible
 REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 
 ITEM: bp:p2:A2
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A2@L311-L311
 DISPOSITION: NODE bp:p2:admissible
 REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 
 ITEM: bp:p2:A3
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A3@L312-L312
 DISPOSITION: NODE bp:p2:admissible
 REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 
 ITEM: bp:p2:A4
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A4@L313-L313
 DISPOSITION: NODE bp:p2:admissible
 REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 
 ITEM: bp:p2:A5
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A5@L314-L314
 DISPOSITION: NODE bp:p2:admissible
 REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 
 ITEM: bp:p2:A6
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A6@L315-L315
 DISPOSITION: NODE bp:p2:admissible
 REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 
 ITEM: bp:p2:triangular
 KIND: lemma
@@ -3318,12 +3318,12 @@ REVIEWER: sol-review-r1
 
 ITEM: p2:perturbation-average-applicability
 KIND: proof-region
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L877
-DISPOSITION: EXCLUDED
-REASON: unsupported use of the periodic-input averages corollary under the nonperiodic perturbation hypotheses
+SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L878
+DISPOSITION: NODE step:p2:pt-twist
+REASON: revised source uses the norm-of-integral bound E6 without periodicity; the average estimate and inversion are represented by step:p2:pt-twist
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: sol-review-r1
+REVIEWER: sol-review-d4
 
 ITEM: bp:p3:standing
 KIND: definition

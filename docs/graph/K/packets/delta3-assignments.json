@@ -1,0 +1,91 @@
+{
+ "d3": {
+  "K-p2a": {
+   "nodes": [
+    "step:p2:fb-holo"
+   ],
+   "items": [
+    "bp:p2:A1",
+    "bp:p2:A2",
+    "bp:p2:A3",
+    "bp:p2:A4",
+    "bp:p2:A5",
+    "bp:p2:A6"
+   ]
+  },
+  "K-p2b": {
+   "nodes": [
+    "step:p2:ne-expand",
+    "step:p2:pt-twist",
+    "step:p2:st-ball",
+    "step:p2:it-stepsmall",
+    "step:p2:lim-dk",
+    "step:p2:lim-primary",
+    "step:p2:lim-close",
+    "step:p2:lim-invariance"
+   ],
+   "items": [
+    "p2:perturbation-average-applicability"
+   ]
+  },
+  "K-p3": {
+   "nodes": [
+    "step:p3:torsion-holomorphy",
+    "step:p3:phase-contraction",
+    "step:p3:diff-regularity",
+    "step:p3:diff-triangular",
+    "step:p3:diff-bounds"
+   ],
+   "items": []
+  },
+  "K-p4a": {
+   "nodes": [
+    "step:p4:db-vectorfield",
+    "bp:p4:matrix-norms",
+    "step:p4:mn-rowsum",
+    "step:p4:slab-fubini"
+   ],
+   "items": []
+  },
+  "K-p4b": {
+   "nodes": [
+    "step:p4:normalize-proof",
+    "bp:p4:lip",
+    "step:p4:lip-g1",
+    "bp:p4:real-torus",
+    "step:p4:rt-analytic",
+    "step:p4:ml-good",
+    "step:p4:mm-count",
+    "step:p4:hq-cover",
+    "step:p4:hq-trivial",
+    "step:p4:head-positive",
+    "step:p4:head-positive",
+    "step:p4:head-zero",
+    "step:p4:head-zero",
+    "step:p4:dy-exhaust",
+    "step:p4:dy-open",
+    "step:p4:hq-trivial",
+    "step:p4:ml-mixed"
+   ],
+   "items": []
+  },
+  "K-p1a": {
+   "nodes": [
+    "bp:p1:ext-measure"
+   ],
+   "items": [
+    "bp:p1:ext-measure"
+   ]
+  },
+  "K-p1c": {
+   "nodes": [
+    "bp:p1:lip-image-product",
+    "bp:p1:mcshane",
+    "step:p1:mc-clamp"
+   ],
+   "items": [
+    "bp:p1:lip-image-product#product-lebesgue"
+   ]
+  }
+ }
+}

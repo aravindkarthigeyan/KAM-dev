@@ -1,5 +1,11 @@
 {
- "replaced": [
+ "replaced": [],
+ "added": [],
+ "items": [
+  "p2:perturbation-average-applicability"
+ ],
+ "unresolved": {},
+ "passes": [
   "step:p2:ne-expand",
   "step:p2:pt-twist",
   "step:p2:st-ball",
@@ -8,9 +14,5 @@
   "step:p2:lim-primary",
   "step:p2:lim-close",
   "step:p2:lim-invariance"
- ],
- "added": [],
- "items": [],
- "unresolved": {},
- "passes": []
+ ]
 }

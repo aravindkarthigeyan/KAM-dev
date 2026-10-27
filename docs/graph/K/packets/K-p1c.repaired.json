@@ -4,20 +4,8 @@
  "items": [],
  "unresolved": {},
  "passes": [
-  "step:p1:it-super",
-  "step:p1:it-linear",
-  "bp:p1:real-restriction-consequences",
-  "step:p1:rr-consequences",
-  "bp:p1:hamiltonian-real",
-  "step:p1:hr-derivative",
-  "step:p1:hr-components",
-  "step:p1:li-cubes",
-  "step:p1:li-image",
-  "step:p1:li-sum",
-  "step:p1:li-preimage",
-  "step:p1:li-product",
-  "step:p1:mc-components",
-  "step:p1:mc-clamp",
-  "step:p1:lipeo-zero"
+  "bp:p1:lip-image-product",
+  "bp:p1:mcshane",
+  "step:p1:mc-clamp"
  ]
 }

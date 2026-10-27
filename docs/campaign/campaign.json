@@ -1,5 +1,5 @@
 {
- "current_phase": "Statements frozen on all four tracks (94 anchors). Track K: blueprint reviewed in full; dependency graph extracted (449 nodes, 1301 edges, structurally clean) and under independent slice review; then a global review and publication. Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints being written.",
+ "current_phase": "Statements frozen on all four tracks. Track K: blueprint and source dependency graph published (docs/graph/K/DEPGRAPH.md: 453 nodes, 1420 edges, 0 source gaps, fully reviewed); proof campaign starting (Sonnet provers, GPT-6.1-Sol medium auditors). Tracks I, N, P: Opus sub-orchestrator (D23): D25 additions being frozen, blueprints being written.",
  "workers": [
   {
    "id": "orchestrator",
@@ -45,24 +45,6 @@
    "session": "kam-suborch",
    "assignment": "Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp",
    "state": "active"
-  },
-  {
-   "id": "graph-delta2",
-   "kind": "graph review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-4",
-   "session": "kam-graph-d2",
-   "assignment": "Fresh check of the 39 node records rewritten in the delta round",
-   "state": "running"
-  },
-  {
-   "id": "graph-global",
-   "kind": "graph global review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-3",
-   "session": "kam-graph-global",
-   "assignment": "Global root-closure review of the track K dependency graph",
-   "state": "running"
   }
  ],
  "queued": [

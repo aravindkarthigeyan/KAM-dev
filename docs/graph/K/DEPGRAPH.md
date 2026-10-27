@@ -9,8 +9,8 @@ EXTERNAL_POLICY: the eleven Mathlib-level inputs (E1)-(E11) of Part 1 are KIND e
 FROZEN_ANCHORS: bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:domains#actionNbhd, bp:p0:domains#fundamentalDomain, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:torus#IsInvariantLagrangianTorus, bp:p0:cover#kamCover, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#dotC, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage, bp:p0:head, bp:p0:headq, bp:p0:g1, bp:p0:g2, bp:p0:g3
 FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:8be8871b726f78aca2d9ad235157c693662486bef05830c229ee5d5440d06ca8
 WRITER: claude-main-orchestrator
-GLOBAL_REVIEWER: -
-GLOBAL_REVIEW_REF: -
+GLOBAL_REVIEWER: sol-global-K
+GLOBAL_REVIEW_REF: docs/graph/K/reviews/GLOBAL-review.md and docs/graph/K/reviews/GLOBAL-recheck.md (Codex GPT-6.1-Sol medium, tmux kam-graph-global)
 
 The dependency direction is `NODE -> prerequisite`. Node blocks are assembled from `docs/graph/K/packets/<slice>.nodes.md`; edit those, then re-run `scripts/depgraph_assemble.py`.
 
@@ -2283,7 +2283,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L98-L107
 PROOF_SOURCE: -
 CONTRACT_ID: bp:p1:ext-measure
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: d1, d2 >= 1; A, B, E measurable; E_1 subset E_2 subset ... measurable; a box prod_i [a_i,b_i]
+SOURCE_HYPOTHESES: finite dimensions d1, d2 >= 0; A, B, E measurable; E_1 subset E_2 subset ... measurable; a box prod_i [a_i,b_i]
 SOURCE_QUANTIFIERS: for all measurable A, B, E and increasing measurable sequences E_j, and all boxes
 SOURCE_CONCLUSION: Lebesgue measure on R^{d1} x R^{d2} = R^{d1+d2} is the product measure: meas(A x B) = meas A meas B and meas E = int meas(E_x) dx (Tonelli); meas(union E_j) = lim meas E_j; closed and open boxes with the same corners have measure prod (b_i - a_i), so box boundaries are null
 CONSTANT_SCOPE: none
@@ -2294,9 +2294,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d4
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -4267,9 +4267,9 @@ DEPS: bp:p1:ext-measure
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-measure | blueprint/parts/p1-analysis.tex#bp:p1:lip-image-product@L1119-L1119 | product of Lebesgue measures is Lebesgue measure on R^2n, cited as (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -4467,9 +4467,9 @@ ROUTE_FOR: -
 EDGE: step:p1:mc-component | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1175-L1181 | proof step of this result
 EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1183-L1186 | proof step of this result
 EDGE: step:p1:mc-clamp | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1188-L1191 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -4547,9 +4547,9 @@ DEPS: step:p1:mc-components
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1189-L1190 | clamp the extension U
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -5601,9 +5601,9 @@ EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p2-aposteriori.tex#step:p2:fb-
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L404-L404 | definitions of N,P,X_N,T,E_sym,Q,eta
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L402-L405 | DK and d_omega N are holomorphic derivatives; K is holomorphic by hypothesis
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L402-L405 | the local package supplies the open ambient domain and holomorphic h for the Hamiltonian regularity application
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -6837,9 +6837,9 @@ ROUTE_FOR: -
 EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L756-L756 | definitions of E and A
 EDGE: bp:p2:correction | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L755-L757 | K and Delta K are holomorphic on the working strip, allowing differentiation of Kbar=K+Delta K and Delta K=P xi
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L755-L757 | the inherited local package supplies the holomorphic Hamiltonian and ambient domain for the frame/correction application
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -7259,9 +7259,9 @@ EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p2-aposteriori.tex#step:p2:pt-
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876 | the directional derivative of the new holomorphic normal frame is holomorphic, giving holomorphy and continuity of the new torsion
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L878 | the inherited local package supplies holomorphic h on the open ambient domain when forming the new torsion
 EDGE: bp:p1:ext-integral | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L876-L876 | ¦avg(tilde T)-avg(T)¦ <= sup over [0,1]^n of ¦tilde T - T¦ by the norm-of-integral bound; no periodicity needed
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -7379,9 +7379,9 @@ ROUTE_FOR: -
 EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L923 | A2: β-ball around K lies in 𝔅
 EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L923 | the preceding correction bound gives abs(Kbar-K)<=d in the triangle inequality
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L923 | the inherited local ambient-domain package is fixed for admissibility and the A2 ball inclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -7616,9 +7616,9 @@ EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmal
 EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1010-L1010 | ε_s,δ_s notation
 EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1012-L1012 | 𝔠_*≥𝔠_step max{1,2/μ}
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1010-L1015 | the inherited local package fixes gamma>0 and the parameters entering the decay and step-smallness comparison
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -7769,9 +7769,9 @@ ROUTE_FOR: -
 EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L1062 | (vi): DK_{s+1}−DK_s≤nd_s/δ_s
 EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L1062 | finiteness of Σnd_s/δ_s via the sum bound with j=a+1
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L1063 | the limit is in the induction setting with the local Part 2 package, which supplies gamma>0 and the fixed parameters of d_s
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -7830,9 +7830,9 @@ EDGE: bp:p1:uniform-limits | blueprint/parts/p2-aposteriori.tex#step:p2:lim-prim
 EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1073 | pointwise convergence to K_infty supplies the limit premise for preservation of primarity and realness
 EDGE: step:p2:lim-dk | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1073-L1073 | uniform derivative convergence supplies the remaining hypothesis of the cited uniform-limits lemma
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1073 | the local Part 2 package is inherited by the induction setting whose primary real tori are restricted here
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -7860,9 +7860,9 @@ EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L10
 EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1076 | Σd_s≤2Θ²C_ΔKe/(γ⁴δ_0^{2a})≤μ/4
 EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1078 | uniform convergence justifies passage to the limit and L1057 supplies sum d_s<=2 C_DeltaK e/(gamma^2 delta_0^a)
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1078 | the local Part 2 package fixes the positive gamma and constants in the summed displacement bounds
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -7922,9 +7922,9 @@ EDGE: step:p2:lim-margins | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invar
 EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1087-L1087 | DK_s→DK_∞ pointwise
 EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1087 | K_s(theta) tends to K_infty(theta), allowing continuity of X_h to pass to the limit
 EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1089 | the local package supplies the open ambient domain and holomorphic X_h input used for continuity at the limiting point
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -8598,9 +8598,9 @@ EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-hol
 EDGE: bp:p2:hamiltonian | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomorphy@L250-L251 | (a) gives holomorphic X_h on the open domain; the derivative-regularity edge gives holomorphic DX_h
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomorphy@L249-L251 | derivatives of N and X_h are holomorphic on the relevant open domains
 EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomorphy@L249-L252 | S1-S3 supply the Part 2 Hamiltonian package and holomorphic K_1 with its image in the open ambient domain for composition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -8775,9 +8775,9 @@ EDGE: step:p3:phase-fixed-point | blueprint/parts/p3-uniqueness.tex#step:p3:phas
 EDGE: bp:p3:matrix-norms | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L330-L330 | abs BL^Tabs <=C_P
 EDGE: bp:p1:ext-integral | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L325-L336 | fundamental theorem of calculus along the real segment and norm-of-integral bounds for the segment integral and the averages
 EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:phase-contraction@L323-L337 | the inherited phase-lemma package fixes the reference frame and real tori used in the segment integral; the local phase-small bound is L281-L282
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -8867,9 +8867,9 @@ EDGE: bp:p2:periodicity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regular
 EDGE: bp:p2:hamiltonian | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L378-L380 | S1-S2 supply the Part 2 standing package; X_h is holomorphic on B and the ball inclusion puts the composed arguments there
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L380-L380 | DX_h is holomorphic because X_h is holomorphic on the open domain, so the remainder R is holomorphic
 EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:diff-regularity@L377-L384 | S3-S4 supply holomorphy and primarity of both tori, and S3 supplies the radius-mu ball in the ambient domain
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -8923,9 +8923,9 @@ EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triang
 EDGE: step:p3:diff-linearized | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular@L394-L394 | linearized equation for Delta
 EDGE: step:p3:diff-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular@L394-L394 | the established identity Delta=P xi permits substitution into the differential equation
 EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:diff-triangular@L394-L397 | S1-S3 are the local source package for the exact reducibility application; S4 is inherited from the difference-lemma data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -8956,9 +8956,9 @@ EDGE: step:p3:diff-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-b
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L405-L405 | abs D^2X_habs =abs D(DX_h)abs
 EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L400-L401 | P^{-1}=(BL^T;-L^T Omega_0), so the stacked-matrix bound of matrix-norms applies to P^{-1}
 EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:diff-bounds@L400-L405 | S1 supplies the bilinear second-derivative bound M in the Taylor application; S3 supplies the frame bounds
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -9619,10 +9619,10 @@ DEPS: step:p4:slab-coordinate, bp:p1:ext-measure
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:slab-coordinate | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L101-L101 | dominant coordinate bound
-EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L95-L95 | Tonelli for the indicator of a measurable set (E11)
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4+claude-main-orchestrator
-REVIEWER: -
+EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L96-L101 | Tonelli for the indicator of a measurable set (E11)
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-d3
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -9961,9 +9961,9 @@ EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p4-measure.tex
 EDGE: step:p4:db-cauchy | blueprint/parts/p4-measure.tex#step:p4:db-vectorfield@L219-L219 | Cauchy bounds on D^j f and D^j h~
 EDGE: bp:p1:hamiltonian-real | blueprint/parts/p4-measure.tex#step:p4:db-vectorfield@L211-L218 | Missing direct use of the vector-field formula cited at L213
 EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p4-measure.tex#step:p4:db-vectorfield@L216-L218 | Missing direct use establishing holomorphy of derivatives
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -10777,9 +10777,9 @@ EDGE: step:p4:mn-rowsum | blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L536
 EDGE: bp:p0:stripdata#dotC | blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L528-L528 | bilinear dot product
 EDGE: bp:p0:hamiltonian#symplecticForm | blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L530-L530 | symplecticForm
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L525-L525 | Omega_0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -10808,9 +10808,9 @@ EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p4-measure.tex#step:p4:mn-ro
 EDGE: bp:p1:operator-norms | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L537-L539 | Missing cited identification of row-sum and operator norms
 EDGE: bp:p1:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L537-L539 | Missing cited submultiplicativity and transpose bounds
 EDGE: bp:p1:ext-integral | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L542-L543 | Missing explicitly cited integral norm bound
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -11481,9 +11481,9 @@ EDGE: bp:p4:apply | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-
 EDGE: bp:p4:shift | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-L738 | parts (a)-(e) of the phase shift lemma
 EDGE: bp:p4:normalized-torus | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L738-L741 | K_omega=(K^inf)^[-ph]
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L737-L741 | Missing direct dependency on the explicit local package (SA), required by SPEC
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -11785,9 +11785,9 @@ EDGE: step:p4:lip-g2 | blueprint/parts/p4-measure.tex#bp:p4:lip@L913-L913 | proo
 EDGE: step:p4:lip-phase | blueprint/parts/p4-measure.tex#bp:p4:lip@L929-L929 | proof step of this result
 EDGE: step:p4:lip-close | blueprint/parts/p4-measure.tex#bp:p4:lip@L936-L936 | proof step of this result
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:lip@L876-L882 | Missing direct dependency on the explicit local package (SA), required by SPEC
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -11850,9 +11850,9 @@ EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L897-L905 
 EDGE: bp:p4:inverse-freq | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L898-L901 | The reference action and frequency bounds are used in the STAB application
 EDGE: step:p4:lip-far | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L895-L895 | definition of e' and close-pair assumption
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:lip-g1@L892-L911 | Missing direct dependency on the explicit local package (SA), required by SPEC
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -12139,9 +12139,9 @@ EDGE: step:p4:rt-cover | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1063-L
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1009-L1021 | Missing direct dependency on the explicit local package (SA), required by SPEC
 EDGE: bp:p0:torus#IsInvariantLagrangianTorus | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1013-L1014 | the conclusion uses the six-clause frozen invariant Lagrangian torus predicate
 EDGE: bp:p1:real-restriction | blueprint/parts/p4-measure.tex#bp:p4:real-torus@L1010-L1011 | k_omega is defined as the real restriction of K_omega using the cited real-restriction lemma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -12168,9 +12168,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:real-restriction | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1025-L1026 | The restriction lemma is used at L1025, not the heading
 EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1026-L1026 | K_omega holomorphic, primary, real
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:rt-analytic@L1025-L1026 | the inherited local SA package and omega in Omega_gamma are the premises for normalize at K_omega
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -12533,9 +12533,9 @@ EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1124-
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1125-L1129 | A_4, A_3, Lambda_g definitions
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1123-L1131 | Missing direct dependency on the explicit local package (SA), required by SPEC
 EDGE: bp:p1:ext-mvt | blueprint/parts/p4-measure.tex#step:p4:ml-good@L1124-L1129 | The real derivative bound is converted to a difference bound on convex R^n
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -12560,12 +12560,12 @@ DEPS: bp:p4:smallness, step:p4:ml-size, bp:p4:good-actions, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1137-L1137 | (s7): eta_0<=gamma/2
-EDGE: step:p4:ml-size | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1137-L1137 | /G_0/<=eta_0
+EDGE: step:p4:ml-size | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1138-L1138 | /G_0/<=eta_0
 EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1134-L1136 | A_gamma, Z, G_0
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1133-L1139 | Missing direct dependency on the explicit local package (SA), required by SPEC
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4+claude-main-orchestrator
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -12750,9 +12750,9 @@ EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1180
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1180-L1185 | Monotonicity and subadditivity are directly used in the measure count
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1180-L1185 | the inherited main-measure source setting assumes the local SA package; gamma is the positive width used in the bad-action estimates
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:mm-count@L1180-L1180 | product volume of action sets times the angle cube (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -12918,9 +12918,9 @@ EDGE: bp:p4:main-measure | blueprint/parts/p4-measure.tex#step:p4:head-positive@
 EDGE: step:p4:head-constants | blueprint/parts/p4-measure.tex#step:p4:head-positive@L1221-L1221 | C, eps_0, c_*
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:head-positive@L1221-L1222 | use c_*>0 and A_0 in the choice of gamma and in eta_0=A_0 epsilon gamma^-2
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:head-positive@L1221-L1222 | the chosen gamma lies in (0,1] and epsilon=c_* gamma^4, supplying the local package required by main-measure
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-global-K
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -12944,17 +12944,17 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p4:main-measure, bp:p4:parameters, step:p4:head-constants, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p4:main-measure | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1229 | measure bound for each gamma in (0,1]
-EDGE: step:p4:head-constants | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1228-L1228 | constant C
+EDGE: bp:p4:main-measure | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1230-L1231 | measure bound for each gamma in (0,1]
+EDGE: step:p4:head-constants | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1231 | constant C
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1230 | use c_*>0 and eta_0=A_0 epsilon gamma^-2 at epsilon=0
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1230 | epsilon=0 supplies (SA) for every gamma in (0,1], before applying main-measure
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b+sol-global-K
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: - [final: main-measure EDGE locator set to L1230-L1231 exactly as sol-review-d4 specified; the writer verified mechanically that these lines contain the ref to bp:p4:main-measure and its bound]
 
 NODE: bp:p4:dyadic-approx
 KIND: lemma
@@ -13003,10 +13003,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-measure
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-exhaust@L1250-L1250 | continuity of Lebesgue measure from below (E11)
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b+sol-review-r2+claude-main-orchestrator
-REVIEWER: -
+EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-exhaust@L1253-L1254 | continuity of Lebesgue measure from below (E11)
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -13031,10 +13031,10 @@ DEPS: step:p4:dy-exhaust, bp:p1:ext-measure
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:dy-exhaust | blueprint/parts/p4-measure.tex#step:p4:dy-open@L1257-L1257 | cubes D_j and E_j with measure bound
-EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-open@L1258-L1258 | null boundaries of boxes (E11)
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4+claude-main-orchestrator
-REVIEWER: -
+EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-open@L1258-L1259 | null boundaries of boxes (E11)
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -13087,9 +13087,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p4-measure.tex#step:p4:hq-trivial@L1272-L1273 | unfold F_B as the half-open unit angle cube times B; the volume identity remains the explicit source gap
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:hq-trivial@L1273-L1273 | product volume meas([0,1)^n x B) = meas B (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-global-K+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -13206,9 +13206,9 @@ EDGE: step:p4:hq-trivial | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1303
 EDGE: step:p4:hq-head | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1298-L1298 | The chosen epsilon_0 supplies Cprime sqrt(epsilon)<=kappa; transfer only records the measure part
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1300-L1303 | monotonicity and subadditivity apply to the displayed cover of the complement
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1303-L1303 | product volume meas([0,1)^n x S) = meas S (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -13228,9 +13228,9 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * Assumption boundary leaves: **0**
 * External boundary leaves: **11**
 * Alternative routes: **2**
-* Topology review queue: **36**
+* Topology review queue: **0**
 * Explicit source gaps: **0**
-* Coverage items: **583**; excluded: **114**
+* Coverage items: **583**; excluded: **113**
 
 ### Roots
 
@@ -13242,42 +13242,7 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 
 ### Topology review queue
 
-* `bp:p1:ext-measure` [PROPOSED] — (E11) Lebesgue measure on products and boxes
-* `bp:p1:lip-image-product` [PROPOSED] — Products
-* `bp:p1:mcshane` [PROPOSED] — McShane extension
-* `bp:p4:lip` [PROPOSED] — LIP
-* `bp:p4:matrix-norms` [PROPOSED] — Matrix norms
-* `bp:p4:real-torus` [PROPOSED] — The real tori are KAM tori
-* `step:p1:mc-clamp` [PROPOSED] — Clamping
-* `step:p2:fb-holo` [PROPOSED] — Holomorphy
-* `step:p2:it-stepsmall` [PROPOSED] — Step smallness at every stage
-* `step:p2:lim-close` [PROPOSED] — Closeness
-* `step:p2:lim-dk` [PROPOSED] — Uniform convergence of $DK_s$
-* `step:p2:lim-invariance` [PROPOSED] — Invariance
-* `step:p2:lim-primary` [PROPOSED] — Primary and real
-* `step:p2:ne-expand` [PROPOSED] — Expansion of the new error
-* `step:p2:pt-twist` [PROPOSED] — Twist (integrability and invertibility before use)
-* `step:p2:st-ball` [PROPOSED] — Ball margin
-* `step:p3:diff-bounds` [PROPOSED] — Bounds
-* `step:p3:diff-regularity` [PROPOSED] — Regularity and periodicity
-* `step:p3:diff-triangular` [PROPOSED] — Triangular system
-* `step:p3:phase-contraction` [PROPOSED] — Contraction
-* `step:p3:torsion-holomorphy` [PROPOSED] — Holomorphy
-* `step:p4:db-vectorfield` [PROPOSED] — From $D\pfh$ to $X_\pfh$
-* `step:p4:dy-exhaust` [PROPOSED] — Dyadic exhaustion
-* `step:p4:dy-open` [PROPOSED] — The open set
-* `step:p4:head-positive` [PROPOSED] — Positive $\varepsilon$
-* `step:p4:head-zero` [PROPOSED] — Vanishing perturbation
-* `step:p4:hq-cover` [PROPOSED] — Comparison of covers
-* `step:p4:hq-trivial` [PROPOSED] — Trivial cases
-* `step:p4:lip-g1` [PROPOSED] — Re-application of G1 at $\omega'$
-* `step:p4:ml-good` [PROPOSED] — Two good actions
-* `step:p4:ml-mixed` [PROPOSED] — A good action and a boundary action
-* `step:p4:mm-count` [PROPOSED] — Measure count
-* `step:p4:mn-rowsum` [PROPOSED] — Row sums
-* `step:p4:normalize-proof` [PROPOSED] — Shift of the G1 output
-* `step:p4:rt-analytic` [PROPOSED] — Analyticity and primarity
-* `step:p4:slab-fubini` [PROPOSED] — Fubini in the coordinate $\omega_i$
+* _(none)_
 
 ### Dependency leaves in root closure
 
@@ -13300,7 +13265,7 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `bp:p1:ext-identity` [REVIEWED] — Identity theorem in one variable
 * `bp:p1:ext-integral` [REVIEWED] — Integrals
 * `bp:p1:ext-lebesgue` [REVIEWED] — Lebesgue outer measure
-* `bp:p1:ext-measure` [PROPOSED] — (E11) Lebesgue measure on products and boxes
+* `bp:p1:ext-measure` [REVIEWED] — (E11) Lebesgue measure on products and boxes
 * `bp:p1:ext-mvt` [REVIEWED] — Mean value inequality
 * `bp:p1:ext-rectangle` [REVIEWED] — Cauchy's theorem for rectangles
 * `bp:p1:ext-schwarz` [REVIEWED] — Symmetry of second derivatives
@@ -13339,7 +13304,7 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `bp:p1:ext-identity` [REVIEWED] — Identity theorem in one variable
 * `bp:p1:ext-integral` [REVIEWED] — Integrals
 * `bp:p1:ext-lebesgue` [REVIEWED] — Lebesgue outer measure
-* `bp:p1:ext-measure` [PROPOSED] — (E11) Lebesgue measure on products and boxes
+* `bp:p1:ext-measure` [REVIEWED] — (E11) Lebesgue measure on products and boxes
 * `bp:p1:ext-mvt` [REVIEWED] — Mean value inequality
 * `bp:p1:ext-rectangle` [REVIEWED] — Cauchy's theorem for rectangles
 * `bp:p1:ext-schwarz` [REVIEWED] — Symmetry of second derivatives

@@ -561,6 +561,6 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L98-L107
 DISPOSITION: NODE bp:p1:ext-measure
 REASON: external input (E11)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d4
