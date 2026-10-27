@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:40 UTC from `main` at `72619f1` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:40 UTC from `main` at `28ab456` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -262,6 +262,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | 🔄 working | Track I Phase 0: isoenergetic KAM (HL19 Thm 3.6), 2-DOF confinement, restricted three-body problem | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | 🔄 working | Track N Phase 0: quasi-convex Nekhoroshev (Bounemoura–Marco Thm 2.1; Pöschel 1993) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | 🔄 working | Track P Phase 0: properly degenerate KAM (CP11 Thm 11.1), planar two-planet and fixed-Sun statements | — | — |
+| **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Stability of almost every initial condition over shorter-than-Nekhoroshev times; compatibility with simulations; candidate theorems (Zohar's question) | — | — |
 
 **Queued:** Blueprint part 1 proofs · Independent review of each blueprint part · Dependency graph extraction
 <!-- /AUTO:workers -->
@@ -271,6 +272,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:40 | `28ab456` | HQ: exploration of almost-every, shorter-time stability (collaborator's question) |
 | 2026-10-27 15:37 | `6f73a2b` | Name both authors in the frozen and project file headers (D16) |
 | 2026-10-27 15:33 | `544042a` | Plan four parallel tracks; add Zohar Komargodski as author; pin new sources |
 | 2026-10-27 15:26 | `725e81c` | Start Phase 1: blueprint skeleton, package board, Diophantine bridge |
@@ -282,7 +284,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 14:35 | `4db4826` | Record D10: the errata ledger stays public |
 | 2026-10-27 14:32 | `80d65f4` | HQ: statement drafts elaborate; independent audit running |
 | 2026-10-27 14:28 | `227e9b6` | Make the repository public; record rulings Q1-Q5; add statement draft 0.1 |
-| 2026-10-27 13:45 | `3b36d0e` | Pin the measure-layer sources and record the route verdict |
 <!-- /AUTO:landed -->
 
 ## Decisions
