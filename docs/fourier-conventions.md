@@ -49,6 +49,20 @@ The old γ⁻¹ bound is a valid but weaker bound when τ > 0; the coefficient f
 normalization. [HL19, §4.1, equations (4.1)–(4.2), p. 20](https://arxiv.org/pdf/1711.05515v1#page=20)
 uses L_ω = −ω·∂, so its inverse has the opposite sign. This sign does not affect the norm estimate.
 
+## Verified coefficient multiplication
+
+[`KAM/Fourier/Convolution.lean`](../KAM/Fourier/Convolution.lean) defines
+`convolution a b k = Σ_l a_l b_(k-l)`. For `s ≥ 0` and weighted summable `a` and `b`,
+it proves absolute convergence of each coefficient, weighted summability of the
+product, and `weightedNorm s (convolution a b) ≤ weightedNorm s a * weightedNorm s b`.
+
+The proof uses `|k|₁ ≤ |l|₁ + |k-l|₁`, a summable product majorant, and the bijection
+`(k,l) ↦ (l,k-l)` to sum the bound. It also proves commutativity, distributivity over
+addition of weighted summable families, scalar compatibility, and the identity
+coefficient family supported at zero. Associativity, completeness, exponential
+series, and the identification with products of analytic functions remain to be
+assembled; this module supplies the core multiplication estimate.
+
 ## Composition estimate
 
 For a periodic vector u, set ‖u‖_{s′} = Σ_k |û_k|_∞ exp(s′|k|₁). The Banach algebra

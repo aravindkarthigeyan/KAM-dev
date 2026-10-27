@@ -96,7 +96,8 @@ Estimates to formalize, for 0 < δ < s (and nonnegative coefficient radii):
 
 Verified coefficient infrastructure now includes the period-one derivative bound,
 the unique zero-average cohomological solution with the real-exponent small-divisor
-estimate, and its Lipschitz dependence on the frequency. See
+estimate, its Lipschitz dependence on the frequency, and absolute convergence and
+submultiplicativity of weighted Fourier convolution. See
 [`cohomological-equation.md`](cohomological-equation.md) for exact statements,
 source conventions, and the distinction from the remaining analytic-function bridge.
 These infrastructure results do not seal any frozen statement.
