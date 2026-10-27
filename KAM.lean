@@ -176,7 +176,10 @@ public import KAM.Measure.Slab
 public import KAM.Nekhoroshev.QuasiConvex
 public import KAM.Nekhoroshev.ZeroPerturbation
 public import KAM.ODE.Basic
+public import KAM.ODE.Existence
+public import KAM.ODE.Exit
 public import KAM.ODE.Lipschitz
+public import KAM.ODE.Uniqueness
 public import KAM.Provider.Iso.KeplerBorderedDet
 public import KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative
 public import KAM.Provider.Nekhoroshev.ZeroPerturbation
