@@ -156,6 +156,7 @@ public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
 public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
 public import KAM.Head.Adapters
+public import KAM.Head.Apply
 public import KAM.Head.CohUnique
 public import KAM.Head.CoverMono
 public import KAM.Head.Data
@@ -171,6 +172,7 @@ public import KAM.Head.HeadQ
 public import KAM.Head.InverseFrequency
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
+public import KAM.Head.Normalize
 public import KAM.Head.Parameters
 public import KAM.Head.PhaseAverage
 public import KAM.Head.Shift
