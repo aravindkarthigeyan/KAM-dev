@@ -98,8 +98,8 @@ theorem differentiableOn_hamiltonianVectorField (hV : IsOpen V) (hφ : Different
 /-- The derivative `Dφ` of a function holomorphic on an open set is `C²` there. -/
 theorem contDiffAt_fderiv_two (hV : IsOpen V) (hφ : DifferentiableOn ℂ φ V) {z : _}
     (hz : z ∈ V) : ContDiffAt ℂ 2 (fderiv ℂ φ) z :=
-  ((contDiffOn_nat_of_differentiableOn hV hφ 3).fderiv_of_isOpen hV (m := 2) (by norm_num)).contDiffAt
-    (hV.mem_nhds hz)
+  ((contDiffOn_nat_of_differentiableOn hV hφ 3).fderiv_of_isOpen hV (m := 2)
+    (by norm_num)).contDiffAt (hV.mem_nhds hz)
 
 /-- Blueprint `step:p4:db-vectorfield`. For `j ≤ 2`, `‖D^j X_φ‖ ≤ ‖D^{j+1} φ‖` at every point of
 the open set where `φ` is holomorphic: `J` is a contraction, and composing with it does not
