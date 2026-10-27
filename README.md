@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 22:07 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **25,608 lines of Lean** of an estimated ≈ 179,000
+> **Last updated: 2026-10-27 22:08 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **25,608 lines of Lean** of an estimated ≈ 179,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 22:07 UTC from `main` at `0237ede` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 22:08 UTC from `main` at `5fe4831` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 22:08 | `5fe4831` | Briefs for P2-8b and P4-Q |
 | 2026-10-27 22:07 | `0237ede` | P3-1 (frame of K1) and P2-8a (triangular system) landed; audits PASS WITH NOTES |
 | 2026-10-27 22:05 | `2ebf417` | Land k/p2-8a into main |
 | 2026-10-27 22:03 | `02fe981` | Land k/p3-1 into main |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 21:49 | `692c3dd` | Land k/p2-10 into main |
 | 2026-10-27 21:44 | `abe638d` | Briefs for P2-8a, P3-1 and P4-0 |
 | 2026-10-27 21:44 | `f6ff6f7` | Part 4 Lean design: signature audit PASS WITH NOTES (GValid legitimate under rule 6; adapters needed for the landed I-P4B forms) |
-| 2026-10-27 21:41 | `1676390` | P3-0 landed: Part 3 standing data and constants; audit PASS WITH NOTES |
 <!-- /AUTO:landed -->
 
 ## Decisions
