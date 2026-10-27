@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 14:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 9.7 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 14:28 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 9.7 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -117,7 +117,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 14:20 UTC from `main` at `69fa0fa` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 14:28 UTC from `main` at `227e9b6` by `scripts/hq-status.py`.*
 
 **Current phase:** Phase 0: sources and statements. Route verdict in: the a-posteriori route gives the positive-measure theorem with complement O(ε^{1/4}); local uniqueness for flows must be proved by us. Next: mathematical statement and owner questions Q1–Q5, then exact Lean statements for approval.
 
@@ -230,6 +230,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 14:28 | `227e9b6` | Make the repository public; record rulings Q1-Q5; add statement draft 0.1 |
 | 2026-10-27 13:45 | `3b36d0e` | Pin the measure-layer sources and record the route verdict |
 | 2026-10-27 13:33 | `980b703` | Set up the KAM campaign: Lean project, sources, HQ and ledgers |
 <!-- /AUTO:landed -->
