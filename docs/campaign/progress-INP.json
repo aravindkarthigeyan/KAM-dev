@@ -46,8 +46,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.1,
-   "note": "blueprint-I: Parts 0-2 written (I-G1 proof complete in blueprint); Part 3 being written; reviews round 1"
+   "done": 0.13,
+   "note": "blueprint-I: Parts 0-3 written and Part 1 revised after review; Parts 6-7 being written"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -62,8 +62,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.1,
-   "note": "blueprint-N: Parts 0-3 written (N-QC, N-ZERO complete in blueprint); Parts 4-5 being written"
+   "done": 0.15,
+   "note": "blueprint-N: Parts 0-5 written (shared ODE layer revised after review); Part 6 being written"
   },
   {
    "group": "Track P (planetary)",
@@ -78,8 +78,8 @@
    "id": "P.PROOF.PDKAM",
    "title": "Properly degenerate KAM: blueprint, graph, proofs",
    "difficulty": "VH",
-   "done": 0.02,
-   "note": "blueprint-P: Part 0 and plan (14 parts, ~210 pp.); Part 3 (two-scale KAM) being written"
+   "done": 0.08,
+   "note": "blueprint-P: Part 0, plan, Part 3 (two-scale KAM) written; Part 1 being written; Part 3 under review"
   },
   {
    "group": "Track P (planetary)",
