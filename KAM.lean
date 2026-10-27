@@ -53,8 +53,10 @@ public import KAM.Frozen.Iso.Defs.RadiusSq
 public import KAM.Frozen.Iso.Defs.RestrictedHamiltonian
 public import KAM.Frozen.Iso.Defs.RestrictedVectorField
 public import KAM.Frozen.Nekhoroshev.Defs.ActionBall
+public import KAM.Frozen.Nekhoroshev.Defs.AveragingError
 public import KAM.Frozen.Nekhoroshev.Defs.ComplexDomain
 public import KAM.Frozen.Nekhoroshev.Defs.ComplexifyPhase
+public import KAM.Frozen.Nekhoroshev.Defs.HasAveragingFrequencyRank
 public import KAM.Frozen.Nekhoroshev.Defs.HasComplexHessianBound
 public import KAM.Frozen.Nekhoroshev.Defs.HasDefiniteFastPart
 public import KAM.Frozen.Nekhoroshev.Defs.HasDerivativeBounds

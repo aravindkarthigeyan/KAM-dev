@@ -244,9 +244,9 @@ None.
 
 ### Deviations
 
-1. **pp. 1295–1298; averaging v0.5.** *proof supplement / reformulation; PLANNED* (D-NAVG-1). Analytic Hamiltonian specialization, equal action/angle dimensions n≥2, fixed h,f,K before constants, period one, max norms and actual ODE solutions. Evidence: docs/tracks/N/notes.md v0.5 D-NAVG-1. Effect: Conservative specialized averaging statements; no proof receipt..
-2. **p. 1296, condition 3°; AKN06 p. 243.** *proof supplement / reformulation; PLANNED* (D-NAVG-2). Replace a single nonzero first-frequency-component ratio chart by intrinsic projective-rank geometry and a quantitative finite chart cover. Evidence: docs/tracks/N/notes.md v0.5 D-NAVG-2. Effect: Prove compact transversality estimates; AKN already states the intrinsic alternative..
-3. **(17) and averaging v0.5 repair.** *proof supplement / reformulation; PLANNED* (D-NAVG-3). Apply Gronwall to the integral of the running maximum using a Fourier envelope; construct actual-exit cohorts explicitly. Evidence: docs/tracks/N/notes.md v0.5 D-NAVG-3. Effect: Repairs the invalid sup/integral exchange. Not independently certified as a complete averaging proof in this task..
+1. **pp. 1295–1298; averaging v0.5.** *proof supplement / reformulation; ADOPTED* (D-NAVG-1). Analytic Hamiltonian specialization, equal action/angle dimensions n≥2, fixed h,f,K before constants, period one, max norms and actual ODE solutions. Evidence: docs/tracks/N/notes.md v0.5 D-NAVG-1. Effect: Conservative specialized averaging statements; no proof receipt. Adopted with the owner-approved statements (D28)..
+2. **p. 1296, condition 3°; AKN06 p. 243.** *proof supplement / reformulation; ADOPTED* (D-NAVG-2). Replace a single nonzero first-frequency-component ratio chart by intrinsic projective-rank geometry and a quantitative finite chart cover. Evidence: docs/tracks/N/notes.md v0.5 D-NAVG-2. Effect: Prove compact transversality estimates; AKN already states the intrinsic alternative. Adopted with the owner-approved statements (D28)..
+3. **(17) and averaging v0.5 repair.** *proof supplement / reformulation; ADOPTED* (D-NAVG-3). Apply Gronwall to the integral of the running maximum using a Fourier envelope; construct actual-exit cohorts explicitly. Evidence: docs/tracks/N/notes.md v0.5 D-NAVG-3. Effect: Repairs the invalid sup/integral exchange. Not independently certified as a complete averaging proof in this task. Adopted with the owner-approved statements (D28)..
 
 
 ## CP10pin (doi:10.3934/dcdss.2010.3.545)
