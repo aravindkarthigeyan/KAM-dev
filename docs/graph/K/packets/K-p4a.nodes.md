@@ -206,9 +206,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:slab-coordinate | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L101-L101 | dominant coordinate bound
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L96-L101 | Tonelli for the indicator of a measurable set (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-d3
-REVIEWER: -
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

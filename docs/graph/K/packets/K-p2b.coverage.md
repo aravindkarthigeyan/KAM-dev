@@ -804,6 +804,6 @@ KIND: proof-region
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L878
 DISPOSITION: NODE step:p2:pt-twist
 REASON: revised source uses the norm-of-integral bound E6 without periodicity; the average estimate and inversion are represented by step:p2:pt-twist
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-d4

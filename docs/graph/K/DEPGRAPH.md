@@ -9,8 +9,8 @@ EXTERNAL_POLICY: the eleven Mathlib-level inputs (E1)-(E11) of Part 1 are KIND e
 FROZEN_ANCHORS: bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:domains#actionNbhd, bp:p0:domains#fundamentalDomain, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:torus#IsInvariantLagrangianTorus, bp:p0:cover#kamCover, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#dotC, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage, bp:p0:head, bp:p0:headq, bp:p0:g1, bp:p0:g2, bp:p0:g3
 FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:8be8871b726f78aca2d9ad235157c693662486bef05830c229ee5d5440d06ca8
 WRITER: claude-main-orchestrator
-GLOBAL_REVIEWER: -
-GLOBAL_REVIEW_REF: -
+GLOBAL_REVIEWER: sol-global-K
+GLOBAL_REVIEW_REF: docs/graph/K/reviews/GLOBAL-review.md and docs/graph/K/reviews/GLOBAL-recheck.md (Codex GPT-6.1-Sol medium, tmux kam-graph-global)
 
 The dependency direction is `NODE -> prerequisite`. Node blocks are assembled from `docs/graph/K/packets/<slice>.nodes.md`; edit those, then re-run `scripts/depgraph_assemble.py`.
 
@@ -2283,7 +2283,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L98-L107
 PROOF_SOURCE: -
 CONTRACT_ID: bp:p1:ext-measure
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: d1, d2 >= 1; A, B, E measurable; E_1 subset E_2 subset ... measurable; a box prod_i [a_i,b_i]
+SOURCE_HYPOTHESES: finite dimensions d1, d2 >= 0; A, B, E measurable; E_1 subset E_2 subset ... measurable; a box prod_i [a_i,b_i]
 SOURCE_QUANTIFIERS: for all measurable A, B, E and increasing measurable sequences E_j, and all boxes
 SOURCE_CONCLUSION: Lebesgue measure on R^{d1} x R^{d2} = R^{d1+d2} is the product measure: meas(A x B) = meas A meas B and meas E = int meas(E_x) dx (Tonelli); meas(union E_j) = lim meas E_j; closed and open boxes with the same corners have measure prod (b_i - a_i), so box boundaries are null
 CONSTANT_SCOPE: none
@@ -2294,9 +2294,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-d4
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -9620,9 +9620,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:slab-coordinate | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L101-L101 | dominant coordinate bound
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L96-L101 | Tonelli for the indicator of a measurable set (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-d3
-REVIEWER: -
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -12563,9 +12563,9 @@ EDGE: bp:p4:smallness | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1137-L1
 EDGE: step:p4:ml-size | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1138-L1138 | /G_0/<=eta_0
 EDGE: bp:p4:good-actions | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1134-L1136 | A_gamma, Z, G_0
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1133-L1139 | Missing direct dependency on the explicit local package (SA), required by SPEC
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
-REVIEWER: -
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -12944,17 +12944,17 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p4:main-measure, bp:p4:parameters, step:p4:head-constants, bp:p4:SA
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p4:main-measure | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1229 | measure bound for each gamma in (0,1]
+EDGE: bp:p4:main-measure | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1230-L1231 | measure bound for each gamma in (0,1]
 EDGE: step:p4:head-constants | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1231 | constant C
 EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1230 | use c_*>0 and eta_0=A_0 epsilon gamma^-2 at epsilon=0
 EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1230 | epsilon=0 supplies (SA) for every gamma in (0,1], before applying main-measure
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
-REVIEWER: -
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: - [final: main-measure EDGE locator set to L1230-L1231 exactly as sol-review-d4 specified; the writer verified mechanically that these lines contain the ref to bp:p4:main-measure and its bound]
 
 NODE: bp:p4:dyadic-approx
 KIND: lemma
@@ -13004,9 +13004,9 @@ DEPS: bp:p1:ext-measure
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-exhaust@L1253-L1254 | continuity of Lebesgue measure from below (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
-REVIEWER: -
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -13032,9 +13032,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:dy-exhaust | blueprint/parts/p4-measure.tex#step:p4:dy-open@L1257-L1257 | cubes D_j and E_j with measure bound
 EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:dy-open@L1258-L1259 | null boundaries of boxes (E11)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
-REVIEWER: -
+REVIEWER: sol-review-d4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -13228,9 +13228,9 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * Assumption boundary leaves: **0**
 * External boundary leaves: **11**
 * Alternative routes: **2**
-* Topology review queue: **36**
+* Topology review queue: **0**
 * Explicit source gaps: **0**
-* Coverage items: **583**; excluded: **114**
+* Coverage items: **583**; excluded: **113**
 
 ### Roots
 
@@ -13242,42 +13242,7 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 
 ### Topology review queue
 
-* `bp:p1:ext-measure` [PROPOSED] — (E11) Lebesgue measure on products and boxes
-* `bp:p1:lip-image-product` [PROPOSED] — Products
-* `bp:p1:mcshane` [PROPOSED] — McShane extension
-* `bp:p4:lip` [PROPOSED] — LIP
-* `bp:p4:matrix-norms` [PROPOSED] — Matrix norms
-* `bp:p4:real-torus` [PROPOSED] — The real tori are KAM tori
-* `step:p1:mc-clamp` [PROPOSED] — Clamping
-* `step:p2:fb-holo` [PROPOSED] — Holomorphy
-* `step:p2:it-stepsmall` [PROPOSED] — Step smallness at every stage
-* `step:p2:lim-close` [PROPOSED] — Closeness
-* `step:p2:lim-dk` [PROPOSED] — Uniform convergence of $DK_s$
-* `step:p2:lim-invariance` [PROPOSED] — Invariance
-* `step:p2:lim-primary` [PROPOSED] — Primary and real
-* `step:p2:ne-expand` [PROPOSED] — Expansion of the new error
-* `step:p2:pt-twist` [PROPOSED] — Twist (integrability and invertibility before use)
-* `step:p2:st-ball` [PROPOSED] — Ball margin
-* `step:p3:diff-bounds` [PROPOSED] — Bounds
-* `step:p3:diff-regularity` [PROPOSED] — Regularity and periodicity
-* `step:p3:diff-triangular` [PROPOSED] — Triangular system
-* `step:p3:phase-contraction` [PROPOSED] — Contraction
-* `step:p3:torsion-holomorphy` [PROPOSED] — Holomorphy
-* `step:p4:db-vectorfield` [PROPOSED] — From $D\pfh$ to $X_\pfh$
-* `step:p4:dy-exhaust` [PROPOSED] — Dyadic exhaustion
-* `step:p4:dy-open` [PROPOSED] — The open set
-* `step:p4:head-positive` [PROPOSED] — Positive $\varepsilon$
-* `step:p4:head-zero` [PROPOSED] — Vanishing perturbation
-* `step:p4:hq-cover` [PROPOSED] — Comparison of covers
-* `step:p4:hq-trivial` [PROPOSED] — Trivial cases
-* `step:p4:lip-g1` [PROPOSED] — Re-application of G1 at $\omega'$
-* `step:p4:ml-good` [PROPOSED] — Two good actions
-* `step:p4:ml-mixed` [PROPOSED] — A good action and a boundary action
-* `step:p4:mm-count` [PROPOSED] — Measure count
-* `step:p4:mn-rowsum` [PROPOSED] — Row sums
-* `step:p4:normalize-proof` [PROPOSED] — Shift of the G1 output
-* `step:p4:rt-analytic` [PROPOSED] — Analyticity and primarity
-* `step:p4:slab-fubini` [PROPOSED] — Fubini in the coordinate $\omega_i$
+* _(none)_
 
 ### Dependency leaves in root closure
 
@@ -13300,7 +13265,7 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `bp:p1:ext-identity` [REVIEWED] — Identity theorem in one variable
 * `bp:p1:ext-integral` [REVIEWED] — Integrals
 * `bp:p1:ext-lebesgue` [REVIEWED] — Lebesgue outer measure
-* `bp:p1:ext-measure` [PROPOSED] — (E11) Lebesgue measure on products and boxes
+* `bp:p1:ext-measure` [REVIEWED] — (E11) Lebesgue measure on products and boxes
 * `bp:p1:ext-mvt` [REVIEWED] — Mean value inequality
 * `bp:p1:ext-rectangle` [REVIEWED] — Cauchy's theorem for rectangles
 * `bp:p1:ext-schwarz` [REVIEWED] — Symmetry of second derivatives
@@ -13339,7 +13304,7 @@ Regenerated by `proof_depgraph.py`; do not hand-edit.
 * `bp:p1:ext-identity` [REVIEWED] — Identity theorem in one variable
 * `bp:p1:ext-integral` [REVIEWED] — Integrals
 * `bp:p1:ext-lebesgue` [REVIEWED] — Lebesgue outer measure
-* `bp:p1:ext-measure` [PROPOSED] — (E11) Lebesgue measure on products and boxes
+* `bp:p1:ext-measure` [REVIEWED] — (E11) Lebesgue measure on products and boxes
 * `bp:p1:ext-mvt` [REVIEWED] — Mean value inequality
 * `bp:p1:ext-rectangle` [REVIEWED] — Cauchy's theorem for rectangles
 * `bp:p1:ext-schwarz` [REVIEWED] — Symmetry of second derivatives

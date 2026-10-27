@@ -61,8 +61,8 @@
    "id": "S.GRAPH",
    "title": "Source-level dependency graph anchored to the frozen statements",
    "difficulty": "H",
-   "done": 0.85,
-   "note": "454 nodes, 1392 edges; 415 nodes and all coverage reviewed; last 39 and the global review running"
+   "done": 1.0,
+   "note": "published: 453 nodes, 1420 edges, 0 source gaps, 11 externals; every node and coverage item independently reviewed; global review PASS"
   },
   {
    "group": "Statement and planning",
