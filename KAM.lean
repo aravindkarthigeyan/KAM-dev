@@ -6,6 +6,8 @@ Authors: Scott Armstrong, Zohar Komargodski
 module
 
 public import KAM.Analysis.Iteration
+public import KAM.Apost.Constants
+public import KAM.Apost.Standing
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
 public import KAM.Diophantine.FrequencyDependence
@@ -51,8 +53,10 @@ public import KAM.Frozen.Iso.Defs.RadiusSq
 public import KAM.Frozen.Iso.Defs.RestrictedHamiltonian
 public import KAM.Frozen.Iso.Defs.RestrictedVectorField
 public import KAM.Frozen.Nekhoroshev.Defs.ActionBall
+public import KAM.Frozen.Nekhoroshev.Defs.AveragingError
 public import KAM.Frozen.Nekhoroshev.Defs.ComplexDomain
 public import KAM.Frozen.Nekhoroshev.Defs.ComplexifyPhase
+public import KAM.Frozen.Nekhoroshev.Defs.HasAveragingFrequencyRank
 public import KAM.Frozen.Nekhoroshev.Defs.HasComplexHessianBound
 public import KAM.Frozen.Nekhoroshev.Defs.HasDefiniteFastPart
 public import KAM.Frozen.Nekhoroshev.Defs.HasDerivativeBounds
@@ -161,14 +165,17 @@ public import KAM.Strip.AnalyticTaylor
 public import KAM.Strip.Averages
 public import KAM.Strip.Bridges
 public import KAM.Strip.Cauchy
+public import KAM.Strip.CohomologicalDefs
 public import KAM.Strip.Fourier
 public import KAM.Strip.FourierBasic
 public import KAM.Strip.FourierSeries
 public import KAM.Strip.HigherCauchy
+public import KAM.Strip.Increments
 public import KAM.Strip.Limits
 public import KAM.Strip.Periodic
 public import KAM.Strip.RealRestriction
 public import KAM.Strip.Regularity
+public import KAM.Strip.Taylor
 public import KAM.Torus.Basic
 public import KAM.Torus.Objects
 

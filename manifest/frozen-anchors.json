@@ -9024,6 +9024,268 @@
     "frozen_paths": [],
     "audit_paths": []
    }
+  },
+  {
+   "id": "nekhoroshev.d28.HasAveragingFrequencyRank.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve N-AVERAGING' to the review page claude.ai/artifact/2QX93h35t62Fmb49UGamrm; docs/DECISIONS.md D28",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@cd2f60d docs/tracks/N/statement.md (N-AVERAGING draft v0.5, .drafts/N/Averaging.lean sha256 6b8bf1941fd1c30f3d8ca1e81b304873d31959eae85809b52f39c9e6e132ff62) with AKN06 and Nei76",
+    "range": "AKN06 Theorem 6.11 rank alternatives, p. 243"
+   },
+   "contract": {
+    "id": "nekhoroshev.d28.HasAveragingFrequencyRank",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/HasAveragingFrequencyRank.lean",
+   "export": "KAM.Nekhoroshev.HasAveragingFrequencyRank",
+   "split_policy": {
+    "source_group": "nekhoroshev.d28.HasAveragingFrequencyRank",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D28"
+   },
+   "abi_sha256": "309c3874639f06f736720cce995acecda9af02eb107f1bffacb3b7e11d05ca67",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ComplexDomain.lean",
+     "sha256": "68468aed44112d7d629986cc84eec531fc1ba1ae0b6a294acaa70c1777603cf8"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticIntegrable.lean",
+     "sha256": "3ffb3341ecdc4b29627300246a9b1c5f01cec0abb931a128f9919f27fbd6bad7"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticPerturbation.lean",
+     "sha256": "253dce379acf8e27cb809da4f33a82a47d3f508b31218e76330e8530f7e521d0"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsSolutionOn.lean",
+     "sha256": "ae6742b3cc3b97ed7f206e79dcb2b2f8ab7d7ab91552be61fd932a3b20bec129"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean",
+     "sha256": "858dba45a125697b4e91206cbc80064c55923f7d129466770e0636eccbcebcb5"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "7c1462ee3640419d4f1cab9ec56ad5bead3d666cdac936ef09ac2cc7417e121c"
+  },
+  {
+   "id": "nekhoroshev.d28.averagingError.v1",
+   "kind": "definition",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve N-AVERAGING' to the review page claude.ai/artifact/2QX93h35t62Fmb49UGamrm; docs/DECISIONS.md D28",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@cd2f60d docs/tracks/N/statement.md (N-AVERAGING draft v0.5, .drafts/N/Averaging.lean sha256 6b8bf1941fd1c30f3d8ca1e81b304873d31959eae85809b52f39c9e6e132ff62) with AKN06 and Nei76",
+    "range": "AKN06 (6.27) maximal deviation, p. 243; Nei76 (4) p. 1295"
+   },
+   "contract": {
+    "id": "nekhoroshev.d28.averagingError",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Defs/AveragingError.lean",
+   "export": "KAM.Nekhoroshev.averagingError",
+   "split_policy": {
+    "source_group": "nekhoroshev.d28.averagingError",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D28"
+   },
+   "abi_sha256": "60551cf87986bc2cf4a7ebcd81c0314cf563458b53c92fd3d474bb8c1f8cc976",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ComplexDomain.lean",
+     "sha256": "68468aed44112d7d629986cc84eec531fc1ba1ae0b6a294acaa70c1777603cf8"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticIntegrable.lean",
+     "sha256": "3ffb3341ecdc4b29627300246a9b1c5f01cec0abb931a128f9919f27fbd6bad7"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticPerturbation.lean",
+     "sha256": "253dce379acf8e27cb809da4f33a82a47d3f508b31218e76330e8530f7e521d0"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsSolutionOn.lean",
+     "sha256": "ae6742b3cc3b97ed7f206e79dcb2b2f8ab7d7ab91552be61fd932a3b20bec129"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean",
+     "sha256": "858dba45a125697b4e91206cbc80064c55923f7d129466770e0636eccbcebcb5"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "state": "SEALED",
+   "full_file_sha256": "4ff02420fabd4c7f01b6b3a99aad7166cd49142dc33442fb55fe1930373be3b3"
+  },
+  {
+   "id": "nekhoroshev.d28.averaging_mean.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve N-AVERAGING' to the review page claude.ai/artifact/2QX93h35t62Fmb49UGamrm; docs/DECISIONS.md D28",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@cd2f60d docs/tracks/N/statement.md (N-AVERAGING draft v0.5, .drafts/N/Averaging.lean sha256 6b8bf1941fd1c30f3d8ca1e81b304873d31959eae85809b52f39c9e6e132ff62) with AKN06 and Nei76",
+    "range": "AKN06 Theorem 6.11 (6.27), p. 243; Nei76 Theorem 1"
+   },
+   "contract": {
+    "id": "nekhoroshev.d28.averaging_mean",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Theorems/AveragingMean.lean",
+   "export": "KAM.Nekhoroshev.averaging_mean",
+   "split_policy": {
+    "source_group": "nekhoroshev.d28.averaging_mean",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D28"
+   },
+   "abi_sha256": "f3936c21f8b15b5dff4f4a0500092a5e06c1a54241d18401b59e5de2c9168e8a",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/AveragingError.lean",
+     "sha256": "4ff02420fabd4c7f01b6b3a99aad7166cd49142dc33442fb55fe1930373be3b3"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ComplexDomain.lean",
+     "sha256": "68468aed44112d7d629986cc84eec531fc1ba1ae0b6a294acaa70c1777603cf8"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/HasAveragingFrequencyRank.lean",
+     "sha256": "7c1462ee3640419d4f1cab9ec56ad5bead3d666cdac936ef09ac2cc7417e121c"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticIntegrable.lean",
+     "sha256": "3ffb3341ecdc4b29627300246a9b1c5f01cec0abb931a128f9919f27fbd6bad7"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticPerturbation.lean",
+     "sha256": "253dce379acf8e27cb809da4f33a82a47d3f508b31218e76330e8530f7e521d0"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsSolutionOn.lean",
+     "sha256": "ae6742b3cc3b97ed7f206e79dcb2b2f8ab7d7ab91552be61fd932a3b20bec129"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean",
+     "sha256": "858dba45a125697b4e91206cbc80064c55923f7d129466770e0636eccbcebcb5"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Nekhoroshev.AveragingMean",
+    "export": "KAM.Provider.Nekhoroshev.averaging_mean"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "ff6d85d74db081c321106dd91478a861c7afebb3955802ba7f613616e080569a",
+   "suffix_sha256": "1efcbce496c3a865046e94018aa1cc8bdafb0b9454c6939e2353d83cc98b6da8",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
+  },
+  {
+   "id": "nekhoroshev.d28.averaging_most.v1",
+   "kind": "theorem",
+   "author_approval": {
+    "approved_by": "Scott Armstrong",
+    "approved_at": "2026-10-27",
+    "approval_ref": "owner reply 'approve N-AVERAGING' to the review page claude.ai/artifact/2QX93h35t62Fmb49UGamrm; docs/DECISIONS.md D28",
+    "approval_version": "1"
+   },
+   "source": {
+    "revision": "KAM-dev@cd2f60d docs/tracks/N/statement.md (N-AVERAGING draft v0.5, .drafts/N/Averaging.lean sha256 6b8bf1941fd1c30f3d8ca1e81b304873d31959eae85809b52f39c9e6e132ff62) with AKN06 and Nei76",
+    "range": "AKN06 Corollary 6.1 (6.28), p. 243; Nei76 Theorem 2 (8), p. 1296"
+   },
+   "contract": {
+    "id": "nekhoroshev.d28.averaging_most",
+    "version": "1"
+   },
+   "path": "KAM/Frozen/Nekhoroshev/Theorems/AveragingMost.lean",
+   "export": "KAM.Nekhoroshev.averaging_most",
+   "split_policy": {
+    "source_group": "nekhoroshev.d28.averaging_most",
+    "mode": "NOT_SPLIT",
+    "ruling_ref": "docs/DECISIONS.md D28"
+   },
+   "abi_sha256": "356774243b1f5a1ed1043f6a2bfd7671515615863fc611b68a06e83aa77e93f3",
+   "definition_closure": [
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean",
+     "sha256": "6dd005609acd4dcb1d7d7766da331752f2b4641f5811b2a2ed592a82ba11a122"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/ComplexDomain.lean",
+     "sha256": "68468aed44112d7d629986cc84eec531fc1ba1ae0b6a294acaa70c1777603cf8"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/HasAveragingFrequencyRank.lean",
+     "sha256": "7c1462ee3640419d4f1cab9ec56ad5bead3d666cdac936ef09ac2cc7417e121c"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticIntegrable.lean",
+     "sha256": "3ffb3341ecdc4b29627300246a9b1c5f01cec0abb931a128f9919f27fbd6bad7"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsAnalyticPerturbation.lean",
+     "sha256": "253dce379acf8e27cb809da4f33a82a47d3f508b31218e76330e8530f7e521d0"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/IsSolutionOn.lean",
+     "sha256": "ae6742b3cc3b97ed7f206e79dcb2b2f8ab7d7ab91552be61fd932a3b20bec129"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean",
+     "sha256": "858dba45a125697b4e91206cbc80064c55923f7d129466770e0636eccbcebcb5"
+    },
+    {
+     "path": "KAM/Frozen/Nekhoroshev/Defs/RealPart.lean",
+     "sha256": "85abbe30196fa629c9be922f13e67fdf591a9d435d94e92a0e0e701c6dde1e7b"
+    }
+   ],
+   "implementation": {
+    "module": "KAM.Provider.Nekhoroshev.AveragingMost",
+    "export": "KAM.Provider.Nekhoroshev.averaging_most"
+   },
+   "state": "DRAFT_SORRY",
+   "prefix_sha256": "7eeaa95d2791649dc43e3c8d99d62820f3ceb593dcee12786edf6c389b221163",
+   "suffix_sha256": "1efcbce496c3a865046e94018aa1cc8bdafb0b9454c6939e2353d83cc98b6da8",
+   "draft_allowlist": {
+    "frozen_paths": [],
+    "audit_paths": []
+   }
   }
  ]
 }

@@ -189,3 +189,17 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   - **Positive widths.** Strip widths are positive and `n ≥ 1` wherever a strip occurs. Part 1's conventions now
     state this explicitly.
 
+- **D28 (2026-10-27) N-AVERAGING approved.** *(Scott: "approve N-AVERAGING")*
+  - The exact v0.5 text is approved: `HasAveragingFrequencyRank`, `averagingError`, `averaging_mean` and
+    `averaging_most`. Source: `.drafts/N/Averaging.lean`, sha256
+    `6b8bf1941fd1c30f3d8ca1e81b304873d31959eae85809b52f39c9e6e132ff62`.
+  - The text is re-transcribed from AKN06 §6.1.9 (Thm 6.11, Cor. 6.1, p. 243), checked against Nei76, and passed
+    the independent audit v0.5.
+  - The recommendations on questions 1–4 are adopted:
+    - the analytic specialization with fixed-system constants;
+    - both forms kept;
+    - candidate erratum E-NAVG-NEI-17 (Nei76 (17)) recorded, with the integral-of-maximum repair as a declared
+      deviation;
+    - the audit-first condition is already satisfied by v0.5.
+  - Review page: claude.ai/artifact/2QX93h35t62Fmb49UGamrm.
+  - The sub-orchestrator freezes it as for D25.
