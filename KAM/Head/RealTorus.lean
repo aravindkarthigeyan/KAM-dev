@@ -74,17 +74,28 @@ theorem rt_analytic (hρ : 0 < ρ) (hK : DifferentiableOn ℂ K (complexStrip n 
 
 /-! ### Step `step:p4:rt-small` -/
 
-/-- The derivative of the displacement `W = K - K⁰_I` on the half strip: if `‖W‖ ≤ η` on `T_ρ`
-and `n (ρ/2)⁻¹ η ≤ 1/2`, then `‖DW‖ ≤ 1/2` on `T_{ρ/2}` (Cauchy estimate with loss `ρ/2`). -/
+/-- Blueprint `step:p4:rt-small`, the full Cauchy bound. For `K` holomorphic on `T_ρ` with
+`‖K - K⁰_I‖ ≤ η` there, the displacement `W = K - K⁰_I` satisfies `‖DW‖ ≤ n (ρ/2)⁻¹ η` on
+`T_{ρ/2}` (`bp:p1:cauchy-strip` with loss `ρ/2`). -/
+theorem rt_small_full (hρ : 0 < ρ) (hK : DifferentiableOn ℂ K (complexStrip n ρ))
+    {I : Fin n → ℝ} {η : ℝ}
+    (hη : ∀ θ ∈ complexStrip n ρ, ‖K θ - unperturbedTorus I θ‖ ≤ η)
+    {θ : Fin n → ℂ} (hθ : θ ∈ complexStrip n (ρ / 2)) :
+    ‖fderiv ℂ (fun θ => K θ - unperturbedTorus I θ) θ‖ ≤ (n : ℝ) * (ρ / 2)⁻¹ * η := by
+  have hW : DifferentiableOn ℂ (fun θ => K θ - unperturbedTorus I θ) (complexStrip n ρ) :=
+    hK.sub (differentiable_unperturbedTorus I).differentiableOn
+  have hθ' : θ ∈ complexStrip n (ρ - ρ / 2) := by rwa [show ρ - ρ / 2 = ρ / 2 by ring]
+  exact (cauchy_strip hW hη (half_pos hρ)).2 θ hθ'
+
+/-- The angle component of the displacement derivative on the half strip: if `‖W‖ ≤ η` on `T_ρ`
+and `n (ρ/2)⁻¹ η ≤ 1/2`, then `‖(DK(θ) v)₁ - v‖ ≤ ½ ‖v‖` on `T_{ρ/2}`
+(a consequence of `KAM.Head.rt_small_full`). -/
 theorem rt_small_complex (hρ : 0 < ρ) (hK : DifferentiableOn ℂ K (complexStrip n ρ))
     {I : Fin n → ℝ} {η : ℝ}
     (hη : ∀ θ ∈ complexStrip n ρ, ‖K θ - unperturbedTorus I θ‖ ≤ η)
     (hsm : (n : ℝ) * (ρ / 2)⁻¹ * η ≤ 1 / 2) {θ : Fin n → ℂ} (hθ : θ ∈ complexStrip n (ρ / 2))
     (v : Fin n → ℂ) : ‖(fderiv ℂ K θ v).1 - v‖ ≤ 1 / 2 * ‖v‖ := by
-  have hW : DifferentiableOn ℂ (fun θ => K θ - unperturbedTorus I θ) (complexStrip n ρ) :=
-    hK.sub (differentiable_unperturbedTorus I).differentiableOn
-  have hθ' : θ ∈ complexStrip n (ρ - ρ / 2) := by rwa [show ρ - ρ / 2 = ρ / 2 by ring]
-  have hc := (cauchy_strip hW hη (half_pos hρ)).2 θ hθ'
+  have hc := rt_small_full hρ hK hη hθ
   have hKθ : DifferentiableAt ℂ K θ :=
     hK.differentiableAt ((isOpen_complexStrip n ρ).mem_nhds (complexStrip_mono (by linarith) hθ))
   have hder : fderiv ℂ (fun θ => K θ - unperturbedTorus I θ) θ =
@@ -287,6 +298,12 @@ section RealTorus
 variable {n : ℕ} {τ s₀ r₀ Lh : ℝ} {B : Set (Fin n → ℝ)} {h : (Fin n → ℂ) → ℂ}
   {f : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ε γ : ℝ} {gc : GConsts}
 
+/-- The Cauchy constant at `ρ = s/8`: `n (s/16)⁻¹ η = 16 n η / s`. -/
+theorem rt_cauchy_const_eq {s : ℝ} (hs : 0 < s) (η : ℝ) :
+    (n : ℝ) * (s / 8 / 2)⁻¹ * η = 16 * n * η / s := by
+  field_simp
+  ring
+
 /-- The numerical facts about `η₀` used by the proof of `real_torus`: `η₀ < r₀` and
 `n (s/16)⁻¹ η₀ ≤ 1/2`, from (s3) of `smallness`. -/
 theorem rt_eta0_bounds (hD : Data τ s₀ r₀ B h Lh) (hgc : gc.Pos)
@@ -300,12 +317,27 @@ theorem rt_eta0_bounds (hD : Data τ s₀ r₀ B h Lh) (hgc : gc.Pos)
     have h2 := hD.r₀_pos
     have h3 : muParam s₀ r₀ ≤ r₀ / 8 := by unfold muParam; linarith
     linarith [hs3.2.2.1]
-  · have h4 : (n : ℝ) * (stripWidth s₀ / 8 / 2)⁻¹ * eta0 n τ s₀ r₀ gc ε γ =
-        16 * n * eta0 n τ s₀ r₀ gc ε γ / stripWidth s₀ := by
-      field_simp
-      ring
-    rw [h4]
+  · rw [rt_cauchy_const_eq hs]
     exact hs3.2.2.2
+
+/-- Blueprint `step:p4:rt-small`, the full bound on `W_ω = K_ω - K⁰_{I_ω}`: on `T_{s/16}`,
+`‖DW_ω‖ ≤ 16 n η₀ / s ≤ 1/2`, by `KAM.Head.rt_small_full` at `ρ = s/8` (`‖W_ω‖ ≤ η₀` is
+`KAM.Head.normalize`) and (s3) of `KAM.Head.smallness`. -/
+theorem rt_small_normDisp (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀ B f ε)
+    (hgc : GValid τ s₀ r₀ B h Lh gc) (hSA : SA τ s₀ r₀ B h Lh gc ε γ) {ω : Fin n → ℝ}
+    (hω : ω ∈ OmegaGamma h B τ γ) :
+    (∀ θ ∈ complexStrip n (stripWidth s₀ / 16),
+      ‖fderiv ℂ (normDisp τ s₀ r₀ B h f gc ε γ ω) θ‖ ≤
+        16 * n * eta0 n τ s₀ r₀ gc ε γ / stripWidth s₀) ∧
+    16 * n * eta0 n τ s₀ r₀ gc ε γ / stripWidth s₀ ≤ 1 / 2 := by
+  have hs := stripWidth_pos hD.s₀_pos
+  have hρ : 0 < stripWidth s₀ / 8 := by positivity
+  obtain ⟨hKd, -, -, -, -, -, -, hKdisp⟩ := normalize hD hP hgc hSA hω
+  refine ⟨fun θ hθ => ?_, (smallness hD hgc.toPos hSA).2.2.1.2.2.2⟩
+  have hθ' : θ ∈ complexStrip n (stripWidth s₀ / 8 / 2) := by
+    rwa [show stripWidth s₀ / 8 / 2 = stripWidth s₀ / 16 by ring]
+  have h1 := rt_small_full hρ hKd hKdisp hθ'
+  rwa [rt_cauchy_const_eq hs] at h1
 
 /-- Blueprint `bp:p4:real-torus`: the real restriction `k_ω` of `K_ω` is a KAM torus. -/
 theorem real_torus (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀ B f ε)
