@@ -1,0 +1,300 @@
+\section{Newtonian models and physical reconstruction}\label{bpP:p6}
+\begingroup\sloppy
+
+This part connects the Hamiltonians $H_{\rm mov}$, $H_{\rm fix}$ of Part~0 (Definitions~\ref{bpP:p0:movham}, \ref{bpP:p0:fixham}) to the physical $(n+1)$-body problem, and
+supplies the three physical clauses of the frozen Kolmogorov sets (Definitions~\ref{bpP:p0:movkol}, \ref{bpP:p0:fixkol}) once the torus predicate is known. The results are:
+\begin{itemize}
+\item \texttt{reduction} (Prop.~\ref{bpP:p6:reduction}) and \texttt{split} (Lemma~\ref{bpP:p6:split}): $H_{\rm mov}$ is the barycentric $N$-body Hamiltonian divided by $\mu$, and
+$H_{\rm mov}-H_{\rm fix}|_{\varepsilon=\mu}=\mu\pl{\sum_ip^{(i)}}^2/(2m_0)$;
+\item \texttt{hamilton-eqs} (Prop.~\ref{bpP:p6:hamilton-eqs}): explicit Hamilton equations of both models on the collision-free set;
+\item \texttt{reconstruction}, \texttt{reconstruction-fixed} (Props.~\ref{bpP:p6:reconstruction}, \ref{bpP:p6:reconstruction-fixed}): an $H_{\rm mov}$-orbit gives, through the frozen barycentric maps, a solution of Newton's equations with the actual masses; an $H_{\rm fix}$-orbit gives a fixed-centre solution. \emph{Both are stated pointwise in time, for an arbitrary set $J\subset\R$ of times}, so that the later additions (D22/D25: stopped solutions on $[-T,T]$, \Lean{KAM.Planetary.IsNewtonSolutionOn}, \Lean{KAM.Planetary.IsMovingSolutionOn}) reuse them verbatim; the all-time frozen predicates are the case $J=\R$;
+\item \texttt{tube-geometry} (Lemma~\ref{bpP:p6:tube-geometry}): explicit constants $d,D$ (chosen from the axes alone, before any coupling) and a tube radius $\zeta_*$ such that every point of $U_{\zeta_*}$ is collision free with all Sun--planet and planet--planet distances in $[d,D]$, \emph{exactly independently of $\mu$};
+\item \texttt{orbit-transfer}, \texttt{movkol-assembly}, \texttt{fixkol-assembly}: the physical clauses of $\operatorname{MovKol}$ and $\operatorname{FixKol}$ follow from $S\subset U_{\zeta_*}$ and the torus predicate alone;
+\item \texttt{measure-positive} (Lemma~\ref{bpP:p6:measure-positive}): $0<\meas S<\infty$.
+\end{itemize}
+Nothing here is proved by a hypothesis shaped like its conclusion: the inputs are the Hamilton equations along the orbit, the collision-free clause, and (for the tube) the position of the orbit.
+\emph{Units.} The frozen definitions keep the gravitational constant $G$ and the Sun's mass $m_0$ as parameters; Fej04r uses $G=1$. The statements below are for general $G,m_0>0$ (the frozen \Lean{IsMovingSolutionOn} and \Lean{IsNewtonSolutionOn} use $G=m_0=1$; see Remark~\ref{bpP:p6:units}).
+
+\subsection{Conventions and external facts}\label{bpP:p6:conv}
+
+Throughout $n\ge1$, $G,m_0>0$, $m_i>0$ ($i<n$), $\mu,\varepsilon\ge0$ unless said otherwise; $\ell=\pl{\cdot}$ is the planar length (Definition~\ref{bpP:p0:plane}). For $q,p\in\R^{2n}$ write $q_i=q^{(i)}$, $p_i=p^{(i)}\in\R^2$ and $P=\sum_ip_i$. The set of \emph{collision-free phase points} is
+\[W=\{z=(q,p)\in\Ph{2n}:\operatorname{NoColl}(q)\}\qquad(\text{Definition~\ref{bpP:p0:nocoll}}).\]
+For $q$ with $\operatorname{NoColl}(q)$ put
+\[g_i(q)=\frac{q_i}{\ell(q_i)^3},\qquad f_i(q)=\sum_{j\ne i}m_j\frac{q_j-q_i}{\ell(q_j-q_i)^3}\qquad(i<n),\]
+the central and the planet--planet force kernels. Planet $i$ of the $(n+1)$-body system sits at index $\operatorname{succ}(i)\in\texttt{Fin}\,(n+1)$ and the Sun at index $0$ (the order of \Lean{Fin.cons}); I write $Q_0$, $Q_i$ for the entries of a configuration $Q:\texttt{Fin}\,(n+1)\to\R^2$.
+
+\emph{External facts} (Mathlib level, used by label).
+\begin{enumerate}[label=(E\arabic*)]
+\item\label{bpP:p6:ext-chain} Chain, product, quotient and finite-sum rules for \Lean{HasDerivAt} and \Lean{HasFDerivAt}; a map into a finite product $\R^N$ has a derivative iff every component does (\Lean{hasDerivAt\_pi}); $\Lean{fderiv}$ of a differentiable function is the derivative; a polynomial is $C^\infty$.
+\item\label{bpP:p6:ext-sqrt} $\sqrt{\cdot}$ is $C^\infty$ on $(0,\infty)$ with derivative $x\mapsto1/(2\sqrt x)$; $x\mapsto1/x$ is $C^\infty$ on $\R\setminus\{0\}$.
+\item\label{bpP:p6:ext-top} Preimages of open sets under continuous maps are open; finite intersections of open sets are open; $\R$ is totally ordered and finite minima/maxima exist.
+\item\label{bpP:p6:ext-sum} Finite-sum algebra: \Lean{Fin.sum\_univ\_succ}, \Lean{Finset.sum\_comm}, splitting $\sum_{j}=\sum_{j<i}+\sum_{j>i}$, and $\sum_{j\ne i}=\sum_j-(\text{term }j=i)$.
+\item\label{bpP:p6:ext-tri} The reverse triangle inequality $\abs{\,\abs u-\abs w\,}\le\abs{u-w}$ in a normed space.
+\item\label{bpP:p6:ext-meas} Bounded sets of $\R^N$ have finite Lebesgue measure; the product measure on $\Ph{d}=\R^d\times\R^d$ (\Lean{volume}) is Lebesgue measure on $\R^{2d}$ and a box $\prod[-r_k,r_k]$ has measure $\prod2r_k$; measure is monotone.
+\end{enumerate}
+
+\subsection{Planar length}\label{bpP:p6:planar}
+
+\begin{lemma}[Planar length]\label{bpP:p6:plane}
+For $v,w\in\R^2$, $c\in\R$:
+\begin{enumerate}[label=(\alph*)]
+\item $\ell(v)\ge0$, $\ell(v)^2=\operatorname{sq}(v)=v\cdot v$, $\ell(v)=0\iff v=0$, $\ell(-v)=\ell(v)$, $\ell(cv)=\abs c\ell(v)$, $\ell(v+w)\le\ell(v)+\ell(w)$.
+\item $\abs v_\infty\le\ell(v)\le\sqrt2\,\abs v_\infty$.
+\item On $\R^2\setminus\{0\}$ the functions $\ell$, $1/\ell$ are $C^\infty$ with $D\ell(v)h=\dfrac{v\cdot h}{\ell(v)}$ and $D(1/\ell)(v)h=-\dfrac{v\cdot h}{\ell(v)^3}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p6:pl-a} Algebra of $\sqrt{v_1^2+v_2^2}$; the triangle inequality is Cauchy--Schwarz $v\cdot w\le\ell(v)\ell(w)$ in $\ell(v+w)^2=\ell(v)^2+2v\cdot w+\ell(w)^2$.
+\proofstep{(b)}\label{stepP:p6:pl-b} $v_k^2\le v_1^2+v_2^2\le2\max_kv_k^2$; take square roots.
+\proofstep{(c)}\label{stepP:p6:pl-c} $\operatorname{sq}$ is a polynomial with $D\operatorname{sq}(v)h=2v\cdot h$, positive on $v\ne0$; apply \ref{bpP:p6:ext-sqrt} and \ref{bpP:p6:ext-chain}: $D\ell(v)h=\frac{2v\cdot h}{2\ell(v)}$, and $D(1/\ell)=-D\ell/\ell^2$.
+\end{proof}
+
+\subsection{The two reduced models}\label{bpP:p6:models}
+
+\begin{lemma}[Collision-free domain; regularity]\label{bpP:p6:domain}
+$W$ is open, and $H_{\rm mov}=\texttt{movingHamiltonian}\,G\,m_0\,m\,\mu$ and $H_{\rm fix}=\texttt{fixedHamiltonian}\,G\,m_0\,m\,\varepsilon$ are $C^\infty$ on $W$ (hence differentiable at every point of $W$, with continuous Fr\'echet derivative). The Lean value of $H$ off $W$ is irrelevant to everything below, because every use is guarded by $\operatorname{NoColl}$ (Remark~\ref{bpP:p0:totality}).
+\end{lemma}
+\begin{proof}
+\proofstep{Openness}\label{stepP:p6:dom-open} $\operatorname{NoColl}(q)$ is the finite conjunction of $\operatorname{sq}(q_i)>0$ and $\operatorname{sq}(q_i-q_j)>0$ ($i\ne j$) (Lemma~\ref{bpP:p6:plane}(a)); each $\operatorname{sq}\circ(\text{linear map of }q)$ is continuous, so $W$ is open by \ref{bpP:p6:ext-top}.
+\proofstep{Smoothness}\label{stepP:p6:dom-smooth} On $W$ each term of $H_{\rm mov}$, $H_{\rm fix}$ is a polynomial in $p$ or $q$-dependent $1/\ell(q_i)$, $1/\ell(q_i-q_j)$, which are $C^\infty$ by Lemma~\ref{bpP:p6:plane}(c) and \ref{bpP:p6:ext-chain}; finite sums and products of $C^\infty$ maps are $C^\infty$.
+\end{proof}
+
+\begin{lemma}[Splitting; the identity of Part~0]\label{bpP:p6:split}
+Let $H_{\rm Kep}(q,p)=\sum_i\bigl[\tfrac{\pl{p_i}^2}{2m_i}-\tfrac{Gm_0m_i}{\ell(q_i)}\bigr]$ (independent of $\mu,\varepsilon$), and for $z\in W$
+\[f_{\rm mov}(z)=\frac{\pl{P}^2}{2m_0}-G\sum_{i<j}\frac{m_im_j}{\ell(q_i-q_j)},\qquad f_{\rm fix}(z)=-G\sum_{i<j}\frac{m_im_j}{\ell(q_i-q_j)}.\]
+Then for all $z\in\Ph{2n}$ (with the Lean total functions) $H_{\rm mov}=H_{\rm Kep}+\mu f_{\rm mov}$, $H_{\rm fix}=H_{\rm Kep}+\varepsilon f_{\rm fix}$, and
+\[H_{\rm mov}(z)-H_{\rm fix}(z)\big|_{\varepsilon=\mu}=\frac{\mu\,\pl{P}^2}{2m_0}\ \Bigl(=\mu\,\frac{\pl{\sum_ip^{(i)}}^2}{2m_0}\Bigr).\]
+\end{lemma}
+\begin{proof}
+\proofstep{Algebra}\label{stepP:p6:sp-alg} $\bigl(\tfrac1{m_i}+\tfrac\mu{m_0}\bigr)\tfrac{\pl{p_i}^2}2=\tfrac{\pl{p_i}^2}{2m_i}+\tfrac{\mu\pl{p_i}^2}{2m_0}$, and $\pl{P}^2=\sum_i\pl{p_i}^2+2\sum_{i<j}p_i\cdot p_j$ (Lemma~\ref{bpP:p6:plane}(a), bilinearity of $\cdot$). Hence the kinetic part of $H_{\rm mov}$ is $\sum_i\frac{\pl{p_i}^2}{2m_i}+\frac\mu{m_0}\bigl(\tfrac12\pl P^2\bigr)$; the potential parts agree term by term. At $\varepsilon=\mu$ the pair-potential terms of $H_{\rm mov}$ and $H_{\rm fix}$ are the same, which gives the difference.
+\end{proof}
+\begin{remark}[Kepler part; mass dictionary]\label{bpP:p6:kepler-part}
+Lemma~\ref{bpP:p6:split} is why both models share the unperturbed part $H_{\rm Kep}$ and have perturbations $\mu f_{\rm mov}$, $\varepsilon f_{\rm fix}$ with $f_{\rm mov},f_{\rm fix}$ independent of the coupling. Each summand of $H_{\rm Kep}$ is $m_iE_k(q_i,p_i/m_i)$ with $k=Gm_0$ in the notation of \Iref{bpI:p7:scaling}, whose ``mass dictionary'' gives the Kepler orbit, action $m_i\sqrt{ka}$ and the mean values used in Part~7. (In the moving-Sun reduction the \emph{reduced} mass $m_0m_i/(m_0+\mu m_i)$ appears if one chooses to keep the term $\mu\pl{p_i}^2/(2m_0)$ in the Kepler part, as Fej04r (28) does with $\mu_j,M_j$; the frozen $H_{\rm mov}$ and Part~7 do not: that term belongs to $\mu f_{\rm mov}$.)
+\end{remark}
+
+\begin{lemma}[Action--reaction]\label{bpP:p6:action-reaction}
+For $q$ with $\operatorname{NoColl}(q)$: $\sum_im_if_i(q)=0$.
+\end{lemma}
+\begin{proof}
+$\sum_im_if_i=\sum_i\sum_{j\ne i}m_im_j\frac{q_j-q_i}{\ell(q_j-q_i)^3}=:\sum_{i\neq j}a_{ij}$ with $a_{ji}=-a_{ij}$ (Lemma~\ref{bpP:p6:plane}(a)). Swapping the names of $i,j$ (\ref{bpP:p6:ext-sum}) gives $\sum a_{ij}=\sum a_{ji}=-\sum a_{ij}$.
+\end{proof}
+
+\begin{proposition}[Hamilton equations of $H_{\rm mov}$ and $H_{\rm fix}$]\label{bpP:p6:hamilton-eqs}
+Let $z=(q,p)\in W$. Using the Lean convention $X_H=(\partial_pH,-\partial_qH)$ of Definition~\ref{bpP:p0:hamsymp} and the block form $v=(v_0,\dots,v_{n-1})$, $v_i\in\R^2$, of vectors of $\R^{2n}$ (index $2i+c$):
+\[
+X_{H_{\rm mov}}(z)=\Bigl(\bigl(\tfrac{p_i}{m_i}+\tfrac\mu{m_0}P\bigr)_i,\ \bigl(-Gm_0m_i\,g_i(q)+\mu Gm_i\,f_i(q)\bigr)_i\Bigr),
+\]
+\[
+X_{H_{\rm fix}}(z)=\Bigl(\bigl(\tfrac{p_i}{m_i}\bigr)_i,\ \bigl(-Gm_0m_i\,g_i(q)+\varepsilon Gm_i\,f_i(q)\bigr)_i\Bigr).
+\]
+In particular a curve $z=(q,p):J\to W$ has derivative $X_H(z(t))$ at $t$ (with $H$ differentiable there, automatic by Lemma~\ref{bpP:p6:domain}) iff
+$q_i'=\frac{p_i}{m_i}+\frac\mu{m_0}P$ (resp.\ $\frac{p_i}{m_i}$) and $p_i'=-Gm_0m_ig_i(q)+\mu Gm_if_i(q)$ (resp.\ with $\varepsilon$), componentwise.
+\end{proposition}
+\begin{proof}
+\proofstep{Directional derivative}\label{stepP:p6:he-dir} By Lemma~\ref{bpP:p6:domain} $H_{\rm mov}$ is differentiable at $z$. Split $H_{\rm mov}=T(p)+V(q)$, $T=\sum_i c_i\pl{p_i}^2/2+\frac\mu{m_0}\sum_{i<j}p_i\cdot p_j$ with $c_i=\frac1{m_i}+\frac\mu{m_0}$, a quadratic polynomial, and $V(q)=-Gm_0\sum_im_i/\ell(q_i)-\mu G\sum_{i<j}m_im_j/\ell(q_i-q_j)$. For $(\delta q,\delta p)\in\Ph{2n}$, by \ref{bpP:p6:ext-chain} and Lemma~\ref{bpP:p6:plane}(c),
+\[DT(p)\delta p=\sum_ic_ip_i\cdot\delta p_i+\tfrac\mu{m_0}\sum_{i<j}(p_i\cdot\delta p_j+\delta p_i\cdot p_j)=\sum_i\delta p_i\cdot\bigl(\tfrac{p_i}{m_i}+\tfrac\mu{m_0}P\bigr),\]
+using $c_ip_i+\frac\mu{m_0}\sum_{j\ne i}p_j=\frac{p_i}{m_i}+\frac\mu{m_0}P$, and
+\[DV(q)\delta q=Gm_0\sum_im_i\frac{q_i\cdot\delta q_i}{\ell(q_i)^3}+\mu G\sum_{i<j}m_im_j\frac{(q_i-q_j)\cdot(\delta q_i-\delta q_j)}{\ell(q_i-q_j)^3}.\]
+\proofstep{Collect coefficients}\label{stepP:p6:he-coef} The coefficient of $\delta q_i$ in the double sum is $\mu Gm_i\sum_{j\ne i}m_j\frac{q_i-q_j}{\ell(q_i-q_j)^3}=-\mu Gm_if_i(q)$ (a pair $\{i,j\}$ with $j<i$ contributes with $\delta q_i$ the same way, because $\ell(q_i-q_j)=\ell(q_j-q_i)$). So $\partial_{q_i}H_{\rm mov}=Gm_0m_ig_i-\mu Gm_if_i$, $\partial_{p_i}H_{\rm mov}=\frac{p_i}{m_i}+\frac\mu{m_0}P$. The first component of $X_H$ at $(i,c)$ is $DH(z)(0,e_{2i+c})$ and the second is $-DH(z)(e_{2i+c},0)$ (Definition~\ref{bpP:p0:hamsymp}); this is the claim.
+\proofstep{$H_{\rm fix}$}\label{stepP:p6:he-fix} The same computation: the kinetic part is $\sum_i\pl{p_i}^2/(2m_i)$ with $\partial_{p_i}=p_i/m_i$, and the potential is $V$ with $\mu$ replaced by $\varepsilon$.
+\proofstep{The curve statement}\label{stepP:p6:he-curve} A curve into $\Ph{2n}=\R^{4n}$ has derivative $(q',p')$ at $t$ iff each coordinate does (\ref{bpP:p6:ext-chain}); compare with the displayed vector field.
+\end{proof}
+
+\subsection{Derivation of $H_{\rm mov}$ from the barycentric Hamiltonian}\label{bpP:p6:derivation}
+
+\begin{definition}[The $(n+1)$-body Hamiltonian and Newton equations]\label{bpP:p6:nbody}
+Let $\mu>0$, $M=\operatorname{mass}_\mu=(m_0,\mu m_1,\dots,\mu m_n)$ the actual masses (Definition~\ref{bpP:p0:barycentric}), $X=(X_0,\dots,X_n)$, $Y=(Y_0,\dots,Y_n)$ with $X_k,Y_k\in\R^2$ (positions and actual momenta), and
+\[F_\mu(X,Y)=\sum_{k=0}^n\frac{\pl{Y_k}^2}{2M_k}-G\sum_{0\le k<l\le n}\frac{M_kM_l}{\ell(X_k-X_l)}.\]
+Newton's equations are $X_k'=Y_k/M_k$, $Y_k'=\sum_{l\ne k}\frac{GM_kM_l}{\ell(X_l-X_k)^3}(X_l-X_k)$; with $V_k=X_k'$ they are $V_k'=\sum_{l\ne k}\frac{GM_l}{\ell(X_l-X_k)^3}(X_l-X_k)$, the equations of \texttt{IsNewtonSolution} (Definition~\ref{bpP:p0:newton}). They are Hamilton's equations of $F_\mu$ for $\Omega=\sum_kdY_k\wedge dX_k$ on $\{\ell(X_k-X_l)>0\}$ (Lemma~\ref{bpP:p6:plane}(c) as in Prop.~\ref{bpP:p6:hamilton-eqs}).
+\source{Fej04r \S6.1, pp.~45--46 (Newton equations (1), Hamiltonian with $\|y_0\|^2/2m_0$, $\epsilon\sum\|y_j\|^2/2m_j$, potential $m_0m_j$ and $\epsilon^2m_jm_k$ terms), $G$ restored; Fej04r writes momenta $y_0,\epsilon y_j$ and the symplectic form $\sum dx_0\wedge dy_0+\epsilon\sum dx_j\wedge dy_j$, so $Y_j=\epsilon y_j=\mu p_j$ below.}
+\end{definition}
+
+\begin{proposition}[Heliocentric symplectic coordinates and reduction]\label{bpP:p6:reduction}
+Let $\mu>0$. Define the linear map $\Theta(X,Y)=(Q_0,q,P_0,P)$ with $Q_0=X_0$, $q_i=X_i-X_0$, $P_0=\sum_{k=0}^nY_k$, $P_i=Y_i$ ($1\le i\le n$; planet $i$ has index $i$ here).
+\begin{enumerate}[label=(\alph*)]
+\item $\Theta$ is a linear isomorphism with $\sum_kX_k\cdot Y_k=Q_0\cdot P_0+\sum_iq_i\cdot P_i$ (the canonical pairing is preserved), hence it is symplectic: $\sum_kdY_k\wedge dX_k=dP_0\wedge dQ_0+\sum_idP_i\wedge dq_i$.
+\item On $\{\operatorname{NoColl}(q)\}$ one has
+\[F_\mu\circ\Theta^{-1}(Q_0,q,P_0,P)=\frac{\pl{P_0-\sum_iP_i}^2}{2m_0}+\sum_i\frac{\pl{P_i}^2}{2\mu m_i}-G\mu\sum_i\frac{m_0m_i}{\ell(q_i)}-G\mu^2\sum_{i<j}\frac{m_im_j}{\ell(q_i-q_j)},\]
+independent of $Q_0$; so $P_0$ (total momentum) is conserved. On the invariant set $P_0=0$, writing $P_i=\mu p_i$:
+\[F_\mu\circ\Theta^{-1}(Q_0,q,0,\mu p)=\mu\,H_{\rm mov}(q,p).\]
+\item (\emph{Solutions correspond.}) If $(X,Y)$ solves Newton's equations on a set $J\subset\R$ of times, with total momentum $P_0(t)=0$ and $\operatorname{NoColl}(q(t))$ for $t\in J$, then $(q,p)=(X_i-X_0,\,Y_i/\mu)$ satisfies $(q,p)'=X_{H_{\rm mov}}(q,p)$ on $J$ (the converse direction of Proposition~\ref{bpP:p6:reconstruction}, where $X_0$ is then recovered as $x_0(q)$ if the barycentre is $0$).
+\end{enumerate}
+\source{Fej04r (28), pp.~46--47 (``coordonn\'ees h\'eliocentriques symplectiques'', reduction to $Y_0=0$, $F=\sum(\|Y_j\|^2/2\mu_j-\mu_jM_j/\|X_j\|)+\epsilon\sum(-m_jm_k/\|X_j-X_k\|+Y_j\cdot Y_k/m_0)$), with the index correction of Fej07e p.~3 ($m_im_j\to m_jm_k$); the revised printing already has $m_jm_k$ (read on p.~46); $G$ restored. Ours: the statement as a lemma about $H_{\rm mov}$ and with $\mu$-scalings written out.}
+\end{proposition}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p6:re-a} The inverse is $X_0=Q_0$, $X_i=q_i+Q_0$, $Y_i=P_i$, $Y_0=P_0-\sum_iP_i$. Then $X_0\cdot Y_0+\sum_iX_i\cdot Y_i=Q_0\cdot(P_0-\sum P_i)+\sum_i(q_i+Q_0)\cdot P_i=Q_0\cdot P_0+\sum_iq_i\cdot P_i$. Moreover the Liouville forms agree identically: $\sum_kY_k\,dX_k=(P_0-\sum_iP_i)\,dQ_0+\sum_iP_i\,d(q_i+Q_0)=P_0\,dQ_0+\sum_iP_i\,dq_i$; taking $d$ gives the symplectic statement.\proofstep{(b)}\label{stepP:p6:re-b} Substitute $Y_0=P_0-\sum P_i$, $X_i-X_0=q_i$, $X_i-X_j=q_i-q_j$, $M_0=m_0$, $M_i=\mu m_i$: the kinetic energy is $\frac{\pl{P_0-\sum P_i}^2}{2m_0}+\sum_i\frac{\pl{P_i}^2}{2\mu m_i}$ and the potential is $-G\mu\sum_i\frac{m_0m_i}{\ell(q_i)}-G\mu^2\sum_{i<j}\frac{m_im_j}{\ell(q_i-q_j)}$. At $P_0=0$, $P_i=\mu p_i$ the total is
+\[\frac{\mu^2\pl{\sum_ip_i}^2}{2m_0}+\mu\sum_i\frac{\pl{p_i}^2}{2m_i}-G\mu\sum_i\frac{m_0m_i}{\ell(q_i)}-G\mu^2\sum_{i<j}\frac{m_im_j}{\ell(q_i-q_j)}=\mu\bigl(H_{\rm Kep}+\mu f_{\rm mov}\bigr)=\mu H_{\rm mov}\]
+by Lemma~\ref{bpP:p6:split}. $F_\mu\circ\Theta^{-1}$ does not involve $Q_0$, so $P_0'=-\partial_{Q_0}(\cdot)=0$.
+\proofstep{(c)}\label{stepP:p6:re-c} With $P_0=\sum_kY_k=0$ we have $Y_0=-\sum_iY_i=-\mu P$, $P=\sum_ip_i$, hence
+$q_i'=X_i'-X_0'=\frac{Y_i}{\mu m_i}-\frac{Y_0}{m_0}=\frac{p_i}{m_i}+\frac\mu{m_0}P$ and, from $Y_i'=\sum_{l\ne i}\frac{GM_iM_l}{\ell(X_l-X_i)^3}(X_l-X_i)$ with $X_0-X_i=-q_i$, $X_j-X_i=q_j-q_i$,
+$p_i'=\mu^{-1}Y_i'=Gm_i\bigl[-m_0\frac{q_i}{\ell(q_i)^3}+\mu\sum_{j\ne i}m_j\frac{q_j-q_i}{\ell(q_j-q_i)^3}\bigr]$. This is Proposition~\ref{bpP:p6:hamilton-eqs}.
+\end{proof}
+\begin{remark}[Role of this proposition]\label{bpP:p6:reduction-role}
+Part~(b) is the derivation of Definition~\ref{bpP:p0:movham}: $H_{\rm mov}$ is $F_\mu$ on the reduced space divided by $\mu$ (Fej04r's $F$ with $\epsilon=\mu$). Nothing below uses (a)--(b): the forward reconstruction (Prop.~\ref{bpP:p6:reconstruction}) is verified directly from the Hamilton equations, so the dependence of the physical clauses on the Hamiltonian reduction is only through Prop.~\ref{bpP:p6:hamilton-eqs}. Part~(c) is needed only by consumers who start from a Newton solution (the uniqueness predicate \Lean{MovingUniqueOn} of D25 is the reverse direction).
+\end{remark}
+
+\subsection{Reconstruction of the physical motion}\label{bpP:p6:recon}
+
+\begin{lemma}[Algebra of the barycentric maps]\label{bpP:p6:bary-algebra}
+Let $\mu\ge0$, $q,p\in\R^{2n}$, $M_*=m_0+\mu\sum_im_i>0$, $M=\operatorname{mass}_\mu$ (the frozen \texttt{actualMasses}), $Q=\texttt{barycentricPositions}\,m_0\,m\,\mu\,q$, $V=\texttt{barycentricVelocities}\,m_0\,m\,\mu\,p$. Then, with $P=\sum_ip_i$:
+\begin{enumerate}[label=(\alph*)]
+\item $Q_0=x_0=-\frac\mu{M_*}\sum_im_iq_i$, $Q_i-Q_0=q_i$ and $Q_j-Q_i=q_j-q_i$ for planets $i,j$; hence $\ell(Q_i-Q_0)=\ell(q_i)$ and $\ell(Q_j-Q_i)=\ell(q_j-q_i)$ \emph{for every $\mu$}.
+\item $V_0=-\frac\mu{m_0}P$, $V_i=p_i/m_i$, and $V_i-V_0=\frac{p_i}{m_i}+\frac\mu{m_0}P$ (the first component of $X_{H_{\rm mov}}$, Prop.~\ref{bpP:p6:hamilton-eqs}).
+\item (barycentre and momentum) $\sum_{k=0}^nM_kQ_k=0$ and $\sum_{k=0}^nM_kV_k=0$.
+\item $\ell(x_0)\le\frac\mu{m_0}\sum_im_i\ell(q_i)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{(a),(b)}\label{stepP:p6:ba-ab} Unfold the definitions (\Lean{Fin.cons}, \Lean{Fin.cons\_zero}, \Lean{Fin.cons\_succ}). $Q_j-Q_i=(x_0+q_j)-(x_0+q_i)$, and $\ell$ is even (Lemma~\ref{bpP:p6:plane}(a)).
+\proofstep{(c)}\label{stepP:p6:ba-c} $\sum_kM_kQ_k=m_0x_0+\sum_i\mu m_i(x_0+q_i)=M_*x_0+\mu\sum m_iq_i=0$; $\sum_kM_kV_k=m_0V_0+\mu\sum_ip_i=-\mu P+\mu P=0$.
+\proofstep{(d)}\label{stepP:p6:ba-d} $M_*\ge m_0$ and Lemma~\ref{bpP:p6:plane}(a).
+\end{proof}
+
+\begin{proposition}[Reconstruction: moving Sun $\Rightarrow$ Newton, on any set of times]\label{bpP:p6:reconstruction}
+Let $G,m_0>0$, $m_i>0$, $\mu\ge0$, $J\subset\R$ \emph{arbitrary}, and $z=(q,p):\R\to\Ph{2n}$ such that for all $t\in J$:
+\begin{enumerate}[label=(R\arabic*)]
+\item $\operatorname{NoColl}(q(t))$;
+\item $z$ has derivative $X_{H_{\rm mov}}(z(t))$ at $t$, $H_{\rm mov}=\texttt{movingHamiltonian}\,G\,m_0\,m\,\mu$.
+\end{enumerate}
+(Differentiability of $H_{\rm mov}$ at $z(t)$ is automatic, Lemma~\ref{bpP:p6:domain}; for $G=m_0=1$ conditions (R1)--(R2) say exactly $\texttt{IsMovingSolutionOn}\;m\,\mu\,J\,z$ of D25.) Put $M=\operatorname{mass}_\mu$, $Q(t)=\texttt{barycentricPositions}\,m_0\,m\,\mu\,q(t)$, $V(t)=\texttt{barycentricVelocities}\,m_0\,m\,\mu\,p(t)$. Then for every $t\in J$ and every pair $k\ne l$ of indices of $\texttt{Fin}(n+1)$:
+\begin{enumerate}[label=(\alph*)]
+\item $\ell(Q_l(t)-Q_k(t))>0$;
+\item $Q_k$ has derivative $V_k(t)$ at $t$;
+\item $V_k$ has derivative $\displaystyle\sum_{l\ne k}\frac{GM_l}{\ell(Q_l(t)-Q_k(t))^3}\bigl(Q_l(t)-Q_k(t)\bigr)$ at $t$.
+\end{enumerate}
+Consequently: $\texttt{IsNewtonSolutionOn}\,(G\cdot M)\,J\,Q\,V$ (the frozen interval predicate, whose mass argument absorbs $G$; for $G=1$ it is $\texttt{IsNewtonSolutionOn}\,(\texttt{actualMasses}\,1\,m\,\mu)\,J\,Q\,V$ as in D25), and for $J=\R$ the frozen all-time predicate $\texttt{IsNewtonSolution}\,G\,(\texttt{actualMasses}\,m_0\,m\,\mu)\,Q\,V$ (Definition~\ref{bpP:p0:newton}). The conclusions are literally the three clauses of those predicates at each $t\in J$, with no continuity or uniformity in $t$ used.
+\frozen{KAM.Planetary.IsNewtonSolution, KAM.Planetary.IsNewtonSolutionOn, KAM.Planetary.IsMovingSolutionOn}
+\source{Fej04r \S6.1, p.~46 (the Newton curves are projections of the integral curves of the Hamiltonian; ``Si l'on exclut les collisions''); $G$ restored; ours as stated (pointwise for arbitrary $J$).}
+\end{proposition}
+\begin{proof}
+\proofstep{Coordinates of the equations}\label{stepP:p6:rc-coords} Fix $t\in J$. By (R1)--(R2) and Prop.~\ref{bpP:p6:hamilton-eqs} (curve statement), at $t$:
+$q_i'=\frac{p_i}{m_i}+\frac\mu{m_0}P=:a_i$ and $p_i'=-Gm_0m_ig_i(q)+\mu Gm_if_i(q)=:b_i$, for all $i$, where $q=q(t)$, $p=p(t)$. Since $\texttt{bodyVector}$ is a coordinate projection, $\texttt{bodyVector}(q(\cdot),i)$ has derivative $a_i$ at $t$ (\ref{bpP:p6:ext-chain}), and so does every linear combination.
+\proofstep{(a)}\label{stepP:p6:rc-a} By Lemma~\ref{bpP:p6:bary-algebra}(a), $\ell(Q_i-Q_0)=\ell(q_i)>0$, $\ell(Q_j-Q_i)=\ell(q_j-q_i)>0$ by (R1) (the Lean \texttt{NoCollision} gives positivity of $\ell(q_i-q_j)$ for $i\ne j$, and $\ell$ is even); and $\ell(Q_0-Q_i)=\ell(Q_i-Q_0)$.
+\proofstep{(b), Sun}\label{stepP:p6:rc-sun} $Q_0=x_0=-\frac\mu{M_*}\sum_im_iq_i$ is a constant multiple of a sum of the $q_i$, with $M_*$ independent of $t$; so $Q_0'=-\frac\mu{M_*}\sum_im_ia_i=-\frac\mu{M_*}\bigl(P+\frac\mu{m_0}P\sum_im_i\bigr)=-\frac\mu{M_*}\cdot\frac{M_*}{m_0}P=-\frac\mu{m_0}P=V_0$, because $\sum_im_ia_i=P+\frac\mu{m_0}P\sum_im_i=P\,M_*/m_0$.
+\proofstep{(b), planets}\label{stepP:p6:rc-planets} $Q_i=Q_0+q_i$ has derivative $V_0+a_i=V_0+(V_i-V_0)=V_i$ by Lemma~\ref{bpP:p6:bary-algebra}(b).
+\proofstep{(c), planets}\label{stepP:p6:rc-vplanet} $V_i=p_i/m_i$ has derivative $b_i/m_i=-Gm_0g_i(q)+\mu Gf_i(q)=\frac{Gm_0\,(Q_0-Q_i)}{\ell(Q_0-Q_i)^3}+\sum_{j\ne i}\frac{G\mu m_j(Q_j-Q_i)}{\ell(Q_j-Q_i)^3}$, using $Q_0-Q_i=-q_i$ and (a); the right-hand side is the sum over $l\ne i$ of $GM_l(Q_l-Q_i)/\ell(Q_l-Q_i)^3$ (with $M_0=m_0$, $M_j=\mu m_j$; the sum over $l\in\texttt{Fin}(n+1)$ is split as $l=0$ and $l=\operatorname{succ}(j)$, \Lean{Fin.sum\_univ\_succ}, \ref{bpP:p6:ext-sum}).
+\proofstep{(c), Sun}\label{stepP:p6:rc-vsun} $V_0=-\frac\mu{m_0}\sum_ip_i$ has derivative $-\frac\mu{m_0}\sum_ib_i=\mu G\sum_im_ig_i(q)-\frac{\mu^2G}{m_0}\sum_im_if_i(q)=\mu G\sum_im_ig_i(q)$ by Lemma~\ref{bpP:p6:action-reaction}. By Lemma~\ref{bpP:p6:bary-algebra}(a) ($Q_i-Q_0=q_i$) this is $\sum_{l\ge1}GM_l(Q_l-Q_0)/\ell(Q_l-Q_0)^3$ with $M_l=\mu m_l$.
+\proofstep{Packaging}\label{stepP:p6:rc-pack} The three bullet clauses are conjunctions over $t\in J$ of (a), (b), (c). For $J=\R$ and the frozen \texttt{IsNewtonSolution} (Definition~\ref{bpP:p0:newton}) they are literally the three conjuncts; \texttt{IsNewtonSolutionOn} differs by the restriction to $t\in J$ and by having $G$ absorbed in the mass, replace $M$ by $G\cdot M$. The case $\mu=0$ is included: then $M_l=0$ for planets, $Q_0=0$ and the equations are the test-particle equations.
+\end{proof}
+\begin{remark}[Units and the D25 predicates]\label{bpP:p6:units}
+The frozen \texttt{IsMovingSolutionOn} and \texttt{IsNewtonSolutionOn} carry no $G$, $m_0$: $G=m_0=1$ (the D25 normalisation, \texttt{OrbitalUnit}). Proposition~\ref{bpP:p6:reconstruction} then states: if $z$ satisfies \texttt{IsMovingSolutionOn} $m\,\mu\,J$ (Hamiltonian solution on $J$ in $B=\text{univ}$, plus \texttt{NoCollision}), then $\texttt{IsNewtonSolutionOn}\,(\texttt{actualMasses}\,1\,m\,\mu)\,J\,Q\,V$ for $Q=\texttt{barycentricPositions}\,1\,m\,\mu\,q$, $V=\texttt{barycentricVelocities}\,1\,m\,\mu\,p$. The interval need not be open or connected; each time is treated separately. Track~N's Prop.~\Nref{bpN:p3:newton-reduction} covers only the all-time predicates (a $\texttt{IsSolIn}$ reformulation) and is not needed here; the equivalence it gives for \texttt{IsNewtonSolutionOn} is the same two-line argument with $J$ in place of $\R$.
+\end{remark}
+
+\begin{proposition}[Reconstruction: fixed Sun]\label{bpP:p6:reconstruction-fixed}
+Let $G,m_0>0$, $m_i>0$, $\varepsilon\in\R$, $J\subset\R$ arbitrary, and $z=(q,p):\R\to\Ph{2n}$ with, for $t\in J$: $\operatorname{NoColl}(q(t))$ and $z$ has derivative $X_{H_{\rm fix}}(z(t))$ at $t$ ($H_{\rm fix}=\texttt{fixedHamiltonian}\,G\,m_0\,m\,\varepsilon$). Put $Q_i(t)=q_i(t)$, $V_i(t)=\frac1{m_i}p_i(t)$. Then for all $t\in J$ and $i\ne j$: $\ell(Q_i(t))>0$, $\ell(Q_j(t)-Q_i(t))>0$, $Q_i$ has derivative $V_i(t)$ at $t$, and $V_i$ has derivative
+\[-\frac{Gm_0}{\ell(Q_i)^3}Q_i+\varepsilon\sum_{j\ne i}\frac{Gm_j}{\ell(Q_j-Q_i)^3}(Q_j-Q_i)\]
+at $t$. For $J=\R$ this is $\texttt{IsFixedSolution}\,G\,m_0\,m\,\varepsilon\,Q\,V$ (Definition~\ref{bpP:p0:fixedsol}).
+\frozen{KAM.Planetary.IsFixedSolution}
+\source{Ours (differentiating $H_{\rm fix}$); after Fej04r (28).}
+\end{proposition}
+\begin{proof}
+\proofstep{Equations}\label{stepP:p6:rf-eq} Prop.~\ref{bpP:p6:hamilton-eqs} gives $q_i'=p_i/m_i$ and $p_i'=-Gm_0m_ig_i+\varepsilon Gm_if_i$. Positivity: \texttt{NoCollision} and evenness of $\ell$. $V_i=p_i/m_i$ has derivative $p_i'/m_i=-Gm_0\,q_i/\ell(q_i)^3+\varepsilon Gf_i(q)$, which is the displayed expression since $f_i=\sum_{j\ne i}m_j(q_j-q_i)/\ell(q_j-q_i)^3$.
+\end{proof}
+
+\begin{corollary}[Orbit transfer for tori]\label{bpP:p6:orbit-transfer}
+Let $d=2n$, $K:\R^d\to\Ph{2n}$ and $w\in\R^d$.
+\begin{enumerate}[label=(\alph*)]
+\item If $\operatorname{IsPhysTorus}(H_{\rm mov},w,K)$ and $\operatorname{NoColl}(K(\phi)_1)$ for all $\phi$, then for every $\phi$
+\[\texttt{IsNewtonSolution}\,G\,(\texttt{actualMasses}\,m_0\,m\,\mu)\,(t\mapsto Q(K(\phi+tw)_1))\,(t\mapsto V(K(\phi+tw)_2)),\]
+clause~(b) of $\operatorname{MovKol}$ (Definition~\ref{bpP:p0:movkol}); here $Q=\texttt{barycentricPositions}\,m_0\,m\,\mu$, $V=\texttt{barycentricVelocities}\,m_0\,m\,\mu$.
+\item If $\operatorname{IsPhysTorus}(H_{\rm fix},w,K)$ and $\operatorname{NoColl}(K(\phi)_1)$ for all $\phi$, then $\texttt{IsFixedSolution}\,G\,m_0\,m\,\varepsilon\,(t\mapsto\texttt{body}(K(\phi+tw)_1))\,(t\mapsto\frac1{m_i}\texttt{body}(K(\phi+tw)_2))$ for all $\phi$.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+\proofstep{The curve}\label{stepP:p6:ot-curve} Fix $\phi$ and put $z(t)=K(\phi+tw)$. Clause (viii) of Definition~\ref{bpP:p0:phystorus} (applied at $\theta=\phi$ and the time $t$) says precisely that $s\mapsto K(\phi+sw)$ has derivative $X_H(K(\phi+tw))$ at $s=t$, i.e.\ (R2) of Prop.~\ref{bpP:p6:reconstruction} for every $t\in\R$; (R1) is the hypothesis at the angle $\phi+tw$.
+\proofstep{Apply}\label{stepP:p6:ot-apply} Proposition~\ref{bpP:p6:reconstruction} (resp.~\ref{bpP:p6:reconstruction-fixed}) with $J=\R$.
+\end{proof}
+
+\subsection{Tube geometry: collision-free, uniform pair bounds}\label{bpP:p6:tube}
+
+\begin{definition}[Axis constants; tube radius; $d$, $D$]\label{bpP:p6:tube-constants}
+Let $a\in\R^n$ with $a_i>0$ pairwise distinct (in P-PLANAR $n=2$, $0<a_0<a_1$; in P-FIXED $0<a_0<\dots<a_{n-1}$), and $\eta>0$. Put
+\[a_{\max}=\max_ia_i,\qquad\gamma_a=\min\Bigl\{\min_ia_i,\ \min_{i\ne j}\abs{a_i-a_j}\Bigr\}>0\]
+(for $n=1$ the inner minimum over pairs is omitted), and
+\[\zeta_*=\min\{\eta,\gamma_a/6\},\qquad d=\gamma_a/2,\qquad D=2a_{\max}+\gamma_a.\]
+Then $0<d<D$; $d,D$ depend only on $a$ (not on $\eta,G,m_0,m,\mu,\varepsilon$), and $\zeta_*$ only on $(a,\eta)$.
+\end{definition}
+
+\begin{lemma}[Tube geometry]\label{bpP:p6:tube-geometry}
+Let $G,m_0>0$, $m_i>0$, $a,\eta,\zeta_*,d,D$ as in Definition~\ref{bpP:p6:tube-constants} and $0<\zeta\le\zeta_*$. For every $z=(q,p)\in U_\zeta$ (Definition~\ref{bpP:p0:circular}, tube radius $\zeta$):
+\begin{enumerate}[label=(\alph*)]
+\item $U_\zeta\subset U_{\zeta_*}\subset U_\eta$.
+\item (\emph{Euclidean positions}) there is $\phi\in\R^n$ with $\ell\bigl(q_i-a_ie(\phi_i)\bigr)<\sqrt2\,\zeta$ for all $i$, $e(\phi)=(\cos2\pi\phi,\sin2\pi\phi)$.
+\item (\emph{distances}) for all $i$ and all $i\ne j$:
+\[a_i-\sqrt2\zeta<\ell(q_i)<a_i+\sqrt2\zeta,\qquad\abs{a_i-a_j}-2\sqrt2\zeta<\ell(q_j-q_i)<a_i+a_j+2\sqrt2\zeta.\]
+\item $d\le\ell(q_i)\le D$ and $d\le\ell(q_j-q_i)\le D$; in particular $\operatorname{NoColl}(q)$.
+\item For \emph{every} $\mu\ge0$: $\operatorname{PairBounds}\bigl(d,D;\ \texttt{barycentricPositions}\,m_0\,m\,\mu\,q\bigr)$ (all pairs including the Sun), with the same $d,D$ \emph{for all $\mu$}; and $\operatorname{PairBounds}\bigl(d,D;\ (0,q_0,\dots,q_{n-1})\bigr)$ (the Sun at the origin, fixed-Sun clause of $\operatorname{FixKol}$).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p6:tg-a} The tube is defined by a strict bound on $\norm{z-\operatorname{circ}(\phi)}$, so it is monotone in the radius.
+\proofstep{(b) Max norm to Euclidean norm}\label{stepP:p6:tg-b} The phase norm is the maximum of the two coordinate max norms (Part~0, conventions), so $\norm{z-\operatorname{circ}(\phi)}<\zeta$ gives $\abs{q_{(i,c)}-a_ie(\phi_i)_c}<\zeta$ for $c=1,2$, i.e.\ $\abs{q_i-a_ie(\phi_i)}_\infty<\zeta$; Lemma~\ref{bpP:p6:plane}(b) gives the Euclidean bound with the factor $\sqrt2$. \emph{This factor is not optional}: the planar Euclidean distance of a point of the max-norm tube from the circle may be $\sqrt2\zeta$.
+\proofstep{(c)}\label{stepP:p6:tg-c} Let $u_i=a_ie(\phi_i)$, so $\ell(u_i)=a_i$ ($\cos^2+\sin^2=1$). Reverse triangle inequality \ref{bpP:p6:ext-tri}: $\abs{\ell(q_i)-a_i}\le\ell(q_i-u_i)<\sqrt2\zeta$. For $i\ne j$: $\ell(q_j-q_i)\ge\ell(u_j-u_i)-\ell(q_j-u_j)-\ell(q_i-u_i)>\ell(u_j-u_i)-2\sqrt2\zeta$ and $\ell(q_j-q_i)<\ell(u_j-u_i)+2\sqrt2\zeta$; finally $\abs{a_j-a_i}=\abs{\ell(u_j)-\ell(u_i)}\le\ell(u_j-u_i)\le\ell(u_j)+\ell(u_i)=a_i+a_j$.
+\proofstep{(d) Numerics}\label{stepP:p6:tg-d} Since $\zeta\le\gamma_a/6$: $\sqrt2\zeta\le0.2358\,\gamma_a<\gamma_a/4$ and $2\sqrt2\zeta\le0.4715\,\gamma_a<\gamma_a/2$ (as $\sqrt2<1.4143$). As $a_i\ge\gamma_a$ and $\abs{a_i-a_j}\ge\gamma_a$: $\ell(q_i)>a_i-\gamma_a/4\ge\tfrac34\gamma_a\ge d$ and $\ell(q_j-q_i)>\gamma_a-\gamma_a/2=d$. Upper: $\ell(q_i)<a_{\max}+\gamma_a/4<D$ and $\ell(q_j-q_i)<2a_{\max}+\gamma_a/2<D$. Positivity of $d$ gives $\operatorname{NoColl}(q)$ (Definition~\ref{bpP:p0:nocoll}; $\ell(q_i-q_j)=\ell(q_j-q_i)$).
+\proofstep{(e) Exact $\mu$-independence}\label{stepP:p6:tg-e} By Lemma~\ref{bpP:p6:bary-algebra}(a), for $Q=\texttt{barycentricPositions}\,m_0\,m\,\mu\,q$: $\ell(Q_i-Q_0)=\ell(q_i)$ and $\ell(Q_j-Q_i)=\ell(q_j-q_i)$ for all planets $i\ne j$ and \emph{all} $\mu$; and $\operatorname{PairBounds}$ asks $d\le\ell(Q_l-Q_k)\le D$ for all ordered pairs $k\ne l$ of $\texttt{Fin}(n+1)$, which splits into the three cases (Sun--planet in both orders, planet--planet) covered by (d) and evenness. The fixed-Sun configuration has $Q_0=0$, $Q_i=q_i$, the same argument. No estimate $\abs{x_0}=O(\mu)$ is used; the identity $x_i-x_j=q_i-q_j$ makes the bounds independent of the position of the barycentre.
+\end{proof}
+\begin{remark}[On collision exclusion from track~I]\label{bpP:p6:vs-I}
+Track~I's lemma \Iref{bpI:p8:collision-exclusion} (distances to points that move by $\le c\abs\mu$ are bounded below by half the unperturbed distance for $\abs\mu\le\delta/2c$) and corollary \Iref{bpI:p8:min-distance} (compact collision-free sets of configurations have a positive minimal separation) are \emph{not} needed for Parts~12--13: after reducing to heliocentric coordinates $q$ the only displaced mass is the Sun, and $Q_i-Q_0=q_i$ holds exactly. They would be needed for distances to the \emph{barycentre} (not a frozen clause), for which Lemma~\ref{bpP:p6:bary-algebra}(d) gives $\ell(x_0)\le\mu\sum_im_i\ell(q_i)/m_0=O(\mu)$. The explicit constants of Definition~\ref{bpP:p6:tube-constants} replace the compactness argument of \Iref{bpI:p8:min-distance} for the same purpose on the tube.
+\end{remark}
+
+\begin{corollary}[Newton solutions staying in the tube, on any set of times]\label{bpP:p6:newton-in-tube}
+Let $z:\R\to\Ph{2n}$, $J\subset\R$, $\mu\ge0$, $0<\zeta\le\zeta_*$ with $z(t)\in U_\zeta$ and $z$ having derivative $X_{H_{\rm mov}}(z(t))$ at $t$, for all $t\in J$. Then (R1)--(R2) of Prop.~\ref{bpP:p6:reconstruction} hold, so $\texttt{IsNewtonSolutionOn}\,(G\cdot\operatorname{mass}_\mu)\,J\,Q\,V$ holds, and moreover $\operatorname{PairBounds}(d,D;Q(t))$ for every $t\in J$ with the constants of Def.~\ref{bpP:p6:tube-constants}. The analogous statement holds for $H_{\rm fix}$ with Prop.~\ref{bpP:p6:reconstruction-fixed}.
+\end{corollary}
+\begin{proof}
+(R1) is Lemma~\ref{bpP:p6:tube-geometry}(d) at each $t\in J$, (R2) is a hypothesis; apply Prop.~\ref{bpP:p6:reconstruction} and Lemma~\ref{bpP:p6:tube-geometry}(e).
+\end{proof}
+
+\subsection{Positive finite measure}\label{bpP:p6:measure}
+
+\begin{lemma}[$0<\meas S<\infty$]\label{bpP:p6:measure-positive}
+Let $G,m_0>0$, $m_i>0$, $a_i>0$, $\eta>0$.
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{finiteness}) $U_\eta$ is bounded: every $z\in U_\eta$ has $\abs{z_1}_\infty<a_{\max}+\eta$ and $\abs{z_2}_\infty<P_{\max}+\eta$, $P_{\max}=\max_im_i\sqrt{Gm_0/a_i}$. Hence every $S\subset U_\eta$ has $\meas S\le\bigl(2(a_{\max}+\eta)\bigr)^{2n}\bigl(2(P_{\max}+\eta)\bigr)^{2n}<\infty$.
+\item (\emph{positivity from the chart}) Let $\Psi$ be a $c$-chart on an open $O\subset\Ph{2n}$ with the lattice compatibility (Q1)--(Q2) of Theorem~\ref{bpP:p1:torus-transport} for $\sigma_k=0$ ($d=2n$), and let $A\subset O$ be Lebesgue measurable with $A+\iota_k=A$ for all $k\in\Z^{2n}$, and $\meas A>0$. Then $S=\Psi(A)$ is measurable and $0<\meas S=c^{2n}\meas(A\cap Q)$ ($Q$ the unit cell, Lemma~\ref{bpP:p1:liouville-lattice}); if $A$ is Borel then $S$ is Borel (the frozen \Lean{MeasurableSet}). If moreover $S\subset U_\eta$ then $0<\meas S<\infty$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p6:mp-a} For $z\in U_\eta$ pick $\phi$ with $\norm{z-\operatorname{circ}(\phi)}<\eta$. The coordinates of $\operatorname{circ}(\phi)$ are bounded by $a_i$ (position, $\abs{a_i\cos2\pi\phi_i}\le a_i$) and $m_i\sqrt{Gm_0/a_i}$ (momentum); the triangle inequality gives the bounds. So $U_\eta$ lies in a box and \ref{bpP:p6:ext-meas} gives the measure bound.
+\proofstep{(b)}\label{stepP:p6:mp-b} Lemma~\ref{bpP:p1:liouville-lattice} (with its Borel version) gives measurability, the formula and $0<\meas\Psi(A)\iff0<\meas A$; the last sentence combines with (a).
+\end{proof}
+\begin{remark}[Use]\label{bpP:p6:mp-use}
+In P-PLANAR/P-FIXED, $S$ is the image under the symplectic chart $\Phi$ of the chart-level union of whole tori of positive measure (Part~11, \Pref{bpP:p1:measure-use}; the Borel version of the union is Lemma~\ref{bpP:p1:torus-union}(B1)); the containment $S\subset U_\eta$ is the tube containment of Part~12 and the finiteness is then free.
+\end{remark}
+
+\subsection{Assembly of the physical clauses}\label{bpP:p6:assembly}
+
+\begin{proposition}[Physical clauses of $\operatorname{MovKol}$]\label{bpP:p6:movkol-assembly}
+Let $G,m_0>0$, $m_i>0$, $a_i>0$ pairwise distinct, $\eta>0$, and $\zeta_*,d,D$ as in Definition~\ref{bpP:p6:tube-constants}. Let $\mu\ge0$ and $S\subset\Ph{2n}$ satisfy:
+\begin{enumerate}[label=(S\arabic*)]
+\item $S$ is measurable and $S\subset U_{\zeta_*}$;
+\item every $z\in S$ has $w\in\R^{2n}$, $K$, $\theta$ with $K(\theta)=z$, $K(\R^{2n})\subset S$ and $\operatorname{IsPhysTorus}(H_{\rm mov},w,K)$.
+\end{enumerate}
+Then $\operatorname{MovKol}(G,m_0,m,a,\mu,\eta,d,D,S)$ (Definition~\ref{bpP:p0:movkol}). The constants $d,D$ depend on $a$ only, so in P-PLANAR they may be fixed \emph{before} $\mu_0$ and $\mu$; the dependence on the coupling is confined to (S1)--(S2).
+\end{proposition}
+\begin{proof}
+\proofstep{Tube and set}\label{stepP:p6:ma-tube} $S\subset U_{\zeta_*}\subset U_\eta$ (Lemma~\ref{bpP:p6:tube-geometry}(a)); $S$ is measurable by (S1).
+\proofstep{Collision}\label{stepP:p6:ma-coll} For $z\in S$ and $\phi\in\R^{2n}$: $K(\phi)\in K(\R^{2n})\subset S\subset U_{\zeta_*}$, so $\operatorname{NoColl}(K(\phi)_1)$ by Lemma~\ref{bpP:p6:tube-geometry}(d).
+\proofstep{Newton}\label{stepP:p6:ma-newton} Corollary~\ref{bpP:p6:orbit-transfer}(a).
+\proofstep{Pair bounds}\label{stepP:p6:ma-pair} Lemma~\ref{bpP:p6:tube-geometry}(e) at $K(\phi)$; as $\phi$ is arbitrary this covers every point $K(\phi+tw)$ of every orbit.
+\end{proof}
+
+\begin{proposition}[Physical clauses of $\operatorname{FixKol}$]\label{bpP:p6:fixkol-assembly}
+Under the same hypotheses with $H_{\rm fix}$ and $\varepsilon\in\R$ in place of $H_{\rm mov}$ and $\mu$ in (S2), $\operatorname{FixKol}(G,m_0,m,a,\varepsilon,\eta,d,D,S)$ holds. The proof is that of Prop.~\ref{bpP:p6:movkol-assembly} with Cor.~\ref{bpP:p6:orbit-transfer}(b) and the fixed-Sun case of Lemma~\ref{bpP:p6:tube-geometry}(e).
+\end{proposition}
+
+\subsection{Totality, sources, deviations, forward references}\label{bpP:p6:notes}
+
+\paragraph{Totality.} Every division by $\ell(\cdot)^3$ or $\ell(\cdot)$ is guarded by \texttt{NoCollision} or by $\ell>0$ from the Newton predicates (Remark~\ref{bpP:p0:totality}); the derivative of $H$ is used only on $W$ where $H$ is $C^\infty$ (Lemma~\ref{bpP:p6:domain}); $M_*=m_0+\mu\sum m_i>0$ and $m_i>0$ guard the barycentric divisions; $1/\ell(q_j-q_i)$ appears in the tube bounds only after $d>0$.
+
+\paragraph{Sources read.} Fej04r pp.~46--47 (Newton equations, Hamiltonian, heliocentric symplectic coordinates, reduction, formula (28) with $\mu_j,M_j$), Fej07e p.~3 (\texttt{Formule (28). Remplacer $m_im_j$ par $m_jm_k$}); the revised printing's (28) already has $m_jm_k$.
+
+\paragraph{Deviations.} (1) Fej04r works with $G=1$; $G$ is restored throughout, with the frozen $H_{\rm mov}$ (in which the Kepler part uses planet mass $m_i$, \emph{not} the reduced mass; the term $\mu\pl{p_i}^2/2m_0$ is part of the perturbation, Remark~\ref{bpP:p6:kepler-part}). (2) The tube sketch of \texttt{PLAN.md} ($\abs{q^{(i)}}\in[a_i-\eta,a_i+\eta]$, ``barycentric Sun displacement $\le\mu C$'') is replaced by the exact statement with the factor $\sqrt2$ of the max-to-Euclidean conversion (route study, \texttt{p11-route-study.md}, ``Uniform tube and pair bounds''), and the $\mu$-dependence of the barycentre is removed altogether by Lemma~\ref{bpP:p6:bary-algebra}(a). (3) The statements are for arbitrary $J\subset\R$, not only $\R$.
+
+\paragraph{Suspected source errata.} None new. Fej04r (28) was printed with $m_im_j$ in the original and corrected in Fej07e p.~3 (and in the revised printing); in the original-formula direction the reduction (Prop.~\ref{bpP:p6:reduction}(b)) shows the pair potential is $m_jm_k/\ell(X_j-X_k)$. One bookkeeping remark: Fej04r p.~46 writes $\epsilon\omega$ for the reduced symplectic form and $F$ for the Hamiltonian ``relative to $\omega$''; this is the scaling $P_i=\mu p_i$, $F_\mu=\mu H_{\rm mov}$ of Prop.~\ref{bpP:p6:reduction}(b).
+
+\paragraph{Doubts about frozen statements.} None. The frozen \texttt{IsNewtonSolution} is formulated with the actual masses and $G$, and \texttt{MovingKolmogorovSet} (c) requires \texttt{PairBounds} for the barycentric positions of every orbit point; both are proved above. Note the frozen \texttt{IsMovingSolutionOn} fixes $G=m_0=1$ (D25) while P-PLANAR keeps $G,m_0$ general; Prop.~\ref{bpP:p6:reconstruction} covers both.
+
+\paragraph{Forward references.} Part~12 (\Pref{bpP:p12:physical}, \Pref{bpP:p12:quantifiers}), Part~13 (\Pref{bpP:p13:assembly}) cite Props.~\ref{bpP:p6:movkol-assembly}, \ref{bpP:p6:fixkol-assembly} and Lemma~\ref{bpP:p6:measure-positive}; the D22/D25 additions (Part~14) cite Props.~\ref{bpP:p6:reconstruction}, \ref{bpP:p6:reconstruction-fixed} and Prop.~\ref{bpP:p6:reduction}(c). Track~I cites Lemma~\ref{bpP:p6:action-reaction} and Prop.~\ref{bpP:p6:hamilton-eqs} if it needs the planar $n$-body gradient.
+
+\paragraph{Label index.} \raggedright \texttt{bpP:p6:plane}, \texttt{domain}, \texttt{split}, \texttt{kepler-part}, \texttt{action-reaction}, \texttt{hamilton-eqs}, \texttt{nbody}, \texttt{reduction}, \texttt{bary-algebra}, \texttt{reconstruction}, \texttt{units}, \texttt{reconstruction-fixed}, \texttt{orbit-transfer}, \texttt{tube-constants}, \texttt{tube-geometry}, \texttt{vs-I}, \texttt{newton-in-tube}, \texttt{measure-positive}, \texttt{movkol-assembly}, \texttt{fixkol-assembly}. The plan's names \texttt{bpP:p6:tube-geometry}, \texttt{measure-positive} are kept; \texttt{bpP:p6:reduction} and \texttt{bpP:p6:reconstruction} are the plan's.
+\par\endgroup
