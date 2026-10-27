@@ -47,12 +47,21 @@
    "state": "active"
   },
   {
-   "id": "prover-P2-1a",
-   "kind": "Lean prover (G1 design wave 1)",
+   "id": "prover-P2-2",
+   "kind": "Lean prover (G1 design wave 2)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p2-1a",
-   "assignment": "Package P2-1a (docs/campaign/briefs/P2-1a.md)",
+   "session": "worktree /root/code/KAM-w-p2-2",
+   "assignment": "Package P2-2 (docs/campaign/briefs/P2-2.md)",
+   "state": "running"
+  },
+  {
+   "id": "prover-P2-3",
+   "kind": "Lean prover (G1 design wave 2)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-p2-3",
+   "assignment": "Package P2-3 (docs/campaign/briefs/P2-3.md)",
    "state": "running"
   }
  ],

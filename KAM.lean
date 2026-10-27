@@ -149,6 +149,7 @@ public import KAM.Head.HBounded
 public import KAM.Head.MatrixNorms
 public import KAM.Head.PhaseAverage
 public import KAM.Matrix.Bridges
+public import KAM.Matrix.Calculus
 public import KAM.Matrix.Inverse
 public import KAM.Matrix.Neumann
 public import KAM.Matrix.Norms
@@ -176,6 +177,8 @@ public import KAM.Strip.Periodic
 public import KAM.Strip.RealRestriction
 public import KAM.Strip.Regularity
 public import KAM.Strip.Taylor
+public import KAM.Torus.Basic
+public import KAM.Torus.Objects
 
 /-!
 # KAM

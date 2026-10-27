@@ -5235,9 +5235,9 @@ EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p2-aposteriori.tex#bp:p2:obj
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Torus.{tangentMat, linMat, lagrangeMat, normalMat, frameMat, normalFieldMat, symDefect, reducer, eta, etaL, etaN, errDerivMat, triangularMat, redDefect}, KAM.Torus.eta_eq_sumElim
+LEAN_NOTE: definitions per the audited Part 2/3 design (+ carrier KAM/Torus/Basic.lean, KAM/Matrix/Calculus.lean); audits docs/campaign/audits/P2-1a-audit-1.md and -audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:frozen-agreement
