@@ -50,7 +50,7 @@ TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
 LEAN_STATUS: PROVED
-LEAN_REF: KAM.Head.phase_shift
+LEAN_REF: KAM.Head.phase_shift (I-P4B) + adapter KAM.Head.shift_design
 LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4B-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
@@ -224,7 +224,7 @@ TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
 LEAN_STATUS: PROVED
-LEAN_REF: KAM.Head.mixed_difference
+LEAN_REF: KAM.Head.mixed_difference (I-P4B) + adapter KAM.Head.mixed_difference_design
 LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4B-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 

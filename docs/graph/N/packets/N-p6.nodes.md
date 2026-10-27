@@ -94,16 +94,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p6:lip-seg, bpN:p6:setting, bpN:p1:hessian-convert, bpN:p4:domains
+DEPS: stepN:p6:lip-seg, bpN:p6:setting, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p6:lip-seg | blueprint-N/parts/p6-normal-form.tex#bpN:p6:lipschitz@L47-L47 | proof step
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#bpN:p6:lipschitz@L43-L43 | conclusion is condition (N2) of the setting
-EDGE: bpN:p1:hessian-convert | blueprint-N/parts/p6-normal-form.tex#bpN:p6:lipschitz@L43-L43 | the entrywise bound M_C gives the operator-norm bound L=nM_C
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#bpN:p6:lipschitz@L43-L43 | V_rD is the domain of the Hessian and frequency bound
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p6+sol-delta-N-d
+REVIEWER: sol-delta2-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -256,9 +255,9 @@ EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-def@L72-L7
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-def@L72-L72 | Z_K
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-def@L72-L72 | the frequency omega or the decomposition of g is used directly
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-def@L72-L72 | V_rD or D_{r,s} (including shrunken widths) is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -279,7 +278,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p6:divisor, bpN:p4:projections, stepN:p6:hom-def, bpN:p4:norm, bpN:p6#data, bpN:p6:setting
+DEPS: bpN:p6:divisor, bpN:p4:projections, stepN:p6:hom-def, bpN:p4:norm, bpN:p6#data, bpN:p6:setting, bpN:p4:domains
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p6:divisor | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-norm@L74-L74 | divisor bound ¦k·omega¦>=alpha/q
@@ -288,9 +287,10 @@ EDGE: stepN:p6:hom-def | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-norm@
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-norm@L74-L74 | weighted norm sum_k ¦.¦e^{2π¦k¦_1 s}
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-norm@L74-L74 | q, abar
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-norm@L74-L74 | the frequency omega or the decomposition of g is used directly
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-norm@L74-L74 | I ranges over V_rD and the weighted bound is obtained by its supremum on that action domain
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-N-p6+sol-delta-N-d
+REVIEWER: sol-delta2-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -320,9 +320,9 @@ EDGE: stepN:p6:hom-def | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-eq@L7
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-eq@L76-L76 | Z_K
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-eq@L76-L76 | O(r,s), Fourier coefficients or weighted norms are used directly
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-eq@L76-L76 | the frequency omega or the decomposition of g is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -350,9 +350,9 @@ EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-real@L78-L
 EDGE: stepN:p6:hom-def | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-real@L78-L78 | phihat_k=fhat_k/(2πi k·omega) and xi=P_{Lambda∩Z_K} f are finite sums
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-real@L78-L78 | Z_K symmetric
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-real@L78-L78 | the frequency omega or the decomposition of g is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -411,9 +411,9 @@ EDGE: bpN:p4:bracket | blueprint-N/parts/p6-normal-form.tex#stepN:p6:bg-term@L87
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:bg-term@L87-L87 | weight (1/2)(rho/(r_j-r+rho)+sigma/(s_j-s+sigma)) of the term in ¦g¦_*
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:bg-term@L87-L87 | norms ¦g_j¦_{r_j,s_j}, ¦phi¦_{r,s}
 EDGE: bpN:p5:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:bg-term@L87-L87 | the Poisson bracket and its bilinearity/sign are used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -442,9 +442,9 @@ EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:bg-sum@L88-
 EDGE: stepN:p6:bg-term | blueprint-N/parts/p6-normal-form.tex#stepN:p6:bg-sum@L88-L88 | estimate of each term
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:bg-sum@L88-L88 | O(r,s), Fourier coefficients or weighted norms are used directly
 EDGE: bpN:p5:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:bg-sum@L88-L88 | the Poisson bracket and its bilinearity/sign are used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -545,9 +545,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-map@L112
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-map@L112-L112 | q, abar
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-map@L112-L112 | V_rD or D_{r,s} (including shrunken widths) is used directly
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-map@L112-L112 | O(r,s), Fourier coefficients or weighted norms are used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -580,9 +580,9 @@ EDGE: bpN:p4:projections | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-tayl
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-taylor@L114-L114 | V_rD or D_{r,s} (including shrunken widths) is used directly
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-taylor@L114-L114 | O(r,s), Fourier coefficients or weighted norms are used directly
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-taylor@L114-L114 | the frequency omega or the decomposition of g is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -612,9 +612,9 @@ EDGE: bpN:p5:composition-integral | blueprint-N/parts/p6-normal-form.tex#stepN:p
 EDGE: bpN:p4:projections | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-decomp@L117-L117 | f-T_K f in O(r,s)
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-decomp@L117-L117 | V_rD or D_{r,s} (including shrunken widths) is used directly
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-decomp@L117-L117 | O(r,s), Fourier coefficients or weighted norms are used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -646,9 +646,9 @@ EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-integran
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-integrand@L121-L121 | O(r,s), Fourier coefficients or weighted norms are used directly
 EDGE: bpN:p5:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-integrand@L121-L121 | the Poisson bracket and its bilinearity/sign are used directly
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-integrand@L121-L121 | Z_K, q or abar is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -682,9 +682,9 @@ EDGE: bpN:p5:composition | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-term
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-terms@L124-L124 | O(r,s), Fourier coefficients or weighted norms are used directly
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-terms@L124-L124 | V_rD or D_{r,s} (including shrunken widths) is used directly
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-terms@L124-L124 | Z_K, q or abar is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -713,9 +713,9 @@ EDGE: bpN:p5:canonical-map | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-re
 EDGE: stepN:p6:it-decomp | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-real@L126-L126 | f_+=H∘Phi-h-g_+ from the decomposition
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-real@L126-L126 | V_rD or D_{r,s} (including shrunken widths) is used directly
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-real@L126-L126 | the frequency omega or the decomposition of g is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -748,9 +748,9 @@ EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative-direct
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative-direct@L130-L130 | V_rD
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative-direct@L132-L132 | the unchanged conclusions use O(r,s) and weighted norms
 EDGE: bpN:p5:setting | blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative-direct@L132-L132 | the unchanged conclusions use the bracket, J and the scaled norm
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -784,9 +784,9 @@ EDGE: stepN:p6:it-gen | blueprint-N/parts/p6-normal-form.tex#stepN:p6:dir-use@L1
 EDGE: stepN:p6:it-real | blueprint-N/parts/p6-normal-form.tex#stepN:p6:dir-use@L136-L136 | uses reality of omega from h real
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:dir-use@L136-L136 | V_rD or D_{r,s} (including shrunken widths) is used directly
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:dir-use@L136-L136 | Z_K, q or abar is used directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -910,9 +910,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L
 EDGE: bpN:p4:projections | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L160-L160 | g_0=P_Lambda T_K f
 EDGE: bpN:p5:setting | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L162-L162 | J and the symplectic condition
 EDGE: bpN:p6:normal-form#data | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L176-L176 | the proof fixes the iteration data used in its steps
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -939,9 +939,9 @@ ROUTE_FOR: -
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-first@L178-L178 | KLr<=alpha/p carried by the setting
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-first@L178-L178 | kappa, abar, q
 EDGE: bpN:p6:normal-form#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-first@L178-L178 | V_i, f_i, g_i, Phi_i and/or eps_i use the indexing fixed at L176
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -973,9 +973,9 @@ EDGE: bpN:p6:normal-form#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-case@L184-L184 | direct use of domains, weighted norms/restriction, the decomposed norm, or the symplectic convention at this stage
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-case@L184-L184 | direct use of domains, weighted norms/restriction, the decomposed norm, or the symplectic convention at this stage
 EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-case@L180-L180 | the decomposed norm ¦g¦_* is used with g=0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1006,9 +1006,9 @@ EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-N@L186-L188
 EDGE: bpN:p6:normal-form#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-N@L186-L186 | V_i, f_i, g_i, Phi_i and/or eps_i use the indexing fixed at L176
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-N@L186-L186 | direct use of domains, weighted norms/restriction, the decomposed norm, or the symplectic convention at this stage
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-N@L186-L186 | direct use of domains, weighted norms/restriction, the decomposed norm, or the symplectic convention at this stage
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1043,9 +1043,9 @@ EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-induct@L193
 EDGE: bpN:p6:normal-form#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-induct@L191-L191 | V_i, f_i, g_i, Phi_i and/or eps_i use the indexing fixed at L176
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-induct@L194-L194 | direct use of domains, weighted norms/restriction, the decomposed norm, or the symplectic convention at this stage
 EDGE: bpN:p4:norm#monotone | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-induct@L194-L194 | direct use of domains, weighted norms/restriction, the decomposed norm, or the symplectic convention at this stage
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1081,9 +1081,9 @@ EDGE: bpN:p6:normal-form#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-concl@L200-L200 | direct use of domains, weighted norms/restriction, the decomposed norm, or the symplectic convention at this stage
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-concl@L200-L200 | direct use of domains, weighted norms/restriction, the decomposed norm, or the symplectic convention at this stage
 EDGE: bpN:p5:setting | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-concl@L200-L200 | direct use of domains, weighted norms/restriction, the decomposed norm, or the symplectic convention at this stage
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1115,9 +1115,9 @@ EDGE: stepN:p6:nf-induct | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-disp
 EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-disp@L206-L206 | 12 ln2>8 and ln2 numerics
 EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-disp@L206-L206 | kappa, abar
 EDGE: bpN:p6:normal-form#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-disp@L204-L204 | V_i, f_i, g_i, Phi_i and/or eps_i use the indexing fixed at L176
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1144,9 +1144,9 @@ ROUTE_FOR: -
 EDGE: bpN:p6:iterative | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-real@L208-L208 | (e) reality at each step
 EDGE: stepN:p6:nf-concl | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-real@L208-L208 | Psi=Phi_0∘...∘Phi_N, g=g_N, f_*=f_{N+1}
 EDGE: bpN:p6:normal-form#data | blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-real@L208-L208 | V_i, f_i, g_i, Phi_i and/or eps_i use the indexing fixed at L176
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6+sol-review-N-d
-REVIEWER: -
+REVIEWER: sol-delta-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1244,22 +1244,24 @@ CONTRACT_ID: bpN:p6:normal-form#data
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of the Normal Form Lemma; conditional iteration prescription (each step must separately be shown admissible)
 SOURCE_QUANTIFIERS: stage i and chosen losses rho_i, sigma_i
-SOURCE_CONCLUSION: fixes V_i=D_{r_i,s_i}, f_0=f, g_{-1}=0, H_i=h+g_{i-1}+f_i; an admissible Iterative-Lemma step produces Phi_i:V_{i+1}->V_i, g_i=g_{i-1}+P_Lambda T_K f_i and f_{i+1}, r_{i+1}=r_i-2rho_i, s_{i+1}=s_i-2sigma_i; eps_i=|f_i|_{V_i}, eps_0=eps; Phi_i maps V_{i+1} into D_{r_i-3rho_i/2,s_i-3sigma_i/2} and is injective on V_{i+1}
+SOURCE_CONCLUSION: fixes abar=2πalpha, kappa=2πKs; abar s=alpha kappa/K and K>=3/(πs); fixes V_i=D_{r_i,s_i}, f_0=f, g_{-1}=0, H_i=h+g_{i-1}+f_i; an admissible Iterative-Lemma step produces Phi_i:V_{i+1}->V_i, g_i=g_{i-1}+P_Lambda T_K f_i and f_{i+1}, r_{i+1}=r_i-2rho_i, s_{i+1}=s_i-2sigma_i; eps_i=|f_i|_{V_i}, eps_0=eps; Phi_i maps V_{i+1} into D_{r_i-3rho_i/2,s_i-3sigma_i/2} and is injective on V_{i+1}
 CONSTANT_SCOPE: indexing and definitions only; no admissibility asserted
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p4:domains, bpN:p4:norm, bpN:p4:projections, bpN:p6:iterative
+DEPS: bpN:p4:domains, bpN:p4:norm, bpN:p4:projections, bpN:p6:iterative, bpN:p6#data, bpN:p6:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:domains | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L176-L176 | V_i and the shrunken domains
 EDGE: bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L176-L176 | eps_i=¦f_i¦_{V_i}
 EDGE: bpN:p4:projections | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L176-L176 | g_i uses P_Lambda T_K f_i
 EDGE: bpN:p6:iterative | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L176-L176 | specifies the output of an admissible step, without claiming its hypotheses
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: new+sol-review-N-d
-REVIEWER: -
+EDGE: bpN:p6#data | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L176-L176 | abar and kappa are the Part-6 normalization data, used in the opening identities
+EDGE: bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L176-L176 | the inherited Normal Form data fixes h and the resonant setting for H_i=h+g_{i-1}+f_i
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: new+sol-delta-N-d
+REVIEWER: sol-delta2-N-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

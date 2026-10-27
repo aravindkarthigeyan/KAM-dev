@@ -5,7 +5,7 @@
     "part": "p0",
     "lines": [
      1,
-     1000000000
+     340
     ]
    },
    {
@@ -188,10 +188,31 @@
   "nodes": 65,
   "coverage": 77
  },
+ "N-p12": {
+  "ranges": [
+   {
+    "part": "p0",
+    "lines": [
+     341,
+     1000000000
+    ]
+   },
+   {
+    "part": "p12",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p12",
+  "nodes": 83,
+  "coverage": 120
+ },
  "N-imports": {
   "imports": true,
   "extractor": "claude-suborch-INP",
-  "nodes": 18,
-  "coverage": 18
+  "nodes": 21,
+  "coverage": 21
  }
 }
