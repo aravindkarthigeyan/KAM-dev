@@ -1,13 +1,23 @@
 {
  "workers": [
   {
+   "id": "suborch-INP",
+   "kind": "sub-orchestrator (D23)",
+   "model": "Claude Opus 5.5",
+   "account": "claude-8",
+   "session": "kam-suborch",
+   "assignment": "Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns",
+   "branch": "inp",
+   "state": "active"
+  },
+  {
    "id": "track-N",
    "kind": "Phase 0 (Codex)",
    "model": "GPT-6-Astra high",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N additions Phase 0 (D22): N-PARTIAL-CONVEX, N-AVERAGING",
-   "state": "running"
+   "assignment": "Track N additions Phase 0 (D22): drafted (READY additions-N, d7ad21c); draft under audit",
+   "state": "done"
   },
   {
    "id": "track-P",
@@ -15,7 +25,52 @@
    "model": "GPT-6-Astra high",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P additions Phase 0 (D22): P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX",
+   "assignment": "Track P additions Phase 0 (D22): drafted (READY additions-P); draft under audit",
+   "state": "done"
+  },
+  {
+   "id": "audit-add-P",
+   "kind": "statement audit (Codex)",
+   "model": "GPT-6.1-Sol high",
+   "account": "codex-1",
+   "session": "inp-audit-p",
+   "assignment": "Independent statement audit of the track-P D22 additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX)",
+   "state": "running"
+  },
+  {
+   "id": "audit-add-N",
+   "kind": "statement audit (Codex)",
+   "model": "GPT-6.1-Sol high",
+   "account": "codex-4",
+   "session": "inp-audit-n",
+   "assignment": "Independent statement audit of the track-N D22 additions (N-PARTIAL-CONVEX, N-AVERAGING)",
+   "state": "running"
+  },
+  {
+   "id": "bpI-p0",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track I blueprint: Part 0 (conventions, frozen statements) and part plan",
+   "state": "running"
+  },
+  {
+   "id": "bpN-p0",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track N blueprint: Part 0 (conventions, frozen statements) and part plan",
+   "state": "running"
+  },
+  {
+   "id": "bpP-p0",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track P blueprint: Part 0 (conventions, frozen statements) and part plan",
    "state": "running"
   }
  ]
