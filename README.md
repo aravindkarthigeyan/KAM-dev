@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 21:35 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **22,201 lines of Lean** of an estimated ≈ 155,000
+> **Last updated: 2026-10-27 21:36 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **22,201 lines of Lean** of an estimated ≈ 155,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 21:35 UTC from `main` at `79cc339` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 21:36 UTC from `main` at `37c34d0` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 21:36 | `37c34d0` | Part 4 design audit brief |
+| 2026-10-27 21:36 | `ea80dea` | Overnight log: Part 4 design adopted (GValid premise, for owner confirmation) |
+| 2026-10-27 21:36 | `0ecfbec` | Land k/design4 into main |
 | 2026-10-27 21:35 | `79cc339` | I-STRIP-3 done by Zohar; I-STRIP-3b ports the operator node and the Part 2 corollary onto his names (overnight log) |
 | 2026-10-27 21:34 | `2a79542` | Land inp into main |
 | 2026-10-27 21:34 | `ee902e2` | P2-5 (frequency, frame bounds) and P2-6 (frame identities) landed; audits PASS WITH NOTES / PASS |
@@ -311,9 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 21:27 | `bc93762` | Land k/p4b into main |
 | 2026-10-27 21:26 | `48775fb` | Overnight log: overlapping packages |
 | 2026-10-27 21:25 | `7630a49` | Brief for P2-7 (exactness; geometry steps ahead of the cohomological gate) |
-| 2026-10-27 21:24 | `2a571ab` | Brief for P2-10 (perturbation of frame and torsion) |
-| 2026-10-27 21:19 | `a6ac5f5` | Overnight log: P3-0 split |
-| 2026-10-27 21:19 | `98f44b6` | Brief for P3-0 (Part 3 standing data and constants, split from P3-1) |
 <!-- /AUTO:landed -->
 
 ## Decisions
