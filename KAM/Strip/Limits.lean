@@ -126,7 +126,8 @@ theorem isRealOnReals_iff_im {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n 
 /-- Blueprint `bp:p1:uniform-limits`, step `step:p1:ul-primary` (realness). If `0 < r`, every
 `K_s` is real on reals and `K_s → K` pointwise on `T_r` (which contains `ℝⁿ`), then `K` is real on
 reals: the limit of points of the closed set `ℝⁿ × ℝⁿ` lies in it. The hypothesis `0 < r` is the
-standing convention that strips have positive width; without it `T_r` has no real points. -/
+standing convention that strips have positive width; without it, and for `n ≥ 1`, `T_r` has no
+real points. -/
 theorem uniform_limits_isRealOnReals {r : ℝ} (hr : 0 < r)
     {K : ℕ → (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)}
     {K₀ : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)}
