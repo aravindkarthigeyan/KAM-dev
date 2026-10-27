@@ -26,9 +26,9 @@ EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p5-confinement.tex#bpI:
 EDGE: bpI:p0:hamiltonian#hamiltonianVectorFieldC | blueprint-I/parts/p5-confinement.tex#bpI:p5:real-ham@L37-L37 | X_H the complex Hamiltonian field in (b)
 EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p5-confinement.tex#bpI:p5:real-ham@L39-L39 | predicate in (c)
 EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#bpI:p5:real-ham@L39-L39 | IsSolIn in (c)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -54,9 +54,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-values@L46-L46 | iota, U, T_{s_0}, B_{r_0} and the reality hypotheses of f and h
 EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-values@L46-L46 | H_R is the real part of H, which equals the real value
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -83,9 +83,9 @@ ROUTE_FOR: -
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-smooth@L47-L47 | H=h+f holomorphic on the open set T_{s_0} x B_{r_0}
 EDGE: stepI:p5:rh-values | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-smooth@L47-L47 | H_R is the composition of H with the inclusion (values step)
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-smooth@L47-L47 | holomorphic implies C^infty
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -117,9 +117,9 @@ EDGE: K:bp:p1:hamiltonian-real | blueprint-I/parts/p5-confinement.tex#stepI:p5:r
 EDGE: N:bpN:p3:ham-reduction | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-field@L48-L48 | (c) with U:=B, W=R^2 x U
 EDGE: N:bpN:p3:ham-periodic | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-field@L48-L48 | periodicity of X_R
 EDGE: stepI:p5:rh-values | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-field@L48-L48 | H_R agrees with Re H on the real open neighbourhood for the K field lemma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -146,9 +146,9 @@ ROUTE_FOR: -
 EDGE: bpI:p3:hypothesis-d | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-deriv@L49-L49 | norm{Df(z)} <= F_1 epsilon on frak D
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-deriv@L49-L49 | B subset B_{r_0/2}, r_0 > 0, f and epsilon as in I-HEAD
 EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-deriv@L49-L49 | frak D = T_{s/2} x B_{r_0/2} and F_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -238,9 +238,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#bpI:p5:patch-con
 EDGE: bpI:p5:ext-top | blueprint-I/parts/p5-confinement.tex#bpI:p5:patch-const@L70-L70 | compact image, positive distance of compact and closed sets, attained maxima
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#bpI:p5:patch-const@L68-L77 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#bpI:p5:patch-const@L68-L77 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -300,9 +300,9 @@ EDGE: bpI:p5:eps0 | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-graph#data@L
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-graph#data@L90-L90 | f, epsilon, h as in I-HEAD
 EDGE: K:bp:p1:real-restriction | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-graph#data@L90-L90 | real restriction of holomorphic K_pm is real-analytic
 EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-graph#data@L90-L90 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -337,9 +337,9 @@ EDGE: bpI:p3:uniform | blueprint-I/parts/p5-confinement.tex#bpI:p5:graph@L92-L99
 EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#bpI:p5:graph@L92-L99 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#bpI:p5:graph@L92-L99 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#bpI:p5:graph@L92-L99 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -371,9 +371,9 @@ EDGE: K:bp:p1:ext-mvt | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-contr@L
 EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-contr@L101-L101 | rho_infty
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-contr@L101-L101 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p3:uniform | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-contr@L101-L101 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -401,9 +401,9 @@ EDGE: stepI:p5:gr-contr | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-bij@L
 EDGE: K:bp:p1:ext-banach | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-bij@L102-L102 | Banach fixed point theorem (alias of bpI:p5:ext-banach)
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-bij@L102-L102 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-bij@L102-L102 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -432,9 +432,9 @@ EDGE: bpI:p3:tori | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-graph@L103-
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-graph@L103-L103 | k_pm, T_pm
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-graph@L103-L103 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p3:uniform | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-graph@L103-L103 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -469,9 +469,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-energy@L
 EDGE: bpI:p3:uniform | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-energy@L104-L104 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-energy@L104-L104 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-energy@L104-L104 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -503,9 +503,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L108-L108 | T_pm
 EDGE: bpI:p5:real-ham | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L108-L108 | X_R and W_B
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L107-L109 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -535,9 +535,9 @@ EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-inc
 EDGE: bpI:p5:eps0 | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-incl@L111-L111 | smallness in epsilon_0 used
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-incl@L111-L111 | k_pm
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-incl@L111-L111 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -569,9 +569,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-sol@L
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-sol@L112-L112 | k_pm
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-sol@L112-L112 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-sol@L112-L112 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -602,9 +602,9 @@ EDGE: bpN:p3:gen-invariant | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-u
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-uniq@L113-L113 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-uniq@L113-L113 | objects or constants of this package occur in the local claim or its proof
 EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-uniq@L113-L113 | restrict w from R to J' before applying arbitrary-interval uniqueness
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -636,9 +636,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#bpI:p5:energy-coor
 EDGE: bpI:p5:real-ham | blueprint-I/parts/p5-confinement.tex#bpI:p5:energy-coordinate@L120-L120 | H_R and f of the setting
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#bpI:p5:energy-coordinate@L119-L122 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#bpI:p5:energy-coordinate@L119-L122 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -667,9 +667,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-redu
 EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-reduce@L124-L124 | calK = Phi^{-1}(Q) subset W
 EDGE: bpI:p3:patch | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-reduce@L124-L124 | (P1): W subset B
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-reduce@L124-L124 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -702,9 +702,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-lip@L1
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-lip@L125-L125 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-lip@L125-L125 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-lip@L125-L125 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -735,9 +735,9 @@ EDGE: bpI:p5:real-ham | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-sep#data
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-sep#data@L133-L133 | m_c
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-sep#data@L131-L135 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-sep#data@L131-L135 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -772,9 +772,9 @@ EDGE: bpI:p3:uniform | blueprint-I/parts/p5-confinement.tex#bpI:p5:mu@L137-L139 
 EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#bpI:p5:mu@L137-L139 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#bpI:p5:mu@L137-L139 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p5-confinement.tex#bpI:p5:mu@L137-L139 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -804,9 +804,9 @@ EDGE: bpI:p3:chart | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-cont@L141-
 EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-cont@L141-L141 | calN subset W
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-cont@L141-L141 | definition of mu_pm
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-cont@L141-L141 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -843,9 +843,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-lip@
 EDGE: bpI:p3:patch-rays | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-lip@L142-L142 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-lip@L142-L142 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-lip@L142-L142 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -876,9 +876,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-order@L1
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-order@L143-L143 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-order@L143-L143 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-order@L143-L143 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -915,9 +915,9 @@ EDGE: bpI:p5:eps0 | blueprint-I/parts/p5-confinement.tex#bpI:p5:separation@L147-
 EDGE: bpI:p5:real-ham | blueprint-I/parts/p5-confinement.tex#bpI:p5:separation@L147-L147 | H_R, X_R, W_B
 EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#bpI:p5:separation@L151-L151 | IsSolIn
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#bpI:p5:separation@L146-L153 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -946,9 +946,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-open
 EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-open@L155-L155 | Omega open subset of W subset U_c
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-open@L155-L155 | definition of calV
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-open@L155-L155 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -980,9 +980,9 @@ EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-i
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-init@L156-L156 | calV
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-init@L156-L156 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-init@L156-L156 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1011,9 +1011,9 @@ EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-clos
 EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-closure@L157-L157 | Omega subset calK
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-closure@L157-L157 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-closure@L157-L157 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1044,9 +1044,9 @@ EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-win
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-window@L158-L158 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-window@L158-L158 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-window@L158-L158 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1067,7 +1067,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p5:sp-closure, bpI:p5:mu, stepI:p5:sp-window, bpI:p5:graph, bpI:p5:energy-coordinate, bpI:p3:chart, bpI:p5:patch-const, bpI:p5:ext-top, bpI:p5:sec-sep#data, bpI:p5:sec-patch#data, bpI:p3:setting, bpI:p3:coordinates, stepI:p5:sp-open
+DEPS: stepI:p5:sp-closure, bpI:p5:mu, stepI:p5:sp-window, bpI:p5:graph, bpI:p5:energy-coordinate, bpI:p3:chart, bpI:p5:patch-const, bpI:p5:ext-top, bpI:p5:sec-sep#data, bpI:p5:sec-patch#data, bpI:p3:setting, bpI:p3:coordinates, stepI:p5:sp-open, bpI:p5:eps0
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p5:sp-closure | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L159-L159 | I in calK subset W
@@ -1083,8 +1083,9 @@ EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-b
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L159-L159 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L159-L159 | objects or constants of this package occur in the local claim or its proof
 EDGE: stepI:p5:sp-open | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L159-L159 | boundary V = closure V minus V requires the openness proved at L155
+EDGE: bpI:p5:eps0 | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L159-L159 | epsilon < epsilon_0 <= epsilon_1 <= 1 and epsilon_0 <= 1/(2 F_1 L_Phi) discharge the conditional energy-coordinate application
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p5+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1119,9 +1120,9 @@ EDGE: stepI:p5:sp-bdry | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrie
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | calV, G
 EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | IsSolIn
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@L160-L160 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1154,9 +1155,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#bpI:p5:confinement
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#bpI:p5:confinement@L172-L174 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#bpI:p5:confinement@L172-L174 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#bpI:p5:confinement@L172-L174 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1188,9 +1189,9 @@ EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-c
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-conf@L176-L176 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-conf@L176-L176 | objects or constants of this package occur in the local claim or its proof
 EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-conf@L176-L176 | objects or constants of this package occur in the local claim or its proof
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1216,15 +1217,15 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p5:real-ham | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | (c): X_R C^1 and periodic on R^2 x B
 EDGE: N:bpN:p3:gen-continuation-periodic | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | continuation for periodic fields with unbounded angles
-EDGE: stepI:p5:cf-conf | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | z(t)_2 in calK
+EDGE: stepI:p5:cf-conf | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | on the maximal interval the actions lie in Omega; with Omega subset K from sec-patch#data this supplies the compact carrier required for continuation
 EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | calK compact
 EDGE: bpI:p3:patch | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | calK subset W subset B (P1)
 EDGE: N:bpN:p3:gen-maximal | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | maximal interval (T_-,T_+)
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | objects or constants of this package occur in the local claim or its proof
-EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | objects or constants of this package occur in the local claim or its proof
+EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177 | Omega = Phi^{-1}(O) subset Phi^{-1}(Q) = K; combine with cf-conf to obtain z(t)_2 in K
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p5+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1250,9 +1251,9 @@ DEPS: bpI:p5:eps0
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p5:eps0 | blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-eps@L181-L181 | the constant epsilon_0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1312,9 +1313,9 @@ EDGE: stepI:p5:hd-fix | blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-sol@L18
 EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-sol@L183-L183 | Sol
 EDGE: N:bpN:p3:gen-maximal | blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-sol@L183-L183 | maximal solution
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-sol@L183-L183 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1344,9 +1345,9 @@ EDGE: stepI:p5:hd-sol | blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-uniq@L1
 EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-uniq@L184-L184 | Sol
 EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-uniq@L184-L184 | local I-HEAD data h, f, epsilon and action domains, standing by L29-31
 EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#stepI:p5:hd-uniq@L184-L184 | restrict the global z to (a,b) for uniqueness
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

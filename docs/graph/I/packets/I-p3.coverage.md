@@ -230,7 +230,7 @@ DISPOSITION: NODE bpI:p3:rays
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p3:ry-open
 KIND: proof-region
@@ -365,7 +365,7 @@ DISPOSITION: NODE stepI:p3:to-torsion, stepI:p3:to-torsion#p1-setting, stepI:p3:
 REASON: Map the two source routes and scope the missing Part 1 premise to the cited shortcut.
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p3:to-neumann
 KIND: proof-region
