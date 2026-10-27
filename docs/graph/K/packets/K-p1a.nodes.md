@@ -261,8 +261,8 @@ NOTE: -
 NODE: bp:p1:operator-norms
 KIND: lemma
 TITLE: Operator norms, blocks, $\Omega_0$
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L107-L111
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L113-L134
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L117-L121
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L123-L144
 CONTRACT_ID: bp:p1:operator-norms
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: max norms of Part 0 on vectors; matrices M; block matrices (A B; C D)
@@ -274,9 +274,9 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:opn-rowsum, step:p1:opn-blocks, step:p1:opn-omega
-EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L114-L114 | proof step of this result
-EDGE: step:p1:opn-blocks | blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L123-L123 | proof step of this result
-EDGE: step:p1:opn-omega | blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L128-L128 | proof step of this result
+EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L124-L124 | proof step of this result
+EDGE: step:p1:opn-blocks | blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L133-L133 | proof step of this result
+EDGE: step:p1:opn-omega | blueprint/parts/p1-analysis.tex#bp:p1:operator-norms@L138-L138 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -290,8 +290,8 @@ NOTE: -
 NODE: step:p1:opn-rowsum
 KIND: step
 TITLE: Row sums
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-rowsum@L114-L121
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-rowsum@L114-L121
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-rowsum@L124-L131
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-rowsum@L124-L131
 CONTRACT_ID: step:p1:opn-rowsum
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: M in C^{p x q}; v in C^q with |v|<=1
@@ -316,8 +316,8 @@ NOTE: -
 NODE: step:p1:opn-blocks
 KIND: step
 TITLE: Blocks
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L123-L126
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L123-L126
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L133-L136
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L133-L136
 CONTRACT_ID: step:p1:opn-blocks
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: block matrix (A B; C D) of compatible sizes; induced operator norms for max norms
@@ -329,7 +329,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:opn-rowsum
-EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L124-L124 | norm as largest row sum
+EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#step:p1:opn-blocks@L134-L134 | norm as largest row sum
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -343,8 +343,8 @@ NOTE: -
 NODE: step:p1:opn-omega
 KIND: step
 TITLE: The matrix $\Omega_0$
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L128-L133
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L128-L133
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L138-L143
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L138-L143
 CONTRACT_ID: step:p1:opn-omega
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Omega_0(a,b)=(-b,a) as defined in Part 0; induced operator norm for max norms
@@ -356,8 +356,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p0:hamiltonian#omegaZero, step:p1:opn-rowsum
-EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L129-L129 | Omega_0(a,b)=(-b,a) definition
-EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L133-L133 | norm equals largest row sum
+EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L139-L139 | Omega_0(a,b)=(-b,a) definition
+EDGE: step:p1:opn-rowsum | blueprint/parts/p1-analysis.tex#step:p1:opn-omega@L143-L143 | norm equals largest row sum
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -371,8 +371,8 @@ NOTE: -
 NODE: bp:p1:matrix-norms
 KIND: lemma
 TITLE: Max-norm matrix facts
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L136-L141
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L143-L163
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L146-L151
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L153-L173
 CONTRACT_ID: bp:p1:matrix-norms
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: norm |M|=max_i sum_j |M_ij|
@@ -384,9 +384,9 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:mn-products, step:p1:mn-transpose, step:p1:mn-signed
-EDGE: step:p1:mn-products | blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L144-L144 | proof step of this result
-EDGE: step:p1:mn-transpose | blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L150-L150 | proof step of this result
-EDGE: step:p1:mn-signed | blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L155-L155 | proof step of this result
+EDGE: step:p1:mn-products | blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L154-L154 | proof step of this result
+EDGE: step:p1:mn-transpose | blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L160-L160 | proof step of this result
+EDGE: step:p1:mn-signed | blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L165-L165 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -400,8 +400,8 @@ NOTE: -
 NODE: step:p1:mn-products
 KIND: step
 TITLE: Products
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L144-L148
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L144-L148
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L154-L158
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-products@L154-L158
 CONTRACT_ID: step:p1:mn-products
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: matrices M,N and vector v of compatible sizes; induced operator norms for max norms
@@ -413,7 +413,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p1:operator-norms
-EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:mn-products@L145-L145 | cited at this line (step; \ref{bp:p1:operator-norms})
+EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:mn-products@L155-L155 | cited at this line (step; \ref{bp:p1:operator-norms})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -427,8 +427,8 @@ NOTE: -
 NODE: step:p1:mn-transpose
 KIND: step
 TITLE: Transposes
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-transpose@L150-L153
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-transpose@L150-L153
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-transpose@L160-L163
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-transpose@L160-L163
 CONTRACT_ID: step:p1:mn-transpose
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: M an m x m' matrix
@@ -453,8 +453,8 @@ NOTE: -
 NODE: step:p1:mn-signed
 KIND: step
 TITLE: $\Omega_0$ and stacked blocks
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-signed@L155-L162
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-signed@L155-L162
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-signed@L165-L172
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:mn-signed@L165-L172
 CONTRACT_ID: step:p1:mn-signed
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Omega_0(a,b)=(-b,a) (Part 0): signed permutation matrix
@@ -466,7 +466,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p0:hamiltonian#omegaZero
-EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#step:p1:mn-signed@L156-L156 | Omega_0(a,b)=(-b,a) definition
+EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#step:p1:mn-signed@L166-L166 | Omega_0(a,b)=(-b,a) definition
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -480,8 +480,8 @@ NOTE: -
 NODE: bp:p1:neumann
 KIND: lemma
 TITLE: Neumann series
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L165-L169
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L171-L191
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L175-L179
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L181-L201
 CONTRACT_ID: bp:p1:neumann
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: A invertible; |A^-1||Delta|<=1/2; for the pointwise version A(theta), Delta(theta) matrix-valued with sup norms
@@ -493,10 +493,10 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:neu-series, step:p1:neu-inverse, step:p1:neu-difference, step:p1:neu-pointwise
-EDGE: step:p1:neu-series | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L172-L172 | proof step of this result
-EDGE: step:p1:neu-inverse | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L179-L179 | proof step of this result
-EDGE: step:p1:neu-difference | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L183-L183 | proof step of this result
-EDGE: step:p1:neu-pointwise | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L187-L187 | proof step of this result
+EDGE: step:p1:neu-series | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L182-L182 | proof step of this result
+EDGE: step:p1:neu-inverse | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L189-L189 | proof step of this result
+EDGE: step:p1:neu-difference | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L193-L193 | proof step of this result
+EDGE: step:p1:neu-pointwise | blueprint/parts/p1-analysis.tex#bp:p1:neumann@L197-L197 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -510,8 +510,8 @@ NOTE: -
 NODE: step:p1:neu-series
 KIND: step
 TITLE: The Neumann series
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L172-L177
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L172-L177
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L182-L187
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-series@L182-L187
 CONTRACT_ID: step:p1:neu-series
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: A invertible square matrix; Delta of the same size; |A^{-1}| |Delta|<=1/2; max-norm operator norms; X denotes A^{-1}Delta
@@ -523,8 +523,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p1:matrix-norms, bp:p1:operator-norms
-EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-series@L173-L173 | cited at this line (step; \ref{bp:p1:matrix-norms})
-EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-series@L176-L176 | cited at this line (step; \ref{bp:p1:operator-norms})
+EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-series@L183-L183 | cited at this line (step; \ref{bp:p1:matrix-norms})
+EDGE: bp:p1:operator-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-series@L186-L186 | cited at this line (step; \ref{bp:p1:operator-norms})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -538,8 +538,8 @@ NOTE: -
 NODE: step:p1:neu-inverse
 KIND: step
 TITLE: The inverse of $A+\Delta$
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L179-L181
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L179-L181
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L189-L191
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L189-L191
 CONTRACT_ID: step:p1:neu-inverse
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: A invertible square matrix; Delta of the same size; |A^{-1}| |Delta|<=1/2; max-norm operator norms; X=A^{-1}Delta; S=sum_{j>=0}(-X)^j
@@ -551,8 +551,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:neu-series, bp:p1:matrix-norms
-EDGE: step:p1:neu-series | blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L180-L180 | S is the inverse of I+X with norm at most 2
-EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L181-L181 | submultiplicativity
+EDGE: step:p1:neu-series | blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L190-L190 | S is the inverse of I+X with norm at most 2
+EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-inverse@L191-L191 | submultiplicativity
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -566,8 +566,8 @@ NOTE: -
 NODE: step:p1:neu-difference
 KIND: step
 TITLE: The difference
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L183-L185
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L183-L185
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L193-L195
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L193-L195
 CONTRACT_ID: step:p1:neu-difference
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: A invertible square matrix; Delta of the same size; |A^{-1}| |Delta|<=1/2; max-norm operator norms
@@ -579,8 +579,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:neu-inverse, bp:p1:matrix-norms
-EDGE: step:p1:neu-inverse | blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L184-L184 | inverse and its bound
-EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L185-L185 | submultiplicativity
+EDGE: step:p1:neu-inverse | blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L194-L194 | inverse and its bound
+EDGE: bp:p1:matrix-norms | blueprint/parts/p1-analysis.tex#step:p1:neu-difference@L195-L195 | submultiplicativity
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -594,8 +594,8 @@ NOTE: -
 NODE: step:p1:neu-pointwise
 KIND: step
 TITLE: Matrix-valued functions
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L187-L190
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L187-L190
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L197-L200
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L197-L200
 CONTRACT_ID: step:p1:neu-pointwise
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: A(theta) invertible, Delta(theta) for theta in S'; sup|A^-1| sup|Delta|<=1/2
@@ -607,8 +607,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:neu-inverse, step:p1:neu-difference
-EDGE: step:p1:neu-inverse | blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L190-L190 | conclusions applied at each theta
-EDGE: step:p1:neu-difference | blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L190-L190 | conclusions applied at each theta
+EDGE: step:p1:neu-inverse | blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L200-L200 | conclusions applied at each theta
+EDGE: step:p1:neu-difference | blueprint/parts/p1-analysis.tex#step:p1:neu-pointwise@L200-L200 | conclusions applied at each theta
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -622,8 +622,8 @@ NOTE: -
 NODE: bp:p1:real-inverse
 KIND: lemma
 TITLE: Real inverses
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L193-L196
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L198-L204
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L203-L206
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L208-L214
 CONTRACT_ID: bp:p1:real-inverse
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: A an invertible real matrix; A(theta) real for real theta and invertible
@@ -635,7 +635,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:ri-adjugate
-EDGE: step:p1:ri-adjugate | blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L199-L199 | proof step of this result
+EDGE: step:p1:ri-adjugate | blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L209-L209 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -649,8 +649,8 @@ NOTE: -
 NODE: step:p1:ri-adjugate
 KIND: step
 TITLE: Adjugate
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L199-L203
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L199-L203
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L209-L213
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L209-L213
 CONTRACT_ID: step:p1:ri-adjugate
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: A real invertible square matrix; for the pointwise clause A(theta) real at real theta and invertible
@@ -662,7 +662,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-cramer
-EDGE: bp:p1:ext-cramer | blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L202-L202 | cited at this line (step; \ref{bp:p1:ext-cramer})
+EDGE: bp:p1:ext-cramer | blueprint/parts/p1-analysis.tex#step:p1:ri-adjugate@L212-L212 | cited at this line (step; \ref{bp:p1:ext-cramer})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -676,8 +676,8 @@ NOTE: -
 NODE: bp:p1:holomorphic-regularity
 KIND: lemma
 TITLE: Derivatives of holomorphic maps
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L215-L224
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L226-L282
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L225-L234
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L236-L292
 CONTRACT_ID: bp:p1:holomorphic-regularity
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U in C^m open; F:U->W holomorphic
@@ -689,12 +689,12 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:hreg-line, step:p1:hreg-integral, step:p1:hreg-differentiate, step:p1:hreg-full, step:p1:hreg-orders, step:p1:hreg-symmetry
-EDGE: step:p1:hreg-line | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L227-L227 | proof step of this result
-EDGE: step:p1:hreg-integral | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L235-L235 | proof step of this result
-EDGE: step:p1:hreg-differentiate | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L244-L244 | proof step of this result
-EDGE: step:p1:hreg-full | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L262-L262 | proof step of this result
-EDGE: step:p1:hreg-orders | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L269-L269 | proof step of this result
-EDGE: step:p1:hreg-symmetry | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L278-L278 | proof step of this result
+EDGE: step:p1:hreg-line | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L237-L237 | proof step of this result
+EDGE: step:p1:hreg-integral | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L245-L245 | proof step of this result
+EDGE: step:p1:hreg-differentiate | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L254-L254 | proof step of this result
+EDGE: step:p1:hreg-full | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L272-L272 | proof step of this result
+EDGE: step:p1:hreg-orders | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L279-L279 | proof step of this result
+EDGE: step:p1:hreg-symmetry | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L288-L288 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -708,8 +708,8 @@ NOTE: -
 NODE: step:p1:hreg-line
 KIND: step
 TITLE: Cauchy's estimate along lines
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L227-L233
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L227-L233
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L237-L243
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L237-L243
 CONTRACT_ID: step:p1:hreg-line
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; x in U; r>0; closed P(x,r) subset U; |F|<=A there; |v|=1
@@ -721,7 +721,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-cauchy
-EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L231-L231 | cited at this line (step; \ref{bp:p1:ext-cauchy})
+EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:hreg-line@L241-L241 | cited at this line (step; \ref{bp:p1:ext-cauchy})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -735,8 +735,8 @@ NOTE: -
 NODE: step:p1:hreg-integral
 KIND: step
 TITLE: A Cauchy integral for the derivative
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L235-L242
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L235-L242
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L245-L252
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L245-L252
 CONTRACT_ID: step:p1:hreg-integral
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,3r) subset U; A=max there; |v|=1; x in P(z_0,r)
@@ -748,7 +748,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-cauchy
-EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L239-L239 | cited at this line (step; \ref{bp:p1:ext-cauchy})
+EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:hreg-integral@L249-L249 | cited at this line (step; \ref{bp:p1:ext-cauchy})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -762,8 +762,8 @@ NOTE: -
 NODE: step:p1:hreg-differentiate
 KIND: step
 TITLE: Differentiation under the integral
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L244-L260
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L244-L260
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L254-L270
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L254-L270
 CONTRACT_ID: step:p1:hreg-differentiate
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,3r) subset U; A=max there; |v|=1; x in P(z_0,r); |h|<r-|x-z_0|
@@ -775,10 +775,10 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:hreg-line, step:p1:hreg-integral, bp:p1:ext-mvt, bp:p1:ext-integral
-EDGE: step:p1:hreg-line | blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L246-L246 | line-estimate bound on DF(y)
-EDGE: step:p1:hreg-integral | blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L257-L257 | Cauchy integral for DF(x)v
-EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L251-L251 | bound on R(h,zeta)
-EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L253-L253 | dominated convergence
+EDGE: step:p1:hreg-line | blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L256-L256 | line-estimate bound on DF(y)
+EDGE: step:p1:hreg-integral | blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L267-L267 | Cauchy integral for DF(x)v
+EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L261-L261 | bound on R(h,zeta)
+EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:hreg-differentiate@L263-L263 | dominated convergence
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -792,8 +792,8 @@ NOTE: -
 NODE: step:p1:hreg-full
 KIND: step
 TITLE: The full derivative
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L262-L267
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L262-L267
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L272-L277
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L272-L277
 CONTRACT_ID: step:p1:hreg-full
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,3r) subset U
@@ -805,7 +805,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:hreg-differentiate
-EDGE: step:p1:hreg-differentiate | blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L263-L263 | cited at this line (step; \ref{step:p1:hreg-differentiate})
+EDGE: step:p1:hreg-differentiate | blueprint/parts/p1-analysis.tex#step:p1:hreg-full@L273-L273 | cited at this line (step; \ref{step:p1:hreg-differentiate})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -819,8 +819,8 @@ NOTE: -
 NODE: step:p1:hreg-orders
 KIND: step
 TITLE: All orders
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L269-L276
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L269-L276
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L279-L286
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L279-L286
 CONTRACT_ID: step:p1:hreg-orders
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic
@@ -832,7 +832,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:hreg-full
-EDGE: step:p1:hreg-full | blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L272-L272 | DF holomorphic, applied inductively to D^jF
+EDGE: step:p1:hreg-full | blueprint/parts/p1-analysis.tex#step:p1:hreg-orders@L282-L282 | DF holomorphic, applied inductively to D^jF
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -846,8 +846,8 @@ NOTE: -
 NODE: step:p1:hreg-symmetry
 KIND: step
 TITLE: Symmetry
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L278-L281
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L278-L281
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L288-L291
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L288-L291
 CONTRACT_ID: step:p1:hreg-symmetry
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic
@@ -859,8 +859,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:hreg-full, bp:p1:ext-schwarz
-EDGE: step:p1:hreg-full | blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L279-L279 | DF differentiable
-EDGE: bp:p1:ext-schwarz | blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L280-L280 | symmetry of D^2F(z)
+EDGE: step:p1:hreg-full | blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L289-L289 | DF differentiable
+EDGE: bp:p1:ext-schwarz | blueprint/parts/p1-analysis.tex#step:p1:hreg-symmetry@L290-L290 | symmetry of D^2F(z)
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -874,8 +874,8 @@ NOTE: -
 NODE: bp:p1:holomorphic-analytic
 KIND: lemma
 TITLE: Holomorphic maps are analytic
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L284-L300
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L302-L350
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L294-L310
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L312-L360
 CONTRACT_ID: bp:p1:holomorphic-analytic
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U in C^m open; F:U->W holomorphic; (a) z_0 in U, r>0 with P-bar(z_0,r) in U, A=max_{P-bar(z_0,r)}|F|; (b) U_R=U cap R^m, x_0 in U_R; W=C^p and F(U_R) in R^p for the real clause
@@ -887,11 +887,11 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:han-margin, step:p1:han-cauchy, step:p1:han-series, step:p1:han-bounds, step:p1:han-real
-EDGE: step:p1:han-margin | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L303-L303 | proof step of this result
-EDGE: step:p1:han-cauchy | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L307-L307 | proof step of this result
-EDGE: step:p1:han-series | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L321-L321 | proof step of this result
-EDGE: step:p1:han-bounds | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L333-L333 | proof step of this result
-EDGE: step:p1:han-real | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L340-L340 | proof step of this result
+EDGE: step:p1:han-margin | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L313-L313 | proof step of this result
+EDGE: step:p1:han-cauchy | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L317-L317 | proof step of this result
+EDGE: step:p1:han-series | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L331-L331 | proof step of this result
+EDGE: step:p1:han-bounds | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L343-L343 | proof step of this result
+EDGE: step:p1:han-real | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L350-L350 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -905,8 +905,8 @@ NOTE: -
 NODE: step:p1:han-margin
 KIND: step
 TITLE: A larger polydisc
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-margin@L303-L305
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-margin@L303-L305
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-margin@L313-L315
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-margin@L313-L315
 CONTRACT_ID: step:p1:han-margin
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: P-bar(z_0,r) in U compact, U open, F continuous
@@ -931,8 +931,8 @@ NOTE: -
 NODE: step:p1:han-cauchy
 KIND: step
 TITLE: Iterated Cauchy formula
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L307-L319
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L307-L319
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L317-L329
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L317-L329
 CONTRACT_ID: step:p1:han-cauchy
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,r) subset U; A=max there; r_1 is the larger radius constructed in the margin step; w in P(z_0,r); C_j the coordinate circles of radius r
@@ -944,9 +944,9 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:han-margin, bp:p1:ext-cauchy, bp:p1:ext-integral
-EDGE: step:p1:han-margin | blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L311-L311 | r_1>r so integrand holomorphic on larger disc
-EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L312-L312 | first Cauchy formula in each variable
-EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L319-L319 | Fubini
+EDGE: step:p1:han-margin | blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L321-L321 | r_1>r so integrand holomorphic on larger disc
+EDGE: bp:p1:ext-cauchy | blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L322-L322 | first Cauchy formula in each variable
+EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-cauchy@L329-L329 | Fubini
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -960,8 +960,8 @@ NOTE: -
 NODE: step:p1:han-series
 KIND: step
 TITLE: Geometric expansion
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L321-L331
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L321-L331
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L331-L341
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-series@L331-L341
 CONTRACT_ID: step:p1:han-series
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,r) subset U; A=max there; w in P(z_0,r); t=|w-z_0|/r; c_alpha denotes the displayed contour integral
@@ -973,8 +973,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:han-cauchy, bp:p1:ext-integral
-EDGE: step:p1:han-cauchy | blueprint/parts/p1-analysis.tex#step:p1:han-series@L322-L322 | iterated Cauchy formula expanded
-EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-series@L326-L326 | term-by-term integration
+EDGE: step:p1:han-cauchy | blueprint/parts/p1-analysis.tex#step:p1:han-series@L332-L332 | iterated Cauchy formula expanded
+EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-series@L336-L336 | term-by-term integration
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -988,8 +988,8 @@ NOTE: -
 NODE: step:p1:han-bounds
 KIND: step
 TITLE: Coefficient bounds
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L333-L338
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L333-L338
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L343-L348
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L343-L348
 CONTRACT_ID: step:p1:han-bounds
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; z_0 in U; r>0 with closed P(z_0,r) subset U; A=max there; c_alpha denotes the contour integral constructed in the previous step; w in P(z_0,r)
@@ -1001,8 +1001,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:han-series, bp:p1:ext-integral
-EDGE: step:p1:han-series | blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L334-L334 | coefficient formula
-EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L334-L334 | integral estimate by length times sup
+EDGE: step:p1:han-series | blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L344-L344 | coefficient formula
+EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:han-bounds@L344-L344 | integral estimate by length times sup
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1016,8 +1016,8 @@ NOTE: -
 NODE: step:p1:han-real
 KIND: step
 TITLE: Real points
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L340-L349
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L340-L349
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L350-L359
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:han-real@L350-L359
 CONTRACT_ID: step:p1:han-real
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; x_0 in U cap R^m; r>0 with closed P(x_0,r) subset U; additionally W=C^p and F real on U cap R^m for the real-coefficient clause
@@ -1029,7 +1029,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:han-bounds
-EDGE: step:p1:han-bounds | blueprint/parts/p1-analysis.tex#step:p1:han-real@L341-L341 | part (a) established
+EDGE: step:p1:han-bounds | blueprint/parts/p1-analysis.tex#step:p1:han-real@L351-L351 | part (a) established
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1043,8 +1043,8 @@ NOTE: -
 NODE: bp:p1:uniform-limits
 KIND: lemma
 TITLE: Uniform limits
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L352-L356
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L358-L390
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L362-L366
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L368-L400
 CONTRACT_ID: bp:p1:uniform-limits
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K_s holomorphic on an open set V; K_s->K pointwise; DK_s->Lambda uniformly on V; for V=T_r, every K_s primary on T_r, respectively real on reals
@@ -1056,10 +1056,10 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:ul-differences, step:p1:ul-limit, step:p1:ul-derivative, step:p1:ul-primary
-EDGE: step:p1:ul-differences | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L362-L362 | proof step of this result
-EDGE: step:p1:ul-limit | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L369-L369 | proof step of this result
-EDGE: step:p1:ul-derivative | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L376-L376 | proof step of this result
-EDGE: step:p1:ul-primary | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L384-L384 | proof step of this result
+EDGE: step:p1:ul-differences | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L372-L372 | proof step of this result
+EDGE: step:p1:ul-limit | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L379-L379 | proof step of this result
+EDGE: step:p1:ul-derivative | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L386-L386 | proof step of this result
+EDGE: step:p1:ul-primary | blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L394-L394 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1073,8 +1073,8 @@ NOTE: -
 NODE: step:p1:ul-differences
 KIND: step
 TITLE: Linearization error of the differences
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L362-L367
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L362-L367
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L372-L377
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L372-L377
 CONTRACT_ID: step:p1:ul-differences
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: V subset C^m open; W finite-dimensional complex normed; K_s:V->W holomorphic; K_s->K pointwise; DK_s->Lambda uniformly on V; eta_s=sup_V |DK_s-Lambda| for sufficiently large s; x in V; P(x,r) subset V
@@ -1086,7 +1086,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-mvt
-EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L366-L366 | cited at this line (step; \ref{bp:p1:ext-mvt})
+EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:ul-differences@L376-L376 | cited at this line (step; \ref{bp:p1:ext-mvt})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1100,8 +1100,8 @@ NOTE: -
 NODE: step:p1:ul-limit
 KIND: step
 TITLE: Passage to the limit
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L369-L374
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L369-L374
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L379-L384
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L379-L384
 CONTRACT_ID: step:p1:ul-limit
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: V subset C^m open; W finite-dimensional complex normed; K_s:V->W holomorphic; K_s->K pointwise; DK_s->Lambda uniformly on V; eta_s=sup_V |DK_s-Lambda| for sufficiently large s; x in V; P(x,r) subset V
@@ -1113,7 +1113,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:ul-differences
-EDGE: step:p1:ul-differences | blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L370-L370 | difference estimate passed to limit
+EDGE: step:p1:ul-differences | blueprint/parts/p1-analysis.tex#step:p1:ul-limit@L380-L380 | difference estimate passed to limit
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1127,8 +1127,8 @@ NOTE: -
 NODE: step:p1:ul-derivative
 KIND: step
 TITLE: Differentiability of the limit
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L376-L382
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L376-L382
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L386-L392
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L386-L392
 CONTRACT_ID: step:p1:ul-derivative
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: V subset C^m open; W finite-dimensional complex normed; K_s:V->W holomorphic; K_s->K pointwise; DK_s->Lambda uniformly on V; eta_s=sup_V |DK_s-Lambda| for sufficiently large s; x in V; P(x,r) subset V; epsilon>0
@@ -1140,7 +1140,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:ul-limit
-EDGE: step:p1:ul-limit | blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L379-L379 | cited at this line (step; \ref{step:p1:ul-limit})
+EDGE: step:p1:ul-limit | blueprint/parts/p1-analysis.tex#step:p1:ul-derivative@L389-L389 | cited at this line (step; \ref{step:p1:ul-limit})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1154,8 +1154,8 @@ NOTE: -
 NODE: step:p1:ul-primary
 KIND: step
 TITLE: Periodicity and realness
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L384-L389
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L384-L389
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L394-L399
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L394-L399
 CONTRACT_ID: step:p1:ul-primary
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: V=T_r, W=C^n x C^n; every K_s primary on T_r (resp. 1-periodic, resp. real on reals)
@@ -1167,9 +1167,9 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:domains#complexStrip
-EDGE: bp:p0:stripdata#IsPrimaryOnStrip | blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L385-L385 | primary on T_r
-EDGE: bp:p0:stripdata#IsRealOnReals | blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L388-L388 | real on reals
-EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L385-L385 | strip T_r
+EDGE: bp:p0:stripdata#IsPrimaryOnStrip | blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L395-L395 | primary on T_r
+EDGE: bp:p0:stripdata#IsRealOnReals | blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L398-L398 | real on reals
+EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#step:p1:ul-primary@L395-L395 | strip T_r
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1183,8 +1183,8 @@ NOTE: -
 NODE: bp:p1:holomorphic-inverse
 KIND: lemma
 TITLE: Holomorphic inverse
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L392-L395
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L397-L411
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L402-L405
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L407-L421
 CONTRACT_ID: bp:p1:holomorphic-inverse
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: A holomorphic matrix-valued function on an open set V with det A != 0 there
@@ -1196,8 +1196,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:hi-holomorphic, step:p1:hi-derivative
-EDGE: step:p1:hi-holomorphic | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L400-L400 | proof step of this result
-EDGE: step:p1:hi-derivative | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L406-L406 | proof step of this result
+EDGE: step:p1:hi-holomorphic | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L410-L410 | proof step of this result
+EDGE: step:p1:hi-derivative | blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L416-L416 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1211,8 +1211,8 @@ NOTE: -
 NODE: step:p1:hi-holomorphic
 KIND: step
 TITLE: Holomorphy
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L400-L404
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L400-L404
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L410-L414
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L410-L414
 CONTRACT_ID: step:p1:hi-holomorphic
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: V open; A:V->C^{p x p} holomorphic; det A nonzero on V
@@ -1224,7 +1224,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-cramer
-EDGE: bp:p1:ext-cramer | blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L401-L401 | cited at this line (step; \ref{bp:p1:ext-cramer})
+EDGE: bp:p1:ext-cramer | blueprint/parts/p1-analysis.tex#step:p1:hi-holomorphic@L411-L411 | cited at this line (step; \ref{bp:p1:ext-cramer})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1238,8 +1238,8 @@ NOTE: -
 NODE: step:p1:hi-derivative
 KIND: step
 TITLE: Derivative
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L406-L410
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L406-L410
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L416-L420
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L416-L420
 CONTRACT_ID: step:p1:hi-derivative
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: V open; A:V->C^{p x p} holomorphic; det A nonzero on V
@@ -1251,7 +1251,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:hi-holomorphic
-EDGE: step:p1:hi-holomorphic | blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L407-L407 | A^-1 differentiable so product rule applies
+EDGE: step:p1:hi-holomorphic | blueprint/parts/p1-analysis.tex#step:p1:hi-derivative@L417-L417 | A^-1 differentiable so product rule applies
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1265,8 +1265,8 @@ NOTE: -
 NODE: bp:p1:increments-open
 KIND: lemma
 TITLE: Increments on open sets
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L413-L416
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L418-L422
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L423-L426
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L428-L432
 CONTRACT_ID: bp:p1:increments-open
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: F holomorphic on open U in C^m; |DF|<=A on U; segment [z,z+w] in U
@@ -1278,7 +1278,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:io-mvt
-EDGE: step:p1:io-mvt | blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L419-L419 | proof step of this result
+EDGE: step:p1:io-mvt | blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L429-L429 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1292,8 +1292,8 @@ NOTE: -
 NODE: step:p1:io-mvt
 KIND: step
 TITLE: Mean value inequality
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L419-L421
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L419-L421
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L429-L431
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L429-L431
 CONTRACT_ID: step:p1:io-mvt
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; F:U->W holomorphic; |DF|<=A on U; [z,z+w] subset U
@@ -1305,7 +1305,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-mvt
-EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L421-L421 | cited at this line (step; \ref{bp:p1:ext-mvt})
+EDGE: bp:p1:ext-mvt | blueprint/parts/p1-analysis.tex#step:p1:io-mvt@L431-L431 | cited at this line (step; \ref{bp:p1:ext-mvt})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1319,8 +1319,8 @@ NOTE: -
 NODE: bp:p1:taylor
 KIND: lemma
 TITLE: Second-order Taylor bound
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L424-L427
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L429-L440
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L434-L437
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L439-L450
 CONTRACT_ID: bp:p1:taylor
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: F holomorphic on open U in C^m; |D^2F|<=A on U; segment [z,z+w] in U
@@ -1332,8 +1332,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:tay-lipschitz, step:p1:tay-integrate
-EDGE: step:p1:tay-lipschitz | blueprint/parts/p1-analysis.tex#bp:p1:taylor@L430-L430 | proof step of this result
-EDGE: step:p1:tay-integrate | blueprint/parts/p1-analysis.tex#bp:p1:taylor@L435-L435 | proof step of this result
+EDGE: step:p1:tay-lipschitz | blueprint/parts/p1-analysis.tex#bp:p1:taylor@L440-L440 | proof step of this result
+EDGE: step:p1:tay-integrate | blueprint/parts/p1-analysis.tex#bp:p1:taylor@L445-L445 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1347,8 +1347,8 @@ NOTE: -
 NODE: step:p1:tay-lipschitz
 KIND: step
 TITLE: The derivative along the segment
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L430-L433
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L430-L433
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L440-L443
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L440-L443
 CONTRACT_ID: step:p1:tay-lipschitz
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; |D^2F|<=A on U; [z,z+w] subset U
@@ -1360,8 +1360,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bp:p1:holomorphic-regularity, bp:p1:increments-open
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L431-L431 | cited at this line (step; \ref{bp:p1:holomorphic-regularity})
-EDGE: bp:p1:increments-open | blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L432-L432 | cited at this line (step; \ref{bp:p1:increments-open})
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L441-L441 | cited at this line (step; \ref{bp:p1:holomorphic-regularity})
+EDGE: bp:p1:increments-open | blueprint/parts/p1-analysis.tex#step:p1:tay-lipschitz@L442-L442 | cited at this line (step; \ref{bp:p1:increments-open})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1375,8 +1375,8 @@ NOTE: -
 NODE: step:p1:tay-integrate
 KIND: step
 TITLE: Integration
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L435-L439
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L435-L439
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L445-L449
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L445-L449
 CONTRACT_ID: step:p1:tay-integrate
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; F:U->W holomorphic; |D^2F|<=A on U; [z,z+w] subset U; g(t)=F(z+tw)-F(z)-t DF(z)w
@@ -1388,9 +1388,9 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:tay-lipschitz, bp:p1:holomorphic-regularity, bp:p1:ext-integral
-EDGE: step:p1:tay-lipschitz | blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L438-L438 | bound on g'
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L437-L437 | DF continuous so g is C^1
-EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L438-L438 | fundamental theorem of calculus and norm of an integral
+EDGE: step:p1:tay-lipschitz | blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L448-L448 | bound on g'
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L447-L447 | DF continuous so g is C^1
+EDGE: bp:p1:ext-integral | blueprint/parts/p1-analysis.tex#step:p1:tay-integrate@L448-L448 | fundamental theorem of calculus and norm of an integral
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1404,8 +1404,8 @@ NOTE: -
 NODE: bp:p1:cauchy-open
 KIND: lemma
 TITLE: Cauchy estimate on open sets
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L462-L467
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L469-L496
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L472-L477
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L479-L506
 CONTRACT_ID: bp:p1:cauchy-open
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: f holomorphic on open U in C^m with |f|<=A on U; closed polydisc of radius delta>0 around z lies in U
@@ -1417,10 +1417,10 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:co-first, step:p1:co-second, step:p1:co-third, step:p1:co-constants
-EDGE: step:p1:co-first | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L472-L472 | proof step of this result
-EDGE: step:p1:co-second | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L478-L478 | proof step of this result
-EDGE: step:p1:co-third | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L487-L487 | proof step of this result
-EDGE: step:p1:co-constants | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L494-L494 | proof step of this result
+EDGE: step:p1:co-first | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L482-L482 | proof step of this result
+EDGE: step:p1:co-second | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L488-L488 | proof step of this result
+EDGE: step:p1:co-third | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L497-L497 | proof step of this result
+EDGE: step:p1:co-constants | blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L504-L504 | proof step of this result
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1434,8 +1434,8 @@ NOTE: -
 NODE: step:p1:co-first
 KIND: step
 TITLE: First derivatives
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L472-L476
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L472-L476
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L482-L486
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-first@L482-L486
 CONTRACT_ID: step:p1:co-first
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
@@ -1447,7 +1447,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:hreg-line
-EDGE: step:p1:hreg-line | blueprint/parts/p1-analysis.tex#step:p1:co-first@L473-L473 | line estimate with x=z, r=delta
+EDGE: step:p1:hreg-line | blueprint/parts/p1-analysis.tex#step:p1:co-first@L483-L483 | line estimate with x=z, r=delta
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1461,8 +1461,8 @@ NOTE: -
 NODE: step:p1:co-second
 KIND: step
 TITLE: Second derivatives
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L478-L485
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L478-L485
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L488-L495
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-second@L488-L495
 CONTRACT_ID: step:p1:co-second
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
@@ -1474,8 +1474,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:co-first, bp:p1:holomorphic-regularity
-EDGE: step:p1:co-first | blueprint/parts/p1-analysis.tex#step:p1:co-second@L481-L481 | cited at this line (step; \ref{step:p1:co-first})
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:co-second@L482-L482 | cited at this line (step; \ref{bp:p1:holomorphic-regularity})
+EDGE: step:p1:co-first | blueprint/parts/p1-analysis.tex#step:p1:co-second@L491-L491 | cited at this line (step; \ref{step:p1:co-first})
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:co-second@L492-L492 | cited at this line (step; \ref{bp:p1:holomorphic-regularity})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1489,8 +1489,8 @@ NOTE: -
 NODE: step:p1:co-third
 KIND: step
 TITLE: Third derivatives
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L487-L492
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L487-L492
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L497-L502
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-third@L497-L502
 CONTRACT_ID: step:p1:co-third
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
@@ -1502,8 +1502,8 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:co-second, bp:p1:holomorphic-regularity
-EDGE: step:p1:co-second | blueprint/parts/p1-analysis.tex#step:p1:co-third@L488-L488 | cited at this line (step; \ref{step:p1:co-second})
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:co-third@L491-L491 | cited at this line (step; \ref{bp:p1:holomorphic-regularity})
+EDGE: step:p1:co-second | blueprint/parts/p1-analysis.tex#step:p1:co-third@L498-L498 | cited at this line (step; \ref{step:p1:co-second})
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p1-analysis.tex#step:p1:co-third@L501-L501 | cited at this line (step; \ref{bp:p1:holomorphic-regularity})
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1517,8 +1517,8 @@ NOTE: -
 NODE: step:p1:co-constants
 KIND: step
 TITLE: Constants
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L494-L495
-PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L494-L495
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L504-L505
+PROOF_SOURCE: blueprint/parts/p1-analysis.tex#step:p1:co-constants@L504-L505
 CONTRACT_ID: step:p1:co-constants
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^m open; W finite-dimensional complex normed; f:U->W holomorphic; delta>0; closed P(z,delta) subset U; |f|<=A on closed P(z,delta)
@@ -1530,9 +1530,9 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: step:p1:co-first, step:p1:co-second, step:p1:co-third
-EDGE: step:p1:co-first | blueprint/parts/p1-analysis.tex#step:p1:co-constants@L495-L495 | c(m,1)=1
-EDGE: step:p1:co-second | blueprint/parts/p1-analysis.tex#step:p1:co-constants@L495-L495 | c(m,2)=4
-EDGE: step:p1:co-third | blueprint/parts/p1-analysis.tex#step:p1:co-constants@L495-L495 | c(m,3)=32
+EDGE: step:p1:co-first | blueprint/parts/p1-analysis.tex#step:p1:co-constants@L505-L505 | c(m,1)=1
+EDGE: step:p1:co-second | blueprint/parts/p1-analysis.tex#step:p1:co-constants@L505-L505 | c(m,2)=4
+EDGE: step:p1:co-third | blueprint/parts/p1-analysis.tex#step:p1:co-constants@L505-L505 | c(m,3)=32
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1542,3 +1542,29 @@ LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
+
+NODE: bp:p1:ext-measure
+KIND: external
+TITLE: (E11) Lebesgue measure on products and boxes
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L98-L107
+PROOF_SOURCE: -
+CONTRACT_ID: bp:p1:ext-measure
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: d1, d2 >= 1; A, B, E measurable; E_1 subset E_2 subset ... measurable; a box prod_i [a_i,b_i]
+SOURCE_QUANTIFIERS: for all measurable A, B, E and increasing measurable sequences E_j, and all boxes
+SOURCE_CONCLUSION: Lebesgue measure on R^{d1} x R^{d2} = R^{d1+d2} is the product measure: meas(A x B) = meas A meas B and meas E = int meas(E_x) dx (Tonelli); meas(union E_j) = lim meas E_j; closed and open boxes with the same corners have measure prod (b_i - a_i), so box boundaries are null
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-main-orchestrator
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: added to the blueprint's external inputs to repair global-review finding F1 (measure-theory facts used in Parts 1 and 4); Mathlib counterparts cited at the item

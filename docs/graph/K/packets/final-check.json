@@ -1,0 +1,48 @@
+{
+ "K-p4a": [
+  "bp:p4:matrix-norms",
+  "step:p4:mn-rowsum",
+  "step:p4:slab-fubini"
+ ],
+ "K-p4b": [
+  "step:p4:hq-trivial",
+  "step:p4:head-positive",
+  "step:p4:head-positive",
+  "step:p4:head-zero",
+  "step:p4:head-zero",
+  "step:p4:mm-count",
+  "step:p4:dy-exhaust",
+  "step:p4:dy-open",
+  "step:p4:hq-cover",
+  "step:p4:hq-trivial",
+  "step:p4:ml-mixed"
+ ],
+ "K-p2a#items": [
+  "bp:p2:A1",
+  "bp:p2:A2",
+  "bp:p2:A3",
+  "bp:p2:A4",
+  "bp:p2:A5",
+  "bp:p2:A6"
+ ],
+ "K-p1a": [
+  "bp:p1:ext-measure"
+ ],
+ "K-p1a#items": [
+  "bp:p1:ext-measure"
+ ],
+ "K-p1c": [
+  "bp:p1:lip-image-product",
+  "bp:p1:mcshane",
+  "step:p1:mc-clamp"
+ ],
+ "K-p1c#items": [
+  "bp:p1:lip-image-product#product-lebesgue"
+ ],
+ "K-p2b": [
+  "step:p2:pt-twist"
+ ],
+ "K-p2b#items": [
+  "p2:perturbation-average-applicability"
+ ]
+}

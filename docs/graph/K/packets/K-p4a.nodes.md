@@ -201,17 +201,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:slab-coordinate
+DEPS: step:p4:slab-coordinate, bp:p1:ext-measure
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:slab-coordinate | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L101-L101 | dominant coordinate bound
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
-REVIEWER: sol-review-r2
+EDGE: bp:p1:ext-measure | blueprint/parts/p4-measure.tex#step:p4:slab-fubini@L95-L95 | Tonelli for the indicator of a measurable set (E11)
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4+claude-main-orchestrator
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: L96-L101 uses Fubini for the indicator of the slab intersected with a cube. E6 only explicitly provides Fubini for continuous functions on compact boxes; E8 does not provide measurable-set Fubini. The blueprint supplies no extension or slab-cover argument. Keep this as a source obligation, not a new external leaf.
+NOTE: repaired F1: uses Tonelli for the indicator of a measurable set (E11); formerly a source gap before (E11) was listed
 
 NODE: step:p4:g3-n0
 KIND: step
@@ -1347,7 +1348,7 @@ STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L518-L533
 PROOF_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L535-L544
 CONTRACT_ID: bp:p4:matrix-norms
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A in C^{p x q}; continuous A on [0,1]^n; L^0,N^0 of unperturbed
+SOURCE_HYPOTHESES: A in C^{p x q}; L^0=(Id;0), N^0=(0;Id); for the integral clause A is continuous on [0,1]^n; no epsilon bound is a premise
 SOURCE_QUANTIFIERS: A, p, q, x, y
 SOURCE_CONCLUSION: (i) row-sum norm is the operator norm, submultiplicative; (ii) |A^T|<=p|A|; (iii) |Omega_0|=|L^0|=|L^0T|=|N^0|=|N^0T|=1; (iv) dotC(x,Omega_0 y)=x^T Omega_0 y, Omega_0^T Omega_0=Id, Omega_0^2=-Id, symplecticForm(x,y)=(iota x)^T Omega_0 (iota y); (v) |int A|<=sup|A|
 CONSTANT_SCOPE: none
@@ -1355,21 +1356,20 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: step:p4:mn-rowsum, bp:p4:unperturbed, bp:p0:stripdata#dotC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero
+DEPS: step:p4:mn-rowsum, bp:p0:stripdata#dotC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p4:mn-rowsum | blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L536-L536 | proof step of this result
-EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L526-L526 | L^0,N^0
 EDGE: bp:p0:stripdata#dotC | blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L528-L528 | bilinear dot product
 EDGE: bp:p0:hamiltonian#symplecticForm | blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L530-L530 | symplecticForm
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p4-measure.tex#bp:p4:matrix-norms@L525-L525 | Omega_0
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-K-p4a
-REVIEWER: sol-review-r4
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p4a+sol-global-K
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: L^0,N^0 are identified by the notation pointer at L525-L526; their norms are computed directly at L539-L540. No application of the conditional unperturbed-torus lemma is made.
 
 NODE: step:p4:mn-rowsum
 KIND: step
@@ -1378,7 +1378,7 @@ STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L536-L543
 PROOF_SOURCE: blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L536-L543
 CONTRACT_ID: step:p4:mn-rowsum
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: matrices and vectors as in Corollary matrix-norms; for (v), A continuous on the real unit cube
+SOURCE_HYPOTHESES: A in C^{p x q}; L^0=(Id;0), N^0=(0;Id); for the integral clause A is continuous on [0,1]^n; no epsilon bound is a premise
 SOURCE_QUANTIFIERS: A, p, q
 SOURCE_CONCLUSION: (i)-(v)
 CONSTANT_SCOPE: none
@@ -1386,22 +1386,21 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p4:unperturbed, bp:p1:operator-norms, bp:p1:matrix-norms, bp:p1:ext-integral
+DEPS: bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p1:operator-norms, bp:p1:matrix-norms, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p0:hamiltonian#symplecticForm | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L541-L541 | frozen formula of symplecticForm
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L541-L541 | Omega_0
-EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L539-L539 | rows of L^0,N^0
 EDGE: bp:p1:operator-norms | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L537-L539 | Missing cited identification of row-sum and operator norms
 EDGE: bp:p1:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L537-L539 | Missing cited submultiplicativity and transpose bounds
 EDGE: bp:p1:ext-integral | blueprint/parts/p4-measure.tex#step:p4:mn-rowsum@L542-L543 | Missing explicitly cited integral norm bound
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
-REVIEWER: sol-review-r2
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-K-p4a+sol-global-K
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: L^0,N^0 are identified by the notation pointer at L525-L526; their norms are computed directly at L539-L540. No application of the conditional unperturbed-torus lemma is made.
 
 NODE: bp:p4:torsion-regular
 KIND: lemma

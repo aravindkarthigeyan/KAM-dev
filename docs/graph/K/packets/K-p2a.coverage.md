@@ -663,3 +663,58 @@ REASON: Explicit alternative via boundedness on T_{r/2} and averages.
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-r2
 REVIEWER: sol-review-r4
+
+ITEM: bp:p2:A1
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A1@L310-L310
+DISPOSITION: NODE bp:p2:admissible
+REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-global-K
+REVIEWER: -
+
+ITEM: bp:p2:A2
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A2@L311-L311
+DISPOSITION: NODE bp:p2:admissible
+REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-global-K
+REVIEWER: -
+
+ITEM: bp:p2:A3
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A3@L312-L312
+DISPOSITION: NODE bp:p2:admissible
+REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-global-K
+REVIEWER: -
+
+ITEM: bp:p2:A4
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A4@L313-L313
+DISPOSITION: NODE bp:p2:admissible
+REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-global-K
+REVIEWER: -
+
+ITEM: bp:p2:A5
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A5@L314-L314
+DISPOSITION: NODE bp:p2:admissible
+REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-global-K
+REVIEWER: -
+
+ITEM: bp:p2:A6
+KIND: definition
+SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:A6@L315-L315
+DISPOSITION: NODE bp:p2:admissible
+REASON: hypothesis-item label maps to the enclosing admissibility definition; no independent obligation
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-global-K
+REVIEWER: -
+

@@ -1131,7 +1131,9 @@ convex set $\R^n$; by Theorem~\ref{bp:p4:lip} and Lemma~\ref{bp:p4:freq-map}(v),
 by (s6) and $\gamma\le1$.
 
 \proofstep{A good action and a boundary action}\label{step:p4:ml-mixed}
-Let $I\in A_\gamma$ and $J\in Z$. Since $\infd(\cdot,B^c)$ is $1$-Lipschitz,
+Let $I\in A_\gamma$ and $J\in Z$. The function $\infd(\cdot,B^c)$ is $1$-Lipschitz: $B^c\ne\emptyset$ as $B$ is
+bounded, and for $y\in B^c$, $\infd(x,B^c)\le\abs{x-y}\le\abs{x-x'}+\abs{x'-y}$; take the infimum over $y$
+and exchange $x$, $x'$. Hence
 $\abs{I-J}\ge2\gamma-\gamma=\gamma$, and by (s7)
 $\abs{G_0(\theta,I)-G_0(\theta',J)}\le\eta_0\le\frac12\gamma\le\frac12\abs{(\theta,I)-(\theta',J)}$. Two
 boundary actions give $0$.

@@ -396,7 +396,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:ml-mixed
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1133-L1137
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:ml-mixed@L1133-L1139
 DISPOSITION: NODE step:p4:ml-mixed
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -405,7 +405,7 @@ REVIEWER: sol-review-r4
 
 ITEM: bp:p4:main-measure
 KIND: theorem
-SOURCE: blueprint/parts/p4-measure.tex#bp:p4:main-measure@L1140-L1147
+SOURCE: blueprint/parts/p4-measure.tex#bp:p4:main-measure@L1142-L1149
 DISPOSITION: NODE bp:p4:main-measure
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -414,7 +414,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:mm-extension
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-extension@L1150-L1156
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-extension@L1152-L1158
 DISPOSITION: NODE step:p4:mm-extension
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -423,7 +423,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:mm-tori
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-tori@L1158-L1160
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-tori@L1160-L1162
 DISPOSITION: NODE step:p4:mm-tori
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -432,7 +432,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:mm-complement
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-complement@L1162-L1169
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-complement@L1164-L1171
 DISPOSITION: NODE step:p4:mm-complement
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -441,7 +441,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:mm-bad
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-bad@L1171-L1175
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-bad@L1173-L1177
 DISPOSITION: NODE step:p4:mm-bad
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -450,7 +450,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:mm-count
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-count@L1177-L1183
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:mm-count@L1179-L1185
 DISPOSITION: NODE step:p4:mm-count
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -459,7 +459,7 @@ REVIEWER: sol-review-r4
 
 ITEM: bp:p4:cover-mono
 KIND: lemma
-SOURCE: blueprint/parts/p4-measure.tex#bp:p4:cover-mono@L1186-L1189
+SOURCE: blueprint/parts/p4-measure.tex#bp:p4:cover-mono@L1188-L1191
 DISPOSITION: NODE bp:p4:cover-mono
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -468,7 +468,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:cm-proof
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:cm-proof@L1192-L1197
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:cm-proof@L1194-L1199
 DISPOSITION: NODE step:p4:cm-proof
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -477,7 +477,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:head-empty
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-empty@L1201-L1202
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-empty@L1203-L1204
 DISPOSITION: NODE step:p4:head-empty
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -486,7 +486,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:head-constants
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-constants@L1204-L1212
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-constants@L1206-L1214
 DISPOSITION: NODE step:p4:head-constants
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -495,7 +495,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:head-negative
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-negative@L1214-L1216
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-negative@L1216-L1218
 DISPOSITION: NODE step:p4:head-negative
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -504,7 +504,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:head-positive
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-positive@L1218-L1224
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-positive@L1220-L1226
 DISPOSITION: NODE step:p4:head-positive
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -513,7 +513,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:head-zero
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-zero@L1226-L1229
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:head-zero@L1228-L1231
 DISPOSITION: NODE step:p4:head-zero
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -522,7 +522,7 @@ REVIEWER: sol-review-r4
 
 ITEM: bp:p4:dyadic-approx
 KIND: lemma
-SOURCE: blueprint/parts/p4-measure.tex#bp:p4:dyadic-approx@L1239-L1243
+SOURCE: blueprint/parts/p4-measure.tex#bp:p4:dyadic-approx@L1241-L1245
 DISPOSITION: NODE bp:p4:dyadic-approx
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -531,7 +531,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:dy-exhaust
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:dy-exhaust@L1246-L1252
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:dy-exhaust@L1248-L1254
 DISPOSITION: NODE step:p4:dy-exhaust
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -540,7 +540,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:dy-open
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:dy-open@L1254-L1257
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:dy-open@L1256-L1259
 DISPOSITION: NODE step:p4:dy-open
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -549,7 +549,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:dy-layer
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:dy-layer@L1259-L1265
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:dy-layer@L1261-L1267
 DISPOSITION: NODE step:p4:dy-layer
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -558,7 +558,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:hq-trivial
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-trivial@L1269-L1272
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-trivial@L1271-L1274
 DISPOSITION: NODE step:p4:hq-trivial
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -567,7 +567,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:hq-approx
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-approx@L1274-L1275
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-approx@L1276-L1277
 DISPOSITION: NODE step:p4:hq-approx
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -576,7 +576,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:hq-head
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-head@L1277-L1285
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-head@L1279-L1287
 DISPOSITION: NODE step:p4:hq-head
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -585,7 +585,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:hq-transfer
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-transfer@L1287-L1293
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-transfer@L1289-L1295
 DISPOSITION: NODE step:p4:hq-transfer
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -594,7 +594,7 @@ REVIEWER: sol-review-r4
 
 ITEM: step:p4:hq-cover
 KIND: proof-region
-SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1295-L1302
+SOURCE: blueprint/parts/p4-measure.tex#step:p4:hq-cover@L1297-L1304
 DISPOSITION: NODE step:p4:hq-cover
 REASON: labelled unit checked against the blueprint text
 COVERAGE_STATUS: REVIEWED
@@ -603,7 +603,7 @@ REVIEWER: sol-review-r4
 
 ITEM: bp:p4:deviations
 KIND: claim
-SOURCE: blueprint/parts/p4-measure.tex#bp:p4:deviations@L1320-L1341
+SOURCE: blueprint/parts/p4-measure.tex#bp:p4:deviations@L1322-L1343
 DISPOSITION: EXCLUDED
 REASON: administrative list of deviations from the sources; no proof uses it
 COVERAGE_STATUS: REVIEWED
@@ -648,7 +648,7 @@ REVIEWER: sol-review-r4
 
 ITEM: heading:bp:p4:sec-headq
 KIND: heading
-SOURCE: blueprint/parts/p4-measure.tex#bp:p4:sec-headq@L1233-L1233
+SOURCE: blueprint/parts/p4-measure.tex#bp:p4:sec-headq@L1235-L1235
 DISPOSITION: EXCLUDED
 REASON: section heading; no mathematical content
 COVERAGE_STATUS: REVIEWED
@@ -657,7 +657,7 @@ REVIEWER: sol-review-r4
 
 ITEM: heading:bp:p4:sec-notes
 KIND: heading
-SOURCE: blueprint/parts/p4-measure.tex#bp:p4:sec-notes@L1306-L1306
+SOURCE: blueprint/parts/p4-measure.tex#bp:p4:sec-notes@L1308-L1308
 DISPOSITION: EXCLUDED
 REASON: section heading; no mathematical content
 COVERAGE_STATUS: REVIEWED

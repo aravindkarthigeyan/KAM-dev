@@ -634,7 +634,7 @@ NODE: bp:p2:perturbation
 KIND: lemma
 TITLE: Perturbation of the frame and the torsion
 STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L798-L820
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L822-L878
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L822-L879
 CONTRACT_ID: bp:p2:perturbation
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: r>0, 0<δ≤1, 2δ<r; |ω|≤Θ; K holomorphic on T_r with B_β(K(θ))⊂𝔅, |DK|≤σ_K, det G≠0, |B|≤σ_B on T_r, avg T invertible with |avg T^{-1}|≤σ_T; K̃ holomorphic on T_r with |K̃−K|≤d on T_r; d<β and 2𝔪C_{ΔT}d/δ²≤1; standing data of Part 2 (via 𝔅,h,M)
@@ -901,8 +901,8 @@ NOTE: -
 NODE: step:p2:pt-twist
 KIND: step
 TITLE: Twist (integrability and invertibility before use)
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L873-L877
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L873-L877
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L873-L878
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L873-L878
 CONTRACT_ID: step:p2:pt-twist
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: r>0, 0<δ≤1, 2δ<r; |ω|≤Θ; K holomorphic on T_r with B_β(K(θ))⊂𝔅, |DK|≤σ_K, det G≠0, |B|≤σ_B on T_r, avg T invertible with |avg T^{-1}|≤σ_T; K̃ holomorphic on T_r with |K̃−K|≤d on T_r; d<β and 2𝔪C_{ΔT}d/δ²≤1; standing data of Part 2 (via 𝔅,h,M)
@@ -913,19 +913,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bp:p2:perturbation#average-applicability, bp:p1:neumann, step:p2:pt-torsion, step:p2:pt-binv, step:p2:pt-small, bp:p1:holomorphic-inverse, bp:p1:holomorphic-regularity, bp:p2:standing
+DEPS: bp:p1:neumann, step:p2:pt-torsion, step:p2:pt-binv, step:p2:pt-small, bp:p1:holomorphic-inverse, bp:p1:holomorphic-regularity, bp:p2:standing, bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:perturbation#average-applicability | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L875-L876 | the continuity-only average estimate used here lacks the periodicity premise of the cited corollary
-EDGE: bp:p1:neumann | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L877-L877 | Neumann inversion of avg T̃
-EDGE: step:p2:pt-torsion | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L875-L875 | bound T̃−T≤C_ΔTd/δ²
+EDGE: bp:p1:neumann | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L878-L878 | Neumann inversion of avg T̃
+EDGE: step:p2:pt-torsion | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L875-L876 | bound T̃−T≤C_ΔTd/δ²
 EDGE: step:p2:pt-binv | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L874 | Ñ holomorphic via det G̃≠0 (part c)
-EDGE: step:p2:pt-small | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L877-L877 | 𝔪C_ΔTd/δ²≤1/2
-EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L875 | the holomorphic new Gram matrix has nonzero determinant by (c), so its inverse and the new normal frame are holomorphic
-EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L875 | the directional derivative of the new holomorphic normal frame is holomorphic, giving holomorphy and continuity of the new torsion
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L877 | the inherited local package supplies holomorphic h on the open ambient domain when forming the new torsion
+EDGE: step:p2:pt-small | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L878-L878 | 𝔪C_ΔTd/δ²≤1/2
+EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876 | the holomorphic new Gram matrix has nonzero determinant by (c), so its inverse and the new normal frame are holomorphic
+EDGE: bp:p1:holomorphic-regularity | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876 | the directional derivative of the new holomorphic normal frame is holomorphic, giving holomorphy and continuity of the new torsion
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L878 | the inherited local package supplies holomorphic h on the open ambient domain when forming the new torsion
+EDGE: bp:p1:ext-integral | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L876-L876 | ¦avg(tilde T)-avg(T)¦ <= sup over [0,1]^n of ¦tilde T - T¦ by the norm-of-integral bound; no periodicity needed
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
+EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2+claude-main-orchestrator
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -935,8 +935,8 @@ NOTE: -
 NODE: bp:p2:step
 KIND: proposition
 TITLE: The KAM step
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:step@L883-L903
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:step@L905-L929
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:step@L884-L904
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:step@L906-L930
 CONTRACT_ID: bp:p2:step
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: r>0, 0<δ≤1, 4δ<r, β>0, 0≤ε≤1; K is (r,β,ε)-admissible; 𝔠_step ε/(γ⁴δ^{2a})≤min{1,β}; K̄ the map of bp:p2:newton-error; d:=C_ΔKε/(γ²δ^a); standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}
@@ -950,14 +950,14 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p2:st-small, step:p2:st-error, step:p2:st-ball, step:p2:st-perturb, bp:p2:newton-error, bp:p2:admissible, bp:p2:constants, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p2:st-small | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L906-L906 | proof step of this result
-EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L915-L915 | proof step of this result
-EDGE: step:p2:st-ball | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L921-L921 | proof step of this result
-EDGE: step:p2:st-perturb | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L924-L924 | proof step of this result
-EDGE: bp:p2:newton-error | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L889-L889 | K̄ is the map defined there
-EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L885-L885 | hypothesis class of K
-EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L887-L887 | 𝔠_step, C_ΔK
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L884-L884 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
+EDGE: step:p2:st-small | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L907-L907 | proof step of this result
+EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L916-L916 | proof step of this result
+EDGE: step:p2:st-ball | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L922-L922 | proof step of this result
+EDGE: step:p2:st-perturb | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L925-L925 | proof step of this result
+EDGE: bp:p2:newton-error | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L890-L890 | K̄ is the map defined there
+EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L886-L886 | hypothesis class of K
+EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L888-L888 | 𝔠_step, C_ΔK
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L885-L885 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
@@ -969,8 +969,8 @@ NOTE: -
 NODE: step:p2:st-small
 KIND: step
 TITLE: The smallness conditions used
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L906-L913
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L906-L913
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L907-L914
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L907-L914
 CONTRACT_ID: step:p2:st-small
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: standing and admissibility; 𝔠_step ε/(γ⁴δ^{2a})≤min{1,β}; Θ≥1; ϰ+1≤2a, a+2≤2a
@@ -984,8 +984,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:frequency, bp:p2:constants
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:frequency | blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L907-L907 | γ≤Θ
-EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L908-L908 | definition of 𝔠_step as a max of the three constants
+EDGE: bp:p2:frequency | blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L908-L908 | γ≤Θ
+EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L909-L909 | definition of 𝔠_step as a max of the three constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -997,8 +997,8 @@ NOTE: -
 NODE: step:p2:st-error
 KIND: step
 TITLE: Correction and new error
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L915-L919
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L915-L919
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L916-L920
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L916-L920
 CONTRACT_ID: step:p2:st-error
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 2δ<r; the smallness step; d<β
@@ -1012,9 +1012,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:correction, bp:p2:newton-error, step:p2:st-small
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:correction | blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L916-L916 | size of ΔK, periodicity and realness
-EDGE: bp:p2:newton-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L916-L916 | bound on Ē and K̄(T)⊂𝔅
-EDGE: step:p2:st-small | blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L917-L917 | hypotheses of the new-error lemma
+EDGE: bp:p2:correction | blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L917-L917 | size of ΔK, periodicity and realness
+EDGE: bp:p2:newton-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L917-L917 | bound on Ē and K̄(T)⊂𝔅
+EDGE: step:p2:st-small | blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L918-L918 | hypotheses of the new-error lemma
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1026,8 +1026,8 @@ NOTE: -
 NODE: step:p2:st-ball
 KIND: step
 TITLE: Ball margin
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L921-L922
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L921-L922
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L922-L923
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L922-L923
 CONTRACT_ID: step:p2:st-ball
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: r>0, 0<δ≤1, 4δ<r, β>0, 0≤ε≤1; K is (r,β,ε)-admissible; 𝔠_step ε/(γ⁴δ^{2a})≤min{1,β}; K̄ the map of bp:p2:newton-error; d:=C_ΔKε/(γ²δ^a); standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}
@@ -1041,9 +1041,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:admissible, step:p2:st-error, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L922-L922 | A2: β-ball around K lies in 𝔅
-EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L922-L922 | the preceding correction bound gives abs(Kbar-K)<=d in the triangle inequality
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L922-L922 | the inherited local ambient-domain package is fixed for admissibility and the A2 ball inclusion
+EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L923 | A2: β-ball around K lies in 𝔅
+EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L923 | the preceding correction bound gives abs(Kbar-K)<=d in the triangle inequality
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L923 | the inherited local ambient-domain package is fixed for admissibility and the A2 ball inclusion
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: -
@@ -1055,8 +1055,8 @@ NOTE: -
 NODE: step:p2:st-perturb
 KIND: step
 TITLE: Perturbation on the strip $T_{r-2\delta}$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L924-L928
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L924-L928
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L925-L929
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L925-L929
 CONTRACT_ID: step:p2:st-perturb
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K satisfies the hypotheses of the perturbation lemma on T_{r−2δ}; K̃:=K̄ with |K̄−K|≤d<β, 2𝔪C_ΔTd/δ²≤1; 2δ<r−2δ
@@ -1070,11 +1070,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:perturbation, bp:p2:admissible, bp:p2:frequency, step:p2:st-small, step:p2:st-error
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:perturbation | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L925-L925 | frame/torsion perturbation
-EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L925-L925 | A2–A5 supply the lemma hypotheses
-EDGE: bp:p2:frequency | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L926-L926 | ω≤Θ
-EDGE: step:p2:st-small | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L928-L928 | d<β and 2𝔪C_ΔTd/δ²≤1
-EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L926-L926 | K̄ holomorphic with K̄−K≤d
+EDGE: bp:p2:perturbation | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L926-L926 | frame/torsion perturbation
+EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L926-L926 | A2–A5 supply the lemma hypotheses
+EDGE: bp:p2:frequency | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L927-L927 | ω≤Θ
+EDGE: step:p2:st-small | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L929-L929 | d<β and 2𝔪C_ΔTd/δ²≤1
+EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L927-L927 | K̄ holomorphic with K̄−K≤d
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1086,7 +1086,7 @@ NOTE: -
 NODE: bp:p2:schedule
 KIND: definition
 TITLE: Schedule of the iteration
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:schedule@L934-L946
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:schedule@L935-L947
 PROOF_SOURCE: -
 CONTRACT_ID: bp:p2:schedule
 CONTRACT_VERSION: 1
@@ -1101,7 +1101,7 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:constants
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:schedule@L936-L936 | δ_0, C_E, C_ΔK, a
+EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:schedule@L937-L937 | δ_0, C_E, C_ΔK, a
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1113,8 +1113,8 @@ NOTE: -
 NODE: bp:p2:error-decay
 KIND: lemma
 TITLE: Decay of the errors
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L951-L956
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L958-L968
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L952-L957
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L959-L969
 CONTRACT_ID: bp:p2:error-decay
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: schedule (bp:p2:schedule); q:=2^{2a}C_E e/(γ⁴δ_0^{2a})≤1
@@ -1128,9 +1128,9 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p2:ed-errors, step:p2:ed-sums, bp:p2:schedule
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p2:ed-errors | blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L959-L959 | proof step of this result
-EDGE: step:p2:ed-sums | blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L965-L965 | proof step of this result
-EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L952-L952 | ε_s,δ_s of the schedule
+EDGE: step:p2:ed-errors | blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L960-L960 | proof step of this result
+EDGE: step:p2:ed-sums | blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L966-L966 | proof step of this result
+EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L953-L953 | ε_s,δ_s of the schedule
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1142,8 +1142,8 @@ NOTE: -
 NODE: step:p2:ed-errors
 KIND: step
 TITLE: The errors of the schedule
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L959-L963
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L959-L963
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L960-L964
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L960-L964
 CONTRACT_ID: step:p2:ed-errors
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: schedule recursion ε_{s+1}=C_Eε_s²/(γ⁴δ_s^{2a}), δ_s^{-2a}=2^{2as}δ_0^{-2a}; q≤1
@@ -1157,8 +1157,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:schedule, bp:p1:iteration
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L960-L960 | recursion for ε_s
-EDGE: bp:p1:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L962-L962 | quadratic iteration bound linear in y_0
+EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L961-L961 | recursion for ε_s
+EDGE: bp:p1:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:ed-errors@L963-L963 | quadratic iteration bound linear in y_0
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1170,8 +1170,8 @@ NOTE: -
 NODE: step:p2:ed-sums
 KIND: step
 TITLE: Sums
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-sums@L965-L967
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-sums@L965-L967
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-sums@L966-L968
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ed-sums@L966-L968
 CONTRACT_ID: step:p2:ed-sums
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: ε_s≤2^{-2as}e; δ_s=2^{-s}δ_0
@@ -1185,7 +1185,7 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p2:ed-errors
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p2:ed-errors | blueprint/parts/p2-aposteriori.tex#step:p2:ed-sums@L966-L966 | bound ε_s≤2^{-2as}e
+EDGE: step:p2:ed-errors | blueprint/parts/p2-aposteriori.tex#step:p2:ed-sums@L967-L967 | bound ε_s≤2^{-2as}e
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1197,8 +1197,8 @@ NOTE: -
 NODE: bp:p2:iteration
 KIND: proposition
 TITLE: The induction
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L970-L990
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L992-L1029
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L971-L991
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L993-L1030
 CONTRACT_ID: bp:p2:iteration
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0<ρ_∞<ρ, μ>0; K holomorphic, primary, real on reals on T_ρ; B_μ(K(θ))⊂𝔅; |DK|≤σ_K−μ; det G≠0, |B|≤σ_B−μ; avg T invertible with |avgT^{-1}|≤σ_T−μ; |E|≤e on T_ρ; e≤1 and 𝔠_* e/(γ⁴δ_0^{2a})≤1; standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}
@@ -1212,15 +1212,15 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p2:it-sums, step:p2:it-stepsmall, step:p2:it-base, step:p2:it-step, bp:p2:admissible, bp:p2:schedule, bp:p2:constants, bp:p2:objects, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L993-L993 | proof step of this result
-EDGE: step:p2:it-stepsmall | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L1008-L1008 | proof step of this result
-EDGE: step:p2:it-base | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L1016-L1016 | proof step of this result
-EDGE: step:p2:it-step | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L1020-L1020 | proof step of this result
-EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L981-L981 | admissibility of K_s
-EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L978-L978 | r_s,δ_s,ε_s,d_s
-EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L976-L976 | 𝔠_*, δ_0
-EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L973-L973 | G,B,T,E of K
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L971-L971 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
+EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L994-L994 | proof step of this result
+EDGE: step:p2:it-stepsmall | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L1009-L1009 | proof step of this result
+EDGE: step:p2:it-base | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L1017-L1017 | proof step of this result
+EDGE: step:p2:it-step | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L1021-L1021 | proof step of this result
+EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L982-L982 | admissibility of K_s
+EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L979-L979 | r_s,δ_s,ε_s,d_s
+EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L977-L977 | 𝔠_*, δ_0
+EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L974-L974 | G,B,T,E of K
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L972-L972 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
@@ -1232,8 +1232,8 @@ NOTE: -
 NODE: step:p2:it-sums
 KIND: step
 TITLE: Summed bounds
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L993-L1006
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L993-L1006
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L994-L1007
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L994-L1007
 CONTRACT_ID: step:p2:it-sums
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: γ≤Θ; 𝔠_*≥2^{2a}C_E, 𝔠_*≥2𝔠_sum/μ; a≥3; e≤1
@@ -1247,10 +1247,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:frequency, bp:p2:error-decay, bp:p2:constants, bp:p2:schedule
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:frequency | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L994-L994 | γ≤Θ
-EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L996-L996 | Σ_sε_s/δ_s^j≤2e/δ_0^j
-EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L995-L995 | 𝔠_*,𝔠_sum,a≥3
-EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L1000-L1000 | d_j of the schedule
+EDGE: bp:p2:frequency | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L995-L995 | γ≤Θ
+EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L997-L997 | Σ_sε_s/δ_s^j≤2e/δ_0^j
+EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L996-L996 | 𝔠_*,𝔠_sum,a≥3
+EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L1001-L1001 | d_j of the schedule
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1262,8 +1262,8 @@ NOTE: -
 NODE: step:p2:it-stepsmall
 KIND: step
 TITLE: Step smallness at every stage
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1008-L1014
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1008-L1014
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1009-L1015
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1009-L1015
 CONTRACT_ID: step:p2:it-stepsmall
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0<ρ_∞<ρ, μ>0; K holomorphic, primary, real on reals on T_ρ; B_μ(K(θ))⊂𝔅; |DK|≤σ_K−μ; det G≠0, |B|≤σ_B−μ; avg T invertible with |avgT^{-1}|≤σ_T−μ; |E|≤e on T_ρ; e≤1 and 𝔠_* e/(γ⁴δ_0^{2a})≤1; standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}; at stage s, induction condition (ii) is assumed when comparing mu/2 with mu-D_s, as explicitly at L1012
@@ -1277,10 +1277,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:error-decay, bp:p2:schedule, bp:p2:constants, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1009-L1009 | ε_s≤e and ε_s/δ_s^{2a}≤e/δ_0^{2a}
-EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1009-L1009 | ε_s,δ_s notation
-EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1011-L1011 | 𝔠_*≥𝔠_step max{1,2/μ}
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1009-L1014 | the inherited local package fixes gamma>0 and the parameters entering the decay and step-smallness comparison
+EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1010-L1010 | ε_s≤e and ε_s/δ_s^{2a}≤e/δ_0^{2a}
+EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1010-L1010 | ε_s,δ_s notation
+EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1012-L1012 | 𝔠_*≥𝔠_step max{1,2/μ}
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L1010-L1015 | the inherited local package fixes gamma>0 and the parameters entering the decay and step-smallness comparison
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: -
@@ -1292,8 +1292,8 @@ NOTE: -
 NODE: step:p2:it-base
 KIND: step
 TITLE: Base case
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L1016-L1018
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L1016-L1018
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L1017-L1019
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L1017-L1019
 CONTRACT_ID: step:p2:it-base
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K_0=K with the hypotheses H2–H4 of the proposition
@@ -1307,7 +1307,7 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:admissible
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L1017-L1017 | A1–A6 for K_0 from the hypotheses with margins σ−μ≤σ
+EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L1018-L1018 | A1–A6 for K_0 from the hypotheses with margins σ−μ≤σ
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1319,8 +1319,8 @@ NOTE: -
 NODE: step:p2:it-step
 KIND: step
 TITLE: Inductive step
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1020-L1028
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1020-L1028
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1021-L1029
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1021-L1029
 CONTRACT_ID: step:p2:it-step
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (i)–(v) at s; summed bounds; smallness at stage s; 4δ_s<r_s, δ_s≤1
@@ -1334,11 +1334,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:step, bp:p2:admissible, step:p2:it-stepsmall, step:p2:it-sums, bp:p2:schedule
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:step | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1021-L1021 | the KAM step produces K̄_s and its bounds
-EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1028-L1028 | A1,A3–A5 for K_{s+1}
-EDGE: step:p2:it-stepsmall | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1021-L1021 | smallness hypothesis of the step
-EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1027-L1027 | right-hand inequalities (ii)–(v)
-EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1022-L1022 | r_{s+1}=r_s−4δ_s
+EDGE: bp:p2:step | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1022-L1022 | the KAM step produces K̄_s and its bounds
+EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1029-L1029 | A1,A3–A5 for K_{s+1}
+EDGE: step:p2:it-stepsmall | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1022-L1022 | smallness hypothesis of the step
+EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1028-L1028 | right-hand inequalities (ii)–(v)
+EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1023-L1023 | r_{s+1}=r_s−4δ_s
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1350,8 +1350,8 @@ NOTE: -
 NODE: bp:p2:limit
 KIND: proposition
 TITLE: The limit torus
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1031-L1051
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1053-L1089
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1032-L1052
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1054-L1090
 CONTRACT_ID: bp:p2:limit
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting of bp:p2:iteration (0<ρ_∞<ρ, μ, K, e, γ, ω with the iteration hypotheses); K_∞:=lim K_s on T_{ρ_∞}, K_∞:=K elsewhere; standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}
@@ -1365,17 +1365,17 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p2:lim-k, step:p2:lim-dk, step:p2:lim-holo, step:p2:lim-primary, step:p2:lim-close, step:p2:lim-margins, step:p2:lim-invariance, bp:p2:iteration, bp:p2:constants, bp:p2:objects, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1054-L1054 | proof step of this result
-EDGE: step:p2:lim-dk | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1060-L1060 | proof step of this result
-EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1064-L1064 | proof step of this result
-EDGE: step:p2:lim-primary | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1070-L1070 | proof step of this result
-EDGE: step:p2:lim-close | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1074-L1074 | proof step of this result
-EDGE: step:p2:lim-margins | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1079-L1079 | proof step of this result
-EDGE: step:p2:lim-invariance | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1084-L1084 | proof step of this result
-EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1032-L1032 | the sequence K_s
-EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1042-L1042 | C_ΔK, δ_0
-EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1045-L1045 | E_∞ is the invariance error E of K_∞
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1032-L1032 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
+EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1055-L1055 | proof step of this result
+EDGE: step:p2:lim-dk | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1061-L1061 | proof step of this result
+EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1065-L1065 | proof step of this result
+EDGE: step:p2:lim-primary | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1071-L1071 | proof step of this result
+EDGE: step:p2:lim-close | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1075-L1075 | proof step of this result
+EDGE: step:p2:lim-margins | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1080-L1080 | proof step of this result
+EDGE: step:p2:lim-invariance | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1085-L1085 | proof step of this result
+EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1033-L1033 | the sequence K_s
+EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1043-L1043 | C_ΔK, δ_0
+EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1046-L1046 | E_∞ is the invariance error E of K_∞
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1033-L1033 | Part 2 standing data remain in force; the result uses this local package, restricted to its frequency/parameter components where appropriate
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
@@ -1387,8 +1387,8 @@ NOTE: -
 NODE: step:p2:lim-k
 KIND: step
 TITLE: Uniform convergence of $K_s$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1054-L1058
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1054-L1058
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1055-L1059
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1055-L1059
 CONTRACT_ID: step:p2:lim-k
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: T_{ρ_∞}⊂T_{r_s}; |K_{s+1}−K_s|≤d_s; Σd_s≤2C_ΔKe/(γ²δ_0^a)
@@ -1402,9 +1402,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:schedule, bp:p2:iteration, bp:p2:error-decay
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1055-L1055 | T_{ρ_∞}⊂T_{r_s}
-EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1056-L1056 | K_{s+1}−K_s≤d_s
-EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1057-L1057 | Σd_s finite via the sum bound with j=a
+EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1056-L1056 | T_{ρ_∞}⊂T_{r_s}
+EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1057-L1057 | K_{s+1}−K_s≤d_s
+EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1058-L1058 | Σd_s finite via the sum bound with j=a
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1416,8 +1416,8 @@ NOTE: -
 NODE: step:p2:lim-dk
 KIND: step
 TITLE: Uniform convergence of $DK_s$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1060-L1062
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1060-L1062
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1061-L1063
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1061-L1063
 CONTRACT_ID: step:p2:lim-dk
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0<ρ_∞<ρ, μ>0; K holomorphic, primary, real on reals on T_ρ; B_μ(K(θ))⊂𝔅; |DK|≤σ_K−μ; det G≠0, |B|≤σ_B−μ; avg T invertible with |avgT^{-1}|≤σ_T−μ; |E|≤e on T_ρ; e≤1 and 𝔠_* e/(γ⁴δ_0^{2a})≤1; standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}; K_s denotes the sequence constructed by the induction; K_infty is its limit when established, extended by K outside T_{rho_infty}
@@ -1431,9 +1431,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:iteration, bp:p2:error-decay, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1061-L1061 | (vi): DK_{s+1}−DK_s≤nd_s/δ_s
-EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1061-L1061 | finiteness of Σnd_s/δ_s via the sum bound with j=a+1
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1061-L1062 | the limit is in the induction setting with the local Part 2 package, which supplies gamma>0 and the fixed parameters of d_s
+EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L1062 | (vi): DK_{s+1}−DK_s≤nd_s/δ_s
+EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L1062 | finiteness of Σnd_s/δ_s via the sum bound with j=a+1
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L1063 | the limit is in the induction setting with the local Part 2 package, which supplies gamma>0 and the fixed parameters of d_s
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: -
@@ -1445,8 +1445,8 @@ NOTE: -
 NODE: step:p2:lim-holo
 KIND: step
 TITLE: Holomorphy of the limit
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1064-L1068
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1064-L1068
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1065-L1069
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1065-L1069
 CONTRACT_ID: step:p2:lim-holo
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K_s holomorphic on the open T_{ρ_∞}; K_s→K_∞ pointwise; DK_s→Λ_∞ uniformly
@@ -1460,10 +1460,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:uniform-limits, step:p2:lim-k, step:p2:lim-dk, bp:p2:iteration
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p1:uniform-limits | blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1066-L1066 | limit of holomorphic maps with uniformly convergent derivatives
-EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1065-L1065 | pointwise (uniform) limit K_∞
-EDGE: step:p2:lim-dk | blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1066-L1066 | uniform convergence DK_s→Λ_∞
-EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1065-L1065 | K_s holomorphic by (i)
+EDGE: bp:p1:uniform-limits | blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1067-L1067 | limit of holomorphic maps with uniformly convergent derivatives
+EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1066-L1066 | pointwise (uniform) limit K_∞
+EDGE: step:p2:lim-dk | blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1067-L1067 | uniform convergence DK_s→Λ_∞
+EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L1066-L1066 | K_s holomorphic by (i)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1475,8 +1475,8 @@ NOTE: -
 NODE: step:p2:lim-primary
 KIND: step
 TITLE: Primary and real
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1070-L1072
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1070-L1072
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1071-L1073
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1071-L1073
 CONTRACT_ID: step:p2:lim-primary
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0<ρ_∞<ρ, μ>0; K holomorphic, primary, real on reals on T_ρ; B_μ(K(θ))⊂𝔅; |DK|≤σ_K−μ; det G≠0, |B|≤σ_B−μ; avg T invertible with |avgT^{-1}|≤σ_T−μ; |E|≤e on T_ρ; e≤1 and 𝔠_* e/(γ⁴δ_0^{2a})≤1; standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}; K_s denotes the sequence constructed by the induction; K_infty is its limit when established, extended by K outside T_{rho_infty}
@@ -1490,11 +1490,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:iteration, bp:p1:uniform-limits, step:p2:lim-k, step:p2:lim-dk, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1072 | K_s primary and real
-EDGE: bp:p1:uniform-limits | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1072 | primary and real are preserved under uniform limits
-EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1071-L1072 | pointwise convergence to K_infty supplies the limit premise for preservation of primarity and realness
-EDGE: step:p2:lim-dk | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1072 | uniform derivative convergence supplies the remaining hypothesis of the cited uniform-limits lemma
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1071-L1072 | the local Part 2 package is inherited by the induction setting whose primary real tori are restricted here
+EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1073-L1073 | K_s primary and real
+EDGE: bp:p1:uniform-limits | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1073-L1073 | primary and real are preserved under uniform limits
+EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1073 | pointwise convergence to K_infty supplies the limit premise for preservation of primarity and realness
+EDGE: step:p2:lim-dk | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1073-L1073 | uniform derivative convergence supplies the remaining hypothesis of the cited uniform-limits lemma
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1072-L1073 | the local Part 2 package is inherited by the induction setting whose primary real tori are restricted here
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: -
@@ -1506,8 +1506,8 @@ NOTE: -
 NODE: step:p2:lim-close
 KIND: step
 TITLE: Closeness
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1074-L1077
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1074-L1077
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1078
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1078
 CONTRACT_ID: step:p2:lim-close
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0<ρ_∞<ρ, μ>0; K holomorphic, primary, real on reals on T_ρ; B_μ(K(θ))⊂𝔅; |DK|≤σ_K−μ; det G≠0, |B|≤σ_B−μ; avg T invertible with |avgT^{-1}|≤σ_T−μ; |E|≤e on T_ρ; e≤1 and 𝔠_* e/(γ⁴δ_0^{2a})≤1; standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}; K_s denotes the sequence constructed by the induction; K_infty is its limit when established, extended by K outside T_{rho_infty}
@@ -1521,10 +1521,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:iteration, step:p2:it-sums, step:p2:lim-k, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1075 | K_s−K≤D_s (ii)
-EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1075 | Σd_s≤2Θ²C_ΔKe/(γ⁴δ_0^{2a})≤μ/4
-EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1077 | uniform convergence justifies passage to the limit and L1057 supplies sum d_s<=2 C_DeltaK e/(gamma^2 delta_0^a)
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1075-L1077 | the local Part 2 package fixes the positive gamma and constants in the summed displacement bounds
+EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1076 | K_s−K≤D_s (ii)
+EDGE: step:p2:it-sums | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1076 | Σd_s≤2Θ²C_ΔKe/(γ⁴δ_0^{2a})≤μ/4
+EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1078 | uniform convergence justifies passage to the limit and L1057 supplies sum d_s<=2 C_DeltaK e/(gamma^2 delta_0^a)
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L1076-L1078 | the local Part 2 package fixes the positive gamma and constants in the summed displacement bounds
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: -
@@ -1536,8 +1536,8 @@ NOTE: -
 NODE: step:p2:lim-margins
 KIND: step
 TITLE: Margins
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1079-L1082
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1079-L1082
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1080-L1083
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1080-L1083
 CONTRACT_ID: step:p2:lim-margins
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: |K_∞−K|≤μ/4; hypothesis H2 B_μ(K(θ))⊂𝔅; |DK_s|≤σ_K−μ/2
@@ -1551,9 +1551,9 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p2:lim-close, bp:p2:iteration, step:p2:lim-holo
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p2:lim-close | blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1080-L1080 | K_∞−K≤μ/4
-EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1082-L1082 | DK_s≤σ_K−μ/2
-EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1081-L1081 | DK_∞=lim DK_s
+EDGE: step:p2:lim-close | blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1081-L1081 | K_∞−K≤μ/4
+EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1083-L1083 | DK_s≤σ_K−μ/2
+EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@L1082-L1082 | DK_∞=lim DK_s
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1565,8 +1565,8 @@ NOTE: -
 NODE: step:p2:lim-invariance
 KIND: step
 TITLE: Invariance
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1084-L1088
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1084-L1088
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1089
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1089
 CONTRACT_ID: step:p2:lim-invariance
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0<ρ_∞<ρ, μ>0; K holomorphic, primary, real on reals on T_ρ; B_μ(K(θ))⊂𝔅; |DK|≤σ_K−μ; det G≠0, |B|≤σ_B−μ; avg T invertible with |avgT^{-1}|≤σ_T−μ; |E|≤e on T_ρ; e≤1 and 𝔠_* e/(γ⁴δ_0^{2a})≤1; standing data of Part 2 (bp:p2:standing): n≥2, τ≥n−1, M,σ_K,σ_B,σ_T>0, 𝔅 open and Z^n-translation invariant, h holomorphic, 1-periodic in θ, real at real points, |X_h|,|DX_h|,|D²X_h|≤M on 𝔅, γ>0, ω∈Dio_{γ,τ}; K_s denotes the sequence constructed by the induction; K_infty is its limit when established, extended by K outside T_{rho_infty}
@@ -1580,13 +1580,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:iteration, bp:p2:error-decay, bp:p2:hamiltonian, step:p2:lim-margins, step:p2:lim-holo, step:p2:lim-k, bp:p2:standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1087-L1087 | E_s≤ε_s
-EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1088-L1088 | ε_s≤2^{-2as}e→0
-EDGE: bp:p2:hamiltonian | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1085 | X_h holomorphic hence continuous
-EDGE: step:p2:lim-margins | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1085 | K_∞(θ)∈𝔅 by the margin ball
-EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1086 | DK_s→DK_∞ pointwise
-EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1086 | K_s(theta) tends to K_infty(theta), allowing continuity of X_h to pass to the limit
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1085-L1088 | the local package supplies the open ambient domain and holomorphic X_h input used for continuity at the limiting point
+EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1088-L1088 | E_s≤ε_s
+EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1089-L1089 | ε_s≤2^{-2as}e→0
+EDGE: bp:p2:hamiltonian | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1086 | X_h holomorphic hence continuous
+EDGE: step:p2:lim-margins | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1086 | K_∞(θ)∈𝔅 by the margin ball
+EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1087-L1087 | DK_s→DK_∞ pointwise
+EDGE: step:p2:lim-k | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1087 | K_s(theta) tends to K_infty(theta), allowing continuity of X_h to pass to the limit
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance@L1086-L1089 | the local package supplies the open ambient domain and holomorphic X_h input used for continuity at the limiting point
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: -
@@ -1598,8 +1598,8 @@ NOTE: -
 NODE: bp:p2:g1
 KIND: theorem
 TITLE: G1 with explicit constants
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1094-L1107
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1109-L1142
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1095-L1108
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1110-L1143
 CONTRACT_ID: bp:p2:g1
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: n≥2, τ≥n−1, 0<ρ_∞<ρ, M,σ_K,σ_B,σ_T,μ,γ̄>0; C_1:=ρ^{4τ}max{γ̄⁴,𝔠_*δ_0^{-2a}}, C_2:=2C_ΔKρ^{2τ}δ_0^{-a}; hypotheses of bp:p0:g1 on 𝔅,h,K,ω,γ,e (including γ≤γ̄)
@@ -1613,12 +1613,12 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p2:g1-constants, step:p2:g1-standing, step:p2:g1-e, step:p2:g1-apply, step:p2:g1-check, bp:p2:constants
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p2:g1-constants | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1110-L1110 | proof step of this result
-EDGE: step:p2:g1-standing | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1115-L1115 | proof step of this result
-EDGE: step:p2:g1-e | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1121-L1121 | proof step of this result
-EDGE: step:p2:g1-apply | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1126-L1126 | proof step of this result
-EDGE: step:p2:g1-check | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1131-L1131 | proof step of this result
-EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1096-L1096 | 𝔠_*, δ_0, C_ΔK, a
+EDGE: step:p2:g1-constants | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1111-L1111 | proof step of this result
+EDGE: step:p2:g1-standing | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1116-L1116 | proof step of this result
+EDGE: step:p2:g1-e | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1122-L1122 | proof step of this result
+EDGE: step:p2:g1-apply | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1127-L1127 | proof step of this result
+EDGE: step:p2:g1-check | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1132-L1132 | proof step of this result
+EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1097-L1097 | 𝔠_*, δ_0, C_ΔK, a
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1630,8 +1630,8 @@ NOTE: -
 NODE: step:p2:g1-constants
 KIND: step
 TITLE: The constants
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1110-L1113
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1110-L1113
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1111-L1114
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1111-L1114
 CONTRACT_ID: step:p2:g1-constants
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: constants of bp:p2:constants finite and ≥1, δ_0∈(0,1], ρ>0
@@ -1645,8 +1645,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:constants, bp:p1:cohomological
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1111-L1111 | finiteness, ≥1, and dependence of the constants
-EDGE: bp:p1:cohomological | blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1113-L1113 | c(n,τ) enters through c_R
+EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1112-L1112 | finiteness, ≥1, and dependence of the constants
+EDGE: bp:p1:cohomological | blueprint/parts/p2-aposteriori.tex#step:p2:g1-constants@L1114-L1114 | c(n,τ) enters through c_R
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1658,8 +1658,8 @@ NOTE: -
 NODE: step:p2:g1-standing
 KIND: step
 TITLE: The standing assumptions
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1115-L1119
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1115-L1119
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1116-L1120
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1116-L1120
 CONTRACT_ID: step:p2:g1-standing
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: hypotheses H1 and H5 of bp:p0:g1
@@ -1673,8 +1673,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:standing, bp:p2:frozen-agreement
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1118-L1118 | H1 and H5 coincide with the standing package
-EDGE: bp:p2:frozen-agreement | blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1119-L1119 | frozen norms and objects agree with Part 2 conventions
+EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1119-L1119 | H1 and H5 coincide with the standing package
+EDGE: bp:p2:frozen-agreement | blueprint/parts/p2-aposteriori.tex#step:p2:g1-standing@L1120-L1120 | frozen norms and objects agree with Part 2 conventions
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1686,8 +1686,8 @@ NOTE: -
 NODE: step:p2:g1-e
 KIND: step
 TITLE: Size of the error
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-e@L1121-L1124
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-e@L1121-L1124
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-e@L1122-L1125
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-e@L1122-L1125
 CONTRACT_ID: step:p2:g1-e
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: T_ρ≠∅; |E|≤e on T_ρ; C_1e/(γ⁴ρ^{4τ})<1; γ≤γ̄
@@ -1701,7 +1701,7 @@ FROZEN_ABI_SHA256: -
 DEPS: step:p2:g1-constants
 ROUTES: -
 ROUTE_FOR: -
-EDGE: step:p2:g1-constants | blueprint/parts/p2-aposteriori.tex#step:p2:g1-e@L1122-L1122 | C_1≥ρ^{4τ}γ̄⁴ and C_1≥ρ^{4τ}𝔠_*δ_0^{-2a}
+EDGE: step:p2:g1-constants | blueprint/parts/p2-aposteriori.tex#step:p2:g1-e@L1123-L1123 | C_1≥ρ^{4τ}γ̄⁴ and C_1≥ρ^{4τ}𝔠_*δ_0^{-2a}
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1713,8 +1713,8 @@ NOTE: -
 NODE: step:p2:g1-apply
 KIND: step
 TITLE: Iteration and limit
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1126-L1129
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1126-L1129
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1127-L1130
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1127-L1130
 CONTRACT_ID: step:p2:g1-apply
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: H2–H4 of bp:p0:g1; e≤1 and 𝔠_*e/(γ⁴δ_0^{2a})≤1; standing data
@@ -1728,10 +1728,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:iteration, bp:p2:limit, step:p2:g1-e, step:p2:g1-standing
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1127-L1127 | the induction produces K_s
-EDGE: bp:p2:limit | blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1129-L1129 | the limit torus K_∞
-EDGE: step:p2:g1-e | blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1128-L1128 | e≤1 and 𝔠_*e/(γ⁴δ_0^{2a})<1
-EDGE: step:p2:g1-standing | blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1127-L1127 | standing package supplied (H1, H5)
+EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1128-L1128 | the induction produces K_s
+EDGE: bp:p2:limit | blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1130-L1130 | the limit torus K_∞
+EDGE: step:p2:g1-e | blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1129-L1129 | e≤1 and 𝔠_*e/(γ⁴δ_0^{2a})<1
+EDGE: step:p2:g1-standing | blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@L1128-L1128 | standing package supplied (H1, H5)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1743,8 +1743,8 @@ NOTE: -
 NODE: step:p2:g1-check
 KIND: step
 TITLE: Checking the conclusion
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1131-L1141
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1131-L1141
+STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1132-L1142
+PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1132-L1142
 CONTRACT_ID: step:p2:g1-check
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K_∞ with properties (a)–(e) of bp:p2:limit; frozen agreement
@@ -1758,10 +1758,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p2:limit, bp:p2:frozen-agreement, step:p2:g1-apply, step:p2:g1-constants
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bp:p2:limit | blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1132-L1132 | properties (a)–(e) of K_∞
-EDGE: bp:p2:frozen-agreement | blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1141-L1141 | derivative, invariance error and ball agree with the frozen ones
-EDGE: step:p2:g1-apply | blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1132-L1132 | K_∞ produced by the previous step
-EDGE: step:p2:g1-constants | blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1137-L1137 | C_2=2C_ΔKρ^{2τ}δ_0^{-a}
+EDGE: bp:p2:limit | blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1133-L1133 | properties (a)–(e) of K_∞
+EDGE: bp:p2:frozen-agreement | blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1142-L1142 | derivative, invariance error and ball agree with the frozen ones
+EDGE: step:p2:g1-apply | blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1133-L1133 | K_∞ produced by the previous step
+EDGE: step:p2:g1-constants | blueprint/parts/p2-aposteriori.tex#step:p2:g1-check@L1138-L1138 | C_2=2C_ΔKρ^{2τ}δ_0^{-a}
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
@@ -1769,31 +1769,3 @@ LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
-
-NODE: bp:p2:perturbation#average-applicability
-KIND: step
-TITLE: Continuity-only averaging estimate used by frame perturbation
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876
-PROOF_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876
-CONTRACT_ID: bp:p2:perturbation#average-applicability
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the hypotheses of bp:p2:perturbation; Ttilde and T continuous on R^n; abs(Ttilde-T)<=C_DeltaT d/delta^2 on T_{r-2delta}; no periodicity or primarity hypothesis on K or Ktilde
-SOURCE_QUANTIFIERS: the parameters and maps of bp:p2:perturbation
-SOURCE_CONCLUSION: abs(avg Ttilde-avg T)<=C_DeltaT d/delta^2, as used at L875-L876
-CONSTANT_SCOPE: C_DeltaT as in bp:p2:constants
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bp:p2:averages, step:p2:pt-torsion
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bp:p2:averages | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L875-L875 | source invokes (a), but its periodicity premise is not supplied
-EDGE: step:p2:pt-torsion | blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L876-L876 | pointwise difference bound on a strip containing the real cube
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: new+sol-review-r3
-REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: SOURCE_GAP: the literal corollary bp:p2:averages(a), L160-L162, assumes a continuous 1-periodic input. Neither K nor Ktilde is assumed primary or periodic in bp:p2:perturbation, L798-L805, and no periodicity of Ttilde-T is established. A continuity-only estimate is used at L875-L876 without a matching stated result. Do not add periodicity as a theorem hypothesis or silently replace the cited result. E6 is a possible source repair, not a proof supplied by this review.
