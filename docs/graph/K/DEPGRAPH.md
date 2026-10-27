@@ -6118,9 +6118,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:geometry@L550-L5
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.geometry
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/P2-7-audit-1.md and P2-7-audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:geo-de
@@ -6241,9 +6241,9 @@ EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:geo-omegak@L5
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.geometry (item (b) of KAM.Apost.cohomological on T_{r-δ}); Geometry.geo_omegak_inputs, geo_omegak_arith
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/P2-7-audit-1.md and P2-7-audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:geo-esym
@@ -6272,9 +6272,9 @@ EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:geo-esym@L595
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Geometry.geo_esym_le, geo_esym_arith
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/P2-7-audit-1.md and P2-7-audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:avg-deriv#real-route
@@ -9879,7 +9879,7 @@ TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
 LEAN_STATUS: PROVED
-LEAN_REF: KAM.Head.derivative_bounds
+LEAN_REF: KAM.Head.derivative_bounds (I-P4B) + design-form adapter KAM.Head.derivative_bounds_design
 LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4B-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
@@ -10847,7 +10847,7 @@ TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
 LEAN_STATUS: PROVED
-LEAN_REF: KAM.Head.torsion_regular
+LEAN_REF: KAM.Head.torsion_regular (I-P4B) + adapter KAM.Head.torsion_regular_design
 LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4B-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
@@ -11338,7 +11338,7 @@ TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
 LEAN_STATUS: PROVED
-LEAN_REF: KAM.Head.phase_shift
+LEAN_REF: KAM.Head.phase_shift (I-P4B) + adapter KAM.Head.shift_design
 LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4B-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
@@ -11512,7 +11512,7 @@ TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
 LEAN_STATUS: PROVED
-LEAN_REF: KAM.Head.mixed_difference
+LEAN_REF: KAM.Head.mixed_difference (I-P4B) + adapter KAM.Head.mixed_difference_design
 LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-P4B-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 

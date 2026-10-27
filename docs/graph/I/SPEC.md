@@ -146,6 +146,11 @@ DISPOSITION TODO.
       `N:bpN:p3:newton-reduction` (Newtonian/restricted predicates) are at risk: they may lie outside every track-N
       root closure. If track N's graph excludes them, track I owns them as its own nodes, with locators in
       `blueprint-N`.
+- **Track-P definition imports (SPEC revision 2026-10-27 22:0x, global review G05).** Two P Part 0 definitions are
+  authorized as imported nodes: `P:bpP:p0:fixedsol#IsFixedSolution` and `P:bpP:p0:newton#IsNewtonSolution`. They
+  feed only the I-owned Newtonian bookkeeping (`bpN:p3:newton-reduction`, `stepN:p3:nr-pair`). Fields as for N
+  imports; NOTE `IMPORTED: track-P frozen definition transcribed in blueprint-P Part 0; P graph pending` (ownership
+  is re-checked when `docs/graph/P/DEPGRAPH.md` exists). No other P import is authorized.
 - **`\Iref` in this blueprint** (`\Iref{bpI:p7:…}`, `\Iref{bpI:p8:…}` in the Part 7/8 introductions) is an internal
   reference. Those occurrences only note which results track P cites. They are not uses.
 - **Other gaps.** A proof that uses a fact which is neither proved in the blueprint, nor a track-I external, nor an
