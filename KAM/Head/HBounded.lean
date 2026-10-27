@@ -115,7 +115,8 @@ theorem h_bounded {B : Set (Fin n → ℝ)} (hB : Bornology.IsBounded B) {r₀ :
       (actionNbhd_subset_hbddCompact B r₀)
 
 /-- `M_h = sup {|h(I)| : I ∈ B_{3r₀/4}}` of `bp:p4:h-bounded` (`sSup` of the set of values; it is
-`0` if that set is empty, which happens only for `B = ∅`). -/
+`0` if that set is empty, which happens for `B = ∅`, and also for `r₀ ≤ 0` since a norm cannot
+be negative; HEAD has `r₀ > 0`). -/
 def hBound (h : (Fin n → ℂ) → ℂ) (B : Set (Fin n → ℝ)) (r₀ : ℝ) : ℝ :=
   sSup ((fun I => ‖h I‖) '' actionNbhd B (3 * r₀ / 4))
 
