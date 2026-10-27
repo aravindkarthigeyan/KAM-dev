@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 18:07 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 27.6 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 18:16 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 28.2 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,9 +53,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **27.6 %**
+### Estimated completion: **28.2 %**
 
-`███████░░░░░░░░░░░░░░░░░░` 27.6 %
+`███████░░░░░░░░░░░░░░░░░░` 28.2 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
@@ -64,11 +64,11 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
 | Measure of the invariant tori | 5 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
 | Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
-| Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 4.8 | `████░░░░░░` 40 % |
-| Track N (Nekhoroshev) | 4 | 22 | 5.9 | `███░░░░░░░` 27 % |
-| Track P (planetary) | 5 | 30 | 5.6 | `██░░░░░░░░` 19 % |
+| Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 5.0 | `████░░░░░░` 42 % |
+| Track N (Nekhoroshev) | 4 | 22 | 6.3 | `███░░░░░░░` 29 % |
+| Track P (planetary) | 5 | 30 | 6.1 | `██░░░░░░░░` 20 % |
 | Sealing of the frozen statements | 15 | 15 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 55 | 170 | 46.9 | **27.6 %** |
+| **Total** | 55 | 170 | 48.0 | **28.2 %** |
 
 **How this is estimated.** The project is divided into 40 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -106,11 +106,11 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | I.GUARDS | Freeze machinery: manifest, anchor guard, quarantine, kernel replay, mutation suite | M | 🟨 60 % | anchor guard (Unicode-aware), ABI hashes, lint; manual mutation tests pass (3/3); kernel replay and mutation suite to do |
 | I.BUILD | Shared build snapshot for worktrees and machine-wide compile gate | L | ⬜ 0 % |  |
 | I.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
-| I.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 10 % | blueprint-I: Parts 0-2 written (I-G1 proof complete in blueprint); Part 3 being written; reviews round 1 |
+| I.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 13 % | blueprint-I: Parts 0-3 written and Part 1 revised after review; Parts 6-7 being written |
 | N.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
-| N.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 10 % | blueprint-N: Parts 0-3 written (N-QC, N-ZERO complete in blueprint); Parts 4-5 being written |
+| N.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 15 % | blueprint-N: Parts 0-5 written (shared ODE layer revised after review); Part 6 being written |
 | P.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
-| P.PROOF.PDKAM | Properly degenerate KAM: blueprint, graph, proofs | VH | 🟨 2 % | blueprint-P: Part 0 and plan (14 parts, ~210 pp.); Part 3 (two-scale KAM) being written |
+| P.PROOF.PDKAM | Properly degenerate KAM: blueprint, graph, proofs | VH | 🟨 8 % | blueprint-P: Part 0, plan, Part 3 (two-scale KAM) written; Part 1 being written; Part 3 under review |
 | P.PROOF.PLANAR | Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy | VH | 🟨 1 % | route decided: P-PLANAR via P-G + CP11 planar torsion; P-FIXED KAM gate blocked on pinning Russmann 2001 |
 | N.ADD.PHASE0 | N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze | M | 🟨 55 % | N-PARTIAL-CONVEX v0.4 under delta audit; N-AVERAGING deferred (primary source requested) |
 | N.ADD.PROOF | N-PARTIAL-CONVEX and N-AVERAGING: blueprint, graph, proofs | VH | ⬜ 0 % |  |
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 18:07 UTC from `main` at `36bbb49` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 18:16 UTC from `main` at `7a0d052` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks (94 anchors). Track K: blueprint reviewed in full; dependency graph extracted (449 nodes, 1301 edges, structurally clean) and under independent slice review; then a global review and publication. Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints being written.
 
@@ -273,16 +273,17 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
-| **graph-delta2** `kam-graph-d2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Fresh check of the 39 node records rewritten in the delta round | — | — |
-| **graph-global** `kam-graph-global` | graph global review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Global root-closure review of the track K dependency graph | — | — |
+| **graph-delta2** `kam-graph-d2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Fresh check of the 39 node records rewritten in the delta round | — | — |
+| **graph-global** `kam-graph-global` | graph global review (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Global root-closure review of the track K dependency graph | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 2 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Track N additions: draft v0.4 done (N-PARTIAL-CONVEX on an enlarged domain; N-AVERAGING deferred) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: draft v0.4 done (F-P-A1 applied); under delta audit | — | — |
 | **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Refute-first blueprint reviews: Part 0 I/N, N p3, I p1 done (REVISE, fixes queued); now I p2, N p1-2 | — | — |
-| **bpP-p3** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track P blueprint Part 3: two-scale KAM theorem (CP10 Prop. 3, App. B) | — | — |
-| **delta-PN** `inp-delta-p` | delta statement audit (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Delta audits of the D22 additions: P v0.4 READY FOR OWNER; N v0.4 running | — | — |
-| **bpN-p45** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N blueprint Parts 4-5: weighted norms, Lie transform (shared with P) | — | — |
-| **bpI-p3** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track I blueprint Part 3: local energy charts, uniform application of I-G1 | — | — |
+| **delta-PN** `inp-delta-p` | delta statement audit (Codex) | GPT-6.1-Sol medium | codex-4 | ⚠️ session missing | Delta audits of the D22 additions: P v0.4 READY FOR OWNER; N v0.4 running | — | — |
+| **bpI-p67** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track I blueprint Parts 6-7: I-KEPLER; Kepler fundamentals (shared with P), Delaunay chart, exact restricted Hamiltonian | — | — |
+| **bpN-p6** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N blueprint Part 6: Iterative Lemma and Normal Form Lemma (shared with P) | — | — |
+| **bpP-p1** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track P blueprint Part 1: torus transport, period and Diophantine conversions, Liouville | — | — |
+| **bprev-2** `inp-bprev-2` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Refute-first review of track-P blueprint parts (now Part 3, two-scale KAM) | — | — |
 
 **Queued:** Dependency graph extraction for track K
 <!-- /AUTO:workers -->
@@ -292,6 +293,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 18:16 | `7a0d052` | Track K graph: delta-2 and global reviews in; delta-2 fixes applied |
+| 2026-10-27 18:11 | `4475a0a` | Land inp into main |
+| 2026-10-27 18:10 | `4d3abbe` | Land inp into main |
 | 2026-10-27 18:07 | `36bbb49` | HQ: graph 415/454 reviewed; global review running |
 | 2026-10-27 18:06 | `59d3894` | Track K graph: delta reviews applied; 415/454 nodes and all coverage reviewed; global brief |
 | 2026-10-27 18:03 | `8f2188f` | Land inp into main |
@@ -301,9 +305,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 17:45 | `c2b3752` | Land inp into main |
 | 2026-10-27 17:45 | `4957368` | Track K graph: extraction complete and structurally clean (449 nodes, 1301 edges) |
 | 2026-10-27 17:44 | `fb4da26` | Track K graph: all nine slices extracted (WIP); review brief |
-| 2026-10-27 17:39 | `67b5a4b` | D24: Codex agents on GPT-6.1-Sol medium; Astra sessions moved |
-| 2026-10-27 17:38 | `a5a7105` | Blueprint Part 1 review: ACCEPT WITH FIXES; apply P1-R1 (cauchy-open states δ>0) |
-| 2026-10-27 17:37 | `82caf9e` | HQ: track K graph extraction running |
 <!-- /AUTO:landed -->
 
 ## Decisions
