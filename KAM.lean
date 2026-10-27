@@ -155,8 +155,11 @@ public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
 public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
+public import KAM.Head.Adapters
+public import KAM.Head.CohUnique
 public import KAM.Head.CoverMono
 public import KAM.Head.Data
+public import KAM.Head.Defs
 public import KAM.Head.DerivativeBounds
 public import KAM.Head.DyadicApprox
 public import KAM.Head.DyadicBoxes
@@ -166,6 +169,7 @@ public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
 public import KAM.Head.PhaseAverage
 public import KAM.Head.Shift
+public import KAM.Head.Standing
 public import KAM.Head.TorsionRegular
 public import KAM.Head.TorsionRegularGeneral
 public import KAM.Iso.Kepler
@@ -181,6 +185,15 @@ public import KAM.Measure.McShane
 public import KAM.Measure.Slab
 public import KAM.Nekhoroshev.QuasiConvex
 public import KAM.Nekhoroshev.ZeroPerturbation
+public import KAM.ODE.Basic
+public import KAM.ODE.Continuation
+public import KAM.ODE.Existence
+public import KAM.ODE.Exit
+public import KAM.ODE.Hamiltonian
+public import KAM.ODE.Lipschitz
+public import KAM.ODE.Maximal
+public import KAM.ODE.UniformPeriodic
+public import KAM.ODE.Uniqueness
 public import KAM.Provider.Iso.KeplerBorderedDet
 public import KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative
 public import KAM.Provider.Nekhoroshev.ZeroPerturbation

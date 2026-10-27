@@ -257,7 +257,7 @@ DISPOSITION: NODE bpI:p2:step
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-review-I-p2
+REVIEWER: sol-delta-I-global
 
 ITEM: stepI:p2:st-small
 KIND: proof-region

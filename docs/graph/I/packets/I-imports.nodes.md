@@ -1038,84 +1038,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p4:h1; shared Lean provider. There: KIND lemma, contract bp:p4:h1 v1. Cited as \Kref{bp:p4:h1}.
 
-NODE: K:step:p2:fb-holo
-KIND: external
-TITLE: [K] Holomorphy
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L401-L406
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:fb-holo
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing data of Part 2; r>0, beta>0; K holomorphic on T_r satisfying (A2)-(A4) of bp:p2:admissible, as in bp:p2:frame-basic; primary and real are not required
-SOURCE_QUANTIFIERS: standing data fixed first; then r>0,beta>0,K as stated; conclusions on T_r and R^n respectively
-SOURCE_CONCLUSION: L,G,E,A,Omega_K,B,N,P,X_N,T,E_sym,Q,eta are holomorphic on T_r (also d_omega N is holomorphic there); B is symmetric; T is continuous on R^n, so avg T is defined
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP+sol-review-I-imports
-REVIEWER: sol-delta-I-e
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:fb-holo; shared Lean provider. There: KIND step, contract step:p2:fb-holo v1. Cited as \Kref{step:p2:fb-holo}. Source premises also include parent blueprint/parts/p2-aposteriori.tex@L382-L398.
-
-NODE: K:step:p2:geo-domegak
-KIND: external
-TITLE: [K] Bound on $\partial_\omega\Omega_K$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-domegak@L571-L574
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:geo-domegak
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing data and constants of Part 2; K is (r,beta,epsilon)-admissible in the sense of bp:p2:admissible (including A1-A6, 0<=epsilon<=1); 0<delta<=1 and 2delta<r
-SOURCE_QUANTIFIERS: standing data and their constants fixed first; then r>0,beta>0,0<=epsilon<=1,K,delta satisfying the parent geometry lemma; for every theta in T_{r-delta}
-SOURCE_CONCLUSION: |d_omega Omega_K|<=2n(n+1) m epsilon/delta
-CONSTANT_SCOPE: m=max{1,M,sigma_K,sigma_B,sigma_T}; C_red=2n(n+1)m^2; these depend only on (n,tau,M,sigma_K,sigma_B,sigma_T)
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP+sol-review-I-imports
-REVIEWER: sol-delta-I-e
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:geo-domegak; shared Lean provider. There: KIND step, contract step:p2:geo-domegak v1. Cited as \Kref{step:p2:geo-domegak}. Source premises also include parent blueprint/parts/p2-aposteriori.tex@L549-L563.
-
-NODE: K:step:p2:geo-ered
-KIND: external
-TITLE: [K] Bound on $E_{\mathrm{red}}$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-ered@L576-L580
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:geo-ered
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing data and constants of Part 2; K is (r,beta,epsilon)-admissible in the sense of bp:p2:admissible (including A1-A6, 0<=epsilon<=1); 0<delta<=1 and 2delta<r
-SOURCE_QUANTIFIERS: standing data and their constants fixed first; then r>0,beta>0,0<=epsilon<=1,K,delta satisfying the parent geometry lemma; for every theta in T_{r-delta}
-SOURCE_CONCLUSION: |E_red|<=C_red epsilon/delta
-CONSTANT_SCOPE: m=max{1,M,sigma_K,sigma_B,sigma_T}; C_red=2n(n+1)m^2; these depend only on (n,tau,M,sigma_K,sigma_B,sigma_T)
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP+sol-review-I-imports
-REVIEWER: sol-delta-I-e
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:geo-ered; shared Lean provider. There: KIND step, contract step:p2:geo-ered v1. Cited as \Kref{step:p2:geo-ered}. Source premises also include parent blueprint/parts/p2-aposteriori.tex@L549-L563.
-
 NODE: K:step:p2:ham-real
 KIND: external
 TITLE: [K] Realness
@@ -1265,12 +1187,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-continuation-periodic; shared Lean provider. Cited as \Nref{bpN:p3:gen-continuation-periodic}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-continuation-periodic; shared Lean provider. Cited as \Nref{bpN:p3:gen-continuation-periodic}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-maximal
 KIND: external
@@ -1291,12 +1213,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-maximal; shared Lean provider. Cited as \Nref{bpN:p3:gen-maximal}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-maximal; shared Lean provider. Cited as \Nref{bpN:p3:gen-maximal}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-sol
 KIND: external
@@ -1317,12 +1239,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-sol; shared Lean provider. Cited as \Nref{bpN:p3:gen-sol}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-sol; shared Lean provider. Cited as \Nref{bpN:p3:gen-sol}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-uniqueness
 KIND: external
@@ -1343,12 +1265,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniqueness; shared Lean provider. Cited as \Nref{bpN:p3:gen-uniqueness}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-uniqueness; shared Lean provider. Cited as \Nref{bpN:p3:gen-uniqueness}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:ham-energy
 KIND: external
@@ -1369,12 +1291,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-energy; shared Lean provider. Cited as \Nref{bpN:p3:ham-energy}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:ham-energy; shared Lean provider. Cited as \Nref{bpN:p3:ham-energy}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:ham-periodic
 KIND: external
@@ -1395,12 +1317,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-periodic; shared Lean provider. Cited as \Nref{bpN:p3:ham-periodic}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:ham-periodic; shared Lean provider. Cited as \Nref{bpN:p3:ham-periodic}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:ham-reduction
 KIND: external
@@ -1421,12 +1343,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-reduction; shared Lean provider. Cited as \Nref{bpN:p3:ham-reduction}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:ham-reduction; shared Lean provider. Cited as \Nref{bpN:p3:ham-reduction}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-exit
 KIND: external
@@ -1447,12 +1369,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-exit; shared Lean provider. Cited as \Nref{bpN:p3:gen-exit}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-exit; shared Lean provider. Cited as \Nref{bpN:p3:gen-exit}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: N:bpN:p3:gen-symmetry
 KIND: external
@@ -1473,12 +1395,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP+sol-review-I-imports
-REVIEWER: sol-delta-I-e
+EXTRACTOR: claude-suborch-INP+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-symmetry; shared Lean provider. Cited as \Nref{bpN:p3:gen-symmetry}.
+NOTE: IMPORTED (pending N graph): source result of track N, node bpN:p3:gen-symmetry; shared Lean provider. Cited as \Nref{bpN:p3:gen-symmetry}. Owning-node retention is not certified: docs/graph/N/DEPGRAPH.md is absent. Re-check against its assembled root closure before treating this as a valid retained N import; if excluded, resolve track-I ownership under SPEC.
 
 NODE: P:bpP:p0:fixedsol#IsFixedSolution
 KIND: external
