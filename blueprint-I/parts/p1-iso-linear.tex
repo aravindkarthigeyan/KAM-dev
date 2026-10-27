@@ -98,6 +98,11 @@ box are integrable, integrals are linear and bounded by the supremum), the proof
   real directional derivative $D\varphi(x)v$ at $x$; if moreover $\varphi$ is real on $U\cap\R^n$, then
   $D\varphi(x)v\in\R$ (it is a limit of real difference quotients). See \Kref{bp:p1:hamiltonian-real},
   step \Kref{step:p1:hr-derivative}.
+\item\label{bpI:p1:ext-neumann} \emph{Neumann criterion of radius one.} If $X\in\C^{m\times m}$ and $\abs X<1$ in the operator norm
+  induced by the max norm of $\C^m$, then $I-X$ is invertible. Proof: if $(I-X)v=0$ with $v\ne0$ then $\abs v=\abs{Xv}\le\abs X\abs v<\abs v$, a
+  contradiction; so $I-X$ is injective, hence invertible (finite dimension). (Mathlib: \nolinkurl{Units.oneSub}, \nolinkurl{NormedRing.inverse_one_sub}
+  in the Banach algebra of matrices with the row-sum norm.) Only invertibility is used; no bound on the inverse is claimed, so the threshold
+  $\frac12$ of \Kref{bp:p1:neumann} is not needed here.
 \end{enumerate}
 
 %----------------------------------------------------------------------------------------------------
@@ -123,9 +128,22 @@ Assume~\ref{bpI:p1:setting} with $\det G_K\ne0$ on $T_r$, and put $Y:=DH(K)N$ on
 
 \begin{proof}
 \proofstep{Holomorphy}\label{stepI:p1:eb-holo}
-\sloppy $N$ is holomorphic on $T_r$ (\Kref{step:p2:fb-holo}, which uses only $K(T_r)\subset D$, $\det G_K\ne0$ and the holomorphic inverse \Kref{bp:p1:holomorphic-inverse}; no bound and no torsion condition enters), and $DH$ is holomorphic on $D$
-(\Kref{bp:p1:holomorphic-regularity}), so $Y=DH\circ K\cdot N$ is a product of holomorphic functions
-(\ref{bpI:p1:ext-chain}). The entries of $T$ and the constant block $\omega$ are holomorphic by the same step. Hence every entry of $\mathsf T_H$ is holomorphic, in particular continuous on $\R^n\subset T_r$.
+\sloppy This step is a direct regularity argument that uses only the holomorphy of $K$ on the open strip $T_r$, $K(T_r)\subset D$ with $D$ open, and $\det G_K\ne0$ on $T_r$; no ball margin and no bound on $DK$, $B$ enters, and no torsion condition (it is the substance of \Kref{step:p2:fb-holo}, compared with, not used, because that step is stated under K's (A2)--(A4); holomorphy is a local property, so no uniformity is needed). It is split into the substeps below, each on the open set $T_r$.
+
+\proofstep{Frame and Gram matrix}\label{stepI:p1:eb-holo-frame}
+$L=DK$ is holomorphic on $T_r$ (\Kref{bp:p1:holomorphic-regularity}); the entries of $G=L^\top L$ are sums of products of entries of $L$, hence holomorphic.
+
+\proofstep{The inverse}\label{stepI:p1:eb-holo-inverse}
+$G$ is a holomorphic matrix-valued function on the open set $T_r$ with $\det G\ne0$ there, so $B=G^{-1}$ is holomorphic (\Kref{bp:p1:holomorphic-inverse}, whose only hypotheses are exactly these; it rests on Cramer's rule and polynomiality of $\det$, $\operatorname{adj}$). Therefore $N=\Omega_0LB$ and $P=(L\ N)$ are holomorphic (products of holomorphic matrices with the constant $\Omega_0$, \ref{bpI:p1:ext-chain}).
+
+\proofstep{Field along $K$}\label{stepI:p1:eb-holo-field}
+$X_H$ is holomorphic on the open set $D$ and $DX_H$ is holomorphic on $D$ (\Kref{bp:p2:hamiltonian}(a), i.e.\ standing assumption~\ref{bpI:p1:setting} and \Kref{bp:p1:holomorphic-regularity}); $K$ is holomorphic with $K(T_r)\subset D$, so $A=DX_H\circ K$ is holomorphic by the chain rule (\ref{bpI:p1:ext-chain}); likewise $DH\circ K$ for $DH$ holomorphic on $D$.
+
+\proofstep{Derivative along $\omega$, torsion}\label{stepI:p1:eb-holo-torsion}
+$DN$ is holomorphic on $T_r$ (\Kref{bp:p1:holomorphic-regularity} applied to $N$), so $\partial_\omega N=DN\,\omega$ is holomorphic (constant vector $\omega$), hence $X_N=AN-\partial_\omega N$ and $T=N^\top\Omega_0X_N$ are holomorphic (products and sums). By the same products, $E_{\mathrm{sym}},Q,\eta$ and $Y=DH(K)N$ are holomorphic; $\mathsf T_H$ has entries $T$, the constant block $\omega$, the entries of $Y$ and $0$.
+
+\proofstep{Conclusion of the step}\label{stepI:p1:eb-holo-conclude}
+By Steps~\ref{stepI:p1:eb-holo-frame}--\ref{stepI:p1:eb-holo-torsion}, $N$, $T$, $Y$, hence every entry of $\mathsf T_H$, are holomorphic on $T_r$, in particular continuous on $\R^n\subset T_r$.
 
 \proofstep{Periodicity and realness}\label{stepI:p1:eb-period}
 Differentiating $H(\theta+k,I)=H(\theta,I)$ gives $DH(z+(k,0))=DH(z)$ on $D$, and $K(\theta+k)=K(\theta)+(k,0)$;
@@ -498,7 +516,7 @@ $Q(\dots)+QE=(\Lambda+E_{\mathrm{red}})\xi-\partial_\omega\xi+\Omega_0E_{\mathrm
 \proofstep{Consequence}\label{stepI:p1:rd-consequence}
 If the border system holds, (b) gives $Q\,\mathrm{Res}=E_{\mathrm{lin}}$ (c). For (d): $Q=-\Omega_0P^\top\Omega_0$ is
 invertible iff $P$ is, and $\det(P)^2\det\Omega_0=\det(P^\top\Omega_0P)=\det(\Omega_0+E_{\mathrm{sym}})\ne0$ when $\abs{E_{\mathrm{sym}}}<1$
-(Neumann series \Kref{bp:p1:neumann} for $I-\Omega_0E_{\mathrm{sym}}$, $\abs{\Omega_0E_{\mathrm{sym}}}=\abs{E_{\mathrm{sym}}}$, \Kref{bp:p1:matrix-norms}). With $Q$ invertible,
+(Neumann criterion~\ref{bpI:p1:ext-neumann} for $I-\Omega_0E_{\mathrm{sym}}$, $\abs{\Omega_0E_{\mathrm{sym}}}=\abs{E_{\mathrm{sym}}}<1$ by \Kref{bp:p1:matrix-norms}, and $\Omega_0+E_{\mathrm{sym}}=\Omega_0(I-\Omega_0E_{\mathrm{sym}})$ since $\Omega_0^{-1}=-\Omega_0$; this is the radius-one criterion, not \Kref{bp:p1:neumann}, whose threshold is $\frac12$). With $Q$ invertible,
 (b) reads $Q\,\mathrm{Res}=[\Lambda\xi-\partial_\omega\xi+\binom\omega0\xi^\omega-\eta]+E_{\mathrm{lin}}$ for every $\xi,\xi^\omega$, which gives both claims of (d). Without invertibility of $Q$
 multiplying by $Q$ loses information (a primary real torus with $\det G_K\ne0$ and singular $P$, $Q$ at a real angle exists). The bound on $E_{\mathrm{lin}}$ is \Kref{bp:p2:matrix}(b), (c).
 \end{proof}
@@ -527,10 +545,19 @@ ours (restated without the torsion hypothesis).}
 \begin{proof}
 \sloppy The last sentence is \Kref{bp:p2:frame-basic}(b)--(d), whose hypotheses are \Kref{bp:p2:A2}--\Kref{bp:p2:A4} (and \Kref{bp:p2:A6} for (c)); they contain no torsion condition.
 \proofstep{Derivatives of the error}\label{stepI:p1:geo-de}\sloppy
-$E$ is holomorphic with $\abs E\le\varepsilon$ on $T_r$ (\Kref{bp:p2:frame-basic}(a)); \Kref{bp:p1:cauchy-strip} gives $\abs{DE}\le n\varepsilon/\delta$ on $T_{r-\delta}$.
+$E$ is holomorphic with $\abs E\le\varepsilon$ on $T_r$ (\Kref{bp:p2:frame-basic}(a)); \Kref{bp:p1:cauchy-strip} gives $\abs{DE}\le n\varepsilon/\delta$, and \Kref{bp:p1:cauchy-corollaries} with $p=2n$ gives $\abs{(DE)^\top}\le2n\varepsilon/\delta$, on $T_{r-\delta}$.
 \proofstep{$\partial_\omega\Omega_K$ and $E_{\mathrm{red}}$}\label{stepI:p1:geo-red}
-By \Kref{bp:p2:frame-identities}(d), (e), \Kref{bp:p2:matrix} and \Kref{bp:p2:frame-basic}(b), as in \Kref{step:p2:geo-domegak}, \Kref{step:p2:geo-ered}:
-$\abs{\partial_\omega\Omega_K}\le(2n\mathfrak m+2n^2\mathfrak m)\varepsilon/\delta$ and $\abs{E_{\mathrm{red}}}\le C_{\mathrm{red}}\varepsilon/\delta$ on $T_{r-\delta}$.
+Both bounds are local computations on $T_{r-\delta}$ from the exact identities of \Kref{bp:p2:frame-identities}, whose hypotheses ($K$ holomorphic on $T_r$, $K(T_r)\subset D$, $\det G\ne0$) contain no torsion condition, the matrix bounds of \Kref{bp:p2:matrix}, the frame bounds of \Kref{bp:p2:frame-basic}(b) (hypotheses \Kref{bp:p2:A2}--\Kref{bp:p2:A4} only) and the bound on $DE$ of Step~\ref{stepI:p1:geo-de}. The corresponding K steps \Kref{step:p2:geo-domegak}, \Kref{step:p2:geo-ered} carry the same computations inside a lemma whose hypotheses include \Kref{bp:p2:A5}; they are compared with, not used, here.
+
+\proofstep{Bound on $\partial_\omega\Omega_K$}\label{stepI:p1:geo-red-domega}
+By \Kref{bp:p2:frame-identities}(d), $\partial_\omega\Omega_K=-(DE)^\top\Omega_0L-L^\top\Omega_0DE$. With \Kref{bp:p2:matrix}(b), (d) ($\abs{\Omega_0}=1$), $\abs L\le\mathfrak m$, $\abs{L^\top}\le2n\mathfrak m$ (\Kref{bp:p2:frame-basic}(b)), $\abs{DE}\le n\varepsilon/\delta$ and $\abs{(DE)^\top}\le2n\varepsilon/\delta$ (Step~\ref{stepI:p1:geo-de}, the latter from \Kref{bp:p1:cauchy-corollaries} with $p=2n$), on $T_{r-\delta}$:
+\[
+\abs{\partial_\omega\Omega_K}\le\abs{(DE)^\top}\abs{L}+\abs{L^\top}\abs{DE}\le\bigl(2n\mathfrak m+2n^2\mathfrak m\bigr)\varepsilon/\delta=2n(n+1)\mathfrak m\,\varepsilon/\delta.
+\]
+
+\proofstep{Bound on $E_{\mathrm{red}}$}\label{stepI:p1:geo-red-ered}
+By \Kref{bp:p2:frame-identities}(e), $E_{\mathrm{red}}=\begin{pmatrix}N^\top\Omega_0DE&0\\-L^\top\Omega_0DE&(DE)^\top\Omega_0N\end{pmatrix}$. By \Kref{bp:p2:matrix}(c) the norm is at most the larger of the two block-row norms; the first is $\le\abs{N^\top}\abs{DE}\le2n\mathfrak m^2\cdot n\varepsilon/\delta=2n^2\mathfrak m^2\varepsilon/\delta$, the second is $\le\abs{L^\top}\abs{DE}+\abs{(DE)^\top}\abs N\le(2n^2\mathfrak m+2n\mathfrak m^2)\varepsilon/\delta$ (\Kref{bp:p2:frame-basic}(b): $\abs{N^\top}\le2n\mathfrak m^2$, $\abs N\le\mathfrak m^2$). Since $\mathfrak m\ge1$, both are $\le2n(n+1)\mathfrak m^2\varepsilon/\delta=C_{\mathrm{red}}\varepsilon/\delta$ (the constant of \Kref{bp:p2:constants}) on $T_{r-\delta}$.
+
 \proofstep{Lagrangian defect and symplecticity defect}\label{stepI:p1:geo-sym}
 $\Omega_K$ is holomorphic, $1$-periodic on $T_{r-\delta}$ with $\avg{\Omega_K}=0$ (\Kref{bp:p2:exactness}; $K$ primary). \Kref{bp:p2:cohomological}(b) on $T_{r-\delta}$ with loss $\delta<r-\delta$ gives the bound of $\Omega_K$ on $T_{r-2\delta}$, and $\abs{E_{\mathrm{sym}}}\le\mathfrak m^2\abs{\Omega_K}$ by \Kref{bp:p2:frame-identities}(b).
 \end{proof}

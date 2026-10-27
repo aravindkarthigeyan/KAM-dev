@@ -871,7 +871,7 @@ CONTRACT_ID: bpI:p2:step
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: standing data; r>0, 0<delta<=1, 4delta<r, beta>0, 0<=eps<=1, s>1; K (r,beta,eps,s)-admissible; c_step eps/(gamma^4 delta^{2a}) <= min{1,beta}; Kbar, omegabar as in correction and new-error; d := C_Delta eps/(gamma^2 delta^a)
 SOURCE_QUANTIFIERS: standing data, constants fixed; r, delta, beta, eps, s, K
-SOURCE_CONCLUSION: (a) Kbar holomorphic, primary on T_{r-2delta}, real on reals; (b) ¦Kbar-K¦ <= d <= beta/2 on T_{r-2delta}, B_{beta-d}(Kbar(theta)) in D, ¦sbar-s¦¦omega*¦ <= d; (c) ¦E_{H,Kbar,omegabar}¦ <= C_E eps^2/(gamma^4 delta^{2a}) on T_{r-2delta} and ¦Ebar_H(Kbar)-E_0¦ <= C_E eps^2/(gamma^4 delta^{2a}); (d) ¦DKbar-DK¦ <= nd/delta, det Gbar != 0, ¦Bbar-B¦ <= C_B d/delta on T_{r-3delta}; (e) avg T_H(Kbar,omegabar) invertible with ¦avg Tbar^{-1}-avg T^{-1}¦ <= 2 m^2 C_DeltaT d/delta^2
+SOURCE_CONCLUSION: (a) Kbar holomorphic, primary on T_{r-2delta}, real on reals; (b) ¦Kbar-K¦ <= d <= beta/2 on T_{r-2delta}, B_{beta-d}(Kbar(theta)) in D, ¦sbar-s¦¦omega*¦ <= d; (c) ¦E_{H,Kbar,omegabar}¦ <= C_E eps^2/(gamma^4 delta^{2a}) on T_{r-2delta} and ¦Ebar_H(Kbar)-E_0¦ <= C_E eps^2/(gamma^4 delta^{2a}); (d) ¦DKbar-DK¦ <= nd/delta, det Gbar != 0, ¦Bbar-B¦ <= C_B d/delta on T_{r-3delta}; (e) avg T_H(Kbar,omegabar) invertible with ¦avg Tbar^{-1}-avg T^{-1}¦ <= 2 m^2 C_DeltaScriptT d/delta^2
 CONSTANT_SCOPE: Constants of Definition bpI:p2:constants: all depend only on (n,tau,M,sigma_K,sigma_B,sigma_T); hat-c_* also on (mu,nu); delta_0 on (rho,rho_infty); no dependence on K, s, e, gamma, omega*, sigma_omega
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -881,7 +881,7 @@ DEPS: bpI:p2:standing, bpI:p2:constants, bpI:p2:admissible, bpI:p2:correction, b
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L228-L228 | standing data
-EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L230-L230 | c_step, C_Delta, C_E, C_B, C_DeltaT, a, m
+EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L230-L230 | c_step, C_Delta, C_E, C_B, C_DeltaScriptT, a, m
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L228-L228 | K is (r,beta,eps,s)-admissible; B1-B7 and the frequency bound
 EDGE: bpI:p2:correction | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L232-L232 | Kbar, omegabar, d from the correction lemma
 EDGE: bpI:p2:newton-error | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L232-L232 | errors of Kbar
@@ -889,8 +889,8 @@ EDGE: stepI:p2:st-small | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L24
 EDGE: stepI:p2:st-error | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L246-L246 | proof step of this result
 EDGE: stepI:p2:st-frame | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L248-L248 | proof step of this result
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-global-I
+REVIEWER: sol-delta-I-global
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

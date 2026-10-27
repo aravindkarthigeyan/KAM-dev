@@ -358,33 +358,6 @@ COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: sol-review-I-imports
 
-ITEM: K:step:p2:fb-holo
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L401-L406
-DISPOSITION: NODE K:step:p2:fb-holo
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
-
-ITEM: K:step:p2:geo-domegak
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-domegak@L571-L574
-DISPOSITION: NODE K:step:p2:geo-domegak
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
-
-ITEM: K:step:p2:geo-ered
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-ered@L576-L580
-DISPOSITION: NODE K:step:p2:geo-ered
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
-
 ITEM: K:step:p2:ham-real
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ham-real@L243-L246
@@ -437,7 +410,7 @@ DISPOSITION: NODE N:bpN:p3:gen-continuation-periodic
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-maximal
 KIND: external
@@ -446,7 +419,7 @@ DISPOSITION: NODE N:bpN:p3:gen-maximal
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-sol
 KIND: external
@@ -455,7 +428,7 @@ DISPOSITION: NODE N:bpN:p3:gen-sol
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-uniqueness
 KIND: external
@@ -464,7 +437,7 @@ DISPOSITION: NODE N:bpN:p3:gen-uniqueness
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:ham-energy
 KIND: external
@@ -473,7 +446,7 @@ DISPOSITION: NODE N:bpN:p3:ham-energy
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:ham-periodic
 KIND: external
@@ -482,7 +455,7 @@ DISPOSITION: NODE N:bpN:p3:ham-periodic
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:ham-reduction
 KIND: external
@@ -491,7 +464,7 @@ DISPOSITION: NODE N:bpN:p3:ham-reduction
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-exit
 KIND: external
@@ -500,7 +473,7 @@ DISPOSITION: NODE N:bpN:p3:gen-exit
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-I-imports
+REVIEWER: sol-delta-I-global
 
 ITEM: N:bpN:p3:gen-symmetry
 KIND: external
@@ -509,7 +482,7 @@ DISPOSITION: NODE N:bpN:p3:gen-symmetry
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
+REVIEWER: sol-delta-I-global
 
 ITEM: P:bpP:p0:fixedsol#IsFixedSolution
 KIND: external
