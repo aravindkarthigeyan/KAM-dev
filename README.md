@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 20:58 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 38.8 %** · frozen statements proved: 1 / 22 · **17,895 lines of Lean** of an estimated ≈ 125,000
+> **Last updated: 2026-10-27 20:59 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 38.8 %** · frozen statements proved: 1 / 22 · **17,895 lines of Lean** of an estimated ≈ 125,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 20:58 UTC from `main` at `83e9a74` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 20:59 UTC from `main` at `2676c3c` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K: 120/453 graph nodes proved and audited. G1/G2 proof campaign started: Lean design audited (PASS, no corrected signatures); wave 1 running (P2-1a carrier, P2-1b standing/constants); I-P1C running; Zohar's I-STRIP-3 (cohomological equation) gates wave 5. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -287,7 +287,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **grev-1** `inp-grev-1` | graph delta review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: delta reviews (I-p67a, I-p7b, I-p1, I-p3) | — | — |
 | **grev-2** `inp-grev-2` | graph delta review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track I graph: delta reviews (I-p5, I-p8, I-p2) | — | — |
 | **bprev-2** `inp-bprev-2` | blueprint/graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: slice I-nown review; track P blueprint reviews | — | — |
-| **rev-n11** `inp-rev-n11` | critical review (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Track I graph: imports review; earlier N Part 11 (3 rounds, ACCEPT) and P Part 11b reviews | — | — |
+| **rev-n11** `inp-rev-n11` | critical review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track I graph: imports review; earlier N Part 11 (3 rounds, ACCEPT) and P Part 11b reviews | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | N additions drafter (D25/D28 frozen); idle | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | P additions drafter (D25 frozen); idle | — | — |
 
@@ -299,6 +299,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 20:59 | `2676c3c` | Overnight: claim I-STRIP-3 and I-P4B; Part 4 design brief |
 | 2026-10-27 20:58 | `83e9a74` | D29: overnight mode; overnight decision log |
 | 2026-10-27 20:54 | `c547067` | Brief for P2-4 (Hamiltonian, periodicity) |
 | 2026-10-27 20:53 | `85d4f35` | P2-2 landed: frozen agreement; audit PASS |
@@ -310,7 +311,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 20:40 | `d4695a5` | Briefs for P2-2 (frozen agreement) and P2-3 (tools; cohomological part gated on I-STRIP-3) |
 | 2026-10-27 20:38 | `0b23778` | P2-11 landed: schedule and error decay; audit PASS |
 | 2026-10-27 20:37 | `2edfb0e` | Land k/p2-11 into main |
-| 2026-10-27 20:29 | `dcdde7b` | Land inp into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
