@@ -3127,9 +3127,9 @@ EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:fourier
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: (a) KAM.torusCoeff_fderiv_real, torusCoeff_fderiv_coordinate_real (FourierDerivative); (b),(c) KAM.hasSum_torusCoeff_mul_character, eq_zero_of_torusCoeff_eq_zero, eq_zero_of_torusCoeff_holomorphic (FourierBasic; scalar, componentwise per the blueprint)
+LEAN_NOTE: Zohar Komargodski's Part 1 Fourier layer; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md (PASS for these nodes; part (a) via I-STRIP-3b-audit-1.md)
 NOTE: -
 
 NODE: step:p1:fb-derivative
@@ -3181,9 +3181,9 @@ EDGE: bp:p1:ext-fourier | blueprint/parts/p1-analysis.tex#step:p1:fb-series@L779
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.hasSum_torusCoeff_mul_character, KAM.eq_zero_of_torusCoeff_eq_zero
+LEAN_NOTE: Zohar Komargodski's Part 1 Fourier layer; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md (PASS for these nodes; part (a) via I-STRIP-3b-audit-1.md)
 NOTE: -
 
 NODE: step:p1:fb-holomorphic
@@ -3209,9 +3209,9 @@ EDGE: bp:p1:strip-identity | blueprint/parts/p1-analysis.tex#step:p1:fb-holomorp
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.eq_zero_of_torusCoeff_holomorphic
+LEAN_NOTE: Zohar Komargodski's Part 1 Fourier layer; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md (PASS for these nodes; part (a) via I-STRIP-3b-audit-1.md)
 NOTE: -
 
 NODE: bp:p1:decay
@@ -3329,7 +3329,7 @@ EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
 NOTE: -
 
 NODE: step:p1:sum-bound
@@ -3355,7 +3355,7 @@ EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
 NOTE: -
 
 NODE: step:p1:sum-holo
@@ -3384,7 +3384,7 @@ EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
 NOTE: -
 
 NODE: step:p1:sum-coeff
@@ -3412,7 +3412,7 @@ EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
 NOTE: -
 
 NODE: step:p1:sum-converse
@@ -3440,7 +3440,7 @@ EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: sol-review-r4
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
 NOTE: -
 
 NODE: step:p1:sum-representation
@@ -3471,7 +3471,7 @@ EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
 NOTE: -
 
 NODE: bp:p1:cohomological
