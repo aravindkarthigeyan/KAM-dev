@@ -5,6 +5,7 @@
  "unresolved": {},
  "passes": [
   "stepI:p1:geo-red",
-  "stepI:p1:geo-sym"
+  "stepI:p1:eb-holo",
+  "stepI:p1:rd-consequence"
  ]
 }
