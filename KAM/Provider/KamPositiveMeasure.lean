@@ -6,6 +6,7 @@ Authors: Scott Armstrong, Zohar Komargodski
 module
 
 public import KAM.Head.Defs
+import KAM.Head.Assembly
 import KAM.Head.Frequency
 import KAM.Head.Parameters
 import KAM.Frozen.Theorems.AposterioriKam
@@ -26,6 +27,9 @@ This file is the one place that may import the sealed frozen theorems `KAM.apost
 * `KAM.Provider.exists_gValid` discharges the premise `KAM.Head.GValid` of the Part 4 modules: it
   produces the constants of G1 at the two tuples of Definition `bp:p4:parameters`, of G2 at
   `ρ = s/16`, and of G3 for `Ω = ∇h(B)`, together with their defining properties.
+* `KAM.Provider.kam_positive_measure` is the HEAD theorem with exactly the type of the frozen
+  `KAM.kam_positive_measure`. It builds `Head.Data` from the binders, takes the constants from
+  `exists_gValid`, and applies `KAM.Head.head_of_gValid`.
 -/
 
 public section
@@ -46,5 +50,35 @@ theorem exists_gValid {n : ℕ} {τ s₀ r₀ Lh : ℝ} {B : Set (Fin n → ℝ)
   obtain ⟨cG, hcG, hb3⟩ := KAM.local_uniqueness_flow hn hτ h16 hM hσK hσB hσT hμ
   obtain ⟨C3, hC3⟩ := KAM.volume_not_diophantine_le hD.tau_gt (freq_map hD).2.2.2.2.2.2
   exact ⟨⟨C11, C21, C12, C22, cG, C3⟩, ⟨⟨h11, h21, h12, h22, hcG⟩, hb1, hb2, hb3, hC3⟩⟩
+
+/-- **HEAD.** Positive-measure KAM theorem with rate: the provider of the frozen
+`KAM.kam_positive_measure`, with exactly its type. -/
+theorem kam_positive_measure {n : ℕ} (hn : 2 ≤ n) {τ : ℝ} (hτ : (n : ℝ) - 1 < τ)
+    {s₀ r₀ : ℝ} (hs₀ : 0 < s₀) (hr₀ : 0 < r₀)
+    {B : Set (Fin n → ℝ)} (hB_open : IsOpen B) (hB_bdd : Bornology.IsBounded B)
+    (hB_layer : ∃ C_B : ℝ, ∀ δ : ℝ, 0 < δ →
+      volume {I ∈ B | Metric.infDist I Bᶜ < δ} ≤ ENNReal.ofReal (C_B * δ))
+    {h : (Fin n → ℂ) → ℂ} (hh : DifferentiableOn ℂ h (actionNbhd B r₀))
+    (hh_real : ∀ I : Fin n → ℝ, (fun i => (I i : ℂ)) ∈ actionNbhd B r₀ →
+      (h fun i => (I i : ℂ)).im = 0)
+    (h_nondeg : ∃ L : ℝ, ∀ I ∈ closure B, ∀ J ∈ closure B,
+      ‖I - J‖ ≤ L * ‖frequencyMap h I - frequencyMap h J‖) :
+    ∃ C ε₀ : ℝ, 0 < C ∧ 0 < ε₀ ∧
+      ∀ (f : (Fin n → ℂ) × (Fin n → ℂ) → ℂ) (ε : ℝ),
+        DifferentiableOn ℂ f (complexStrip n s₀ ×ˢ actionNbhd B r₀) →
+        (∀ z ∈ complexStrip n s₀ ×ˢ actionNbhd B r₀, ∀ k : Fin n → ℤ,
+          f (z.1 + (fun i => (k i : ℂ)), z.2) = f z) →
+        (∀ θ I : Fin n → ℝ,
+          ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ))) ∈ complexStrip n s₀ ×ˢ actionNbhd B r₀ →
+          (f ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ)))).im = 0) →
+        (∀ z ∈ complexStrip n s₀ ×ˢ actionNbhd B r₀, ‖f z‖ ≤ ε) → ε ≤ ε₀ →
+        volume (fundamentalDomain B \
+            kamCover h f B r₀ τ (C * Real.sqrt ε)) ≤
+          ENNReal.ofReal (C * ε ^ ((1 : ℝ) / 4)) := by
+  obtain ⟨CB, hCB⟩ := hB_layer
+  obtain ⟨Lh, hLh⟩ := h_nondeg
+  have hD : Data τ s₀ r₀ B h Lh := ⟨hn, hτ, hs₀, hr₀, hB_open, hB_bdd, hh, hh_real, hLh⟩
+  obtain ⟨gc, hgc⟩ := exists_gValid hD
+  exact head_of_gValid hD hCB hgc
 
 end KAM.Provider
