@@ -1,0 +1,25 @@
+NODE: bpP:p0:fixed
+KIND: theorem
+TITLE: P-FIXED: $n$ planar planets around a fixed Sun
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L380-L389
+PROOF_SOURCE: -
+CONTRACT_ID: planetary.fixedSunPlanetaryKAM
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: TODO
+SOURCE_QUANTIFIERS: TODO
+SOURCE_CONCLUSION: TODO
+CONSTANT_SCOPE: TODO
+FROZEN_FILE: KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean
+FROZEN_DECL: KAM.Planetary.fixedSunPlanetaryKAM
+FROZEN_ANCHOR_ID: planetary.fixedSunPlanetaryKAM.v1
+FROZEN_ABI_SHA256: a710d06469f0efa43a0eede7aa23e7e13216737ac0895ff11757e256903b2eec
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -

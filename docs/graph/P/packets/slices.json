@@ -1,0 +1,232 @@
+{
+ "P-p0": {
+  "ranges": [
+   {
+    "part": "p0",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p0",
+  "nodes": 61,
+  "coverage": 115
+ },
+ "P-p1p2": {
+  "ranges": [
+   {
+    "part": "p1",
+    "lines": [
+     1,
+     1000000000
+    ]
+   },
+   {
+    "part": "p2",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p1p2",
+  "nodes": 85,
+  "coverage": 130
+ },
+ "P-p3": {
+  "ranges": [
+   {
+    "part": "p3a",
+    "lines": [
+     1,
+     1000000000
+    ]
+   },
+   {
+    "part": "p3b",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p3",
+  "nodes": 96,
+  "coverage": 131
+ },
+ "P-p4": {
+  "ranges": [
+   {
+    "part": "p4",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p4",
+  "nodes": 46,
+  "coverage": 68
+ },
+ "P-p5": {
+  "ranges": [
+   {
+    "part": "p5",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p5",
+  "nodes": 88,
+  "coverage": 114
+ },
+ "P-p6": {
+  "ranges": [
+   {
+    "part": "p6",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p6",
+  "nodes": 64,
+  "coverage": 88
+ },
+ "P-p7": {
+  "ranges": [
+   {
+    "part": "p7",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p7",
+  "nodes": 60,
+  "coverage": 87
+ },
+ "P-p8": {
+  "ranges": [
+   {
+    "part": "p8",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p8",
+  "nodes": 56,
+  "coverage": 86
+ },
+ "P-p9": {
+  "ranges": [
+   {
+    "part": "p9",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p9",
+  "nodes": 54,
+  "coverage": 81
+ },
+ "P-p10": {
+  "ranges": [
+   {
+    "part": "p10",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p10",
+  "nodes": 61,
+  "coverage": 93
+ },
+ "P-p11b": {
+  "ranges": [
+   {
+    "part": "p11b",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p11b",
+  "nodes": 61,
+  "coverage": 87
+ },
+ "P-p12": {
+  "ranges": [
+   {
+    "part": "p12",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p12",
+  "nodes": 51,
+  "coverage": 72
+ },
+ "P-p14a1": {
+  "ranges": [
+   {
+    "part": "p14a",
+    "lines": [
+     1,
+     156
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p14a1",
+  "nodes": 45,
+  "coverage": 55
+ },
+ "P-p14a2": {
+  "ranges": [
+   {
+    "part": "p14a",
+    "lines": [
+     157,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p14a2",
+  "nodes": 56,
+  "coverage": 72
+ },
+ "P-p14b": {
+  "ranges": [
+   {
+    "part": "p14b",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-P-p14b",
+  "nodes": 84,
+  "coverage": 122
+ },
+ "P-imports": {
+  "imports": true,
+  "extractor": "claude-suborch-INP",
+  "nodes": 93,
+  "coverage": 93
+ }
+}
