@@ -3,108 +3,108 @@ KIND: external
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:ext-linalg@L18-L21
 DISPOSITION: NODE bpN:p1:ext-linalg
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: bpN:p1:ext-norms
 KIND: external
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:ext-norms@L22-L23
 DISPOSITION: NODE bpN:p1:ext-norms
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: bpN:p1:ext-restrict
 KIND: external
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:ext-restrict@L24-L26
 DISPOSITION: NODE bpN:p1:ext-restrict
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: bpN:p1:ext-prod
 KIND: external
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:ext-prod@L27-L28
 DISPOSITION: NODE bpN:p1:ext-prod
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: bpN:p1:norm-compare
 KIND: lemma
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-compare@L35-L39
 DISPOSITION: NODE bpN:p1:norm-compare
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:nc-vec
 KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-vec@L41-L41
 DISPOSITION: NODE stepN:p1:nc-vec
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:nc-mat
 KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-mat@L43-L43
 DISPOSITION: NODE stepN:p1:nc-mat
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: bpN:p1:realdomain
 KIND: lemma
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:realdomain@L46-L57
 DISPOSITION: NODE bpN:p1:realdomain
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:rd-real
 KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:rd-real@L59-L59
 DISPOSITION: NODE stepN:p1:rd-real
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:rd-open
 KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:rd-open@L61-L61
 DISPOSITION: NODE stepN:p1:rd-open
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:rd-euclid
 KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:rd-euclid@L63-L63
 DISPOSITION: NODE stepN:p1:rd-euclid
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: bpN:p1:holo-real
 KIND: lemma
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:holo-real@L72-L85
 DISPOSITION: NODE bpN:p1:holo-real
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:hr-holo
 KIND: proof-region
@@ -219,9 +219,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:conic-coercive@L127-L133
 DISPOSITION: NODE bpN:p1:conic-coercive
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:cc-unit
 KIND: proof-region
@@ -237,9 +237,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-decomp@L137-L138
 DISPOSITION: NODE stepN:p1:cc-decomp
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:cc-expand
 KIND: proof-region
@@ -264,9 +264,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:qc-convert@L147-L161
 DISPOSITION: NODE bpN:p1:qc-convert
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:qc-reg
 KIND: proof-region
@@ -282,18 +282,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-trans@L165-L165
 DISPOSITION: NODE stepN:p1:qc-trans
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:qc-freq
 KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:qc-freq@L167-L167
 DISPOSITION: NODE stepN:p1:qc-freq
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:qc-conic
 KIND: proof-region
@@ -327,9 +327,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:pc-chain@L191-L191
 DISPOSITION: NODE stepN:p1:pc-chain
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: -
+REVIEWER: sol-review-N-a
 
 ITEM: stepN:p1:pc-field
 KIND: proof-region
@@ -352,8 +352,8 @@ REVIEWER: -
 ITEM: bpN:p1:norm-convert
 KIND: lemma
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L198-L204
-DISPOSITION: NODE bpN:p1:norm-convert
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE bpN:p1:norm-convert, bpN:p1:norm-convert#converse, bpN:p1:norm-convert#decay-route, bpN:p1:norm-convert#summation-route
+REASON: Owns two alternative forward routes plus the common converse comparison at L202; does not conjoin the alternatives.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: -
@@ -379,8 +379,8 @@ REVIEWER: -
 ITEM: bpN:p1:constants
 KIND: lemma
 SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:constants@L213-L235
-DISPOSITION: NODE bpN:p1:constants
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE bpN:p1:constants, bpN:p1:constants#data
+REASON: The local definitions at L214–221 are a package consumed directly by co-*; the remaining lemma clauses are proved estimates, with missing h-premise scope in (f),(g) exposed.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: -
@@ -542,7 +542,7 @@ ITEM: p1:sourcegap-L234
 KIND: proof-region
 SOURCE: blueprint-N/parts/p1-interfaces.tex#sourcegap@L234-L234
 DISPOSITION: NODE bpN:p1:constants
-REASON: the frozen-to-Pöschel dictionary and the omega_min conversion are supplied by Lemma constants itself (steps co-*); the factor 1/2 in T is slack
+REASON: The printed-source dictionary bridge is the constants lemma and co-* estimates. Its internal missing h-premise scope for (f),(g) is exposed by co-exc/co-time; the factor 1/2 in T is slack.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: -

@@ -105,9 +105,9 @@ EDGE: stepN:p3:barrier-fwd | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:b
 EDGE: N:bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-bwd@L367-L367 | time reversal: z(-t) solves -F on -J, -F is C^1
 EDGE: bpN:p3:gen-invariant | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-bwd@L367-L367 | S invariant for -F as well (reversal swaps solutions of F and -F)
 EDGE: N:bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-bwd@L367-L367 | IsSolIn for -F on -J
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -139,9 +139,9 @@ EDGE: P:bpP:p0:fixedsol#IsFixedSolution | blueprint-N/parts/p3-hamiltonian-ode.t
 EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L445-L445 | IsRestrictedSolutionOn mu J z
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L444-L444 | F_mu is the total extension of restrictedVectorField mu
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L444-L444 | W_mu defined by CollisionFree
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -171,9 +171,9 @@ EDGE: bpI:p0:primaries#primary1 | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN
 EDGE: bpI:p0:primaries#primary2 | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-smooth@L451-L451 | shift by primary_2 mu
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-smooth@L451-L451 | openness of W_mu uses its two strict positive-radius inequalities
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-smooth@L451-L451 | finite sums and products in the explicit formula for F_mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -201,9 +201,9 @@ EDGE: P:bpP:p0:newton#IsNewtonSolution | blueprint-N/parts/p3-hamiltonian-ode.te
 EDGE: P:bpP:p0:fixedsol#IsFixedSolution | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-pair@L453-L453 | blocks of IsFixedSolution
 EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-pair@L453-L453 | restricted predicate analogue
 EDGE: N:bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-pair@L453-L453 | IsSolIn: derivative F(z(t)) with membership in W
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

@@ -3,9 +3,9 @@ KIND: external
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:ext-param@L23-L25
 DISPOSITION: NODE bpN:p4:ext-param
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: bpN:p4:ext-weier
 KIND: external
@@ -21,18 +21,18 @@ KIND: external
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:ext-series@L28-L29
 DISPOSITION: NODE bpN:p4:ext-series
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: bpN:p4:domains
 KIND: definition
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:domains@L34-L39
 DISPOSITION: NODE bpN:p4:domains
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:dom-open
 KIND: proof-region
@@ -57,27 +57,27 @@ KIND: definition
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:norm@L47-L54
 DISPOSITION: NODE bpN:p4:norm
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: bpN:p4:coefficients
 KIND: lemma
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:coefficients@L57-L67
 DISPOSITION: NODE bpN:p4:coefficients
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:co-holo
 KIND: proof-region
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-holo@L69-L70
 DISPOSITION: NODE stepN:p4:co-holo
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:co-deriv
 KIND: proof-region
@@ -93,9 +93,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L75-L77
 DISPOSITION: NODE stepN:p4:co-series
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:co-repr
 KIND: proof-region
@@ -111,9 +111,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:sup-weighted@L85-L93
 DISPOSITION: NODE bpN:p4:sup-weighted
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:b1-a
 KIND: proof-region
@@ -129,18 +129,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L98-L100
 DISPOSITION: NODE stepN:p4:b1-b
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: bpN:p4:algebra
 KIND: lemma
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:algebra@L105-L109
 DISPOSITION: NODE bpN:p4:algebra
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:b2-class
 KIND: proof-region
@@ -174,9 +174,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:cauchy@L122-L130
 DISPOSITION: NODE bpN:p4:cauchy
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:b3-a
 KIND: proof-region
@@ -228,9 +228,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:general-cauchy@L168-L171
 DISPOSITION: NODE bpN:p4:general-cauchy
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:c1-line
 KIND: proof-region
@@ -255,9 +255,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:projections@L181-L187
 DISPOSITION: NODE bpN:p4:projections
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:pr-class
 KIND: proof-region

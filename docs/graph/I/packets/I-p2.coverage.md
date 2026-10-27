@@ -338,7 +338,7 @@ DISPOSITION: NODE stepI:p2:it-step
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: sol-delta-I-b
+REVIEWER: sol-delta-I-f
 
 ITEM: bpI:p2:limit
 KIND: proposition

@@ -284,7 +284,7 @@ DISPOSITION: NODE stepI:p5:sp-bdry
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: stepI:p5:sp-barrier
 KIND: proof-region
@@ -329,7 +329,7 @@ DISPOSITION: NODE stepI:p5:cf-cont
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: stepI:p5:hd-eps
 KIND: proof-region

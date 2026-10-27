@@ -3,27 +3,27 @@ KIND: external
 SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:ext-numerics@L22-L22
 DISPOSITION: NODE bpN:p6:ext-numerics
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p6:ext-chain
 KIND: external
 SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:ext-chain@L23-L23
 DISPOSITION: NODE bpN:p6:ext-chain
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p6:setting
 KIND: definition
 SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:setting@L29-L40
 DISPOSITION: NODE bpN:p6:setting
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p6:lipschitz
 KIND: lemma
@@ -39,36 +39,36 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p6-normal-form.tex#stepN:p6:lip-seg@L47-L47
 DISPOSITION: NODE stepN:p6:lip-seg
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p6:divisor
 KIND: lemma
 SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:divisor@L50-L53
 DISPOSITION: NODE bpN:p6:divisor
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p6:div
 KIND: proof-region
 SOURCE: blueprint-N/parts/p6-normal-form.tex#stepN:p6:div@L55-L55
 DISPOSITION: NODE stepN:p6:div
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p6:homological
 KIND: proposition
 SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:homological@L60-L70
 DISPOSITION: NODE bpN:p6:homological
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p6:hom-def
 KIND: proof-region
@@ -111,9 +111,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:bracket-g@L81-L85
 DISPOSITION: NODE bpN:p6:bracket-g
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p6:bg-term
 KIND: proof-region
@@ -138,18 +138,18 @@ KIND: theorem
 SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative@L93-L108
 DISPOSITION: NODE bpN:p6:iterative
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p6:it-gen
 KIND: proof-region
 SOURCE: blueprint-N/parts/p6-normal-form.tex#stepN:p6:it-gen@L110-L110
 DISPOSITION: NODE stepN:p6:it-gen
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p6:it-map
 KIND: proof-region
@@ -228,9 +228,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p6-normal-form.tex#stepN:p6:dir-concl@L137-L137
 DISPOSITION: NODE stepN:p6:dir-concl
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p6:iterative-special
 KIND: claim
@@ -246,18 +246,18 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:telescope@L148-L150
 DISPOSITION: NODE bpN:p6:telescope
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p6:tel
 KIND: proof-region
 SOURCE: blueprint-N/parts/p6-normal-form.tex#stepN:p6:tel@L152-L152
 DISPOSITION: NODE stepN:p6:tel
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p6:normal-form
 KIND: theorem
@@ -345,18 +345,18 @@ KIND: proposition
 SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:nonresonant-case@L221-L227
 DISPOSITION: NODE bpN:p6:nonresonant-case
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p6:nr-triv
 KIND: proof-region
 SOURCE: blueprint-N/parts/p6-normal-form.tex#stepN:p6:nr-triv@L229-L229
 DISPOSITION: NODE stepN:p6:nr-triv
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p6
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p6:deviations
 KIND: claim
@@ -617,4 +617,13 @@ DISPOSITION: EXCLUDED
 REASON: pointer after the external list ("Besides these, K ext-mvt and the external facts of Parts 4, 5 are used"); the use of K:bp:p1:ext-mvt is linked from stepN:p6:lip-seg; Part 4/5 externals are consumed through the Part 4/5 results that the nodes link
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p6
+REVIEWER: -
+
+ITEM: p6:prose-L176-L176
+KIND: proof-region
+SOURCE: blueprint-N/parts/p6-normal-form.tex#prose@L176-L176
+DISPOSITION: NODE bpN:p6:normal-form#data
+REASON: fixes the reused iteration objects, recurrence and eps_i; consumed by the normal-form proof and its labelled steps
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-N-d
 REVIEWER: -

@@ -1,0 +1,42 @@
+{
+ "replaced": [
+  "stepN:p4:dom-open",
+  "stepN:p4:dom-poly",
+  "bpN:p4:ext-weier",
+  "stepN:p4:co-deriv",
+  "stepN:p4:co-repr",
+  "stepN:p4:b2-class",
+  "stepN:p4:b2-coeff",
+  "stepN:p4:b2-norm",
+  "stepN:p4:b3-a",
+  "stepN:p4:b4-four",
+  "stepN:p4:pr-class",
+  "stepN:p4:pr-tail",
+  "bpN:p4:bracket",
+  "stepN:p4:b4-prod",
+  "stepN:p4:b1-a",
+  "stepN:p4:b3-b",
+  "stepN:p4:c1-line",
+  "stepN:p4:c1-cauchy"
+ ],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
+  "bpN:p4:ext-param",
+  "bpN:p4:ext-series",
+  "bpN:p4:domains",
+  "bpN:p4:norm",
+  "bpN:p4:norm#monotone",
+  "bpN:p4:coefficients",
+  "stepN:p4:co-holo",
+  "stepN:p4:co-series",
+  "bpN:p4:sup-weighted",
+  "stepN:p4:b1-b",
+  "bpN:p4:algebra",
+  "bpN:p4:cauchy",
+  "bpN:p4:s-b4#data",
+  "bpN:p4:general-cauchy",
+  "bpN:p4:projections"
+ ]
+}

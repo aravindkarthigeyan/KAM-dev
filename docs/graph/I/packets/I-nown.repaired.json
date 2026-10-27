@@ -1,16 +1,16 @@
 {
- "replaced": [
-  "stepN:p3:barrier-bwd",
-  "bpN:p3:newton-reduction",
-  "stepN:p3:nr-smooth",
-  "stepN:p3:nr-pair"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "bpN:p3:gen-invariant",
-  "bpN:p3:gen-barrier",
-  "stepN:p3:barrier-fwd"
+  "stepN:p3:barrier-bwd",
+  "bpN:p3:newton-reduction",
+  "stepN:p3:nr-smooth",
+  "stepN:p3:nr-pair",
+  "stepN:p3:barrier-bwd",
+  "bpN:p3:newton-reduction",
+  "stepN:p3:nr-smooth",
+  "stepN:p3:nr-pair"
  ]
 }
