@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 14:50 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 12.6 %** · frozen statements proved: 0 / 0 · **121 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 12.6 %** · frozen statements proved: 0 / 0 · **686 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -108,22 +108,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **121** (79 excluding blank lines and comments) · **+121** since 2026-10-27 13:33 UTC |
+| On `main` now | **686** (463 excluding blank lines and comments) · **+686** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
 | **Estimated total at completion** | **≈ 40,000** |
-| Estimated still to write | ≈ 40,000 |
+| Estimated still to write | ≈ 39,000 |
 
 **How the size is estimated.** The estimate is a planning figure (infrastructure ≈ 12k, a-posteriori theorem ≈ 15k, measure layer ≈ 8k, interfaces ≈ 5k lines); it switches to a rate-based estimate once 8 weight units of Lean work are done. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 14:50 UTC from `main` at `176e4d2` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:00 UTC from `main` at `a987e91` by `scripts/hq-status.py`.*
 
 **Current phase:** Phase 0: statements. Owner rulings Q1–Q5 recorded (D9); mathematical statement draft 0.1 in docs/statement.md; exact Lean drafts of the headline (rate and qualitative), G1 (a-posteriori), G2 (local uniqueness for flows), G3 (Diophantine measure) and 19 definitions elaborate against Mathlib; independent refute-first statement audit running; then owner approval and freeze.
 
 **Frozen statements proved: 0 / 0** · frozen definitions: 0
 
-**Lean on `main`:** 1 modules · 121 lines · 7 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 6 modules · 686 lines · 43 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 0
@@ -201,8 +201,8 @@ flowchart BT
 | Area | Content | Modules | Lines | Theorems |
 |---|---|---|---|---|
 | `KAM/Frozen/` *(not created yet)* | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 0 | 0 | 0 |
-| [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 1 | 121 | 7 |
-| `KAM/Diophantine/` *(not created yet)* | Diophantine vectors, cohomological equation, measure of the Diophantine set | 0 | 0 | 0 |
+| [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 2 | 179 | 9 |
+| [`KAM/Diophantine/`](KAM/Diophantine) | Diophantine vectors, cohomological equation, measure of the Diophantine set | 4 | 507 | 34 |
 | `KAM/Newton/` *(not created yet)* | Abstract Newton/KAM convergence on analytic scales | 0 | 0 | 0 |
 | `KAM/Hamiltonian/` *(not created yet)* | Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits | 0 | 0 | 0 |
 | `KAM/APosteriori/` *(not created yet)* | A-posteriori KAM theorem at fixed frequency and local uniqueness | 0 | 0 | 0 |
@@ -231,6 +231,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 14:59 | `a987e91` | Prove the Fourier cohomological solver and frequency estimates |
 | 2026-10-27 14:50 | `176e4d2` | Merge period-one Fourier conventions and derivative proof |
 | 2026-10-27 14:35 | `4db4826` | Record D10: the errata ledger stays public |
 | 2026-10-27 14:32 | `80d65f4` | HQ: statement drafts elaborate; independent audit running |
