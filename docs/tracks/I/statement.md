@@ -255,19 +255,19 @@ value of μ₀ or claim about observed Solar-System masses is made.
 
 ## Owner questions, with the draft's recommendations
 
-1. **Uniform isoenergetic gate:** approve fixing ω*, σω and endpoint distance ν
+1. **Uniform isoenergetic gate:** **Ruled as recommended by the owner (D19, 2026-10-27).** approve fixing ω*, σω and endpoint distance ν
    before C₁,C₂,C₃, as well as γ̄ and the geometric margin μ? **Recommend yes.**
    It exposes all source dependence without requiring an unproved frequency bound.
-2. **Dynamics surface:** approve an exhibited global solution plus agreement with
+2. **Dynamics surface:** **Ruled as recommended by the owner (D19, 2026-10-27).** approve an exhibited global solution plus agreement with
    every local solution, instead of defining a flow in advance? **Recommend yes.**
    This asserts the desired universal statement without arbitrary choice.
-3. **Nondegeneracy neighborhood:** approve nonzero bordered determinant on the
+3. **Nondegeneracy neighborhood:** **Ruled as recommended by the owner (D19, 2026-10-27).** approve nonzero bordered determinant on the
    real slice of B_r₀, after shrinking r₀ if necessary? **Recommend yes.** No
    convexity, boundary regularity or global frequency injectivity is needed.
-4. **First physical region:** approve the explicit prograde interior annulus above,
+4. **First physical region:** **Ruled as recommended by the owner (D19, 2026-10-27).** approve the explicit prograde interior annulus above,
    e₊<1/4 and a₊(1+e₊)<1, open in phase space and independent of μ?
    **Recommend yes.** Exterior orbits and exact circularity can be separate targets.
-5. **Gate split and source repairs:** approve the separate joint determinant/value
+5. **Gate split and source repairs:** **Ruled as recommended by the owner (D19, 2026-10-27).** approve the separate joint determinant/value
    gate I-KEPLER and the documented ≤/sign corrections to HL19?
    **Recommend yes**, after independent source review. No repair to a frozen
    track-K declaration is requested or made.

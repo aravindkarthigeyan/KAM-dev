@@ -96,3 +96,16 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
 
   These rulings fix the shape. The exact Lean text still needs the owner's line-by-line approval after the
   statement audit.
+- **D19 (2026-10-27) Track I rulings Q1–Q5.** *(Scott: "approve your recommendations for track I too")*
+  - Q1: the uniform isoenergetic gate fixes ω*, σ_ω, the endpoint distance ν, γ̄ and the margin μ before
+    C₁, C₂, C₃.
+  - Q2: dynamics are stated as an exhibited global solution plus agreement with every local solution; no flow is
+    defined in advance.
+  - Q3: the bordered determinant is nonzero on the real slice of B_{r₀}, after shrinking r₀ if needed.
+  - Q4: the first physical region is the prograde interior annulus with e₊ < 1/4 and a₊(1 + e₊) < 1, open in
+    phase space and independent of μ.
+  - Q5: I-KEPLER is a separate joint determinant/value gate, and the documented ≤ and sign corrections to HL19
+    are adopted after independent source review.
+
+  These rulings fix the shape. The exact Lean text still needs the owner's line-by-line approval after the
+  statement audit.
