@@ -189,8 +189,8 @@
    "id": "M.DMEAS",
    "title": "Measure of the non-Diophantine frequencies",
    "difficulty": "M",
-   "done": 0.0,
-   "note": ""
+   "done": 0.1,
+   "note": "P-G3 provider package running"
   },
   {
    "group": "Measure of the invariant tori",
