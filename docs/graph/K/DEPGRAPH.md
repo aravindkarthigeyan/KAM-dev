@@ -7,7 +7,7 @@ CONVENTIONS: docs/graph/K/SPEC.md "Conventions to watch": max norm on C^m and in
 STANDING_ASSUMPTIONS: -
 EXTERNAL_POLICY: the eleven Mathlib-level inputs (E1)-(E11) of Part 1 are KIND external nodes bp:p1:ext-*; any other unproved fact is a step node with NOTE SOURCE_GAP
 FROZEN_ANCHORS: bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:domains#actionNbhd, bp:p0:domains#fundamentalDomain, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:torus#IsInvariantLagrangianTorus, bp:p0:cover#kamCover, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#dotC, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage, bp:p0:head, bp:p0:headq, bp:p0:g1, bp:p0:g2, bp:p0:g3
-FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:055c54243bb558f19c0b39dc85929191938263d0b22f1216bbd818cbdf00ff46
+FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:980d93eed970ab8e14b4540a72ed3875a4a81ace04d3e8c90198e26d4116a770
 WRITER: claude-main-orchestrator
 GLOBAL_REVIEWER: sol-global-K
 GLOBAL_REVIEW_REF: docs/graph/K/reviews/GLOBAL-review.md and docs/graph/K/reviews/GLOBAL-recheck.md (Codex GPT-6.1-Sol medium, tmux kam-graph-global)
@@ -583,9 +583,9 @@ EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p0-conventions.tex#b
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.kam_positive_measure (SEALED: by exact KAM.Provider.kam_positive_measure …; provider via KAM.Provider.exists_gValid + KAM.Head.head_of_gValid)
+LEAN_NOTE: SEALED 2026-10-27 (D26): provider package P4-S1 (audit docs/campaign/audits/P4-S1-audit-1.md PASS, exact-type probe) on P4-12 (audit P4-12-audit-1.md PASS); axioms propext/Classical.choice/Quot.sound; leanchecker replay of the frozen module, provider and KAM.Head.Assembly exit 0
 NOTE: -
 
 NODE: bp:p0:headq
@@ -12835,9 +12835,9 @@ EDGE: bp:p0:domains#fundamentalDomain | blueprint/parts/p4-measure.tex#step:p4:h
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.head_empty
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-12-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:head-constants
@@ -12863,9 +12863,9 @@ EDGE: bp:p4:main-measure | blueprint/parts/p4-measure.tex#step:p4:head-constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.headC, one_le_headC, A0_mul_le_headC, Cmeas_div_le_headC
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-12-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:head-negative
@@ -12921,9 +12921,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:head-positive@L1221-L122
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-global-K
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.head_positive
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-12-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:head-zero
@@ -12951,9 +12951,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:head-zero@L1229-L1230 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d3
 REVIEWER: sol-review-d4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.head_zero
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-12-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: - [final: main-measure EDGE locator set to L1230-L1231 exactly as sol-review-d4 specified; the writer verified mechanically that these lines contain the ref to bp:p4:main-measure and its bound]
 
 NODE: bp:p4:dyadic-approx
