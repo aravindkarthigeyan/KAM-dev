@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:06 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 20.1 %** · frozen statements proved: 0 / 5 · **2,384 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:07 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 20.1 %** · frozen statements proved: 0 / 5 · **2,384 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:06 UTC from `main` at `b876ed8` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:07 UTC from `main` at `1e0a048` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -263,13 +263,12 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N Phase 0 done: statement draft 0.1 (N-HEAD quasi-convex Nekhoroshev, N-ZERO, N-QC); audit running | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P Phase 0 done: statement draft (P-G properly degenerate KAM, P-PLANAR, P-FIXED; spatial sketch); audit running | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Collaborator's research question, round 2: longer horizons for most initial conditions, one best planetary statement with proof sketch, realistic-parameter feasibility (round 1: docs/explorations/almost-every-shorter-times.md) | — | — |
-| **review-p3** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 3 (G2) | — | — |
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | 🔄 working | Refute-first statement audit of track N drafts | — | — |
 | **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | 🔄 working | Refute-first statement audit of track P drafts | — | — |
 | **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Refute-first statement audit of track I drafts | — | — |
 | **review-p2** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 2 (G1) | — | — |
 
-**Queued:** Blueprint part 1 proofs · Independent review of each blueprint part · Dependency graph extraction
+**Queued:** Blueprint consolidation: shared torus geometry between parts 2 and 3; part 3 copies of part 1 lemmas (review p3 F1–F3) · Blueprint part 1 proofs · Dependency graph extraction
 <!-- /AUTO:workers -->
 
 ### Recent changes on `main`
@@ -277,6 +276,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:07 | `1e0a048` | Blueprint Part 3 review: ACCEPT WITH FIXES (no blocking or major findings); step labels prefixed with S |
 | 2026-10-27 16:06 | `b876ed8` | Merge remote-tracking branch 'origin/main' |
 | 2026-10-27 16:06 | `c1171f3` | Blueprint Part 2: the a-posteriori theorem G1, complete proof |
 | 2026-10-27 16:04 | `060f2b3` | Exploration round 1 of the collaborator's almost-every/shorter-time question; round 2 launched |
@@ -288,7 +288,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:52 | `f0d0bda` | Track N Phase 0: sources, statement draft 0.1, notes; statement audit running |
 | 2026-10-27 15:51 | `3599e6e` | Blueprint Part 3: local uniqueness for flows (G2), complete proof |
 | 2026-10-27 15:40 | `28ab456` | HQ: exploration of almost-every, shorter-time stability (collaborator's question) |
-| 2026-10-27 15:37 | `6f73a2b` | Name both authors in the frozen and project file headers (D16) |
 <!-- /AUTO:landed -->
 
 ## Decisions
