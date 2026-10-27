@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 21:24 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 39.1 %** · frozen statements proved: 1 / 22 · **19,608 lines of Lean** of an estimated ≈ 137,000
+> **Last updated: 2026-10-27 21:25 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 39.1 %** · frozen statements proved: 1 / 22 · **19,608 lines of Lean** of an estimated ≈ 137,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 21:24 UTC from `main` at `2a571ab` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 21:25 UTC from `main` at `7630a49` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -307,6 +307,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 21:25 | `7630a49` | Brief for P2-7 (exactness; geometry steps ahead of the cohomological gate) |
 | 2026-10-27 21:24 | `2a571ab` | Brief for P2-10 (perturbation of frame and torsion) |
 | 2026-10-27 21:19 | `a6ac5f5` | Overnight log: P3-0 split |
 | 2026-10-27 21:19 | `98f44b6` | Brief for P3-0 (Part 3 standing data and constants, split from P3-1) |
@@ -318,7 +319,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 21:00 | `d984b14` | Land k/p2-3 into main |
 | 2026-10-27 21:00 | `df144e7` | Land inp into main |
 | 2026-10-27 20:59 | `2676c3c` | Overnight: claim I-STRIP-3 and I-P4B; Part 4 design brief |
-| 2026-10-27 20:58 | `83e9a74` | D29: overnight mode; overnight decision log |
 <!-- /AUTO:landed -->
 
 ## Decisions
