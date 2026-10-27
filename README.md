@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:53 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 16.1 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:54 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 17.5 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,9 +53,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **16.1 %**
+### Estimated completion: **17.5 %**
 
-`████░░░░░░░░░░░░░░░░░░░░░` 16.1 %
+`████░░░░░░░░░░░░░░░░░░░░░` 17.5 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
@@ -66,9 +66,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | Measure of the invariant tori | 5 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
 | Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
 | Track N (Nekhoroshev) | 2 | 12 | 2.0 | `██░░░░░░░░` 17 % |
-| Track P (planetary) | 3 | 20 | 0.0 | `░░░░░░░░░░` 0 % |
+| Track P (planetary) | 3 | 20 | 2.0 | `█░░░░░░░░░` 10 % |
 | Sealing of the frozen statements | 5 | 5 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 41 | 140 | 22.6 | **16.1 %** |
+| **Total** | 41 | 140 | 24.6 | **17.5 %** |
 
 **How this is estimated.** The project is divided into 36 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -109,7 +109,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | I.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | ⬜ 0 % |  |
 | N.PHASE0 | Sources, statements, owner approval, freeze | H | 🟨 50 % | sources, statement draft 0.1, Lean drafts (elaborate); audit running |
 | N.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | ⬜ 0 % |  |
-| P.PHASE0 | Sources, statements, owner approval, freeze | H | ⬜ 0 % |  |
+| P.PHASE0 | Sources, statements, owner approval, freeze | H | 🟨 50 % | sources, statement draft (P-G, P-PLANAR, P-FIXED; spatial sketch), Lean drafts elaborate; audit running |
 | P.PROOF.PDKAM | Properly degenerate KAM: blueprint, graph, proofs | VH | ⬜ 0 % |  |
 | P.PROOF.PLANAR | Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy | VH | ⬜ 0 % |  |
 
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:53 UTC from `main` at `dfd5e62` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:54 UTC from `main` at `388f8c1` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -261,10 +261,11 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 4: G3, APPLY, STAB, LIP, McShane and measure, HEAD, HEAD-Q | — | — |
 | **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | 🔄 working | Track I Phase 0: isoenergetic KAM (HL19 Thm 3.6), 2-DOF confinement, restricted three-body problem | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N Phase 0 done: statement draft 0.1 (N-HEAD quasi-convex Nekhoroshev, N-ZERO, N-QC); audit running | — | — |
-| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P Phase 0: properly degenerate KAM (CP11 Thm 11.1), planar two-planet and fixed-Sun statements | — | — |
+| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P Phase 0 done: statement draft (P-G properly degenerate KAM, P-PLANAR, P-FIXED; spatial sketch); audit running | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Stability of almost every initial condition over shorter-than-Nekhoroshev times; compatibility with simulations; candidate theorems (Zohar's question) | — | — |
 | **review-p3** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 3 (G2) | — | — |
 | **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | 🔄 working | Refute-first statement audit of track N drafts | — | — |
+| **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | 🔄 working | Refute-first statement audit of track P drafts | — | — |
 
 **Queued:** Blueprint part 1 proofs · Independent review of each blueprint part · Dependency graph extraction
 <!-- /AUTO:workers -->
@@ -274,6 +275,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:54 | `388f8c1` | Track P Phase 0: sources, statement draft, notes; statement audit running |
 | 2026-10-27 15:53 | `dfd5e62` | Record D18: owner rulings on track N questions 2-6, as recommended |
 | 2026-10-27 15:53 | `e4266b2` | Record D17: track N is stated for n >= 3 (owner ruling) |
 | 2026-10-27 15:52 | `f0d0bda` | Track N Phase 0: sources, statement draft 0.1, notes; statement audit running |
@@ -285,7 +287,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:20 | `83b6e08` | HQ: credit the collaborator's Fourier and Diophantine infrastructure |
 | 2026-10-27 15:19 | `1f4bdd2` | HQ updater: merge collaborators' pushes to main before regenerating |
 | 2026-10-27 15:19 | `59daeac` | Merge Zohar's Fourier and Diophantine infrastructure into the frozen-statement main |
-| 2026-10-27 15:16 | `1f0d755` | Freeze the approved KAM statements (D11) |
 <!-- /AUTO:landed -->
 
 ## Decisions
