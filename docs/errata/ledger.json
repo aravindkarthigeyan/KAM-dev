@@ -356,6 +356,91 @@
    "kind": "proof supplement",
    "status": "PLANNED",
    "effect": "none on statements"
+  },
+  {
+   "id": "E-P-A-N77-1",
+   "type": "erratum",
+   "source": "Nek77",
+   "location": "pp. 56 and 58 (§12)",
+   "printed": "compactness lemma printed as 12.3.A, cited as 12.4.A",
+   "claim": "the same compactness lemma is printed with one label and cited with another; numbering only",
+   "kind": "typo",
+   "evidence": "p. 56 label vs p. 58 citation",
+   "status": "CANDIDATE",
+   "checked_by": "statement audits of the D22 additions 2026-10-27 (v0.3 audit and v0.4 delta audit, rendered page checked); to be re-verified by writer and independent verifier",
+   "effect": "none; cite by page and title"
+  },
+  {
+   "id": "E-P-A-N77-2",
+   "type": "erratum",
+   "source": "Nek77",
+   "location": "p. 56, (12.6)",
+   "printed": "T = (1/2) Σ mᵢ (ẋᵢ²/2)",
+   "claim": "duplicate factor 1/2 in the kinetic energy; the momentum formula (12.8) Pᵢ = mᵢẋᵢ + mᵢΣmⱼẋⱼ on the same page follows from T = (1/2) Σ mᵢ ẋᵢ²",
+   "kind": "typo",
+   "evidence": "differentiate both candidate kinetic energies and compare with (12.8)",
+   "status": "CANDIDATE",
+   "checked_by": "statement audits of the D22 additions 2026-10-27 (v0.3 audit and v0.4 delta audit, rendered page checked); to be re-verified by writer and independent verifier",
+   "effect": "none; the frozen moving Hamiltonian matches LP17 (5)–(6) independently"
+  },
+  {
+   "id": "E-N-ADD-1",
+   "type": "erratum",
+   "source": "Nek77",
+   "location": "p. 15, §1.18",
+   "printed": "\"the perturbation H−H₀ becomes small\"",
+   "claim": "when two bodies approach one another the reciprocal-distance interaction grows; the sentence should read 'ceases to be small'",
+   "kind": "typo",
+   "evidence": "context of §1.18 (angular-momentum discussion)",
+   "status": "CANDIDATE",
+   "checked_by": "statement audits of the D22 additions 2026-10-27 (v0.3 audit and v0.4 delta audit, rendered page checked); to be re-verified by writer and independent verifier",
+   "effect": "none; not used as an analytic assumption"
+  },
+  {
+   "id": "E-P-A-LP17-1",
+   "type": "erratum",
+   "source": "LP17",
+   "location": "p. 17, between (B.9) and (B.10)",
+   "printed": "{F, H₀} = 0",
+   "claim": "F is not introduced in that argument; the surrounding brackets use the integral K, so it should read {K, H₀} = 0",
+   "kind": "typo",
+   "evidence": "rendered page",
+   "status": "CANDIDATE",
+   "checked_by": "statement audits of the D22 additions 2026-10-27 (v0.3 audit and v0.4 delta audit, rendered page checked); to be re-verified by writer and independent verifier",
+   "effect": "none; the frozen statements use only (B.5), (B.8) and rotational invariance"
+  },
+  {
+   "id": "D-P-A-1",
+   "type": "deviation",
+   "source": "Nek77",
+   "location": "§12, Theorem 12.3, pp. 55–56",
+   "claim": "P-EXP-SAFE specializes Theorem 12.3 to the planar problem with G = m₀ = 1, fixed positive planetary weights, planar prograde data in an explicit separated-annulus low-AMD region (AMDBox), with a symmetric exponential window and explicit uniqueness, Newton-equation and relative-distance conclusions; canonical element transfer is proof work",
+   "kind": "specialization",
+   "status": "ADOPTED",
+   "effect": "owner-approved D25 (Q-P-A1, Q-P-A2)",
+   "evidence": "docs/tracks/P/REVIEW-additions.md"
+  },
+  {
+   "id": "D-P-A-2",
+   "type": "deviation",
+   "source": "LP17",
+   "location": "(B.5), (B.8), App. B",
+   "claim": "P-SECULAR-BOX uses the raw untruncated full average over both mean longitudes in the fixed zero-coupling chart, implemented through the eccentric-longitude integral with its Jacobian, and a new elementary rational box at cited decimal masses; it is a statement about the averaged model, not the full Newtonian problem",
+   "kind": "specialization / new result",
+   "status": "ADOPTED",
+   "effect": "owner-approved D25 (Q-P-A4, Q-P-A5)",
+   "evidence": "docs/tracks/P/REVIEW-additions.md"
+  },
+  {
+   "id": "D-N-ADD-1",
+   "type": "deviation",
+   "source": "Nek77",
+   "location": "Theorem 4.4 p. 30, Remarks 4.5.A–B",
+   "claim": "N-PARTIAL-CONVEX states the stopped theorem for Hamiltonians convex in the fast actions, with hypotheses on an enlarged fast domain G′ ⊇ G + (real ρ-ball) and conclusions for initial fast actions in G; the steepness of the source is obtained by an explicit convex specialization of its proof, not by a verbatim import (the naive import fails at ∂G: audit F-NADD-1)",
+   "kind": "proof supplement / reformulation",
+   "status": "ADOPTED",
+   "effect": "owner-approved D25 (N questions 1–2)",
+   "evidence": "docs/tracks/N/REVIEW-additions.md; AUDIT-additions-v0.3.md §3"
   }
  ]
 }

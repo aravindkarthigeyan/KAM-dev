@@ -18,6 +18,8 @@ Locations refer to the pinned versions in [`sources.json`](sources.json); counts
 | FdlLS09 (arXiv:0903.0311v1) | 2 (2 candidate) | 0 |
 | CCdlL13 (doi:10.1016/j.jde.2013.05.001) | 1 (1 candidate) | 1 |
 | HL19 (arXiv:1711.05515v1) | 7 (7 candidate) | 4 |
+| Nek77 | 3 (3 candidate) | 2 |
+| LP17 | 1 (1 candidate) | 1 |
 
 ## Pos01 (arXiv:0908.2234v1)
 
@@ -91,3 +93,28 @@ None.
 2. **§2 (Hamiltonian systems and invariant tori).** *specialization; PLANNED* (D-COORD-1). Phase space Tⁿ × B is represented in coordinates: angles in ℝⁿ with ℤⁿ-periodicity, actions in an open set of ℝⁿ (no manifold structure, no general symplectic form). Effect: the general exact-symplectic setting of the source is specialized to the standard form on Tⁿ × ℝⁿ.
 3. **Theorem 3.1, pp. 16–18; App. B (5.74)–(5.77).** *reformulation (uniform constants); PLANNED* (D-G1-1). Uniform constants: C₁, C₂ depend only on n, τ, ρ, ρ∞, a bound M for the Hamiltonian's derivatives, σK, σB, σT, a margin μ (gaps σ − ‖·‖ and distance to the boundary) and an upper bound γbar ≥ γ (App. B's constants increase with γ; without γbar the statement is false: machine-checked counterexample). Dropped hypotheses implied up to 2n factors: σ_{Kᵀ}, c_{X_hᵀ,1}; first integrals and the estimate on ⟨c∘K∞⟩ not transcribed. Pointwise operator norms on the open strip instead of sums of sups on the closed strip. Conclusion strengthened to explicit margins (μ/2) and ≤ in the closeness bound (cf. E-HL19-1). Same uniformization in our G2, where no γbar is needed: invariance with H2–H3 bounds |ω|, hence γ; note: the hypotheses bound the frequency, γ ≤ |ω| ≤ 2nσ_Kσ_B(M + e), so γ̄ is needed only because the smallness condition alone does not bound e (Part 2 uses γ̄ once, to force e ≤ 1). Effect: G1 as drafted v0.2; G2.
 4. **§2.2, p. 7, eq. (2.3).** *proof supplement; PLANNED* (D-LAG-1). Proof supplement: the isotropy (Lagrangian property) of invariant tori with nonresonant frequency, asserted as well known, is proved in blueprint Part 4 (lemma lagrangian), citing GJLV05 Lemma 19. Effect: none on statements.
+
+
+## Nek77
+
+### Errata
+
+1. **pp. 56 and 58 (§12).** *typo; CANDIDATE* (E-P-A-N77-1). Printed: compactness lemma printed as 12.3.A, cited as 12.4.A. the same compactness lemma is printed with one label and cited with another; numbering only. Evidence: p. 56 label vs p. 58 citation. Effect: none; cite by page and title.
+2. **p. 56, (12.6).** *typo; CANDIDATE* (E-P-A-N77-2). Printed: T = (1/2) Σ mᵢ (ẋᵢ²/2). duplicate factor 1/2 in the kinetic energy; the momentum formula (12.8) Pᵢ = mᵢẋᵢ + mᵢΣmⱼẋⱼ on the same page follows from T = (1/2) Σ mᵢ ẋᵢ². Evidence: differentiate both candidate kinetic energies and compare with (12.8). Effect: none; the frozen moving Hamiltonian matches LP17 (5)–(6) independently.
+3. **p. 15, §1.18.** *typo; CANDIDATE* (E-N-ADD-1). Printed: "the perturbation H−H₀ becomes small". when two bodies approach one another the reciprocal-distance interaction grows; the sentence should read 'ceases to be small'. Evidence: context of §1.18 (angular-momentum discussion). Effect: none; not used as an analytic assumption.
+
+### Deviations
+
+1. **§12, Theorem 12.3, pp. 55–56.** *specialization; ADOPTED* (D-P-A-1). P-EXP-SAFE specializes Theorem 12.3 to the planar problem with G = m₀ = 1, fixed positive planetary weights, planar prograde data in an explicit separated-annulus low-AMD region (AMDBox), with a symmetric exponential window and explicit uniqueness, Newton-equation and relative-distance conclusions; canonical element transfer is proof work. Evidence: docs/tracks/P/REVIEW-additions.md. Effect: owner-approved D25 (Q-P-A1, Q-P-A2).
+2. **Theorem 4.4 p. 30, Remarks 4.5.A–B.** *proof supplement / reformulation; ADOPTED* (D-N-ADD-1). N-PARTIAL-CONVEX states the stopped theorem for Hamiltonians convex in the fast actions, with hypotheses on an enlarged fast domain G′ ⊇ G + (real ρ-ball) and conclusions for initial fast actions in G; the steepness of the source is obtained by an explicit convex specialization of its proof, not by a verbatim import (the naive import fails at ∂G: audit F-NADD-1). Evidence: docs/tracks/N/REVIEW-additions.md; AUDIT-additions-v0.3.md §3. Effect: owner-approved D25 (N questions 1–2).
+
+
+## LP17
+
+### Errata
+
+1. **p. 17, between (B.9) and (B.10).** *typo; CANDIDATE* (E-P-A-LP17-1). Printed: {F, H₀} = 0. F is not introduced in that argument; the surrounding brackets use the integral K, so it should read {K, H₀} = 0. Evidence: rendered page. Effect: none; the frozen statements use only (B.5), (B.8) and rotational invariance.
+
+### Deviations
+
+1. **(B.5), (B.8), App. B.** *specialization / new result; ADOPTED* (D-P-A-2). P-SECULAR-BOX uses the raw untruncated full average over both mean longitudes in the fixed zero-coupling chart, implemented through the eccentric-longitude integral with its Jacobian, and a new elementary rational box at cited decimal masses; it is a statement about the averaged model, not the full Newtonian problem. Evidence: docs/tracks/P/REVIEW-additions.md. Effect: owner-approved D25 (Q-P-A4, Q-P-A5).
