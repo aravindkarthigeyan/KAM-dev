@@ -1,0 +1,480 @@
+\section{Delaunay coordinates and the exact restricted Hamiltonian}\label{bpI:p7}
+
+This part owns, for tracks~I and~P, the \emph{Kepler problem fundamentals}: the planar Kepler Hamiltonian, its energy and
+angular-momentum identities, Kepler's equation $u-e\sin u=\ell$ solved analytically on a complex neighbourhood of all
+$\abs e\le e_1<1$ (so including $e=0$), the orbit maps (position and momentum as functions of the elements) and the
+mean values. On top of these sit the track-I specific statements: the Delaunay chart away from $e=0$ and $e=1$ as a
+symplectic diffeomorphism, the exact barycentric restricted Hamiltonian in Delaunay variables
+$H=-\tfrac1{2L^2}-G+\mu F_\mu$ with $F_\mu$ holomorphic and uniformly bounded on a common complex neighbourhood for
+$\abs\mu\le\mu_2$, the transfer of solutions to the physical problem, and the nondegeneracy $\mathsf B_h=\mathsf K$ via Part~\ref{bpI:p6}.
+Track~P cites \Iref{bpI:p7:kepler-eq}, \Iref{bpI:p7:orbit-maps-e}, \Iref{bpI:p7:orbit-identities}, \Iref{bpI:p7:means}, \Iref{bpI:p7:scaling}.
+
+\source{Chi05 \S2, (2.23)--(2.26), pp.~8--9, and (2.29)--(2.32), pp.~11--12 (Delaunay variables, Kepler's equation, true anomaly, radius);
+\S3, (3.33), (3.34), (3.37), pp.~12--13 (barycentre, unit separation, total mass one); the Delaunay Hamiltonian $-1/(2L^2)-G$ is Chi05 (3.43) at $\varepsilon=0$, p.~16.}
+\sourcegap{Chi05 states the inversion of Kepler's equation and the analyticity of $\hat f_0,\tilde u,\tilde f$ only ``for $\abs e$ small enough'' (p.~11) and then uses it on the whole range $e<1/4$.
+Proposition~\ref{bpI:p7:kepler-eq} supplies the full argument (all $\abs e<1$, with a complex neighbourhood), and Part~\ref{bpI:p7} does not use Chi05's truncated, heliocentric model (3.38)--(3.43):
+$F_\mu$ below is exact and barycentric. Chi05 does not prove that the Delaunay map is a symplectic bijection onto the Cartesian region; it is derived by generating functions (pp.~8--9). Proposition~\ref{bpI:p7:symplectic} and Theorem~\ref{bpI:p7:chart} give a direct verification.}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Notation and external facts}\label{bpI:p7:sec-ext}
+
+\paragraph{Notation.} $\abs\cdot_2$ is the Euclidean norm on $\R^2$ and $\C^2$ ($\abs z_2^2=\abs{z_0}^2+\abs{z_1}^2$), with $\abs z_\infty\le\abs z_2\le\sqrt2\abs z_\infty$; it is used for planar geometry
+only, the ambient norms of the frozen statements being max norms (Part~\ref{bpI:p0}). For $z\in\C^2$ put $\vartheta(z)=z_0^2+z_1^2\in\C$ (so $\operatorname{rad}(q)=\sqrt{\vartheta(q)}$ for real $q$), $\mathbf e=(1,0)$ (the first unit vector of the plane; the letter $e$ without bold is always an eccentricity). $\mathsf R(g)=\bigl(\begin{smallmatrix}\cos g&-\sin g\\ \sin g&\cos g\end{smallmatrix}\bigr)$. For $q,p\in\R^2$:
+$q\cdot p=q_0p_0+q_1p_1$, angular momentum $\Gamma(q,p)=q_0p_1-q_1p_0$, Kepler energy $E(q,p)=\tfrac12\abs p_2^2-1/\abs q_2$ ($q\ne0$). The open cone of Delaunay actions is
+\[
+\mathcal C_0=\{(L,G)\in\R^2:0<G<L\},\qquad e(L,G)=\sqrt{1-G^2/L^2}\in(0,1)\quad\text{on }\mathcal C_0.
+\]
+$\Omega_0=\bigl(\begin{smallmatrix}0&\mathbf 1\\-\mathbf 1&0\end{smallmatrix}\bigr)$ is the matrix of the standard form $\sum dq_i\wedge dp_i$ in the order (positions, momenta); $X_H=\Omega_0\nabla H=(\partial_pH,-\partial_qH)$.
+$D(c,r)$ is the open disc in $\C$.
+
+\paragraph{External facts used in this part.}
+{\raggedright
+\begin{enumerate}[label=(X\arabic*),ref=(X\arabic*)]
+\item\label{bpI:p7:x-hol} \emph{Holomorphic functions of several variables.} Sums, products, compositions and quotients (with nonvanishing denominator) of holomorphic functions are holomorphic;
+  $\exp,\sin,\cos$ are entire; the principal power $z\mapsto z^{-1/2}=\exp(-\tfrac12\operatorname{Log}z)$ is holomorphic on $\{\operatorname{Re}z>0\}$, with $\abs{z^{-1/2}}=\abs z^{-1/2}\le(\operatorname{Re}z)^{-1/2}$ and $z^{-1/2}=1/\sqrt z$ for $z>0$; $\sqrt{\cdot}$ is holomorphic on $\{\operatorname{Re}z>0\}$.
+  (\Lean{DifferentiableOn}, \Lean{Complex.cpow}.)
+\item\label{bpI:p7:x-weier} \emph{Weierstrass.} A uniform limit of holomorphic functions on an open set of $\C^m$ is holomorphic. (\Lean{TendstoLocallyUniformlyOn.differentiableOn}.)
+\item\label{bpI:p7:x-param} \emph{Parameter integrals.} If $\Phi$ is holomorphic on an open set $U\subset\C^m\times\C$ with $(q,t\mu)\in U$ for all $t\in[0,1]$, then $(q,\mu)\mapsto\int_0^1\Phi(q,t\mu)\,dt$ is holomorphic on that set (differentiation under the integral, dominated convergence).
+\item\label{bpI:p7:x-schwarz} \emph{Schwarz lemma (maximum modulus).} If $g$ is holomorphic on a neighbourhood of $\bar D(0,\varrho)$ and $g(0)=0$, then $\abs{g(\mu)}\le\frac{\abs\mu}{\varrho}\max_{\abs\zeta=\varrho}\abs{g(\zeta)}$ for $\abs\mu\le\varrho$.
+\item\label{bpI:p7:x-ift} \emph{Inverse function theorem (real-analytic).} A real-analytic map between open subsets of $\R^m$ with invertible differential at every point is a local real-analytic diffeomorphism; a bijective such map is a real-analytic diffeomorphism. (\Lean{HasStrictFDerivAt.toOpenPartialHomeomorph}; Mathlib's analytic version.)
+\item\label{bpI:p7:x-forms} \emph{Exterior calculus on open subsets of $\R^m$.} $d^2=0$; $d$ commutes with pull-back by smooth maps; a form is determined by its values on all tangent vectors.
+  If $F$ is a smooth map with $F^*(\sum_ip_i\,dq_i)=\sum_i P_i\,dQ_i+dS$ for a smooth $S$, then $DF^{\top}\Omega_0DF=\Omega_0$ whenever $\sum dP_i\wedge dQ_i$ stands for the matrix $-\Omega_0$ in the order (positions $Q$, momenta $P$).
+\item\label{bpI:p7:x-change} \emph{Change of variables in $\R$.} If $u:[a,b]\to\R$ is $C^1$, increasing, then $\int_a^b\phi(u(\ell))u'(\ell)\,d\ell=\int_{u(a)}^{u(b)}\phi$.
+\item\label{bpI:p7:x-banach} \emph{Banach's fixed point theorem} (\Kref{bp:p1:ext-banach}) and the \emph{mean value inequality} (\Kref{bp:p1:ext-mvt}).
+\end{enumerate}\par}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Hamilton's equations of the restricted problem}\label{bpI:p7:sec-ham}
+
+Let $\mu\in\R$, $W_\mu=\{z=(q,p)\in\R^2\times\R^2:\ \Lean{CollisionFree}\ \mu\ z\}=\{\operatorname{rad}(q-a_1(\mu))>0,\ \operatorname{rad}(q-a_2(\mu))>0\}=\{q\ne a_1(\mu),q\ne a_2(\mu)\}$,
+open (Definition~\ref{bpI:p0:primaries}); write $r_j=\operatorname{rad}(q-a_j(\mu))$. Both $\Ham^{\rm R3}_\mu$ and $V_\mu$ are given on $W_\mu$ by the formulas of Definition~\ref{bpI:p0:restricted}.
+
+\begin{lemma}[Hamilton's equations]\label{bpI:p7:ham-eq}
+$\Ham^{\rm R3}_\mu$ is $C^\infty$ (indeed real-analytic) on $W_\mu$ and $V_\mu=X_{\Ham^{\rm R3}_\mu}=(\partial_p\Ham^{\rm R3}_\mu,-\partial_q\Ham^{\rm R3}_\mu)$ at every point of $W_\mu$.
+Consequently $\mathrm{RSol}_\mu(J,z)$ holds iff for every $t\in J$ one has $z(t)\in W_\mu$ and $z$ is differentiable at $t$ with $z'(t)=X_{\Ham^{\rm R3}_\mu}(z(t))$; and the shared ODE layer applies to it
+(\Nref{bpN:p3:newton-reduction}: $\Lean{IsRestrictedSolutionOn}\iff\Lean{IsSolIn}$ for the field $V_\mu$ on $W_\mu$).
+\frozen{KAM.Iso.restrictedHamiltonian, KAM.Iso.restrictedVectorField, KAM.Iso.IsRestrictedSolutionOn}
+\source{Chi05 (1.2), p.~2, in the rotating frame of (3.34), (3.37), pp.~12--13; the check is ours (it is not displayed in Chi05).}
+\end{lemma}
+\begin{proof}
+\proofstep{Smoothness}\label{stepI:p7:he-smooth} $r_j^2=\vartheta(q-a_j)$ is a polynomial, positive on $W_\mu$, so $r_j=\sqrt{\cdot}$ and $1/r_j$ are $C^\infty$ (real-analytic) there; the remaining terms are polynomial in $(q,p)$.
+
+\proofstep{Derivatives}\label{stepI:p7:he-deriv} With $\partial_{q_i}(1/r_j)=-(q-a_j)_i/r_j^3$:
+\begin{align*}
+&\partial_{p_0}\Ham=p_0+q_1,\qquad\partial_{p_1}\Ham=p_1-q_0,\\
+&\partial_{q_0}\Ham=-p_1+\tfrac{(1-\mu)(q-a_1)_0}{r_1^3}+\tfrac{\mu(q-a_2)_0}{r_2^3},\qquad
+\partial_{q_1}\Ham=p_0+\tfrac{(1-\mu)(q-a_1)_1}{r_1^3}+\tfrac{\mu(q-a_2)_1}{r_2^3}.
+\end{align*}
+Hence $(\partial_p\Ham,-\partial_q\Ham)=\bigl((p_0+q_1,\,p_1-q_0),\ (p_1,-p_0)-\frac{1-\mu}{r_1^3}(q-a_1)-\frac\mu{r_2^3}(q-a_2)\bigr)=V_\mu$, which is the display of Definition~\ref{bpI:p0:restricted}.
+
+\proofstep{Solution predicates}\label{stepI:p7:he-sol} The first clause of $\mathrm{RSol}_\mu$ (collision-freeness at each $t$) is membership $z(t)\in W_\mu$, the second is differentiability with the value $V_\mu=X_\Ham$. The reduction to \Lean{IsSolIn} is \Nref{bpN:p3:newton-reduction}.
+\end{proof}
+
+\begin{lemma}[Newtonian meaning of $V_\mu$]\label{bpI:p7:newton}
+Let $\mathcal J=\bigl(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\bigr)$, so $\mathsf R(t)=e^{t\mathcal J}$. Let $x:I\to\R^2$ ($I$ an interval) be a twice differentiable curve with $x(t)\ne\mathsf R(t)a_j(\mu)$ for $j=1,2$, and put
+$q(t)=\mathsf R(-t)x(t)$, $p(t)=\mathsf R(-t)\dot x(t)$. Then $x$ solves Newton's equations of the massless body in the field of two primaries of masses $1-\mu$, $\mu$ revolving on the unit circle about their barycentre at angular velocity $1$,
+\[
+\ddot x=-(1-\mu)\frac{x-\mathsf R(t)a_1}{\abs{x-\mathsf R(t)a_1}_2^3}-\mu\frac{x-\mathsf R(t)a_2}{\abs{x-\mathsf R(t)a_2}_2^3},
+\]
+iff $(q,p)$ solves $\dot z=V_\mu(z)$. (Not used by the frozen statements, which are formulated for $V_\mu$; it identifies $V_\mu$ with Chi05 (1.2), (3.34)--(3.37).)
+\source{Chi05 (1.2) with (3.34), (3.37), pp.~2, 12--13; ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{Rotation}\label{stepI:p7:nw-rot} $\frac d{dt}\mathsf R(-t)=-\mathcal J\mathsf R(-t)=-\mathsf R(-t)\mathcal J$, so $\dot q=\mathsf R(-t)\dot x-\mathcal Jq=p-\mathcal Jq=(p_0+q_1,p_1-q_0)$ since $\mathcal Jq=(-q_1,q_0)$; this is the first slot of $V_\mu$.
+
+\proofstep{Force}\label{stepI:p7:nw-force} $\dot p=\mathsf R(-t)\ddot x-\mathcal Jp$ and $-\mathcal Jp=(p_1,-p_0)$. By orthogonality of $\mathsf R(-t)$ and $\mathsf R(-t)\mathsf R(t)a_j=a_j$: $\mathsf R(-t)\frac{x-\mathsf R(t)a_j}{\abs{x-\mathsf R(t)a_j}^3}=\frac{q-a_j}{\abs{q-a_j}^3}$. So Newton's equation holds iff $\dot p=(p_1,-p_0)-\frac{1-\mu}{r_1^3}(q-a_1)-\frac\mu{r_2^3}(q-a_2)$, the second slot of $V_\mu$.
+The positions $\mathsf R(t)a_j$ are the barycentric positions of masses $1-\mu$ at $-\mu$ and $\mu$ at $1-\mu$ (distance $1$, barycentre $0$) rotating at angular velocity $1$, as Kepler's third law gives for total mass one (Chi05 (3.37)).
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Kepler's equation on a complex neighbourhood}\label{bpI:p7:sec-keq}
+
+\begin{proposition}[Kepler's equation, analytic solution]\label{bpI:p7:kepler-eq}
+Let $0<e_1<1$ and put
+\[
+e_2=\tfrac{1+e_1}2,\qquad\vartheta_*=\tfrac{1+e_2}2,\qquad y_0=\operatorname{arcosh}\frac{\vartheta_*}{e_2}>0,\qquad\delta_K=(1-\vartheta_*)\,y_0>0,
+\]
+\[
+\mathcal P=\mathcal P(e_1)=\{(\ell,e)\in\C^2:\ \abs{\operatorname{Im}\ell}<\delta_K,\ \abs e<e_2\},
+\]
+an open set containing $\{(\ell,e)\in\R^2:\abs e\le e_1\}$ (the constants depend only on $e_1$). There is a unique holomorphic $u:\mathcal P\to\C$ with $\abs{\operatorname{Im}u}\le y_0$ and
+\[
+u(\ell,e)-e\sin u(\ell,e)=\ell\qquad((\ell,e)\in\mathcal P).
+\]
+It has the following properties.
+\begin{enumerate}[label=(\alph*)]
+\item $\abs{\sin u},\abs{\cos u}\le\cosh y_0=\vartheta_*/e_2$, $\ \abs{e\cos u}\le\vartheta_*<1$ and so $\abs{1-e\cos u}\ge1-\vartheta_*>0$ on $\mathcal P$ (the quantity $\partial_u(u-e\sin u)=1-e\cos u$ never vanishes).
+\item $\partial_\ell u=\dfrac1{1-e\cos u}$, $\ \partial_eu=\dfrac{\sin u}{1-e\cos u}$; $\ u(\ell,0)=\ell$; $\ u(\ell+2\pi,e)=u(\ell,e)+2\pi$; hence $\sin u,\cos u,(1-e\cos u)^{-1}$ are holomorphic on $\mathcal P$ and $2\pi$-periodic in $\ell$.
+\item $u$ is real at real $(\ell,e)\in\mathcal P$. For every real $\ell$ and $e\in(-1,1)$ the equation $u-e\sin u=\ell$ has exactly one real solution $u_{\R}(\ell,e)$; $u_{\R}$ is real-analytic on $\R\times(-1,1)$, $u_\R(\cdot,e)$ is an increasing diffeomorphism of $\R$ with $u_\R(0,e)=0$, $u_\R(2\pi,e)=2\pi$, and $u=u_\R$ on the real points of every $\mathcal P(e_1)$.
+\end{enumerate}
+\source{Chi05 p.~11 (the inversion $u_0(\lambda,e)=\lambda+e\tilde u(\lambda,e)$ for ``$\abs e$ small enough'', no radius); full argument ours.}
+\sourcegap{Chi05 gives no domain of analyticity in $e$ and none in $\lambda$; the uniform statement above (all $\abs e<1$, a strip in $\ell$, with the periodic structure) is what the use on $e\le1/4$ (Chi05 \S3) and track~P's use near $e=0$ require.}
+\end{proposition}
+\begin{proof}
+\proofstep{Constants}\label{stepI:p7:ke-const} $0<e_1<e_2<\vartheta_*<1$, and $\vartheta_*/e_2>1$, so $y_0>0$ and $e_2\cosh y_0=\vartheta_*$. Also $\sinh y\le y\cosh y$ for $y\ge0$ ($\tanh y\le y$), hence $e_2\sinh y_0\le\vartheta_*y_0$.
+
+\proofstep{Trigonometric bounds}\label{stepI:p7:ke-trig} For $u=x+iy$: $\abs{\sin u}^2=\sin^2x+\sinh^2y$, $\abs{\cos u}^2=\cos^2x+\sinh^2y$, both $\le\cosh^2y$; $\operatorname{Im}\sin u=\cos x\sinh y$, so $\abs{\operatorname{Im}\sin u}\le\sinh\abs y$.
+
+\proofstep{A contraction}\label{stepI:p7:ke-contr} Let $S=\{u\in\C:\abs{\operatorname{Im}u}\le y_0\}$ (closed, convex, complete) and, for $(\ell,e)\in\mathcal P$, $\Phi_{\ell,e}(u)=\ell+e\sin u$. For $u\in S$:
+$\abs{\operatorname{Im}\Phi_{\ell,e}(u)}\le\abs{\operatorname{Im}\ell}+e_2\sinh y_0<\delta_K+\vartheta_*y_0=y_0$, so $\Phi_{\ell,e}(S)\subset S$; and $\abs{\Phi_{\ell,e}'(u)}=\abs{e\cos u}\le e_2\cosh y_0=\vartheta_*<1$,
+so by the mean value inequality \ref{bpI:p7:x-banach} on the convex $S$, $\Phi_{\ell,e}$ is a $\vartheta_*$-contraction of $S$. Banach gives a unique fixed point $u(\ell,e)\in S$, i.e.\ a unique solution of Kepler's equation in $S$.
+
+\proofstep{Holomorphy}\label{stepI:p7:ke-hol} Put $u_0(\ell,e)=\ell\in S$ ($\abs{\operatorname{Im}\ell}<\delta_K<y_0$) and $u_{m+1}=\Phi_{\ell,e}(u_m)$: each $u_m$ is holomorphic on $\mathcal P$ with values in $S$ (\ref{bpI:p7:x-hol}), and
+$\abs{u_{m+1}-u_m}\le\vartheta_*^m\abs{u_1-u_0}\le\vartheta_*^{m+1}$ (as $\abs{u_1-u_0}=\abs{e\sin\ell}\le\vartheta_*$), so $\abs{u_m-u}\le\vartheta_*^{m+1}/(1-\vartheta_*)$ uniformly on $\mathcal P$.
+By \ref{bpI:p7:x-weier}, $u$ is holomorphic.
+
+\proofstep{(a)}\label{stepI:p7:ke-a} The bounds follow from $u\in S$, Step~\ref{stepI:p7:ke-trig} and $e_2\cosh y_0=\vartheta_*$.
+
+\proofstep{(b)}\label{stepI:p7:ke-b} Differentiate $u-e\sin u=\ell$ (a holomorphic identity): $(1-e\cos u)\partial_\ell u=1$, $(1-e\cos u)\partial_eu=\sin u$; divide using (a). $u(\ell,0)=\ell$ because $\ell\in S$ solves the equation. Periodicity: $u(\ell,e)+2\pi\in S$ solves the equation at $(\ell+2\pi,e)$, so equals the unique solution there.
+
+\proofstep{(c)}\label{stepI:p7:ke-c} For real $e$, $\abs e<1$, the map $\phi(u)=\ell+e\sin u$ is a $\abs e$-contraction of $\R$, so it has exactly one real fixed point $u_\R(\ell,e)$. For real $(\ell,e)\in\mathcal P$ this fixed point lies in $S$, so it equals $u(\ell,e)$ by uniqueness in $S$ (Step~\ref{stepI:p7:ke-contr}).
+Every $e\in(-1,1)$ lies in some $\mathcal P(e_1)$ ($e_1\in(\abs e,1)$), hence $u_\R$ is the restriction of a holomorphic function, so real-analytic on $\R\times(-1,1)$ (\Kref{bp:p1:holomorphic-analytic}). $\partial_\ell u_\R=1/(1-e\cos u_\R)>0$; $\abs{u_\R-\ell}\le\abs e<1$ gives $u_\R(\ell,e)\to\pm\infty$ as $\ell\to\pm\infty$, so $u_\R(\cdot,e)$ is an increasing diffeomorphism of $\R$. $u_\R(0,e)=0$ since $0-e\sin0=0$ and by uniqueness; $u_\R(2\pi,e)=2\pi$ similarly.
+\end{proof}
+
+\begin{remark}[Alternative route]\label{bpI:p7:ke-ift}
+The holomorphic implicit function theorem at a real solution $(\ell_0,e_0,u_0)$, using $\partial_u(u-e\sin u)=1-e_0\cos u_0\ge1-e_1>0$, gives local holomorphic solutions that agree with the real one on a connected real-symmetric overlap, hence glue; the contraction argument above makes the size of the neighbourhood explicit and independent of the point, which is what the uniform bounds below need.
+\end{remark}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The planar Kepler problem: elements, orbit maps, identities}\label{bpI:p7:sec-orbits}
+
+\begin{definition}[Kepler region and elements]\label{bpI:p7:elements}
+The Kepler Hamiltonian (strength one) is $E(q,p)=\tfrac12\abs p_2^2-1/\abs q_2$ on $\{q\ne0\}$. The \emph{bound prograde non-circular region} is
+\[
+\mathcal C=\{(q,p)\in\R^2\times\R^2:\ q\ne0,\ E(q,p)<0,\ \Gamma(q,p)>0,\ \Gamma(q,p)^2<-1/(2E(q,p))\},
+\]
+open (strict inequalities between continuous functions on the open set $\{q\ne0\}$). On $\mathcal C$ the \emph{elements} are
+\[
+L=\frac1{\sqrt{-2E}},\quad G=\Gamma,\quad a=L^2=\frac1{-2E},\quad e=\sqrt{1-G^2/L^2}=\sqrt{1+2E\Gamma^2},
+\]
+with $L>G>0$ and $e\in(0,1)$,
+so that $E=-1/(2a)$ and $\Gamma^2=a(1-e^2)$.
+\source{Chi05 (2.24)--(2.26), p.~9 ($\mu=M=1$): $h_{\rm Kep}=-1/(2\Lambda^2)$, $e=\sqrt{1-(\Gamma/\Lambda)^2}$, $a=\Lambda^2$, $\Gamma>0$, momentum space the cone $0<\Gamma<\Lambda$ (Remark~2.3).}
+\end{definition}
+
+\begin{definition}[Orbit maps]\label{bpI:p7:orbit-maps}
+Let $\mathsf Q_{\rm el}$ be the following map of $(\ell,g,L,e,k)$ ($k$ stands for $G/L$): with $u=u(\ell,e)$ of Proposition~\ref{bpI:p7:kepler-eq}, $c=\cos u$, $s=\sin u$, $\mathsf D=1-ec$,
+\[
+X=L^2(c-e),\quad Y=L^2k\,s,\quad P_X=-\frac{s}{L\,\mathsf D},\quad P_Y=\frac{k\,c}{L\,\mathsf D},\qquad
+q=\mathsf R(g)\binom XY,\quad p=\mathsf R(g)\binom{P_X}{P_Y}.
+\]
+The \emph{Delaunay orbit map} is $\mathsf Q(\ell,g,L,G)=\mathsf Q_{\rm el}(\ell,g,L,e(L,G),G/L)$, where $e(L,G)=\sqrt{1-G^2/L^2}$. On the real domain $\mathcal D_\R=\R^2\times\mathcal C_0$ ($\ell,g\in\R$, $(L,G)\in\mathcal C_0$) all quantities are real
+and $\mathsf D\ge1-e>0$ ($u=u_\R$). Here $q=\mathsf R(g)(X,Y)$ is the position on the Kepler ellipse of semi-major axis $a=L^2$, eccentricity $e$, perihelion direction $g$, at eccentric anomaly $u$ and mean anomaly $\ell$ ($X=a(\cos u-e)$, $Y=a\sqrt{1-e^2}\sin u$, Chi05 p.~12, (A.45), $r=a(1-e\cos u)$), and $p$ is the velocity ($\dot\ell=L^{-3}$,
+$\dot u=L^{-3}/\mathsf D$).
+\source{Chi05 (2.29)--(2.32), pp.~11--12 and (A.44)--(A.45), p.~17; the explicit velocity formula is ours.}
+\end{definition}
+
+\begin{proposition}[Orbit maps near $e=0$]\label{bpI:p7:orbit-maps-e}
+Let $0<e_1<1$ and $\mathcal P=\mathcal P(e_1)$ as in Proposition~\ref{bpI:p7:kepler-eq}. The map $\mathsf Q_{\rm el}$ is holomorphic on
+$\{(\ell,g,L,e,k):\ (\ell,e)\in\mathcal P,\ g\in\C,\ L\in\C\setminus\{0\},\ k\in\C\}$ (note $\mathsf D\ne0$ there), $2\pi$-periodic in $\ell$ and in $g$, and real on real points with $\abs e<1$; in particular it is holomorphic across $e=0$ (only $e$, not $\sqrt{1-G^2/L^2}$, enters), e.g.\ with $k=\sqrt{1-e^2}$ (principal branch, holomorphic for $\abs e<1$).
+\source{ours (the consequence of Proposition~\ref{bpI:p7:kepler-eq} that track~P's Poincar\'e chart uses).}
+\end{proposition}
+\begin{proof}
+\proofstep{Holomorphy}\label{stepI:p7:om-hol} $u,c,s$ are holomorphic and $\mathsf D=1-e\cos u$ satisfies $\abs{\mathsf D}\ge1-\vartheta_*>0$ (Proposition~\ref{bpI:p7:kepler-eq}(a)); the formulas for $X,Y,P_X,P_Y$ are polynomial in $(c,s,e,k,L,L^{-1},\mathsf D^{-1})$, and $\mathsf R(g)$ is entire (\ref{bpI:p7:x-hol}). $\operatorname{Re}(1-e^2)\ge1-\abs e^2>0$, so $k=\sqrt{1-e^2}$ is holomorphic.
+
+\proofstep{Periodicity, reality}\label{stepI:p7:om-per} Proposition~\ref{bpI:p7:kepler-eq}(b),(c) and $2\pi$-periodicity of $\mathsf R$.
+\end{proof}
+
+\begin{proposition}[Identities for the orbit maps]\label{bpI:p7:orbit-identities}
+Let $(\ell,g,L,G)\in\mathcal D_\R$, $e=e(L,G)$, $(q,p)=\mathsf Q(\ell,g,L,G)$, $r=\abs q_2$, and $u,c,s,\mathsf D$ as above. Then
+\begin{enumerate}[label=(\alph*)]
+\item $r=L^2\mathsf D=L^2(1-e\cos u)$ and $L^2(1-e)\le r\le L^2(1+e)$; $\ \abs p_2^2=\dfrac{1+e\cos u}{L^2\mathsf D}$;
+\item $\Gamma(q,p)=G$ and $q\cdot p=L\,e\sin u$;
+\item $E(q,p)=-\dfrac1{2L^2}$; hence $\mathsf Q(\mathcal D_\R)\subset\mathcal C$ and the elements of Definition~\ref{bpI:p7:elements} of $\mathsf Q(\ell,g,L,G)$ are $L,G,a=L^2,e$;
+\item $(Le\sin u)^2=-G^2+2r-r^2/L^2$ and $L^2e\cos u=L^2-r$.
+\end{enumerate}
+\source{Chi05 (2.24)--(2.26), (2.32), pp.~9, 12; computations ours.}
+\end{proposition}
+\begin{proof}
+Use $G=Lk$, $k^2=1-e^2$, $c^2+s^2=1$ (real case, $k=G/L>0$).
+
+\proofstep{Radius}\label{stepI:p7:oi-r} $\mathsf R(g)$ is orthogonal, so $r^2=X^2+Y^2=L^4\bigl[(c-e)^2+(1-e^2)s^2\bigr]=L^4\bigl[1-2ec+e^2c^2\bigr]=L^4\mathsf D^2$ and $r=L^2\mathsf D>0$ since $\mathsf D\ge1-e$.
+Likewise $\abs p_2^2=P_X^2+P_Y^2=\frac{s^2+k^2c^2}{L^2\mathsf D^2}=\frac{1-e^2c^2}{L^2\mathsf D^2}=\frac{1+ec}{L^2\mathsf D}$.
+
+\proofstep{Angular momentum, radial momentum}\label{stepI:p7:oi-gam} Rotations preserve $q_0p_1-q_1p_0$ and $q\cdot p$, so $\Gamma=XP_Y-YP_X=\frac{L^2(c-e)kc}{L\mathsf D}+\frac{L^2ks\cdot s}{L\mathsf D}=\frac{Lk(c^2-ec+s^2)}{\mathsf D}=Lk=G$, and
+$q\cdot p=XP_X+YP_Y=\frac{-L(c-e)s+L k^2sc}{\mathsf D}=\frac{Ls\,e(1-ec)}{\mathsf D}=Le\,s$.
+
+\proofstep{Energy}\label{stepI:p7:oi-en} $E=\frac12\abs p^2-\frac1r=\frac{(1+ec)/2-1}{L^2\mathsf D}=-\frac{1-ec}{2L^2\mathsf D}=-\frac1{2L^2}$. As $G>0$ and $G^2=L^2(1-e^2)<L^2=-1/(2E)$, $\mathsf Q(\ell,g,L,G)\in\mathcal C$, and $L=1/\sqrt{-2E}$, $\Gamma=G$ give the elements.
+
+\proofstep{(d)}\label{stepI:p7:oi-d} $L^2ec=L^2-r$ is Step~\ref{stepI:p7:oi-r}. Then $(Les)^2=L^2e^2-L^2e^2c^2=L^2e^2-(L^2-r)^2/L^2=(L^2-G^2)-L^2+2r-r^2/L^2$, using $L^2e^2=L^2-G^2$.
+\end{proof}
+
+\begin{proposition}[The Delaunay map is symplectic]\label{bpI:p7:symplectic}
+On $\mathcal D_\R$ (open in $\R^4$), with $F=2Le\sin u$:
+\[
+\mathsf Q^*\Bigl(\sum_{i=0}^{1}p_i\,dq_i\Bigr)=L\,d\ell+G\,dg+dF,\qquad\text{hence}\qquad D\mathsf Q^{\top}\Omega_0D\mathsf Q=\Omega_0=D\mathsf Q\,\Omega_0\,D\mathsf Q^{\top},
+\]
+i.e.\ $\mathsf Q^*(dq_0\wedge dp_0+dq_1\wedge dp_1)=d\ell\wedge dL+dg\wedge dG$ in the order $(\ell,g;L,G)$, and $D\mathsf Q(w)$ is invertible at every point. Consequently, for every $C^1$ function $H$ on an open subset of $\R^4$ on which $\mathsf Q$ is defined,
+\[
+D\mathsf Q\;X_{H\circ\mathsf Q}=X_H\circ\mathsf Q,\qquad\text{i.e.}\qquad \dot w=X_{H\circ\mathsf Q}(w)\iff\tfrac{d}{dt}\mathsf Q(w)=X_H(\mathsf Q(w))\ \ (\text{for }w\in C^1).
+\]
+\source{Chi05 pp.~8--9 obtains the same canonicity by generating functions $S_0,S_1,S_2$ (not reproduced); the direct verification below is ours.}
+\end{proposition}
+\begin{proof}
+\proofstep{Reduction of the angle $g$}\label{stepI:p7:sy-g} Write $q=\mathsf R(g)\xi$, $\xi=(X,Y)$, $\pi=(P_X,P_Y)$, $p=\mathsf R(g)\pi$. Then $dq=\mathsf R(g)d\xi+\mathsf R(g)J\xi\,dg$ ($\frac d{dg}\mathsf R=\mathsf RJ$), so
+$p\cdot dq=\pi\cdot d\xi+(\pi\cdot J\xi)\,dg=\pi\cdot d\xi+(XP_Y-YP_X)\,dg=\pi\cdot d\xi+G\,dg$ by Proposition~\ref{bpI:p7:orbit-identities}(b).
+
+\proofstep{Coordinates $(u,L,e)$}\label{stepI:p7:sy-coord} On the real domain use $(u,L,e)$ in place of $(\ell,L,G)$: $\ell=u-e\sin u$, $G=Lk$, $k=\sqrt{1-e^2}$; the change of variables $(\ell,L,G)\mapsto(u,L,e)$ is a diffeomorphism ($\partial_\ell u>0$, $e\in(0,1)\leftrightarrow G/L\in(0,1)$), so identities between $1$-forms may be checked in the new coordinates. With $X=L^2(c-e)$, $Y=L^2ks$:
+\[
+dX=2L(c-e)\,dL-L^2s\,du-L^2\,de,\qquad dY=2Lks\,dL-\frac{L^2es}k\,de+L^2kc\,du,
+\]
+and $P_X=-s/(L\mathsf D)$, $P_Y=kc/(L\mathsf D)$. Collecting coefficients:
+\begin{align*}
+dL:&\ \tfrac2{\mathsf D}\bigl[-s(c-e)+k^2cs\bigr]=\tfrac{2s}{\mathsf D}\,e(1-ec)=2es,\\
+de:&\ \tfrac{Ls}{\mathsf D}-\tfrac{Lecs}{\mathsf D}=Ls,\\
+du:&\ \tfrac{L s^2}{\mathsf D}+\tfrac{Lk^2c^2}{\mathsf D}=\tfrac{L(1-e^2c^2)}{\mathsf D}=L(1+ec).
+\end{align*}
+So $\pi\cdot d\xi=L(1+ec)\,du+2es\,dL+Ls\,de$.
+
+\proofstep{Comparison with $L\,d\ell$}\label{stepI:p7:sy-compare} $d\ell=(1-ec)\,du-s\,de$, so $\pi\cdot d\xi-L\,d\ell=2Lec\,du+2es\,dL+2Ls\,de=2\,d(Les)=dF$. With Step~\ref{stepI:p7:sy-g}: $\mathsf Q^*(\sum p_idq_i)=L\,d\ell+G\,dg+dF$.
+
+\proofstep{Exterior derivative}\label{stepI:p7:sy-ext} Apply $d$ (\ref{bpI:p7:x-forms}): $\mathsf Q^*(\sum dp_i\wedge dq_i)=dL\wedge d\ell+dG\wedge dg$, i.e.\ $\mathsf Q^*\sum dq_i\wedge dp_i=d\ell\wedge dL+dg\wedge dG$, which in matrices is $D\mathsf Q^{\top}\Omega_0D\mathsf Q=\Omega_0$. Taking determinants, $\det D\mathsf Q\ne0$.
+Since $M^\top\Omega_0M=\Omega_0$ with $M$ invertible gives $M\Omega_0M^{\top}=\Omega_0$ ($M^{-1}\Omega_0 M^{-\top}=\Omega_0$ is obtained by inverting both sides and using $\Omega_0^{-1}=-\Omega_0$, then replace $M$ by $M^{-1}$ in the first identity), the second identity follows.
+
+\proofstep{Hamiltonian fields}\label{stepI:p7:sy-field} $\nabla(H\circ\mathsf Q)=D\mathsf Q^{\top}\nabla H\circ\mathsf Q$, so $D\mathsf Q\,X_{H\circ\mathsf Q}=D\mathsf Q\,\Omega_0D\mathsf Q^{\top}\nabla H\circ\mathsf Q=\Omega_0\nabla H\circ\mathsf Q=X_H\circ\mathsf Q$; the statement on curves is the chain rule.
+\end{proof}
+
+\begin{theorem}[Delaunay chart]\label{bpI:p7:chart}
+$\mathsf Q$ is $2\pi$-periodic in $\ell$ and in $g$ and induces a bijection from $(\R/2\pi\Z)^2\times\mathcal C_0$ onto $\mathcal C$; $\mathsf Q:\mathcal D_\R\to\mathcal C$ is a surjective real-analytic local diffeomorphism, and the induced map on the quotient is a real-analytic diffeomorphism onto the open set $\mathcal C$, symplectic by Proposition~\ref{bpI:p7:symplectic}. Moreover
+$E\circ\mathsf Q=-\tfrac1{2L^2}$, $\Gamma\circ\mathsf Q=G$ (so $\Ham^{\rm K}\circ\mathsf Q=-\tfrac1{2L^2}-G$, Lemma~\ref{bpI:p7:h0}). The two singular loci of the Delaunay variables, $e=0$ ($G=L$) and $e=1$ ($G=0$), are excluded from $\mathcal C_0$.
+\source{Chi05 pp.~8--9 and Remark~2.3, p.~9 (cone $0<\Gamma<\Lambda$); the bijectivity proof is ours.}
+\end{theorem}
+\begin{proof}
+\proofstep{Regularity}\label{stepI:p7:ch-reg} $e(L,G)$ is real-analytic on $\mathcal C_0$ ($1-G^2/L^2>0$), $u_\R$ is real-analytic (Proposition~\ref{bpI:p7:kepler-eq}(c)); so $\mathsf Q$ is real-analytic on $\mathcal D_\R$; the invertibility of $D\mathsf Q$ is Proposition~\ref{bpI:p7:symplectic}; $\mathsf Q(\mathcal D_\R)\subset\mathcal C$ is Proposition~\ref{bpI:p7:orbit-identities}(c).
+
+\proofstep{Injectivity modulo $2\pi$}\label{stepI:p7:ch-inj} Let $\mathsf Q(\ell,g,L,G)=(q,p)$. Proposition~\ref{bpI:p7:orbit-identities} gives $L=1/\sqrt{-2E(q,p)}$, $G=\Gamma(q,p)$, hence $e=e(L,G)$, and $r=\abs q_2$. Then $\cos u=(1-r/(L^2))/e$ and $\sin u=q\cdot p/(Le)$ are determined, so $u$ modulo $2\pi$, so $\ell=u-e\sin u$ modulo $2\pi$ (since $u\mapsto u-e\sin u$ commutes with $u\mapsto u+2\pi$); the vector $(X,Y)$ is then determined and nonzero ($\abs{(X,Y)}_2=r>0$), so $g$ modulo $2\pi$ is determined by $\mathsf R(g)(X,Y)=q$.
+
+\proofstep{Surjectivity: the elements}\label{stepI:p7:ch-surj1} Let $(q,p)\in\mathcal C$ and define $L,G,e$ as in Definition~\ref{bpI:p7:elements}; then $0<G<L$, i.e.\ $(L,G)\in\mathcal C_0$, $e=e(L,G)$. Put $r=\abs q_2>0$. From Lagrange's identity $r^2\abs p_2^2=(q\cdot p)^2+\Gamma^2$ and $\tfrac12\abs p^2=E+1/r=-\tfrac1{2L^2}+\tfrac1r$:
+\[
+(q\cdot p)^2=2r-\frac{r^2}{L^2}-G^2.\tag{$*$}
+\]
+\proofstep{Surjectivity: the anomaly}\label{stepI:p7:ch-surj2} Set $c:=(1-r/L^2)/e$ and $s:=q\cdot p/(Le)$. Then $e^2c^2L^2+(q\cdot p)^2=(L^2-r)^2/L^2+2r-r^2/L^2-G^2=L^2-G^2=L^2e^2$ by $(*)$, so $c^2+s^2=1$ (divide by $L^2e^2$). Choose $u\in\R$ with $(\cos u,\sin u)=(c,s)$, put $\ell=u-e\sin u$ (so $u=u_\R(\ell,e)$ by uniqueness in Proposition~\ref{bpI:p7:kepler-eq}(c)), $X=L^2(c-e)$, $Y=LGs$, so $X^2+Y^2=L^4\mathsf D^2=r^2$ ($\mathsf D=1-ec=r/L^2$). Choose $g$ with $\mathsf R(g)(X,Y)=q$ (possible as $\abs{(X,Y)}=\abs q$).
+
+\proofstep{Surjectivity: the momentum}\label{stepI:p7:ch-surj3} Let $(q,p')=\mathsf Q(\ell,g,L,G)$. By Proposition~\ref{bpI:p7:orbit-identities}(b),(c): $E(q,p')=E(q,p)$, $\Gamma(q,p')=G=\Gamma(q,p)$, $q\cdot p'=Les=q\cdot p$. A vector $v\in\R^2$ is determined by $q\cdot v$ and $q_0v_1-q_1v_0$ when $q\ne0$ ($q\ne0$: the $2\times2$ system has determinant $-\abs q_2^2$), so $p'=p$.
+
+\proofstep{Quotient diffeomorphism}\label{stepI:p7:ch-diffeo} Periodicity of $\mathsf Q$ in $\ell,g$ follows from Proposition~\ref{bpI:p7:kepler-eq}(b) and the $2\pi$-periodicity of $\mathsf R$; the quotient map is a bijective local diffeomorphism, hence a real-analytic diffeomorphism (\ref{bpI:p7:x-ift}).
+\end{proof}
+
+\begin{lemma}[The preimage of the near-circular region]\label{bpI:p7:near-circular}
+For $a_-,a_+,e_-,e_+\in\R$ the set $\mathcal N=\mathcal N(a_-,a_+,e_-,e_+)$ of Definition~\ref{bpI:p0:nearcircular} satisfies
+\begin{align*}
+\mathcal N&=\bigl\{(q,p)\in\mathcal C:\ a_-<a(q,p)<a_+,\ e_-<e(q,p)<e_+\bigr\}\\
+&=\mathsf Q\bigl(\{(\ell,g,L,G)\in\mathcal D_\R:\ a_-<L^2<a_+,\ e_-<e(L,G)<e_+\}\bigr),
+\end{align*}
+with the elements of Definition~\ref{bpI:p7:elements}; the witnesses $r,a,e$ of \Lean{NearCircular} are $\abs q_2$, $a(q,p)$, $e(q,p)$ and are unique. In particular $\mathcal N$ is open, and nonempty iff there is $(L,G)\in\mathcal C_0$ with $a_-<L^2<a_+$, $e_-<e(L,G)<e_+$ (e.g.\ for $0<a_-<a_+$ and $0\le e_-<e_+<1$ with $(e_-,e_+)\cap(0,1)\ne\emptyset$).
+\frozen{KAM.Iso.NearCircular}
+\source{Chi05 (2.24)--(2.26), p.~9; ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{$\subseteq$}\label{stepI:p7:nc-sub} Let $(q,p)\in\mathcal N$ with witnesses $r,a,e$. $r>0$, $r^2=\abs q_2^2$ gives $q\ne0$, $r=\abs q_2$. $E=\tfrac12\abs p^2-1/r=-1/(2a)<0$, so $a=-1/(2E)$ is forced; $\Gamma>0$; $\Gamma^2=a(1-e^2)<a=-1/(2E)$ since $e>0$: thus $(q,p)\in\mathcal C$ and $a=a(q,p)$; $e>0$ and $e^2=1-\Gamma^2/a$ force $e=e(q,p)$. The bounds are those of the definition.
+
+\proofstep{$\supseteq$}\label{stepI:p7:nc-sup} If $(q,p)\in\mathcal C$ with the element bounds, take $r=\abs q_2$, $a=a(q,p)>0$, $e=e(q,p)\in(0,1)$: the equations $E=-1/(2a)$ and $\Gamma^2=a(1-e^2)$ are the definitions, $\Gamma>0$ is part of $\mathcal C$.
+
+\proofstep{Image of the chart}\label{stepI:p7:nc-image} By Theorem~\ref{bpI:p7:chart} and Proposition~\ref{bpI:p7:orbit-identities}(c) the elements of $\mathsf Q(\ell,g,L,G)$ are $(L,G,L^2,e(L,G))$. Openness: $a(\cdot),e(\cdot)$ are continuous on the open set $\mathcal C$.
+\end{proof}
+
+\begin{lemma}[Unperturbed Hamiltonian in Delaunay variables]\label{bpI:p7:h0}
+Let $\Ham^{\rm K}(q,p)=E(q,p)-\Gamma(q,p)=\tfrac12\abs p_2^2+q_1p_0-q_0p_1-1/\abs q_2$ for $q\ne0$ (the restricted Hamiltonian at $\mu=0$ with the term $\mu/r_2$ removed). Then
+$\Ham^{\rm K}\circ\mathsf Q(\ell,g,L,G)=-\dfrac1{2L^2}-G$ on $\mathcal D_\R$. For collision-free $z=(q,p)$ at $\mu=0$ one has $\Ham^{\rm R3}_0(z)=\Ham^{\rm K}(z)$ (the second primary enters with the coefficient $\mu=0$).
+\source{Chi05 (3.43) at $\varepsilon=0$, p.~16 (the rotating-frame term $-G$); ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{Formula}\label{stepI:p7:h0-formula} $q_1p_0-q_0p_1=-\Gamma(q,p)$ by definition, so $\Ham^{\rm K}=E-\Gamma$; then Proposition~\ref{bpI:p7:orbit-identities}(b),(c). The second statement: at $\mu=0$ the definition of $\Ham^{\rm R3}_0$ has $(1-0)/r_1=1/\abs q$ and $0/r_2=0$.
+\end{proof}
+
+\begin{proposition}[Mean values]\label{bpI:p7:means}
+For $(L,G)\in\mathcal C_0$, $g\in\R$, $e=e(L,G)$, $a=L^2$, and $(q,p)=\mathsf Q(\ell,g,L,G)$, $r=\abs q_2$:
+\[
+\frac1{2\pi}\int_0^{2\pi}\frac{d\ell}{r}=\frac1a,\qquad\frac1{2\pi}\int_0^{2\pi}\abs p_2^2\,d\ell=\frac1a\ \ (\text{virial}),\qquad\frac1{2\pi}\int_0^{2\pi}r\,d\ell=a\Bigl(1+\frac{e^2}2\Bigr).
+\]
+\source{standard (time averages of the Kepler problem; Chi05 does not state them); ours, as needed by track~P.}
+\end{proposition}
+\begin{proof}
+\proofstep{Change of variable}\label{stepI:p7:mv-cv} $\ell\mapsto u=u_\R(\ell,e)$ is increasing and $C^1$ with $u(0)=0$, $u(2\pi)=2\pi$, and $d\ell=\mathsf D\,du$ (Proposition~\ref{bpI:p7:kepler-eq}(b),(c)); by \ref{bpI:p7:x-change}, $\int_0^{2\pi}\phi(u(\ell))\,d\ell=\int_0^{2\pi}\phi(u)\mathsf D(u)\,du$ for continuous $\phi$, $\mathsf D(u)=1-e\cos u$.
+
+\proofstep{Integrals}\label{stepI:p7:mv-int} $r=a\mathsf D$ (Proposition~\ref{bpI:p7:orbit-identities}): $\int\frac{d\ell}{r}=\int_0^{2\pi}\frac{\mathsf D\,du}{a\mathsf D}=\frac{2\pi}a$. $\int r\,d\ell=a\int_0^{2\pi}\mathsf D^2du=a(2\pi+\pi e^2)$ (using $\int\cos=0$, $\int\cos^2=\pi$). The virial identity: $\tfrac12\abs p^2=E+1/r$ with $E=-\tfrac1{2a}$ gives $\frac1{2\pi}\int\abs p^2d\ell=-\frac1a+\frac2a=\frac1a$.
+\end{proof}
+
+\begin{proposition}[Scaling to a general Kepler strength]\label{bpI:p7:scaling}
+For $k>0$ let $E_k(q,p)=\tfrac12\abs p^2-k/\abs q$ and $\mathsf S_k(Q,P)=(Q/k,kP)$. Then $\mathsf S_k$ is linear and symplectic ($D\mathsf S_k^\top\Omega_0D\mathsf S_k=\Omega_0$), $E_k\circ\mathsf S_k=k^2E_1$, and if $(Q,P)(\tau)$ solves Hamilton's equations of $E_1$ then $(q,p)(t)=\mathsf S_k(Q,P)(k^2t)$ solves those of $E_k$. The semi-major axis of the $q$-orbit is $a_k=a/k$, and the time averages over the mean anomaly (Proposition~\ref{bpI:p7:means}) are
+\[
+\Bigl\langle\frac1{\abs q_2}\Bigr\rangle=\frac1{a_k},\qquad\bigl\langle\abs p_2^2\bigr\rangle=\frac k{a_k},\qquad E_k=-\frac k{2a_k}.
+\]
+(Mass $m$ in the planar problem $H=\abs p^2/(2m)-Gm_0m/\abs q$: take $p=mv$; this is the dictionary used by track~P.)
+\source{standard; ours.}
+\end{proposition}
+\begin{proof}
+\proofstep{Algebra}\label{stepI:p7:sc-alg} $E_k(Q/k,kP)=\tfrac{k^2}2\abs P^2-k\cdot k/\abs Q=k^2E_1(Q,P)$; $D\mathsf S_k=\mathrm{diag}(k^{-1},k^{-1},k,k)$ gives the symplectic identity as in Lemma~\ref{bpI:p6:conversion}(a).
+\proofstep{Flow and averages}\label{stepI:p7:sc-flow} Naturality as in Step~\ref{stepI:p7:sy-field} (valid for any linear symplectic map): $D\mathsf S_k\,X_{E_k\circ\mathsf S_k}=X_{E_k}\circ\mathsf S_k$, i.e.\ $k^2D\mathsf S_k\,X_{E_1}=X_{E_k}\circ\mathsf S_k$; so if $\frac d{d\tau}(Q,P)=X_{E_1}$ then $\frac d{dt}\mathsf S_k(Q,P)(k^2t)=k^2D\mathsf S_kX_{E_1}=X_{E_k}$. Averages: $\tfrac1{\abs q}=k/\abs Q$ has mean $k/a=1/a_k$; $\abs p^2=k^2\abs P^2$ has mean $k^2/a=k/a_k$; $E_k=k^2E_1=-k^2/(2a)=-k/(2a_k)$.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{A common complex neighbourhood for the Delaunay chart}\label{bpI:p7:sec-complex}
+
+Fix a nonempty compact set $\mathcal K\subset\mathcal C_0$ (the \emph{safe action region}). Define
+\[
+e_-=\min_{\mathcal K}e>0,\quad e_1=\max_{\mathcal K}e<1,\quad e_2=\tfrac{1+e_1}2,\quad m_L=\min_{\mathcal K}L>0,\quad m_G=\min_{\mathcal K}G>0,
+\]
+\[
+r_{\min}=\min_{\mathcal K}L^2(1-e)>0,\qquad\rho_{\max}=\max_{\mathcal K}L^2(1+e),
+\]
+and $\delta_K=\delta_K(e_1)$, $\mathcal P(e_1)$ from Proposition~\ref{bpI:p7:kepler-eq}. For $\delta>0$: $\mathcal K_\delta=\{(L,G)\in\C^2:\exists(L',G')\in\mathcal K,\ \abs{(L,G)-(L',G')}_\infty<\delta\}$ (open) and
+\[
+\mathcal U(\delta)=\{(\ell,g,L,G)\in\C^4:\ \abs{\operatorname{Im}\ell}<\delta,\ \abs{\operatorname{Im}g}<\delta,\ (L,G)\in\mathcal K_\delta\}\qquad(\delta\le\delta_K).
+\]
+
+\begin{lemma}[Eccentricity on a complex neighbourhood]\label{bpI:p7:complex-domain}
+There is $\delta_1\in(0,\min\{\delta_K,m_L,m_G\}/2]$, depending only on $\mathcal K$, such that for $(L,G)\in\mathcal K_{\delta_1}$ with nearest $(L',G')\in\mathcal K$:
+$\operatorname{Re}L>\tfrac12m_L$, $L\ne0$, $\abs{G^2/L^2-G'^2/L'^2}<\tau:=\min\{e_-^2/2,\ e_2^2-e_1^2\}$, so that $1-G^2/L^2\in D(e(L',G')^2,\ e_-^2/2)\subset\{\operatorname{Re}z>0\}$ and
+$e(L,G):=\sqrt{1-G^2/L^2}$ (principal branch) is holomorphic on $\mathcal K_{\delta_1}$, real positive at real $(L,G)\in\mathcal C_0\cap\mathcal K_{\delta_1}$, with $e^2=1-G^2/L^2$ and $\abs{e(L,G)}<e_2$. Real points of $\mathcal K_{\delta_1}$ lie in $\mathcal C_0$.
+Hence $\mathsf Q(\ell,g,L,G)=\mathsf Q_{\rm el}(\ell,g,L,e(L,G),G/L)$ is holomorphic on $\mathcal U(\delta_1)$ (Proposition~\ref{bpI:p7:orbit-maps-e}: $(\ell,e)\in\mathcal P(e_1)$ since $\abs{\operatorname{Im}\ell}<\delta_K$, $\abs e<e_2$), $2\pi$-periodic in $\ell$ and in $g$, and real on the real points of $\mathcal U(\delta_1)$, where it agrees with the real orbit map of Definition~\ref{bpI:p7:orbit-maps}.
+\source{ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{Uniform continuity}\label{stepI:p7:cd-uc} $(L,G)\mapsto G^2/L^2$ is continuous where $L\ne0$, hence uniformly continuous on the compact set $\{(L,G)\in\C^2:\operatorname{dist}_\infty((L,G),\mathcal K)\le\min\{\delta_K,m_L,m_G\}/2\}$, on which $\abs L\ge m_L/2$. So some $\delta_1$ as stated exists; the inequality $\operatorname{Re}L>\tfrac12m_L$ and the reality assertion hold because $\abs{L-L'}<\delta_1\le m_L/2$ and likewise for $G$ ($G>m_G/2>0$ at real points).
+
+\proofstep{Branches}\label{stepI:p7:cd-branch} $\abs{(1-G^2/L^2)-e(L',G')^2}<\tau\le e_-^2/2$ and $e(L',G')^2\ge e_-^2$, so $\operatorname{Re}(1-G^2/L^2)\ge e_-^2/2>0$; apply \ref{bpI:p7:x-hol}. $\abs e^2=\abs{1-G^2/L^2}<e_1^2+\tau\le e_2^2$. For real points: $0<e^2$ and $e^2=1-G^2/L^2<1$ since $G\ne0$, so $(L,G)\in\mathcal C_0$ ($L>0,G>0,G<L$).
+The remaining statements follow from Proposition~\ref{bpI:p7:orbit-maps-e}, and from $u=u_\R$ on real points.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The exact restricted Hamiltonian in Delaunay variables}\label{bpI:p7:sec-exact}
+
+\begin{definition}[Potential of the shift]\label{bpI:p7:shift-def}
+Let $\mathsf S=\{z\in\C:\operatorname{Re}z>0\}$ and $\Xi=\{(q,\mu)\in\C^2\times\C:\ \vartheta(q),\ \vartheta(q+\mu\mathbf e),\ \vartheta(q-(1-\mu)\mathbf e)\in\mathsf S\}$ (open). On $\Xi$:
+\[
+w(q)=\vartheta(q)^{-1/2},\qquad\Psi(q,\mu)=(1-\mu)\,\vartheta(q+\mu\mathbf e)^{-1/2}+\mu\,\vartheta(q-(1-\mu)\mathbf e)^{-1/2},\qquad\Psi(q,0)=w(q),
+\]
+holomorphic by \ref{bpI:p7:x-hol}. For real $q$ and $\mu$, $(q,\mu)\in\Xi$ iff $q$ is collision free for $\mu$ in the sense of Definition~\ref{bpI:p0:primaries} ($q+\mu\mathbf e=q-a_1(\mu)$, $q-(1-\mu)\mathbf e=q-a_2(\mu)$), and then $w(q)=1/\operatorname{rad}(q)$, $\Psi(q,\mu)=\frac{1-\mu}{\operatorname{rad}(q-a_1(\mu))}+\frac{\mu}{\operatorname{rad}(q-a_2(\mu))}$.
+\end{definition}
+
+\begin{lemma}[The shift potential is analytic with the factor $\mu$ removed]\label{bpI:p7:shift}
+Let $0<r_{\min}\le\rho_{\max}<1$, and choose $\varepsilon_0>0$ with $\varepsilon_0(\varepsilon_0+2\rho_{\max})<r_{\min}^2$ and $\varepsilon_0(\varepsilon_0+4)<(1-\rho_{\max})^2$ (so $\varepsilon_0<\tfrac14$); put
+\[
+\mu_2=\varepsilon_0/2,\qquad c_*=\min\{r_{\min}^2-\varepsilon_0(\varepsilon_0+2\rho_{\max}),\ (1-\rho_{\max})^2-\varepsilon_0(\varepsilon_0+4)\}>0,
+\]
+\[
+\mathcal O=\{q\in\C^2:\ \exists q'\in\R^2,\ r_{\min}\le\abs{q'}_2\le\rho_{\max},\ \abs{q-q'}_2<\varepsilon_0/2\}.
+\]
+Then $\mathcal O\times\bar D(0,\mu_2)\subset\Xi$; on it $\operatorname{Re}\vartheta(\cdot)\ge c_*$ for the three arguments, so $\abs w,\abs{\vartheta(\cdot)^{-1/2}}\le c_*^{-1/2}$; and there is a holomorphic function $f:\mathcal O\times D(0,\mu_2)\to\C$ with
+\[
+\mu\,f(q,\mu)=w(q)-\Psi(q,\mu),\qquad f(q,\mu)=-\int_0^1\partial_\mu\Psi(q,t\mu)\,dt,\qquad\abs{f(q,\mu)}\le C_{\rm sh}:=\frac{6}{\varepsilon_0\sqrt{c_*}}.
+\]
+For $\mu=0$: $f(q,0)=\dfrac1{\abs q}+\dfrac{q_0}{\abs q^3}-\dfrac1{\abs{q-\mathbf e}}$ (written with $\vartheta^{1/2}$ for complex $q$). For real $q\in\mathcal O$ and real $\mu$ with $\abs\mu<\mu_2$ the point $(q,\mu)$ is collision free and $f(q,\mu)$ is real. $C_{\rm sh}$, $\mu_2$ depend only on $(r_{\min},\rho_{\max})$.
+\source{ours; replaces the truncated Chi05 (3.38)--(3.43), p.~13--16.}
+\end{lemma}
+\begin{proof}
+\proofstep{Positivity of the radicands}\label{stepI:p7:sh-pos} Let $q\in\mathcal O$, $q'$ as in the definition, $\abs\mu\le\mu_2$. For $z,z'\in\C^2$: $\abs{\vartheta(z)-\vartheta(z')}=\abs{(z-z')\cdot(z+z')}\le\abs{z-z'}_2\bigl(\abs{z-z'}_2+2\abs{z'}_2\bigr)$ (bilinear Cauchy--Schwarz).
+(i) $z=q$, $z'=q'$: $\abs{z-z'}<\varepsilon_0/2$, so $\operatorname{Re}\vartheta(q)\ge\vartheta(q')-\varepsilon_0(\varepsilon_0+2\rho_{\max})\ge r_{\min}^2-\varepsilon_0(\varepsilon_0+2\rho_{\max})$.
+(ii) $z=q+\mu\mathbf e$, $z'=q'$: $\abs{z-z'}\le\abs{q-q'}+\abs\mu<\varepsilon_0$, same bound.
+(iii) $z=q-(1-\mu)\mathbf e$, $z'=q'-\mathbf e$ (real, $\vartheta(z')=\abs{q'-\mathbf e}^2\ge(1-\abs{q'})^2\ge(1-\rho_{\max})^2$, $\abs{z'}\le2$): $\abs{z-z'}<\varepsilon_0$, so $\operatorname{Re}\vartheta(z)\ge(1-\rho_{\max})^2-\varepsilon_0(\varepsilon_0+4)$.
+Hence all three lie in $\{\operatorname{Re}\ge c_*\}$, so $\mathcal O\times\bar D(0,\mu_2)\subset\Xi$ and the bounds $\abs{\vartheta^{-1/2}}\le(\operatorname{Re}\vartheta)^{-1/2}\le c_*^{-1/2}$ hold. For real $q,\mu$ the radicands are real, hence $>0$.
+
+\proofstep{Bound of the numerator}\label{stepI:p7:sh-bound} $\abs\Psi\le(1+\mu_2)c_*^{-1/2}+\mu_2c_*^{-1/2}\le\tfrac32c_*^{-1/2}$ ($\mu_2<\tfrac18$), $\abs w\le c_*^{-1/2}$; so $g_q(\mu):=w(q)-\Psi(q,\mu)$ satisfies $\abs{g_q}\le3c_*^{-1/2}$ on $\bar D(0,\mu_2)$, and $g_q(0)=0$. (The disc is contained in the open slice $\{\mu:(q,\mu)\in\Xi\}$, so $g_q$ is holomorphic near the closed disc.)
+
+\proofstep{Division by $\mu$}\label{stepI:p7:sh-div} Define $f(q,\mu)=-\int_0^1\partial_\mu\Psi(q,t\mu)\,dt$; it is holomorphic on $\mathcal O\times D(0,\mu_2)$ by \ref{bpI:p7:x-param} (the disc is star-shaped and $\Xi$ contains $\{q\}\times\bar D(0,\mu_2)$), and $\mu f(q,\mu)=g_q(\mu)$ by the fundamental theorem of calculus applied to $t\mapsto\Psi(q,t\mu)$. By the Schwarz lemma \ref{bpI:p7:x-schwarz}, $\abs{g_q(\mu)}\le\frac{\abs\mu}{\mu_2}3c_*^{-1/2}$, hence for $\mu\ne0$: $\abs f\le3c_*^{-1/2}/\mu_2=6/(\varepsilon_0\sqrt{c_*})$, and at $\mu=0$ by continuity.
+
+\proofstep{Value at $\mu=0$}\label{stepI:p7:sh-zero} $f(q,0)=-\partial_\mu\Psi(q,0)=-\bigl[-w(q)+\partial_\mu(\vartheta(q+\mu\mathbf e)^{-1/2})|_0+\vartheta(q-\mathbf e)^{-1/2}\bigr]$ with $\partial_\mu\vartheta(q+\mu\mathbf e)^{-1/2}|_0=-q_0\vartheta(q)^{-3/2}$; so $f(q,0)=w(q)+q_0\vartheta(q)^{-3/2}-\vartheta(q-\mathbf e)^{-1/2}$.
+
+\proofstep{Reality}\label{stepI:p7:sh-real} For real $(q,\mu)$ with $\mu\ne0$, $f=(w-\Psi)/\mu$ is real; for $\mu=0$ the formula of Step~\ref{stepI:p7:sh-zero} is real.
+\end{proof}
+
+\begin{proposition}[Exact restricted Hamiltonian in Delaunay variables]\label{bpI:p7:exact-ham}
+Let $\mathcal K\subset\mathcal C_0$ be nonempty and compact with $\rho_{\max}=\max_{\mathcal K}L^2(1+e)<1$ (the condition $a_+(1+e_+)<1$ of Theorem~\ref{bpI:p0:r3bp}), and let $r_{\min}$, $\varepsilon_0,\mu_2,c_*,C_{\rm sh}$ be as in Lemma~\ref{bpI:p7:shift} for $(r_{\min},\rho_{\max})$. There exist $\delta_2\in(0,\delta_1]$ and a holomorphic function
+\[
+F:\ \mathcal U(\delta_2)\times D(0,\mu_2)\to\C,\qquad (w,\mu)\mapsto F_\mu(w)=f\bigl(q(w),\mu\bigr),\quad q(w)=\text{the position part of }\mathsf Q(w),
+\]
+such that, with constants depending on $\mathcal K$ only (not on $\mu$):
+\begin{enumerate}[label=(\roman*)]
+\item (\emph{uniform bound}) $\abs{F_\mu(w)}\le C_F:=C_{\rm sh}=6/(\varepsilon_0\sqrt{c_*})$ on $\mathcal U(\delta_2)\times D(0,\mu_2)$;
+\item (\emph{periodicity, reality}) $F_\mu(\ell+2\pi,g,L,G)=F_\mu(\ell,g+2\pi,L,G)=F_\mu(w)$; $F_\mu(w)\in\R$ for real $w\in\mathcal U(\delta_2)$ and real $\mu\in(-\mu_2,\mu_2)$;
+\item (\emph{exactness}) for every real $w=(\ell,g,L,G)\in\mathcal U(\delta_2)$ and real $\mu$ with $\abs\mu<\mu_2$: $(L,G)\in\mathcal C_0$, the point $z=\mathsf Q(w)$ is collision free ($\Lean{CollisionFree}\ \mu\ z$), and
+  \[
+  \Ham^{\rm R3}_\mu\bigl(\mathsf Q(w)\bigr)=-\frac1{2L^2}-G+\mu\,F_\mu(w);
+  \]
+\item (\emph{the neighbourhood contains the safe region}) every real $(\ell,g,L,G)$ with $(L,G)\in\mathcal K$ lies in $\mathcal U(\delta_2)$.
+\end{enumerate}
+Here $\Ham^{\rm R3}_\mu$ is the frozen restricted Hamiltonian (Definition~\ref{bpI:p0:restricted}); $F_\mu$ is the \emph{exact} barycentric perturbation, including the displacement of both primaries
+($a_1(\mu)=(-\mu,0)$, $a_2(\mu)=(1-\mu,0)$) and the indirect term $q_0/\abs q^3$ at $\mu=0$.
+\source{ours; the model of Chi05 (3.38)--(3.43), pp.~13--16 is heliocentric and truncated and is not used.}
+\end{proposition}
+\begin{proof}
+\proofstep{The real shell}\label{stepI:p7:eh-shell} For real $w$ with $(L',G')\in\mathcal K$: $r=\abs{q(w)}_2\in[L'^2(1-e'),L'^2(1+e')]\subset[r_{\min},\rho_{\max}]$ (Proposition~\ref{bpI:p7:orbit-identities}(a)).
+
+\proofstep{Choice of $\delta_2$}\label{stepI:p7:eh-delta} Put $\delta_*=\delta_1/2$. The closure of $\{w\in\mathcal U(\delta_*):0\le\operatorname{Re}\ell,\operatorname{Re}g\le2\pi\}$ is compact and contained in $\mathcal U(\delta_1)$, on which $\mathsf Q$ is holomorphic (Lemma~\ref{bpI:p7:complex-domain}); by periodicity in $\ell,g$ and uniform continuity there is $\delta_2\le\delta_*$ with: for every $w\in\mathcal U(\delta_2)$ there is a real $w'=(\operatorname{Re}\ell,\operatorname{Re}g,L',G')$ with $(L',G')\in\mathcal K$ and $\abs{\mathsf Q(w)-\mathsf Q(w')}_2<\varepsilon_0/2$ (the position parts). Then $q(w)\in\mathcal O$, because $q'=q(w')$ is a real point with $r_{\min}\le\abs{q'}\le\rho_{\max}$ by Step~\ref{stepI:p7:eh-shell}.
+(This is the only place where $\delta_2$ is shrunk, and it depends only on $\mathcal K$.)
+
+\proofstep{Holomorphy and bound}\label{stepI:p7:eh-hol} $F_\mu(w)=f(q(w),\mu)$ is a composition of holomorphic maps ($q(w)\in\mathcal O$, $\mu\in D(0,\mu_2)$), with the bound $C_{\rm sh}$ of Lemma~\ref{bpI:p7:shift}: (i). Periodicity of $q(\cdot)$ gives (ii) together with reality of $f$ for real points of $\mathcal O$ and real $\mu$ (Lemma~\ref{bpI:p7:shift}) and reality of $\mathsf Q$ on real points. (iv): $\delta_2>0$ and $\mathcal K\subset\mathcal K_{\delta_2}$.
+
+\proofstep{Exactness}\label{stepI:p7:eh-exact} Let $w$ real in $\mathcal U(\delta_2)$, $\mu$ real, $\abs\mu<\mu_2$. $(L,G)\in\mathcal C_0$ by Lemma~\ref{bpI:p7:complex-domain}; $q=q(w)$ is a real point of $\mathcal O$, so $(q,\mu)\in\Xi$ with real positive radicands, i.e.\ collision free, and $\operatorname{rad}(q-a_1(\mu))=\sqrt{\vartheta(q+\mu\mathbf e)}$, $\operatorname{rad}(q-a_2(\mu))=\sqrt{\vartheta(q-(1-\mu)\mathbf e)}$ (\Lean{radius}, \Lean{radiusSq}), so
+$\Ham^{\rm R3}_\mu(q,p)=\tfrac12\abs p^2+q_1p_0-q_0p_1-\Psi(q,\mu)=\Ham^{\rm R3}_0(q,p)+\bigl[w(q)-\Psi(q,\mu)\bigr]=-\frac1{2L^2}-G+\mu f(q,\mu)$,
+using $\Ham^{\rm R3}_0=\tfrac12\abs p^2+q_1p_0-q_0p_1-w(q)$ with $w(q)=1/\abs q_2$ (Lemma~\ref{bpI:p7:h0}, valid for the real $w$ since $\mathsf Q(w)\in\mathcal C$ for $(L,G)\in\mathcal C_0$) and Lemma~\ref{bpI:p7:shift}.
+\end{proof}
+
+\begin{corollary}[Period-one form: the data of I-HEAD]\label{bpI:p7:period-one}
+Let $\mathcal K,\delta_2,\mu_2,C_F,F$ be as in Proposition~\ref{bpI:p7:exact-ham}, $s_0=\delta_2/(2\pi)$, $r_0=2\pi\delta_2$, and $B\subset2\pi\mathcal K=\{2\pi(L,G):(L,G)\in\mathcal K\}$ an arbitrary subset. Let $\mathsf S$ be the conversion of Definition~\ref{bpI:p6:conversion-map}, $\tilde h=h_{(2\pi)^2,1/(2\pi)}$, and for real $\mu$, $\abs\mu<\mu_2$,
+\[
+\tilde f_\mu(\theta,I)=\mu\,F_\mu\bigl(\mathsf S(\theta,I)\bigr)=\mu\,F_\mu\bigl(2\pi\theta_1,2\pi\theta_2,\tfrac{I_1}{2\pi},\tfrac{I_2}{2\pi}\bigr),\qquad(\theta,I)\in T_{s_0}\times B_{r_0}.
+\]
+Then (a) $\mathsf S(T_{s_0}\times B_{r_0})\subset\mathcal U(\delta_2)$; (b) $\tilde h$ is holomorphic on $B_{r_0}$ with $\operatorname{Re}I_1>\pi m_L>0$ there, and real at real $I$; (c) $\tilde f_\mu$ is holomorphic on $T_{s_0}\times B_{r_0}$, $1$-periodic in $\theta$ (in each variable), real at real $\theta$ and real $I\in B_{r_0}$ for real $\mu$, and
+$\abs{\tilde f_\mu}\le\varepsilon:=\abs\mu\,C_F$; (d) (exactness) for every real $\theta$ and real $I\in B_{r_0}$:
+\[
+\Ham^{\rm R3}_\mu\bigl(\mathsf Q(\mathsf S(\theta,I))\bigr)=\tilde h(I)+\tilde f_\mu(\theta,I)=\Lean{realHamiltonian}\ \tilde h\ \tilde f_\mu\ (\theta,I),
+\]
+with $\mathsf Q\circ\mathsf S$ symplectic ($D(\mathsf Q\circ\mathsf S)^\top\Omega_0\,D(\mathsf Q\circ\mathsf S)=\Omega_0$); (e) all of $s_0,r_0,\varepsilon/\abs\mu$ depend on $\mathcal K$ only.
+In particular the hypotheses on $(h,f,\varepsilon)$ of Theorem~\ref{bpI:p0:head} (with $h=\tilde h$, $f=\tilde f_\mu$, $B\subset2\pi\mathcal K$) other than the nondegeneracy are satisfied with the smallness parameter $\varepsilon=\mu C_F$, $\mu\in[0,\mu_2)$.
+\frozen{KAM.realHamiltonian, KAM.complexStrip, KAM.actionNbhd}
+\source{ours.}
+\end{corollary}
+\begin{proof}
+\proofstep{Domains}\label{stepI:p7:po-dom} If $\theta\in T_{s_0}$ then $\abs{\operatorname{Im}2\pi\theta_i}<\delta_2$. If $I\in B_{r_0}$, there is $J\in B$, $J=2\pi(L',G')$ with $(L',G')\in\mathcal K$, $\norm{I-J}<2\pi\delta_2$, so $\abs{I/(2\pi)-(L',G')}_\infty<\delta_2$, i.e.\ $I/2\pi\in\mathcal K_{\delta_2}$: (a). By Lemma~\ref{bpI:p7:complex-domain}, $\operatorname{Re}(I_1/2\pi)>m_L/2$, so $I_1\ne0$.
+
+\proofstep{Properties}\label{stepI:p7:po-prop} (b): Lemma~\ref{bpI:p6:conversion}(b) and Corollary~\ref{bpI:p6:nondeg}'s domain argument. (c): composition of the holomorphic $F_\mu$ with the linear $\mathsf S$; periodicity: $\theta\mapsto\theta+k$, $k\in\Z^2$, becomes $(\ell,g)\mapsto(\ell,g)+2\pi k$; reality and the bound: Proposition~\ref{bpI:p7:exact-ham}(i),(ii) and $\abs\mu\le\mu_2$ (the factor $\mu$).
+
+\proofstep{Exactness}\label{stepI:p7:po-exact} Proposition~\ref{bpI:p7:exact-ham}(iii) at $w=\mathsf S(\theta,I)$ and $-\frac1{2L^2}-G=h_{1,1}(L,G)=\tilde h(I)$ (Lemma~\ref{bpI:p6:conversion}(b), $\kappa=\Omega=1$); \Lean{realHamiltonian} is the real part of the same number, which is real. Symplecticity: Proposition~\ref{bpI:p7:symplectic}, Lemma~\ref{bpI:p6:conversion}(a), and the chain rule for the product of symplectic matrices.
+\end{proof}
+
+\begin{proposition}[Transfer of Delaunay solutions to the physical problem]\label{bpI:p7:transfer}
+In the setting of Corollary~\ref{bpI:p7:period-one}, let $\mu\in\R$ with $\abs\mu<\mu_2$, $J\subset\R$, $\tilde z:\R\to\R^2\times\R^2$ with $\mathrm{Sol}(\Lean{realHamiltonian}\ \tilde h\ \tilde f_\mu,\ B,\ J,\ \tilde z)$ (Definition~\ref{bpI:p0:hamsol}). Then $z:=\mathsf Q\circ\mathsf S\circ\tilde z$ satisfies $\mathrm{RSol}_\mu(J,z)$; moreover for $t\in J$, with $\tilde z(t)=(\theta,I)$:
+$\operatorname{rad}(q(t))=L^2(1-e\cos u)\in[a(1-e),a(1+e)]$, $a=L^2=I_1^2/(2\pi)^2$ etc.\ (the elements of $z(t)$ are $(L,G)=I/(2\pi)$), and $\Ham^{\rm R3}_\mu(z(t))=\Lean{realHamiltonian}\,\tilde h\,\tilde f_\mu(\tilde z(t))$.
+\frozen{KAM.Iso.IsRestrictedSolutionOn, KAM.Iso.IsHamiltonianSolutionOn}
+\source{ours (the transfer step of D-I-PHYSICAL).}
+\end{proposition}
+\begin{proof}
+\proofstep{Collision freedom and real-analyticity}\label{stepI:p7:tr-cf} For $t\in J$, $I=\tilde z(t)_2\in B$, so $I/2\pi\in\mathcal K$ and $\mathsf S\tilde z(t)$ is real with $(L,G)\in\mathcal K$, in $\mathcal U(\delta_2)$ (Proposition~\ref{bpI:p7:exact-ham}(iv)); $z(t)=\mathsf Q(\mathsf S\tilde z(t))$ is collision free by (iii) there; so $z(t)\in W_\mu$.
+
+\proofstep{Agreement of Hamiltonians on an open set}\label{stepI:p7:tr-open} Let $\mathcal V=\{(\theta,I)\in\R^4:\exists J\in B,\ \norm{I-J}<r_0\}$, open, containing $\tilde z(t)$. By Corollary~\ref{bpI:p7:period-one}(d), $\Lean{realHamiltonian}\,\tilde h\,\tilde f_\mu=\Ham^{\rm R3}_\mu\circ\mathsf Q\circ\mathsf S$ on $\mathcal V$ (real arguments $I\in B_{r_0}$: note the identity is used with $B_{r_0}$, not only $B$); both sides are real-analytic there, so the real derivatives and the Hamiltonian fields coincide at $\tilde z(t)$.
+
+\proofstep{Chain rule}\label{stepI:p7:tr-chain} $\tilde z$ is differentiable at $t$ with $\tilde z'(t)=X_{\Lean{realHamiltonian}\tilde h\tilde f_\mu}(\tilde z(t))=X_{\Ham_\mu\circ\mathsf Q\circ\mathsf S}(\tilde z(t))$. By Proposition~\ref{bpI:p7:symplectic} and Lemma~\ref{bpI:p6:conversion}(a), $\frac d{dt}z=D(\mathsf Q\circ\mathsf S)\tilde z'=X_{\Ham^{\rm R3}_\mu}(z(t))=V_\mu(z(t))$ by Lemma~\ref{bpI:p7:ham-eq}. The formulas for $\operatorname{rad}(q)$ and the energy are Proposition~\ref{bpI:p7:orbit-identities}(a) and Corollary~\ref{bpI:p7:period-one}(d).
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Nondegeneracy}\label{bpI:p7:sec-nondeg}
+
+\begin{proposition}[Isoenergetic nondegeneracy of the Delaunay Hamiltonian]\label{bpI:p7:nondeg}
+In the setting of Corollary~\ref{bpI:p7:period-one}, $\det\Lean{borderedHessian}\,\tilde h\,I=3/I_1^4>0$ for every real $I\in B_{r_0}$, indeed for every real $I$ with $I_1>0$; in conventional variables $\mathsf B_{h_{1,1}}(L,G)=\mathsf K_{1,1}(L)$ with $\det=3/L^4$.
+Thus $\tilde h$ satisfies the nondegeneracy hypothesis of Theorem~\ref{bpI:p0:head} on all real points of $B_{r_0}$, for every $B\subset2\pi\mathcal K$.
+\source{Chi05 p.~17, the display after (3.43) (conventional variables, $\kappa=\Omega=1$); the period-one version is Part~\ref{bpI:p6}.}
+\end{proposition}
+\begin{proof}
+\proofstep{Reality of the domain}\label{stepI:p7:nd-dom} Real $I\in B_{r_0}$ have $I_1>0$: $\operatorname{Re}I_1/2\pi>m_L/2>0$ (Corollary~\ref{bpI:p7:period-one}(b)).
+\proofstep{Determinant}\label{stepI:p7:nd-det} Lemma~\ref{bpI:p6:kep-border} and Lemma~\ref{bpI:p6:conversion}(d) with $\kappa=\Omega=1$; the conventional statement is Lemma~\ref{bpI:p6:kep-border} at $\kappa=\Omega=1$.
+\end{proof}
+
+\subsection{Summary of outputs, forward references, errata}\label{bpI:p7:sec-summary}
+
+\begin{remark}[Outputs consumed by other parts]\label{bpI:p7:outputs}
+\begin{itemize}
+\item \emph{Part~8 (proof of I-R3BP; forward reference).} Lemma~\ref{bpI:p7:near-circular} (the region $\mathcal N$ as the $\mathsf Q$-image of an action box), Theorem~\ref{bpI:p7:chart} (every $z_0\in\mathcal N$ has Delaunay coordinates), Corollary~\ref{bpI:p7:period-one} (data of I-HEAD with $\varepsilon=C_F\mu$), Proposition~\ref{bpI:p7:nondeg}, Proposition~\ref{bpI:p7:transfer}, Proposition~\ref{bpI:p7:orbit-identities}(a) and Proposition~\ref{bpI:p7:exact-ham}(iii). To use them with the frozen hypothesis $a_+(1+e_+)<1$, Part~8 takes $\mathcal K\supset$ the closure of the $(L,G)$-image of $\mathcal N$ enlarged as in finding I04 of the Part-0 review, still satisfying $\max_{\mathcal K}L^2(1+e)<1$ and $e<1$, $e>0$.
+\item \emph{Track~P.} Proposition~\ref{bpI:p7:kepler-eq} (Kepler's equation near $e=0$), Proposition~\ref{bpI:p7:orbit-maps-e} (orbit maps holomorphic across $e=0$), Proposition~\ref{bpI:p7:orbit-identities}, Proposition~\ref{bpI:p7:means}, Proposition~\ref{bpI:p7:scaling}; the normalisation of Part~\ref{bpI:p6}.
+\end{itemize}
+\end{remark}
+
+\begin{remark}[Lean totality]\label{bpI:p7:totality}
+Every division and square root in this part is guarded: $L>0$ on $\mathcal C_0$ and $L\ne0$ on $\mathcal K_{\delta_1}$ (Lemma~\ref{bpI:p7:complex-domain}); $\mathsf D=1-e\cos u\ne0$ (Proposition~\ref{bpI:p7:kepler-eq}(a)); $e(L,G)$ uses a principal root of a number with positive real part; $\vartheta(\cdot)^{-1/2}$ is taken on $\{\operatorname{Re}>0\}$; the radii of the primaries are positive on $W_\mu$ and on $\mathcal O\times D(0,\mu_2)$ (Lemma~\ref{bpI:p7:shift}). The only \Lean{fderiv} is that of $\Ham^{\rm R3}_\mu\circ\mathsf Q\circ\mathsf S$ and of $\tilde h$ at points where they are real-analytic (Proposition~\ref{bpI:p7:transfer}, Lemma~\ref{bpI:p6:kep-border}).
+\end{remark}
+
+\begin{remark}[Suspected defects of the source, for the errata ledger]\label{bpI:p7:errata}
+(1) Chi05 p.~11: ``The (Kepler) equation $\lambda=u-e\sin u$ \dots can be inverted, for $\abs e$ small enough'': no radius is given and no domain in $\lambda$; not an error of the displayed expansions, a gap, filled by Proposition~\ref{bpI:p7:kepler-eq}.
+(2) Chi05 (3.38)--(3.43), pp.~13--16: the model is the \emph{heliocentric}, time-dependent system ($x^{(2)}-x^{(1)}$ with the circular motion of $P_1$ about $P_0$) with the primary at the origin, and the parameter $\varepsilon=m_1/m_0^{2/3}$ rescales mass and length; the frozen restricted Hamiltonian is the barycentric one with $\mu$ and total mass one, in which the primaries sit at $-\mu,1-\mu$ and the indirect term appears as the $\mu$-dependence of the first primary's position. The two are related but different; this blueprint derives $F_\mu$ from the frozen $\Ham^{\rm R3}_\mu$ directly (Proposition~\ref{bpI:p7:exact-ham}).
+\end{remark}
