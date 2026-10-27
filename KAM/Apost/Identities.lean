@@ -13,7 +13,36 @@ import KAM.Matrix.Inverse
 /-!
 # Frame identities
 
-Blueprint Part 2, Lemma `bp:p2:frame-identities` (`KAM.Apost.frame_identities`).
+Blueprint Part 2, Lemma `bp:p2:frame-identities` (`KAM.Apost.frame_identities`). Let `K` be
+holomorphic on `T_r`, with `K(T_r) ⊆ 𝔅` and `det G` a unit on `T_r`. Then, on `T_r`, with
+`L = DK`, `N = Ω₀ L B`, `P = (L N)`, `Q = -Ω₀ Pᵀ Ω₀`:
+
+* (a) `Lᵀ Ω₀ N = -I`, `Nᵀ Ω₀ L = I`, `Nᵀ Ω₀ N = B Ω_K B`;
+* (b) `Pᵀ Ω₀ P = Ω₀ + E_sym`, `E_sym = diag(Ω_K, B Ω_K B)`;
+* (c) `∂_ω L = A L - DE`;
+* (d) `∂_ω Ω_K = -(DE)ᵀ Ω₀ L - Lᵀ Ω₀ DE`;
+* (e) `Q (A P - ∂_ω P) = Λ + E_red`;
+* (f) `Q P = I - Ω₀ E_sym` and `Q E = -η`.
+
+The proof follows the blueprint step by step. All helper lemmas live in the namespace
+`KAM.Apost.Identities`; the matrix algebra is done at the level of whole matrices
+(`Matrix.fromCols`, `Matrix.fromRows_mul_fromCols`, `Matrix.fromBlocks_multiply`), never entrywise
+on `2n × 2n` products.
+
+Blueprint steps and their Lean lemmas (`alg_*` are the abstract matrix identities):
+
+* `step:p2:fi-products`: `alg_LtON`, `alg_NtOL`, `alg_NtON`; `fi_LtON`, `fi_NtOL`, `fi_NtON`;
+* `step:p2:fi-sym`: `alg_PtOP`, `alg_symDefect`; `fi_PtOP`, `fi_symDefect`;
+* `step:p2:fi-dl`: `fderiv_tangentMat_apply`, `fderiv_tangent_column_omega`, `fi_dL`;
+* `step:p2:fi-domegak`: `alg_dLagrange`, `fi_dLagrange`;
+* `step:p2:fi-blocks`: `alg_reduced`, `fi_reduced`;
+* `step:p2:fi-22`: `fi_dLtON`, `alg_LtOXN`, `fi_LtOXN`;
+* `step:p2:fi-q`: `fi_QP`, `fi_QE`.
+
+The derivative steps use the symmetry of mixed second derivatives of the holomorphic `K`
+(`KAM.fderiv_apply_comm_of_differentiableOn`, from `bp:p1:holomorphic-regularity`), the product
+and transpose rules of `KAM/Matrix/Calculus.lean`, and `Aᵀ Ω₀ + Ω₀ A = 0` for `A = DX_h ∘ K`
+(`KAM.Apost.hamiltonian`(d)). The torsion enters through `KAM.Torus.torsion_eq_mat`.
 -/
 
 @[expose] public noncomputable section
@@ -21,7 +50,7 @@ Blueprint Part 2, Lemma `bp:p2:frame-identities` (`KAM.Apost.frame_identities`).
 open scoped Matrix.Norms.Operator
 open Matrix
 
-namespace KAM.Apost
+namespace KAM.Apost.Identities
 
 open KAM.Torus
 
@@ -280,6 +309,168 @@ theorem fi_dLagrange (hS : Standing n τ M σK σB σT 𝔅 h ω γ)
   exact alg_dLagrange hA
 
 end Derivatives
+
+/-! ### Item (e): the reduced field -/
+
+section Reduced
+
+variable {n : ℕ} {τ M σK σB σT : ℝ} {𝔅 : Set ((Fin n → ℂ) × (Fin n → ℂ))}
+  {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ω : Fin n → ℝ} {γ : ℝ}
+  {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)} {r : ℝ} {θ : Fin n → ℂ}
+
+/-- Subtraction of matrices partitioned by columns. -/
+theorem fromCols_sub_fromCols {m : Type*} (A₁ B₁ : Matrix m (Fin n) ℂ)
+    (A₂ B₂ : Matrix m (Fin n) ℂ) :
+    Matrix.fromCols A₁ A₂ - Matrix.fromCols B₁ B₂ = Matrix.fromCols (A₁ - B₁) (A₂ - B₂) := by
+  ext i (j | j) <;> simp
+
+/-- The frame `P = (L N)` is holomorphic on the strip. -/
+theorem differentiableOn_frameMat (hK : DifferentiableOn ℂ K (complexStrip n r))
+    (hG : ∀ θ ∈ complexStrip n r, IsUnit (gramMatrix K θ).det) :
+    DifferentiableOn ℂ (frameMat K) (complexStrip n r) := by
+  have hL := differentiableOn_matrix_iff_entries.1 (differentiableOn_tangentMat hK)
+  have hN := differentiableOn_matrix_iff_entries.1 (differentiableOn_normalMat hK hG)
+  rw [differentiableOn_matrix_iff_entries]
+  rintro i (j | j)
+  · simpa only [frameMat, Matrix.fromCols_apply_inl] using hL i j
+  · simpa only [frameMat, Matrix.fromCols_apply_inr] using hN i j
+
+/-- The derivative of the frame is the frame of the derivatives: `∂ P = (∂ L  ∂ N)`. -/
+theorem fderiv_frameMat (hK : DifferentiableOn ℂ K (complexStrip n r))
+    (hG : ∀ θ ∈ complexStrip n r, IsUnit (gramMatrix K θ).det) (hθ : θ ∈ complexStrip n r)
+    (v : Fin n → ℂ) :
+    fderiv ℂ (frameMat K) θ v =
+      Matrix.fromCols (fderiv ℂ (tangentMat K) θ v) (fderiv ℂ (normalMat K) θ v) := by
+  have hnhds := (isOpen_complexStrip n r).mem_nhds hθ
+  have hP : DifferentiableAt ℂ (frameMat K) θ :=
+    (differentiableOn_frameMat hK hG).differentiableAt hnhds
+  have hL : DifferentiableAt ℂ (tangentMat K) θ :=
+    (differentiableOn_tangentMat hK).differentiableAt hnhds
+  have hN : DifferentiableAt ℂ (normalMat K) θ :=
+    (differentiableOn_normalMat hK hG).differentiableAt hnhds
+  ext i (j | j)
+  · rw [Matrix.fromCols_apply_inl, ← fderiv_matrix_apply hP, ← fderiv_matrix_apply hL]
+    congr 1
+  · rw [Matrix.fromCols_apply_inr, ← fderiv_matrix_apply hP, ← fderiv_matrix_apply hN]
+    congr 1
+
+/-- Step `step:p2:fi-22`: differentiating the constant identity `Lᵀ Ω₀ N = -I` along `ω` gives
+`(∂_ω L)ᵀ Ω₀ N + Lᵀ Ω₀ ∂_ω N = 0`. -/
+theorem fi_dLtON (hK : DifferentiableOn ℂ K (complexStrip n r))
+    (hG : ∀ θ ∈ complexStrip n r, IsUnit (gramMatrix K θ).det) (hθ : θ ∈ complexStrip n r)
+    (v : Fin n → ℂ) :
+    (fderiv ℂ (tangentMat K) θ v)ᵀ * omegaZeroMatrix n * normalMat K θ +
+      (tangentMat K θ)ᵀ * omegaZeroMatrix n * fderiv ℂ (normalMat K) θ v = 0 := by
+  have hnhds := (isOpen_complexStrip n r).mem_nhds hθ
+  have hL : DifferentiableAt ℂ (tangentMat K) θ :=
+    (differentiableOn_tangentMat hK).differentiableAt hnhds
+  have hN : DifferentiableAt ℂ (normalMat K) θ :=
+    (differentiableOn_normalMat hK hG).differentiableAt hnhds
+  have hLt : DifferentiableAt ℂ (fun y => (tangentMat K y)ᵀ) θ := hL.matrix_transpose
+  have hLtO : DifferentiableAt ℂ (fun y => (tangentMat K y)ᵀ * omegaZeroMatrix n) θ :=
+    hLt.matrix_mul (differentiableAt_const _)
+  have hconst : (fun y => (tangentMat K y)ᵀ * omegaZeroMatrix n * normalMat K y)
+      =ᶠ[nhds θ] fun _ => (-1 : Matrix (Fin n) (Fin n) ℂ) := by
+    filter_upwards [hnhds] with y hy
+    exact fi_LtON K (hG y hy)
+  have h0 : fderiv ℂ (fun y => (tangentMat K y)ᵀ * omegaZeroMatrix n * normalMat K y) θ v = 0 := by
+    rw [hconst.fderiv_eq]
+    simp
+  rwa [fderiv_matrix_mul_apply hLtO hN, fderiv_matrix_mul_const_apply hLt,
+    fderiv_matrix_transpose_apply] at h0
+
+/-- Step `step:p2:fi-22`: `Lᵀ Ω₀ X_N = -(DE)ᵀ Ω₀ N`. -/
+theorem fi_LtOXN (hS : Standing n τ M σK σB σT 𝔅 h ω γ)
+    (hK : DifferentiableOn ℂ K (complexStrip n r))
+    (hK𝔅 : ∀ θ ∈ complexStrip n r, K θ ∈ 𝔅)
+    (hG : ∀ θ ∈ complexStrip n r, IsUnit (gramMatrix K θ).det) (hθ : θ ∈ complexStrip n r) :
+    (tangentMat K θ)ᵀ * omegaZeroMatrix n * normalFieldMat h K ω θ =
+      -((errDerivMat h K ω θ)ᵀ * omegaZeroMatrix n * normalMat K θ) := by
+  have hA : (linMat h K θ)ᵀ * omegaZeroMatrix n + omegaZeroMatrix n * linMat h K θ = 0 :=
+    (ham_symplectic hS (K θ) (hK𝔅 θ hθ)).2.2
+  have h0 := fi_dLtON hK hG hθ (fun l => (ω l : ℂ))
+  rw [fi_dL hS hK hK𝔅 hθ] at h0
+  exact alg_LtOXN hA h0
+
+/-- Left multiplication of a block matrix by `Ω₀`: `Ω₀ (a b; c d) = (-c -d; a b)`. -/
+theorem omega_mul_fromBlocks {p q : Type*} (a : Matrix (Fin n) p ℂ) (b : Matrix (Fin n) q ℂ)
+    (c : Matrix (Fin n) p ℂ) (d : Matrix (Fin n) q ℂ) :
+    omegaZeroMatrix n * Matrix.fromBlocks a b c d = Matrix.fromBlocks (-c) (-d) a b := by
+  rw [omegaZeroMatrix, Matrix.fromBlocks_multiply]
+  simp
+
+/-- Step `step:p2:fi-blocks`: `Q (X_L  X_N) = ((NᵀΩ₀X_L, NᵀΩ₀X_N), (-LᵀΩ₀X_L, -LᵀΩ₀X_N))`. -/
+theorem alg_reduced (L N XL XN : Matrix (Fin n ⊕ Fin n) (Fin n) ℂ) :
+    -(omegaZeroMatrix n * (Matrix.fromCols L N)ᵀ * omegaZeroMatrix n) *
+        Matrix.fromCols XL XN =
+      Matrix.fromBlocks (Nᵀ * omegaZeroMatrix n * XL) (Nᵀ * omegaZeroMatrix n * XN)
+        (-(Lᵀ * omegaZeroMatrix n * XL)) (-(Lᵀ * omegaZeroMatrix n * XN)) := by
+  rw [Matrix.neg_mul, Matrix.mul_assoc, Matrix.mul_assoc, ← Matrix.mul_assoc (Matrix.fromCols L N)ᵀ,
+    Matrix.transpose_fromCols, Matrix.fromRows_mul, Matrix.fromRows_mul_fromCols,
+    omega_mul_fromBlocks, Matrix.fromBlocks_neg]
+  simp
+
+/-- Steps `step:p2:fi-blocks` and `step:p2:fi-22`, item (e):
+`Q (A P - ∂_ω P) = Λ + E_red`. -/
+theorem fi_reduced (hS : Standing n τ M σK σB σT 𝔅 h ω γ)
+    (hK : DifferentiableOn ℂ K (complexStrip n r))
+    (hK𝔅 : ∀ θ ∈ complexStrip n r, K θ ∈ 𝔅)
+    (hG : ∀ θ ∈ complexStrip n r, IsUnit (gramMatrix K θ).det) (hθ : θ ∈ complexStrip n r) :
+    reducer K θ * (linMat h K θ * frameMat K θ - fderiv ℂ (frameMat K) θ (fun l => (ω l : ℂ))) =
+      triangularMat (torsion h K ω θ) + redDefect h K ω θ := by
+  have hN : DifferentiableAt ℂ (normalMat K) θ :=
+    (differentiableOn_normalMat hK hG).differentiableAt ((isOpen_complexStrip n r).mem_nhds hθ)
+  have hXP : linMat h K θ * frameMat K θ - fderiv ℂ (frameMat K) θ (fun l => (ω l : ℂ)) =
+      Matrix.fromCols (errDerivMat h K ω θ) (normalFieldMat h K ω θ) := by
+    rw [fderiv_frameMat hK hG hθ, frameMat, Matrix.mul_fromCols, fromCols_sub_fromCols,
+      fi_dL hS hK hK𝔅 hθ, sub_sub_cancel, normalFieldMat]
+  rw [hXP, reducer, frameMat, alg_reduced, torsion_eq_mat h K ω hN, fi_LtOXN hS hK hK𝔅 hG hθ,
+    triangularMat, redDefect, Matrix.fromBlocks_add]
+  simp
+
+end Reduced
+
+end KAM.Apost.Identities
+
+namespace KAM.Apost
+
+open KAM.Torus KAM.Apost.Identities
+
+section Lemma
+
+variable {n : ℕ} {τ M σK σB σT : ℝ} {𝔅 : Set ((Fin n → ℂ) × (Fin n → ℂ))}
+  {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ω : Fin n → ℝ} {γ : ℝ}
+
+/-- Blueprint `bp:p2:frame-identities`, items (a)–(f). -/
+theorem frame_identities (hS : Standing n τ M σK σB σT 𝔅 h ω γ) {r : ℝ} (hr : 0 < r)
+    {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)} (hK : DifferentiableOn ℂ K (complexStrip n r))
+    (hK𝔅 : ∀ θ ∈ complexStrip n r, K θ ∈ 𝔅)
+    (hG : ∀ θ ∈ complexStrip n r, IsUnit (gramMatrix K θ).det) :
+    ∀ θ ∈ complexStrip n r,
+      ((tangentMat K θ)ᵀ * omegaZeroMatrix n * normalMat K θ = -1 ∧
+        (normalMat K θ)ᵀ * omegaZeroMatrix n * tangentMat K θ = 1 ∧
+        (normalMat K θ)ᵀ * omegaZeroMatrix n * normalMat K θ =
+          (gramMatrix K θ)⁻¹ * lagrangeMat K θ * (gramMatrix K θ)⁻¹) ∧
+      ((frameMat K θ)ᵀ * omegaZeroMatrix n * frameMat K θ = omegaZeroMatrix n + symDefect K θ ∧
+        symDefect K θ = Matrix.fromBlocks (lagrangeMat K θ) 0 0
+          ((gramMatrix K θ)⁻¹ * lagrangeMat K θ * (gramMatrix K θ)⁻¹)) ∧
+      fderiv ℂ (tangentMat K) θ (fun l => (ω l : ℂ)) =
+        linMat h K θ * tangentMat K θ - errDerivMat h K ω θ ∧
+      fderiv ℂ (lagrangeMat K) θ (fun l => (ω l : ℂ)) =
+        -((errDerivMat h K ω θ)ᵀ * omegaZeroMatrix n * tangentMat K θ) -
+          (tangentMat K θ)ᵀ * omegaZeroMatrix n * errDerivMat h K ω θ ∧
+      reducer K θ * (linMat h K θ * frameMat K θ - fderiv ℂ (frameMat K) θ (fun l => (ω l : ℂ))) =
+        triangularMat (torsion h K ω θ) + redDefect h K ω θ ∧
+      (reducer K θ * frameMat K θ = 1 - omegaZeroMatrix n * symDefect K θ ∧
+        reducer K θ *ᵥ sumVec n (invarianceError h K ω θ) = -eta h K ω θ) := by
+  -- `0 < r` is the strip-width convention (design L5); no item needs it.
+  have _hr : 0 < r := hr
+  intro θ hθ
+  exact ⟨⟨fi_LtON K (hG θ hθ), fi_NtOL K (hG θ hθ), fi_NtON K⟩,
+    ⟨fi_PtOP K, fi_symDefect K (hG θ hθ)⟩, fi_dL hS hK hK𝔅 hθ, fi_dLagrange hS hK hK𝔅 hθ,
+    fi_reduced hS hK hK𝔅 hG hθ, fi_QP K, fi_QE h K ω⟩
+
+end Lemma
 
 end KAM.Apost
 

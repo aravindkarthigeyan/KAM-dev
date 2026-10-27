@@ -8,6 +8,7 @@ module
 public import KAM.Analysis.Iteration
 public import KAM.Apost.Constants
 public import KAM.Apost.Hamiltonian
+public import KAM.Apost.Identities
 public import KAM.Apost.Periodicity
 public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
