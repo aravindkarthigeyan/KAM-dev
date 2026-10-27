@@ -1,0 +1,239 @@
+\section{Canonical transformations: time-one maps and the Lie transform (shared by tracks N, P)}\label{bpN:p5}
+\begingroup\sloppy
+
+This part is the canonical-transformation toolkit of P\"oschel~1993, Appendix~A (pp.~211--213: Taylor's formula, the flow $X_\phi^t$ of a small Hamiltonian field, its displacement and derivative bounds) and Lemma~B.5 (pp.~214--215), in the frozen conventions of
+Part~\ref{bpN:p4} (period $1$, geometric widths, max norms). Track~P cites it as \Nref{bpN:p5:\dots}. Generating functions $\phi$ live on general domains $\Dom rs=T_s\times V_rD$ with $D\subset\C^n$ arbitrary (Definition~\ref{bpN:p4:domains}); $m=n$ because a Hamiltonian
+structure is needed. The ODE existence, uniqueness and continuation used are those of Part~\ref{bpN:p3} (general layer); the weighted-norm estimates are those of Part~\ref{bpN:p4}.
+
+\begin{remark}[Decision for Lemma~B.5: the Lie series, not the sup-norm fallback]\label{bpN:p5:route}
+\textbf{Route.} \texttt{PLAN.md} left open whether $\abs{u\circ X_\phi^1}\le(1-2\abs\phi/(\rho\sigma))^{-1}\abs u$ is proved by P\"oschel's convergent series $u\circ X_\phi^1=\sum_h\frac1{h!}\operatorname{ad}_\phi^hu$ or by a sup-norm estimate of the displaced function and a conversion back with Lemma~\ref{bpN:p4:sup-weighted}(b).
+\emph{We take the series}, for three reasons.
+(1)~The Normal Form Lemma iterates $N\approx Ks/(12\ln2)$ times and every step feeds the \emph{weighted} norm of $f_+$ into the next step. The fallback re-enters the weighted norm through $\coth(\pi\sigma)^n$ in every step; this factor exceeds $1$ by a fixed amount, so the contraction $\varepsilon_{i+1}\le\frac14\varepsilon_i$ of the Iterative Lemma would be destroyed and not merely perturbed in constants.
+(2)~The fallback needs $u\circ X_\phi^1$ to be holomorphic and periodic \emph{before} one can speak of its Fourier coefficients, that is, holomorphic dependence of the flow on the initial point (Lemma~\ref{bpN:p5:flow}(b)), a statement not in Mathlib. The series route gets holomorphy of $u\circ X_\phi^1$ for free (it is a norm-convergent series of holomorphic functions); the dependence on initial data is then needed only for the claims on the map $\Phi=X^1_\phi$ itself (Proposition~\ref{bpN:p5:canonical-map}).
+(3)~The ingredients of the series route are already labelled results: the bracket estimate (Lemma~\ref{bpN:p4:bracket}), a one-line induction (Lemma~\ref{bpN:p5:adjoint}), a Taylor remainder along a solution of $\dot z=X_\phi(z)$ (Part~\ref{bpN:p3} and Lemma~\ref{bpN:p5:taylor}) and a geometric series.
+\textbf{What is lost.} The equality $u\circ X^1_\phi=\sum_h\frac1{h!}\operatorname{ad}^h_\phi u$ is proved here for $\eta:=2\abs\phi/(\rho\sigma)\le\frac12$ instead of P\"oschel's $\eta<1$ (Theorem~\ref{bpN:p5:composition}); the bound itself is $(1-\eta)^{-1}$ as in the source. For $\eta<1$ the equality also holds, by real-analyticity of $t\mapsto u(X^t_\phi z)$ and the identity theorem, but real-analytic dependence on time is another external fact; since the frozen headline only asserts the existence of constants, Part~6 simply uses $\abs\phi\le\rho\sigma/4$ in place of $\abs\phi<\rho\sigma/2$.
+\end{remark}
+
+\subsection{Setting}\label{bpN:p5:s-setting}
+
+\begin{definition}[Hamiltonian field, bracket, scaled norm]\label{bpN:p5:setting}
+Points of $\C^n\times\C^n$ are $z=(\theta,I)$ (angles first, as in the frozen field); $J=\begin{pmatrix}0&\mathbf 1\\-\mathbf 1&0\end{pmatrix}$, so $J^2=-\mathbf 1$, $J^\top=-J$. For $u$ holomorphic on an open set let $\nabla u=(\partial_\theta u,\partial_Iu)^\top$,
+\[X_u=J\nabla u=(\partial_Iu,-\partial_\theta u),\qquad\{u,v\}=\sum_{i=1}^n\bigl(\partial_{\theta_i}u\,\partial_{I_i}v-\partial_{I_i}u\,\partial_{\theta_i}v\bigr)=Du\cdot X_v=\nabla u^\top J\nabla v=-\{v,u\}.\]
+$X_u$ is the frozen Hamiltonian field (\Lean{KAM.hamiltonianVectorField}, Definition~\ref{bpN:p0:vf}; for a real-valued function on real points see \Kref{bp:p1:hamiltonian-real}); the bracket is normalised so that $\frac d{dt}u(X_\phi^t(z))=\{u,\phi\}(X_\phi^t(z))$ (Lemma~\ref{bpN:p5:lie-derivative}).
+For $\rho,\sigma>0$ the \emph{scaled norm} on $\C^n\times\C^n$ is $\nu_{\rho,\sigma}(a,b)=\max(\abs a_\infty/\sigma,\abs b_\infty/\rho)$ (P\"oschel's $\abs{W\,\cdot}$, $W=\operatorname{diag}(\sigma^{-1},\rho^{-1})$ in angle-first order); it is a complex norm, and its closed
+ball of radius $c$ about $z=(\theta,I)$ is $\bar P(z;c\sigma,c\rho)$. Iterated brackets: $\operatorname{ad}^0_\phi u=u$, $\operatorname{ad}^j_\phi u=\{\operatorname{ad}^{j-1}_\phi u,\phi\}$.
+\source{Pos93 pp.~211--212 (flow $X^t_\phi$, $W$), p.~214 (ad). \sourcegap{We did not locate the printed definition of the bracket's sign in pp.~211--215; only the two-term structure (Lemma~B.4) and $\{\phi,h\}=\omega\cdot\partial_\theta\phi$ for $h=h(I)$ (p.~211, homological equation, divisors $ik\cdot\omega$) are used. With the convention above $\{\phi,h\}=\partial_\theta\phi\cdot\partial_Ih$, which is that equation.}}
+\end{definition}
+The bracket of holomorphic periodic functions is holomorphic and periodic (\Kref{bp:p1:holomorphic-regularity}); $\operatorname{ad}^j_\phi u$ is holomorphic on the common domain of $u$ and $\phi$; $\{u,v\}=0$ if $u,v$ depend only on $I$.
+
+\begin{lemma}[Size of the field]\label{bpN:p5:vf-bound}
+Let $\phi\in\Os rs$ have finite norm, $0<\rho<r$, $0<\sigma<s$. On $\Dom{r-\rho}{s-\sigma}$:
+$\abs{\partial_{I_i}\phi}\le\abs\phi_{r,s}/\rho$, $\abs{\partial_{\theta_i}\phi}\le\abs\phi_{r,s}/(e\sigma)$, and
+\[\nu_{\rho,\sigma}(X_\phi)=\max\Bigl(\frac{\max_i\abs{\partial_{I_i}\phi}}{\sigma},\frac{\max_i\abs{\partial_{\theta_i}\phi}}{\rho}\Bigr)\le\frac{\abs\phi_{r,s}}{\rho\sigma}.\]
+\source{Pos93 p.~212 (``$\abs{\phi_I}_\infty\le q\delta/(\alpha\rho)$, $\abs{WX_\phi}\le q\delta/(\alpha\rho\sigma)$'').}
+\end{lemma}
+\begin{proof}
+\proofstep{Derivatives}\label{stepN:p5:vf-deriv} Lemma~\ref{bpN:p4:cauchy} (with $r_0=r$, $s_0=s$ and the target widths $r-\rho$, $s-\sigma$) gives $\max_i\wn{\partial_{I_i}\phi}{r-\rho}{s}\le\rho^{-1}\wn\phi rs$ and $\sum_j\wn{\partial_{\theta_j}\phi}{r}{s-\sigma}\le(e\sigma)^{-1}\wn\phi rs$; each single term is at most the sum.
+Restrict to $\Dom{r-\rho}{s-\sigma}$ (monotonicity), and apply Lemma~\ref{bpN:p4:sup-weighted}(a) to each derivative.
+
+\proofstep{The field}\label{stepN:p5:vf-field} Insert into the definition of $\nu_{\rho,\sigma}$: $\frac1\sigma\cdot\frac{\abs\phi}\rho=\frac{\abs\phi}{\rho\sigma}$ and $\frac1\rho\cdot\frac{\abs\phi}{e\sigma}\le\frac{\abs\phi}{\rho\sigma}$.
+\end{proof}
+
+\subsection{The flow of a small holomorphic vector field}\label{bpN:p5:s-flow}
+
+\begin{lemma}[Flow of a small holomorphic field]\label{bpN:p5:flow}
+Let $\nu$ be a complex norm on $\C^N$, $\Omega\subset\C^N$ open, $F:\Omega\to\C^N$ holomorphic with $\nu(F)\le\varepsilon$ on $\Omega$ and $0\le\varepsilon\le\frac12$. For $c>0$ let $\Omega^{c}=\{z:\bar B_\nu(z,c)\subset\Omega\}$ (an open set).
+\begin{enumerate}[label=(\alph*)]
+\item (Existence, uniqueness, displacement) For $z\in\Omega^{1/2}$ there is $\gamma_z:\R\to\C^N$ with $\texttt{IsSolIn}\,F\,\Omega\,[-1,1]\,\gamma_z$ and $\gamma_z(0)=z$; any solution in $\Omega$ through $z$ on an interval $J\ni0$ equals $\gamma_z$ on $J\cap[-1,1]$. Put $X^t(z)=\gamma_z(t)$ ($\abs t\le1$). Then $\nu(X^t(z)-z)\le\abs t\,\varepsilon$.
+\item (Regularity) $(t,z)\mapsto X^t(z)$ is continuous on $[-1,1]\times\Omega^{1/2}$; for each $t$ the map $X^t:\Omega^{1/2}\to\Omega$ is holomorphic; $(t,z)\mapsto D_zX^t(z)$ is continuous, and $Y(t)=D_zX^t(z)$ satisfies $Y(t)=\mathbf 1+\int_0^tDF(X^\tau z)Y(\tau)\,d\tau$.
+\item (Inverse, derivative) For $z\in\Omega^{1}$: $X^1(z)\in\Omega^{1/2}$ and $X^{-1}(X^1z)=z$; and the $\nu$-operator norm satisfies $\abs{DX^t(z)-\mathbf 1}_\nu\le2\varepsilon$ for $\abs t\le1$. In the same way $X^1(X^{-1}z)=z$.
+\item (Translations) If $\tau\in\C^N$, $\Omega+\tau=\Omega$ and $F(w+\tau)=F(w)$ on $\Omega$, then $\Omega^{1/2}+\tau=\Omega^{1/2}$ and $X^t(z+\tau)=X^t(z)+\tau$.
+\item (Reality) Let $N=2n$ and suppose $F(x)\in\R^{N}$ for $x\in\Omega\cap\R^N$. Then $X^t(x)\in\R^N$ for $x\in\Omega^{1/2}\cap\R^N$.
+\end{enumerate}
+\source{Pos93 p.~212 (``$X_\phi^t$ maps $V_{r-\frac32\rho,s-\frac32\sigma}$ into $V_{r-\rho,s-\sigma}$ for $0\le t\le1$ and satisfies $\abs{W(X_\phi^t-\mathrm{id})}\le\ldots$''; the derivative estimate by Lemma~C.1). The general-$\nu$ formulation and the holomorphy in (b) are ours (P\"oschel asserts ``real analytic'').}
+\end{lemma}
+\begin{proof}
+Regard $\C^N$ as a real normed space of dimension $2N$ with norm $\nu$, extend $F$ by $0$ outside $\Omega$ (Remark~\ref{bpN:p3:totality}); $F$ is $C^1$ on $\Omega$ (\Kref{bp:p1:holomorphic-regularity}, restriction of scalars).
+
+\proofstep{(a) The maximal solution stays in a compact set}\label{stepN:p5:fl-max} Let $z\in\Omega^{1/2}$, $(T_-,T_+)$ and $\gamma$ the maximal interval and solution (Theorem~\ref{bpN:p3:gen-maximal}). For $t\in[0,T_+)$, $\nu(\gamma'(t))\le\varepsilon$, so $\nu(\gamma(t)-z)\le\varepsilon t$ (\Kref{bp:p1:ext-mvt} in one variable).
+If $T_+\le1$, then $\gamma(t)\in K=\bar B_\nu(z,\varepsilon)\subset\bar B_\nu(z,\frac12)\subset\Omega$ for $t\in[0,T_+)$, with $K$ compact, so $T_+=\infty$ by Corollary~\ref{bpN:p3:gen-continuation-compact}, a contradiction. Hence $T_+>1$; symmetrically (time reversal, Lemma~\ref{bpN:p3:gen-symmetry}(b)) $T_->-1$.
+Uniqueness on an interval $J\ni 0$ is Theorem~\ref{bpN:p3:gen-uniqueness}; the displacement bound was shown.
+
+\proofstep{(b) Picard iterates}\label{stepN:p5:fl-picard} Fix $z_0\in\Omega^{1/2}$. As $\bar B_\nu(z_0,\frac12)$ is compact in the open $\Omega$, there is $\eta>0$ with $\bar B_\nu(z_0,\frac12+\eta)\subset\Omega$. Let $\Lambda=\sup\{\abs{DF(w)}_\nu:w\in\bar B_\nu(z_0,\tfrac12+\eta)\}<\infty$; $F$ is $\Lambda$-Lipschitz on this convex ball (\Kref{bp:p1:ext-mvt}).
+For $(t,z)\in[-1,1]\times B_\nu(z_0,\eta)$ put $y_0(t,z)=z$, $y_{k+1}(t,z)=z+\int_0^tF(y_k(\tau,z))\,d\tau$. By induction on $k$: $\nu(y_k(t,z)-z)\le\abs t\varepsilon$ (so $y_k(t,z)\in\bar B_\nu(z,\varepsilon)\subset\bar B_\nu(z_0,\frac12+\eta)\subset\Omega$, and the integral is defined);
+$y_k$ is continuous; $y_k(t,\cdot)$ is holomorphic; $D_zy_k$ is continuous in $(t,z)$. The last two follow from \ref{bpN:p4:ext-param} applied to $t\int_0^1F(y_k(t\tau',z))\,d\tau'$, whose $z$-derivative is $t\int_0^1DF(y_k)D_zy_k\,d\tau'$.
+
+\proofstep{(b) Convergence and identification}\label{stepN:p5:fl-limit} $\nu(y_{k+1}-y_k)(t,z)\le\varepsilon\Lambda^k\abs t^{k+1}/(k+1)!$ by induction, so $y_k\to y_\infty$ uniformly on $[-1,1]\times B_\nu(z_0,\eta)$. The limit is continuous and satisfies $y_\infty(t,z)=z+\int_0^tF(y_\infty)\,d\tau$ ($F$ is $\Lambda$-Lipschitz), so $y_\infty(\cdot,z)$ is $C^1$ with derivative $F(y_\infty)$, i.e.\ a solution in $\Omega$ on $[-1,1]$ through $z$, and $y_\infty(t,z)=X^t(z)$ by (a).
+Hence $X^t$ is continuous in $(t,z)$ and, by \ref{bpN:p4:ext-weier}, holomorphic on $B_\nu(z_0,\eta)$ with $D_zy_k\to D_zX^t$ uniformly on $[-1,1]\times B_\nu(z_0,\eta/2)$, so $D_zX^t(z)$ is jointly continuous. As $z_0$ was arbitrary, (b) holds except for the integral equation. Differentiating $X^t(w)=w+\int_0^tF(X^\tau w)\,d\tau$ in $w$ under the integral (\ref{bpN:p4:ext-param}; the integrand's $w$-derivative $DF(X^\tau w)D_wX^\tau(w)$ is jointly continuous) gives the equation for $Y$.
+
+\proofstep{(c)}\label{stepN:p5:fl-inverse} Let $z\in\Omega^1$, $w=X^1(z)$. Then $\nu(w-z)\le\varepsilon\le\frac12$, so $\bar B_\nu(w,\frac12)\subset\bar B_\nu(z,1)\subset\Omega$, i.e.\ $w\in\Omega^{1/2}$. The map $t\mapsto\gamma_z(1+t)$ is a solution on $[-1,0]$ through $w$, so it equals $\gamma_w$ there (Theorem~\ref{bpN:p3:gen-uniqueness}) and $X^{-1}(w)=\gamma_z(0)=z$. The statement for $X^1\circ X^{-1}$ is this one for $-F$ (Lemma~\ref{bpN:p3:gen-symmetry}(b)).
+For the derivative: $B_\nu(z,\frac12)\subset\Omega^{1/2}$ (as above), $G=X^t-\mathrm{id}$ is holomorphic there by (b) with $\nu(G)\le\varepsilon$ by (a); Lemma~\ref{bpN:p4:general-cauchy} with $R=\frac12$ gives $\abs{DG(z)}_\nu\le2\varepsilon$.
+
+\proofstep{(d),(e)}\label{stepN:p5:fl-symmetry} (d): $\Omega^{1/2}+\tau=\Omega^{1/2}$ since the $\nu$-balls translate; $t\mapsto\gamma_z(t)+\tau$ is a solution through $z+\tau$ (Lemma~\ref{bpN:p3:gen-symmetry}(c)), so equals $\gamma_{z+\tau}$ by uniqueness.
+(e): apply (a) to $E=\R^N$, $W=\Omega\cap\R^N$, the real field $F|_W$ (it is $C^1$ and real by hypothesis, \Kref{bp:p1:real-restriction}) and the compact set $\bar B_\nu(x,\varepsilon)\cap\R^N\subset W$: this gives a real solution on $[-1,1]$ through $x$, which is also a solution in $\Omega$, hence equals $\gamma_x$.
+\end{proof}
+
+\begin{lemma}[Symplectic flow]\label{bpN:p5:symplectic}
+In Lemma~\ref{bpN:p5:flow} let $N=2n$, $\Omega\subset\C^n\times\C^n$, and $F=X_\phi$ with $\phi$ holomorphic on $\Omega$. Then for $z\in\Omega^{1/2}$, $\abs t\le1$, $Y=D X^t(z)$ satisfies
+\[Y^\top JY=J,\qquad YJY^\top=J,\qquad \det Y=\pm1\]
+($Y^\top$ the plain transpose of the complex matrix).
+\source{Standard (Hamiltonian flows are symplectic; used implicitly by Pos93 pp.~211--212, ``canonical transformation $\Phi$'').}
+\end{lemma}
+\begin{proof}
+\proofstep{Variational equation}\label{stepN:p5:sy-var} By Lemma~\ref{bpN:p5:flow}(b), $Y\in C^1$ with $Y'=DF(X^tz)Y$, $Y(0)=\mathbf 1$.
+
+\proofstep{The field}\label{stepN:p5:sy-field} $F=J\nabla\phi$, so $DF=JS$ with $S=D\nabla\phi$ the Hessian, symmetric (\Kref{bp:p1:ext-schwarz}). Then $DF^\top J=S^\top J^\top J=S$ and $J\,DF=J^2S=-S$, so $DF^\top J+J\,DF=0$.
+
+\proofstep{Conservation}\label{stepN:p5:sy-conserve} $\frac d{dt}(Y^\top JY)=Y^\top(DF^\top J+J\,DF)Y=0$, so $Y^\top JY=J$ for all $t$. Taking determinants, $\det(Y)^2=1$; $Y$ is invertible and inverting $Y^\top JY=J$ gives $Y^{-1}J^{-1}Y^{-\top}=J^{-1}$, that is, $J=YJY^\top$ ($J^{-1}=-J$).
+\end{proof}
+
+\begin{corollary}[Canonical maps: bracket invariance and conjugation]\label{bpN:p5:canonical}
+In the setting of Lemma~\ref{bpN:p5:symplectic}, let $z\in\Omega^{1/2}$, $\Phi=X^t$ ($\abs t\le1$), and $u,v,H$ holomorphic on a neighbourhood of $\Phi(z)$. Then $u\circ\Phi$ is holomorphic near $z$ and
+\begin{enumerate}[label=(\alph*)]
+\item $\{u\circ\Phi,v\circ\Phi\}(z)=\{u,v\}(\Phi(z))$;
+\item $D\Phi(z)\,X_{H\circ\Phi}(z)=X_H(\Phi(z))$;
+\item if $y:J\to\Omega^{1/2}$ satisfies $\dot y=X_{H\circ\Phi}(y)$ with $H$ holomorphic on a neighbourhood of $\Phi(y(J))$, then $x=\Phi\circ y$ satisfies $\dot x=X_H(x)$.
+\end{enumerate}
+\source{Standard.}
+\end{corollary}
+\begin{proof}
+\proofstep{Chain rule}\label{stepN:p5:ca-chain} $\Phi$ is holomorphic (Lemma~\ref{bpN:p5:flow}(b)) and $\nabla(u\circ\Phi)=D\Phi^\top(\nabla u)\circ\Phi$.
+
+\proofstep{(a)}\label{stepN:p5:ca-a} $\{u\circ\Phi,v\circ\Phi\}=\nabla u^\top\,Y J Y^\top\,\nabla v=\nabla u^\top J\nabla v$ at $\Phi(z)$ by Lemma~\ref{bpN:p5:symplectic}.
+
+\proofstep{(b),(c)}\label{stepN:p5:ca-b} $D\Phi\,X_{H\circ\Phi}=Y\,J\,Y^\top(\nabla H)\circ\Phi=J(\nabla H)\circ\Phi=X_H\circ\Phi$; (c) is the chain rule $\dot x=D\Phi(y)\dot y=D\Phi(y)X_{H\circ\Phi}(y)$.
+\end{proof}
+For real data: if $\phi$ is real on real points then so is $F=X_\phi$ (Step~\ref{stepN:p5:fl-symmetry}), $\Phi$ maps real points to real points, its derivative at a real point is a real matrix (\Kref{bp:p1:real-restriction}), and (a)--(c) hold for real $u,v,H$ with the real restriction of $X$ (\Kref{bp:p1:hamiltonian-real}).
+
+\subsection{Taylor's formula along the flow}\label{bpN:p5:s-taylor}
+
+\begin{lemma}[Derivative along the flow]\label{bpN:p5:lie-derivative}
+Let $\Omega\subset\C^n\times\C^n$, $\phi$, $F=X_\phi$, $\varepsilon\le\frac12$ as in Lemma~\ref{bpN:p5:symplectic}; let $\Omega_1\subset\Omega$ be open and $u$ holomorphic on $\Omega_1$, and $z\in\Omega^{1/2}$ with $X^t(z)\in\Omega_1$ for $\abs t\le1$. Then $g(t)=u(X^t(z))$ is $C^\infty$ on $[-1,1]$ and
+$g^{(j)}(t)=(\operatorname{ad}^j_\phi u)(X^t(z))$ for all $j\ge0$ (each $\operatorname{ad}^j_\phi u$ is holomorphic on $\Omega_1$).
+\source{Pos93 p.~211 (``Taylor's formula'' for $h\circ X^t_\phi$); standard.}
+\end{lemma}
+\begin{proof}
+\proofstep{One derivative}\label{stepN:p5:ld-one} For $v$ holomorphic on $\Omega_1$, $v$ is real-differentiable with derivative $Dv$, and $\gamma=X^{\cdot}(z)$ has derivative $X_\phi(\gamma)$, so $\frac d{dt}v(\gamma(t))=Dv(\gamma)\cdot X_\phi(\gamma)=\{v,\phi\}(\gamma(t))$ (Definition~\ref{bpN:p5:setting}), which is continuous in $t$.
+
+\proofstep{Induction}\label{stepN:p5:ld-ind} Apply the previous step to $v=\operatorname{ad}^{j}_\phi u$, holomorphic on $\Omega_1$ (derivatives of holomorphic functions, \Kref{bp:p1:holomorphic-regularity}).
+\end{proof}
+
+\begin{lemma}[Taylor with integral remainder along the flow]\label{bpN:p5:taylor}
+In the setting of Lemma~\ref{bpN:p5:lie-derivative}, for every $N\ge1$,
+\begin{align*}
+u(X^1z)&=\sum_{j=0}^{N-1}\frac1{j!}(\operatorname{ad}^j_\phi u)(z)+R_N(z),\\
+R_N(z)&=\int_0^1\frac{(1-t)^{N-1}}{(N-1)!}(\operatorname{ad}^N_\phi u)(X^tz)\,dt,\qquad\abs{R_N(z)}\le\frac1{N!}\max_{0\le t\le1}\abs{(\operatorname{ad}^N_\phi u)(X^tz)}.
+\end{align*}
+In particular ($N=1$ for $f_0$, $N=2$ for $h$), if $h,f_0$ are holomorphic on $\Omega_1$ and the trajectory of $z$ stays in $\Omega_1$,
+\begin{equation}\label{bpN:p5:eq:poschel}
+(h+f_0)(X^1z)=h(z)+\{h,\phi\}(z)+f_0(z)+\int_0^1\bigl\{(1-t)\{h,\phi\}+f_0,\ \phi\bigr\}(X^tz)\,dt .
+\end{equation}
+\source{Pos93 p.~211, displayed formula for $H_0\circ\Phi$.}
+\end{lemma}
+\begin{proof}
+\proofstep{Taylor}\label{stepN:p5:ta-taylor} Apply the Taylor formula with integral remainder for $C^N$ functions of one real variable (external fact: induction on $N$ with one integration by parts per step, \Kref{bp:p1:ext-integral}) to $g(t)=u(X^tz)$ at $0$, evaluated at $1$, using $g^{(j)}(0)=(\operatorname{ad}^j_\phi u)(z)$ and $g^{(N)}(t)=(\operatorname{ad}^N_\phi u)(X^tz)$ (Lemma~\ref{bpN:p5:lie-derivative}). The bound uses $\int_0^1(1-t)^{N-1}/(N-1)!\,dt=1/N!$.
+
+\proofstep{The displayed formula}\label{stepN:p5:ta-poschel} Apply the case $N=2$ to $h$ ($\operatorname{ad}^2h=\{\{h,\phi\},\phi\}$) and the case $N=1$ to $f_0$ and add: the remainders are $\int_0^1(1-t)\{\{h,\phi\},\phi\}(X^tz)\,dt+\int_0^1\{f_0,\phi\}(X^tz)\,dt$, and brackets are bilinear.
+\end{proof}
+
+\subsection{Lemma B.5: composition in the weighted norm}\label{bpN:p5:s-b5}
+
+\begin{lemma}[Iterated brackets]\label{bpN:p5:adjoint}
+Let $\phi\in\Os{r'}{s'}$, $u\in\Os rs$ have finite norms, $0<\rho<r$, $0<\sigma<s$, $r+\rho\le r'$, $s+\sigma\le s'$, and $\eta=2\abs\phi_{r',s'}/(\rho\sigma)$. Then for every $h\ge1$,
+\[\abs{\operatorname{ad}^h_\phi u}_{r-\rho,s-\sigma}\le\Bigl(\frac{2h^2}{e\rho\sigma}\Bigr)^h\frac{h!}{(2h)!}\,\abs\phi_{r',s'}^h\abs u_{r,s},\qquad\text{hence}\qquad\frac1{h!}\abs{\operatorname{ad}^h_\phi u}_{r-\rho,s-\sigma}\le\Bigl(\frac{e\eta}4\Bigr)^h\abs u_{r,s}.\]
+\source{Pos93 p.~215 (the displayed estimates for $\abs{\operatorname{ad}^h_\phi u}$ with $\tilde\rho=\rho/h$, $\tilde\sigma=\sigma/h$).}
+\end{lemma}
+\begin{proof}
+\proofstep{Setup}\label{stepN:p5:ad-setup} Fix $h\ge1$, $\kappa=\rho/h$, $\lambda=\sigma/h$, $r_i=r-i\kappa$, $s_i=s-i\lambda$ ($0\le i\le h$), so $r_h=r-\rho$, $s_h=s-\sigma$. By induction each $\operatorname{ad}^i_\phi u\in\Os{r_i}{s_i}$.
+
+\proofstep{One step}\label{stepN:p5:ad-step} Let $1\le i\le h$. Since $\operatorname{ad}^i_\phi u=\{\operatorname{ad}^{i-1}_\phi u,\phi\}=-\{\phi,\operatorname{ad}^{i-1}_\phi u\}$, Lemma~\ref{bpN:p4:bracket} with $(u,v;r_0,s_0;r,s;\rho,\sigma)\to(\phi,\operatorname{ad}^{i-1}_\phi u;r',s';r_{i-1},s_{i-1};\kappa,\lambda)$ applies (note $\kappa<r_{i-1}$, $r_i<r'$, and likewise for $s$) and gives
+$\abs{\operatorname{ad}^i_\phi u}_{r_i,s_i}\le\frac1e\Bigl(\frac1{(r'-r_{i-1}+\kappa)\lambda}+\frac1{(s'-s_{i-1}+\lambda)\kappa}\Bigr)\abs\phi_{r',s'}\abs{\operatorname{ad}^{i-1}_\phi u}_{r_{i-1},s_{i-1}}$.
+Now $r'-r_{i-1}+\kappa=(r'-r)+i\kappa\ge\rho+i\kappa=(h+i)\kappa$ and likewise $s'-s_{i-1}+\lambda\ge(h+i)\lambda$; so the bracket is $\le\frac{2}{e(h+i)\kappa\lambda}$.
+
+\proofstep{Product}\label{stepN:p5:ad-product} Multiplying over $i=1,\dots,h$ and using $\prod_{i=1}^h(h+i)=(2h)!/h!$ and $\kappa\lambda=\rho\sigma/h^2$ gives the first estimate. For the second, $(2h)!\ge(2h/e)^{2h}$ (from $e^N\ge N^N/N!$), so
+$\frac1{h!}\abs{\operatorname{ad}^h_\phi u}\le\frac{(\eta h^2/e)^h}{(2h)!}\abs u\le\bigl(\eta\frac{h^2}e\cdot\frac{e^2}{4h^2}\bigr)^h\abs u=(\frac{e\eta}4)^h\abs u$.
+\end{proof}
+
+\begin{theorem}[Lemma B.5: $\abs{u\circ X^1_\phi}\le(1-\eta)^{-1}\abs u$]\label{bpN:p5:composition}
+Let $D\subset\C^n$, $0<\rho<r\le r'-\rho$, $0<\sigma<s\le s'-\sigma$, $\phi\in\Os{r'}{s'}$ with finite norm and $\eta=2\abs\phi_{r',s'}/(\rho\sigma)\le\frac12$. Put $\Omega=\Dom{r'-\rho}{s'-\sigma}\supset\Dom rs$ and $\nu=\nu_{\rho,\sigma}$.
+\begin{enumerate}[label=(\roman*)]
+\item $\nu(X_\phi)\le\eta/2\le\frac14$ on $\Omega$; the flow $X^t=X_\phi^t$, $\abs t\le1$, of Lemma~\ref{bpN:p5:flow} is defined on $\Omega^{1/2}\supset\Dom{r-\rho}{s-\sigma}$, with $X^t(\Dom{r-\rho}{s-\sigma})\subset\Dom rs$.
+\item For every $u\in\Os rs$ with finite norm, $\sum_{h\ge0}\frac1{h!}\operatorname{ad}^h_\phi u$ converges in $\abs\cdot_{r-\rho,s-\sigma}$ to a function $S\in\Os{r-\rho}{s-\sigma}$ and
+ $S=u\circ X^1_\phi$ on $\Dom{r-\rho}{s-\sigma}$. In particular $u\circ X^1_\phi\in\Os{r-\rho}{s-\sigma}$ and
+\[\abs{u\circ X_\phi^1}_{r-\rho,s-\sigma}\le\Bigl(1-\frac{e\eta}4\Bigr)^{-1}\abs u_{r,s}\le\Bigl(1-\frac2{\rho\sigma}\abs\phi_{r',s'}\Bigr)^{-1}\abs u_{r,s}.\]
+\item The same holds for $X^t_\phi$, $0\le t\le1$ (and $-1\le t\le0$), with $\eta$ replaced by $\abs t\eta$.
+\item If $\phi$ and $u$ are real on real points, $u\circ X^1_\phi$ is real on real points of $\Dom{r-\rho}{s-\sigma}$.
+\end{enumerate}
+\source{Pos93 pp.~214--215, Lemma~B.5 (with $\abs\phi_{r_0,s_0}<\rho\sigma/2$ there). \sourcegap{P\"oschel writes ``Consider the Lie series expansion $u\circ X_\phi^1=\sum\frac1{h!}\operatorname{ad}^h_\phi u$'' and estimates the series; the equality with the composition is not proved on p.~214. It is proved here for $\eta\le\frac12$; see Remark~\ref{bpN:p5:route}. The remark that the smallness condition implies $X^t_\phi:V_{r-\rho,s-\sigma}\to V_{r,s}$ is (i).}}
+\end{theorem}
+\begin{proof}
+\proofstep{The field and the domain}\label{stepN:p5:co-field} Since $r\le r'-\rho$, $s\le s'-\sigma$: $\Dom rs\subset\Omega$. Lemma~\ref{bpN:p5:vf-bound} (for $\phi\in\Os{r'}{s'}$ and losses $\rho,\sigma$) gives $\nu(X_\phi)\le\abs\phi/(\rho\sigma)=\eta/2=:\varepsilon\le\frac14$ on $\Omega$.
+If $z\in\Dom{r-\rho}{s-\sigma}$, then $\bar B_\nu(z,\frac12)=\bar P(z;\sigma/2,\rho/2)\subset\Dom{r-\rho/2}{s-\sigma/2}\subset\Dom rs\subset\Omega$ (Definition~\ref{bpN:p4:domains}(b)), so $z\in\Omega^{1/2}$. By Lemma~\ref{bpN:p5:flow}(a), $X^t(z)\in\bar P(z;\varepsilon\sigma,\varepsilon\rho)\subset\Dom{r-(1-\varepsilon)\rho}{s-(1-\varepsilon)\sigma}\subset\Dom rs$. This is (i).
+
+\proofstep{The series}\label{stepN:p5:co-series} By Lemma~\ref{bpN:p5:adjoint} (applicable: $r+\rho\le r'$, $s+\sigma\le s'$), $\frac1{h!}\operatorname{ad}^h_\phi u\in\Os{r-\rho}{s-\sigma}$ has norm $\le(e\eta/4)^h\abs u_{r,s}$, and $e\eta/4<1$. The sum of norms is $\le(1-e\eta/4)^{-1}\abs u_{r,s}$. By Lemma~\ref{bpN:p4:sup-weighted}(a) the partial sums converge uniformly on $\Dom{r-\rho}{s-\sigma}$, so
+$S$ is holomorphic (\ref{bpN:p4:ext-weier}) and periodic, and termwise integration (\ref{bpN:p4:ext-series}) shows that its Fourier coefficients are the sums of the coefficients; the triangle inequality in $\sum_k\abs{\hat S_k(I)}e^{2\pi\abs k_1(s-\sigma)}$ gives $\abs S_{r-\rho,s-\sigma}\le(1-e\eta/4)^{-1}\abs u_{r,s}$; and $1-e\eta/4\ge1-\eta$.
+
+\proofstep{The remainder tends to $0$}\label{stepN:p5:co-remainder} Let $z\in\Dom{r-\rho}{s-\sigma}$, $t\in[0,1]$, $w=X^t(z)$. By Step~\ref{stepN:p5:co-field}, $w\in\Dom{r-\hat\rho}{s-\hat\sigma}$ with $\hat\rho=(1-\varepsilon)\rho$, $\hat\sigma=(1-\varepsilon)\sigma$, $0<\hat\rho<r$, $r+\hat\rho\le r'$, and likewise for $s$.
+Lemma~\ref{bpN:p5:adjoint} with losses $(\hat\rho,\hat\sigma)$ and $\hat\eta=2\abs\phi/(\hat\rho\hat\sigma)=\eta/(1-\varepsilon)^2\le\frac{16}9\eta\le\frac89$ gives $\abs{\operatorname{ad}^N_\phi u}_{r-\hat\rho,s-\hat\sigma}\le N!(e\hat\eta/4)^N\abs u_{r,s}$, and $e\hat\eta/4\le\frac{2e}9<1$. By Lemma~\ref{bpN:p4:sup-weighted}(a), $\abs{(\operatorname{ad}^N_\phi u)(X^tz)}\le N!(e\hat\eta/4)^N\abs u_{r,s}$.
+Lemma~\ref{bpN:p5:taylor} (with $\Omega_1=\Dom rs$, $\Omega_1$-trajectory by Step~\ref{stepN:p5:co-field}) gives $\abs{R_N(z)}\le(e\hat\eta/4)^N\abs u_{r,s}\to0$. Hence $u(X^1z)=\lim_N\sum_{j<N}\frac1{j!}(\operatorname{ad}^j_\phi u)(z)=S(z)$. This proves (ii).
+
+\proofstep{(iii), (iv)}\label{stepN:p5:co-t} $X^t_\phi=X^1_{t\phi}$ (the field $X_{t\phi}=tX_\phi$ and $s\mapsto X^{ts}_\phi(z)$ solves it), and $\abs{t\phi}=\abs t\abs\phi$, so (iii) is (ii) for $t\phi$. (iv): Lemma~\ref{bpN:p5:flow}(e) with $F=X_\phi$ real on real points (a real-valued $\phi$ on real points has real partials there).
+\end{proof}
+
+\begin{proposition}[Lie transform with first-order remainder, in the weighted norm]\label{bpN:p5:transform}
+In the setting of Theorem~\ref{bpN:p5:composition}, let $h\in\Os rs$ (any norm, possibly $\infty$) with $w:=\{h,\phi\}\in\Os rs$ of finite norm, and $f_0\in\Os rs$ with finite norm. Then on $\Dom{r-\rho}{s-\sigma}$
+\[(h+f_0)\circ X_\phi^1=h+w+f_0+\mathcal R,\qquad\mathcal R=\sum_{j\ge1}\Bigl(\frac1{(j+1)!}\operatorname{ad}^j_\phi w+\frac1{j!}\operatorname{ad}^j_\phi f_0\Bigr)=\int_0^1\bigl\{(1-t)w+f_0,\phi\bigr\}\circ X^t_\phi\,dt,\]
+the series converges in $\abs\cdot_{r-\rho,s-\sigma}$, $\mathcal R\in\Os{r-\rho}{s-\sigma}$, and
+\[\abs{\mathcal R}_{r-\rho,s-\sigma}\le\sum_{j\ge1}\Bigl(\frac{e\eta}4\Bigr)^j\Bigl(\frac{\abs w_{r,s}}{j+1}+\abs{f_0}_{r,s}\Bigr)\le\frac\eta{1-\eta}\Bigl(\tfrac12\abs w_{r,s}+\abs{f_0}_{r,s}\Bigr).\]
+The integral form is Lemma~\ref{bpN:p5:taylor}, \eqref{bpN:p5:eq:poschel}; the pointwise identity requires no bound on $h$ itself.
+\source{Pos93 p.~211 (the decomposition $H_0\circ\Phi=h+\{h,\phi\}+f_0+\int\ldots$) and p.~212--213 (estimate of $f_+$); the series form of the remainder is ours.}
+\end{proposition}
+\begin{proof}
+\proofstep{Derivatives of $h$}\label{stepN:p5:tr-h} Since $\operatorname{ad}^1_\phi h=w$, $\operatorname{ad}^{j}_\phi h=\operatorname{ad}^{j-1}_\phi w$ ($j\ge1$). In Lemma~\ref{bpN:p5:lie-derivative} (with $\Omega_1=\Dom rs$) $g(t)=h(X^tz)$ has $g^{(j)}(t)=(\operatorname{ad}^{j-1}_\phi w)(X^tz)$; Taylor's formula to order $N$ gives
+$h(X^1z)=h(z)+\sum_{i=0}^{N-2}\frac1{(i+1)!}(\operatorname{ad}^i_\phi w)(z)+R'_N$, with $\abs{R'_N}\le\frac1{N!}\max_t\abs{(\operatorname{ad}^{N-1}_\phi w)(X^tz)}$.
+By Step~\ref{stepN:p5:co-remainder} (Lemma~\ref{bpN:p5:adjoint} with $u=w$ and the losses $\hat\rho,\hat\sigma$) this is $\le\frac{(N-1)!}{N!}(e\hat\eta/4)^{N-1}\abs w_{r,s}\to0$. So $h\circ X^1=h+\sum_{i\ge0}\frac1{(i+1)!}\operatorname{ad}^i_\phi w$ pointwise, the term $i=0$ being $w$.
+
+\proofstep{Derivatives of $f_0$}\label{stepN:p5:tr-f} By Theorem~\ref{bpN:p5:composition}(ii), $f_0\circ X^1=\sum_{j\ge0}\frac1{j!}\operatorname{ad}^j_\phi f_0$.
+
+\proofstep{Sum and bound}\label{stepN:p5:tr-sum} Adding gives the first identity with $\mathcal R$ as stated (terms $j=0$ are $w$, $f_0$). Lemma~\ref{bpN:p5:adjoint} bounds $\frac1{j!}\abs{\operatorname{ad}^j_\phi w}\le(e\eta/4)^j\abs w$, hence $\frac1{(j+1)!}\abs{\operatorname{ad}^j_\phi w}\le\frac1{j+1}(e\eta/4)^j\abs w$, and similarly for $f_0$. The geometric sum with $\frac1{j+1}\le\frac12$ and $e\eta/4\le\eta$ gives the last bound. Convergence in the norm and membership of $\Os{r-\rho}{s-\sigma}$ are as in Step~\ref{stepN:p5:co-series}.
+
+\proofstep{Integral form}\label{stepN:p5:tr-int} Equality with the integral is \eqref{bpN:p5:eq:poschel}, because $\{h,\phi\}=w$; the trajectory stays in $\Dom rs$ by Step~\ref{stepN:p5:co-field}.
+\end{proof}
+
+\begin{corollary}[Integral remainders in the weighted norm]\label{bpN:p5:composition-integral}
+In the setting of Theorem~\ref{bpN:p5:composition} let $v_t\in\Os rs$ ($0\le t\le1$) have finite norms with $V=\sup_t\abs{v_t}_{r,s}<\infty$, and suppose $(t,z)\mapsto v_t(z)$ and $(t,z)\mapsto Dv_t(z)$ are continuous on $[0,1]\times\Dom rs$. Then $G(z)=\int_0^1v_t(X^t_\phi z)\,dt$ lies in $\Os{r-\rho}{s-\sigma}$ and $\abs G_{r-\rho,s-\sigma}\le(1-\eta)^{-1}V$.
+\source{Pos93 p.~212--213 (``$\abs{u\circ X^t_\phi}\le(1-2\abs\phi/\rho\sigma)^{-1}\abs u$ uniformly for $0\le t\le1$'', applied inside the integral).}
+\end{corollary}
+\begin{proof}
+\proofstep{Integrand}\label{stepN:p5:ci-integrand} $g_t=v_t\circ X^t\in\Os{r-\rho}{s-\sigma}$ with $\abs{g_t}\le(1-t\eta)^{-1}V\le(1-\eta)^{-1}V$ (Theorem~\ref{bpN:p5:composition}(iii)). The map $(t,z)\mapsto g_t(z)$ is continuous and $D_zg_t=Dv_t(X^tz)D_zX^t(z)$ is continuous (Lemma~\ref{bpN:p5:flow}(b)).
+
+\proofstep{Holomorphy and coefficients}\label{stepN:p5:ci-coeff} By \ref{bpN:p4:ext-param}, $G$ is holomorphic; it is periodic. Fubini on $[0,1]\times[0,1]^n$ gives $\hat G_k(I)=\int_0^1\hat{(g_t)}_k(I)\,dt$, so by Tonelli $\wn GI{s-\sigma}\le\int_0^1\wn{g_t}I{s-\sigma}\,dt\le(1-\eta)^{-1}V$.
+\end{proof}
+
+\subsection{The canonical map $\Phi=X^1_\phi$ on weighted domains}\label{bpN:p5:s-map}
+
+\begin{proposition}[Iterative-Lemma package for $\Phi$]\label{bpN:p5:canonical-map}
+Let $D\subset\C^n$, $\phi\in\Os rs$ with finite norm, $0<\rho<r/2$, $0<\sigma<s/2$, and $\varepsilon:=\abs\phi_{r,s}/(\rho\sigma)\le\frac12$. Put $\Omega=\Dom{r-\rho}{s-\sigma}$, $\nu=\nu_{\rho,\sigma}$, $\Phi=X^1_\phi$, $\Psi=X^{-1}_\phi$ (Lemma~\ref{bpN:p5:flow}). Then:
+\begin{enumerate}[label=(\alph*)]
+\item $\nu(X_\phi)\le\varepsilon$ on $\Omega$; $\Phi,\Psi$ are defined and holomorphic on $\Dom{r-\frac32\rho}{s-\frac32\sigma}\subset\Omega^{1/2}$ and map it into $\Omega$. For every $t\in[-1,1]$, $\nu(X^t-\mathrm{id})\le\abs t\varepsilon$; explicitly $\abs{\Phi_\theta-\theta}_\infty\le\abs\phi_{r,s}/\rho$ and $\abs{\Phi_I-I}_\infty\le\abs\phi_{r,s}/(e\sigma)$, and the same for $\Psi$.
+\item $\Phi(\theta+k,I)=\Phi(\theta,I)+(k,0)$ for $k\in\Z^n$; if $\phi$ is real on real points, $\Phi$ maps real points to real points.
+\item (Derivative) on $\Dom{r-2\rho}{s-2\sigma}$: $\abs{D\Phi-\mathbf 1}_\nu\le2\varepsilon$, i.e.\ $\abs{W(D\Phi-\mathbf 1)W^{-1}}\le2\abs\phi_{r,s}/(\rho\sigma)$ for $W=\operatorname{diag}(\sigma^{-1},\rho^{-1})$.
+\item (Canonical) $(D\Phi)^\top J\,D\Phi=J$, and Corollary~\ref{bpN:p5:canonical} holds for $\Phi$.
+\item (Inverse) $\Psi\circ\Phi=\mathrm{id}=\Phi\circ\Psi$ on $\Dom{r-2\rho}{s-2\sigma}$, and $\Phi(\Dom{r-2\rho}{s-2\sigma})\subset\Dom{r-\frac32\rho}{s-\frac32\sigma}$.
+\end{enumerate}
+\source{Pos93 p.~212 (``Equivalently, $X_\phi$ satisfies $\abs{WX_\phi}_\mathcal P\le\frac{q\delta}{\alpha\rho\sigma}\le\frac12$ \ldots\ $X^t_\phi$ maps $V_{r-\frac32\rho,s-\frac32\sigma}$ into $V_{r-\rho,s-\sigma}$ \ldots\ $\abs{W(DX^t_\phi-I_{2n})W^{-1}}\le2\frac{q\delta}{\alpha\rho\sigma}$ uniformly on $V_{r-2\rho,s-2\sigma}$''), with $\abs\phi_{r,s}$ in place of $q\delta/\alpha$.}
+\end{proposition}
+\begin{proof}
+\proofstep{Field}\label{stepN:p5:cm-field} Lemma~\ref{bpN:p5:vf-bound} gives $\nu(X_\phi)\le\varepsilon\le\frac12$ on $\Omega$, and $\Omega$ is open. For $z\in\Dom{r-c\rho}{s-c\sigma}$ ($c\ge\frac32$) the ball $\bar B_\nu(z,c-1)=\bar P(z;(c-1)\sigma,(c-1)\rho)$ lies in $\Omega$ (Definition~\ref{bpN:p4:domains}(b)): so $\Dom{r-\frac32\rho}{s-\frac32\sigma}\subset\Omega^{1/2}$ and $\Dom{r-2\rho}{s-2\sigma}\subset\Omega^1$.
+
+\proofstep{(a),(b)}\label{stepN:p5:cm-ab} Lemma~\ref{bpN:p5:flow}(a),(b),(d),(e) (with $\tau=(k,0)$: $\Omega+\tau=\Omega$ and $X_\phi$ is periodic, as $\phi$ is). $X^t(z)\in\bar P(z;\varepsilon\sigma,\varepsilon\rho)\subset\Dom{r-\rho}{s-\sigma}$ for $z\in\Dom{r-\frac32\rho}{s-\frac32\sigma}$ because $\varepsilon\le\frac12$. The explicit component bounds are $\abs{X^t_\theta-\theta}\le\abs t\sup\abs{\partial_I\phi}\le\abs t\abs\phi/\rho$ and $\abs{X^t_I-I}\le\abs t\sup\abs{\partial_\theta\phi}\le\abs t\abs\phi/(e\sigma)$ (mean value inequality along the trajectory and Lemma~\ref{bpN:p5:vf-bound}). For $\Psi=X^{-1}_\phi=X^1_{-\phi}$ the same with $-\phi$.
+
+\proofstep{(c)--(e)}\label{stepN:p5:cm-cde} (c) is Lemma~\ref{bpN:p5:flow}(c) with $\Omega^1$ and Step~\ref{stepN:p5:cm-field}. (d) is Lemma~\ref{bpN:p5:symplectic} and Corollary~\ref{bpN:p5:canonical}. (e): Lemma~\ref{bpN:p5:flow}(c) for $z\in\Omega^1$ gives $\Psi(\Phi z)=z$ and $\Phi(\Psi z)=z$; and $\Phi(z)\in\bar B_\nu(z,\varepsilon)\subset\Dom{r-\frac32\rho}{s-\frac32\sigma}$ for $z\in\Dom{r-2\rho}{s-2\sigma}$ ($\varepsilon\le\frac12$).
+\end{proof}
+
+\begin{remark}[Use by Part~6 and track P; what is not provided]\label{bpN:p5:use}
+Part~6 applies Proposition~\ref{bpN:p5:transform} with $h$ the integrable part, $w=\{h,\phi\}=g_+-f_0$ by the homological equation (so $\abs w$ is controlled by $\abs\chi$ and $\abs{T_Kf}$, not by $\abs h$), $f_0=g+T_Kf$, and Theorem~\ref{bpN:p5:composition} for $(f-T_Kf)\circ X^1_\phi$, with the losses
+$(\rho,\sigma)$ from $(r,s)$ to $(r-\rho,s-\sigma)$ (so $\phi$ lives on $(r+\rho,s+\sigma)$, or one re-indexes as P\"oschel: $\phi\in\Os rs$, $u\in\Os{r-\rho}{s-\sigma}$, result on $\Dom{r-2\rho}{s-2\sigma}$). The smallness used is $\eta=2\abs\phi/(\rho\sigma)\le\frac12$; the displacement and derivative bounds of Proposition~\ref{bpN:p5:canonical-map} need only $\varepsilon\le\frac12$.
+The sup-norm \emph{fallback} of \texttt{PLAN.md} is not used. Not proved here: the stability transfer (Part~7) and the estimate of $\abs{W(\Phi_1\circ\dots\circ\Phi_N-\mathrm{id})}$ for compositions of the maps of successive steps, which is Part~6's (the displacement bounds of (a) add, since each $\Phi_i$ maps into the domain of $\Phi_{i+1}$ by the choice of losses).
+\end{remark}
+\endgroup

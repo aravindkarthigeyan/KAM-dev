@@ -44,6 +44,14 @@ DCDS-S 2010, CP09 = Chierchia-Pusateri ETDS 2009 (arXiv v1 numbering), Fej04r = 
   - Apply the study's plan-level corrections: P6 tube sketch must convert the Pi (max) position error to Euclidean
     distance (factor √2); the pair bounds are exactly μ-independent (x_i − x_j = q_i − q_j).
 
+- **P3 as written (2026-10-27, `p3a-two-scale-iteration.tex`, `p3b-two-scale-limit.tex`).** Part 3 consumes the
+  averaging interface `bpP:p3:avg` (CP10 Prop. 1 with m = 0 and two non-resonance scales α₁ ≥ α₂, smallness
+  `64e·K·E < α₂ r`, displacement bounds `9E`). **P2 must prove exactly that interface.** First try: since
+  |k·ω| ≥ α₁ ≥ α₂ for every non-resonant k, apply the one-scale `\Nref{bpN:p6:iterative}` with α = α₂ and check that
+  its conclusions (remainder, displacement, domains) imply `bpP:p3:avg`; if they do not, prove the two-scale variant
+  on top of N Parts 4–6. P3 added the normalisations `M̂ ≤ M`, `M̄ᵢ ≤ M̄` (true in P-G) and dropped CP10's unproved
+  uniqueness of φ_ω.
+
 ## Routes in one paragraph
 
 * **P-G** (Theorem `bpP:p0:pg`) is CP10 Theorem 1.3, pp. 548 and 562-564 (proof §4, "most of the arguments are similar

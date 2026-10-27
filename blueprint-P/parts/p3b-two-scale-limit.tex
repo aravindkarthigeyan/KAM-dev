@@ -1,0 +1,222 @@
+\section{Two-scale KAM theorem II: the limit, the tori and the measure}\label{bpP:p3b}
+
+We continue with the notation of Definition~\ref{bpP:p3:seq} and Lemma~\ref{bpP:p3:iterative}; $c:=24^{\tau+1}/6$ and $q:=2\cdot24^{\tau+1}=12c$. Since $\hat c\ge2c$, $\hat c\ge2^{13}n$, the KAM condition gives
+\[\hat E_0<\frac1{8192\,n},\qquad c\hat E_0<\frac12.\tag{3.4}\]
+
+\begin{lemma}[Sums]\label{bpP:p3:sums}
+For $m\ge0$: $\hat E_k\le\hat E_m^{2^{k-m}}$ for $k\ge m$, $\sum_{k\ge m}\hat E_k\le2\hat E_m$, and $\sum_{k\ge0}c^k\hat E_k\le2\hat E_0$. Also $\hat\rho_k\le\hat\rho_0\,16^{-k}$, $s_k=s\,12^{-k}$.
+\end{lemma}
+\begin{proof}
+\proofstep{Doubling}\label{stepP:p3:sum-doubling}
+By Lemma~\ref{bpP:p3:iterative}(iv), $\hat E_{k}<\hat E_{k-1}^2$, so $\hat E_k\le\hat E_m^{2^{k-m}}\le\hat E_m^{\,k-m+1}$ (as $2^{i}\ge i+1$ and $\hat E_m<1$). Hence $\sum_{k\ge m}\hat E_k\le\hat E_m/(1-\hat E_m)\le2\hat E_m$.
+\proofstep{Weighted sum}\label{stepP:p3:sum-weighted}
+$c^k\hat E_k\le c^k\hat E_0^{k+1}=\hat E_0(c\hat E_0)^k\le\hat E_02^{-k}$ by (3.4); sum $\le2\hat E_0$.
+\proofstep{Radii}\label{stepP:p3:sum-radii}
+$\hat\rho_k\le\rho_k=\hat\rho_{k-1}/16$ (Definition of $\hat\rho_k$), iterate.
+\end{proof}
+
+\subsection{The limit actions (CP10 Step 1)}\label{bpP:p3:limit}
+
+\begin{lemma}[Limit actions]\label{bpP:p3:limit-actions}
+Put $\check\imath_0=\mathrm{id}$, $\check\imath_j:=\hat\imath_j\circ\cdots\circ\hat\imath_1:D_0\to D_j$. Then $\check\imath_j$ converges uniformly on $D_0$ to $\check\imath=(\check\imath_1,\check\imath_2)$ and
+\begin{enumerate}[label=(\roman*)]
+\item $\sup_{D_0}\abs{\check\imath_i-\mathrm{id}_i}\le20\frac{\bar M_i}{\bar M}\hat E_0\hat\rho_0\le20\hat E_0\hat\rho_0$; $\ \sup_{D_0}\abs{\check\imath-\check\imath_j}\le20\hat\rho_j\hat E_j$;
+\item $D_*:=\check\imath(D_0)\subset(D_j)_{\rho_j/2}$ for all $j$, in particular $D_*\subset\operatorname{Re}(D_0)_{20\hat E_0\hat\rho_0}$;
+\item $\lambda:=L_{D_0}(\check\imath-\mathrm{id})\le2560\,n\hat E_0<\frac13$; so $\check\imath$ is injective, $(1-\lambda)\abs{x-y}\le\abs{\check\imath x-\check\imath y}\le(1+\lambda)\abs{x-y}$;
+\item $\omega_j(\check\imath_j(I_0))=\omega_0(I_0)$ for all $I_0\in D_0$, $j\ge0$.
+\end{enumerate}
+\source{CP10 Step 1, pp.~570--571, (97)--(104); constants recomputed (CP10: $10n$, $2^8n\hat E$).}
+\end{lemma}
+\begin{proof}
+\proofstep{Well-posedness}\label{stepP:p3:la-wp}
+$\hat\imath_{j}:D_{j-1}\to D_{j}$ (Lemma~\ref{bpP:p3:iterative}(i)); so $\check\imath_j(D_0)\subset D_j$ and the composition is defined. (iv) follows from $\omega_j\circ\hat\imath_j=\omega_{j-1}$ by induction.
+\proofstep{Telescoping}\label{stepP:p3:la-tele}
+$\abs{\check\imath_{j,i}(x)-\check\imath_{j-1,i}(x)}=\abs{\hat\imath_{j,i}(y)-y_i}$ with $y=\check\imath_{j-1}(x)\in D_{j-1}$, so $\le10\frac{\bar M_i}{\bar M}\hat E_{j-1}\hat\rho_{j-1}$ (the ratio $\bar M_{i,j}/\bar M_j=\bar M_i/\bar M$ is constant). Since $\hat\rho_{j-1}\le\hat\rho_0$, Lemma~\ref{bpP:p3:sums} gives the Cauchy property and (i): $\sum_{j\ge1}10\hat E_{j-1}\hat\rho_{j-1}\le20\hat E_0\hat\rho_0$; the tail is $\le10\hat\rho_j\sum_{m\ge j}\hat E_m\le20\hat\rho_j\hat E_j$.
+\proofstep{Location}\label{stepP:p3:la-loc}
+$\check\imath_j(D_0)\subset D_j\subset\R^n$ and $20\hat\rho_j\hat E_j\le\rho_j/2$ ($\hat\rho_j\le\rho_j$, $\hat E_j<1/40$), so $D_*\subset\operatorname{Re}(D_j)_{\rho_j/2}$; for $j=0$ and $D_0\subset D$ this gives the last claim of (ii).
+\proofstep{Lipschitz constant}\label{stepP:p3:la-lip}
+Put $i_j=\check\imath_j-\mathrm{id}$. From $\check\imath_{j+1}=\hat\imath_{j+1}\circ\check\imath_j$: $i_{j+1}=(\hat\imath_{j+1}-\mathrm{id})\circ\check\imath_j+i_j$, so $1+L(i_{j+1})\le(1+L(\hat\imath_{j+1}-\mathrm{id}))(1+L(i_j))$ and, by Lemma~\ref{bpP:p3:iterative}(i), $1+L(i_j)\le\prod_{k\le j}(1+640n\hat E_{k-1})\le\exp(640n\sum_k\hat E_{k-1})\le\exp(1280n\hat E_0)$. As $x:=1280n\hat E_0<\frac16$, $e^x\le1+2x$: $L(i_j)\le2560n\hat E_0$ uniformly in $j$; the pointwise limit of Lipschitz maps keeps the constant. Injectivity and the two-sided bound follow from $\abs{\check\imath x-\check\imath y}\ge\abs{x-y}-\lambda\abs{x-y}$.
+\end{proof}
+
+\subsection{The limit symplectic map (CP10 Step 2)}\label{bpP:p3:limitmap}
+
+\emph{Rescaling.} Let $S(I,\theta):=(I/\hat\rho_0,\ 2\pi\theta/s_0)$ and $\abs{(I,\theta)}_*:=\abs{S(I,\theta)}$ (max norm); for a map $G$ put $\check G=SGS^{-1}$ and $L_*$ for Lipschitz constants in $\abs\cdot_*$. Put $\mathcal D_j:=\operatorname{Re}(D_j)_{\rho_j/2}$. All maps below are real on real points.
+
+\begin{lemma}[Domains and rescaled Lipschitz bounds for $\Psi_k$]\label{bpP:p3:psi-lip}
+\begin{enumerate}[label=(\roman*)]
+\item $\Psi_k(\mathcal D_k\times\R^n)\subset\mathcal D_{k-1}\times\R^n$ ($k\ge1$); hence $\Phi_j=\Psi_1\circ\dots\circ\Psi_j$ is defined on $\mathcal D_j\times\R^n$ with values in $\mathcal D_0\times\R^n$.
+\item $L_*(\check\Psi_k-\mathrm{id};\mathcal D_k\times\R^n)\le192\,n\,c^{k-1}\hat E_{k-1}=:\varsigma_k$, and $\sum_{k\ge1}\varsigma_k\le384n\hat E_0<\frac1{20}$.
+\item $\abs{\Psi_k(y)-y}_*\le\frac34\hat E_{k-1}12^{-(k-1)}\le\frac34\hat E_{k-1}$ for $y\in\mathcal D_k\times\R^n$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{Domains}\label{stepP:p3:pl-dom}
+Let $y=(I,\theta)$, $I\in\mathcal D_k$: $\dist(I,D_k)<\rho_k/2=\hat\rho_{k-1}/32$ and $D_k\subset\operatorname{Re}(D_{k-1})_{\hat\rho_{k-1}/16}$. By Lemma~\ref{bpP:p3:iterative}(iii) the real displacement is $\le\frac34\hat E_{k-1}\hat\rho_{k-1}$. Hence $\Psi_k(y)_I$ is within $\hat\rho_{k-1}(\frac1{32}+\frac1{16}+\frac34\hat E_{k-1})<\hat\rho_{k-1}/8$ of $D_{k-1}$; and $\hat\rho_{k-1}/8<\rho_{k-1}/2$ (for $k=1$ because $\hat\rho_0\le\rho$; for $k\ge2$ because $\hat\rho_{k-1}\le\hat\rho_{k-2}/16$).
+\proofstep{Bound on displacement}\label{stepP:p3:pl-disp}
+Scaled: $\abs{\Delta I}/\hat\rho_0\le\frac34\hat E_{k-1}\hat\rho_{k-1}/\hat\rho_0\le\frac34\hat E_{k-1}16^{-(k-1)}$ (Lemma~\ref{bpP:p3:sums}; $\hat M\le M$) and $2\pi\abs{\Delta\theta}/s_0\le\frac34\hat E_{k-1}s_{k-1}/s_0=\frac34\hat E_{k-1}12^{-(k-1)}$. Thus $A_k:=\sup_{W_k}\abs{\check\Psi_k-\mathrm{id}}\le\frac34\hat E_{k-1}12^{-(k-1)}$; this is (iii).
+\proofstep{Lipschitz}\label{stepP:p3:pl-lip}
+Apply Lemma~\ref{bpP:p3:lip-sup} in the scaled coordinates, $N=2n$, $S=S(\mathcal D_k\times\R^n)$, radius $\varepsilon_k=\min\{\rho_k/(2\hat\rho_0),\ s_k/s_0\}$: the scaled complex $\varepsilon_k$-neighbourhood of a real point of $S$ lies in $(D_k)_{\rho_k}\times\T_{s_k}\subset W_k$ ($\varepsilon_k\hat\rho_0\le\rho_k/2$ and $\varepsilon_ks_0\le s_k\le\bar s+s_k$), where the bound $A_k$ of (iii) holds (Lemma~\ref{bpP:p3:iterative}(iii) holds on the complex $W_k$). Now $\rho_k/(2\hat\rho_0)=\hat\rho_{k-1}/(32\hat\rho_0)\ge q^{-(k-1)}/32$ (Lemma~\ref{bpP:p3:iterative}(v)) and $s_k/s_0=12^{-k}\ge q^{-(k-1)}/32$, so $\varepsilon_k\ge q^{-(k-1)}/32$ and
+\[L_*\le\frac{4\cdot2n\,A_k}{\varepsilon_k}\le8n\cdot\tfrac34\hat E_{k-1}12^{-(k-1)}\cdot32q^{k-1}=192n\,(q/12)^{k-1}\hat E_{k-1}=192n\,c^{k-1}\hat E_{k-1}.\]
+\proofstep{Sum}\label{stepP:p3:pl-sum}
+Lemma~\ref{bpP:p3:sums}: $\sum_k\varsigma_k=192n\sum_{m\ge0}c^m\hat E_m\le384n\hat E_0<384/8192<\frac1{20}$.
+\end{proof}
+
+\begin{lemma}[The limit map $\Phi$]\label{bpP:p3:limit-phi}
+On $W_*:=D_*\times\R^n$ the maps $\Phi_j$ converge uniformly to a map $\Phi$ with $\Phi-\mathrm{id}$ $\Z^n$-periodic in $\theta$, real analytic in $\theta$, and
+\begin{enumerate}[label=(\roman*)]
+\item $\sup_{W_*}\abs{\Pi_{I_1}\Phi-\mathrm{id}}\le\frac32\frac{\hat M}M\hat E_0\hat\rho_0$, $\sup\abs{\Pi_{I_2}\Phi-\mathrm{id}}\le\frac32\hat E_0\hat\rho_0$, $\sup2\pi\abs{\Pi_\theta\Phi-\mathrm{id}}\le\frac32\hat E_0s_0$, and the same bounds on complex $\theta$ with $\abs{\operatorname{Im}\theta}<\bar s/2\pi$;
+\item $L_*(\check\Phi-\mathrm{id};W_*)\le768\,n\hat E_0<\frac1{10}$; hence $\Phi$ is injective on $W_*$ and $\abs{x-y}_*\cdot\frac9{10}\le\abs{\Phi x-\Phi y}_*\le\frac{11}{10}\abs{x-y}_*$;
+\item $\Phi(I,\theta+k)=\Phi(I,\theta)+(0,k)$ for $k\in\Z^n$.
+\end{enumerate}
+\source{CP10 Step 2, pp.~571--572, (105)--(108).}
+\end{lemma}
+\begin{proof}
+\proofstep{Telescoping of the displacements}\label{stepP:p3:lp-tele}
+Write $(I^{(k)},\theta^{(k)})=\Psi_{k+1}\circ\dots\circ\Psi_j(x)$ for $x\in W_*\subset W_j$ (Lemma~\ref{bpP:p3:limit-actions}(ii)); then $\Pi_I\Phi_j(x)-\Pi_Ix=\sum_{k=1}^{j}(I^{(k-1)}-I^{(k)})$ and every summand is bounded by Lemma~\ref{bpP:p3:iterative}(iii). Summing with Lemma~\ref{bpP:p3:sums} ($\hat\rho_{k-1}\le\hat\rho_0$, $s_{k-1}\le s_0$, $\sum\hat E_{k-1}\le2\hat E_0$) gives (i), uniformly in $j$ and also for complex $\theta$ ($\Psi_k$ is defined on the complex strip).
+\proofstep{Cauchy sequence}\label{stepP:p3:lp-cauchy}
+For $x\in W_*$: $\Phi_j(x)-\Phi_{j-1}(x)=\Phi_{j-1}(\Psi_jx)-\Phi_{j-1}(x)$, with $x\in\mathcal D_j\times\R^n$ and $\Psi_jx\in\mathcal D_{j-1}\times\R^n$ (Lemma~\ref{bpP:p3:psi-lip}(i)). By the composition rule $L_*(\check\Phi_{j-1}-\mathrm{id})\le\prod_{k<j}(1+\varsigma_k)-1\le e^{\sum\varsigma_k}-1\le2\sum\varsigma_k\le\frac1{10}$ (using $e^x\le1+2x$, $x\le1$; the composition formula is that of Lemma~\ref{bpP:p3:limit-actions}, proof step~\ref{stepP:p3:la-lip}, valid because each $\Psi_k$ maps its domain into the next one). Therefore $\abs{\Phi_j(x)-\Phi_{j-1}(x)}_*\le\frac{11}{10}\abs{\Psi_jx-x}_*\le\frac{11}{10}\cdot\frac34\hat E_{j-1}$, which is summable: uniform convergence on $W_*$. The limit satisfies (ii) with $L_*\le2\sum\varsigma_k\le768n\hat E_0$ (the constant passes to the pointwise limit).
+\proofstep{Periodicity and injectivity}\label{stepP:p3:lp-per}
+Each $\Psi_k-\mathrm{id}$ is $\Z^n$-periodic in $\theta$ (Lemma~\ref{bpP:p3:iterative}), so (iii) holds for $\Phi_j$ and in the limit. From (ii), $\abs{\Phi x-\Phi y}_*\ge\frac9{10}\abs{x-y}_*$.
+\proofstep{Analyticity in $\theta$}\label{stepP:p3:lp-an}
+Fix $I_*\in D_*$; $\vartheta\mapsto\Phi_j(I_*,\vartheta)-(0,\vartheta)$ is holomorphic on $\{\abs{\operatorname{Im}\vartheta}<\bar s/2\pi\}\subset\C^n$ (as $I_*\in(D_j)_{\rho_j}$), bounded uniformly in $j$ by (i), and converges at every real $\vartheta$. By \ref{bpP:p3:ext-vitali} it converges locally uniformly together with all derivatives to a holomorphic function; its real restriction is $\Phi(I_*,\cdot)-(0,\mathrm{id})$ and the bounds (i) pass to the limit.
+\end{proof}
+
+\subsection{The tori (CP10 Steps 2--3 and the estimates (35))}\label{bpP:p3:tori}
+
+Define, for $\omega\in\Omega_*=\omega_0(D)\cap\mathcal D_{\gamma_1,\gamma_2,\tau}$, $I_0(\omega):=\omega_0^{-1}(\omega)\in D_0$ (injectivity of $\omega_0$; $\omega\in\omega_0(D)\cap\mathcal D$ means $I_0\in D^{\rm dio}=D_0$), $I_*(\omega):=\check\imath(I_0(\omega))\in D_*$ and
+\[\varphi_\omega(\vartheta):=\Phi(I_*(\omega),\vartheta)=(v(\vartheta;\omega),\ \vartheta+u(\vartheta;\omega)).\]
+
+\begin{lemma}[Estimates and location]\label{bpP:p3:estimates}
+For $\omega\in\Omega_*$: $\abs{u}\le\frac3{4\pi}\hat E_0s$ on $\{\abs{\operatorname{Im}\vartheta}<\bar s/2\pi\}$; $\abs{v_1-I_{0,1}}\le20(\frac{\bar M_1}{\bar M}+\frac{\hat M}M)\hat E_0\hat\rho_0$, $\abs{v_2-I_{0,2}}\le20(\frac{\bar M_2}{\bar M}+1)\hat E_0\hat\rho_0$ on $\R^n$, and $v\in\operatorname{Re}(D_{r})$ with $r=32\hat E_0\hat\rho_0$, so $\varphi_\omega(\R^n)\subset\operatorname{Re}(D_r)\times\R^n$.
+This is Proposition~\ref{bpP:p3:two-scale-kam}(a), (d), and the location claim.
+\source{CP10 (35), (105)--(107), Step 2 end, p.~572. \emph{Misprint:} CP10 (35) bounds $\abs{v_2-I_2^0}$ by $10n(\bar M_2/\bar M+\hat M/M)\hat E\hat\rho$ although (107) only gives $2\hat E\hat\rho$ for $I_2$ without the factor $\hat M/M$.}
+\end{lemma}
+\begin{proof}
+\proofstep{Sup bounds}\label{stepP:p3:es-sup}
+$\abs{v_i-I_{0,i}}\le\abs{\Pi_{I_i}\Phi(I_*,\vartheta)-I_{*,i}}+\abs{I_{*,i}-I_{0,i}}$, the two terms bounded by Lemma~\ref{bpP:p3:limit-phi}(i) and Lemma~\ref{bpP:p3:limit-actions}(i): $\frac32\frac{\hat M}M\hat E\hat\rho+20\frac{\bar M_1}{\bar M}\hat E\hat\rho$ for $i=1$ (and $\frac32+20\frac{\bar M_2}{\bar M}$ for $i=2$), both $\le$ the stated constants. $\abs u\le\frac32\hat Es/2\pi$ is the angle bound.
+\proofstep{Location}\label{stepP:p3:es-loc}
+$I_*\in\operatorname{Re}(D_0)_{20\hat E\hat\rho}$ and $\abs{v-I_*}\le\frac32\hat E\hat\rho$, so $\dist(v,D)<22\hat E\hat\rho<r$.
+\end{proof}
+
+\begin{lemma}[Immersion and Lagrangian property]\label{bpP:p3:lagr}
+For $\omega\in\Omega_*$, $\norm{D_\vartheta u}\le\frac34n\hat E_0$ (so $D_\vartheta\varphi_\omega=\binom{D_\vartheta v}{1+D_\vartheta u}$ has injective lower block $1+D_\vartheta u$, since $\frac34n\hat E_0<\frac12$), and $\varphi_\omega^*(\sum_idJ_i\wedge d\theta_i)=0$.
+\end{lemma}
+\begin{proof}
+\proofstep{Cauchy in the strip}\label{stepP:p3:lg-cauchy}
+$u$ is holomorphic on $\abs{\operatorname{Im}\vartheta}<\bar s/2\pi$ with $\abs u\le3\hat Es/4\pi$. At real $\vartheta$ the polydisc of radius $\bar s/4\pi$ lies in the strip, so $\abs{\partial_au_i}\le\frac{3\hat Es}{4\pi}\cdot\frac{4\pi}{\bar s}=3\hat E\frac s{\bar s}\le\frac34\hat E$ ($4s\le\bar s$), and the row sum is $\le\frac34n\hat E$.
+\proofstep{Each $\Phi_j$-torus is Lagrangian}\label{stepP:p3:lg-j}
+$\Phi_j$ is symplectic and $\vartheta\mapsto(I_*,\vartheta)$ has pullback $\sum dI_i\wedge d\theta_i=0$ (the $I$-coordinates are constant), so $\varphi^{(j)}:=\Phi_j(I_*,\cdot)$ has $\Omega_j(a,b):=\sum_i(\partial_av^{(j)}_i\partial_b\Theta^{(j)}_i-\partial_bv_i^{(j)}\partial_a\Theta_i^{(j)})=0$.
+\proofstep{Limit}\label{stepP:p3:lg-lim}
+By Lemma~\ref{bpP:p3:limit-phi} (Step \ref{stepP:p3:lp-an}) the first derivatives of $\varphi^{(j)}$ converge to those of $\varphi_\omega$ (locally uniformly, \ref{bpP:p3:ext-weierstrass}); $\Omega_j$ is bilinear in them, so $\Omega=\lim\Omega_j=0$.
+\end{proof}
+
+\begin{lemma}[Invariance]\label{bpP:p3:invariance}
+For $\omega\in\Omega_*$, $\vartheta\in\R^n$, $t\in\R$: $\frac{d}{dt}\varphi_\omega(\vartheta+t\omega)=X_H(\varphi_\omega(\vartheta+t\omega))$, $X_H=(-\partial_\theta H,\partial_JH)$.
+\source{CP10 Step 3, pp.~572--573.}
+\end{lemma}
+\begin{proof}
+Let $I_0=I_0(\omega)$, $I_*=\check\imath(I_0)$, $\theta_t=\vartheta+t\omega$, $\gamma(t)=\Phi(I_*,\theta_t)$, $\gamma_j(t)=\Phi_j(I_*,\theta_t)$.
+\proofstep{Symplectic conjugation}\label{stepP:p3:inv-conj}
+Since $\Phi_j$ is a symplectic diffeomorphism onto its image and $H_j=H\circ\Phi_j$: $X_H\circ\Phi_j=D\Phi_j\,X_{H_j}$ (\Nref{bpN:p5:symplectic}). With $X_{H_j}(I_*,\theta)=(-\partial_\theta f_j,\ \omega_j(I_*)+\partial_If_j)$ we get
+$\gamma_j'(t)-X_H(\gamma_j(t))=D\Phi_j(I_*,\theta_t)\bigl(\partial_\theta f_j,\ \omega-\omega_j(I_*)-\partial_If_j\bigr)$ (with $\gamma_j'=D\Phi_j(0,\omega)$).
+\proofstep{$D\Phi_j$ bounded}\label{stepP:p3:inv-dphi}
+$\mathcal D_j\times\R^n$ is open and $L_*(\check\Phi_j)\le\frac{11}{10}$ (Lemma~\ref{bpP:p3:limit-phi}(ii) argument), so $\abs{S\,D\Phi_jS^{-1}}\le\frac{11}{10}$: $\norm{D\Phi_j}\le\kappa:=\frac{11}{10}\max\{1,\tfrac{2\pi\hat\rho_0}{s_0},\tfrac{s_0}{2\pi\hat\rho_0}\}$, independent of $j$.
+\proofstep{The three error terms}\label{stepP:p3:inv-err}
+(1) $\omega=\omega_j(\check\imath_j(I_0))$ (Lemma~\ref{bpP:p3:limit-actions}(iv)); $\abs{I_*-\check\imath_j(I_0)}\le20\hat\rho_j\hat E_j$ and the segment lies in $(D_j)_{\rho_j}$ where $\norm{U_j}\le M_j$, so $\abs{\omega-\omega_j(I_*)}\le20M_j\hat\rho_j\hat E_j\le7\gamma_1\hat E_j$, using $M_j\hat\rho_j\le\gamma_1/(3K_j^{\tau+1})\le\gamma_1/3$.
+(2) $I_*\in\operatorname{Re}(D_j)_{\rho_j/2}$, so the polydisc of radius $\rho_j/2$ about $I_*$ is in $(D_j)_{\rho_j}$ and \Kref{bp:p1:cauchy-open} gives $\abs{\partial_If_j}\le2E_j/\rho_j\le2E_j/\hat\rho_j=2\hat E_j\hat\rho_j/L_j\le2\hat E_jM_j\hat\rho_j\le\gamma_1\hat E_j$ ($L_j\ge M_j^{-1}$).
+(3) For real $\theta$ the polydisc of radius $\bar s/4\pi$ in $\theta$ lies in $\T_{\bar s/2}$, where $\abs{f_j}\le E_j$ (as $\bar s/2\le\bar s+s_j$), so $\abs{\partial_\theta f_j}\le4\pi E_j/\bar s$ (\Kref{bp:p1:cauchy-open}); and $E_j=\hat E_j\hat\rho_j^2/L_j\le\hat E_j\hat\rho_jM_j\hat\rho_j\le\hat E_j\gamma_1\hat\rho_0$.
+All three tend to $0$, uniformly in $(\vartheta,t)$, as $\hat E_j\le\hat E_0^{2^j}$. Hence $\sup_t\abs{\gamma_j'-X_H(\gamma_j)}\to0$.
+\proofstep{Passing to the limit}\label{stepP:p3:inv-lim}
+$\gamma_j\to\gamma$ uniformly in $t$ (Lemma~\ref{bpP:p3:limit-phi}); $X_H$ is Lipschitz on $\{I\in D_{\rho/2}\}\times\T_{\bar s/2}$ ($D\,X_H$ consists of $U+\partial_J^2f$, $\partial_\theta\partial_Jf$, $\partial^2_\theta f$ and is bounded by $M+C(E,\rho,\bar s)$ by \Kref{bp:p1:cauchy-open}) and $\gamma_j(t),\gamma(t)$ lie in its real part ($\gamma(t)$ has action in $\operatorname{Re}(D)_r$, $r\le\rho/2$), so $X_H(\gamma_j)\to X_H(\gamma)$ uniformly. A uniform limit of $C^1$ functions $\gamma_j\to\gamma$ with $\gamma_j'\to X_H(\gamma)$ uniformly is $C^1$ with $\gamma'=X_H(\gamma)$. Since $\gamma(t)=\varphi_\omega(\vartheta+t\omega)$, this is the claim.
+\end{proof}
+
+\subsection{Measure estimate (CP10 Step 4)}\label{bpP:p3:measure}
+
+Let $K_\Omega=\bigcup_{\omega\in\Omega_*}\varphi_\omega(\R^n)$; by definition $K_\Omega=\Phi(D_*\times\R^n)$ ($\check\imath$ maps $D_0=D^{\rm dio}$ onto $D_*$ and $\omega\mapsto I_0(\omega)$ is a bijection $\Omega_*\to D_0$). Put $a:=\meas(D\setminus D_0)$, $b:=\meas(\operatorname{Re}(D_r)\setminus D)$, $\lambda\le\frac13$ as in Lemma~\ref{bpP:p3:limit-actions}, $\eta:=\sup\abs{\check\imath-\mathrm{id}}\le20\hat E_0\hat\rho_0$.
+
+\begin{lemma}[Bi-Lipschitz extension and covering]\label{bpP:p3:cover}
+Let $X\subset\R^N$ be arbitrary, $g:X\to\R^N$ with $L(g)\le\lambda<1$ in the max norm and $\sup\abs g\le\eta$. Then there is a bijection $F=\mathrm{id}+g_e:\R^N\to\R^N$, $F|_X=\mathrm{id}+g$, with $(1-\lambda)\abs{x-y}\le\abs{F(x)-F(y)}\le(1+\lambda)\abs{x-y}$, and for $y\in X$: $F^{-1}(y)\in N_{\eta/(1-\lambda)}(X)$ (real max-norm neighbourhood).
+\end{lemma}
+\begin{proof}
+\proofstep{Extension}\label{stepP:p3:cv-ext}
+$g_e$: McShane \Kref{bp:p1:mcshane}, componentwise, with the same $\lambda$ for the max norm.
+\proofstep{Bijectivity}\label{stepP:p3:cv-bij}
+$\abs{F(x)-F(y)}\ge\abs{x-y}-\lambda\abs{x-y}$ gives injectivity and the lower bound; for $y\in\R^N$ the map $x\mapsto y-g_e(x)$ is a $\lambda$-contraction (\ref{bpP:p3:ext-banach}), with fixed point $x=F^{-1}(y)$.
+\proofstep{Location of preimages}\label{stepP:p3:cv-loc}
+For $y\in X$ and $x=F^{-1}(y)$: $\abs{x-y}=\abs{g_e(x)}\le\abs{g_e(y)}+\lambda\abs{x-y}\le\eta+\lambda\abs{x-y}$ so $\abs{x-y}\le\eta/(1-\lambda)$.
+\end{proof}
+
+\begin{lemma}[Measure of the complement of $D_*$]\label{bpP:p3:meas-actions}
+$\meas(D_0\setminus D_*)\le(4/3)^n(a+b)$ and hence $\meas(D\setminus D_*)\le a+(4/3)^n(a+b)$.
+\end{lemma}
+\begin{proof}
+\proofstep{Extension and preimage}\label{stepP:p3:ma-ext}
+Apply Lemma~\ref{bpP:p3:cover} with $X=D_0$, $g=\check\imath-\mathrm{id}$, $N=n$: $F=\check\imath_e$. Let $\rho_1:=\eta/(1-\lambda)\le30\hat E_0\hat\rho_0<r$. If $y\in D_0\setminus D_*$, then $x=F^{-1}(y)\in N_{\rho_1}(D_0)$ and $x\notin D_0$ (else $y=F(x)=\check\imath(x)\in D_*$). So $D_0\setminus D_*\subset F\bigl(N_{\rho_1}(D_0)\setminus D_0\bigr)$.
+\proofstep{Measure}\label{stepP:p3:ma-meas}
+By \Kref{bp:p1:lip-image} ($F$ is $(1+\lambda)$-Lipschitz), $\meas(D_0\setminus D_*)\le(1+\lambda)^n\meas(N_{\rho_1}(D_0)\setminus D_0)$, $(1+\lambda)\le\frac43$. As $D_0\subset D$: $N_{\rho_1}(D_0)\setminus D_0\subset(N_{\rho_1}(D)\setminus D)\cup(D\setminus D_0)$, of measure $\le b+a$ ($\rho_1<r$). The second claim: $D\setminus D_*\subset(D\setminus D_0)\cup(D_0\setminus D_*)$.
+\end{proof}
+
+\begin{lemma}[Measure of the complement of $K_\Omega$ over $D$]\label{bpP:p3:meas-torus}
+$\meas\bigl((D\times\T^n)\setminus K_\Omega\bigr)\le\bigl[1+(4/3)^n+2^n\bigl(1+(4/3)^n\bigr)\bigr](a+b)$.
+\end{lemma}
+\begin{proof}
+Identify $\T^n$-measure with the unit cell; $K_\Omega$ is $\Z^n$-invariant in the angle.
+\proofstep{Splitting}\label{stepP:p3:mt-split}
+$(D\times\T^n)\setminus K_\Omega\subset\bigl((D\setminus D_*)\times\T^n\bigr)\cup\bigl(((D_*\cap D)\times\T^n)\setminus K_\Omega\bigr)$. The first set has measure $\le a+(4/3)^n(a+b)$ by Lemma~\ref{bpP:p3:meas-actions}.
+\proofstep{Rescaled extension}\label{stepP:p3:mt-ext}
+Work in scaled coordinates $x\mapsto Sx$; $S$ is linear, multiplies the Lebesgue measure of every subset of $\R^n_I\times\R^n_\theta$ by the constant $\hat\rho_0^{-n}(2\pi/s_0)^n$ and maps products to products, so all comparisons below between measures of subsets of $\R^n\times\R^n$ are unaffected. By Lemma~\ref{bpP:p3:limit-phi}, $g=\check\Phi-\mathrm{id}$ on $X=S(D_*\times\R^n)\subset\R^{2n}$ has $L_*(g)\le\lambda':=768n\hat E_0<\frac1{10}$ and $\sup\abs g\le\eta':=\frac32\hat E_0$ (Lemma~\ref{bpP:p3:limit-phi}(i), scaled). Lemma~\ref{bpP:p3:cover} ($N=2n$) gives the bijection $\check\Phi_e=\mathrm{id}+g_e$ of $\R^{2n}$ extending $\check\Phi$ on $X$, $(1+\lambda')$-Lipschitz, with $\abs{\check\Phi_e^{-1}(y)-y}_*\le\eta'/(1-\lambda')\le2\hat E_0$ for $y\in X$.
+\proofstep{Preimage structure}\label{stepP:p3:mt-pre}
+Let $y=(I_y,\vartheta_y)$ with $I_y\in D_*\cap D$ and $\vartheta_y\in[0,1)^n$ be a point of the second set, i.e.\ $y\notin K_\Omega$ (mod $\Z^n$ in the angle), and let $x=(I_x,\vartheta_x):=\Phi_e^{-1}(y)$ (unscaled notation; $y\in D_*\times\R^n=S^{-1}X$). Then $\abs{I_x-I_y}\le\rho_2:=2\hat E_0\hat\rho_0$ and $\abs{\vartheta_x-\vartheta_y}\le\hat E_0s_0/\pi\le\hat E_0/(4\pi)=:\epsilon$ (as $s_0\le\frac14$). If $I_x\in D_*$, then $x\in D_*\times\R^n$, $\Phi_e(x)=\Phi(x)=y$ and $y\in K_\Omega$, a contradiction. Hence $I_x\in N_{\rho_2}(D_*)\setminus D_*$ and $\vartheta_x\in[-\epsilon,1+\epsilon)^n$.
+\proofstep{Measure}\label{stepP:p3:mt-meas}
+Thus the second set is contained in $\Phi_e\bigl((N_{\rho_2}(D_*)\setminus D_*)\times[-\epsilon,1+\epsilon)^n\bigr)$. $\Phi_e$ is $(1+\lambda')$-Lipschitz for $\abs\cdot_*$ on $\R^{2n}$, so by \Kref{bp:p1:lip-image} in scaled coordinates (the scaling constants cancel on both sides) its measure is $\le(1+\lambda')^{2n}(1+2\epsilon)^n\meas(N_{\rho_2}(D_*)\setminus D_*)\le2^n\meas(N_{\rho_2}(D_*)\setminus D_*)$, because $(1.1)^{2n}(1+\hat E_0/2\pi)^n\le(1.21\cdot1.01)^n<2^n$.
+\proofstep{The shell}\label{stepP:p3:mt-shell}
+$D_*\subset N_\eta(D_0)$, so $N_{\rho_2}(D_*)\subset N_{\rho_2+\eta}(D_0)\subset N_r(D)$ ($\rho_2+\eta\le22\hat E_0\hat\rho_0<r$), and $N_{\rho_2}(D_*)\setminus D_*\subset(N_r(D)\setminus D)\cup(D_0\setminus D_*)\cup(D\setminus D_0)$: if $x\in N_{\rho_2}(D_*)\setminus D_*$ then either $x\notin D$ (first set), or $x\in D\setminus D_0$, or $x\in D_0\setminus D_*$. Its measure is $\le b+a+(4/3)^n(a+b)=(1+(4/3)^n)(a+b)$ by Lemma~\ref{bpP:p3:meas-actions}.
+\proofstep{Sum}\label{stepP:p3:mt-sum}
+Total $\le[a+(4/3)^n(a+b)]+2^n(1+(4/3)^n)(a+b)\le[1+(4/3)^n+2^n(1+(4/3)^n)](a+b)$.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{bpP:p3:two-scale-kam}}\label{bpP:p3:proof}
+
+\begin{proof}[Proof of Proposition~\ref{bpP:p3:two-scale-kam}]
+\proofstep{Construction}\label{stepP:p3:pf-constr}
+The sequence of Lemma~\ref{bpP:p3:iterative} exists (hypotheses (S1)--(S3) at $j=0$ from the proposition's hypotheses and the definition of $D_0$); Lemma~\ref{bpP:p3:limit-actions} defines $\check\imath$, Lemma~\ref{bpP:p3:limit-phi} defines $\Phi$, and $\varphi_\omega$ is defined in \S\ref{bpP:p3:tori}.
+\proofstep{(a), (d)}\label{stepP:p3:pf-ad}
+Lemmas~\ref{bpP:p3:limit-phi}, \ref{bpP:p3:estimates}.
+\proofstep{(b), (c)}\label{stepP:p3:pf-bc}
+Lemmas~\ref{bpP:p3:invariance}, \ref{bpP:p3:lagr}.
+\proofstep{Injectivity and Lipschitz structure}\label{stepP:p3:pf-inj}
+If $\varphi_\omega(\vartheta)-\varphi_{\omega'}(\vartheta')=(0,k)$, then $\Phi(I_*,\vartheta)=\Phi(I_*',\vartheta'+k)$ by periodicity (Lemma~\ref{bpP:p3:limit-phi}(iii)), so $(I_*,\vartheta)=(I_*',\vartheta'+k)$ by (ii); $I_*=I_*'$ gives $I_0=I_0'$ ($\check\imath$ injective), so $\omega=\omega_0(I_0)=\omega'$. The factorization and the constants: Lemma~\ref{bpP:p3:limit-actions}(iii) and Lemma~\ref{bpP:p3:limit-phi}(ii). For $\omega_0^{-1}$: if $\omega,\omega'\in\omega_0(D)$ with $\abs{\omega-\omega'}<\rho/\bar M$, then Lemma~\ref{bpP:p3:ball} (with $F=\omega_0$ on $D_\rho$, $\delta=\rho$, $x_0=\omega_0^{-1}(\omega)$) gives $\abs{\omega_0^{-1}\omega-\omega_0^{-1}\omega'}\le\bar M\abs{\omega-\omega'}$; for far pairs $\abs{\omega_0^{-1}\omega-\omega_0^{-1}\omega'}\le\operatorname{diam}D\le\operatorname{diam}D\cdot\frac{\bar M}{\rho}\abs{\omega-\omega'}$.
+\proofstep{Measure}\label{stepP:p3:pf-meas}
+$K_\Omega\subset\operatorname{Re}(D_r)\times\T^n$ (Lemma~\ref{bpP:p3:estimates}) so $(\operatorname{Re}(D_r)\times\T^n)\setminus K_\Omega=((\operatorname{Re}(D_r)\setminus D)\times\T^n)\cup((D\times\T^n)\setminus K_\Omega)$, and Lemma~\ref{bpP:p3:meas-torus} gives (3.1) with $c_n=1+[1+(4/3)^n+2^n(1+(4/3)^n)]=1+(1+2^n)(1+(4/3)^n)$ ($a=\meas(D\setminus D^{\rm dio})$, $b=\meas(\operatorname{Re}(D_r)\setminus D)$, $\meas\T^n=1$).
+\end{proof}
+
+\subsection{What Part 5 consumes}\label{bpP:p3:interface}
+
+Part~5 (\Pref{bpP:p5:kam-application}) applies Proposition~\ref{bpP:p3:two-scale-kam} to $H=\breve H$ of CP10 Step~6 (p.~560) with $n_1=a$, $n_2=b$, $D$ the set $D=\omega_\mu^{-1}(\cdot)\cap\ldots$ of CP10 (48), $h=H_0(J_1)+\mu\breve N(J)$, $f=\mu^5\breve P$, $\rho=\breve\rho$, $s=\breve s/5$, $\bar s=4\breve s/5$. The data in the order the frozen quantifiers require:
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Before $r,\mu$} (depend only on the fixed family): $n,\tau$ (hence $\hat c,c_n$), the constants $C$ with $M\le C$, $\hat M\le C\mu$, $\bar M\le C\mu^{-1}$, $\bar M_1\le C$, $\bar M_2\le C\mu^{-1}$ (CP10 p.~560, ``$M=C,\hat M=C\mu,\bar M=C\mu^{-1},E=C\mu^5,\bar M_1=C,\bar M_2=C\mu^{-1}$'').
+\item \emph{Checked for each $(r,\mu)$ with $\mu<r^6/(\log(1/r))^{c}$}: $\hat c\hat E<1$ with $\hat E=EL/\hat\rho^2$, $K=\frac6s\log_+(\gamma_1^2/(EM^2L))\le C\log(\epsilon^5/\gamma_1^2)^{-1}$; the normalizations $\hat M\le M$, $\bar M_i\le\bar M$ hold for $\mu$ small.
+\item \emph{Outputs used}: the family $\varphi_\omega$, $\omega\in\Omega_*$, with (a)--(d); the measure inequality (3.1) with $c_n$ (an \emph{absolute} constant, so the constant in $\meas(\ldots)\le C(\ldots)$ of CP10 (55) is $c_n$); the radius $r=32\hat E\hat\rho$ (CP10: $20n\hat E\hat\rho$; the constant changes nothing since $r\le C\hat\rho\hat E\le C\bar\gamma_2$); $\abs{v-I^0}$ and $\abs u$ for CP10 (51)-based estimates.
+\item \emph{Conversions} (Part~5, \Pref{bpP:p1:period-convert}): frozen torus parameter $\theta\in\R^{a+b}$ of period one, fast angles of period $2\pi$, frozen frequency $w=\omega/2\pi$ when CP's $H$ is converted by Lemma~\ref{bpP:p3:period-dictionary}; frozen order (position, momentum) $=(\text{angle},\text{action})$.
+\end{enumerate}
+\sourcegap{The quantifier \emph{``for $\omega\in\Omega_*$, $\varphi_\omega$ unique''} of CP10 Prop.~3 is not used and is not claimed: translations $\vartheta\mapsto\vartheta+c$ preserve the conjugacy. CP10 Prop.~3 asserts that $(\vartheta,\omega)\mapsto\varphi_\omega(\vartheta)$ is \emph{Lipschitz}; the argument only gives it through $\omega_0^{-1}$, which is Lipschitz globally only for bounded $D$ (locally, at scale $\rho/\bar M$, in general); see Proposition~\ref{bpP:p3:two-scale-kam}.}
+
+\subsection{Source gaps and suspected misprints (CP10, Prop.~3, Appendix~B)}\label{bpP:p3:errata}
+
+\begin{enumerate}[label=(E\arabic*)]
+\item p.~554: ``$\hat U$ denote the $n\times n_1$ submatrix of $U$, i.e. the matrix with entries $\hat U_{ij}=U_{ij}$, for $n_1+1\le i\le n$, $1\le j\le n$'': size and index range disagree; the proof needs the $n_2\times n$ block (Remark~\ref{bpP:p3:rem-uhat}).
+\item p.~565 (Lemma B.1): ``$M_0:=M$, $\hat M_0:=M$, $\bar M_0:=\bar M$'': $\hat M_0$ should be $\hat M$.
+\item p.~566, B.1(i): ``$\hat\imath_j:I\in D_{j-1}\mapsto\omega_{j-1}\circ\omega_{j-1}^{-1}(I)\in D_j$'' is the identity; it should read $\omega_j^{-1}\circ\omega_{j-1}$ (as in the proof of B.2, ``$\hat\imath_+:=\omega_+^{-1}\circ\omega|_D$'').
+\item pp.~554--555, 566--568 (74), (77), (35): the inequalities $\bar M_i/\bar M\le1$ (74) and $\hat M/M\le1$ are used but not assumed (Remark~\ref{bpP:p3:rem-norm}). (35), second line: factor $\hat M/M$ is not derived (Lemma~\ref{bpP:p3:estimates}).
+\item pp.~551, 566--570: the norms are mixed: ``in $\R^{n_1}$ we fix the $1$-norm, in $\R^{n_2}$ the $\sup$ norm, for matrices the $\sup$-norm $\abs\beta=\max\abs{\beta_{ij}}$'' (p.~551) but the proof uses operator norms $\norm U,\norm{U^{-1}}$, Cauchy bounds ``$\sup\norm{\partial^2g}\le2^7E/\hat\rho^2$'' (93) with no $n$ and $1$-/$\infty$-norm conversions (e.g.\ $5n\bar M E/\hat\rho$ in (86)). The constants of (74), (75), (86), (87), (98), (104), (108) cannot all hold as printed; recomputed here in max norms.
+\item p.~569 (91): ``$\hat E_+\le\frac89(4s)^{\tau+1}\hat E^2$'': the computation gives $\frac89(4s)^{2(\tau+1)}\hat E^2$ (weaker printed bound is still true).
+\item p.~569, injectivity of $\omega_+$ (and (86)): ``$\sup\norm{\partial(\omega^{-1})}\sup\abs{\omega(I_+)-\omega(I_+')}$'' needs the segment $[\omega(I),\omega(I')]$ inside $\omega(D_\rho)$ (not known; image sets are not convex): repaired by Lemma~\ref{bpP:p3:ball}. The Lipschitz bounds on the non-convex sets $D$, $D_j$ via ``$\sup\norm{D(\hat\imath-\mathrm{id})}$'' are repaired by Lemma~\ref{bpP:p3:lip-sup}; the composition $\check\Psi_1\circ\dots\circ\check\Psi_j$ (p.~572) needs $\Psi_k(\text{real domain}_k)\subset\text{real domain}_{k-1}$ (Lemma~\ref{bpP:p3:psi-lip}(i)).
+\item p.~572--573 Step 3: boundedness of $D\Phi_j$ is not stated; supplied by the rescaled Lipschitz bounds (Step~\ref{stepP:p3:inv-dphi}). Analyticity of $\varphi_\omega$ in the strip is not argued (Step~\ref{stepP:p3:lp-an}, Vitali).
+\item p.~555 and p.~573: ``a unique real-analytic embedding'' (not proved, not true as stated); Lipschitz continuity in $\omega$ (only locally/for bounded $D$).
+\item p.~573 Step 4: Kirszbraun (Euclidean) is used for maps whose Lipschitz constants were computed in $1$/$\infty$ norms; footnote~33's ``$\meas f(A)\le L(f)^n\meas A$'' is Euclidean. In max norm (McShane, cube covering) the factor is exactly $\Lambda^d$ and no dimensional constant appears (\Kref{bp:p1:lip-image}, \Kref{bp:p1:mcshane}); $c_n$ is recomputed. The printed $c_n=(1+(1+2^8n\hat E)^{2n})^2$ is not reproduced.
+\item Prop.~1/Lemma~A.1 (used in the proof of B.1 with $m=0$, $\ell_1=n_1$, $\ell_2=n_2$): proved only by reference to [4, Lemma A.5] (unpinned), and the two-scale case is not covered by the plan of Part~2 (\sourcegap{} at Lemma~\ref{bpP:p3:avg}). Remark~3 (p.~567) ``generalizes the inductive theorem of [3, p.~144]'' is the only source for the scheme.
+\end{enumerate}
+
+\subsection{Forward references and imported facts}\label{bpP:p3:forward}
+
+Forward references to \emph{unwritten} parts: \Nref{bpN:p4:cauchy}, \Nref{bpN:p4:bracket}, \Nref{bpN:p4:projections}, \Nref{bpN:p5:flow-domain}, \Nref{bpN:p5:composition}, \Nref{bpN:p5:taylor}, \Nref{bpN:p5:symplectic}, \Nref{bpN:p6:homological}, \Nref{bpN:p6:iterative} (in the proof plan of Lemma~\ref{bpP:p3:avg} only); \Pref{bpP:p1:period-convert}, \Pref{bpP:p2:averaging}, \Pref{bpP:p5:kam-application}. Track K labels used: \Kref{bp:p1:cauchy-open}, \Kref{bp:p1:cohomological}, \Kref{bp:p1:uniform-limits}, \Kref{bp:p1:mcshane}, \Kref{bp:p1:lip-image}, \Kref{bp:p1:ext-mvt}, \Kref{bp:p1:ext-banach}. The averaging step Lemma~\ref{bpP:p3:avg} is the \emph{only} unproved ingredient of this part; everything else is proved from the external facts \ref{bpP:p3:ext-ift}--\ref{bpP:p3:ext-lip}.

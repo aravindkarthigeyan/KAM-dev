@@ -1,0 +1,281 @@
+\section{Two-scale KAM theorem I: statement and the iterative lemma}\label{bpP:p3}
+
+This part (3a) states the two-scale KAM theorem of Chierchia--Pinzari (CP10 Proposition~3, pp.~554--555) in the frozen
+conventions and proves the iterative lemma (CP10 Lemma~B.1 with Lemma~B.2, pp.~565--570). Part~3b (limit, Lipschitz bounds,
+measure) completes the proof. \emph{Every constant is recomputed here}: the numerical constants differ from those of CP10
+(different norms, no use of the unpinned reference [4]), the shape of $K,\hat\rho,L,\hat E$ and of the KAM condition is the same.
+Results of track~K are cited as [K:\texttt{label}]; the weighted-norm layer and the iterative lemma of track~N as [N:\texttt{label}]
+(\emph{forward references}: the labels are those planned in \texttt{blueprint-N/PLAN.md}, Parts~4--6).
+
+\subsection{Conventions, norms, constants}\label{bpP:p3:conv}
+
+\begin{itemize}
+\item \emph{Period one.} $\T^n=\R^n/\Z^n$ with coordinates $\theta$; Fourier characters $e^{2\pi ik\cdot\theta}$, $k\in\Z^n$,
+  $\abs k_1=\sum_i\abs{k_i}$. The symplectic form is $dJ\wedge d\theta$, the Hamilton equations are $\dot\theta=\partial_JH$,
+  $\dot J=-\partial_\theta H$ (this is the order $(\text{action},\text{angle})$ used by CP10; the frozen order
+  $(z_1,z_2)=(\text{position},\text{momentum})$ is restored in Part~5). A frequency $\omega\in\R^n$ is a rotation number per unit time.
+  Part~0 keeps period $2\pi$ for the canonical fast angles of P-G; the passage is the one-line dictionary of
+  Lemma~\ref{bpP:p3:period-dictionary}, under which \emph{all constants of this part are invariant}.
+\item \emph{Norms.} $\abs{\cdot}$ is the max norm on $\R^n,\C^n$; $\norm A=\max_i\sum_j\abs{A_{ij}}$ the induced operator norm
+  (also for rectangular matrices). Hence for a bilinear form entries and operator norm are comparable
+  ($\abs{A_{ij}}\le\norm A$).
+\item \emph{Complex neighbourhoods.} For $D\subset\R^n$ and $r>0$: $D_r=\{I\in\C^n:\exists I_0\in D,\ \abs{I-I_0}<r\}$
+  and $\operatorname{Re}(D_r)=D_r\cap\R^n=\{x\in\R^n:\dist_\infty(x,D)<r\}$; $(D_r)_{r'}\subset D_{r+r'}$ and $D_{r}\subset D_{r'}$ for $r\le r'$.
+  For $\sigma>0$, $\T_\sigma=\{\theta\in\C^n/\Z^n:\abs{\operatorname{Im}\theta}<\sigma/2\pi\}$ (weight $\sigma$, strip width $\sigma/2\pi$).
+\item \emph{Weighted norm} (\texttt{docs/fourier-conventions.md}). For $f=\sum_kf_k(I)e^{2\pi ik\cdot\theta}$ analytic on $D_r\times\T_\sigma$:
+  $\norm f_{r,\sigma}:=\sum_{k\in\Z^n}\sup_{I\in D_r}\abs{f_k(I)}\,e^{\sigma\abs k_1}$. It is monotone ($\norm f_{r',\sigma'}\le\norm f_{r,\sigma}$ for $r'\le r$, $\sigma'\le\sigma$)
+  and $\sup_{D_r\times\T_\sigma}\abs f\le\norm f_{r,\sigma}$, $\abs{f_0}\le\norm f_{r,\sigma}$.
+  This is the ``sup--Fourier norm'' of CP10 p.~551 with $\mathbb T^n$ of period $2\pi$ replaced by period~$1$ (same weights).
+\item \emph{Two-scale Diophantine set.} For $n=n_1+n_2$, $k=(k_1,k_2)\in\Z^{n_1}\times\Z^{n_2}$, $\gamma_1\ge\gamma_2>0$, $\tau>0$:
+  $\mathcal D_{\gamma_1,\gamma_2,\tau}=\{\omega\in\R^n:\ \abs{k\cdot\omega}\ge\gamma_1\abs k_1^{-\tau}\text{ if }k_1\ne0,\ \ \abs{k\cdot\omega}\ge\gamma_2\abs k_1^{-\tau}\text{ if }k_1=0,k\ne0\}$.
+  For $\gamma_1=\gamma_2$ this is the set of Definition~\ref{bpP:p0:diophantine}; $\mathcal D_{\gamma_1,\gamma_2,\tau}\subset\mathcal D_{\gamma_2,\gamma_2,\tau}$.
+  (CP10 (19) with $\bar\gamma_2\mu=\gamma_2$; for $k_1=0$ CP10 writes $\abs{k_2}^{\tau}$, the same as $\abs k_1^\tau$.)
+  For $D\subset\R^n$ and $\omega_0:D_\rho\to\C^n$ put $D^{\rm dio}:=\omega_0^{-1}(\mathcal D_{\gamma_1,\gamma_2,\tau})\cap D$ (this is $\mathcal D_{\gamma_1,\gamma_2,\tau_*}$ of CP10, ``the $\omega_0$-preimage in $D$'').
+\item \emph{Blocks.} $U=\partial^2h$ is the $n\times n$ Hessian; $\hat U$ is the $n_2\times n$ matrix of its last $n_2$ rows (the derivatives of $\omega_2=\partial_{I_2}h$ with
+  respect to all actions); $T_1$, $T_2$ are the first $n_1$ and last $n_2$ rows of $U^{-1}$.
+\end{itemize}
+
+\begin{remark}[Misprint in the definition of $\hat U$]\label{bpP:p3:rem-uhat}
+CP10 p.~554 defines $\hat U$ as ``the $n\times n_1$ submatrix of $U$, i.e. the matrix with entries $\hat U_{ij}=U_{ij}$, for $n_1+1\le i\le n$, $1\le j\le n$''.
+The size and the index ranges disagree. Only the reading above ($n_2\times n$, rows $n_1+1,\dots,n$, all columns) is used in the proof: $\hat M$ bounds the variation
+of $\omega_2$ (CP10 (82), via the choice of $\hat\rho$). We adopt it.
+\end{remark}
+
+\begin{definition}[Constants of the two-scale theorem]\label{bpP:p3:constants}
+Let $n=n_1+n_2$, $\tau>0$, $\gamma_1\ge\gamma_2>0$, $0<s$, $\rho>0$, and $E,M,\hat M,\bar M>0$. Put
+\begin{align*}
+L&:=\max\{\bar M,\ M^{-1},\ \hat M^{-1}\},\qquad x:=\frac{EM^2L}{\gamma_1^2},\qquad
+K:=\frac6s\log_+\bigl(x^{-1}\bigr),\quad\log_+a:=\max\{1,\log a\},\\
+\hat\rho&:=\min\Bigl\{\frac{\gamma_1}{3MK^{\tau+1}},\ \frac{\gamma_2}{3\hat MK^{\tau+1}},\ \rho\Bigr\},\qquad
+\hat E:=\frac{EL}{\hat\rho^{\,2}},\qquad
+\hat c:=\max\Bigl\{2^{13}n,\ \frac{24^{\tau+1}}3\Bigr\}.
+\end{align*}
+The \emph{KAM condition} is $\hat c\hat E<1$. (CP10 (31): $\hat c=\max\{2^8n,24^{\tau+1}/6\}$; the larger constants come from the max-norm
+Cauchy estimates and the Lipschitz bookkeeping of Parts~3a--3b. Only $\hat c=\hat c(n,\tau)$, an absolute function of $n$ and $\tau$, matters downstream.)
+\emph{Totality.} $E>0$ guards $\log(1/x)$, and $\log_+\ge1$ gives $Ks\ge6$; $K,\hat\rho>0$.
+\source{CP10 Prop.~3, p.~555, equations (31), (32), with the changes stated.}
+\end{definition}
+
+\subsection{The theorem}\label{bpP:p3:statement}
+
+\begin{proposition}[Two-scale KAM theorem]\label{bpP:p3:two-scale-kam}
+\textbf{Data.} Integers $n_1,n_2\ge1$, $n=n_1+n_2$; $\tau>n$; $\gamma_1\ge\gamma_2>0$; $s,\bar s$ with $0<4s\le\bar s<1$; $\rho>0$; an arbitrary set $D\subset\R^n$; $A:=D_\rho$.
+A function $H(J,\theta)=h(J)+f(J,\theta)$, \emph{real analytic} on $A\times\T_{\bar s+s}$, $1$-periodic in $\theta$ (real on $\R^n\times\R^n$).
+Let $\omega_0:=\partial h$; assume $\omega_0$ is an injective holomorphic map $A\to\C^n$ with $U=\partial^2h$ nonsingular on $A$ (hence a diffeomorphism of $A$ onto an open set).
+Constants $M,\hat M,\bar M,\bar M_1,\bar M_2,E>0$ with
+\[M\ge\sup_A\norm U,\quad \hat M\ge\sup_A\norm{\hat U},\quad\bar M\ge\sup_A\norm{U^{-1}},\quad\bar M_i\ge\sup_A\norm{T_i}\ (i=1,2),\quad E\ge\norm f_{\rho,\bar s+s},\]
+and (normalizations, always satisfiable by lowering the constants; see Remark~\ref{bpP:p3:rem-norm}) $\hat M\le M$, $\bar M_i\le\bar M$.
+Let $L,K,\hat\rho,\hat E,\hat c$ be as in Definition~\ref{bpP:p3:constants} and assume the \textbf{KAM condition} $\hat c\hat E<1$.
+
+\textbf{Conclusions.} Put $r:=32\,\hat E\hat\rho$, $\Omega_*:=\omega_0(D)\cap\mathcal D_{\gamma_1,\gamma_2,\tau}$ and $D^{\rm dio}:=\omega_0^{-1}(\Omega_*)\cap D$. There are maps $\varphi_\omega$, $\omega\in\Omega_*$,
+\[\varphi_\omega:\R^n\to\operatorname{Re}(D_r)\times\R^n,\quad\varphi_\omega(\vartheta)=\bigl(v(\vartheta;\omega),\ \vartheta+u(\vartheta;\omega)\bigr),\]
+with $v,u$ $1$-periodic in $\vartheta$, such that for every $\omega\in\Omega_*$:
+\begin{enumerate}[label=(\alph*)]
+\item (analyticity) $\varphi_\omega$ is real analytic and extends holomorphically to $\{\abs{\operatorname{Im}\vartheta}<\bar s/2\pi\}$, with $\abs u\le\frac{3}{4\pi}\hat Es$ there;
+\item (conjugacy) $\frac{d}{dt}\varphi_\omega(\vartheta+t\omega)=X_H(\varphi_\omega(\vartheta+t\omega))$ for all $\vartheta\in\R^n,t\in\R$, where $X_H=(-\partial_\theta H,\partial_JH)$ (Hamilton equations for $(J,\theta)$);
+\item (embedded Lagrangian torus) $D_\vartheta\varphi_\omega$ is injective (indeed $\norm{D_\vartheta u}\le\frac34n\hat E$) and $\sum_i\bigl(\partial_{\vartheta_a}v_i\,\partial_{\vartheta_b}(\vartheta_i+u_i)-\partial_{\vartheta_b}v_i\,\partial_{\vartheta_a}(\vartheta_i+u_i)\bigr)=0$ for all $a,b$;
+\item (estimates) with $I^0(\omega):=\omega_0^{-1}(\omega)\in D^{\rm dio}$ and $v=(v_1,v_2)\in\R^{n_1}\times\R^{n_2}$,
+\[\abs{v_1-I^0_1(\omega)}\le20\Bigl(\frac{\bar M_1}{\bar M}+\frac{\hat M}M\Bigr)\hat E\hat\rho,\quad
+\abs{v_2-I^0_2(\omega)}\le20\Bigl(\frac{\bar M_2}{\bar M}+1\Bigr)\hat E\hat\rho,\quad\abs{u}\le\frac3{4\pi}\hat Es\quad(\text{on }\R^n).\]
+\end{enumerate}
+Moreover the map $(\vartheta,\omega)\mapsto\varphi_\omega(\vartheta)$, $\R^n\times\Omega_*\to\R^{2n}$, is injective modulo the translations $\vartheta\mapsto\vartheta+k$, $k\in\Z^n$ (precisely: $\varphi_\omega(\vartheta)-\varphi_{\omega'}(\vartheta')\in\{0\}\times\Z^n$ implies $\omega=\omega'$ and $\vartheta-\vartheta'\in\Z^n$), and is Lipschitz in the following sense: it factors as $\Phi\circ(\check\imath\circ\omega_0^{-1},\mathrm{id})$ with $\check\imath$ of Lipschitz constant $\le1+2560n\hat E$ and $\Phi$ bi-Lipschitz in the rescaled norm of \S\ref{bpP:p3:limit}; $\omega_0^{-1}$ is $\bar M$-Lipschitz on $\Omega_*$ for pairs at distance $<\rho/\bar M$ (globally $\bar M\max\{1,\operatorname{diam}D/\rho\}$-Lipschitz if $D$ is bounded).
+Finally, with $K_\Omega:=\bigcup_{\omega\in\Omega_*}\varphi_\omega(\R^n)$ (a union of tori), $c_n:=1+(1+2^n)(1+(4/3)^n)$ and $\meas$ the Lebesgue measure on $\R^n\times\T^n$,
+\[\meas\bigl((\operatorname{Re}(D_r)\times\T^n)\setminus K_\Omega\bigr)\le c_n\Bigl(\meas\bigl((D\setminus D^{\rm dio})\times\T^n\bigr)+\meas\bigl((\operatorname{Re}(D_r)\setminus D)\times\T^n\bigr)\Bigr).\tag{3.1}\]
+\emph{Constant dependence.} $\hat c,c_n$ depend only on $n,\tau$; $K,\hat\rho,\hat E,L$ depend only on $(n_1,n_2,\tau,\gamma_1,\gamma_2,s,\rho,E,M,\hat M,\bar M)$, in the order of Definition~\ref{bpP:p3:constants}.
+The sets $D,h,f$ enter only through those constants and the hypotheses; $\bar s$ enters only through $4s\le\bar s<1$ and through the width of analyticity in~(a).
+\par\noindent{\small Not frozen itself: Part~5 consumes this statement (\S\ref{bpP:p3:interface}) to prove the frozen theorem \Pref{bpP:p0:pg}.}
+\source{CP10 Prop.~3, pp.~554--555, proved in Appendix~B, pp.~565--573. Constants recomputed; (35) of CP10 is corrected in (d).}
+\sourcegap{Prop.~3 has no other source (``not available in literature'', CP10 p.~550); its printed proof relies on the unpinned [4, Lemma A.5] through Prop.~1/Lemma~A.1 (see Lemma~\ref{bpP:p3:avg}) and
+on ``the inductive theorem as in Arnold [3, p.~144]'' without proof (CP10 Remark~3, p.~567). The full list of misprints and repairs is in \S\ref{bpP:p3:errata}.}
+\end{proposition}
+
+\begin{remark}[Normalizations $\hat M\le M$, $\bar M_i\le\bar M$]\label{bpP:p3:rem-norm}
+$\hat U$ and $T_i$ are sub-blocks of $U$, $U^{-1}$, so $\norm{\hat U}\le\norm U$ and $\norm{T_i}\le\norm{U^{-1}}$ on $A$: the hypotheses may be stated with $\hat M\le M$ and $\bar M_i\le\bar M$ \emph{if one replaces
+$\hat M$, $\bar M_i$ by $\min\{\hat M,M\}$, $\min\{\bar M_i,\bar M\}$}; this only decreases $\hat M$ (which can only increase $\hat\rho$, hence is not harmless for $\hat E$: one should lower after computing $\hat E$). We state the proposition with the normalization
+as a hypothesis, as CP10 uses it implicitly in (74), (77) and (35) (``$\le5n\hat E\hat\rho$'' needs $\bar M_i\le\bar M$). In P-G, $\hat M=C\mu\le M=C$ and $\bar M_i\le\bar M=C\mu^{-1}$.
+\end{remark}
+
+\begin{lemma}[Period dictionary]\label{bpP:p3:period-dictionary}
+Let $\tilde H(I,\phi)=\tilde h(I)+\tilde f(I,\phi)$ be analytic on $A\times\{\abs{\operatorname{Im}\phi}<\sigma\}$, $\phi\in(\R/2\pi\Z)^n$ (CP10 convention: form $dI\wedge d\phi$, characters $e^{ik\cdot\phi}$, weighted norm $\sum_k\sup\abs{\tilde f_k}e^{\sigma\abs k_1}$, $\tilde\omega=\partial\tilde h$, constants $\tilde M,\tilde{\hat M},\tilde{\bar M},\tilde E,\tilde\gamma_i$, $\tilde L,\tilde K,\tilde\rho,\tilde{\hat E}$ computed by Definition~\ref{bpP:p3:constants} with $\tilde\gamma_i$ the Diophantine constants of $\tilde\omega=2\pi\omega$).
+Put $H(I,\theta):=\tilde H(I,2\pi\theta)/2\pi$. Then $h=\tilde h/2\pi$, $f=\tilde f(\cdot,2\pi\theta)/2\pi$, $\omega=\tilde\omega/2\pi$, $\norm f_{\rho,\sigma}=\norm{\tilde f}_{\rho,\sigma}/2\pi$, and with $M=\tilde M/2\pi$, $\hat M=\tilde{\hat M}/2\pi$, $\bar M=2\pi\tilde{\bar M}$, $\bar M_i=2\pi\tilde{\bar M}_i$, $E=\tilde E/2\pi$, $\gamma_i=\tilde\gamma_i/2\pi$ one has
+$L=2\pi\tilde L$ and $K=\tilde K$, $\hat\rho=\tilde{\hat\rho}$, $\hat E=\tilde{\hat E}$, $\hat c=\tilde{\hat c}$ \emph{identically}. A map $\varphi$ is an orbit-conjugacy for $H$ with frequency $\omega$ iff $\phi\mapsto\varphi(\phi/2\pi)$ is one for $\tilde H$ with $\tilde\omega=2\pi\omega$; Lagrangian for $dJ\wedge d\theta$ iff for $dI\wedge d\phi=2\pi\,dJ\wedge d\theta$. The estimates of Proposition~\ref{bpP:p3:two-scale-kam}(d) hold verbatim for $\tilde u=2\pi u$ in the form $\abs{\tilde u}\le\frac32\hat Es$.
+\end{lemma}
+\begin{proof}
+\proofstep{Substitution}\label{stepP:p3:pd-subst}
+$\tilde f(I,\phi)=\sum_k\tilde f_k(I)e^{ik\cdot\phi}$ and $\phi=2\pi\theta$ give $f(I,\theta)=\frac1{2\pi}\sum_k\tilde f_k(I)e^{2\pi ik\cdot\theta}$: same weights, coefficients divided by $2\pi$.
+$\partial_I$ commutes, so $U=\tilde U/2\pi$, $U^{-1}=2\pi\tilde U^{-1}$, sub-blocks likewise.
+\proofstep{Invariants}\label{stepP:p3:pd-invar}
+$EM^2L/\gamma_1^2=\frac{\tilde E}{2\pi}\frac{\tilde M^2}{4\pi^2}2\pi\tilde L\frac{4\pi^2}{\tilde\gamma_1^2}=\tilde E\tilde M^2\tilde L/\tilde\gamma_1^2$, hence $K=\tilde K$;
+$\gamma_1/(3MK^{\tau+1})=\tilde\gamma_1/(3\tilde MK^{\tau+1})$ (same for $\gamma_2,\hat M$), so $\hat\rho=\tilde{\hat\rho}$; $EL/\hat\rho^2=\tilde E\tilde L/\hat\rho^2$.
+\proofstep{Dynamics}\label{stepP:p3:pd-dyn}
+$\dot\phi=\partial_I\tilde H=2\pi\partial_IH=2\pi\dot\theta$ and $\dot I=-\partial_\phi\tilde H=-\partial_\theta H$.\qquad(This is the \texttt{period-convert} of Part~1, \Pref{bpP:p1:period-convert}, in the form needed here.)
+\end{proof}
+
+\subsection{External facts and imported tools}\label{bpP:p3:external}
+
+\begin{enumerate}[label=(X\arabic*)]
+\item\label{bpP:p3:ext-ift} \emph{Holomorphic inverse function theorem.} An injective holomorphic $F:\Omega\to\C^n$ ($\Omega$ open) with $\det DF\neq0$ is open, and $F^{-1}:F(\Omega)\to\Omega$ is holomorphic with $D(F^{-1})=(DF)^{-1}\circ F^{-1}$.
+\item\label{bpP:p3:ext-vitali} \emph{Vitali--Montel.} A uniformly bounded sequence of holomorphic functions on a connected open $V\subset\C^n$ that converges at every point of a nonempty open subset of $V\cap\R^n$ (real totally real set) converges locally uniformly on $V$, with all derivatives.
+\item\label{bpP:p3:ext-weierstrass} \emph{Weierstrass.} Locally uniform limits of holomorphic functions are holomorphic and derivatives converge locally uniformly (\Kref{bp:p1:uniform-limits}).
+\item\label{bpP:p3:ext-banach} Banach fixed point (\Kref{bp:p1:ext-banach}); mean value inequality on convex sets (\Kref{bp:p1:ext-mvt}); Cauchy estimates on polydiscs (\Kref{bp:p1:cauchy-open}).
+\item\label{bpP:p3:ext-neumann} Neumann series: $\norm B\le\frac12$ implies $1+B$ invertible with $\norm{(1+B)^{-1}}\le2$.
+\item\label{bpP:p3:ext-lip} Lipschitz measure lemmas \Kref{bp:p1:lip-image}, McShane extension \Kref{bp:p1:mcshane} (max norm).
+\end{enumerate}
+
+\subsection{Two elementary lemmas}\label{bpP:p3:elem}
+
+\begin{lemma}[Balls in the image of a diffeomorphism]\label{bpP:p3:ball}
+Let $\Omega\subset\C^n$ be open, $F:\Omega\to\C^n$ injective holomorphic with $\norm{(DF)^{-1}}\le m$ on $\Omega$, and $B(x_0,\delta)\subset\Omega$ (max-norm ball). Then $F(B(x_0,\delta))\supset B(F(x_0),\delta/m)$. Moreover, if $w_1,w_2\in B(F(x_0),\delta/m)$ then $\abs{F^{-1}(w_1)-F^{-1}(w_2)}\le m\abs{w_1-w_2}$, with $F^{-1}$ evaluated in $B(x_0,\delta)$.
+\end{lemma}
+\begin{proof}
+\proofstep{Inverse}\label{stepP:p3:ball-inv}
+By \ref{bpP:p3:ext-ift}, $G:=F^{-1}:F(\Omega)\to\Omega$ is holomorphic with $\norm{DG}\le m$ and $F(B(x_0,\delta))$ is open.
+\proofstep{Path lifting}\label{stepP:p3:ball-lift}
+Let $w\in B(F(x_0),\delta/m)$, $\gamma(t)=F(x_0)+t(w-F(x_0))$, $\delta'=m\abs{w-F(x_0)}<\delta$ and $T=\{t\in[0,1]:\gamma([0,t])\subset F(B(x_0,\delta))\}$. $0\in T$ and $T$ is relatively open. For $t\in T$ the path $G\circ\gamma$ on $[0,t]$ is $C^1$ with $\abs{(G\circ\gamma)'}\le m\abs{w-F(x_0)}$, so $\abs{G(\gamma(t))-x_0}\le t\delta'$ (\ref{bpP:p3:ext-banach}, mean value inequality along the path).
+\proofstep{Closedness}\label{stepP:p3:ball-closed}
+If $t_k\uparrow t^*$, $t_k\in T$, then $G(\gamma(t_k))$ is Cauchy (Lipschitz in $t$), with limit $x^*$, $\abs{x^*-x_0}\le\delta'<\delta$, $F(x^*)=\gamma(t^*)$ by continuity of $F$, so $t^*\in T$. Hence $T=[0,1]$ and $w=F(G(w))\in F(B(x_0,\delta))$.
+\proofstep{Lipschitz bound}\label{stepP:p3:ball-lip}
+The segment $[w_1,w_2]$ lies in the convex ball $B(F(x_0),\delta/m)\subset F(B(x_0,\delta))$, so the mean value inequality for $G$ gives the second claim.
+\end{proof}
+
+\begin{lemma}[Lipschitz constants from sup bounds, non-convex sets]\label{bpP:p3:lip-sup}
+Let $S\subset\R^N$ be arbitrary, $r>0$, $S_r\subset\C^N$ its complex $r$-neighbourhood in the max norm, and $\Delta:S_r\to\C^m$ holomorphic with $\sup_{S_r}\abs\Delta\le A$. Then $\abs{\Delta(x)-\Delta(y)}\le\frac{4NA}{r}\abs{x-y}$ for all $x,y\in S$.
+\end{lemma}
+\begin{proof}
+\proofstep{Close pairs}\label{stepP:p3:ls-close}
+If $\abs{x-y}<r/2$, every point $z$ of the real segment $[x,y]$ has $\abs{z-x}<r/2$, so the closed polydisc $\bar P(z,r/2)\subset S_r$ ($z$ is within $r/2$ of $x\in S$, hence $\bar P(z,r/2)\subset S_{r}$ up to the open/closed boundary; use radius $r/2-\epsilon$ and let $\epsilon\to0$). By \Kref{bp:p1:cauchy-open}, $\abs{\partial_\ell\Delta_i(z)}\le2A/r$, so $\norm{D\Delta(z)}\le2NA/r$, and the mean value inequality on the segment gives $\abs{\Delta(x)-\Delta(y)}\le(2NA/r)\abs{x-y}$.
+\proofstep{Distant pairs}\label{stepP:p3:ls-far}
+If $\abs{x-y}\ge r/2$, then $\abs{\Delta(x)-\Delta(y)}\le2A\le(4A/r)\abs{x-y}$. Since $N\ge1$, both are $\le4NA/r$.
+\end{proof}
+
+\subsection{Averaging with two frequency scales (the case $m=0$, $\Lambda=\{0\}$ of CP10 Proposition~1)}\label{bpP:p3:avgsec}
+
+\begin{lemma}[One averaging step with two scales]\label{bpP:p3:avg}
+Let $0<\alpha_2\le\alpha_1$, $D\subset\R^n$, $r>0$, $\bar s,s>0$, $K>0$ with $Ks\ge6$. Let $h$ be analytic on $D_r$, $\omega=\partial h$, $f$ analytic on $D_r\times\T_{\bar s+s}$,
+real analytic, $1$-periodic in $\theta$, and $E:=\norm f_{r,\bar s+s}$. Assume
+\begin{enumerate}[label=(N\arabic*)]
+\item (non-resonance on the complex neighbourhood) for all $I\in D_r$ and $k\in\Z^n$ with $0<\abs k_1\le K$: $\abs{k\cdot\omega(I)}\ge\alpha_1$ if $k_1\ne0$ and $\ge\alpha_2$ if $k_1=0$;
+\item (smallness) $64e\,KE<\alpha_2r$.
+\end{enumerate}
+Then there is a map $\Psi:D_{r/2}\times\T_{\bar s+s/6}\to D_r\times\T_{\bar s+s}$ ($\Psi(I',\theta')=(I,\theta)$), holomorphic, real on real points, with $\Psi-\mathrm{id}$ $\Z^n$-periodic in $\theta'$, symplectic for $dI\wedge d\theta$ (that is $\Psi^*(dI\wedge d\theta)=dI'\wedge d\theta'$), such that $H\circ\Psi=h+g+f_*$ on $D_{r/2}\times\T_{\bar s+s/6}$, with $g=g(I')$ independent of $\theta'$ and
+\begin{align*}
+&\sup_{D_{r/2}}\abs{g-f_0}\le E/4,\qquad \norm{f_*}_{r/2,\bar s+s/6}\le e^{-Ks/6}E,\\
+&\alpha_1s\abs{I_1-I'_1}\le9E,\quad\alpha_2s\abs{I_2-I'_2}\le9E,\quad2\pi\alpha_2r\abs{\theta-\theta'}\le9E\qquad\text{on }D_{r/2}\times\T_{\bar s+s/6}.
+\end{align*}
+Here $f_0(I)=\int_{\T^n}f(I,\theta)d\theta$ and $I=(I_1,I_2)\in\R^{n_1}\times\R^{n_2}$.
+\source{CP10 Prop.~1 (p.~552) with $m=0$, $c_0=e/2$ so that $2^7c_0=64e$, $\Lambda=\{0\}$, $d=rs$, (24)--(26); Lemma~A.1 (p.~564), proof pp.~564--565.}
+\sourcegap{CP10 proves Prop.~1 only by reference to [4, Lemma A.5] (not pinned), plus the splitting (70)--(71) of the generating function for the $I_1$-bound. \Pref{bpP:p2:averaging} is planned to derive the one-scale case $\alpha_1=\alpha_2$
+from \Nref{bpN:p6:iterative}; \emph{the two-scale case needed here is not in the plan of Part~2}. This lemma is therefore an \textbf{interface to be supplied} by Part~2 (or by a variant of \Nref{bpN:p6:iterative} with two non-resonance constants).}
+\end{lemma}
+\begin{proof}[Plan of the proof (to be carried out in Part~2 / track~N)]
+\proofstep{Scaling remark}\label{stepP:p3:avg-scale}
+The CP10 statements are for angles of period $2\pi$. For $\theta=\phi/2\pi$ the small divisor $ik\cdot\omega$ becomes $2\pi ik\cdot\omega$ and $\partial_\theta$ carries a factor $2\pi$; in every term of CP10's Poisson-bracket and generating-function estimates the two factors $2\pi$ cancel or improve
+(generating function $\chi_k=f_k/(2\pi ik\cdot\omega)$, $\norm\chi\le E/(2\pi\alpha)$, then $\norm{\partial_\theta\chi}\le\frac{2\pi}{e\delta'}\norm\chi$). Hence the CP10 constants stay valid.
+By Lemma~\ref{bpP:p3:period-dictionary} one may equally apply CP10's statement to $\tilde H=2\pi H(I,\phi/2\pi)$ with $\tilde\omega=2\pi\omega$, $\tilde\alpha_i=2\pi\alpha_i$, $\tilde E=2\pi E$ (the conditions (N2) and the bounds are invariant up to the stated factors $2\pi$ in the last bound).
+\proofstep{Homological equation}\label{stepP:p3:avg-hom}
+Solve $\omega\cdot\partial_\theta\chi=T_Kf-f_0$ by $\chi_k=f_k/(2\pi ik\cdot\omega)$, $0<\abs k_1\le K$ (\Nref{bpN:p6:homological}, \Kref{bp:p1:cohomological}); the splitting $k_1\ne0$/$k_1=0$ gives $\norm{\chi^{(1)}}\le E/(2\pi\alpha_1)$, $\norm{\chi^{(2)}}\le E/(2\pi\alpha_2)$, where $\chi^{(2)}$ does not depend on $\theta_1$ (CP10 (70)--(71)).
+\proofstep{Time-one map and remainder}\label{stepP:p3:avg-flow}
+$\Psi$ is the time-one map of $X_\chi$: domain, symplectic, estimates by \Nref{bpN:p5:flow-domain}, \Nref{bpN:p5:composition}, \Nref{bpN:p4:bracket}; the displacement bounds from the generating equations and Cauchy estimates \Nref{bpN:p4:cauchy};
+$f_*$ is given by the Taylor formula with integral remainder \Nref{bpN:p5:taylor} and $\norm{f-T_Kf}\le e^{-Ks}E$ \Nref{bpN:p4:projections} (the weight loss $s\to s/6$ gives $e^{-Ks/6}$).
+\proofstep{Bounding $g$}\label{stepP:p3:avg-g}
+$g-f_0$ is quadratic in $E$: $\le\frac{12}{11}\frac{2^7c_0KE^2}{\alpha_2r}\le E/4$ by (N2) (CP10 (25)).
+\end{proof}
+
+\subsection{One step of the scheme}\label{bpP:p3:stepsec}
+
+\begin{lemma}[One KAM step]\label{bpP:p3:step}
+Let the data of Proposition~\ref{bpP:p3:two-scale-kam} be given with $H=h+f$ on $D_\rho\times\T_{\bar s+s}$, constants $M,\hat M,\bar M,\bar M_i,L,E,\ldots$, $K,\hat\rho,\hat E$ as in Definition~\ref{bpP:p3:constants},
+and in addition
+\begin{enumerate}[label=(S\arabic*)]
+\item $\hat c\hat E<1$ (so $\hat E<2^{-13}/n$);
+\item $L\ge\max\{\bar M,M^{-1},\hat M^{-1}\}$ (this is the definition; it is stated to allow $L$ larger, used in the iteration: replace $L$ by any larger number, and then use the same formulas);
+\item $\omega_0(D)\subset\mathcal D_{\gamma_1,\gamma_2,\tau}$.
+\end{enumerate}
+Put $\rho_+:=\hat\rho/16$, $s_+:=s/12$, $M_+:=2M$, $\hat M_+:=2\hat M$, $\bar M_+:=2\bar M$, $\bar M_{i+}:=2\bar M_i$, $L_+:=2L$, $E_+:=E^2LM^2/\gamma_1^2$ and let $K_+,\hat\rho_+,\hat E_+$ be given by Definition~\ref{bpP:p3:constants} with the $+$ data. Then there are a map $\Psi_+$, a function $h_+$ and a set $D_+\subset D_{\hat\rho/16}$, with
+\begin{enumerate}[label=(\roman*)]
+\item $\Psi_+:(D_+)_{\rho_+}\times\T_{\bar s+s_+}\to D_{\hat\rho}\times\T_{\bar s+s}$ holomorphic, real on reals, $\Psi_+-\mathrm{id}$ periodic, symplectic, and $H_+:=H\circ\Psi_+=h_++f_+$ with $h_+=h+g$, $g=g(I)$ analytic on $D_{\hat\rho/2}$, $\sup_{D_{\hat\rho/2}}\abs g\le\frac54E$, and $\norm{f_+}_{\rho_+,\bar s+s_+}\le E_+$;
+\item $\omega_+=\partial h_+$ is injective on $D_{\hat\rho/8}$ with $U_+=\partial^2h_+$ nonsingular there; $(D_+)_{\rho_+}\subset D_{\hat\rho/8}$, $\omega_+(D_+)=\omega_0(D)$ (so (S3) holds again);
+\item $M_+\ge\sup_{D_{\hat\rho/4}}\norm{U_+}$, $\hat M_+\ge\sup\norm{\hat U_+}$, $\bar M_+\ge\sup\norm{U_+^{-1}}$, $\bar M_{i+}\ge\sup\norm{T_{i+}}$ (sup over $D_{\hat\rho/4}$), and $L_+\ge\max\{\bar M_+,M_+^{-1},\hat M_+^{-1}\}$;
+\item the map $\hat\imath_+:=(\omega_+|_{D_{\hat\rho/8}})^{-1}\circ\omega_0$ is defined and holomorphic on $D_{\hat\rho/16}$, $D_+=\hat\imath_+(D)$, and
+\[\sup_{D_{\hat\rho/16}}\abs{\hat\imath_{+,i}-\mathrm{id}_i}\le10\frac{\bar M_i}{\bar M}\hat E\hat\rho\ (\le10\hat E\hat\rho,\ i=1,2),\qquad L_D(\hat\imath_+-\mathrm{id})\le640\,n\hat E;\]
+(where $\omega_0$ here means the frequency map of the current $h$, and $L_D$ is the Lipschitz constant on the set $D$);
+\item the displacement bounds, for $(I',\theta')\in D_{\hat\rho/2}\times\T_{\bar s+s/6}$ and $\Psi_+(I',\theta')=(I,\theta)$:
+\[\abs{I_1-I_1'}\le\tfrac34\tfrac{\hat M}M\hat E\hat\rho,\quad\abs{I_2-I_2'}\le\tfrac34\hat E\hat\rho,\quad2\pi\abs{\theta-\theta'}\le\tfrac34\hat Es;\]
+\item $\hat\rho_+\ge\hat\rho/(2\cdot24^{\tau+1})$, $K_+\le24K$, $\hat E_+\le\frac89(4s)^{2(\tau+1)}\hat E^2<\hat E^2$, and $\hat c\hat E_+<1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\proofstep{Non-resonance on $D_{\hat\rho}$}\label{stepP:p3:st-nonres}
+Let $I\in D_{\hat\rho}$, pick $I_0\in D$ with $\abs{I-I_0}<\hat\rho\le\rho$; the segment $[I_0,I]$ lies in $D_\rho$, where $\norm U\le M$, hence $\abs{\omega_i(I)-\omega_i(I_0)}\le M\hat\rho$ for all $i$, and for $i>n_1$ (rows of $\hat U$) $\le\hat M\hat\rho$ (\Kref{bp:p1:ext-mvt}).
+For $0<\abs k_1\le K$ and $k_1\ne0$: $\abs{k\cdot\omega(I)}\ge\gamma_1\abs k_1^{-\tau}-\abs k_1M\hat\rho\ge\gamma_1K^{-\tau}-KM\hat\rho\ge\frac23\gamma_1K^{-\tau}=:\alpha_1$, since $\hat\rho\le\gamma_1/(3MK^{\tau+1})$ and $\omega(I_0)\in\mathcal D_{\gamma_1,\gamma_2,\tau}$ by (S3).
+For $k_1=0$ only $\omega_2$ enters: $\abs{k\cdot\omega(I)}\ge\gamma_2K^{-\tau}-K\hat M\hat\rho\ge\frac23\gamma_2K^{-\tau}=:\alpha_2$. Also $\alpha_2\le\alpha_1$ and (from $\hat\rho\le\gamma_i/(3\cdot K^{\tau+1}\cdot\text{(M or }\hat M))$)
+\[\alpha_1\ge2MK\hat\rho,\qquad\alpha_2\ge2\hat MK\hat\rho.\tag{3.2}\]
+\proofstep{Smallness and $Ks\ge6$}\label{stepP:p3:st-small}
+$Ks=6\log_+(x^{-1})\ge6$. By (3.2) and $L\ge\hat M^{-1}$: $64e\,KE/(\alpha_2\hat\rho)\le64e\,E/(2\hat M\hat\rho^2)\le32e\,\hat E<87\hat E<\hat c\hat E<1$. So Lemma~\ref{bpP:p3:avg} applies with $r=\hat\rho$.
+\proofstep{Averaging}\label{stepP:p3:st-avg}
+Lemma~\ref{bpP:p3:avg} gives $\Psi$, $g$, $f_*$ on $D_{\hat\rho/2}\times\T_{\bar s+s/6}$. Since $e^{-Ks/6}=\min\{e^{-1},x\}\le x$ ($Ks/6=\log_+(1/x)$),
+$\norm{f_*}\le xE=E^2LM^2/\gamma_1^2=E_+$. Define $\Psi_+$ as the restriction of $\Psi$ to $(D_+)_{\rho_+}\times\T_{\bar s+s_+}$ once $D_+$ is defined below ($(D_+)_{\rho_+}\subset D_{\hat\rho/8}\subset D_{\hat\rho/2}$ and $s_+\le s/6$; the norm is monotone). Also $\sup_{D_{\hat\rho/2}}\abs g\le\sup\abs{g-f_0}+\sup\abs{f_0}\le E/4+E$. This proves the first part of (i).
+\proofstep{Displacements}\label{stepP:p3:st-disp}
+By the last line of Lemma~\ref{bpP:p3:avg}, (3.2), $Ks\ge6$ and $M\hat M^{-1}$-bounds: $\abs{I_1-I_1'}\le\frac{9E}{\alpha_1s}\le\frac{9E K}{6\alpha_1}\le\frac{9E}{12M\hat\rho}=\frac34\frac{E}{M\hat\rho}\le\frac34\frac{\hat M}{M}\frac{EL}{\hat\rho}$, using $\hat ML\ge1$; and $\frac{EL}{\hat\rho}=\hat E\hat\rho$. Likewise $\abs{I_2-I_2'}\le\frac{9E}{\alpha_2s}\le\frac34\frac E{\hat M\hat\rho}\le\frac34\hat E\hat\rho$,
+$2\pi\abs{\theta-\theta'}\le\frac{9E}{\alpha_2\hat\rho}\le\frac{9E}{2\hat MK\hat\rho^2}\le\frac92\frac{\hat E}{K}\le\frac34\hat Es$ (as $K\ge6/s$). This is (v).
+\proofstep{Derivatives of $g$}\label{stepP:p3:st-dg}
+For $I\in D_{\hat\rho/4}$ the polydisc of radius $\hat\rho/4$ around $I$ lies in $D_{\hat\rho/2}$. \Kref{bp:p1:cauchy-open} with $A=\frac54E$, $\delta=\hat\rho/4$ gives $\abs{\partial_ig(I)}\le5E/\hat\rho$ and $\abs{\partial_i\partial_jg(I)}\le4A/\delta^2=80E/\hat\rho^2$, so
+\[\sup_{D_{\hat\rho/4}}\norm{\partial^2g}\le\frac{80nE}{\hat\rho^2}=\frac{80n\hat E}{L},\qquad\sup_{D_{\hat\rho/4}}\abs{\partial g}\le\frac{5E}{\hat\rho}.\tag{3.3}\]
+Since $L^{-1}\le M$, $L^{-1}\le\hat M$ and $\bar M\le L$: $\norm{\partial^2g}\le80n\hat E\min\{M,\hat M\}\le\frac1{100}\min\{M,\hat M\}$ and $\bar M\norm{\partial^2g}\le80n\hat E\le\frac1{100}$.
+\proofstep{Bounds on $U_+$}\label{stepP:p3:st-U}
+$U_+=U+\partial^2g$ on $D_{\hat\rho/4}$ and $\hat U_+=\hat U+(\partial^2g)_{\rm rows>n_1}$ with $\norm{\text{rows}}\le\norm{\partial^2g}$. Hence $\norm{U_+}\le M+\frac M{100}\le2M$ and $\norm{\hat U_+}\le\hat M+\frac{\hat M}{100}\le2\hat M$.
+Further $U_+=(1+\partial^2g\,U^{-1})U$, so $U_+^{-1}=U^{-1}(1+\partial^2g\,U^{-1})^{-1}$ ($\norm{\partial^2g\,U^{-1}}\le1/100$, \ref{bpP:p3:ext-neumann}), hence $\norm{U_+^{-1}}\le2\bar M$ and, the rows of a product $T_iB$ being $T_i$ times $B$, $\norm{T_{i+}}\le2\norm{T_i}\le2\bar M_i$ (the left factor of $U^{-1}\cdot(\ldots)$ keeps row blocks). Nonsingular. And $L_+=2L\ge\max\{2\bar M,(2M)^{-1},(2\hat M)^{-1}\}$. This is (iii) on $D_{\hat\rho/4}$.
+\proofstep{Injectivity of $\omega_+$ on $D_{\hat\rho/8}$}\label{stepP:p3:st-inj}
+Let $I,I'\in D_{\hat\rho/8}$ with $\omega_+(I)=\omega_+(I')$ and put $w=\omega_0(I)$, $w'=\omega_0(I')$. Then $w-w'=\partial g(I')-\partial g(I)$ and $\abs{w-w'}\le10E/\hat\rho$ by (3.3). The ball $B(I,\hat\rho/8)\subset D_{\hat\rho/4}\subset D_\rho$, and $\omega_0$ is injective on $D_\rho$ with $\norm{U^{-1}}\le\bar M$; Lemma~\ref{bpP:p3:ball} gives $\omega_0(B(I,\hat\rho/8))\supset B(w,\hat\rho/(8\bar M))$. Since $10E/\hat\rho<\hat\rho/(8\bar M)$ (equivalent to $80E\bar M<\hat\rho^2$, implied by $80\hat E<1$ and $\bar M\le L$), $w'=\omega_0(I'')$ with $I''\in B(I,\hat\rho/8)$ and, by injectivity of $\omega_0$ on $D_\rho$, $I''=I'$. Thus the segment $[I,I']\subset D_{\hat\rho/4}$ and, by Lemma~\ref{bpP:p3:ball} (second part) and the mean value inequality for $\partial g$ along $[I,I']$,
+$\abs{I-I'}\le\bar M\abs{w-w'}\le\bar M\sup\norm{\partial^2g}\abs{I-I'}\le80n\hat E\abs{I-I'}$, whence $I=I'$. With (iii), $\omega_+$ is a holomorphic injection with nonsingular derivative on $D_{\hat\rho/8}$; by \ref{bpP:p3:ext-ift} an open map with holomorphic inverse, $\norm{D(\omega_+^{-1})}\le2\bar M$ (and $\norm{(D\omega_+^{-1})_i}\le2\bar M_i$ for the row blocks) on $\omega_+(D_{\hat\rho/8})$.
+\proofstep{The map $\hat\imath_+$ and $D_+$}\label{stepP:p3:st-ihat}
+For $I\in D_{\hat\rho/16}$, $B(I,\hat\rho/16)\subset D_{\hat\rho/8}$ and Lemma~\ref{bpP:p3:ball} for $F=\omega_+$, $m=2\bar M$ gives $\omega_+(B(I,\hat\rho/16))\supset B(\omega_+(I),\hat\rho/(32\bar M))$. But $\omega_0(I)=\omega_+(I)-\partial g(I)$ and $\abs{\partial g(I)}\le5E/\hat\rho<\hat\rho/(32\bar M)$ (as $160E\bar M<\hat\rho^2$, because $160\hat E<1$). So $\hat\imath_+:=\omega_+^{-1}\circ\omega_0$ is defined and holomorphic on $D_{\hat\rho/16}$, with values in $B(I,\hat\rho/16)$, $\omega_+\circ\hat\imath_+=\omega_0$.
+By Lemma~\ref{bpP:p3:ball} (second part, with $w_1=\omega_0(I)$, $w_2=\omega_+(I)$): $\abs{\hat\imath_+(I)-I}\le2\bar M\abs{\partial g(I)}\le10\bar ME/\hat\rho$, and the same estimate holds for the first $n_1$ and last $n_2$ components with $\bar M_i$ instead of $\bar M$ (use the row blocks of $D\omega_+^{-1}$). By $\bar M\le L$: $10\bar M_iE/\hat\rho\le10\frac{\bar M_i}{\bar M}\frac{EL}{\hat\rho}=10\frac{\bar M_i}{\bar M}\hat E\hat\rho\le10\hat E\hat\rho$. This is the sup bound in (iv). Then $\sup\abs{\hat\imath_+-\mathrm{id}}\le10\hat E\hat\rho<\hat\rho/16$ since $\hat E<2^{-13}$.
+Lipschitz bound: Lemma~\ref{bpP:p3:lip-sup} with $S=D$, $r=\hat\rho/16$, $N=n$, $A=10\hat E\hat\rho$ gives $L_D(\hat\imath_+-\mathrm{id})\le4n\cdot10\hat E\hat\rho\cdot16/\hat\rho=640n\hat E$. Since $h$ is real analytic, $\omega_0$ and $\omega_+$ are real on $\R^n$; if $\omega_+(I'')=\omega_0(I)$ with $I\in D\subset\R^n$, then $\overline{I''}$ is a second preimage in the same ball, so $I''=\overline{I''}\in\R^n$ by injectivity. Hence $\hat\imath_+(D)\subset\R^n$. Put $D_+:=\hat\imath_+(D)\subset D_{\hat\rho/16}\cap\R^n$. Since $\omega_+\circ\hat\imath_+=\omega_0$ on $D$ and $\omega_0$ is injective, $\hat\imath_+$ is injective on $D$ and $\omega_+(D_+)=\omega_0(D)$. Then $(D_+)_{\rho_+}\subset D_{\hat\rho/16+\hat\rho/16}=D_{\hat\rho/8}$. This is (ii) and the rest of (iv); in particular $\omega_+(D_+)=\omega_0(D)\subset\mathcal D_{\gamma_1,\gamma_2,\tau}$.
+\proofstep{The new constants}\label{stepP:p3:st-const}
+Put $x=EM^2L/\gamma_1^2$; then $E_+=Ex$ and $x_+:=E_+L_+M_+^2/\gamma_1^2=Ex\cdot2L\cdot4M^2/\gamma_1^2=8x^2$. Hence $\log(1/x_+)=2\log(1/x)-3\log2\le2\log_+(1/x)$ and $\log_+(1/x_+)\le2\log_+(1/x)$ (as $1\le\log_+$), so
+\[K_+=\frac6{s_+}\log_+\frac1{x_+}\le\frac{72}{s}\cdot2\log_+\frac1x=24K.\]
+Therefore $\gamma_1/(3M_+K_+^{\tau+1})\ge\frac12 24^{-(\tau+1)}\gamma_1/(3MK^{\tau+1})$, likewise for $\gamma_2,\hat M$, and $\rho_+=\hat\rho/16$; as $\hat\rho\le\min\{\gamma_1/(3MK^{\tau+1}),\gamma_2/(3\hat MK^{\tau+1})\}$, $\hat\rho_+\ge\hat\rho\min\{\frac1{2\cdot24^{\tau+1}},\frac1{16}\}=\hat\rho/(2\cdot24^{\tau+1})$.
+\proofstep{The quadratic bound}\label{stepP:p3:st-quad}
+$E_+L_+=2E^2L^2M^2/\gamma_1^2$ and $\hat\rho_+^{-2}\le4\cdot24^{2(\tau+1)}\hat\rho^{-2}$, so $\hat E_+\le8\cdot24^{2(\tau+1)}\,\hat E^2\,\hat\rho^2M^2/\gamma_1^2$ (using $E^2L^2/\hat\rho^2=\hat E^2\hat\rho^2$). From $\hat\rho\le\gamma_1/(3MK^{\tau+1})$ and $K\ge6/s$: $\hat\rho^2M^2/\gamma_1^2\le\frac19(s/6)^{2(\tau+1)}$. Hence $\hat E_+\le\frac89(24s/6)^{2(\tau+1)}\hat E^2=\frac89(4s)^{2(\tau+1)}\hat E^2<\hat E^2$ since $4s\le\bar s<1$. Finally $\hat c\hat E_+<\hat c\hat E\cdot\hat E<1$. This is (vi).
+\end{proof}
+
+\begin{remark}[Differences from CP10 in the step]\label{bpP:p3:rem-step}
+CP10 (74)--(75), (86)--(87) have $5n$, $2^6n$ and $2^7$ from a mixture of $1$-, $\infty$- and ``sup'' norms; the above constants are those of max norms. CP10 injectivity argument (p.~569--570) uses ``$\sup\norm{\partial(\omega^{-1})}\sup\abs{\omega(I)-\omega(I')}$'', a mean value inequality that
+silently needs $[\omega(I),\omega(I')]\subset\omega(D_\rho)$; Lemma~\ref{bpP:p3:ball} supplies it. The Lipschitz bound of $\hat\imath_+-\mathrm{id}$ on the (non-convex) set $D$ is repaired by Lemma~\ref{bpP:p3:lip-sup}.
+CP10 (91) prints $(4s)^{\tau+1}$ where the computation gives $(4s)^{2(\tau+1)}$.
+\end{remark}
+
+\subsection{The iterative lemma}\label{bpP:p3:itersec}
+
+\begin{definition}[The sequences]\label{bpP:p3:seq}
+Given the data and constants of Proposition~\ref{bpP:p3:two-scale-kam}, put $D_0=D^{\rm dio}=\omega_0^{-1}(\mathcal D_{\gamma_1,\gamma_2,\tau})\cap D$, $\rho_0=\rho$, $s_0=s$, $M_0=M$, $\hat M_0=\hat M$, $\bar M_0=\bar M$, $\bar M_{i,0}=\bar M_i$, $L_0=L$, $E_0=E$, $h_0=h$, $f_0=f$ and, recursively for $j\ge1$:
+$s_j=s_{j-1}/12$, $M_j=2M_{j-1}$, $\hat M_j=2\hat M_{j-1}$, $\bar M_j=2\bar M_{j-1}$, $\bar M_{i,j}=2\bar M_{i,j-1}$, $L_j=2L_{j-1}$, $\rho_j=\hat\rho_{j-1}/16$, $E_j=E_{j-1}^2L_{j-1}M_{j-1}^2/\gamma_1^2$,
+and $K_j,\hat\rho_j,\hat E_j$ by Definition~\ref{bpP:p3:constants} with the data $(s_j,\rho_j,E_j,M_j,\hat M_j,\bar M_j)$ (so $L_j$ there is $\max\{\bar M_j,M_j^{-1},\hat M_j^{-1}\}\le2^jL$, and in the formulas the larger $L_j=2^jL$ is used, as allowed by (S2) of Lemma~\ref{bpP:p3:step}).
+\end{definition}
+
+\begin{lemma}[Iterative lemma]\label{bpP:p3:iterative}
+Under the hypotheses of Proposition~\ref{bpP:p3:two-scale-kam} (in particular $\hat c\hat E_0<1$), for every $j\ge0$ there are a set $D_j\subset\R^n$, an analytic symplectic map $\Phi_j=\Psi_1\circ\dots\circ\Psi_j$ on $W_j:=(D_j)_{\rho_j}\times\T_{\bar s+s_j}$ (with $\Phi_0=\mathrm{id}$, $D_0$ as above) and $H_j=H\circ\Phi_j=h_j+f_j$, such that
+\begin{enumerate}[label=(\roman*)]
+\item $D_j\subset(D_{j-1})_{\hat\rho_{j-1}/16}$, $\omega_j=\partial h_j$ is a diffeomorphism of $(D_j)_{\rho_j}$ onto an open set, $\omega_j(D_j)=\omega_0(D_0)\subset\mathcal D_{\gamma_1,\gamma_2,\tau}$; the map $\hat\imath_j:=\omega_j^{-1}\circ\omega_{j-1}:D_{j-1}\to D_j$ (defined and holomorphic on $(D_{j-1})_{\hat\rho_{j-1}/16}$) satisfies
+$\sup\abs{\hat\imath_{j,i}-\mathrm{id}_i}\le10\frac{\bar M_i}{\bar M}\hat E_{j-1}\hat\rho_{j-1}$ and $L_{D_{j-1}}(\hat\imath_j-\mathrm{id})\le640n\hat E_{j-1}$;
+\item $\norm{f_j}_{\rho_j,\bar s+s_j}\le E_j$;
+\item $\Psi_j:W_j\to W_{j-1}'$ with $W_{j-1}':=D_{\hat\rho_{j-1}}\times\T_{\bar s+s_{j-1}}\supset W_{j-1}$ is holomorphic, real on reals, $\Psi_j-\mathrm{id}$ periodic, and on $W_j$
+\[\abs{\Delta I_1}\le\tfrac34\tfrac{\hat M}M\hat E_{j-1}\hat\rho_{j-1},\quad\abs{\Delta I_2}\le\tfrac34\hat E_{j-1}\hat\rho_{j-1},\quad2\pi\abs{\Delta\theta}\le\tfrac34\hat E_{j-1}s_{j-1};\]
+\item $\hat E_j<\hat E_{j-1}^2$ for $j\ge1$, whence $\hat E_j\le\hat E_0^{2^j}$, and $\hat c\hat E_j<1$;
+\item $\hat\rho_j\le\hat\rho_{j-1}/16$ and $\hat\rho_j\ge\hat\rho_{j-1}/(2\cdot24^{\tau+1})$, $s_j=s/12^j$, $K_j\le24^jK$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{Induction hypothesis}\label{stepP:p3:it-ind}
+We prove by induction on $j\ge0$ the statement $\mathcal P_j$: the data $(D_j,h_j,f_j,\rho_j,s_j,M_j,\hat M_j,\bar M_j,\bar M_{i,j},L_j,E_j)$ satisfy the hypotheses of Lemma~\ref{bpP:p3:step} (on the domain $(D_j)_{\rho_j}\times\T_{\bar s+s_j}$): $\hat c\hat E_j<1$, $L_j\ge\max\{\bar M_j,M_j^{-1},\hat M_j^{-1}\}$, $\omega_j(D_j)\subset\mathcal D_{\gamma_1,\gamma_2,\tau}$, bounds $M_j,\hat M_j,\bar M_j,\bar M_{i,j}$ on $(D_j)_{\rho_j}$, $\omega_j$ injective on $(D_j)_{\rho_j}$ with nonsingular $U_j$, $\norm{f_j}\le E_j$, $\hat M_j\le M_j$, $\bar M_{i,j}\le\bar M_j$, and $4s_j\le\bar s<1$.
+\proofstep{Base}\label{stepP:p3:it-base}
+$\mathcal P_0$ is the hypothesis of Proposition~\ref{bpP:p3:two-scale-kam} and $\omega_0(D_0)\subset\mathcal D_{\gamma_1,\gamma_2,\tau}$ by definition of $D_0$ (note $D_0\subset D$, so the sup bounds on $D_\rho$ give those on $(D_0)_\rho$; injectivity is inherited).
+\proofstep{Induction}\label{stepP:p3:it-step}
+Apply Lemma~\ref{bpP:p3:step} to $\mathcal P_{j-1}$: it produces $D_j:=D_+$, $\Psi_j:=\Psi_+$, $h_j:=h_+$, $f_j:=f_+$, and (i)--(vi) of that lemma are (i)--(iii) here and the recursion of Definition~\ref{bpP:p3:seq} (the quantities named $\hat\rho_+,K_+,\hat E_+$ there are $\hat\rho_j,K_j,\hat E_j$). Items (iii) and (v) of the step give $\mathcal P_j$ ($\hat M_j\le M_j$, $\bar M_{i,j}\le\bar M_j$ propagate by doubling).
+\proofstep{Composition}\label{stepP:p3:it-comp}
+$\Phi_j=\Phi_{j-1}\circ\Psi_j$ is defined on $W_j$ because $\Psi_j(W_j)\subset W_{j-1}'$ and in fact $\subset W_{j-1}$: the displacement is $\le\frac34\hat E_{j-1}\hat\rho_{j-1}<\hat\rho_{j-1}/16$ and $W_j\subset D_{\hat\rho_{j-1}/8}\times\ldots$, so $\Psi_j(W_j)\subset D_{\hat\rho_{j-1}/8+\hat\rho_{j-1}/16}\times\T_{\bar s+s_{j-1}}$; this lies in $W_{j-1}=(D_{j-1})_{\rho_{j-1}}\times\T$ because $\hat\rho_{j-1}\le\rho_{j-1}$ (definition of $\hat\rho$). The identity $H_j=H_{j-1}\circ\Psi_j=H\circ\Phi_j$ is then immediate, and $\Phi_j$ is symplectic, real, with $\Phi_j-\mathrm{id}$ periodic.
+\proofstep{(iv)--(v) of the Lemma}\label{stepP:p3:it-rates}
+By Step (vi) of Lemma~\ref{bpP:p3:step}: $\hat E_j<\hat E_{j-1}^2$, $\hat\rho_j\ge\hat\rho_{j-1}/(2\cdot24^{\tau+1})$, $\hat\rho_j\le\rho_j=\hat\rho_{j-1}/16$, $K_j\le24K_{j-1}$.
+\end{proof}

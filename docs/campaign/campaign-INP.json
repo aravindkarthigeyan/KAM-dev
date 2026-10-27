@@ -38,15 +38,6 @@
    "state": "running"
   },
   {
-   "id": "bpP-p3",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track P blueprint Part 3: two-scale KAM theorem (CP10 Prop. 3, App. B)",
-   "state": "running"
-  },
-  {
    "id": "delta-PN",
    "kind": "delta statement audit (Codex)",
    "model": "GPT-6.1-Sol medium",
@@ -56,21 +47,39 @@
    "state": "running"
   },
   {
-   "id": "bpN-p45",
+   "id": "bpI-p67",
    "kind": "blueprint writer (subagent)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track N blueprint Parts 4-5: weighted norms, Lie transform (shared with P)",
+   "assignment": "Track I blueprint Parts 6-7: I-KEPLER; Kepler fundamentals (shared with P), Delaunay chart, exact restricted Hamiltonian",
    "state": "running"
   },
   {
-   "id": "bpI-p3",
+   "id": "bpN-p6",
    "kind": "blueprint writer (subagent)",
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track I blueprint Part 3: local energy charts, uniform application of I-G1",
+   "assignment": "Track N blueprint Part 6: Iterative Lemma and Normal Form Lemma (shared with P)",
+   "state": "running"
+  },
+  {
+   "id": "bpP-p1",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track P blueprint Part 1: torus transport, period and Diophantine conversions, Liouville",
+   "state": "running"
+  },
+  {
+   "id": "bprev-2",
+   "kind": "blueprint review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-bprev-2",
+   "assignment": "Refute-first review of track-P blueprint parts (now Part 3, two-scale KAM)",
    "state": "running"
   }
  ]

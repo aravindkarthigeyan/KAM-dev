@@ -24,7 +24,7 @@ constant $\xi_0$ cannot, once $\xi_0$ is spent on the energy equation $\avg{DH(K
 \item Several lemmas of track~K are stated for tori that are $(r,\beta,\varepsilon)$-admissible, a notion that includes
   invertibility of the \emph{torsion} average $\avg T$ (condition \Kref{bp:p2:A5}). In the isoenergetic setting $\avg T$ itself
   need not be invertible, so those lemmas are not cited; their conclusions that do not involve $\avg T$ are restated
-  (Lemmas~\ref{bpI:p2:geometry}, \ref{bpI:p2:perturbation}) and proved without that hypothesis.
+  (Lemmas~\ref{bpI:p1:geometry-noA5}, \ref{bpI:p1:perturbation-noA5}) and proved without that hypothesis.
 \end{enumerate}
 No other result of track~K is changed. Constants depend on $(n,\tau,M,\sigma_K,\sigma_B,\sigma_T,\mu,\nu)$ only, \emph{not} on
 $\omega^*$, $\sigma_\omega$, $\bar\gamma$ (except through $C_1$, see Theorem~\ref{bpI:p2:g1}); the hypotheses (I9), (I10) are
@@ -115,52 +115,16 @@ The hypotheses (I5)--(I12) of I-G1 say that $K$ is $(\rho,\mu,e,s)$-admissible w
 $\sigma_K-\mu,\sigma_B-\mu,\sigma_T-\mu$ in \ref{bpI:p2:B3}--\ref{bpI:p2:B5}, once $e\le1$ is known (Step~\ref{stepI:p2:g1-e}).
 
 %----------------------------------------------------------------------------------------------------
-\subsection{Geometry and frame perturbation without the torsion hypothesis}\label{bpI:p2:sec-geometry}
+\subsection{Geometry and frame perturbation without the torsion hypothesis (moved)}\label{bpI:p2:sec-geometry}
 
-\begin{lemma}[Geometry of an approximately invariant torus, without \Kref{bp:p2:A5}]\label{bpI:p2:geometry}
-Let $\omega\in\Dio_{\gamma,\tau}$, $0<\delta\le1$, $2\delta<r$, $0\le\varepsilon\le1$, and let $K$ satisfy \ref{bpI:p2:B1}--\ref{bpI:p2:B4}, \ref{bpI:p2:B6} on $T_r$
-(no condition on any torsion average). Then the conclusions of \Kref{bp:p2:geometry} hold:
-$\abs{DE}\le n\varepsilon/\delta$, $\abs{\partial_\omega\Omega_K}\le 2n(n+1)\mathfrak m\varepsilon/\delta$, $\abs{E_{\mathrm{red}}}\le C_{\mathrm{red}}\varepsilon/\delta$ on $T_{r-\delta}$, and
-$\abs{\Omega_K}\le C_\Omega\varepsilon/(\gamma\delta^{\varkappa+1})$, $\abs{E_{\mathrm{sym}}}\le C_{\mathrm{sym}}\varepsilon/(\gamma\delta^{\varkappa+1})$ on $T_{r-2\delta}$.
-Also, on $T_r$: $\abs{\eta^L}\le2n\mathfrak m^2\varepsilon$, $\abs{\eta^N}\le2n\mathfrak m\varepsilon$ and $\abs L\le\mathfrak m$, $\abs B\le\mathfrak m$, $\abs N\le\mathfrak m^2$, $\abs P\le2\mathfrak m^2$; and if $\abs\omega\le\Theta$, then $\abs{X_N}\le C_X/\delta$, $\abs T\le C_T/\delta$ on $T_{r-\delta}$.
-\source{HL19 Lemma~4.3, 4.6, 4.10, pp.~22--30, as in \Kref{bp:p2:geometry}; ours (restated without the torsion hypothesis).}
-\end{lemma}
-\begin{proof}
-The last sentence is \Kref{bp:p2:frame-basic}(b)--(d), whose hypotheses are \Kref{bp:p2:A2}--\Kref{bp:p2:A4} (and \Kref{bp:p2:A6} for (c)); they contain no torsion condition.
-\proofstep{Derivatives of the error}\label{stepI:p2:geo-de}
-$E$ is holomorphic with $\abs E\le\varepsilon$ on $T_r$ (\Kref{bp:p2:frame-basic}(a)); \Kref{bp:p1:cauchy-strip} gives $\abs{DE}\le n\varepsilon/\delta$ on $T_{r-\delta}$.
-\proofstep{$\partial_\omega\Omega_K$ and $E_{\mathrm{red}}$}\label{stepI:p2:geo-red}
-By \Kref{bp:p2:frame-identities}(d), (e), \Kref{bp:p2:matrix} and \Kref{bp:p2:frame-basic}(b), as in \Kref{step:p2:geo-domegak}, \Kref{step:p2:geo-ered}:
-$\abs{\partial_\omega\Omega_K}\le(2n\mathfrak m+2n^2\mathfrak m)\varepsilon/\delta$ and $\abs{E_{\mathrm{red}}}\le C_{\mathrm{red}}\varepsilon/\delta$ on $T_{r-\delta}$.
-\proofstep{Lagrangian defect and symplecticity defect}\label{stepI:p2:geo-sym}
-$\Omega_K$ is holomorphic, $1$-periodic on $T_{r-\delta}$ with $\avg{\Omega_K}=0$ (\Kref{bp:p2:exactness}; $K$ primary). \Kref{bp:p2:cohomological}(b) on $T_{r-\delta}$ with loss $\delta<r-\delta$ gives the bound of $\Omega_K$ on $T_{r-2\delta}$, and $\abs{E_{\mathrm{sym}}}\le\mathfrak m^2\abs{\Omega_K}$ by \Kref{bp:p2:frame-identities}(b).
-\end{proof}
+\begin{remark}[Geometry and frame perturbation: moved to Part~\ref{bpI:p1}]\label{bpI:p2:geometry}
+The statement and proof of the geometry lemma without \Kref{bp:p2:A5}, formerly here, are Lemma~\ref{bpI:p1:geometry-noA5} (Part~\ref{bpI:p1}); its hypotheses are
+\ref{bpI:p2:B1}--\ref{bpI:p2:B4}, \ref{bpI:p2:B6}. All uses of ``Lemma~\ref{bpI:p1:geometry-noA5}'' below mean that lemma.
+\end{remark}
 
-\begin{lemma}[Perturbation of the frame, without \Kref{bp:p2:A5}]\label{bpI:p2:perturbation}
-Let $r>0$, $0<\delta\le1$, $2\delta<r$, $\abs\omega\le\Theta$, $\omega\in\R^n$. Let $K$ be holomorphic on $T_r$ with $B_\beta(K(\theta))\subset D$, $\abs{DK}\le\sigma_K$, $\det G\ne0$, $\abs B\le\sigma_B$ on $T_r$.
-Let $\tilde K$ be holomorphic on $T_r$ with $\abs{\tilde K-K}\le d$ on $T_r$, where $d<\beta$ and $2\mathfrak mC_{\Delta T}\,d/\delta^2\le1$. Then (a)--(e) of \Kref{bp:p2:perturbation} hold:
-\begin{enumerate}[label=(\alph*)]
-\item $B_{\beta-d}(\tilde K(\theta))\subset D$ on $T_r$ and $\abs{\tilde A-A}\le\mathfrak md$;
-\item $\abs{D\tilde K-DK}\le nd/\delta$ on $T_{r-\delta}$;
-\item $\det\tilde G\ne0$, $\abs{\tilde B}\le2\mathfrak m$, $\abs{\tilde B-B}\le C_Bd/\delta$ on $T_{r-\delta}$;
-\item $\abs{\tilde N-N}\le C_{\Delta N}d/\delta$, $\abs{\tilde N}\le2\mathfrak m^2$, $\abs{\tilde N^\top}\le4n\mathfrak m^2$ on $T_{r-\delta}$;
-\item $\abs{\tilde T-T}\le C_{\Delta T}d/\delta^2$ on $T_{r-2\delta}$ (here $\tilde T$ is the torsion of $\tilde K$ for the same $\omega$).
-\end{enumerate}
-\source{HL19 Lemma~5.2, Steps~3--7, pp.~36--42, as in \Kref{bp:p2:perturbation}; the torsion hypothesis there is used only for its item (f).}
-\end{lemma}
-\begin{proof}
-\proofstep{Smallness}\label{stepI:p2:pt-small}
-From the definitions of \Kref{bp:p2:constants}, $C_{\Delta T}\ge\max\{n,C_G,C_{\Delta N}\}$ (\Kref{step:p2:pt-small}, pure arithmetic on constants). With $d/\delta\le d/\delta^2\le1/(2\mathfrak mC_{\Delta T})$:
-$nd/\delta\le\mathfrak m$, $\mathfrak mC_Gd/\delta\le\frac12$, $C_{\Delta N}d/\delta\le\mathfrak m^2$, $\mathfrak mC_{\Delta T}d/\delta^2\le\frac12$.
-\proofstep{Domain}\label{stepI:p2:pt-domain}
-$\abs{z-\tilde K(\theta)}<\beta-d$ implies $\abs{z-K(\theta)}<\beta$, so $z\in D$; the segment $[K,\tilde K]$ lies in $B_\beta(K(\theta))\subset D$, and \Kref{bp:p2:hamiltonian}(e) gives $\abs{\tilde A-A}\le Md\le\mathfrak md$.
-\proofstep{Frame}\label{stepI:p2:pt-frame}
-\Kref{bp:p1:cauchy-strip}, \Kref{bp:p1:cauchy-corollaries} ($p=2n$) on $\tilde K-K$: $\abs{\tilde L-L}\le nd/\delta$, $\abs{(\tilde L-L)^\top}\le2nd/\delta$ on $T_{r-\delta}$; so $\abs{\tilde L}\le2\mathfrak m$, $\abs{\tilde L^\top}\le4n\mathfrak m$. Then $\tilde G-G=\tilde L^\top(\tilde L-L)+(\tilde L-L)^\top L$ has norm $\le C_Gd/\delta$, $\abs B\abs{\tilde G-G}\le\frac12$, and \Kref{bp:p1:neumann} gives $\tilde G$ invertible, $\abs{\tilde B}\le2\mathfrak m$, $\abs{\tilde B-B}\le C_Bd/\delta$ (Gram invertibility before any use of $\tilde N$, $\tilde T$: Remark~\ref{bpI:p0:totality}(T2)).
-\proofstep{Normal frame and torsion}\label{stepI:p2:pt-torsion}
-$\tilde N-N=\Omega_0\bigl((\tilde L-L)\tilde B+L(\tilde B-B)\bigr)$ gives (d). On $T_{r-2\delta}$,
-$\tilde X_{\tilde N}-X_N=(\tilde A-A)\tilde N+A(\tilde N-N)-\partial_\omega(\tilde N-N)$, with the first two terms $\le2\mathfrak m^3d+\mathfrak mC_{\Delta N}d/\delta$ and the third $\le n\Theta C_{\Delta N}d/\delta^2$ (\Kref{bp:p1:cauchy-corollaries} with $\abs\omega_1\le n\Theta$); so $\abs{\tilde X_{\tilde N}-X_N}\le C_{\Delta X}d/\delta^2$. Finally
-$\tilde T-T=\tilde N^\top\Omega_0(\tilde X_{\tilde N}-X_N)+(\tilde N-N)^\top\Omega_0X_N$ and $\abs{X_N}\le C_X/\delta$ (Lemma~\ref{bpI:p2:geometry}, last sentence) give $C_{\Delta T}d/\delta^2$.
-\end{proof}
+\begin{remark}[Frame perturbation: moved to Part~\ref{bpI:p1}]\label{bpI:p2:perturbation}
+The perturbation lemma without \Kref{bp:p2:A5} (items (a)--(e)) is Lemma~\ref{bpI:p1:perturbation-noA5}; all uses of ``Lemma~\ref{bpI:p1:perturbation-noA5}'' below mean that lemma.
+\end{remark}
 
 %----------------------------------------------------------------------------------------------------
 \subsection{The isoenergetic correction}\label{bpI:p2:sec-correction}
@@ -185,7 +149,7 @@ Consequently, with $d:=\hat C_\Delta\varepsilon/(\gamma^2\delta^a)$: $\abs{\Delt
 \end{lemma}
 \begin{proof}
 \proofstep{Hypotheses of the border solve}\label{stepI:p2:co-data}
-$\omega\in\Dio_{\gamma,\tau}$, $\gamma\le\abs\omega\le\Theta$ by \eqref{bpI:p2:freq}. By Lemma~\ref{bpI:p2:geometry}: $H_L=2n\mathfrak m^2\varepsilon$, $H_N=2n\mathfrak m\varepsilon$, $H_T=C_T/\delta$ on $T_{r-\delta}$; $\eta^L,\eta^N,T$ are holomorphic, $1$-periodic, real on reals (\Kref{bp:p2:periodicity}, \Kref{bp:p2:frame-basic}); $\avg{\eta^N}=0$ (Lemma~\ref{bpI:p1:energy-approx}(d)). $Y$ is holomorphic, periodic, real on reals with $\abs Y\le M\sigma_K\sigma_B\le\mathfrak m^3=:H_Y$ (Lemma~\ref{bpI:p1:extended-basic}); $\mathcal T=\avg{\mathsf T_H}$ (same lemma(a)) is invertible with $\abs{\mathcal T^{-1}}\le\sigma_T\le\mathfrak m$ by \ref{bpI:p2:B5}; $\eta^\omega\in\R$ since $\avg{H\circ K}$ is real (Lemma~\ref{bpI:p1:energy-approx}(a)) and $E_0\in\R$; $\abs{\eta^\omega}\le\varepsilon$ by \ref{bpI:p2:B7}.
+$\omega\in\Dio_{\gamma,\tau}$, $\gamma\le\abs\omega\le\Theta$ by \eqref{bpI:p2:freq}. By Lemma~\ref{bpI:p1:geometry-noA5}: $H_L=2n\mathfrak m^2\varepsilon$, $H_N=2n\mathfrak m\varepsilon$, $H_T=C_T/\delta$ on $T_{r-\delta}$; $\eta^L,\eta^N,T$ are holomorphic, $1$-periodic, real on reals (\Kref{bp:p2:periodicity}, \Kref{bp:p2:frame-basic}); $\avg{\eta^N}=0$ (Lemma~\ref{bpI:p1:energy-approx}(d)). $Y$ is holomorphic, periodic, real on reals with $\abs Y\le M\sigma_K\sigma_B\le\mathfrak m^3=:H_Y$ (Lemma~\ref{bpI:p1:extended-basic}); $\mathcal T=\avg{\mathsf T_H}$ (same lemma(a)) is invertible with $\abs{\mathcal T^{-1}}\le\sigma_T\le\mathfrak m$ by \ref{bpI:p2:B5}; $\eta^\omega\in\R$ since $\avg{H\circ K}$ is real (Lemma~\ref{bpI:p1:energy-approx}(a)) and $E_0\in\R$; $\abs{\eta^\omega}\le\varepsilon$ by \ref{bpI:p2:B7}.
 \proofstep{The constants $\xi_0,\xi^\omega$}\label{stepI:p2:co-xi0}
 In $S_*=\sigma\max\{H_L+H_T\Gamma_\delta H_N,\ \abs{\eta^\omega}+H_Y\Gamma_\delta H_N\}$, using $\gamma\delta^j\le\Theta$: first entry $\le2n\mathfrak m(\mathfrak m\Theta+c_RC_T)\varepsilon/(\gamma\delta^{\varkappa+1})$, so $\sigma\cdot$ it $\le C_{\xi_0}\varepsilon/(\gamma\delta^{\varkappa+1})$; second entry $\le(\Theta+2nc_R\mathfrak m^4)\varepsilon/(\gamma\delta^\varkappa)$, so $\sigma\cdot$ it $\le(\mathfrak m\Theta+2nc_R\mathfrak m^5)\varepsilon/(\gamma\delta^{\varkappa+1})$. Hence $S_*\le\hat C_S\varepsilon/(\gamma\delta^{\varkappa+1})$.
 \proofstep{$\xi^N,g^L,\xi^L$}\label{stepI:p2:co-xi}
@@ -216,13 +180,13 @@ Moreover $\bar E^\omega:=\bar E_H(\bar K)-E_0=E^\omega_{\mathrm{lin}}+\avg{\Delt
 \end{lemma}
 \begin{proof}
 \proofstep{Invertibility and domain}\label{stepI:p2:ne-invert}
-As in \Kref{step:p2:ne-invert}, \Kref{step:p2:ne-domain}: $\abs{\Omega_0E_{\mathrm{sym}}}\le\frac12$ (Lemma~\ref{bpI:p2:geometry}), \Kref{bp:p1:neumann} gives $\abs{S^{-1}}\le2$; $QP=S$ (\Kref{bp:p2:frame-identities}(f)) so $Q^{-1}=PS^{-1}$. $\abs{\Delta K}\le d<\beta$ puts $\bar K(\theta)$ in $B_\beta(K(\theta))\subset D$, and the segment $[K,\bar K]$ too.
+As in \Kref{step:p2:ne-invert}, \Kref{step:p2:ne-domain}: $\abs{\Omega_0E_{\mathrm{sym}}}\le\frac12$ (Lemma~\ref{bpI:p1:geometry-noA5}), \Kref{bp:p1:neumann} gives $\abs{S^{-1}}\le2$; $QP=S$ (\Kref{bp:p2:frame-identities}(f)) so $Q^{-1}=PS^{-1}$. $\abs{\Delta K}\le d<\beta$ puts $\bar K(\theta)$ in $B_\beta(K(\theta))\subset D$, and the segment $[K,\bar K]$ too.
 \proofstep{Expansion}\label{stepI:p2:ne-expand}
 On $T_{r-2\delta}$: $\bar E=X_H(K+\Delta K)-(L+D\Delta K)(\omega+\Delta\omega)=E+A\Delta K-\partial_\omega\Delta K-L\Delta\omega+\Delta^2X-D\Delta K\,\Delta\omega$, and $D\Delta K\,\Delta\omega=-\xi^\omega\partial_\omega\Delta K$.
 \proofstep{Reduction by $Q$}\label{stepI:p2:ne-reduce}
 By Lemma~\ref{bpI:p1:reduced}(b), $Q(E+A\Delta K-\partial_\omega\Delta K-L\Delta\omega)=\Lambda\xi-\partial_\omega\xi+\binom\omega0\xi^\omega-\eta+E_{\mathrm{lin}}$, which equals $E_{\mathrm{lin}}$ by the first two equations of Lemma~\ref{bpI:p1:border-solve}(b) (the data are those of the correction). Apply $Q^{-1}=PS^{-1}$; this is \eqref{bpI:p2:newerr}.
 \proofstep{Estimates}\label{stepI:p2:ne-est}
-By Lemmas~\ref{bpI:p2:geometry}, \ref{bpI:p2:correction} on $T_{r-2\delta}$: $\abs{E_{\mathrm{red}}\xi}\le C_{\mathrm{red}}\hat C_\xi\varepsilon^2/(\gamma^2\delta^{a+1})$; $\abs{\Omega_0E_{\mathrm{sym}}\partial_\omega\xi}\le C_{\mathrm{sym}}\hat C_g\varepsilon^2/(\gamma^2\delta^{2\varkappa+3})$ with $2\varkappa+3=a+1$; $\abs{\Omega_K\omega\xi^\omega}\le\Theta C_\Omega\hat C_S\varepsilon^2/(\gamma^2\delta^{2\varkappa+2})\le$ the same with $\delta^{a+1}$. So $\abs{E_{\mathrm{lin}}}\le\hat C_{\mathrm{lin}}\varepsilon^2/(\gamma^2\delta^{a+1})$. By \Kref{bp:p2:hamiltonian}(e), $\abs{\Delta^2X}\le M\abs{\Delta K}^2\le\mathfrak m\hat C_{\Delta K}^2\varepsilon^2/(\gamma^4\delta^{2a})$. Also $\abs{\xi^\omega\partial_\omega\Delta K}\le\hat C_S\hat C_\partial\varepsilon^2/(\gamma^3\delta^{\varkappa+a+2})$. Using $\gamma^2\delta^{a-1}\le\Theta^2$ and $\gamma\delta^{a-\varkappa-2}\le\Theta$ ($a-\varkappa-2=\varkappa\ge0$) to put everything over $\gamma^4\delta^{2a}$, and $\abs P\abs{S^{-1}}\le4\mathfrak m^2$: $\abs{\bar E}\le\hat C_{E1}\varepsilon^2/(\gamma^4\delta^{2a})$.
+By Lemmas~\ref{bpI:p1:geometry-noA5}, \ref{bpI:p2:correction} on $T_{r-2\delta}$: $\abs{E_{\mathrm{red}}\xi}\le C_{\mathrm{red}}\hat C_\xi\varepsilon^2/(\gamma^2\delta^{a+1})$; $\abs{\Omega_0E_{\mathrm{sym}}\partial_\omega\xi}\le C_{\mathrm{sym}}\hat C_g\varepsilon^2/(\gamma^2\delta^{2\varkappa+3})$ with $2\varkappa+3=a+1$; $\abs{\Omega_K\omega\xi^\omega}\le\Theta C_\Omega\hat C_S\varepsilon^2/(\gamma^2\delta^{2\varkappa+2})\le$ the same with $\delta^{a+1}$. So $\abs{E_{\mathrm{lin}}}\le\hat C_{\mathrm{lin}}\varepsilon^2/(\gamma^2\delta^{a+1})$. By \Kref{bp:p2:hamiltonian}(e), $\abs{\Delta^2X}\le M\abs{\Delta K}^2\le\mathfrak m\hat C_{\Delta K}^2\varepsilon^2/(\gamma^4\delta^{2a})$. Also $\abs{\xi^\omega\partial_\omega\Delta K}\le\hat C_S\hat C_\partial\varepsilon^2/(\gamma^3\delta^{\varkappa+a+2})$. Using $\gamma^2\delta^{a-1}\le\Theta^2$ and $\gamma\delta^{a-\varkappa-2}\le\Theta$ ($a-\varkappa-2=\varkappa\ge0$) to put everything over $\gamma^4\delta^{2a}$, and $\abs P\abs{S^{-1}}\le4\mathfrak m^2$: $\abs{\bar E}\le\hat C_{E1}\varepsilon^2/(\gamma^4\delta^{2a})$.
 \proofstep{The energy error}\label{stepI:p2:ne-energy}
 $\bar K$ is real on reals, continuous on $\R^n\subset T_{r-2\delta}$, so $H\circ\bar K$ is integrable. Pointwise on $\R^n$: $H(\bar K)=H(K)+DH(K)\Delta K+\Delta^2H$, so $\bar E^\omega=E^\omega+\avg{DH(K)\Delta K}+\avg{\Delta^2H}$. By Lemma~\ref{bpI:p1:energy-approx}(f) and the third equation of the border system, $\avg{DH(K)\Delta K}=\eta^\omega+E^\omega_{\mathrm{lin}}=-E^\omega+E^\omega_{\mathrm{lin}}$. By \Kref{bp:p1:taylor} ($F=H$ on $U=D$, $\abs{D^2H}\le M$, segment in $D$): $\abs{\Delta^2H}\le\frac M2\abs{\Delta K}^2\le\mathfrak m\hat C_{\Delta K}^2\varepsilon^2/(\gamma^4\delta^{2a})$. By Lemma~\ref{bpI:p1:energy-approx}(f), on $\R^n$: $\abs{D(H\circ K)}\le n\abs{\eta^N}+n\abs\omega\abs{\Omega_K}\le n\Theta(2n\mathfrak m+C_\Omega)\varepsilon/(\gamma\delta^{\varkappa+1})$, and $\abs{\xi^L}\le c_R\hat C_g\varepsilon/(\gamma^2\delta^a)$; the product is $\le\hat C_{E2}\varepsilon^2/(\gamma^4\delta^{2a})$ (using $\gamma\delta^{\varkappa+1}\le\Theta$).
 \end{proof}
@@ -248,7 +212,7 @@ $\avg{\bar{\mathsf T}}:=\avg{\mathsf T_H(\bar K,\bar\omega)}$ is defined, invert
 \end{lemma}
 \begin{proof}
 \proofstep{Frame}\label{stepI:p2:to-frame}
-Apply Lemma~\ref{bpI:p2:perturbation} on $T_{r-2\delta}$ (so $2\delta<r-2\delta$) with $\tilde K=\bar K$, $\abs{\bar K-K}\le d$ on $T_{r-2\delta}$ (Lemma~\ref{bpI:p2:correction}); the smallness holds as $C_{\Delta\mathsf T}\ge C_{\Delta T}$. This gives the stated ball, derivative and Gram-inverse bounds, $\abs{\bar N-N}\le C_{\Delta N}d/\delta$, $\abs{\bar N}\le2\mathfrak m^2$ on $T_{r-3\delta}$ and $\abs{\bar T_\omega-T_\omega}\le C_{\Delta T}d/\delta^2$ on $T_{r-4\delta}$; $\bar N$, $\bar T_\omega$ are holomorphic on $T_{r-3\delta}\supset\R^n$, so $\mathsf T_H(\bar K,\bar\omega)$ is continuous on $\R^n$ and its average is defined (Lemma~\ref{bpI:p1:extended-basic}, applied to $\bar K$ on $T_{r-3\delta}$).
+Apply Lemma~\ref{bpI:p1:perturbation-noA5} on $T_{r-2\delta}$ (so $2\delta<r-2\delta$) with $\tilde K=\bar K$, $\abs{\bar K-K}\le d$ on $T_{r-2\delta}$ (Lemma~\ref{bpI:p2:correction}); the smallness holds as $C_{\Delta\mathsf T}\ge C_{\Delta T}$. This gives the stated ball, derivative and Gram-inverse bounds, $\abs{\bar N-N}\le C_{\Delta N}d/\delta$, $\abs{\bar N}\le2\mathfrak m^2$ on $T_{r-3\delta}$ and $\abs{\bar T_\omega-T_\omega}\le C_{\Delta T}d/\delta^2$ on $T_{r-4\delta}$; $\bar N$, $\bar T_\omega$ are holomorphic on $T_{r-3\delta}\supset\R^n$, so $\mathsf T_H(\bar K,\bar\omega)$ is continuous on $\R^n$ and its average is defined (Lemma~\ref{bpI:p1:extended-basic}, applied to $\bar K$ on $T_{r-3\delta}$).
 \proofstep{Effect of the frequency on the torsion block}\label{stepI:p2:to-omega}
 The torsion entries are $\bar N_i\cdot\Omega_0(\bar A\bar N_j-D\bar N_j\,\omega')$ with $\omega'=\omega$ or $\bar\omega$; so $T_{\bar\omega}(\bar K)-T_\omega(\bar K)=-\bar N^\top\Omega_0\,[D\bar N_j\Delta\omega]_j$. By \Kref{bp:p1:cauchy-corollaries} on $T_{r-3\delta}$ with loss $\delta$, $\abs{\partial_{\Delta\omega}\bar N}\le n\abs{\Delta\omega}\,2\mathfrak m^2/\delta$ on $T_{r-4\delta}$, and $\abs{\bar N^\top}\le4n\mathfrak m^2$; hence the difference has norm $\le8n^2\mathfrak m^4d/\delta$ on $T_{r-4\delta}$ (as $\abs{\Delta\omega}\le d$).
 \proofstep{Effect on the energy row}\label{stepI:p2:to-row}
@@ -281,7 +245,7 @@ $C_{\mathrm{sym}}\varepsilon/(\gamma\delta^{\varkappa+1})\le\Theta^3C_{\mathrm{s
 \proofstep{Correction and errors}\label{stepI:p2:st-error}
 Lemmas~\ref{bpI:p2:correction} (with $2\delta<r$) and~\ref{bpI:p2:newton-error} give (a) ($\bar K(\theta+k)=K(\theta)+(k,0)+\Delta K(\theta)$ by periodicity of $\Delta K$), (b) except the ball, and (c) (note $\hat C_E$ bounds both errors).
 \proofstep{Ball, frame, torsion}\label{stepI:p2:st-frame}
-The ball is Lemma~\ref{bpI:p2:perturbation}(a); (d), (e) are Lemma~\ref{bpI:p2:torsion}.
+The ball is Lemma~\ref{bpI:p1:perturbation-noA5}(a); (d), (e) are Lemma~\ref{bpI:p2:torsion}.
 \end{proof}
 
 %----------------------------------------------------------------------------------------------------

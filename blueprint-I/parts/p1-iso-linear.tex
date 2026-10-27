@@ -123,10 +123,9 @@ Assume~\ref{bpI:p1:setting} with $\det G_K\ne0$ on $T_r$, and put $Y:=DH(K)N$ on
 
 \begin{proof}
 \proofstep{Holomorphy}\label{stepI:p1:eb-holo}
-$N$ is holomorphic on $T_r$ (\Kref{bp:p2:frame-basic}(a)), $K(T_r)\subset D$ and $DH$ is holomorphic on $D$
+\sloppy $N$ is holomorphic on $T_r$ (\Kref{step:p2:fb-holo}, which uses only $K(T_r)\subset D$, $\det G_K\ne0$ and the holomorphic inverse \Kref{bp:p1:holomorphic-inverse}; no bound and no torsion condition enters), and $DH$ is holomorphic on $D$
 (\Kref{bp:p1:holomorphic-regularity}), so $Y=DH\circ K\cdot N$ is a product of holomorphic functions
-(\ref{bpI:p1:ext-chain}). The entries of $T$ and the constant block $\omega$ are holomorphic by
-\Kref{bp:p2:frame-basic}(a). Hence every entry of $\mathsf T_H$ is holomorphic, in particular continuous on $\R^n\subset T_r$.
+(\ref{bpI:p1:ext-chain}). The entries of $T$ and the constant block $\omega$ are holomorphic by the same step. Hence every entry of $\mathsf T_H$ is holomorphic, in particular continuous on $\R^n\subset T_r$.
 
 \proofstep{Periodicity and realness}\label{stepI:p1:eb-period}
 Differentiating $H(\theta+k,I)=H(\theta,I)$ gives $DH(z+(k,0))=DH(z)$ on $D$, and $K(\theta+k)=K(\theta)+(k,0)$;
@@ -158,8 +157,8 @@ $G_K=I_n$, $E_{H,K,\omega}\equiv0$, and for every $\theta\in\C^n$
 \mathsf T_H(\theta)=\mathsf B_h(I)\quad\text{(the real matrix, viewed in }\C^{(n+1)\times(n+1)}),\qquad
 \avg{\mathsf T_H}=\mathsf B_h(I),
 \]
-the frozen \Lean{borderedHessian}. In particular $\det\avg{\mathsf T_H}\ne0$ iff $\det\mathsf B_h(I)\ne0$ and
-$\abs{\avg{\mathsf T_H}^{-1}}=\abs{\mathsf B_h(I)^{-1}}$.
+the frozen \Lean{borderedHessian}. In particular $\det\avg{\mathsf T_H}\ne0$ iff $\det\mathsf B_h(I)\ne0$, and the (total, Lean) inverses of the two matrices correspond under the cast, so
+$\abs{\avg{\mathsf T_H}^{-1}}=\abs{\mathsf B_h(I)^{-1}}$ in both cases.
 \frozen{KAM.Iso.extendedTorsion, KAM.Iso.extendedTorsionAverage, KAM.Iso.borderedHessian}
 \source{ours; HL19 Rem.~3.7, p.~19, and Chi05 p.~17 (determinant $3/L^4$ in the Kepler case). Reading remark:
 Remark~\ref{bpI:p0:head-remarks}(b).}
@@ -197,9 +196,8 @@ $J\mapsto\nabla h(J)_a=\partial_ah(J)$ on $U\cap\R^n$ (Step~\ref{stepI:p1:tr-fie
 this is $\partial_b\partial_ah(I)$ by~\ref{bpI:p1:ext-real-direction}, a real number. So the upper left blocks agree
 (and are symmetric by \Kref{bp:p1:holomorphic-regularity}); the border of $\mathsf B_h(I)$ is $\nabla h(I)$ in the
 last column and row, as found above. Thus $\mathsf T_H(\theta)=\mathsf B_h(I)$ for all $\theta$; the constant has
-average equal to itself since $[0,1]^n$ has volume one. The statements on the determinant and the inverse follow because
-a real matrix and its image in $\C^{(n+1)\times(n+1)}$ have the same determinant and inverse
-(\Kref{bp:p1:real-inverse}) and the same row-sum norm.
+average equal to itself since $[0,1]^n$ has volume one. The statements on the determinant and the inverse follow by cases. If $\det\mathsf B_h(I)\ne0$, a real matrix and its image in $\C^{(n+1)\times(n+1)}$ have the same determinant, and inverses correspond
+(\Kref{bp:p1:real-inverse}); the row-sum norm is unchanged. If $\det\mathsf B_h(I)=0$, the cast has determinant $0$ and both total inverses are the zero matrix, so the inverse norms are both $0$ (the statement is then vacuous for (I8), which requires $\det\ne0$).
 \end{proof}
 
 \begin{remark}[Use]\label{bpI:p1:trivial-use}
@@ -213,7 +211,7 @@ $\sigma_T$ from \Kref{bp:p1:neumann}.
 Assume~\ref{bpI:p1:setting} with $\det G_K\ne0$ on $T_r$ and let $E=E_{H,K,\omega}$, $\eta^L=-N^\top\Omega_0E$ as in
 \Kref{bp:p2:objects}. Then on $T_r$:
 \begin{enumerate}[label=(\alph*)]
-\item $Y=DH(K)N=\omega^\top-(\eta^L)^\top$. In particular $\abs{Y-\omega^\top}\le\abs{\eta^L}$ and, entrywise,
+\item $Y=DH(K)N=\omega^\top-(\eta^L)^\top$. In particular $\abs{Y-\omega^\top}=\sum_b\abs{\eta^L_b}\le n\abs{\eta^L}$ (row-sum norm of a $1\times n$ matrix) and, entrywise,
   $Y_b=\omega_b+N_{\cdot b}^\top\Omega_0E$.
 \item If $E=0$ on $T_r$ (invariant torus), then $Y=\omega^\top$ on $T_r$, so
   \[
@@ -242,15 +240,15 @@ Y=DH(K)N=-(L\omega+E)^\top\Omega_0N=-\omega^\top L^\top\Omega_0N-E^\top\Omega_0N
 \]
 using $L^\top\Omega_0N=-I_n$ (\Kref{bp:p2:frame-identities}(a)). The $b$-th entry of the row $E^\top\Omega_0N$ is the scalar
 $E^\top\Omega_0N_{\cdot b}=N_{\cdot b}^\top\Omega_0^\top E=-N_{\cdot b}^\top\Omega_0E=(\eta^L)_b$. This is (a) and the entrywise form. The row-sum norm of
-the $1\times n$ matrix $(\eta^L)^\top$ is $\sum_b\abs{\eta^L_b}\le n\abs{\eta^L}$, so $\abs{Y-\omega^\top}\le n\abs{\eta^L}$.
+the $1\times n$ matrix $(\eta^L)^\top$ is $\sum_b\abs{\eta^L_b}\le n\abs{\eta^L}$, so $\abs{Y-\omega^\top}=\sum_b\abs{\eta^L_b}\le n\abs{\eta^L}$ (the factor $n$ cannot be dropped: for $H=(\omega-(1,\dots,1))\cdot I$, $K=(\theta,0)$ one has $\eta^L=(1,\dots,1)$ and $\abs{Y-\omega^\top}=n$).
 
 \proofstep{Invariant torus and average}\label{stepI:p1:lr-average}
 (b) is (a) with $\eta^L=0$ (since $E=0$), together with the definition of $\mathsf T_H$
 (Definition~\ref{bpI:p0:extended}) and Lemma~\ref{bpI:p1:extended-basic}(a). For (c): averaging (a) and using linearity,
 $\avg Y=\omega^\top-\avg{\eta^L}^\top$, so the two matrices differ only in the last row, which has norm
 $\le n\abs{\avg{\eta^L}}\le n\sup_{\R^n}\abs{\eta^L}$ (\Kref{bp:p2:averages}(a)), and
-$\abs{\eta^L}\le\abs{N^\top}\abs{\Omega_0}\abs E\le2n\,\abs N\abs E\le2n\,\sigma_K'\sigma_B'\,e$
-(\Kref{bp:p2:frame-basic}(c), with $\abs N\le\abs L\abs B$). Hence the bound $2n^2\sigma_K'\sigma_B'e$.
+$\abs{\eta^L}\le\abs{N^\top}\abs{\Omega_0}\abs E\le2n\,\abs N\abs E\le2n\,\sigma_K'\sigma_B'\,e$ ($\abs{N^\top}\le2n\abs N$)
+(\Kref{bp:p2:matrix}(b), (d), with $\abs N\le\abs L\abs B$). Hence the bound $2n^2\sigma_K'\sigma_B'e$.
 \end{proof}
 
 %----------------------------------------------------------------------------------------------------
@@ -266,14 +264,14 @@ Assume~\ref{bpI:p1:setting} and let $E=E_{H,K,\omega}$, $E^{\mathrm{en}}:=H\circ
 \item $\avg{D(H\circ K)}=0$, $\avg{\Omega_K}=0$ and $\avg{\eta^N}=0$ (the compatibility condition of Lemma~\ref{bpI:p1:border-solve}).
 \item If $\abs E\le\varepsilon$ on $T_r$ and $0<\delta<r$, then $\abs{E^{\mathrm{en}}}\le M\Gamma_\delta\varepsilon$ on $T_{r-\delta}$, and for
   $0<\delta'<r-\delta$, $\abs{D(H\circ K)}\le nM\Gamma_\delta\varepsilon/\delta'$ on $T_{r-\delta-\delta'}$.
-\item (Energy defect.) Let $\det G_K\ne0$ on $T_r$, let $\xi=(\xi^L,\xi^N)$ be holomorphic on a strip $T_{r'}$, $r'\le r$, and
+\item (Energy defect.) Let $\det G_K\ne0$ on $T_r$, let $\xi=(\xi^L,\xi^N)$ be holomorphic on a strip $T_{r'}$ with $0<r'\le r$ (so $\xi$ is continuous on the real cube), and
   $\Delta K=P\xi$. Then on $T_{r'}$
   \[
   DH(K)\,\Delta K=Y\xi^N+D(H\circ K)\,\xi^L=Y\xi^N+(\eta^N)^\top\xi^L-\omega^\top\Omega_K\,\xi^L .
   \]
   Consequently, if $\avg{Y\xi^N}=\eta^\omega$, then $\avg{DH(K)\Delta K}=\eta^\omega+E^\omega_{\mathrm{lin}}$ with
   $E^\omega_{\mathrm{lin}}:=\avg{D(H\circ K)\,\xi^L}$, and
-  $\abs{E^\omega_{\mathrm{lin}}}\le\sup_{\R^n}\abs{D(H\circ K)}\,\sup_{\R^n}\abs{\xi^L}\le n\bigl(\sup\abs{\eta^N}+\abs\omega\sup\abs{\Omega_K}\bigr)\sup\abs{\xi^L}$.
+  $\abs{E^\omega_{\mathrm{lin}}}\le\sup_{[0,1]^n}\abs{D(H\circ K)}\,\sup_{[0,1]^n}\abs{\xi^L}\le n\bigl(\sup_{[0,1]^n}\abs{\eta^N}+\abs\omega\sup_{[0,1]^n}\abs{\Omega_K}\bigr)\sup_{[0,1]^n}\abs{\xi^L}$, all suprema finite by continuity on the compact cube.
 \end{enumerate}
 \frozen{KAM.Iso.energyAverage}
 \source{HL19 Lemma~4.2, (4.3)--(4.5), p.~21, and (4.9) ($\mathfrak L_\omega(c\circ K)=Dc(K)E$, equivalent to (b) with
@@ -300,7 +298,7 @@ the definition of $\eta$ in \Kref{bp:p2:objects}. This is (c).
 \proofstep{Averages}\label{stepI:p1:ea-avg}
 $D(H\circ K)$ has the entries $\partial_{\theta_\ell}(H\circ K)$ of a holomorphic periodic function, so the average vanishes
 (\Kref{bp:p2:averages}(b)); $\avg{\Omega_K}=0$ and $\avg{\eta^N}=0$ are \Kref{bp:p2:exactness}. (Also directly:
-$\avg{\eta^N}=\avg{D(H\circ K)}^\top+\avg{\Omega_K}\omega=0$ by (c).)
+$\avg{\eta^N}=\avg{D(H\circ K)}^\top-\avg{\Omega_K}\omega=0$ by (c).)
 
 \proofstep{The size of the energy fluctuation}\label{stepI:p1:ea-size}
 $E^{\mathrm{en}}$ is holomorphic and $1$-periodic on $T_r$, has zero average, and by (b)
@@ -312,8 +310,8 @@ $\abs{DE^{\mathrm{en}}}=\abs{D(H\circ K)}\le n\Gamma_\delta M\varepsilon/\delta'
 \proofstep{The energy defect}\label{stepI:p1:ea-defect}
 $P=(L\ N)$, so $\Delta K=L\xi^L+N\xi^N$ and $DH(K)\Delta K=DH(K)L\xi^L+DH(K)N\xi^N=D(H\circ K)\xi^L+Y\xi^N$ by (a).
 By (c), $D(H\circ K)=(\eta^N+\Omega_K\omega)^\top=(\eta^N)^\top+\omega^\top\Omega_K^\top=(\eta^N)^\top-\omega^\top\Omega_K$ since
-$\Omega_K^\top=-\Omega_K$ ($\Omega_K=L^\top\Omega_0L$, $\Omega_0^\top=-\Omega_0$). The average of the sum splits linearly.
-For the bound: $\abs{\avg{D(H\circ K)\xi^L}}\le\sup_{\R^n}\abs{D(H\circ K)\xi^L}$ (\Kref{bp:p2:averages}(a)), and
+$\Omega_K^\top=-\Omega_K$ ($\Omega_K=L^\top\Omega_0L$, $\Omega_0^\top=-\Omega_0$). Since $r'>0$, every term is continuous on $[0,1]^n\subset T_{r'}$, hence integrable (\Kref{bp:p1:ext-integral}), and the average of the sum splits linearly.
+For the bound: $\abs{\avg{D(H\circ K)\xi^L}}\le\sup_{[0,1]^n}\abs{D(H\circ K)\xi^L}$ (\Kref{bp:p1:ext-integral}, volume one), and
 $\abs{D(H\circ K)}\le\abs{(\eta^N)^\top}+\abs{\omega^\top\Omega_K}\le n\abs{\eta^N}+n\abs\omega\abs{\Omega_K}$, with
 \Kref{bp:p2:matrix}(a) for transposes (a $1\times n$ row $v^\top$ has $\abs{v^\top}=\sum\abs{v_i}\le n\abs v$).
 \end{proof}
@@ -465,21 +463,23 @@ $\C^{n+1}$ block components, as here. (iv) Uniqueness (d) is not stated in HL19.
 \end{remark}
 
 \begin{lemma}[The linearized isoenergetic equation in the frame]\label{bpI:p1:reduced}
-Assume~\ref{bpI:p1:setting} with $\det G_K\ne0$ on $T_r$ and $\omega\in\R^n$ (any). Let $\xi=(\xi^L,\xi^N)$ be holomorphic on $T_{r'}$, $r'\le r$,
+Assume~\ref{bpI:p1:setting} with $\det G_K\ne0$ on $T_r$ and $\omega\in\R^n$ (any). Let $\xi=(\xi^L,\xi^N)$ be holomorphic on $T_{r'}$, $0<r'\le r$,
 and $\xi^\omega\in\C$; put $\Delta K=P\xi$, $\Delta\omega=-\omega\xi^\omega$. Then on $T_{r'}$:
 \begin{enumerate}[label=(\alph*)]
 \item $QL=\binom{I_n}{-\Omega_K}$, hence $QL\omega\,\xi^\omega=\binom{\omega}{-\Omega_K\omega}\xi^\omega$.
-\item $Q\bigl(A\,\Delta K-\partial_\omega\Delta K-DK\,\Delta\omega\bigr)+QE=\Lambda\xi-\partial_\omega\xi+\binom{\omega}{0}\xi^\omega-\eta+E_{\mathrm{lin}}$, where
+\item (Projected identity, unconditional.) $Q\bigl(A\,\Delta K-\partial_\omega\Delta K-DK\,\Delta\omega\bigr)+QE=\Lambda\xi-\partial_\omega\xi+\binom{\omega}{0}\xi^\omega-\eta+E_{\mathrm{lin}}$, where
   \[
   E_{\mathrm{lin}}:=E_{\mathrm{red}}\xi+\Omega_0E_{\mathrm{sym}}\,\partial_\omega\xi-\binom{0}{\Omega_K\omega}\xi^\omega .
   \]
+\item (Residual.) Put $\mathrm{Res}:=A\Delta K-\partial_\omega\Delta K+L\omega\xi^\omega+E$ (the residual of the linearized equation). If the bordered system
+$\Lambda\xi-\partial_\omega\xi+\binom\omega0\xi^\omega=\eta$ of Lemma~\ref{bpI:p1:border-solve}(b) holds on $T_{r'}$, then $Q\,\mathrm{Res}=E_{\mathrm{lin}}$ there, and
+$\abs{E_{\mathrm{lin}}}\le\abs{E_{\mathrm{red}}}\abs\xi+\abs{E_{\mathrm{sym}}}\abs{\partial_\omega\xi}+\abs{\Omega_K}\abs\omega\abs{\xi^\omega}$.
+\item (Conditional equivalence.) If moreover $\det P\ne0$ on $T_{r'}$ (equivalently $\det Q\ne0$; this holds when $\abs{E_{\mathrm{sym}}}<1$, see the proof, and must be
+proved in the application from its smallness conditions: it does not follow from $\det G_K\ne0$), then $\mathrm{Res}=Q^{-1}E_{\mathrm{lin}}$; and for any $\xi,\xi^\omega$,
+$\mathrm{Res}=0\iff\Lambda\xi-\partial_\omega\xi+\binom\omega0\xi^\omega=\eta-E_{\mathrm{lin}}$.
 \end{enumerate}
-Consequently $A\Delta K-\partial_\omega\Delta K+L\omega\xi^\omega=-E$ holds exactly when the bordered system of
-Lemma~\ref{bpI:p1:border-solve}(b) holds up to $E_{\mathrm{lin}}$, i.e. when $\Lambda\xi-\partial_\omega\xi+\binom{\omega}{0}\xi^\omega=\eta-E_{\mathrm{lin}}$; the data are
-$\eta^L,\eta^N$ of \Kref{bp:p2:objects}, $T$ the torsion, and $Y=DH(K)N$. In particular, with $\xi$ the solution of Lemma~\ref{bpI:p1:border-solve}
-(whose first two equations give $\Lambda\xi-\partial_\omega\xi+\binom\omega0\xi^\omega=\eta$), the residual of the linearized equation is
-$Q^{-1}E_{\mathrm{lin}}$, and $\abs{E_{\mathrm{lin}}}\le\abs{E_{\mathrm{red}}}\abs\xi+\abs{E_{\mathrm{sym}}}\abs{\partial_\omega\xi}+\abs{\Omega_K}\abs\omega\abs{\xi^\omega}$, all quadratic in $(E,\xi)$ by
-\Kref{bp:p2:geometry}.
+The data are $\eta^L,\eta^N$ of \Kref{bp:p2:objects}, $T$ the torsion and $Y=DH(K)N$. The defects are quadratic in the total error only on shrunken strips where the bounds of
+Lemma~\ref{bpI:p1:geometry-noA5} and of Lemma~\ref{bpI:p1:border-solve}(c) hold.
 \source{HL19 (6.4)--(6.5), p.~45, with $\Omega=\Omega_0$, $A=0$ (canonical Case~III); (6.34), p.~49 for $E_{\mathrm{lin}}$. Frame identities:
 \Kref{bp:p2:frame-identities}.}
 \end{lemma}
@@ -496,11 +496,72 @@ $QP=I_{2n}-\Omega_0E_{\mathrm{sym}}$; by (a), $QL\omega\xi^\omega=\binom\omega0\
 $Q(\dots)+QE=(\Lambda+E_{\mathrm{red}})\xi-\partial_\omega\xi+\Omega_0E_{\mathrm{sym}}\partial_\omega\xi+\binom\omega0\xi^\omega-\binom0{\Omega_K\omega}\xi^\omega-\eta$, which is (b).
 
 \proofstep{Consequence}\label{stepI:p1:rd-consequence}
-If the border system holds, (b) gives $Q\,\mathrm{Res}=E_{\mathrm{lin}}$ for the residual $\mathrm{Res}:=A\Delta K-\partial_\omega\Delta K+L\omega\xi^\omega+E$. $Q=-\Omega_0P^\top\Omega_0$ is
+If the border system holds, (b) gives $Q\,\mathrm{Res}=E_{\mathrm{lin}}$ (c). For (d): $Q=-\Omega_0P^\top\Omega_0$ is
 invertible iff $P$ is, and $\det(P)^2\det\Omega_0=\det(P^\top\Omega_0P)=\det(\Omega_0+E_{\mathrm{sym}})\ne0$ when $\abs{E_{\mathrm{sym}}}<1$
-(Neumann series \Kref{bp:p1:neumann} applied to $I-\Omega_0E_{\mathrm{sym}}$, $\abs{\Omega_0E_{\mathrm{sym}}}=\abs{E_{\mathrm{sym}}}$,
-\Kref{bp:p1:matrix-norms}). The bound on $E_{\mathrm{lin}}$ is \Kref{bp:p2:matrix}(b), (c).
+(Neumann series \Kref{bp:p1:neumann} for $I-\Omega_0E_{\mathrm{sym}}$, $\abs{\Omega_0E_{\mathrm{sym}}}=\abs{E_{\mathrm{sym}}}$, \Kref{bp:p1:matrix-norms}). With $Q$ invertible,
+(b) reads $Q\,\mathrm{Res}=[\Lambda\xi-\partial_\omega\xi+\binom\omega0\xi^\omega-\eta]+E_{\mathrm{lin}}$ for every $\xi,\xi^\omega$, which gives both claims of (d). Without invertibility of $Q$
+multiplying by $Q$ loses information (a primary real torus with $\det G_K\ne0$ and singular $P$, $Q$ at a real angle exists). The bound on $E_{\mathrm{lin}}$ is \Kref{bp:p2:matrix}(b), (c).
 \end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Geometry and frame perturbation without the torsion hypothesis}\label{bpI:p1:sec-geometry}
+
+Track~K's Lemmas~\Kref{bp:p2:geometry} and~\Kref{bp:p2:perturbation} are stated for $(r,\beta,\varepsilon)$-admissible tori, which
+include \Kref{bp:p2:A5}: invertibility of the \emph{unbordered} averaged torsion $\avg T$. In the isoenergetic setting only the
+\emph{bordered} matrix $\avg{\mathsf T_H}$ is assumed invertible; $\avg T$ may be singular. The two lemmas below restate the
+conclusions of K's lemmas that do not involve $\avg T$, under explicit hypotheses without any torsion condition, and prove them from
+the cited K tools (the torsion hypothesis of K is used there only for its item~(f)). They are cited by Part~\ref{bpI:p2} and
+\emph{replace} the K labels everywhere in the isoenergetic scheme. The regularity facts of \Kref{bp:p2:frame-basic}(a)--(d) used in the
+proofs need only \Kref{bp:p2:A2}--\Kref{bp:p2:A4} (and \Kref{bp:p2:A6} for (c)); no condition on any torsion average occurs there.
+
+\begin{lemma}[Geometry of an approximately invariant torus, without \Kref{bp:p2:A5}]\label{bpI:p1:geometry-noA5}
+Let $\omega\in\Dio_{\gamma,\tau}$, $0<\delta\le1$, $2\delta<r$, $0\le\varepsilon\le1$, and let $K$ be holomorphic, primary and real on reals on $T_r$ with $B_\beta(K(\theta))\subset D$, $\abs{DK}\le\sigma_K$, $\det G_K\ne0$, $\abs B\le\sigma_B$ and $\abs{E_{H,K,\omega}}\le\varepsilon$ on $T_r$
+(for some $\beta>0$; no condition on any torsion average, bordered or not; $\mathfrak m,\Theta,C_*$ are the constants of \Kref{bp:p2:constants}, depending on $(n,\tau,M,\sigma_K,\sigma_B,\sigma_T)$, with $\sigma_T$ entering only through $\mathfrak m=\max\{1,M,\sigma_K,\sigma_B,\sigma_T\}$). Then the conclusions of \Kref{bp:p2:geometry} hold:
+$\abs{DE}\le n\varepsilon/\delta$, $\abs{\partial_\omega\Omega_K}\le 2n(n+1)\mathfrak m\varepsilon/\delta$, $\abs{E_{\mathrm{red}}}\le C_{\mathrm{red}}\varepsilon/\delta$ on $T_{r-\delta}$, and
+$\abs{\Omega_K}\le C_\Omega\varepsilon/(\gamma\delta^{\varkappa+1})$, $\abs{E_{\mathrm{sym}}}\le C_{\mathrm{sym}}\varepsilon/(\gamma\delta^{\varkappa+1})$ on $T_{r-2\delta}$.
+Also, on $T_r$: $\abs{\eta^L}\le2n\mathfrak m^2\varepsilon$, $\abs{\eta^N}\le2n\mathfrak m\varepsilon$ and $\abs L\le\mathfrak m$, $\abs B\le\mathfrak m$, $\abs N\le\mathfrak m^2$, $\abs P\le2\mathfrak m^2$; and if $\abs\omega\le\Theta$, then $\abs{X_N}\le C_X/\delta$, $\abs T\le C_T/\delta$ on $T_{r-\delta}$.
+\source{HL19 Lemmas~4.3, 4.6, 4.10, pp.~22--30, as in
+\Kref{bp:p2:geometry};
+ours (restated without the torsion hypothesis).}
+\end{lemma}
+\begin{proof}
+\sloppy The last sentence is \Kref{bp:p2:frame-basic}(b)--(d), whose hypotheses are \Kref{bp:p2:A2}--\Kref{bp:p2:A4} (and \Kref{bp:p2:A6} for (c)); they contain no torsion condition.
+\proofstep{Derivatives of the error}\label{stepI:p1:geo-de}\sloppy
+$E$ is holomorphic with $\abs E\le\varepsilon$ on $T_r$ (\Kref{bp:p2:frame-basic}(a)); \Kref{bp:p1:cauchy-strip} gives $\abs{DE}\le n\varepsilon/\delta$ on $T_{r-\delta}$.
+\proofstep{$\partial_\omega\Omega_K$ and $E_{\mathrm{red}}$}\label{stepI:p1:geo-red}
+By \Kref{bp:p2:frame-identities}(d), (e), \Kref{bp:p2:matrix} and \Kref{bp:p2:frame-basic}(b), as in \Kref{step:p2:geo-domegak}, \Kref{step:p2:geo-ered}:
+$\abs{\partial_\omega\Omega_K}\le(2n\mathfrak m+2n^2\mathfrak m)\varepsilon/\delta$ and $\abs{E_{\mathrm{red}}}\le C_{\mathrm{red}}\varepsilon/\delta$ on $T_{r-\delta}$.
+\proofstep{Lagrangian defect and symplecticity defect}\label{stepI:p1:geo-sym}
+$\Omega_K$ is holomorphic, $1$-periodic on $T_{r-\delta}$ with $\avg{\Omega_K}=0$ (\Kref{bp:p2:exactness}; $K$ primary). \Kref{bp:p2:cohomological}(b) on $T_{r-\delta}$ with loss $\delta<r-\delta$ gives the bound of $\Omega_K$ on $T_{r-2\delta}$, and $\abs{E_{\mathrm{sym}}}\le\mathfrak m^2\abs{\Omega_K}$ by \Kref{bp:p2:frame-identities}(b).
+\end{proof}
+
+
+\begin{lemma}[Perturbation of the frame, without \Kref{bp:p2:A5}]\label{bpI:p1:perturbation-noA5}
+Let $r>0$, $0<\delta\le1$, $2\delta<r$, $\abs\omega\le\Theta$, $\omega\in\R^n$. Let $K$ be holomorphic on $T_r$ with $B_\beta(K(\theta))\subset D$, $\abs{DK}\le\sigma_K$, $\det G\ne0$, $\abs B\le\sigma_B$ on $T_r$.
+Let $\tilde K$ be holomorphic on $T_r$ with $\abs{\tilde K-K}\le d$ on $T_r$, where $d<\beta$ and $2\mathfrak mC_{\Delta T}\,d/\delta^2\le1$. Then (a)--(e) of \Kref{bp:p2:perturbation} hold:
+\begin{enumerate}[label=(\alph*)]
+\item $B_{\beta-d}(\tilde K(\theta))\subset D$ on $T_r$ and $\abs{\tilde A-A}\le\mathfrak md$;
+\item $\abs{D\tilde K-DK}\le nd/\delta$ on $T_{r-\delta}$;
+\item $\det\tilde G\ne0$, $\abs{\tilde B}\le2\mathfrak m$, $\abs{\tilde B-B}\le C_Bd/\delta$ on $T_{r-\delta}$;
+\item $\abs{\tilde N-N}\le C_{\Delta N}d/\delta$, $\abs{\tilde N}\le2\mathfrak m^2$, $\abs{\tilde N^\top}\le4n\mathfrak m^2$ on $T_{r-\delta}$;
+\item $\abs{\tilde T-T}\le C_{\Delta T}d/\delta^2$ on $T_{r-2\delta}$ (here $\tilde T$ is the torsion of $\tilde K$ for the same $\omega$).
+\end{enumerate}
+\source{HL19 Lemma~5.2, Steps~3--7, pp.~36--42, as in \Kref{bp:p2:perturbation}; the torsion hypothesis there is used only for its item (f).}
+\end{lemma}
+\begin{proof}
+\proofstep{Smallness}\label{stepI:p1:pt-small}
+From the definitions of \Kref{bp:p2:constants}, $C_{\Delta T}\ge\max\{n,C_G,C_{\Delta N}\}$ (\Kref{step:p2:pt-small}, pure arithmetic on constants). With $d/\delta\le d/\delta^2\le1/(2\mathfrak mC_{\Delta T})$:
+$nd/\delta\le\mathfrak m$, $\mathfrak mC_Gd/\delta\le\frac12$, $C_{\Delta N}d/\delta\le\mathfrak m^2$, $\mathfrak mC_{\Delta T}d/\delta^2\le\frac12$.
+\proofstep{Domain}\label{stepI:p1:pt-domain}
+$\abs{z-\tilde K(\theta)}<\beta-d$ implies $\abs{z-K(\theta)}<\beta$, so $z\in D$; the segment $[K,\tilde K]$ lies in $B_\beta(K(\theta))\subset D$, and \Kref{bp:p2:hamiltonian}(e) gives $\abs{\tilde A-A}\le Md\le\mathfrak md$.
+\proofstep{Frame}\label{stepI:p1:pt-frame}
+\Kref{bp:p1:cauchy-strip}, \Kref{bp:p1:cauchy-corollaries} ($p=2n$) on $\tilde K-K$: $\abs{\tilde L-L}\le nd/\delta$, $\abs{(\tilde L-L)^\top}\le2nd/\delta$ on $T_{r-\delta}$; so $\abs{\tilde L}\le2\mathfrak m$, $\abs{\tilde L^\top}\le4n\mathfrak m$. Then $\tilde G-G=\tilde L^\top(\tilde L-L)+(\tilde L-L)^\top L$ has norm $\le C_Gd/\delta$, $\abs B\abs{\tilde G-G}\le\frac12$, and \Kref{bp:p1:neumann} gives $\tilde G$ invertible, $\abs{\tilde B}\le2\mathfrak m$, $\abs{\tilde B-B}\le C_Bd/\delta$ (Gram invertibility before any use of $\tilde N$, $\tilde T$: Remark~\ref{bpI:p0:totality}(T2)).
+\proofstep{Normal frame and torsion}\label{stepI:p1:pt-torsion}
+$\tilde N-N=\Omega_0\bigl((\tilde L-L)\tilde B+L(\tilde B-B)\bigr)$ gives (d). On $T_{r-2\delta}$,
+$\tilde X_{\tilde N}-X_N=(\tilde A-A)\tilde N+A(\tilde N-N)-\partial_\omega(\tilde N-N)$, with the first two terms $\le2\mathfrak m^3d+\mathfrak mC_{\Delta N}d/\delta$ and the third $\le n\Theta C_{\Delta N}d/\delta^2$ (\Kref{bp:p1:cauchy-corollaries} with $\abs\omega_1\le n\Theta$); so $\abs{\tilde X_{\tilde N}-X_N}\le C_{\Delta X}d/\delta^2$. Finally
+$\tilde T-T=\tilde N^\top\Omega_0(\tilde X_{\tilde N}-X_N)+(\tilde N-N)^\top\Omega_0X_N$ and $\abs{X_N}\le C_X/\delta$ (Lemma~\ref{bpI:p1:geometry-noA5}, last sentence) give $C_{\Delta T}d/\delta^2$.
+\end{proof}
+
 
 %----------------------------------------------------------------------------------------------------
 \subsection{Suspected errata and sign checks}\label{bpI:p1:sec-errata}
@@ -531,6 +592,6 @@ Other points checked and found consistent (no erratum): (6.7)--(6.10), p.~46, wi
 None of the frozen statements used in this part looks false. Two reading points. (a) The frozen $\mathsf B_h$ uses the real derivative of $\operatorname{Re}h$ via
 \Lean{frequencyMap}; Lemma~\ref{bpI:p1:trivial} identifies it with the complex Hessian of $h$ only under ``$h$ real on the real points of a neighbourhood of $I$'',
 which I-HEAD assumes on all of $B_{r_0}$; without that hypothesis $\mathsf T_h$ and $\mathsf B_h$ can differ by the imaginary part. (b) The frozen last row of $\mathsf T_H$ is
-$DH(K)N$, not $\omega^\top$ (Definition~\ref{bpI:p0:extended}); Lemma~\ref{bpI:p1:last-row} shows the difference is $(\eta^L)^\top=O(e)$, so the two readings give the same I-G1 up to the
-choice of $\sigma_T$.
+$DH(K)N$, not $\omega^\top$ (Definition~\ref{bpI:p0:extended}); Lemma~\ref{bpI:p1:last-row} shows the difference is $(\eta^L)^\top=O(e)$, so the bordered matrices with the frozen row and with the invariant row are perturbatively comparable once a Neumann bound
+(\Kref{bp:p1:neumann}) and the associated smallness and margin conditions are proved; this is not automatic, because $\sigma_T$ is fixed before the error in I-G1. The frozen row $DH(K)N$ is retained throughout.
 \end{remark}

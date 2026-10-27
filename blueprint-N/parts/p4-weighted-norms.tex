@@ -1,0 +1,202 @@
+\section{Weighted Fourier norms and Cauchy estimates (shared by tracks N, P, K)}\label{bpN:p4}
+\providecommand{\wn}[3]{\lvert #1\rvert_{#2,#3}}
+\providecommand{\Dom}[2]{\mathcal D_{#1,#2}}
+\providecommand{\Os}[2]{\mathcal O(#1,#2)}
+\begingroup\sloppy
+
+This part is Appendix~B and Appendix~C of P\"oschel~1993 (pp.~213--215) in the frozen conventions. It is shared infrastructure: track~P
+(averaging, two-scale KAM) cites its results as \Nref{bpN:p4:\dots}. The statements are therefore made for functions $u(\theta,I)$ with
+$\theta\in\T^n$ and $I$ in a neighbourhood of an \emph{arbitrary} set $D\subset\C^m$, with $m$ independent of $n$; only the Poisson bracket
+(Lemma~\ref{bpN:p4:bracket}) needs $m=n$. All norms on $\R^N$, $\C^N$ are max norms; no Euclidean norm occurs in this part.
+
+\paragraph{Normalisation.} Angles have period $1$, characters are $\chi_k(\theta)=e^{2\pi ik\cdot\theta}$, and the strip width $s$ is the
+\emph{geometric} width, $T_s=\{\theta\in\C^n:\abs{\operatorname{Im}\theta}_\infty<s\}$ (\Kref{bp:p0:domains}); the weight is $e^{2\pi\abs k_1s}$, that is, the
+coefficient radius is $2\pi s$ as in \texttt{docs/fourier-conventions.md}. With this choice every formula of P\"oschel's Appendix~B
+holds \emph{verbatim}, with no factor $2\pi$ (Remark~\ref{bpN:p4:dictionary}); for the $\theta$-derivative the factor $2\pi$ of $\partial_{\theta_j}\chi_k=2\pi ik_j\chi_k$ is
+absorbed by the weight. Widths are $r$ (actions) and $s$ (angles); the \emph{losses} are $\rho$ (actions) and $\sigma$ (angles), as in P\"oschel's
+$(\rho,\sigma)$. (The brief's $\abs u_{D,r,\sigma}$ is $\abs u_{D,r,s}$ here.)
+
+
+\subsection{External facts}\label{bpN:p4:s-ext}
+Besides \Kref{bp:p1:ext-cauchy}, \Kref{bp:p1:ext-integral}, \Kref{bp:p1:ext-fourier}, \Kref{bp:p1:ext-mvt}, the proofs use:
+\begin{enumerate}[label=(E\arabic*),leftmargin=2.2em]
+\item\label{bpN:p4:ext-param} \emph{Holomorphic dependence on a parameter.} Let $Q\subset\R^p$ be a compact box, $U\subset\C^q$ open, $G:Q\times U\to\C^d$ continuous,
+  holomorphic in $I\in U$ for each $x\in Q$, with $D_IG$ continuous on $Q\times U$. Then $g(I)=\int_QG(x,I)\,dx$ is holomorphic on $U$ and $Dg(I)=\int_QD_IG(x,I)\,dx$.
+  (Mathlib: \Lean{hasFDerivAt\_integral\_of\_dominated\_of\_fderiv\_le} with a bound on a compact polydisc.) Exists.
+\item\label{bpN:p4:ext-weier} \emph{Uniform limits.} If $K_j$ are holomorphic on an open $U\subset\C^q$ and $K_j\to K$ uniformly on $U$, then $K$ is holomorphic on $U$, and $DK_j\to DK$ uniformly on
+  $\{z:\bar P(z,\eta)\subset U\}$ for each $\eta>0$ (the derivatives by Lemma~\ref{bpN:p4:general-cauchy} applied to $K_j-K_l$; holomorphy by \Kref{bp:p1:uniform-limits}). Exists in this form modulo that lemma.
+\item\label{bpN:p4:ext-series} \emph{Series and integrals.} Tonelli for nonnegative double series and for integrals of nonnegative functions; the Cauchy product of two absolutely convergent series;
+  termwise integration of a uniformly convergent series over a box (\Kref{bp:p1:ext-integral}). Exists.
+\end{enumerate}
+
+\subsection{Domains, function class, norm}\label{bpN:p4:s-def}
+
+\begin{definition}[Domains]\label{bpN:p4:domains}
+Let $m,n\ge0$, $D\subset\C^m$ any subset, $r,s>0$. Put $V_rD=\{I\in\C^m:\exists I'\in D,\ \abs{I-I'}_\infty<r\}$ and
+$\Dom rs=T_s\times V_rD\subset\C^n\times\C^m$ (P\"oschel's $V_{r,s}$). For $z=(\theta,I)$ let $\bar P(z;a,b)=\{(\theta',I'):\abs{\theta'-\theta}_\infty\le a,\abs{I'-I}_\infty\le b\}$.
+Then: (a) $V_rD$ and $\Dom rs$ are open, and $\Dom{r'}{s'}\subset\Dom rs$ if $r'\le r$, $s'\le s$. (b) If $0<r'<r$, $0<s'<s$ and $z\in\Dom{r'}{s'}$, then $\bar P(z;s-s',r-r')\subset\Dom rs$.
+\source{Pos93 p.~213 (``analytic on complex neighbourhoods of a fixed domain $D\times\T^n$''); ours (max norms).}
+\end{definition}
+\begin{proof}
+\proofstep{Openness and monotonicity}\label{stepN:p4:dom-open} $V_rD=\bigcup_{I'\in D}P(I',r)$ is a union of open polydiscs, and $T_s$ is open; monotonicity is clear.
+
+\proofstep{Polydisc}\label{stepN:p4:dom-poly} Let $\abs{\theta'-\theta}_\infty\le s-s'$ and $\abs{I'-I}_\infty\le r-r'$. Then $\abs{\operatorname{Im}\theta'_j}\le\abs{\operatorname{Im}\theta_j}+s-s'<s$; and
+with $I_0\in D$, $\abs{I-I_0}<r'$: $\abs{I'-I_0}<r'+(r-r')=r$.
+\end{proof}
+
+\begin{definition}[The class $\Os rs$ and the weighted norm]\label{bpN:p4:norm}
+$\Os rs$ is the set of $u:\Dom rs\to\C$ that are holomorphic (complex differentiable on the open set $\Dom rs\subset\C^{n+m}$) and $1$-periodic in each $\theta_j$. For $u\in\Os rs$ and $k\in\Z^n$,
+$I\in V_rD$, put
+\[\hat u_k(I)=\int_{[0,1]^n}u(x,I)\,e^{-2\pi ik\cdot x}\,dx,\qquad \wn uIs=\sum_{k\in\Z^n}\abs{\hat u_k(I)}\,e^{2\pi\abs k_1s},\qquad \wn urs=\sup_{I\in V_rD}\wn uIs\in[0,\infty].\]
+(This is $\abs u_{D,r,s}$; the integrand is continuous because $\R^n\subset T_s$.) For a vector- or matrix-valued $u=(u_a)_a$ (components in $\Os rs$) the coefficients are taken
+componentwise and $\abs{\hat u_k}_\infty=\max_a\abs{\hat u_{a,k}}$ replaces $\abs{\hat u_k}$ in $\wn uIs$. If $\wn urs<\infty$ we say $u$ has \emph{finite norm}.
+\source{Pos93 p.~213 (definition of $\abs u_{I,s}$, $\abs u_{r,s}$), in the frozen convention of \texttt{docs/fourier-conventions.md} (``Bridge to strip sup norms'': weight $e^{2\pi\abs k_1s}$).}
+\end{definition}
+Monotonicity: $\wn u{r'}{s'}\le\wn urs$ for $r'\le r$, $s'\le s$ (restriction to $\Dom{r'}{s'}$; the coefficients at $I\in V_{r'}D$ are unchanged). For a vector, $\max_a\wn{u_a}rs\le\wn urs\le\sum_a\wn{u_a}rs$.
+
+\begin{lemma}[Coefficients, derivatives, series]\label{bpN:p4:coefficients}
+Let $u\in\Os rs$.
+\begin{enumerate}[label=(\alph*)]
+\item Each $\hat u_k$ is holomorphic on $V_rD$.
+\item $\partial_{\theta_j}u,\ \partial_{I_i}u\in\Os rs$, $\widehat{(\partial_{\theta_j}u)}_k=2\pi ik_j\hat u_k$, and $\widehat{(\partial_{I_i}u)}_k=\partial_{I_i}\hat u_k$.
+\item (Series) Let $a_k:V_rD\to\C$ ($k\in\Z^n$) be holomorphic with $S:=\sup_{I\in V_rD}\sum_k\abs{a_k(I)}e^{2\pi\abs k_1s}<\infty$. Then $v=\sum_ka_k\chi_k$ converges absolutely and uniformly on $\Dom r{s'}$ for each $s'<s$, $v\in\Os rs$,
+  $\hat v_k=a_k$ and $\wn vrs=S$.
+\item (Representation) If $\wn urs<\infty$ then $u(\theta,I)=\sum_k\hat u_k(I)\chi_k(\theta)$ on $\Dom rs$, and $\abs{\hat u_k(I)}e^{2\pi\abs k_1s}\le\wn urs$.
+\end{enumerate}
+\source{Standard; the one-variable ingredients are \Kref{bp:p1:fourier-basic}, \Kref{bp:p1:summation}.}
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepN:p4:co-holo} Fix $I_0\in V_rD$ and $\eta>0$ with $\bar P(I_0,\eta)\subset V_rD$. The integrand $G(x,I)=u(x,I)e^{-2\pi ik\cdot x}$ is continuous on $[0,1]^n\times P(I_0,\eta)$, holomorphic in $I$, and
+$D_IG$ is continuous there, because $Du$ is holomorphic (\Kref{bp:p1:holomorphic-regularity}) hence continuous. \ref{bpN:p4:ext-param} gives holomorphy of $\hat u_k$ near $I_0$.
+
+\proofstep{(b)}\label{stepN:p4:co-deriv} The derivatives are holomorphic (\Kref{bp:p1:holomorphic-regularity}) and periodic (differentiate the identity $u(\theta+e_j,I)=u(\theta,I)$). The formula for $\theta_j$ is \Kref{bp:p1:fourier-basic}(a) at fixed $I$
+(the restriction of $u(\cdot,I)$ to $\R^n$ is continuous, periodic and $C^1$). The formula for $I_i$ is the derivative formula of \ref{bpN:p4:ext-param} as in Step~\ref{stepN:p4:co-holo}.
+
+\proofstep{(c)}\label{stepN:p4:co-series} Each hypothesis $\abs{a_k(I)}e^{2\pi\abs k_1s}\le S$ gives, on $\Dom r{s'}$, $\abs{a_k(I)\chi_k(\theta)}\le\abs{a_k(I)}e^{2\pi\abs k_1s'}\le Se^{-2\pi\abs k_1(s-s')}$, which is summable
+(\Kref{bp:p1:exp-sums}(b)). By the Weierstrass test the series converges uniformly on $\Dom r{s'}$, and each term is holomorphic, so $v$ is holomorphic there (\ref{bpN:p4:ext-weier}); as $s'<s$ is arbitrary, $v$ is holomorphic on $\Dom rs$.
+It is periodic since each $\chi_k$ is. Integrating termwise (\ref{bpN:p4:ext-series}) against $\chi_{-k}$ over $[0,1]^n$ gives $\hat v_k=a_k$ (as in the coefficient step of \Kref{bp:p1:summation}); the norm identity is then the definition.
+
+\proofstep{(d)}\label{stepN:p4:co-repr} The bound is a single term of the sum $\wn uIs\le\wn urs$. Fix $I$. The function $v=\sum_k\hat u_k(I)\chi_k$ is holomorphic and $1$-periodic on $T_s$ with coefficients $\hat u_k(I)$ (\Kref{bp:p1:summation}, first part), and
+$u(\cdot,I)-v$ is holomorphic, $1$-periodic, with all coefficients zero, so $u(\cdot,I)=v$ by \Kref{bp:p1:fourier-basic}(c).
+\end{proof}
+
+\subsection{Lemma B.1: sup norm versus weighted norm}\label{bpN:p4:s-b1}
+
+\begin{lemma}[B.1]\label{bpN:p4:sup-weighted}
+Let $u\in\Os rs$ (scalar, vector or matrix valued; $\sup\abs u$ is the sup of the max norm of the values).
+\begin{enumerate}[label=(\alph*)]
+\item $\sup_{\Dom rs}\abs u\le\wn urs$.
+\item If $\sigma>0$ and $\abs u\le M$ on $\Dom r{s+\sigma}$ (so $u\in\Os r{s+\sigma}$), then $\wn urs\le\coth(\pi\sigma)^n M$.
+\end{enumerate}
+In P\"oschel's form: $\abs u^{\sup}_{r,s}\le\abs u_{r,s}\le\coth^n\!\sigma_P\,\abs u^{\sup}_{r,s+2\sigma_P}$ with $\sigma_P=\pi\sigma$ (the coefficient radius grows by $2\sigma_P=2\pi\sigma$); see Remark~\ref{bpN:p4:dictionary}.
+\source{Pos93 p.~213, Lemma~B.1; frozen-convention form: \Kref{bp:p1:summation}, \Kref{bp:p1:decay}, \Kref{bp:p1:exp-sums}(b); this is Lemma~\ref{bpN:p1:norm-convert} with the $I$-dependence made explicit.}
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepN:p4:b1-a} If $\wn urs=\infty$ there is nothing to prove. Otherwise Lemma~\ref{bpN:p4:coefficients}(d) gives, for $(\theta,I)\in\Dom rs$, $\abs{u(\theta,I)}\le\sum_k\abs{\hat u_k(I)}\abs{\chi_k(\theta)}\le\sum_k\abs{\hat u_k(I)}e^{2\pi\abs k_1s}$,
+using $\abs{\chi_k(\theta)}\le e^{2\pi\abs k_1\abs{\operatorname{Im}\theta}_\infty}$ (\Kref{bp:p0:domains}). For vector values apply this to each component and note $\abs{\hat u_{a,k}}\le\abs{\hat u_k}_\infty$.
+
+\proofstep{(b)}\label{stepN:p4:b1-b} Fix $I\in V_rD$. The function $u(\cdot,I)$ is holomorphic, periodic and bounded by $M$ on $T_{s+\sigma}$, so \Kref{bp:p1:decay} gives $\abs{\hat u_k(I)}_\infty\le e^{-2\pi\abs k_1(s+\sigma)}M$ (limit $\rho'\uparrow s+\sigma$), and
+\[\wn uIs\le M\sum_ke^{-2\pi\abs k_1\sigma}=\coth(\pi\sigma)^nM\qquad(\Kref{bp:p1:exp-sums}(b),\ x=2\pi\sigma).\]
+Take the supremum over $I$.
+\end{proof}
+
+\subsection{Lemma B.2: algebra property}\label{bpN:p4:s-b2}
+
+\begin{lemma}[B.2]\label{bpN:p4:algebra}
+Let $u,v\in\Os rs$ be scalar with finite norms. Then $uv\in\Os rs$, $\widehat{(uv)}_k(I)=\sum_l\hat u_{k-l}(I)\hat v_l(I)$ (absolutely convergent), and $\wn{uv}Is\le\wn uIs\,\wn vIs$ for every $I\in V_rD$; hence
+$\wn{uv}rs\le\wn urs\wn vrs$, and $\wn{u^j}rs\le\wn urs^j$.
+\source{Pos93 p.~213, Lemma~B.2. (The coefficient-level inequality is proved in Lean: \texttt{docs/fourier-conventions.md}, ``Verified coefficient multiplication'', \texttt{KAM/Fourier/Convolution.lean}; its identification with the product of functions is the remaining bridge.)}
+\end{lemma}
+\begin{proof}
+\proofstep{Product is in the class}\label{stepN:p4:b2-class} $uv$ is holomorphic and periodic.
+
+\proofstep{Coefficients}\label{stepN:p4:b2-coeff} Fix $I$. By Lemma~\ref{bpN:p4:coefficients}(d), at real $x$, $u(x,I)=\sum_k\hat u_k\chi_k(x)$ and $v(x,I)=\sum_l\hat v_l\chi_l(x)$, both absolutely convergent (\ref{bpN:p4:ext-series}). The Cauchy product gives
+$u(x,I)v(x,I)=\sum_kc_k\chi_k(x)$ with $c_k=\sum_l\hat u_{k-l}\hat v_l$, and $\sum_k\abs{c_k}\le\wn uI0\wn vI0<\infty$, so the convergence is uniform in $x$ and termwise integration gives $\widehat{(uv)}_k(I)=c_k$.
+
+\proofstep{Norm}\label{stepN:p4:b2-norm} Since $\abs k_1\le\abs{k-l}_1+\abs l_1$,
+$\wn{uv}Is=\sum_k\abs{c_k}e^{2\pi\abs k_1s}\le\sum_k\sum_l\abs{\hat u_{k-l}}e^{2\pi\abs{k-l}_1s}\abs{\hat v_l}e^{2\pi\abs l_1s}=\wn uIs\wn vIs$ (Tonelli, with the bijection $(k,l)\mapsto(k-l,l)$). Take the supremum over $I$; induct for $u^j$.
+\end{proof}
+
+\subsection{Lemma B.3: Cauchy estimates in the weighted norm}\label{bpN:p4:s-b3}
+
+\begin{lemma}[B.3]\label{bpN:p4:cauchy}
+Let $u\in\Os{r_0}{s_0}$ have finite norm, $0<r<r_0$, $0<s<s_0$. Then
+\begin{enumerate}[label=(\alph*)]
+\item $\displaystyle\sum_{j=1}^n\wn{\partial_{\theta_j}u}{r_0}{s}\le\frac1{e(s_0-s)}\wn u{r_0}{s_0}$;
+\item $\displaystyle\max_{1\le i\le m}\wn{\partial_{I_i}u}{r}{s_0}\le\frac1{r_0-r}\wn u{r_0}{s_0}$.
+\end{enumerate}
+In particular (taking $r_0=r+\rho$, $s_0=s+\sigma$): $\sum_j\wn{\partial_{\theta_j}u}{r}{s-\sigma}\le(e\sigma)^{-1}\wn urs$ and $\max_i\wn{\partial_{I_i}u}{r-\rho}{s}\le\rho^{-1}\wn urs$ for $0<\sigma<s$, $0<\rho<r$. The same holds for vector- and matrix-valued $u$,
+componentwise.
+\source{Pos93 pp.~213--214, Lemma~B.3 (with $s$ geometric; P\"oschel's $1/(e\sigma)$ is the same number, Remark~\ref{bpN:p4:dictionary}).}
+\end{lemma}
+\begin{proof}
+\proofstep{(a): coefficients}\label{stepN:p4:b3-a} Fix $I\in V_{r_0}D$. By Lemma~\ref{bpN:p4:coefficients}(b), $\sum_j\wn{\partial_{\theta_j}u}I{s}=\sum_k\sum_j2\pi\abs{k_j}\abs{\hat u_k}e^{2\pi\abs k_1s}=\sum_k2\pi\abs k_1e^{-2\pi\abs k_1(s_0-s)}\abs{\hat u_k}e^{2\pi\abs k_1s_0}$.
+By \Kref{bp:p1:exp-sums}(a) with $\tau=1$, $a=2\pi(s_0-s)$: $2\pi\abs k_1e^{-2\pi\abs k_1(s_0-s)}\le2\pi/(e\cdot2\pi(s_0-s))$. Hence the sum is $\le(e(s_0-s))^{-1}\wn uI{s_0}$; take the supremum over $I$.
+
+\proofstep{(b): Cauchy integral}\label{stepN:p4:b3-b} Fix $I\in V_rD$, $i$, and put $\rho'=r_0-r$. For $\abs\zeta\le\rho'$ the point $I+\zeta e_i$ lies in $V_{r_0}D$: if $I_0\in D$ with $\abs{I-I_0}<r$ then $\abs{I+\zeta e_i-I_0}<r+\rho'=r_0$.
+By Lemma~\ref{bpN:p4:coefficients}(a),(b) and \Kref{bp:p1:ext-cauchy}, $\partial_{I_i}\hat u_k(I)=\frac1{2\pi i}\oint_{\abs\zeta=\rho'}\hat u_k(I+\zeta e_i)\zeta^{-2}\,d\zeta$, so
+$\abs{\partial_{I_i}\hat u_k(I)}\le\frac1{2\pi}\oint\abs{\hat u_k(I+\zeta e_i)}\rho'^{-2}\abs{d\zeta}$. Multiply by $e^{2\pi\abs k_1s_0}$, sum over $k$ and use Tonelli (\ref{bpN:p4:ext-series}):
+$\wn{\partial_{I_i}u}I{s_0}\le\frac1{2\pi}\oint\rho'^{-2}\wn u{I+\zeta e_i}{s_0}\abs{d\zeta}\le\rho'^{-1}\wn u{r_0}{s_0}$.
+The vector case is componentwise, the matrix case likewise.
+\end{proof}
+
+\subsection{Lemma B.4: the Poisson bracket}\label{bpN:p4:s-b4}
+
+For $m=n$ and $u,v$ holomorphic on an open subset of $\C^n\times\C^n$, $\{u,v\}=\sum_{i=1}^n\bigl(\partial_{\theta_i}u\,\partial_{I_i}v-\partial_{I_i}u\,\partial_{\theta_i}v\bigr)$ (Definition~\ref{bpN:p5:setting}; $\{u,v\}=Du\cdot X_v$ for the frozen field $X_v=(\partial_Iv,-\partial_\theta v)$).
+
+\begin{lemma}[B.4]\label{bpN:p4:bracket}
+Let $m=n$, $u\in\Os{r_0}{s_0}$, $v\in\Os rs$ with finite norms, $0<\rho<r$, $0<\sigma<s$, $r-\rho<r_0$, $s-\sigma<s_0$. Then $\{u,v\}\in\Os{r-\rho}{s-\sigma}$ and
+\[\wn{\{u,v\}}{r-\rho}{s-\sigma}\le\frac1e\Bigl(\frac1{(r_0-r+\rho)\,\sigma}+\frac1{(s_0-s+\sigma)\,\rho}\Bigr)\wn u{r_0}{s_0}\wn vrs.\]
+\source{Pos93 p.~214, Lemma~B.4 (same formula, with P\"oschel's $(r_0,s_0,r,s,\rho,\sigma)$ read as our geometric quantities).}
+\end{lemma}
+\begin{proof}
+Write $\{u,v\}=\sum_i\partial_{\theta_i}u\,\partial_{I_i}v-\sum_i\partial_{I_i}u\,\partial_{\theta_i}v$, all terms restricted to $\Dom{r-\rho}{s-\sigma}\subset\Dom{r_0}{s_0}\cap\Dom rs$ (monotonicity).
+
+\proofstep{Four derivative bounds}\label{stepN:p4:b4-four} By Lemma~\ref{bpN:p4:cauchy} and monotonicity of the norm in both widths:
+$\sum_i\wn{\partial_{\theta_i}u}{r-\rho}{s-\sigma}\le\frac{\wn u{r_0}{s_0}}{e(s_0-s+\sigma)}$ ((a) with $s\to s-\sigma$, $r_0\to r_0$);
+$\max_i\wn{\partial_{I_i}u}{r-\rho}{s-\sigma}\le\frac{\wn u{r_0}{s_0}}{r_0-r+\rho}$ ((b) with $r\to r-\rho$);
+$\sum_i\wn{\partial_{\theta_i}v}{r-\rho}{s-\sigma}\le\frac{\wn vrs}{e\sigma}$ and $\max_i\wn{\partial_{I_i}v}{r-\rho}{s-\sigma}\le\frac{\wn vrs}\rho$.
+
+\proofstep{Products}\label{stepN:p4:b4-prod} By Lemma~\ref{bpN:p4:algebra} and the triangle inequality for $\wn\cdot{I}{s-\sigma}$ (coefficients of a sum are sums),
+$\wn{\{u,v\}}{r-\rho}{s-\sigma}\le\sum_i\wn{\partial_{\theta_i}u}{}{}\wn{\partial_{I_i}v}{}{}+\sum_i\wn{\partial_{I_i}u}{}{}\wn{\partial_{\theta_i}v}{}{}$
+$\le\bigl(\sum_i\wn{\partial_{\theta_i}u}{}{}\bigr)\max_i\wn{\partial_{I_i}v}{}{}+\max_i\wn{\partial_{I_i}u}{}{}\bigl(\sum_i\wn{\partial_{\theta_i}v}{}{}\bigr)$, and inserting the four bounds gives the claim.
+\end{proof}
+
+\subsection{Lemma C.1: the general Cauchy inequality}\label{bpN:p4:s-c1}
+
+\begin{lemma}[C.1]\label{bpN:p4:general-cauchy}
+Let $A,B$ be finite-dimensional complex normed spaces, $v\in A$, $R>0$, and $G:P_A(v,R)=\{a:\abs{a-v}_A<R\}\to B$ holomorphic with $\abs G_B\le M$ on this ball. Then the operator norm satisfies $\abs{DG(v)}_{B,A}\le M/R$.
+\source{Pos93 p.~215, Lemma~C.1 (``analytic maps of Banach spaces''; only the finite-dimensional case is needed).}
+\end{lemma}
+\begin{proof}
+\proofstep{Reduction to one variable}\label{stepN:p4:c1-line} Let $u\in A$, $u\ne0$. $f(\zeta)=G(v+\zeta u)$ is holomorphic on $\abs\zeta<R/\abs u_A$ with $\abs f\le M$ and $f'(0)=DG(v)u$.
+
+\proofstep{Cauchy}\label{stepN:p4:c1-cauchy} For every $\varrho<R/\abs u_A$, \Kref{bp:p1:ext-cauchy} gives $\abs{f'(0)}\le M/\varrho$; let $\varrho\uparrow R/\abs u_A$: $\abs{DG(v)u}_B\le M\abs u_A/R$.
+\end{proof}
+This also gives \ref{bpN:p4:ext-weier}'s derivative statement: apply it to $K_j-K_l$ on the ball of radius $\eta$.
+
+\subsection{Projections and truncation}\label{bpN:p4:s-proj}
+
+\begin{lemma}[$P_S$, $T_K$, averages]\label{bpN:p4:projections}
+Let $u\in\Os rs$ have finite norm and $S\subset\Z^n$. Put $P_Su=\sum_{k\in S}\hat u_k\chi_k$. Then $P_Su\in\Os rs$, $\widehat{(P_Su)}_k=\hat u_k$ for $k\in S$ and $0$ otherwise, and
+$\wn{P_Su}{r}{s}\le\wn urs$. In particular, for $K\ge0$ the truncation $T_Ku=P_{\{\abs k_1\le K\}}u$ (a trigonometric polynomial in $\theta$) and the average $\avg u(I)=\hat u_0(I)=P_{\{0\}}u$ (independent of $\theta$) satisfy $\wn{T_Ku}rs\le\wn urs$, $\wn{\avg u}rs\le\wn urs$, and
+\[u-T_Ku=P_{\{\abs k_1>K\}}u,\qquad \wn{u-T_Ku}{r}{s-\sigma}\le e^{-2\pi K\sigma}\wn urs\qquad(0<\sigma<s).\]
+If $\Lambda\subset\Z^n$ is any set (e.g.\ a lattice, Pos93 p.~192) and $u$ is said to be in $\Lambda$-normal form when $u=P_\Lambda u$, then $P_\Lambda u,\ u-P_\Lambda u$ are in the class with norms $\le\wn urs$. For vector-valued $u$ everything is componentwise.
+\source{Pos93 p.~192 (definition of $T_K$, $P_\Lambda$) and p.~212 (``$\abs{f-T_Kf}_{r,s-\sigma}\le e^{-K\sigma}\abs f_{r,s}$''), geometric form.}
+\end{lemma}
+\begin{proof}
+\proofstep{Class and coefficients}\label{stepN:p4:pr-class} The coefficient family $a_k=\hat u_k\mathbf 1_S(k)$ consists of holomorphic functions (Lemma~\ref{bpN:p4:coefficients}(a)) with $\sup_I\sum_k\abs{a_k}e^{2\pi\abs k_1s}\le\wn urs<\infty$; Lemma~\ref{bpN:p4:coefficients}(c) gives all claims including $\wn{P_Su}rs\le\wn urs$.
+
+\proofstep{Tail}\label{stepN:p4:pr-tail} For $\abs k_1>K$: $e^{2\pi\abs k_1(s-\sigma)}=e^{-2\pi\abs k_1\sigma}e^{2\pi\abs k_1s}\le e^{-2\pi K\sigma}e^{2\pi\abs k_1s}$. Sum over $k$ with $\abs k_1>K$ and take the supremum over $I$. Also $u=\sum_k\hat u_k\chi_k$ (Lemma~\ref{bpN:p4:coefficients}(d)) gives $u-T_Ku=P_{\{\abs k_1>K\}}u$.
+\end{proof}
+
+\begin{remark}[Dictionary with P\"oschel's normalisation and with Part~1]\label{bpN:p4:dictionary}
+P\"oschel works with $2\pi$-periodic angles $\varphi$, characters $e^{ik\cdot\varphi}$, weight $e^{\abs k_1s_P}$ and losses $(\rho_P,\sigma_P)$.
+Under the symplectic scaling $\varphi=2\pi\theta$, $I_P=I/2\pi$ (so $d\varphi\wedge dI_P=d\theta\wedge dI$; time and the values of Hamiltonians are unchanged) his objects become ours with
+$s_P=2\pi s$, $\sigma_P=2\pi\sigma$, $r_P=r/2\pi$, $\rho_P=\rho/2\pi$. Then $e^{\abs k_1s_P}=e^{2\pi\abs k_1s}$ and $\rho_P\sigma_P=\rho\sigma$; the quantities in which Lemmas~B.3--B.5 and the Iterative Lemma are written
+(for instance $\abs\phi/(\rho\sigma)$ and the norm $\abs{W\cdot}$) are therefore the same numbers. The conversion of Part~1, $\tilde H=2\pi H(\varphi/2\pi,I)$ with $I$ unchanged (Lemma~\ref{bpN:p1:period-convert}), gives the same
+smallness ratio: $\tilde\phi/(\rho\sigma_P)=2\pi\phi/(\rho\cdot2\pi\sigma)=\phi/(\rho\sigma)$. So a condition ``$\abs\phi<\rho\sigma/2$'' means the same in all three conventions, and the $2\pi$-conversion does not affect the constants of the Iterative Lemma
+beyond the scalings of Lemma~\ref{bpN:p1:period-convert}(b) (that bookkeeping is Part~6's).
+Where \texttt{docs/fourier-conventions.md} writes the derivative loss as $2\pi/(e\delta)$ for coefficient radius $s$, Lemma~\ref{bpN:p4:cauchy}(a) is the same statement for the geometric width: a coefficient-radius loss $\delta=2\pi\sigma$ gives $2\pi/(e\cdot2\pi\sigma)=1/(e\sigma)$.
+\end{remark}
+\endgroup
