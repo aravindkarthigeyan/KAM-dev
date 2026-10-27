@@ -1,0 +1,2 @@
+# The HQ history log only ever gains lines; merge both sides.
+docs/campaign/history.csv merge=union
