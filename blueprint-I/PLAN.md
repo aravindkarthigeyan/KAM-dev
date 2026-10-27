@@ -19,6 +19,8 @@ Page counts are estimates (K's blueprint: 59 pages for 5 theorems). Total propos
   equation on a complex neighbourhood (p7, cited by P as `\Iref{bpI:p7:*}`), and collision exclusion from a compact
   safe region (p8.2, stated generally so that P can cite it).
 
+- Apply `reviews/p0-review-1.md` findings I04 (p8: choose a larger safe action domain containing the closure of the initial annulus; no uniform margin inside the open annulus), I05 (p3: fix tau = 2, or any tau > 1, for the confinement application; do not claim density at tau = 1), I06 (p6: keep kappa, Omega; kappa' = kappa (2 pi)^2, Omega' = Omega/(2 pi)), I07 (all "p4" items are `\Nref{bpN:p3:*}`; comparison intervals arbitrary connected).
+
 ## Source facts checked while planning (pages read)
 
 * HL19 Thm 3.6, (3.13)-(3.16), H4', H5', Rem. 3.7: pp. 18-19. Proof: Sect. 6, pp. 45-53 (Lemma 6.1 pp. 46-47, Lemma 6.2

@@ -18,8 +18,8 @@ which constants are chosen exactly as in Lean. Results of track~K's blueprint ar
   (operator norm of a $\C$-linear map, \Lean{fderiv}), and of $\norm{D^2H}$ (norm of the bilinear map
   \Lean{iteratedFDeriv}). A row-sum bound $\sum_j\abs{M_{ij}}\le c$ for every $i$ is written $\abs M\le c$.
   The norm of a complex number is its modulus.
-\item The strip $T_\rho=\{\theta\in\C^n:\abs{\operatorname{Im}\theta_i}<\rho\ \forall i\}$ is open; it contains
-  $\R^n$ and is invariant under $\Z^n$ and $\R^n$ translations. The set $\Lean{Set.pi}\ \mathrm{univ}\
+\item The strip $T_\rho=\{\theta\in\C^n:\abs{\operatorname{Im}\theta_i}<\rho\ \forall i\}$ is open; for $\rho>0$ it contains
+  $\R^n$, and it is invariant under $\Z^n$ and $\R^n$ translations. The set $\Lean{Set.pi}\ \mathrm{univ}\
   (\Lean{Icc}\ 0\ 1)=[0,1]^n$ carries Lebesgue measure, of total mass one; $\avg u=\int_{[0,1]^n}u(\theta)\,d\theta$
   for a function evaluated at real angles. Averages of vectors or matrices are entrywise.
 \item A map is \emph{holomorphic on an open set $U$} if it is \Lean{DifferentiableOn}~$\C$ there. On an open
@@ -193,9 +193,8 @@ guarded facts before using the defining formulas.
 \item \emph{Inverses in I-G1.} The Gram matrix inverse is used only under the hypothesis $\det G_K(\theta)\in\C^\times$
   on $T_\rho$, and the inverse of the averaged extended torsion only under $\det\avg{\mathsf T_H}\in\C^\times$. Then
   $N_K$ is genuine and holomorphic on $T_\rho$ (by the holomorphic inverse, \Kref{bp:p1:holomorphic-inverse}),
-  so $DN_{\cdot j}$ and $T$ are genuine. For the conclusion, invertibility of the Gram determinant for $K_\infty$ must
-  be proved (it is not a hypothesis on $K_\infty$) before $E_{H,K_\infty,s_\infty\omega^*}$ is used; but note that
-  $E=0$ and $H\circ K_\infty=E_0$ use only $DK_\infty$ and $X_H$, not the frame.
+  so $DN_{\cdot j}$ and $T$ are genuine. Gram invertibility must be proved before using a normal frame or torsion for $K_\infty$; no such fact is
+  needed to interpret the frozen final invariance error or energy equality, which use only $DK_\infty$ and $X_H$.
 \item \emph{Integrals in I-G1.} The cube $[0,1]^n\subset\R^n\subset T_\rho$ is compact, $\rho>0$, and the integrands
   $H\circ K$ and the entries of $\mathsf T_H$ are continuous on it by (T1)--(T2), hence integrable
   (\Kref{bp:p1:ext-integral}). Integrability is not a hypothesis; it must be proved.
@@ -257,9 +256,11 @@ read $0<0$); the energy conclusion is pointwise.}
 (a) The frequency of the approximate torus is $\omega=s\omega^*$ on the open ray $\Theta=\{s'\omega^*:1<s'<\sigma_\omega\}$.
 The Diophantine condition is imposed on $\omega^*$, hence (by homogeneity of $k\mapsto k\cdot\omega$) $s'\omega^*$ is
 nonresonant for every $s'>0$, with constant $\gamma s'$.
-(b) $\nu$ enters only through (I9) and through the choice of $C_1,C_2,C_3$; it measures the distance of $s$ to
-$\partial\{1<s'<\sigma_\omega\}$ in the metric of $\R^n$ (HL19 H$_5'$: $\operatorname{dist}(\omega,\partial\Theta)>0$ made quantitative,
-$\operatorname{dist}(s\omega^*,\partial\Theta)\ge\nu$).
+(b) $\nu$ enters only through (I9) and through the choice of $C_1,C_2,C_3$; it measures the distance of $s\omega^*$ to the
+two \emph{endpoints} $\omega^*$ and $\sigma_\omega\omega^*$ of the segment $\Theta$, i.e.\ $\min(s-1,\sigma_\omega-s)\abs{\omega^*}\ge\nu$
+(HL19 H$_5'$, $\operatorname{dist}(\omega,\partial\Theta)>0$, made quantitative, with $\partial\Theta$ the boundary \emph{relative to the line}
+$\R\omega^*$; for $n\ge2$ the boundary of $\Theta$ in $\R^n$ is all of $\bar\Theta$, so the ambient reading would be vacuous).
+The frozen Lean states the two endpoint inequalities explicitly.
 (c) Taking $e=0$ gives the exact-torus case; then (I13) holds for every $C_1$, and (O5), (O6) force $K_\infty=K$ on $T_{\rho_\infty}$ and $s_\infty=s$.
 (d) The row-sum bound in (I7)--(I8) is the max-norm operator norm on $\C^n$, $\C^{n+1}$ respectively.
 \end{remark}
