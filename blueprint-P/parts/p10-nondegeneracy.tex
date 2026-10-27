@@ -1,0 +1,275 @@
+\section{Nondegeneracy of the planetary frequency data}\label{bpP:p10}
+\begingroup\sloppy
+
+Parts~8--9 produced the real analytic symmetric matrix $Q_h(a)$ of the secular quadratic form, its eigenvalues $\sigma_j$ (the frozen $\Omega_j=2\sigma_j$), and the single analytic function $\Phi_4$ of the axes whose non-vanishing means \emph{simple spectrum and non-resonance up to order four} (Definition~\ref{bpP:p9:good}). This part proves that these objects are non-degenerate in the two senses the downstream parts need, and states the result in their exact form.
+\begin{itemize}
+\item \texttt{good-set} (Theorem~\ref{bpP:p10:good-point}, Corollary~\ref{bpP:p10:good-set}, Lemma~\ref{bpP:p10:generic}): $\Phi_4\not\equiv0$ on the connected domain $\{0<a_1<\dots<a_n\}$, by exhibiting points in the hierarchical regime $a_1\ll a_2\ll\dots\ll a_n$; hence the good set is open, dense and of full measure, and every neighbourhood of every prescribed axis vector contains a ball of good axes. Only the local holomorphy of the Laplace coefficients is used; no analytic continuation of the eigenvalues, no universal cover (Fej04r Lemma~76 is false, Remark~\ref{bpP:p8:no76});
+\item \texttt{asymptotics} (Lemma~\ref{bpP:p10:laplace-bounds}, Corollary~\ref{bpP:p10:formula69}, Lemma~\ref{bpP:p10:peel}): Fej04r Formula~69 with explicit remainders, and the exact structure of $Q_h$ when the innermost axis tends to $0$;
+\item \texttt{r-nondegenerate} (Theorem~\ref{bpP:p10:F-nonzero}, Theorem~\ref{bpP:p10:rnd}): the frequency map $a\mapsto(\nu(a),2\sigma(a))\in\R^{2n}$ is R\"ussmann-nondegenerate (CP09 Def.~1) on \emph{every} connected open set of simple spectrum, for every $n\ge2$. The proof is the symmetric-product argument (a polynomial in the characteristic coefficients, single valued and analytic on the convex domain of axes) plus the peeling induction on $n$ that Fej04r Prop.~77 only sketches (a source gap, Theorem~\ref{bpP:p10:F-nonzero});
+\item \texttt{index-amount} (Lemma~\ref{bpP:p10:finite-type}, Corollary~\ref{bpP:p10:cp09-lemma1}, Lemma~\ref{bpP:p10:stability}, Theorem~\ref{bpP:p10:interface}): the index and amount of nondegeneracy on a compact patch in the exact form of CP09 Lemma~1/(2)--(3), and the interface statement for Parts~11a, 12, 13.
+\end{itemize}
+The quartic torsion (the frozen matrix $\beta$) is not treated here (Part~11b).
+
+\subsection{Conventions and external facts}\label{bpP:p10:conv}
+
+Fix $n\ge2$, $G,m_0>0$, $\kappa=Gm_0$, $m\in(0,\infty)^n$ as in Part~8, and write
+\[\mathcal A_n=\{a\in\R^n:\ 0<a_1<\dots<a_n\}\]
+(planet $1$ innermost, the Lean order). $\mathcal A_n$ is an \emph{open convex} cone (finitely many strict linear inequalities), hence connected. The data $\Lambda_i(a)=m_i\sqrt{\kappa a_i}$, $a_i=\Lambda_i^2/(m_i^2\kappa)$ define a real analytic diffeomorphism $a\mapsto\Lambda(a)$ of $\mathcal A_n$ onto an open set $\mathcal A_n^\Lambda\subset\R^n$ (the frozen action variable $I=\Lambda$, Part~8, \S\ref{bpP:p8:conv}), with real analytic inverse. The fast frequencies are
+\[\nu_i(a)=\frac{\kappa^2m_i^3}{\Lambda_i^3}=\kappa^{1/2}a_i^{-3/2}\qquad(i=1,\dots,n)\]
+(Theorem~\ref{bpP:p7:product-chart}(b); they do not depend on the masses when expressed in the axes). $Q_h(a)\in\operatorname{Sym}_n$ is the matrix of Definition~\ref{bpP:p8:coeffs} (real analytic in $a$, Lemma~\ref{bpP:p8:laplace}); $\sigma_1(a)\le\dots\le\sigma_n(a)$ are its eigenvalues \emph{sorted increasingly, with multiplicity}. Recall $\sigma_j<0$ for all $j$ (Proposition~\ref{bpP:p9:definite}). With $\mathcal D$, $K_4$, $\operatorname{NR}_4$, $\Phi_4$ as in Definition~\ref{bpP:p9:good} put
+\[\mathcal U_n=\{a\in\mathcal A_n:\ \mathcal D(\sigma(a))\ne0\},\qquad\mathcal G_n=\{a\in\mathcal A_n:\ \Phi_4(a)\ne0\}\subset\mathcal U_n .\]
+$\mathcal D(\sigma(a))$ is continuous (symmetric polynomial in the characteristic coefficients), so $\mathcal U_n$ and $\mathcal G_n$ are open. For vectors, $\lvert x\rvert$ is the Euclidean norm, $\lvert x\rvert_\infty$ the max norm; $\lVert M\rVert\le\lVert M\rVert_F$ as in \S\ref{bpP:p9:conv}. Frozen conventions: all statements here are about the axes $a$ or the actions $\Lambda$ (no angles occur); the passage between CP's $2\pi$-angles and the period-one frequency $w=\omega/2\pi$ is a positive rescaling of the frequency components, which preserves every statement below (R\"ussmann nondegeneracy and index/amount up to a constant factor, Remark~\ref{bpP:p10:scaling}).
+
+\emph{External facts} (those of Part~9 are reused by label).
+\begin{enumerate}[label=(F\arabic*),ref=(F\arabic*)]
+\item\label{bpP:p10:f-id} \emph{Identity theorem and integral domain.} Identity theorem \ref{bpP:p9:e-id}: a real analytic function on a connected open set $\mathcal O$ that vanishes on a nonempty open subset vanishes identically. Mathlib: \texttt{AnalyticOnNhd.eqOn\_zero\_of\_preconnected\_of\_eventuallyEq\_zero}. If all derivatives of a real analytic function vanish at a point it vanishes on a ball (the Taylor series converges to the function), hence identically on $\mathcal O$.
+\item\label{bpP:p10:f-fts} Fundamental theorem of symmetric polynomials \ref{bpP:p9:e-fts}, here over the coefficient ring $\R[X]$ (it holds over every commutative ring): a symmetric polynomial in $\sigma_1,\dots,\sigma_n$ with coefficients in $\R[X]$ is a polynomial in $e_1(\sigma),\dots,e_n(\sigma)$ with coefficients in $\R[X]$.
+\item\label{bpP:p10:f-spec} Spectral theorem and charpoly \ref{bpP:p9:e-spec}; local analytic eigenvalues \ref{bpP:p9:e-ift}, Proposition~\ref{bpP:p9:local-analytic}.
+\item\label{bpP:p10:f-pol} \emph{Polarization.} A symmetric $\nu$-linear form $T$ on $\R^N$ is zero iff $a\mapsto T(a,\dots,a)$ is zero iff $\max_{\lvert a\rvert=1}\lvert T(a,\dots,a)\rvert=0$. (Not found in Mathlib in this form; the classical identity $T(a_1,\dots,a_\nu)=\frac1{\nu!2^\nu}\sum_{\epsilon\in\{\pm1\}^\nu}\epsilon_1\cdots\epsilon_\nu T(s_\epsilon,\dots,s_\epsilon)$, $s_\epsilon=\sum\epsilon_ia_i$.)
+\item\label{bpP:p10:f-leib} Leibniz formula for the symmetric tensor derivative of a product: $\partial^\nu(fg)(y)(a,\dots,a)=\sum_{k=0}^\nu\binom\nu k\,\partial^kf(y)(a^k)\,\partial^{\nu-k}g(y)(a^{\nu-k})$.
+\end{enumerate}
+
+\begin{lemma}[Finitely many analytic conditions]\label{bpP:p10:generic}
+Let $\mathcal O\subset\R^N$ be open and connected and $g_1,\dots,g_r:\mathcal O\to\R$ real analytic and $\not\equiv0$. Then $g=g_1\cdots g_r\not\equiv0$, and $\{g\ne0\}$ is open, dense in $\mathcal O$ and has full Lebesgue measure in $\mathcal O$. In particular, if $g_1=\Phi_4$ and $g_2,\dots,g_r$ are further analytic functions of the axes (for instance the torsion determinant of Part~11b) that do not vanish identically on $\mathcal A_n$, the set where all of them are nonzero is open, dense and of full measure in $\mathcal A_n$.
+\end{lemma}
+\begin{proof}
+\proofstep{Product}\label{stepP:p10:gen-prod} For $r=2$: $\{g_1\ne0\}$ is open; if $g_1g_2\equiv0$ then $g_2=0$ on it. A nonempty open set on which $g_2$ vanishes forces $g_2\equiv0$ (\ref{bpP:p10:f-id}); so $\{g_1\ne0\}=\emptyset$, i.e.\ $g_1\equiv0$, a contradiction ($\{g_1\ne0\}$ is nonempty). Induct on $r$.
+\proofstep{Zero set}\label{stepP:p10:gen-zero} By Proposition~\ref{bpP:p9:good-set}(c)/\ref{bpP:p9:e-id}, the zero set of a not identically zero analytic function on a connected open set is closed with empty interior and null.
+\end{proof}
+
+\begin{lemma}[Weyl's inequality]\label{bpP:p10:weyl}
+Let $A,E\in\operatorname{Sym}_n$ and let $\lambda_1(M)\le\dots\le\lambda_n(M)$ be the sorted eigenvalues of $M\in\operatorname{Sym}_n$. Then $\lvert\lambda_l(A+E)-\lambda_l(A)\rvert\le\lVert E\rVert$ for every $l$. In particular the sorted eigenvalues are continuous (indeed $1$-Lipschitz for the operator norm) functions of the matrix.
+\end{lemma}
+\begin{proof}
+\proofstep{Min--max}\label{stepP:p10:weyl-mm} $\lambda_l(M)=\min_{\dim V=l}\max_{x\in V,\lvert x\rvert=1}x^\top Mx$. ($\le$: take $V=\operatorname{span}(v_1,\dots,v_l)$, $v_j$ an orthonormal eigenbasis (\ref{bpP:p9:e-spec}), $x^\top Mx=\sum\lambda_jx_j^2\le\lambda_l$. $\ge$: any $l$-dimensional $V$ meets $\operatorname{span}(v_l,\dots,v_n)$ of dimension $n-l+1$ in a unit vector $x$, and $x^\top Mx\ge\lambda_l$.) Mathlib has the spectral theorem but, to our knowledge, no Courant--Fischer; this is the only place it is needed.
+\proofstep{Perturbation}\label{stepP:p10:weyl-pert} $\lvert x^\top(A+E)x-x^\top Ax\rvert\le\lVert E\rVert$ for unit $x$, so the min--max values differ by at most $\lVert E\rVert$.
+\end{proof}
+
+\begin{lemma}[Sorted eigenvalues are analytic where the spectrum is simple]\label{bpP:p10:sorted-analytic}
+On $\mathcal U_n$ the sorted eigenvalues $\sigma_1<\dots<\sigma_n$ are real analytic functions of $a$. Moreover $\mathcal U_2=\mathcal A_2$.
+\end{lemma}
+\begin{proof}
+\proofstep{Local branches}\label{stepP:p10:sa-loc} For $a^0\in\mathcal U_n$ Proposition~\ref{bpP:p9:local-analytic} gives a ball and analytic $\tilde\sigma_1<\dots<\tilde\sigma_n$ on it which are \emph{all} the eigenvalues of $Q_h(a)$; hence $\tilde\sigma_j=\sigma_j$ (sorted). \proofstep{$n=2$}\label{stepP:p10:sa-n2} Corollary~\ref{bpP:p9:n2}: the discriminant is positive on all of $\mathcal A_2$.
+\end{proof}
+
+\subsection{Laplace coefficients and the secular matrix as the innermost axis tends to $0$}\label{bpP:p10:sec-asym}
+
+\begin{lemma}[Laplace coefficients $b_{3/2}^{(1)},b_{3/2}^{(2)}$ for small argument]\label{bpP:p10:laplace-bounds}
+For $k\in\{1,2\}$ and $0\le\alpha\le\tfrac12$, with $t_1=\tfrac32$, $t_2=\tfrac{15}8$,
+\[t_k\alpha^k\ \le\ b_{3/2}^{(k)}(\alpha)\ \le\ t_k\alpha^k(1+4\alpha^2).\]
+\source{Fej04r Formule~69, p.~52 (the asymptotics $C_1=-\frac1{a_j}\big(\frac34(a_k/a_j)^2+O((a_k/a_j)^4)\big)$, $C_2=O((a_k/a_j)^3)/a_j$ as $a_k/a_j\to0$, asserted without proof; the corresponding statements for $b^{(1)}_{3/2},b^{(2)}_{3/2}$ are proved here from the series).}
+\end{lemma}
+\begin{proof}
+\proofstep{Series}\label{stepP:p10:lb-series} By Lemma~\ref{bpP:p8:laplace}, $b_{3/2}^{(k)}(\alpha)=\sum_{q\ge0}T_q$, $T_q=\frac{(3/2)_{q+k}(3/2)_q}{(q+k)!\,q!}\alpha^{2q+k}\ge0$. The first term is $T_0=\frac{(3/2)_k}{k!}\alpha^k=t_k\alpha^k$ ($\tfrac32$ and $\tfrac32\cdot\tfrac52/2$).
+\proofstep{Ratio}\label{stepP:p10:lb-ratio} $T_{q+1}/T_q=\frac{(q+k+3/2)(q+3/2)}{(q+k+1)(q+1)}\alpha^2$. For $k\ge1$ the first factor is $1+\frac1{2(q+k+1)}\le\frac54$ and the second $1+\frac1{2(q+1)}\le\frac32$, so $T_{q+1}\le\frac{15}8\alpha^2T_q\le2\alpha^2T_q$.
+\proofstep{Tail}\label{stepP:p10:lb-tail} $\sum_{q\ge1}T_q\le T_0\frac{2\alpha^2}{1-2\alpha^2}\le4\alpha^2T_0$ since $2\alpha^2\le\frac12$.
+\end{proof}
+
+\begin{corollary}[Formula 69 with remainders]\label{bpP:p10:formula69}
+For $i<j$ and $\alpha=a_i/a_j\le\frac12$, with $\mathfrak a_{ij},\mathfrak b_{ij}$ of Definition~\ref{bpP:p8:coeffs},
+\[\mathfrak a_{ij}=\frac38\,\frac{Gm_im_j\,\alpha^2}{a_j}(1+\theta),\quad\mathfrak b_{ij}=\frac{15}{32}\,\frac{Gm_im_j\,\alpha^3}{a_j}(1+\theta'),\qquad0\le\theta,\theta'\le4\alpha^2 .\]
+In particular $\mathfrak a_{ij}\le\frac34Gm_im_ja_i^2a_j^{-3}$ and $\mathfrak b_{ij}\le\frac{15}{16}Gm_im_ja_i^3a_j^{-4}$.
+\source{Fej04r Formule~69, p.~52, in the normalisation of Remark~\ref{bpP:p8:factor-half}: Fej04r's $C_1,C_2$ are $-2\mathfrak a/(Gm_im_j)$, $+2\mathfrak b/(Gm_im_j)$ (inner/outer exchanged), so $\frac34\alpha^2/a_j$ there is $\frac38\alpha^2/a_j$ here; $C_0$ is not needed.}
+\end{corollary}
+\begin{proof}
+$\mathfrak a_{ij}=\frac{Gm_im_ja_i}{4a_j^2}b^{(1)}_{3/2}(\alpha)=\frac{Gm_im_j\alpha}{4a_j}b^{(1)}_{3/2}$ and similarly $\mathfrak b_{ij}$; insert Lemma~\ref{bpP:p10:laplace-bounds} and $1+4\alpha^2\le2$.
+\end{proof}
+
+\begin{lemma}[Peeling the innermost planet]\label{bpP:p10:peel}
+Let $n\ge2$, $\hat a=(a_2,\dots,a_n)$ with $0<a_2<\dots<a_n$, and $a=(a_1,\hat a)\in\mathcal A_n$ with $0<a_1\le\min\{1,a_2/2\}$. Let $\hat Q(\hat a)\in\operatorname{Sym}_{n-1}$ be the matrix $Q_h$ of the $(n-1)$-planet system with the same $G,m_0$, masses $(m_2,\dots,m_n)$ and axes $\hat a$ if $n\ge3$, and $\hat Q:=(0)$ if $n=2$ (Definition~\ref{bpP:p8:coeffs} has no pair for one planet). Then with $D=0\oplus\hat Q(\hat a)$ (first row and column the innermost planet)
+\[E:=Q_h(a)-D,\qquad\lVert E\rVert\le\lVert E\rVert_F\le C\,a_1^{3/2},\]
+where $C$ depends on $(G,m_0,m,\hat a)$ but not on $a_1$. More precisely: $E_{jk}=0$ for $j\ne k$, $j,k\ge2$;
+\begin{align*}\lvert E_{11}\rvert&\le\frac{3G}{4\sqrt\kappa}\,a_1^{3/2}\sum_{k\ge2}m_ka_k^{-3},&\lvert E_{jj}\rvert&\le\frac{3Gm_1}{4\sqrt\kappa}\,a_1^2a_j^{-7/2}\ (j\ge2),\\
+\lvert E_{1k}\rvert&\le\frac{15G\sqrt{m_1m_k}}{16\,\kappa^{1/4}}\,a_1^{11/4}a_k^{-17/4}\ (k\ge2).\end{align*}
+\source{Fej04r Prop.~77, proof, p.~58 (``$Q_h=\begin{psmallmatrix}\hat Q_h+O(a_n^{5/2})&O(a_n^{5/2})\\ \cdot&b_{nn}\end{psmallmatrix}$'', Fej04r's decreasing order, innermost planet $n$). In the present normalisation (increasing order, halved $Q_h$) the exponents are $2$ for the perturbation of the $(n-1)$-block and $\frac{11}4$ for the coupling, see the notes; numerically confirmed in \texttt{.drafts/P/bp-scratch-bpP-p10/chk.py}.}
+\end{lemma}
+\begin{proof}
+\proofstep{Entries}\label{stepP:p10:peel-ent} By Definition~\ref{bpP:p8:coeffs}, $Q_{jk}=\hat q_{jk}/\sqrt{\Lambda_j\Lambda_k}$, $\hat q_{jk}=\mathfrak b_{jk}$ ($j\ne k$), $\hat q_{jj}=-\sum_{k\ne j}\mathfrak a_{jk}$, and $\mathfrak a_{jk},\mathfrak b_{jk},\Lambda_j$ depend only on the pair resp.\ the planet. Hence for $j,k\ge2$ the entries of $Q_h(a)$ and of $\hat Q$ agree, except $Q_{jj}=\hat Q_{jj}-\mathfrak a_{1j}/\Lambda_j$ (for $n=2$: $Q_{22}=-\mathfrak a_{12}/\Lambda_2=0-\mathfrak a_{12}/\Lambda_2$). The first row is $Q_{11}=-\sum_{k\ge2}\mathfrak a_{1k}/\Lambda_1$, $Q_{1k}=\mathfrak b_{1k}/\sqrt{\Lambda_1\Lambda_k}$.
+\proofstep{Bounds}\label{stepP:p10:peel-bd} Here $a_1/a_k\le\frac12$ for $k\ge2$, so Corollary~\ref{bpP:p10:formula69} applies. With $\Lambda_i=m_i\sqrt{\kappa a_i}$: $\mathfrak a_{1k}/\Lambda_1\le\frac34Gm_1m_ka_1^2a_k^{-3}/(m_1\sqrt{\kappa a_1})$, which is the bound for $E_{11}$; $\mathfrak a_{1j}/\Lambda_j\le\frac34Gm_1m_ja_1^2a_j^{-3}/(m_j\sqrt{\kappa a_j})$; and $\mathfrak b_{1k}/\sqrt{\Lambda_1\Lambda_k}\le\frac{15}{16}Gm_1m_ka_1^3a_k^{-4}/\big((m_1m_k)^{1/2}\kappa^{1/4}(a_1a_k)^{1/4}\big)$. As $a_1\le1$, every power $a_1^{2},a_1^{11/4}$ is $\le a_1^{3/2}$.
+\end{proof}
+
+\subsection{A good point: $\Phi_4\not\equiv0$ (part A)}\label{bpP:p10:sec-good}
+
+\begin{proposition}[The case $n=2$]\label{bpP:p10:n2}
+Let $n=2$ and $r(a):=\operatorname{tr}^2Q_h/\det Q_h$, $t:=\sigma_1/\sigma_2>1$ (so $r=t+t^{-1}+2$). Then with $\mathfrak a=\mathfrak a_{12}$, $\mathfrak b=\mathfrak b_{12}$,
+\[r(a)=\frac{(\Lambda_1+\Lambda_2)^2}{\Lambda_1\Lambda_2}\cdot\frac1{1-(\mathfrak b/\mathfrak a)^2}>\frac{\Lambda_2}{\Lambda_1}+2,\qquad\frac{\Lambda_2}{\Lambda_1}=\frac{m_2}{m_1}\sqrt{\frac{a_2}{a_1}},\qquad t\ge r-3 .\]
+Consequently, if $a_2/a_1\ge16\,m_1^2/m_2^2$ then $r>6$ and $\operatorname{NR}_4(\sigma(a))$ holds, i.e.\ $\Phi_4(a)\ne0$; and as $a_1/a_2\to0$ one has $r\to\infty$, $t\to\infty$.
+\source{Fej04r Prop.~77, $n=2$ case, pp.~56--57 ((41): $\sigma_1,\sigma_2\sim-\tfrac38m_1m_2\frac{a_{\rm in}^2}{a_{\rm out}^3}\Lambda_{1,2}^{-1}$ in Fej04r's normalisation, ); the exact formula for $r$ is ours and needs no asymptotics of Laplace coefficients.}
+\end{proposition}
+\begin{proof}
+\proofstep{Exact trace--determinant ratio}\label{stepP:p10:n2-r} Corollary~\ref{bpP:p9:n2}: $\operatorname{tr}=-\mathfrak a(\Lambda_1+\Lambda_2)/(\Lambda_1\Lambda_2)$, $\det=(\mathfrak a^2-\mathfrak b^2)/(\Lambda_1\Lambda_2)>0$. Hence $r=\mathfrak a^2(\Lambda_1+\Lambda_2)^2/\big(\Lambda_1\Lambda_2(\mathfrak a^2-\mathfrak b^2)\big)$, the displayed formula. Since $0<\mathfrak b<\mathfrak a$ (Lemma~\ref{bpP:p9:l74}), $(\mathfrak b/\mathfrak a)^2\in(0,1)$ and the second factor exceeds $1$; $(\Lambda_1+\Lambda_2)^2/(\Lambda_1\Lambda_2)=\Lambda_2/\Lambda_1+2+\Lambda_1/\Lambda_2>\Lambda_2/\Lambda_1+2$.
+\proofstep{$t$ versus $r$}\label{stepP:p10:n2-t} $\sigma_1<\sigma_2<0$ gives $t>1$ and $r=\sigma_1/\sigma_2+2+\sigma_2/\sigma_1=t+1/t+2$ ($\operatorname{tr}=\sigma_1+\sigma_2,\det=\sigma_1\sigma_2$); $1/t<1$ gives $t>r-3$.
+\proofstep{Non-resonance}\label{stepP:p10:n2-nr} By Corollary~\ref{bpP:p9:n2}, $\operatorname{NR}_4\iff t\notin\{2,3\}$, and $t+1/t\in\{\frac52,\frac{10}3\}$ at these values, whereas $a_2/a_1\ge16m_1^2/m_2^2$ gives $\Lambda_2/\Lambda_1\ge4$, so $t+1/t=r-2>\Lambda_2/\Lambda_1\ge4$.
+\end{proof}
+
+\begin{theorem}[Existence of good axes, hierarchical regime]\label{bpP:p10:good-point}
+Let $n\ge2$, $G,m_0>0$, $m\in(0,\infty)^n$. For every $\epsilon\in(0,1)$ there is $a\in\mathcal A_n$ with $a_j/a_{j+1}<\epsilon$ for $j=1,\dots,n-1$ and $\operatorname{NR}_4(\sigma(a))$, i.e.\ $\Phi_4(a)\ne0$. In particular $\Phi_4\not\equiv0$ on $\mathcal A_n$.
+\source{Fej04r Prop.~77, pp.~56--58 (induction on $n$ by letting the innermost semi-major axis tend to $0$; the printed induction step is ``par un raisonnement analogue \`a ci-dessus'' and Cor.~72); the proof here is ours: Weyl's inequality replaces Cor.~72, because negative definiteness already gives $\sigma_n<0$.}
+\sourcegap{Fej04r's induction (p.~58) shows no scales and no transfer of non-resonance; supplied here.}
+\end{theorem}
+\begin{proof}
+Induction on $n$ for all data $(G,m_0,m)$ simultaneously.
+\proofstep{$n=2$}\label{stepP:p10:gp-base} Take $a_2=1$ and $a_1<\min\{\epsilon,\,m_2^2/(16m_1^2)\}$ and apply Proposition~\ref{bpP:p10:n2}.
+\proofstep{Step $n-1\to n$, $n\ge3$: the chosen point}\label{stepP:p10:gp-choice} Apply the hypothesis to the system $(G,m_0,(m_2,\dots,m_n))$: there is $\hat a\in\mathcal A_{n-1}$ (axes $a_2<\dots<a_n$) with $a_j/a_{j+1}<\epsilon$ ($2\le j<n$) and $\operatorname{NR}_4(\delta)$ for the sorted eigenvalues $\delta_1\le\dots\le\delta_{n-1}$ of $\hat Q(\hat a)$. By Proposition~\ref{bpP:p9:definite} (for $n-1\ge2$) all $\delta_l<0$, and
+\[\kappa_0:=\min\{\lvert\hat k\cdot\delta\rvert:\ \hat k\in\Z^{n-1},\,0<\lvert\hat k\rvert_1\le4\}>0 .\]
+Let $a=(a_1,\hat a)$, with $a_1$ so small that $a_1\le\min\{1,a_2/2\}$, $a_1<\epsilon a_2$ and $4\lVert E\rVert<\kappa_0$, where $E$ is the matrix of Lemma~\ref{bpP:p10:peel} ($\lVert E\rVert\le Ca_1^{3/2}\to0$).
+\proofstep{Location of the eigenvalues}\label{stepP:p10:gp-loc} The sorted spectrum of $D=0\oplus\hat Q$ is $\delta_1\le\dots\le\delta_{n-1}<0$ followed by $0$ (all $\delta_l<0$). By Lemma~\ref{bpP:p10:weyl}, $\lvert\sigma_l(a)-\delta_l\rvert\le\lVert E\rVert$ for $l\le n-1$ and $\lvert\sigma_n(a)\rvert\le\lVert E\rVert$; moreover $\sigma_n(a)<0$ by Proposition~\ref{bpP:p9:definite} for the $n$-planet system.
+\proofstep{No resonance}\label{stepP:p10:gp-nr} Let $k=(\hat k,k_n)\in K_4$, $\hat k\in\Z^{n-1}$. If $\hat k=0$, $k\cdot\sigma=k_n\sigma_n(a)\ne0$ ($k_n\ne0$, $\sigma_n<0$). If $\hat k\ne0$ then $\lvert k_n\rvert\le4-\lvert\hat k\rvert_1$ and
+\[\lvert k\cdot\sigma\rvert\ge\lvert\hat k\cdot\delta\rvert-\sum_{l<n}\lvert\hat k_l\rvert\lVert E\rVert-\lvert k_n\rvert\lVert E\rVert\ge\kappa_0-\lvert k\rvert_1\lVert E\rVert\ge\kappa_0-4\lVert E\rVert>0.\]
+(For $\hat k$ with $0<\lvert\hat k\rvert_1\le4$, $\hat k\cdot\delta\ne0$ is the definition of $\kappa_0$.) So $k\cdot\sigma\ne0$ for all $k\in K_4$; this includes the differences $e_j-e_l$, so $\sigma$ has distinct entries. Hence $\operatorname{NR}_4(\sigma(a))$, and $a_1/a_2<\epsilon$ by the choice of $a_1$.
+\end{proof}
+
+\begin{corollary}[The good set; good patches]\label{bpP:p10:good-set}
+For every $n\ge2$ and all data: $\mathcal G_n=\{\Phi_4\ne0\}$ is open, dense and of full Lebesgue measure in $\mathcal A_n$, and on every point of it the eigenvalues are simple, real analytic (locally, Proposition~\ref{bpP:p9:local-analytic}) and $\Omega=2\sigma$ is non-resonant to order $4$, uniformly on compact subsets. Consequently for every $a^*\in\mathcal A_n$ and $\eta>0$ there are $a_0\in\mathcal G_n$ and $r_0>0$ with $\overline B_\infty(a_0,2r_0)\subset\mathcal G_n\cap B_\infty(a^*,\eta)$.
+\end{corollary}
+\begin{proof}
+$\mathcal A_n$ is connected and $\Phi_4$ is real analytic on it (Proposition~\ref{bpP:p9:good-set}(a)), not identically zero by Theorem~\ref{bpP:p10:good-point}; so Proposition~\ref{bpP:p9:good-set}(c) gives the first sentence. $\mathcal G_n\cap B_\infty(a^*,\eta)\cap\mathcal A_n$ is nonempty open (density), hence contains a closed cube.
+\end{proof}
+
+\begin{remark}[Connectedness without continuation]\label{bpP:p10:noncont}
+Fej04r reaches the same conclusion on the \emph{complexified} domain $A^{\C}$ and the universal cover of the complement of the discriminant, claimed simply connected although the loop $a\mapsto e^{it}a$ projects to winding one (E-P-Fej04r-2, Part~0). None of this is used: $\mathcal A_n$ itself is convex, $\Phi_4$ is single valued and analytic on it, and the identity theorem is applied directly. The $\exp$ chart $L=\{\operatorname{Re}l_1>\dots>\operatorname{Re}l_n,\ \lvert\operatorname{Im}l_j\rvert<\pi/4\}$ of \texttt{statement.md} item~2 is not needed either.
+\end{remark}
+
+\subsection{R-nondegeneracy of $(\nu,2\sigma)$ (part B)}\label{bpP:p10:sec-rnd}
+
+For $a\in\mathcal U_n$ put $\varpi(a)=(\nu_1(a),\dots,\nu_n(a),2\sigma_1(a),\dots,2\sigma_n(a))\in\R^{2n}$ (real analytic on $\mathcal U_n$, Lemma~\ref{bpP:p10:sorted-analytic}); its expression in the actions is $\tilde\varpi=\varpi\circ a(\Lambda)$ on $\Lambda(\mathcal U_n)$.
+
+\begin{definition}[R\"ussmann nondegeneracy]\label{bpP:p10:rnd-def}
+A real analytic $\omega:B\to\R^m$ on a nonempty open connected $B\subset\R^N$ is \emph{R-nondegenerate} if for every $c\in\R^m\setminus\{0\}$ the function $y\mapsto\langle c,\omega(y)\rangle$ is not identically zero on $B$.
+\source{CP09 Def.~1, p.~5 (equivalently, $\omega(B)$ lies in no hyperplane through $0$); Rus01 \S1.2, p.~124 (``nondegenerate'').}
+\end{definition}
+
+\begin{definition}[Symmetric product of the relation forms]\label{bpP:p10:Fc-def}
+For $c=(c',c'')\in\R^n\times\R^n$ and $\pi\in S_n$ put
+\[L_{c,\pi}(a)=\sum_ic'_i\nu_i(a)+\sum_jc''_j\sigma_{\pi(j)}(a),\qquad F_c(a)=\prod_{\pi\in S_n}L_{c,\pi}(a)\qquad(a\in\mathcal A_n),\]
+with the sorted eigenvalues $\sigma_l(a)$ of $Q_h(a)$. Since the product runs over all of $S_n$, $F_c$ is unchanged if $\sigma$ is replaced by any rearrangement.
+\end{definition}
+
+\begin{proposition}[$F_c$ is real analytic on all of $\mathcal A_n$]\label{bpP:p10:Fc-analytic}
+$F_c$ is real analytic on $\mathcal A_n$ (not only on $\mathcal U_n$); and on $\mathcal U_n$, $L_{c,\mathrm{id}}=\langle c,(\nu,\sigma)\rangle$ is one of its factors.
+\end{proposition}
+\begin{proof}
+\proofstep{Polynomial in the characteristic coefficients}\label{stepP:p10:Fc-poly} Let $x(a)=\sum c'_i\nu_i(a)$, real analytic on $\mathcal A_n$ ($a_i>0$). $P(X;\sigma):=\prod_{\pi\in S_n}(X+\sum_jc''_j\sigma_{\pi(j)})\in\R[X][\sigma_1,\dots,\sigma_n]$ is symmetric in $\sigma$ (a permutation of $\sigma$ permutes the factors). By \ref{bpP:p10:f-fts}, $P=\Pi(X;e_1(\sigma),\dots,e_n(\sigma))$ for a polynomial $\Pi$. Hence $F_c(a)=\Pi(x(a);e_1(\sigma(a)),\dots,e_n(\sigma(a)))$, and $(-1)^ke_k(\sigma(a))$ is the coefficient of $s^{n-k}$ in $\det(sI-Q_h(a))$, a polynomial in the entries of $Q_h(a)$, real analytic by Definition~\ref{bpP:p8:coeffs}. Compositions and products of real analytic functions are real analytic (\ref{bpP:p8:e-taylor}).
+\end{proof}
+
+\begin{theorem}[$F_c\not\equiv0$ for $c\ne0$]\label{bpP:p10:F-nonzero}
+For every $n\ge2$, all $G,m_0>0$, $m\in(0,\infty)^n$ and every $c\in\R^{2n}\setminus\{0\}$, $F_c\not\equiv0$ on $\mathcal A_n$.
+\source{Fej04r Prop.~77, pp.~56--58 (for $n=2$ via the universal cover of the complement of the discriminant and (41); general $n$ ``par un raisonnement analogue''); the symmetric-product device is ours (PLAN.md, Part~10), the peeling induction is ours.}
+\sourcegap{Fej04r's general-$n$ induction is not written out; supplied here. For the base case the printed argument needs the universal cover of a domain whose simple connectedness is false as printed; the present argument does not.}
+\end{theorem}
+\begin{proof}
+Induction on $n$, for all data. Throughout $a=(a_1,\hat a)$, $\hat a=(a_2,\dots,a_n)$ fixed, $a_1\downarrow0$ (so $a_1<a_2$ eventually); $\hat x(\hat a)=\sum_{i\ge2}c'_i\nu_i(a_i)$ does not depend on $a_1$. By Lemma~\ref{bpP:p10:peel} and Weyl (Lemma~\ref{bpP:p10:weyl}) all $\sigma_l(a)$ stay bounded as $a_1\to0$.
+\proofstep{Case A: $c'_1\ne0$ (every $n\ge2$)}\label{stepP:p10:F-A} $\nu_1(a_1)=\kappa^{1/2}a_1^{-3/2}\to\infty$ while the other summands of every $L_{c,\pi}$ stay bounded; so $\lvert L_{c,\pi}\rvert\to\infty$ for all $\pi$ simultaneously, and $F_c(a_1,\hat a)\ne0$ for small $a_1$, for any fixed $\hat a$.
+\proofstep{Case B: $c'_1=0$, $n=2$}\label{stepP:p10:F-B} Write $c=(0,c_2;c_3,c_4)$, $\sigma_1<\sigma_2<0$ (Corollary~\ref{bpP:p9:n2}), $s=\sigma_2/\sigma_1\in(0,1)$; $s=1/t\le1/(r-3)\to0$ as $a_1\to0$ (Proposition~\ref{bpP:p10:n2}). If $c_2\ne0$: both $L_{c,\pi}\to c_2\nu_2(a_2)\ne0$, since $\sigma_l\to0$ (Lemma~\ref{bpP:p10:peel}, $\hat Q=0$). If $c_2=0$ then $(c_3,c_4)\ne0$ and $L_{c,\mathrm{id}}=\sigma_1(c_3+c_4s)$, $L_{c,\mathrm{swap}}=\sigma_1(c_4+c_3s)$. If $c_3=0$: $L_{\rm id}=\sigma_1c_4s\ne0$, $L_{\rm swap}=\sigma_1c_4\ne0$; if $c_4=0$: $L_{\rm id}=\sigma_1c_3\ne0$, $L_{\rm swap}=\sigma_1c_3s\ne0$; if both are nonzero, $c_3+c_4s\ne0\ne c_4+c_3s$ for $s$ small. In every case $F_c(a_1,a_2)\ne0$ for small $a_1$.
+\proofstep{Case C: $c'_1=0$, $n\ge3$}\label{stepP:p10:F-C} The $(n-1)$-planet system $(G,m_0,(m_2,\dots,m_n))$ has the same $\nu_i$ ($i\ge2$) and the matrix $\hat Q(\hat a)$, with sorted eigenvalues $\delta_1\le\dots\le\delta_{n-1}<0$. By Lemma~\ref{bpP:p10:peel} and Lemma~\ref{bpP:p10:weyl}, as $a_1\to0$:
+\[\sigma_l(a)\to\delta_l\ (l\le n-1),\qquad\sigma_n(a)\to0 .\]
+For $d\in\{1,\dots,n\}$ let $\iota_d:\{1,\dots,n-1\}\to\{1,\dots,n\}\setminus\{d\}$ be the increasing bijection and $c^{(d)}:=\big((c'_2,\dots,c'_n);(c''_{\iota_d(l)})_{l\le n-1}\big)\in\R^{2(n-1)}$. The map $\pi\mapsto(d,\pi'')$, $d=\pi^{-1}(n)$, $\pi''=\pi\circ\iota_d\in S_{n-1}$, is a bijection $S_n\to\{1..n\}\times S_{n-1}$, and
+\[\lim_{a_1\to0}L_{c,\pi}(a_1,\hat a)=\hat x(\hat a)+\sum_{j\ne d}c''_j\delta_{\pi(j)}=L^{(n-1)}_{c^{(d)},\pi''}(\hat a)\]
+(the term $c''_d\sigma_n$ tends to $0$). Hence $\lim_{a_1\to0}F_c(a_1,\hat a)=\prod_{d=1}^nF^{(n-1)}_{c^{(d)}}(\hat a)$.
+\emph{Subcase C1: $c^{(d)}\ne0$ for all $d$.} By the induction hypothesis each $F^{(n-1)}_{c^{(d)}}\not\equiv0$ on the connected open set $\mathcal A_{n-1}$ (axes $a_2<\dots<a_n$) and is real analytic there (Proposition~\ref{bpP:p10:Fc-analytic}); by Lemma~\ref{bpP:p10:generic} there is $\hat a$ at which all $n$ factors are $\ne0$. Then $\lim F_c(a_1,\hat a)\ne0$, so $F_c(a_1,\hat a)\ne0$ for small $a_1$.
+\emph{Subcase C2: $c^{(d)}=0$ for some $d$.} Then $c'_{2},\dots,c'_n=0$ and $c''_j=0$ for $j\ne d$; with $c'_1=0$ and $c\ne0$ this means $c=c''_de_d$ (in the $\sigma$-block), $c''_d\ne0$. Then $L_{c,\pi}=c''_d\sigma_{\pi(d)}(a)\ne0$, since $c''_d\ne0$ and all $\sigma_l<0$ (Proposition~\ref{bpP:p9:definite}); so $F_c$ vanishes nowhere on $\mathcal A_n$.
+\end{proof}
+
+\begin{theorem}[R-nondegeneracy of the planetary frequency data]\label{bpP:p10:rnd}
+Let $n\ge2$ and let $\mathcal P\subset\mathcal U_n$ be nonempty, open and connected (for instance a ball in $\mathcal G_n$, Corollary~\ref{bpP:p10:good-set}; for $n=2$ also $\mathcal P=\mathcal A_2$). Then:
+\begin{enumerate}[label=(\alph*)]
+\item $\varpi|_{\mathcal P}:\mathcal P\to\R^{2n}$ is real analytic and R-nondegenerate; equivalently, in the actions, $\tilde\varpi=\varpi\circ a(\Lambda)$ is R-nondegenerate on the nonempty open connected set $\Lambda(\mathcal P)\subset\R^n$;
+\item the fast frequency map $\nu:\mathcal P\to\R^n$ alone is R-nondegenerate, and so is $\Lambda\mapsto\nu(\Lambda)=(\kappa^2m_i^3\Lambda_i^{-3})_i$;
+\item the same holds for $(\nu,\Omega)$ with $\Omega_j=2\sigma_{\pi(j)}$ in any labelling $\pi\in S_n$ and with any positive rescaling of the components ($\Omega=2\sigma$, $\sigma$, $\sigma/\pi$, $\nu/2\pi,\dots$).
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p10:rnd-a} Suppose $\langle c,\varpi\rangle\equiv0$ on $\mathcal P$ for some $c=(c',c_\Omega)\ne0$. Put $\tilde c=(c',2c_\Omega)\ne0$. Then $\langle c,\varpi\rangle=L_{\tilde c,\mathrm{id}}$ on $\mathcal P$, one factor of $F_{\tilde c}$ (Proposition~\ref{bpP:p10:Fc-analytic}), so $F_{\tilde c}\equiv0$ on the nonempty open $\mathcal P$. $F_{\tilde c}$ is real analytic on the connected set $\mathcal A_n$, so $F_{\tilde c}\equiv0$ (\ref{bpP:p10:f-id}), contradicting Theorem~\ref{bpP:p10:F-nonzero}. The statement in the actions: $a\mapsto\Lambda(a)$ is an analytic diffeomorphism, so connectedness and identical vanishing are preserved.
+\proofstep{(b)}\label{stepP:p10:rnd-b} If $\sum c_i\kappa^{1/2}a_i^{-3/2}\equiv0$ on an open set, differentiating in $a_i$ gives $-\tfrac32c_i\kappa^{1/2}a_i^{-5/2}=0$, so $c=0$.
+\proofstep{(c)}\label{stepP:p10:rnd-c} A relabelling or positive rescaling of the components of $\omega$ replaces $c$ by another nonzero vector.
+\end{proof}
+
+\begin{remark}[The symmetric-product argument for $n=2$, as recorded in PLAN.md]\label{bpP:p10:n2-check}
+The plan's device is valid and is the case $n=2$ of Theorem~\ref{bpP:p10:rnd}. Checked points: (1) $F(a)=\prod_{\pi\in S_2}(c_1\nu_1+c_2\nu_2+c_3\sigma_{\pi1}+c_4\sigma_{\pi2})$ is a polynomial in $x=c_1\nu_1+c_2\nu_2$, $\operatorname{tr}Q_h$ and $\det Q_h$ (explicitly $(x+c_3\sigma_1+c_4\sigma_2)(x+c_3\sigma_2+c_4\sigma_1)=x^2+(c_3+c_4)\,x\operatorname{tr}Q_h+c_3c_4\operatorname{tr}^2Q_h+(c_3-c_4)^2\det Q_h$), hence single valued and real analytic on the convex $\mathcal A_2$ (the domain of Part~8; no complexification); (2) a relation on a real patch gives $F=0$ there and hence everywhere (identity theorem); (3) the plan then says ``one of the finitely many factors vanishes on an open subset of the asymptotic region'': this is true but, for $n=2$, needs that the labelled $\sigma_1,\sigma_2$ are analytic on the region, which holds because the discriminant is never zero (Corollary~\ref{bpP:p9:n2}); the present proof avoids this step by evaluating $F$ at a point (Case B), where it equals a product of explicit nonzero terms. (4) No universal cover is used. The contradiction with Fej04r (41) is replaced by $t=\sigma_1/\sigma_2\to\infty$, Proposition~\ref{bpP:p10:n2}.
+\end{remark}
+
+\begin{remark}[Scalings]\label{bpP:p10:scaling}
+The frozen fast frequency is $w=\omega/2\pi$ for the period-one parametrisation (Part~1), the secular frequency enters through $\Omega_j=2\sigma_j$ with the chart's $R_j=\tfrac12(p_j^2+q_j^2)$ (Remark~\ref{bpP:p9:dict}); all of these differ from $\tilde\varpi$ by a positive diagonal matrix, which maps $c$ to a nonzero $c$ (Theorem~\ref{bpP:p10:rnd}(c)). The index below is unchanged and the amount changes by a factor between the squares of the smallest and largest diagonal entries.
+\end{remark}
+
+\subsection{Index and amount of nondegeneracy on a compact patch}\label{bpP:p10:sec-index}
+
+Following CP09: for a $C^\nu$ function $g$ on an open set $B\subset\R^N$, $\partial^\nu g(y)$ is the symmetric $\nu$-linear form of the $\nu$-th derivative and $\lvert\partial^\nu g(y)\rvert:=\max_{\lvert a\rvert=1}\lvert\partial^\nu g(y)(a,\dots,a)\rvert$ (Euclidean unit sphere, as CP09 p.~5; for $\nu=0$ this is $\lvert g(y)\rvert$). By \ref{bpP:p10:f-pol}, $\lvert\partial^\nu g(y)\rvert=0$ iff all partial derivatives of order $\nu$ vanish at $y$. For vector-valued maps $\lvert\partial^\nu\omega(y)\rvert:=\max_{\lvert a\rvert=1}\lvert\partial^\nu\omega(y)(a^\nu)\rvert_2$.
+
+\begin{lemma}[Finite type on a compact set; CP09 Lemma~1 = Rus01 Lemma~18.2]\label{bpP:p10:finite-type}
+Let $B\subset\R^N$ be open and connected, $K\subset B$ compact, $\mathcal C$ a compact metric space and $g:\mathcal C\times B\to\R$ such that for each $c\in\mathcal C$ the function $g(c,\cdot)$ is real analytic and $\not\equiv0$ on $B$, and every partial derivative $\partial_y^\alpha g$ is jointly continuous on $\mathcal C\times B$. Then there are $\mu_0\in\mathbb N$ and $\beta>0$ with
+\[\max_{0\le\nu\le\mu_0}\lvert\partial_y^\nu g(c,y)\rvert\ \ge\ \beta\qquad\forall(c,y)\in\mathcal C\times K .\]
+\source{CP09 Lemma~1 and (2), p.~5 (the proof is cited to Rus01 Lemma~18.2, p.~185); the proof below is ours, by compactness.}
+\end{lemma}
+\begin{proof}
+\proofstep{Pointwise}\label{stepP:p10:ft-pt} Fix $(c_0,y_0)$. If $\partial^\nu g(c_0,\cdot)(y_0)=0$ for all $\nu$, then $g(c_0,\cdot)\equiv0$ near $y_0$ and hence on $B$ (\ref{bpP:p10:f-id}), a contradiction. So $\lvert\partial^{\nu_0}g(c_0,y_0)\rvert>0$ for some $\nu_0=\nu(c_0,y_0)$.
+\proofstep{Open cover}\label{stepP:p10:ft-cover} By joint continuity ($\partial^\nu g$ is a continuous tensor, so its norm is continuous) $\lvert\partial^{\nu_0}g\rvert>0$ on a neighbourhood $N(c_0,y_0)$ in $\mathcal C\times B$. Cover the compact $\mathcal C\times K$ by finitely many such neighbourhoods, with orders $\nu_1,\dots,\nu_s$; put $\mu_0=\max_i\nu_i$.
+\proofstep{Minimum}\label{stepP:p10:ft-min} $M(c,y)=\max_{\nu\le\mu_0}\lvert\partial^\nu g(c,y)\rvert$ is continuous and positive on $\mathcal C\times K$, so $\beta:=\min M>0$.
+\end{proof}
+
+\begin{definition}[Index and amount]\label{bpP:p10:index-def}
+In the situation of Lemma~\ref{bpP:p10:finite-type}, for $\mu\in\mathbb N$ let $\beta_\mu(g,K)=\min_{\mathcal C\times K}\max_{0\le\nu\le\mu}\lvert\partial^\nu g\rvert$; this is nondecreasing in $\mu$. The \emph{index} $\mu_0(g,K)$ is the least positive integer $\mu$ with $\beta_\mu>0$ and the \emph{amount} is $\beta(g,K)=\beta_{\mu_0}$; for every $\mu\ge\mu_0$, $\beta_\mu\ge\beta_{\mu_0}>0$.
+\source{CP09 Def.~2, p.~6 (``smallest positive integer''), with $g(c,y)=\langle c,\omega(y)\rangle^2$, $\mathcal C=S^{m-1}$; CP09 Thm.~3 allows every $\mu\ge\mu_0$ with $\beta=\beta_\mu$.}
+\end{definition}
+
+\begin{corollary}[CP09 Lemma 1 for an R-nondegenerate map]\label{bpP:p10:cp09-lemma1}
+If $\omega:B\to\R^m$ is real analytic and R-nondegenerate (Definition~\ref{bpP:p10:rnd-def}) and $K\subset B$ is compact, then $g(c,y)=\langle c,\omega(y)\rangle^2$ on $S^{m-1}\times B$ satisfies Lemma~\ref{bpP:p10:finite-type}: there are $\mu_0=\mu_0(\omega,K)$ and $\beta=\beta(\omega,K)>0$ with $\max_{0\le\nu\le\mu_0}\lvert\partial^\nu\langle c,\omega\rangle^2(y)\rvert\ge\beta$ for all $c\in S^{m-1}$, $y\in K$. The same holds for any family of the form $g(c,y)=\prod_{l=1}^r\langle c_l,f_l(y)\rangle$, $c\in(S^{m_l-1})_l$, with $f_l$ real analytic and R-nondegenerate (Lemma~\ref{bpP:p10:generic}: a product of nonzero analytic functions is nonzero), and for $g=\langle c,\omega\rangle$ without the square.
+\end{corollary}
+\begin{proof}
+$g$ is polynomial in $c$ and real analytic in $y$, so all $\partial^\alpha_yg$ are jointly continuous; $g(c,\cdot)\not\equiv0$ because $\langle c,\omega\rangle\not\equiv0$ and the square of a nonzero real function is nonzero. Apply Lemma~\ref{bpP:p10:finite-type}.
+\end{proof}
+
+\begin{lemma}[Finite-order stability of the amount]\label{bpP:p10:stability}
+Let $\omega,\tilde\omega:B\to\R^m$ be real analytic, $K\subset B$ compact, $\mu\in\mathbb N$, $M=\max_{\nu\le\mu}\sup_K\lvert\partial^\nu\omega\rvert$, $\theta=\max_{\nu\le\mu}\sup_K\lvert\partial^\nu(\tilde\omega-\omega)\rvert$. Then for all $c\in S^{m-1}$, $y\in K$, $\nu\le\mu$,
+\[\big\lvert\,\lvert\partial^\nu\langle c,\tilde\omega\rangle^2(y)\rvert-\lvert\partial^\nu\langle c,\omega\rangle^2(y)\rvert\,\big\rvert\le2^\nu\theta(2M+\theta),\]
+hence $\beta_\mu(\tilde\omega,K)\ge\beta_\mu(\omega,K)-2^\mu\theta(2M+\theta)$. In particular if $2^\mu\theta(2M+\theta)\le\frac12\beta_\mu(\omega,K)$ then $\beta_\mu(\tilde\omega,K)\ge\frac12\beta_\mu(\omega,K)$, and $\tilde\omega$ then satisfies the conclusion of Corollary~\ref{bpP:p10:cp09-lemma1} with the same $\mu$ (no nondegeneracy of $\tilde\omega$ is assumed).
+\source{Ours; this is the ``finite-order stability lemma'' of the Part~11a statement list (\texttt{reviews/p11a-russmann-check.md}, row \texttt{p11a:rank-compact}), in CP09's convention.}
+\end{lemma}
+\begin{proof}
+\proofstep{Product rule}\label{stepP:p10:st-prod} With $f=\langle c,\omega\rangle$, $\tilde f=\langle c,\tilde\omega\rangle$ and $\lvert c\rvert=1$: $\lvert\partial^kf(y)(a^k)\rvert\le\lvert\partial^k\omega(y)(a^k)\rvert_2\le M$ and $\lvert\partial^k(\tilde f-f)(y)(a^k)\rvert\le\theta$ for unit $a$ (Cauchy--Schwarz), so $\lvert\partial^k(\tilde f+f)\rvert\le2M+\theta$.
+\proofstep{Difference}\label{stepP:p10:st-diff} $\tilde f^2-f^2=(\tilde f-f)(\tilde f+f)$, and by the Leibniz formula \ref{bpP:p10:f-leib}, $\lvert\partial^\nu(\tilde f^2-f^2)(y)(a^\nu)\rvert\le\sum_k\binom\nu k\theta(2M+\theta)=2^\nu\theta(2M+\theta)$. Taking the maximum over unit $a$ and then over $\nu\le\mu$ and the minimum over $(c,y)$ gives the claim (the maxima of two families that differ termwise by at most $\epsilon$ differ by at most $\epsilon$).
+\end{proof}
+
+\subsection{The interface for Parts 11a, 12 and 13}\label{bpP:p10:sec-interface}
+
+\begin{theorem}[Good patch with nondegenerate frequency data]\label{bpP:p10:interface}
+Let $n\ge2$, $G,m_0>0$, $m\in(0,\infty)^n$, $a^*\in\mathcal A_n$ and $\eta>0$. There are $a_0\in\mathcal A_n$ and $r_0>0$ (depending only on these data) such that, with $B=B_\infty(a_0,2r_0)$, $K_a=\overline B_\infty(a_0,r_0)$:
+\begin{enumerate}[label=(\alph*)]
+\item $\overline B_\infty(a_0,2r_0)\subset\mathcal G_n\cap B_\infty(a^*,\eta)$; so on $B$ the sorted eigenvalues $\sigma_1<\dots<\sigma_n<0$ of $Q_h(a)$ are real analytic (Lemma~\ref{bpP:p10:sorted-analytic}), $Q_h$ has simple spectrum, and the rotation $\varrho$ of Proposition~\ref{bpP:p9:local-analytic} exists locally (Theorem~\ref{bpP:p9:diagonalize} applies around every point of $B$);
+\item (non-resonance) $\alpha_4:=\min\{\lvert k\cdot2\sigma(a)\rvert:\ a\in K_a,\ k\in K_4\}>0$, and $\lvert k\cdot\Omega\rvert\ge\alpha_4$ with $\Omega=2\sigma$ for $0<\lvert k\rvert_1\le4$ on $K_a$;
+\item (R-nondegeneracy) in the frozen action variable $I=\Lambda$: $B^\Lambda=\Lambda(B)$ is open and connected, $K=\Lambda(K_a)\subset B^\Lambda$ is compact with $\operatorname{meas}K>0$, and
+\[\tilde\varpi=(\nu(\Lambda),\Omega(\Lambda)):\ B^\Lambda\to\R^n\times\R^n,\qquad\nu_i=\kappa^2m_i^3\Lambda_i^{-3},\quad\Omega_j(\Lambda)=2\sigma_j(a(\Lambda)),\]
+is real analytic and R-nondegenerate (Definition~\ref{bpP:p10:rnd-def}; so are $\nu$ alone and $\Omega$ up to relabelling, rescaling as in Theorem~\ref{bpP:p10:rnd}(c));
+\item (index and amount) there are $\mu_0=\mu_0(\tilde\varpi,K)\in\mathbb N$ and $\beta=\beta(\tilde\varpi,K)>0$, depending only on $(n,G,m_0,m,a_0,r_0)$ and in particular \emph{independent of the coupling parameter}, such that for every $c\in S^{2n-1}$ and $\Lambda\in K$
+\[\max_{0\le\nu\le\mu_0}\ \big\lvert\partial_\Lambda^\nu\langle c,\tilde\varpi(\Lambda)\rangle^2\big\rvert\ \ge\ \beta ,\]
+and for every $\mu\ge\mu_0$ the same with $\mu$ and $\beta_\mu\ge\beta$ (CP09 (2)--(3)); and Lemma~\ref{bpP:p10:stability} holds for $\omega=\tilde\varpi$.
+\end{enumerate}
+The patch can be taken inside every prescribed neighbourhood of $a^*$. If further analytic functions of the axes that are $\not\equiv0$ on $\mathcal A_n$ (torsion determinants, Part~11b) must also be nonzero, $a_0,r_0$ can be chosen in the set where all of them and $\Phi_4$ are nonzero (Lemma~\ref{bpP:p10:generic}).
+\end{theorem}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p10:if-a} Corollary~\ref{bpP:p10:good-set}.
+\proofstep{(b)}\label{stepP:p10:if-b} $a\mapsto\min_{k\in K_4}\lvert k\cdot2\sigma(a)\rvert$ is continuous (Lemma~\ref{bpP:p10:weyl}), positive on $\mathcal G_n$ ($\Phi_4\ne0$ iff $\operatorname{NR}_4$, Proposition~\ref{bpP:p9:good-set}(b), and $\operatorname{NR}_4$ is invariant under $\sigma\mapsto2\sigma$), and $K_a$ is compact.
+\proofstep{(c)}\label{stepP:p10:if-c} $B$ is a ball in the max norm (a cube), connected, contained in $\mathcal U_n$; $\Lambda$ is an analytic diffeomorphism, so $B^\Lambda$ is open and connected, $K$ is compact and $\operatorname{meas}K>0$ (it contains the image of an open cube). R-nondegeneracy: Theorem~\ref{bpP:p10:rnd} with $\mathcal P=B$.
+\proofstep{(d)}\label{stepP:p10:if-d} Corollary~\ref{bpP:p10:cp09-lemma1} with $\omega=\tilde\varpi$ on $B^\Lambda$ and the compact $K$; the dependence only on the data is clear, since $\tilde\varpi$ is a function of $\Lambda$ alone ($Q_h$ does not involve the coupling parameter). $\beta_\mu\ge\beta_{\mu_0}$ is monotonicity (Definition~\ref{bpP:p10:index-def}).
+\end{proof}
+
+\begin{remark}[What the consumers take from this part]\label{bpP:p10:consumers}
+\emph{Part 11a} (maximal analytic weak-nondegeneracy KAM, route (a), P-FIXED, general $n$): the hypothesis ``$(\nabla h,\Omega)$ is R-nondegenerate on $B^\Lambda$, with index $\mu_0$ and amount $\beta$ on $K$'' of CP09 Thm.~4 (pp.~8, 5--6) in the form of Theorem~\ref{bpP:p10:interface}(c),(d); the $\mu\ge\mu_0$ variant is the one used in the preparation (CP09 Lemma~8). The preparation of CP09 \S2.3 changes $\tilde\varpi$ by perturbations small in $C^\mu$ on shrinking sets; Lemma~\ref{bpP:p10:stability} is the form of stability that is available without further hypotheses. \emph{Parts 12, 13}: the good patch $B$ for P-PLANAR ($n=2$, route (c)) and P-FIXED; for $n=2$ Corollary~\ref{bpP:p9:n2} and Proposition~\ref{bpP:p10:n2} give the explicit exclusion set $\{(2\operatorname{tr}^2-9\det)(3\operatorname{tr}^2-16\det)=0\}$ (two analytic curves in $\mathcal A_2$, none in the regime $a_2/a_1\ge16m_1^2/m_2^2$); and because $\Phi_4\ne0$ is an open dense condition (Lemma~\ref{bpP:p10:generic}), a patch can be chosen on which $\operatorname{det}\beta\ne0$ as well, once Part~11b shows $\det\beta\not\equiv0$.
+\end{remark}
+
+\subsection{Sources, deviations, errata, forward references}\label{bpP:p10:notes}
+
+\paragraph{Sources read.} Fej04r pp.~52--58 (Formule~69 with (38)--(39); Lemmas 70--71, p.~53; Lemma~76, Prop.~77 with proof, pp.~56--58; Lemma~78 ff., p.~58--59 for the induction pattern), \texttt{fejoz04\_erratum.txt} (no statement on Prop.~77), CP09 pp.~5--8 (Def.~1, Lemma~1, Def.~2, Thm.~3, Thm.~4), \texttt{reviews/p11a-russmann-check.md} (row \texttt{rank-compact}, Rus01 \S\S18.2--18.3 conventions), Parts~7--9 of this blueprint. Numerical checks: \texttt{.drafts/P/bp-scratch-bpP-p10/chk.py} ($b^{(k)}_{3/2}$ bounds of Lemma~\ref{bpP:p10:laplace-bounds}; $r$, $t$ of Proposition~\ref{bpP:p10:n2} for $m=(0.7,1.9)$ at $a=(1,2),(1,5),(0.1,1),(0.01,1)$, e.g.\ $t=7.46,\,6.63,\,8.76,\,27.1$; the scaling $E_{11}\sim-0.868\,a_1^{3/2}$, $E_{22}\sim-0.315\,a_1^2$, $E_{12}\sim0.650\,a_1^{11/4}$ for $n=3$; $\min_{k\in K_4}\lvert k\cdot\sigma\rvert=2.6\cdot10^{-3}$ at $a=(1,1.7,2.9)$; the six functions $(\nu,2\sigma)$ at 40 random points of a small patch have a matrix of full numerical rank). This is evidence only.
+
+\paragraph{Deviations from the source.} (1) No complexification, universal cover or $\exp$ chart; the symmetric product and the convexity of $\mathcal A_n$ replace them. (2) Prop.~77's conclusion (``gauche'', Definition~57, the Arnold--Pyartli condition) is \emph{not} proved; only the weaker R\"ussmann nondegeneracy is, which is what CP09 Thm.~4 and the frozen P-FIXED route need. (3) Fej04r's Cor.~72 is replaced by Weyl's inequality plus $\sigma_n<0$.
+
+\paragraph{Suspected errata (for the ledger).} E-P-Fej04r-7 (minor): Prop.~77 proof, p.~58, the block form of $Q_h$ as the innermost axis tends to $0$ is printed with errors $O(a_n^{5/2})$ in the $(n-1)$-block and the coupling. In the present normalisation the $(n-1)$-block is perturbed by $O(a^2)$ (the diagonal terms $-\mathfrak a_{1j}/\Lambda_j$ with $\mathfrak a_{1j}\sim a^2$) and the coupling is $O(a^{11/4})$, the $(1,1)$ entry is $\sim a^{3/2}$ (Lemma~\ref{bpP:p10:peel}, numerical check above). Immaterial for the argument. E-P-Fej04r-8 (gap, not an error): the general-$n$ step is ``par un raisonnement analogue''; the analogy needs both the transfer of the relation and the case in which the dropped $\sigma$ coefficient is the only nonzero one (Case~C2), neither of which is discussed. Already recorded: E-P-Fej04r-2 (Lemma~76, the simple connectedness of $A^{\C}$), E-P-Fej04r-3 (halving).
+
+\paragraph{Doubts about frozen statements.} None. (P-FIXED and P-PLANAR assert only existence of tori; the nondegeneracy statements here are proof obligations, not premises, Part~0 \S\ref{bpP:p0:scope}.)
+
+\paragraph{External facts used.} \ref{bpP:p10:f-id}--\ref{bpP:p10:f-leib}; \ref{bpP:p9:e-spec}--\ref{bpP:p9:e-ibp}; \ref{bpP:p8:e-taylor}. Not in Mathlib as far as we found: Courant--Fischer (proved in Lemma~\ref{bpP:p10:weyl}), polarization for symmetric multilinear maps (\ref{bpP:p10:f-pol}).
+
+\paragraph{Forward references and consumers.} Part~11a: Theorem~\ref{bpP:p10:interface}(c),(d), Lemma~\ref{bpP:p10:stability}, Corollary~\ref{bpP:p10:cp09-lemma1}. Part~11b: Lemma~\ref{bpP:p10:generic} (to combine $\det\beta\not\equiv0$ with $\Phi_4$). Parts~12, 13: Theorem~\ref{bpP:p10:interface}, Corollary~\ref{bpP:p10:good-set}. No forward references to unwritten parts.
+
+\paragraph{Label index.} \texttt{generic}, \texttt{weyl}, \texttt{sorted-analytic}, \texttt{laplace-bounds}, \texttt{formula69}, \texttt{peel}, \texttt{n2}, \texttt{good-point}, \texttt{good-set}, \texttt{noncont}, \texttt{rnd-def}, \texttt{Fc-def}, \texttt{Fc-analytic}, \texttt{F-nonzero}, \texttt{rnd}, \texttt{n2-check}, \texttt{scaling}, \texttt{finite-type}, \texttt{index-def}, \texttt{cp09-lemma1}, \texttt{stability}, \texttt{interface}, \texttt{consumers}.
+\par\endgroup

@@ -708,7 +708,7 @@ EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p0-conventions.tex#bp:p0
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.volume_not_diophantine_le (SEALED via KAM.Provider.volume_not_diophantine_le)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P-G3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -

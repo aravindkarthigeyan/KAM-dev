@@ -1,0 +1,168 @@
+\section{Assembly of N-HEAD-C}\label{bpN:p10}
+\providecommand{\wn}[3]{\lvert #1\rvert_{#2,#3}}
+\providecommand{\UD}[1]{U_{#1}D}
+\providecommand{\Os}[2]{\mathcal O(#1,#2)}
+\begingroup\sloppy
+
+This part proves the frozen headline Theorem~\ref{bpN:p0:head} (N-HEAD-C). It adds no analysis: it chooses the four constants
+$C,T,c,\varepsilon_0$ from the seven data $(n,R,s,M,m,M_\C,\omega_{\min})$ by Lemma~\ref{bpN:p1:constants}
+(\S\ref{bpN:p10:s-choice}), verifies one by one the hypotheses of P\"oschel's Theorem~1 in the stopped form of Part~\ref{bpN:p9}
+(Theorem~\ref{bpN:p9:thm1}) for every $(h,f,\varepsilon)$ satisfying (H1)--(H7) (\S\ref{bpN:p10:s-hyp}), converts its conclusion into an a-priori
+confinement estimate for the frozen solution predicate (\S\ref{bpN:p10:s-conf}), and then obtains existence and uniqueness from the ODE layer of
+Part~\ref{bpN:p3} (\S\ref{bpN:p10:s-exist}, \S\ref{bpN:p10:s-head}). Throughout $a=\frac1{2n}$, $\abs\cdot$ is the max norm,
+$\norm\cdot$ the Euclidean norm, $\coth^n(\cdot)=(\coth(\cdot))^n$. \emph{Two radii are kept apart:} the solution lives in $B(0,R)$ (the set in
+\texttt{IsSolutionOn}), the hypotheses (H4), (H5) are on $\mathcal B_s(R)=B(0,R+s)$, (H3) on $B(0,R)$; the tube $U_{r_0}P$ below lies in $B(0,5R/8)$.
+
+\subsection{External facts}\label{bpN:p10:s-ext}
+\begin{enumerate}[label=(E\arabic*),leftmargin=2.2em]
+\item\label{bpN:p10:ext-rpow} \emph{Real powers.} For $a>0$, $x\mapsto x^a$ is monotone on $[0,\infty)$; $(xy)^a=x^ay^a$ for $x,y\ge0$; $(x^{2n})^{a}=x$ for $x\ge0$, $a=\frac1{2n}$,
+  $n\ge1$; $x^{-a}=1/x^a$ for $x>0$; $\exp$ is monotone. (\Lean{Real.rpow\_le\_rpow}, \Lean{Real.mul\_rpow}, \Lean{Real.rpow\_natCast}, \Lean{Real.rpow\_mul}, \Lean{Real.rpow\_neg}, \Lean{Real.exp\_le\_exp}.) Exists.
+\end{enumerate}
+Besides this: Lemmas~\ref{bpN:p1:constants}, \ref{bpN:p1:realdomain}, \ref{bpN:p1:holo-real}, \ref{bpN:p1:partials}, \ref{bpN:p1:hessian-convert}, \ref{bpN:p1:qc-convert},
+\ref{bpN:p1:norm-convert}, \ref{bpN:p1:norm-compare}; Theorem~\ref{bpN:p9:thm1}, Definition~\ref{bpN:p9:setting}, Lemma~\ref{bpN:p9:omega0}, Remark~\ref{bpN:p9:stopped};
+Theorems~\ref{bpN:p3:local-exist}, \ref{bpN:p3:continuation}, \ref{bpN:p3:uniqueness-closed}, \ref{bpN:p3:confinement-glue}; Part~\ref{bpN:p2} (N-ZERO).
+
+\subsection{The choice of constants}\label{bpN:p10:s-choice}
+
+\begin{definition}[Choice of constants and of the Theorem-1 data]\label{bpN:p10:choice}
+Let $n\ge3$ and $R,s,M,m,M_\C,\omega_{\min}>0$ (the seven data). Let $q,B_c,\mu,\ell,r_0,A,s_0,\sigma,F,\varepsilon_*,C,c,T,\varepsilon_0$ be the numbers defined, in this order, in
+Lemma~\ref{bpN:p1:constants} (with $r_0=\min\bigl(\frac s2,\frac R8,\frac\ell{2B_c},\frac{4\omega_{\min}}\mu\bigr)$, $C=\frac{r_0}A(F/\varepsilon_*)^a$, $c=\frac{s_0}{6\sqrt n}(\varepsilon_*/F)^a$,
+$T=\frac{A^2s_0}{4\pi nM}$, $\varepsilon_0=\min(\varepsilon_*/F,(R/4C)^{2n})$). The \emph{Theorem-1 data} derived from them are
+\[P=\{J\in\R^n:\abs J\le R/2\},\quad s_1=\tfrac s2,\quad F_1=\coth^n\bigl(\tfrac{\pi s}4\bigr),\quad \varepsilon_1=\frac{\mu\,r_0^2}{2^{10}A^{2n}},\quad R_0=\frac{r_0}A,\]
+and, for $\varepsilon>0$, $\varepsilon'=F_1\varepsilon$. Here $(\mu,B_c)$ play the roles of Part~\ref{bpN:p9}'s $(m,M)$, $s_1$ is its geometric strip width, $\varepsilon_1$ its $\varepsilon_0$.
+\source{Ours; \texttt{docs/tracks/N/sources.md}, ``Uniform conversion''; the bookkeeping between P\"oschel's $2\pi$-normalisation and the frozen one is Remark~\ref{bpN:p9:dictionary}.}
+\end{definition}
+
+\begin{lemma}[Properties of the choice]\label{bpN:p10:choice-props}
+In the situation of Definition~\ref{bpN:p10:choice}:
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{uniformity}) $C,T,c,\varepsilon_0>0$, and they, like all intermediate numbers, depend only on $(n,R,s,M,m,M_\C,\omega_{\min})$ --- not on $h,f,\varepsilon,\theta_0,I_0$, nor on the bound in Definition~\ref{bpN:p0:integrable}(iii); and $C\varepsilon_0^a\le R/4$.
+\item (\emph{radius conditions}) $0<\mu\le B_c$; $A=11B_c/\mu$ (so $A\ge22$); $r_0\le\min(\frac s2,\frac R8)$, $r_0\le\frac\ell{2B_c}$, $r_0\le\frac{4\omega_{\min}}\mu$; $R_0=r_0/A$.
+\item (\emph{dictionary}) $\varepsilon_*=2\pi\varepsilon_1$, $F=2\pi F_1$. Consequently $\varepsilon'\le\varepsilon_1\iff\varepsilon\le\varepsilon_*/F$; in particular $0<\varepsilon\le\varepsilon_0$ gives $0<\varepsilon'\le\varepsilon_1$; and for $\varepsilon>0$
+\[\tfrac12R_0\Bigl(\frac{\varepsilon'}{\varepsilon_1}\Bigr)^a=\tfrac12\,C\,\varepsilon^a,\qquad \frac{\pi s_1}{3\sqrt n}\Bigl(\frac{\varepsilon_1}{\varepsilon'}\Bigr)^a=c\,\varepsilon^{-a}.\]
+\item (\emph{size}) $0<\varepsilon\le\varepsilon_0$ implies $C\varepsilon^a\le R/4$.
+\end{enumerate}
+\source{Lemma~\ref{bpN:p1:constants}(a),(b); ours for (c),(d).}
+\end{lemma}
+\begin{proof}
+\proofstep{Items (a), (b)}\label{stepN:p10:cp-ab} Lemma~\ref{bpN:p1:constants}(a), (b) (positivity, dependence, order of choice, $C\varepsilon_0^a\le R/4$, $r_0\le\ell/(2B_c)$, $A\ge22$); the other bounds on $r_0$ are the entries of the minimum. $\mu=q/2\le q\le B_c$ as $B_c=nM_\C+q$ (Step~\ref{stepN:p1:co-size}).
+
+\proofstep{Dictionary}\label{stepN:p10:cp-dict} $\varepsilon_*=2\pi\mu r_0^2/(2^{10}A^{2n})=2\pi\varepsilon_1$ and $F=2\pi\coth^n(\pi s/4)=2\pi F_1$ by definition. Hence $\varepsilon'=F_1\varepsilon\le\varepsilon_1\iff2\pi F_1\varepsilon\le2\pi\varepsilon_1\iff F\varepsilon\le\varepsilon_*$. $\varepsilon\le\varepsilon_0\le\varepsilon_*/F$ gives the first consequence.
+
+\proofstep{Radius and exponent}\label{stepN:p10:cp-rad} $\varepsilon'/\varepsilon_1=F_1\varepsilon/\varepsilon_1=F\varepsilon/\varepsilon_*$ (cancel $2\pi$). So $\frac12R_0(\varepsilon'/\varepsilon_1)^a=\frac12\frac{r_0}A(F/\varepsilon_*)^a\varepsilon^a=\frac12C\varepsilon^a$ (\ref{bpN:p10:ext-rpow}). And $\varepsilon_1/\varepsilon'=\varepsilon_*/(F\varepsilon)$, $\frac{\pi s_1}{3\sqrt n}=\frac{\pi s}{6\sqrt n}=\frac{s_0}{6\sqrt n}$ ($s_0=\pi s$), so the left side is $\frac{s_0}{6\sqrt n}(\varepsilon_*/F)^a\varepsilon^{-a}=c\varepsilon^{-a}$ (\ref{bpN:p10:ext-rpow}).
+
+\proofstep{Size}\label{stepN:p10:cp-size} Monotonicity of $x\mapsto x^a$ (\ref{bpN:p10:ext-rpow}): $C\varepsilon^a\le C\varepsilon_0^a\le R/4$ by (a).
+\end{proof}
+
+\subsection{Verification of the hypotheses of Theorem~\ref{bpN:p9:thm1}}\label{bpN:p10:s-hyp}
+
+\begin{proposition}[Hypotheses of Theorem~1 hold, with the exceptional branch empty]\label{bpN:p10:hypotheses-check}
+Let the seven data and the constants of Definition~\ref{bpN:p10:choice} be given, and let $h,f,\varepsilon$ satisfy (H1)--(H7) of Theorem~\ref{bpN:p0:head}; write $V=V_{r_0}P=\{I\in\C^n:\exists J\in P,\ \abs{I-J}<r_0\}$ (max-norm tube, Definition~\ref{bpN:p4:domains}) and $U=V\cap\R^n$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{tubes}) $V\subset B(0,R)_s$ and $U\subset B(0,5R/8)\subset B(0,R)\subset\mathcal B_s(R)$; $W:=\R^n\times U\subset W_s=\R^n\times\mathcal B_s(R)$; $P\ne\emptyset$ and $B(0,R/2)\subset P$.
+\item (\ref{bpN:p9:s-h}) $h$ is holomorphic on $V$, real on $U$, and the operator norm of the complex Hessian for $\norm\cdot$ is $\le B_c$ on $V$.
+\item (\ref{bpN:p9:s-qc}) $h$ is $\ell,\mu$-quasi-convex on $U$ (Definition~\ref{bpN:p7:resonance-data}); and $0<\mu\le B_c$.
+\item (\ref{bpN:p9:s-r}) $r_0\le\ell/(2B_c)$.
+\item (\ref{bpN:p9:s-f}) $f|_{T_{s_1}\times V}\in\Os{r_0}{s_1}^\R$ (relative to $D=P$) and $\wn f{r_0}{s_1}\le\varepsilon'$, with $0<\varepsilon'\le\varepsilon_1$.
+Hence $(n,P,r_0,s_1,\mu,B_c,\ell,h,f|_{T_{s_1}\times V})$ is a Theorem-1 setting whose constants are $A,\ \varepsilon_1,\ a,\ R_0$ of Definition~\ref{bpN:p10:choice}.
+\item (\emph{exceptional branch is empty}) For $I_0\in B(0,R/2)$: $\norm{\omega_h(I_0)}\ge\omega_{\min}>\frac18\mu r_0$.
+\item (\emph{frequency size and time}) For $I_0\in B(0,R/2)$ the number $\Omega_0(I_0)$ of Definition~\ref{bpN:p9:setting} satisfies $0<\omega_{\min}\le\Omega_0(I_0)\le\sqrt nM$, hence $T_0:=A^2s_1/\Omega_0(I_0)\ge2T$.
+\item (\emph{the field}) $H_{h,f}=(h+f)|_W$ on $W$ (real valued), and $X_{H_{h,f}}=X_{H^\R}$ on $W$, where $H^\R=(h+f)|_W$ is the real Hamiltonian of Part~\ref{bpN:p9}; so every $F$ with $F=X_{H_{h,f}}$ on $W$ is admissible in Theorem~\ref{bpN:p9:thm1}. (Here $X_{H_{h,f}}$ is the frozen field of Definition~\ref{bpN:p0:vf}, a total function on $\R^n\times\R^n$.)
+\end{enumerate}
+\source{Ours; every conversion is Lemma~\ref{bpN:p1:constants}(c)--(g) re-proved for the max-norm tubes of Parts~\ref{bpN:p4}, \ref{bpN:p9} (Lemma~\ref{bpN:p1:constants} now also states them for the max-norm tubes, with the Euclidean tubes as a consequence; the proofs below nevertheless re-verify each clause directly, using only facts that hold on all of $B(0,R)_s$, resp.\ $B(0,R)$). Pos93 pp.~190--191 for the hypotheses.}
+\end{proposition}
+\begin{proof}
+\proofstep{(a): tubes}\label{stepN:p10:hc-tubes} Let $I\in V$, $J\in P$, $\abs{I-J}<r_0$. Then $\abs J\le R/2<R$ and $\abs{I-J}<r_0\le s/2<s$, so $I\in B(0,R)_s$ (Definition~\ref{bpN:p0:actionnbhd}). If $I$ is real then $\abs I<R/2+r_0\le R/2+R/8=5R/8<R<R+s$, and $B(0,R+s)=\mathcal B_s(R)$ (Lemma~\ref{bpN:p1:realdomain}(a)). $0\in P$, and $B(0,R/2)\subset P$ by definition.
+
+\proofstep{(b): $h$ and its Hessian}\label{stepN:p10:hc-h} By (H1), Definition~\ref{bpN:p0:integrable}(i), (iv): $h$ is holomorphic on $B(0,R)_s\supset V$, and $\operatorname{Im}h=0$ on $\mathcal B_s(R)\supset U$, i.e.\ $h$ is real on $U$. By (H2) and Lemma~\ref{bpN:p1:hessian-convert}, on $B(0,R)_s\supset V$ the operator norm of $Q(I)=(\partial_i\partial_jh(I))$ for the Euclidean norm is $\le nM_\C\le B_c$.
+
+\proofstep{(c), (d): quasi-convexity and radius}\label{stepN:p10:hc-qc} $U\subset B(0,R)$ by (a), so Lemma~\ref{bpN:p1:qc-convert}(b) (valid at every point of $B(0,R)$ under (H1)--(H4), with $q,B_c,\mu,\ell$ as in Definition~\ref{bpN:p10:choice}) gives, for $I\in U$ and $\xi\in\R^n$, $\abs{\omega_h(I)\cdot\xi}\le\ell\norm\xi\Rightarrow D^2h_\R(I)[\xi,\xi]\ge\mu\norm\xi^2$. The symmetric matrix $D^2h_\R(I)$ is the real Hessian $Q$ of $h_\R=h|_U$ and $\omega_h=\nabla h_\R$ (Lemma~\ref{bpN:p1:holo-real}(c)), so this is the definition of $\ell,\mu$-quasi-convexity. $\mu\le B_c$ is Lemma~\ref{bpN:p10:choice-props}(b), and (d) is the same lemma, (b).
+
+\proofstep{(e): the perturbation}\label{stepN:p10:hc-f} Put $\rho=\frac{3s}4$, $\delta=\frac s4$, so $T_{3s/4}\subset T_s$ and $\rho-\delta=s_1$. \emph{Class.} By (H6)(i), $f$ is holomorphic on $D_s(R)\supset T_{s_1}\times V$ (as $V\subset B(0,R)_s$, (a)); $1$-periodicity in each $\theta_j$ is (H6)(ii) with $k=e_j$; $f$ is real at the real points of $T_{s_1}\times V$, i.e.\ on $\R^n\times U$, by (H6)(iii) and $U\subset\mathcal B_s(R)$. Thus $f|_{T_{s_1}\times V}\in\Os{r_0}{s_1}^\R$. \emph{Norm.} Fix $I\in V$. The function $u=f(\cdot,I)$ is holomorphic, $1$-periodic, and $\abs u\le\varepsilon$ on $T_\rho$ by (H6)(iv); Lemma~\ref{bpN:p1:norm-convert} gives $\sum_k\abs{\hat f_k(I)}e^{2\pi\abs k_1s_1}\le\coth^n(\pi\delta)\varepsilon=\varepsilon'$ (the coefficients $\hat f_k(I)$ are those of Definition~\ref{bpN:p4:norm}). Taking the supremum over $I\in V$: $\wn f{r_0}{s_1}\le\varepsilon'$. \emph{Range.} Lemma~\ref{bpN:p10:choice-props}(c) with (H7) gives $0<\varepsilon'\le\varepsilon_1$.
+
+\proofstep{Theorem-1 setting}\label{stepN:p10:hc-setting} $n\ge3\ge2$; (a)--(e) are \ref{bpN:p9:s-h}--\ref{bpN:p9:s-f} of Definition~\ref{bpN:p9:setting} (with $m\to\mu$, $M\to B_c$); $0<\mu\le B_c$. The constants $A=11B_c/\mu$, $\varepsilon_0=\mu r_0^2/(2^{10}A^{2n})=\varepsilon_1$, $R_0=r_0/A$ of that definition are those of Definition~\ref{bpN:p10:choice}, using Lemma~\ref{bpN:p10:choice-props}(b).
+
+\proofstep{(f): the exceptional branch}\label{stepN:p10:hc-exc} For $I_0\in B(0,R/2)\subset B(0,R)$, (H3) gives $\omega_{\min}\le\abs{\omega_h(I_0)}\le\norm{\omega_h(I_0)}$ (Lemma~\ref{bpN:p1:norm-compare}(a)). And $\frac18\mu r_0\le\frac18\mu\cdot\frac{4\omega_{\min}}\mu=\frac12\omega_{\min}<\omega_{\min}$ by $r_0\le4\omega_{\min}/\mu$ (Lemma~\ref{bpN:p10:choice-props}(b)) and $\omega_{\min}>0$.
+
+\proofstep{(g): $\Omega_0$ and the time}\label{stepN:p10:hc-time} Let $I_0\in B(0,R/2)\subset P$. Lemma~\ref{bpN:p9:omega0} gives $\bar B=\{I\in\R^n:\norm{I-I_0}\le R_0\}\subset U$ and $\norm{\omega(I_0)}\le\Omega_0(I_0)=\max_{\bar B}\norm\omega$; so $\Omega_0\ge\omega_{\min}$ by Step~\ref{stepN:p10:hc-exc}. For $I\in\bar B\subset U\subset B(0,R)\subset\mathcal B_s(R)$, (H5) and Lemma~\ref{bpN:p1:partials} give $\norm{\omega_h(I)}\le\sqrt nM$; hence $\Omega_0\le\sqrt nM$. Then $T_0=A^2s_1/\Omega_0\ge\frac{A^2s}{2\sqrt nM}\ge\frac{A^2s}{2nM}=2\cdot\frac{A^2\pi s}{4\pi nM}=2T$ ($s_0=\pi s$, $\sqrt n\le n$).
+
+\proofstep{(h): the field}\label{stepN:p10:hc-field} For $(\theta,I)\in W\subset W_s$, $(\theta,I)\in D_s(R)$ (Lemma~\ref{bpN:p1:realdomain}(a)), and Lemma~\ref{bpN:p1:holo-real}(b) gives $H_{h,f}(\theta,I)=h(I)+f(\theta,I)\in\R$, which is $H^\R$. $W$ is open ($U=V\cap\R^n$ is open), and two functions that agree on an open set have the same \Lean{fderiv} there; so $X_{H_{h,f}}(z)=X_{H^\R}(z)$ for $z\in W$ (Definition~\ref{bpN:p0:vf}; differentiability is Lemma~\ref{bpN:p1:holo-real}(b)).
+\end{proof}
+
+\subsection{The a-priori confinement}\label{bpN:p10:s-conf}
+
+\begin{proposition}[A-priori confinement for the frozen predicate]\label{bpN:p10:confinement}
+Let $\tau=T\exp(c\varepsilon^{-a})$ and let $h,f,\varepsilon$ be as in Proposition~\ref{bpN:p10:hypotheses-check}. Let $\theta_0\in\R^n$, $I_0\in B(0,R/2)$, $J\ni0$ any interval and $y:\R\to\R^n\times\R^n$ with $y(0)=(\theta_0,I_0)$ and
+$\texttt{IsSolutionOn}\,H_{h,f}\,B(0,R)\,J\,y$. Then for all $t\in J$ with $\abs t\le\tau$: $\abs{y(t)_2-I_0}\le C\varepsilon^a$.
+\source{Pos93 p.~198 (a priori estimate on the maximal solution) via Theorem~\ref{bpN:p9:thm1}; ours for the dictionary.}
+\end{proposition}
+\begin{proof}
+\proofstep{The setting}\label{stepN:p10:cf-setting} Proposition~\ref{bpN:p10:hypotheses-check}(a)--(e) say that Definition~\ref{bpN:p9:setting} applies with $\varepsilon'\in(0,\varepsilon_1]$ as the bound for $f$.
+
+\proofstep{The orbit}\label{stepN:p10:cf-orbit} Put $F_*=X_{H_{h,f}}:\R^{2n}\to\R^{2n}$ (total); by Proposition~\ref{bpN:p10:hypotheses-check}(h), $F_*=X_{H^\R}$ on $W$. Definition~\ref{bpN:p0:sol} gives, for every $t\in J$, $y'(t)=F_*(y(t))$ (two-sided derivative); $y(0)_2=I_0\in B(0,R/2)\subset P$ (Proposition~\ref{bpN:p10:hypotheses-check}(a)). So the hypotheses of Theorem~\ref{bpN:p9:thm1} hold for $z=y$, $F=F_*$, $J$ (no confinement of $y$ is assumed, as Remark~\ref{bpN:p9:stopped} explains).
+
+\proofstep{Branch (a)}\label{stepN:p10:cf-branch} Proposition~\ref{bpN:p10:hypotheses-check}(f) gives $\norm{\omega(I_0)}>\frac18\mu r_0$, so Theorem~\ref{bpN:p9:thm1}(a) applies (with $\mu,B_c,\varepsilon'$): for all $t\in J$ with $\abs t\le T_0\exp\bigl(\frac{\pi s_1}{3\sqrt n}(\varepsilon_1/\varepsilon')^a\bigr)$ one has $\abs{I(t)-I_0}\le\frac12R_0(\varepsilon'/\varepsilon_1)^a$, $I(t)=y(t)_2$.
+
+\proofstep{Translating the constants}\label{stepN:p10:cf-trans} By Lemma~\ref{bpN:p10:choice-props}(c) the exponent equals $c\varepsilon^{-a}$ and the radius equals $\frac12C\varepsilon^a\le C\varepsilon^a$; by Proposition~\ref{bpN:p10:hypotheses-check}(g), $T_0\ge2T\ge T$. So $\abs t\le\tau=Te^{c\varepsilon^{-a}}$ implies $\abs t\le T_0e^{c\varepsilon^{-a}}$ (\ref{bpN:p10:ext-rpow}: $\exp$ monotone), and the conclusion follows.
+\end{proof}
+
+\subsection{Existence and uniqueness}\label{bpN:p10:s-exist}
+
+\begin{theorem}[Existence on ${[-\tau,\tau]}$ with confinement]\label{bpN:p10:existence}
+Let $h,f,\varepsilon$ be as in Proposition~\ref{bpN:p10:hypotheses-check}, $\theta_0\in\R^n$, $I_0\in B(0,R/2)$, $\tau=T\exp(c\varepsilon^{-a})$. There is $z:\R\to\R^n\times\R^n$ with (a) $z(0)=(\theta_0,I_0)$, (b) $\texttt{IsSolutionOn}\,H_{h,f}\,B(0,R)\,[-\tau,\tau]\,z$, (c) $\abs{z(t)_2-I_0}\le C\varepsilon^a$ for $\abs t\le\tau$.
+\source{BM11 p.~13 (two-case argument), Pos93 p.~198; ours.}
+\end{theorem}
+\begin{proof}
+\proofstep{Positivity and size of the radius}\label{stepN:p10:ex-rho} $\rho:=C\varepsilon^a>0$ and $\rho\le R/4$ (Lemma~\ref{bpN:p10:choice-props}(d)); $\tau>0$.
+
+\proofstep{Closed ball in the action set}\label{stepN:p10:ex-ball} For $\abs{I-I_0}\le\rho$: $\abs I\le\abs{I_0}+\rho<R/2+R/4=\frac34R<R$, so $\overline B(I_0,\rho)\subset B(0,R)$.
+
+\proofstep{A-priori hypothesis}\label{stepN:p10:ex-apriori} For every open interval $J\ni0$ and $y$ with $y(0)=(\theta_0,I_0)$ and $\texttt{IsSolutionOn}\,H_{h,f}\,B(0,R)\,J\,y$: $\abs{y(t)_2-I_0}\le\rho$ for $t\in J$, $\abs t\le\tau$ (Proposition~\ref{bpN:p10:confinement}).
+
+\proofstep{Glue}\label{stepN:p10:ex-glue} The standing assumptions of Part~\ref{bpN:p3}, \S\ref{bpN:p3:s-N} are those of the theorem: $R,s>0$, (H1), (H6) with $\varepsilon\ge0$, and $U=B(0,R)$. Theorem~\ref{bpN:p3:confinement-glue} (with $\rho$, $\tau$, Steps~\ref{stepN:p10:ex-rho}--\ref{stepN:p10:ex-apriori}) yields $z$ with $z(0)=(\theta_0,I_0)$, $\texttt{IsSolutionOn}\,H_{h,f}\,B(0,R)\,[-\tau,\tau]\,z$ and $\abs{z(t)_2-I_0}\le\rho$ for $\abs t\le\tau$.
+\end{proof}
+
+\begin{theorem}[Uniqueness on ${[-L,L]}$]\label{bpN:p10:uniqueness}
+In the situation of Theorem~\ref{bpN:p10:existence}, let $z$ be any function satisfying (a), (b) there. For every $L\in[0,\tau]$ and every $y:\R\to\R^n\times\R^n$ with $y(0)=(\theta_0,I_0)$ and $\texttt{IsSolutionOn}\,H_{h,f}\,B(0,R)\,[-L,L]\,y$: $y(t)=z(t)$ for all $t\in[-L,L]$.
+Here $L=0$ is allowed (then the claim is $y(0)=z(0)$).
+\source{Standard (Gronwall); Theorem~\ref{bpN:p3:uniqueness-closed}.}
+\end{theorem}
+\begin{proof}
+\proofstep{Restriction}\label{stepN:p10:un-restrict} $[-L,L]\subset[-\tau,\tau]$, so $z$ satisfies $\texttt{IsSolutionOn}\,H_{h,f}\,B(0,R)\,[-L,L]\,z$ (the predicate is monotone in the time set, Definition~\ref{bpN:p0:sol}); $z(0)=y(0)$.
+
+\proofstep{Uniqueness}\label{stepN:p10:un-apply} Theorem~\ref{bpN:p3:uniqueness-closed} (with $U=B(0,R)$; no confinement of $y$ is used) gives $y=z$ on $[-L,L]$. For $L=0$ the interval is $\{0\}$ and the claim is the initial condition.
+\end{proof}
+
+\subsection{Proof of N-HEAD-C}\label{bpN:p10:s-head}
+
+\begin{theorem}[Proof of N-HEAD-C]\label{bpN:p10:head}
+Theorem~\ref{bpN:p0:head} holds, with the constants $C,T,c,\varepsilon_0$ of Definition~\ref{bpN:p10:choice}.
+\frozen{KAM.Nekhoroshev.\allowbreak quasiConvex\_\allowbreak nekhoroshev\_\allowbreak complexBound}
+\source{Pos93 Theorem~1, pp.~190--191, proof pp.~203--204; the conversions are those of Part~\ref{bpN:p1} and this part (\texttt{sources.md}, ``Uniform conversion''); ours.}
+\end{theorem}
+\begin{proof}
+\proofstep{Order of quantifiers}\label{stepN:p10:hd-order} Fix $n\ge3$ and $R,s,M,m,M_\C,\omega_{\min}>0$. Define $C,T,c,\varepsilon_0$ by Definition~\ref{bpN:p10:choice}. They are functions of these seven data alone (Lemma~\ref{bpN:p10:choice-props}(a)) and are chosen before any of $h,f,\varepsilon,\theta_0,I_0$, as the quantifier order of Theorem~\ref{bpN:p0:head} requires.
+
+\proofstep{The conditions on the constants}\label{stepN:p10:hd-const} $C,T,c,\varepsilon_0>0$ and $C\varepsilon_0^{1/(2n)}\le R/4$: Lemma~\ref{bpN:p10:choice-props}(a).
+
+\proofstep{The universal statement}\label{stepN:p10:hd-univ} Let $h,f,\varepsilon$ satisfy (H1)--(H7), $\theta_0\in\R^n$, $I_0\in B(0,R/2)$, $\tau=T\exp(c\varepsilon^{-1/(2n)})$ and $H=H_{h,f}$. Proposition~\ref{bpN:p10:hypotheses-check} applies (its hypotheses are exactly (H1)--(H7); no other hypothesis is used, and nothing depends on the bound $A$ of Definition~\ref{bpN:p0:integrable}(iii)).
+
+\proofstep{Existence, (a)--(c)}\label{stepN:p10:hd-abc} Theorem~\ref{bpN:p10:existence} gives $z$ with (a) $z(0)=(\theta_0,I_0)$, (b) $\texttt{IsSolutionOn}\,H\,B(0,R)\,[-\tau,\tau]\,z$, (c) $\abs{z(t)_2-I_0}\le C\varepsilon^{1/(2n)}$ for $\abs t\le\tau$ (the max norm in $\R^n$ is the frozen norm).
+
+\proofstep{Uniqueness, (d)}\label{stepN:p10:hd-d} Theorem~\ref{bpN:p10:uniqueness} gives (d) for this $z$, every $L\in[0,\tau]$ and every $y$ as in Theorem~\ref{bpN:p0:head}(d).
+
+\proofstep{No other dependence}\label{stepN:p10:hd-dep} $z$ may depend on $h,f,\varepsilon,\theta_0,I_0$ (it is produced by Theorem~\ref{bpN:p3:confinement-glue} from them), which the frozen statement allows ($\exists z$ lies inside all the universal quantifiers). The constants were not changed in Steps~\ref{stepN:p10:hd-abc}--\ref{stepN:p10:hd-d}: this is the uniformity in $h,f,\varepsilon,\theta_0,I_0$.
+\end{proof}
+
+\begin{remark}[Where each hypothesis and each constant is used]\label{bpN:p10:audit}
+(H1): holomorphy and reality of $h$ (Step~\ref{stepN:p10:hc-h}), $h_\R\in C^3$ for the ODE layer (Lemma~\ref{bpN:p1:holo-real}). (H2): $B_c$, the Hessian bound of \ref{bpN:p9:s-h}, via the factor $n$ of Lemma~\ref{bpN:p1:hessian-convert}. (H3): quantitative quasi-convexity $\ell$ (Lemma~\ref{bpN:p1:qc-convert}) and emptiness of the exceptional branch. (H4): $\mu$. (H5): $\Omega_0\le\sqrt nM$, hence $T$; only the first-order part of $B(M)$ is used. (H6): the weighted norm of $f$ and the analytic set-up of the ODE layer. (H7): $\varepsilon'\le\varepsilon_1$ and $C\varepsilon^a\le R/4$. Each of $C,c,T,\varepsilon_0$ has the dependence of Lemma~\ref{bpN:p1:constants}: $C,c,\varepsilon_0$ on $(n,R,s,m,M_\C,\omega_{\min})$, $T$ on $(n,s,m,M_\C,M)$. The radius $R$ enters only through $r_0\le R/8$ and the requirement $C\varepsilon_0^a\le R/4$.
+\end{remark}
+
+\begin{remark}[The case $\varepsilon=0$; consistency with N-ZERO]\label{bpN:p10:zero-case}
+Theorem~\ref{bpN:p0:head} requires $\varepsilon>0$ in (H7): the exponent $\varepsilon^{-1/(2n)}$ in $\tau$ needs it, and Theorem~\ref{bpN:p9:thm1} needs $\varepsilon'>0$ for $K=(\varepsilon_1/\varepsilon')^a$. If $\texttt{IsAnalyticPerturbation}\,R\,s\,0\,f$ then $f=0$ on $D_s(R)$ (Lemma~\ref{bpN:p1:holo-real}(e)) and N-ZERO (Theorem~\ref{bpN:p2:zero}) supplies the global solution $\gamma_{\theta_0,I_0}$ with $\gamma(t)_2=I_0$ for all $t\in\R$, so conclusions (a)--(c) hold at $\varepsilon=0$ with any $C\ge0$ and any $\tau$; uniqueness at $\varepsilon=0$ is not asserted (Remark~\ref{bpN:p2:zero-scope}). N-ZERO is not used in the proof above.
+\end{remark}
+
+\begin{remark}[Interface summary]\label{bpN:p10:interfaces}
+Results of other parts used: Part~\ref{bpN:p1} (Lemmas \ref{bpN:p1:realdomain}, \ref{bpN:p1:holo-real}, \ref{bpN:p1:partials}, \ref{bpN:p1:hessian-convert}, \ref{bpN:p1:qc-convert}, \ref{bpN:p1:norm-convert}, \ref{bpN:p1:constants}), Part~\ref{bpN:p3} (Theorems~\ref{bpN:p3:confinement-glue}, \ref{bpN:p3:uniqueness-closed}; Theorems~\ref{bpN:p3:continuation} and \ref{bpN:p3:local-exist} enter through the glue), Part~\ref{bpN:p9} (Theorem~\ref{bpN:p9:thm1}, Lemma~\ref{bpN:p9:omega0}), Part~\ref{bpN:p2} (N-ZERO, remark only). There are no forward references. For the Lean provers: the content of this part that is not a plain citation is the arithmetic of Lemma~\ref{bpN:p10:choice-props}(c), Proposition~\ref{bpN:p10:hypotheses-check}(g), and the independent max-tube verification of Proposition~\ref{bpN:p10:hypotheses-check}(a)--(e), which re-verifies the Part-9 setting on the max-norm tubes from Part-1 facts on the full frozen domains $B(0,R)_s$, $B(0,R)$; these proof steps are to be retained in graph extraction even though Part~1 now states the matching max-tube dictionary.
+\end{remark}
+\endgroup

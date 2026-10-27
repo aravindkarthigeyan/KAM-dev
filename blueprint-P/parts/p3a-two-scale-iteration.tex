@@ -3,9 +3,8 @@
 This part (3a) states the two-scale KAM theorem of Chierchia--Pinzari (CP10 Proposition~3, pp.~554--555) in the frozen
 conventions and proves the iterative lemma (CP10 Lemma~B.1 with Lemma~B.2, pp.~565--570). Part~3b (limit, Lipschitz bounds,
 measure) completes the proof. \emph{Every constant is recomputed here}: the numerical constants differ from those of CP10
-(different norms, no use of the unpinned reference [4]), the shape of $K,\hat\rho,L,\hat E$ and of the KAM condition is the same.
-Results of track~K are cited as [K:\texttt{label}]; the weighted-norm layer and the iterative lemma of track~N as [N:\texttt{label}]
-(\emph{forward references}: the labels are those planned in \texttt{blueprint-N/PLAN.md}, Parts~4--6).
+(max norms, track~N's weighted norm, no use of the unpinned reference [4]), the shape of $K,\hat\rho,L,\hat E$ and of the KAM condition is the same.
+Results of track~K are cited as [K:\texttt{label}]; the averaging step is proved in Part~2 (\Pref{bpP:p2:avg}, \Pref{bpP:p2:nfb}), which rests on track~N, Parts~4--6.
 
 \subsection{Conventions, norms, constants}\label{bpP:p3:conv}
 
@@ -22,10 +21,9 @@ Results of track~K are cited as [K:\texttt{label}]; the weighted-norm layer and 
 \item \emph{Complex neighbourhoods.} For $D\subset\R^n$ and $r>0$: $D_r=\{I\in\C^n:\exists I_0\in D,\ \abs{I-I_0}<r\}$
   and $\operatorname{Re}(D_r)=D_r\cap\R^n=\{x\in\R^n:\dist_\infty(x,D)<r\}$; $(D_r)_{r'}\subset D_{r+r'}$ and $D_{r}\subset D_{r'}$ for $r\le r'$.
   For $\sigma>0$, $\T_\sigma=\{\theta\in\C^n/\Z^n:\abs{\operatorname{Im}\theta}<\sigma/2\pi\}$ (weight $\sigma$, strip width $\sigma/2\pi$).
-\item \emph{Weighted norm} (\texttt{docs/fourier-conventions.md}). For $f=\sum_kf_k(I)e^{2\pi ik\cdot\theta}$ analytic on $D_r\times\T_\sigma$:
-  $\norm f_{r,\sigma}:=\sum_{k\in\Z^n}\sup_{I\in D_r}\abs{f_k(I)}\,e^{\sigma\abs k_1}$. It is monotone ($\norm f_{r',\sigma'}\le\norm f_{r,\sigma}$ for $r'\le r$, $\sigma'\le\sigma$)
-  and $\sup_{D_r\times\T_\sigma}\abs f\le\norm f_{r,\sigma}$, $\abs{f_0}\le\norm f_{r,\sigma}$.
-  This is the ``sup--Fourier norm'' of CP10 p.~551 with $\mathbb T^n$ of period $2\pi$ replaced by period~$1$ (same weights).
+\item \emph{Weighted norm (track~N's norm, ruling P3-03).} For $f=\sum_k\hat f_k(I)e^{2\pi ik\cdot\theta}$ analytic on $D_r\times\T_\sigma$:
+  $\norm f_{r,\sigma}:=\sup_{I\in D_r}\sum_{k\in\Z^n}\abs{\hat f_k(I)}\,e^{\sigma\abs k_1}$ (\Nref{bpN:p4:norm}; \texttt{docs/fourier-conventions.md}). \emph{Width dictionary:} $\sigma$ here is the coefficient radius, $\sigma=2\pi\sigma_N$ with $\sigma_N$ the geometric half-width ($\T_\sigma=T_{\sigma/2\pi}$ in the notation of Part~2). The printed CP10 norm is $\sum_k\sup_I$, which dominates this one; the two are not equivalent.
+  Properties used in Part~3: monotone ($\norm f_{r',\sigma'}\le\norm f_{r,\sigma}$ for smaller base set, $r'\le r$, $\sigma'\le\sigma$), $\sup_{D_r\times\T_\sigma}\abs f\le\norm f_{r,\sigma}$, $\sup_{D_r}\abs{f_0}\le\norm f_{r,\sigma}$, and Cauchy estimates, applied to $\sup$ only; the averaging output (Corollary~\ref{bpP:p2:avg}) is stated in this norm. Every constant below was rechecked for this change (none used $\sum_k\sup_I$; Part~2, Remark~\ref{bpP:p2:diff}).
 \item \emph{Two-scale Diophantine set.} For $n=n_1+n_2$, $k=(k_1,k_2)\in\Z^{n_1}\times\Z^{n_2}$, $\gamma_1\ge\gamma_2>0$, $\tau>0$:
   $\mathcal D_{\gamma_1,\gamma_2,\tau}=\{\omega\in\R^n:\ \abs{k\cdot\omega}\ge\gamma_1\abs k_1^{-\tau}\text{ if }k_1\ne0,\ \ \abs{k\cdot\omega}\ge\gamma_2\abs k_1^{-\tau}\text{ if }k_1=0,k\ne0\}$.
   For $\gamma_1=\gamma_2$ this is the set of Definition~\ref{bpP:p0:diophantine}; $\mathcal D_{\gamma_1,\gamma_2,\tau}\subset\mathcal D_{\gamma_2,\gamma_2,\tau}$.
@@ -85,8 +83,7 @@ Finally, with $K_\Omega:=\bigcup_{\omega\in\Omega_*}\varphi_\omega(\R^n)$ (a uni
 The sets $D,h,f$ enter only through those constants and the hypotheses; $\bar s$ enters only through $4s\le\bar s<1$ and through the width of analyticity in~(a).
 \par\noindent{\small Not frozen itself: Part~5 consumes this statement (\S\ref{bpP:p3:interface}) to prove the frozen theorem \Pref{bpP:p0:pg}.}
 \source{CP10 Prop.~3, pp.~554--555, proved in Appendix~B, pp.~565--573. Constants recomputed; (35) of CP10 is corrected in (d).}
-\sourcegap{Prop.~3 has no other source (``not available in literature'', CP10 p.~550); its printed proof relies on the unpinned [4, Lemma A.5] through Prop.~1/Lemma~A.1 (see Lemma~\ref{bpP:p3:avg}) and
-on ``the inductive theorem as in Arnold [3, p.~144]'' without proof (CP10 Remark~3, p.~567). The full list of misprints and repairs is in \S\ref{bpP:p3:errata}.}
+\sourcegap{Prop.~3 has no other source (``not available in literature'', CP10 p.~550); its printed proof relies on Prop.~1/Lemma~A.1 through the unpinned [4, Lemma~A.5]; that input is supplied by Part~2 (Lemma~\ref{bpP:p3:avg} is proved there). The scheme (Lemma~B.1) is proved inductively on CP10 pp.~567--570; the pointer to Arnold [3, p.~144] in Remark~3 is historical, not a dependency. Misprints and repairs: \S\ref{bpP:p3:errata}.}
 \end{proposition}
 
 \begin{remark}[Normalizations $\hat M\le M$, $\bar M_i\le\bar M$]\label{bpP:p3:rem-norm}
@@ -96,26 +93,26 @@ as a hypothesis, as CP10 uses it implicitly in (74), (77) and (35) (``$\le5n\hat
 \end{remark}
 
 \begin{lemma}[Period dictionary]\label{bpP:p3:period-dictionary}
-Let $\tilde H(I,\phi)=\tilde h(I)+\tilde f(I,\phi)$ be analytic on $A\times\{\abs{\operatorname{Im}\phi}<\sigma\}$, $\phi\in(\R/2\pi\Z)^n$ (CP10 convention: form $dI\wedge d\phi$, characters $e^{ik\cdot\phi}$, weighted norm $\sum_k\sup\abs{\tilde f_k}e^{\sigma\abs k_1}$, $\tilde\omega=\partial\tilde h$, constants $\tilde M,\tilde{\hat M},\tilde{\bar M},\tilde E,\tilde\gamma_i$, $\tilde L,\tilde K,\tilde\rho,\tilde{\hat E}$ computed by Definition~\ref{bpP:p3:constants} with $\tilde\gamma_i$ the Diophantine constants of $\tilde\omega=2\pi\omega$).
-Put $H(I,\theta):=\tilde H(I,2\pi\theta)/2\pi$. Then $h=\tilde h/2\pi$, $f=\tilde f(\cdot,2\pi\theta)/2\pi$, $\omega=\tilde\omega/2\pi$, $\norm f_{\rho,\sigma}=\norm{\tilde f}_{\rho,\sigma}/2\pi$, and with $M=\tilde M/2\pi$, $\hat M=\tilde{\hat M}/2\pi$, $\bar M=2\pi\tilde{\bar M}$, $\bar M_i=2\pi\tilde{\bar M}_i$, $E=\tilde E/2\pi$, $\gamma_i=\tilde\gamma_i/2\pi$ one has
-$L=2\pi\tilde L$ and $K=\tilde K$, $\hat\rho=\tilde{\hat\rho}$, $\hat E=\tilde{\hat E}$, $\hat c=\tilde{\hat c}$ \emph{identically}. A map $\varphi$ is an orbit-conjugacy for $H$ with frequency $\omega$ iff $\phi\mapsto\varphi(\phi/2\pi)$ is one for $\tilde H$ with $\tilde\omega=2\pi\omega$; Lagrangian for $dJ\wedge d\theta$ iff for $dI\wedge d\phi=2\pi\,dJ\wedge d\theta$. The estimates of Proposition~\ref{bpP:p3:two-scale-kam}(d) hold verbatim for $\tilde u=2\pi u$ in the form $\abs{\tilde u}\le\frac32\hat Es$.
+This is \Pref{bpP:p1:period-convert} with $c=2\pi$ (chart $S_{2\pi}(z_1,z_2)=(2\pi z_1,z_2)$; in Part~3's order, $Q(I,\theta)=(I,2\pi\theta)$). Let $\tilde H(I,\phi)=\tilde h(I)+\tilde f(I,\phi)$ be analytic on $A\times\{\abs{\operatorname{Im}\phi}<\sigma\}$, $\phi\in(\R/2\pi\Z)^n$ (CP10 convention: form $dI\wedge d\phi$, characters $e^{ik\cdot\phi}$, norm $\sup_I\sum_k\abs{\tilde f_k}e^{\sigma\abs k_1}$, $\tilde\omega=\partial\tilde h$; constants $\tilde M,\tilde{\hat M},\tilde{\bar M},\tilde E,\tilde\gamma_i$ and $\tilde L,\tilde K,\tilde{\hat\rho},\tilde{\hat E}$ computed by Definition~\ref{bpP:p3:constants} with $\tilde\gamma_i$ the Diophantine constants of $\tilde\omega$).
+Put $H(I,\theta):=\tilde H(I,2\pi\theta)/2\pi$. Then $h=\tilde h/2\pi$, $f=\tilde f(\cdot,2\pi\theta)/2\pi$, $\omega=\tilde\omega/2\pi$, $\norm f_{\rho,\sigma}=\norm{\tilde f}_{\rho,\sigma}/2\pi$ and, with $M=\tilde M/2\pi$, $\hat M=\tilde{\hat M}/2\pi$, $\bar M=2\pi\tilde{\bar M}$, $\bar M_i=2\pi\tilde{\bar M}_i$, $E=\tilde E/2\pi$, $\gamma_i=\tilde\gamma_i/2\pi$: $L=2\pi\tilde L$ and $K=\tilde K$, $\hat\rho=\tilde{\hat\rho}$, $\hat E=\tilde{\hat E}$, $\hat c=\tilde{\hat c}$ \emph{identically}.
+\emph{Tori.} If $\varphi_\omega=(v,\mathrm{id}+u)$ is a torus of Proposition~\ref{bpP:p3:two-scale-kam} for $H$ (coordinates $(I,\theta)$, frequency $\omega$), then
+$\tilde\varphi(\phi):=Q\bigl(\varphi_\omega(\phi/2\pi)\bigr)=(v(\phi/2\pi),\ \phi+2\pi u(\phi/2\pi))$ is a torus for $\tilde H$ in CP's coordinates with flow $\phi\mapsto\phi+t\tilde\omega$, $\tilde\omega=2\pi\omega$, and $\tilde u:=2\pi u$ satisfies $\abs{\tilde u}\le\frac32\hat Es$ (the \emph{output angle is scaled}). The frozen parameterization is $K=\Psi\circ(\pi\circ\varphi_\omega)$ with the pipeline chart $\Psi=\Phi\circ S_{2\pi}$ of \Pref{bpP:p1:cyl-pipeline} (the \emph{unscaled} torus $\pi\circ\varphi_\omega$ is the input; $Q$ is only the CP-coordinate description of the same torus, never composed again), with frozen frequency $w=\omega=\tilde\omega/2\pi$: \emph{one} division by $2\pi$, already contained in the passage $\tilde H\mapsto H$; $w$ is not divided again (test: $\tilde h(I)=2\pi I$ has $\tilde\omega=2\pi$ and $\omega=w=1$).
 \end{lemma}
 \begin{proof}
 \proofstep{Substitution}\label{stepP:p3:pd-subst}
-$\tilde f(I,\phi)=\sum_k\tilde f_k(I)e^{ik\cdot\phi}$ and $\phi=2\pi\theta$ give $f(I,\theta)=\frac1{2\pi}\sum_k\tilde f_k(I)e^{2\pi ik\cdot\theta}$: same weights, coefficients divided by $2\pi$.
-$\partial_I$ commutes, so $U=\tilde U/2\pi$, $U^{-1}=2\pi\tilde U^{-1}$, sub-blocks likewise.
+$\tilde f(I,\phi)=\sum_k\tilde f_k(I)e^{ik\cdot\phi}$ and $\phi=2\pi\theta$ give $f(I,\theta)=\frac1{2\pi}\sum_k\tilde f_k(I)e^{2\pi ik\cdot\theta}$: same weights, coefficients divided by $2\pi$. $U=\tilde U/2\pi$, $U^{-1}=2\pi\tilde U^{-1}$, sub-blocks likewise.
 \proofstep{Invariants}\label{stepP:p3:pd-invar}
 $EM^2L/\gamma_1^2=\frac{\tilde E}{2\pi}\frac{\tilde M^2}{4\pi^2}2\pi\tilde L\frac{4\pi^2}{\tilde\gamma_1^2}=\tilde E\tilde M^2\tilde L/\tilde\gamma_1^2$, hence $K=\tilde K$;
 $\gamma_1/(3MK^{\tau+1})=\tilde\gamma_1/(3\tilde MK^{\tau+1})$ (same for $\gamma_2,\hat M$), so $\hat\rho=\tilde{\hat\rho}$; $EL/\hat\rho^2=\tilde E\tilde L/\hat\rho^2$.
-\proofstep{Dynamics}\label{stepP:p3:pd-dyn}
-$\dot\phi=\partial_I\tilde H=2\pi\partial_IH=2\pi\dot\theta$ and $\dot I=-\partial_\phi\tilde H=-\partial_\theta H$.\qquad(This is the \texttt{period-convert} of Part~1, \Pref{bpP:p1:period-convert}, in the form needed here.)
+\proofstep{Dynamics and tori}\label{stepP:p3:pd-dyn}
+$\dot\phi=\partial_I\tilde H=2\pi\partial_IH=2\pi\dot\theta$, $\dot I=-\partial_\phi\tilde H=-\partial_\theta H$ (\Pref{bpP:p1:period-convert}(b)); composing the conjugacy with $Q$ gives $\tilde\varphi$, and \Pref{bpP:p1:period-convert}(c) gives $w=\tilde\omega/2\pi=\omega$.
 \end{proof}
 
 \subsection{External facts and imported tools}\label{bpP:p3:external}
 
 \begin{enumerate}[label=(X\arabic*)]
 \item\label{bpP:p3:ext-ift} \emph{Holomorphic inverse function theorem.} An injective holomorphic $F:\Omega\to\C^n$ ($\Omega$ open) with $\det DF\neq0$ is open, and $F^{-1}:F(\Omega)\to\Omega$ is holomorphic with $D(F^{-1})=(DF)^{-1}\circ F^{-1}$.
-\item\label{bpP:p3:ext-vitali} \emph{Vitali--Montel.} A uniformly bounded sequence of holomorphic functions on a connected open $V\subset\C^n$ that converges at every point of a nonempty open subset of $V\cap\R^n$ (real totally real set) converges locally uniformly on $V$, with all derivatives.
+\item\label{bpP:p3:ext-fourier} \emph{Fourier coefficients of periodic continuous functions} (\Kref{bp:p1:ext-fourier}): $\hat F_k=\int_{[0,1]^n}F(\vartheta)e^{-2\pi ik\cdot\vartheta}d\vartheta$, used in Lemma~\ref{bpP:p3:fourier-compact} (which replaces a several-variable Vitali--Montel theorem; review P3-11).
 \item\label{bpP:p3:ext-weierstrass} \emph{Weierstrass.} Locally uniform limits of holomorphic functions are holomorphic and derivatives converge locally uniformly (\Kref{bp:p1:uniform-limits}).
 \item\label{bpP:p3:ext-banach} Banach fixed point (\Kref{bp:p1:ext-banach}); mean value inequality on convex sets (\Kref{bp:p1:ext-mvt}); Cauchy estimates on polydiscs (\Kref{bp:p1:cauchy-open}).
 \item\label{bpP:p3:ext-neumann} Neumann series: $\norm B\le\frac12$ implies $1+B$ invertible with $\norm{(1+B)^{-1}}\le2$.
@@ -151,34 +148,21 @@ If $\abs{x-y}\ge r/2$, then $\abs{\Delta(x)-\Delta(y)}\le2A\le(4A/r)\abs{x-y}$. 
 \subsection{Averaging with two frequency scales (the case $m=0$, $\Lambda=\{0\}$ of CP10 Proposition~1)}\label{bpP:p3:avgsec}
 
 \begin{lemma}[One averaging step with two scales]\label{bpP:p3:avg}
-Let $0<\alpha_2\le\alpha_1$, $D\subset\R^n$, $r>0$, $\bar s,s>0$, $K>0$ with $Ks\ge6$. Let $h$ be analytic on $D_r$, $\omega=\partial h$, $f$ analytic on $D_r\times\T_{\bar s+s}$,
-real analytic, $1$-periodic in $\theta$, and $E:=\norm f_{r,\bar s+s}$. Assume
+Let $0<\alpha_2\le\alpha_1$, $D\subset\R^n$, $r>0$, $\bar s,s>0$, $K>0$ with $Ks\ge6$. Let $h$ be analytic on $D_r$, real on real points, $\omega=\partial h$, $f$ analytic on $D_r\times\T_{\bar s+s}$, real analytic, $1$-periodic in $\theta$, and $E:=\norm f_{r,\bar s+s}$ (N-norm, \S\ref{bpP:p3:conv}). Assume
 \begin{enumerate}[label=(N\arabic*)]
 \item (non-resonance on the complex neighbourhood) for all $I\in D_r$ and $k\in\Z^n$ with $0<\abs k_1\le K$: $\abs{k\cdot\omega(I)}\ge\alpha_1$ if $k_1\ne0$ and $\ge\alpha_2$ if $k_1=0$;
-\item (smallness) $64e\,KE<\alpha_2r$.
+\item (smallness) $64e\,KE<\alpha_2r$; equivalently $E<\alpha_2d/(2^7c_0Ks)$ with $d=rs$, $c_0=e/2$ (CP10 (23), $m=0$).
 \end{enumerate}
-Then there is a map $\Psi:D_{r/2}\times\T_{\bar s+s/6}\to D_r\times\T_{\bar s+s}$ ($\Psi(I',\theta')=(I,\theta)$), holomorphic, real on real points, with $\Psi-\mathrm{id}$ $\Z^n$-periodic in $\theta'$, symplectic for $dI\wedge d\theta$ (that is $\Psi^*(dI\wedge d\theta)=dI'\wedge d\theta'$), such that $H\circ\Psi=h+g+f_*$ on $D_{r/2}\times\T_{\bar s+s/6}$, with $g=g(I')$ independent of $\theta'$ and
+Then there is $\Psi:D_{r/2}\times\T_{\bar s+s/6}\to D_r\times\T_{\bar s+s}$ ($\Psi(I',\theta')=(I,\theta)$), holomorphic, injective, real on real points, $\Psi-\mathrm{id}$ $\Z^n$-periodic in $\theta'$, symplectic ($\Psi^*(dI\wedge d\theta)=dI'\wedge d\theta'$), with $H\circ\Psi=h+g+f_*$ on $D_{r/2}\times\T_{\bar s+s/6}$, $g=g(I')$ independent of $\theta'$, and
 \begin{align*}
-&\sup_{D_{r/2}}\abs{g-f_0}\le E/4,\qquad \norm{f_*}_{r/2,\bar s+s/6}\le e^{-Ks/6}E,\\
+&\sup_{D_{r/2}}\abs{g-f_0}\le E/4\ \ (\text{indeed}\le E/(Ks)),\qquad \norm{f_*}_{r/2,\bar s+s/6}\le e^{-Ks/6}E,\\
 &\alpha_1s\abs{I_1-I'_1}\le9E,\quad\alpha_2s\abs{I_2-I'_2}\le9E,\quad2\pi\alpha_2r\abs{\theta-\theta'}\le9E\qquad\text{on }D_{r/2}\times\T_{\bar s+s/6}.
 \end{align*}
 Here $f_0(I)=\int_{\T^n}f(I,\theta)d\theta$ and $I=(I_1,I_2)\in\R^{n_1}\times\R^{n_2}$.
-\source{CP10 Prop.~1 (p.~552) with $m=0$, $c_0=e/2$ so that $2^7c_0=64e$, $\Lambda=\{0\}$, $d=rs$, (24)--(26); Lemma~A.1 (p.~564), proof pp.~564--565.}
-\sourcegap{CP10 proves Prop.~1 only by reference to [4, Lemma A.5] (not pinned), plus the splitting (70)--(71) of the generating function for the $I_1$-bound. \Pref{bpP:p2:averaging} is planned to derive the one-scale case $\alpha_1=\alpha_2$
-from \Nref{bpN:p6:iterative}; \emph{the two-scale case needed here is not in the plan of Part~2}. This lemma is therefore an \textbf{interface to be supplied} by Part~2 (or by a variant of \Nref{bpN:p6:iterative} with two non-resonance constants).}
+\source{CP10 Prop.~1 (p.~552), $m=0$, $\Lambda=\{0\}$, (23)--(26); Lemma~A.1 (p.~564).}
 \end{lemma}
-\begin{proof}[Plan of the proof (to be carried out in Part~2 / track~N)]
-\proofstep{Scaling remark}\label{stepP:p3:avg-scale}
-The CP10 statements are for angles of period $2\pi$. For $\theta=\phi/2\pi$ the small divisor $ik\cdot\omega$ becomes $2\pi ik\cdot\omega$ and $\partial_\theta$ carries a factor $2\pi$; in every term of CP10's Poisson-bracket and generating-function estimates the two factors $2\pi$ cancel or improve
-(generating function $\chi_k=f_k/(2\pi ik\cdot\omega)$, $\norm\chi\le E/(2\pi\alpha)$, then $\norm{\partial_\theta\chi}\le\frac{2\pi}{e\delta'}\norm\chi$). Hence the CP10 constants stay valid.
-By Lemma~\ref{bpP:p3:period-dictionary} one may equally apply CP10's statement to $\tilde H=2\pi H(I,\phi/2\pi)$ with $\tilde\omega=2\pi\omega$, $\tilde\alpha_i=2\pi\alpha_i$, $\tilde E=2\pi E$ (the conditions (N2) and the bounds are invariant up to the stated factors $2\pi$ in the last bound).
-\proofstep{Homological equation}\label{stepP:p3:avg-hom}
-Solve $\omega\cdot\partial_\theta\chi=T_Kf-f_0$ by $\chi_k=f_k/(2\pi ik\cdot\omega)$, $0<\abs k_1\le K$ (\Nref{bpN:p6:homological}, \Kref{bp:p1:cohomological}); the splitting $k_1\ne0$/$k_1=0$ gives $\norm{\chi^{(1)}}\le E/(2\pi\alpha_1)$, $\norm{\chi^{(2)}}\le E/(2\pi\alpha_2)$, where $\chi^{(2)}$ does not depend on $\theta_1$ (CP10 (70)--(71)).
-\proofstep{Time-one map and remainder}\label{stepP:p3:avg-flow}
-$\Psi$ is the time-one map of $X_\chi$: domain, symplectic, estimates by \Nref{bpN:p5:flow-domain}, \Nref{bpN:p5:composition}, \Nref{bpN:p4:bracket}; the displacement bounds from the generating equations and Cauchy estimates \Nref{bpN:p4:cauchy};
-$f_*$ is given by the Taylor formula with integral remainder \Nref{bpN:p5:taylor} and $\norm{f-T_Kf}\le e^{-Ks}E$ \Nref{bpN:p4:projections} (the weight loss $s\to s/6$ gives $e^{-Ks/6}$).
-\proofstep{Bounding $g$}\label{stepP:p3:avg-g}
-$g-f_0$ is quadratic in $E$: $\le\frac{12}{11}\frac{2^7c_0KE^2}{\alpha_2r}\le E/4$ by (N2) (CP10 (25)).
+\begin{proof}
+This is Corollary~\ref{bpP:p2:avg} of Part~2 verbatim (there the first two displacement constants are even $3E$; $9E$ is kept because Lemma~\ref{bpP:p3:step} was computed with it). Its proof is Proposition~\ref{bpP:p2:nfb}: a \emph{finite iteration} of track~N's Iterative Lemma (the exponential $e^{-Ks/6}$ comes from the iteration, not from one flow), with the loss schedule $\rho_i=r/8N$, $\sigma_i=s/4N$, $N=\lfloor Ks/12\ln2\rfloor$, and the generating-function splitting of Lemma~\ref{bpP:p2:split} that gives the $\alpha_1$-bound for $I_1$ at every stage. The bound on $g-f_0$ has denominator $\alpha_2rs$ and no $K$ in the numerator ($\abs{g-f_0}\le E/\kappa$, $\kappa=Ks$; CP10 (25); review P3-04). Only (N1), (N2) are assumed: no Lipschitz hypothesis (Part~2, Remark~\ref{bpP:p2:diff}).
 \end{proof}
 
 \subsection{One step of the scheme}\label{bpP:p3:stepsec}
@@ -244,7 +228,7 @@ $E_+L_+=2E^2L^2M^2/\gamma_1^2$ and $\hat\rho_+^{-2}\le4\cdot24^{2(\tau+1)}\hat\r
 \begin{remark}[Differences from CP10 in the step]\label{bpP:p3:rem-step}
 CP10 (74)--(75), (86)--(87) have $5n$, $2^6n$ and $2^7$ from a mixture of $1$-, $\infty$- and ``sup'' norms; the above constants are those of max norms. CP10 injectivity argument (p.~569--570) uses ``$\sup\norm{\partial(\omega^{-1})}\sup\abs{\omega(I)-\omega(I')}$'', a mean value inequality that
 silently needs $[\omega(I),\omega(I')]\subset\omega(D_\rho)$; Lemma~\ref{bpP:p3:ball} supplies it. The Lipschitz bound of $\hat\imath_+-\mathrm{id}$ on the (non-convex) set $D$ is repaired by Lemma~\ref{bpP:p3:lip-sup}.
-CP10 (91) prints $(4s)^{\tau+1}$ where the computation gives $(4s)^{2(\tau+1)}$.
+CP10 (91) prints $(4s)^{\tau+1}$ where the computation gives $(4s)^{2(\tau+1)}$ (a sharpening: the printed bound is true, being weaker).
 \end{remark}
 
 \subsection{The iterative lemma}\label{bpP:p3:itersec}
@@ -261,7 +245,7 @@ Under the hypotheses of Proposition~\ref{bpP:p3:two-scale-kam} (in particular $\
 \item $D_j\subset(D_{j-1})_{\hat\rho_{j-1}/16}$, $\omega_j=\partial h_j$ is a diffeomorphism of $(D_j)_{\rho_j}$ onto an open set, $\omega_j(D_j)=\omega_0(D_0)\subset\mathcal D_{\gamma_1,\gamma_2,\tau}$; the map $\hat\imath_j:=\omega_j^{-1}\circ\omega_{j-1}:D_{j-1}\to D_j$ (defined and holomorphic on $(D_{j-1})_{\hat\rho_{j-1}/16}$) satisfies
 $\sup\abs{\hat\imath_{j,i}-\mathrm{id}_i}\le10\frac{\bar M_i}{\bar M}\hat E_{j-1}\hat\rho_{j-1}$ and $L_{D_{j-1}}(\hat\imath_j-\mathrm{id})\le640n\hat E_{j-1}$;
 \item $\norm{f_j}_{\rho_j,\bar s+s_j}\le E_j$;
-\item $\Psi_j:W_j\to W_{j-1}'$ with $W_{j-1}':=D_{\hat\rho_{j-1}}\times\T_{\bar s+s_{j-1}}\supset W_{j-1}$ is holomorphic, real on reals, $\Psi_j-\mathrm{id}$ periodic, and on $W_j$
+\item $\Psi_j:W_j\to W_{j-1}'$ with $W_{j-1}':=(D_{j-1})_{\hat\rho_{j-1}}\times\T_{\bar s+s_{j-1}}\subset W_{j-1}$ is holomorphic (so $\Psi_j(W_j)\subset W_{j-1}$), real on reals, $\Psi_j-\mathrm{id}$ periodic, and on $W_j$
 \[\abs{\Delta I_1}\le\tfrac34\tfrac{\hat M}M\hat E_{j-1}\hat\rho_{j-1},\quad\abs{\Delta I_2}\le\tfrac34\hat E_{j-1}\hat\rho_{j-1},\quad2\pi\abs{\Delta\theta}\le\tfrac34\hat E_{j-1}s_{j-1};\]
 \item $\hat E_j<\hat E_{j-1}^2$ for $j\ge1$, whence $\hat E_j\le\hat E_0^{2^j}$, and $\hat c\hat E_j<1$;
 \item $\hat\rho_j\le\hat\rho_{j-1}/16$ and $\hat\rho_j\ge\hat\rho_{j-1}/(2\cdot24^{\tau+1})$, $s_j=s/12^j$, $K_j\le24^jK$.
@@ -275,7 +259,7 @@ $\mathcal P_0$ is the hypothesis of Proposition~\ref{bpP:p3:two-scale-kam} and $
 \proofstep{Induction}\label{stepP:p3:it-step}
 Apply Lemma~\ref{bpP:p3:step} to $\mathcal P_{j-1}$: it produces $D_j:=D_+$, $\Psi_j:=\Psi_+$, $h_j:=h_+$, $f_j:=f_+$, and (i)--(vi) of that lemma are (i)--(iii) here and the recursion of Definition~\ref{bpP:p3:seq} (the quantities named $\hat\rho_+,K_+,\hat E_+$ there are $\hat\rho_j,K_j,\hat E_j$). Items (iii) and (v) of the step give $\mathcal P_j$ ($\hat M_j\le M_j$, $\bar M_{i,j}\le\bar M_j$ propagate by doubling).
 \proofstep{Composition}\label{stepP:p3:it-comp}
-$\Phi_j=\Phi_{j-1}\circ\Psi_j$ is defined on $W_j$ because $\Psi_j(W_j)\subset W_{j-1}'$ and in fact $\subset W_{j-1}$: the displacement is $\le\frac34\hat E_{j-1}\hat\rho_{j-1}<\hat\rho_{j-1}/16$ and $W_j\subset D_{\hat\rho_{j-1}/8}\times\ldots$, so $\Psi_j(W_j)\subset D_{\hat\rho_{j-1}/8+\hat\rho_{j-1}/16}\times\T_{\bar s+s_{j-1}}$; this lies in $W_{j-1}=(D_{j-1})_{\rho_{j-1}}\times\T$ because $\hat\rho_{j-1}\le\rho_{j-1}$ (definition of $\hat\rho$). The identity $H_j=H_{j-1}\circ\Psi_j=H\circ\Phi_j$ is then immediate, and $\Phi_j$ is symplectic, real, with $\Phi_j-\mathrm{id}$ periodic.
+$\Phi_j=\Phi_{j-1}\circ\Psi_j$ is defined on $W_j$ because $\Psi_j(W_j)\subset W_{j-1}'\subset W_{j-1}$: $W_j\subset D_{\hat\rho_{j-1}/8}\times\T_{\bar s+s_j}$ (more precisely $(D_j)_{\rho_j}$ with $D_j\subset(D_{j-1})_{\hat\rho_{j-1}/16}$), the displacement is $\le\frac34\hat E_{j-1}\hat\rho_{j-1}<\hat\rho_{j-1}/16$, so the action of $\Psi_j(y)$ lies in $(D_{j-1})_{\hat\rho_{j-1}/8+\hat\rho_{j-1}/16}\subset(D_{j-1})_{\hat\rho_{j-1}}$, and $\hat\rho_{j-1}\le\rho_{j-1}$ (definition of $\hat\rho$). The identity $H_j=H_{j-1}\circ\Psi_j=H\circ\Phi_j$ is then immediate, and $\Phi_j$ is symplectic, real, with $\Phi_j-\mathrm{id}$ periodic.
 \proofstep{(iv)--(v) of the Lemma}\label{stepP:p3:it-rates}
 By Step (vi) of Lemma~\ref{bpP:p3:step}: $\hat E_j<\hat E_{j-1}^2$, $\hat\rho_j\ge\hat\rho_{j-1}/(2\cdot24^{\tau+1})$, $\hat\rho_j\le\rho_j=\hat\rho_{j-1}/16$, $K_j\le24K_{j-1}$.
 \end{proof}

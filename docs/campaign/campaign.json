@@ -1,5 +1,5 @@
 {
- "current_phase": "Statements frozen on all four tracks. Track K: blueprint and source dependency graph published (docs/graph/K/DEPGRAPH.md: 453 nodes, 1420 edges, 0 source gaps, fully reviewed); proof campaign starting (Sonnet provers, GPT-6.1-Sol medium auditors). Tracks I, N, P: Opus sub-orchestrator (D23): D25 additions being frozen, blueprints being written.",
+ "current_phase": "G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.",
  "workers": [
   {
    "id": "orchestrator",
@@ -45,6 +45,51 @@
    "session": "kam-suborch",
    "assignment": "Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp",
    "state": "active"
+  },
+  {
+   "id": "prover-I-STRIP-5",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-strip5",
+   "assignment": "Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md)",
+   "state": "done; in audit"
+  },
+  {
+   "id": "audit-I-STRIP-5",
+   "kind": "package audit (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "kam-audit-strip5",
+   "assignment": "Independent audit of package I-STRIP-5 (five explicit audit questions)",
+   "state": "running"
+  },
+  {
+   "id": "prover-I-ZMAP",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-zmap",
+   "assignment": "Package I-ZMAP (docs/campaign/briefs/I-ZMAP.md)",
+   "state": "running"
+  },
+  {
+   "id": "prover-I-P1B",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-p1b",
+   "assignment": "Package I-P1B (docs/campaign/briefs/I-P1B.md)",
+   "state": "running"
+  },
+  {
+   "id": "prover-I-P4A",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-p4a",
+   "assignment": "Package I-P4A (docs/campaign/briefs/I-P4A.md)",
+   "state": "running"
   }
  ],
  "queued": [

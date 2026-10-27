@@ -93,7 +93,7 @@ Let $n\ge1$, $R>0$, $a>0$ and $k\in\Z^n\setminus\{0\}$. Then
 Choose $i$ with $\abs{k_i}=\max_j\abs{k_j}$. Then $\abs{k_i}\ge1$ and $\abs{k}_1\le n\abs{k_i}$.
 
 \proofstep{Fubini in the coordinate $\omega_i$}\label{step:p4:slab-fubini}
-The slab is open, hence measurable. Fix the other coordinates
+The slab is open and the cube closed, so their intersection is measurable. Fix the other coordinates
 $\omega'=(\omega_j)_{j\ne i}\in[-R,R]^{n-1}$ and put $b=\sum_{j\ne i}k_j\omega_j$. The section
 $\{\omega_i\in[-R,R]:\abs{k_i\omega_i+b}<a\}$ is contained in the interval
 $(-b/k_i-a/\abs{k_i},-b/k_i+a/\abs{k_i})$, of length $2a/\abs{k_i}$. By Fubini's theorem (Lebesgue

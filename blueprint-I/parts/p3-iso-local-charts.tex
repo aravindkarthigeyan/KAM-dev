@@ -252,7 +252,7 @@ are defined, and
 \item (ordering) $m_c(I_-)\le-\delta_m/2$, $m_c(I_+)\ge\delta_m/2$, whereas $\abs{m_c(I_0)}<\delta_m/4$ for $\norm{I_0-c}<\rho_c$.
 \end{enumerate}
 Moreover $\Phi_{\mathfrak p}$ maps $\{I\in W:\ h(I)=E,\ \abs{m_c(I)}\le\delta_m\}$ homeomorphically onto $\{E\}\times[-\delta_m,\delta_m]$, so that in the chart the energy curve is the segment $m\mapsto(E,m)$ and
-$I_-,\,I_+$ are the points with $m=m_\pm$ (``$I_-$, $I_0$, $I_+$ in this order along the curve'').
+$I_-,\,I_+$ are the points with $m=m_\pm$. (The slope coordinate $m_c(I_0)$ of an initial action $I_0$ with $\norm{I_0-c}<\rho_c$ lies strictly between $m_c(I_-)$ and $m_c(I_+)$ by (c); $I_0$ itself need not lie on $\{h=E\}$. If a middle point of the curve is wanted, it is $\tilde I_0=\Phi_{\mathfrak p}^{-1}(E,m_c(I_0))$, which is distinct from $I_0$ in general.)
 \source{ours.}
 \end{lemma}
 \begin{proof}
@@ -380,7 +380,7 @@ $j\in\mathcal P$ with $\norm{I_0-c_j}<\rho_j$ and, for each sign $\pm$, a map $K
 $\norm{u_\pm}_{\rho_\infty},\norm{v_\pm}_{\rho_\infty}\le C_K\varepsilon$ and $\norm{Du_\pm}_{\rho_\infty/2},\norm{Dv_\pm}_{\rho_\infty/2}\le 4C_K\varepsilon/\rho_\infty$ (operator norms; $\rho_\infty=s/8$).
 \item\label{bpI:p3:T5} \emph{(the base points and the frequencies)} $h(I_\pm)=E$, $\nabla h(I_\pm)=s^\circ_\pm\omega^*_\pm$ with $s^\circ_\pm\in(2,4M_g/m_h)$, $\norm{\omega_\pm-\nabla h(I_\pm)}=\abs{s_\pm-s^\circ_\pm}\norm{\omega^*_\pm}\le C_K\varepsilon$; and $\nabla h(I_\pm)$, $\omega_\pm$ are positive multiples of $\omega^*_\pm$.
 \item\label{bpI:p3:T6} \emph{(position)} $I_\pm\in B$, $\norm{I_\pm-I_0}<\eta_1/2\le\eta/2$, and for every real $\theta$: $\norm{K_\pm(\theta)_2-I_0}<\eta$ and $K_\pm(\theta)_2\in\mathcal S\subset B$ (the action component stays in $B$ and within $\eta$ of $I_0$). Moreover $B_{\mu/2}(K_\pm(\theta))\subset\mathfrak D$ and $\norm{DK_\pm(\theta)}\le\sigma_K-\mu/2$ on $T_{\rho_\infty}$.
-\item\label{bpI:p3:T7} \emph{(ordering in the energy chart)} With the chart $\Phi_j=(h,m_{c_j})$ of $\mathfrak p_j$: $I_\pm=\Phi_j^{-1}(E,m_{j,\pm})$, $m_{c_j}(I_-)\le-\delta_{m,j}/2$, $m_{c_j}(I_+)\ge\delta_{m,j}/2$ and $\abs{m_{c_j}(I_0)}<\delta_{m,j}/4$, so that, on the arc $\Phi_j^{-1}(\{E\}\times[-\delta_{m,j},\delta_{m,j}])$ of the energy curve $\{h=E\}$ (the segment $m\mapsto(E,m)$ in the chart), the slope coordinate of $I_-$ is below $-\delta_{m,j}/2$ and that of $I_+$ above $\delta_{m,j}/2$, while $I_0$ has slope coordinate in $(-\delta_{m,j}/4,\delta_{m,j}/4)$.
+\item\label{bpI:p3:T7} \emph{(ordering in the energy chart)} With the chart $\Phi_j=(h,m_{c_j})$ of $\mathfrak p_j$: $I_\pm=\Phi_j^{-1}(E,m_{j,\pm})$, $m_{c_j}(I_-)\le-\delta_{m,j}/2$, $m_{c_j}(I_+)\ge\delta_{m,j}/2$ and $\abs{m_{c_j}(I_0)}<\delta_{m,j}/4$, so that, on the arc $\Phi_j^{-1}(\{E\}\times[-\delta_{m,j},\delta_{m,j}])$ of the energy curve $\{h=E\}$ (the segment $m\mapsto(E,m)$ in the chart), the slope coordinate of $I_-$ is at most $-\delta_{m,j}/2$ and that of $I_+$ at least $\delta_{m,j}/2$, while the slope coordinate of $I_0$ (which is not asserted to lie on that arc) is in $(-\delta_{m,j}/4,\delta_{m,j}/4)$.
 \end{enumerate}
 The numbers $\varepsilon_1$, $C_K$, $\rho_\infty$, $\mathcal P$, $\sigma_\omega$, $M_g$ depend only on $(B,s_0,r_0,h,B',\eta)$.
 \source{ours (D-I-CONFINEMENT); the isoenergetic theorem used is HL19 Thm~3.6 and Rem.~3.7, pp.~18--19, in the form of Theorem~\ref{bpI:p0:g1}.}
@@ -406,9 +406,7 @@ and the shape of $\sigma_K$: $\sigma_K-\mu/2$ and the ball $B_{\mu/2}$ are those
 
 \begin{remark}[What Part~5 does with this]\label{bpI:p3:consumption}
 Given $z_0=(\theta_0,I_0)$ with $I_0\in B'$, its energy is $E:=\Ham_{h,f}(z_0)=h(I_0)+\operatorname{Re}f(\theta_0,I_0)$, so $\abs{E-h(I_0)}\le\varepsilon$ and Proposition~\ref{bpI:p3:tori} applies; take $\varepsilon_0\le\varepsilon_1$.
-The two tori are invariant under the flow of $\Ham_{h,f}$ ($E_{H,K,\omega}=0$ and $\Ham=H$ at real points), lie on the energy surface $\{\Ham_{h,f}=E\}$ of $z_0$, are graphs over $\T^2$ for $\varepsilon$ small by \ref{bpI:p3:T4}
-(Part~5, p5.2), and sit on the two sides $m_{c}\le-\delta_m/2$, $m_c\ge\delta_m/2$ of $z_0$ in the energy chart \ref{bpI:p3:T7} (Part~5, p5.1, p5.3); the confinement $\norm{z(t)_2-I_0}<\eta$ is \ref{bpI:p3:T6} and
-the compact enclosure in $\mathcal S\subset B$ gives global existence. No positive measure of tori is used: only the existence of the $2\abs{\mathcal P}$ Diophantine rays.
+The two tori are invariant under the flow of $\Ham_{h,f}$ ($E_{H,K,\omega}=0$ and $\Ham=H$ at real points), lie on the energy surface $\{\Ham_{h,f}=E\}$ of $z_0$, are graphs over $\T^2$ for $\varepsilon$ small by \ref{bpI:p3:T4}. The position of the deformed tori in the energy chart (their slopes $\mu_\pm$ straddle the slope of $I_0$ with margin), the separation of $z_0$ from the rest of the energy surface, the confinement $\norm{z(t)_2-I_0}<\eta$ and global existence are \emph{not} consequences of \ref{bpI:p3:T6}, \ref{bpI:p3:T7} alone: they are proved in Part~\ref{bpI:p5} (Lemma~\ref{bpI:p5:mu}, Proposition~\ref{bpI:p5:separation}, Proposition~\ref{bpI:p5:confinement}; see Remark~\ref{bpI:p5:p3-gap}). No positive measure of tori is used: only the existence of the $2\abs{\mathcal P}$ Diophantine rays.
 \end{remark}
 
 \begin{remark}[Deviations, doubts]\label{bpI:p3:doubts}

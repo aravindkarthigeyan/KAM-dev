@@ -1,0 +1,43 @@
+{
+ "skipped": [
+  "blueprint-I/parts/p0-conventions.tex:L15: \\Kref{bp:p0:conventions} (section)",
+  "blueprint-I/parts/p0-conventions.tex:L8: \\Kref{bp:p1:\\dots} (wildcard)",
+  "blueprint-I/parts/p0-conventions.tex:L8: \\Kref{bp:p2:\\dots} (wildcard)",
+  "blueprint-I/parts/p5-confinement.tex:L200: \\Kref{bp:p1:*} (wildcard)",
+  "blueprint-I/parts/p5-confinement.tex:L200: \\Nref{bpN:p3:*} (wildcard)",
+  "blueprint-I/parts/p6-kepler.tex:L116: \\Kref{bp:p0:conventions} (section)",
+  "blueprint-I/parts/p6-kepler.tex:L139: \\Kref{bp:p0:conventions} (section)"
+ ],
+ "unresolved": [
+  "blueprint-I/parts/p2-iso-iteration.tex:L90: \\Kref{bp:p2:constants-register} -> K:bp:p2:constants-register (EXCLUDED in the K graph: administrative remark (constants register / deviation list); no proof uses it, constants are defined in bp:p2:constants)"
+ ],
+ "frozen_unresolved": [],
+ "source_dropped": 13,
+ "cycles": [
+  "bpI:p1:extended-basic -> stepI:p1:eb-average -> bpI:p1:totality -> bpI:p1:extended-basic",
+  "bpI:p1:border-solve -> stepI:p1:bs-bordered -> bpI:p1:signs -> bpI:p1:reduced -> bpI:p1:border-solve",
+  "bpI:p2:torsion -> bpI:p2:iteration -> stepI:p2:it-step -> bpI:p2:step -> stepI:p2:st-frame -> bpI:p2:torsion",
+  "bpI:p2:g1 -> stepI:p2:g1-constants -> bpI:p2:constants -> bpI:p2:register -> bpI:p2:g1",
+  "bpI:p1:last-row -> bpI:p1:errata -> bpI:p1:last-row",
+  "bpI:p3:consumption -> bpI:p5:p3-gap -> bpI:p3:consumption"
+ ],
+ "unlabelled": [],
+ "aliases": {
+  "K:bp:p2:A5": [
+   "K:bp:p2:admissible"
+  ],
+  "K:bp:p2:A2": [
+   "K:bp:p2:admissible"
+  ],
+  "K:bp:p2:A4": [
+   "K:bp:p2:admissible"
+  ],
+  "K:bp:p2:A6": [
+   "K:bp:p2:admissible"
+  ],
+  "K:bp:p2:A3": [
+   "K:bp:p2:admissible"
+  ]
+ },
+ "missing_proof_owner": []
+}

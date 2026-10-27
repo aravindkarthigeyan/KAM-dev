@@ -1,0 +1,232 @@
+\section{Geometry of resonances (shared by tracks N and P)}\label{bpN:p8}
+\providecommand{\Eb}{\mathcal E}
+\providecommand{\Pj}{\Pi}
+\providecommand{\Q}{\mathbb Q}
+\begingroup\sloppy
+
+This part is Section~4 of P\"oschel~1993 (pp.~200--203): the volume $\abs\Lambda$ of an integer lattice, maximal $K$-lattices, resonance zones and blocks, the covering $\R^n=B_\Theta\cup B_1^*\cup\dots\cup B_n^*$, the Geometric Lemma and the Covering Lemma. It is pure linear algebra and lattice geometry: no Hamiltonian, no regularity and no holomorphy enters, the dimension $n\ge1$ and the sublattices of $\Z^n$ are arbitrary, and the frequency map is only a map $\omega:P\to\R^n$. Track~P may take every statement below as it stands.
+
+\paragraph{Conventions.} Throughout this part $\norm\cdot$ is the \emph{Euclidean} norm on $\R^n$ ($=\abs\cdot_2$ of Part~\ref{bpN:p1}), $x\cdot y$ the dot product, $\abs k_1=\sum\abs{k_i}$ and $\abs x_\infty=\max\abs{x_i}$; matrices are real, $A^\top$ is the transpose. The geometry needs orthogonal projections, hence the Euclidean norm; Part~\ref{bpN:p1}, Lemma~\ref{bpN:p1:norm-compare} relates it to the max norm and to $\abs k_1$. Since a lattice cut-off appears in two roles, we write $K$ (or $K_g$) for the \emph{geometric} cut-off, a bound on $\norm k$, and $K_a$ for the \emph{analytic} cut-off of Parts~\ref{bpN:p4}--\ref{bpN:p7}, a bound on $\abs k_1$, with $Z_{K_a}=\{k\in\Z^n:\abs k_1\le K_a\}$ (Part~\ref{bpN:p6}). The geometric ball is $\Eb_K=\{k\in\Z^n:\norm k\le K\}$ (a finite set). The compatibility of the two cut-offs is Corollary~\ref{bpN:p8:cutoffs} (finding N06 of the review of Part~0).
+
+\begin{remark}[Direction of the cut-off compatibility: correction to Parts~\ref{bpN:p6} and~\ref{bpN:p7}]\label{bpN:p8:direction}
+(Historical.) An earlier draft of Parts~\ref{bpN:p6} and~\ref{bpN:p7} (remarks on cut-offs and ``consumers'') stated that the analytic cut-off must satisfy $K_a\ge\sqrt nK_g$; the caller remarks of both parts have since been corrected to $K_g\ge\sqrt nK_a$. The earlier inequality was the wrong way round for what Part~\ref{bpN:p7} needs. The nonresonance \emph{conclusion} of the Geometric Lemma holds on the Euclidean ball $\Eb_{K_g}$, and Part~\ref{bpN:p6} needs it on the $\ell^1$ ball $Z_{K_a}$, which is contained in $\Eb_{K_a}$ (not in $\Eb_{K_g}$ unless $K_a\le K_g$). So one needs $K_a\le K_g$. The factor $\sqrt n$ enters in the other place: the radius condition $r\le\alpha/(p\sqrt n\,MK_a)$ of Part~\ref{bpN:p7} (Proposition~\ref{bpN:p7:resonant-prop2}(c)) is implied by the covering radius $r_\Lambda=\alpha_\Lambda/(pMK_g)$ exactly when $K_g\ge\sqrt nK_a$. Hence the correct compatibility is $K_g\ge\sqrt n\,K_a$ (Corollary~\ref{bpN:p8:cutoffs}), and Part~9 should take, e.g., $K_g=\sqrt nK_a$ (with $K_a\ge1/\sqrt n$ so that $K_g\ge1$). With $K_a\ge\sqrt nK_g>K_g$ the claim ``$Z_{K_a}\setminus\Lambda$ is nonresonant on the blocks'' would not follow. Example: $n=2$, $K_g=2$, $K_a=3\ge\sqrt2K_g$, $\omega=(1,-2)$. Every nonzero $k\in\Eb_2$ has $\abs{k\cdot\omega}\ge1$ (all $12$ vectors checked), but $k=(2,1)$ has $\abs k_1=3\le K_a$, $\norm k=\sqrt5>2$ and $k\cdot\omega=0$. (Taking $\lambda_1=\tfrac12$, the point $\omega$ lies in $B_\Theta$ for a Geometric-Lemma family.)
+\end{remark}
+
+\subsection{External facts}\label{bpN:p8:s-ext}
+\begin{enumerate}[label=(E\arabic*),leftmargin=2.2em]
+\item\label{bpN:p8:ext-free} \emph{Subgroups of $\Z^n$.} Every subgroup of $\Z^n$ is a free $\Z$-module of rank $d\le n$ (Mathlib \Lean{Submodule.basisOfPid}, applied to the standard basis \Lean{Pi.basisFun}; \texttt{LinearAlgebra/FreeModule/PID.lean}). Exists.
+\item\label{bpN:p8:ext-gram} \emph{Gram matrices.} If $A\in\R^{n\times d}$ has injective $x\mapsto Ax$ then $A^\top A$ is positive definite and $\det(A^\top A)>0$ (Mathlib \Lean{Matrix.PosDef.conjTranspose\_mul\_self} and \Lean{Matrix.PosDef.det\_pos}; \texttt{LinearAlgebra/Matrix/PosDef.lean}); $\det(MN)=\det M\det N$, $\det M^\top=\det M$ (\Lean{Matrix.det\_mul}, \Lean{Matrix.det\_transpose}). Exists.
+\item\label{bpN:p8:ext-schur} \emph{Schur complement.} For $G\in\R^{d\times d}$ invertible, $\det\begin{psmallmatrix}G&b\\c^\top&\gamma\end{psmallmatrix}=\det G\,(\gamma-c^\top G^{-1}b)$ (Mathlib \Lean{Matrix.det\_fromBlocks$_{11}$}; \texttt{LinearAlgebra/Matrix/SchurComplement.lean}). Exists.
+\item\label{bpN:p8:ext-units} \emph{Unimodular matrices.} A matrix $U\in\Z^{d\times d}$ is invertible over $\Z$ iff $\det U\in\{\pm1\}$ (\Lean{Matrix.isUnit\_iff\_isUnit\_det}, \Lean{Int.isUnit\_iff}); the change-of-basis matrix between two bases of a free module is invertible (\Lean{Basis.invertibleToMatrix}). A nonzero integer has modulus $\ge1$. Exists.
+\item\label{bpN:p8:ext-indep} \emph{Independence over $\Q$ and $\R$.} Columns of an integer matrix that are $\Z$-linearly independent are $\Q$-independent (\Lean{LinearIndependent.iff\_fractionRing}, \texttt{RingTheory/Localization/Module.lean}); $\Q$-independence of the $d$ columns of a rational matrix is the nonvanishing of one $d\times d$ minor (\Lean{Matrix.rank\_eq\_finrank\_span\_cols} and rank by minors), which does not depend on the field, so they are $\R$-independent. Exists (the second half as a short lemma over the field extension).
+\item\label{bpN:p8:ext-basic} \emph{Elementary facts.} Cauchy--Schwarz $\abs{x\cdot y}\le\norm x\norm y$; a finite nonempty partially ordered set has a maximal element; finite sets of vectors in $\Z^n$ (the ball $\Eb_K$); a finite spanning set of a vector space contains a basis. Exists.
+\end{enumerate}
+Part~\ref{bpN:p1} (Lemma~\ref{bpN:p1:norm-compare}) is used for the norm comparisons; no track-K result is used.
+
+\subsection{Lattices, dimension, volume}\label{bpN:p8:s-volume}
+
+\begin{definition}[Lattices]\label{bpN:p8:lattice}
+A \emph{lattice} is a subgroup $\Lambda\le\Z^n$. Its \emph{span} is $W_\Lambda=\operatorname{span}_\R\Lambda\subset\R^n$ and its \emph{dimension} is $d=\dim\Lambda:=\dim_\R W_\Lambda$. The trivial lattice is $\Theta=\{0\}$ ($d=0$). The \emph{resonance space} of $\Lambda$ is $R_\Lambda=\{\omega\in\R^n:k\cdot\omega=0\ \forall k\in\Lambda\}=W_\Lambda^\perp$, of dimension $n-d$.
+\source{Pos93 pp.~200--201.}
+\end{definition}
+
+\begin{lemma}[Bases and unimodular change]\label{bpN:p8:lattice-basis}
+Let $\Lambda\le\Z^n$.
+\begin{enumerate}[label=(\alph*)]
+\item $\Lambda$ has a $\Z$-basis $a_1,\dots,a_d$ with $d\le n$; every $\Z$-basis is $\R$-linearly independent, hence $\dim_\R W_\Lambda=d=\operatorname{rank}_\Z\Lambda$. For a basis put $A=(a_1|\dots|a_d)\in\Z^{n\times d}$ (``basis matrix'').
+\item If $\tilde A=AU$ is another basis matrix then $U\in\Z^{d\times d}$ and $\det U=\pm1$; conversely $AU$ is a basis matrix if $U\in\Z^{d\times d}$, $\det U=\pm1$.
+\item If $\Gamma\le\Lambda$ with $\dim\Gamma=\dim\Lambda=d$ and basis matrices $\tilde A$ of $\Gamma$ and $A$ of $\Lambda$, then $\tilde A=AN$ with $N\in\Z^{d\times d}$ and $\det N\ne0$.
+\end{enumerate}
+\source{Pos93 p.~201 (``there is a unimodular $d\times d$-matrix $U$ such that $\tilde A=AU$'').}
+\end{lemma}
+\begin{proof}
+\proofstep{Basis}\label{stepN:p8:lb-basis} (a): \ref{bpN:p8:ext-free} gives a $\Z$-basis with $d\le n$ elements; \ref{bpN:p8:ext-indep} gives $\R$-independence.
+\proofstep{Unimodular}\label{stepN:p8:lb-unimod} (b): each column of $\tilde A$ lies in $\Lambda$, so $\tilde A=AU$ with an integer matrix $U$ (coordinates in the basis $A$) and likewise $A=\tilde A\tilde U$; then $A=AU\tilde U$ gives $U\tilde U=1$ by injectivity of $A$ (\ref{bpN:p8:ext-gram}), so $\det U\det\tilde U=1$ with both integers, i.e.\ $\det U=\pm1$ (\ref{bpN:p8:ext-units}). Conversely $AU$ has columns in $\Lambda$, and $U^{-1}\in\Z^{d\times d}$ shows they generate $\Lambda$ and are independent.
+\proofstep{Sublattice}\label{stepN:p8:lb-sub} (c): $\tilde A=AN$ as in (b). If $Nx=0$ then $\tilde Ax=ANx=0$, so $x=0$ ($\tilde A$ injective by (a)); thus $N$ is injective, $\det N\ne0$.
+\end{proof}
+
+\begin{definition}[Volume of a lattice]\label{bpN:p8:volume-def}
+For $\Lambda\ne\Theta$ with basis matrix $A$ put $\abs\Lambda:=\sqrt{\det(A^\top A)}$; $\abs\Theta:=1$. (The radicand is $>0$ by \ref{bpN:p8:ext-gram} and Lemma~\ref{bpN:p8:lattice-basis}(a); geometrically $\abs\Lambda$ is the $d$-dimensional volume of the parallelepiped spanned by a basis.)
+\source{Pos93 p.~200--201.}
+\end{definition}
+
+\begin{lemma}[Orthogonal projection onto a span]\label{bpN:p8:projection}
+Let $A\in\R^{n\times d}$ ($d\ge1$) have independent columns, $W$ their span, $G=A^\top A$ (invertible, \ref{bpN:p8:ext-gram}) and $\Pj_W=AG^{-1}A^\top$, $Q_W=1-\Pj_W$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $\Pj_W^\top=\Pj_W=\Pj_W^2$, $\Pj_Wv\in W$ for all $v$, $\Pj_Wv=v$ for $v\in W$, and $Q_Wv\perp W$. Hence $\norm v^2=\norm{\Pj_Wv}^2+\norm{Q_Wv}^2$, $\norm{\Pj_Wv}\le\norm v$, $\norm{Q_Wv}\le\norm v$. For $d=0$ put $\Pj_{\{0\}}=0$.
+\item $\Pj_Wv$ is the unique $w\in W$ with $v-w\perp W$.
+\item $\operatorname{dist}_2(\omega,W^\perp)=\norm{\Pj_W\omega}$ for all $\omega\in\R^n$ (the minimum is attained at $Q_W\omega$).
+\item If $W\subset W'$ are two such spans, then $\Pj_{W'}\Pj_W=\Pj_W\Pj_{W'}=\Pj_W$.
+\end{enumerate}
+Consequently $R_\Lambda=W_\Lambda^\perp$ and $\operatorname{dist}_2(\omega,R_\Lambda)=\norm{\Pj_{W_\Lambda}\omega}$; write $\Pj_\Lambda=\Pj_{W_\Lambda}$, $Q_\Lambda=Q_{W_\Lambda}$.
+\source{Standard (Pos93 p.~202 uses these properties silently).}
+\end{lemma}
+\begin{proof}
+\proofstep{Algebra}\label{stepN:p8:pr-alg} $\Pj_W^\top=A G^{-\top}A^\top=\Pj_W$ ($G$ symmetric), $\Pj_W^2=AG^{-1}(A^\top A)G^{-1}A^\top=\Pj_W$, $\Pj_WA=A$, so $\Pj_Wv=v$ on $W$; $A^\top Q_W=A^\top-GG^{-1}A^\top=0$ gives $Q_Wv\perp W$. Pythagoras follows from $\Pj_Wv\cdot Q_Wv=v\cdot\Pj_WQ_Wv=0$.
+\proofstep{Uniqueness, distance}\label{stepN:p8:pr-dist} (b): if $w,w'\in W$ both have $v-w,v-w'\perp W$ then $w-w'\in W\cap W^\perp=0$. (c): for $u\in W^\perp$, $\norm{\omega-u}^2=\norm{\Pj_W\omega}^2+\norm{Q_W\omega-u}^2$ (as $\Pj_W\omega\in W\perp Q_W\omega-u$), with equality for $u=Q_W\omega\in W^\perp$.
+\proofstep{Nested spans}\label{stepN:p8:pr-nest} (d): $\Pj_W v\in W\subset W'$ so $\Pj_{W'}\Pj_Wv=\Pj_Wv$; transposing gives $\Pj_W\Pj_{W'}=\Pj_W$.
+\end{proof}
+
+\begin{lemma}[Volume]\label{bpN:p8:lattice-volume}
+Let $n\ge1$ and let $\Lambda,\Gamma\le\Z^n$ be lattices.
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{independence of the basis}) $\det(A^\top A)$ does not depend on the basis matrix $A$ of $\Lambda$; so $\abs\Lambda$ is well defined.
+\item $\abs\Lambda^2=\det(A^\top A)$ is a positive integer; hence $\abs\Lambda\ge1$.
+\item If $\Gamma\le\Lambda$ and $\dim\Gamma=\dim\Lambda$ then $\abs\Gamma=\abs{\det N}\abs\Lambda\ge\abs\Lambda$, $N$ as in Lemma~\ref{bpN:p8:lattice-basis}(c).
+\item $\abs{\Z g}=\norm g$ for $g\in\Z^n\setminus\{0\}$; $\abs{\Z^n}=1$.
+\item (\emph{adding a vector}) If $k\in\Z^n\setminus W_\Lambda$, then $\Lambda+\Z k$ has dimension $\dim\Lambda+1$ and $\abs{\Lambda+\Z k}=\abs\Lambda\,\norm{Q_\Lambda k}$, with $Q_\Lambda k\ne0$.
+\item (\emph{Hadamard}) If $v_1,\dots,v_d\in\Z^n$ are $\R$-independent and generate $\Gamma$, then $\abs\Gamma\le\prod_i\norm{v_i}$.
+\end{enumerate}
+\source{Pos93 p.~201 (a), p.~202 (the inequalities ``the volume of $\Lambda_+$ is not bigger than the volume of $\Lambda$ times the length of the component of $k$ orthogonal to $\Lambda$''; (c),(e) make this precise).}
+\end{lemma}
+\begin{proof}
+\proofstep{(a),(b)}\label{stepN:p8:lv-ab} If $\tilde A=AU$, $\det\tilde A^\top\tilde A=\det U^\top\det(A^\top A)\det U=(\det U)^2\det A^\top A=\det A^\top A$ by Lemma~\ref{bpN:p8:lattice-basis}(b) and \ref{bpN:p8:ext-gram}. The matrix $A^\top A$ is an integer matrix, so its determinant is an integer, $>0$ by \ref{bpN:p8:ext-gram}. For $\Lambda=\Theta$, $\abs\Theta=1$.
+\proofstep{(c)}\label{stepN:p8:lv-c} $\tilde A^\top\tilde A=N^\top(A^\top A)N$, so $\abs\Gamma^2=(\det N)^2\abs\Lambda^2$ with $\det N\in\Z\setminus\{0\}$ (Lemma~\ref{bpN:p8:lattice-basis}(c)), $\abs{\det N}\ge1$. (For $\Lambda=\Theta$ there is nothing to prove.)
+\proofstep{(d)}\label{stepN:p8:lv-d} $A=g$ gives $\sqrt{g^\top g}=\norm g$; $A=1$ gives $1$.
+\proofstep{(e)}\label{stepN:p8:lv-e} By Lemma~\ref{bpN:p8:projection}(a), $k\notin W_\Lambda$ means $Q_\Lambda k\ne0$ (else $k=\Pj_\Lambda k\in W_\Lambda$). With $A$ a basis matrix of $\Lambda$ the columns of $A'=(A|k)$ generate $\Lambda+\Z k$ and are $\R$-independent, hence form a basis, $\dim=d+1$. Then $A'^\top A'=\begin{psmallmatrix}G&A^\top k\\k^\top A&k^\top k\end{psmallmatrix}$, $G=A^\top A$, and \ref{bpN:p8:ext-schur} gives $\det A'^\top A'=\det G\,(k^\top k-k^\top AG^{-1}A^\top k)=\det G\,(\norm k^2-k\cdot\Pj_\Lambda k)=\det G\,\norm{Q_\Lambda k}^2$, since $k\cdot\Pj_\Lambda k=\norm{\Pj_\Lambda k}^2$ (Lemma~\ref{bpN:p8:projection}(a)) and Pythagoras. For $\Lambda=\Theta$ this reads $\abs{\Z k}=\norm k$ by (d).
+\proofstep{(f)}\label{stepN:p8:lv-f} Induction on $d$ with (e): for $\Gamma_{j}=\langle v_1,\dots,v_j\rangle$, $\abs{\Gamma_{j}}=\abs{\Gamma_{j-1}}\norm{Q_{\Gamma_{j-1}}v_j}\le\abs{\Gamma_{j-1}}\norm{v_j}$ (Lemma~\ref{bpN:p8:projection}(a)), starting from $\abs\Theta=1$.
+\end{proof}
+
+\begin{remark}[Totality]\label{bpN:p8:totality}
+Every square root and division in this part is guarded: $\abs\Lambda>0$ (Lemma~\ref{bpN:p8:lattice-volume}(b)); $G^{-1}$ exists by \ref{bpN:p8:ext-gram}; $\norm{Q_\Lambda k}>0$ when divided by (Lemma~\ref{bpN:p8:lattice-volume}(e)); the radicands $\norm{\Pj_+\omega}^2-\norm{\Pj\omega}^2$ and $A^2-1$ in Lemma~\ref{bpN:p8:geometric} are shown to be $\ge0$ (indeed $>0$) before the square root is taken. Nothing is evaluated outside its domain.
+\end{remark}
+
+\subsection{Maximal $K$-lattices, zones, blocks, covering of frequency space}\label{bpN:p8:s-blocks}
+
+\begin{definition}[$K$-lattices]\label{bpN:p8:klattice}
+Let $K\ge0$. A lattice $\Lambda$ is a \emph{$K$-lattice} if it is generated (as a group) by $\Lambda\cap\Eb_K$. It is a \emph{maximal $K$-lattice} if, moreover, every $K$-lattice $\Lambda'\supset\Lambda$ with $\dim\Lambda'=\dim\Lambda$ equals $\Lambda$. The family of maximal $K$-lattices is $\mathbb M_K$; $\mathbb M_K^d$ denotes those of dimension $d$.
+\source{Pos93 p.~200 (``lattices generated by vectors in $\Z^n_K$ and not properly contained in any other lattice of the same dimension''). The Euclidean ball is the one used on p.~202 (``it suffices to assume $\norm k\le K$''). If one reads ``any other lattice'' as an arbitrary subgroup of $\Z^n$ the maximal ones are the saturated ones $W\cap\Z^n$; these belong to our $\mathbb M_K$ (Lemma~\ref{bpN:p8:maximal}(a)), and all statements below hold for the larger family $\mathbb M_K$.}
+\end{definition}
+
+\begin{lemma}[Maximal $K$-lattices]\label{bpN:p8:maximal}
+Let $K\ge0$ and $\Lambda$ a $K$-lattice.
+\begin{enumerate}[label=(\alph*)]
+\item $\Lambda\in\mathbb M_K$ iff $\Eb_K\cap W_\Lambda\subset\Lambda$ (i.e.\ every integer vector of norm $\le K$ in the real span of $\Lambda$ lies in $\Lambda$). In particular $\Theta\in\mathbb M_K$, and a saturated $K$-lattice is maximal.
+\item Every $K$-lattice $\Gamma$ is contained in some $\Lambda\in\mathbb M_K$ with $\dim\Lambda=\dim\Gamma$. In particular, for $k\in\Eb_K\setminus\{0\}$ there is $\Lambda\in\mathbb M_K^1$ with $k\in\Lambda$.
+\item If $\Lambda\in\mathbb M_K$ and $k\in\Eb_K\setminus\Lambda$, then $k\notin W_\Lambda$, so $\dim\Lambda<n$ and $\Lambda+\Z k$ is a $K$-lattice of dimension $\dim\Lambda+1$.
+\item If $\Lambda\in\mathbb M_K$ and $\dim\Lambda=n$ then $\Eb_K\subset\Lambda$; if $K\ge1$ then $\Lambda=\Z^n$, and $\Z^n\in\mathbb M_K$. If $K<1$ then $\mathbb M_K=\{\Theta\}$.
+\item If $\Lambda\in\mathbb M_K$ has dimension $d$ then $1\le\abs\Lambda\le K^d$.
+\end{enumerate}
+\source{Pos93 pp.~200--202 (the properties used in the proofs of the Geometric Lemma and of the optimality remark); the verification is ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{Characterisation}\label{stepN:p8:mx-char} ($\Rightarrow$) Let $k\in\Eb_K\cap W_\Lambda$. Then $\Lambda+\Z k$ is generated by $(\Lambda\cap\Eb_K)\cup\{k\}\subset\Eb_K$, so it is a $K$-lattice; $k\in W_\Lambda$ gives $W_{\Lambda+\Z k}=W_\Lambda$, same dimension; maximality gives $\Lambda+\Z k=\Lambda$, $k\in\Lambda$. ($\Leftarrow$) Let $\Lambda'\supset\Lambda$ be a $K$-lattice of the same dimension. Then $W_\Lambda\subset W_{\Lambda'}$ and the dimensions agree, so $W_{\Lambda'}=W_\Lambda$; $\Lambda'$ is generated by $\Lambda'\cap\Eb_K\subset\Eb_K\cap W_\Lambda\subset\Lambda$, so $\Lambda'\subset\Lambda$. Saturated: $\Lambda=W_\Lambda\cap\Z^n\supset\Eb_K\cap W_\Lambda$. $\Theta$: $W=\{0\}$.
+\proofstep{Existence}\label{stepN:p8:mx-exist} (b): the set $\mathcal S$ of $K$-lattices $\Lambda\supset\Gamma$ with $\dim\Lambda=\dim\Gamma$ is finite (each is generated by a subset of the finite set $\Eb_K$), nonempty and ordered by inclusion; take an inclusion-maximal element $\Lambda$. Any $K$-lattice $\Lambda'\supset\Lambda$ of the same dimension is in $\mathcal S$, hence equals $\Lambda$. For $k\ne0$ apply this to $\Gamma=\Z k$ ($K$-lattice of dimension 1).
+\proofstep{(c)}\label{stepN:p8:mx-c} By (a), $k\in\Eb_K\cap W_\Lambda$ would give $k\in\Lambda$; so $k\notin W_\Lambda$, and $\dim\Lambda+1=\dim(W_\Lambda+\R k)\le n$. $\Lambda+\Z k$ is a $K$-lattice as in Step~\ref{stepN:p8:mx-char}, of dimension $\dim\Lambda+1$.
+\proofstep{(d)}\label{stepN:p8:mx-d} $W_\Lambda=\R^n$, so $\Eb_K\subset\Lambda$ by (a). If $K\ge1$ then $e_i\in\Eb_K$, so $\Lambda=\Z^n$; and $\Z^n$ is generated by $\Eb_K\cap\Z^n$ and is saturated, so it is in $\mathbb M_K$ by (a). If $K<1$: $\Eb_K=\{0\}$, so the only $K$-lattice is $\Theta$.
+\proofstep{(e)}\label{stepN:p8:mx-e} The lower bound is Lemma~\ref{bpN:p8:lattice-volume}(b). $\Lambda\cap\Eb_K$ spans $W_\Lambda$ ($\dim d$), so it contains $d$ independent vectors $v_1,\dots,v_d$ (\ref{bpN:p8:ext-basic}); they generate $\Gamma\le\Lambda$ with $\dim\Gamma=d$. By Lemma~\ref{bpN:p8:lattice-volume}(c),(f): $\abs\Lambda\le\abs\Gamma\le\prod\norm{v_i}\le K^d$. For $d=0$ both sides are $1$.
+\end{proof}
+
+\begin{definition}[Zones, blocks]\label{bpN:p8:blocks}
+Fix $K\ge0$ and positive numbers $\lambda_1,\dots,\lambda_n$. For $\Lambda\in\mathbb M_K$ of dimension $d\ge1$ put
+\[\delta_\Lambda=\frac{\lambda_d}{\abs\Lambda},\qquad Z_\Lambda=\{\omega\in\R^n:\operatorname{dist}_2(\omega,R_\Lambda)<\delta_\Lambda\}=\{\omega:\norm{\Pj_\Lambda\omega}<\delta_\Lambda\}\]
+(Lemma~\ref{bpN:p8:projection}(c)); $Z_\Theta=\R^n$. Put $Z_d^*=\bigcup_{\Lambda\in\mathbb M_K^d}Z_\Lambda$ for $1\le d\le n$ and $Z^*_{n+1}=\emptyset$, and
+\[B_\Lambda=Z_\Lambda\setminus Z^*_{d+1}\quad(\Lambda\in\mathbb M_K^d,\ d\ge1),\qquad B_\Theta=\R^n\setminus Z_1^*,\qquad B_d^*=\bigcup_{\Lambda\in\mathbb M_K^d}B_\Lambda\ (1\le d\le n).\]
+(The zones depend on $K$ and on $\lambda=(\lambda_1,\dots,\lambda_n)$; $Z^*_d$ is empty if $\mathbb M_K^d$ is.)
+\source{Pos93 p.~201.}
+\end{definition}
+
+\begin{proposition}[Covering of frequency space]\label{bpN:p8:blocks-cover}
+For every $K\ge0$ and $\lambda_1,\dots,\lambda_n>0$: $\ \R^n=B_\Theta\cup B_1^*\cup\dots\cup B_n^*$, i.e.\ every $\omega\in\R^n$ lies in $B_\Lambda$ for some $\Lambda\in\mathbb M_K$ (a finite family).
+\source{Pos93 p.~201 (the chain $\R^n=Z_\Theta=B_\Theta\cup Z_1^*=B_\Theta\cup B_1^*\cup Z_2^*=\dots$).}
+\end{proposition}
+\begin{proof}
+\proofstep{Finite family}\label{stepN:p8:bc-finite} $\mathbb M_K$ consists of subgroups generated by subsets of the finite set $\Eb_K$, so it is finite.
+\proofstep{Top dimension}\label{stepN:p8:bc-top} Fix $\omega$. Let $\mathcal D=\{d\in\{1,\dots,n\}:\omega\in Z_d^*\}$. If $\mathcal D=\emptyset$ then $\omega\notin Z_1^*$, so $\omega\in B_\Theta$. Otherwise let $d=\max\mathcal D$ and choose $\Lambda\in\mathbb M_K^d$ with $\omega\in Z_\Lambda$. Since $d+1\notin\mathcal D$ (or $d=n$, $Z_{n+1}^*=\emptyset$), $\omega\notin Z^*_{d+1}$, so $\omega\in Z_\Lambda\setminus Z^*_{d+1}=B_\Lambda\subset B^*_d$.
+\end{proof}
+
+\subsection{The Geometric Lemma}\label{bpN:p8:s-geometric}
+
+\begin{lemma}[A numerical inequality]\label{bpN:p8:sqrt}
+If $A\ge\sqrt2$ then $A^2-1\ge1>0$ and $\sqrt{A^2-1}-1\ge A-\sqrt2$.
+\source{Pos93 p.~202 (``since $\sqrt{A^2-1}-1\ge A-\sqrt2\ge E$'').}
+\end{lemma}
+\begin{proof}
+$A^2-1\ge1$ is clear. Put $c=\sqrt2-1\in(0,1)$; $A-c\ge1>0$. Then $(A-c)^2\le A^2-1\iff-2cA+c^2\le-1\iff A\ge\frac{1+c^2}{2c}=\frac{4-2\sqrt2}{2(\sqrt2-1)}=\sqrt2$ (using $c^2=3-2\sqrt2$). Both sides being nonnegative, $\sqrt{A^2-1}\ge A-c$.
+\end{proof}
+
+\begin{lemma}[Geometric Lemma]\label{bpN:p8:geometric}
+Let $n\ge1$, $K>0$, $E>0$, $A\ge E+\sqrt2$, $\lambda_1,\dots,\lambda_n>0$ with
+\[\frac{\lambda_{d+1}}{\lambda_d}\ge AK\qquad(1\le d<n),\]
+and let $\mathbb M_K$, $\delta_\Lambda$, $B_\Lambda$ be as in Definition~\ref{bpN:p8:blocks}.
+\begin{enumerate}[label=(\alph*)]
+\item ($B_\Theta$) For $\omega\in B_\Theta$ and $k\in\Z^n$ with $0<\norm k\le K$: $\abs{k\cdot\omega}\ge\lambda_1$.
+\item ($B_\Lambda$) Let $\Lambda\in\mathbb M_K$ with $d=\dim\Lambda\ge1$, $\omega\in B_\Lambda$ and $k\in\Z^n\setminus\Lambda$ with $\norm k\le K$. Then $\abs{k\cdot\omega}\ge E\,K\,\delta_\Lambda$. Also $\operatorname{dist}_2(\omega,R_\Lambda)<\delta_\Lambda$. (For $d=n$ there is no such $k$, Lemma~\ref{bpN:p8:maximal}(d).)
+\end{enumerate}
+So $B_\Theta$ is completely $K$-nonresonant with constant $\alpha_\Theta=\lambda_1$, and $B_\Lambda$ is $K$-nonresonant modulo $\Lambda$ with constant $\alpha_\Lambda\ge EK\delta_\Lambda$, in the Euclidean cut-off $\norm k\le K$.
+\source{Pos93 pp.~201--202 (Geometric Lemma and its proof). Deviation: the proof is organised with the explicit formulas of Lemma~\ref{bpN:p8:geom-formula}, which replace the chain ``$k\cdot\omega=Qk\cdot QP_+\omega+Pk\cdot P\omega$\ldots'' (same content, with all projections made explicit); all inequalities have been recomputed and agree.}
+\end{lemma}
+
+\begin{lemma}[The projection formula]\label{bpN:p8:geom-formula}
+Let $W\subset\R^n$ be the span of a basis matrix of a lattice $\Lambda$ (or $W=\{0\}$), $k\in\R^n\setminus W$, $W_+=W+\R k$, $\Pj=\Pj_W$, $Q=Q_W$, $\Pj_+=\Pj_{W_+}$. Then $Qk\ne0$ and for every $\omega\in\R^n$
+\[\Pj_+\omega-\Pj\omega=\frac{Qk\cdot\omega}{\norm{Qk}^2}\,Qk,\qquad k\cdot\omega=\Pj k\cdot\Pj\omega+Qk\cdot\omega,\qquad\abs{Qk\cdot\omega}=\norm{Qk}\,\norm{\Pj_+\omega-\Pj\omega},\]
+and $\norm{\Pj_+\omega}^2=\norm{\Pj\omega}^2+\norm{\Pj_+\omega-\Pj\omega}^2$.
+\end{lemma}
+\begin{proof}
+$Qk\ne0$ as in Lemma~\ref{bpN:p8:lattice-volume}(e). Put $c=Qk\cdot\omega/\norm{Qk}^2$ and $v=\Pj\omega+c\,Qk$. Now $Qk=k-\Pj k\in W_+$, so $v\in W_+$; $W_+$ is the span of $d+1$ independent vectors (a basis of $W$ and $k$), so Lemma~\ref{bpN:p8:projection} applies to it. Further $\omega-v=Q\omega-c\,Qk\perp W$ (as $Q\omega,Qk\perp W$) and $(\omega-v)\cdot Qk=Q\omega\cdot Qk-c\norm{Qk}^2=\omega\cdot Qk-c\norm{Qk}^2=0$ (since $Q\omega\cdot Qk=\omega\cdot Q^2k$, $Q^2=Q$). As $W_+=W\oplus\R Qk$, $\omega-v\perp W_+$, and Lemma~\ref{bpN:p8:projection}(b) gives $\Pj_+\omega=v$. The first formula follows. Next, $k=\Pj k+Qk$ and $\Pj k\cdot\omega=\Pj k\cdot\Pj\omega$ (symmetry of $\Pj$, $\Pj^2=\Pj$) give the second. The third: $\norm{\Pj_+\omega-\Pj\omega}=\abs c\norm{Qk}=\abs{Qk\cdot\omega}/\norm{Qk}$. The last: $\Pj\omega\in W\perp Qk$ (Pythagoras).
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{bpN:p8:geometric}]
+\proofstep{(a): reduction to dimension one}\label{stepN:p8:gl-theta} Let $\omega\in B_\Theta$ and $0<\norm k\le K$. By Lemma~\ref{bpN:p8:maximal}(b) there is $\Lambda_k\in\mathbb M_K^1$ containing $k$; $\Lambda_k=\Z g$ with $g\in\Z^n\setminus\{0\}$ (a rank-one subgroup of $\Z^n$, Lemma~\ref{bpN:p8:lattice-basis}(a)), $k=jg$ with $j\in\Z\setminus\{0\}$, so $\norm g\le\norm k$ and $\abs{\Lambda_k}=\norm g$ (Lemma~\ref{bpN:p8:lattice-volume}(d)). Hence $\delta_{\Lambda_k}=\lambda_1/\norm g\ge\lambda_1/\norm k$.
+\proofstep{(a): conclusion}\label{stepN:p8:gl-theta2} As $\omega\notin Z_1^*\supset Z_{\Lambda_k}$: $\operatorname{dist}_2(\omega,R_{\Lambda_k})\ge\delta_{\Lambda_k}$. Here $R_{\Lambda_k}=g^\perp=k^\perp$ and $\operatorname{dist}_2(\omega,k^\perp)=\abs{k\cdot\omega}/\norm k$ (Lemma~\ref{bpN:p8:projection}(c), $\norm{\Pj_{\R k}\omega}=\abs{k\cdot\omega}/\norm k$). So $\abs{k\cdot\omega}\ge\norm k\,\delta_{\Lambda_k}\ge\lambda_1$.
+\proofstep{(b): setting}\label{stepN:p8:gl-setup} Let $\Lambda,d,\omega,k$ be as in (b); write $V=\abs\Lambda$, $\lambda=\lambda_d$, $\delta=\delta_\Lambda=\lambda/V$, $\Pj=\Pj_\Lambda$, $Q=Q_\Lambda$. The last assertion is $\omega\in Z_\Lambda$. By Lemma~\ref{bpN:p8:maximal}(c), $k\notin W_\Lambda$, $d<n$, and $\Lambda+\Z k$ is a $K$-lattice of dimension $d+1$; by Lemma~\ref{bpN:p8:maximal}(b) there is $\Lambda_+\in\mathbb M_K^{d+1}$ with $\Lambda_+\supset\Lambda+\Z k$. Then $W_{\Lambda_+}\supset W_\Lambda+\R k=:W_+$ and both have dimension $d+1$, so $W_{\Lambda_+}=W_+$ and $\Pj_{\Lambda_+}=\Pj_+$ of Lemma~\ref{bpN:p8:geom-formula}. Put $V_+=\abs{\Lambda_+}$, $\lambda_+=\lambda_{d+1}$.
+\proofstep{Volumes}\label{stepN:p8:gl-vol} By Lemma~\ref{bpN:p8:lattice-volume}(c),(e): $V_+\le\abs{\Lambda+\Z k}=V\norm{Qk}$, i.e.\ $\norm{Qk}\ge V_+/V$; and $\norm{Qk}\le\norm k\le K$ gives $V_+\le KV$.
+\proofstep{The two projections}\label{stepN:p8:gl-proj} As $\omega\in B_\Lambda\subset Z_\Lambda$: $\norm{\Pj\omega}<\delta=\lambda/V\le K\lambda/V_+$ (Step~\ref{stepN:p8:gl-vol}). As $\omega\notin Z^*_{d+1}\supset Z_{\Lambda_+}$: $\norm{\Pj_+\omega}\ge\delta_{\Lambda_+}=\lambda_+/V_+\ge AK\lambda/V_+$ (hypothesis on the $\lambda$'s). With $A^2-1>0$ (Lemma~\ref{bpN:p8:sqrt}, as $A\ge E+\sqrt2>\sqrt2$):
+\[\norm{\Pj_+\omega-\Pj\omega}^2=\norm{\Pj_+\omega}^2-\norm{\Pj\omega}^2\ge(A^2-1)\Bigl(\frac{K\lambda}{V_+}\Bigr)^2\ \ (\text{Lemma~\ref{bpN:p8:geom-formula}}).\]
+Hence the radicand is positive and $\norm{\Pj_+\omega-\Pj\omega}\ge\frac{K\lambda}{V_+}\sqrt{A^2-1}$.
+\proofstep{The divisor}\label{stepN:p8:gl-div} By Lemma~\ref{bpN:p8:geom-formula}: $k\cdot\omega=\Pj k\cdot\Pj\omega+Qk\cdot\omega$ and $\abs{Qk\cdot\omega}=\norm{Qk}\norm{\Pj_+\omega-\Pj\omega}\ge\frac{V_+}V\cdot\frac{K\lambda}{V_+}\sqrt{A^2-1}=K\delta\sqrt{A^2-1}$; while $\abs{\Pj k\cdot\Pj\omega}\le\norm k\norm{\Pj\omega}\le K\delta$. So
+\[\abs{k\cdot\omega}\ge K\delta\bigl(\sqrt{A^2-1}-1\bigr)\ge K\delta(A-\sqrt2)\ge EK\delta\]
+by Lemma~\ref{bpN:p8:sqrt} and $A-\sqrt2\ge E$.
+\end{proof}
+
+\subsection{The Covering Lemma in action space}\label{bpN:p8:s-covering}
+
+\begin{lemma}[Covering Lemma]\label{bpN:p8:covering}
+Let $n\ge1$; $p,b,r_0,M,m>0$; $K\ge1$; $A\ge\dfrac{pM}{bm}+\sqrt2$. Let $P$ be any set and $\omega:P\to\R^n$ any map (no regularity). Put
+\begin{gather*}\lambda_d=\frac{b\,m\,r_0}{A^nK^n}A^dK^d\ (1\le d\le n),\qquad r_\Lambda=\frac{r_0}{A^nK^n}\frac{A^dK^d}{\abs\Lambda}\ (d=\dim\Lambda),\\\alpha_\Lambda=pMK\,r_\Lambda,\qquad\delta_\Lambda=b\,m\,r_\Lambda\end{gather*}
+for $\Lambda\in\mathbb M_K$ (for $\Lambda=\Theta$: $r_\Theta=r_0/(AK)^n$, $\alpha_\Theta=pMKr_\Theta$), with the blocks $B_\Lambda$ of Definition~\ref{bpN:p8:blocks} for these $K,\lambda$, and $D_\Lambda=\{I\in P:\omega(I)\in B_\Lambda\}$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{covering}) $P=\bigcup_{\Lambda\in\mathbb M_K}D_\Lambda$, a finite union, and the $D_\Lambda$ may be discarded when empty.
+\item (\emph{consistency}, for $\dim\Lambda=d\ge1$ only) $\delta_\Lambda=\lambda_d/\abs\Lambda$, i.e.\ the number $\delta_\Lambda=bmr_\Lambda$ is the radius of the zone $Z_\Lambda$ of Definition~\ref{bpN:p8:blocks}. For $\Lambda=\Theta$ no such statement is made ($\lambda_0$ is not defined and $Z_\Theta=\R^n$): $\delta_\Theta=bmr_\Theta$ is only an auxiliary positive number.
+\item (\emph{nonresonance}) If $I\in D_\Theta$ and $k\in\Z^n$, $0<\norm k\le K$: $\abs{k\cdot\omega(I)}\ge\lambda_1\ge\alpha_\Theta$. If $\Lambda\in\mathbb M_K$, $\dim\Lambda\ge1$, $I\in D_\Lambda$, $k\in\Z^n\setminus\Lambda$, $\norm k\le K$: $\abs{k\cdot\omega(I)}\ge\alpha_\Lambda$, and $\operatorname{dist}_2(\omega(I),R_\Lambda)<\delta_\Lambda=bmr_\Lambda$.
+\item (\emph{radii}) $r_\Theta=\dfrac{r_0}{(AK)^n}\le r_\Lambda\le\dfrac{r_0}{AK}$ for every $\Lambda\in\mathbb M_K$ with $1\le\dim\Lambda<n$; $r_{\Z^n}=r_0$ (the only lattice of dimension $n$). Hence $r_\Theta\le r_\Lambda\le r_0$ for all $\Lambda\in\mathbb M_K$.
+\end{enumerate}
+\source{Pos93 p.~203 (Covering Lemma with $\alpha_\Lambda=pMKr_\Lambda$, $\delta_\Lambda=bmr_\Lambda$) and p.~204 ($b=\frac18$; bounds $r_\Theta\le r_\Lambda\le r_{\Z^n}=r_0$, and $r_\Lambda\le r_0/(AK)$ otherwise). The parameters $m,M$ enter only through $E=pM/(bm)$ and play no other role, as Pos93 notes. Pos93's pull-back ``setting $D_\Lambda=\{I\in P:\omega(I)\in B_\Lambda\}$ and discarding\ldots'' is (a).}
+\end{lemma}
+\begin{proof}
+\proofstep{Parameters of the Geometric Lemma}\label{stepN:p8:cv-params} $\lambda_{d+1}/\lambda_d=AK$ ($1\le d<n$), $\lambda_d>0$. Put $E=pM/(bm)>0$; then $A\ge E+\sqrt2$, and $K\ge1>0$. Lemma~\ref{bpN:p8:geometric} applies. Also, for $\dim\Lambda=d\ge1$, $\delta_\Lambda=bmr_\Lambda=\frac{bmr_0A^dK^d}{A^nK^n\abs\Lambda}=\lambda_d/\abs\Lambda$ (b) (for $\Lambda=\Theta$ only the auxiliary number $\delta_\Theta=bmr_\Theta>0$ is defined), and $EK\delta_\Lambda=\frac{pM}{bm}K\,bm\,r_\Lambda=pMKr_\Lambda=\alpha_\Lambda$.
+\proofstep{Covering}\label{stepN:p8:cv-cover} Let $I\in P$. Proposition~\ref{bpN:p8:blocks-cover} applied to the point $\omega(I)\in\R^n$ gives $\Lambda\in\mathbb M_K$ with $\omega(I)\in B_\Lambda$, i.e.\ $I\in D_\Lambda$. Finiteness: Proposition~\ref{bpN:p8:blocks-cover}.
+\proofstep{Nonresonance}\label{stepN:p8:cv-nonres} For $I\in D_\Lambda$, $\omega(I)\in B_\Lambda$; apply Lemma~\ref{bpN:p8:geometric}(b), (a) to the point $\omega(I)$; the constants are $EK\delta_\Lambda=\alpha_\Lambda$ above and, for $\Theta$, $\lambda_1=bm\,r_0AK/(AK)^n=bmA\cdot K\,r_\Theta\ge pMK\,r_\Theta=\alpha_\Theta$ since $bmA\ge pM$.
+\proofstep{Radii}\label{stepN:p8:cv-radii} $r_\Lambda=r_0(AK)^{d-n}/\abs\Lambda$. For $d<n$: $\abs\Lambda\ge1$ and $AK\ge\sqrt2>1$ give $r_\Lambda\le r_0(AK)^{-1}$. Lower bound: $\abs\Lambda\le K^d$ (Lemma~\ref{bpN:p8:maximal}(e)) gives $r_\Lambda\ge r_0(AK)^{d-n}K^{-d}=r_0A^dK^{-n}A^{-n}\ge r_0/(AK)^n$ as $A\ge1$ (for $d=0$ equality). $d=n$: $\Lambda=\Z^n$ (Lemma~\ref{bpN:p8:maximal}(d); $K\ge1$), $\abs{\Z^n}=1$, $r_{\Z^n}=r_0$; and $r_\Lambda\le r_0/(AK)\le r_0$ for $1\le d<n$, $r_\Theta\le r_0$.
+\end{proof}
+
+\begin{corollary}[Euclidean versus $\ell^1$ cut-offs; interface for Parts~\ref{bpN:p6}, \ref{bpN:p7} and~9]\label{bpN:p8:cutoffs}
+In the setting of Lemma~\ref{bpN:p8:covering} write $K=K_g$ for the geometric cut-off, and let $K_a\ge0$ be an analytic cut-off.
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{inclusions with the dimension factor}) $Z_{K_a}\subset\Eb_{K_a}\subset Z_{\sqrt nK_a}$, i.e.\ $\norm k\le\abs k_1\le\sqrt n\norm k$ (Lemma~\ref{bpN:p1:norm-compare}(b)).
+\item If $K_a\le K_g$, then for every $\Lambda\in\mathbb M_{K_g}$ and $I\in D_\Lambda$ the point $I$ is $(\alpha_\Lambda,K_a)$-nonresonant modulo $\Lambda$ in the sense of Definition~\ref{bpN:p6:setting}\ref{bpN:p6:cond-nr}: $\abs{k\cdot\omega(I)}\ge\alpha_\Lambda$ for all $k\in Z_{K_a}\setminus\Lambda$ (for $\Lambda=\Theta$, $k\in Z_{K_a}\setminus\{0\}$; the constant is $\alpha_\Theta\le\lambda_1$). Also $\operatorname{dist}_2(\omega(I),R_\Lambda)<\delta_\Lambda$, i.e.\ $D_\Lambda$ is $\delta_\Lambda$-close to exact $\Lambda$-resonances (Definition~\ref{bpN:p7:resonance-data}).
+\item If $K_g\ge\sqrt nK_a>0$ then $r_\Lambda=\dfrac{\alpha_\Lambda}{pMK_g}\le\dfrac{\alpha_\Lambda}{p\sqrt n\,MK_a}$, the radius condition of Proposition~\ref{bpN:p7:resonant-prop2}(c); and (b) holds because $\sqrt nK_a\ge K_a$. A choice satisfying all requirements is $K_g=\sqrt nK_a$ with $K_a\ge1/\sqrt n$.
+\end{enumerate}
+\source{Ours (review N06 and Remark~\ref{bpN:p8:direction}); Pos93 p.~202 only says ``it suffices to assume $\norm k\le K$ rather than the stronger $\abs k\le K$''.}
+\end{corollary}
+\begin{proof}
+\proofstep{Inclusions}\label{stepN:p8:co-incl} (a) is Lemma~\ref{bpN:p1:norm-compare}(b). (b): $k\in Z_{K_a}\setminus\Lambda$ has $\norm k\le\abs k_1\le K_a\le K_g$, so Lemma~\ref{bpN:p8:covering}(c) applies; closeness is the last assertion there. (c): $K_g\ge\sqrt nK_a$ gives $\frac1{pMK_g}\le\frac1{p\sqrt nMK_a}$; $\alpha_\Lambda=pMK_gr_\Lambda$ by definition.
+\end{proof}
+
+\subsection{Errata, deviations, consumers}\label{bpN:p8:s-errata}
+
+\begin{remark}[Suspected defects in Pos93 and deviations]\label{bpN:p8:errata}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{p.~200, definition of maximal $K$-lattices}: ``lattices that are generated by vectors in $\Z^n_K=\{k:\abs k\le K\}$ and are not properly contained in any other lattice of the same dimension''. The proof of the Geometric Lemma (p.~202) uses the Euclidean ball (``it suffices to assume $\norm k\le K$'') and from maximality only the consequence ``$k\in\Z^n$, $\norm k\le K$, $k\notin\Lambda\Rightarrow k\notin W_\Lambda$''. We use the Euclidean ball and the weaker maximality of Definition~\ref{bpN:p8:klattice}, which is exactly this consequence (Lemma~\ref{bpN:p8:maximal}(a)); the definition is ambiguous as printed (``any other lattice'': any subgroup, or any $K$-lattice).
+\item \emph{p.~202, case $d\ge1$}: ``the maximal $K$-lattice $\Lambda_+$ generated by $\Lambda$ and $k$ together has dimension $d+1\le n$'' and ``the volume of $\Lambda_+$ is not bigger than the volume of $\Lambda$ times the length of the component of $k$ orthogonal to $\Lambda$'': true, but each needs an argument (Lemma~\ref{bpN:p8:maximal}(b),(c) for existence and dimension, Lemma~\ref{bpN:p8:lattice-volume}(c),(e) for the volume). The bound $\norm{P\omega}\le\lambda/V\le K\lambda/V_+$ also uses $V_+\le KV$, which is not stated (Step~\ref{stepN:p8:gl-vol}).
+\item \emph{p.~202, case $B_\Theta$}: ``let $\Lambda$ be the unique one-dimensional maximal lattice containing $k$. Then $\abs\Lambda\le\norm k$ \dots''. Uniqueness is true (such a $\Lambda$ is $\Z k_0$, $k_0$ the primitive vector on $\R k$, since $k_0\in\Eb_K\cap\R k$) but is not argued and is not needed; we only use existence (Lemma~\ref{bpN:p8:maximal}(b)) and $\abs\Lambda=\norm g\le\norm k$ (Step~\ref{stepN:p8:gl-theta}).
+\item \emph{p.~203, ``the covering lemma''} is stated with $A\ge\frac{pM}{bm}+\sqrt2$ and uses $\lambda_d=\frac{bmr_0}{A^nK^n}A^dK^d$: all checks (Lemma~\ref{bpN:p8:covering}) agree, including $\alpha_\Lambda=EK\delta_\Lambda$. The claim ``$r_\Theta\le r_\Lambda\le r_{\Z^n}=r_0$'' (p.~204) needs $\abs\Lambda\le K^d$ and $\abs\Lambda\ge1$ (Lemma~\ref{bpN:p8:maximal}(e)), not argued in the source.
+\item \emph{The $\sqrt n$ direction} between $\norm k$ and $\abs k_1$ is Remark~\ref{bpN:p8:direction} (it concerns Parts~\ref{bpN:p6}, \ref{bpN:p7} and the PLAN, not Pos93).
+\item No misprint in the numbers of pp.~200--204 concerning the geometry was found; $\frac pq$-type constants belong to Parts~\ref{bpN:p7} and~9.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}[Consumers]\label{bpN:p8:consumers}
+Part~9 chooses $q,p,b$, $A=11M/m\ge pM/(bm)+\sqrt2$ (to be checked there with $M=nM_\C$), $K=K_g=\sqrt nK_a$, applies Lemma~\ref{bpN:p8:covering} to $P=B(0,R)$ (or the relevant action ball) and $\omega=\omega_h$, and uses Corollary~\ref{bpN:p8:cutoffs} for the hypotheses (a), (c) of Proposition~\ref{bpN:p7:resonant-prop2} and of Proposition~\ref{bpN:p7:nonresonant} (with $\Lambda=\Theta$). The radii in Lemma~\ref{bpN:p8:covering}(d) are the ones used on p.~204 ($r_\Theta\le r_\Lambda\le r_0/(AK)$ for $\Lambda\ne\Z^n$, $r_{\Z^n}=r_0$). Track~P takes Definitions~\ref{bpN:p8:lattice}--\ref{bpN:p8:blocks}, Lemmas~\ref{bpN:p8:lattice-volume}, \ref{bpN:p8:maximal}, Proposition~\ref{bpN:p8:blocks-cover} and Lemma~\ref{bpN:p8:geometric} for any $n$, any $K$ and any $\lambda_1,\dots,\lambda_n>0$ as they stand.
+\end{remark}
+\endgroup
