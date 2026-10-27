@@ -144,6 +144,7 @@ public import KAM.Measure.McShane
 public import KAM.Measure.Slab
 public import KAM.Provider.VolumeNotDiophantineLe
 public import KAM.Strip.Averages
+public import KAM.Strip.Bridges
 public import KAM.Strip.Cauchy
 public import KAM.Strip.Fourier
 public import KAM.Strip.HigherCauchy
