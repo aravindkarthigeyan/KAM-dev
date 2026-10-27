@@ -13,6 +13,7 @@ public import KAM.Apost.Frame
 public import KAM.Apost.Geometry
 public import KAM.Apost.Hamiltonian
 public import KAM.Apost.Identities
+public import KAM.Apost.NewtonError
 public import KAM.Apost.Periodicity
 public import KAM.Apost.Perturbation
 public import KAM.Apost.PerturbationTorsion
