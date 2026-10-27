@@ -258,32 +258,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p1:holomorphic-regularity; shared Lean provider. There: KIND lemma, contract bp:p1:holomorphic-regularity v1. Cited as \Kref{bp:p1:holomorphic-regularity}.
 
-NODE: K:bp:p1:real-restriction
-KIND: external
-TITLE: [K] Real restriction
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L1051
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p1:real-restriction
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: n≥1 (owning Part 1 standing strip convention, L37–39); K holomorphic on T_rho and real on reals; for the primary claim, K primary on T_rho (p=2n)
-SOURCE_QUANTIFIERS: K, rho, p (=2n in applications); x in R^n; m in Z^n
-SOURCE_CONCLUSION: k=K|_{R^n} real-analytic with real derivative the restriction of the complex derivative; |Dk(x)|<=|DK(x)| for x in R^n; if K primary, k(x+m)=k(x)+(m,0) for m in Z^n
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP+sol-global-N
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p1:real-restriction; shared Lean provider. There: KIND lemma, contract bp:p1:real-restriction v1. Cited as \Kref{bp:p1:real-restriction}.
-
 NODE: K:bp:p1:summation
 KIND: external
 TITLE: [K] Summation

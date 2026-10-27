@@ -758,32 +758,32 @@ NOTE: -
 NODE: stepN:p11:ad-prod
 KIND: step
 TITLE: Product
-STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L85
-PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L85
+STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72
+PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72
 CONTRACT_ID: stepN:p11:ad-prod
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:adjoint; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: h
-SOURCE_CONCLUSION: prod_{i=1}^h (h+i)=(2h)!/h! and kappa lambda_h=rho sigma/h^2 give (1/h!)¦ad^h_phi u¦<=((eta h^2/2)^h/(2h)!)¦u¦<=(e^2 eta/8)^h ¦u¦, using (2h)!>=(2h/e)^{2h}
+SOURCE_CONCLUSION: prod_{i=1}^h (h+i)=(2h)!/h! and kappa lambda_h=rho sigma/h^2 give (1/h!)¦ad^h_phi u¦<=((eta h^2/2)^h/(2h)!)¦u¦<=(e^2 eta/8)^h ¦u¦, using (2h)!>=(2h/e)^{2h}, i.e. N!>=(N/e)^N for N=2h, proved in the step from e^N=sum_{j>=0}N^j/j!>=N^N/N!
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:ad-step, bpN:p4:norm, bpN:p11:ext-class, bpN:p11:wfield
-EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L85 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L85 | direct package or input used by this proof step
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L85 | direct package or input used by this proof step
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | direct package or input used by this proof step
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:ad-step | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L85 | the recursive bound being iterated
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f
-REVIEWER: sol-delta-N-f
+EDGE: stepN:p11:ad-step | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | the recursive bound being iterated
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: Part 11b L72 needs (2h)! >= (2h/e)^{2h} for h>=1. The cited ext-num at Part 11a L40 does not state it, and no proof or other permitted input supplies it. Preserve the claimed estimate; do not add the factorial bound as a hypothesis.
+NOTE: The factorial bound N!>=(N/e)^N is now proved inside this step (e^N=sum N^j/j!>=N^N/N!, exponential series); the earlier SOURCE_GAP is supplied.
 
 NODE: bpN:p11:composition
 KIND: theorem
@@ -857,8 +857,8 @@ NOTE: -
 NODE: stepN:p11:co-series
 KIND: step
 TITLE: Series
-STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97
-PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97
+STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96
+PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96
 CONTRACT_ID: stepN:p11:co-series
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:composition; prior proof steps are derived through DEPS, not extra assumptions
@@ -869,30 +869,31 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:adjoint, bpN:p4:sup-weighted, bpN:p11:ext-part4, bpN:p4:ext-weier, bpN:p4:ext-series, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class
-EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97 | direct use of bpN:p11:ext-class in the statement or proof at this span
+DEPS: bpN:p11:adjoint, bpN:p4:sup-weighted, bpN:p11:ext-part4, bpN:p4:ext-weier, bpN:p4:ext-series, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p11:ext-e-upper
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | direct use of bpN:p11:ext-class in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97 | the term bounds (e^2 eta/8)^h
-EDGE: bpN:p4:sup-weighted | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97 | B.1(a): uniform convergence
-EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97 | B.1(a) for the extended class
-EDGE: bpN:p4:ext-weier | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97 | limit holomorphic and periodic
-EDGE: bpN:p4:ext-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97 | termwise integration of the Fourier coefficients
-EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97 | Fourier coefficients and norm of the limit
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f
-REVIEWER: sol-delta2-N-f
+EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | the term bounds (e^2 eta/8)^h
+EDGE: bpN:p4:sup-weighted | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | B.1(a): uniform convergence
+EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | B.1(a) for the extended class
+EDGE: bpN:p4:ext-weier | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | limit holomorphic and periodic
+EDGE: bpN:p4:ext-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | termwise integration of the Fourier coefficients
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | Fourier coefficients and norm of the limit
+EDGE: bpN:p11:ext-e-upper | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | e<2.72 gives e^2<7.4 and e^2/8<0.925<0.93 for the geometric series
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: the source additionally uses e^2/8<0.93, which is not supplied by Part 11 ext-num or the weaker Part 6 e^2<8. The printed sharpening is preserved as an unsupported numerical input, not silently included in an external contract.
+NOTE: The numerical input e^2/8<0.93 is now supplied from e<2.72 (Mathlib Real.exp_one_lt_d9), recorded as the external bpN:p11:ext-e-upper; the earlier SOURCE_GAP is dropped.
 
 NODE: stepN:p11:co-remainder
 KIND: step
 TITLE: Remainder
-STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97
-PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97
+STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97
+PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97
 CONTRACT_ID: stepN:p11:co-remainder
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:composition; prior proof steps are derived through DEPS, not extra assumptions
@@ -903,26 +904,168 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:adjoint, bpN:p5:taylor, bpN:p11:symplectic, bpN:p11:flow, bpN:p11:wfield, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, stepN:p11:co-field, stepN:p11:co-series
-EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | direct use of bpN:p11:ext-class in the statement or proof at this span
-EDGE: stepN:p11:co-field | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | direct package or input used by this proof step
+DEPS: bpN:p11:adjoint, bpN:p11:flow, bpN:p11:wfield, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, stepN:p11:co-field, stepN:p11:co-series, bpN:p11:ext-taylor, bpN:p11:ext-e-upper, bpN:p11:ext-num
+EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: stepN:p11:co-field | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | Lemma adjoint with (hat-rho,hat-sigma)
-EDGE: bpN:p5:taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | Taylor formula with integral remainder (one real variable)
-EDGE: bpN:p11:symplectic | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | derivatives g^(j)=ad^j_phi u o X^t
-EDGE: bpN:p11:flow | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | (iv) by Lemma flow(e); trajectory in D^e
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | d/dt v(X^t z)=Dv.X^c_phi={v,phi}_c
-EDGE: stepN:p11:co-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97 | S(z) is the holomorphic series limit constructed in the preceding Series step
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab+sol-global-N
-REVIEWER: sol-delta-N-global
+EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | Lemma adjoint with (hat-rho,hat-sigma)
+EDGE: bpN:p11:flow | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | (iv) by Lemma flow(e); trajectory in D^e
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | d/dt v(X^t z)=Dv.X^c_phi={v,phi}_c
+EDGE: stepN:p11:co-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | S(z) is the holomorphic series limit constructed in the preceding Series step
+EDGE: bpN:p11:ext-taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | Taylor formula with integral remainder along the extended flow (Omega=D^e_{R,s}, gamma(t)=X^t(z)); Part 5 Taylor is not used
+EDGE: bpN:p11:ext-e-upper | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | e<2.72 gives e^2<7.4 and e^2/9<0.823<0.83
+EDGE: bpN:p11:ext-num | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | the upper bound e^2/9<0.83 is used together with the lower bounds of ext-num
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sol-global-N+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: The cited bpN:p5:taylor is stated for the canonical Part 5 flow and bracket on paired phase coordinates. This consumer uses X^c and the extended bracket; those are not an instance of its stated setting. The source supplies the extended derivative identity and requests one-variable Taylor, but the carrier-independent Taylor contract or a distinct extended-flow bridge must be recorded before this conditional theorem application is certified. Do not add the desired remainder identity as a premise. SOURCE_GAP: the source additionally uses e^2/9<0.83, which is not supplied by Part 11 ext-num or the weaker Part 6 e^2<8. The printed sharpening is preserved as an unsupported numerical input, not silently included in an external contract.
+NOTE: Taylor now cites the extended lemma bpN:p11:ext-taylor, not bpN:p5:taylor, and e<2.72 is supplied by bpN:p11:ext-e-upper; both earlier SOURCE_GAPs are dropped.
+
+NODE: bpN:p11:ext-taylor
+KIND: lemma
+TITLE: Taylor formula along the extended flow
+STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L75-L81
+PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L82-L86
+CONTRACT_ID: bpN:p11:ext-taylor
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: Omega ⊂ C^{2n+2k} open; phi holomorphic on Omega; z ∈ Omega; gamma:[0,1]→Omega a C^1 curve with gamma(0)=z and gamma'(t)=X^c_phi(gamma(t)); u (and h,f_0 for the second display) holomorphic on Omega; ad^0_phi u=u, ad^j_phi u={ad^{j-1}_phi u,phi}_c (Definition bpN:p11:wfield)
+SOURCE_QUANTIFIERS: n,k; Omega; phi; z; gamma; u; N>=1 (h,f_0 for the second display)
+SOURCE_CONCLUSION: ad^j_phi u is holomorphic on Omega; g(t)=u(gamma(t)) is C^infty on [0,1] with g^(j)(t)=(ad^j_phi u)(gamma(t)); for every N>=1, u(gamma(1))=sum_{j<N}(1/j!)(ad^j_phi u)(z)+R_N, R_N=int_0^1 (1-t)^{N-1}/(N-1)! (ad^N_phi u)(gamma(t))dt, ¦R_N¦<=(1/N!)max_t¦(ad^N_phi u)(gamma(t))¦; and (h+f_0)(gamma(1))=h(z)+{h,phi}_c(z)+f_0(z)+int_0^1{(1-t){h,phi}_c+f_0,phi}_c(gamma(t))dt
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepN:p11:et-one, stepN:p11:et-ind, stepN:p11:et-taylor, bpN:p11:wfield
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepN:p11:et-one | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L83-L83 | proof step (one derivative)
+EDGE: stepN:p11:et-ind | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L84-L84 | proof step (induction)
+EDGE: stepN:p11:et-taylor | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L85-L85 | proof step (Taylor with integral remainder)
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L76-L76 | ad^j_phi, the bracket {,}_c and the field X^c_phi
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: G4: new lemma; not an instance of Part 5 setting, so bpN:p5:taylor is not used (the \source line cites it as provenance only). Consumers: co-remainder, tr-taylor.
+
+NODE: stepN:p11:et-one
+KIND: step
+TITLE: One derivative
+STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83
+PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83
+CONTRACT_ID: stepN:p11:et-one
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:ext-taylor; v holomorphic on Omega
+SOURCE_QUANTIFIERS: v
+SOURCE_CONCLUSION: d/dt v(gamma(t))=Dv(gamma)·X^c_phi(gamma)={v,phi}_c(gamma(t)), continuous in t
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpN:p1:ext-restrict, bpN:p11:wfield
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83 | holomorphic v is real-differentiable with derivative Dv (chain rule along the C^1 curve)
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83 | {v,phi}_c=Dv·X^c_phi (Definition wfield)
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: stepN:p11:et-ind
+KIND: step
+TITLE: Induction
+STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84
+PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84
+CONTRACT_ID: stepN:p11:et-ind
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:ext-taylor
+SOURCE_QUANTIFIERS: j
+SOURCE_CONCLUSION: ad^j_phi u is holomorphic on Omega; applying the one-derivative step to v=ad^j_phi u gives g^(j+1)=(ad^{j+1}_phi u)∘gamma, hence g in C^infty
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepN:p11:et-one, K:bp:p1:holomorphic-regularity, bpN:p11:wfield
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepN:p11:et-one | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84 | previous step applied to v=ad^j_phi u
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84 | a bracket of holomorphic functions consists of products of first derivatives, hence holomorphic
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84 | definition of the bracket {,}_c and ad^j_phi
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: stepN:p11:et-taylor
+KIND: step
+TITLE: Taylor
+STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85
+PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85
+CONTRACT_ID: stepN:p11:et-taylor
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:ext-taylor; g in C^infty with g^(j)=(ad^j_phi u)∘gamma
+SOURCE_QUANTIFIERS: N>=1
+SOURCE_CONCLUSION: the two displays: Taylor with integral remainder for real and imaginary parts of g at 0 evaluated at 1 and int_0^1 (1-t)^{N-1}/(N-1)! dt=1/N!; the second display is N=2 for h plus N=1 for f_0 with ad^2_phi h={{h,phi}_c,phi}_c
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepN:p11:et-ind, K:bp:p1:ext-integral
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepN:p11:et-ind | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85 | g^(j)=(ad^j_phi u)∘gamma and smoothness
+EDGE: K:bp:p1:ext-integral | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85 | integration by parts / integral form of the remainder, one integration by parts per order
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: bpN:p11:ext-e-upper
+KIND: external
+TITLE: Upper bound for e (inline Mathlib citation)
+STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-e-upper@L96-L96
+PROOF_SOURCE: -
+CONTRACT_ID: bpN:p11:ext-e-upper
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: none
+SOURCE_QUANTIFIERS: none
+SOURCE_CONCLUSION: e<2.72 (Mathlib Real.exp_one_lt_d9), hence e^2<7.4, e^2/8<0.925<0.93 and e^2/9<0.823<0.83
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Cited inline in stepN:p11:co-series (L96) and stepN:p11:co-remainder (L97), not a labelled item of the External facts list and not a SPEC-listed external; recorded as an external because ext-num states only e>2.718. SPEC revision needed (writer).
 
 NODE: bpN:p11:transform
 KIND: proposition
@@ -973,7 +1116,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p5:taylor, bpN:p11:composition, bpN:p11:adjoint, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p6:ext-numerics, bpN:p11:wfield, stepN:p11:co-remainder
+DEPS: bpN:p11:composition, bpN:p11:adjoint, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p6:ext-numerics, bpN:p11:wfield, stepN:p11:co-remainder, bpN:p11:ext-taylor
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | direct use of bpN:p4:norm in the statement or proof at this span
 EDGE: bpN:p4:domains | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | direct use of bpN:p4:domains in the statement or proof at this span
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | direct use of bpN:p11:ext-class in the statement or proof at this span
@@ -981,17 +1124,17 @@ EDGE: bpN:p6:ext-numerics | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-t
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p5:taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | Taylor formula of order 2 for h, order 1 for f_0
 EDGE: bpN:p11:composition | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | trajectory stays in D^e_{R,s} (i)
 EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | bounds (e^2 hat-eta/8)^{N-1} for ad^{N-1}_phi w and the series terms
 EDGE: stepN:p11:co-remainder | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | the hatted-loss Taylor remainder estimate and its decay are reused from the composition remainder argument
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab+sol-global-N
-REVIEWER: sol-delta-N-global
+EDGE: bpN:p11:ext-taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | second display of the extended Taylor lemma (N=2 for h, N=1 for f_0; Omega=D^e_{R,s}, gamma(t)=X^t(z))
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sol-global-N+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: The cited bpN:p5:taylor is stated for the canonical Part 5 flow and bracket on paired phase coordinates. This consumer uses X^c and the extended bracket; those are not an instance of its stated setting. The source supplies the extended derivative identity and requests one-variable Taylor, but the carrier-independent Taylor contract or a distinct extended-flow bridge must be recorded before this conditional theorem application is certified. Do not add the desired remainder identity as a premise.
+NOTE: Taylor now cites the extended lemma bpN:p11:ext-taylor, not bpN:p5:taylor; the earlier SOURCE_GAP is dropped.
 
 NODE: stepN:p11:tr-int
 KIND: step

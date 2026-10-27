@@ -228,9 +228,36 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100
 DISPOSITION: NODE stepN:p11:ef-en
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11c+sonnet-amend-N
+REVIEWER: -
+
+ITEM: stepN:p11:ef-en-energy
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L93
+DISPOSITION: NODE stepN:p11:ef-en-energy
+REASON: labelled substep of ef-en (G3)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+
+ITEM: stepN:p11:ef-en-taylor
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95
+DISPOSITION: NODE stepN:p11:ef-en-taylor
+REASON: labelled substep of ef-en (G3)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+
+ITEM: stepN:p11:ef-en-split
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100
+DISPOSITION: NODE stepN:p11:ef-en-split
+REASON: labelled substep of ef-en (G3)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
 
 ITEM: stepN:p11:ef-id
 KIND: proof-region

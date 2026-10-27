@@ -351,12 +351,12 @@ REVIEWER: sol-delta-N-f
 
 ITEM: stepN:p11:ad-prod
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L85
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72
 DISPOSITION: NODE stepN:p11:ad-prod
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sonnet-amend-N
+REVIEWER: -
 
 ITEM: bpN:p11:composition
 KIND: theorem
@@ -378,21 +378,66 @@ REVIEWER: sol-delta-N-f
 
 ITEM: stepN:p11:co-series
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L97
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96
 DISPOSITION: NODE stepN:p11:co-series
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta2-N-f
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sonnet-amend-N
+REVIEWER: -
 
 ITEM: stepN:p11:co-remainder
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L96-L97
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97
 DISPOSITION: NODE stepN:p11:co-remainder
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-global
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sonnet-amend-N
+REVIEWER: -
+
+ITEM: bpN:p11:ext-taylor
+KIND: lemma
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L75-L81
+DISPOSITION: NODE bpN:p11:ext-taylor
+REASON: labelled lemma added by the G4 fix
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+
+ITEM: stepN:p11:et-one
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83
+DISPOSITION: NODE stepN:p11:et-one
+REASON: labelled proof step of ext-taylor
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+
+ITEM: stepN:p11:et-ind
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84
+DISPOSITION: NODE stepN:p11:et-ind
+REASON: labelled proof step of ext-taylor
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+
+ITEM: stepN:p11:et-taylor
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85
+DISPOSITION: NODE stepN:p11:et-taylor
+REASON: labelled proof step of ext-taylor
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+
+ITEM: bpN:p11:ext-e-upper
+KIND: external
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-e-upper@L96-L96
+DISPOSITION: NODE bpN:p11:ext-e-upper
+REASON: inline Mathlib citation e<2.72 (Real.exp_one_lt_d9) in co-series and co-remainder, modelled as an external
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
 
 ITEM: bpN:p11:transform
 KIND: proposition
@@ -408,9 +453,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104
 DISPOSITION: NODE stepN:p11:tr-taylor
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-global
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p11ab+sonnet-amend-N
+REVIEWER: -
 
 ITEM: stepN:p11:tr-int
 KIND: proof-region

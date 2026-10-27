@@ -1246,18 +1246,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:decay, bpN:p0:strip#complexStrip
+DEPS: K:bp:p1:decay, bpN:p0:strip#complexStrip, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:decay | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | Fourier coefficient decay
 EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | strip T_ρ
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
-REVIEWER: sol-delta2-N-a
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | case n=0: singleton branch (T_ρ a point, Z^0={0}, û_0=u, ¦u¦_ρ=¦u¦) replaces the K strip decay
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: K Part 1 L37–39 imposes n≥1 wherever a strip occurs. This node has no n≥1 source restriction and applies a K strip theorem at N Part 1 L206. The n=0 case is not attached by the cited theorem or by a separate branch in this record. Preserve the source’s unrestricted n and expose this application obligation; do not add n≥1 to the source statement. First forward route only: use coefficient decay, then take the scalar limit ρ′↑ρ. The text offers K summation as an alternative for the aggregate weighted bound; see the parent’s route nodes.
+NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, no K result) and n≥1 (K decay under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied. First forward route only: use coefficient decay, then take the scalar limit ρ′↑ρ. The text offers K summation as an alternative for the aggregate weighted bound; see the parent's route nodes.
 
 NODE: stepN:p1:nc-sum
 KIND: step
@@ -1274,18 +1275,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:exp-sums, stepN:p1:nc-decay
+DEPS: K:bp:p1:exp-sums, stepN:p1:nc-decay, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208 | geometric sums (b) with x = 2πδ
 EDGE: stepN:p1:nc-decay | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208 | per-k bound
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p1+sol-global-N
-REVIEWER: sol-delta-N-global
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208 | case n=0: Z^0={0}, single term k=0 equal to 1=coth(πδ)^0
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p1+sol-global-N+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: The native statement permits n=0. The cited K strip/series inputs require n≥1 (K Part 1 L37–39; exp-sums also L728). No n=0 branch is recorded at this consumer. Preserve the native source premises; supply the singleton Fourier-index calculation or an explicitly generalized supplier before certifying the all-n contract.
+NOTE: Explicit cases: n≥1 uses K exp-sums(b); n=0 the sum is the single term k=0 (Remark bpN:p4:n-zero); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: bpN:p1:constants
 KIND: lemma

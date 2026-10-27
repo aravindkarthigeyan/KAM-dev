@@ -825,7 +825,7 @@ NOTE: -
 NODE: stepN:p11:ef-en
 KIND: step
 TITLE: Energy inequality
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89
 PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100
 CONTRACT_ID: stepN:p11:ef-en
 CONTRACT_VERSION: 1
@@ -837,27 +837,119 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p11:real-system, stepN:p11:ef-adm, stepN:p11:ef-tube, bpN:p7:resonance-data, bpN:p4:norm, bpN:p7:ext-taylor, bpN:p11:ext-class, bpN:p11:s-real#data, bpN:p11:wfield, bpN:p7:ext-linalg, bpN:p1:ext-norms
-EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | direct package or input used by this proof step
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | direct package or input used by this proof step
+DEPS: stepN:p11:ef-en-energy, stepN:p11:ef-en-taylor, stepN:p11:ef-en-split, bpN:p1:ext-restrict, stepN:p12:fb-real, bpN:p7:resonance-data, bpN:p4:norm, bpN:p11:ext-class, bpN:p11:s-real#data, bpN:p11:wfield
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | energy conservation G^R o y constant (Lemma real-system(b))
-EDGE: stepN:p11:ef-adm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | ¦Pi omega_0¦<=(5/4)delta
-EDGE: stepN:p11:ef-tube | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | the segment [I-tilde(0),I-tilde(t*)] lies in U (Taylor along I_s)
-EDGE: bpN:p7:ext-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | apply the one-variable Lagrange remainder to h evaluated on the fast action segment, which ef-tube places inside U
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | the energy values of g and f_* are evaluated on the extended orbit
-EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | extended real Hamiltonian and orbit carrier
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | the conserved Hamiltonian uses the weighted field X^c
-EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | self-adjointness and Pi^perp=1-Pi split the linear Taylor term into <Pi omega_0,Delta I> and <omega_0,Pi^perp Delta I>
-EDGE: bpN:p1:ext-norms | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100 | Euclidean Cauchy-Schwarz gives ¦<Pi omega_0,Delta I>¦ <= ¦Pi omega_0¦_2 Delta before the 5/16 bound
+EDGE: stepN:p11:ef-en-energy | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L91-L93 | substep: energy identity and bound A
+EDGE: stepN:p11:ef-en-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L95-L95 | substep: Lagrange Taylor along the fast segment
+EDGE: stepN:p11:ef-en-split | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L97-L100 | substep: projection split and the 5/16 bound
+EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | h_R=h¦_U is C^infty on U by restriction of scalars (holomorphic on V_r-tilde(I_c), real on real points)
+EDGE: stepN:p12:fb-real | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | the smoothness and reality of h_R are obtained exactly as in Step fb-real (i),(ii)
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | U, m, Q=D^2 h_R, omega, the projection Pi and delta of the resonance data
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended-class norm of g and f_* (zeta_g, eta) in the data of the lemma
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended phase space W^e_r-tilde and class O^e
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended real Hamiltonian H-tilde^R and orbit carrier
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | X^c_{H-tilde^R}, the orbit of the extended field
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-global
+EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-global+sonnet-amend-N
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: Part 7 energy-core is a proof template, not an applicable conditional lemma on this slow-fast carrier. The inline Part 11 proof uses extended energy conservation, one-variable Taylor along the fast segment, and projection algebra. No coercivity in the slow directions or canonical projected orbit is assumed.
+NOTE: Parent of ef-en-energy, ef-en-taylor, ef-en-split (G3). The inequality is proved directly in the extended phase space; Lemma bpN:p7:energy-core is NOT applied (it concerns canonical orbits of h_R(I)+g+f in R^n x R^n with g,f independent of the slow pair), so there is no edge to it, and only its argument is repeated along the fast action segment. The direct proof also uses projection algebra (self-adjointness, Pi+Pi^perp=1: bpN:p7:ext-linalg) and Euclidean Cauchy-Schwarz (bpN:p1:ext-norms); these uses are recorded at the substep ef-en-split, resolving the GLOBAL-delta FAIL.
+
+NODE: stepN:p11:ef-en-energy
+KIND: step
+TITLE: Energy
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L93
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L93
+CONTRACT_ID: stepN:p11:ef-en-energy
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; y-tilde an H-tilde-orbit in W^e_r-tilde on an interval containing 0 and t*
+SOURCE_QUANTIFIERS: t*
+SOURCE_CONCLUSION: H-tilde^R∘y-tilde is constant, h_R(I-tilde(t*))-h_R(I-tilde(0))=-[(g+f_*)(y-tilde(t*))-(g+f_*)(y-tilde(0))], whose modulus is A<=2(zeta_g+eta) since ¦u(y)¦<=¦u¦_{r-tilde,s-tilde} at real y in W^e_r-tilde
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpN:p11:real-system, bpN:p11:s-real#data, bpN:p11:ext-class, bpN:p11:wfield, bpN:p4:norm
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L93 | (b) energy conservation along the orbit; (c) real-point bound ¦u(y)¦<=norm
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L91 | H-tilde^R=h_R(I)+(g+f_*)^R on W^e_r-tilde and the orbit carrier
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L93-L93 | g, f_* in the extended class on W^e_r-tilde
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L91 | H-tilde-orbit of the weighted field X^c
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L93-L93 | ¦u¦_{r-tilde,s-tilde} bounds g+f_* at real points
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Substep of ef-en (G3): extended energy conservation, real-system (b),(c).
+
+NODE: stepN:p11:ef-en-taylor
+KIND: step
+TITLE: Taylor along the fast segment
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95
+CONTRACT_ID: stepN:p11:ef-en-taylor
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; I_sigma in U for sigma in [0,1]; Q>=m on U; the energy identity of ef-en-energy
+SOURCE_QUANTIFIERS: sigma in [0,1]
+SOURCE_CONCLUSION: phi(sigma)=h_R(I_sigma) is C^2 with phi'(0)=<omega_0,Delta I>, phi''(sigma)=Q(I_sigma)[Delta I,Delta I]>=m Delta^2; Lagrange Taylor gives phi(1)-phi(0)-phi'(0)=(1/2)phi''(xi)>=(m/2)Delta^2, and with phi(1)-phi(0)<=A: (m/2)Delta^2<=A-<omega_0,Delta I>
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepN:p11:ef-tube, stepN:p11:ef-en-energy, bpN:p7:ext-taylor, bpN:p1:ext-restrict, bpN:p7:resonance-data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepN:p11:ef-tube | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | I_sigma in U for sigma in [0,1]
+EDGE: stepN:p11:ef-en-energy | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | the energy identity gives phi(1)-phi(0)<=A
+EDGE: bpN:p7:ext-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | Lagrange form of Taylor along the segment
+EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | phi is C^2 as h_R is C^infty on U
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | Q>=m on U (hypothesis on U)
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Substep of ef-en (G3): one-variable Lagrange Taylor along the fast action segment.
+
+NODE: stepN:p11:ef-en-split
+KIND: step
+TITLE: Splitting
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100
+CONTRACT_ID: stepN:p11:ef-en-split
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; the inequality of ef-en-taylor; ¦Pi omega_0¦_2<=(5/4)delta; Pi self-adjoint, Pi+Pi^perp=1
+SOURCE_QUANTIFIERS: Delta
+SOURCE_CONCLUSION: <omega_0,Delta I>=<Pi omega_0,Delta I>+<omega_0,Pi^perp Delta I>, so (m/2)Delta^2<=A+¦<Pi omega_0,Delta I>¦+C, C=¦<omega_0,Pi^perp Delta I>¦; ¦<Pi omega_0,Delta I>¦<=(5/4)delta Delta<=(5/64)m r-tilde Delta=(5/16)m Delta^2 (r-tilde=4 Delta); hence (3/16)m Delta^2<=A+C and (3/16)m Delta^2=3 m r-tilde^2/256>0.0117 m r-tilde^2
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepN:p11:ef-en-taylor, stepN:p11:ef-adm, bpN:p7:ext-linalg, bpN:p1:ext-norms, bpN:p7:resonance-data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepN:p11:ef-en-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L98 | the inequality (m/2)Delta^2<=A-<omega_0,Delta I> being split
+EDGE: stepN:p11:ef-adm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L100-L100 | ¦Pi omega_0¦_2<=(5/4)delta
+EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L97 | self-adjointness of Pi and Pi^perp=1-Pi split the linear term
+EDGE: bpN:p1:ext-norms | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L100-L100 | Euclidean Cauchy-Schwarz ¦<Pi omega_0,Delta I>¦<=¦Pi omega_0¦_2 Delta
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100 | Pi, delta, m of the resonance data (delta<=m r-tilde/16)
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Substep of ef-en (G3): projection algebra (ext-linalg) and Euclidean Cauchy-Schwarz (ext-norms); resolves the GLOBAL-delta FAIL on ef-en.
 
 NODE: stepN:p11:ef-id
 KIND: step

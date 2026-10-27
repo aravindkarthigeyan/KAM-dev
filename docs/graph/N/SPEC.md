@@ -150,7 +150,7 @@ every K result listed there is linked from the proof that uses it.
   pl-c1}`; `bpN:p4:ext-{param,weier,series}`; `bpN:p6:ext-{numerics,chain}`; `bpN:p7:ext-{banach,taylor,num,linalg}`;
   `bpN:p8:ext-{free,gram,schur,units,indep,basic}`; `bpN:p9:ext-{num,compact}`; `bpN:p10:ext-rpow`;
   `bpN:p11:ext-{num,rpow,chain}`; and, by the D28 revision (global review G5), the three Part 12 externals
-  `bpN:p12:ext-{cov,tsum,markov}` (35 items in all). Part 12's `ext-dep` (differentiable dependence on initial data)
+  `bpN:p12:ext-{cov,tsum,markov}`, plus `bpN:p11:ext-e-upper` (e < 2.72, `Real.exp_one_lt_d9`, cited inline in Part 11b after the G4 blueprint fix; writer amendment 2026-10-28) (36 items in all). Part 12's `ext-dep` (differentiable dependence on initial data)
   is NOT an external: it is a proved claim node with its own steps, since Mathlib lacks it; the compact-time maximum
   is split out of `ext-markov` as the claim `bpN:p12:ext-markov#compact-max` with its own proof (N12R2-01).
   - **Alias rule.** An item that only restates another node (another external, a K external, or a result proved

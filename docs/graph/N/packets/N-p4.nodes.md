@@ -216,6 +216,34 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: section-data claim created from coverage item p4:prose-L55-L55 (SPEC); consumed by stepN:p4:b4-four, stepN:p4:b4-prod, stepN:p5:vf-deriv, bpN:p4:bracket (proof preamble L152) and later parts
 
+NODE: bpN:p4:n-zero
+KIND: claim
+TITLE: The case n=0 (no angles)
+STATEMENT_SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:n-zero@L55-L57
+PROOF_SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:n-zero@L55-L57
+CONTRACT_ID: bpN:p4:n-zero
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: n = 0, m ≥ 0; D ⊂ ℂ^m; r, s > 0; u ∈ 𝒪(r,s) (Definitions bpN:p4:domains, bpN:p4:norm); a_k: V_rD → ℂ (k ∈ ℤ⁰) for the series statement
+SOURCE_QUANTIFIERS: m; D; r, s; u; I ∈ V_rD; σ > 0; (a_k)
+SOURCE_CONCLUSION: T_s = ℂ⁰ is a point, ℤ⁰ = {0}, χ_0 ≡ 1, ¦0¦_1 = 0, [0,1]⁰ is a point of measure one; hence û_0(I) = u(I), ¦u¦_{I,s} = ¦u(I)¦, ¦u¦_{r,s} = sup_{V_rD}¦u¦ (independent of s), coth(πσ)⁰ = 1; a series Σ_{k∈ℤ⁰} a_kχ_k is the single term a_0 (no convergence question) and u = û_0χ_0 identically; replaces every use of K's n≥1 strip results (decay, summation, fourier-basic(c), exp-sums) when n = 0
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpN:p4:norm, bpN:p4:domains
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:n-zero@L56-L57 | û_0, ¦u¦_{I,s}, ¦u¦_{r,s} evaluated for n=0
+EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:n-zero@L56-L56 | V_rD, T_s=ℂ⁰ and 𝒟_{r,s} for n=0
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Remark bpN:p4:n-zero (G1): consumed by stepN:p4:co-series, co-repr, b1-a, b1-b and by stepN:p1:nc-decay, nc-sum as the n=0 singleton branch; the K strip results are stated for n≥1 only (K Part 1 standing convention)
+
 NODE: bpN:p4:coefficients
 KIND: lemma
 TITLE: Coefficients, derivatives, series
@@ -325,7 +353,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:exp-sums, bpN:p4:ext-weier, bpN:p4:ext-series, K:bp:p1:summation, bpN:p4:norm, bpN:p4:domains
+DEPS: K:bp:p1:exp-sums, bpN:p4:ext-weier, bpN:p4:ext-series, K:bp:p1:summation, bpN:p4:norm, bpN:p4:domains, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L79-L79 | summability of S e^{−2π¦k¦₁(s−s')}
@@ -334,13 +362,14 @@ EDGE: bpN:p4:ext-series | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-se
 EDGE: K:bp:p1:summation | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L80-L80 | 'as in the coefficient step of K summation'
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L80-L80 | norm identity is the definition
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L79-L79 | 𝒟_{r,s'} ⊂ 𝒟_{r,s}; holomorphy on 𝒟_{r,s} as s' arbitrary
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4+sol-global-N
-REVIEWER: sol-delta-N-global
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L79-L79 | n=0: index set Z^0={0}, the series is the single term a_0 (no K strip/series result needed)
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: The native statement permits n=0. The cited K strip/series inputs require n≥1 (K Part 1 L37–39; exp-sums also L728). No n=0 branch is recorded at this consumer. Preserve the native source premises; supply the singleton Fourier-index calculation or an explicitly generalized supplier before certifying the all-n contract.
+NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, singleton branch, no K result) and n≥1 (K results under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: stepN:p4:co-repr
 KIND: step
@@ -357,20 +386,21 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:summation, K:bp:p1:fourier-basic, bpN:p4:norm, bpN:p4:domains
+DEPS: K:bp:p1:summation, K:bp:p1:fourier-basic, bpN:p4:norm, bpN:p4:domains, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:summation | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L82-L82 | Σ û_k(I)χ_k holomorphic periodic with these coefficients
 EDGE: K:bp:p1:fourier-basic | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L83-L83 | (c): holomorphic periodic function with all coefficients zero vanishes
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L82-L82 | single term of ¦u¦_{I,s} ≤ ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L82-L82 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4+sol-global-N
-REVIEWER: sol-delta-N-global
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L82-L82 | case n=0: u(·,I)=û_0(I)χ_0 is the number u(I); representation trivial
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: The native statement permits n=0. The cited K strip/series inputs require n≥1 (K Part 1 L37–39; exp-sums also L728). No n=0 branch is recorded at this consumer. Preserve the native source premises; supply the singleton Fourier-index calculation or an explicitly generalized supplier before certifying the all-n contract.
+NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, singleton branch, no K result) and n≥1 (K results under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: bpN:p4:sup-weighted
 KIND: lemma
@@ -417,20 +447,21 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p4:coefficients, bpN:p0:strip#complexStrip, bpN:p4:norm, bpN:p4:domains
+DEPS: bpN:p4:coefficients, bpN:p0:strip#complexStrip, bpN:p4:norm, bpN:p4:domains, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-L98 | (d): Fourier representation of u
 EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L99-L99 | bound ¦χ_k(θ)¦ ≤ e^{2π¦k¦₁¦Im θ¦_∞} on T_s (Kref bp:p0:domains)
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-L98 | ¦û_k(I)¦e^{2π¦k¦₁s} sum is ¦u¦_{I,s} ≤ ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-L98 | (θ,I) ∈ 𝒟_{r,s}
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
-REVIEWER: sol-delta-N-b
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-L98 | n=0: ¦u¦_{I,s}=¦u(I)¦ and the display is the single term k=0
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: Explicit n=0 branch via Remark bpN:p4:n-zero; n≥1 as before.
 
 NODE: stepN:p4:b1-b
 KIND: step
@@ -447,20 +478,21 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:decay, K:bp:p1:exp-sums, bpN:p4:norm, bpN:p4:domains
+DEPS: K:bp:p1:decay, K:bp:p1:exp-sums, bpN:p4:norm, bpN:p4:domains, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:decay | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101-L101 | Cauchy-type decay of Fourier coefficients (limit ρ' ↑ s+σ)
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L102-L102 | (b) with x = 2πσ: Σ_k e^{−2π¦k¦₁σ} = coth(πσ)ⁿ
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101-L101 | û_k(I), ¦u¦_{I,s}, ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101-L101 | T_{s+σ}, V_rD
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4+sol-global-N
-REVIEWER: sol-delta-N-global
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101-L101 | case n=0: ¦u¦_{I,s}=¦u(I)¦ ≤ M=coth(πσ)^0 M
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: The native statement permits n=0. The cited K strip/series inputs require n≥1 (K Part 1 L37–39; exp-sums also L728). No n=0 branch is recorded at this consumer. Preserve the native source premises; supply the singleton Fourier-index calculation or an explicitly generalized supplier before certifying the all-n contract.
+NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, singleton branch, no K result) and n≥1 (K results under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: bpN:p4:algebra
 KIND: lemma

@@ -93,18 +93,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L78-L80
 DISPOSITION: NODE stepN:p4:co-series
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-delta-N-global
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sonnet-amend-N
+REVIEWER: -
 
 ITEM: stepN:p4:co-repr
 KIND: proof-region
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L82-L83
 DISPOSITION: NODE stepN:p4:co-repr
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-delta-N-global
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sonnet-amend-N
+REVIEWER: -
 
 ITEM: bpN:p4:sup-weighted
 KIND: lemma
@@ -120,18 +120,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-L99
 DISPOSITION: NODE stepN:p4:b1-a
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-delta-N-b
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sonnet-amend-N
+REVIEWER: -
 
 ITEM: stepN:p4:b1-b
 KIND: proof-region
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101-L103
 DISPOSITION: NODE stepN:p4:b1-b
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-delta-N-global
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-N-p4+sonnet-amend-N
+REVIEWER: -
 
 ITEM: bpN:p4:algebra
 KIND: lemma
@@ -546,6 +546,15 @@ REASON: pointer: wrapper of the external-facts list ('Besides K ext-cauchy, ext-
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-delta-N-b
+
+ITEM: bpN:p4:n-zero
+KIND: claim
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:n-zero@L55-L57
+DISPOSITION: NODE bpN:p4:n-zero
+REASON: labelled remark supplying the n=0 singleton branch consumed by Part 4 co-series, co-repr, b1-a, b1-b and Part 1 nc-decay, nc-sum
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: -
 
 ITEM: p4:prose-L55-L55
 KIND: proof-region
