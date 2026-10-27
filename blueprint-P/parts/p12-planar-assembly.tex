@@ -1,0 +1,216 @@
+\section{P-PLANAR: assembly through the frozen P-G}\label{bpP:p12}
+\begingroup\sloppy
+
+This part proves the frozen theorem P-PLANAR (Theorem~\ref{bpP:p0:planar}) by route~(c) of \texttt{PLAN.md}: the \emph{frozen} P-G (Theorem~\ref{bpP:p0:pg}, an input, proved in Part~5) is applied to the planar secular Birkhoff form of Part~11b in the Poincar\'e product chart of Part~7, and its cylinder tori are transported to physical coordinates by Part~1 and Part~6. Nothing about KAM theory is proved here: the part is the bookkeeping of data, thresholds and clauses.
+\begin{itemize}
+\item \texttt{forward-tube}, \texttt{collar}, \texttt{fast-diffeo} (Lemmas~\ref{bpP:p12:forward-tube}, \ref{bpP:p12:collar}, \ref{bpP:p12:fast-diffeo}): the elementary facts about the chart image of a small cylinder and the box $V$ that P-G needs;
+\item \texttt{data}, \texttt{chart}, \texttt{perturbation} (Definition~\ref{bpP:p12:data}, Proposition~\ref{bpP:p12:chart}, Definition~\ref{bpP:p12:perturbation}): the data of P-G in the order in which they are chosen; the total chart $\Psi_{\rm tot}=\Psi^{(2)}\circ T$ ($T$ of Part~11b) and the perturbation $P=\hat f_{\rm mov}\circ T$;
+\item \texttt{pg-hypotheses} (Proposition~\ref{bpP:p12:pg-hypotheses}): every hypothesis (H1)--(H6) and every datum of P-G, including joint analyticity, periodicity, the fast diffeomorphism, the boundary collar and $B=\min|\det\hat\beta|$;
+\item \texttt{transport}, \texttt{measure} (Propositions~\ref{bpP:p12:transport}, \ref{bpP:p12:measure}): cylinder tori $\to$ physical tori, measurability and $0<\meas<\infty$;
+\item \texttt{planar} (Theorem~\ref{bpP:p12:planar}) and \texttt{quantifiers} (Remark~\ref{bpP:p12:quantifiers}): the complete proof of the frozen statement and the order in which every constant is chosen.
+\end{itemize}
+
+\subsection{Setting, dictionary, external facts}\label{bpP:p12:sec-set}
+
+Fix $G,m_0>0$, $\kappa=Gm_0$, $m,a:\texttt{Fin}\,2\to\R$ with $m_i>0$, $0<a_0<a_1$, and $\eta>0$ (the data of Theorem~\ref{bpP:p0:planar}). \emph{Index dictionary.} The Lean planets $0,1$ are the planets $1,2$ of Parts~7--11b (inner planet first, \emph{increasing} axes, \S\ref{bpP:p8:conv}); $\mathcal A_2=\{0<a_1<a_2\}$, $\Lambda_i^*=m_i\sqrt{\kappa a_i}$, $a_i(\Lambda)=\Lambda_i^2/(m_i^2\kappa)$ in those parts. I write the axes as $a=(a_1,a_2)$ in this part. A point of $\Ph{4}=\Ph{2+2}=\Ph{2\cdot2}$ is $w=((\lambda,\xi),(\Lambda,\eta))$ with $\lambda,\xi,\Lambda,\eta\in\R^2$; for the frozen P-G ($a=b=2$) this is $z=\operatorname{assemble}(I,\varphi,p,q)=((\varphi,q),(I,p))$ with
+\[(I,\varphi,p,q)=(\Lambda,\lambda,\eta,\xi)\qquad(\text{dictionary of \S\ref{bpP:p8:conv}}),\]
+and the chart $\Psi=\Psi^{(2)}$ of Theorem~\ref{bpP:p7:product-chart}. The numerals $2\cdot2$ and $2+2$ both reduce to $4$ (the Lean types \texttt{Fin (2*2)} and \texttt{Fin (2+2)} agree by \texttt{rfl}); the first two coordinates of each block are the fast ones. Throughout $\Gamma_i(w)=\tfrac12(\xi_i^2+\eta_i^2)$ and $z=(x,y)\in\R^2\times\R^2$ denotes the oscillator variable of Part~11b, with $(x,y)=(q,p)$ in the P-G dictionary, $R_j=\tfrac12(x_j^2+y_j^2)$, and $\abs z_2^2=\abs x^2+\abs y^2$ (Euclidean). A point $w$ of the cylinder $\mathcal C(V,r)$ (Definition~\ref{bpP:p0:cylinder}, $b=2$) satisfies $x_j^2+y_j^2<r^2$ for $j=1,2$, hence
+\begin{equation}\label{bpP:p12:eq:cylnorm}
+\abs z_2^2<2r^2\qquad\text{on }\mathcal C(V,r).
+\end{equation}
+
+\emph{External facts.}
+\begin{enumerate}[label=(F\arabic*),ref=(F\arabic*)]
+\item\label{bpP:p12:f-comp} Composition of real analytic maps is real analytic; a function that agrees on an open set with a real analytic function is real analytic (and differentiable) there (\ref{bpP:p1:ext-comp}).
+\item\label{bpP:p12:f-unif} A continuous map on a compact metric space is uniformly continuous (Heine--Cantor).
+\item\label{bpP:p12:f-borel} An injective continuous image of a Borel set is Borel (\Lean{MeasurableSet.image\_of\_continuousOn\_injOn}, \ref{bpP:p1:ext-borel}).
+\item\label{bpP:p12:f-mono} Elementary: on $(0,\infty)$ the map $s\mapsto s^{1/3}$ is real analytic; $\log(1/r)>0$ and $r^6/(\log(1/r))^c>0$ for $0<r<1$, $c>0$.
+\end{enumerate}
+
+\subsection{Elementary lemmas}\label{bpP:p12:sec-lem}
+
+\begin{lemma}[Forward tube: small chart cylinders lie in the circular tube]\label{bpP:p12:forward-tube}
+Let $a_i>0$, $\Lambda_i^*=m_i\sqrt{\kappa a_i}$ and $\zeta>0$. There is $\delta_\zeta\in\bigl(0,\tfrac14\min_i\Lambda_i^*\bigr]$, depending only on $(G,m_0,m,a,\zeta)$, such that every $w=((\lambda,\xi),(\Lambda,\eta))\in\R^8$ with $\abs{\Lambda_i-\Lambda_i^*}\le\delta_\zeta$ and $\Gamma_i(w)\le\delta_\zeta$ for $i=1,2$ lies in $\mathcal O_2$ and satisfies $\abs{\Psi^{(2)}(w)-\operatorname{circ}(\lambda/2\pi)}_\infty<\zeta$ (max norm on $\Ph4$). In particular $\Psi^{(2)}(w)\in U_\zeta$ (Definition~\ref{bpP:p0:circular}).
+\source{Ours (uniform continuity of the chart); the converse inclusion is Lemma~\ref{bpP:p7:tube}.}
+\end{lemma}
+\begin{proof}
+\proofstep{A compact set}\label{stepP:p12:ft-cpt} Put $\delta_0=\frac14\min_i\Lambda_i^*$ and $Q_0=\{w:\lambda\in[0,2\pi]^2,\ \abs{\Lambda_i-\Lambda_i^*}\le\delta_0,\ \xi_i^2+\eta_i^2\le2\delta_0\}$, compact. On $Q_0$: $\Lambda_i\ge\frac34\Lambda_i^*>0$ and $\Gamma_i\le\delta_0<\Lambda_i$, so $Q_0\subset\mathcal O_2$ (Definition~\ref{bpP:p7:product-def}).
+\proofstep{Uniform continuity}\label{stepP:p12:ft-uc} $\Psi^{(2)}$ is continuous on $\mathcal O_2$ (Theorem~\ref{bpP:p7:product-chart}(a)), hence uniformly continuous on $Q_0$ \ref{bpP:p12:f-unif}: there is $\delta_1>0$ such that $w,w'\in Q_0$, $\abs{w-w'}_\infty<\delta_1$ imply $\abs{\Psi^{(2)}(w)-\Psi^{(2)}(w')}_\infty<\zeta$. Set $\delta_\zeta=\min\{\delta_0,\delta_1/2,\delta_1^2/4\}$.
+\proofstep{Comparison with the circular torus}\label{stepP:p12:ft-cmp} Let $w$ be as in the statement; replacing $\lambda$ by its residue in $[0,2\pi)^2$ changes neither $\Psi^{(2)}(w)$ nor $\operatorname{circ}(\lambda/2\pi)$ (period $2\pi$, Theorem~\ref{bpP:p7:product-chart}(a); $\operatorname{circ}$ has period one in $\phi$), so we may assume $\lambda\in[0,2\pi]^2$. Then $w\in Q_0$ and $w_0=((\lambda,0),(\Lambda^*,0))\in Q_0$ with $\abs{w-w_0}_\infty\le\max\{\delta_\zeta,\sqrt{2\delta_\zeta}\}<\delta_1$ (since $\abs{\xi_i},\abs{\eta_i}\le\sqrt{2\Gamma_i}$). By Step~\ref{stepP:p12:ft-uc} and $\Psi^{(2)}(w_0)=\operatorname{circ}(\lambda/2\pi)$ (Lemma~\ref{bpP:p7:tube}, last sentence), $\abs{\Psi^{(2)}(w)-\operatorname{circ}(\lambda/2\pi)}_\infty<\zeta$.
+\end{proof}
+
+\begin{lemma}[Boxes have an $O(t)$ collar]\label{bpP:p12:collar}
+Let $V=\prod_{i=1}^2(\ell_i,u_i)\subset\R^2$ with $L_i=u_i-\ell_i>0$ (an open, connected, bounded set). Put $A_c=4(L_1+L_2)$ and $d_c=\tfrac12\min_iL_i$. Then for all $0<t<d_c$,
+\[\meas\{I\in\R^2:\ \exists J\in\partial V,\ \abs{I-J}_\infty<t\}\le A_c\,t .\]
+This is exactly the boundary collar datum of Theorem~\ref{bpP:p0:pg} with $A=A_c$, $d=d_c$.
+\source{Ours, elementary; the collar is a corrected-contract premise (audit P2, CP10 p.~561).}
+\end{lemma}
+\begin{proof}
+\proofstep{Inclusion}\label{stepP:p12:co-inc} Let $N_t$ be the set in question. If $I\in N_t$ and $J\in\partial V$ with $\abs{I-J}_\infty<t$, then $I\in\prod(\ell_i-t,u_i+t)=:E_t$ ($J\in\overline V$). Moreover $I\notin\prod[\ell_i+t,u_i-t]=:E'_t$: a point $J\in\partial V$ has some coordinate $J_i\in\{\ell_i,u_i\}$, and every $I\in E'_t$ has $\abs{I_i-J_i}\ge t$, so $\abs{I-J}_\infty\ge t$. Hence $N_t\subset E_t\setminus E'_t$.
+\proofstep{Measure}\label{stepP:p12:co-meas} For $t<d_c$ all $L_i-2t>0$, $E'_t\subset E_t$ and
+$\meas(E_t\setminus E'_t)=\prod(L_i+2t)-\prod(L_i-2t)=4t(L_1+L_2)$.
+\end{proof}
+
+\begin{lemma}[The fast diffeomorphism for the Kepler part]\label{bpP:p12:fast-diffeo}
+Let $h(\Lambda)=-\sum_{i=1}^2\kappa^2m_i^3/(2\Lambda_i^2)$ (Theorem~\ref{bpP:p7:product-chart}(b); Lean's total division gives the summand $0$ at $\Lambda_i=0$, never used) and let $W=\prod_{i=1}^2(\ell'_i,u'_i)$ with $0<\ell'_i<u'_i$. Then $\operatorname{HasFastDiffeo}(h,W)$ (Definition~\ref{bpP:p0:fastdiffeo}) holds, with $\omega_h(\Lambda)_i=\nu_i(\Lambda_i)=\kappa^2m_i^3\Lambda_i^{-3}$ and inverse $g(v)_i=(\kappa^2m_i^3/v_i)^{1/3}$.
+\end{lemma}
+\begin{proof}
+\proofstep{Analyticity, frequencies}\label{stepP:p12:fd-an} $h$ is real analytic on $\{\Lambda_1\Lambda_2\ne0\}\supset W$, and $\omega_h(\Lambda)_i=Dh(\Lambda)(e_i)=\kappa^2m_i^3\Lambda_i^{-3}$ (Theorem~\ref{bpP:p7:product-chart}(b)); this is clause (i) of Definition~\ref{bpP:p0:fastdiffeo}.
+\proofstep{Open image}\label{stepP:p12:fd-open} Each $\nu_i$ is a strictly decreasing homeomorphism of $(\ell'_i,u'_i)$ onto the open interval $(\kappa^2m_i^3/u_i'^3,\ \kappa^2m_i^3/\ell_i'^3)\subset(0,\infty)$, so $\omega_h(W)$ is the product of these intervals, open (clause (ii)).
+\proofstep{The inverse}\label{stepP:p12:fd-inv} Put $g(v)_i=(\kappa^2m_i^3/v_i)^{1/3}$ (\Lean{Real.rpow}). On $\omega_h(W)\subset(0,\infty)^2$ it is real analytic \ref{bpP:p12:f-mono}, hence $C^1$; $g(\omega_h(\Lambda))=\Lambda$ for $\Lambda\in W$, and for $v\in\omega_h(W)$: $g(v)\in W$ and $\omega_h(g(v))=v$ (each $\nu_i$ is a bijection of the interval onto its image with inverse $v_i\mapsto(\kappa^2m_i^3/v_i)^{1/3}$). This is clause (iii).
+\end{proof}
+
+\subsection{The data of P-G, in the order of choice}\label{bpP:p12:sec-data}
+
+\begin{definition}[Data of the application of P-G]\label{bpP:p12:data}
+Given $(G,m_0,m,a,\eta)$ as in \S\ref{bpP:p12:sec-set}, choose successively:
+\begin{enumerate}[label=(D\arabic*)]
+\item\label{bpP:p12:d-tube} (physical constants) $\zeta_*=\min\{\eta,\gamma_a/6\}$, $d=\gamma_a/2$, $D=2a_{\max}+\gamma_a$ with $a_{\max}=\max a_i$, $\gamma_a=\min\{a_1,a_2,a_2-a_1\}$ (Definition~\ref{bpP:p6:tube-constants}, $n=2$, indices shifted); they depend on $a$ (and $\eta$ for $\zeta_*$) only. Put $\delta=\delta_{\zeta_*}$ of Lemma~\ref{bpP:p12:forward-tube}.
+\item\label{bpP:p12:d-eta} (axis neighbourhood) $\eta'\in(0,\tfrac12\min\{a_1,a_2-a_1\})$ such that $a'\in\R^2$, $\abs{a'-a}_\infty<\eta'$ imply $a'\in\mathcal A_2$ and $\abs{\Lambda(a')-\Lambda^*}_\infty<\delta$, where $\Lambda(a')_i=m_i\sqrt{\kappa a'_i}$ (continuity of $\Lambda$ at $a$).
+\item\label{bpP:p12:d-patch} (good patch) $a^\circ\in\mathcal A_2$, $\rho_a>0$ with $\overline B_\infty(a^\circ,2\rho_a)\subset B_\infty(a,\eta')\cap\{\Phi_4\ne0\}\cap\{\det\hat\beta\ne0\}$ (Corollary~\ref{bpP:p11b:patch}); $K_a=\overline B_\infty(a^\circ,\rho_a)$, $O_a=B_\infty(a^\circ,2\rho_a)$ and $B=\min_{K_a}\abs{\det\hat\beta}>0$.
+\item\label{bpP:p12:d-box} (action boxes) $K=\Lambda(K_a)=\prod[\ell_i,u_i]$, $\mathcal O=\Lambda(O_a)=\prod(\ell'_i,u'_i)$ (the map $\Lambda$ acts coordinatewise and is increasing, so images of cubes are boxes, with $0<\ell'_i<\ell_i<u_i<u'_i$), $V=\operatorname{int}K=\prod(\ell_i,u_i)$ and $W=\mathcal O$.
+\item\label{bpP:p12:d-bnf} (Birkhoff data) the rotation $\varrho$, the generating function $\chi$, the constants $r_*,C_*>0$, an open $\mathcal O'$ with $K\subset\mathcal O'\Subset\mathcal O$, the domain $\mathcal T=\{(\lambda,\Lambda,z):\Lambda\in\mathcal O',\ \abs z_2<r_*\}$ and the map $T=\Phi_\varrho^{-1}\circ\Phi_\chi:\mathcal T\to\mathcal O_2$ of Theorem~\ref{bpP:p11b:birkhoff-form} (applied to the cube $K_a$ of \ref{bpP:p12:d-patch}, $\hat f=\hat f_{\rm mov}$); they depend on $(G,m_0,m,K_a)$ only.
+\item\label{bpP:p12:d-pg} (P-G data) $a=b=2$, $V,W$ as in \ref{bpP:p12:d-box}; collar constants $A=A_c$, $d_{\rm c}$ (Lemma~\ref{bpP:p12:collar}); $r_0=r_*/2$, $\mu_0^{\rm G}=1$, $B$ of \ref{bpP:p12:d-patch}; and $H_0,P,P_0,\Omega,\beta$ of Definition~\ref{bpP:p12:perturbation}.
+\item\label{bpP:p12:d-G} (P-G constants) $r_{\rm G},C_{\rm G},c_{\rm G}$ delivered by Theorem~\ref{bpP:p0:pg} for the data \ref{bpP:p12:d-pg}.
+\item\label{bpP:p12:d-r} (secular radius) $r=\tfrac12\min\{r_{\rm G},\sqrt{\delta/2}\}$. Then $0<r<r_{\rm G}<r_0$ and $r<1$.
+\item\label{bpP:p12:d-mu} (coupling threshold) $\mu_0=\min\bigl\{1,\ r^6/(\log(1/r))^{c_{\rm G}}\bigr\}>0$.
+\end{enumerate}
+No item depends on the coupling $\mu$; items \ref{bpP:p12:d-tube}--\ref{bpP:p12:d-patch} depend on $(G,m_0,m,a,\eta)$ only, and \ref{bpP:p12:d-box}--\ref{bpP:p12:d-mu} on those and the choices before them.
+\end{definition}
+
+\begin{definition}[The perturbation and the Birkhoff data as total functions]\label{bpP:p12:perturbation}
+With the notation of Definition~\ref{bpP:p12:data} put (all functions total, with arbitrary values where the formula is not defined, which are never used because every use is guarded by $I\in V$ or $w\in\mathcal T$):
+\begin{align*}
+&H_0(I)=h(I),\qquad \Psi_{\rm tot}:=\Psi^{(2)}\circ T\ \text{ on }\mathcal T\ (\text{and }:=0\text{ elsewhere}),\\
+&P(\mu,w)=\hat f_{\rm mov}\bigl(T(w)\bigr)\ \text{ for }w\in\mathcal T,\qquad P(\mu,w)=0\ \text{ for }w\notin\mathcal T,\\
+&P_0(\mu,I)=C_0(a(I))+\delta_{\rm S}(I),\qquad \Omega(\mu,I)=2\sigma(a(I)),\qquad\beta(\mu,I)=\hat\beta(a(I))\qquad(I\in V),
+\end{align*}
+and $P_0=0$, $\Omega=0$, $\beta=0$ for $I\notin V$. Here $\hat f_{\rm mov}=f_{\rm mov}\circ\Psi^{(2)}$ (Theorem~\ref{bpP:p7:product-chart}(c)), $\delta_{\rm S}$ is the function $\delta$ of Theorem~\ref{bpP:p8:identification} (renamed to avoid the clash with the constant $\delta$ of \ref{bpP:p12:d-tube}), $C_0$, $\sigma=(\sigma_1,\sigma_2)$ (eigenvalues of $Q_h$) and $\hat\beta$ are those of Definitions~\ref{bpP:p8:coeffs}, \ref{bpP:p11b:beta-def}, and $a(I)\in K_a$ for $I\in K$. $P$ does not depend on $\mu$.
+\end{definition}
+
+\begin{proposition}[The total chart]\label{bpP:p12:chart}
+In the situation of Definition~\ref{bpP:p12:data}:
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal T$ is open, $\mathcal T+\iota'_k=\mathcal T$ for $\iota'_k=((2\pi k,0),0)$, $k\in\Z^2$ (angle translations of the fast block), and $T(\mathcal T)\subset\mathcal O_2\cap\Psi^{(2)\,-1}(W_{\rm col})$ (the collision-free domain of Lemma~\ref{bpP:p6:domain}, on which $\hat f$ is analytic).
+\item $\Psi_{\rm tot}$ is a $1$-chart on $\mathcal T$ (Definition~\ref{bpP:p1:chart}); in particular $D\Psi_{\rm tot}$ is invertible on $\mathcal T$.
+\item $\Psi_{\rm tot}(w+\iota'_k)=\Psi_{\rm tot}(w)$ for $w\in\mathcal T$, $k\in\Z^2$, and if $w,w'\in\mathcal T$, $\Psi_{\rm tot}(w')=\Psi_{\rm tot}(w)$ then $w'=w+\iota'_k$ for some $k\in\Z^2$.
+\item For every real $\mu$ and every $w\in\mathcal T$: $H_{\rm mov}(\Psi_{\rm tot}(w))=H_0(\Lambda)+\mu P(\mu,w)$, i.e.\ $H_{\rm mov}^{\Psi_{\rm tot}}=H_\mu$ on $\mathcal T$, with $H_\mu=H_0+\mu P(\mu,\cdot)$ of Definition~\ref{bpP:p0:degham}.
+\item For all $r\in(0,r_0]$ with $2r^2\le\delta$ and every $w\in\mathcal C(V,r)$: $\mathcal C(V,r)\subset\mathcal T$ and $\Psi_{\rm tot}(w)\in U_{\zeta_*}\subset U_\eta$. (For the $r$ of \ref{bpP:p12:d-r}: $2r^2\le\delta/2<\delta$.)
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\proofstep{(a) Domain}\label{stepP:p12:ch-dom} $\mathcal T$ is defined by conditions on $(\Lambda,z)$ only, hence open and invariant under translations of $\lambda$. The inclusion of the image is the statement ``with values in the domain of $\hat f$'' of Theorem~\ref{bpP:p11b:birkhoff-form}, whose proof (Step~\ref{stepP:p11b:bt-avg}) takes $r_*\le\rho_K/\sqrt2$ so that $\abs{\varrho Y}\le\abs Y\le\sqrt2\abs z$ lies in the polydisc of Proposition~\ref{bpP:p8:perturbation-analytic}, where $\Psi^{(2)}\in W_{\rm col}$ (part (a) there); also $r_*\le r_1$ of Lemma~\ref{bpP:p11b:flow}.
+\proofstep{(b) Chart}\label{stepP:p12:ch-chart} $T=\Phi_\varrho^{-1}\circ\Phi_\chi$ is a real analytic symplectic diffeomorphism onto its image for $\Omega_{\rm chart}=d\Lambda\wedge d\lambda+dy\wedge dx$, the frozen $\Omega$ in the order $((\lambda,x),(\Lambda,y))$ (Proposition~\ref{bpP:p11b:lift-map}, Proposition~\ref{bpP:p9:lift}); $\Psi^{(2)}$ is a $1$-chart on $\mathcal O_2$ (Theorem~\ref{bpP:p7:product-chart}(a)). By Remark~\ref{bpP:p1:typical}(3) the composition is a $1$-chart on $\mathcal T$; invertibility of the derivative is Lemma~\ref{bpP:p1:omega-algebra}(b).
+\proofstep{(c) Lattice}\label{stepP:p12:ch-lat} $T$ commutes with angle translations: $T(w+\iota'_k)=T(w)+\iota'_k$ (Proposition~\ref{bpP:p11b:lift-map}), and $\Psi^{(2)}(w+\iota'_k)=\Psi^{(2)}(w)$ (Theorem~\ref{bpP:p7:product-chart}(a)); so $\Psi_{\rm tot}(w+\iota'_k)=\Psi_{\rm tot}(w)$. If $\Psi_{\rm tot}(w')=\Psi_{\rm tot}(w)$, then $T(w')=T(w)+\iota'_k$ for some $k\in\Z^2$ (injectivity modulo $2\pi\Z^2$ in Theorem~\ref{bpP:p7:product-chart}(a)), i.e.\ $T(w')=T(w+\iota'_k)$ with $w+\iota'_k\in\mathcal T$; $T$ is injective (diffeomorphism onto its image), so $w'=w+\iota'_k$.
+\proofstep{(d) The Hamiltonian}\label{stepP:p12:ch-ham} By Theorem~\ref{bpP:p7:product-chart}(c) (the Lean total functions, $c=1$), $H_{\rm mov}(\Psi^{(2)}(v))=h(\Lambda(v))+\mu\hat f_{\rm mov}(v)$ for all $v\in\mathcal O_2$ and all $\mu$. Put $v=T(w)$: $T$ preserves $\Lambda$ (Proposition~\ref{bpP:p11b:lift-map}), so $h(\Lambda(v))=H_0(\Lambda(w))$ and $\hat f_{\rm mov}(v)=P(\mu,w)$.
+\proofstep{(e) The tube}\label{stepP:p12:ch-tube} Let $w\in\mathcal C(V,r)$, $r\le r_0$. Then $\Lambda\in V\subset K\subset\mathcal O'$ and $\abs z_2<\sqrt2r\le\sqrt2r_0<r_*$ by \eqref{bpP:p12:eq:cylnorm}, so $w\in\mathcal T$. Write $T(w)=(\lambda',\Lambda,\xi,\eta)$, $(\xi,\eta)=\varrho(\Lambda)Y$ with $Y=(x',y')$, $\abs Y_2^2\le2\abs z_2^2<4r^2$ (Lemma~\ref{bpP:p11b:flow}), and $\varrho\in SO(2)$ acts on the planet index so $\abs\xi^2+\abs\eta^2=\abs Y_2^2$. Hence $\Gamma_i(T(w))\le\tfrac12(\abs\xi^2+\abs\eta^2)<2r^2\le\delta$. Moreover $\Lambda\in K$ gives $\abs{\Lambda-\Lambda^*}_\infty<\delta$ by \ref{bpP:p12:d-eta}, \ref{bpP:p12:d-patch}. Lemma~\ref{bpP:p12:forward-tube} with $\zeta=\zeta_*$ yields $\Psi_{\rm tot}(w)\in U_{\zeta_*}$, and $U_{\zeta_*}\subset U_\eta$ by Lemma~\ref{bpP:p6:tube-geometry}(a).
+\end{proof}
+
+\subsection{The hypotheses of P-G}\label{bpP:p12:sec-pg}
+
+\begin{proposition}[All data and hypotheses of P-G hold]\label{bpP:p12:pg-hypotheses}
+With the data of Definition~\ref{bpP:p12:data} and the functions of Definition~\ref{bpP:p12:perturbation}, every datum and every hypothesis (H1)--(H6) of Theorem~\ref{bpP:p0:pg} (with $a=b=2$) holds:
+$V\subset\R^2$ is open, connected and bounded; $W\supset\overline V$ is open; the collar holds with $A=A_c$, $d=d_{\rm c}$; $r_0,\mu_0^{\rm G},B>0$; and
+\begin{enumerate}[label=(H\arabic*)]
+\item $(\mu,w)\mapsto P(\mu,w)$ is real analytic at every point of $[0,1]\times\overline{\mathcal C(V,r_0)}$;
+\item $P(\mu,w+\iota'_k)=P(\mu,w)$ for $\mu\in[0,1]$, $w\in\mathcal C(V,r_0)$, $k\in\Z^2$;
+\item $\operatorname{HasFastDiffeo}(H_0,W)$;
+\item $\operatorname{HasBirkhoff}(P,V,r_0,1,P_0,\Omega,\beta)$;
+\item $\abs{\det\beta(\mu,I)}\ge B$ for $\mu\in[0,1]$, $I\in V$;
+\item $\beta(\mu,I)$ is symmetric for $\mu\in[0,1]$, $I\in V$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\proofstep{The sets}\label{stepP:p12:pg-sets} $V=\prod(\ell_i,u_i)$ is open, connected, bounded; $W=\mathcal O=\prod(\ell'_i,u'_i)$ is open and $\overline V=K\subset\mathcal O$ by \ref{bpP:p12:d-box}. The collar is Lemma~\ref{bpP:p12:collar}. $r_0=r_*/2>0$, $\mu_0^{\rm G}=1$, $B>0$ by Corollary~\ref{bpP:p11b:patch}.
+\proofstep{(H1) Joint analyticity}\label{stepP:p12:pg-h1} Let $w\in\overline{\mathcal C(V,r_0)}$: $\Lambda\in\overline V=K\subset\mathcal O'$ and $x_j^2+y_j^2\le r_0^2$, so $\abs z_2\le\sqrt2r_0=r_*/\sqrt2<r_*$ and $w\in\mathcal T$, which is open (Proposition~\ref{bpP:p12:chart}(a)). On $\mathbb R\times\mathcal T$ the function $(\mu,w)\mapsto\hat f_{\rm mov}(T(w))$ is real analytic: $T$ is analytic on $\mathcal T$ and $\hat f_{\rm mov}$ is analytic on its domain, which contains $T(\mathcal T)$ (Theorem~\ref{bpP:p11b:birkhoff-form}(a), Proposition~\ref{bpP:p8:perturbation-analytic}(a)); \ref{bpP:p12:f-comp}. The independence of $\mu$ makes the joint analyticity trivial.
+\proofstep{(H2) Periodicity}\label{stepP:p12:pg-h2} For $w\in\mathcal C(V,r_0)\subset\mathcal T$: $w+\iota'_k\in\mathcal T$, $T(w+\iota'_k)=T(w)+\iota'_k$ (Proposition~\ref{bpP:p11b:lift-map}) and $\hat f_{\rm mov}=f_{\rm mov}\circ\Psi^{(2)}$ is $2\pi$-periodic in each $\lambda_i$ (Theorem~\ref{bpP:p7:product-chart}(a)); so $P(\mu,w+\iota'_k)=P(\mu,w)$. For $k\in\Z^2$ the frozen $\operatorname{shift}(k)$ is exactly $\iota'_k$ (Definition~\ref{bpP:p0:fastshift}).
+\proofstep{(H3)}\label{stepP:p12:pg-h3} Lemma~\ref{bpP:p12:fast-diffeo} with $W=\mathcal O$ ($0<\ell'_i$).
+\proofstep{(H4) The Birkhoff form}\label{stepP:p12:pg-h4} Theorem~\ref{bpP:p11b:birkhoff-form}(c) gives $\operatorname{HasBirkhoff}(P,V,r_*/\sqrt2,\mu_0,P_0,\Omega,\beta)$ for every $\mu_0>0$, in the dictionary of \S\ref{bpP:p12:sec-set}. The clauses are monotone in the radius: (i) is a statement for $p_j^2+q_j^2<r_0^2$, which shrinks with $r_0$; in (ii) the number $\delta$ with $0<\delta\le r_*/\sqrt2$ may be replaced by $\min\{\delta,r_0\}$ for $r_0=r_*/2$, since the estimate is asked for $p_j^2+q_j^2<\delta^2$ only. Hence $\operatorname{HasBirkhoff}(P,V,r_0,1,P_0,\Omega,\beta)$. (Here the zero extension of $P$ outside $\mathcal T$ is invisible: the points $\operatorname{assemble}(I,\varphi,p,q)$ with $I\in V$, $p_j^2+q_j^2<r_0^2$ lie in $\mathcal C(V,r_0)\subset\mathcal T$.)
+\proofstep{(H5), (H6)}\label{stepP:p12:pg-h56} For $I\in V$, $a(I)\in\operatorname{int}K_a$ and $\beta(\mu,I)=\hat\beta(a(I))$ is symmetric (Definition~\ref{bpP:p11b:beta-def}); $\abs{\det\beta(\mu,I)}\ge\min_{K_a}\abs{\det\hat\beta}=B$ by \ref{bpP:p12:d-patch} and Remark~\ref{bpP:p11b:remain}(1).
+\end{proof}
+
+\subsection{Transport of the tori}\label{bpP:p12:sec-tr}
+
+\begin{proposition}[Cylinder tori of $H_\mu$ are physical tori of $H_{\rm mov}$]\label{bpP:p12:transport}
+Let $\mu\in\R$, $0<r\le r_0$, $w\in\R^4$ (a frequency) and $K:\R^4\to\Ph4$ with $\operatorname{IsCylTorus}(H_\mu,\mathcal C(V,r),w,K)$ (Definition~\ref{bpP:p0:cyltorus}), and assume $\gamma>0$, $\tau>4$ with $w$ $(\gamma,\tau)$-Diophantine. Then $\mathcal K_{\rm ph}:=\Psi_{\rm tot}\circ K$ satisfies $\operatorname{IsPhysTorus}(H_{\rm mov},w,\mathcal K_{\rm ph})$ (Definition~\ref{bpP:p0:phystorus}, $d=4$, $H_{\rm mov}=\texttt{movingHamiltonian}\,G\,m_0\,m\,\mu$), and $\mathcal K_{\rm ph}(\R^4)=\Psi_{\rm tot}(K(\R^4))$.
+\end{proposition}
+\begin{proof}
+Write $\mathcal C=\mathcal C(V,r)\subset\mathcal T$ (Proposition~\ref{bpP:p12:chart}(e)). Part~1's Theorem~\ref{bpP:p1:torus-transport} is not used: its lattice clause (L2) shifts \emph{all} four position coordinates, whereas a cylinder torus has periodic slow coordinates; the four steps below redo it for the frozen cylinder predicate.
+\proofstep{(i) Analyticity, differentiability}\label{stepP:p12:tr-an} $K$ is analytic with values in $\mathcal C\subset\mathcal T$, where $\Psi_{\rm tot}$ is analytic (Proposition~\ref{bpP:p12:chart}(b)); \ref{bpP:p12:f-comp}. By Proposition~\ref{bpP:p12:chart}(d), $H_{\rm mov}\circ\Psi_{\rm tot}=H_\mu$ on the open set $\mathcal T$, and $H_\mu$ is differentiable at $K(\theta)$ (IsCylTorus (ii)); Lemma~\ref{bpP:p1:chart-field} (with $c=1$, $O=\mathcal T$) gives that $H_{\rm mov}$ is differentiable at $\Psi_{\rm tot}(K(\theta))$.
+\proofstep{(ii) Periodicity}\label{stepP:p12:tr-per} For $k\in\Z^4$, IsCylTorus (iii) gives $K(\theta+k)=K(\theta)+\iota'_{k_{\rm f}}$, $k_{\rm f}=(k_1,k_2)$, so $\mathcal K_{\rm ph}(\theta+k)=\Psi_{\rm tot}(K(\theta)+\iota'_{k_{\rm f}})=\mathcal K_{\rm ph}(\theta)$ by Proposition~\ref{bpP:p12:chart}(c).
+\proofstep{(iii) Injectivity modulo $\Z^4$}\label{stepP:p12:tr-inj} If $\mathcal K_{\rm ph}(\theta')=\mathcal K_{\rm ph}(\theta)$ then Proposition~\ref{bpP:p12:chart}(c) gives $K(\theta')=K(\theta)+\iota'_k$ for some $k\in\Z^2$, i.e.\ $K(\theta')=K(\theta)+\operatorname{shift}(k)$, and IsCylTorus (iv) gives $\theta'-\theta\in\Z^4$.
+\proofstep{(iv) Derivative, Lagrangian}\label{stepP:p12:tr-lag} $D\mathcal K_{\rm ph}(\theta)=D\Psi_{\rm tot}(K\theta)DK(\theta)$ with $D\Psi_{\rm tot}$ invertible, so injective by IsCylTorus (v); $\Omega(D\mathcal K_{\rm ph}u,D\mathcal K_{\rm ph}v)=\Omega(DKu,DKv)=0$ (Proposition~\ref{bpP:p12:chart}(b), IsCylTorus (vi)).
+\proofstep{(v) Flow}\label{stepP:p12:tr-flow} For $\theta,t$ the curve $y(s)=K(\theta+sw)\in\mathcal T$ has derivative $X_{H_\mu}(y(t))=X_{H_{\rm mov}^{\Psi_{\rm tot}}}(y(t))$ at $s=t$ (IsCylTorus (vii) and $H_{\rm mov}^{\Psi_{\rm tot}}=H_\mu$ on $\mathcal T$), and $H_{\rm mov}^{\Psi_{\rm tot}}$ is differentiable there; Corollary~\ref{bpP:p1:chart-orbit} gives that $s\mapsto\mathcal K_{\rm ph}(\theta+sw)$ has derivative $X_{H_{\rm mov}}(\mathcal K_{\rm ph}(\theta+tw))$ at $t$.
+\proofstep{(vi) Diophantine}\label{stepP:p12:tr-dio} $\tau>4>d-1=3$ (Lemma~\ref{bpP:p1:dio-basic}(a) if one wishes to lower $\tau$); this is clause (vii) of Definition~\ref{bpP:p0:phystorus}. The range statement is immediate.
+\end{proof}
+
+\begin{proposition}[Measurability, positivity, finiteness]\label{bpP:p12:measure}
+Let $0<r<r_0$ with $2r^2\le\delta$, let $\mu\in\R$ and let $S\subset\Ph4$ satisfy $\operatorname{IsCylKol}(H_\mu,V,r,\mu,C,S)$ (Definition~\ref{bpP:p0:cylkol}) and $0<\meas(S\cap\mathcal F(V,r))$. Then $S_{\rm ph}:=\Psi_{\rm tot}(S)$ is Borel (the frozen \Lean{MeasurableSet}), $S_{\rm ph}\subset U_{\zeta_*}$, and $0<\meas S_{\rm ph}<\infty$.
+\end{proposition}
+\begin{proof}
+\proofstep{Invariance}\label{stepP:p12:me-inv} $S$ is a union of whole tori $K(\R^4)$, and $K(\R^4)+\iota'_k=K(\R^4)$ for $k\in\Z^2$ (IsCylTorus (iii) with $K(\theta)+\iota'_k=K(\theta+(k,0))$). So $S+\iota'_k=S$, and $S\subset\mathcal C(V,r)\subset\mathcal T$.
+\proofstep{Reduction to the cell}\label{stepP:p12:me-cell} Let $\mathcal F=\mathcal F(V,r)$ (Definition~\ref{bpP:p0:cylinder}). Every $s\in S$ is $s'+\iota'_k$ with $s'\in S\cap\mathcal F$ (shift the fast angles into $[0,2\pi)^2$), so $\Psi_{\rm tot}(S)=\Psi_{\rm tot}(S\cap\mathcal F)$ by Proposition~\ref{bpP:p12:chart}(c). Moreover $\Psi_{\rm tot}$ is injective on $\mathcal F$: $\Psi_{\rm tot}(w')=\Psi_{\rm tot}(w)$ with $w,w'\in\mathcal F$ forces $w'=w+\iota'_k$ and $0\le\lambda_i,\lambda_i+2\pi k_i<2\pi$, so $k=0$.
+\proofstep{Borel, measure}\label{stepP:p12:me-meas} $S$ is Borel (frozen \Lean{MeasurableSet}), $\mathcal F$ is Borel, so $S\cap\mathcal F$ is Borel, and $\Psi_{\rm tot}$ is continuous and injective on it: $S_{\rm ph}=\Psi_{\rm tot}(S\cap\mathcal F)$ is Borel \ref{bpP:p12:f-borel}. Lemma~\ref{bpP:p1:liouville} ($c=1$, $\Psi_{\rm tot}$ injective on $A=S\cap\mathcal F$) gives $\meas S_{\rm ph}=\meas(S\cap\mathcal F)>0$.
+\proofstep{Tube, finiteness}\label{stepP:p12:me-tube} $S_{\rm ph}\subset\Psi_{\rm tot}(\mathcal C(V,r))\subset U_{\zeta_*}$ (Proposition~\ref{bpP:p12:chart}(e)), hence $\meas S_{\rm ph}<\infty$ by Lemma~\ref{bpP:p6:measure-positive}(a) (and also $\meas S_{\rm ph}\le\meas\mathcal F(V,r)<\infty$).
+\end{proof}
+
+\subsection{The complete proof of P-PLANAR}\label{bpP:p12:sec-main}
+
+\begin{theorem}[P-PLANAR: two planar planets with a moving Sun]\label{bpP:p12:planar}
+Theorem~\ref{bpP:p0:planar} holds: for $G,m_0>0$, $m,a:\texttt{Fin}\,2\to\R$ with $m_i,a_i>0$, $a_0<a_1$ and $\eta>0$ there are $\mu_0>0$ and $0<d<D$ such that for every $0<\mu<\mu_0$ there is $S\subset\Ph{2\cdot2}$ with $0<\meas S<\infty$ and $\operatorname{MovKol}(G,m_0,m,a,\mu,\eta,d,D,S)$.
+\frozen{KAM.Planetary.planarTwoPlanetKAM}
+\source{CP09 Thm.~4, p.~8 and Fej04r Prop.~77, in the route~(c) form of \texttt{PLAN.md}: the frozen P-G (CP11 Thm.~11.1, CP10 Thm.~1.3) applied to the planar secular Birkhoff form of Part~11b.}
+\end{theorem}
+\begin{proof}
+\proofstep{Constants}\label{stepP:p12:pl-const} Choose $d,D$ and all constants of Definition~\ref{bpP:p12:data}, \ref{bpP:p12:d-tube}--\ref{bpP:p12:d-mu}: $0<d<D$ (Definition~\ref{bpP:p6:tube-constants}); $\mu_0=\min\{1,r^6/(\log(1/r))^{c_{\rm G}}\}>0$ since $0<r<1$ \ref{bpP:p12:f-mono}. These depend on $(G,m_0,m,a,\eta)$ only (Remark~\ref{bpP:p12:quantifiers}), and \emph{not} on $\mu$.
+\proofstep{P-G applies}\label{stepP:p12:pl-pg} Proposition~\ref{bpP:p12:pg-hypotheses} gives all data and (H1)--(H6) of Theorem~\ref{bpP:p0:pg}; hence $r_{\rm G},C_{\rm G},c_{\rm G}$ with $0<r_{\rm G}<r_0$, $r_{\rm G}<1$ exist (\ref{bpP:p12:d-G}); they do not depend on the $r,\mu$ below.
+\proofstep{The coupling}\label{stepP:p12:pl-mu} Let $0<\mu<\mu_0$. The pair $(r,\mu)$ of \ref{bpP:p12:d-r} satisfies the premise of the conclusion of P-G: $0<r<r_{\rm G}$ ($r\le r_{\rm G}/2$), $0<\mu<1=\mu_0^{\rm G}$, and $\mu<\mu_0\le r^6/(\log(1/r))^{c_{\rm G}}$. So there is $S_{\rm cyl}\subset\Ph4$ with $\operatorname{IsCylKol}(H_\mu,V,r,\mu,C_{\rm G},S_{\rm cyl})$ and $0<\meas(S_{\rm cyl}\cap\mathcal F(V,r))$ (and the further measure bounds of P-G, not needed here).
+\proofstep{The physical set}\label{stepP:p12:pl-S} Put $S=\Psi_{\rm tot}(S_{\rm cyl})$. By Proposition~\ref{bpP:p12:measure} (with $2r^2\le\delta/2<\delta$, $r<r_0$): $S$ is Borel, $S\subset U_{\zeta_*}$ and $0<\meas S<\infty$. These are the first two conjuncts of the conclusion, and clauses ``$\texttt{MeasurableSet}\ S$'' and ``$S\subset\texttt{circularTube}\ \eta$'' of $\operatorname{MovKol}$ ($U_{\zeta_*}\subset U_\eta$, Lemma~\ref{bpP:p6:tube-geometry}(a)).
+\proofstep{Tori}\label{stepP:p12:pl-tori} Let $z\in S$, $z=\Psi_{\rm tot}(s)$ with $s\in S_{\rm cyl}$. IsCylKol gives $w\in\R^4$, $K$, $\theta$ with $K(\theta)=s$, $K(\R^4)\subset S_{\rm cyl}$, $\operatorname{IsCylTorus}(H_\mu,\mathcal C(V,r),w,K)$, and $\gamma>0$, $\tau>2+2=4$ with $w$ $(\gamma,\tau)$-Diophantine. Proposition~\ref{bpP:p12:transport} gives $\operatorname{IsPhysTorus}(H_{\rm mov},w,\mathcal K_{\rm ph})$ for $\mathcal K_{\rm ph}=\Psi_{\rm tot}\circ K$; $\mathcal K_{\rm ph}(\theta)=z$ and $\mathcal K_{\rm ph}(\R^4)\subset\Psi_{\rm tot}(S_{\rm cyl})=S$. This is hypothesis (S2) of Proposition~\ref{bpP:p6:movkol-assembly}; (S1) is Step~\ref{stepP:p12:pl-S}.
+\proofstep{The physical clauses}\label{stepP:p12:pl-phys} Proposition~\ref{bpP:p6:movkol-assembly} (with $\zeta_*,d,D$ of \ref{bpP:p12:d-tube}, indices shifted) turns (S1), (S2) into $\operatorname{MovKol}(G,m_0,m,a,\mu,\eta,d,D,S)$: for every $\phi\in\R^4$, $\operatorname{NoColl}(\mathcal K_{\rm ph}(\phi)_1)$ (Lemma~\ref{bpP:p6:tube-geometry}(d)), the barycentric reconstruction of $t\mapsto\mathcal K_{\rm ph}(\phi+tw)$ is an all-time Newton solution (Proposition~\ref{bpP:p6:reconstruction} via Corollary~\ref{bpP:p6:orbit-transfer}(a), or Corollary~\ref{bpP:p6:newton-in-tube}: $\mathcal K_{\rm ph}(\phi+tw)\in S\subset U_{\zeta_*}$ for all $t$ and $\mathcal K_{\rm ph}(\cdot+tw)$ has derivative $X_{H_{\rm mov}}$ by the flow clause), and $\operatorname{PairBounds}(d,D;\texttt{barycentricPositions}\ m_0\ m\ \mu\ \mathcal K_{\rm ph}(\phi)_1)$ with the same $d,D$ for every $\mu$ (Lemma~\ref{bpP:p6:tube-geometry}(e), exact identities $x_i-x_j=q_i-q_j$, Lemma~\ref{bpP:p6:bary-algebra}(a)).
+\end{proof}
+
+\begin{remark}[Order of the constants against the frozen quantifiers]\label{bpP:p12:quantifiers}
+The frozen statement is $\forall(G,m_0,m,a,\eta)\ \exists(\mu_0,d,D)\ \forall\mu\in(0,\mu_0)\ \exists S$. The constants of Definition~\ref{bpP:p12:data} are chosen in this order, and each depends \emph{only} on the quantities listed.
+\begin{center}
+\small
+\begin{tabular}{@{}lll@{}}
+\hline
+Constant & Depends on & Where\\
+\hline
+$\gamma_a$, $\zeta_*$, $d$, $D$ & $a$ ($\zeta_*$ also $\eta$) & \ref{bpP:p12:d-tube}\\
+$\delta=\delta_{\zeta_*}$ & $(G,m_0,m,a,\eta)$ & Lemma~\ref{bpP:p12:forward-tube}\\
+$\eta'$ & $(G,m_0,m,a,\delta)$ & \ref{bpP:p12:d-eta}\\
+$a^\circ,\rho_a$, $K_a$, $B$ & $(G,m_0,m,a,\eta')$ & \ref{bpP:p12:d-patch}\\
+$K,V,W,A_c,d_{\rm c}$ & $(G,m_0,m,a^\circ,\rho_a)$ & \ref{bpP:p12:d-box}, Lemma~\ref{bpP:p12:collar}\\
+$\varrho,\chi,r_*,C_*,\mathcal O',T$ & $(G,m_0,m,K_a)$ & \ref{bpP:p12:d-bnf}\\
+$r_0=r_*/2$, $\mu_0^{\rm G}=1$ & $r_*$ & \ref{bpP:p12:d-pg}\\
+$r_{\rm G},C_{\rm G},c_{\rm G}$ & all of the above (P-G data) & \ref{bpP:p12:d-G}\\
+$r$ & $r_{\rm G},\delta$ & \ref{bpP:p12:d-r}\\
+$\mu_0$ & $r,c_{\rm G}$ & \ref{bpP:p12:d-mu}\\
+\hline
+\end{tabular}
+\end{center}
+Only after $(\mu_0,d,D)$ are fixed does $\mu\in(0,\mu_0)$ enter: it selects $S_{\rm cyl}$ in P-G (Step~\ref{stepP:p12:pl-mu}) and then $S=\Psi_{\rm tot}(S_{\rm cyl})$. In particular the secular radius $r$ is a \emph{fixed} number, chosen before $\mu$ so that the whole chart image $\Psi_{\rm tot}(\mathcal C(V,r))$ lies in the $\zeta_*$-tube (Proposition~\ref{bpP:p12:chart}(e)) and so that the coupling window of P-G, $\mu<r^6/(\log(1/r))^{c_{\rm G}}$, contains $(0,\mu_0)$. Thus $d,D$ do not depend on $\eta$ through anything but $\zeta_*\le\eta$, and $d<D$ always; $\mu_0$ depends on $\eta$ through $\delta$ and the patch, as it must (smaller tubes force smaller couplings).
+\end{remark}
+
+\begin{remark}[Uniform tube and pair bounds: the route-study contract, checked]\label{bpP:p12:contract}
+The assembly contract of \texttt{reviews/p11-route-study.md} (``Uniform tube and pair bounds'') is met as follows. (1) $\zeta$ is chosen from $\eta$ and the axes ($\zeta_*=\min\{\eta,\gamma_a/6\}$), with the factor $\sqrt2$ between the phase max norm and the Euclidean length built into Lemma~\ref{bpP:p6:tube-geometry}(b), (c) ($2\sqrt2\zeta_*\le\frac{\sqrt2}3\gamma_a<\frac12\gamma_a$). (2) The axis patch and the secular radius are chosen before $\mu$ so that the whole chart image lies in $U_{\zeta_*}$ (Lemma~\ref{bpP:p12:forward-tube}, Proposition~\ref{bpP:p12:chart}(e)); the pair bounds are exact and $\mu$-independent. (3) No $O(\mu)$ estimate of the barycentre is used.
+\end{remark}
+
+\subsection{Notes: deviations, doubts, errata, forward references}\label{bpP:p12:notes}
+
+\paragraph{Replaced plan items.} \texttt{PLAN.md}'s \texttt{hamiltonian-form} (the pair $(h,f_0)$ verifying CP09 Thm.~4 (7)--(8) with $d=p=2$) belongs to route (a) and is not used; the labels of the plan map to this part as \texttt{choose-patch}\,$\to$\,Definition~\ref{bpP:p12:data} \ref{bpP:p12:d-eta}--\ref{bpP:p12:d-patch}; \texttt{transport}\,$\to$\,Proposition~\ref{bpP:p12:transport} (+ Proposition~\ref{bpP:p12:measure}); \texttt{physical}\,$\to$\,Theorem~\ref{bpP:p12:planar} Steps~\ref{stepP:p12:pl-S}--\ref{stepP:p12:pl-phys}; \texttt{quantifiers}\,$\to$\,Remark~\ref{bpP:p12:quantifiers}.
+
+\paragraph{Deviations.} (1) \emph{Radius.} Theorem~\ref{bpP:p11b:birkhoff-form}(c) states $\operatorname{HasBirkhoff}$ for $r_0=r_*/\sqrt2$; the closure of $\mathcal C(V,r_*/\sqrt2)$ reaches $\abs z_2=r_*$, outside the open $\mathcal T$, which P-G's (H1) (analyticity on the \emph{closed} cylinder) cannot allow. I use $r_0=r_*/2$ and the monotonicity argument of Step~\ref{stepP:p12:pg-h4}. (2) \emph{Torus transport.} Part~1's Theorem~\ref{bpP:p1:torus-transport}(a) and Lemma~\ref{bpP:p1:liouville-lattice} are stated with (L2): $K(\theta+k)=K(\theta)+\iota_k$ for \emph{all} $k\in\Z^{a+b}$ and (Q1) for the whole lattice $\iota_k$, which shifts the slow position coordinates $q$ as well. A P-G cylinder torus has \emph{periodic} slow coordinates (IsCylTorus (iii)), so those statements do not apply to the output of P-G as written (they do apply in the polar oscillator coordinates, Lemma~\ref{bpP:p7:lattice}, if the torus is known to wind once around the origin of each slow disc, which the frozen conclusion does not assert). Proposition~\ref{bpP:p12:transport} and Proposition~\ref{bpP:p12:measure} are the direct versions for the Cartesian cylinder; they need only the fast-angle lattice, the injectivity of the chart modulo it (Proposition~\ref{bpP:p12:chart}(c)) and Lemma~\ref{bpP:p1:liouville}. Part~6's Lemma~\ref{bpP:p6:measure-positive}(b) is likewise not needed (only part (a)). The statement of Lemma~\ref{bpP:p1:liouville} that $\Psi(A)$ is Borel for Borel $A$ is used here only on a set where $\Psi_{\rm tot}$ is injective (\ref{bpP:p12:f-borel}); it needs that hypothesis. (3) No Part~10 R-nondegeneracy (Theorem~\ref{bpP:p10:interface}) is used: P-G needs only $\Phi_4\ne0$ through Theorem~\ref{bpP:p11b:birkhoff-form} and $\det\hat\beta\ne0$.
+
+\paragraph{Doubts about frozen statements.} None. The index set $\texttt{Phase}\,(2\cdot2)$ and $\texttt{Phase}\,(2+2)$ coincide as types. The conclusion does not assert that the physical tori have positive distance to a collision beyond the tube bounds (these are provided by $d$).
+
+\paragraph{Suspected source errata.} None new; E-P-Fej04r-2, E-P-Fej04r-3, E-P-CP11-1, E-P-CP11-2 (Parts~0, 8, 11b) are used only through Parts~8--11b.
+
+\paragraph{Open points that this part does not settle.} The part is conditional on the statements of Parts~1, 5--11b it cites, in particular on the proof of P-G (Part~5) and on the Birkhoff map $T$ of Part~11b taking values in the analyticity domain of $\hat f_{\rm mov}$.
+
+\paragraph{External facts used.} \ref{bpP:p12:f-comp}--\ref{bpP:p12:f-mono}.
+
+\paragraph{Label index.} \texttt{forward-tube}, \texttt{collar}, \texttt{fast-diffeo}, \texttt{data}, \texttt{perturbation}, \texttt{chart}, \texttt{pg-hypotheses}, \texttt{transport}, \texttt{measure}, \texttt{planar}, \texttt{quantifiers}, \texttt{contract}.
+\par\endgroup
