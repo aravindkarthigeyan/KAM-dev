@@ -94,8 +94,8 @@
    "id": "N.ADD.PHASE0",
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.55,
-   "note": "N-PARTIAL-CONVEX v0.4 under delta audit; N-AVERAGING deferred (primary source requested)"
+   "done": 0.6,
+   "note": "N-PARTIAL-CONVEX packet with the owner (docs/tracks/N/REVIEW-additions.md); N-AVERAGING deferred pending the AKN source"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -110,8 +110,8 @@
    "id": "P.ADD.PHASE0",
    "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.7,
-   "note": "v0.4 delta audit READY FOR OWNER; approval packet docs/tracks/P/REVIEW-additions.md"
+   "done": 0.8,
+   "note": "approval packet with the owner (docs/tracks/P/REVIEW-additions.md)"
   },
   {
    "group": "Track P (planetary)",

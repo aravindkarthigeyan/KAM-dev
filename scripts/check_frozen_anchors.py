@@ -468,8 +468,10 @@ class Guard:
         if actual_export != expected_export:
             self.fail(f"{label}: lexically resolved declaration name does not match fully qualified export")
         # Repository change: `abbrev` is a reducible `def` with the same body, so it is accepted too.
-        if expected_kind and actual_kind not in (expected_kind, "abbrev"):
-            self.fail(f"{label}: definition anchor must use literal `def` or `abbrev`")
+        # Repository change (D25): `structure` is accepted for data records approved byte for byte (`AMDBox`,
+        # a record of fixed geometric data, not a result bundle: track-P additions audit v0.3).
+        if expected_kind and actual_kind not in (expected_kind, "abbrev", "structure"):
+            self.fail(f"{label}: definition anchor must use literal `def`, `abbrev` or `structure`")
         if kind == "theorem" and actual_kind not in {"theorem", "lemma"}:
             self.fail(f"{label}: theorem anchor must declare theorem or lemma")
 

@@ -52,6 +52,13 @@ DCDS-S 2010, CP09 = Chierchia-Pusateri ETDS 2009 (arXiv v1 numbering), Fej04r = 
   on top of N Parts 4–6. P3 added the normalisations `M̂ ≤ M`, `M̄ᵢ ≤ M̄` (true in P-G) and dropped CP10's unproved
   uniqueness of φ_ω.
 
+- **Norm ruling (after review P3-03, 2026-10-27).** Track P uses track N's weighted norm throughout
+  (Pöschel's `sup_I Σ_k |f_k(I)| e^{2π|k|₁σ}`, `\Nref{bpN:p4:norm}`), with geometric widths σ = s_CP/(2π). Part 3
+  (written with CP10's `Σ_k sup_I` norm) is revised to it; constants that depend on the norm are recomputed.
+- **Averaging (review P3-01/02).** P2 proves the averaging by iteration (`\Nref{bpN:p6:normal-form}`, Λ = {0}) and
+  proves the two-scale coordinate displacement bounds (I₁ with α₁, I₂ with α₂) itself; the α = α₂ shortcut is
+  insufficient. Part 5's perturbation size is E = Cμε⁵ (CP10 p. 560), not μ⁵ (P3-05).
+
 ## Routes in one paragraph
 
 * **P-G** (Theorem `bpP:p0:pg`) is CP10 Theorem 1.3, pp. 548 and 562-564 (proof §4, "most of the arguments are similar

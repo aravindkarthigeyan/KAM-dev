@@ -1,0 +1,247 @@
+\section{Hamiltonian tools for tori: charts, period conversion, Diophantine conversion, Liouville}\label{bpP:p1}
+\begingroup\sloppy
+
+Track~P produces tori in coordinates that are not the frozen Cartesian ones: CP's action--angle variables with angles of
+period $2\pi$, oscillator action--angle discs, the Poincar\'e chart. This part supplies, once, the four tools that carry a
+torus found in such a chart to a frozen predicate (\Pref{bpP:p0:cyltorus}, \Pref{bpP:p0:phystorus}):
+\begin{itemize}
+\item \texttt{torus-transport} (Theorem~\ref{bpP:p1:torus-transport}): an analytic embedding $\Psi$ with $\Psi^*\Omega=c\,\Omega$ that is compatible with the angle lattice sends a lattice torus of $(H\circ\Psi)/c$ to a torus of $H$, clause by clause of the two frozen predicates;
+\item \texttt{period-convert} (Lemma~\ref{bpP:p1:period-convert} and Corollaries~\ref{bpP:p1:cyl-pipeline}, \ref{bpP:p1:phys-pipeline}): the passage between $2\pi$-angles and the frozen period-one parameter is the chart $S_{2\pi}$, so the frozen frequency is $w=\tilde\omega/2\pi$ and the dictionary of \Pref{bpP:p3:period-dictionary} is a special case;
+\item \texttt{diophantine-convert} (Lemmas~\ref{bpP:p1:dio-basic}--\ref{bpP:p1:dio-sources}): CP10 (19) and CP09 (6) imply the frozen \Lean{KAM.IsDiophantine} with the exponents the two torus predicates require;
+\item \texttt{measure-symplectic} (Lemmas~\ref{bpP:p1:liouville}--\ref{bpP:p1:torus-union}): conformally symplectic charts scale Lebesgue measure by $c^d$, and a union of whole tori that is a Lipschitz image is measurable with controlled measure.
+\end{itemize}
+The \texttt{ode} item is cited, not repeated (\S\ref{bpP:p1:ode}). Everything here is standard; the point of writing it is to fix signs, lattices and Lean totality exactly as frozen.
+
+\subsection{Conventions and external facts}\label{bpP:p1:conv}
+
+Phase space is $\Ph d=\R^d\times\R^d$, points $z=(z_1,z_2)$ (position, momentum), max norms, Lebesgue measure (\Pref{bpP:p0:conventions}). Let $M_0=\left(\begin{smallmatrix}0&-\mathbf 1\\ \mathbf 1&0\end{smallmatrix}\right)$ and $J_0=-M_0$. The frozen form (\Pref{bpP:p0:hamsymp}) is $\Omega(v,w)=\sum_i(v_{2,i}w_{1,i}-v_{1,i}w_{2,i})=v^{\top}M_0w$. For a linear form $\ell:\Ph d\to\R$ put $X_\ell:=\bigl((\ell(0,e_i))_i,(-\ell(e_i,0))_i\bigr)$; thus $X_H(z)=X_{DH(z)}$, and $X_H(z)=0$ if $H$ is not differentiable at $z$ (Lean totality, \Pref{bpP:p0:totality}). Write $\iota_k:=((k,0),0)\in\Ph d$ for $k\in\Z^d$ (an integer translation of the positions) and, for $c>0$, $S_c(z_1,z_2):=(cz_1,z_2)$.
+
+\begin{enumerate}[label=(X\arabic*)]
+\item\label{bpP:p1:ext-comp} Chain rule for \Lean{fderiv} and \Lean{HasDerivAt}; compositions of real analytic maps are real analytic (\Lean{AnalyticAt.comp}, \Lean{AnalyticOnNhd.comp}); sums and products of analytic maps are analytic.
+\item\label{bpP:p1:ext-ift} Inverse function theorem: a $C^1$ map $\Psi$ with $D\Psi(z_0)$ invertible is a homeomorphism from a neighbourhood of $z_0$ onto an open set, with $C^1$ inverse (\Lean{HasStrictFDerivAt.toOpenPartialHomeomorph}).
+\item\label{bpP:p1:ext-area} Area formula (Mathlib: \Lean{MeasureTheory.lintegral\_abs\_det\_fderiv\_eq\_addHaar\_image} for $A$ measurable, $\Psi$ differentiable and injective on $A$; \Lean{MeasureTheory.addHaar\_image\_le\_lintegral\_abs\_det\_fderiv} without injectivity): $\meas\Psi(A)=\int_A\abs{\det D\Psi}$, resp.\ $\le$.
+\item\label{bpP:p1:ext-borel} A Lebesgue measurable subset of $\R^N$ is the union of an $F_\sigma$ set and a null set; a closed set is $\sigma$-compact; continuous images of compact sets are compact.
+\item\label{bpP:p1:ext-det} $\det(AB)=\det A\det B$, $\det A^{\top}=\det A$, and $\det M_0=1$.
+\end{enumerate}
+Track K: \Kref{bp:p1:holomorphic-analytic}, \Kref{bp:p1:real-restriction}, \Kref{bp:p1:hamiltonian-real}, \Kref{bp:p1:lip-image}, \Kref{bp:p1:mcshane}.
+
+\begin{lemma}[Algebra of $\Omega$ and $X_H$]\label{bpP:p1:omega-algebra}
+(a) $M_0^{\top}=-M_0$, $M_0^2=-\mathbf 1$, $\Omega$ is nondegenerate, and $\Omega(w,X_\ell)=\ell(w)$ for all $w$ and all linear $\ell$. Hence $X_\ell$ is the unique vector with this property, and $\Omega(w,X_H(z))=DH(z)w$ for every $z$ (both sides vanish if $H$ is not differentiable at $z$).
+(b) If $A$ is a real $2d\times2d$ matrix with $\Omega(Au,Av)=c\,\Omega(u,v)$ for all $u,v$ ($c\ne0$), then $A$ is invertible, $\abs{\det A}=\abs c^{\,d}$, and $X_{\ell\circ A}=c\,A^{-1}X_\ell$ for every linear form $\ell$.
+(c) The relation $\Omega(Au,Av)=c\Omega(u,v)$ is equivalent to $A^{\top}(-M_0)A=c(-M_0)$: it does not depend on the sign convention for the symplectic form (CP10's $dI\wedge d\varphi$ is $\Omega$; CP09 Thm.~3 prints $dx\wedge dy$ with $x$ the angles, which is $-\Omega$; both define the same class of maps, and the vector field is the frozen $X_H$, not a function of the printed sign).
+\end{lemma}
+\begin{proof}
+\proofstep{Matrices}\label{stepP:p1:oa-mat} Direct from the block form; $X_\ell=J_0\nabla\ell$ so $M_0X_\ell=-M_0^2\nabla\ell=\nabla\ell$, i.e.\ $\Omega(w,X_\ell)=w^{\top}M_0X_\ell=\ell(w)$. Uniqueness: $M_0$ invertible.
+\proofstep{(b)}\label{stepP:p1:oa-b} $A^{\top}M_0A=cM_0$ and \ref{bpP:p1:ext-det} give $(\det A)^2=c^{2d}$. For all $w$: $\Omega(w,cA^{-1}X_\ell)=\Omega(Aw,AA^{-1}X_\ell)=\Omega(Aw,X_\ell)=\ell(Aw)=(\ell\circ A)(w)$, so $cA^{-1}X_\ell=X_{\ell\circ A}$ by uniqueness. (c) is the displayed matrix identity.
+\end{proof}
+
+\begin{remark}[Reordering of coordinates]\label{bpP:p1:order}
+Part~3 writes points as $(J,\theta)$ (action, angle). The relabelling $\pi(J,\theta)=(\theta,J)$ to the frozen order (position, momentum) $=(\text{angle},\text{action})$ turns $\dot\theta=\partial_JH$, $\dot J=-\partial_\theta H$ into $X_H$ of \Pref{bpP:p0:hamsymp} and the form $dJ\wedge d\theta$ into $\Omega$; no sign changes. All statements of Part~3 are read in the frozen order after applying $\pi$.
+\end{remark}
+
+\subsection{Conformally symplectic charts}\label{bpP:p1:charts}
+
+\begin{definition}[Chart]\label{bpP:p1:chart}
+Let $O\subset\Ph d$ be open, $c>0$. A \emph{$c$-chart on $O$} is a map $\Psi:\Ph d\to\Ph d$ (total) that is real analytic at every point of $O$ and satisfies $\Omega(D\Psi(z)u,D\Psi(z)v)=c\,\Omega(u,v)$ for $z\in O$, $u,v\in\Ph d$. A $1$-chart is a \emph{symplectic} chart. For $H:\Ph d\to\R$ the \emph{pulled-back Hamiltonian} is $H^\Psi:=c^{-1}\,(H\circ\Psi)$.
+\end{definition}
+By Lemma~\ref{bpP:p1:omega-algebra}(b), $D\Psi(z)$ is invertible on $O$, so $\Psi$ is a local analytic diffeomorphism there (\ref{bpP:p1:ext-ift}; analyticity of the local inverse is not needed below).
+
+\begin{lemma}[Charts and Hamiltonian fields]\label{bpP:p1:chart-field}
+Let $\Psi$ be a $c$-chart on $O$, $H:\Ph d\to\R$, $z\in O$. Then $H^\Psi$ is differentiable at $z$ iff $H$ is differentiable at $\Psi(z)$, and then
+\[D\Psi(z)\,X_{H^\Psi}(z)=X_H(\Psi(z)).\]
+If $H$ is not differentiable at $\Psi(z)$ then both fields are $0$ (totality) and the identity still holds.
+\end{lemma}
+\begin{proof}
+\proofstep{Differentiability}\label{stepP:p1:cf-diff} ($\Leftarrow$) chain rule \ref{bpP:p1:ext-comp}. ($\Rightarrow$) by \ref{bpP:p1:ext-ift} there is a $C^1$ local inverse $\Psi^{-1}_{\rm loc}$ near $\Psi(z)$ and $H=c\,H^\Psi\circ\Psi^{-1}_{\rm loc}$ near $\Psi(z)$, a composition of differentiable maps.
+\proofstep{The field}\label{stepP:p1:cf-field} With $\ell=DH(\Psi z)$ and $A=D\Psi(z)$, $D(H^\Psi)(z)=c^{-1}\ell\circ A$, so $X_{H^\Psi}(z)=c^{-1}X_{\ell\circ A}=A^{-1}X_\ell$ by Lemma~\ref{bpP:p1:omega-algebra}(b). Hence $AX_{H^\Psi}(z)=X_\ell=X_H(\Psi z)$. In the non-differentiable case both $D(H^\Psi)(z)$ and $DH(\Psi z)$ are $0$ by the Lean convention.
+\end{proof}
+
+\begin{corollary}[Orbits transfer]\label{bpP:p1:chart-orbit}
+Let $y:J\to O$ ($J\subset\R$ an interval) satisfy: $H^\Psi$ is differentiable at $y(t)$ and $y$ has derivative $X_{H^\Psi}(y(t))$ at $t$, for all $t\in J$. Then $x=\Psi\circ y$ has derivative $X_H(x(t))$ at every $t\in J$ and $H$ is differentiable at $x(t)$.
+\end{corollary}
+\begin{proof}
+Chain rule \ref{bpP:p1:ext-comp} and Lemma~\ref{bpP:p1:chart-field}.
+\end{proof}
+
+\begin{remark}[What is new compared with track N]\label{bpP:p1:vs-N}
+\Nref{bpN:p5:symplectic} and \Nref{bpN:p5:canonical}(b),(c) give $D\Phi X_{H\circ\Phi}=X_H\circ\Phi$ and the orbit transfer for the time-one map $\Phi=X^1_\phi$ of a \emph{holomorphic} generating function on a complex domain, with symplecticity \emph{derived} from the flow. Here the chart is an arbitrary real analytic map (Poincar\'e chart, polar chart of oscillators, scalings) with symplecticity \emph{assumed}, in the frozen real setting, with the factor $c$, with the frozen sign of $\Omega$ (Lemma~\ref{bpP:p1:omega-algebra}) and with the Lean-totality guard (differentiability of $H$ is transported, not assumed). The algebra is that of \Nref{bpN:p5:canonical}(b); it is repeated only because the hypotheses differ. Time-one maps of Part~N are charts in the sense of Definition~\ref{bpP:p1:chart} with $c=1$ (Lemma~\ref{bpP:p1:hol-chart}).
+\end{remark}
+
+\begin{lemma}[Holomorphic charts, real restriction]\label{bpP:p1:hol-chart}
+Let $V\subset\C^{2d}$ be open, $\Psi:V\to\C^{2d}$ holomorphic, real at real points ($\Psi(V\cap\R^{2d})\subset\R^{2d}$), and assume $D\Psi(z)^{\top}M_0D\Psi(z)=cM_0$ (complex matrices) for $z\in V\cap\R^{2d}$. Then the restriction of $\Psi$ to the open set $O=V\cap\R^{2d}$ is a $c$-chart on $O$, with real derivative $D\Psi(z)|_{\R^{2d}}$.
+\end{lemma}
+\begin{proof}
+\Kref{bp:p1:real-restriction} (via \Kref{bp:p1:holomorphic-analytic}) gives analyticity and that the real derivative is the restriction of the complex one; the identity of matrices is the defining condition of Definition~\ref{bpP:p1:chart} (Lemma~\ref{bpP:p1:omega-algebra}(c)).
+\end{proof}
+
+\subsection{Transport of tori}\label{bpP:p1:transport}
+
+\begin{definition}[Lattice torus in a chart]\label{bpP:p1:lattice-torus}
+Let $O\subset\Ph d$ be open, $G:\Ph d\to\R$, $w\in\R^d$, $K:\R^d\to\Ph d$. $\operatorname{LT}(G,O,w,K)$ holds if
+\begin{enumerate}[label=(L\arabic*)]
+\item $K$ is real analytic on $\R^d$, $K(\theta)\in O$ and $G$ is differentiable at $K(\theta)$ for all $\theta$;
+\item $K(\theta+k)=K(\theta)+\iota_k$ for $\theta\in\R^d$, $k\in\Z^d$;
+\item $K(\theta)=K(\theta')$ implies $\theta'-\theta\in\Z^d$;
+\item $DK(\theta)$ is injective; \quad (L5) $\Omega(DK(\theta)u,DK(\theta)v)=0$;
+\item $s\mapsto K(\theta+sw)$ has derivative $X_G(K(\theta+tw))$ at $s=t$, for all $\theta,t$.
+\end{enumerate}
+Note that (L2) is the period-one form of ``angles are shifted by integers'' in the chart; the frozen cylinder predicate differs from it only by the image shift in clause (iii), and the frozen physical predicate by periodicity.
+\end{definition}
+
+\begin{theorem}[Torus transport]\label{bpP:p1:torus-transport}
+Let $c>0$, $O\subset\Ph d$ open, $\Psi$ a $c$-chart on $O$, $H:\Ph d\to\R$, $G=H^\Psi=c^{-1}H\circ\Psi$, $w\in\R^d$, and $K$ with $\operatorname{LT}(G,O,w,K)$. Assume the lattice compatibility
+\begin{enumerate}[label=(Q\arabic*)]
+\item $O+\iota_k=O$ and $\Psi(z+\iota_k)=\Psi(z)+\sigma_k$ for $z\in O$, $k\in\Z^d$, for vectors $\sigma_k\in\Ph d$;
+\item (injectivity modulo the lattice) if $z,z'\in O$, $k\in\Z^d$ and $\Psi(z')=\Psi(z)+\sigma_k$, then $z'=z+\iota_m$ for some $m\in\Z^d$.
+\end{enumerate}
+Put $\mathcal K:=\Psi\circ K$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item \textup{(cylinder)} Let $d=a+b$ and $\sigma_k=\operatorname{shift}((k_i)_{i<a})$ (Definition~\ref{bpP:p0:fastshift}). If $U\supset\Psi(K(\R^d))$, then $\operatorname{IsCylTorus}(H,U,w,\mathcal K)$ (Definition~\ref{bpP:p0:cyltorus}).
+\item \textup{(physical)} Let $\sigma_k=0$ and assume $w$ is $(\gamma,\tau)$-Diophantine for some $\gamma>0$, $\tau>d-1$. Then $\operatorname{IsPhysTorus}(H,w,\mathcal K)$ (Definition~\ref{bpP:p0:phystorus}).
+\end{enumerate}
+In both cases $\mathcal K(\theta+t w)$ is the transport of the chart orbit, $\mathcal K(\R^d)=\Psi(K(\R^d))$, and $D\mathcal K(\theta)=D\Psi(K\theta)DK(\theta)$.
+\frozen{KAM.Planetary.IsCylinderTorus, KAM.Planetary.IsPhysicalTorus}
+\source{Standard (change of canonical coordinates). Ours as a statement for the frozen predicates; no source page.}
+\end{theorem}
+\begin{proof}
+Write $\mathcal K=\Psi\circ K$.
+\proofstep{(i) Analyticity, range, differentiability}\label{stepP:p1:tt-an} $K(\R^d)\subset O$ and $\Psi$ is analytic on $O$, so $\mathcal K$ is analytic on $\R^d$ by \ref{bpP:p1:ext-comp}. $G=H^\Psi$ is differentiable at $K\theta$ by (L1), hence $H$ is differentiable at $\mathcal K(\theta)$ by Lemma~\ref{bpP:p1:chart-field}. Range: $\mathcal K(\theta)\in\Psi(K(\R^d))\subset U$ in (a).
+\proofstep{(ii) Lattice behaviour}\label{stepP:p1:tt-lat} By (L2) and (Q1): $\mathcal K(\theta+k)=\Psi(K\theta+\iota_k)=\mathcal K(\theta)+\sigma_k$. In (a) this is clause (iii) of Def.~\ref{bpP:p0:cyltorus} (with $k\in\Z^{a+b}$, shift by $k_f=(k_i)_{i<a}$); in (b) it is periodicity, clause (iii) of Def.~\ref{bpP:p0:phystorus}.
+\proofstep{(iii) Injectivity modulo the lattice}\label{stepP:p1:tt-inj} (a): let $k\in\Z^a$ and $\mathcal K(\theta')=\mathcal K(\theta)+\operatorname{shift}(k)$. Then $\Psi(K\theta')=\Psi(K\theta)+\sigma_{(k,0)}$, so by (Q2) $K\theta'=K\theta+\iota_m=K(\theta+m)$ for some $m\in\Z^d$ (by (L2)), and (L3) gives $\theta'-(\theta+m)\in\Z^d$, i.e.\ $\theta'-\theta\in\Z^d$. (b): $\mathcal K(\theta')=\mathcal K(\theta)$ is the case $k=0$ ($\sigma_0=0$) of the same argument.
+\proofstep{(iv) Derivative and Lagrangian property}\label{stepP:p1:tt-lag} $D\mathcal K(\theta)=D\Psi(K\theta)DK(\theta)$; $D\Psi(K\theta)$ is invertible (Lemma~\ref{bpP:p1:omega-algebra}(b)), so $D\mathcal K(\theta)$ is injective by (L4). $\Omega(D\mathcal K u,D\mathcal Kv)=c\,\Omega(DKu,DKv)=0$ by Definition~\ref{bpP:p1:chart} and (L5).
+\proofstep{(v) The flow clause}\label{stepP:p1:tt-flow} Fix $\theta,t$ and let $y(s)=K(\theta+sw)\in O$. By (L6) $y$ has derivative $X_G(y(t))$ at $t$ and $G$ is differentiable at $y(t)$; Corollary~\ref{bpP:p1:chart-orbit} (pointwise) gives that $s\mapsto\Psi(y(s))=\mathcal K(\theta+sw)$ has derivative $X_H(\mathcal K(\theta+tw))$ at $t$.
+\proofstep{(vi) Diophantine clause}\label{stepP:p1:tt-dio} In (b) it is the hypothesis; in (a) none is part of $\operatorname{IsCylTorus}$ (see Def.~\ref{bpP:p0:cylkol} for where it is imposed; Lemmas~\ref{bpP:p1:dio-basic}--\ref{bpP:p1:dio-sources}).
+\end{proof}
+
+\begin{remark}[Typical charts]\label{bpP:p1:typical}
+(1) The polar chart of one oscillator $(\psi,R)\mapsto(q,p)=\sqrt{2R}(\sin\psi,\cos\psi)$ on $\{R>0\}$ is a $1$-chart ($dp\wedge dq=dR\wedge d\psi$, which is $\Omega$ in the frozen order), invariant under $\psi\mapsto\psi+2\pi$; Part~5 composes it with $S_{2\pi}$ below. (2) $S_c$ is a $c$-chart (Lemma~\ref{bpP:p1:period-convert}). (3) Composition: if $\Psi_1$ is a $c_1$-chart on $O_1$, $\Psi_2$ a $c_2$-chart on $O_2\supset\Psi_1(O_1)$, then $\Psi_2\circ\Psi_1$ is a $c_1c_2$-chart on $O_1$ (chain rule), and $(H\circ\Psi_2)^{\Psi_1}$ with the factor $c_1^{-1}$ followed by $c_2^{-1}$ equals $H^{\Psi_2\circ\Psi_1}$.
+\end{remark}
+
+\subsection{Period conversion}\label{bpP:p1:period}
+
+CP10 (footnote~1, p.~546: ``$\mathbb T^n$ denotes the standard $n$-dimensional flat torus $\R^n/(2\pi\Z^n)$'') and CP09 (Thm.~3, p.~6: ``$\mathbb T^n$ the usual $n$-dimensional torus $\R^n/2\pi\Z^n$'') use angles of period $2\pi$. The frozen predicates use a parameter $\theta\in\R^d$ of period one. The relation is one explicit chart.
+
+\begin{lemma}[Period conversion]\label{bpP:p1:period-convert}
+Let $c>0$ and $S_c(z_1,z_2)=(cz_1,z_2)$.
+\begin{enumerate}[label=(\alph*)]
+\item $S_c$ is a $c$-chart on all of $\Ph d$ (globally analytic, $\Omega(S_cu,S_cv)=c\,\Omega(u,v)$), $S_c(z+\iota_k)=S_c(z)+((ck,0),0)$, and $\abs{\det DS_c}=c^d$.
+\item \textup{(Hamiltonian dictionary)} For $\tilde H:\Ph d\to\R$ the pulled-back Hamiltonian is $\tilde H^{S_c}(z_1,z_2)=c^{-1}\tilde H(cz_1,z_2)$, and for every $z$: $S_c\,X_{\tilde H^{S_c}}(z)=X_{\tilde H}(S_cz)$. With $c=2\pi$ and $(I,\phi)=(z_2,2\pi z_1)$ this is $H(I,\theta)=\tilde H(I,2\pi\theta)/2\pi$ of Lemma~\ref{bpP:p3:period-dictionary}: orbits of $H$ (angle $\theta$) and of $\tilde H$ (angle $\phi=2\pi\theta$) correspond with the \emph{same} time; $\omega=\tilde\omega/2\pi$; Lagrangian for $\Omega$ iff after $S_c$ (factor $c$).
+\item \textup{(Parameter conversion)} Let $\tilde\kappa:\R^d\to\Ph d$ (parameter of period $2\pi$), $\tilde\omega\in\R^d$, $K(\theta):=\tilde\kappa(2\pi\theta)$, $w:=\tilde\omega/2\pi$. Then $K$ analytic iff $\tilde\kappa$ is; $DK(\theta)=2\pi D\tilde\kappa(2\pi\theta)$, so injectivity of $DK$ and the Lagrangian property (factor $4\pi^2$) hold for $K$ iff for $\tilde\kappa$; $\tilde\kappa(\vartheta+2\pi k)=\tilde\kappa(\vartheta)+\tau_k$ for all $\vartheta,k$ iff $K(\theta+k)=K(\theta)+\tau_k$; $\tilde\kappa(\vartheta)=\tilde\kappa(\vartheta')\Rightarrow\vartheta'-\vartheta\in2\pi\Z^d$ iff $K(\theta)=K(\theta')\Rightarrow\theta'-\theta\in\Z^d$; and $s\mapsto K(\theta+sw)$ has derivative $v$ at $t$ iff $s\mapsto\tilde\kappa(2\pi\theta+s\tilde\omega)$ has derivative $v$ at $t$. In particular, for every Hamiltonian $F$, the frozen flow clause for $(K,w)$ is CP's flow clause for $(\tilde\kappa,\tilde\omega)$ and the frozen frequency is $w=\tilde\omega/2\pi$.
+\item \textup{(Frozen shift)} The frozen fast shift $\operatorname{shift}(k_f)=((2\pi k_f,0_b),0)$ (Def.~\ref{bpP:p0:fastshift}) equals $S_{2\pi}$ applied to $((k_f,0_b),0)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p1:pc-a} $DS_c=\operatorname{diag}(c\mathbf 1,\mathbf 1)$, so $\Omega(S_cu,S_cv)=\sum_i(u_{2,i}\,cv_{1,i}-cu_{1,i}v_{2,i})=c\Omega(u,v)$; $\det=c^d$; the lattice formula is linearity.
+\proofstep{(b)}\label{stepP:p1:pc-b} Lemma~\ref{bpP:p1:chart-field} gives $DS_c\,X_{\tilde H^{S_c}}=X_{\tilde H}\circ S_c$. Explicitly $\partial_{z_2}\tilde H^{S_c}=c^{-1}\partial_2\tilde H$, $\partial_{z_1}\tilde H^{S_c}=\partial_1\tilde H$, which are Part~3's equations $\dot\theta=\partial_IH=\dot\phi/2\pi$, $\dot I=-\partial_\theta H=-\partial_\phi\tilde H$.
+\proofstep{(c)}\label{stepP:p1:pc-c} All claims are composition with the linear bijection $\theta\mapsto2\pi\theta$ of $\R^d$ (the chain rule is not even needed for the flow clause: $K(\theta+sw)=\tilde\kappa(2\pi\theta+s\tilde\omega)$ exactly). (d) is (a).
+\end{proof}
+
+\begin{corollary}[Cylinder pipeline (consumed by Part~5)]\label{bpP:p1:cyl-pipeline}
+Let $d=a+b$, $H:\Ph d\to\R$, $\Phi$ a $1$-chart on an open $O_0\subset\Ph d$ with $O_0+((2\pi k,0),0)=O_0$ and $\Phi(z+((2\pi k,0),0))=\Phi(z)+\operatorname{shift}(k_f)$ for $z\in O_0$, $k\in\Z^d$, and ($\Phi(z')=\Phi(z)+\operatorname{shift}(k_f)\Rightarrow z'=z+((2\pi m,0),0)$ for some $m\in\Z^d$); put $O=S_{2\pi}^{-1}(O_0)$, $\Psi=\Phi\circ S_{2\pi}$, $G_3=H^\Psi=(2\pi)^{-1}(H\circ\Phi)(2\pi z_1,z_2)$. If $\operatorname{LT}(G_3,O,w,K_3)$ (for instance, $K_3$ the torus of Prop.~\ref{bpP:p3:two-scale-kam}(a)--(d) with $\pi$ of Remark~\ref{bpP:p1:order} applied, and the injectivity modulo translations of that proposition for (L3)) and $U\supset\Psi(K_3(\R^d))$, then $\operatorname{IsCylTorus}(H,U,w,\Psi\circ K_3)$, \emph{with the same $w$}: the frozen frequency equals Part~3's frequency $\omega\in\mathcal D_{\gamma_1,\gamma_2,\tau}$, and CP's own angular frequency is $2\pi w$.
+\end{corollary}
+\begin{proof}
+$\Psi$ is a $2\pi$-chart on $O$ (Remark~\ref{bpP:p1:typical}(3)); (Q1) holds because $\Psi(z+\iota_k)=\Phi(S_{2\pi}z+((2\pi k,0),0))=\Psi(z)+\operatorname{shift}(k_f)$; (Q2) because $\Psi(z')=\Psi(z)+\operatorname{shift}(k_f)$ gives $S_{2\pi}z'=S_{2\pi}z+((2\pi m,0),0)$, i.e.\ $z'=z+\iota_m$. Apply Theorem~\ref{bpP:p1:torus-transport}(a).
+\end{proof}
+
+\begin{corollary}[Physical pipeline (consumed by Parts~12, 13)]\label{bpP:p1:phys-pipeline}
+Let $H:\Ph d\to\R$, $\Phi$ a $1$-chart on an open $O_0$ with $O_0+((2\pi k,0),0)=O_0$, $\Phi(z+((2\pi k,0),0))=\Phi(z)$ and ($\Phi(z')=\Phi(z)\Rightarrow z'=z+((2\pi m,0),0)$, some $m\in\Z^d$). Let $\tilde\kappa:\R^d\to O_0$ be a torus in the $2\pi$ convention of CP09 Thm.~3 for $\tilde G=H\circ\Phi$: i.e.\ the clauses (L1)--(L5) hold for $\tilde\kappa$ with period $2\pi$ as in Lemma~\ref{bpP:p1:period-convert}(c) ($\tau_k=((2\pi k,0),0)$) and $s\mapsto\tilde\kappa(\vartheta+s\tilde\omega)$ has derivative $X_{\tilde G}(\tilde\kappa(\vartheta+t\tilde\omega))$ at $t$, and $\tilde\omega$ is $(\tilde\gamma,\tau)$-Diophantine with $\tau>d-1$. Then $\operatorname{IsPhysTorus}(H,\tilde\omega/2\pi,\ \theta\mapsto\Phi(\tilde\kappa(2\pi\theta)))$, and $K(\R^d)=\Phi(\tilde\kappa(\R^d))$.
+\end{corollary}
+\begin{proof}
+By Lemma~\ref{bpP:p1:period-convert}(c), $K_0(\theta)=\tilde\kappa(2\pi\theta)$ satisfies (L1)--(L6) for $G=\tilde G$ and $w=\tilde\omega/2\pi$ with $\iota_k$ replaced by $\tau_k$; the argument of Theorem~\ref{bpP:p1:torus-transport}(b) with $\Psi=\Phi$ (a $1$-chart, $\sigma=0$, lattice $\tau_k$ in place of $\iota_k$) applies verbatim. The frequency $w$ is $(\tilde\gamma/2\pi,\tau)$-Diophantine (Lemma~\ref{bpP:p1:dio-basic}(c)).
+\end{proof}
+
+\subsection{Diophantine conversion}\label{bpP:p1:dio}
+
+\begin{definition}[Two-scale Diophantine set]\label{bpP:p1:two-scale}
+For $n=n_1+n_2$, $\gamma_1,\gamma_2,\tau>0$: $\mathcal D_{\gamma_1,\gamma_2,\tau}$ is the set of $\omega=(\omega_1,\omega_2)\in\R^{n_1}\times\R^{n_2}$ with $\abs{k\cdot\omega}\ge\gamma_1\abs k_1^{-\tau}$ whenever $k_1\ne0$ and $\abs{k\cdot\omega}\ge\gamma_2\abs k_1^{-\tau}$ whenever $k_1=0$, $k\ne0$ ($k=(k_1,k_2)\in\Z^{n_1}\times\Z^{n_2}$). This is the set of Part~3 (\S\ref{bpP:p3:conv}); for $k_1=0$, $\abs{k}_1=\abs{k_2}_1$.
+\source{CP10 (19), p.~551 (with $\gamma_2=\mu\bar\gamma_2$; norm $\abs k=\sum\abs{k_j}$, CP10 footnote~5, p.~547), and the definition of $\mathcal D_{\gamma_1,\gamma_2,\tau}$, p.~551.}
+\end{definition}
+
+\begin{lemma}[Elementary properties of \Lean{KAM.IsDiophantine}]\label{bpP:p1:dio-basic}
+Let $\omega\in\R^d$, $\gamma,\tau>0$ (the frozen definition is $\gamma/\abs k_1^{\tau}\le\abs{k\cdot\omega}$ for $k\ne0$, Def.~\ref{bpP:p0:diophantine}).
+\begin{enumerate}[label=(\alph*)]
+\item (monotone) $(\gamma,\tau)$-Diophantine implies $(\gamma',\tau')$-Diophantine for $0<\gamma'\le\gamma$, $\tau'\ge\tau$. In particular $\tau>d-1$ and $\tau>a+b$ can be arranged by raising $\tau$.
+\item (norms) If $\abs{k\cdot\omega}\ge\gamma\,\nu(k)^{-\tau}$ for all $k\ne0$ with $\nu(k)\le\abs k_1$ (e.g.\ $\nu=\abs\cdot_2$ or $\abs\cdot_\infty$), then $\omega$ is $(\gamma,\tau)$-Diophantine.
+\item (scaling) For $s>0$: $\omega$ is $(\gamma,\tau)$-Diophantine iff $\omega/s$ is $(\gamma/s,\tau)$-Diophantine.
+\item (two scales) $\mathcal D_{\gamma_1,\gamma_2,\tau}\subset\{\omega:\ \omega\text{ is }(\min\{\gamma_1,\gamma_2\},\tau)\text{-Diophantine}\}$; in particular, if $\gamma_1\ge\gamma_2$, the set of $(\gamma_2,\tau)$-Diophantine vectors.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) For $k\ne0$, $\abs k_1\ge1$, so $\abs k_1^{\tau}\le\abs k_1^{\tau'}$ (real powers of a base $\ge1$ are nondecreasing in the exponent; the Lean base is $\ge1$, so no totality issue). (b) $\nu(k)^{-\tau}\ge\abs k_1^{-\tau}$. (c) $\abs{k\cdot\omega/s}=\abs{k\cdot\omega}/s\ge(\gamma/s)\abs k_1^{-\tau}$. (d) For each $k\ne0$ the bound in the definition is one of the two lines, each $\ge\min\{\gamma_1,\gamma_2\}\abs k_1^{-\tau}$.
+\end{proof}
+
+\begin{lemma}[CP10 and CP09 give the frozen Diophantine clauses]\label{bpP:p1:dio-sources}\label{bpP:p1:diophantine-convert}
+\begin{enumerate}[label=(\alph*)]
+\item \textup{(CP10, cylinder tori)} Let $\omega\in\mathcal D_{\gamma_1,\gamma_2,\tau}$ with $\gamma_1,\gamma_2>0$ and $\tau>n=a+b$ (CP10: $\tau_*>n$, footnote~12, p.~550; Prop.~\ref{bpP:p3:two-scale-kam} assumes $\tau>n$). Then $\omega$ is $(\min\{\gamma_1,\gamma_2\},\tau)$-Diophantine, so the clause ``$\exists\gamma>0,\tau>a+b$, $w$ $(\gamma,\tau)$-Diophantine'' of Def.~\ref{bpP:p0:cylkol} holds for $w=\omega$. If $w=\tilde\omega/2\pi$ with $\tilde\omega\in\mathcal D_{\tilde\gamma_1,\tilde\gamma_2,\tau}$ then $w\in\mathcal D_{\tilde\gamma_1/2\pi,\tilde\gamma_2/2\pi,\tau}$.
+\item \textup{(CP09, physical tori)} Let $\tilde\omega=\omega^\star(b)$ satisfy $\abs{\langle k,\tilde\omega\rangle}\ge\gamma\abs k_2^{-\tau}$ for all $k\in\Z^n\setminus\{0\}$ (CP09 Thm.~3(iv), (6), p.~7: $\abs k_2$ the Euclidean norm), with $\gamma>0$ and $\tau>n\mu\ge n$ ($\mu\in\Z_{\ge1}$ by CP09 Def.~2, p.~6). Then $\tilde\omega$ is $(\gamma,\tau)$-Diophantine, $w=\tilde\omega/2\pi$ is $(\gamma/2\pi,\tau)$-Diophantine, and $\tau>n-1$: the clause (vii) of Def.~\ref{bpP:p0:phystorus} holds with $d=n$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) Lemma~\ref{bpP:p1:dio-basic}(d) and (c). (b) Lemma~\ref{bpP:p1:dio-basic}(b) with $\nu=\abs\cdot_2\le\abs\cdot_1$, then (c); $\tau>n\mu\ge n>n-1$.
+\end{proof}
+\begin{remark}[Dimension]\label{bpP:p1:dio-d}
+For the planar theorems the torus has $d=2n$ frequencies; CP09 Thm.~3 is applied with its $n$ equal to this $d$, so its $\tau>n\mu\ge d$ exceeds $d-1$ as the frozen clause requires.
+\end{remark}
+
+\subsection{Liouville measure and unions of tori}\label{bpP:p1:measure}
+
+\begin{lemma}[Charts scale Lebesgue measure]\label{bpP:p1:liouville}\label{bpP:p1:measure-symplectic}
+Let $\Psi$ be a $c$-chart on $O$ and $A\subset O$ Lebesgue measurable. Then $\Psi(A)$ is Lebesgue measurable and $\meas\Psi(A)\le c^d\meas A$, with equality if $\Psi$ is injective on $A$. Symplectic charts ($c=1$) preserve Lebesgue measure.
+\end{lemma}
+\begin{proof}
+\proofstep{Determinant}\label{stepP:p1:li-det} $\abs{\det D\Psi}=c^d$ on $O$ (Lemma~\ref{bpP:p1:omega-algebra}(b)).
+\proofstep{Measurability}\label{stepP:p1:li-meas} By \ref{bpP:p1:ext-ift} cover $O$ by countably many open $O_j$ on which $\Psi$ is a homeomorphism onto an open set with continuous inverse $\Psi_j^{-1}$ (Lindel\"of). Write $A\cap O_j=B\cup N$, $B$ $F_\sigma$, $N$ null (\ref{bpP:p1:ext-borel}); $\Psi(B)$ is $\sigma$-compact, $\Psi(N)$ is null because $\Psi$ is locally Lipschitz (\Kref{bp:p1:lip-image} on small cubes, countable union). So $\Psi(A)=\bigcup_j\Psi(A\cap O_j)$ is measurable.
+\proofstep{Measure}\label{stepP:p1:li-vol} \ref{bpP:p1:ext-area} gives $\meas\Psi(A)\le\int_A\abs{\det D\Psi}=c^d\meas A$, with equality if $\Psi$ is injective on $A$.
+\end{proof}
+
+\begin{lemma}[Quotient version for whole tori]\label{bpP:p1:liouville-lattice}
+Assume the hypotheses of Theorem~\ref{bpP:p1:torus-transport} with $\sigma_k=0$. Let $A\subset O$ be measurable with $A+\iota_k=A$ for all $k\in\Z^d$, and $Q=\{z:z_{1,i}\in[0,1)\ \forall i\}$. Then $\Psi(A)$ is measurable, $\Psi(A)=\Psi(A\cap Q)$ and $\meas\Psi(A)=c^d\,\meas(A\cap Q)$. Consequently $0<\meas\Psi(A)$ iff $0<\meas A$, and $\meas\Psi(A)<\infty$ if $A\cap Q$ is bounded (e.g.\ the momenta of $A$ are bounded).
+\end{lemma}
+\begin{proof}
+$A=\bigcup_{m}(A\cap Q)+\iota_m$, and $\Psi((A\cap Q)+\iota_m)=\Psi(A\cap Q)$ by (Q1) with $\sigma=0$. If $z,z'\in A\cap Q$ and $\Psi(z)=\Psi(z')$, (Q2) gives $z'=z+\iota_m$ and $z,z'\in Q$ forces $m=0$: $\Psi$ is injective on $A\cap Q$; Lemma~\ref{bpP:p1:liouville} gives $\meas\Psi(A\cap Q)=c^d\meas(A\cap Q)$. Finally $\meas A=\sum_m\meas((A\cap Q)+\iota_m)$ is $0$ iff $\meas(A\cap Q)=0$.
+\end{proof}
+
+\begin{lemma}[Unions of whole tori as Lipschitz images]\label{bpP:p1:torus-union}
+Let $E\subset\R^d$ be Lebesgue measurable, $A=E\times[0,1)^d\subset\R^{2d}$, $\mathcal F:A\to\R^{2d}$ with $\abs{\mathcal F(x)-\mathcal F(y)}\le\Lambda\abs{x-y}$ (max norms). Then $\mathcal F(A)$ is Lebesgue measurable and $\meas\mathcal F(A)\le\Lambda^{2d}\meas E$. If moreover $\abs{\mathcal F(x)-\mathcal F(y)}\ge\lambda\abs{x-y}$ with $\lambda>0$, then $\meas\mathcal F(A)\ge\lambda^{2d}\meas E$; in particular $0<\meas\mathcal F(A)$ iff $0<\meas E$, and $\meas\mathcal F(A)<\infty$ iff $\meas E<\infty$. If $\mathcal F(\omega,\vartheta)=\varphi_\omega(\vartheta)$ with $\varphi_\omega(\vartheta+k)=\varphi_\omega(\vartheta)+\iota_k$, then $\bigcup_{\omega\in E}\varphi_\omega(\R^d)=\bigcup_{k\in\Z^d}(\mathcal F(A)+\iota_k)$ is measurable.
+\end{lemma}
+\begin{proof}
+\proofstep{Extension}\label{stepP:p1:tu-ext} McShane (\Kref{bp:p1:mcshane}, componentwise in the max norm) gives a $\Lambda$-Lipschitz $\hat{\mathcal F}:\R^{2d}\to\R^{2d}$ extending $\mathcal F$.
+\proofstep{Measurability}\label{stepP:p1:tu-meas} $A$ is measurable; $A=B\cup N$ with $B$ $F_\sigma$, $N$ null (\ref{bpP:p1:ext-borel}); $\hat{\mathcal F}(B)$ is $\sigma$-compact and $\meas\hat{\mathcal F}(N)=0$ by \Kref{bp:p1:lip-image}; so $\mathcal F(A)=\hat{\mathcal F}(B)\cup\hat{\mathcal F}(N)$ is measurable (completeness of Lebesgue measure).
+\proofstep{Bounds}\label{stepP:p1:tu-bounds} \Kref{bp:p1:lip-image}: $\meas\mathcal F(A)\le\Lambda^{2d}\meas A=\Lambda^{2d}\meas E$. Under the lower bound $\mathcal F$ is injective with $\lambda^{-1}$-Lipschitz inverse on $\mathcal F(A)$, so $\meas E=\meas\mathcal F^{-1}(\mathcal F(A))\le\lambda^{-2d}\meas\mathcal F(A)$ (same lemma). The last claim is the periodicity and countability of $\Z^d$.
+\end{proof}
+\begin{remark}[Use]\label{bpP:p1:measure-use}
+For P-PLANAR/P-FIXED the chart-level family is $X_0(b,\xi)$ of CP09 Thm.~3(ii) (bi-Lipschitz on $\mathcal K_\star\times\mathbb T^n$, $\mathcal K_\star$ compact): $E=\mathcal K_\star$, positive finite measure, and the Cartesian union is $\Psi(\cdot)$ of it, with $\meas=\meas(A\cap Q)$ by Lemma~\ref{bpP:p1:liouville-lattice} ($c=1$) and $(2\pi)^d$ per period in the $2\pi$ parametrization. For P-G the family is that of Prop.~\ref{bpP:p3:two-scale-kam}, Lipschitz as stated there; the measure bounds of the cell are Part~4.
+\end{remark}
+
+\subsection{The ODE layer (cited)}\label{bpP:p1:ode}
+
+Track~N's Part~3 supplies, for the three tracks, existence, uniqueness, continuation, energy and the identification of the frozen solution predicates. Track~P uses only the following, always by these labels.
+\begin{center}\small
+\begin{tabular}{@{}p{0.34\textwidth}p{0.6\textwidth}@{}}
+\Nref{bpN:p3:gen-uniqueness} & uniqueness on every interval for $C^1$ fields (orbits of a torus are \emph{the} solutions; Lemma~\ref{bpP:p1:torus-orbit})\\
+\Nref{bpN:p3:ham-smooth}, \Nref{bpN:p3:ham-energy}, \Nref{bpN:p3:ham-periodic} & $X_H$ is $C^1$ where $H$ is $C^2$; energy conservation; angle periodicity\\
+\Nref{bpN:p3:newton-reduction}, \Nref{bpN:p3:newton-continuation} & \Lean{IsNewtonSolution}, \Lean{IsFixedSolution} as \texttt{IsSolIn} (Part~6)\\
+\Nref{bpN:p3:gen-continuation}, \Nref{bpN:p3:gen-confinement} & only if a later part needs continuation (not used in Part~1)\\
+\Nref{bpN:p5:symplectic}, \Nref{bpN:p5:canonical} & time-one maps are symplectic; $D\Phi X_{H\circ\Phi}=X_H\circ\Phi$ (Remark~\ref{bpP:p1:vs-N})\\
+\end{tabular}
+\end{center}
+\begin{lemma}[Orbits on a torus]\label{bpP:p1:torus-orbit}
+Let $H:\Ph d\to\R$ be $C^2$ on an open $W\supset\mathcal K(\R^d)$ and let $\mathcal K,w$ satisfy the flow clause of Defs.~\ref{bpP:p0:cyltorus}\,(vii) or \ref{bpP:p0:phystorus}\,(viii). Then $t\mapsto\mathcal K(\theta+tw)$ is a solution of $\dot z=X_H(z)$ in $W$ on $\R$, and every solution $y:\R\to W$ with $y(0)=\mathcal K(\theta)$ equals it. $H\circ\mathcal K(\cdot+tw)$ is constant in $t$.
+\end{lemma}
+\begin{proof}
+The flow clause is the solution property (with values in $W$ by hypothesis). $X_H$ is $C^1$ on $W$ (\Nref{bpN:p3:ham-smooth}); uniqueness is \Nref{bpN:p3:gen-uniqueness} on $J=\R$; energy is \Nref{bpN:p3:ham-energy}.
+\end{proof}
+\begin{remark}[Orbit transfer to Newton]\label{bpP:p1:newton-transfer}
+That the frozen clause (b) of $\operatorname{MovKol}$ and the fixed-Sun clause hold along torus orbits is Part~6: the barycentric reconstruction is a linear map composed with the orbit, the chain rule is Corollary~\ref{bpP:p1:chart-orbit} or elementary, and the translation of the Newton predicates is \Nref{bpN:p3:newton-reduction}; nothing of the existence theory is used.
+\end{remark}
+
+\subsection{Sources, deviations, forward references}\label{bpP:p1:notes}
+
+\paragraph{Sources.} CP10 footnote~1 (p.~546), (19) (p.~551), footnote~5 (p.~547) and footnote~12 (p.~550), all read; CP09 Def.~2 (p.~6), Thm.~3 and (6) (pp.~6--7), read. The rest is standard (the algebra of symplectic matrices, the inverse function theorem, the area formula).
+
+\paragraph{Remarks on the sources.} (1) CP09 Thm.~3 prints the symplectic form as $dx\wedge dy$ with $x\in\mathbb T^n$ the angles; with the frozen $\Omega=\sum dz_2\wedge dz_1$ this is $-\Omega$; the class of symplectic maps and the Lagrangian property are unaffected (Lemma~\ref{bpP:p1:omega-algebra}(c)), and the printed Hamiltonian field in CP09 Remark~3(i) ($\xi\mapsto\xi+\omega^\star t$) is the frozen one. (2) The exponent in CP09 (6) is typeset as $\abs k_2^{\tau}$ with a Euclidean norm; we only use $\abs k_2\le\abs k_1$. (3) CP09 Thm.~3 gives no statement that $X(b,\cdot,\cdot)$ is defined on all of $\R^{2n}$ or injective modulo $2\pi$ translations of $\xi$; (L3) for $X_0(b,\cdot)$ follows from (ii) (a homeomorphism of $\mathcal K_\star\times\mathbb T^n$ onto its image).
+
+\paragraph{Forward references.} \Pref{bpP:p5:kam-application} (cylinder pipeline), Parts~6, 12, 13 (physical pipeline, orbit transfer) cite Theorem~\ref{bpP:p1:torus-transport} and Corollaries~\ref{bpP:p1:cyl-pipeline}, \ref{bpP:p1:phys-pipeline}. Part~3 cites \Pref{bpP:p1:period-convert} (Lemma~\ref{bpP:p1:period-convert}; its Lemma~\ref{bpP:p3:period-dictionary} is the case (b) with $c=2\pi$). Every other cited label exists in tracks K and N.
+
+\paragraph{Label index.} \texttt{bpP:p1:omega-algebra}, \texttt{chart}, \texttt{chart-field}, \texttt{chart-orbit}, \texttt{hol-chart}, \texttt{lattice-torus}, \texttt{torus-transport}, \texttt{period-convert}, \texttt{cyl-pipeline}, \texttt{phys-pipeline}, \texttt{two-scale}, \texttt{dio-basic}, \texttt{dio-sources}, \texttt{liouville}, \texttt{liouville-lattice}, \texttt{torus-union}, \texttt{torus-orbit}.
+\endgroup

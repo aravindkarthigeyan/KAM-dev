@@ -6,7 +6,7 @@ This part proves Theorem~\ref{bpI:p0:g1} (I-G1). It adapts the quasi-Newton sche
 unknown of one step is now the pair $(\Delta K,\Delta\omega)$ with $\Delta\omega$ \emph{parallel to the ray}
 $\R\omega^*$, determined together with $\Delta K$ by the bordered system of Part~\ref{bpI:p1}
 (Lemma~\ref{bpI:p1:border-solve}): the frequency correction $\xi^\omega$ absorbs the mean of the torsion equation that the
-constant $\xi_0$ cannot, once $\xi_0$ is spent on the energy equation $\avg{DH(K)\Delta K}=-E^\omega$.
+constant $\xi_0$ cannot, once $\xi_0$ is spent on the \emph{normal} energy equation $\avg{Y\xi^N}=-E^\omega$ ($Y=DH(K)N$). The remaining tangential part $\avg{D(H\circ K)\xi^L}$ of $\avg{DH(K)\Delta K}$ is not imposed; it is a quadratic defect, estimated in Lemma~\ref{bpI:p2:newton-error}.
 
 \paragraph{What changes with respect to track~K}
 \begin{enumerate}[label=(\arabic*)]
@@ -65,7 +65,7 @@ $\bar s-1\ge s-1-\abs{\bar s-s}$ and $\sigma_\omega-\bar s\ge\sigma_\omega-s-\ab
 \end{proof}
 
 \begin{definition}[Constants]\label{bpI:p2:constants}
-Let $\varkappa,a,c_R,\mathfrak m,\Theta,C_X,C_T,C_\Omega,C_{\mathrm{sym}},C_{\mathrm{red}},C_{\xi_0},C_G,C_B,C_{\Delta N},C_{\Delta X},C_{\Delta T}$ be the constants of
+Let $\varkappa,a,c_R,\mathfrak m,\Theta,C_X,C_T,C_\Omega,C_{\mathrm{sym}},C_{\mathrm{red}},C_{\xi_0},$ $C_G,C_B,C_{\Delta N},C_{\Delta X},C_{\Delta T}$ be the constants of
 \Kref{bp:p2:constants}; they depend only on $(n,\tau,M,\sigma_K,\sigma_B,\sigma_T)$, and $\varkappa=\tau+n\ge2n-1\ge3$, $a=2\varkappa+2\ge8$. Define, in this order,
 \begin{align*}
 \hat C_S&:=\max\{C_{\xi_0},\ \mathfrak m\Theta+2nc_R\mathfrak m^5\}, & \hat C_{\xi N}&:=\hat C_S+2nc_R\mathfrak m,\\
@@ -131,9 +131,10 @@ The perturbation lemma without \Kref{bp:p2:A5} (items (a)--(e)) is Lemma~\ref{bp
 
 \begin{lemma}[Size of the isoenergetic correction]\label{bpI:p2:correction}
 Let $s>1$, $\omega=s\omega^*$, $0<\delta\le1$, $2\delta<r$, $0\le\varepsilon\le1$, and let $K$ be $(r,\beta,\varepsilon,s)$-admissible. Apply Lemma~\ref{bpI:p1:border-solve} with
-\[
-\eta^L=-N^\top\Omega_0E,\quad\eta^N=L^\top\Omega_0E,\quad\eta^\omega:=-E^\omega(K),\quad T=T_{H,K,\omega},\quad Y=DH(K)N,\quad\sigma=\sigma_T,\quad\xi^L_0:=0,
-\]
+\begin{gather*}
+\eta^L=-N^\top\Omega_0E,\quad\eta^N=L^\top\Omega_0E,\quad\eta^\omega:=-E^\omega(K),\\
+T=T_{H,K,\omega},\quad Y=DH(K)N,\quad\sigma=\sigma_T,\quad\xi^L_0:=0,
+\end{gather*}
 and put $\xi=(\xi^L,\xi^N)$, $\xi^\omega\in\R$, $\Delta K:=P\xi$ on $T_{r-2\delta}$, $\Delta\omega:=-\omega\xi^\omega$, $\bar\omega:=\omega+\Delta\omega=\bar s\omega^*$ with $\bar s=s(1-\xi^\omega)$. Then the lemma applies, $\xi,\Delta K$ are holomorphic, $1$-periodic and real on reals, $\xi^\omega\in\R$, and with
 $\Gamma_\delta=c_R\gamma^{-1}\delta^{-\varkappa}$:
 \begin{align*}
@@ -202,7 +203,7 @@ The variant therefore has the new frequency in the error, the extra defect $-D\D
 \subsection{The new extended torsion and the step}\label{bpI:p2:sec-step}
 
 \begin{lemma}[The new averaged extended torsion]\label{bpI:p2:torsion}
-Let $K$ be $(r,\beta,\varepsilon,s)$-admissible, $0<\delta\le1$, $4\delta<r$, and let $\bar K$, $\bar\omega=\bar s\omega^*$ be as in Lemma~\ref{bpI:p2:newton-error}. Then $\bar\omega\in\R^n$ and $\mathsf T_H$ for $(\bar K,\bar\omega)$ is defined on $T_{r-3\delta}$ (no Diophantine property of $\bar\omega$ is used here). Assume $d<\beta$ and $2\mathfrak mC_{\Delta\mathsf T}\,d/\delta^2\le1$. Then $\bar K$ satisfies \ref{bpI:p2:B1}--\ref{bpI:p2:B4} with the bounds
+Let $K$ be $(r,\beta,\varepsilon,s)$-admissible, $0<\delta\le1$, $4\delta<r$, and let $\bar K$, $\bar\omega=\bar s\omega^*$ be as in Lemma~\ref{bpI:p2:newton-error}. Then $\bar\omega\in\R^n$ and $\mathsf T_H$ for $(\bar K,\bar\omega)$ is defined on $T_{r-3\delta}$ (no Diophantine property of $\bar\omega$ is used here). Assume $d<\beta$ and $2\mathfrak mC_{\Delta\mathsf T}\,d/\delta^2\le1$. Then $\bar K$ is holomorphic on $T_{r-2\delta}$, primary there and real on reals; $\det\bar G\ne0$ on $T_{r-3\delta}$ with the crude bounds $\abs{D\bar K}\le2\mathfrak m$, $\abs{\bar B}\le2\mathfrak m$ (not the bounds \ref{bpI:p2:B3}, \ref{bpI:p2:B4}: an admissible $K$ may saturate $\sigma_K,\sigma_B$, so absolute bounds for $\bar K$ need an input margin, which the iteration, Proposition~\ref{bpI:p2:iteration}(iii), (iv), carries separately); and
 $B_{\beta-d}(\bar K)\subset D$ on $T_{r-2\delta}$, $\abs{D\bar K-DK}\le nd/\delta$ and $\abs{\bar B-B}\le C_Bd/\delta$ on $T_{r-3\delta}$; the matrix
 $\avg{\bar{\mathsf T}}:=\avg{\mathsf T_H(\bar K,\bar\omega)}$ is defined, invertible, and
 \[
@@ -278,7 +279,7 @@ Then there are $K_j$, $s_j\in\R$ ($K_0=K$) such that with $D_j:=\sum_{i<j}d_i$, 
 \item $\abs{\avg{\mathsf T_j}^{-1}}\le\sigma_T-\mu+\sum_{i<j}2\mathfrak m^2C_{\Delta\mathsf T}d_i/\delta_i^2\le\sigma_T-\mu/2$, $\mathsf T_j:=\mathsf T_H(K_j,s_j\omega^*)$;
 \item $\abs{K_{j+1}-K_j}\le d_j$, $\abs{DK_{j+1}-DK_j}\le nd_j/\delta_j$ on $T_{r_{j+1}}$, $\abs{s_{j+1}-s_j}\abs{\omega^*}\le d_j$.
 \end{enumerate}
-\source{HL19 \S6.3, p.~52 (the eighth term of (6.15) is checked there as here, via the margin).}
+\source{HL19 \S6.3, p.~52 (the eighth term of the maximum (6.16) is checked there as here, via the margin).}
 \end{proposition}
 \begin{proof}
 \proofstep{Summed bounds}\label{stepI:p2:it-sums}
@@ -303,7 +304,7 @@ In the setting of Proposition~\ref{bpI:p2:iteration} put $K_\infty:=\lim_jK_j$ o
 \end{proposition}
 \begin{proof}
 \proofstep{Convergence}\label{stepI:p2:lim-conv}
-$T_{\rho_\infty}\subset T_{r_j}$; by (vi) $\sum_j d_j$, $\sum_jnd_j/\delta_j$ converge ($\le2\hat C_\Delta e/(\gamma^2\delta_0^{a})$, Lemma~\ref{bpI:p2:error-decay}), so $K_j$, $DK_j$ are uniformly Cauchy and $(s_j)$ is Cauchy ($\omega^*\ne0$). \Kref{bp:p1:uniform-limits} gives holomorphy, primary, real, and $DK_\infty=\lim DK_j$ (this is (a)).
+$T_{\rho_\infty}\subset T_{r_j}$; by (vi) $\sum_j d_j\le2\hat C_\Delta e/(\gamma^2\delta_0^{a})$ and $\sum_jnd_j/\delta_j\le2n\hat C_\Delta e/(\gamma^2\delta_0^{a+1})$ converge (Lemma~\ref{bpI:p2:error-decay}), so $K_j$, $DK_j$ are uniformly Cauchy and $(s_j)$ is Cauchy ($\omega^*\ne0$). \Kref{bp:p1:uniform-limits} gives holomorphy, primary, real, and $DK_\infty=\lim DK_j$ (this is (a)).
 \proofstep{Closeness and frequency}\label{stepI:p2:lim-close}
 $\abs{K_\infty-K}\le\sup_jD_j$ and $\abs{s_\infty-s_0}\abs{\omega^*}\le\sup_jD_j\le\min\{\mu/4,\nu/2\}$ with the bound of Step~\ref{stepI:p2:it-sums}: (b). Passing to the limit in $\nu(s_j)\ge\nu-D_j$ (continuity of $\nu(\cdot)$) gives $\nu(s_\infty)\ge\nu/2>0$: (c).
 \proofstep{Margins}\label{stepI:p2:lim-margins}
@@ -365,5 +366,5 @@ $\hat C_S,\hat C_{\xi N},\hat C_g,\hat C_\xi,\hat C_{\Delta K},\hat C_\Delta$: L
 \end{remark}
 
 \begin{remark}[Candidate errata and doubts]\label{bpI:p2:errata}
-(E4) HL19 (6.51), p.~53: ``$|\omega_\infty-\omega|<C_3\|E_c\|_\rho/(\gamma\rho^\tau)$'', with $C_3=a_3^\tau C_{\Delta\omega}/(1-a_1^{-3\tau})$ (Table~5), then ``thus obtaining the estimates in (3.16)'', where (3.16) has $\gamma^2\rho^{2\tau}$. The exponents of $\gamma$ and $\rho$ differ, so (6.51) does not literally give (3.16). The proof here obtains the form of (3.16) directly ($d_j$ has $\gamma^{-2}\delta_j^{-a}$). No doubt about the frozen I-G1 arose: it is proved as stated; $\nu$ is used only through $\hat{\mathfrak c}_*$.
+(E4) HL19 (6.51), p.~53: ``$|\omega_\infty-\omega|<C_3\|E_c\|_\rho/(\gamma\rho^\tau)$'', with $C_3=a_3^\tau C_{\Delta\omega}/(1-a_1^{-3\tau})$ (Table~5), then ``thus obtaining the estimates in (3.16)'', where (3.16) has $\gamma^2\rho^{2\tau}$. The exponents of $\gamma$ and $\rho$ differ, so (6.51) does not literally give (3.16). The proof here obtains the form of (3.16) directly ($d_j$ has $\gamma^{-2}\delta_j^{-a}$). (E5) Candidate source typos: HL19 pp.~49--51, (6.33), (6.36), (6.44) print $\norm E_\rho$ where the combined error $\norm{E_c}_\rho$ is needed (a pure energy discrepancy with $E=0$ can require nonzero corrections); p.~52 prints ``when $s\to0$'' for $s\to\infty$; the eight-term maximum is (6.16), not (6.15). The proof here uses the combined error $\varepsilon$ throughout. No doubt about the frozen I-G1 arose: it is proved as stated; $\nu$ is used only through $\hat{\mathfrak c}_*$.
 \end{remark}

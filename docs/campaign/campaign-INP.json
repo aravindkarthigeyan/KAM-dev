@@ -17,7 +17,7 @@
    "account": "codex-3",
    "session": "kam-track-n",
    "assignment": "Track N additions: draft v0.4 done (N-PARTIAL-CONVEX on an enlarged domain; N-AVERAGING deferred)",
-   "state": "done"
+   "state": "idle"
   },
   {
    "id": "track-P",
@@ -25,8 +25,8 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P additions: draft v0.4 done (F-P-A1 applied); under delta audit",
-   "state": "done"
+   "assignment": "Track P additions: v0.4 done; idle for owner-requested changes",
+   "state": "idle"
   },
   {
    "id": "bprev-1",
@@ -35,15 +35,6 @@
    "account": "codex-3",
    "session": "inp-bprev-1",
    "assignment": "Refute-first blueprint reviews: Part 0 I/N, N p3, I p1 done (REVISE, fixes queued); now I p2, N p1-2",
-   "state": "running"
-  },
-  {
-   "id": "delta-PN",
-   "kind": "delta statement audit (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-4",
-   "session": "inp-delta-p",
-   "assignment": "Delta audits of the D22 additions: P v0.4 READY FOR OWNER; N v0.4 running",
    "state": "running"
   },
   {
