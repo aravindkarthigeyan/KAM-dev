@@ -172,6 +172,23 @@ theorem sum_range_rpow_neg_le {p : ℝ} (hp : 1 < p) (M : ℕ) :
     rw [this]
     linarith
 
+/-- Blueprint `step:p4:latsum-integral`, infinite form. For `p > 1` the series
+`∑_{m ≥ 1} m^(-p)` (the `m = 0` term of the `ℕ`-indexed series is `0 ^ (-p) = 0`) converges to a
+sum at most `p/(p-1)`. -/
+theorem tsum_rpow_neg_le {p : ℝ} (hp : 1 < p) :
+    Summable (fun m : ℕ => (m : ℝ) ^ (-p)) ∧ ∑' m : ℕ, (m : ℝ) ^ (-p) ≤ p / (p - 1) := by
+  have hp0 : 0 < p := by linarith
+  have hnn : ∀ m : ℕ, 0 ≤ (m : ℝ) ^ (-p) := fun m => Real.rpow_nonneg (Nat.cast_nonneg m) _
+  have hle : ∀ N : ℕ, ∑ m ∈ Finset.range N, (m : ℝ) ^ (-p) ≤ p / (p - 1) := by
+    intro N
+    cases N with
+    | zero =>
+      simp only [Finset.range_zero, Finset.sum_empty]
+      exact div_nonneg hp0.le (by linarith)
+    | succ N => exact sum_range_rpow_neg_le hp N
+  have hs := summable_of_sum_range_le hnn hle
+  exact ⟨hs, hs.tsum_le_of_sum_range_le hle⟩
+
 /-- On the sphere of radius `m ≥ 1`, the sum of `|k|₁^(-τ-1)` is at most `2 · 3^(n-1) m^(-p)`
 with `p = τ + 2 - n`; here the sum runs over any subset of the sphere. -/
 theorem sum_sphere_le {n : ℕ} (hn : 1 ≤ n) {τ : ℝ} (hτ : (n : ℝ) - 1 < τ) (m : ℕ)
