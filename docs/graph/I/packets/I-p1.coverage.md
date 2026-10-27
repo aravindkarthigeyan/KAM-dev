@@ -57,9 +57,9 @@ KIND: external
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:ext-neumann@L101-L105
 DISPOSITION: NODE bpI:p1:ext-neumann
 REASON: labelled external fact (radius-one Neumann criterion) extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: bpI:p1:extended-basic
 KIND: lemma
@@ -75,54 +75,54 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L130-L146
 DISPOSITION: NODE stepI:p1:eb-holo
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:eb-holo-frame
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L133-L134
 DISPOSITION: NODE stepI:p1:eb-holo-frame
 REASON: labelled substep extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:eb-holo-inverse
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L136-L137
 DISPOSITION: NODE stepI:p1:eb-holo-inverse
 REASON: labelled substep extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:eb-holo-field
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L139-L140
 DISPOSITION: NODE stepI:p1:eb-holo-field
 REASON: labelled substep extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:eb-holo-torsion
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143
 DISPOSITION: NODE stepI:p1:eb-holo-torsion
 REASON: labelled substep extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:eb-holo-conclude
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L145-L146
 DISPOSITION: NODE stepI:p1:eb-holo-conclude
 REASON: labelled substep extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:eb-period
 KIND: proof-region
@@ -480,9 +480,9 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L516-L521
 DISPOSITION: NODE stepI:p1:rd-consequence
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: bpI:p1:geometry-noA5
 KIND: lemma
@@ -498,36 +498,36 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L547-L548
 DISPOSITION: NODE stepI:p1:geo-de
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:geo-red
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L549-L559
 DISPOSITION: NODE stepI:p1:geo-red
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:geo-red-domega
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L552-L556
 DISPOSITION: NODE stepI:p1:geo-red-domega
 REASON: labelled substep extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:geo-red-ered
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L558-L559
 DISPOSITION: NODE stepI:p1:geo-red-ered
 REASON: labelled substep extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:geo-sym
 KIND: proof-region

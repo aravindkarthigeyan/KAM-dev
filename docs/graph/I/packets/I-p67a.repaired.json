@@ -1,23 +1,20 @@
 {
- "replaced": [],
- "added": [],
+ "replaced": [
+  "stepI:p7:sy-field"
+ ],
+ "added": [
+  "stepI:p1:eb-holo-frame",
+  "stepI:p1:eb-holo-inverse",
+  "stepI:p1:eb-holo-torsion",
+  "stepI:p1:eb-holo-conclude",
+  "stepI:p1:geo-red",
+  "stepI:p1:geo-red-domega",
+  "stepI:p1:geo-red-ered"
+ ],
  "items": [],
  "unresolved": {},
  "passes": [
-  "stepI:p6:kb-hess",
-  "stepI:p6:kb-entries",
-  "stepI:p6:kb-det",
-  "stepI:p6:nd-concl",
-  "stepI:p7:he-deriv",
-  "stepI:p7:he-sol",
-  "stepI:p7:ke-c",
-  "stepI:p7:oi-gam",
-  "stepI:p7:oi-en",
-  "stepI:p7:oi-d",
-  "stepI:p7:sy-compare",
-  "stepI:p7:sy-ext",
-  "stepI:p7:sy-field",
-  "stepI:p7:ch-reg",
-  "stepI:p7:ch-diffeo"
+  "bpI:p7:symplectic",
+  "bpI:p7:symplectic"
  ]
 }

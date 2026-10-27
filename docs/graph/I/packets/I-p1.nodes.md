@@ -162,9 +162,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -229,9 +229,9 @@ EDGE: stepI:p1:eb-holo-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb
 EDGE: stepI:p1:eb-holo-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L139-L140 | substep: field along K
 EDGE: stepI:p1:eb-holo-torsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L142-L143 | substep: derivative along omega and torsion
 EDGE: stepI:p1:eb-holo-conclude | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L145-L146 | substep: conclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-global-I+sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -252,13 +252,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p1:setting, K:bp:p1:holomorphic-regularity
+DEPS: bpI:p1:setting, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L134-L134 | K holomorphic on T_r
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L134-L134 | DK holomorphic on T_r
+EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L134-L134 | entries of G are finite sums of products of holomorphic entries of L
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-I-p1
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -272,7 +273,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L
 PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L136-L137
 CONTRACT_ID: stepI:p1:eb-holo-inverse
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r; G holomorphic (frame step)
+SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r
 SOURCE_QUANTIFIERS: K, H on T_r
 SOURCE_CONCLUSION: B = G^{-1}, N = Omega_0 L B and P = (L N) are holomorphic on T_r
 CONSTANT_SCOPE: none
@@ -288,7 +289,7 @@ EDGE: stepI:p1:eb-holo-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-h
 EDGE: K:bp:p1:holomorphic-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L137-L137 | G holomorphic with det != 0 on open T_r gives G^{-1} holomorphic
 EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L137-L137 | products of holomorphic matrices with constant Omega_0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-I-p1
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -318,9 +319,9 @@ EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-
 EDGE: K:bp:p2:hamiltonian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L140-L140 | item (a): X_H and DX_H holomorphic on D
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L140-L140 | DH and DX_H holomorphic on D
 EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L140-L140 | chain rule for A = DX_H o K and DH o K
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -333,7 +334,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L
 PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143
 CONTRACT_ID: stepI:p1:eb-holo-torsion
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r; N, A holomorphic (earlier substeps)
+SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r
 SOURCE_QUANTIFIERS: K, H on T_r
 SOURCE_CONCLUSION: X_N, T, E_sym, Q, eta, Y = DH(K) N are holomorphic on T_r; entries of T_H are T, the constant block omega, entries of Y and 0
 CONSTANT_SCOPE: none
@@ -341,7 +342,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p1:setting, stepI:p1:eb-holo-inverse, stepI:p1:eb-holo-field, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain
+DEPS: bpI:p1:setting, stepI:p1:eb-holo-inverse, stepI:p1:eb-holo-field, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain, bpI:p0:extended#extendedTorsion
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143 | frequency vector omega is constant
@@ -349,8 +350,9 @@ EDGE: stepI:p1:eb-holo-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb
 EDGE: stepI:p1:eb-holo-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143 | A and DH o K holomorphic
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L142 | DN holomorphic, regularity applied to N
 EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143 | products and sums of holomorphic functions
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L143-L143 | the stated entries of T_H are the blocks of the frozen extended-torsion definition
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-I-p1
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -364,7 +366,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@
 PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L145-L146
 CONTRACT_ID: stepI:p1:eb-holo-conclude
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r; earlier substeps
+SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r
 SOURCE_QUANTIFIERS: K, H on T_r
 SOURCE_CONCLUSION: N, T, Y and every entry of T_H are holomorphic on T_r, hence continuous on R^n
 CONSTANT_SCOPE: none
@@ -372,15 +374,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p1:eb-holo-frame, stepI:p1:eb-holo-inverse, stepI:p1:eb-holo-torsion, bpI:p0:extended#extendedTorsion
+DEPS: stepI:p1:eb-holo-frame, stepI:p1:eb-holo-inverse, stepI:p1:eb-holo-torsion, bpI:p0:extended#extendedTorsion, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p1:eb-holo-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | frame holomorphic
 EDGE: stepI:p1:eb-holo-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | N holomorphic
 EDGE: stepI:p1:eb-holo-torsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | T, Y holomorphic
 EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | entries of the frozen T_H
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | local H,K,omega,r and the real slice R^n subset T_r used in the conclusion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-I-p1
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1537,9 +1540,9 @@ EDGE: bpI:p1:ext-neumann | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-conse
 EDGE: K:bp:p1:matrix-norms | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L519-L519 | ¦Omega_0 E_sym¦ = ¦E_sym¦
 EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L521-L521 | norm bounds for E_lin
 EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L517-L517 | direct use of the local H, K, omega, domain or standing constants
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-global-I+sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1602,9 +1605,9 @@ EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo
 EDGE: K:bp:p1:cauchy-strip | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L548-L548 | Cauchy estimate on strips
 EDGE: K:bp:p1:cauchy-corollaries | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L548-L548 | with p = 2n: ¦(DE)^T¦ <= 2n eps/delta
 EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L548-L548 | direct use of the local H, K, omega, domain or standing constants
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1+sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1625,13 +1628,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p1:geo-red-domega, stepI:p1:geo-red-ered
+DEPS: stepI:p1:geo-red-domega, stepI:p1:geo-red-ered, bpI:p1:setting, K:bp:p2:constants
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p1:geo-red-domega | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L552-L556 | substep: bound on d_omega Omega_K
 EDGE: stepI:p1:geo-red-ered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L558-L559 | substep: bound on E_red
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L550-L550 | the local frame data and geometry-noA5 setting inherited by this result
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L550-L559 | m and C_red are the named constants in the two estimates and their declared scope
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p1+sol-global-I+sonnet-amend-I-p1
+EXTRACTOR: sonnet-extract-I-p1+sol-delta-I-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1645,7 +1650,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L5
 PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L552-L556
 CONTRACT_ID: stepI:p1:geo-red-domega
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: hypotheses of geometry-noA5 (no torsion condition, no A5); bounds on DE and (DE)^T from geo-de
+SOURCE_HYPOTHESES: hypotheses of geometry-noA5 (no torsion condition, no A5)
 SOURCE_QUANTIFIERS: delta
 SOURCE_CONCLUSION: ¦d_omega Omega_K¦ <= (2n m + 2n^2 m) eps/delta = 2n(n+1) m eps/delta on T_{r-delta}
 CONSTANT_SCOPE: inherited constant m of K:bp:p2:constants; no new constants
@@ -1664,7 +1669,7 @@ EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red
 EDGE: stepI:p1:geo-de | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L553-L553 | ¦DE¦ and ¦(DE)^T¦ bounds
 EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L553-L555 | definition of m
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-I-p1
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1678,7 +1683,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L558
 PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L558-L559
 CONTRACT_ID: stepI:p1:geo-red-ered
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: hypotheses of geometry-noA5 (no torsion condition, no A5); bounds on DE and (DE)^T from geo-de
+SOURCE_HYPOTHESES: hypotheses of geometry-noA5 (no torsion condition, no A5)
 SOURCE_QUANTIFIERS: delta
 SOURCE_CONCLUSION: ¦E_red¦ <= C_red eps/delta = 2n(n+1) m^2 eps/delta on T_{r-delta}
 CONSTANT_SCOPE: inherited constants m and C_red of K:bp:p2:constants; no new constants
@@ -1697,7 +1702,7 @@ EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red
 EDGE: stepI:p1:geo-de | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L559-L559 | ¦DE¦ and ¦(DE)^T¦ bounds
 EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L559-L559 | definition of C_red and m >= 1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-I-p1
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1957,3 +1962,31 @@ LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: Alternative source route; requires independent delta review. Exactness supplies avg Omega_K = 0; (c) supplies avg eta^N = 0.
+
+NODE: stepI:p7:sy-field
+KIND: step
+TITLE: Hamiltonian fields
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
+CONTRACT_ID: stepI:p7:sy-field
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: Q is the Delaunay map on D_R; U subset R^4 open, H: U -> R of class C^1; W = {w in D_R : Q(w) in U} open; Q(w) lies in the open domain U of H for every w in W, so the chain rule applies at every point of W
+SOURCE_QUANTIFIERS: for every open U and C^1 H: U -> R, every w in W; then for every C^1 curve w in W
+SOURCE_CONCLUSION: on W: D Q X_{H o Q} = X_H o Q; for C^1 curves w in W: w' = X_{H o Q}(w) iff d/dt Q(w) = X_H(Q(w))
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepI:p7:sy-ext, bpI:p7:orbit-maps
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | D Q J D Q^T = J
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | the calculation uses the Delaunay orbit map or its element formulas
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-delta-I-amend
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -

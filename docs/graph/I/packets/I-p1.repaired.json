@@ -1,11 +1,28 @@
 {
- "replaced": [],
- "added": [],
+ "replaced": [
+  "stepI:p1:eb-holo-frame",
+  "stepI:p1:eb-holo-inverse",
+  "stepI:p1:eb-holo-torsion",
+  "stepI:p1:eb-holo-conclude",
+  "stepI:p1:geo-red",
+  "stepI:p1:geo-red-domega",
+  "stepI:p1:geo-red-ered"
+ ],
+ "added": [
+  "stepI:p7:sy-field"
+ ],
  "items": [],
  "unresolved": {},
  "passes": [
-  "stepI:p1:geo-red",
+  "bpI:p1:ext-neumann",
   "stepI:p1:eb-holo",
-  "stepI:p1:rd-consequence"
+  "stepI:p1:eb-holo-field",
+  "stepI:p1:rd-consequence",
+  "stepI:p1:geo-de",
+  "bpI:p1:ext-neumann",
+  "stepI:p1:eb-holo",
+  "stepI:p1:eb-holo-field",
+  "stepI:p1:rd-consequence",
+  "stepI:p1:geo-de"
  ]
 }
