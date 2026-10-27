@@ -7,6 +7,10 @@ module
 
 public import KAM.Analysis.Iteration
 public import KAM.Apost.Constants
+public import KAM.Apost.Frame
+public import KAM.Apost.Hamiltonian
+public import KAM.Apost.Identities
+public import KAM.Apost.Periodicity
 public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
 public import KAM.Apost.Tools
@@ -147,11 +151,17 @@ public import KAM.Frozen.Planetary.Defs.TotalMomentum
 public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
 public import KAM.Head.CoverMono
 public import KAM.Head.Data
+public import KAM.Head.DerivativeBounds
 public import KAM.Head.DyadicApprox
 public import KAM.Head.DyadicBoxes
 public import KAM.Head.HBounded
+public import KAM.Head.HamiltonianField
 public import KAM.Head.MatrixNorms
+public import KAM.Head.MixedDifference
 public import KAM.Head.PhaseAverage
+public import KAM.Head.Shift
+public import KAM.Head.TorsionRegular
+public import KAM.Head.TorsionRegularGeneral
 public import KAM.Iso.Kepler
 public import KAM.Matrix.Bridges
 public import KAM.Matrix.Calculus
