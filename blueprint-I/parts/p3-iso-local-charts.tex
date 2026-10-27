@@ -1,0 +1,418 @@
+\section{Applying I-G1: local energy charts and uniform constants}\label{bpI:p3}
+
+This part turns the isoenergetic a-posteriori theorem (Theorem~\ref{bpI:p0:g1}, proved in Part~\ref{bpI:p2} as
+Theorem~\ref{bpI:p2:g1}) into the family of invariant tori that the confinement proof of I-HEAD (Part~5)
+consumes. The data are those of the frozen I-HEAD (Theorem~\ref{bpI:p0:head}) with $n=2$; $H=h+f$ is the
+perturbed Hamiltonian, and the approximate torus is the flat torus $K(\theta)=(\theta,I)$. Four things are proved.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Local energy charts} (\S\ref{bpI:p3:sec-charts}). The nondegeneracy $\det\mathsf B_h\ne0$ forces
+  $\nabla h\ne0$ and makes $I\mapsto(h(I),\text{direction of }\nabla h(I))$ a local diffeomorphism
+  (Lemma~\ref{bpI:p3:chart}). A finite cover by such charts (Lemma~\ref{bpI:p3:cover}) is the only place where
+  compactness of $\overline{B'}$ enters.
+\item \emph{Two Diophantine directions} (\S\ref{bpI:p3:sec-rays}). In each chart there are Diophantine vectors
+  $\omega^*_\pm$ in two open sectors on either side of the direction of $\nabla h$; this uses the measure theorem G3 of
+  track~K with the fixed exponent $\tau=2>n-1$ (finding I05 of the Part-0 review; no density is claimed at $\tau=1$).
+  For every energy $E$ in the window of the chart the two points $I_\pm(E)$ on the curve $\{h=E\}$ with
+  $\nabla h(I_\pm)\parallel\omega^*_\pm$ exist (Lemma~\ref{bpI:p3:points}); no implicit function theorem with a parameter
+  is needed.
+\item \emph{Verification of (I1)--(I13)} for $H=h+f$ and $K(\theta)=(\theta,I_\pm)$, $e=C\varepsilon$
+  (\S\ref{bpI:p3:sec-torus}), using Part~\ref{bpI:p1}: $\mathsf T_H=\mathsf B_h+O(\varepsilon)$
+  (Lemmas~\ref{bpI:p1:trivial}, \ref{bpI:p1:last-row}), and the Cauchy estimates and the Neumann series of track~K.
+\item \emph{Uniform constants} (\S\ref{bpI:p3:sec-output}). All constants of Theorem~\ref{bpI:p0:g1} are chosen once, per ray,
+  before $f,\varepsilon,E,I_0$; $\varepsilon_1$ is the minimum over the finitely many rays and the other smallness
+  conditions. The output is Proposition~\ref{bpI:p3:tori}, whose conclusion (T1)--(T7) is what Part~5 needs.
+\end{enumerate}
+\source{The local charts, the finite cover and the choice of constants are ours (ledger D-I-CONFINEMENT).
+Input from the sources: the isoenergetic nondegeneracy is HL19 (3.13)--(3.14) and Rem.~3.7, p.~19, and the
+bordered determinant of Chi05 p.~17 (Kepler case); both are about the extended torsion, not about charts.}
+\sourcegap{Neither HL19 nor Chi05 passes from $\det\mathsf B_h\ne0$ to the existence of invariant tori
+on both sides of a given point of an energy surface; Lemmas~\ref{bpI:p3:det-identity}--\ref{bpI:p3:points} supply the bridge.}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Standing data, constants, external facts}\label{bpI:p3:sec-data}
+
+\begin{assumption}[Data of Part~\ref{bpI:p3}]\label{bpI:p3:setting}
+The data of Theorem~\ref{bpI:p0:head} with $n=2$: $B\subset\R^2$ open, bounded, nonempty; $s_0,r_0>0$; $h$ holomorphic on $B_{r_0}$
+with $\operatorname{Im}h(I)=0$ and $\det\mathsf B_h(I)\ne0$ for every real $I\in B_{r_0}$; $B'\subset\R^2$ open with
+$\overline{B'}$ compact, $\overline{B'}\subset B$; $\eta>0$. We assume $B'\ne\emptyset$ (otherwise the conclusion of
+I-HEAD is vacuous and no patch is needed). The exponent is fixed:
+\[
+\tau:=2\quad(>n-1=1).
+\]
+The perturbation is $f:\C^2\times\C^2\to\C$, $\varepsilon\in\R$ as in I-HEAD (holomorphic on $T_{s_0}\times B_{r_0}$, $1$-periodic in $\theta$ there,
+real at real $\theta$ and real $I\in B_{r_0}$, $0\le\varepsilon$, $\abs f\le\varepsilon$ on $T_{s_0}\times B_{r_0}$), and
+$H:=h+f$, i.e.\ $H(\theta,I)=h(I)+f(\theta,I)$. Write $\iota:\R^2\to\C^2$ for the inclusion and $U:=\iota^{-1}(B_{r_0})\subset\R^2$,
+open, $B\subset U$ (\Kref{bp:p4:freq-map}(i): $\iota B\subset B_{r_0}$, since $r_0>0$).
+\end{assumption}
+
+The setting of track~K's Part~4 (\Kref{bp:p4:data}) is exactly this one (with $n=2$, $B$ open bounded, $h$ holomorphic on
+$B_{r_0}$, $f$ as above), apart from its Kolmogorov and boundary-layer hypotheses, which are not used here. We therefore take
+its shrunken domains and constants verbatim; they are listed so that the proofs below can quote them.
+
+\begin{definition}[Constants of the data]\label{bpI:p3:constants}
+\emph{(a) From \Kref{bp:p4:data}.} $s:=\min\{s_0,1\}$, $\delta_*:=\tfrac14\min\{s,r_0\}$, and
+\[
+\mu:=\tfrac12\delta_*,\qquad \rho:=\tfrac s4,\qquad\rho_\infty:=\tfrac s8,\qquad
+\mathfrak D:=T_{s/2}\times B_{r_0/2},\qquad \mathfrak D':=T_{3s/4}\times B_{3r_0/4}.
+\]
+$M_h:=\sup\{\abs{h(I)}:I\in B_{3r_0/4}\}<\infty$ (\Kref{bp:p4:h-bounded}); $c(m,j)$ are the constants of \Kref{bp:p1:cauchy-open},
+$\bar c:=\max\{1,c(2,j),c(4,j):j=1,2,3\}$, $F_j:=\bar c\,\delta_*^{-j}$ ($j=1,2,3$), and
+$M:=\bar c(M_h+1)\delta_*^{-3}$. Note $\delta_*\le\tfrac14$, $\mu\le\tfrac18\min\{s,r_0\}$, $\rho_\infty<\rho$, $F_1\le F_2$.\\
+\emph{(b) The compact action set.} $d_B:=\inf\{\norm{I-J}:I\in\overline{B'},\,J\in\R^2\setminus B\}$ if $B\ne\R^2$ (always, since $B$ is bounded);
+$d_B>0$ because $\overline{B'}$ is compact and contained in the open set $B$. Put
+\[
+\eta_1:=\min\{\eta,\ d_B/2\},\qquad \mathcal S:=\{I\in\R^2:\operatorname{dist}(I,\overline{B'})\le d_B/2\}.
+\]
+\emph{(c) Gradient and bordered inverse on $\mathcal S$.}
+\[
+m_h:=\min_{I\in\mathcal S}\norm{\nabla h(I)},\qquad M_g:=\max_{I\in\mathcal S}\norm{\nabla h(I)},\qquad
+S_h:=\max_{I\in\mathcal S}\abs{\mathsf B_h(I)^{-1}}\quad(\text{row-sum norm}).
+\]
+\emph{(d) Data for I-G1.}
+\[
+\nu:=\tfrac14m_h,\qquad\sigma_\omega:=\tfrac{4M_g}{m_h}+2,\qquad\sigma_K:=1+\mu,\qquad\sigma_B:=1+\mu,\qquad\sigma_T:=2S_h+\mu,
+\]
+\[
+\varepsilon_T:=\frac1{4S_hF_2},\qquad e:=F_1\,\varepsilon\quad(\text{the error bound of I-G1, }C_e:=F_1).
+\]
+All of these depend only on $(B,s_0,r_0,h,B',\eta)$ (in fact $\eta$ enters only $\eta_1$), and not on $f$, $\varepsilon$ or any point.
+\end{definition}
+
+\begin{lemma}[$\mathcal S$ and the constants are well defined]\label{bpI:p3:compact}
+$\mathcal S$ is compact, $\overline{B'}\subset\mathcal S\subset B$, and $0<m_h\le M_g<\infty$, $0<S_h<\infty$.
+\end{lemma}
+\begin{proof}
+\proofstep{Compactness and inclusion}\label{stepI:p3:cp-compact}
+$I\mapsto\operatorname{dist}(I,\overline{B'})$ is continuous, so $\mathcal S$ is closed; it is bounded since $\overline{B'}$ is. If
+$I\notin B$ then $\norm{I-J}\ge d_B$ for the nearest $J\in\overline{B'}$ (definition of $d_B$), so $\operatorname{dist}(I,\overline{B'})\ge d_B>d_B/2$;
+hence $\mathcal S\subset B$.
+\proofstep{The gradient is nonzero}\label{stepI:p3:cp-grad}
+By Lemma~\ref{bpI:p3:det-identity}(a) below (which does not use this lemma), $\nabla h(I)\ne0$ for every $I\in U\supset\mathcal S$.
+$\nabla h$ is continuous on $U$ (\Kref{bp:p4:freq-map}(iii): it is differentiable), so $\norm{\nabla h}$ attains a positive minimum and a finite maximum on the compact set $\mathcal S$.
+\proofstep{The bordered inverse}\label{stepI:p3:cp-inverse}
+The entries of $\mathsf B_h(I)$ are continuous on $U$ (\Kref{bp:p4:freq-map}(iii) and the continuity of the second derivatives of
+the holomorphic $h$, \Kref{bp:p1:holomorphic-regularity}), and $\det\mathsf B_h\ne0$ on $U$ (hypothesis, $\iota U\subset B_{r_0}$). By
+Cramer's rule (\Kref{bp:p1:ext-cramer}), $\mathsf B_h^{-1}=\operatorname{adj}\mathsf B_h/\det\mathsf B_h$ has continuous entries on $U$, which are real
+(\Kref{bp:p1:real-inverse}). The row-sum norm is continuous, hence bounded on $\mathcal S$.
+\end{proof}
+
+\paragraph{External facts used in this part.} In addition to \Kref{bp:p1:ext-cramer}, \Kref{bp:p1:ext-integral} and the
+external facts of Part~\ref{bpI:p1}:
+\begin{enumerate}[label=(Y\arabic*),ref=(Y\arabic*)]
+\item\label{bpI:p3:ext-ift} \emph{Inverse function theorem.} If $\Omega\subset\R^m$ is open, $F:\Omega\to\R^m$ is $C^1$ and $DF(c)$ is invertible, then there is an
+  open $W\ni c$, $W\subset\Omega$, such that $F|_W$ is a homeomorphism onto an open set $F(W)$ with $C^1$ inverse.
+  (Mathlib: \nolinkurl{HasStrictFDerivAt.toOpenPartialHomeomorph}.) The restriction of such an $F|_W$ to an open $W'\subset W$ has the same property.
+\item\label{bpI:p3:ext-compact} \emph{Compactness.} A continuous function on a compact set attains its extrema; a compact subset of $\R^2$ covered by open sets
+  is covered by finitely many of them (Heine--Borel).
+\item\label{bpI:p3:ext-lebesgue} \emph{Lebesgue measure on $\R^2$.} It is monotone and countably subadditive on outer measures; a nonempty open set has positive measure; a bounded set has finite measure.
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Local energy charts}\label{bpI:p3:sec-charts}
+
+The bordered Hessian is, in dimension two, the curvature of the energy curve times a positive factor; we use only its determinant.
+For $g=(g_1,g_2)\in\R^2$ put $g^\perp:=(-g_2,g_1)$ and $\det(g,w):=g_1w_2-g_2w_1=g^\perp\cdot w$, where $\cdot$ is the Euclidean dot product on $\R^2$.
+
+\begin{lemma}[The bordered determinant]\label{bpI:p3:det-identity}
+Let $I\in U$ and $g:=\nabla h(I)$, $\nabla^2h(I):=D(\nabla h)(I)$ (real symmetric, \Kref{bp:p4:freq-map}(iii)). Then
+\[
+\det\mathsf B_h(I)=-\,g^\perp\!\cdot\nabla^2h(I)\,g^\perp .
+\]
+Consequently (a) $\nabla h(I)\ne0$ whenever $\det\mathsf B_h(I)\ne0$ (in particular on all of $U$); (b) if $g\ne0$, then
+$\det\mathsf B_h(I)\ne0$ iff $\det\bigl(g,\nabla^2h(I)g^\perp\bigr)\ne0$, and $\det(g,\nabla^2h(I)g^\perp)=g^\perp\cdot\nabla^2h(I)g^\perp=-\det\mathsf B_h(I)$.
+\end{lemma}
+\begin{proof}
+\proofstep{Expansion}\label{stepI:p3:di-expand}
+Write $h_a=\partial_ah(I)$, $h_{ab}=\partial_a\partial_bh(I)$ (real, $h_{12}=h_{21}$). By Definition~\ref{bpI:p0:bordered} and Lemma~\ref{bpI:p1:trivial}
+(Step~\ref{stepI:p1:tr-compare}), $\mathsf B_h=\left(\begin{smallmatrix}h_{11}&h_{12}&h_1\\h_{12}&h_{22}&h_2\\h_1&h_2&0\end{smallmatrix}\right)$. Expanding along the last row,
+$\det\mathsf B_h=h_1(h_{12}h_2-h_1h_{22})-h_2(h_{11}h_2-h_1h_{12})=-(h_{22}h_1^2-2h_{12}h_1h_2+h_{11}h_2^2)$.
+With $g^\perp=(-h_2,h_1)$, $g^\perp\!\cdot\nabla^2h\,g^\perp=h_{11}h_2^2-2h_{12}h_1h_2+h_{22}h_1^2$.
+\proofstep{Consequences}\label{stepI:p3:di-conseq}
+(a) If $g=0$ the right-hand side is $0$. (b) is the identity $\det(g,w)=g^\perp\cdot w$ with $w=\nabla^2h\,g^\perp$.
+\end{proof}
+
+\begin{definition}[Direction coordinates at a point]\label{bpI:p3:coordinates}
+Let $c\in\overline{B'}$ and $g_c:=\nabla h(c)\ne0$, $q_c:=g_c\cdot g_c>0$. For $w\in\R^2$ put
+\[
+a_c(w):=\frac{g_c\cdot w}{q_c},\qquad b_c(w):=\frac{\det(g_c,w)}{q_c},\qquad\text{so that }w=a_c(w)\,g_c+b_c(w)\,g_c^\perp .
+\]
+(check: first component $\bigl(g_1(g\cdot w)-g_2\det(g,w)\bigr)/q=w_1$, similarly the second). On $\{w:a_c(w)>0\}$ define the \emph{slope}
+$\sigma_c(w):=b_c(w)/a_c(w)=\det(g_c,w)/(g_c\cdot w)$, and on
+\[
+\mathcal U_c:=\{I\in U:\ a_c(\nabla h(I))>0\}\quad(\text{open},\ c\in\mathcal U_c,\ \text{since }a_c(g_c)=1)
+\]
+the \emph{chart map}
+\[
+m_c(I):=\sigma_c(\nabla h(I)),\qquad \Phi_c(I):=\bigl(h(I),\,m_c(I)\bigr)\in\R^2,\qquad I\in\mathcal U_c .
+\]
+Since $\nabla h$ is $C^1$ on $U$ (\Kref{bp:p4:freq-map}), $\Phi_c$ is $C^1$ on $\mathcal U_c$; $\Phi_c(c)=(h(c),0)$.
+\end{definition}
+
+\begin{remark}[Slopes encode rays]\label{bpI:p3:slope-ray}
+If $w,w'$ have $a_c(w),a_c(w')>0$, then $\sigma_c(w)=\sigma_c(w')$ iff $w'=\lambda w$ for some $\lambda>0$, and then $\lambda=a_c(w')/a_c(w)$
+(from $w=a(g+\sigma g^\perp)$). Hence for $I\in\mathcal U_c$ and a vector $\omega^*$ with $a_c(\omega^*)>0$:
+$m_c(I)=\sigma_c(\omega^*)$ iff $\nabla h(I)=s\,\omega^*$ with $s=a_c(\nabla h(I))/a_c(\omega^*)>0$, and then, for the max norm,
+$s=\norm{\nabla h(I)}/\norm{\omega^*}$.
+\end{remark}
+
+\begin{lemma}[Local chart]\label{bpI:p3:chart}
+For every $c\in\overline{B'}$ the derivative $D\Phi_c(c)$ is invertible, with $\det D\Phi_c(c)=-\det\mathsf B_h(c)/q_c\ne0$. Hence there is an open
+$W\subset\mathcal U_c$ with $c\in W$ such that $\Phi_c|_W:W\to V:=\Phi_c(W)$ is a homeomorphism onto an open set with $C^1$ inverse,
+and $W$ may be taken inside any prescribed open neighbourhood of $c$.
+\source{ours (the isoenergetic nondegeneracy as a chart); the determinant identity is the one of Chi05 p.~17 in the Kepler case,
+HL19 Rem.~3.7, p.~19.}
+\end{lemma}
+\begin{proof}
+\proofstep{Derivative of $h$ and of $m_c$}\label{stepI:p3:ch-deriv}
+$Dh(c)u=g_c\cdot u$ (\Kref{bp:p4:freq-map}(ii)). The slope map $\sigma_c$ has numerator $\det(g_c,\cdot)$ vanishing at $g_c$ and denominator $g_c\cdot w=q_c$ at $w=g_c$, so
+$D\sigma_c(g_c)[\delta w]=\det(g_c,\delta w)/q_c$. By the chain rule and $D(\nabla h)(c)=\nabla^2h(c)$,
+$Dm_c(c)u=\det(g_c,\nabla^2h(c)u)/q_c=g_c^\perp\cdot\nabla^2h(c)u/q_c=(\nabla^2h(c)g_c^\perp)\cdot u/q_c$ by the symmetry of $\nabla^2h(c)$.
+\proofstep{Determinant}\label{stepI:p3:ch-det}
+$D\Phi_c(c)$ has the rows $g_c^\top$ and $(\nabla^2h(c)g_c^\perp)^\top/q_c$, so $\det D\Phi_c(c)=\det(g_c,\nabla^2h(c)g_c^\perp)/q_c=-\det\mathsf B_h(c)/q_c$
+by Lemma~\ref{bpI:p3:det-identity}(b). It is nonzero because $c\in\overline{B'}\subset B\subset U$ and $\iota U\subset B_{r_0}$.
+\proofstep{Inverse function theorem}\label{stepI:p3:ch-ift}
+$\mathcal U_c$ is open, $\Phi_c$ is $C^1$ on it, and \ref{bpI:p3:ext-ift} gives $W$; intersecting with a prescribed open neighbourhood of $c$ keeps the conclusion.
+\end{proof}
+
+\begin{definition}[Patch]\label{bpI:p3:patch}
+A \emph{patch} is a tuple $\mathfrak p=(c,W,\delta_E,\delta_m,\rho_c)$ with $c\in\overline{B'}$, $W$ as in Lemma~\ref{bpI:p3:chart}, $\delta_E,\delta_m,\rho_c>0$, such that, with
+$V=\Phi_c(W)$,
+\begin{enumerate}[label=(P\arabic*)]
+\item\label{bpI:p3:P1} $W\subset\{I\in\R^2:\norm{I-c}<\eta_1/4\}$ (so $W\subset\mathcal S$);
+\item\label{bpI:p3:P2} the box $Q:=[h(c)-\delta_E,\,h(c)+\delta_E]\times[-\delta_m,\delta_m]$ lies in $V$;
+\item\label{bpI:p3:P3} $\rho_c\le\eta_1/4$, the ball $\{\norm{I-c}<\rho_c\}$ lies in $W$, and on it $\abs{h(I)-h(c)}<\delta_E/2$ and $\abs{m_c(I)}<\delta_m/4$.
+\end{enumerate}
+We write $\Phi_{\mathfrak p}^{-1}:V\to W$ for the inverse.
+\end{definition}
+
+\begin{lemma}[Finite cover]\label{bpI:p3:cover}
+There are finitely many patches $\mathfrak p_j=(c_j,W_j,\delta_{E,j},\delta_{m,j},\rho_j)$, $j\in\mathcal P$, with
+$\overline{B'}\subset\bigcup_j\{\norm{I-c_j}<\rho_j\}$. The family depends only on $(B,s_0,r_0,h,B',\eta)$.
+\source{ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{A patch at every $c\in\overline{B'}$}\label{stepI:p3:cv-local}
+Fix $c$. Lemma~\ref{bpI:p3:chart} with the neighbourhood $\{\norm{I-c}<\eta_1/4\}$ gives $W$ with \ref{bpI:p3:P1}; $V$ is open and contains $\Phi_c(c)=(h(c),0)$, so
+\ref{bpI:p3:P2} holds for $\delta_E,\delta_m$ small. $W$ is open and $h$, $m_c$ are continuous on $\mathcal U_c$ with $m_c(c)=0$, so \ref{bpI:p3:P3} holds for $\rho_c$ small.
+\proofstep{Compactness}\label{stepI:p3:cv-compact}
+The open balls $\{\norm{I-c}<\rho_c\}$, $c\in\overline{B'}$, cover the compact set $\overline{B'}$; take a finite subcover (\ref{bpI:p3:ext-compact}).
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Two Diophantine directions and the two points on each energy curve}\label{bpI:p3:sec-rays}
+
+\begin{lemma}[Diophantine vectors in an open set]\label{bpI:p3:dio-open}
+Let $\tau=2$ and let $O\subset\R^2$ be nonempty, open and bounded. Then there are $\gamma>0$ and $\omega\in O\cap\Dio_{\gamma,2}$.
+\source{standard; measure input is G3 of track~K, Pos01 \S1d, p.~5, via \Kref{bp:p0:g3}. At the endpoint $\tau=n-1=1$ G3 is not available and this argument gives nothing
+(Part-0 review, I05): we do not use $\tau=1$.}
+\frozen{KAM.volume\_not\_diophantine\_le}
+\end{lemma}
+\begin{proof}
+\proofstep{Positive measure}\label{stepI:p3:do-positive}
+$0<\meas O<\infty$ (\ref{bpI:p3:ext-lebesgue}). \Kref{bp:p0:g3} with $n=2$, $\tau=2>1$ and $\Omega=O$ gives $C\ge0$ with $\meas\{\omega\in O:\omega\notin\Dio_{\alpha,2}\}\le C\alpha$ for all $\alpha>0$.
+\proofstep{Choice of $\gamma$}\label{stepI:p3:do-choice}
+Take $\gamma:=\meas O/(2(C+1))$. Then $\meas\{\omega\in O:\omega\notin\Dio_{\gamma,2}\}\le C\gamma<\meas O$, so by subadditivity $O\cap\Dio_{\gamma,2}\ne\emptyset$.
+\end{proof}
+
+\begin{lemma}[Rays in a sector]\label{bpI:p3:rays}
+Let $c\in\overline{B'}$, $J\subset\R$ a nonempty open bounded interval. Then there are $\gamma>0$ and $\omega^*\in\R^2$ with
+\[
+\omega^*\in\Dio_{\gamma,2},\qquad a_c(\omega^*)>0,\qquad\sigma_c(\omega^*)\in J,\qquad \tfrac14m_h<\norm{\omega^*}<\tfrac12m_h .
+\]
+\end{lemma}
+\begin{proof}
+\proofstep{An open nonempty set}\label{stepI:p3:ry-open}
+$O:=\{\omega\in\R^2:a_c(\omega)>0,\ \sigma_c(\omega)\in J,\ \tfrac14m_h<\norm\omega<\tfrac12m_h\}$ is open (preimage of open sets under continuous maps on the open set $\{a_c>0\}$) and bounded.
+For $\varsigma\in J$ and $t>0$ put $\omega_t=t(g_c+\varsigma g_c^\perp)$. Then $a_c(\omega_t)=t$, $\sigma_c(\omega_t)=\varsigma$, and $\norm{\omega_t}=t\norm{g_c+\varsigma g_c^\perp}$ with $\norm{g_c+\varsigma g_c^\perp}>0$
+(its Euclidean length is $\sqrt{q_c(1+\varsigma^2)}$). Choosing $t=\tfrac38m_h/\norm{g_c+\varsigma g_c^\perp}$ gives $\omega_t\in O$.
+\proofstep{Diophantine}\label{stepI:p3:ry-dio}
+Lemma~\ref{bpI:p3:dio-open} applied to $O$.
+\end{proof}
+
+\begin{definition}[Rays of a patch]\label{bpI:p3:patch-rays}
+For each patch $\mathfrak p=(c,W,\delta_E,\delta_m,\rho_c)$ of Lemma~\ref{bpI:p3:cover} choose, by Lemma~\ref{bpI:p3:rays} with $J_+=(\delta_m/2,\delta_m)$ and $J_-=(-\delta_m,-\delta_m/2)$,
+vectors $\omega^*_{\mathfrak p,\pm}$ and constants $\gamma_{\mathfrak p,\pm}>0$ with
+$\omega^*_{\mathfrak p,\pm}\in\Dio_{\gamma_{\mathfrak p,\pm},2}$, $a_c(\omega^*_{\mathfrak p,\pm})>0$, $\tfrac14m_h<\norm{\omega^*_{\mathfrak p,\pm}}<\tfrac12m_h$, and put
+\[
+m_{\mathfrak p,\pm}:=\sigma_c(\omega^*_{\mathfrak p,\pm}),\qquad\text{so }m_{\mathfrak p,+}\in(\tfrac{\delta_m}2,\delta_m),\ \ m_{\mathfrak p,-}\in(-\delta_m,-\tfrac{\delta_m}2).
+\]
+There are finitely many rays ($2\abs{\mathcal P}$); the choice is made once and depends only on $(B,s_0,r_0,h,B',\eta)$.
+\end{definition}
+
+\begin{lemma}[The two points on the energy curve]\label{bpI:p3:points}
+Let $\mathfrak p$ be a patch, $E\in\R$ with $\abs{E-h(c)}\le\delta_E$, and write $\omega^*_\pm,m_\pm$ for the data of Definition~\ref{bpI:p3:patch-rays}.
+Then $(E,m_\pm)\in Q\subset V$, so
+\[
+I_\pm(E):=\Phi_{\mathfrak p}^{-1}(E,m_\pm)\in W\ \ (\text{real points of }\R^2)
+\]
+are defined, and
+\begin{enumerate}[label=(\alph*)]
+\item $h(I_\pm)=E$, $m_c(I_\pm)=m_\pm$, and $\nabla h(I_\pm)=s^\circ_\pm\,\omega^*_\pm$ with $s^\circ_\pm=\norm{\nabla h(I_\pm)}/\norm{\omega^*_\pm}\in\bigl(2,\ 4M_g/m_h\bigr)$;
+\item $\norm{I_\pm-c}<\eta_1/4$, $I_\pm\in\mathcal S\subset B$, and $I_-\ne I_+$; for every $I_0$ with $\norm{I_0-c}<\rho_c$: $\norm{I_\pm-I_0}<\eta_1/2$;
+\item (ordering) $m_c(I_-)\le-\delta_m/2$, $m_c(I_+)\ge\delta_m/2$, whereas $\abs{m_c(I_0)}<\delta_m/4$ for $\norm{I_0-c}<\rho_c$.
+\end{enumerate}
+Moreover $\Phi_{\mathfrak p}$ maps $\{I\in W:\ h(I)=E,\ \abs{m_c(I)}\le\delta_m\}$ homeomorphically onto $\{E\}\times[-\delta_m,\delta_m]$, so that in the chart the energy curve is the segment $m\mapsto(E,m)$ and
+$I_-,\,I_+$ are the points with $m=m_\pm$ (``$I_-$, $I_0$, $I_+$ in this order along the curve'').
+\source{ours.}
+\end{lemma}
+\begin{proof}
+\proofstep{Existence}\label{stepI:p3:pt-exist}
+$\abs{m_\pm}<\delta_m$ and $\abs{E-h(c)}\le\delta_E$, so $(E,m_\pm)\in Q\subset V=\Phi_c(W)$ by \ref{bpI:p3:P2}.
+\proofstep{Parallel gradient}\label{stepI:p3:pt-parallel}
+$\Phi_c(I_\pm)=(E,m_\pm)$ gives $h(I_\pm)=E$ and $m_c(I_\pm)=\sigma_c(\omega^*_\pm)$, with $a_c(\nabla h(I_\pm))>0$ since $I_\pm\in W\subset\mathcal U_c$ and $a_c(\omega^*_\pm)>0$.
+Remark~\ref{bpI:p3:slope-ray} gives $\nabla h(I_\pm)=s^\circ_\pm\omega^*_\pm$ with $s^\circ_\pm=\norm{\nabla h(I_\pm)}/\norm{\omega^*_\pm}$.
+By \ref{bpI:p3:P1}, $I_\pm\in\mathcal S$ (since $\eta_1/4\le d_B/8$), so $m_h\le\norm{\nabla h(I_\pm)}\le M_g$, while $\tfrac14m_h<\norm{\omega^*_\pm}<\tfrac12m_h$; hence $2<s^\circ_\pm<4M_g/m_h$.
+\proofstep{Position}\label{stepI:p3:pt-position}
+$I_\pm\in W$ and \ref{bpI:p3:P1} give $\norm{I_\pm-c}<\eta_1/4$; with $\norm{I_0-c}<\rho_c\le\eta_1/4$ (\ref{bpI:p3:P3}), $\norm{I_\pm-I_0}<\eta_1/2$. $I_-\ne I_+$ since $m_c(I_-)<0<m_c(I_+)$. Ordering: (c) is $m_\pm$ vs.\ \ref{bpI:p3:P3}.
+\proofstep{Energy segment}\label{stepI:p3:pt-segment}
+$\Phi_{\mathfrak p}:W\to V$ is a homeomorphism, and $\{E\}\times[-\delta_m,\delta_m]\subset Q\subset V$, whose preimage is exactly $\{I\in W:h(I)=E,\abs{m_c(I)}\le\delta_m\}$.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The approximate torus and the hypotheses of I-G1}\label{bpI:p3:sec-torus}
+
+\begin{lemma}[The hypotheses (I1)--(I4) for $H=h+f$]\label{bpI:p3:hypothesis-d}
+Let Assumption~\ref{bpI:p3:setting} hold with $\varepsilon\le1$ and $D:=\mathfrak D=T_{s/2}\times B_{r_0/2}$. Then (I1)--(I4) of Theorem~\ref{bpI:p0:g1} hold for $(D,H)$ with
+the constant $M$ of Definition~\ref{bpI:p3:constants}. Moreover for $z\in\mathfrak D$ and $j=1,2,3$: $\norm{D^jf(z)}\le F_j\varepsilon$, in particular $\norm{X_f(z)}\le F_1\varepsilon$ and
+$\norm{D^2f(z)}\le F_2\varepsilon$.
+\source{ours, quoting \Kref{bp:p4:h1} and \Kref{bp:p4:derivative-bounds}.}
+\end{lemma}
+\begin{proof}
+\proofstep{(I1)--(I3)}\label{stepI:p3:hd-open}
+Steps \Kref{step:p4:h1-open} and \Kref{step:p4:h1-holo} of \Kref{bp:p4:h1}: $D$ is open and invariant under $\theta\mapsto\theta+k$; $H$ is holomorphic on $D\subset T_{s_0}\times B_{r_0}$, $1$-periodic in $\theta$,
+and real at real phase points of $D$ (for real $\theta$ and real $I\in B_{r_0}$: $h(I)$ and $f(\theta,I)$ are real by the hypotheses of I-HEAD).
+\proofstep{(I4)}\label{stepI:p3:hd-bounds}
+By \Kref{bp:p4:derivative-bounds}(a), (c), (d) (Step~\Kref{step:p4:db-cauchy}) with $\varepsilon\le1$: $\norm{DH},\norm{X_H},\norm{DX_H},\norm{D^2X_H}\le M$ on $D$.
+The same step gives $\norm{D^jH}\le\bar c(M_h+\varepsilon)\delta_*^{-j}\le M$ ($\delta_*\le1$) for $j=2$, which is the bound on $\norm{D^2H}$ in (I4). The bounds $\norm{D^jf}\le F_j\varepsilon$ are \Kref{bp:p4:derivative-bounds}(c).
+\end{proof}
+
+\begin{lemma}[The flat torus of $H=h+f$]\label{bpI:p3:torus}
+Let Assumption~\ref{bpI:p3:setting} hold with $\varepsilon\le1$, $D=\mathfrak D$. Let $I\in B$ (a real point), $\omega^*\in\R^2$, $s'\in\R$ with $\nabla h(I)=s'\omega^*$, $\omega:=s'\omega^*$, and $K(\theta):=(\theta,I)$ for $\theta\in\C^2$.
+Then for $\theta\in T_{s/2}$:
+\begin{enumerate}[label=(\alph*)]
+\item $K$ is holomorphic, primary and real on reals; $K(T_{s/2})\subset D$; $DK(\theta)v=(v,0)$, $\norm{DK(\theta)}=1$; $G_K\equiv I_2$, $\abs{G_K^{-1}}=1$; $N_{\cdot j}\equiv(0,e_j)$.
+For $\theta\in T_\rho$: $B_\mu(K(\theta))\subset D$.
+\item $E_{H,K,\omega}(\theta)=X_f(K(\theta))=\bigl((\partial_{I_a}f)_a,(-\partial_{\theta_a}f)_a\bigr)(\theta,I)$ and $\norm{E_{H,K,\omega}(\theta)}\le F_1\varepsilon$.
+\item $\mathsf T_H(\theta)=\mathsf B_h(I)+R(\theta)$ with
+$R(\theta)=\left(\begin{smallmatrix}(\partial_{I_i}\partial_{I_j}f)_{ij}&0\\(\partial_{I_b}f)_b^{\top}&0\end{smallmatrix}\right)(\theta,I)$, $\abs{R(\theta)}\le2F_2\varepsilon$, hence $\abs{\avg{\mathsf T_H}-\mathsf B_h(I)}\le2F_2\varepsilon$.
+\item If $I\in\mathcal S$ and $\varepsilon\le\varepsilon_T$, then $\det\avg{\mathsf T_H}\ne0$ and $\abs{\avg{\mathsf T_H}^{-1}}\le2S_h=\sigma_T-\mu$.
+\item $\abs{\bar E_H(K)-h(I)}\le\varepsilon$; hence $\abs{\bar E_H(K)-E_0}\le\varepsilon$ whenever $h(I)=E_0$.
+\end{enumerate}
+\source{ours; Part~\ref{bpI:p1}, Lemmas~\ref{bpI:p1:trivial} and~\ref{bpI:p1:last-row} for the frame and the last row; HL19 Rem.~3.7, p.~19.}
+\end{lemma}
+\begin{proof}
+\proofstep{The torus and its frame}\label{stepI:p3:to-torus}
+Steps \ref{stepI:p1:tr-torus} and \ref{stepI:p1:tr-frame} of Lemma~\ref{bpI:p1:trivial} apply verbatim ($K$ and the frame do not involve the Hamiltonian): $K$ is affine, primary, real on reals ($I$ real), $DK=(\mathrm{id},0)$,
+$G_K=I_2$, $N_{\cdot j}=(0,e_j)$ constant. $\norm{DK(\theta)v}=\norm{(v,0)}=\norm v$. For $\theta\in T_{s/2}$ and $I\in B$, $K(\theta)\in T_{s/2}\times B\subset D$. If $\theta\in T_\rho$ and $\norm{(\theta',I')-K(\theta)}<\mu$, then
+$\abs{\operatorname{Im}\theta'_i}<s/4+\mu<s/2$ ($\mu\le s/8$) and $\norm{I'-I}<\mu\le r_0/8$, so $I'\in B_{r_0/2}$: $B_\mu(K(\theta))\subset D$.
+\proofstep{The error}\label{stepI:p3:to-error}
+$X_H(\theta,I)=\bigl((\partial_{I_a}h+\partial_{I_a}f)_a,(-\partial_{\theta_a}f)_a\bigr)$ and $(\partial_{I_a}h(I))_a=\nabla h(I)=\omega$ (Lemma~\ref{bpI:p1:trivial}, Step~\ref{stepI:p1:tr-field}); with $DK\omega=(\omega,0)$ we get $E=X_f(K(\theta))$, and $\norm{X_f}\le F_1\varepsilon$ on $D$ (Lemma~\ref{bpI:p3:hypothesis-d}).
+\proofstep{Torsion and border}\label{stepI:p3:to-torsion}
+$DX_H(z)(0,e_j)=\bigl((\partial_{I_a}\partial_{I_j}H)_a,(-\partial_{\theta_a}\partial_{I_j}H)_a\bigr)$, $\Omega_0(x,y)=(-y,x)$, $D_\theta N_{\cdot j}=0$. So $T_{ij}=(0,e_i)\cdot\Omega_0DX_HN_{\cdot j}=\partial_{I_i}\partial_{I_j}H=\partial_i\partial_jh(I)+\partial_{I_i}\partial_{I_j}f(\theta,I)$ (as in Step~\ref{stepI:p1:tr-torsion}).
+The last column is $\omega=\nabla h(I)$. By Lemma~\ref{bpI:p1:last-row}(a), the last row is $Y=\omega^\top-(\eta^L)^\top$ with $\eta^L_b=-N_{\cdot b}^\top\Omega_0E=-\partial_{I_b}f$; i.e.\ $Y_b=\partial_bh(I)+\partial_{I_b}f(\theta,I)$ (equal to the direct value $DH(K)N_{\cdot b}$).
+The upper-left block of $\mathsf B_h(I)$ is $(\partial_a\partial_bh(I))$ and its border is $\nabla h(I)$ (Step~\ref{stepI:p1:tr-compare}), which gives (c)'s identity. For the size: row $i\le2$ of $R$ has absolute sum $\sum_j\abs{D^2f[e_i,e_j]}\le2\norm{D^2f}\le2F_2\varepsilon$, the last row $\sum_b\abs{\partial_{I_b}f}\le2F_1\varepsilon\le2F_2\varepsilon$ (Lemma~\ref{bpI:p3:hypothesis-d}). The average over $[0,1]^2\subset\R^2\subset T_{s/2}$ is integrable (Lemma~\ref{bpI:p1:extended-basic}(a)) and the norm of an average is at most the supremum (\Kref{bp:p1:ext-integral}); $\avg{\mathsf B_h}=\mathsf B_h$ since the cube has volume one.
+\proofstep{Invertibility}\label{stepI:p3:to-neumann}
+For $I\in\mathcal S$, $\abs{\mathsf B_h(I)^{-1}}\le S_h$ and $\abs{\mathsf B_h^{-1}}\abs{\avg R}\le S_h\cdot2F_2\varepsilon\le\frac12$ when $\varepsilon\le\varepsilon_T$. \Kref{bp:p1:neumann} gives invertibility of $\mathsf B_h(I)+\avg R=\avg{\mathsf T_H}$ and $\abs{\avg{\mathsf T_H}^{-1}}\le2S_h$ (a real matrix, \Kref{bp:p1:real-inverse}); $2S_h=\sigma_T-\mu$.
+\proofstep{Energy average}\label{stepI:p3:to-energy}
+$H(K(\theta))=h(I)+f(\theta,I)$ and for $\theta\in[0,1]^2$, $(\theta,I)\in T_{s_0}\times B_{r_0}$ so $\abs{f(\theta,I)}\le\varepsilon$; hence $\abs{\bar E_H(K)-h(I)}=\abs{\int f(\theta,I)\,d\theta}\le\varepsilon$.
+\end{proof}
+
+\begin{lemma}[One application of I-G1]\label{bpI:p3:apply}
+Let $\mathfrak p$ be a patch with ray $\omega^*=\omega^*_{\mathfrak p,\pm}$, $\gamma=\gamma_{\mathfrak p,\pm}$. Apply Theorem~\ref{bpI:p0:g1} with $n=2$, $\tau=2$, $\rho=s/4$, $\rho_\infty=s/8$ and the constants $M,\sigma_K,\sigma_B,\sigma_T,\mu,\sigma_\omega,\nu$ of
+Definition~\ref{bpI:p3:constants}, $\bar\gamma:=\gamma$, $\omega^*$ as given. Its constants $C_1,C_2,C_3>0$ (denoted $C_i^{\mathfrak p,\pm}$) depend only on $(B,s_0,r_0,h,B',\eta)$ and the ray.
+Then, for every $f,\varepsilon$ of Assumption~\ref{bpI:p3:setting} with
+\[
+\varepsilon\le1,\qquad\varepsilon\le\varepsilon_T,\qquad \varepsilon<\varepsilon^{\mathfrak p,\pm}:=\frac{\gamma^4\rho^{8}}{C_1^{\mathfrak p,\pm}F_1},
+\]
+every $E\in\R$ with $\abs{E-h(c)}\le\delta_E$, and $I:=I_\pm(E)$, $s':=s^\circ_\pm$ of Lemma~\ref{bpI:p3:points}, the hypotheses (I1)--(I13) of Theorem~\ref{bpI:p0:g1} hold for
+\[
+D=\mathfrak D,\quad H=h+f,\quad K(\theta)=(\theta,I),\quad s=s^\circ_\pm,\quad\gamma,\quad e=F_1\varepsilon,\quad E_0=E.
+\]
+Consequently there are $K_\infty$ and $s_\infty\in(1,\sigma_\omega)$ with (O1)--(O6), in particular
+$\norm{K_\infty-K}\le C_2F_1\varepsilon/(\gamma^2\rho^4)$ on $T_{\rho_\infty}$, $\norm{(s_\infty-s^\circ_\pm)\omega^*}\le C_3F_1\varepsilon/(\gamma^2\rho^4)$.
+\end{lemma}
+\begin{proof}
+\proofstep{(I1)--(I4)}\label{stepI:p3:ap-d}
+Lemma~\ref{bpI:p3:hypothesis-d} ($\varepsilon\le1$).
+\proofstep{(I5)--(I7)}\label{stepI:p3:ap-k}
+Lemma~\ref{bpI:p3:torus}(a) with $I\in B$ (Lemma~\ref{bpI:p3:points}(b)): $K$ is holomorphic, primary, real on reals on $T_\rho$; $B_\mu(K(\theta))\subset D$ and $\norm{DK}=1=\sigma_K-\mu$; $\det G_K=1$, $\abs{G_K^{-1}}=1=\sigma_B-\mu$.
+\proofstep{(I8)}\label{stepI:p3:ap-t}
+$\nabla h(I)=s^\circ_\pm\omega^*$ (Lemma~\ref{bpI:p3:points}(a)), $I\in\mathcal S$; Lemma~\ref{bpI:p3:torus}(d) with $\omega=s^\circ_\pm\omega^*$ gives $\det\avg{\mathsf T_H}\ne0$, $\abs{\avg{\mathsf T_H}^{-1}}\le\sigma_T-\mu$ ($\varepsilon\le\varepsilon_T$).
+\proofstep{(I9)}\label{stepI:p3:ap-ray}
+$1<2<s<4M_g/m_h<\sigma_\omega$. $(s-1)\norm{\omega^*}>\norm{\omega^*}>\tfrac14m_h=\nu$ and $(\sigma_\omega-s)\norm{\omega^*}>2\norm{\omega^*}>\nu$.
+\proofstep{(I10)--(I12)}\label{stepI:p3:ap-error}
+$0<\gamma\le\bar\gamma=\gamma$, $\omega^*\in\Dio_{\gamma,2}$, $e=F_1\varepsilon\ge0$ (Definition~\ref{bpI:p3:patch-rays}). (I11) is Lemma~\ref{bpI:p3:torus}(b). (I12): $h(I)=E=E_0$, Lemma~\ref{bpI:p3:torus}(e), and $\varepsilon\le F_1\varepsilon=e$ since $F_1\ge1$.
+\proofstep{(I13)}\label{stepI:p3:ap-small}
+$C_1e/(\gamma^4\rho^{4\tau})=C_1F_1\varepsilon/(\gamma^4\rho^8)<1$ by $\varepsilon<\varepsilon^{\mathfrak p,\pm}$ (and trivially if $\varepsilon=0$).
+\proofstep{Conclusion}\label{stepI:p3:ap-conclusion}
+Theorem~\ref{bpI:p0:g1}, with $C_2e/(\gamma^2\rho^{2\tau})=C_2F_1\varepsilon/(\gamma^2\rho^4)$.
+\end{proof}
+
+\begin{remark}[Constants of Part~\ref{bpI:p2} make the order of quantifiers harmless]\label{bpI:p3:constants-order}
+The frozen Theorem~\ref{bpI:p0:g1} chooses $C_1,C_2,C_3$ after $\omega^*$ and $\bar\gamma$, which is why the application is per ray: finitely many rays, finitely many applications, $\varepsilon_1$ below is a minimum over a finite set.
+Theorem~\ref{bpI:p2:g1} shows that its constants do not depend on $\omega^*$ and $\sigma_\omega$ (only on $\bar\gamma$ through $C_1$); this is not needed.
+\end{remark}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Uniform application: the output of Part~\ref{bpI:p3}}\label{bpI:p3:sec-output}
+
+\begin{definition}[Uniform constants]\label{bpI:p3:uniform}
+With the patches $\mathfrak p_j$ ($j\in\mathcal P$) of Lemma~\ref{bpI:p3:cover}, their rays (Definition~\ref{bpI:p3:patch-rays}) and the constants $C_i^{j,\pm}$ of Lemma~\ref{bpI:p3:apply}, put
+\[
+C_K:=\max_{j\in\mathcal P,\pm}\ \frac{F_1\max\{C_2^{j,\pm},C_3^{j,\pm}\}}{(\gamma_{j,\pm})^2\rho^4},
+\]
+\[
+\varepsilon_1:=\min\Bigl\{1,\ \varepsilon_T,\ \min_{j}\tfrac12\delta_{E,j},\ \min_{j,\pm}\varepsilon^{j,\pm},\ \frac{\eta_1}{2C_K}\Bigr\}\in(0,1].
+\]
+\emph{Order of choice:} $(B,s_0,r_0,h,B',\eta)$ $\to$ $\mathfrak D,\mu,\delta_*,M,F_j$, $\mathcal S,m_h,M_g,S_h$, $\nu,\sigma$'s $\to$ patches $\to$ rays, $\gamma_{j,\pm}$ $\to$ $C_i^{j,\pm}$ $\to$ $C_K,\varepsilon_1$.
+Neither depends on $f$, $\varepsilon$, $E$, $I_0$.
+\end{definition}
+
+\begin{proposition}[Invariant tori on both sides: output of Part~\ref{bpI:p3}]\label{bpI:p3:tori}
+Let Assumption~\ref{bpI:p3:setting} hold (the data of I-HEAD with $n=2$, $B'\ne\emptyset$, $\eta>0$, $\tau=2$). Let $\varepsilon_1,C_K$ be as in Definition~\ref{bpI:p3:uniform}, $\rho_\infty=s/8$,
+$\mathcal P$, $\mathfrak p_j$ as above. Then for every $f:\C^2\times\C^2\to\C$ and $\varepsilon$ with the hypotheses of I-HEAD and $\varepsilon<\varepsilon_1$, every $I_0\in\overline{B'}$ and every $E\in\R$ with $\abs{E-h(I_0)}\le\varepsilon$ there are
+$j\in\mathcal P$ with $\norm{I_0-c_j}<\rho_j$ and, for each sign $\pm$, a map $K_\pm:\C^2\to\C^2\times\C^2$, numbers $s_\pm\in(1,\sigma_\omega)$ and a real point $I_\pm\in\R^2$, such that, with $H=h+f$, $\omega^*_\pm=\omega^*_{j,\pm}$ and $\omega_\pm:=s_\pm\omega^*_\pm$:
+\begin{enumerate}[label=(T\arabic*)]
+\item\label{bpI:p3:T1} \emph{(torus)} $K_\pm$ is holomorphic on $T_{\rho_\infty}$, primary on $T_{\rho_\infty}$ and real on reals; its restriction to $\R^2$ is real-analytic with values in $\R^2\times\R^2$.
+\item\label{bpI:p3:T2} \emph{(invariance, Diophantine frequency)} $E_{H,K_\pm,\omega_\pm}(\theta)=0$ for all $\theta\in T_{\rho_\infty}$; $\omega^*_\pm\in\Dio_{\gamma_{j,\pm},2}$, so $\omega_\pm$ is nonresonant; $\omega_\pm\in\R^2\setminus\{0\}$.
+\item\label{bpI:p3:T3} \emph{(energy)} $H(K_\pm(\theta))=E$ for all $\theta\in T_{\rho_\infty}$ (pointwise); in particular $\Ham_{h,f}(K_\pm(\theta))=E$ for real $\theta$.
+\item\label{bpI:p3:T4} \emph{(closeness to the flat torus; graph inputs)} $\norm{K_\pm(\theta)-(\theta,I_\pm)}\le C_K\varepsilon$ on $T_{\rho_\infty}$, and, writing $K_\pm(\theta)=(\theta+u_\pm(\theta),I_\pm+v_\pm(\theta))$ with $u_\pm,v_\pm:T_{\rho_\infty}\to\C^2$ holomorphic and $1$-periodic,
+$\norm{u_\pm}_{\rho_\infty},\norm{v_\pm}_{\rho_\infty}\le C_K\varepsilon$ and $\norm{Du_\pm}_{\rho_\infty/2},\norm{Dv_\pm}_{\rho_\infty/2}\le 4C_K\varepsilon/\rho_\infty$ (operator norms; $\rho_\infty=s/8$).
+\item\label{bpI:p3:T5} \emph{(the base points and the frequencies)} $h(I_\pm)=E$, $\nabla h(I_\pm)=s^\circ_\pm\omega^*_\pm$ with $s^\circ_\pm\in(2,4M_g/m_h)$, $\norm{\omega_\pm-\nabla h(I_\pm)}=\abs{s_\pm-s^\circ_\pm}\norm{\omega^*_\pm}\le C_K\varepsilon$; and $\nabla h(I_\pm)$, $\omega_\pm$ are positive multiples of $\omega^*_\pm$.
+\item\label{bpI:p3:T6} \emph{(position)} $I_\pm\in B$, $\norm{I_\pm-I_0}<\eta_1/2\le\eta/2$, and for every real $\theta$: $\norm{K_\pm(\theta)_2-I_0}<\eta$ and $K_\pm(\theta)_2\in\mathcal S\subset B$ (the action component stays in $B$ and within $\eta$ of $I_0$). Moreover $B_{\mu/2}(K_\pm(\theta))\subset\mathfrak D$ and $\norm{DK_\pm(\theta)}\le\sigma_K-\mu/2$ on $T_{\rho_\infty}$.
+\item\label{bpI:p3:T7} \emph{(ordering in the energy chart)} With the chart $\Phi_j=(h,m_{c_j})$ of $\mathfrak p_j$: $I_\pm=\Phi_j^{-1}(E,m_{j,\pm})$, $m_{c_j}(I_-)\le-\delta_{m,j}/2$, $m_{c_j}(I_+)\ge\delta_{m,j}/2$ and $\abs{m_{c_j}(I_0)}<\delta_{m,j}/4$, so that, on the arc $\Phi_j^{-1}(\{E\}\times[-\delta_{m,j},\delta_{m,j}])$ of the energy curve $\{h=E\}$ (the segment $m\mapsto(E,m)$ in the chart), the slope coordinate of $I_-$ is below $-\delta_{m,j}/2$ and that of $I_+$ above $\delta_{m,j}/2$, while $I_0$ has slope coordinate in $(-\delta_{m,j}/4,\delta_{m,j}/4)$.
+\end{enumerate}
+The numbers $\varepsilon_1$, $C_K$, $\rho_\infty$, $\mathcal P$, $\sigma_\omega$, $M_g$ depend only on $(B,s_0,r_0,h,B',\eta)$.
+\source{ours (D-I-CONFINEMENT); the isoenergetic theorem used is HL19 Thm~3.6 and Rem.~3.7, pp.~18--19, in the form of Theorem~\ref{bpI:p0:g1}.}
+\end{proposition}
+\begin{proof}
+\proofstep{Choice of the patch}\label{stepI:p3:tori-patch}
+Since $I_0\in\overline{B'}$ and the balls cover (Lemma~\ref{bpI:p3:cover}), there is $j$ with $\norm{I_0-c_j}<\rho_j$. Write $c=c_j$, $\delta_E=\delta_{E,j}$ etc. By \ref{bpI:p3:P3}, $\abs{h(I_0)-h(c)}<\delta_E/2$, hence
+$\abs{E-h(c)}\le\varepsilon+\delta_E/2\le\delta_E$ because $\varepsilon<\varepsilon_1\le\delta_E/2$.
+\proofstep{The base points}\label{stepI:p3:tori-base}
+Lemma~\ref{bpI:p3:points} gives $I_\pm:=I_\pm(E)$, $s^\circ_\pm$: this is \ref{bpI:p3:T5} (first part), \ref{bpI:p3:T7} and $I_\pm\in B$, $\norm{I_\pm-I_0}<\eta_1/2$.
+\proofstep{Application of I-G1}\label{stepI:p3:tori-ig1}
+$\varepsilon<\varepsilon_1\le\min\{1,\varepsilon_T,\varepsilon^{j,\pm}\}$, so Lemma~\ref{bpI:p3:apply} gives $K_\pm:=K_\infty$ and $s_\pm:=s_\infty\in(1,\sigma_\omega)$ with (O1)--(O6) of Theorem~\ref{bpI:p0:g1} for $e=F_1\varepsilon$, $E_0=E$.
+\ref{bpI:p3:T1}: (O1), and the real-analyticity by \Kref{bp:p1:real-restriction}. \ref{bpI:p3:T2}: (O2); $\omega^*_\pm\in\Dio_{\gamma,2}$ is a property of the ray. \ref{bpI:p3:T3}: (O3), and $\Ham_{h,f}=\operatorname{Re}H=H$ at real phase points of $D$ whose value is real
+(Definition~\ref{bpI:p0:realham}). \ref{bpI:p3:T5}: (O6) with $C_3F_1\varepsilon/(\gamma^2\rho^4)\le C_K\varepsilon$; the multiples are positive since $s_\pm>1$ and $s^\circ_\pm>2$.
+\proofstep{Closeness and derivatives}\label{stepI:p3:tori-close}
+(O5): $\norm{K_\pm-K}\le C_2F_1\varepsilon/(\gamma^2\rho^4)\le C_K\varepsilon$ on $T_{\rho_\infty}$, $K=(\theta,I_\pm)$. $u_\pm,v_\pm$ are the components of $K_\pm-K$, holomorphic on $T_{\rho_\infty}$, $1$-periodic because both $K_\pm$ and $K$ are primary: $K_\pm(\theta+k)-K(\theta+k)=K_\pm(\theta)+(k,0)-K(\theta)-(k,0)$.
+The max norm gives $\norm{u},\norm v\le C_K\varepsilon$. \Kref{bp:p1:cauchy-strip} with $n=2$ and $\delta=\rho_\infty/2$ gives $\norm{Du}_{\rho_\infty/2},\norm{Dv}_{\rho_\infty/2}\le2\cdot\frac{2}{\rho_\infty}C_K\varepsilon=4C_K\varepsilon/\rho_\infty$ (applied to the pair $(u,v)$ as a vector-valued function bounded by $C_K\varepsilon$).
+\proofstep{Position}\label{stepI:p3:tori-position}
+For real $\theta$, $\norm{K_\pm(\theta)_2-I_\pm}\le C_K\varepsilon<\eta_1/2$ since $\varepsilon<\eta_1/(2C_K)$. With $\norm{I_\pm-I_0}<\eta_1/2$ this gives $\norm{K_\pm(\theta)_2-I_0}<\eta_1\le\eta$.
+Since $I_0\in\overline{B'}$, $\operatorname{dist}(K_\pm(\theta)_2,\overline{B'})<\eta_1\le d_B/2$, so $K_\pm(\theta)_2\in\mathcal S\subset B$ (Lemma~\ref{bpI:p3:compact}). The remaining claims of \ref{bpI:p3:T6} are (O4) of Theorem~\ref{bpI:p0:g1}
+and the shape of $\sigma_K$: $\sigma_K-\mu/2$ and the ball $B_{\mu/2}$ are those of (O4), with $D=\mathfrak D$.
+\end{proof}
+
+\begin{remark}[What Part~5 does with this]\label{bpI:p3:consumption}
+Given $z_0=(\theta_0,I_0)$ with $I_0\in B'$, its energy is $E:=\Ham_{h,f}(z_0)=h(I_0)+\operatorname{Re}f(\theta_0,I_0)$, so $\abs{E-h(I_0)}\le\varepsilon$ and Proposition~\ref{bpI:p3:tori} applies; take $\varepsilon_0\le\varepsilon_1$.
+The two tori are invariant under the flow of $\Ham_{h,f}$ ($E_{H,K,\omega}=0$ and $\Ham=H$ at real points), lie on the energy surface $\{\Ham_{h,f}=E\}$ of $z_0$, are graphs over $\T^2$ for $\varepsilon$ small by \ref{bpI:p3:T4}
+(Part~5, p5.2), and sit on the two sides $m_{c}\le-\delta_m/2$, $m_c\ge\delta_m/2$ of $z_0$ in the energy chart \ref{bpI:p3:T7} (Part~5, p5.1, p5.3); the confinement $\norm{z(t)_2-I_0}<\eta$ is \ref{bpI:p3:T6} and
+the compact enclosure in $\mathcal S\subset B$ gives global existence. No positive measure of tori is used: only the existence of the $2\abs{\mathcal P}$ Diophantine rays.
+\end{remark}
+
+\begin{remark}[Deviations, doubts]\label{bpI:p3:doubts}
+(1) $\tau=2$, not $\tau\ge1$ (review I05); (2) the hypothesis of I-HEAD that $\det\mathsf B_h\ne0$ on all of the real slice of $B_{r_0}$ is used only on $\mathcal S\subset B$ (and for $\nabla h\ne0$, Lemma~\ref{bpI:p3:det-identity}); (3) $\Ham_{h,f}$ is the real part of $H$, and
+$\Ham_{h,f}=H$ because $H$ is real at real points of $\mathfrak D$ (I3); (4) the finite cover is not a Lebesgue-number argument: each patch has its own $\varepsilon^{j,\pm}$ and $\varepsilon_1$ is the minimum; (5) no frozen statement looks doubtful for this part.
+The only matrix identity we use beyond Part~\ref{bpI:p1} is Lemma~\ref{bpI:p3:det-identity}; the nonsingular-derivative argument of track~N (\Nref{bpN:p2:qc-kernel}) is not needed.
+\end{remark}
