@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 18:23 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 28.2 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 18:24 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 28.2 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 18:23 UTC from `main` at `1ce921b` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 18:24 UTC from `main` at `762235d` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks (94 anchors). Track K: blueprint reviewed in full; dependency graph extracted (449 nodes, 1301 edges, structurally clean) and under independent slice review; then a global review and publication. Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints being written.
 
@@ -272,13 +272,13 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **graph-delta2** `kam-graph-d2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Fresh check of the 39 node records rewritten in the delta round | — | — |
 | **graph-global** `kam-graph-global` | graph global review (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Global root-closure review of the track K dependency graph | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 9 |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 10 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Track N additions: draft v0.4 done (N-PARTIAL-CONVEX on an enlarged domain; N-AVERAGING deferred) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: draft v0.4 done (F-P-A1 applied); under delta audit | — | — |
-| **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | Refute-first blueprint reviews: Part 0 I/N, N p3, I p1 done (REVISE, fixes queued); now I p2, N p1-2 | — | — |
+| **bprev-1** `inp-bprev-1` | blueprint review (Codex) | GPT-6.1-Sol medium | codex-3 | 🔄 working | Refute-first blueprint reviews: Part 0 I/N, N p3, I p1 done (REVISE, fixes queued); now I p2, N p1-2 | — | — |
 | **delta-PN** `inp-delta-p` | delta statement audit (Codex) | GPT-6.1-Sol medium | codex-4 | ⚠️ session missing | Delta audits of the D22 additions: P v0.4 READY FOR OWNER; N v0.4 running | — | — |
 | **bpI-p67** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track I blueprint Parts 6-7: I-KEPLER; Kepler fundamentals (shared with P), Delaunay chart, exact restricted Hamiltonian | — | — |
 | **bpN-p6** | blueprint writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N blueprint Part 6: Iterative Lemma and Normal Form Lemma (shared with P) | — | — |
@@ -293,6 +293,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 18:24 | `762235d` | Track K graph: global recheck PASS (all five roots, 0 gaps); final record fixes applied |
 | 2026-10-27 18:23 | `1ce921b` | D25: owner approves the track P additions and N-PARTIAL-CONVEX |
 | 2026-10-27 18:19 | `2f355ea` | Repair the ten blueprint source gaps found by the global graph review; graph gap-free |
 | 2026-10-27 18:16 | `7a0d052` | Track K graph: delta-2 and global reviews in; delta-2 fixes applied |
@@ -304,7 +305,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 17:54 | `f6bbe97` | Track K graph: slice reviews applied; 296 nodes reviewed, 157 rewritten nodes sent to delta review |
 | 2026-10-27 17:50 | `321a542` | Land inp into main |
 | 2026-10-27 17:46 | `1bb98cf` | HQ: blueprint complete; graph extracted, under review |
-| 2026-10-27 17:45 | `c2b3752` | Land inp into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
