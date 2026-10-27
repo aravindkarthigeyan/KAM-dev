@@ -1,0 +1,309 @@
+\section{N-AVERAGING: the mean error and the most-data existence theorem (D28)}\label{bpN:p12}
+\providecommand{\ek}[1]{\mathrm e_{#1}}
+\providecommand{\Sph}{\mathbb S}
+\providecommand{\Vol}{\operatorname{vol}}
+\begingroup\sloppy
+
+This part proves the two frozen statements of Part~0, Theorems~\ref{bpN:p0:avg-mean} and \ref{bpN:p0:avg-most}, for the fixed analytic system
+$H_\varepsilon=\operatorname{Re}(h(I)+\varepsilon f(\theta,I))$. The route is the one of Neishtadt 1976 (Nei76, pp.~1295--1298) and Kasuga, specialised to our setting, with the repair of E-NAVG-NEI-17.
+
+\paragraph{Mechanism.} Because $f$ is a function of the phase point alone, the slow equation is $\dot I=-\varepsilon\partial_\theta f=:\varepsilon a$ and $a$ has no Fourier mode $k=0$ (it is $-2\pi i\sum_kkf_k\ek k$). So the averaged action orbit is constant, $J(t)=I_0$ (Remark~\ref{bpN:p12:averaged}), and there is nothing to solve in the averaged system: no Gronwall step is needed. Fast oscillations are removed by a corrector $w$ with $\partial_\theta w\cdot\omega\approx a$, built from Fourier modes with the \emph{regularised} small divisor $\psi_\kappa(k\cdot\omega)$, $\psi_\kappa(y)=y/(y^2+\kappa^2)$; it is smooth on the resonant surfaces. Then
+\[I(t)-I_0=\varepsilon\bigl(w(t)-w(0)\bigr)-\varepsilon^2\!\int_0^t\!Q\,ds+\varepsilon\!\int_0^t\!r\,ds,\]
+with $Q$, $r$ explicit (Lemma~\ref{bpN:p12:identity}). Each term is bounded \emph{pointwise along the trajectory} by an envelope function of the action alone; \emph{integrating over initial data}, the flow is volume preserving (Liouville, Lemma~\ref{bpN:p12:flow}), so the integral over initial data of an envelope evaluated along the trajectory at a fixed time is at most the integral of the envelope over the action ball (Lemma~\ref{bpN:p12:transport}). The envelope integrals are controlled by the rank hypothesis: Lemma~\ref{bpN:p12:slab} turns it into a uniform volume bound for resonant slabs $\{\abs{k\cdot\omega}\le u\}$ of size $u/\abs k_2$, with no global chart. Taking $\kappa=\sqrt\varepsilon$ gives the stopped mean estimate $\int_K\Psi\le A_1\sqrt\varepsilon$ (Proposition~\ref{bpN:p12:stopped}); Markov's inequality and the first-exit argument finish both theorems (\S\ref{bpN:p12:s-most}, \S\ref{bpN:p12:s-mean}).
+
+\paragraph{Summary of deviations from the sources.} (i) No Gronwall and no cohort-by-cohort continuation: $a_0=0$ and the flow is exactly volume preserving, so Nei76's Jacobian estimates (15)--(16) and the continuation steps of p.~1298 are replaced by one stopping time (Remark~\ref{bpN:p12:errata}). (ii) The reciprocal regularisation $\psi_\kappa$ is a rational function, not Nei76's piecewise cubic (which is only $C^1$). (iii) No Fourier truncation. (iv) Conversions: period one, max norms, Euclidean norm only in the slab lemma; all constants are recomputed here.
+
+\subsection{Setting, constants and external facts}\label{bpN:p12:s-setting}
+
+\paragraph{Standing data.} $n\ge1$ ($n\ge2$ is not used), $R,s>0$, $h,f$, $K$ as in Theorem~\ref{bpN:p0:avg-mean} with
+$\texttt{IsAnalyticIntegrable}\,R\,s\,h$, $\texttt{IsAnalyticPerturbation}\,R\,s\,1\,f$, the rank alternative, $K$ compact, $K\subset\R^n\times B(0,R/2)$. For $\varepsilon>0$: $T=1/\varepsilon$, $H=H_\varepsilon$,
+$W_0=\R^n\times B(0,R)$ (open), $F=X_H$ the Hamiltonian vector field, and
+\[\rho=R/8,\qquad G=\overline B(0,3R/4)\subset B(0,R),\qquad \overline B(I_0,\rho)\subset G\ \text{ for }\abs{I_0}<R/2 .\]
+Real points: $f(\theta,I)\in\R$ for real $\theta$ and $I\in B(0,R+s)$, and $\omega=\omega_h$, $M(I)=D\omega(I)$ (a real $n\times n$ matrix, $M_{ij}=\partial_j\omega_i$, continuous on $B(0,R+s)$, Lemma~\ref{bpN:p1:partials}).
+
+\paragraph{Constants from $h$.} $\Omega_0=\max_{\abs I\le R}\abs{\omega(I)}$, $M_2=\max_{\abs I\le R}\norm{M(I)}$ with $\norm M=\max_i\sum_j\abs{M_{ij}}$ (finite: $\overline B(0,R)\subset B(0,R+s)$ is compact, $\omega\in C^2$).
+
+\begin{lemma}[Real-variable derivatives of $f$]\label{bpN:p12:fbounds}
+For real $\theta\in\R^n$, $I\in B(0,R)$ and all $\ell,j$: $\abs{\partial_{\theta_\ell}f(\theta,I)}\le2/s$, $\abs{\partial_{I_j}f(\theta,I)}\le2/s$; the real partial derivatives of $\operatorname{Re}f$ equal these complex partials. Hence $\abs{a}_\infty\le2/s$ for $a:=-\partial_\theta f$ and $\abs{\partial_If}_\infty\le2/s$.
+\end{lemma}
+\begin{proof}
+\proofstep{Polydiscs}\label{stepN:p12:fb-poly} For $(\theta,I)$ real with $I\in B(0,R)$ the closed polydisc of radius $s/2$ about $(\theta,I)$ lies in $D_s(R)=T_s\times B(0,R)_s$ (Definition~\ref{bpN:p0:cdomain}: $\abs{\operatorname{Im}\theta'_i}\le s/2<s$ and $\abs{I'-I}\le s/2<s$ with $I\in B(0,R)$ real). \proofstep{Cauchy}\label{stepN:p12:fb-cauchy} $\abs f\le1$ there, so \Kref{bp:p1:cauchy-open} gives $\abs{\partial f}\le1/(s/2)$. \proofstep{Real partials}\label{stepN:p12:fb-real} Lemma~\ref{bpN:p1:holo-real} (and \Kref{bp:p1:real-restriction}): at real points $f$ is real, the real derivative is the restriction of the complex one, so $X_H=(\omega+\varepsilon\partial_If,\,-\varepsilon\partial_\theta f)$ on $W_0$.
+\end{proof}
+
+\paragraph{External facts used.} Besides those of Parts~\ref{bpN:p3}, \ref{bpN:p4} and track K's \texttt{bp:p1:ext-}\dots{} list, the proofs use:
+\begin{enumerate}[label=(X\arabic*),leftmargin=2.2em]
+\item\label{bpN:p12:ext-cov} \emph{Change of variables.} If $U\subset\R^d$ is open, $\Gamma:U\to\R^d$ is injective and $C^1$, $D\subset U$ is Borel and $g\ge0$ is Borel, then $\Gamma(D)$ is Borel and $\int_{\Gamma(D)}g=\int_D g\circ\Gamma\,\abs{\det D\Gamma}$ (\Lean{MeasureTheory.lintegral\_image\_eq\_lintegral\_abs\_det\_fderiv\_mul}). Exists.
+\item\label{bpN:p12:ext-tsum} \emph{Termwise differentiation.} If $\sum_k\sup\abs{D g_k}<\infty$ locally uniformly and $\sum g_k$ converges, then $\sum g_k$ is $C^1$ with derivative $\sum Dg_k$ (\Lean{hasFDerivAt\_tsum}). Exists.
+\item\label{bpN:p12:ext-dep} \emph{Differentiable dependence on initial data, short time.} If $F$ is $C^1$ on an open $W\subset\R^N$ and $x_0\in W$, there are $a,r>0$ and a continuous $y:(-a,a)\times B(x_0,r)\to W$ with $y(0,x)=x$, $\partial_ty=F(y)$, such that $D_xy$ exists, is continuous on $(-a,a)\times B(x_0,r)$ and satisfies $D_xy(t,x)=\mathbf 1+\int_0^tDF(y(\tau,x))D_xy(\tau,x)\,d\tau$. \textbf{Not in Mathlib} (\texttt{Analysis/ODE} has Picard--Lindel\"of, Gronwall and uniqueness only); to be proved: the Picard iterates $y_{m+1}=x+\int_0^tF(y_m)$ are $C^1$ in $x$, and $y_m$ and $D_xy_m$ converge uniformly for $\abs t\le a$ if $a$ is so small that $a\sup\norm{DF}<1$ on $\overline B(x_0,2r')$; the limit is $C^1$ (uniform limit of $C^1$ maps with uniformly convergent derivatives). The same argument for the analytic field of Part~\ref{bpN:p5} is Lemma~\ref{bpN:p5:flow}(b).
+\item\label{bpN:p12:ext-markov} \emph{Markov, Tonelli, monotone convergence} for nonnegative Borel functions; a continuous function on a compact set is bounded, attains its maximum, and $(s,x)\mapsto\max_{u\le s}g(u,x)$ is continuous for $g$ jointly continuous.
+\item\label{bpN:p12:ext-geom} \emph{Fubini on boxes, mean value theorem, Heine--Borel} (\Kref{bp:p1:ext-measure}, \Kref{bp:p1:ext-mvt}).
+\end{enumerate}
+
+\begin{remark}[The averaged orbit is constant]\label{bpN:p12:averaged}
+In the standard form of AKN06 pp.~208--209 (period $2\pi$, $\varphi=2\pi\theta$) the slow field is $\varepsilon a$, $a=-\partial_\theta f$, and $\bar a(I)=\int_{\T^n}a\,d\theta=0$ since $\int\partial_{\theta_\ell}f\,d\theta=0$ (\Kref{bp:p1:averages}). The averaged system is $\dot J=0$, $J(t)=I_0$, which is at distance $\ge R/4$ from $\partial B(0,R)$ for $\abs{I_0}<R/2$: the continuability condition of AKN Remark~6.4, pp.~217--218 (and Nei76 4$^\circ$) holds with room. The conversion $\varphi=2\pi\theta$, $\Omega=2\pi\omega$ preserves time and both rank conditions; here we keep period one and never use $\varphi$.
+\end{remark}
+
+\subsection{The flow of $X_H$ and Liouville's theorem}\label{bpN:p12:s-flow}
+
+Fix $\varepsilon>0$ (the results of this subsection hold for any $\varepsilon\ge0$). By Lemma~\ref{bpN:p3:holo-input}, $H$ is $C^\infty$ on $W_s\supset W_0$, $X_H$ is $C^1$ on $W_0$ (Lemma~\ref{bpN:p3:ham-smooth}), $1$-periodic in $\theta$, and by Proposition~\ref{bpN:p3:ham-reduction}, $\texttt{IsSolutionOn}\,H\,B(0,R)\,J\,z\iff\texttt{IsSolIn}\,X_H\,W_0\,J\,z$. For $x\in W_0$ let $(T_-(x),T_+(x))$ and $\gamma_x$ be the maximal interval and solution (Theorem~\ref{bpN:p3:gen-maximal}) and put $\Phi_t(x)=\gamma_x(t)=(\theta(t,x),I(t,x))$, $\mathcal D=\{(t,x):x\in W_0,\ T_-(x)<t<T_+(x)\}$, $\Omega_t=\{x:(t,x)\in\mathcal D\}$.
+
+\begin{lemma}[Flow, regularity, volume preservation]\label{bpN:p12:flow}
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal D$ is open in $\R\times W_0$, $\Phi:\mathcal D\to W_0$ is continuous, $\Omega_t$ is open, $\Phi_t:\Omega_t\to\Omega_{-t}$ is a bijection with inverse $\Phi_{-t}$, hence a homeomorphism.
+\item $\Phi_t$ is $C^1$ on $\Omega_t$; $Y(t,x)=D\Phi_t(x)$ is continuous on $\mathcal D$ and $\partial_tY=DF(\Phi_t x)\,Y$, $Y(0,x)=\mathbf 1$.
+\item $\det D\Phi_t(x)=1$ on $\Omega_t$.
+\item (Translation) $\Omega_t+(k,0)=\Omega_t$ and $\Phi_t(x+(k,0))=\Phi_t(x)+(k,0)$ for $k\in\Z^n$.
+\end{enumerate}
+\source{Standard (flow of a $C^1$ field; Liouville for Hamiltonian flows). Used by Nei76 p.~1296 (15)--(16) in the form of a Jacobian bound.}
+\end{lemma}
+\begin{proof}
+\proofstep{Short time}\label{stepN:p12:fl-short} By \ref{bpN:p12:ext-dep} each $x_0\in W_0$ has $a,r>0$ and a $C^1$-in-$x$ family $y$ on $(-a,a)\times B(x_0,r)$; by uniqueness (Theorem~\ref{bpN:p3:gen-uniqueness}) $y(t,x)=\Phi_t(x)$.
+
+\proofstep{Chaining}\label{stepN:p12:fl-chain} Let $t_1>0$, $(t_1,x_1)\in\mathcal D$ (the case $t_1<0$ is time reversal, Lemma~\ref{bpN:p3:gen-symmetry}(b), $t_1=0$ is trivial). The orbit arc $\gamma_{x_1}([0,t_1])$ is compact; cover it by finitely many balls $B(\gamma(u_i),r_i)$ with data $a_i,r_i$ as above, choose a partition $0=u_0<\dots<u_N=t_1$ with $\gamma([u_{i-1},u_i])$ inside the ball $i$ and $u_i-u_{i-1}<a_i$. Define inductively $\Gamma_i=\Phi_{u_i-u_{i-1}}\circ\Gamma_{i-1}$: by continuity of the short-time map, $\Gamma_i$ is defined and $C^1$ on a neighbourhood of $x_1$ and takes values near $\gamma(u_i)$ (chain rule). By the flow property (uniqueness) $\Gamma_N=\Phi_{t_1}$ there. Hence $\Omega_{t_1}\ni x_1$ has a neighbourhood in $\Omega_{t_1}$; the same for $t$ near $t_1$ gives openness of $\mathcal D$ and continuity of $\Phi$ and of $Y=D\Gamma_N=\prod DF$-propagators; $Y$ satisfies the variational equation because each factor does. This proves (b) and the openness in (a).
+
+\proofstep{Inverse}\label{stepN:p12:fl-inverse} If $x\in\Omega_t$, $t>0$, then $t\mapsto\gamma_x(t-\cdot)$ is a solution through $\Phi_t(x)$ on $[0,t]$, so by Theorem~\ref{bpN:p3:gen-maximal} $T_-(\Phi_tx)<-t$ and $\Phi_{-t}\Phi_t x=x$; conversely likewise. Hence (a).
+
+\proofstep{Symplectic form}\label{stepN:p12:fl-symp} $H$ is $C^2$, so $F=J\nabla H$ with $J=\begin{pmatrix}0&\mathbf 1\\-\mathbf 1&0\end{pmatrix}$ and $DF=JS$, $S=\nabla^2H$ symmetric (\Kref{bp:p1:ext-schwarz}). Then $DF^\top J=S^\top J^\top J=S$ and $J\,DF=J^2S=-S$, so $DF^\top J+J\,DF=0$ and $\frac d{dt}(Y^\top JY)=Y^\top(DF^\top J+J\,DF)Y=0$ and $Y^\top JY=J$ (the computation of Lemma~\ref{bpN:p5:symplectic}, Step~\ref{stepN:p5:sy-conserve}, for real matrices). Taking determinants $\det Y=\pm1$; $t\mapsto\det Y(t,x)$ is continuous on the interval $(T_-,T_+)\ni0$ with value $1$ at $t=0$, so $\det Y\equiv1$: (c).
+
+\proofstep{Translation}\label{stepN:p12:fl-transl} Lemma~\ref{bpN:p3:ham-periodic} (with Lemma~\ref{bpN:p3:holo-input}) gives that $\gamma_x+(k,0)$ is a solution through $x+(k,0)$, so by Theorem~\ref{bpN:p3:gen-maximal} (d).
+\end{proof}
+
+\begin{lemma}[First exit from the tube; no blow-up inside]\label{bpN:p12:exit}
+Let $x=(\theta_0,I_0)\in W_0$ with $\abs{I_0}<R/2$, $\varepsilon>0$. Put $V=\{(\theta,I):\abs{I-I_0}<\rho\}$ and
+$\tau(x)=\sup\{t\in[0,T_+(x)):\ \abs{I(u,x)-I_0}<\rho\ \forall u\in[0,t]\}\in(0,\infty]$.
+Then: (i) if $\tau(x)<\infty$ then $\tau(x)<T_+(x)$ and $\abs{I(\tau,x)-I_0}=\rho$; (ii) if $\tau(x)=\infty$ then $T_+(x)=\infty$; (iii) $\abs{I(u,x)}\le3R/4$ for $0\le u\le\tau(x)$ ($u<\infty$, $u<T_+$).
+Moreover the set $S=\{(t,x):x\in W_0,\ \abs{I_0}<R/2,\ 0\le t<T_+(x),\ \abs{I(u,x)-I_0}<\rho\ \forall u\in[0,t]\}=\{(t,x):0\le t<\tau(x)\}$ is open in $[0,\infty)\times\{x\in W_0:\abs{I_0}<R/2\}$.
+\end{lemma}
+\begin{proof}
+\proofstep{First exit}\label{stepN:p12:ex-exit} Lemma~\ref{bpN:p3:gen-exit} with $J=[0,T_+)$ and the open set $V$ (the solution is continuous on $J$): either $z(t)\in V$ for all $t\in[0,T_+)$ (then $\tau=T_+$), and the solution stays in $\R^n\times\overline B(I_0,\rho)$ with $\overline B(I_0,\rho)\subset G\subset B(0,R)$ compact; Corollary~\ref{bpN:p3:gen-continuation-periodic} (with $U=B(0,R)$, $K=\overline B(I_0,\rho)$) gives $T_+=\infty$: this is (ii). Or a first exit time $t^*\in(0,T_+)$ with $z(t^*)\in\partial V$, i.e.\ $\abs{I(t^*)-I_0}=\rho$ (closure minus $V$ of a set of the form $\R^n\times$ open ball): $\tau=t^*$, which is (i).
+
+\proofstep{(iii)}\label{stepN:p12:ex-g} $\abs{I}\le\abs{I_0}+\rho<R/2+R/8$.
+
+\proofstep{Openness of $S$}\label{stepN:p12:ex-open} On the open set $\mathcal D\cap\{t\ge0\}$ the function $m(t,x)=\max_{0\le u\le t}\abs{I(u,x)-I_0}$ is continuous (\ref{bpN:p12:ext-markov}); $S=\{m<\rho\}$.
+\end{proof}
+
+\subsection{Analytic data: Fourier coefficients and bounds}\label{bpN:p12:s-data}
+
+For $k\in\Z^n$ and $I'\in B(0,R)_s$ let $f_k(I')=\int_{[0,1]^n}f(x,I')e^{-2\pi ik\cdot x}dx$ (Fourier coefficient in $\theta$) and $\beta_k=e^{-\pi s\abs k_1}$, $\ek k(\theta)=e^{2\pi ik\cdot\theta}$, $q_k(I)=k\cdot\omega(I)$ for real $I$.
+
+\begin{lemma}[Coefficients]\label{bpN:p12:coef}
+(a) $f_k$ is holomorphic on $B(0,R)_s$ and $\abs{f_k}\le\beta_k$ there. (b) For real $I\in B(0,R)$: $\abs{\partial_{I_j}f_k(I)}\le\frac2s\beta_k$. (c) For real $\theta$ and $I\in B(0,R)$: $f(\theta,I)=\sum_kf_k(I)\ek k(\theta)$ and $a(\theta,I)=-\partial_\theta f=-2\pi i\sum_{k\ne0}f_k(I)\,k\,\ek k(\theta)$ (absolutely convergent, $a\in\R^n$). In particular the Fourier coefficient of $a$ at $k=0$ is $0$. (d) $\sigma:=\sum_{k\ne0}(1+\abs k_1)^3\beta_k<\infty$.
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepN:p12:co-a} Holomorphy: \Nref{bpN:p4:coefficients}(a) (applied to $f\in\mathcal O(R,s)$). For fixed $I'\in B(0,R)_s$, $f(\cdot,I')$ is holomorphic, $1$-periodic and bounded by $1$ on $T_s$, so \Kref{bp:p1:decay} with $\rho'=s/2$ gives $\abs{f_k(I')}\le e^{-2\pi\abs k_1s/2}$.
+\proofstep{(b)}\label{stepN:p12:co-b} The closed polydisc of radius $s/2$ about the real $I\in B(0,R)$ lies in $B(0,R)_s$, where $\abs{f_k}\le\beta_k$: \Kref{bp:p1:cauchy-open}.
+\proofstep{(c)}\label{stepN:p12:co-c} $f(\cdot,I)$ is continuous, periodic, and $\sum\abs{f_k}\le\sum\beta_k<\infty$ (\Kref{bp:p1:exp-sums}(b)), so it equals its Fourier series (\Kref{bp:p1:fourier-basic}(b)). The function $\partial_{\theta_\ell}f(\cdot,I)$ is continuous, periodic with coefficients $2\pi ik_\ell f_k$ (\Kref{bp:p1:fourier-basic}(a)), which are summable; so it equals its series.
+\proofstep{(d)}\label{stepN:p12:co-d} $(1+x)^3e^{-\pi sx/2}\le c(s)$ and \Kref{bp:p1:exp-sums}(b): $\sigma\le c(s)\sum_ke^{-\pi s\abs k_1/2}<\infty$.
+\end{proof}
+
+\begin{definition}[Corrector and its pieces]\label{bpN:p12:corrector}
+For $0<\kappa\le1$ let $\psi_\kappa(y)=\dfrac y{y^2+\kappa^2}$ ($y\in\R$). Then $\abs{\psi_\kappa}\le\min(\frac1{2\kappa},\frac1{\abs y})$, $\abs{\psi_\kappa'}\le\min(\kappa^{-2},y^{-2})$ and $1-y\psi_\kappa(y)=\dfrac{\kappa^2}{y^2+\kappa^2}\le\min(1,\kappa^2y^{-2})$ (elementary: $\psi'_\kappa=(\kappa^2-y^2)/(y^2+\kappa^2)^2$). For $(\theta,I)\in\R^n\times B(0,R)$ define
+\begin{gather*}u_k(I)=f_k(I)\,\psi_\kappa(q_k(I))\,k\in\C^n,\qquad w(\theta,I)=-\sum_{k\ne0}u_k(I)\,\ek k(\theta)\in\C^n,\\ r(\theta,I)=a(\theta,I)-\partial_\theta w(\theta,I)\,\omega(I).\end{gather*}
+Here $\partial_\theta w\,\omega=\sum_\ell\omega_\ell\partial_{\theta_\ell}w$. Envelopes (functions of $I\in B(0,R)$, values in $[0,\infty]$):
+\begin{align*}
+\widehat W(I)&=\sum_{k\ne0}\abs k_\infty\beta_k\,\abs{\psi_\kappa(q_k(I))},&
+\widehat W_1(I)&=\sum_{k\ne0}2\pi\abs k_\infty\abs k_1\beta_k\,\abs{\psi_\kappa(q_k(I))},\\
+\widehat B(I)&=\sum_{k\ne0}\abs k_\infty\beta_k\Bigl[\tfrac{2n}s\abs{\psi_\kappa(q_k(I))}+M_2\abs k_1\abs{\psi'_\kappa(q_k(I))}\Bigr],&
+\widehat R(I)&=\sum_{k\ne0}2\pi\abs k_\infty\beta_k\,\frac{\kappa^2}{q_k(I)^2+\kappa^2},
+\end{align*}
+and $\widehat\Phi_{\varepsilon,\kappa}=\varepsilon\frac4s\widehat B+\varepsilon\frac2s\widehat W_1+\widehat R$ (the integrand of the time integral multiplied by $\varepsilon$ in Proposition~\ref{bpN:p12:pointwise}) (all Borel; the pointwise sums of nonnegative continuous functions).
+\end{definition}
+
+\begin{lemma}[Regularity of $w$ and the divisor identity]\label{bpN:p12:wreg}
+On $\R^n\times B(0,R)$ the function $w$ is $C^1$, $1$-periodic in $\theta$, with termwise derivatives, and for $I\in G$ (the bounds with $M_2$ need only $\abs I\le R$):
+\begin{enumerate}[label=(\alph*)]
+\item $\abs{w(\theta,I)}_\infty\le\widehat W(I)$;
+\item $r(\theta,I)=-2\pi i\sum_{k\ne0}f_k(I)\,\dfrac{\kappa^2}{q_k^2+\kappa^2}\,k\,\ek k(\theta)$, hence $\abs r_\infty\le\widehat R(I)$;
+\item $\abs{\partial_\theta w\,v}_\infty\le\widehat W_1(I)\abs v_\infty$ for $v\in\R^n$ (more precisely $\abs{\partial_\theta w\,\partial_If}_\infty\le\frac2s\widehat W_1$);
+\item for $v\in\R^n$: $\abs{D_Iw(\theta,I)v}_\infty\le\widehat B(I)\abs v_\infty$, and for every $k\ne0$, $\abs{D_Iu_k(I)v}_\infty\le b_k(I)\abs v_\infty$ with $b_k$ the $k$-th summand of $\widehat B$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{Smoothness}\label{stepN:p12:wr-smooth} Each $u_k$ is $C^1$ on $B(0,R)$: $f_k$ is holomorphic hence real-analytic, $q_k$ is $C^2$, $\psi_\kappa$ is smooth. $\partial_{I_j}u_k=(\partial_jf_k\,\psi_\kappa(q_k)+f_k\,\psi_\kappa'(q_k)\,\partial_jq_k)\,k$ and $\partial_jq_k=(M^\top k)_j$, so $\sum_j\abs{\partial_jq_k}\le\norm M\abs k_1\le M_2\abs k_1$ on $\overline B(0,R)$. On every $\overline B(0,R')$, $R'<R$ the terms $u_k\ek k$ and their $\theta$- and $I$-derivatives are bounded by $c(\kappa,R')\,(1+\abs k_1)^3\beta_k$, summable by Lemma~\ref{bpN:p12:coef}(d) (here $\abs{\psi_\kappa}\le1/(2\kappa)$, $\abs{\psi'_\kappa}\le\kappa^{-2}$ are used). By \ref{bpN:p12:ext-tsum} $w$ is $C^1$ with termwise derivatives, $\partial_{\theta_\ell}w=-2\pi i\sum k_\ell u_k\ek k$.
+
+\proofstep{(a),(c)}\label{stepN:p12:wr-ac} $\abs{u_k}_\infty\le\abs k_\infty\beta_k\abs{\psi_\kappa(q_k)}$; sum. For (c): $\partial_\theta w\,v=-2\pi i\sum_k(k\cdot v)u_k\ek k$, $\abs{k\cdot v}\le\abs k_1\abs v_\infty$.
+
+\proofstep{(b)}\label{stepN:p12:wr-b} $\partial_\theta w\,\omega=-2\pi i\sum_kq_ku_k\ek k=-2\pi i\sum_kf_kq_k\psi_\kappa(q_k)\,k\,\ek k$ and $a=-2\pi i\sum f_kk\ek k$ (Lemma~\ref{bpN:p12:coef}(c)); subtract and use $1-q\psi_\kappa(q)=\kappa^2/(q^2+\kappa^2)$ and $\abs{f_k}\le\beta_k$.
+
+\proofstep{(d)}\label{stepN:p12:wr-d} $D_Iu_kv=\bigl(\sum_jv_j\partial_jf_k\,\psi_\kappa(q_k)+f_k\psi_\kappa'(q_k)\sum_jv_j\partial_jq_k\bigr)k$; by Lemma~\ref{bpN:p12:coef}(b) and the row-sum bound its norm is $\le\abs k_\infty\beta_k[\frac{2n}s\abs{\psi_\kappa}+M_2\abs k_1\abs{\psi_\kappa'}]\abs v_\infty=b_k\abs v_\infty$; sum over $k$.
+\end{proof}
+
+\subsection{From the rank hypothesis to slab volumes}\label{bpN:p12:s-rank}
+
+Let $\Sph=\{e\in\R^n:\abs e_2=1\}$ (Euclidean unit sphere); $\abs{\cdot}_2$ is used only here and in $\abs k_2\ge1$, $\abs k_1\le\sqrt n\abs k_2$, $\abs k_2\le\sqrt n\abs k_\infty$ (Lemma~\ref{bpN:p1:norm-compare}).
+
+\begin{lemma}[Uniform transversality]\label{bpN:p12:lambda}
+There is $\lambda>0$ with $\abs{M(I)^\top e}_2^2+(e\cdot\omega(I))^2\ge\lambda^2$ for all $I\in G$, $e\in\Sph$.
+\source{Ours; this is the coordinate-free replacement of Nei76 p.~1296 3$^\circ$ (chart $\omega_1\ne0$), notes.md ``Rank geometry''.}
+\end{lemma}
+\begin{proof}
+\proofstep{Adjoint injective}\label{stepN:p12:la-inj} In branch (A) of Definition~\ref{bpN:p0:avg-rank} $M(I)$ is onto, so $M(I)^\top$ is injective: $M^\top e\ne0$ for $e\ne0$. In branch (B) the map $(v,c)\mapsto Mv+c\omega$ is onto, its adjoint $e\mapsto(M^\top e,\ \omega\cdot e)$ is injective: $(M^\top e,\omega\cdot e)\ne0$ for $e\ne0$ (linear algebra, \Nref{bpN:p1:ext-linalg}). In both branches $N(I,e):=\abs{M(I)^\top e}_2^2+(e\cdot\omega(I))^2>0$ on $G\times\Sph$ (the branch is the same at all $I$, but this is not even needed).
+\proofstep{Compactness}\label{stepN:p12:la-cpt} $N$ is continuous on the compact $G\times\Sph$ ($M$, $\omega$ continuous on $B(0,R+s)\supset G$), positive, so has a positive minimum $\lambda^2$.
+\end{proof}
+
+\begin{lemma}[Slab volumes, uniform in the direction]\label{bpN:p12:slab}
+There is $C_1\ge1$ (depending on $n,R,\lambda,\omega$ only) such that for all $e\in\Sph$ and $v>0$: $\Vol\{I\in G:\abs{e\cdot\omega(I)}\le v\}\le C_1v$. Consequently for $k\in\Z^n\setminus\{0\}$ and $u>0$,
+\[V_k(u):=\Vol\{I\in G:\abs{q_k(I)}\le u\}\le C_1\,u/\abs k_2 .\]
+\source{Ours (rank-to-volume, notes.md and F-NAVG-4); replaces the integral estimates of Nei76 Lemma~1, p.~1296.}
+\end{lemma}
+\begin{proof}
+Write $\varphi_e(I)=e\cdot\omega(I)$; $\nabla\varphi_e=M^\top e$ (a $C^1$ function on $B(0,R+s)$).
+
+\proofstep{Cover of the resonant set}\label{stepN:p12:sl-cover} Let $K_0=\{(I,e)\in G\times\Sph:\abs{\varphi_e(I)}\le\lambda/2\}$, compact. For $(I,e)\in K_0$ Lemma~\ref{bpN:p12:lambda} gives $\abs{M^\top e}_2^2\ge\frac34\lambda^2$, so some coordinate $j$ has $\abs{(M^\top e)_j}\ge\frac{\sqrt3\lambda}{2\sqrt n}>c_0:=\frac\lambda{2\sqrt n}$. By continuity of $(I',e')\mapsto(M(I')^\top e')_j$ there are an open cube $Q\subset B(0,R)$ centred at $I$ (side $\ell_Q\le 1$) and an open $U\ni e$ in $\Sph$ such that on $Q\times U$ this coordinate has constant sign and modulus $\ge c_0$. By compactness finitely many $(Q_m,U_m,j_m)$, $m\le p$, cover $K_0$.
+
+\proofstep{One box}\label{stepN:p12:sl-box} Fix $e\in\Sph$, $0<v\le\lambda/2$, and $m$ with $e\in U_m$. Fubini along coordinate $j_m$ (\ref{bpN:p12:ext-geom}): for fixed other coordinates, the section $\{t:\ I+te_{j_m}\in Q_m,\ \abs{\varphi_e}\le v\}$ lies in a segment on which $\partial_{j_m}\varphi_e$ has constant sign and modulus $\ge c_0$; by the mean value theorem two points of the section are at distance $\le2v/c_0$. So $\Vol(Q_m\cap\{\abs{\varphi_e}\le v\})\le\frac{2v}{c_0}\ell_{Q_m}^{n-1}$.
+
+\proofstep{Sum}\label{stepN:p12:sl-sum} If $I\in G$, $\abs{\varphi_e(I)}\le v\le\lambda/2$, then $(I,e)\in K_0$ lies in some $Q_m\times U_m$. Hence $\Vol\le\sum_m\frac2{c_0}\ell_{Q_m}^{n-1}\,v\le\frac{2p}{c_0}v$. For $v>\lambda/2$: $\Vol\le\Vol(G)\le\frac{2\Vol G}\lambda v$. Put $C_1=\max(1,2p/c_0,2\Vol(G)/\lambda)$.
+
+\proofstep{Integer vectors}\label{stepN:p12:sl-k} $q_k=\abs k_2\,\varphi_{k/\abs k_2}$, so $V_k(u)=\Vol\{\abs{\varphi_e}\le u/\abs k_2\}\le C_1u/\abs k_2$.
+\end{proof}
+
+\subsection{Envelope integrals}\label{bpN:p12:s-env}
+
+Let $\ell_\kappa=1+\ln(1/\kappa)$ for $0<\kappa\le1$ (so $\ell_\kappa\le1/\kappa$).
+
+\begin{lemma}[Dyadic shell estimates]\label{bpN:p12:shells}
+For $k\ne0$, $0<\kappa\le1$ and $\Omega_0,C_1$ as above:
+\begin{align*}
+\text{(i)}&\ \int_G\abs{\psi_\kappa(q_k)}\,dI\le C_1\bigl(\tfrac52+3\ln^+\tfrac{\Omega_0\abs k_1}\kappa\bigr)\le3C_1(1+\Omega_0)(1+\abs k_1)\,\ell_\kappa,\\
+\text{(ii)}&\ \int_G\abs{\psi'_\kappa(q_k)}\,dI\le\frac{5C_1}{\kappa\abs k_2},\qquad
+\text{(iii)}\ \int_G\frac{\kappa^2}{q_k^2+\kappa^2}\,dI\le\frac{5C_1\kappa}{\abs k_2}.
+\end{align*}
+\end{lemma}
+\begin{proof}
+\proofstep{Shells}\label{stepN:p12:sh-shells} Let $Z_0=\{I\in G:\abs{q_k}\le\kappa\}$, $Z_j=\{I\in G:2^{j-1}\kappa<\abs{q_k}\le2^j\kappa\}$ ($j\ge1$). Lemma~\ref{bpN:p12:slab}: $\Vol Z_0\le C_1\kappa/\abs k_2$, $\Vol Z_j\le V_k(2^j\kappa)\le C_12^j\kappa/\abs k_2$. Since $\abs{q_k}\le\abs k_1\Omega_0$ on $G$, $Z_j=\emptyset$ unless $2^{j-1}\kappa<\abs k_1\Omega_0$, i.e.\ $j\le J:=1+\log_2^+(\Omega_0\abs k_1/\kappa)$.
+\proofstep{(i)}\label{stepN:p12:sh-i} On $Z_0$: $\abs\psi\le\frac1{2\kappa}$, contribution $\le\frac{C_1}{2\abs k_2}$; on $Z_j$: $\abs\psi\le\frac1{2^{j-1}\kappa}$, contribution $\le\frac{2C_1}{\abs k_2}$. Sum $\le C_1(\frac12+2J)$, with $\abs k_2\ge1$ and $2\log_2^+\le3\ln^+$ ($2/\ln2<3$). The second inequality: $\frac52+3\ln^+(xy)\le3(1+\Omega_0\abs k_1+\ln\frac1\kappa)$ for $x=\Omega_0\abs k_1$, $y=1/\kappa\ge1$, using $\ln^+x\le x$.
+\proofstep{(ii)}\label{stepN:p12:sh-ii} $\abs{\psi'}\le\kappa^{-2}$ on $Z_0$ (contribution $\le\frac{C_1}{\kappa\abs k_2}$) and $\le(2^{j-1}\kappa)^{-2}$ on $Z_j$ (contribution $\le\frac{4C_1}{2^j\kappa\abs k_2}$); $\sum_{j\ge1}2^{-j}=1$.
+\proofstep{(iii)}\label{stepN:p12:sh-iii} $\frac{\kappa^2}{q^2+\kappa^2}\le1$ on $Z_0$ and $\le4\cdot4^{-j}$ on $Z_j$; the contributions are $\le\frac{C_1\kappa}{\abs k_2}$ and $\frac{4C_1\kappa}{2^j\abs k_2}$.
+\end{proof}
+
+\begin{proposition}[Envelope integrals]\label{bpN:p12:envelopes}
+With $\sigma$ of Lemma~\ref{bpN:p12:coef}(d) put $c_W=3C_1(1+\Omega_0)\sigma$, $c_B=\sigma C_1\bigl(6n(1+\Omega_0)/s+5\sqrt nM_2\bigr)$, $c_R=10\pi C_1\sigma$. For $0<\kappa\le1$:
+\[\int_G\widehat W\le c_W\ell_\kappa,\quad\int_G\widehat W_1\le2\pi c_W\ell_\kappa,\quad\int_G\widehat B\le\frac{c_B}\kappa,\quad\int_G\widehat R\le c_R\kappa,\]
+hence, for $\kappa=\sqrt\varepsilon$, $0<\varepsilon\le1$, with $c_\Phi=\frac4sc_B+\frac{8\pi}sc_W+c_R$:
+\[2\varepsilon\int_G\widehat W\le4c_W\sqrt\varepsilon,\qquad\int_G\widehat\Phi_{\varepsilon,\kappa}\le c_\Phi\sqrt\varepsilon .\]
+\end{proposition}
+\begin{proof}
+\proofstep{Termwise}\label{stepN:p12:en-term} Tonelli (\ref{bpN:p12:ext-markov}) and Lemma~\ref{bpN:p12:shells}, using $\abs k_\infty(1+\abs k_1)\le(1+\abs k_1)^2$, $\abs k_1\abs k_\infty(1+\abs k_1)\le(1+\abs k_1)^3$ and $\abs k_1/\abs k_2\le\sqrt n$:
+$\int\widehat W\le\sum_k\beta_k(1+\abs k_1)^2\,3C_1(1+\Omega_0)\ell_\kappa\le c_W\ell_\kappa$; $\int\widehat W_1\le2\pi c_W\ell_\kappa$ likewise; $\int\widehat B\le\sum\abs k_\infty\beta_k\bigl[\frac{2n}s3C_1(1+\Omega_0)(1+\abs k_1)\ell_\kappa+M_2\abs k_1\frac{5C_1}{\kappa\abs k_2}\bigr]\le c_B/\kappa$ (as $\ell_\kappa\le1/\kappa$); $\int\widehat R\le2\pi\sum\abs k_\infty\beta_k\,5C_1\kappa\le c_R\kappa$.
+\proofstep{The choice $\kappa=\sqrt\varepsilon$}\label{stepN:p12:en-choice} $\varepsilon/\kappa=\sqrt\varepsilon$. And $\varepsilon\ell_\kappa=\varepsilon+\frac\varepsilon2\ln\frac1\varepsilon\le\sqrt\varepsilon+\frac12\sqrt\varepsilon\cdot\sqrt\varepsilon\ln\frac1\varepsilon\le2\sqrt\varepsilon$ since $\sqrt\varepsilon\ln\frac1\varepsilon=2\sqrt\varepsilon\ln\frac1{\sqrt\varepsilon}\le2/e<1$. Insert: $\int\widehat\Phi=\frac{4\varepsilon}s\int\widehat B+\frac{2\varepsilon}s\int\widehat W_1+\int\widehat R\le\frac4sc_B\sqrt\varepsilon+\frac{2}{s}2\pi c_W2\sqrt\varepsilon+c_R\sqrt\varepsilon$.
+\end{proof}
+
+\subsection{The corrector identity and the pointwise stopped estimate}\label{bpN:p12:s-point}
+
+\begin{lemma}[Corrector identity]\label{bpN:p12:identity}
+Let $\varepsilon>0$, $0<\kappa\le1$, $x=(\theta_0,I_0)\in W_0$, $\gamma_x=(\theta,I)$ and $0\le t<T_+(x)$. Put $\Lambda(u)=w(\theta(u),I(u))$. Then $\Lambda$ is $C^1$ and
+\[I(t)-I_0=\varepsilon\bigl(\Lambda(t)-\Lambda(0)\bigr)-\varepsilon^2\int_0^tQ(u)\,du+\varepsilon\int_0^tr(\theta(u),I(u))\,du,\]
+\[Q=\partial_\theta w\,\partial_If+D_Iw\,a\quad\text{evaluated at }(\theta(u),I(u)).\]
+\end{lemma}
+\begin{proof}
+\proofstep{The equations}\label{stepN:p12:id-eq} By Lemma~\ref{bpN:p12:fbounds} and Part~\ref{bpN:p3}: $\dot\theta=\omega(I)+\varepsilon\partial_If$, $\dot I=-\varepsilon\partial_\theta f=\varepsilon a$, at $(\theta(u),I(u))$.
+\proofstep{Chain rule}\label{stepN:p12:id-chain} $w$ is $C^1$ (Lemma~\ref{bpN:p12:wreg}), so $\dot\Lambda=\partial_\theta w\,\dot\theta+D_Iw\,\dot I=\partial_\theta w\,\omega+\varepsilon\,\partial_\theta w\,\partial_If+\varepsilon D_Iw\,a$.
+\proofstep{Divisor identity}\label{stepN:p12:id-div} $\partial_\theta w\,\omega=a-r$ by the definition of $r$. Hence $\varepsilon a=\varepsilon\dot\Lambda-\varepsilon^2Q+\varepsilon r$; integrate $\dot I=\varepsilon a$ over $[0,t]$.
+\end{proof}
+
+\begin{proposition}[Pointwise estimate up to a stopping time]\label{bpN:p12:pointwise}
+Let $\varepsilon\in(0,1]$, $\kappa\in(0,1]$, $x=(\theta_0,I_0)\in W_0$ with $\abs{I_0}<R/2$, and $0\le t<T_+(x)$ with $\abs{I(u,x)}\le3R/4$ for all $u\in[0,t]$. Then
+\[\max_{0\le u\le t}\abs{I(u,x)-I_0}_\infty\ \le\ 2\varepsilon\,\widehat W(I_0)+\varepsilon\int_0^t\widehat\Phi_{\varepsilon,\kappa}\bigl(I(s,x)\bigr)\,ds .\]
+\end{proposition}
+\begin{proof}
+Write $\widehat\Phi=\widehat\Phi_{\varepsilon,\kappa}$ and use the notation of Lemma~\ref{bpN:p12:identity}; all points $I(u)$ lie in $G$.
+\proofstep{Sup of $\Lambda$}\label{stepN:p12:pw-lambda} For each $k$ the function $u\mapsto u_k(I(u))$ is $C^1$ with derivative $D_Iu_k\dot I$, so $\abs{u_k(I(u))}_\infty\le\abs{u_k(I_0)}_\infty+\int_0^u b_k(I(s))\,\varepsilon\tfrac2s\,ds$ (Lemma~\ref{bpN:p12:wreg}(d), $\abs{\dot I}_\infty\le\varepsilon\frac2s$ by Lemma~\ref{bpN:p12:fbounds}). Therefore, with $\abs{\Lambda(u)}_\infty\le\sum_k\abs{u_k(I(u))}_\infty$,
+$\max_{u\le t}\abs{\Lambda(u)}_\infty\le\widehat W(I_0)+\varepsilon\frac2s\int_0^t\widehat B(I(s))\,ds$.
+\proofstep{The other terms}\label{stepN:p12:pw-q} Lemma~\ref{bpN:p12:wreg}(c),(d) and $\abs a_\infty,\abs{\partial_If}_\infty\le\frac2s$: $\abs Q\le\frac2s(\widehat W_1+\widehat B)$; $\abs r\le\widehat R$.
+\proofstep{Sum}\label{stepN:p12:pw-sum} By Lemma~\ref{bpN:p12:identity} for each $u\le t$ (all integrals monotone in $u$):
+$\abs{I(u)-I_0}\le\varepsilon(\max\abs\Lambda+\abs{\Lambda(0)})+\varepsilon^2\int_0^t\abs Q+\varepsilon\int_0^t\abs r\le2\varepsilon\widehat W(I_0)+\varepsilon\int_0^t\bigl[\varepsilon\tfrac2s\widehat B+\varepsilon\tfrac2s(\widehat W_1+\widehat B)+\widehat R\bigr]ds$, and the bracket is $\widehat\Phi$.
+\end{proof}
+
+\subsection{Transport and the stopped mean estimate}\label{bpN:p12:s-trans}
+
+Let $N_K=\#\{\ell\in\Z^n:\ K\cap((\ell+[0,1)^n)\times\R^n)\ne\emptyset\}$ (finite: $K$ is bounded), $K_\ell=K\cap((\ell+[0,1)^n)\times\R^n)$ (Borel).
+
+\begin{lemma}[Transport of envelope integrals]\label{bpN:p12:transport}
+Let $g:\R^n\to[0,\infty]$ be Borel, $\ell\in\Z^n$, $t\ge0$, and $D\subset\Omega_t\cap\bigl((\ell+[0,1)^n)\times B(0,R)\bigr)$ Borel with $I(t,x)\in G$ for $x\in D$. Then $\int_D g(I(t,x))\,dx\le\int_Gg(I)\,dI$.
+\source{Ours; replaces Nei76 p.~1296 (15)--(16) (Jacobian bounded) by exact Liouville and periodic cell decomposition.}
+\end{lemma}
+\begin{proof}
+\proofstep{Change of variables}\label{stepN:p12:tr-cov} By Lemma~\ref{bpN:p12:flow}(a)--(c), $\Phi_t:\Omega_t\to W_0$ is injective, $C^1$ with $\det=1$; \ref{bpN:p12:ext-cov}: $\int_Dg(I(t,x))dx=\int_{\Phi_t(D)}g(y_2)\,dy$ ($y=(y_1,y_2)$), $\Phi_t(D)$ Borel, $\Phi_t(D)\subset\R^n\times G$.
+\proofstep{Cells}\label{stepN:p12:tr-cells} For $m\in\Z^n$ let $P_m=\bigl(\Phi_t(D)\cap((m+[0,1)^n)\times\R^n)\bigr)-(m,0)\subset[0,1)^n\times G$. The $P_m$ are pairwise disjoint: if $y\in P_m\cap P_{m'}$, $y+(m,0)=\Phi_t(x)$, $y+(m',0)=\Phi_t(x')$ with $x,x'\in D$, then by Lemma~\ref{bpN:p12:flow}(d) $\Phi_t(x-(m,0))=y=\Phi_t(x'-(m',0))$, so $x-x'=(m-m',0)$ by injectivity; the angle parts of $x,x'$ lie in one half-open unit cube, so $m=m'$.
+\proofstep{Sum}\label{stepN:p12:tr-sum} $g(y_2)$ does not depend on $y_1$ and Lebesgue measure is translation invariant, so $\int_{\Phi_t(D)}g(y_2)dy=\sum_m\int_{P_m}g(y_2)dy=\int_{\cup P_m}g(y_2)dy\le\int_{[0,1)^n\times G}g(y_2)=\int_Gg$.
+\end{proof}
+
+For $x\in K$ put, with $T=1/\varepsilon$,
+\[\Psi(x)=2\varepsilon\,\widehat W(I_0)+\varepsilon\int_0^T\mathbf 1_S(s,x)\,\widehat\Phi_{\varepsilon,\kappa}\bigl(I(s,x)\bigr)\,ds\qquad(\kappa=\sqrt\varepsilon),\]
+with $S$ of Lemma~\ref{bpN:p12:exit} ($\mathbf 1_S(s,x)=1$ iff $s<\tau(x)$; the integrand is evaluated only there, where $I(s,x)\in G$).
+
+\begin{proposition}[Stopped mean estimate]\label{bpN:p12:stopped}
+Let $0<\varepsilon\le1$. $\Psi:K\to[0,\infty]$ is Borel and $\int_K\Psi\,dx\le A_1\sqrt\varepsilon$ with $A_1=\max\bigl(1,N_K(c_\Phi+4c_W)\bigr)$, a constant depending only on $n,R,s,h,K$ (not on $f$ beyond $\abs f\le1$, nor on $\varepsilon$). Moreover for every $x\in K$ and $t_1=\min(T,\tau(x))$ (so $t_1<T_+(x)$, $I(u,x)\in G$ for $u\le t_1$),
+\[e_{t_1}(x):=\max_{0\le u\le t_1}\abs{I(u,x)-I_0}\le\Psi(x).\]
+\end{proposition}
+\begin{proof}
+\proofstep{Measurability}\label{stepN:p12:st-meas} $K\subset W_0$ and $S$ is open (Lemma~\ref{bpN:p12:exit}); $(s,x)\mapsto I(s,x)$ is continuous on $\mathcal D$ (Lemma~\ref{bpN:p12:flow}(a)); $\widehat\Phi$, $\widehat W$ Borel. So $(s,x)\mapsto\mathbf 1_S\widehat\Phi(I(s,x))$ is Borel on $[0,T]\times K$ and $\Psi$ is Borel by Tonelli.
+\proofstep{The pointwise bound}\label{stepN:p12:st-pt} For $x\in K$, $t_1<T_+(x)$ by Lemma~\ref{bpN:p12:exit}(i),(ii) (if $t_1=T<\tau$, then $T<\tau\le T_+$; if $t_1=\tau<\infty$, $\tau<T_+$), and $\abs{I(u)-I_0}\le\rho$ on $[0,t_1]$, so $\abs{I(u)}\le3R/4$. Proposition~\ref{bpN:p12:pointwise} with $t=t_1$ and $\int_0^{t_1}=\int_0^T\mathbf 1_S$ (the set $\{s<\tau\}\cap[0,T]=[0,t_1)$ up to a null set) gives the bound.
+\proofstep{Integral}\label{stepN:p12:st-int} For each $\ell$, by Tonelli and Lemma~\ref{bpN:p12:transport} with $D=D_s=\{x\in K_\ell:(s,x)\in S\}$ (Borel; $I(s,x)\in G$ by Lemma~\ref{bpN:p12:exit}(iii)) and $g=\widehat\Phi_{\varepsilon,\kappa}$:
+\[\int_{K_\ell}\varepsilon\int_0^T\mathbf 1_S\,\widehat\Phi\bigl(I(s,x)\bigr)\,ds\,dx=\varepsilon\int_0^T\int_{D_s}\widehat\Phi\bigl(I(s,x)\bigr)\,dx\,ds\le\varepsilon T\int_G\widehat\Phi=\int_G\widehat\Phi\le c_\Phi\sqrt\varepsilon .\]
+Also $\int_{K_\ell}2\varepsilon\widehat W(I_0)\,dx\le2\varepsilon\int_{B(0,R/2)}\widehat W\le4c_W\sqrt\varepsilon$ ($K_\ell$ lies in a unit cell times $B(0,R/2)$; Proposition~\ref{bpN:p12:envelopes}). Sum over the $N_K$ cells.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{bpN:p0:avg-most} (N-AVERAGING-MOST)}\label{bpN:p12:s-most}
+
+\paragraph{Constants.} After the fixed data: $\rho=R/8$, $\varepsilon_0=1$, $\eta_0=R/8\ (\le R/4)$, $A=A_1$ of Proposition~\ref{bpN:p12:stopped} (they depend on $n,R,s,h,K$ only). Let $0<\varepsilon\le1$, $0<\eta\le\eta_0$, $T=1/\varepsilon$, $\kappa=\sqrt\varepsilon$.
+
+\begin{lemma}[The good set is open in $K$]\label{bpN:p12:good}
+$\Gamma_\eta=\{x\in K:\ T<T_+(x)\ \text{and}\ \max_{0\le t\le T}\abs{I(t,x)-I_0}<\eta\}$ is relatively open in $K$, hence Borel; $E:=K\setminus\Gamma_\eta$ is measurable.
+\end{lemma}
+\begin{proof}
+$\Omega_T$ is open and $x\mapsto\max_{[0,T]}\abs{I(t,x)-I_0}$ is continuous on $\Omega_T$ (Lemma~\ref{bpN:p12:flow}(a), \ref{bpN:p12:ext-markov}); $\Gamma_\eta=K\cap\Omega_T\cap\{\max<\eta\}$.
+\end{proof}
+
+\begin{lemma}[Bad data have large $\Psi$]\label{bpN:p12:bad}
+For $\eta\le\rho$ and $x\in K\setminus\Gamma_\eta$: $\Psi(x)\ge\eta$. For $x\in K\setminus\Gamma_\rho$ the same with $\rho$.
+\end{lemma}
+\begin{proof}
+\proofstep{Case $\tau(x)\le T$}\label{stepN:p12:bd-exit} Then $t_1=\tau<T_+$ and $\abs{I(\tau)-I_0}=\rho\ge\eta$ (Lemma~\ref{bpN:p12:exit}(i)); so $e_{t_1}(x)\ge\rho\ge\eta$.
+\proofstep{Case $\tau(x)>T$}\label{stepN:p12:bd-stay} Then $T<T_+(x)$ ($T<\tau\le T_+$) and $\abs{I(u)-I_0}<\rho$ on $[0,T]$; as $x\notin\Gamma_\eta$, $\max_{[0,T]}\abs{I-I_0}\ge\eta$, so $e_{t_1}(x)=e_T(x)\ge\eta$ with $t_1=T$.
+\proofstep{Conclusion}\label{stepN:p12:bd-concl} $\Psi(x)\ge e_{t_1}(x)\ge\eta$ by Proposition~\ref{bpN:p12:stopped}. (For $\Gamma_\rho$ the same, case 2 giving $\max<\rho$, a contradiction, so only case 1 occurs.)
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{bpN:p0:avg-most}]
+\proofstep{The exceptional set}\label{stepN:p12:mo-E} $E=K\setminus\Gamma_\eta$ is measurable and $E\subset K$ (Lemma~\ref{bpN:p12:good}). By Lemma~\ref{bpN:p12:bad}, Markov and Proposition~\ref{bpN:p12:stopped}: $\eta\,\Vol E\le\int_E\Psi\le\int_K\Psi\le A\sqrt\varepsilon$, so $\Vol E\le A\sqrt\varepsilon/\eta$, i.e.\ $\le\operatorname{ofReal}(A\sqrt\varepsilon/\eta)$.
+\proofstep{The solution}\label{stepN:p12:mo-z} For $x\in K\setminus E=\Gamma_\eta$ let $z=\gamma_x$ (the maximal solution, extended arbitrarily, e.g.\ by $x$, outside $(T_-,T_+)$). Then $z(0)=x$ and $[0,T]\subset(T_-(x),T_+(x))$ with $T_-<0$, so $z$ is a solution of $X_H$ in $W_0$ with two-sided derivative at every $t\in[0,T]$, hence $\texttt{IsSolutionOn}\,H\,B(0,R)\,[0,T]\,z$ by Proposition~\ref{bpN:p3:ham-reduction}. And $\abs{z(t)_2-x_2}<\eta$ on $[0,T]$ by definition of $\Gamma_\eta$.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{bpN:p0:avg-mean} (N-AVERAGING-MEAN)}\label{bpN:p12:s-mean}
+
+Constants: $\varepsilon_0=1$, $A=13A_1$. Fix $0<\varepsilon\le1$ and $\Phi$ as in the theorem.
+
+\begin{proof}
+\proofstep{The family is the flow}\label{stepN:p12:me-flow} For $x\in K$, $\Phi x$ is a solution on $[0,T]$ with $\Phi x\,0=x$, so by Proposition~\ref{bpN:p3:ham-reduction} and Theorem~\ref{bpN:p3:gen-maximal}: $[0,T]\subset(T_-(x),T_+(x))$ and $\Phi x=\gamma_x$ on $[0,T]$. In particular $K\subset\Omega_T$ and for $x\in K$, $t\in[0,T]$: $(\Phi x\,t)_2=I(t,x)$.
+
+\proofstep{The error is continuous on $K$}\label{stepN:p12:me-cont} By the previous step $e^\Phi_\varepsilon(x)=\sup_{[0,T]}\abs{I(t,x)-I_0}=\max_{[0,T]}\abs{I(t,x)-I_0}=:m(x)$ for $x\in K$ (a continuous function on the compact interval attains its maximum; the supremum is the real supremum, Remark~\ref{bpN:p0:avg-totality}), and $m$ is continuous on $\Omega_T\supset K$ (\ref{bpN:p12:ext-markov}). $K$ is compact, so $m$ is bounded and Borel on $K$ and $\Vol K<\infty$: $e^\Phi_\varepsilon$ agrees on $K$ with a continuous function, so it is integrable on $K$ (it is a.e.-strongly measurable and bounded on a finite-measure set).
+
+\proofstep{Bound by $\Psi$ on good data}\label{stepN:p12:me-good} Let $\Gamma_\rho$ be as in Lemma~\ref{bpN:p12:good} with $\eta=\rho$. For $x\in\Gamma_\rho$: $\tau(x)>T$, $t_1=T$ and $m(x)=e_T(x)\le\Psi(x)$ (Proposition~\ref{bpN:p12:stopped}).
+
+\proofstep{Bound on bad data}\label{stepN:p12:me-bad} For $x\in K\setminus\Gamma_\rho$: $m(x)\le\max(\abs{I(t)}+\abs{I_0})<R+R/2$ since the solution is in $B(0,R)$ (it is the supplied solution with actions in $B(0,R)$); and $\rho\,\Vol(K\setminus\Gamma_\rho)\le\int\Psi\le A_1\sqrt\varepsilon$ (Lemma~\ref{bpN:p12:bad}, Markov).
+
+\proofstep{The mean}\label{stepN:p12:me-mean} $\int_Km\le\int_{\Gamma_\rho}\Psi+\frac{3R}2\Vol(K\setminus\Gamma_\rho)\le A_1\sqrt\varepsilon\bigl(1+\frac{3R/2}{R/8}\bigr)=13A_1\sqrt\varepsilon=A\sqrt\varepsilon$. As $m\ge0$, $\int^-_K\operatorname{ofReal}(m)=\operatorname{ofReal}\int_Km\le\operatorname{ofReal}(A\sqrt\varepsilon)$ (the Lean \Lean{lintegral} of a nonnegative integrable function).
+
+\proofstep{The Markov clause}\label{stepN:p12:me-markov} Let $\kappa>0$, $\lambda=A\sqrt\varepsilon/\kappa>0$, $E=\{x\in K:m(x)>\lambda\}$: measurable (continuous $m$ on measurable $K$), $E\subset K$, $\lambda\Vol E\le\int_Km\le A\sqrt\varepsilon$, so $\Vol E\le\kappa$. For $x\in K\setminus E$ and $t\in[0,T]$: $\abs{(\Phi x\,t)_2-x_2}\le m(x)\le\lambda$.
+\end{proof}
+
+\subsection{Remarks: errata, deviations, doubts, forward references}\label{bpN:p12:s-rem}
+
+\begin{remark}[Constants and order of choice]\label{bpN:p12:constants}
+$\Omega_0,M_2$ (from $h$ on $\overline B(0,R)$), $\lambda$ (rank, Lemma~\ref{bpN:p12:lambda}), $C_1$ (Lemma~\ref{bpN:p12:slab}), $\sigma$ (from $s$), $c_W,c_B,c_R,c_\Phi$, $N_K$, then $A_1$; $\varepsilon_0=1$, $\eta_0=R/8$. Nothing depends on $\varepsilon,\eta,\kappa,\Phi$, and $f$ enters only through $\abs f\le1$ and holomorphy (so the constants are in fact uniform over the class of $f$); $\varepsilon_0=1$ is allowed since no estimate used smallness of $\varepsilon$. All exceptional measures are absolute volumes of subsets of $K$, exactly as frozen: $\Vol E\le A\sqrt\varepsilon/\eta$ and $\Vol E\le\kappa$; the factor $N_K$ is the number of period cells met by $K$ and $A_1$ contains the Jacobian of nothing (Liouville gives $1$; the passage $\varphi=2\pi\theta$ of the sources is never used).
+\end{remark}
+
+\begin{remark}[Errata and deviations]\label{bpN:p12:errata}
+\textbf{E-NAVG-NEI-17 (confirmed, repaired).} Nei76 p.~1298 (17): $\sup_tz(t)=\int_{U'}h$, with $z(t)=\int_{U'}\abs{I(t)-\bar I(t)}$ (p.~1297) and $h=\sup_{t}\abs{I(t)-\bar I(t)}$ (p.~1295 (4)). Only $\sup_t\int\le\int\sup_t$ holds (two initial points with errors $t$ and $1-t$ on $[0,1]$: $\sup_t\int=1$, $\int\sup=2$); the Gronwall bound for $z$ at fixed time therefore does not bound the mean of the maximum, which is what is claimed. Repair: here the \emph{maximum} is bounded pointwise first (Proposition~\ref{bpN:p12:pointwise}) by $2\varepsilon\widehat W(I_0)+\varepsilon\int_0^t\widehat\Phi(I(s))ds$, and the integration over initial data is done afterwards at \emph{fixed} $s$ (Tonelli, Lemma~\ref{bpN:p12:transport}). For a general system with $\bar a\ne0$ one would apply Gronwall to $M_A(t)=\int_A\sup_{u\le t}\abs{I(u)-J(u)}$ as in notes.md; since $\bar a=0$ here the Gronwall term vanishes ($L_0=0$) and is not needed. \textbf{Regularisation:} Nei76's $\theta_\varkappa$ is $C^1$ but not $C^2$ at $\pm\varkappa$ (the printed cubic: second derivatives $-6/\varkappa^3$ inside and $2/\varkappa^3$ outside); we use the rational $\psi_\kappa$, smooth. \textbf{Jacobian:} Nei76 (15)--(16) bound the Jacobian of the shift by $e^{c}$; exact for Hamiltonian flows is $1$ (Lemma~\ref{bpN:p12:flow}(c)). \textbf{Continuation steps:} Nei76 p.~1298 extends cohorts by time steps $\delta=0.25c^{-1}\varepsilon^{-1}$; here the first exit time and the dichotomy of Lemma~\ref{bpN:p12:exit} replace them. \textbf{Chart:} Nei76 3$^\circ$ uses $\omega_1\ne0$; AKN p.~243 the intrinsic projective rank; Lemma~\ref{bpN:p12:lambda} proves the quantitative form from the intrinsic one (D-NAVG-2).
+No error in AKN06 pp.~242--244 was found.
+\end{remark}
+
+\begin{remark}[Doubts about the frozen statements]\label{bpN:p12:doubts}
+None. $n\ge2$ is not used; $\texttt{IsAnalyticIntegrable}$ (iii), (v) and continuity on closures are not used beyond $C^3$ regularity of $h_\R$ on $B(0,R+s)$ and holomorphy on $B(0,R)_s$; the hypothesis $\texttt{IsAnalyticPerturbation}$ gives holomorphy and $\abs f\le1$ on $D_s(R)$, periodicity and reality. The statement of the mean theorem with a family $\Phi$ defined only through its values on $K$ is consistent: values of $\Phi$ off $K$ never enter ($e^\Phi_\varepsilon=m$ on $K$).
+\end{remark}
+
+\begin{remark}[Forward and external references]\label{bpN:p12:fwd}
+Used: Part~\ref{bpN:p3} (maximal solutions, continuation \ref{bpN:p3:gen-continuation-periodic}, first exit \ref{bpN:p3:gen-exit}, uniqueness, reduction \ref{bpN:p3:ham-reduction}, \ref{bpN:p3:holo-input}, \ref{bpN:p3:ham-periodic}), Part~\ref{bpN:p1} (\ref{bpN:p1:holo-real}, \ref{bpN:p1:partials}), Part~\ref{bpN:p4} (\ref{bpN:p4:coefficients}), track K (\Kref{bp:p1:decay}, \Kref{bp:p1:fourier-basic}, \Kref{bp:p1:cauchy-open}, \Kref{bp:p1:exp-sums}, \Kref{bp:p1:ext-measure}). Parts~\ref{bpN:p5} and~\ref{bpN:p6} (Lie transform, homological equation) are not needed: the first-order change of variables here is the explicit corrector $w$, and the homological equation is solved coefficientwise with a regularised divisor. Not in Mathlib and written out here: \ref{bpN:p12:ext-dep} (differentiable dependence), Lemmas~\ref{bpN:p12:flow}, \ref{bpN:p12:slab}, \ref{bpN:p12:transport}. No forward references to unwritten parts.
+\end{remark}
+\endgroup
