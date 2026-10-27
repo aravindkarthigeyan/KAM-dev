@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Private repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 13:33 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 7.2 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 13:34 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 7.2 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -104,7 +104,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **0** (0 excluding blank lines and comments) |
+| On `main` now | **0** (0 excluding blank lines and comments) · **+0** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
 | **Estimated total at completion** | **≈ 40,000** |
 | Estimated still to write | ≈ 40,000 |
@@ -113,7 +113,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 13:33 UTC from `main` at `980b703` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 13:34 UTC from `main` at `229b4e1` by `scripts/hq-status.py`.*
 
 **Current phase:** Phase 0: sources and statements. Headline chosen by the owner (positive-measure KAM for nearly-integrable real-analytic Hamiltonians); route chosen (a-posteriori KAM without action-angle changes of variables, weighted ℓ¹ norms); pinning the source for the measure layer; next: mathematical statement, then exact Lean statements for approval.
 
