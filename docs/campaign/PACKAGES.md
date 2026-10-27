@@ -62,6 +62,24 @@ Fourier and Diophantine packages.
 | I-P1B | Remaining ready Part 1 lemmas | `bp:p1:uniform-limits`, `increments-open`, `periodic-bounded`, `strip-identity`, `periodic-average`, `exp-sums`, `iteration` | `KAM/Strip/{Limits,Periodic}.lean`, `KAM/Fourier/ExpSums.lean`, `KAM/Analysis/Iteration.lean` | done (ef03b72) |
 | I-P4A | Early Part 4 lemmas | `bp:p4:h-bounded`, `matrix-norms`, `phase-average`, `cover-mono`, `dyadic-approx` (+ `data`) | `KAM/Head/*` | done (ac75cab) |
 
+**Interface request for I-STRIP-3 (Zohar), from the Part 2/3 design (`docs/campaign/design/PART23-LEAN-DESIGN.md`
+§2.4).** Please state `bp:p1:cohomological` about a total solution operator, so that Part 2 can use it as a function:
+- the constant `KAM.cohConst`;
+- `KAM.cohSolution ω g θ := ∑' k, Diophantine.solve ω (torusCoeff (g ∘ ofReal)) k * character k θ`, definitionally
+  `KAM.fourierSum (…)` of `KAM/Strip/FourierSeries.lean`;
+- existence, uniqueness among holomorphic periodic zero-average solutions, the bound and realness, componentwise
+  for `Fin p → ℂ`;
+- `bp:p1:cohomological-operator`, the a-priori operator-norm bound for `Matrix (Fin p) (Fin q) ℂ`.
+
+If another form lands, Part 2 adds an adapter.
+
+## Track K proof campaign: wave 3 (claimed 2026-10-27)
+
+| ID | Goal | Graph nodes | Owned files | Status |
+|---|---|---|---|---|
+| I-P1C | Taylor bound (factor ½) and increments on strips | `bp:p1:taylor`, `bp:p1:increments` | `KAM/Strip/Taylor.lean` | claimed (orchestrator, 2026-10-27) |
+| P2-*, P3-* | Parts 2 and 3 (G1, G2), 21 packages in 10 waves | see the design §5 | see the design §4 | waiting for the design's signature audit |
+
 ## Waiting for the blueprint
 
 | ID | Goal | Blueprint | Waits for |
