@@ -1,0 +1,77 @@
+{
+ "policy": "Erratum: a defect in a pinned source (typo, wrong constant/sign, missing hypothesis, false as stated, gap). A gap counts as an erratum only when a printed assertion is false; a supplied argument for a true step is a deviation. Deviation: a deliberate difference of the formalization from the source (scope, conventions, reformulation, explicit parameter windows, proof supplements, different proof routes). Our own statement repairs are neither.",
+ "statuses": {
+  "errata": [
+   "CANDIDATE",
+   "CONFIRMED",
+   "CONVENTION",
+   "DROPPED"
+  ],
+  "deviations": [
+   "PLANNED",
+   "ADOPTED",
+   "RETIRED"
+  ]
+ },
+ "entries": [
+  {
+   "id": "E-Pos01-1",
+   "type": "erratum",
+   "source": "Pos01",
+   "location": "p. 29 (arXiv v1.3), footnote to the proof of Lemma A.3 / estimates of Appendix A",
+   "printed": "(print version, PSPUM 69) condition Kσ ≥ 1 absent",
+   "claim": "missing hypothesis: the condition Kσ ≥ 1 is missing in the printed version; the author's own footnote in arXiv v1.3 says so and the pinned arXiv version contains it",
+   "kind": "missing hypothesis",
+   "evidence": "author's footnote, arXiv v1.3 p. 29",
+   "status": "CANDIDATE",
+   "checked_by": "research survey 2026-10-27 (not yet verified against the pinned PDF by a writer and an independent verifier)",
+   "effect": "none on the pinned version; relevant only if the measure layer uses Pöschel's Appendix A"
+  },
+  {
+   "id": "E-Pos01-2",
+   "type": "erratum",
+   "source": "Pos01",
+   "location": "p. 23 (arXiv v1.3), choice of h₀ and K₀ in the proof of the main theorem",
+   "printed": "(to be quoted from the pinned PDF)",
+   "claim": "reported flaw in the choice of h₀, K₀ (Bounemoura, arXiv:2006.04453, 'Some remarks on the Classical KAM Theorem, following Pöschel'); corrected in Koudjinan's thesis",
+   "kind": "gap",
+   "evidence": "Bounemoura arXiv:2006.04453 (pinned as Bou20)",
+   "status": "CANDIDATE",
+   "checked_by": "research survey 2026-10-27 (unverified)",
+   "effect": "relevant only if the measure layer follows Pöschel's proof"
+  },
+  {
+   "id": "D-ROUTE-1",
+   "type": "deviation",
+   "source": "Pos01",
+   "location": "whole proof",
+   "claim": "Proof route: the tori are obtained from an a-posteriori fixed-frequency KAM theorem (parameterization method, no canonical changes of variables) applied at each Diophantine frequency, not by Pöschel's iteration of symplectic transformations",
+   "kind": "different proof route",
+   "status": "PLANNED",
+   "effect": "no effect on the statement; recorded for readers comparing the proofs",
+   "evidence": ""
+  },
+  {
+   "id": "D-NORM-1",
+   "type": "deviation",
+   "source": "HL19",
+   "location": "§3.1 (analytic functions and norms)",
+   "claim": "Estimates are carried out in weighted ℓ¹ Fourier(–Taylor) coefficient norms instead of sup norms on complex strips; hypotheses are stated for real-analytic functions and converted once at the interface",
+   "kind": "convention / reformulation",
+   "status": "PLANNED",
+   "effect": "constants differ from the printed ones; the frozen statements carry their own explicit constants or are qualitative",
+   "evidence": ""
+  },
+  {
+   "id": "D-COORD-1",
+   "type": "deviation",
+   "source": "HL19",
+   "location": "§2 (Hamiltonian systems and invariant tori)",
+   "claim": "Phase space Tⁿ × B is represented in coordinates: angles in ℝⁿ with ℤⁿ-periodicity, actions in an open set of ℝⁿ (no manifold structure, no general symplectic form)",
+   "kind": "specialization",
+   "status": "PLANNED",
+   "effect": "the general exact-symplectic setting of the source is specialized to the standard form on Tⁿ × ℝⁿ",
+   "evidence": ""
+  }
+ ]
+}

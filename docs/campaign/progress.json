@@ -1,0 +1,244 @@
+{
+ "method": "Weights by difficulty (L=1, M=2, H=4, VH=8); each frozen statement adds 1 when sealed. Each item has a done fraction in [0,1], the orchestrator's assessment of the work on main.",
+ "weights": {
+  "L": 1,
+  "M": 2,
+  "H": 4,
+  "VH": 8
+ },
+ "reviewed": "2026-10-27 15:30 UTC",
+ "items": [
+  {
+   "group": "Statement and planning",
+   "id": "S.SURVEY",
+   "title": "Literature survey: candidate sources, prior formal work, Mathlib inventory",
+   "difficulty": "M",
+   "done": 1.0,
+   "note": "three research reports (2026-10-27): sources, warm-ups and norms, prior formalizations"
+  },
+  {
+   "group": "Statement and planning",
+   "id": "S.SOURCES",
+   "title": "Pinned source library: PDFs with SHA-256, bibliographic data checked against arXiv and Crossref",
+   "difficulty": "L",
+   "done": 0.8,
+   "note": "42 PDFs pinned in sources/SHA256SUMS; per-paper summaries still to write"
+  },
+  {
+   "group": "Statement and planning",
+   "id": "S.ROUTE",
+   "title": "Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency)",
+   "difficulty": "H",
+   "done": 0.3,
+   "note": "source-pinning research running"
+  },
+  {
+   "group": "Statement and planning",
+   "id": "S.STMT",
+   "title": "Mathematical statement of the headline theorem and the gate theorems, with owner rulings",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Statement and planning",
+   "id": "S.LEAN",
+   "title": "Exact Lean statements (headline + gates): independent audit, owner approval, freeze",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Statement and planning",
+   "id": "S.BP",
+   "title": "Blueprint: every proof step written out against the pinned sources",
+   "difficulty": "VH",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Statement and planning",
+   "id": "S.GRAPH",
+   "title": "Source-level dependency graph anchored to the frozen statements",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Statement and planning",
+   "id": "S.ERRATA",
+   "title": "Errata and deviations ledger for every formalized source (continuous)",
+   "difficulty": "L",
+   "done": 0.2,
+   "note": "ledger opened; literature-reported candidates imported"
+  },
+  {
+   "group": "Campaign infrastructure",
+   "id": "I.REPO",
+   "title": "Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint",
+   "difficulty": "L",
+   "done": 0.9,
+   "note": "skeleton builds; first commit pending"
+  },
+  {
+   "group": "Campaign infrastructure",
+   "id": "I.HQ",
+   "title": "Campaign HQ: this README, generator, 20-minute cron and post-commit hook",
+   "difficulty": "L",
+   "done": 0.8,
+   "note": ""
+  },
+  {
+   "group": "Campaign infrastructure",
+   "id": "I.GUARDS",
+   "title": "Freeze machinery: manifest, anchor guard, quarantine, kernel replay, mutation suite",
+   "difficulty": "M",
+   "done": 0.2,
+   "note": "anchor guard and module checker copied from the skills"
+  },
+  {
+   "group": "Campaign infrastructure",
+   "id": "I.BUILD",
+   "title": "Shared build snapshot for worktrees and machine-wide compile gate",
+   "difficulty": "L",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Analytic infrastructure",
+   "id": "F.ALG",
+   "title": "Weighted ℓ¹ Fourier algebra on ℤⁿ: Banach algebra, exp, derivatives, averages",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Analytic infrastructure",
+   "id": "F.FT",
+   "title": "Fourier–Taylor algebra in (angles, actions); Cauchy estimates in the actions",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Analytic infrastructure",
+   "id": "F.COMP",
+   "title": "Composition f∘(id+u) and Taylor remainders in the weighted norms",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Analytic infrastructure",
+   "id": "F.MAT",
+   "title": "Matrix-valued functions: products, Neumann-series inverses, averages",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Analytic infrastructure",
+   "id": "F.BRIDGE",
+   "title": "Bridge between real-analytic functions on complex strips and coefficient spaces",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Analytic infrastructure",
+   "id": "F.DIOPH",
+   "title": "Diophantine vectors; cohomological equation with Rüssmann's exponent",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Analytic infrastructure",
+   "id": "F.NEWTON",
+   "title": "Abstract Newton/KAM convergence on a scale of analytic spaces",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Analytic infrastructure",
+   "id": "F.HAM",
+   "title": "Hamiltonian vector fields in coordinates; invariant tori; quasi-periodic orbits as ODE solutions",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "A-posteriori KAM at fixed frequency",
+   "id": "K.GEOM",
+   "title": "Approximate Lagrangian property, adapted symplectic frame, torsion matrix",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "A-posteriori KAM at fixed frequency",
+   "id": "K.STEP",
+   "title": "Newton step: reduction of the linearized equation, cohomological equations, estimates",
+   "difficulty": "VH",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "A-posteriori KAM at fixed frequency",
+   "id": "K.ITER",
+   "title": "Iteration and convergence: the a-posteriori existence theorem",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "A-posteriori KAM at fixed frequency",
+   "id": "K.UNIQ",
+   "title": "Local uniqueness of the invariant torus modulo phase",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Measure of the invariant tori",
+   "id": "M.APPLY",
+   "title": "Invariant torus for every Diophantine frequency of a nearly-integrable Hamiltonian",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Measure of the invariant tori",
+   "id": "M.LIP",
+   "title": "Lipschitz dependence of the tori on the frequency",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Measure of the invariant tori",
+   "id": "M.DMEAS",
+   "title": "Measure of the non-Diophantine frequencies",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Measure of the invariant tori",
+   "id": "M.IMAGE",
+   "title": "Measure of images under maps Lipschitz-close to a bi-Lipschitz map",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Measure of the invariant tori",
+   "id": "M.ASSEMBLY",
+   "title": "Assembly of the headline theorem",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  }
+ ]
+}

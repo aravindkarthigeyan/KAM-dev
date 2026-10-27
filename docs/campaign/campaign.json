@@ -1,0 +1,159 @@
+{
+ "current_phase": "Phase 0: sources and statements. Headline chosen by the owner (positive-measure KAM for nearly-integrable real-analytic Hamiltonians); route chosen (a-posteriori KAM without action-angle changes of variables, weighted ℓ¹ norms); pinning the source for the measure layer; next: mathematical statement, then exact Lean statements for approval.",
+ "workers": [
+  {
+   "id": "orchestrator",
+   "kind": "lead",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Campaign lead: sources, statements, assignments, landings, owner questions, this README",
+   "state": "active"
+  },
+  {
+   "id": "measure-source",
+   "kind": "research subagent",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Pin the source(s) for the measure layer and check the Lipschitz-in-frequency route",
+   "state": "running"
+  }
+ ],
+ "queued": [],
+ "graph": {
+  "nodes": [
+   [
+    "ALG",
+    "Weighted ℓ¹ Fourier–Taylor algebras<br/>products, derivatives, composition",
+    "todo"
+   ],
+   [
+    "DIOPH",
+    "Diophantine vectors<br/>cohomological equation",
+    "todo"
+   ],
+   [
+    "NEWTON",
+    "Newton convergence<br/>on analytic scales",
+    "todo"
+   ],
+   [
+    "BRIDGE",
+    "Real-analytic functions ↔<br/>coefficient spaces",
+    "todo"
+   ],
+   [
+    "GEOM",
+    "Approximate Lagrangian geometry<br/>frame and torsion",
+    "todo"
+   ],
+   [
+    "APOST",
+    "A-posteriori KAM at fixed frequency<br/>[HL19, Thm 3.1]; [GJLV05]",
+    "todo"
+   ],
+   [
+    "UNIQ",
+    "Local uniqueness<br/>modulo phase",
+    "todo"
+   ],
+   [
+    "APPLY",
+    "A torus for every Diophantine ω<br/>near (θ, (∇h)⁻¹ω)",
+    "todo"
+   ],
+   [
+    "LIP",
+    "Lipschitz dependence<br/>on the frequency",
+    "todo"
+   ],
+   [
+    "DMEAS",
+    "Measure of the<br/>non-Diophantine frequencies",
+    "todo"
+   ],
+   [
+    "IMAGE",
+    "Measure of images of<br/>near-bi-Lipschitz maps",
+    "todo"
+   ],
+   [
+    "HEAD",
+    "Headline: positive-measure KAM<br/>for nearly-integrable H = h + f",
+    "anchor"
+   ]
+  ],
+  "edges": [
+   [
+    "ALG",
+    "DIOPH"
+   ],
+   [
+    "ALG",
+    "GEOM"
+   ],
+   [
+    "ALG",
+    "APOST"
+   ],
+   [
+    "DIOPH",
+    "APOST"
+   ],
+   [
+    "NEWTON",
+    "APOST"
+   ],
+   [
+    "GEOM",
+    "APOST"
+   ],
+   [
+    "DIOPH",
+    "UNIQ"
+   ],
+   [
+    "GEOM",
+    "UNIQ"
+   ],
+   [
+    "BRIDGE",
+    "APPLY"
+   ],
+   [
+    "APOST",
+    "APPLY"
+   ],
+   [
+    "APOST",
+    "LIP"
+   ],
+   [
+    "UNIQ",
+    "LIP"
+   ],
+   [
+    "APPLY",
+    "LIP"
+   ],
+   [
+    "APPLY",
+    "HEAD"
+   ],
+   [
+    "LIP",
+    "HEAD"
+   ],
+   [
+    "DMEAS",
+    "HEAD"
+   ],
+   [
+    "IMAGE",
+    "HEAD"
+   ]
+  ]
+ },
+ "statement_notes": {}
+}
