@@ -52,8 +52,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P revision v0.2 addressing the audit (docs/tracks/P/RESPONSE-v0.1.md)",
-   "state": "running"
+   "assignment": "Track P v0.2: all nine audit findings adopted (disc cylinder, diffeomorphism on W ⊇ closure V, boundary-layer guard)",
+   "state": "done"
   },
   {
    "id": "zohar-shorter-times",
@@ -79,8 +79,8 @@
    "model": "GPT-6-Astra xhigh",
    "account": "codex-4",
    "session": "kam-audit-p",
-   "assignment": "Track P audit v0.1: P-G REJECT (box vs disc region, diffeomorphism on a neighbourhood, boundary regularity); P-PLANAR, P-FIXED approvable with changes",
-   "state": "done"
+   "assignment": "Delta audit of track P v0.2",
+   "state": "running"
   },
   {
    "id": "audit-I",
