@@ -47,30 +47,21 @@
    "state": "active"
   },
   {
-   "id": "prover-I-LIP",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-lip",
-   "assignment": "Package I-LIP (docs/campaign/briefs/I-LIP.md)",
-   "state": "done; in audit"
-  },
-  {
    "id": "prover-I-STRIP-5",
    "kind": "Lean prover",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
    "session": "worktree /root/code/KAM-w-strip5",
    "assignment": "Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md)",
-   "state": "running"
+   "state": "done; in audit"
   },
   {
-   "id": "audit-I-LIP",
+   "id": "audit-I-STRIP-5",
    "kind": "package audit (Codex)",
    "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "kam-audit-lip",
-   "assignment": "Independent audit of package I-LIP",
+   "account": "codex-4",
+   "session": "kam-audit-strip5",
+   "assignment": "Independent audit of package I-STRIP-5 (five explicit audit questions)",
    "state": "running"
   }
  ],
