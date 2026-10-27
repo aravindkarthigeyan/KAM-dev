@@ -1,5 +1,5 @@
 {
- "current_phase": "Statements frozen on all four tracks (94 anchors). Track K: blueprint consolidated (59 pages); Part 1 under refute-first review; dependency graph extraction next. Tracks I, N, P: run by the Opus sub-orchestrator (D23): D22 additions in Phase 0, blueprints starting.",
+ "current_phase": "Statements frozen on all four tracks (94 anchors). Track K: blueprint consolidated; Part 1 under review; dependency graph extraction running (464 draft nodes, 9 slices; 6 Sonnet extractors, Part 1 slices after its review). Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints starting.",
  "workers": [
   {
    "id": "orchestrator",
@@ -53,6 +53,60 @@
    "account": "codex-1",
    "session": "kam-k-review",
    "assignment": "Refute-first review of blueprint Part 1 and of the consolidation pass (67b8129)",
+   "state": "running"
+  },
+  {
+   "id": "extract-K-p0",
+   "kind": "graph extraction",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "-",
+   "assignment": "Dependency graph slice K-p0: confirm edges, fill source fields",
+   "state": "running"
+  },
+  {
+   "id": "extract-K-p2a",
+   "kind": "graph extraction",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "-",
+   "assignment": "Dependency graph slice K-p2a: confirm edges, fill source fields",
+   "state": "running"
+  },
+  {
+   "id": "extract-K-p2b",
+   "kind": "graph extraction",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "-",
+   "assignment": "Dependency graph slice K-p2b: confirm edges, fill source fields",
+   "state": "running"
+  },
+  {
+   "id": "extract-K-p3",
+   "kind": "graph extraction",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "-",
+   "assignment": "Dependency graph slice K-p3: confirm edges, fill source fields",
+   "state": "running"
+  },
+  {
+   "id": "extract-K-p4a",
+   "kind": "graph extraction",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "-",
+   "assignment": "Dependency graph slice K-p4a: confirm edges, fill source fields",
+   "state": "running"
+  },
+  {
+   "id": "extract-K-p4b",
+   "kind": "graph extraction",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "-",
+   "assignment": "Dependency graph slice K-p4b: confirm edges, fill source fields",
    "state": "running"
   }
  ],
