@@ -12,9 +12,9 @@ KIND: claim
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:ray@L48-L53
 DISPOSITION: NODE bpI:p1:ray
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: bpI:p1:totality
 KIND: claim
@@ -39,27 +39,27 @@ KIND: external
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:ext-chain@L94-L95
 DISPOSITION: NODE bpI:p1:ext-chain
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: bpI:p1:ext-real-direction
 KIND: external
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:ext-real-direction@L96-L100
 DISPOSITION: NODE bpI:p1:ext-real-direction
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: bpI:p1:extended-basic
 KIND: lemma
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L106-L122
 DISPOSITION: NODE bpI:p1:extended-basic
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:eb-holo
 KIND: proof-region
@@ -75,9 +75,9 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L130-L135
 DISPOSITION: NODE stepI:p1:eb-period
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:eb-average
 KIND: proof-region
@@ -93,27 +93,27 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L144-L148
 DISPOSITION: NODE stepI:p1:eb-bounds
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: bpI:p1:trivial
 KIND: lemma
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L151-L165
 DISPOSITION: NODE bpI:p1:trivial
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:tr-torus
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L168-L171
 DISPOSITION: NODE stepI:p1:tr-torus
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:tr-frame
 KIND: proof-region
@@ -174,18 +174,18 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L210-L229
 DISPOSITION: NODE bpI:p1:last-row
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:lr-gradient
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L232-L234
 DISPOSITION: NODE stepI:p1:lr-gradient
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:lr-insert
 KIND: proof-region
@@ -210,18 +210,18 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L257-L280
 DISPOSITION: NODE bpI:p1:energy-approx
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:ea-chain
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L283-L287
 DISPOSITION: NODE stepI:p1:ea-chain
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:ea-omega
 KIND: proof-region
@@ -244,8 +244,8 @@ REVIEWER: -
 ITEM: stepI:p1:ea-avg
 KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L298-L301
-DISPOSITION: NODE stepI:p1:ea-avg
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE stepI:p1:ea-avg, stepI:p1:ea-avg#exactness-route, stepI:p1:ea-avg#gradient-route
+REASON: labelled averaging step with the direct exactness route and the separately sufficient gradient-identity route at L300-L301
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: -
@@ -273,9 +273,9 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L319-L330
 DISPOSITION: NODE bpI:p1:energy-conservation
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:ec-derivative
 KIND: proof-region
@@ -327,9 +327,9 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L408-L410
 DISPOSITION: NODE stepI:p1:bs-first
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:bs-averages
 KIND: proof-region
@@ -399,9 +399,9 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L465-L485
 DISPOSITION: NODE bpI:p1:reduced
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:rd-ql
 KIND: proof-region
@@ -435,9 +435,9 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L517-L526
 DISPOSITION: NODE bpI:p1:geometry-noA5
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:geo-de
 KIND: proof-region
@@ -471,9 +471,9 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L539-L550
 DISPOSITION: NODE bpI:p1:perturbation-noA5
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:pt-small
 KIND: proof-region
@@ -489,9 +489,9 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L555-L556
 DISPOSITION: NODE stepI:p1:pt-domain
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: -
+REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:pt-frame
 KIND: proof-region
