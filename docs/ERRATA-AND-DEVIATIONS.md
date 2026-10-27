@@ -14,7 +14,7 @@ Locations refer to the pinned versions in [`sources.json`](sources.json); counts
 | Source | Errata | Deviations |
 |---|---|---|
 | Pos01 (arXiv:0908.2234v1) | 3 (3 candidate) | 2 |
-| GJLV05 (doi:10.1088/0951-7715/18/2/020) | 2 (2 candidate) | 1 |
+| GJLV05 (doi:10.1088/0951-7715/18/2/020) | 5 (5 candidate) | 1 |
 | FdlLS09 (arXiv:0903.0311v1) | 2 (2 candidate) | 0 |
 | CCdlL13 (doi:10.1016/j.jde.2013.05.001) | 1 (1 candidate) | 1 |
 | HL19 (arXiv:1711.05515v1) | 2 (2 candidate) | 3 |
@@ -39,10 +39,13 @@ Locations refer to the pinned versions in [`sources.json`](sources.json); counts
 
 1. **p. 862, Theorem 3 (closeness bound).** *typo; CANDIDATE* (E-GJLV05-1). Printed: cγ²δ^{−2σ}. presumably cγ^{−2}δ^{−2σ}, as in Theorems 1 and 5. Evidence: comparison with Theorems 1, 5 and the proof. Effect: none if confirmed as a typo.
 2. **p. 865, Theorem 5.** *typo; CANDIDATE* (E-GJLV05-2). Printed: ‖e₀‖_{ρ₀}. ρ₀ is not defined in the statement (presumably ρ). Evidence: statement of Theorem 5. Effect: none.
+3. **pp. 884–885, Lemma 14 (choice of the phase).** *gap; CANDIDATE* (E-GJLV05-3). Printed: contraction Ψ on Θ = {|τ| < ‖K₁ − K₂‖_ρ}. the proof never shows that Ψ maps Θ into itself, and Θ is open; Ψ(0) can be as large as ‖T‖_ρ‖K₁ − K₂‖_ρ. Correction: use the closed ball of radius 2‖T‖_ρ‖K₁ − K₂‖_ρ. Evidence: Ψ(0) estimate in the proof. Effect: none on our statements; G2's proof uses the closed ball.
+4. **p. 885, proof of Theorem 2.** *typo; CANDIDATE* (E-GJLV05-4). Printed: 0 < δ, ρ/2. should read 0 < δ < ρ/2. Evidence: context. Effect: none.
+5. **p. 889, Prop. 18.** *typo; CANDIDATE* (E-GJLV05-5). Printed: ∂v/∂θ_i … ‖v‖_ρ (right-hand side). the derivative index should be θ_j, and the right-hand side norm should be ‖h‖_ρ. Evidence: the statement's own variables. Effect: none.
 
 ### Deviations
 
-1. **Theorem 2 (maps), §6, §8.** *proof supplement; PLANNED* (D-UNIQ-1). Proof supplement: local uniqueness modulo phase for flows. No published statement exists in this framework (GJLV05 Rem. 7: 'We do not formulate such a theorem'; HL19 Rem. 3.5 asserts it without proof). We prove it by adapting the map proof of GJLV05 §6 with the flow reducibility of §8 and Prop. 18, directly for flows (not through the time-one map, which needs map-Diophantine frequencies). Effect: a gate theorem of our own; no source statement changes.
+1. **Theorem 2 (maps), §6, §8.** *proof supplement; PLANNED* (D-UNIQ-1). Proof supplement: local uniqueness modulo phase for flows. No published statement exists in this framework (GJLV05 Rem. 7: 'We do not formulate such a theorem'; HL19 Rem. 3.5 asserts it without proof). We prove it by adapting the map proof of GJLV05 §6 with the flow reducibility of §8 and Prop. 18, directly for flows (not through the time-one map, which needs map-Diophantine frequencies).. Proof written in blueprint Part 3: linearization at K₁ (not K₂), the phase fixed once by ⟨BLᵀ(K₂(·+ψ) − K₁)⟩ = 0, a uniqueness constant independent of γ (|ω| ≤ Γ from invariance, so γ ≤ Γ), the small-divisor exponent τ + n, and the conclusion on T_{ρ/2}. Effect: a gate theorem of our own; no source statement changes.
 
 
 ## FdlLS09 (arXiv:0903.0311v1)

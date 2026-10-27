@@ -34,8 +34,8 @@
    "model": "Claude Opus 5.5",
    "account": "claude-1",
    "session": null,
-   "assignment": "Blueprint part 3: G2, local uniqueness for flows (adapting GJLV05 §6, §8)",
-   "state": "running"
+   "assignment": "Blueprint part 3 (G2) written: 830 lines, complete proof; in review",
+   "state": "done"
   },
   {
    "id": "bp-meas",
@@ -80,6 +80,15 @@
    "account": "codex-1",
    "session": "kam-zohar2",
    "assignment": "Stability of almost every initial condition over shorter-than-Nekhoroshev times; compatibility with simulations; candidate theorems (Zohar's question)",
+   "state": "running"
+  },
+  {
+   "id": "review-p3",
+   "kind": "blueprint reviewer",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Refute-first review of blueprint part 3 (G2)",
    "state": "running"
   }
  ],

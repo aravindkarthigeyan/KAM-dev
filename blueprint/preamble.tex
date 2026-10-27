@@ -35,6 +35,8 @@
 % \source{text}: pinned source location (see docs/sources.json for versions and hashes).
 \newcommand{\source}[1]{\par\noindent{\small\textsf{Source:} #1}\par}
 % \proofstep{title}: a substantive proof step; follow it with \label{step:...}.
-\newcommand{\proofstep}[1]{\par\medskip\noindent\textbf{Step: #1.}\ }
+\newcounter{bpstep}[section]
+\renewcommand{\thebpstep}{\thesection.\arabic{bpstep}}
+\newcommand{\proofstep}[1]{\par\medskip\noindent\refstepcounter{bpstep}\textbf{Step \thebpstep: #1.}\ }
 % \sourcegap{text}: the source asserts or needs this bridge without proving it.
 \newcommand{\sourcegap}[1]{\par\noindent{\small\textsf{Source gap:} #1}\par}

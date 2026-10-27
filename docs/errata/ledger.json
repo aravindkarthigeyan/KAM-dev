@@ -166,7 +166,7 @@
    "type": "deviation",
    "source": "GJLV05",
    "location": "Theorem 2 (maps), §6, §8",
-   "claim": "Proof supplement: local uniqueness modulo phase for flows. No published statement exists in this framework (GJLV05 Rem. 7: 'We do not formulate such a theorem'; HL19 Rem. 3.5 asserts it without proof). We prove it by adapting the map proof of GJLV05 §6 with the flow reducibility of §8 and Prop. 18, directly for flows (not through the time-one map, which needs map-Diophantine frequencies).",
+   "claim": "Proof supplement: local uniqueness modulo phase for flows. No published statement exists in this framework (GJLV05 Rem. 7: 'We do not formulate such a theorem'; HL19 Rem. 3.5 asserts it without proof). We prove it by adapting the map proof of GJLV05 §6 with the flow reducibility of §8 and Prop. 18, directly for flows (not through the time-one map, which needs map-Diophantine frequencies).. Proof written in blueprint Part 3: linearization at K₁ (not K₂), the phase fixed once by ⟨BLᵀ(K₂(·+ψ) − K₁)⟩ = 0, a uniqueness constant independent of γ (|ω| ≤ Γ from invariance, so γ ≤ Γ), the small-divisor exponent τ + n, and the conclusion on T_{ρ/2}",
    "kind": "proof supplement",
    "status": "PLANNED",
    "effect": "a gate theorem of our own; no source statement changes"
@@ -216,6 +216,45 @@
    "kind": "reformulation (uniform constants)",
    "status": "PLANNED",
    "effect": "G1 as drafted v0.2; G2"
+  },
+  {
+   "id": "E-GJLV05-3",
+   "type": "erratum",
+   "source": "GJLV05",
+   "location": "pp. 884–885, Lemma 14 (choice of the phase)",
+   "printed": "contraction Ψ on Θ = {|τ| < ‖K₁ − K₂‖_ρ}",
+   "claim": "the proof never shows that Ψ maps Θ into itself, and Θ is open; Ψ(0) can be as large as ‖T‖_ρ‖K₁ − K₂‖_ρ. Correction: use the closed ball of radius 2‖T‖_ρ‖K₁ − K₂‖_ρ",
+   "kind": "gap",
+   "evidence": "Ψ(0) estimate in the proof",
+   "status": "CANDIDATE",
+   "checked_by": "blueprint Part 3 writer 2026-10-27, against the rendered PDF (to be re-verified)",
+   "effect": "none on our statements; G2's proof uses the closed ball"
+  },
+  {
+   "id": "E-GJLV05-4",
+   "type": "erratum",
+   "source": "GJLV05",
+   "location": "p. 885, proof of Theorem 2",
+   "printed": "0 < δ, ρ/2",
+   "claim": "should read 0 < δ < ρ/2",
+   "kind": "typo",
+   "evidence": "context",
+   "status": "CANDIDATE",
+   "checked_by": "blueprint Part 3 writer 2026-10-27 (to be re-verified)",
+   "effect": "none"
+  },
+  {
+   "id": "E-GJLV05-5",
+   "type": "erratum",
+   "source": "GJLV05",
+   "location": "p. 889, Prop. 18",
+   "printed": "∂v/∂θ_i … ‖v‖_ρ (right-hand side)",
+   "claim": "the derivative index should be θ_j, and the right-hand side norm should be ‖h‖_ρ",
+   "kind": "typo",
+   "evidence": "the statement's own variables",
+   "status": "CANDIDATE",
+   "checked_by": "blueprint Part 3 writer 2026-10-27 (to be re-verified)",
+   "effect": "none"
   }
  ]
 }

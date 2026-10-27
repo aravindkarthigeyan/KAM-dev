@@ -66,6 +66,44 @@ $\abs{(A+\Delta)^{-1}}\le2\abs{A^{-1}}$ and $\abs{(A+\Delta)^{-1}-A^{-1}}\le2\ab
 The same holds pointwise for matrix-valued functions, with sup norms.
 \end{lemma}
 
+\subsection{Further interface lemmas (transferred from Part 3, 27 Oct 2026)}
+
+\begin{lemma}[Periodic functions are bounded on smaller strips]\label{bp:p1:periodic-bounded}
+If $u$ is holomorphic and $1$-periodic on $T_\rho$, then $u$ is bounded on $T_{\rho'}$ for every $\rho'<\rho$.
+\end{lemma}
+
+\begin{lemma}[Increments]\label{bp:p1:increments}
+If $u$ is holomorphic on $T_\rho$ and $\theta,\theta+v\in T_{\rho-\delta}$ with the segment between them in
+$T_{\rho-\delta}$, then $\abs{u(\theta+v)-u(\theta)}\le\norm{Du}_{\rho-\delta}\abs{v}$; with
+Lemma~\ref{bp:p1:cauchy-strip}, $\le n\delta^{-1}\norm{u}_\rho\abs{v}$.
+\end{lemma}
+
+\begin{lemma}[Second-order Taylor bound]\label{bp:p1:taylor}
+If $F$ is holomorphic on an open $U\subset\C^m$ with $\abs{D^2F}\le A$ on $U$ and the segment $[z,z+w]\subset U$, then
+$\abs{F(z+w)-F(z)-DF(z)w}\le\frac A2\abs{w}^2$.
+\end{lemma}
+
+\begin{lemma}[Max-norm matrix facts]\label{bp:p1:matrix-norms}
+For the norm $\abs{M}=\max_i\sum_j\abs{M_{ij}}$: $\abs{MN}\le\abs M\abs N$, $\abs{Mv}\le\abs M\abs v$, and
+$\abs{M^\top}\le m\abs M$ for $m\times m'$ matrices with $m'\le m$ (dimension factors explicit).
+\end{lemma}
+
+\begin{lemma}[Holomorphic inverse]\label{bp:p1:holomorphic-inverse}
+If $A$ is a holomorphic matrix-valued function on an open set with $\det A\ne0$ there, then $A^{-1}$ is
+holomorphic there, and $D(A^{-1})=-A^{-1}(DA)A^{-1}$.
+\end{lemma}
+
+\begin{lemma}[Quadratic iteration on nested strips]\label{bp:p1:iteration}
+Let $Q>0$, $p\ge0$ and $y_0,y_1,\dots\ge0$ with $y_{m+1}\le Q2^{pm}y_m^2$ for every $m\ge0$ and
+$Q2^py_0\le\frac12$. Then $y_m\le Q^{-1}2^{-p(m+1)}2^{-2^m}$ for every $m\ge0$; in particular $y_m\to0$.
+(Proved as \texttt{bp:p3:iteration}; Part 2's iteration lemma is to be unified with this one.)
+\end{lemma}
+
+\begin{lemma}[Averages of functions on the real torus]\label{bp:p1:averages-real}
+For $v:\R^n\to\C$ continuous, $1$-periodic and differentiable with continuous derivative:
+$\avg{\partial_{\theta_\ell}v}=0$ and $\avg{Dv\,\omega}=0$.
+\end{lemma}
+
 \subsection{Diophantine frequencies}
 
 \begin{lemma}[Measure of the resonant set]\label{bp:p1:dmeas}

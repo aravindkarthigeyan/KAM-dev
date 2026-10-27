@@ -1,3 +1,829 @@
 \section{Local uniqueness of invariant tori of flows (G2)}\label{bp:p3}
 
-\emph{Status: being written.}
+This part proves Theorem~\ref{bp:p0:g2}. Let $K_1$ and $K_2$ be invariant tori of $X_h$ with the same
+Diophantine frequency~$\omega$, and let $K_1$ satisfy the nondegeneracy hypotheses of G1. If
+$\abs{K_1-K_2}\le c\gamma^2\rho^{2\tau}$ on $T_\rho$, then $K_2=K_1(\cdot+\varphi)$ on $T_{\rho/2}$ for a
+real phase~$\varphi$. No pinned source proves this for flows. GJLV05 prove it for exact symplectic maps
+(Theorem~2, p.~862, proof in \S6, pp.~883--885) and do not formulate the flow version (Remark~7,
+p.~865); HL19 assert it without proof (Remark~3.5, p.~18). We follow the map proof of GJLV05~\S6, with
+the difference operator replaced by the derivative $\partial_\omega$ along~$\omega$ and the map frame
+replaced by the flow frame of HL19~\S2.4--2.5 in the canonical case. We do not pass through the
+time-one map: the time-one rotation of a flow-Diophantine frequency can be resonant (for
+$\omega=(1,\sqrt2)$ and $k=e_1$ one has $k\cdot\omega\in\Z$).
+
+\paragraph{Strategy.} The proof has four steps.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Exact geometry at $K_1$.} Since $K_1$ is exactly invariant and $\omega$ is nonresonant,
+  $K_1$ is Lagrangian. Hence the frame $P=(L\ N)$ of HL19 Case~III is exactly symplectic and reduces the
+  linearized vector field exactly to the triangular matrix
+  $\Lambda=\left(\begin{smallmatrix}0&T\\0&0\end{smallmatrix}\right)$, where $T$ is the torsion
+  (Subsection~\ref{bp:p3:geometry}).
+\item \emph{Phase.} We translate $K_2$ by a real phase $\psi$ so that the tangential component of
+  $K_2(\cdot+\psi)-K_1$ has zero average. This is a contraction in $\R^n$
+  (Subsection~\ref{bp:p3:phase-section}).
+\item \emph{Quadratic estimate.} The difference $\Delta=K_2(\cdot+\psi)-K_1$ solves the equation
+  linearized at $K_1$ up to a remainder quadratic in~$\Delta$. In the frame~$P$ this equation becomes two
+  cohomological equations. Their solutions are determined by the remainder once two averages are fixed:
+  the tangential average vanishes by the choice of phase, and the normal average is fixed by the
+  invertibility of~$\avg T$. The two small-divisor solutions cost $\gamma^{-2}$ together, and
+  \begin{equation*}
+  \norm{\Delta}_{\rho''}\le C_{\mathrm{quad}}\gamma^{-2}\bigl(\tfrac12(\rho'-\rho'')\bigr)^{-2(\tau+n)}
+  \norm{\Delta}_{\rho'}^2\qquad\text{for }0<\rho''<\rho'\le\tfrac34\rho\,.
+  \end{equation*}
+  (Subsection~\ref{bp:p3:quadratic-section}.)
+\item \emph{Iteration.} Applied on strips shrinking from $T_{3\rho/4}$ to $T_{\rho/2}$, the quadratic
+  estimate drives $\norm{\Delta}$ to zero faster than the strip losses grow, so $\Delta=0$ on $T_{\rho/2}$
+  (Subsection~\ref{bp:p3:proof-section}).
+\end{enumerate}
+
+\paragraph{Why $c$ does not depend on $\gamma$.} The quadratic estimate loses exactly $\gamma^{-2}$,
+which the closeness hypothesis $c\gamma^2\rho^{2\tau}$ compensates. The two other smallness conditions,
+that the segment from $K_1(\theta)$ to $K_2(\theta+\psi)$ stays in $\mathfrak B$ and that the phase map
+contracts, do not involve~$\gamma$. They follow from the closeness hypothesis because $\gamma$ is bounded
+a priori: invariance of $K_1$ and the bounds on $DK_1$ and on the Gram inverse give $\abs\omega\le C_PM$,
+and the Diophantine inequality for $k=e_1$ gives $\gamma\le\abs{\omega_1}$
+(Lemma~\ref{bp:p3:frequency-bound}).
+
+\subsection{Standing assumptions, notation and constants}\label{bp:p3:setting}
+
+Throughout this part we fix $n\ge2$, $\tau\ge n-1$, $\rho>0$ and $M,\sigma_K,\sigma_B,\sigma_T,\mu>0$, as
+in Theorem~\ref{bp:p0:g2}. Norms are those of Part~\ref{bp:p0}: $\abs{\cdot}$ is the max norm on $\C^m$
+and the induced norm $\abs{A}=\max_i\sum_j\abs{A_{ij}}$ on matrices and linear maps, and
+$\norm{u}_{\rho'}=\sup_{T_{\rho'}}\abs{u}$.
+
+\begin{assumption}[Two invariant tori]\label{bp:p3:standing}
+The data $\mathfrak B\subset\C^n\times\C^n$, $h:\C^n\times\C^n\to\C$,
+$K_1,K_2:\C^n\to\C^n\times\C^n$, $\omega\in\R^n$ and $\gamma\in\R$ satisfy the following.
+\begin{enumerate}[label=(S\arabic*)]
+\item \emph{The Hamiltonian.} $\mathfrak B$ is open and invariant under $(\theta,I)\mapsto(\theta+k,I)$,
+  $k\in\Z^n$; $h$ is holomorphic on $\mathfrak B$, $1$-periodic in~$\theta$ and real at the real points
+  of~$\mathfrak B$; and $\abs{Dh(z)}$, $\abs{X_h(z)}$, $\abs{DX_h(z)}$, $\abs{D^2X_h(z)}\le M$ for every
+  $z\in\mathfrak B$.
+\item \emph{The frequency.} $\gamma>0$ and $\omega\in\Dio_{\gamma,\tau}$.
+\item \emph{The reference torus.} $K_1$ is holomorphic on $T_\rho$, primary on $T_\rho$ and real on
+  reals. For every $\theta\in T_\rho$: the ball of radius $\mu$ around $K_1(\theta)$ lies in
+  $\mathfrak B$; $\abs{DK_1(\theta)}\le\sigma_K-\mu$; the Gram matrix $L^\top L(\theta)$ is invertible
+  and $\abs{B(\theta)}\le\sigma_B-\mu$. The average $\avg T$ is invertible and
+  $\abs{\avg T^{-1}}\le\sigma_T-\mu$. The invariance error $E_1$ of $K_1$ vanishes on $T_\rho$.
+\item \emph{The second torus.} $K_2$ is holomorphic on $T_\rho$, primary on $T_\rho$, real on reals,
+  $K_2(T_\rho)\subset\mathfrak B$, and its invariance error $E_2$ vanishes on $T_\rho$.
+\end{enumerate}
+\end{assumption}
+
+These are the hypotheses of Theorem~\ref{bp:p0:g2} without the closeness hypothesis. The objects in
+(S3) are those of Definition~\ref{bp:p0:stripdata} for $K=K_1$; we fix them now.
+\begin{itemize}
+\item The invariance errors are $E_i(\theta)=X_h(K_i(\theta))-DK_i(\theta)\omega$, $i=1,2$. For a
+  function $u$ on a strip, $\partial_\omega u(\theta)\coloneqq Du(\theta)\omega=\sum_\ell\omega_\ell\,
+  \partial_{\theta_\ell}u(\theta)$; for matrix-valued $u$ this is $Du(\theta)[\omega]$ of
+  Definition~\ref{bp:p0:stripdata}.
+\item $L\coloneqq DK_1$ ($2n\times n$), $B\coloneqq(L^\top L)^{-1}$, $N\coloneqq\Omega_0LB$,
+  $P\coloneqq(L\ N)$ ($2n\times2n$), $X_N\coloneqq DX_h(K_1)N-\partial_\omega N$,
+  $T\coloneqq N^\top\Omega_0X_N$, and $\avg T=\int_{[0,1]^n}T(\theta)\,d\theta$, the integral over real
+  $\theta$. The transpose is bilinear (no complex conjugation).
+\item For a $1$-periodic function $u$ continuous on $\R^n$, $\avg u\coloneqq\int_{[0,1]^n}u(\theta)\,
+  d\theta$. This is the Fourier average $\hat u_0$ of Part~\ref{bp:p0}.
+\item A vector $\xi\in\C^{2n}$ is written $\xi=(\xi^L,\xi^N)$ with $\xi^L,\xi^N\in\C^n$, so that
+  $P\xi=L\xi^L+N\xi^N$: these are the tangential and normal coordinates of $P\xi$.
+\end{itemize}
+
+\paragraph{Constants.} All constants of this part are fixed here, before any data. They depend only
+on $n$, $\tau$, $\rho$, $M$, $\sigma_K$, $\sigma_B$ and $\sigma_T$:
+\begin{equation}\label{eq:p3:constants}
+\begin{aligned}
+C_P&\coloneqq2n\sigma_K(1+\sigma_B)\,,&\qquad\Gamma&\coloneqq C_PM\,,\\
+C_{\mathrm{tor}}&\coloneqq C_P^2M\Bigl(1+\frac{4nC_P}{\rho}\Bigr)\,,&\qquad
+C_{\mathrm{coh}}&\coloneqq c(n,\tau)\,,
+\end{aligned}
+\end{equation}
+where $c(n,\tau)$ is the constant of Lemma~\ref{bp:p1:cohomological}, and
+\begin{equation}\label{eq:p3:Cquad}
+\begin{aligned}
+C^N&\coloneqq\tfrac12C_PM\bigl[(1+\sigma_TC_{\mathrm{tor}})C_{\mathrm{coh}}+\sigma_T\Gamma\rho^{\tau+n}
+\bigr]\,,\qquad
+C^L\coloneqq C_{\mathrm{coh}}\bigl[C_{\mathrm{tor}}C^N+\tfrac12C_PM\Gamma\rho^{\tau+n}\bigr]\,,\\
+C_{\mathrm{quad}}&\coloneqq C_P\max\bigl\{C^L,\ \Gamma\rho^{\tau+n}C^N\bigr\}\,.
+\end{aligned}
+\end{equation}
+Their roles: $C_P$ bounds the frame and its inverse (Lemma~\ref{bp:p3:matrix-norms}); $\Gamma$ bounds
+$\abs\omega$ and $\gamma$ (Lemma~\ref{bp:p3:frequency-bound}); $C_{\mathrm{tor}}$ bounds the torsion on
+$T_{3\rho/4}$ (Lemma~\ref{bp:p3:torsion-bound}); and $C_{\mathrm{quad}}$ is the constant of the
+quadratic estimate (Proposition~\ref{bp:p3:quadratic}). The threshold $c$ of the theorem is chosen
+in~\eqref{eq:p3:c} from these constants and~$\mu$.
+
+\subsection{Auxiliary facts}\label{bp:p3:auxiliary}
+
+The following elementary facts are used repeatedly. They are infrastructure and are listed for
+transfer to Part~\ref{bp:p1} in Subsection~\ref{bp:p3:transfer}.
+
+\begin{lemma}[Periodic functions on smaller strips]\label{bp:p3:periodic-bounded}
+Let $u$ be holomorphic and $1$-periodic on $T_{\rho_1}$, with values in $\C^m$ or in a space of matrices.
+Then $u$ is continuous on $\R^n$, and $\norm{u}_{\rho_2}<\infty$ for every $0<\rho_2<\rho_1$.
+\end{lemma}
+
+\begin{proof}
+The set $S=\{\theta\in\C^n:\operatorname{Re}\theta\in[0,1]^n,\ \abs{\operatorname{Im}\theta_i}\le\rho_2\
+\forall i\}$ is compact and contained in $T_{\rho_1}$, so the continuous function $\abs u$ is bounded on
+$S$. Every $\theta\in T_{\rho_2}$ is $\theta'+k$ with $\theta'\in S$ and $k\in\Z^n$, and
+$u(\theta)=u(\theta')$.
+\end{proof}
+
+\begin{lemma}[Increments on strips]\label{bp:p3:increments}
+Let $u$ be holomorphic on $T_{\rho_1}$ with values in $\C^m$ or in a space of matrices, let
+$0<\rho_2\le\rho_1$, and let $\abs{Du(\theta)}\le\lambda$ for every $\theta\in T_{\rho_2}$. Then
+\begin{equation*}
+\abs{u(\theta')-u(\theta)}\le\lambda\abs{\theta'-\theta}\qquad\text{for every }\theta,\theta'\in
+T_{\rho_2}\,.
+\end{equation*}
+If $u$ is bounded on $T_{\rho_1}$ and $\rho_2<\rho_1$, the hypothesis holds with
+$\lambda=n(\rho_1-\rho_2)^{-1}\norm{u}_{\rho_1}$.
+\end{lemma}
+
+\begin{proof}
+The strip $T_{\rho_2}$ is convex, so the first claim is the mean value inequality along the segment
+from $\theta$ to $\theta'$. The second claim is Lemma~\ref{bp:p1:cauchy-strip} with
+$\delta=\rho_1-\rho_2$, in its form $\norm{Du}_{\rho_1-\delta}\le n\delta^{-1}\norm{u}_{\rho_1}$.
+\end{proof}
+
+\begin{lemma}[Second-order Taylor bound for $X_h$]\label{bp:p3:taylor}
+Assume (S1). Let $z\in\mathfrak B$ and $w\in\C^{2n}$ with $z+tw\in\mathfrak B$ for every $t\in[0,1]$.
+Then
+\begin{equation*}
+\abs{X_h(z+w)-X_h(z)-DX_h(z)w}\le\tfrac12M\abs w^2\,.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Since $h$ is holomorphic on the open set $\mathfrak B$, so are $X_h$ and $DX_h$. The function
+$g(t)=X_h(z+tw)-X_h(z)-tDX_h(z)w$ satisfies $g(0)=0$ and $g'(t)=\bigl(DX_h(z+tw)-DX_h(z)\bigr)w$. The mean
+value inequality for $DX_h$ along the segment, with $\abs{D^2X_h}\le M$, gives
+$\abs{DX_h(z+tw)-DX_h(z)}\le Mt\abs w$. Hence $\abs{g'(t)}\le Mt\abs w^2$ and
+$\abs{g(1)}\le\int_0^1Mt\abs w^2\,dt=\frac12M\abs w^2$.
+\end{proof}
+
+\begin{lemma}[Matrix norms of the frame]\label{bp:p3:matrix-norms}
+\begin{enumerate}[label=(\alph*)]
+\item For $A\in\C^{p\times q}$, $A'\in\C^{q\times r}$ and $v\in\C^q$: $\abs{Av}\le\abs A\abs v$,
+  $\abs{AA'}\le\abs A\abs{A'}$ and $\abs{A^\top}\le p\abs A$. If $p=2n$ then $\abs{\Omega_0A}=\abs A$; if
+  $q=2n$ then $\abs{A\Omega_0}=\abs A$. For blocks, $\abs{(A_1\ A_2)}\le\abs{A_1}+\abs{A_2}$ and
+  $\bigl|\left(\begin{smallmatrix}A_1\\A_2\end{smallmatrix}\right)\bigr|=\max\{\abs{A_1},\abs{A_2}\}$.
+\item Assume (S3). For every $\theta\in T_\rho$:
+  \begin{gather*}
+  \abs{L}\le\sigma_K\,,\qquad\abs B\le\sigma_B\,,\qquad\abs{N}\le\sigma_K\sigma_B\,,\\
+  \abs{BL^\top}\le C_P\,,\qquad\abs{L^\top\Omega_0}\le C_P\,,\qquad\abs P\le C_P\,,\qquad
+  \Bigl|\begin{pmatrix}BL^\top\\-L^\top\Omega_0\end{pmatrix}\Bigr|\le C_P\,.
+  \end{gather*}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\proofstep{General facts}\label{step:p3:norms-general}
+The first two inequalities hold because $\abs\cdot$ is the operator norm for the max norm. For the
+transpose, $\abs{A^\top}=\max_j\sum_{i=1}^p\abs{A_{ij}}\le\sum_{i=1}^p\max_j\abs{A_{ij}}\le p\abs A$.
+The matrix $\Omega_0$ is a signed permutation matrix: $\Omega_0A$ permutes the rows of $A$ up to sign
+and $A\Omega_0$ permutes its columns up to sign, so neither changes a row sum of absolute values. The
+block formulas follow from the definition of $\abs\cdot$ as a maximal row sum.
+
+\proofstep{The frame}\label{step:p3:norms-frame}
+By (S3) and the convention that $\abs{DK_1(\theta)}$ is the operator norm, $\abs L\le\sigma_K$ and
+$\abs B\le\sigma_B$. Then $\abs N=\abs{LB}\le\sigma_K\sigma_B$,
+$\abs{BL^\top}\le\sigma_B\cdot2n\sigma_K\le C_P$, $\abs{L^\top\Omega_0}=\abs{L^\top}\le2n\sigma_K\le C_P$,
+$\abs P\le\abs L+\abs N\le\sigma_K(1+\sigma_B)\le C_P$, and the last bound is the maximum of the two
+previous ones.
+\end{proof}
+
+\subsection{Geometry of an invariant torus}\label{bp:p3:geometry}
+
+This subsection derives the exact identities at the reference torus. The first two lemmas hold for an
+arbitrary torus with invariance error $E$; they are the canonical-case versions of HL19 (4.12) and
+Lemma~4.3, and Part~\ref{bp:p2} needs them with $E\ne0$. From Lemma~\ref{bp:p3:lagrangian} on,
+$E_1=0$ makes every identity exact.
+
+\begin{lemma}[$\Omega_0DX_h$ is symmetric]\label{bp:p3:hamiltonian-symmetry}
+Let $h$ be holomorphic on an open set $\mathfrak B\subset\C^n\times\C^n$. For every $z\in\mathfrak B$,
+$\Omega_0DX_h(z)=D^2h(z)$, the complex Hessian of $h$, which is symmetric. Consequently
+\begin{equation*}
+DX_h(z)^\top\Omega_0+\Omega_0DX_h(z)=0\,.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+With $\Omega_0(a,b)=(-b,a)$ and $X_h=(\partial_Ih,-\partial_\theta h)$ we get
+$\Omega_0X_h=(\partial_\theta h,\partial_Ih)=\nabla h$, the vector of complex partial derivatives.
+Differentiating, $\Omega_0DX_h=D^2h$. A holomorphic function is $C^\infty$ in the complex sense and its
+second derivative is symmetric, so $D^2h(z)^\top=D^2h(z)$. Using $\Omega_0^\top=-\Omega_0$,
+\begin{equation*}
+DX_h^\top\Omega_0=(\Omega_0^\top D^2h)^\top\Omega_0=-(D^2h)^\top\Omega_0^\top\Omega_0
+=-D^2h=-\Omega_0DX_h\,,
+\end{equation*}
+since $\Omega_0^\top\Omega_0=I$ and $\Omega_0^{-1}=\Omega_0^\top$.
+\end{proof}
+
+\begin{lemma}[Tangent identities]\label{bp:p3:tangent-identities}
+Let $\mathfrak B$ and $h$ be as in Lemma~\ref{bp:p3:hamiltonian-symmetry}, $\omega\in\R^n$, and let
+$K$ be holomorphic on $T_{\rho}$ with $K(T_{\rho})\subset\mathfrak B$. Write, for this $K$, $L=DK$,
+$E=X_h\circ K-L\omega$, $\Omega_K\coloneqq L^\top\Omega_0L$ and $X_L\coloneqq DX_h(K)L-\partial_\omega L$.
+Then on $T_\rho$:
+\begin{enumerate}[label=(\alph*)]
+\item $DE=X_L$;
+\item $\partial_\omega\Omega_K=-X_L^\top\Omega_0L-L^\top\Omega_0X_L$;
+\item if $K$ is primary on $T_\rho$, then $L$ and $\Omega_K$ are $1$-periodic and $\avg{\Omega_K}=0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\proofstep{Derivative of the invariance error}\label{step:p3:tangent-DE}
+By the chain rule, $D(X_h\circ K)=DX_h(K)L$. For $v\in\C^n$, $D(L\omega)(\theta)v=D^2K(\theta)[v,\omega]
+=D^2K(\theta)[\omega,v]=\partial_\omega L(\theta)v$, by symmetry of the second derivative of the
+holomorphic map $K$. Hence $DE=DX_h(K)L-\partial_\omega L=X_L$.
+
+\proofstep{Derivative of the symplectic Gram matrix}\label{step:p3:tangent-Omega}
+By the product rule and $\partial_\omega L=DX_h(K)L-X_L$,
+\begin{equation*}
+\partial_\omega\Omega_K=(\partial_\omega L)^\top\Omega_0L+L^\top\Omega_0\partial_\omega L
+=L^\top\bigl(DX_h(K)^\top\Omega_0+\Omega_0DX_h(K)\bigr)L-X_L^\top\Omega_0L-L^\top\Omega_0X_L\,,
+\end{equation*}
+and the bracket vanishes by Lemma~\ref{bp:p3:hamiltonian-symmetry}.
+
+\proofstep{Zero average}\label{step:p3:tangent-average}
+Write $K=(K^\theta,K^I)$ with $K^\theta,K^I:T_\rho\to\C^n$. Primarity gives
+$K^\theta(\theta+k)=K^\theta(\theta)+k$ and $K^I(\theta+k)=K^I(\theta)$; differentiating, $L$ is
+$1$-periodic, hence so is $\Omega_K$. With $u\cdot v=\sum_lu_lv_l$, the definition of $\Omega_0$ gives
+$(\Omega_K)_{ij}=\partial_iK^I\cdot\partial_jK^\theta-\partial_iK^\theta\cdot\partial_jK^I$. Put
+$g_j\coloneqq K^I\cdot\partial_jK^\theta$, which is holomorphic and $1$-periodic on $T_\rho$. The second
+derivatives of $K^\theta$ cancel in
+\begin{equation*}
+\partial_ig_j-\partial_jg_i=\partial_iK^I\cdot\partial_jK^\theta-\partial_jK^I\cdot\partial_iK^\theta
+=(\Omega_K)_{ij}\,.
+\end{equation*}
+By Lemma~\ref{bp:p3:periodic-bounded}, $g_j$ is bounded on $T_{\rho/2}$, and
+Lemma~\ref{bp:p1:averages} on $T_{\rho/2}$ gives $\avg{\partial_ig_j}=0$. Hence $\avg{\Omega_K}=0$.
+\end{proof}
+
+\source{HL19 (2.3), Lemma~4.3 and (4.12)--(4.13), pp.~7, 22--23 (with $\Omega=\Omega_0$ constant and
+$L_\omega=-\partial_\omega$); GJLV05 Lemma~19, pp.~889--891.}
+
+\begin{lemma}[Frame algebra]\label{bp:p3:frame-algebra}
+Let $L\in\C^{2n\times n}$ with $L^\top L$ invertible, and put $B=(L^\top L)^{-1}$, $N=\Omega_0LB$,
+$P=(L\ N)$ and $\Omega_L=L^\top\Omega_0L$. Then $B^\top=B$,
+\begin{equation*}
+N^\top\Omega_0=BL^\top,\qquad N^\top\Omega_0L=I,\qquad L^\top\Omega_0N=-I,\qquad
+N^\top\Omega_0N=B\Omega_LB\,,
+\end{equation*}
+and
+\begin{equation*}
+\begin{pmatrix}BL^\top\\-L^\top\Omega_0\end{pmatrix}P=\begin{pmatrix}I&B\Omega_LB\\-\Omega_L&I
+\end{pmatrix}\,.
+\end{equation*}
+If $\Omega_L=0$, then $P$ is invertible,
+\begin{equation*}
+P^{-1}=\begin{pmatrix}BL^\top\\-L^\top\Omega_0\end{pmatrix}=-\Omega_0P^\top\Omega_0\qquad\text{and}
+\qquad P^\top\Omega_0P=\Omega_0\,.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+\proofstep{Products}\label{step:p3:frame-products}
+$L^\top L$ is symmetric, hence so is its inverse $B$. Using $\Omega_0^\top\Omega_0=I$ and
+$\Omega_0^2=-I$: $N^\top\Omega_0=BL^\top\Omega_0^\top\Omega_0=BL^\top$; then
+$N^\top\Omega_0L=BL^\top L=I$, $L^\top\Omega_0N=L^\top\Omega_0^2LB=-L^\top LB=-I$, and
+$N^\top\Omega_0N=BL^\top\Omega_0LB=B\Omega_LB$.
+
+\proofstep{Left inverse}\label{step:p3:frame-left-inverse}
+The block product has entries $BL^\top L=I$, $BL^\top N=N^\top\Omega_0N=B\Omega_LB$,
+$-L^\top\Omega_0L=-\Omega_L$ and $-L^\top\Omega_0N=I$. If $\Omega_L=0$, this is the identity, so the
+square matrix $P$ is invertible with the stated inverse. The identity
+$-\Omega_0P^\top\Omega_0=\left(\begin{smallmatrix}N^\top\Omega_0\\-L^\top\Omega_0\end{smallmatrix}\right)$
+follows from $-\Omega_0\left(\begin{smallmatrix}x\\y\end{smallmatrix}\right)
+=\left(\begin{smallmatrix}y\\-x\end{smallmatrix}\right)$, and $N^\top\Omega_0=BL^\top$. Finally
+$P^\top\Omega_0P$ has blocks $\Omega_L=0$, $L^\top\Omega_0N=-I$, $N^\top\Omega_0L=I$ and
+$N^\top\Omega_0N=0$, that is, $P^\top\Omega_0P=\Omega_0$.
+\end{proof}
+
+\source{HL19 \S2.5 (Case~III: $N^0=\Omega_0L$, $A=0$), (2.14), Lemma~4.6 and Remark~4.7, pp.~11--12,
+25--26.}
+
+\begin{lemma}[The reference torus is Lagrangian]\label{bp:p3:lagrangian}
+Assume (S1)--(S3). Then $\Omega_{K_1}=L^\top\Omega_0L=0$ on $T_\rho$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{Invariance of $\Omega_{K_1}$ along the flow}\label{step:p3:lagrangian-transport}
+By (S3), $K_1(T_\rho)\subset\mathfrak B$ and $E_1=0$ on the open set $T_\rho$, so $DE_1=0$ there, and
+Lemma~\ref{bp:p3:tangent-identities}(a) gives $X_L=0$. Then
+Lemma~\ref{bp:p3:tangent-identities}(b) gives $\partial_\omega\Omega_{K_1}=0$, and
+Lemma~\ref{bp:p3:tangent-identities}(c) gives that $\Omega_{K_1}$ is $1$-periodic with
+$\avg{\Omega_{K_1}}=0$.
+
+\proofstep{Nonresonance}\label{step:p3:lagrangian-unique}
+The function $\Omega_{K_1}$ is holomorphic on $T_\rho$ and bounded there by
+$\abs{L^\top}\abs{\Omega_0L}\le2n\sigma_K^2$ (Lemma~\ref{bp:p3:matrix-norms}). Let $0<\delta<\rho$.
+By the uniqueness part of Lemma~\ref{bp:p1:cohomological} with $g=0$ (which is applicable by (S2)),
+the only function holomorphic and $1$-periodic on $T_{\rho-\delta}$ with zero average and
+$Du\,\omega=0$ is $u=0$. Each entry of $\Omega_{K_1}$ is such a function, so $\Omega_{K_1}=0$ on
+$T_{\rho-\delta}$. Since $\delta$ is arbitrary, $\Omega_{K_1}=0$ on $T_\rho$.
+\end{proof}
+
+\source{HL19 \S2.2, p.~7 (stated without proof for quasi-periodic tori), Lemma~4.3 with $E=0$;
+GJLV05 Lemma~19(d), p.~890 ($L=0$ if $e=0$).}
+
+\begin{lemma}[A priori bound on the frequency]\label{bp:p3:frequency-bound}
+Assume (S1)--(S3). Then $\abs\omega\le\Gamma$ and $\gamma\le\Gamma$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{Bound on $\omega$}\label{step:p3:frequency-omega}
+Since $0\in T_\rho$ and $\mu>0$, (S3) gives $K_1(0)\in\mathfrak B$ and $L(0)\omega=X_h(K_1(0))$, so
+$\abs{L(0)\omega}\le M$ by (S1). By Lemma~\ref{bp:p3:frame-algebra}, $B(0)L(0)^\top L(0)=I$, hence
+$\abs\omega=\abs{B(0)L(0)^\top L(0)\omega}\le C_PM=\Gamma$ by Lemma~\ref{bp:p3:matrix-norms}.
+
+\proofstep{Bound on $\gamma$}\label{step:p3:frequency-gamma}
+Apply Definition~\ref{bp:p0:diophantine} with $k=e_1$, for which $\abs{k}_1=1$ and
+$\abs{k}_1^\tau=1$: $\gamma\le\abs{\omega_1}\le\abs\omega\le\Gamma$.
+\end{proof}
+
+\begin{lemma}[Exact reducibility]\label{bp:p3:reducibility}
+Assume (S1)--(S3). Then $B$, $N$ and $P$ are holomorphic on $T_\rho$, and for every $\theta\in T_\rho$
+the frame $P(\theta)$ is invertible with
+\begin{equation*}
+P^{-1}=\begin{pmatrix}BL^\top\\-L^\top\Omega_0\end{pmatrix},\qquad P^\top\Omega_0P=\Omega_0\,.
+\end{equation*}
+Moreover $T=BL^\top X_N$ and, on $T_\rho$,
+\begin{equation*}
+DX_h(K_1)P-\partial_\omega P=P\Lambda\,,\qquad\Lambda\coloneqq\begin{pmatrix}0&T\\0&0\end{pmatrix}\,.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+\proofstep{Holomorphy}\label{step:p3:red-holomorphy}
+$L=DK_1$ is holomorphic on $T_\rho$, so $L^\top L$ is holomorphic there and, by (S3), its determinant
+does not vanish. By Cramer's rule $B=\operatorname{adj}(L^\top L)/\det(L^\top L)$ is holomorphic on
+$T_\rho$, and so are $N=\Omega_0LB$ and $P$.
+
+\proofstep{Symplectic frame}\label{step:p3:red-frame}
+By Lemma~\ref{bp:p3:lagrangian}, $\Omega_{K_1}=0$ on $T_\rho$. Lemma~\ref{bp:p3:frame-algebra} at each
+$\theta$ gives the invertibility of $P$, the formula for $P^{-1}$, $P^\top\Omega_0P=\Omega_0$,
+$L^\top\Omega_0N=-I$ and $N^\top\Omega_0=BL^\top$; the last gives $T=N^\top\Omega_0X_N=BL^\top X_N$.
+
+\proofstep{Tangent columns}\label{step:p3:red-tangent}
+As in \hyperref[step:p3:lagrangian-transport]{step ``Invariance of $\Omega_{K_1}$ along the flow''} of
+the proof of Lemma~\ref{bp:p3:lagrangian}, $X_L=DX_h(K_1)L-\partial_\omega L=0$ on $T_\rho$.
+
+\proofstep{Normal columns}\label{step:p3:red-normal}
+Since $L^\top\Omega_0N=-I$ is constant on $T_\rho$, its derivative along $\omega$ vanishes:
+$(\partial_\omega L)^\top\Omega_0N+L^\top\Omega_0\partial_\omega N=0$. Using this, then
+$\partial_\omega L=DX_h(K_1)L$, then Lemma~\ref{bp:p3:hamiltonian-symmetry},
+\begin{equation*}
+L^\top\Omega_0X_N=L^\top\Omega_0DX_h(K_1)N+(\partial_\omega L)^\top\Omega_0N
+=L^\top\bigl(\Omega_0DX_h(K_1)+DX_h(K_1)^\top\Omega_0\bigr)N=0\,.
+\end{equation*}
+Hence $X_N=PP^{-1}X_N=L\,(BL^\top X_N)+N\,(-L^\top\Omega_0X_N)=LT$.
+
+\proofstep{Assembly}\label{step:p3:red-assembly}
+The columns of $DX_h(K_1)P-\partial_\omega P$ are $(X_L\ X_N)=(0\ LT)$, and $P\Lambda=(L\ N)
+\left(\begin{smallmatrix}0&T\\0&0\end{smallmatrix}\right)=(0\ LT)$.
+\end{proof}
+
+\source{HL19 \S2.4, p.~10 (the triangular form, asserted for invariant tori), Lemma~4.10 with
+$E_{\mathrm{red}}=0$ when $E=0$, pp.~29--30; GJLV05 Lemma~20, pp.~891--892 (another frame).}
+
+\begin{lemma}[The torsion]\label{bp:p3:torsion-bound}
+Assume (S1)--(S3). Then $T$ is holomorphic on $T_\rho$, continuous on $\R^n$, and
+$\norm{T}_{3\rho/4}\le C_{\mathrm{tor}}$. In particular $T$ is integrable on $[0,1]^n$, and $\avg T$ in
+(S3) is the integral of a continuous function.
+\end{lemma}
+
+\begin{proof}
+\proofstep{Holomorphy}\label{step:p3:torsion-holomorphy}
+By Lemma~\ref{bp:p3:reducibility}, $N$ is holomorphic on $T_\rho$, hence so is $\partial_\omega N$; and
+$\theta\mapsto DX_h(K_1(\theta))$ is holomorphic on $T_\rho$ because $K_1(T_\rho)\subset\mathfrak B$ and
+$DX_h$ is holomorphic on $\mathfrak B$. Hence $X_N$ and $T=BL^\top X_N$ are holomorphic on $T_\rho$, so
+continuous on $\R^n\subset T_\rho$.
+
+\proofstep{Bound}\label{step:p3:torsion-bound-step}
+By Lemma~\ref{bp:p3:matrix-norms}, $\norm N_\rho\le\sigma_K\sigma_B$. Lemma~\ref{bp:p1:cauchy-strip}
+with $\delta=\rho/4$ gives $\norm{\partial_{\theta_\ell}N}_{3\rho/4}\le4\sigma_K\sigma_B/\rho$, so by
+Lemma~\ref{bp:p3:frequency-bound}
+\begin{equation*}
+\norm{\partial_\omega N}_{3\rho/4}\le\sum_\ell\abs{\omega_\ell}\norm{\partial_{\theta_\ell}N}_{3\rho/4}
+\le\frac{4n\Gamma\sigma_K\sigma_B}{\rho}\,.
+\end{equation*}
+With $\abs{DX_h}\le M$, $\Gamma=C_PM$, $\abs{BL^\top}\le C_P$ and $\sigma_K\sigma_B\le C_P$,
+\begin{equation*}
+\norm{X_N}_{3\rho/4}\le\sigma_K\sigma_BM\Bigl(1+\frac{4nC_P}{\rho}\Bigr)\,,\qquad
+\norm T_{3\rho/4}\le\abs{BL^\top}\norm{X_N}_{3\rho/4}\le C_P^2M\Bigl(1+\frac{4nC_P}{\rho}\Bigr)
+=C_{\mathrm{tor}}\,.
+\end{equation*}
+\end{proof}
+
+\subsection{Phase normalization}\label{bp:p3:phase-section}
+
+The invariance equation does not determine a torus: with $K_2$, every translate $K_2(\cdot+\psi)$,
+$\psi\in\R^n$, is invariant with frequency $\omega$. In the frame of $K_1$, a small translation changes
+the tangential coordinate $BL^\top(K_2(\cdot+\psi)-K_1)$ by approximately $\psi$, since
+$BL^\top L=I$. Hence a unique small $\psi$ makes its average vanish. This is the normalization that
+the quadratic estimate needs. Since all functions involved are real on reals, the fixed-point problem
+lives in $\R^n$, which makes the phase real.
+
+\begin{lemma}[Phase normalization]\label{bp:p3:phase}
+Assume (S1)--(S4), and let $\eta\coloneqq\sup_{\theta\in T_\rho}\abs{K_2(\theta)-K_1(\theta)}$ satisfy
+\begin{equation}\label{eq:p3:phase-small}
+\eta\le\frac{\rho}{4nC_P(1+2C_P\sigma_K)}\,.
+\end{equation}
+Then there exists $\psi\in\R^n$ with $\abs\psi\le2C_P\eta$ such that
+\begin{equation*}
+\Bigl\langle BL^\top\bigl(K_2(\cdot+\psi)-K_1\bigr)\Bigr\rangle=0\,.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Write $W\coloneqq K_2-K_1$, which is holomorphic and $1$-periodic on $T_\rho$ (both tori are primary)
+and bounded there by $\eta$.
+
+\proofstep{Realness}\label{step:p3:phase-real}
+For real $\theta$, $K_1(\theta)$ and $K_2(\theta)$ are real by (S3)--(S4). The partial derivatives of
+$K_1$ at real $\theta$ are limits of real difference quotients along real directions, so $L(\theta)$ is
+real; hence $L^\top L(\theta)$ and its inverse $B(\theta)$ are real. Consequently, for every
+$\psi\in\R^n$ the functions $\theta\mapsto B(\theta)L(\theta)^\top W(\theta+\psi)$ and
+$\theta\mapsto B(\theta)L(\theta)^\top\bigl(K_1(\theta+\psi)-K_1(\theta)-L(\theta)\psi\bigr)$ are real
+and continuous on $\R^n$, and their averages are real.
+
+\proofstep{Fixed-point form}\label{step:p3:phase-fixed-point}
+For $\theta,\psi\in\R^n$, using $BL^\top L=I$ (Lemma~\ref{bp:p3:frame-algebra}),
+\begin{equation*}
+BL^\top(\theta)\bigl(K_2(\theta+\psi)-K_1(\theta)\bigr)=\psi+BL^\top(\theta)\Bigl(W(\theta+\psi)
++K_1(\theta+\psi)-K_1(\theta)-L(\theta)\psi\Bigr)\,.
+\end{equation*}
+Define $\Phi:\R^n\to\R^n$ by
+\begin{equation*}
+\Phi(\psi)\coloneqq-\Bigl\langle BL^\top\bigl(W(\cdot+\psi)+K_1(\cdot+\psi)-K_1-L\psi\bigr)\Bigr\rangle\,.
+\end{equation*}
+The normalization of the lemma holds if and only if $\Phi(\psi)=\psi$.
+
+\proofstep{Derivative bounds on the real torus}\label{step:p3:phase-derivatives}
+By Lemma~\ref{bp:p3:increments} on $T_\rho$ with $\rho_2=\rho/2$, applied to $W$ (bounded by $\eta$)
+and to $L$ (bounded by $\sigma_K$), for $\theta\in\R^n$ and $y,y'\in\R^n$,
+\begin{equation*}
+\abs{W(\theta+y)-W(\theta+y')}\le\frac{2n\eta}{\rho}\abs{y-y'}\,,\qquad
+\abs{L(\theta+y)-L(\theta)}\le\frac{2n\sigma_K}{\rho}\abs{y}\,.
+\end{equation*}
+
+\proofstep{Contraction}\label{step:p3:phase-contraction}
+Let $Y\coloneqq\{\psi\in\R^n:\abs\psi\le2C_P\eta\}$ and $\psi,\psi'\in Y$. For real $\theta$,
+\begin{equation*}
+K_1(\theta+\psi)-K_1(\theta+\psi')-L(\theta)(\psi-\psi')=\int_0^1\bigl(L(\theta+\psi'+t(\psi-\psi'))
+-L(\theta)\bigr)(\psi-\psi')\,dt\,,
+\end{equation*}
+and $\abs{\psi'+t(\psi-\psi')}\le2C_P\eta$, so by \hyperref[step:p3:phase-derivatives]{step ``Derivative bounds on the real torus''} its norm is at
+most $(2n\sigma_K/\rho)\,2C_P\eta\abs{\psi-\psi'}$. Together with the bound on $W$ and
+$\abs{BL^\top}\le C_P$,
+\begin{equation*}
+\abs{\Phi(\psi)-\Phi(\psi')}\le C_P\Bigl(\frac{2n\eta}{\rho}+\frac{4nC_P\sigma_K\eta}{\rho}\Bigr)
+\abs{\psi-\psi'}=\frac{2nC_P\eta(1+2C_P\sigma_K)}{\rho}\abs{\psi-\psi'}\le\frac12\abs{\psi-\psi'}
+\end{equation*}
+by~\eqref{eq:p3:phase-small}. Moreover $\Phi(0)=-\avg{BL^\top W}$, so $\abs{\Phi(0)}\le C_P\eta$, and
+for $\psi\in Y$, $\abs{\Phi(\psi)}\le C_P\eta+\frac12\abs\psi\le2C_P\eta$. Thus $\Phi$ maps the closed
+set $Y$ into itself and is a contraction there.
+
+\proofstep{Conclusion}\label{step:p3:phase-conclusion}
+By the Banach fixed point theorem in the complete metric space $Y$, there exists $\psi\in Y$ with
+$\Phi(\psi)=\psi$, which is the normalization by \hyperref[step:p3:phase-fixed-point]{step ``Fixed-point form''}.
+\end{proof}
+
+\source{GJLV05 Lemma~14 and its proof, pp.~884--885 (maps; the role of $T(\theta)$ there is played by
+$BL^\top=N^\top\Omega_0$). Our radius $2C_P\eta$ replaces the radius $\norm{K_1-K_2}_\rho$ of the source,
+see Subsection~\ref{bp:p3:ledger}.}
+
+\subsection{The quadratic estimate}\label{bp:p3:quadratic-section}
+
+Fix a phase $\psi\in\R^n$ and put
+\begin{equation}\label{eq:p3:Delta}
+\Delta(\theta)\coloneqq K_2(\theta+\psi)-K_1(\theta)\,,\qquad\theta\in T_\rho\,.
+\end{equation}
+Both $K_1$ and $K_2(\cdot+\psi)$ solve the invariance equation, so their difference solves the equation
+linearized at $K_1$ up to a quadratic remainder. In the frame $P$ the linearized operator is the
+triangular operator $\partial_\omega-\Lambda$, by Lemma~\ref{bp:p3:reducibility}. This is the flow
+analogue of GJLV05 (77) and Proposition~8 (pp.~875--876, 884).
+
+\begin{lemma}[The difference in the frame]\label{bp:p3:difference-equation}
+Assume (S1)--(S4), let $\psi\in\R^n$ and let $\Delta$ be given by~\eqref{eq:p3:Delta}, with
+$\norm{\Delta}_\rho<\mu$. Define on $T_\rho$
+\begin{equation*}
+R\coloneqq X_h(K_1+\Delta)-X_h(K_1)-DX_h(K_1)\Delta\,,\qquad\xi\coloneqq P^{-1}\Delta\,,\qquad
+q\coloneqq P^{-1}R\,,
+\end{equation*}
+so that $\xi^L=BL^\top\Delta$, $\xi^N=-L^\top\Omega_0\Delta$, $q^L=BL^\top R$ and
+$q^N=-L^\top\Omega_0R$. Then the following hold on $T_\rho$.
+\begin{enumerate}[label=(\alph*)]
+\item $\Delta$, $\xi$ and $q$ are holomorphic; $\Delta$ and $\xi$ are $1$-periodic; $\Delta=P\xi$.
+\item $\partial_\omega\xi^L=T\xi^N+q^L$ and $\partial_\omega\xi^N=q^N$.
+\item $\abs{\xi}\le C_P\abs\Delta$, $\abs\Delta\le C_P\abs\xi$ and $\abs q\le\frac12C_PM\abs\Delta^2$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\proofstep{Regularity and periodicity}\label{step:p3:diff-regularity}
+Since $\psi$ is real, $T_\rho+\psi=T_\rho$, so $K_2(\cdot+\psi)$ is holomorphic on $T_\rho$, and so is
+$\Delta$. For $\theta\in T_\rho$ the point $K_1(\theta)+\Delta(\theta)=K_2(\theta+\psi)$ lies in the ball
+of radius $\mu$ around $K_1(\theta)$, and so does the whole segment from $K_1(\theta)$ to it; this ball
+lies in $\mathfrak B$ by (S3). Hence $X_h(K_1+\Delta)$, and with it $R$, is holomorphic on $T_\rho$. By
+primarity of $K_1$ and $K_2$, $\Delta(\theta+k)=K_2(\theta+\psi)+(k,0)-K_1(\theta)-(k,0)=\Delta(\theta)$.
+By Lemma~\ref{bp:p3:reducibility}, $P^{-1}=\left(\begin{smallmatrix}BL^\top\\-L^\top\Omega_0
+\end{smallmatrix}\right)$ is holomorphic on $T_\rho$, and it is $1$-periodic because $L$ is
+(Lemma~\ref{bp:p3:tangent-identities}(c)). So $\xi$ and $q$ are holomorphic and $\xi$ is $1$-periodic. Finally $P\xi=PP^{-1}\Delta=\Delta$.
+
+\proofstep{Linearized equation}\label{step:p3:diff-linearized}
+By (S3)--(S4), $\partial_\omega K_1=X_h(K_1)$ and $\partial_\omega\bigl(K_2(\cdot+\psi)\bigr)(\theta)
+=DK_2(\theta+\psi)\omega=X_h(K_2(\theta+\psi))$ on $T_\rho$. Subtracting,
+\begin{equation*}
+\partial_\omega\Delta=X_h(K_1+\Delta)-X_h(K_1)=DX_h(K_1)\Delta+R\,.
+\end{equation*}
+
+\proofstep{Triangular system}\label{step:p3:diff-triangular}
+Insert $\Delta=P\xi$: $\partial_\omega\Delta=(\partial_\omega P)\xi+P\partial_\omega\xi$, while
+$DX_h(K_1)P\xi=(\partial_\omega P+P\Lambda)\xi$ by Lemma~\ref{bp:p3:reducibility}. Hence
+$P\partial_\omega\xi=P\Lambda\xi+R$, and multiplying by $P^{-1}$, $\partial_\omega\xi=\Lambda\xi+q$.
+Since $\Lambda\xi=(T\xi^N,0)$, this is~(b).
+
+\proofstep{Bounds}\label{step:p3:diff-bounds}
+The bounds on $\xi$ and $\Delta$ follow from $\abs{P^{-1}}\le C_P$ and $\abs P\le C_P$
+(Lemma~\ref{bp:p3:matrix-norms}). Lemma~\ref{bp:p3:taylor} with $z=K_1(\theta)$ and $w=\Delta(\theta)$,
+whose segment lies in $\mathfrak B$ by \hyperref[step:p3:diff-regularity]{step ``Regularity and periodicity''}, gives
+$\abs R\le\frac12M\abs\Delta^2$, hence $\abs q\le\frac12C_PM\abs\Delta^2$.
+\end{proof}
+
+The next proposition is the approximate left inverse of the linearized operator (GJLV05 \S6, after
+Zehnder). The normal coordinate $\xi^N$ is determined by its equation up to its average; that average
+is fixed by the requirement that the right side of the tangential equation have zero average, which
+uses the invertibility of $\avg T$. The tangential coordinate $\xi^L$ is then determined up to its
+average, which the phase normalization sets to zero. Each of the two cohomological equations costs
+$\gamma^{-1}\delta^{-(\tau+n)}$, and the remainder is quadratic.
+
+\begin{proposition}[Quadratic estimate]\label{bp:p3:quadratic}
+Assume (S1)--(S4). Let $\psi\in\R^n$ and let $\Delta$ be given by~\eqref{eq:p3:Delta}, with
+\begin{equation*}
+\norm{\Delta}_\rho<\mu\qquad\text{and}\qquad\avg{BL^\top\Delta}=0\,.
+\end{equation*}
+Then for every $0<\rho''<\rho'\le\frac34\rho$, with $\delta\coloneqq\frac12(\rho'-\rho'')$ and
+$C_{\mathrm{quad}}$ given by~\eqref{eq:p3:Cquad},
+\begin{equation*}
+\norm{\Delta}_{\rho''}\le C_{\mathrm{quad}}\gamma^{-2}\delta^{-2(\tau+n)}\norm{\Delta}_{\rho'}^2\,.
+\end{equation*}
+\end{proposition}
+
+\begin{proof}
+Let $\xi$ and $q$ be as in Lemma~\ref{bp:p3:difference-equation}. Since $\norm{\Delta}_\rho<\mu$, the
+functions $\Delta$, $\xi$ and $q$ are bounded on $T_\rho$ by Lemma~\ref{bp:p3:difference-equation}(c). We use repeatedly that $\delta<\rho$
+and $\gamma\le\Gamma$ (Lemma~\ref{bp:p3:frequency-bound}), so that
+\begin{equation}\label{eq:p3:absorb}
+1\le\Gamma\rho^{\tau+n}\,\gamma^{-1}\delta^{-(\tau+n)}\,.
+\end{equation}
+
+\proofstep{The remainder}\label{step:p3:quad-remainder}
+By Lemma~\ref{bp:p3:difference-equation}(c), $\norm{q}_{\rho'}\le\frac12C_PM\norm{\Delta}_{\rho'}^2$.
+
+\proofstep{Oscillating part of the normal coordinate}\label{step:p3:quad-normal-osc}
+The function $\xi^N$ is holomorphic, bounded and $1$-periodic on $T_{\rho'}$, and
+$\partial_\omega\xi^N=q^N$. Hence $q^N$ is holomorphic, bounded and $1$-periodic on $T_{\rho'}$, and
+$\avg{q^N}=\avg{\partial_\omega\xi^N}=0$ by Lemma~\ref{bp:p1:averages}. The function $\tilde\xi^N\coloneqq\xi^N-\avg{\xi^N}$ is holomorphic and
+$1$-periodic on $T_{\rho'-\delta}$, has zero average and solves $D\tilde\xi^N\omega=q^N$. By the
+uniqueness in Lemma~\ref{bp:p1:cohomological} (on $T_{\rho'}$, loss $\delta$), $\tilde\xi^N$ is the
+solution given there, so
+\begin{equation*}
+\norm{\tilde\xi^N}_{\rho'-\delta}\le C_{\mathrm{coh}}\gamma^{-1}\delta^{-(\tau+n)}\norm{q^N}_{\rho'}
+\le\tfrac12C_PMC_{\mathrm{coh}}\gamma^{-1}\delta^{-(\tau+n)}\norm{\Delta}_{\rho'}^2\,.
+\end{equation*}
+
+\proofstep{Average of the normal coordinate}\label{step:p3:quad-normal-avg}
+The function $\xi^L$ is holomorphic, bounded and $1$-periodic on $T_\rho$, so
+$\avg{\partial_\omega\xi^L}=0$ by Lemma~\ref{bp:p1:averages}. Averaging
+$\partial_\omega\xi^L=T\xi^N+q^L$ over $[0,1]^n$ and splitting $\xi^N=\avg{\xi^N}+\tilde\xi^N$ gives
+$0=\avg T\avg{\xi^N}+\avg{T\tilde\xi^N}+\avg{q^L}$. The matrix $\avg T$ is invertible by (S3), so
+\begin{equation*}
+\avg{\xi^N}=-\avg T^{-1}\bigl(\avg{T\tilde\xi^N}+\avg{q^L}\bigr)\,.
+\end{equation*}
+The averages involve only real $\theta$, where $\abs T\le C_{\mathrm{tor}}$
+(Lemma~\ref{bp:p3:torsion-bound}). Hence
+$\abs{\avg{\xi^N}}\le\sigma_T\bigl(C_{\mathrm{tor}}\norm{\tilde\xi^N}_{\rho'-\delta}
++\frac12C_PM\norm{\Delta}_{\rho'}^2\bigr)$.
+
+\proofstep{The normal coordinate}\label{step:p3:quad-normal}
+Adding the last two steps and using~\eqref{eq:p3:absorb} on the term without small divisor,
+\begin{equation*}
+\norm{\xi^N}_{\rho'-\delta}\le(1+\sigma_TC_{\mathrm{tor}})\norm{\tilde\xi^N}_{\rho'-\delta}
++\tfrac12\sigma_TC_PM\norm{\Delta}_{\rho'}^2\le C^N\gamma^{-1}\delta^{-(\tau+n)}\norm{\Delta}_{\rho'}^2\,.
+\end{equation*}
+
+\proofstep{The tangential coordinate}\label{step:p3:quad-tangent}
+The function $g\coloneqq\partial_\omega\xi^L=T\xi^N+q^L$ is holomorphic and $1$-periodic on
+$T_{\rho'-\delta}$, has zero average by \hyperref[step:p3:quad-normal-avg]{step ``Average of the normal coordinate''}, and is bounded there because
+$T_{\rho'-\delta}\subset T_{3\rho/4}$:
+\begin{equation*}
+\norm{g}_{\rho'-\delta}\le C_{\mathrm{tor}}\norm{\xi^N}_{\rho'-\delta}+\norm{q^L}_{\rho'}
+\le\bigl(C_{\mathrm{tor}}C^N+\tfrac12C_PM\Gamma\rho^{\tau+n}\bigr)\gamma^{-1}\delta^{-(\tau+n)}
+\norm{\Delta}_{\rho'}^2\,,
+\end{equation*}
+by \hyperref[step:p3:quad-normal]{step ``The normal coordinate''} and~\eqref{eq:p3:absorb}. Since $\avg{\xi^L}=\avg{BL^\top\Delta}=0$
+by hypothesis, $\xi^L$ is holomorphic and $1$-periodic on $T_{\rho''}=T_{\rho'-2\delta}$, has zero
+average and solves $D\xi^L\omega=g$. By the uniqueness in Lemma~\ref{bp:p1:cohomological} (on
+$T_{\rho'-\delta}$, loss $\delta$),
+\begin{equation*}
+\norm{\xi^L}_{\rho''}\le C_{\mathrm{coh}}\gamma^{-1}\delta^{-(\tau+n)}\norm{g}_{\rho'-\delta}
+\le C^L\gamma^{-2}\delta^{-2(\tau+n)}\norm{\Delta}_{\rho'}^2\,.
+\end{equation*}
+
+\proofstep{Return to $\Delta$}\label{step:p3:quad-combine}
+By \hyperref[step:p3:quad-normal]{step ``The normal coordinate''} and~\eqref{eq:p3:absorb},
+\begin{equation*}
+\norm{\xi^N}_{\rho''}\le\norm{\xi^N}_{\rho'-\delta}\le\Gamma\rho^{\tau+n}C^N\gamma^{-2}
+\delta^{-2(\tau+n)}\norm{\Delta}_{\rho'}^2\,.
+\end{equation*}
+Since $\Delta=P\xi$ and $\abs P\le C_P$,
+\begin{equation*}
+\norm{\Delta}_{\rho''}\le C_P\max\bigl\{\norm{\xi^L}_{\rho''},\norm{\xi^N}_{\rho''}\bigr\}
+\le C_P\max\bigl\{C^L,\Gamma\rho^{\tau+n}C^N\bigr\}\gamma^{-2}\delta^{-2(\tau+n)}\norm{\Delta}_{\rho'}^2\,,
+\end{equation*}
+which is the claim, by the definition~\eqref{eq:p3:Cquad} of $C_{\mathrm{quad}}$.
+\end{proof}
+
+\source{GJLV05 Proposition~8 and Remark~13, pp.~875--876, and \S6, pp.~883--885 (maps); HL19
+Lemma~5.1, pp.~31--32 (the triangular system, existence part). For flows: our adaptation.}
+
+\subsection{Proof of Theorem~\ref{bp:p0:g2}}\label{bp:p3:proof-section}
+
+The quadratic estimate loses a strip of width $2\delta$ at each application. Losing a geometrically
+decreasing width $2\delta_m=2^{-m-3}\rho$ at the $m$-th application costs a factor
+$\delta_m^{-2(\tau+n)}$ that grows only geometrically in $m$, while squaring makes the norms decrease
+super-exponentially. The following elementary lemma records the comparison.
+
+\begin{lemma}[Quadratic iteration]\label{bp:p3:iteration}
+Let $Q>0$, $p\ge0$ and $y_0,y_1,\dots\ge0$ with $y_{m+1}\le Q2^{pm}y_m^2$ for every $m\ge0$ and
+$Q2^py_0\le\frac12$. Then $y_m\le Q^{-1}2^{-p(m+1)}2^{-2^m}$ for every $m\ge0$; in particular
+$y_m\to0$.
+\end{lemma}
+
+\begin{proof}
+Put $x_m\coloneqq Q2^{p(m+1)}y_m$. Then $x_0\le\frac12$ and
+$x_{m+1}\le Q2^{p(m+2)}Q2^{pm}y_m^2=Q^22^{p(2m+2)}y_m^2=x_m^2$, so by induction $x_m\le2^{-2^m}$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{bp:p0:g2}]
+\proofstep{Choice of the threshold}\label{step:p3:g2-constant}
+With the constants~\eqref{eq:p3:constants}--\eqref{eq:p3:Cquad}, put
+\begin{equation}\label{eq:p3:c}
+c\coloneqq\frac{1}{1+2C_P\sigma_K}\min\Bigl\{\frac{\rho^{1-2\tau}}{4nC_P\Gamma^2},\
+\frac{\mu\rho^{-2\tau}}{2\Gamma^2},\ \frac{(\rho/32)^{2(\tau+n)}\rho^{-2\tau}}{2C_{\mathrm{quad}}}\Bigr\}\,.
+\end{equation}
+Then $c>0$, and $c$ depends only on $n$, $\tau$, $\rho$, $M$, $\sigma_K$, $\sigma_B$, $\sigma_T$ and $\mu$; in particular not on
+$\gamma$. Let $\mathfrak B$, $h$, $K_1$, $K_2$, $\omega$, $\gamma$ satisfy the hypotheses of the theorem. They satisfy
+Assumption~\ref{bp:p3:standing}, and the closeness hypothesis reads
+\begin{equation*}
+\eta\coloneqq\sup_{\theta\in T_\rho}\abs{K_2(\theta)-K_1(\theta)}\le c\gamma^2\rho^{2\tau}\,.
+\end{equation*}
+
+\proofstep{The three smallness conditions}\label{step:p3:g2-smallness}
+By Lemma~\ref{bp:p3:frequency-bound}, $\gamma\le\Gamma$, so $\eta\le c\Gamma^2\rho^{2\tau}$. The first
+two terms of the minimum in~\eqref{eq:p3:c} give
+\begin{equation*}
+\eta\le\frac{\rho}{4nC_P(1+2C_P\sigma_K)}\qquad\text{and}\qquad(1+2C_P\sigma_K)\,\eta\le\frac\mu2\,,
+\end{equation*}
+and the third, used with $\gamma$ itself, gives
+$(1+2C_P\sigma_K)\,\eta\le\gamma^2(\rho/32)^{2(\tau+n)}/(2C_{\mathrm{quad}})$.
+
+\proofstep{Phase}\label{step:p3:g2-phase}
+By the first condition and Lemma~\ref{bp:p3:phase}, there exists $\psi\in\R^n$ with
+$\abs\psi\le2C_P\eta$ and $\avg{BL^\top\Delta}=0$, where $\Delta=K_2(\cdot+\psi)-K_1$ as
+in~\eqref{eq:p3:Delta}.
+
+\proofstep{Size of the difference}\label{step:p3:g2-size}
+For $\theta\in T_\rho$, also $\theta+\psi\in T_\rho$, and
+$\Delta(\theta)=\bigl(K_2-K_1\bigr)(\theta+\psi)+\bigl(K_1(\theta+\psi)-K_1(\theta)\bigr)$. The first
+term is at most $\eta$; the second is at most $\sigma_K\abs\psi$ by Lemma~\ref{bp:p3:increments} with
+$\abs{DK_1}\le\sigma_K$ on $T_\rho$. Hence, by the second condition,
+\begin{equation*}
+\norm{\Delta}_\rho\le\eta+2C_P\sigma_K\eta=(1+2C_P\sigma_K)\,\eta\le\frac\mu2<\mu\,.
+\end{equation*}
+
+\proofstep{Iteration on shrinking strips}\label{step:p3:g2-iteration}
+Let $\rho_m\coloneqq\bigl(\frac12+2^{-m-2}\bigr)\rho$, so $\rho_0=\frac34\rho$, $\rho_m$ decreases to
+$\frac12\rho$, and $\frac12(\rho_m-\rho_{m+1})=2^{-m-4}\rho$. Put $y_m\coloneqq\norm{\Delta}_{\rho_m}$.
+Proposition~\ref{bp:p3:quadratic} with $\rho'=\rho_m$ and $\rho''=\rho_{m+1}$ applies by the previous two
+steps and gives
+\begin{equation*}
+y_{m+1}\le C_{\mathrm{quad}}\gamma^{-2}\bigl(2^{-m-4}\rho\bigr)^{-2(\tau+n)}y_m^2=Q2^{pm}y_m^2\,,
+\end{equation*}
+with $Q\coloneqq C_{\mathrm{quad}}\gamma^{-2}(\rho/16)^{-2(\tau+n)}$ and $p\coloneqq2(\tau+n)$.
+By \hyperref[step:p3:g2-size]{step ``Size of the difference''} and the third condition,
+\begin{equation*}
+Q2^py_0\le C_{\mathrm{quad}}\gamma^{-2}(\rho/32)^{-2(\tau+n)}(1+2C_P\sigma_K)\,\eta\le\frac12\,.
+\end{equation*}
+Lemma~\ref{bp:p3:iteration} gives $y_m\to0$. Since $T_{\rho/2}\subset T_{\rho_m}$ for every $m$,
+$\abs{\Delta(\theta)}\le y_m$ for $\theta\in T_{\rho/2}$ and every $m$, so $\Delta=0$ on $T_{\rho/2}$.
+
+\proofstep{Conclusion}\label{step:p3:g2-conclusion}
+Put $\varphi\coloneqq-\psi\in\R^n$. For $\theta\in T_{\rho/2}$, also $\theta+\varphi\in T_{\rho/2}$, and
+$\Delta(\theta+\varphi)=0$ reads $K_2(\theta)=K_1(\theta+\varphi)$.
+\end{proof}
+
+\begin{remark}[Hypotheses used, and Lean totality]\label{bp:p3:totality-check}
+The proof uses from (S1) only that $\mathfrak B$ is open, $h$ is holomorphic on $\mathfrak B$, and the
+bounds on $X_h$, $DX_h$ and $D^2X_h$. It does not use the bound on $Dh$, the periodicity of $h$, the
+invariance of $\mathfrak B$ under $\Z^n$, the realness of $h$, or $K_2(T_\rho)\subset\mathfrak B$; and it
+uses $n\ge2$ and $\tau\ge n-1$ only through $n\ge1$ and $\tau\ge0$. Concerning
+Remark~\ref{bp:p0:totality}: every \Lean{fderiv} is taken at a point of an open set ($T_\rho$ or
+$\mathfrak B$) on which the function is complex differentiable, so it is the complex derivative; the
+matrix inverse $B$ is used only on $T_\rho$, where (S3) makes the Gram determinant a unit, so the
+inverse in \Lean{normalFrame} is the genuine inverse there and is holomorphic (\hyperref[step:p3:red-holomorphy]{step ``Holomorphy''});
+$\avg T^{-1}$ is the genuine inverse by (S3); and every average is the integral over $[0,1]^n$ of a
+function continuous on $\R^n$ (Lemmas~\ref{bp:p3:periodic-bounded} and~\ref{bp:p3:torsion-bound}).
+\end{remark}
+
+\subsection{Transfer requests to Part~\ref{bp:p1}}\label{bp:p3:transfer}
+
+The following lemmas of this part are infrastructure and could be moved to Part~\ref{bp:p1}:
+Lemma~\ref{bp:p3:periodic-bounded} (bounded on smaller strips); Lemma~\ref{bp:p3:increments} (mean value
+inequality on strips, combined with Lemma~\ref{bp:p1:cauchy-strip}); Lemma~\ref{bp:p3:taylor}, in the
+general form ``$\abs{X(z+w)-X(z)-DX(z)w}\le\frac12\sup\abs{D^2X}\abs w^2$ for $X$ holomorphic on an
+open set containing the segment''; Lemma~\ref{bp:p3:matrix-norms}(a) (max-norm matrix facts); the
+holomorphy of $A^{-1}$ for a holomorphic matrix function $A$ with $\det A\ne0$
+(\hyperref[step:p3:red-holomorphy]{step ``Holomorphy''}); and Lemma~\ref{bp:p3:iteration} (quadratic iteration).
+
+\subsection{Shared with Part~\ref{bp:p2}}\label{bp:p3:shared}
+
+Lemma~\ref{bp:p3:hamiltonian-symmetry} (HL19 (4.12) for $\Omega=\Omega_0$);
+Lemma~\ref{bp:p3:tangent-identities} (HL19 Lemma~4.3: $DE=X_L$, the formula for
+$\partial_\omega\Omega_K$, and $\avg{\Omega_K}=0$, all with $E\ne0$);
+Lemma~\ref{bp:p3:frame-algebra} (HL19 Lemma~4.6 and Remark~4.7 in Case~III, pointwise, with
+$\Omega_L\ne0$); and, for invariant tori (also needed in Part~\ref{bp:p4} at tori produced by G1),
+Lemmas~\ref{bp:p3:lagrangian}, \ref{bp:p3:frequency-bound}, \ref{bp:p3:reducibility}
+and~\ref{bp:p3:torsion-bound}.
+
+\subsection{Requests to the orchestrator}\label{bp:p3:requests}
+
+\begin{enumerate}[label=(\arabic*)]
+\item Part~\ref{bp:p0}, Theorem~\ref{bp:p0:g2}: the phrase ``$K_1$ satisfies the hypotheses of G1''
+  imports the G1 conditions $0<\gamma\le\bar\gamma$ and $C_1e/(\gamma^4\rho^{4\tau})<1$, which the frozen
+  statement does not contain. A precise transcription lists (S3) of
+  Assumption~\ref{bp:p3:standing}: holomorphic, primary and real on reals; the $\mu$-ball in
+  $\mathfrak B$; $\abs{DK_1}\le\sigma_K-\mu$; $\abs B\le\sigma_B-\mu$; $\abs{\avg T^{-1}}\le\sigma_T-\mu$.
+\item Lemma~\ref{bp:p1:cohomological}: Lemmas~\ref{bp:p3:lagrangian} and~\ref{bp:p3:quadratic} use its
+  uniqueness clause for a function given on a larger strip and restricted to $T_{\rho-\delta}$. Please
+  keep uniqueness within the class ``holomorphic and $1$-periodic on $T_{\rho-\delta}$, zero average'',
+  without a boundedness requirement, or add boundedness there (our functions are bounded on
+  $T_{\rho-\delta}$, so either form suffices).
+\item Lemma~\ref{bp:p1:averages} requires boundedness on the strip; \hyperref[step:p3:tangent-average]{step ``Zero average''}
+  applies it on $T_{\rho/2}$ through Lemma~\ref{bp:p3:periodic-bounded}. A version for functions
+  continuous and $1$-periodic on $\R^n$ with continuous partial derivatives would remove this detour.
+\item Symbols introduced here and used across this part: $C_P$, $\Gamma$, $C_{\mathrm{tor}}$,
+  $C_{\mathrm{coh}}$, $C^N$, $C^L$, $C_{\mathrm{quad}}$, $\eta$, $\psi$, $\Delta$, $\xi$, $q$, $R$,
+  $\Lambda$, $W$, $Y$, $\Phi$. HL19 uses $C_T$, $C_N$, $C_L$ and
+  $\eta$ for other objects; we avoided $C_T$ and the letter $A$ (HL19's $A$ is the matrix that vanishes
+  in Case~III).
+\item The macro \texttt{\textbackslash proofstep} of the preamble sets no counter, so a
+  \texttt{\textbackslash ref} to a step label prints the number of the enclosing subsection. This part
+  therefore cites steps by \texttt{\textbackslash hyperref} with their titles. A step counter in the
+  macro would make \texttt{\textbackslash ref} usable.
+\end{enumerate}
+
+\subsection{Ledger candidates}\label{bp:p3:ledger}
+
+Each entry is unverified until checked against the pinned PDF by an independent reader.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{GJLV05, Lemma~14, pp.~884--885 (erratum, unjustified step).} Printed: ``there exists an
+  initial phase $\tau_1\in\Theta\stackrel{\mathrm{def}}{=}\{\tau\in\R^n:\abs\tau<\norm{K_1-K_2}_\rho\}$''
+  (p.~884); the proof shows only a Lipschitz bound for $\Psi$ on $\Theta$ and concludes ``the mapping
+  $\Psi:\Theta\to\Theta$ is a contraction'' (p.~885). Why wrong: $\Psi(0)=-\operatorname{avg}\{T(\theta)
+  [K_1(\theta)-K_2(\theta)]\}_\theta$ can have norm up to $\norm{T}_\rho\norm{K_1-K_2}_\rho$, which
+  exceeds the radius of $\Theta$ when $\norm T_\rho>1$, so $\Psi(\Theta)\subset\Theta$ is not
+  established (and $\Theta$ is open, so the Banach fixed point theorem does not apply directly).
+  Correction: use the closed ball of radius $2\norm T_\rho\norm{K_1-K_2}_\rho$ and a smallness condition
+  that makes the Lipschitz constant at most $\frac12$, as in Lemma~\ref{bp:p3:phase}. Also on p.~885,
+  ``for any $0<\delta,\rho/2$'' should read $0<\delta<\rho/2$.
+\item \emph{GJLV05, \S6, p.~885 (no erratum; simplification).} The phases $\tau_m$ obtained by
+  reapplying Lemma~14 are all equal to $\tau_1$: the normalization (78) does not depend on the strip,
+  so $\tau=0$ solves it for $K_1\circ T_{\tau_{m-1}}$, and the fixed point of the contraction is
+  unique. We fix the phase once (deviation (b) below).
+\item \emph{GJLV05, Proposition~18, p.~889 (erratum, typos).} Printed: ``$\sum_{j=1}^n\omega_j\,
+  \partial v/\partial\theta_i=h$'' and ``$\norm v_{\rho-\delta}\le c\delta^{-\sigma}\gamma^{-1}
+  \norm v_\rho$''. Correction: $\partial v/\partial\theta_j$, and $\norm h_\rho$ on the right side.
+\item \emph{GJLV05, Remark~7, p.~865 (erratum, imprecise claim).} Printed: ``There is a local uniqueness
+  statement for vector fields which follows by the reduction to the time one map (see [Dou82]).'' Why
+  imprecise: the time-one map rotates the torus by $\omega$, and a map-Diophantine condition
+  $\abs{k\cdot\omega-m}\ge\gamma'\abs k^{-\sigma}$ for every $m\in\Z$ fails for flow-Diophantine vectors
+  such as $\omega=(1,\sqrt2)$ ($k=e_1$, $m=1$). A reduction must use a time-$t$ map with $t\omega$
+  map-Diophantine, and its constants depend on $t$. We prove the flow version directly (D-UNIQ-1).
+\item \emph{HL19, Remark~3.5, p.~18 (no erratum; supplement).} Local uniqueness of the family is asserted
+  without proof; for $d=n$ (no first integrals) Theorem~\ref{bp:p0:g2} supplies it.
+\item \emph{FdlLS09, Theorem~3.14, p.~13.} The stray ``with $\delta=\rho/4$'' is already E-FdlLS09-1. The
+  factor $\kappa^2$ is correct for the convention $\abs{\omega\cdot k-n}^{-1}\le\kappa\abs k^\nu$ of
+  Definition~2.1 (p.~5), so $\kappa\sim\gamma^{-1}$; no entry.
+\item \emph{Deviations (D-UNIQ-1 and new).} (a) We linearize at $K_1$, the torus carrying the
+  nondegeneracy bounds, while GJLV05 linearize at $K_2$. (b) The phase is fixed once
+  (Lemma~\ref{bp:p3:phase}); GJLV05 recompute it at each step. (c) The constant $c$ is independent of
+  $\gamma$, through $\gamma\le\Gamma$ (Lemma~\ref{bp:p3:frequency-bound}); GJLV05 Theorem~2 lets $c$
+  depend on $\gamma$. (d) The small-divisor exponent is $\tau+n$ (decision D12), giving the factor
+  $\rho^{2n}$ in~\eqref{eq:p3:c}. (e) The conclusion is on $T_{\rho/2}$ only; FdlLS09 extend it to the
+  full strip by analytic continuation, which we do not need. (f) The phase normalization uses the
+  tangential coordinate $BL^\top=N^\top\Omega_0$ of the Case~III frame instead of the map frame $T$ of
+  GJLV05 (38).
+\end{enumerate}
