@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:53 UTC from `main` at `e4266b2` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:53 UTC from `main` at `dfd5e62` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -274,6 +274,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:53 | `dfd5e62` | Record D18: owner rulings on track N questions 2-6, as recommended |
 | 2026-10-27 15:53 | `e4266b2` | Record D17: track N is stated for n >= 3 (owner ruling) |
 | 2026-10-27 15:52 | `f0d0bda` | Track N Phase 0: sources, statement draft 0.1, notes; statement audit running |
 | 2026-10-27 15:51 | `3599e6e` | Blueprint Part 3: local uniqueness for flows (G2), complete proof |
@@ -285,7 +286,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:19 | `1f4bdd2` | HQ updater: merge collaborators' pushes to main before regenerating |
 | 2026-10-27 15:19 | `59daeac` | Merge Zohar's Fourier and Diophantine infrastructure into the frozen-statement main |
 | 2026-10-27 15:16 | `1f0d755` | Freeze the approved KAM statements (D11) |
-| 2026-10-27 15:09 | `ed21566` | Statement drafts v0.2 audited; ledger and plan updated; exploration launched |
 <!-- /AUTO:landed -->
 
 ## Decisions
