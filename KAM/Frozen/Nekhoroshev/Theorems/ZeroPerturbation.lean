@@ -48,7 +48,7 @@ theorem zero_perturbation {n : ℕ} {R s : ℝ}
       (integrableOrbit h θ₀ I₀) ∧
     ∀ t : ℝ, (integrableOrbit h θ₀ I₀ t).2 = I₀ :=
   -- FROZEN_ANCHOR_PROOF_BEGIN
-  by sorry
+  by exact KAM.Provider.Nekhoroshev.zero_perturbation hR hs hh hf θ₀ I₀ hI
   -- FROZEN_ANCHOR_PROOF_END
 -- FROZEN_ANCHOR_SUFFIX_BEGIN
 

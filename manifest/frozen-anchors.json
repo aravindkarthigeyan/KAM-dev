@@ -1736,7 +1736,7 @@
     "module": "KAM.Provider.Iso.KeplerBorderedDet",
     "export": "KAM.Provider.Iso.kepler_bordered_det"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "1323ecbb5092452672e2fc2b599108ee755f7b5c8285b037729918f7c9f43031",
    "suffix_sha256": "58564e44d45d3a56e328417645fb48a301bc876fbe465448299d676f30e18145",
    "draft_allowlist": {
@@ -2224,7 +2224,7 @@
     "module": "KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative",
     "export": "KAM.Provider.Nekhoroshev.quasiConvex_isoenergetic_derivative"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "c09e4645fa481a76a7fb8dcb78605a62764b31edc702259f248df4555601fa67",
    "suffix_sha256": "1efcbce496c3a865046e94018aa1cc8bdafb0b9454c6939e2353d83cc98b6da8",
    "draft_allowlist": {
@@ -2295,7 +2295,7 @@
     "module": "KAM.Provider.Nekhoroshev.ZeroPerturbation",
     "export": "KAM.Provider.Nekhoroshev.zero_perturbation"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "7d687fe46db8fe83e8c8c89f5d7a1c4cd1f07d9db9c087efd4aef7b4c9c1bcd0",
    "suffix_sha256": "1efcbce496c3a865046e94018aa1cc8bdafb0b9454c6939e2353d83cc98b6da8",
    "draft_allowlist": {

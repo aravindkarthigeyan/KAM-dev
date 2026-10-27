@@ -45,7 +45,7 @@ theorem kepler_bordered_det {κ Ω : ℝ} (hκ : 0 < κ) (hΩ : 0 < Ω)
     (keplerBorder κ Ω L).det = 3 * κ * Ω ^ 2 / L.val ^ 4 ∧
       0 < (keplerBorder κ Ω L).det :=
   -- FROZEN_ANCHOR_PROOF_BEGIN
-  by sorry
+  by exact KAM.Provider.Iso.kepler_bordered_det hκ hΩ L
   -- FROZEN_ANCHOR_PROOF_END
 -- FROZEN_ANCHOR_SUFFIX_BEGIN
 

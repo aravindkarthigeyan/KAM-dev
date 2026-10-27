@@ -3,18 +3,18 @@ KIND: external
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:ext-banach@L17-L17
 DISPOSITION: NODE bpN:p7:ext-banach
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:ext-taylor
 KIND: external
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:ext-taylor@L18-L18
 DISPOSITION: NODE bpN:p7:ext-taylor
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:ext-num
 KIND: external
@@ -30,18 +30,18 @@ KIND: external
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:ext-linalg@L20-L20
 DISPOSITION: NODE bpN:p7:ext-linalg
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:setting
 KIND: definition
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:setting@L26-L32
 DISPOSITION: NODE bpN:p7:setting
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:real-system
 KIND: lemma
@@ -102,9 +102,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-gradient@L53-L56
 DISPOSITION: NODE bpN:p7:resonant-gradient
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:rg-coef
 KIND: proof-region
@@ -147,9 +147,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:cj-chain@L70-L70
 DISPOSITION: NODE stepN:p7:cj-chain
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:preimage
 KIND: lemma
@@ -165,36 +165,36 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:pi-set@L79-L79
 DISPOSITION: NODE stepN:p7:pi-set
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:pi-self
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:pi-self@L80-L80
 DISPOSITION: NODE stepN:p7:pi-self
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:pi-contr
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:pi-contr@L81-L81
 DISPOSITION: NODE stepN:p7:pi-contr
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:pi-fix
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:pi-fix@L82-L82
 DISPOSITION: NODE stepN:p7:pi-fix
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:preimage-nfl
 KIND: corollary
@@ -210,9 +210,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:pn-apply@L89-L89
 DISPOSITION: NODE stepN:p7:pn-apply
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:transfer
 KIND: lemma
@@ -228,18 +228,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:tr-orbit@L104-L104
 DISPOSITION: NODE stepN:p7:tr-orbit
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:tr-long
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:tr-long@L105-L105
 DISPOSITION: NODE stepN:p7:tr-long
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:tr-ident
 KIND: proof-region
@@ -255,9 +255,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:tr-est@L107-L107
 DISPOSITION: NODE stepN:p7:tr-est
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:stopped-extension
 KIND: corollary
@@ -273,36 +273,36 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:se-stop@L114-L114
 DISPOSITION: NODE stepN:p7:se-stop
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:se-noexit
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:se-noexit@L115-L115
 DISPOSITION: NODE stepN:p7:se-noexit
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:exit-ball
 KIND: lemma
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:exit-ball@L118-L120
 DISPOSITION: NODE bpN:p7:exit-ball
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:eb-exit
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:eb-exit@L122-L122
 DISPOSITION: NODE stepN:p7:eb-exit
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:nonresonant
 KIND: proposition
@@ -327,18 +327,18 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:nr-t3@L142-L144
 DISPOSITION: NODE stepN:p7:nr-t3
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:nr-concA
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:nr-concA@L145-L145
 DISPOSITION: NODE stepN:p7:nr-concA
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:nr-caseB
 KIND: proof-region
@@ -372,27 +372,27 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:energy-core@L161-L171
 DISPOSITION: NODE bpN:p7:energy-core
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:ec-energy
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:ec-energy@L173-L173
 DISPOSITION: NODE stepN:p7:ec-energy
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:ec-proj
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:ec-proj@L174-L174
 DISPOSITION: NODE stepN:p7:ec-proj
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:ec-taylor
 KIND: proof-region
@@ -408,45 +408,45 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:admissible@L181-L183
 DISPOSITION: NODE bpN:p7:admissible
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:ad-ball
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:ad-ball@L185-L185
 DISPOSITION: NODE stepN:p7:ad-ball
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:ad-close
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:ad-close@L186-L186
 DISPOSITION: NODE stepN:p7:ad-close
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:no-exit
 KIND: lemma
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:no-exit@L189-L198
 DISPOSITION: NODE bpN:p7:no-exit
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:ne-core
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:ne-core@L201-L202
 DISPOSITION: NODE stepN:p7:ne-core
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:ne-terms
 KIND: proof-region
@@ -462,9 +462,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:ne-contra@L204-L204
 DISPOSITION: NODE stepN:p7:ne-contra
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:resonant-lemma1
 KIND: lemma
@@ -498,9 +498,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p7-stability.tex#bpN:p7:resonant-lemma2@L220-L226
 DISPOSITION: NODE bpN:p7:resonant-lemma2
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:l2-exit
 KIND: proof-region
@@ -570,9 +570,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:p2-t12@L259-L259
 DISPOSITION: NODE stepN:p7:p2-t12
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: stepN:p7:p2-t3
 KIND: proof-region
@@ -588,9 +588,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#stepN:p7:p2-concl@L261-L261
 DISPOSITION: NODE stepN:p7:p2-concl
 REASON: labelled unit; node confirmed
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p7
-REVIEWER: -
+REVIEWER: sol-review-N-d
 
 ITEM: bpN:p7:errata
 KIND: claim
@@ -848,7 +848,7 @@ ITEM: p7:prose-L21-L22
 KIND: proof-region
 SOURCE: blueprint-N/parts/p7-stability.tex#prose@L21-L22
 DISPOSITION: EXCLUDED
-REASON: pointer list of results used from track K, Parts 1, 3, 4, 5, 6; each is linked from the steps that use it (K ext-mvt: pi-contr, nr-t3, ec-proj, ad-close; K holomorphic-regularity: rs-smooth; K hamiltonian-real: rs-field; K real-restriction: cj-real; p1 ext-restrict: rs-smooth, pi-contr; norm-compare; qc-convert: resonance-data; Part 3 results; Part 4 results; p5 symplectic via sy-conserve; Part 6 via nr-dataA, nr-caseB, p2-*)
+REASON: pointer list, not an input package; actual uses are linked at consumers. The real-derivative assertion at cj-real is covered by bpN:p1:ext-restrict; K:bp:p1:real-restriction has a full-strip domain and its citation at L69 is inapplicable as stated. The parenthetical qc-convert at L157 is a comparison of alternative formulations, not an instantiation of that conditional conversion theorem. Other listed results remain linked at their direct uses.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p7
 REVIEWER: -

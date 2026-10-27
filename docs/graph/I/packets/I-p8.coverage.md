@@ -50,7 +50,7 @@ DISPOSITION: NODE stepI:p8:tp-A
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: stepI:p8:tp-chart
 KIND: proof-region
@@ -68,7 +68,7 @@ DISPOSITION: NODE stepI:p8:tp-open
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: stepI:p8:tp-nonempty
 KIND: proof-region
@@ -104,7 +104,7 @@ DISPOSITION: NODE stepI:p8:ce-compact
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: bpI:p8:shell-exclusion
 KIND: corollary
@@ -203,7 +203,7 @@ DISPOSITION: NODE stepI:p8:sr-B
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: bpI:p8:head-data
 KIND: proposition
@@ -212,7 +212,7 @@ DISPOSITION: NODE bpI:p8:head-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: stepI:p8:hd-h
 KIND: proof-region
@@ -230,7 +230,7 @@ DISPOSITION: NODE stepI:p8:hd-f
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: stepI:p8:hd-sets
 KIND: proof-region
@@ -248,7 +248,7 @@ DISPOSITION: NODE bpI:p8:constants
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: bpI:p8:bounds
 KIND: lemma
@@ -320,7 +320,7 @@ DISPOSITION: NODE stepI:p8:pf-bounds
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: stepI:p8:pf-dist
 KIND: proof-region
@@ -329,7 +329,7 @@ DISPOSITION: NODE stepI:p8:pf-dist
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: sol-delta-I-d
+REVIEWER: sol-delta-I-f
 
 ITEM: stepI:p8:pf-uniq
 KIND: proof-region
