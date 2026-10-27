@@ -164,6 +164,7 @@ public import KAM.Head.DyadicApprox
 public import KAM.Head.DyadicBoxes
 public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
+public import KAM.Head.HeadQ
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
 public import KAM.Head.PhaseAverage
