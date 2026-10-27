@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 23:50 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 42.9 %** · frozen statements proved: 7 / 22 · **37,323 lines of Lean** of an estimated ≈ 260,000
+> **Last updated: 2026-10-27 23:51 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 42.9 %** · frozen statements proved: 7 / 22 · **37,323 lines of Lean** of an estimated ≈ 260,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 23:50 UTC from `main` at `e578b94` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 23:51 UTC from `main` at `12455e2` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 23:51 | `12455e2` | OVERNIGHT: HEAD sealed |
 | 2026-10-27 23:50 | `e578b94` | Brief for P4-S2 (HEAD-Q provider) |
 | 2026-10-27 23:50 | `e4ca720` | Seal HEAD: KAM.kam_positive_measure is proved (fourth sealed frozen theorem) |
 | 2026-10-27 23:47 | `b5b61f2` | Land k/p4-s1 into main |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 23:37 | `7e09224` | Graph K bookkeeping: record steps and frozen definitions of landed packages (map in docs/campaign/audits/K-graph-bookkeeping-2026-10-27.json); Zohar's Fourier/summation nodes held for a dedicated audit |
 | 2026-10-27 23:35 | `1040ca2` | Brief for P4-12 |
 | 2026-10-27 23:33 | `82aeee3` | P4-10 (LIP) landed; audit PASS |
-| 2026-10-27 23:33 | `69e274c` | Land k/p4-10 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
