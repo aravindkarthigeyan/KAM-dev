@@ -961,9 +961,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L885-L885 |
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:st-small
@@ -989,9 +989,9 @@ EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L909
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step (step_small)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:st-error
@@ -1018,9 +1018,9 @@ EDGE: step:p2:st-small | blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L91
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step (item (c) via newton_error)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:st-ball
@@ -1047,9 +1047,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step (item (b), perturbation margin)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:st-perturb
@@ -1078,9 +1078,9 @@ EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step (perturbation on T_{r-2δ})
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:schedule
