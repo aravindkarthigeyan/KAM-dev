@@ -29,9 +29,9 @@ EDGE: bp:p2:objects | blueprint/parts/p3-uniqueness.tex#bp:p3:standing@L77-L88 |
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.{Params, S1, S2, S3, S4}, KAM.Uniq.standing_of
+LEAN_NOTE: standing data and constants per the audited design; audit docs/campaign/audits/P3-0-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: standing hypotheses of Part 3, a local package (SPEC): (S1)-(S4)
 
 NODE: bp:p3:matrix-norms
@@ -58,9 +58,9 @@ EDGE: step:p3:norms-frame | blueprint/parts/p3-uniqueness.tex#bp:p3:matrix-norms
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.matrix_norms
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:norms-frame
@@ -116,9 +116,9 @@ EDGE: step:p3:lagrangian-unique | blueprint/parts/p3-uniqueness.tex#bp:p3:lagran
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.lagrangian
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:lagrangian-transport
@@ -175,9 +175,9 @@ EDGE: step:p3:lagrangian-transport | blueprint/parts/p3-uniqueness.tex#step:p3:l
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
+LEAN_STATUS: BYPASSED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: route substitution (D27): KAM.Uniq.lagrangian uses the operator a-priori bound of KAM.Apost.cohomological with H = 0 instead of uniqueness with g = 0; audit docs/campaign/audits/P3-1-audit-1.md (D1) confirms validity
 NOTE: -
 
 NODE: bp:p3:frequency-bound
@@ -205,9 +205,9 @@ EDGE: step:p3:frequency-gamma | blueprint/parts/p3-uniqueness.tex#bp:p3:frequenc
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.frequency_bound
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:frequency-omega
@@ -294,9 +294,9 @@ EDGE: step:p3:red-assembly | blueprint/parts/p3-uniqueness.tex#bp:p3:reducibilit
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.reducibility
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:red-holomorphy
@@ -464,9 +464,9 @@ EDGE: step:p3:torsion-bound-step | blueprint/parts/p3-uniqueness.tex#bp:p3:torsi
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.torsion_bound
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P3-1-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p3:torsion-holomorphy
@@ -1273,9 +1273,9 @@ EDGE: bp:p1:cohomological | blueprint/parts/p3-uniqueness.tex#bp:p3:standing#con
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.{C_P, C_Gamma, C_tor, C_coh, C_N, C_L, C_quad}, KAM.Uniq.threshold
+LEAN_NOTE: standing data and constants per the audited design; audit docs/campaign/audits/P3-0-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: ADDED step: the constants paragraph of the setting (L95-117) is a construction reused throughout; not a labelled environment
 
 NODE: bp:p3:quadratic#absorb
