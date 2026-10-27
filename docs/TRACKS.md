@@ -69,7 +69,7 @@ The tracks share infrastructure. The background research is in
 | Hamiltonian flows, global existence of solutions | ✓ | ✓ | ✓ | ✓ |
 | Kepler problem, Delaunay/Poincaré coordinates | | ✓ (R3BP) | | ✓ |
 
-## Proposed additions from the collaborator's research question (awaiting the owner)
+## Additions from the collaborator's research question (adopted, D22; Phase 0 under way)
 
 Rounds 1–3 are in `explorations/almost-every-*.md`; round 3 is an independent refutation. The proposed statements are:
 - **P-EXP-SAFE.** Nekhoroshev 1977, §12, Theorem 12.3, pp. 55–56, specialized to the planar problem with a moving Sun.

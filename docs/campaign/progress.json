@@ -295,6 +295,38 @@
    "difficulty": "VH",
    "done": 0.0,
    "note": ""
+  },
+  {
+   "group": "Track N (Nekhoroshev)",
+   "id": "N.ADD.PHASE0",
+   "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track N (Nekhoroshev)",
+   "id": "N.ADD.PROOF",
+   "title": "N-PARTIAL-CONVEX and N-AVERAGING: blueprint, graph, proofs",
+   "difficulty": "VH",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track P (planetary)",
+   "id": "P.ADD.PHASE0",
+   "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze",
+   "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track P (planetary)",
+   "id": "P.ADD.PROOF",
+   "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: blueprint, graph, proofs",
+   "difficulty": "VH",
+   "done": 0.0,
+   "note": ""
   }
  ]
 }

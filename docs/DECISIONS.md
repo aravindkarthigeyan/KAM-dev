@@ -128,3 +128,11 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   - Proof writers are Sonnet agents.
   - Auditors are Codex GPT-6.1-Sol sessions in tmux, in yolo mode, on the default service tier (not fast mode).
   - Optionally, a second Opus 5.5 sub-orchestrator runs in tmux with its own Sonnet workers.
+- **D22 (2026-10-27) Milestones from the collaborator's research question adopted.** *(Scott: "yes, adopt the five
+  milestones into tracks N and P")*
+  - Track N gains N-PARTIAL-CONVEX (stopped properly-degenerate Nekhoroshev, Nekhoroshev 1977 Thm 4.4) and
+    N-AVERAGING (averaging for most initial conditions, Arnold–Kozlov–Neishtadt Thm 6.11).
+  - Track P gains P-EXP-SAFE (Nekhoroshev 1977 Thm 12.3 for the planar problem with a moving Sun, with the source's
+    exponents), P-AMD-CONFINEMENT (the angular-momentum confinement helper) and P-SECULAR-BOX (the
+    Sun–Jupiter–Saturn averaged-model box at the actual masses).
+  - Each goes through Phase 0: drafting, independent audit, owner approval of the exact text, then freezing.
