@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 23:50 UTC from `main` at `e4ca720` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 23:50 UTC from `main` at `e578b94` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 23:50 | `e578b94` | Brief for P4-S2 (HEAD-Q provider) |
 | 2026-10-27 23:50 | `e4ca720` | Seal HEAD: KAM.kam_positive_measure is proved (fourth sealed frozen theorem) |
 | 2026-10-27 23:47 | `b5b61f2` | Land k/p4-s1 into main |
 | 2026-10-27 23:46 | `2928185` | Land k/p4-12 into main |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 23:35 | `1040ca2` | Brief for P4-12 |
 | 2026-10-27 23:33 | `82aeee3` | P4-10 (LIP) landed; audit PASS |
 | 2026-10-27 23:33 | `69e274c` | Land k/p4-10 into main |
-| 2026-10-27 23:29 | `3aedb7f` | P4-9 (real tori) landed; audit 1 F1 fixed (rt_small_full), audit 2 PASS |
 <!-- /AUTO:landed -->
 
 ## Decisions
