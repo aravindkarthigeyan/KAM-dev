@@ -30,22 +30,24 @@ A useful, explicit alternative avoids passage through resonances entirely. For t
 
 On a fixed positive action box, ω is a diffeomorphism with bounded Jacobian and inverse Jacobian. A slab has volume at most Cα/|k|, and summation gives relative excluded measure at most C_R αK^(n−1), for n≥2. Take α=c_Rδ/K^(n−1). Thicken each good action point by radius ρ=cα/K; the Lipschitz bound for ω preserves nonresonance on that neighborhood, including a controlled complex extension.
 
-Pöschel's §2 Normal Form Lemma, author-version p. 8, and §3 Proposition 1, pp. 12–13, give a remainder O(μe^−cK), transformation control and action confinement time of order (ρ/μ)e^cK, provided μK/(αρ) is sufficiently small. The source has action–angle variables. **New technical adaptation:** include the additional canonical eccentricity pairs in the analytic norm and Poisson-bracket estimates. Solve the homological equation only in the fast angles; the averaged normal form may depend arbitrarily on the slow pairs. Their brackets are bounded using a fixed complex slow-variable margin. The slow radius can dominate √(ρs), where s is the reserved angle width. Repeating the source's initial large normalization step and subsequent iteration preserves the stated smallness scale. This adaptation needs an independent proof audit; it is not a literal instance of the printed lemma. [Pöschel 1993, DOI](https://doi.org/10.1007/BF03025718).
+Pöschel's §2 Normal Form Lemma, author-version p. 8, and §3 Proposition 1, pp. 12–13, give a remainder O(μe^−cK), transformation control and action confinement time of order (ρ/μ)e^cK, provided μK/(αρ) is sufficiently small. The source has action–angle variables. [Pöschel 1993, DOI](https://doi.org/10.1007/BF03025718). Rather than quote that sharper smallness condition for additional eccentricity pairs, the following **new adaptation** uses a conservative extra factor K.
+
+Work in the analytic Fourier norm, obtained from a fixed wider strip. Perform K averaging steps, allocating action, angle and slow-variable losses proportional to ρ/K, s/K and r_z/K. Solve each homological equation only in the fast angles; its solution has norm at most the current remainder divided by α. Cauchy estimates bound the fast Poisson bracket by C K²/(ρs) times the product of norms, and the slow bracket by C K²/r_z² times that product. Fixed available slow width permits r_z²≥ρs. The accumulated averaged term has size O(μ), so μK²/(αρ)≤c ensures geometric contraction at each step. Fourier tails are exponentially small in K on the reserved strip. Summing the changes gives fast-action displacement O(μK/α) and remainder O(μe^−cK). The normal form is independent of fast angles, so only this remainder drives its fast actions. This proves the following conservative scale by the usual Lie-series iteration; a formal proof still requires its domain bookkeeping.
 
 The resulting sufficient condition and trade-off are
 
-    μK^(2n) ≤ cδ²,
-    K ≍ (δ²/μ)^(1/(2n)),     ρ ≍ √μ,
+    μK^(2n+1) ≤ cδ²,
+    K ≍ (δ²/μ)^(1/(2n+1)),     ρ ≍ δ/Kⁿ,
     relative exception ≤ δ,
-    T(μ,δ) ≥ c μ^−1/2 exp(c(δ²/μ)^(1/(2n))).
+    T(μ,δ) ≥ c δ/(μKⁿ) exp(cK).
 
 Here μ≤cδ² and K must exceed a fixed minimum. Transformation displacement is O(μK/α), smaller than ρ under the same smallness inequality. The exact angular-momentum argument in §2 closes slow-variable exit. No covering multiplicity is charged to the good set: the slab union is estimated globally, and each retained point uses a local normal form. Boundary margins are fixed in advance.
 
 For any fixed k≥2, choosing K=C_k log(1/μ) gives T≥μ^−k whenever
 
-    μ(log(1/μ))^(2n) ≤ c_kδ².
+    μ(log(1/μ))^(2n+1) ≤ c_kδ².
 
-These are sufficient bounds, not an optimality claim or a theorem already proved in this repository. Proper degeneracy requires the stated normal-form extension but introduces no slow-frequency divisors. Their value would be effective constants or a cheaper alternative proof; the all-data result below is qualitatively stronger.
+These are sufficient bounds, not an optimality claim or a theorem already proved in this repository. In the source's action–angle setting its sharper iteration gives K≍(δ²/μ)^(1/(2n)) and T≥cμ^−1/2 exp(cK). Extending that sharper estimate to the slow pairs is a separate optimization, not an input here. Proper degeneracy introduces no slow-frequency divisors into the conservative proof. Its value would be effective constants or a cheaper alternative; the all-data result below is qualitatively stronger.
 
 ### Resonant geometry and the genuinely stronger conclusion
 
@@ -92,7 +94,7 @@ Fix an outer box Q=∏[ℓᵢ,uᵢ], with 0<ℓᵢ<uᵢ, and an inner positive-v
 
 Set ℓmin=minᵢℓᵢ and Acrit=ℓmin(1−√(1−e*²)). Fix 0<A₀<A₁<Acrit and the initial region
 
-    R = Q₀ × (R/2πZ)ⁿ × {z : A(z)<A₀}.
+    R = Q₀ × (ℝ/2πℤ)ⁿ × {z : A(z)<A₀}.
 
 All these choices are independent of μ and δ. Let ν denote canonical Liouville volume on R, so 0<ν(R)<∞.
 
@@ -113,7 +115,7 @@ The following seven lemmas discharge the premises rather than assuming safety.
 
        J=Σᵢqᵢ×pᵢ=ΣᵢΛᵢ√(1−eᵢ²)=ΣᵢΛᵢ−A.
 
-   The Hamiltonian's displayed terms are rotationally invariant, so Hamilton's equations give dJ/dt=0. The coordinate formulas and angular-momentum/AMD identities are written in Laskar–Petit, §2.1–2.2, equations (4)–(11), pp. 2–3 of [arXiv:1703.07125v2](https://arxiv.org/abs/1703.07125v2), [DOI](https://doi.org/10.1051/0004-6361/201630022); Pinzari v3 §1.1 supplies the regular planetary coordinates. The mass normalization used here is fixed by the displayed Hamiltonian. Crucially, A itself need not be conserved by the full dynamics.
+   The Hamiltonian's displayed terms are rotationally invariant, so Hamilton's equations give dJ/dt=0. The coordinate formulas and angular-momentum/AMD identities are written in Laskar–Petit, §2.1–2.2, equations (4)–(11), p. 2 of [arXiv:1703.07125v2](https://arxiv.org/abs/1703.07125v2), [DOI](https://doi.org/10.1051/0004-6361/201630022); Pinzari v3 §1.1 supplies the regular planetary coordinates. The mass normalization used here is fixed by the displayed Hamiltonian. Crucially, A itself need not be conserved by the full dynamics.
 
 2. **New elementary specialization: geometric analytic domain.** On Λ∈Q and A≤A₁, each nonnegative AMD summand is at most A₁. Since Λᵢ≥ℓmin, this implies eᵢ<e*. Elliptic geometry gives aᵢ(1−eᵢ)≤|qᵢ|≤aᵢ(1+eᵢ). The stipulated gaps therefore separate all configurations, regardless of orbital phases. Compactness and strict inequalities permit a slightly larger real neighborhood, then a uniform complex neighborhood on which the Kepler map and potential branches are analytic. The perturbation and its derivatives are uniformly bounded there. This is an explicit compactness deduction, not an assumption that the trajectory remains there.
 
@@ -132,6 +134,8 @@ The following seven lemmas discharge the premises rather than assuming safety.
 7. **New immediate deduction: quantifiers and measure.** Set Eμ,δ=∅. Exponential growth dominates every fixed power as μ→0, giving the polynomial corollary. The fixed region and its volume never shrink with μ, k or δ.
 
 This is a precise packaging of a known planetary argument, not a new dynamical theorem. The new work is its explicit contract, source audit, formal proof and any usable constants. Calling it merely folklore would understate Pinzari's explicit historical attribution. Conversely, track N's present nondegenerate N-HEAD, with owner-approved n≥3, cannot simply be instantiated with the degenerate planetary Hamiltonian or with two fast actions.
+
+The concurrently updated [track-N statement, draft 0.2](../tracks/N/statement.md) also records source-import gap F-N1: real derivative bounds do not supply the uniform complex Hessian bound used by the imported normal-form estimate. This report does not resolve that existing audit finding. Its Kepler Hamiltonian is fixed and explicit, so its derivatives can instead be bounded directly on the chosen complex neighborhood. A uniform abstract N-PARTIAL-CONVEX statement must retain the necessary complex bounds among its parameters.
 
 ## 3. Actual Jupiter–Saturn masses
 
@@ -201,6 +205,8 @@ Before owner approval, an independent refutation round should test these specifi
 
 New PDFs, versioned abstract-page records, Crossref responses and extracts were appended under `sources/incoming-zohar2/`, with new-PDF hashes in `r2-SHA256SUMS`. DOI title/author matches and arXiv versions were checked; theorem locators refer to the named versions. The JPL page is an agency data source, not a DOI-bearing mathematical theorem. The inaccessible details explicitly marked **[unverified]** are not premises of §2.
 
-Only this report is an authored repository deliverable. No Lean, frozen declaration, manifest, generated file, existing report or track document was edited; no state-changing git command was used. Concurrent workspace changes belong to other work. The brief's no-Lean rule excludes the full source-lint script's elaborated-ABI stage, builds and `#print axioms`; no formal proof or build receipt is claimed. Static validation and the exact arithmetic checks are reported below after execution.
+Only this report is an authored repository deliverable. No Lean, frozen declaration, manifest, generated file, existing report or track document was edited; no state-changing git command was used. Concurrent workspace changes belong to other work. The brief's no-Lean rule excludes the full source-lint script's elaborated-ABI stage, builds and `#print axioms`; no formal proof or build receipt is claimed.
+
+Executed checks: `python3 -I scripts/gen_root_imports.py --check` and `python3 -I scripts/render_errata.py --check` exited 0 without output. `python3 -I scripts/check_lean_modules.py --root /root/code/KAM` returned `PASS (43 Lean files, 0 comparator configurations)`; the static frozen-anchor guard returned `FROZEN-ANCHOR GUARD OK`. A read-only reproduction of the lint script's forbidden-pattern and size checks passed on its 42 included files. `sha256sum --check r2-SHA256SUMS` returned `OK` for all nine new PDFs. All eleven DOI links matched retained Crossref title/author records; relative report links and whitespace checks passed. The secular-box arithmetic record contains eleven successful rational checks. `git diff --check -- docs/explorations/almost-every-round2.md` exited 0; because the report was untracked, a separate direct trailing-whitespace check also passed. These are source/data hygiene checks, not mathematical closure.
 
 No new suspected defect in a pinned mathematical source was identified. The restrictions introduced here are explicit: planar prograde motion, fixed compact separated annuli, low initial total deficit and sufficiently small masses for the full exponential theorem. The slow-pair normal-form extension is a proposed adaptation. The secular certificate concerns its stated averaged model. These boundaries, and the unverified realistic full-model remainder, must survive any later statement drafting.
