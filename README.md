@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 14:32 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 12.6 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 14:35 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 12.6 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -117,7 +117,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 14:32 UTC from `main` at `80d65f4` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 14:35 UTC from `main` at `4db4826` by `scripts/hq-status.py`.*
 
 **Current phase:** Phase 0: statements. Owner rulings Q1–Q5 recorded (D9); mathematical statement draft 0.1 in docs/statement.md; exact Lean drafts of the headline (rate and qualitative), G1 (a-posteriori), G2 (local uniqueness for flows), G3 (Diophantine measure) and 19 definitions elaborate against Mathlib; independent refute-first statement audit running; then owner approval and freeze.
 
@@ -231,6 +231,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 14:35 | `4db4826` | Record D10: the errata ledger stays public |
 | 2026-10-27 14:32 | `80d65f4` | HQ: statement drafts elaborate; independent audit running |
 | 2026-10-27 14:28 | `227e9b6` | Make the repository public; record rulings Q1-Q5; add statement draft 0.1 |
 | 2026-10-27 13:45 | `3b36d0e` | Pin the measure-layer sources and record the route verdict |
