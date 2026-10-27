@@ -21,18 +21,18 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:compact@L81-L83
 DISPOSITION: NODE bpI:p3:compact
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: stepI:p3:cp-compact
 KIND: proof-region
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp-compact@L85-L88
 DISPOSITION: NODE stepI:p3:cp-compact
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: stepI:p3:cp-grad
 KIND: proof-region
@@ -57,36 +57,36 @@ KIND: external
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:ext-ift@L102-L104
 DISPOSITION: NODE bpI:p3:ext-ift
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: bpI:p3:ext-compact
 KIND: external
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:ext-compact@L105-L106
 DISPOSITION: NODE bpI:p3:ext-compact
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: bpI:p3:ext-lebesgue
 KIND: external
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:ext-lebesgue@L107-L107
 DISPOSITION: NODE bpI:p3:ext-lebesgue
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: bpI:p3:det-identity
 KIND: lemma
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:det-identity@L116-L123
 DISPOSITION: NODE bpI:p3:det-identity
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: stepI:p3:di-expand
 KIND: proof-region
@@ -165,18 +165,18 @@ KIND: definition
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch@L177-L186
 DISPOSITION: NODE bpI:p3:patch
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: bpI:p3:cover
 KIND: lemma
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:cover@L188-L192
 DISPOSITION: NODE bpI:p3:cover
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: stepI:p3:cv-local
 KIND: proof-region
@@ -201,18 +201,18 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:dio-open@L204-L209
 DISPOSITION: NODE bpI:p3:dio-open
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: stepI:p3:do-positive
 KIND: proof-region
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:do-positive@L211-L212
 DISPOSITION: NODE stepI:p3:do-positive
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: stepI:p3:do-choice
 KIND: proof-region
@@ -255,9 +255,9 @@ KIND: definition
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch-rays@L232-L240
 DISPOSITION: NODE bpI:p3:patch-rays
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: bpI:p3:points
 KIND: lemma
@@ -361,8 +361,8 @@ REVIEWER: -
 ITEM: stepI:p3:to-torsion
 KIND: proof-region
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-torsion@L310-L313
-DISPOSITION: NODE stepI:p3:to-torsion
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE stepI:p3:to-torsion, stepI:p3:to-torsion#p1-setting, stepI:p3:to-torsion#flat-route, stepI:p3:to-torsion#citation-route
+REASON: Map the two source routes and scope the missing Part 1 premise to the cited shortcut.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: -
@@ -388,8 +388,8 @@ REVIEWER: -
 ITEM: bpI:p3:apply
 KIND: lemma
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply@L320-L333
-DISPOSITION: NODE bpI:p3:apply
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE bpI:p3:apply, bpI:p3:apply#constants
+REASON: Map the pre-perturbation choice of the frozen constant witnesses separately from their application.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: -
@@ -471,9 +471,9 @@ KIND: definition
 SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:uniform@L359-L369
 DISPOSITION: NODE bpI:p3:uniform
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
-REVIEWER: -
+REVIEWER: sol-review-I-p3
 
 ITEM: bpI:p3:tori
 KIND: proposition
@@ -707,4 +707,103 @@ DISPOSITION: EXCLUDED
 REASON: introduction to the external-facts list: pointer; each external is its own node (bpI:p3:ext-ift, ext-compact, ext-lebesgue) or the cited K node (K:bp:p1:ext-cramer, K:bp:p1:ext-integral) at the using steps
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:P1
+KIND: definition
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:P1@L181-L181
+DISPOSITION: NODE bpI:p3:patch
+REASON: Missing labelled clause: map to enclosing patch definition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:P2
+KIND: definition
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:P2@L182-L182
+DISPOSITION: NODE bpI:p3:patch
+REASON: Missing labelled clause: map to enclosing patch definition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:P3
+KIND: definition
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:P3@L183-L183
+DISPOSITION: NODE bpI:p3:patch
+REASON: Missing labelled clause: map to enclosing patch definition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:T1
+KIND: claim
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:T1@L376-L376
+DISPOSITION: NODE bpI:p3:tori
+REASON: Missing labelled clause: map to enclosing output proposition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:T2
+KIND: claim
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:T2@L377-L377
+DISPOSITION: NODE bpI:p3:tori
+REASON: Missing labelled clause: map to enclosing output proposition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:T3
+KIND: claim
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:T3@L378-L378
+DISPOSITION: NODE bpI:p3:tori
+REASON: Missing labelled clause: map to enclosing output proposition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:T4
+KIND: claim
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:T4@L379-L380
+DISPOSITION: NODE bpI:p3:tori
+REASON: Missing labelled clause: map to enclosing output proposition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:T5
+KIND: claim
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:T5@L381-L381
+DISPOSITION: NODE bpI:p3:tori
+REASON: Missing labelled clause: map to enclosing output proposition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:T6
+KIND: claim
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:T6@L382-L382
+DISPOSITION: NODE bpI:p3:tori
+REASON: Missing labelled clause: map to enclosing output proposition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: bpI:p3:T7
+KIND: claim
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:T7@L383-L383
+DISPOSITION: NODE bpI:p3:tori
+REASON: Missing labelled clause: map to enclosing output proposition.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
+REVIEWER: -
+
+ITEM: p3:prose-L113-L114
+KIND: proof-region
+SOURCE: blueprint-I/parts/p3-iso-local-charts.tex#p3:prose-L113-L114@L113-L114
+DISPOSITION: NODE bpI:p3:det-identity, bpI:p3:coordinates
+REASON: Previously un-inventoried notation paragraph defining g^perp and det(g,w); map to both substantive consumers.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-I-p3
 REVIEWER: -

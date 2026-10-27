@@ -3,36 +3,36 @@ KIND: definition
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:standing@L36-L42
 DISPOSITION: NODE bpI:p2:standing
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: -
+REVIEWER: sol-review-I-p2
 
 ITEM: bpI:p2:ray
 KIND: lemma
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:ray@L50-L59
 DISPOSITION: NODE bpI:p2:ray
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: -
+REVIEWER: sol-review-I-p2
 
 ITEM: stepI:p2:ray-dio
 KIND: proof-region
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ray-dio@L61-L62
 DISPOSITION: NODE stepI:p2:ray-dio
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: -
+REVIEWER: sol-review-I-p2
 
 ITEM: stepI:p2:ray-margin
 KIND: proof-region
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ray-margin@L63-L64
 DISPOSITION: NODE stepI:p2:ray-margin
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: -
+REVIEWER: sol-review-I-p2
 
 ITEM: bpI:p2:constants
 KIND: definition
@@ -84,9 +84,9 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-data@L152-L153
 DISPOSITION: NODE stepI:p2:co-data
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: -
+REVIEWER: sol-review-I-p2
 
 ITEM: stepI:p2:co-xi0
 KIND: proof-region
@@ -255,9 +255,9 @@ KIND: proposition
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L227-L241
 DISPOSITION: NODE bpI:p2:step
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: -
+REVIEWER: sol-review-I-p2
 
 ITEM: stepI:p2:st-small
 KIND: proof-region
@@ -291,9 +291,9 @@ KIND: definition
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:schedule@L255-L259
 DISPOSITION: NODE bpI:p2:schedule
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: -
+REVIEWER: sol-review-I-p2
 
 ITEM: bpI:p2:error-decay
 KIND: lemma
@@ -390,9 +390,9 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:energy-limit@L316-L318
 DISPOSITION: NODE bpI:p2:energy-limit
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: -
+REVIEWER: sol-review-I-p2
 
 ITEM: stepI:p2:el-unif
 KIND: proof-region
@@ -417,9 +417,9 @@ KIND: theorem
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:g1@L329-L337
 DISPOSITION: NODE bpI:p2:g1
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
-REVIEWER: -
+REVIEWER: sol-review-I-p2
 
 ITEM: stepI:p2:g1-constants
 KIND: proof-region
@@ -695,7 +695,7 @@ ITEM: p2:prose-L44-L48
 KIND: proof-region
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#prose@L44-L48
 DISPOSITION: NODE bpI:p2:standing#k-bridge
-REASON: K-package bridge: Part 2 standing data contains K's standing data (h := H, B(frak) := D); K:bp:p2:hamiltonian applies; bpI:p1:setting holds for omega = s omega*; objects are K's; consumers carry the edge
+REASON: Common K standing data and object identification, with Diophantinity from ray; the Part 1 r,K,image and Gram premises are supplied at consumers (B1,B2,B4), not by standing alone. No blanket transfer of A5 or every later K premise.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
@@ -705,6 +705,87 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#prose@L114-L115
 DISPOSITION: NODE stepI:p2:g1-dict
 REASON: (I5)-(I12) are admissibility with sharper constants once e<=1 (step g1-e): used by g1-dict and g1-apply
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p2
+REVIEWER: -
+
+ITEM: bpI:p2:B1
+KIND: label
+SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B1@L97-L97
+DISPOSITION: NODE bpI:p2:admissible
+REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p2
+REVIEWER: -
+
+ITEM: bpI:p2:B2
+KIND: label
+SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B2@L98-L98
+DISPOSITION: NODE bpI:p2:admissible
+REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p2
+REVIEWER: -
+
+ITEM: bpI:p2:B3
+KIND: label
+SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B3@L99-L99
+DISPOSITION: NODE bpI:p2:admissible
+REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p2
+REVIEWER: -
+
+ITEM: bpI:p2:B4
+KIND: label
+SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B4@L100-L100
+DISPOSITION: NODE bpI:p2:admissible
+REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p2
+REVIEWER: -
+
+ITEM: bpI:p2:B5
+KIND: label
+SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B5@L101-L101
+DISPOSITION: NODE bpI:p2:admissible
+REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p2
+REVIEWER: -
+
+ITEM: bpI:p2:B6
+KIND: label
+SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B6@L102-L102
+DISPOSITION: NODE bpI:p2:admissible
+REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p2
+REVIEWER: -
+
+ITEM: bpI:p2:B7
+KIND: label
+SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B7@L103-L103
+DISPOSITION: NODE bpI:p2:admissible
+REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p2
+REVIEWER: -
+
+ITEM: bpI:p2:freq
+KIND: label
+SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:freq@L107-L109
+DISPOSITION: NODE bpI:p2:admissible
+REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-I-p2
+REVIEWER: -
+
+ITEM: bpI:p2:newerr
+KIND: label
+SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newerr@L170-L172
+DISPOSITION: NODE bpI:p2:newton-error
+REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
