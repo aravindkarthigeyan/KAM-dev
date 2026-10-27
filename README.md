@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 20:04 UTC from `main` at `38d48ee` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 20:04 UTC from `main` at `4bc1818` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K: waves 1-2 landed (P-G3, I-MAT, I-LIP, I-STRIP-5, I-ZMAP, I-P1B, I-P4A): 120/453 graph nodes proved and audited. Part 2/3 (G1, G2) Lean design done (21 packages, 10 waves); its signatures under independent audit; I-P1C running; Zohar: I-STRIP-2 done, I-STRIP-3 (cohomological equation) next. Tracks I, N, P: Opus sub-orchestrator; track I graph under construction.
 
@@ -298,6 +298,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 20:04 | `4bc1818` | Parts 2/3 proof campaign: common brief and wave-1 briefs (P2-1a carrier, P2-1b standing and constants) |
 | 2026-10-27 20:04 | `38d48ee` | Part 2/3 Lean design: both signature audits PASS WITH NOTES (no corrected signatures) |
 | 2026-10-27 20:01 | `a3a3623` | Land inp into main |
 | 2026-10-27 20:00 | `4efc10f` | HQ: waves 1-2 landed (120/453 nodes); Part 2/3 design under audit; I-P1C running |
@@ -309,7 +310,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 19:51 | `38f8519` | I-STRIP-5 landed (43c6f7b): several-variable analyticity; audits PASS WITH NOTES; han-series BYPASSED (D27) |
 | 2026-10-27 19:50 | `43c6f7b` | Land k/strip5 into main |
 | 2026-10-27 15:49 | `5459d7a` | Complete I-STRIP-2: Fourier series and Fourier representation on strips |
-| 2026-10-27 19:47 | `672efcb` | I-P4A landed (ac75cab): audit PASS WITH NOTES; graph nodes PROVED |
 <!-- /AUTO:landed -->
 
 ## Decisions
