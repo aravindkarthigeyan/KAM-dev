@@ -171,6 +171,7 @@ public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
 public import KAM.Head.HeadQ
 public import KAM.Head.InverseFrequency
+public import KAM.Head.Lagrangian
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
 public import KAM.Head.Parameters
@@ -230,8 +231,10 @@ public import KAM.Strip.Taylor
 public import KAM.Torus.Basic
 public import KAM.Torus.FrozenAgreement
 public import KAM.Torus.Objects
+public import KAM.Uniq.Difference
 public import KAM.Uniq.Frame
 public import KAM.Uniq.Phase
+public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
 
 /-!
