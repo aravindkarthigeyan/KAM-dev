@@ -59,6 +59,16 @@ DCDS-S 2010, CP09 = Chierchia-Pusateri ETDS 2009 (arXiv v1 numbering), Fej04r = 
   proves the two-scale coordinate displacement bounds (I₁ with α₁, I₂ with α₂) itself; the α = α₂ shortcut is
   insufficient. Part 5's perturbation size is E = Cμε⁵ (CP10 p. 560), not μ⁵ (P3-05).
 
+- **P-FIXED gate after the Rüssmann check (`reviews/p11a-russmann-check.md`, 2026-10-27).** Sources Rus01 + Rus05
+  are pinned; together they contain a real proof of Rus01 Thm 1.7, conditional on external auxiliary facts, with a
+  dimension-rescaling defect in Rus05 §11 (R05-2) and CP09's power-law specialization not separately proved (A3).
+  Decision: **Part 11a = a focused MAXIMAL-case analytic weak-nondegeneracy KAM theorem** with power-law divisors,
+  built from Rus01 §§7–20 and Rus05 §§9–11, with an elementary Fourier/Taylor cutoff (or the dimension-repaired
+  Rus05 estimate), finite-order parameter regularity, explicit displacement and inverse-Lipschitz family wrappers and
+  the shrinking-domain polynomial budget (statement list `p11a:*` in the check). Not literal Rus01 Thm 1.7; every
+  repair is a recorded deviation. Estimated 35–60 blueprint pages. Part 11 (CP09 finite preparation, polar
+  normalisation, properly degenerate local wrapper) stays separate. No further source acquisition needed.
+
 ## Routes in one paragraph
 
 * **P-G** (Theorem `bpP:p0:pg`) is CP10 Theorem 1.3, pp. 548 and 562-564 (proof §4, "most of the arguments are similar
