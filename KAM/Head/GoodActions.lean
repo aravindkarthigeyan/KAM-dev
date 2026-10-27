@@ -8,6 +8,7 @@ module
 public import KAM.Head.RealTorus
 import KAM.Head.Frequency
 import KAM.Head.InverseFrequency
+import KAM.Head.Lip
 import KAM.Head.Parameters
 import KAM.Head.UnperturbedFrame
 
@@ -269,8 +270,8 @@ theorem disp_sub_le_mixed (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀ B
     _ ≤ γ / 2 := by linarith [hs7.1, hs7.2]
     _ ≤ 1 / 2 * ‖z - z'‖ := by linarith
 
-/-- Blueprint `bp:p4:map-lipschitz`, from the conclusion of `lip` (conditional helper; the final
-theorem is this lemma applied to `KAM.Head.lip`). -/
+/-- The assembly of `bp:p4:map-lipschitz` from the conclusion of `bp:p4:lip` (a conditional helper;
+`KAM.Head.map_lipschitz` is this lemma applied to `KAM.Head.lip`). -/
 theorem map_lipschitz_of_lip (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀ B f ε)
     (hgc : GValid τ s₀ r₀ B h Lh gc) (hSA : SA τ s₀ r₀ B h Lh gc ε γ)
     (hlip : ∀ ω ∈ OmegaGamma h B τ γ, ∀ ω' ∈ OmegaGamma h B τ γ,
@@ -297,6 +298,16 @@ theorem map_lipschitz_of_lip (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r�
     exact disp_sub_le_mixed hD hP hgc hSA hz' hz
   · rw [hZ hz, hZ hz', sub_zero, norm_zero]
     positivity
+
+/-- Blueprint `bp:p4:map-lipschitz`. -/
+theorem map_lipschitz (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀ B f ε)
+    (hgc : GValid τ s₀ r₀ B h Lh gc) (hSA : SA τ s₀ r₀ B h Lh gc ε γ) :
+    Disjoint (goodActions h B τ γ) (layerSet B γ) ∧
+    (∀ z, ‖disp τ s₀ r₀ B h f gc ε γ z‖ ≤ eta0 n τ s₀ r₀ gc ε γ) ∧
+    ∀ z ∈ (Set.univ ×ˢ (goodActions h B τ γ ∪ layerSet B γ)),
+      ∀ z' ∈ (Set.univ ×ˢ (goodActions h B τ γ ∪ layerSet B γ)),
+        ‖disp τ s₀ r₀ B h f gc ε γ z - disp τ s₀ r₀ B h f gc ε γ z'‖ ≤ 1 / 2 * ‖z - z'‖ :=
+  map_lipschitz_of_lip hD hP hgc hSA (lip hD hP hgc hSA)
 
 end GoodActions
 
