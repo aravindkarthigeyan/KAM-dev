@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:19 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 16.4 %** · frozen statements proved: 0 / 5 · **1,912 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 16.4 %** · frozen statements proved: 0 / 5 · **1,912 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -118,7 +118,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:19 UTC from `main` at `1f4bdd2` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:20 UTC from `main` at `615276c` by `scripts/hq-status.py`.*
 
 **Current phase:** Phase 0 complete: the headline (rate and qualitative), G1, G2, G3 and 20 definitions are approved and frozen (D11). Phase 1 next: blueprint and source-level dependency graph anchored to the frozen statements; infrastructure (weighted Fourier algebras) can start in parallel.
 
