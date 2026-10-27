@@ -1,0 +1,266 @@
+\section{Part 11a-4: the limit maps, the invariant tori, the displacement and the inverse-Lipschitz family}\label{bpP:p11a4}
+\begingroup\sloppy
+
+\def\Ddom#1#2#3{\mathcal D(#1,#2;#3)}
+\def\opnm#1{\lvert #1\rvert_{\mathrm{op}}}
+\def\Phin#1{\Phi^{(#1)}}
+\def\lamstar{\lambda_{*}}
+
+This is the fourth of the five files of Part~11a. File~11a-3 runs the Russmann iteration for all stages and delivers, for the retained parameters, the sequence of simple canonical maps $X_\nu$ with summable displacement and derivative budgets. This file passes to the limit and reads off what the consumers use: for each retained parameter $b$ an analytic Lagrangian torus carrying the Kronecker flow of the Diophantine vector $\omega_*(b)$ (Theorem~\ref{bpP:p11a:limit-torus}), a displacement of that torus from the unperturbed one which is a power of $\varepsilon$ (Theorem~\ref{bpP:p11a:displacement}), and the fact that the whole family, as a function of the pair (parameter, angle), is a Lipschitz-small perturbation of the identity, hence injective with a Lipschitz inverse and a measurable image of controlled measure (Proposition~\ref{bpP:p11a:lipschitz-family}, Theorem~\ref{bpP:p11a:evaluation-bilipschitz}).
+
+\paragraph{The mechanism.} Two features of the scheme make this short. First, the maps $X_\nu$ are affine in the action and the tori are images of the \emph{zero section}; so only the values $X_\nu(\theta,0,b)$ matter, and these move by $A_{1,\nu}$ in the angle and $A_{\eta,\nu}$ in the action, summably (Lemma~\ref{bpP:p11a:exported-sums}). Second, the same increments are holomorphic in the parameter $b$ on a collar of width $t_{\nu+1}$ around $K_{\nu+1}$, and the collars shrink only like $2^{-(\tau+1)\nu}$ while the increments shrink like $g_4^{\nu}\,2^{-(\tau+1)\nu}$ with $g_4\le2^{-5}$. Hence \emph{each increment is Lipschitz in $b$, on the whole of $K_\infty$, with constant (size of the increment)/(collar)}, and these constants are summable (Lemma~\ref{bpP:p11a:param-lip-sum}). Nothing about the shape of the Cantor set $K_\infty$ enters: the argument compares two points of $K_\infty$ stage by stage, using Cauchy's estimate at scale $t_{j+1}/2$ if the points are closer than $t_{j+1}/2$, and twice the sup of the increment otherwise.
+
+\paragraph{Verdict on risk (R3) of the plan.} The local-to-global Lipschitz bound is \emph{closed} without a tail condition $\sum_{j\ge\nu}C_j\le c\,t_{\nu+1}$: the direct per-stage estimate above needs only $\sum_j(A_{1,j}+A_{\eta,j})/t_{j+1}<\infty$, which holds geometrically (Lemma~\ref{bpP:p11a:param-lip-sum}), and gives the Lipschitz constant $\lambda_*=2^{-10}$ of the defect in the pair $(b,\theta)$. The tail form (E3) of File~11a-3 is not needed. A second finding concerns the displacement: with the initial action radius $s_0$ of Definition~\ref{bpP:p11a:adm-params} the quantity $\lambda_0=\varepsilon_0/s_0\ge\frac12\lambda_{\max}$ does \emph{not} tend to $0$ with $\varepsilon$ (the term $\frac N2C_1s_0^2$ of the initial remainder is independent of $\varepsilon$), so the displacement bound of File~11a-3 (T2) is of fixed size; the power law (K6) of Definition~\ref{bpP:p11:kam-input} needs the radius to be adapted to $\varepsilon$. This is Lemma~\ref{bpP:p11a:free-radius} (deviation D-19); it costs nothing, because File~11a-3 uses $s_0$ only through (A1)--(A7).
+
+\paragraph{What is proved.}
+\begin{itemize}
+\item \texttt{free-radius}, \texttt{composition}, \texttt{param-lip-sum} (Lemmas~\ref{bpP:p11a:free-radius}, \ref{bpP:p11a:composition}, \ref{bpP:p11a:param-lip-sum}): the initial radius adapted to $\varepsilon$; the compositions $\Phin\nu=X_0\circ\dots\circ X_{\nu-1}$ with their domains, derivative and displacement bounds; the summability against the collars.
+\item \texttt{limit-map} (Proposition~\ref{bpP:p11a:limit-map}; Rus01 Thm 15.5, restricted to the zero section): the limit of $\Phin\nu(\cdot,0,b)$, its analyticity, equivariance and derivative bound.
+\item \texttt{limit-torus} (Theorem~\ref{bpP:p11a:limit-torus}): invariance (the Kronecker flow with frequency $\omega_*(b)$), Lagrangian, immersed and embedded, for every $b\in K_\infty$; Diophantine on $H_\infty$.
+\item \texttt{displacement}, \texttt{gamma-inverse}, \texttt{displacement-power} (Theorem~\ref{bpP:p11a:displacement}, Lemma~\ref{bpP:p11a:gamma-inverse}, Corollary~\ref{bpP:p11a:displacement-power}): the explicit displacement, of order $\varepsilon^{1/2}/\gamma$, and the form $c_D\varepsilon^{1/2}\beta^{-(\mu+1)/\rho}$ that Part~11 uses as (K6).
+\item \texttt{lipschitz-family}, \texttt{evaluation-bilipschitz} (Proposition~\ref{bpP:p11a:lipschitz-family}, Theorem~\ref{bpP:p11a:evaluation-bilipschitz}): the Lipschitz defect of the evaluation map, injectivity, the inverse Lipschitz bound, Borel image of the half-open cell and its measure, compactness of the closed image and of its quotient.
+\end{itemize}
+\emph{Not proved:} Rus01 15.5.5, the normal form $h_*(b)+\langle\omega_*(b),\eta\rangle+O(\eta^2)$ on a fixed action neighbourhood. File~11a-3 (T1, review P11A3-06) leaves it to this file because $s_\nu\to0$ and $\varepsilon_\nu/s_\nu^2\to\infty$; no consumer needs it (the physical statements use the torus, its invariance and its symplectic character; Remark~\ref{bpP:p11a:no-normal-form}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The standing situation and the radius adapted to $\varepsilon$}\label{bpP:p11a:s4-conv}
+
+\paragraph{Conventions.} Those of Files~11a-2 and~11a-3: angles of period one, max norms on $\R^N,\C^N$ and $\C^N\times\C^N$ (for a pair $(\theta,\eta)$ the max of the two), induced operator norms ($\lvert M\rvert_\infty$ = maximal row sum), $T_r$, $\Ddom rsB=\{(\theta,\eta,b):\theta\in T_r,\lvert\eta\rvert_\infty<s,\ b\in B\}$, $E+t$. The Hamiltonian field and the bracket are those of Part~0 (Definition~\ref{bpP:p0:hamsymp}): $X_\phi=J(D\phi)^{\top}=(\partial_I\phi,-\partial_\theta\phi)$ with $J=\bigl(\begin{smallmatrix}0&\mathbf 1\\-\mathbf 1&0\end{smallmatrix}\bigr)$ in the order (angles, actions), and a map $\Phi$ is canonical if $(D\Phi)^{\top}JD\Phi=J$ (\Nref{bpN:p5:symplectic}). The symplectic form is $\Omega_0(Z,Z')=I\cdot\theta'-\theta\cdot I'$ for $Z=(\theta,I)$, $Z'=(\theta',I')$, $\Omega_0(Z,Z')=Z^{\top}JZ'$; only its vanishing on a pair of vectors is used, which does not depend on the overall sign.
+
+\begin{assumption}[The situation $(\mathrm S)$]\label{bpP:p11a:situation}
+Assumption~\ref{bpP:p11a:sel-data} holds (data $N,\mu,\rho,\tau,K,\vartheta,s,C_1,\varepsilon^*,\beta,M,M_0,h,f$) and $\gamma=\gamma_*(\varepsilon^*)/2$. Let $0<\varepsilon\le\varepsilon_{\mathrm{adm}}$ with $\lvert f\rvert\le\varepsilon$ on $T_s\times U$. Take the schedule of Definition~\ref{bpP:p11a:schedule}, with $T_0,t_0$ of Definition~\ref{bpP:p11a:adm-params} and the radius $s_0=s_0(\varepsilon)$ of Lemma~\ref{bpP:p11a:free-radius}, $\varepsilon_0=2\varepsilon$, and the iteration of Proposition~\ref{bpP:p11a:inductive-lemma}: the nested compact sets $K_\nu$, $B_\nu=K_\nu+t_\nu$, the maps $X_\nu$, the remainders $R_\nu$, the frequencies $\omega_\nu$, and $K_\infty=\bigcap K_\nu\supset H_\infty$, $\omega_*$ of Theorem~\ref{bpP:p11a:parameter-selection}. Write $\mathcal D_\nu:=\Ddom{r_\nu}{s_\nu}{B_\nu}$, $a_\nu:=A_{1,\nu}$, $\alpha_\nu:=A_{\eta,\nu}$, $m_\nu:=2\kappa_\nu+\kappa_\nu s_\nu/\sigma_\nu$ (the quantities of Proposition~\ref{bpP:p11a:inductive-lemma}\ref{bpP:p11a:O3}).
+\end{assumption}
+The case $\varepsilon=0$ is not treated: the theorems below are stated for a \emph{positive} upper bound $\varepsilon$ of $\lvert f\rvert$ (if $f\equiv0$ any positive $\varepsilon\le\varepsilon_{\mathrm{adm}}$ may be used). No hypothesis of any conclusion is assumed: the sets $K_\nu$, the maps $X_\nu$ and the Diophantine property are outputs of Files~11a-1 to~11a-3.
+
+\begin{lemma}[Initial radius adapted to $\varepsilon$]\label{bpP:p11a:free-radius}
+Let Assumption~\ref{bpP:p11a:sel-data} hold and $0<\varepsilon\le\varepsilon_{\mathrm{adm}}$. Put
+\[s_0=s_0(\varepsilon):=\Bigl(\frac{2\varepsilon}{NC_1}\Bigr)^{1/2},\qquad \varepsilon_0:=\varepsilon+\tfrac N2C_1s_0^2=2\varepsilon,\qquad \lambda_0=\frac{\varepsilon_0}{s_0}=(2NC_1\varepsilon)^{1/2}.\]
+Then $s_0\le\lambda_{\max}/(NC_1)$ (the value of Definition~\ref{bpP:p11a:adm-params}), $\lambda_0\le\lambda_{\max}$, and the inequalities \ref{bpP:p11a:A1}--\ref{bpP:p11a:A7} of Proposition~\ref{bpP:p11a:adm-choice} hold for $(T_0,t_0,s_0,\varepsilon_0)$, with $Q_0=C_Q2^NT_0^{\tau}\lambda_0/(\pi\gamma\varsigma_0^{N+1})$ (\ref{bpP:p11a:SC4}). Consequently Proposition~\ref{bpP:p11a:inductive-lemma}, Theorem~\ref{bpP:p11a:parameter-selection} and Lemma~\ref{bpP:p11a:exported-sums} hold verbatim with this $s_0$ in place of the radius of Definition~\ref{bpP:p11a:adm-params}; $\varepsilon_{\mathrm{adm}}$, $\gamma$, $T_0$, $t_0$ are unchanged.
+\source{Ours; deviation D-19. Rus01 \S14 (14.13) also ties $s_0^2$ to $\varepsilon_0$ ($s_0^2\approx\vartheta\varepsilon_0/C_\bullet$); File~11a-3 fixed $s_0=\lambda_{\max}/(NC_1)$ instead.}
+\end{lemma}
+\begin{proof}
+\proofstep{The radius is smaller}\label{stepP:p11a:fr-small} $s_0\le\lambda_{\max}/(NC_1)$ is equivalent to $2\varepsilon/(NC_1)\le\lambda_{\max}^2/(NC_1)^2$, i.e.\ to $\varepsilon\le\lambda_{\max}^2/(2NC_1)=\varepsilon_{\mathrm{adm}}$. And $\frac N2C_1s_0^2=\varepsilon$ gives $\varepsilon_0=2\varepsilon$, $\lambda_0=2\varepsilon/s_0=(2NC_1\varepsilon)^{1/2}\le(2NC_1\varepsilon_{\mathrm{adm}})^{1/2}=\lambda_{\max}$.
+
+\proofstep{The list (A1)--(A7)}\label{stepP:p11a:fr-list} The proof of Proposition~\ref{bpP:p11a:adm-choice} (Steps~\ref{stepP:p11a:ac-lam}, \ref{stepP:p11a:ac-list}) uses the radius only through $\lambda_0\le\lambda_{\max}$ and the upper bound $s_0\le\lambda_{\max}/(NC_1)\le t_0/(8N)$ (first term of $\lambda_{\max}$); (A7) is Lemma~\ref{bpP:p11a:initial}, whose hypotheses $s_0\le\vartheta$, $t_0\le\vartheta$ are (A3), (A1). Both are Step~\ref{stepP:p11a:fr-small}.
+
+\proofstep{No other use of $s_0$}\label{stepP:p11a:fr-other} In Section~\ref{bpP:p11a:s3-conv} to Section~\ref{bpP:p11a:sec-export} the number $s_0$ occurs in: the Definition of the schedule ($s_\nu=s_0q^\nu$, $\lambda_0=\varepsilon_0/s_0$); Lemma~\ref{bpP:p11a:initial}; (A3), (A7), the step $\lambda_0\le\lambda_{\max}$; (S1), (S4) through $\lambda_0$; and (E2), (E3) through $s_0\le t_0$ and $s_\nu/\sigma_\nu\le s_0/\varsigma_0$. All these are covered by Step~\ref{stepP:p11a:fr-list}. The finite-stage lemmas \ref{bpP:p11a:finite-divisor}, \ref{bpP:p11a:finite-measure} and the chain extension involve $\lambda_0$ (through (S2), (S3), \ref{bpP:p11a:A5}) but not $s_0$ itself.
+\end{proof}
+\begin{remark}[Why the radius must depend on $\varepsilon$]\label{bpP:p11a:why-free}
+With $s_0=\lambda_{\max}/(NC_1)$ one has $\lambda_0=\varepsilon NC_1/\lambda_{\max}+\lambda_{\max}/2\ge\lambda_{\max}/2$ for every $\varepsilon$; since the displacement is proportional to $Q_0\propto\lambda_0$ (Theorem~\ref{bpP:p11a:displacement}), it would not tend to $0$ as $\varepsilon\to0$. The balance $\varepsilon/s_0=\frac N2C_1s_0$ gives the order $\lambda_0\sim\varepsilon^{1/2}$ and hence the exponent $\kappa_D=\frac12$ of (K6). The sets $K_\nu$, $H_\infty$ and the maps $X_\nu$ depend on $\varepsilon$ through $s_0$; the measure bound $\operatorname{meas}H_\infty\ge\operatorname{meas}K-\varepsilon^*$ does not.
+\end{remark}
+
+\paragraph{External facts.} Besides \Kref{bp:p1:ext-mvt}, \Kref{bp:p1:ext-cauchy} and \Kref{bp:p1:uniform-limits}:
+\begin{enumerate}[label=(Z\arabic*),ref=(Z\arabic*)]
+\item\label{bpP:p11a:z-chain} Chain rule for compositions of holomorphic maps of several variables; operator norms are submultiplicative; $1+x\le e^x$ and $e^x-1\le xe^x$.
+\item\label{bpP:p11a:z-compact} A continuous image of a compact set is compact; a closed subset of a compact set is compact; a countable union of compact sets is $F_\sigma$, hence Borel; a continuous map takes a countable union of compact sets to such a union.
+\item\label{bpP:p11a:z-uniform} A uniformly Cauchy sequence of maps into $\C^q$ converges uniformly; a Lipschitz map on a convex subset of $\R^d$ of derivative norm $\le\lambda$ is $\lambda$-Lipschitz in the max norm (\Kref{bp:p1:ext-mvt}).
+\end{enumerate}
+
+\paragraph{Lean totality.} Divisions are by $\gamma,T_0,\varsigma_0,t_{\nu+1},s,\pi$, all positive; $\sqrt{\cdot}$ is applied to $2\varepsilon/(NC_1)>0$; $\operatorname{meas}$ is Lebesgue measure on $\R^{2N}$; no $\mathrm{fderiv}$ of a non-differentiable function occurs, since every derivative is of a holomorphic map on its open domain (or of a real-analytic map on $\R^N$).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The compositions}\label{bpP:p11a:sec-comp}
+
+For $\nu\ge0$ and a parameter $b$ put $\Phin0=\mathrm{id}$ and $\Phin{\nu+1}(\cdot,b)=\Phin\nu(\cdot,b)\circ X_{\nu,b}$, i.e.\ $\Phin\nu=X_0\circ X_1\circ\dots\circ X_{\nu-1}$ (Rus01 (15.6)), the parameter being shared by all factors.
+
+\begin{lemma}[The compositions]\label{bpP:p11a:composition}
+In the situation $(\mathrm S)$, for every $\nu\ge0$:
+\begin{enumerate}[label=(\alph*)]
+\item (domain) $X_\nu$ maps $\mathcal D_{\nu+1}$ into $\mathcal D_\nu$ (parameter fixed); $\Phin\nu$ is defined and holomorphic in $(\theta,\eta,b)$ on $\mathcal D_\nu$ with values in $\mathcal D_0$; for each $b\in B_\nu$ it is canonical, $\Phin\nu(\theta+k,\eta,b)=\Phin\nu(\theta,\eta,b)+(k,0)$ ($k\in\Z^N$), it maps real points to real points, and $H_\nu=H_0\circ\Phin\nu$ on $\mathcal D_\nu$.
+\item (derivative) $\lvert D\Phin\nu-\mathbf 1\rvert_\infty\le e^{\sum_{j<\nu}m_j}-1\le2^{-11}$ on $\mathcal D_\nu$, $D$ the derivative in $(\theta,\eta)$ at fixed $b$.
+\item (displacement, componentwise) for $(\theta,\eta,b)\in\mathcal D_\nu$, writing $\Phin\nu=(\Phin\nu_\theta,\Phin\nu_\eta)$: $\lvert\Phin\nu_\theta(\theta,\eta,b)-\theta\rvert_\infty\le\sum_{j<\nu}a_j$ and $\lvert\Phin\nu_\eta(\theta,\eta,b)-\eta\rvert_\infty\le\sum_{j<\nu}\alpha_j$.
+\item (increment) for $(z,b)\in\mathcal D_{\nu+1}$: $\lvert\Phin{\nu+1}(z,b)-\Phin\nu(z,b)\rvert_\infty\le(1+2^{-11})\max\{a_\nu,\alpha_\nu\}$.
+\end{enumerate}
+\source{Rus01 Lemma 15.2 (p.~172) and Lemma 15.3 (pp.~173--174), (15.6), (15.8); the Lipschitz factor $e^{24\sum C_\mu T_\mu}$ of 15.2.4 is replaced by the unscaled derivative budget (E2) of Lemma~\ref{bpP:p11a:exported-sums}, which is the corrected form (review P11A2-04).}
+\end{lemma}
+\begin{proof}
+\proofstep{Domains}\label{stepP:p11a:co-dom} By \ref{bpP:p11a:O3}, $X_\nu$ is holomorphic on $\Ddom{r_{\nu+1}}{s_{\nu+1}}{B_{\nu+1}}=\mathcal D_{\nu+1}$ with values in $\Ddom{r_{\nu+1}+\sigma_\nu}{s_\nu}{B_{\nu+1}}\subset\Ddom{r_\nu}{s_\nu}{B_\nu}=\mathcal D_\nu$ ($r_{\nu+1}+\sigma_\nu=r_\nu-d_\nu-\delta_\nu-\sigma_\nu\le r_\nu$ and $B_{\nu+1}\subset B_\nu$). Induction gives that $\Phin{\nu+1}=\Phin\nu\circ X_\nu$ is defined on $\mathcal D_{\nu+1}$, holomorphic (composition of jointly holomorphic maps with the shared parameter), with values in $\mathcal D_0$. Canonicity, equivariance and reality pass to compositions from \ref{bpP:p11a:O3}, and $H_\nu=H_0\circ\Phin\nu$ is $(\mathrm P_\nu)$(c).
+
+\proofstep{(b)}\label{stepP:p11a:co-deriv} Put $p_\nu=\sup_{\mathcal D_\nu}\lvert D\Phin\nu-\mathbf 1\rvert_\infty$, $p_0=0$. By the chain rule \ref{bpP:p11a:z-chain}, $D\Phin{\nu+1}(z)=D\Phin\nu(X_\nu z)\,DX_\nu(z)$ with $X_\nu z\in\mathcal D_\nu$ and $\lvert DX_\nu-\mathbf 1\rvert_\infty\le m_\nu$ on $\mathcal D_{\nu+1}$ (\ref{bpP:p11a:O3}, the unscaled bound, valid on $D_+=\mathcal D_{\nu+1}$ by Proposition~\ref{bpP:p11a:canonical-step}). Hence $\lvert D\Phin{\nu+1}-\mathbf 1\rvert\le p_\nu(1+m_\nu)+m_\nu$, i.e.\ $1+p_{\nu+1}\le(1+p_\nu)(1+m_\nu)$, so $p_\nu\le\prod_{j<\nu}(1+m_j)-1\le e^{\sum m_j}-1$. By (E2), $\sum_jm_j\le2^{-12}$, and $e^{x}-1\le xe^{x}\le2^{-11}$ for $x\le2^{-12}$.
+
+\proofstep{(c) Displacement}\label{stepP:p11a:co-disp} For $z=(\theta,\eta)$, $b\in B_{\nu+1}$ and $w=X_\nu(z)\in\mathcal D_\nu$: $\Phin{\nu+1}(z)-z=[\Phin\nu(w)-w]+[w-z]$, and the components of $w-z$ are bounded by $a_\nu$, $\alpha_\nu$ (\ref{bpP:p11a:O3}). Induction on $\nu$ gives the componentwise bounds.
+
+\proofstep{(d) Increment}\label{stepP:p11a:co-inc} For $(z,b)\in\mathcal D_{\nu+1}$ the points $z$ and $w=X_\nu z$ lie in the fibre of $\mathcal D_\nu$ over $b$, which is convex, so \Kref{bp:p1:ext-mvt} and (b) give $\lvert\Phin\nu(w,b)-\Phin\nu(z,b)\rvert\le(1+2^{-11})\lvert w-z\rvert_\infty\le(1+2^{-11})\max\{a_\nu,\alpha_\nu\}$.
+\end{proof}
+
+\begin{lemma}[The increments against the collars]\label{bpP:p11a:param-lip-sum}
+In the situation $(\mathrm S)$, $S_b:=\sum_{j\ge0}(a_j+\alpha_j)/t_{j+1}\le2^{-10}/16$.
+\end{lemma}
+\begin{proof}
+\proofstep{The terms}\label{stepP:p11a:pl4-terms} By (E1), $a_j\le2\sigma_jQ_j/C_Q$, $\alpha_j=\frac12\kappa_js_j\le Q_js_j/32$, and $Q_j\le Q_0g_1^j$. With $\sigma_j=\varsigma_02^{-j}$, $s_j=s_0q^j$ and $t_{j+1}^{-1}=t_0^{-1}2^{(\tau+1)(j+1)}$:
+\[\frac{a_j}{t_{j+1}}\le\frac{2\varsigma_0Q_02^{\tau+1}}{C_Qt_0}\,(g_12^{\tau})^j=\frac{2\varsigma_0Q_02^{\tau+1}}{C_Qt_0}\,g_4^j,\qquad \frac{\alpha_j}{t_{j+1}}\le\frac{s_0Q_02^{\tau+1}}{32\,t_0}\,(2qg_4)^j,\]
+because $g_4=g_1\zeta\Theta^{\tau+1}=g_12^{\tau}$ (Definition~\ref{bpP:p11a:schedule-consts}) and $g_1q2^{\tau+1}=2qg_4$.
+
+\proofstep{Summation}\label{stepP:p11a:pl4-sum} $g_4\le2^{-5}$ and $2q\le1$ (Lemma~\ref{bpP:p11a:schedule-ratios}), so both geometric series are $\le\frac{32}{31}$. From $\Xi\ge2^{\tau+1}\varsigma_0/t_0$ and $\Xi\ge2^{\tau+1}$, and $s_0\le t_0$ (\ref{bpP:p11a:A3}): $S_b\le\frac{32}{31}Q_0\Xi\bigl(\frac2{C_Q}+\frac1{32}\bigr)$. With $Q_0\Xi\le2^{-10}$ (\ref{bpP:p11a:A4}) and $C_Q=18N(4N+5)\ge162$: $\frac2{C_Q}+\frac1{32}\le0.0437$, so $S_b\le0.046\cdot2^{-10}\le2^{-10}/16$.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The limit map on the zero section}\label{bpP:p11a:sec-limit}
+
+\begin{proposition}[Limit map; Rus01 Thm 15.5, zero section]\label{bpP:p11a:limit-map}
+In the situation $(\mathrm S)$ let $b\in K_\infty$ and $\Phin\nu_b(\theta):=\Phin\nu\bigl((\theta,0),b\bigr)\in\C^N\times\C^N$ for $\theta\in T_{s/4}$. Then:
+\begin{enumerate}[label=(\alph*)]
+\item $\Phin\nu_b$ converges uniformly on $T_{s/4}$ to a holomorphic map $\widetilde{\mathcal K}_b:T_{s/4}\to\C^N\times\C^N$, real on $\R^N$, with $D\Phin\nu_b\to D\widetilde{\mathcal K}_b$ uniformly on $T_{s/4}$; the increments are $\Phin{\nu+1}_b-\Phin\nu_b=:\delta_\nu(b,\cdot)$, $\lvert\delta_\nu\rvert_\infty\le(1+2^{-11})\max\{a_\nu,\alpha_\nu\}$.
+\item $\widetilde{\mathcal K}_b(\theta+k)=\widetilde{\mathcal K}_b(\theta)+(k,0)$ for $k\in\Z^N$; thus the \emph{defect} $u_b:=\widetilde{\mathcal K}_b-(\theta,0)=(u^\theta_b,u^\eta_b)$ is $\Z^N$-periodic.
+\item $\lvert u^\theta_b\rvert_\infty\le\sum_ja_j$, $\lvert u^\eta_b\rvert_\infty\le\sum_j\alpha_j$ on $T_{s/4}$, and $\lvert D_\theta u_b\rvert_\infty\le2^{-11}$ on $T_{s/4}$, where $D_\theta u_b$ is the $2N\times N$ derivative matrix. On $\R^N$: $u_b$ is $2^{-11}$-Lipschitz in the max norm.
+\end{enumerate}
+\source{Rus01 Thm 15.5 (p.~175) and Remark 15.4: there the sequence $X^{(\nu)}$ is shown to converge on compacts of $K_\infty\times S(r_0/4)\times\C^{n}\times\dots$ because $X^{(\nu)}$ is affine in the action; we use only $\eta=0$, so Theorem 12.3 (compact convergence of affine canonical maps) is not needed.}
+\end{proposition}
+\begin{proof}
+\proofstep{Increments}\label{stepP:p11a:lm-inc} For $\theta\in T_{s/4}$: $((\theta,0),b)\in\mathcal D_{\nu+1}$ because $r_{\nu+1}\ge s/2$ (Lemma~\ref{bpP:p11a:strip-budget}), $s_{\nu+1}>0$ and $b\in K_\infty\subset B_{\nu+1}$. Lemma~\ref{bpP:p11a:composition}(d) gives the bound on $\delta_\nu$; $\sum_\nu\max\{a_\nu,\alpha_\nu\}\le\sum_\nu(a_\nu+\alpha_\nu)<\infty$ by (E2). So $(\Phin\nu_b)$ is uniformly Cauchy on $T_{s/4}$ and converges uniformly \ref{bpP:p11a:z-uniform}.
+
+\proofstep{Derivatives}\label{stepP:p11a:lm-der} Each $\delta_\nu(b,\cdot)$ is holomorphic on $T_{r_{\nu+1}}\supset T_{s/2}$ and bounded there by $(1+2^{-11})\max\{a_\nu,\alpha_\nu\}$. For $\theta\in T_{s/4}$ the polydisc of radius $s/4$ around $\theta$ lies in $T_{s/2}$, so by \Kref{bp:p1:ext-cauchy} each partial derivative of each component of $\delta_\nu$ is bounded by $4(1+2^{-11})\max\{a_\nu,\alpha_\nu\}/s$, and the row sums of $D_\theta\delta_\nu$ by $N$ times this. These are summable, so $D_\theta\Phin\nu_b$ converges uniformly on $T_{s/4}$.
+
+\proofstep{Holomorphy of the limit}\label{stepP:p11a:lm-hol} \Kref{bp:p1:uniform-limits} on $V=T_{s/4}$ (the maps $\Phin\nu_b$ are holomorphic, real on $\R^N$ and the derivatives converge uniformly) gives that $\widetilde{\mathcal K}_b$ is holomorphic with $D\widetilde{\mathcal K}_b=\lim D_\theta\Phin\nu_b$, real on $\R^N$.
+
+\proofstep{Equivariance and bounds}\label{stepP:p11a:lm-bounds} Equivariance of $\Phin\nu$ (Lemma~\ref{bpP:p11a:composition}(a)) passes to the limit. The bounds of (c) pass to the limit from Lemma~\ref{bpP:p11a:composition}(c) (at $\eta=0$, $\theta\in T_{s/4}$) and (b): $D_\theta\Phin\nu_b-\binom{\mathbf 1}{0}$ is the first $N$ columns of $D\Phin\nu-\mathbf 1$, whose row sums over those columns are at most $2^{-11}$. The Lipschitz statement on $\R^N$ is the mean value inequality on the convex set $\R^N$ \ref{bpP:p11a:z-uniform}.
+\end{proof}
+
+\paragraph{The torus in the original coordinates.} For $b\in K_\infty$ and $\theta\in\R^N$ put (the translation $I=b+\eta$ of Lemma~\ref{bpP:p11a:initial})
+\[\mathcal K_b(\theta):=\bigl(\theta+u^\theta_b(\theta),\ b+u^\eta_b(\theta)\bigr)\in\R^N\times\R^N,\qquad u_b(\theta)=(u^\theta_b(\theta),u^\eta_b(\theta)),\]
+so that $\mathcal K_b-(\mathrm{id},b)=u_b$; and $\mathcal K(b,\theta):=\mathcal K_b(\theta)$. The \emph{defect} of the family is $u(b,\theta)=u_b(\theta)$.
+
+\begin{theorem}[The invariant tori; Rus01 Thm 15.5, 15.6]\label{bpP:p11a:limit-torus}
+In the situation $(\mathrm S)$, with $H(\theta,I)=h(I)+f(\theta,I)$ real on real points and the Hamiltonian field $X_H=(\partial_IH,-\partial_\theta H)$: for every $b\in K_\infty$ the map $\mathcal K_b:\R^N\to\R^N\times\R^N$ is real analytic and:
+\begin{enumerate}[label=(\alph*)]
+\item (primary) $\mathcal K_b(\theta+k)=\mathcal K_b(\theta)+(k,0)$ for $k\in\Z^N$, i.e.\ $u_b$ is $\Z^N$-periodic;
+\item (invariance) with $w_b:=\omega_*(b)$: $D\mathcal K_b(\theta)\,w_b=X_H(\mathcal K_b(\theta))$ for all $\theta\in\R^N$; hence $t\mapsto\mathcal K_b(\theta+tw_b)$ is an integral curve of $X_H$ and $\partial_t\mathcal K_b(\theta+tw_b)=X_H(\mathcal K_b(\theta+tw_b))$;
+\item (Lagrangian) $\Omega_0\bigl(D\mathcal K_b(\theta)v,D\mathcal K_b(\theta)v'\bigr)=0$ for all $\theta,v,v'\in\R^N$, i.e.\ $\mathcal K_b^*\Omega_0=0$;
+\item (immersed, embedded) $\lvert D\mathcal K_b(\theta)v\rvert_\infty\ge(1-2^{-11})\lvert v\rvert_\infty$ and $\lvert\mathcal K_b(\theta)-\mathcal K_b(\theta')\rvert_\infty\ge(1-2^{-11})\lvert\theta-\theta'\rvert_\infty$; in particular $D\mathcal K_b$ is injective and $\mathcal K_b(\theta)=\mathcal K_b(\theta')$ only if $\theta=\theta'$ (a fortiori only if $\theta'-\theta\in\Z^N$);
+\item (Diophantine, on $H_\infty$) if $b\in H_\infty$ then $\lvert k\cdot w_b\rvert\ge\gamma\lvert k\rvert_1^{-\tau}$ for all $k\in\Z^N\setminus\{0\}$.
+\end{enumerate}
+\source{Rus01 \S15.6 p.~177 (Proof of Thm 1.7: restrict the limit to real arguments and identify mod $2\pi$) and the zero-section part of 15.5.5; the invariance identity is proved here directly from $H_\nu=h_\nu+\omega_\nu\cdot\eta+R_\nu$ (Rus01 reads it off the expansion 15.5.5); the frozen objects themselves are in Part~13.}
+\end{theorem}
+\begin{proof}
+\proofstep{The field at the zero section}\label{stepP:p11a:lt-field} Fix $b\in K_\infty$, $\theta\in\R^N$, $z=(\theta,0)$, so $(z,b)\in\mathcal D_\nu$ for all $\nu$. By $(\mathrm P_\nu)$(c), $H_\nu=h_\nu+\omega_\nu\cdot\eta+R_\nu$ on $\mathcal D_\nu$, so $X_{H_\nu}(z)=(\omega_\nu(b)+\partial_\eta R_\nu(z),\,-\partial_\theta R_\nu(z))$. Since $\lvert R_\nu\rvert\le\varepsilon_\nu$ on $\mathcal D_\nu$, \Kref{bp:p1:ext-cauchy} (radius $s_\nu$ in $\eta$, radius $r_\nu\ge s/2$ in $\theta$) gives $\lvert\partial_\eta R_\nu(z)\rvert_\infty\le\varepsilon_\nu/s_\nu=\lambda_0\varrho^\nu$ and $\lvert\partial_\theta R_\nu(z)\rvert_\infty\le2\varepsilon_\nu/s$; both tend to $0$. Thus $\lvert X_{H_\nu}(z)-(\omega_\nu(b),0)\rvert_\infty\to0$.
+
+\proofstep{Covariance}\label{stepP:p11a:lt-cov} Let $\Phi=\Phin\nu(\cdot,b)$, canonical: $D\Phi^{\top}JD\Phi=J$. Multiplying by $J$ on the left and using $J^2=-\mathbf 1$ gives $JD\Phi^{\top}J=-D\Phi^{-1}$, i.e.\ $JD\Phi^{\top}=D\Phi^{-1}J$ ($J^{-1}=-J$). For $G$ holomorphic, $X_{G\circ\Phi}=J(D(G\circ\Phi))^{\top}=JD\Phi^{\top}(DG\circ\Phi)^{\top}=D\Phi^{-1}\,(X_G\circ\Phi)$. With $G=H_0$ and $H_0\circ\Phin\nu=H_\nu$:
+\[X_{H_0}\bigl(\Phin\nu(z,b)\bigr)=D\Phin\nu(z,b)\,X_{H_\nu}(z).\]
+Here $H_0(\theta,\eta,b)=h(b+\eta)+f(\theta,b+\eta)-h(b)$ and so $X_{H_0}(\theta,\eta)=X_H(\theta,b+\eta)$ (the constant $h(b)$ is irrelevant and $\partial_\eta=\partial_I$).
+
+\proofstep{Passage to the limit}\label{stepP:p11a:lt-lim} By Proposition~\ref{bpP:p11a:limit-map}, $\Phin\nu(z,b)\to\widetilde{\mathcal K}_b(\theta)=(\theta^*,\eta^*)$ with $\lvert\eta^*\rvert\le\sum_j\alpha_j<s_0$ ($\sum\alpha_j\le s_0Q_0/16$, (E2), $Q_0\le1$) and $\theta^*$ real; this point lies in the domain $\Ddom s{s_0}{B_0}$ of $H_0$, where $X_{H_0}$ is continuous. So the left side converges to $X_{H_0}(\widetilde{\mathcal K}_b(\theta))=X_H(\mathcal K_b(\theta))$. On the right, $D\Phin\nu(z,b)X_{H_\nu}(z)=D_\theta\Phin\nu_b(\theta)\,\omega_\nu(b)+D\Phin\nu(z,b)\bigl(X_{H_\nu}(z)-(\omega_\nu(b),0)\bigr)$ (the product of $D\Phin\nu$ with $(\omega_\nu,0)$ is $D_\theta\Phin\nu\,\omega_\nu$). The second term tends to $0$ since $\lvert D\Phin\nu\rvert\le1+2^{-11}$ and Step~\ref{stepP:p11a:lt-field}; the first tends to $D_\theta\widetilde{\mathcal K}_b(\theta)\,\omega_*(b)$ by Proposition~\ref{bpP:p11a:limit-map}(a) and $\omega_\nu(b)\to\omega_*(b)$ (Theorem~\ref{bpP:p11a:parameter-selection}(a)). Hence $D_\theta\widetilde{\mathcal K}_b(\theta)w_b=X_H(\mathcal K_b(\theta))$; since $D\mathcal K_b=D\widetilde{\mathcal K}_b$ (the shift by $b$ in $I$ is constant), this is (b). Real analyticity and (a): Proposition~\ref{bpP:p11a:limit-map}.
+
+\proofstep{(c) Lagrangian}\label{stepP:p11a:lt-lag} Let $\iota(\theta)=(\theta,0)$, so $D\iota\,v=(v,0)$ and $\Omega_0(D\iota v,D\iota v')=0$ (both action components vanish). As $\Phin\nu(\cdot,b)$ is canonical, $\Omega_0\bigl(D(\Phin\nu\circ\iota)v,D(\Phin\nu\circ\iota)v'\bigr)=(D\iota v)^{\top}D\Phin{\nu\top}JD\Phin\nu(D\iota v')=\Omega_0(D\iota v,D\iota v')=0$. The bilinear expression is continuous in the derivative, and $D(\Phin\nu\circ\iota)=D_\theta\Phin\nu_b\to D\widetilde{\mathcal K}_b$; so $\Omega_0(D\widetilde{\mathcal K}_bv,D\widetilde{\mathcal K}_bv')=0$, and the translation $\eta\mapsto b+\eta$ does not change the derivative.
+
+\proofstep{(d) Immersion and embedding}\label{stepP:p11a:lt-emb} $\mathcal K_b(\theta)-\mathcal K_b(\theta')=(\theta-\theta',0)+u_b(\theta)-u_b(\theta')$ and $u_b$ is $2^{-11}$-Lipschitz on $\R^N$ (Proposition~\ref{bpP:p11a:limit-map}(c)), so $\lvert\mathcal K_b(\theta)-\mathcal K_b(\theta')\rvert_\infty\ge\lvert\theta-\theta'\rvert_\infty-2^{-11}\lvert\theta-\theta'\rvert_\infty$ (the max norm of the pair is at least the norm of the angle part). The same argument with $D_\theta u_b$ gives the immersion bound.
+
+\proofstep{(e) Diophantine}\label{stepP:p11a:lt-dio} Theorem~\ref{bpP:p11a:parameter-selection}(c), with $\omega_*(b)=w_b$.
+\end{proof}
+
+\begin{remark}[No off-section normal form]\label{bpP:p11a:no-normal-form}
+Rus01 15.5.5 asserts $H_0\circ X^{(\infty)}=h_\infty+\langle\omega_\infty,\eta\rangle+\tfrac12\langle\zeta,\zeta A_\infty\rangle+O(\dots)$ on a fixed neighbourhood of the zero section; it uses that $X^{(\nu)}$ is affine in $\eta$ (15.4), converges on compacts for \emph{all} $\eta$ (Thm 12.3), and a Montel/Weierstrass argument for the Taylor coefficients of $H_0\circ X^{(\nu)}=H_\nu$. In the present schedule the action radius shrinks, $s_\nu=s_0q^\nu$, and $\varepsilon_\nu/s_\nu^2=(\varepsilon_0/s_0^2)\,16^\nu\to\infty$, so the Cauchy estimates of $R_\nu$ do not give convergence of $\partial_\eta^2R_\nu$. We do not claim this normal form and do not need it: Theorem~\ref{bpP:p11a:limit-torus}(b) is the identity $\partial_\eta H_\infty=\omega_*$, $\partial_\theta H_\infty=0$ on the zero section in the form needed for the torus (the first $\eta$-jet of $R_\nu$ vanishes in the limit, Step~\ref{stepP:p11a:lt-field}), and (c) is the symplectic character; these are exactly the clauses of the physical torus (Part~13). \sourcegap{If an off-section normal form is ever wanted, it needs the convergence of the affine coefficients $\Delta h_\nu,\Delta\omega_\nu$ together with the maps on a common action domain $\{\lvert\eta\rvert<s_\infty\}$, which this schedule does not provide.}
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The displacement}\label{bpP:p11a:sec-disp}
+
+\begin{theorem}[Displacement of the defect]\label{bpP:p11a:displacement}
+In the situation $(\mathrm S)$, for every $b\in K_\infty$ (in particular every $b\in H_\infty$):
+\[\sup_{\theta\in\R^N}\lvert u_b(\theta)\rvert_\infty\ \le\ \Delta(\varepsilon):=Q_0\max\Bigl\{\frac{3\varsigma_0}{C_Q},\frac{s_0}{16}\Bigr\}\ \le\ \frac{Q_0}{128}\ \le\ 2^{-18},\]
+with $\varsigma_0=s/24$, $s_0=(2\varepsilon/(NC_1))^{1/2}$ and $Q_0=\dfrac{C_Q2^NT_0^{\tau}\,(2NC_1\varepsilon)^{1/2}}{\pi\gamma\,\varsigma_0^{N+1}}$. Consequently
+\[\Delta(\varepsilon)\ \le\ c_\Delta\,\frac{\varepsilon^{1/2}}\gamma,\qquad c_\Delta:=\frac{C_Q\,2^{N}\,T_0^{\tau}\,(2NC_1)^{1/2}}{128\,\pi\,\varsigma_0^{N+1}}=c_\Delta(N,\mu,\tau,s,C_1),\]
+where $T_0=T_0(N,\mu,\tau,s)$ is that of Definition~\ref{bpP:p11a:adm-params}, $C_Q=18N(4N+5)$. The displacement is $\le\Delta(\varepsilon)$ in each of the two blocks separately: $\lvert u^\theta_b\rvert_\infty\le3\varsigma_0Q_0/C_Q$ and $\lvert u^\eta_b\rvert_\infty\le s_0Q_0/16$.
+\source{Ours (PLAN-11a.md, row \texttt{displacement}, A2); the sums are (E2) of Lemma~\ref{bpP:p11a:exported-sums}, the telescoping is Lemma~\ref{bpP:p11a:composition}(c); Rus01 15.5.4 proves only the inclusion in $D_0$, no quantitative bound.}
+\end{theorem}
+\begin{proof}
+\proofstep{Telescoping}\label{stepP:p11a:dp-tel} By Proposition~\ref{bpP:p11a:limit-map}(c), $\lvert u^\theta_b\rvert\le\sum_ja_j$ and $\lvert u^\eta_b\rvert\le\sum_j\alpha_j$ on $\R^N$, uniformly in $\theta$ and in $b\in K_\infty$; by (E2), $\sum a_j\le3\varsigma_0Q_0/C_Q$ and $\sum\alpha_j\le s_0Q_0/16$. The max norm of the pair is the larger of the two.
+
+\proofstep{Size}\label{stepP:p11a:dp-size} $3\varsigma_0/C_Q=s/(8C_Q)\le1/1296$ and $s_0/16\le t_0/(128N)\le1/128$ (\ref{bpP:p11a:A3}, $t_0\le\vartheta/\sqrt N\le1$), so $\Delta\le Q_0/128$; $Q_0\le Q_0\Xi2^{-(\tau+1)}\le2^{-11}$ (\ref{bpP:p11a:A4}, $\Xi\ge2^{\tau+1}$), whence $2^{-18}$. The formula for $Q_0$ is (S4) with $\lambda_0=(2NC_1\varepsilon)^{1/2}$ (Lemma~\ref{bpP:p11a:free-radius}), and $T_0,\varsigma_0$ depend on $(N,\mu,\tau,s)$ only (Definitions~\ref{bpP:p11a:schedule-consts}, \ref{bpP:p11a:adm-params}).
+\end{proof}
+
+\begin{lemma}[The size of $\gamma^{-1}$]\label{bpP:p11a:gamma-inverse}
+In the data of Assumption~\ref{bpP:p11a:sel-data}, with $G_0=(\mu+1)/\rho$ and $0<\beta\le\min\{1,M\}$,
+\[\gamma^{-1}\ \le\ c_\gamma\,\beta^{-G_0},\qquad c_\gamma:=2\max\Bigl\{2\sqrt N\,4^{1/\rho},\ \bigl(\widehat C/\varepsilon^*\bigr)^{\mu/\rho}\Bigr\},\]
+with $\widehat C:=\beta^{1+1/\mu}C_{\mathrm{Dio}}=2^{N+2}\mu(\sqrt Nd)^{N-1}\bigl(1+(4+\vartheta^{-1})\sqrt Nd\bigr)\,M\,N^{\rho/(2\mu)}\,2\cdot3^{N-1}\bigl(1+\tfrac1{s_\tau}\bigr)$, $s_\tau=\rho(\tau+1)/\mu-N$; $\widehat C$ and $c_\gamma$ depend on $(N,\mu,\rho,\tau,d,\vartheta,M,\varepsilon^*)$ and not on $\beta$.
+\end{lemma}
+\begin{proof}
+\proofstep{The two branches}\label{stepP:p11a:gi-branches} $\gamma=\gamma_*(\varepsilon^*)/2$ and $\gamma_*=\min\{\frac12N^{-1/2}(\beta/4)^{1/\rho},(\varepsilon^*/C_{\mathrm{Dio}})^{\mu/\rho}\}$ (Corollary~\ref{bpP:p11a:power-law}, $m=N$), so $\gamma^{-1}=2\max\{2\sqrt N(4/\beta)^{1/\rho},(C_{\mathrm{Dio}}/\varepsilon^*)^{\mu/\rho}\}$. Since $C_{\mathrm{Dio}}=C_{\mathrm{sub}}\beta^{-1/\mu}N^{\rho/2\mu}\cdot2\cdot3^{N-1}(1+1/s_\tau)$ and $C_{\mathrm{sub}}=2^{N+2}\mu(\sqrt Nd)^{N-1}(M/\beta)(1+(4+\vartheta^{-1})\sqrt Nd)$ (Theorem~\ref{bpP:p11a:sublevel}) is linear in $M/\beta$: $C_{\mathrm{Dio}}=\widehat C\beta^{-1-1/\mu}$ and $(C_{\mathrm{Dio}}/\varepsilon^*)^{\mu/\rho}=(\widehat C/\varepsilon^*)^{\mu/\rho}\beta^{-G_0}$. The first branch is $\le2\sqrt N4^{1/\rho}\beta^{-1/\rho}\le2\sqrt N4^{1/\rho}\beta^{-G_0}$ as $\beta\le1$ and $G_0\ge1/\rho$.
+\end{proof}
+
+\begin{corollary}[The displacement power (K6) of Definition~\ref{bpP:p11:kam-input}]\label{bpP:p11a:displacement-power}
+Fix $N,\mu,\rho,\tau$ and all entries of Assumption~\ref{bpP:p11a:sel-data} except $\beta$ ($K,\vartheta,s,\varepsilon^*,M,M_0,C_1$ fixed; $d=\operatorname{diam}_\infty K$). Then there is $c_D>0$, depending only on the fixed data, such that in the situation $(\mathrm S)$, for all $\beta\in(0,\min\{1,M\}]$ and $0<\varepsilon\le\varepsilon_{\mathrm{adm}}$:
+\[\sup_{b\in K_\infty,\ \theta\in\R^N}\lvert u_b(\theta)\rvert_\infty\ \le\ c_D\,\varepsilon^{\kappa_D}\beta^{-a_D},\qquad \kappa_D=\tfrac12,\quad a_D=G_0=\frac{\mu+1}\rho\quad(=\tfrac{\mu+1}2\text{ for }\rho=2),\]
+with $c_D=c_\Delta c_\gamma$ (Theorem~\ref{bpP:p11a:displacement}, Lemma~\ref{bpP:p11a:gamma-inverse}). The admissible size $\varepsilon_{\mathrm{adm}}$ satisfies $\varepsilon_{\mathrm{adm}}\ge c_*\beta^{B_0}$ (Corollary~\ref{bpP:p11a:adm-budget-beta}) with the \emph{same} data fixed, so the displacement power and the lower budget are available together.
+\end{corollary}
+\begin{proof}
+\proofstep{Combine}\label{stepP:p11a:dpc-comb} $\Delta(\varepsilon)\le c_\Delta\varepsilon^{1/2}\gamma^{-1}$ (Theorem~\ref{bpP:p11a:displacement}) and $\gamma^{-1}\le c_\gamma\beta^{-G_0}$ (Lemma~\ref{bpP:p11a:gamma-inverse}); $c_\Delta$ depends on $(N,\mu,\tau,s,C_1)$ and $c_\gamma$ on the fixed data only.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Lipschitz family and the evaluation map}\label{bpP:p11a:sec-lip}
+
+\begin{proposition}[The defect is Lipschitz in $(b,\theta)$]\label{bpP:p11a:lipschitz-family}
+In the situation $(\mathrm S)$ put $\lamstar:=2^{-10}$. For $b,b'\in K_\infty$ and $\theta,\theta'\in\R^N$:
+\[\lvert u(b,\theta)-u(b',\theta')\rvert_\infty\ \le\ 2^{-11}\lvert\theta-\theta'\rvert_\infty+2^{-11}\lvert b-b'\rvert_\infty\ \le\ \lamstar\,\max\{\lvert\theta-\theta'\rvert_\infty,\lvert b-b'\rvert_\infty\}.\]
+No convexity, connectedness or interior of $K_\infty$ is used.
+\source{Ours (PLAN-11a.md, row \texttt{lipschitz-family}, A2, risk R3); the per-stage Cauchy/sup dichotomy replaces the local-to-global argument with tails $\sum_{j\ge\nu}C_j\le ct_{\nu+1}$.}
+\end{proposition}
+\begin{proof}
+\proofstep{Reduction to one angle or one parameter}\label{stepP:p11a:lf-split} $\lvert u(b,\theta)-u(b',\theta')\rvert\le\lvert u(b,\theta)-u(b,\theta')\rvert+\lvert u(b,\theta')-u(b',\theta')\rvert$. The first term is $\le2^{-11}\lvert\theta-\theta'\rvert_\infty$ by Proposition~\ref{bpP:p11a:limit-map}(c). It remains to bound the second by $2^{-11}\lvert b-b'\rvert_\infty$ for a fixed real $\theta$.
+
+\proofstep{Telescoping in the parameter}\label{stepP:p11a:lf-tel} For $b\in K_\infty$, $u(b,\theta)=\sum_{j\ge0}\delta_j(b,\theta)$ (Proposition~\ref{bpP:p11a:limit-map}(a): $\delta_j=\Phin{j+1}-\Phin j$ on the zero section, and the series is the limit of the partial sums $\Phin\nu_b-(\theta,0)$). For fixed real $\theta$ the function $b\mapsto\delta_j(b,\theta)=\Phin j\bigl(X_{j}((\theta,0),b),b\bigr)-\Phin j\bigl((\theta,0),b\bigr)$ is holomorphic on $B_{j+1}$ (Lemma~\ref{bpP:p11a:composition}(a): joint holomorphy, $((\theta,0),b)\in\mathcal D_{j+1}$ for $b\in B_{j+1}$) and bounded there by $e_j:=(1+2^{-11})\max\{a_j,\alpha_j\}$ (Lemma~\ref{bpP:p11a:composition}(d)).
+
+\proofstep{One stage}\label{stepP:p11a:lf-stage} Claim: for $b,b'\in K_\infty$, $\lvert\delta_j(b,\theta)-\delta_j(b',\theta)\rvert_\infty\le4e_j\lvert b-b'\rvert_\infty/t_{j+1}$. \emph{Case $\lvert b-b'\rvert<t_{j+1}/2$.} Put $v=b'-b$, $c_\lambda=b+\lambda v$, $\lambda\in[0,1]$. For $\lvert\zeta\rvert<t_{j+1}/2$ the point $c_\lambda+\zeta v/\lvert v\rvert_\infty$ is at max-distance $<t_{j+1}$ from $b\in K_\infty\subset K_{j+1}$, hence lies in $B_{j+1}$. The one-variable function $g(\zeta)=\delta_j(c_\lambda+\zeta v/\lvert v\rvert_\infty,\theta)$ is holomorphic on $\lvert\zeta\rvert<t_{j+1}/2$ and bounded by $e_j$, so $\lvert g'(0)\rvert\le2e_j/t_{j+1}$ (\Kref{bp:p1:ext-cauchy}), i.e.\ $\lvert D_b\delta_j(c_\lambda,\theta)v\rvert\le2e_j\lvert v\rvert/t_{j+1}$. Integrating over $\lambda$ gives the claim with $2$ in place of $4$ (the factor $4$ covers the next case). \emph{Case $\lvert b-b'\rvert\ge t_{j+1}/2$.} $\lvert\delta_j(b)-\delta_j(b')\rvert\le2e_j\le2e_j\lvert b-b'\rvert/(t_{j+1}/2)=4e_j\lvert b-b'\rvert/t_{j+1}$.
+
+\proofstep{Summation}\label{stepP:p11a:lf-sum} $\lvert u(b,\theta)-u(b',\theta)\rvert\le\sum_j4e_j\lvert b-b'\rvert/t_{j+1}\le4(1+2^{-11})S_b\lvert b-b'\rvert\le4(1+2^{-11})2^{-14}\lvert b-b'\rvert\le2^{-11}\lvert b-b'\rvert$ (Lemma~\ref{bpP:p11a:param-lip-sum}, $\max\{a,\alpha\}\le a+\alpha$). Adding the two terms gives $2^{-11}+2^{-11}=2^{-10}$ after bounding each of $\lvert\theta-\theta'\rvert,\lvert b-b'\rvert$ by their maximum.
+\end{proof}
+
+\begin{remark}[Verdict on R3]\label{bpP:p11a:r3-verdict}
+The plan expected a local-to-global argument: for $\lvert b-b'\rvert\in[t_{\nu+1},t_\nu)$ use Cauchy on the segment for $j<\nu$ and the plain displacement for $j\ge\nu$, which would need $\sum_{j\ge\nu}C_j\le ct_{\nu+1}$ (the tail (E3)). This is also valid, but unnecessary: for each \emph{single} stage the Cauchy estimate costs a factor $1/t_{j+1}$ and the sup bound costs the same factor for distant points (Step~\ref{stepP:p11a:lf-stage}), so only the \emph{sum over stages of increment/collar} must converge, and it does, geometrically with ratio $g_4\le2^{-5}$ (Lemma~\ref{bpP:p11a:param-lip-sum}); the sum is computed from (E1) and the schedule, hence is a consequence of the admissibility $\varepsilon\le\varepsilon_{\mathrm{adm}}$ (the factor $\Xi$ in $\lambda_{\max}$). The constant $\lamstar=2^{-10}$ is far below the $\frac14$ required by the measure bound. Numerical check: Section~\ref{bpP:p11a:notes4}.
+\end{remark}
+
+\begin{theorem}[The evaluation map is bi-Lipschitz; measure of the image]\label{bpP:p11a:evaluation-bilipschitz}
+In the situation $(\mathrm S)$ let $\mathcal K(b,\theta)=\mathcal K_b(\theta)=(\theta,b)+u(b,\theta)$ for $(b,\theta)\in K_\infty\times\R^N$, and write $x=(\theta,b)$ for the pair with the max norm of the two blocks (the swap $(b,\theta)\mapsto(\theta,b)$ is an isometry). Then, with $\lamstar=2^{-10}$:
+\begin{enumerate}[label=(\alph*)]
+\item for all $(b,\theta),(b',\theta')\in K_\infty\times\R^N$: $(1-\lamstar)\lvert x-x'\rvert_\infty\le\lvert\mathcal K(b,\theta)-\mathcal K(b',\theta')\rvert_\infty\le(1+\lamstar)\lvert x-x'\rvert_\infty$. In particular $\mathcal K$ is injective on $K_\infty\times\R^N$, hence on $H\times\R^N$ for every $H\subset K_\infty$, in particular $H_\infty$; and its inverse on the image is $(1-\lamstar)^{-1}$-Lipschitz;
+\item $\mathcal K(b,\theta+k)=\mathcal K(b,\theta)+(k,0)$; $\mathcal K$ is continuous; it extends to a bi-Lipschitz bijection $\widetilde{\mathcal K}=\mathrm{id}+\widetilde u$ of $\R^{2N}$ with $\widetilde u$ $\lamstar$-Lipschitz;
+\item for $H\subset K_\infty$ compact (e.g.\ $H=H_\infty$) the set $\mathcal B:=\mathcal K(H\times[0,1)^N)$ is an $F_\sigma$, hence Borel, set with
+\[\operatorname{meas}\mathcal B\ \ge\ (1-\lamstar)^{2N}\operatorname{meas}H\ \ge\ 2^{-2N}\operatorname{meas}H,\qquad\operatorname{meas}\mathcal B\le(1+\lamstar)^{2N}\operatorname{meas}H;\]
+\item $\mathcal K(H\times[0,1]^N)$ is compact, $\mathcal K(H\times\R^N)=\bigcup_{k\in\Z^N}(\mathcal K(H\times[0,1]^N)+(k,0))$, and its image in $(\R^N/\Z^N)\times\R^N$ is compact.
+\end{enumerate}
+In the notation of Definition~\ref{bpP:p11:kam-input}: (K4) holds for $\mathcal H=H_\infty$.
+\source{Ours (PLAN-11a.md, row \texttt{evaluation-bilipschitz}, A2, review P11A1-P05: the lower factor is $(1-\lambda)^{2N}$); \Kref{bp:p1:lipeo}, \Kref{bp:p1:lip-image}, \Kref{bp:p1:mcshane}.}
+\end{theorem}
+\begin{proof}
+\proofstep{(a) Bounds}\label{stepP:p11a:eb-bounds} $\mathcal K(b,\theta)-\mathcal K(b',\theta')=(x-x')+(u(b,\theta)-u(b',\theta'))$ in the block order (position, action) $=(\theta,b)$; Proposition~\ref{bpP:p11a:lipschitz-family} bounds the second summand by $\lamstar\lvert x-x'\rvert_\infty$, and the triangle inequality gives both inequalities (this is the content of \Kref{bp:p1:lipeo} for a $\lamstar$-Lipschitz perturbation $G$ of the identity, on the subset $K_\infty\times\R^N$). The inverse bound is the lower inequality.
+
+\proofstep{(b) Equivariance, extension}\label{stepP:p11a:eb-ext} Equivariance is Theorem~\ref{bpP:p11a:limit-torus}(a); continuity is Lipschitz continuity. The map $u$ is $\lamstar$-Lipschitz on $S=\{(\theta,b):b\in K_\infty\}$ with values in $(\R^{2N},\lvert\cdot\rvert_\infty)$; by \Kref{bp:p1:mcshane} it extends to a $\lamstar$-Lipschitz $\widetilde u$ on $\R^{2N}$, and \Kref{bp:p1:lipeo} ($\lamstar<1$) shows that $\mathrm{id}+\widetilde u$ is a bijection of $\R^{2N}$ with the same two-sided bounds.
+
+\proofstep{(c) Measure}\label{stepP:p11a:eb-meas} $A:=\{(\theta,b):\theta\in[0,1)^N,\ b\in H\}$ has $\operatorname{meas}A=\operatorname{meas}H$ (\Kref{bp:p1:ext-measure}). $A=\bigcup_{m\ge2}H\times[0,1-\frac1m]^N$ is a countable union of compact sets; $\mathcal K$ is continuous, so $\mathcal B=\mathcal K(A)$ is a countable union of compact sets \ref{bpP:p11a:z-compact}, hence Borel and measurable. The map $F=(\mathcal K|_A)^{-1}:\mathcal B\to A$ is $(1-\lamstar)^{-1}$-Lipschitz by (a) and $F(\mathcal B)=A$, so \Kref{bp:p1:lip-image} gives $\operatorname{meas}A\le(1-\lamstar)^{-2N}\operatorname{meas}\mathcal B$. Similarly $\mathcal K|_A$ is $(1+\lamstar)$-Lipschitz, and \Kref{bp:p1:lip-image} gives the upper bound. Finally $(1-2^{-10})^{2N}\ge2^{-2N}$ because $1-2^{-10}\ge\frac12$.
+
+\proofstep{(d) Compactness}\label{stepP:p11a:eb-cpt} $H\times[0,1]^N$ is compact and $\mathcal K$ continuous \ref{bpP:p11a:z-compact}. The decomposition follows from (b) (equivariance) and $\R^N=\bigcup_k([0,1]^N+k)$; the image in $(\R^N/\Z^N)\times\R^N$ is the image of the compact set $\mathcal K(H\times[0,1]^N)$ under the continuous quotient map.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sources, deviations, errata, what File 11a-5 takes}\label{bpP:p11a:notes4}
+
+\paragraph{Sources read.} Rus01 \S15.1--15.6 (pp.~172--177, pdf pages 54--59): Lemma 15.2 (the compositions $X^{(\nu)}=X_0\circ\dots\circ X_{\nu-1}$, domain inclusion, Lipschitz constant $e^{24\sum C_\mu T_\mu}$), Lemma 15.3 (increments), Remark 15.4 (common domain), Theorem 15.5 (limit $X^{(\infty)}$, properties 1--5), \S15.6 (Proof of Theorem 1.7). Files~11a-2, 11a-3 (in particular Proposition~\ref{bpP:p11a:inductive-lemma}\ref{bpP:p11a:O3}, Lemma~\ref{bpP:p11a:exported-sums} and Theorem~\ref{bpP:p11a:parameter-selection}); \texttt{reviews/p11a3-review-1.md} (P11A3-06), \texttt{p11a3-review-2.md}, \texttt{p11-review-1.md} (F09); Part~11 Definition~\ref{bpP:p11:kam-input} for the interface. Not read: Rus01 \S12.3 (Thm 12.3, compact convergence of affine canonical maps): not needed on the zero section.
+
+\paragraph{Numerical check.} \texttt{.drafts/P/bp-scratch-bpP-p11a-4/sb.py}: $2\cdot10^5$ random draws of $(N,\mu,\tau,s,T_0,t_0,s_0)$ in the allowed ranges (with $Q_0=2^{-10}/\Xi$, the largest value permitted by \ref{bpP:p11a:A4}) of the sum $S_b$ using the bounds (E1) and the schedule of Definition~\ref{bpP:p11a:schedule}: the largest value of $4e^{2^{-12}}S_b/2^{-10}$ was $0.051$ (the proof of Lemma~\ref{bpP:p11a:param-lip-sum} gives $\le0.19$; the stated constant $2^{-11}$ for the $b$-Lipschitz part has a factor $\ge8$ to spare).
+
+\paragraph{Deviations (D-numbers continue those of Files~11a-1 to 11a-3).}
+\begin{itemize}
+\item \textbf{D-19} (radius adapted to $\varepsilon$): $s_0=(2\varepsilon/(NC_1))^{1/2}$ in place of $\lambda_{\max}/(NC_1)$ (Lemma~\ref{bpP:p11a:free-radius}); required for (K6); $\varepsilon_{\mathrm{adm}}$ unchanged.
+\item \textbf{D-20} (no off-section normal form): Rus01 15.5.5 is not reproduced; the torus, its invariance and its Lagrangian character are (Remark~\ref{bpP:p11a:no-normal-form}).
+\item \textbf{D-21} (Lipschitz constant): the factor $e^{24\sum C_\mu T_\mu}$ of Rus01 15.2.4 is replaced by $e^{\sum m_j}\le1+2^{-11}$, from the unscaled budget (E2); the dependence of the family on $b$ is controlled by Cauchy at each stage (Proposition~\ref{bpP:p11a:lipschitz-family}), not by Rus01 (which has no Lipschitz statement in $b$).
+\item \textbf{D-22} (compositions in the reverse order for the displacement): the displacement is telescoped as $\Phin{\nu+1}(z)-z=[\Phin\nu(w)-w]+[w-z]$ (no derivative needed), Lemma~\ref{bpP:p11a:composition}(c).
+\end{itemize}
+
+\paragraph{Suspected errata.} None in Rus01 \S15 as read. In File~11a-2, Proposition~\ref{bpP:p11a:canonical-step} has its item (iii) printed twice (a duplicated \texttt{\char`\\item}); harmless. In File~11a-3 (T2) the displacement is called ``explicit in the data'': true but of fixed size for the radius of Definition~\ref{bpP:p11a:adm-params} (Remark~\ref{bpP:p11a:why-free}); Lemma~\ref{bpP:p11a:free-radius} is the repair.
+
+\paragraph{Doubts about frozen statements.} None. The embedded clause of the frozen torus (injectivity modulo the lattice) is implied by the stronger injectivity proved in Theorem~\ref{bpP:p11a:limit-torus}(d).
+
+\paragraph{What File 11a-5 must take.}
+\begin{enumerate}[label=(U\arabic*)]
+\item The quantifier order data $\to\varepsilon^*\to(\gamma,\varepsilon_{\mathrm{adm}})\to f$, and for each $0<\varepsilon\le\varepsilon_{\mathrm{adm}}$ with $\lvert f\rvert\le\varepsilon$: $H:=H_\infty$ with $\operatorname{meas}H\ge\operatorname{meas}K-\varepsilon^*$ (Theorem~\ref{bpP:p11a:parameter-selection}(b)), tori $\mathcal K_b$, $b\in H$, with (K2) from Theorem~\ref{bpP:p11a:limit-torus} (frequency $w_b=\omega_*(b)$, Diophantine by (e)), (K3) from Theorem~\ref{bpP:p11a:displacement} (with $\Delta(\varepsilon)=Q_0\max\{3\varsigma_0/C_Q,s_0/16\}$), (K4) from Theorem~\ref{bpP:p11a:evaluation-bilipschitz}, (K6) from Corollary~\ref{bpP:p11a:displacement-power}. The statement of File~11a-5 must say that the radius $s_0$ of the iteration is the one of Lemma~\ref{bpP:p11a:free-radius} (a choice inside the proof, not a datum of the theorem).
+\item The budget statements (K5) are File~11a-3's (Corollary~\ref{bpP:p11a:adm-budget-beta}); the monotone minorant of $\varepsilon_{\mathrm{adm}}$ and the data-dependence are File~11a-5's business. The case $\sup\lvert f\rvert=0$ is covered by any positive upper bound $\varepsilon$.
+\item The Lipschitz constant is $\lamstar=2^{-10}$ independent of all data; the measure factor is $(1-\lamstar)^{2N}\ge2^{-2N}$.
+\item Physical interface: tori are primary (equivariant) in the maximal action-angle coordinates; periodic physical maps arise in Part~13 through the charts (Theorem~\ref{bpP:p1:torus-transport}).
+\end{enumerate}
+
+\paragraph{Forward references.} Part~11a-5 (\texttt{weak-kam-quantitative}, \texttt{budget}); Part~11 cites \texttt{limit-torus}, \texttt{displacement}, \texttt{evaluation-bilipschitz} (written here). No other unwritten label is cited.
+
+\paragraph{External facts used.} \ref{bpP:p11a:z-chain}--\ref{bpP:p11a:z-uniform}; \Kref{bp:p1:ext-mvt}, \Kref{bp:p1:ext-cauchy}, \Kref{bp:p1:ext-measure}, \Kref{bp:p1:uniform-limits}, \Kref{bp:p1:lipeo}, \Kref{bp:p1:lip-image}, \Kref{bp:p1:mcshane}; Files~11a-1 (Corollary~\ref{bpP:p11a:power-law}, Theorem~\ref{bpP:p11a:sublevel}), 11a-3.
+
+\paragraph{Label index.} \texttt{situation}, \texttt{free-radius}, \texttt{why-free}, \texttt{composition}, \texttt{param-lip-sum}, \texttt{limit-map}, \texttt{limit-torus}, \texttt{no-normal-form}, \texttt{displacement}, \texttt{gamma-inverse}, \texttt{displacement-power}, \texttt{lipschitz-family}, \texttt{r3-verdict}, \texttt{evaluation-bilipschitz}.
+\par\endgroup
