@@ -1,5 +1,5 @@
 {
- "current_phase": "First seal: G3 (KAM.volume_not_diophantine_le) proved, audited, kernel-replayed (D26). Track K proof campaign: I-MAT landed; I-LIP in audit; I-STRIP-5 (several-variable analyticity) running. Tracks I, N, P: Opus sub-orchestrator; blueprints nearly complete (track I done), N-AVERAGING re-transcription from the pinned source.",
+ "current_phase": "G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.",
  "workers": [
   {
    "id": "orchestrator",
@@ -47,30 +47,48 @@
    "state": "active"
   },
   {
-   "id": "prover-I-LIP",
-   "kind": "Lean prover",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-lip",
-   "assignment": "Package I-LIP (docs/campaign/briefs/I-LIP.md)",
-   "state": "done; in audit"
-  },
-  {
    "id": "prover-I-STRIP-5",
    "kind": "Lean prover",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
    "session": "worktree /root/code/KAM-w-strip5",
    "assignment": "Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md)",
+   "state": "done; in audit"
+  },
+  {
+   "id": "audit-I-STRIP-5",
+   "kind": "package audit (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "kam-audit-strip5",
+   "assignment": "Independent audit of package I-STRIP-5 (five explicit audit questions)",
    "state": "running"
   },
   {
-   "id": "audit-I-LIP",
-   "kind": "package audit (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "kam-audit-lip",
-   "assignment": "Independent audit of package I-LIP",
+   "id": "prover-I-ZMAP",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-zmap",
+   "assignment": "Package I-ZMAP (docs/campaign/briefs/I-ZMAP.md)",
+   "state": "running"
+  },
+  {
+   "id": "prover-I-P1B",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-p1b",
+   "assignment": "Package I-P1B (docs/campaign/briefs/I-P1B.md)",
+   "state": "running"
+  },
+  {
+   "id": "prover-I-P4A",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-p4a",
+   "assignment": "Package I-P4A (docs/campaign/briefs/I-P4A.md)",
    "state": "running"
   }
  ],

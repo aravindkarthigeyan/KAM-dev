@@ -355,9 +355,9 @@ EDGE: bp:p1:ext-measure | blueprint/parts/p1-analysis.tex#bp:p1:lip-image-produc
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+claude-main-orchestrator
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lip_image_product
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: the identification is (E11); repaired F1
 
 NODE: bp:p1:lip-image
@@ -386,9 +386,9 @@ EDGE: step:p1:li-product | blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1161
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lip_image (+ KAM.lip_image_prod, KAM.lip_preimage_null, KAM.lip_preimage_null_prod)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27); proved by the blueprint's stated alternative route (Mathlib hausdorffMeasure_pi_real + LipschitzOnWith.hausdorffMeasure_image_le), so steps li-cubes and li-image are bypassed
 NOTE: -
 
 NODE: step:p1:li-cubes
@@ -413,9 +413,9 @@ EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L113
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
+LEAN_STATUS: BYPASSED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: not formalized as a separate declaration; its parent bp:p1:lip-image is PROVED by the blueprint's alternative Mathlib route (docs/campaign/audits/I-LIP-audit-1.md, note N1)
 NOTE: -
 
 NODE: step:p1:li-image
@@ -439,9 +439,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
+LEAN_STATUS: BYPASSED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: not formalized as a separate declaration; its parent bp:p1:lip-image is PROVED by the blueprint's alternative Mathlib route (docs/campaign/audits/I-LIP-audit-1.md, note N1)
 NOTE: -
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-image@L1144-L1146 | image lies in a cube; outer measure is bounded by its box volume
 
@@ -469,9 +469,9 @@ EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1149-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lip_image
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:li-preimage
@@ -496,9 +496,9 @@ EDGE: step:p1:li-sum | blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1158
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lip_preimage_null
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1157-L1159 | N cap Phi(A) subset N, so its outer measure is zero
 
@@ -526,9 +526,9 @@ EDGE: step:p1:li-preimage | blueprint/parts/p1-analysis.tex#step:p1:li-product@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lip_image_prod, KAM.lip_preimage_null_prod
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p1:mcshane
@@ -555,9 +555,9 @@ EDGE: step:p1:mc-clamp | blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1188-L11
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+claude-main-orchestrator
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.mcshane (+ KAM.mcshane_prod)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:mc-component
@@ -581,9 +581,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.mcshane_component
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:mc-components
@@ -608,9 +608,9 @@ EDGE: step:p1:mc-component | blueprint/parts/p1-analysis.tex#step:p1:mc-componen
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.mcshane_components
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:mc-clamp
@@ -635,9 +635,9 @@ EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1+claude-main-orchestrator
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.mcshane_clamp
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: repaired F1: the statement now assumes beta >= 0 (blueprint fix)
 
 NODE: bp:p1:lipeo-fixed
@@ -661,9 +661,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lipeo_fixed
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: Self-contained remark; proof is inline (injectivity argument).
 
 NODE: bp:p1:lipeo
@@ -690,9 +690,9 @@ EDGE: step:p1:lipeo-zero | blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1220-L12
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lipeo (via KAM.lipeo_complete; constants KAM.lipeo_half)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:lipeo-bounds
@@ -716,9 +716,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lipeo_bounds
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:lipeo-onto
@@ -744,9 +744,9 @@ EDGE: step:p1:lipeo-bounds | blueprint/parts/p1-analysis.tex#step:p1:lipeo-onto@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lipeo_onto
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:lipeo-zero
@@ -772,7 +772,7 @@ EDGE: step:p1:lipeo-onto | blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.lipeo_zero
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-LIP-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -

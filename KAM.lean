@@ -138,6 +138,9 @@ public import KAM.Matrix.Inverse
 public import KAM.Matrix.Neumann
 public import KAM.Matrix.Norms
 public import KAM.Measure.Lattice
+public import KAM.Measure.Lipeo
+public import KAM.Measure.Lipschitz
+public import KAM.Measure.McShane
 public import KAM.Measure.Slab
 public import KAM.Provider.VolumeNotDiophantineLe
 public import KAM.Strip.Averages
