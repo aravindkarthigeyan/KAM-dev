@@ -76,6 +76,23 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **Alternative for the owner:** a separately named full-regularity theorem could be added later if the bound
   clauses are wanted for their own sake.
 
+### 23:30: G2 and G1 sealed (orchestrator, Opus)
+- **G2 sealed (c9dec45).** `KAM.local_uniqueness_flow` has the body
+  `by exact KAM.Provider.local_uniqueness_flow hn hτ hρ hM hσK hσB hσT hμ`.
+  - Provider package: P3-5. Its audit passed, including the exact-type probe.
+  - Checks: axioms are standard only; leanchecker exits 0.
+- **G1 sealed (f4cdc0d).** `KAM.aposteriori_kam` has the body
+  `by exact KAM.Provider.aposteriori_kam … hγbar`.
+  - Provider package: P2-14. Its audit passed with notes, including the exact-type probe.
+  - Checks: axioms are standard only; leanchecker exits 0.
+- **All three G theorems are now sealed.** Only HEAD and HEAD-Q remain open.
+  - P4-S1 (`exists_gValid` plus the HEAD provider) has started.
+  - It is the only place where the `GValid` premise is discharged from the sealed anchors, as the Part 4 design
+    intended.
+- **P4-9 audit F1 (major, step mapping only).** `step:p4:rt-small` needed the full derivative bound exported.
+  - This was fixed rather than bypassed: the prover added `rt_small_full` and `rt_small_normDisp`.
+  - A delta audit is running.
+
 ## Tracks I, N, P (sub-orchestrator, D23)
 
 - **21:15. No new freezes; packets only.** Nothing is pending owner approval from tracks I/N/P tonight (D25 and D28
