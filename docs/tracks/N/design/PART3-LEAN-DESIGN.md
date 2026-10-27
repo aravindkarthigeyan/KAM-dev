@@ -243,9 +243,9 @@ Sizes are realistic estimates; the hard cap is 1500 lines (target ≤ 600).
 
 | Module | Content | Lines |
 |---|---|---|
-| `KAM/ODE/Basic.lean` | `IsSolutionIn`, consequences, `union_of_isOpen`, `gen_symmetry*` | 250 |
+| `KAM/ODE/Basic.lean` | `IsSolutionIn`, consequences, `union_of_isOpen`, `gen_symmetry*`, `angleShift` | 260 |
 | `KAM/ODE/Lipschitz.lean` | `gen_lip`, `UniformData`, `closedThickening`, `gen_uniform_compact` | 320 |
-| `KAM/ODE/UniformPeriodic.lean` | `angleShift`, `gen_uniform_periodic` | 350 |
+| `KAM/ODE/UniformPeriodic.lean` | `gen_uniform_periodic` | 340 |
 | `KAM/ODE/Existence.lean` | `picard_lindelof_ball`, `gen_short(_forward)`, `gen_uniform_exist`, `gen_local` | 550 |
 | `KAM/ODE/Uniqueness.lean` | `gen_uniqueness`, `gen_uniqueness_inter` | 200 |
 | `KAM/ODE/Exit.lean` | `exitSet`, `gen_exit`, `IsInvariantSet`, equilibria/union, `gen_barrier` | 350 |
@@ -267,13 +267,14 @@ About 6,000 lines. Optional facades: `KAM/ODE.lean`-style re-exports are not nee
 ODE.Basic                          ← ODE.Lipschitz ← ODE.UniformPeriodic
 ODE.Lipschitz                      ← ODE.Uniqueness
 ODE.Basic, ODE.Lipschitz           ← ODE.Existence
-ODE.Basic                          ← ODE.Exit
+ODE.Basic, ODE.Uniqueness         ← ODE.Exit   (isInvariantSet_equilibria uses gen_uniqueness; both owned by N3-5)
 ODE.Existence, ODE.Uniqueness      ← ODE.Maximal
 ODE.Maximal, ODE.UniformPeriodic   ← ODE.Continuation
-ODE.Basic, ODE.UniformPeriodic [Frozen.Defs.HamiltonianVectorField, Frozen.Nekhoroshev.Defs.IsSolutionOn,
+ODE.Basic [Frozen.Defs.HamiltonianVectorField, Frozen.Nekhoroshev.Defs.IsSolutionOn,
                                 Frozen.Iso.Defs.IsHamiltonianSolutionOn] ← ODE.Hamiltonian
 ODE.Basic [Frozen.Planetary.Defs.IsNewtonSolution, IsFixedSolution, Frozen.Iso.Defs.IsRestrictedSolutionOn,
            CollisionFree, RestrictedVectorField, Radius] ← ODE.NewtonDefs ← ODE.NewtonReduction
+[Mathlib.Analysis.Calculus.Deriv.Prod: HasDerivAt.prodMk, hasDerivAt_pi] ← ODE.NewtonReduction (and any module using them)
 ODE.NewtonDefs, ODE.Lipschitz      ← ODE.NewtonUniform
 ODE.NewtonUniform, ODE.NewtonReduction, ODE.Continuation ← ODE.NewtonContinuation
 ODE.Hamiltonian, ODE.Continuation  ← Nekhoroshev.ODE.Specialization
@@ -427,11 +428,20 @@ of N3-9a; the conclusion "`∃ t ≥ t⋆, x t ∉ Φ`" is the contrapositive of
 | I Part 5 (confinement) | `gen_barrier`, `IsInvariantSet`, `gen_continuation_periodic`, `gen_maximal` (`T_± = ⊥/⊤`), `gen_uniqueness`, `ham_energy`, `ham_periodic`, `ham_reduction` | `n = 2`, `Wdom`-free: `W = univ ×ˢ B` |
 | I Parts 7-8 (Delaunay, R3BP) | `restricted_reduction`, `newton_reduction`, `gen_sol`, `gen_uniqueness` | `IsRestrictedSolutionOn` on any interval `(a, b)` |
 | P Part 14a (AMD, EXP-SAFE) | `gen_uniqueness`, `gen_maximal`, `gen_exit`, `gen_symmetry` (b), `gen_continuation`, `gen_continuation_compact`, `gen_uniform_compact`, `gen_lip`, `gen_uniform`, `ham_smooth_c1`, `ham_periodic` | generic `E` (chart spaces `ℝ^{4n}`); `IsMovSolOn ↔ IsSolutionIn` is track P's own lemma; the `-H`, `-F` case is `gen_symmetry_neg` |
+| P Part 14a, consumer bridges (audit F3) | `bpP:p14:moving-ode` (L106–115): track P's own lemma bridging the frozen `IsMovingSolutionOn` on the collision-free domain to `IsSolutionIn`; `ham_reduction` is NOT instantiated with `U = univ` (needs global C²). `stepP:p14:li-max` (L252) uses the PROOF of `ham-periodic` for arbitrary translations τ_k (2π shifts in chart angles): keep that local translation proof in P (or export an arbitrary-translation helper); no period-1/2π identification. `bpP:p14:uniform-data` (L239–244) builds its own chart uniform data and applies generic `gen_continuation` | owners: track P designs |
+| P Part 14b (SECULAR-BOX) | `bpP:p14:sb-pred` (L218–224): on curves staying in the open regular set S, bridge frozen `Iso.IsHamiltonianSolutionOn H univ J z` to `IsSolutionIn X_H S J z` ("pattern only", P's own lemma); `gen_maximal`, `gen_continuation_compact`, `gen_uniqueness` | owner: track P design |
+| N Part 11c | `bpN:p11:continuation` (L35–40) proves its own periodic/transverse-dimension uniform-data lemma, then applies generic `gen_continuation`; `gen_continuation_periodic` (equal-sized blocks) cannot replace it | owner: track N Part 11 design |
 | P Parts 1, 6, 11b | `newton_reduction`, `fixed_reduction`, `newton_continuation`, `ham_*`, `gen_continuation` | |
 
 Helper API consumers will want (not graph nodes; include in the packages that own them): `mem_eIoo_iff : t ∈ eIoo a b ↔ a < t ∧ t < b`,
 `eIoo_bot_top : eIoo ⊥ ⊤ = univ`, `IsMaximalSolution.isSolution_of_mem`, and for a time shift `t₀ ≠ 0` apply
 `gen_symmetry_shift` (blueprint: "for initial time `t₀` instead of `0` use `gen-symmetry(a)`").
+
+## Audit fixes (design audit 1, `docs/tracks/N/design/PART3-design-audit-1.md`, PASS WITH FIXES)
+
+- F1: `Mathlib.Analysis.Calculus.Deriv.Prod` imported (signatures file and `NewtonReduction`).
+- F2: `angleShift` moved to `ODE/Basic`; `ODE/Hamiltonian` no longer imports `ODE/UniformPeriodic` (so N3-2 needs only N3-1, as scheduled); `ODE/Exit` imports `ODE/Uniqueness`.
+- F3: consumer bridges for P Parts 14a/14b and N Part 11c recorded in §8.
 
 ## 9. Risks
 
@@ -480,7 +490,7 @@ The signatures elaborate in about 6 s. No statement is heavy. Proof-side risks a
 
 ## Appendix A. The signatures
 
-Verbatim copy of `.drafts/design/NPart3Signatures.lean` (sha256 `1401a7d605221d802b45c280797d2bdb19c6e024a8c2b57e3f4a1035528e63a1`). Variables are explicit in each statement;
+Verbatim copy of `.drafts/design/NPart3Signatures.lean` (sha256 `663f10c065cd2771be3277317fb7f068263e86aa7ac745949d2fbe5be0950c58`). Variables are explicit in each statement;
 every `theorem … := sorry` is a prover obligation, every other declaration is part of the design.
 
 ```lean
@@ -495,6 +505,7 @@ public import Mathlib.Analysis.ODE.ExistUnique
 public import Mathlib.Analysis.ODE.Gronwall
 public import Mathlib.Analysis.Calculus.ContDiff.RCLike
 public import Mathlib.Analysis.Calculus.MeanValue
+public import Mathlib.Analysis.Calculus.Deriv.Prod
 public import Mathlib.Analysis.SpecialFunctions.Sqrt
 public import Mathlib.Topology.MetricSpace.Thickening
 public import Mathlib.Data.EReal.Basic
@@ -590,6 +601,10 @@ theorem gen_symmetry {F : E → E} {W : Set E} {J : Set ℝ} {z : ℝ → E} (h 
     ⟨gen_symmetry_neg h, fun _ hF => gen_symmetry_neg_contDiffOn hF⟩,
     fun _ hW hF => gen_symmetry_translate h hW hF⟩
 
+/-- The translation `(k, 0)` of phase space by the integer vector `k` in the angles
+(owned by `KAM/ODE/Basic.lean`, so that `KAM/ODE/Hamiltonian.lean` need not import the periodic uniform data). -/
+def angleShift {n : ℕ} (k : Fin n → ℤ) : (Fin n → ℝ) × (Fin n → ℝ) := (fun i => (k i : ℝ), 0)
+
 end Basic
 
 /-! ## B. Lipschitz data (`KAM/ODE/Lipschitz.lean`) -/
@@ -628,9 +643,6 @@ end Lipschitz
 section Periodic
 
 variable {n : ℕ}
-
-/-- The translation `(k, 0)` of phase space by the integer vector `k` in the angles. -/
-def angleShift (k : Fin n → ℤ) : (Fin n → ℝ) × (Fin n → ℝ) := (fun i => (k i : ℝ), 0)
 
 /-- `bpN:p3:gen-uniform-periodic`. -/
 theorem gen_uniform_periodic {U : Set (Fin n → ℝ)}
