@@ -50,9 +50,9 @@ EDGE: K:bp:p2:hamiltonian | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:standi
 EDGE: bpI:p1:setting | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:standing#k-bridge@L45-L45 | Assumption bpI:p1:setting holds for omega = s omega*, s>1
 EDGE: bpI:p2:ray | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:standing#k-bridge@L46-L46 | omega = s omega* is (gamma,tau)-Diophantine for s>1 (premise of bpI:p1:setting)
 EDGE: K:bp:p2:objects | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:standing#k-bridge@L46-L46 | objects are those of K:bp:p2:objects with h := H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -165,9 +165,9 @@ ROUTE_FOR: -
 EDGE: K:bp:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:constants@L69-L69 | the K constants kappa,a,c_R,m,Theta,C_* used as inputs
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:constants@L69-L69 | constants depend on n,tau,M,sigma_K,sigma_B,sigma_T, nu from the standing data
 EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:constants@L69-L69 | applies K:bp:p2:constants under the Part 2 standing data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -205,9 +205,9 @@ EDGE: bpI:p1:extended-basic | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:admi
 EDGE: K:bp:p2:frequency | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:admissible@L105-L105 | frequency bound gamma<=¦omega¦<=Theta
 EDGE: K:bp:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:admissible@L105-L105 | premise form (A3,A4,A6) of the frequency bound
 EDGE: bpI:p2:ray | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:admissible@L106-L106 | omega = s omega* in Dio_{gamma,tau}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -242,9 +242,9 @@ EDGE: stepI:p2:co-xi | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:correction@
 EDGE: stepI:p2:co-omega | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:correction@L160-L160 | proof step of this result
 EDGE: stepI:p2:co-dk | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:correction@L162-L162 | proof step of this result
 EDGE: stepI:p2:co-reg | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:correction@L164-L164 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -308,9 +308,9 @@ EDGE: bpI:p1:border-solve | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-x
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-xi0@L155-L155 | C_xi0, C_S, c_R, Theta, m
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-xi0@L155-L155 | gamma, sigma_T
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-xi0@L155-L155 | gamma delta^j <= Theta absorption
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -342,9 +342,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-xi@L1
 EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-xi@L159-L159 | bound ¦P¦ <= 2 m^2 on T_{r-2delta} used in ¦DeltaK¦ <= ¦P¦¦xi¦
 EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-xi@L159-L159 | K frame bounds under the standing data
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-xi@L159-L159 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -373,9 +373,9 @@ EDGE: bpI:p2:ray | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-omega@L161
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-omega@L161-L161 | C_S, Theta
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-omega@L161-L161 | gamma, omega*
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-omega@L161-L161 | ¦omega¦ <= Theta (bpI:p2:freq)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -407,9 +407,9 @@ EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-dk@L
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-dk@L163-L163 | gamma
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-dk@L163-L163 | B6: ¦E¦ <= eps
 EDGE: bpI:p1:geometry-noA5 | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-dk@L163-L163 | Provides the DE and X_N bounds used in the two frame derivative estimates.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -442,9 +442,9 @@ EDGE: stepI:p2:co-omega | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-reg
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-reg@L165-L165 | C_Delta >= C_DeltaK, Theta^2 C_S
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-reg@L165-L165 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:co-reg@L165-L165 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -458,7 +458,7 @@ PROOF_SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L182-L1
 CONTRACT_ID: bpI:p2:newton-error
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting of bpI:p2:correction (standing data; s>1; 0<delta<=1; 2delta<r; K admissible); d < beta; C_sym eps/(gamma delta^{kappa+1}) <= 1/2; Kbar := K+DeltaK on T_{r-2delta}, Kbar := K elsewhere
-SOURCE_QUANTIFIERS: as in bpI:p2:correction; then beta, d
+SOURCE_QUANTIFIERS: standing data and constants fixed; r,beta,s,delta,eps,K as in bpI:p2:correction; use its constructed xi,DeltaK,Deltaomega,omegabar and d := hatC_Delta eps/(gamma^2 delta^a), subject to the additional two inequalities; define Kbar and the new errors as displayed; no new independent beta or d
 SOURCE_CONCLUSION: Kbar(T_{r-2delta}) in D; S := I - Omega_0 E_sym invertible with ¦S^{-1}¦<=2 on T_{r-2delta}; Ebar := E_{H,Kbar,omegabar} = P S^{-1} E_lin + Delta^2 X + xi^omega d_omega DeltaK with E_lin := E_red xi + Omega_0 E_sym d_omega xi - (0,Omega_K omega) xi^omega, Delta^2 X := X_H(Kbar)-X_H(K)-A DeltaK; Ebar^omega := Ebar_H(Kbar)-E_0 = E^omega_lin + avg(Delta^2 H), E^omega_lin = avg(D(H o K) xi^L), Delta^2 H := H(Kbar)-H(K)-DH(K)DeltaK; ¦Ebar¦ <= C_E eps^2/(gamma^4 delta^{2a}) on T_{r-2delta} and ¦Ebar^omega¦ <= C_E eps^2/(gamma^4 delta^{2a})
 CONSTANT_SCOPE: Constants of Definition bpI:p2:constants: all depend only on (n,tau,M,sigma_K,sigma_B,sigma_T); hat-c_* also on (mu,nu); delta_0 on (rho,rho_infty); no dependence on K, s, e, gamma, omega*, sigma_omega
 FROZEN_FILE: -
@@ -471,7 +471,7 @@ ROUTE_FOR: -
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L169-L169 | gamma, M, D, H
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L169-L169 | C_sym, C_E, kappa, a
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L169-L169 | K is (r,beta,eps,s)-admissible; B1-B7 and the frequency bound
-EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L169-L169 | K frame identities / Hamiltonian lemma applied
+EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L184-L184 | K frame identities applied under the Part 2 standing data
 EDGE: bpI:p2:correction | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L169-L169 | setting of the lemma; DeltaK, Deltaomega, d, xi
 EDGE: stepI:p2:ne-invert | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L183-L183 | proof step of this result
 EDGE: stepI:p2:ne-expand | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L185-L185 | proof step of this result
@@ -479,7 +479,7 @@ EDGE: stepI:p2:ne-reduce | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-
 EDGE: stepI:p2:ne-est | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L189-L189 | proof step of this result
 EDGE: stepI:p2:ne-energy | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L191-L191 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -512,9 +512,9 @@ EDGE: bpI:p2:correction | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-inv
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-invert@L184-L184 | B2: B_beta(K) in D
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-invert@L184-L184 | D open, convex ball in D
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-invert@L184-L184 | Uses constants or exponents fixed by this package.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -543,9 +543,9 @@ EDGE: stepI:p2:ne-invert | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-ex
 EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-expand@L186-L186 | K objects (L, A, E) under the standing data
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-expand@L186-L186 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-expand@L186-L186 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -577,9 +577,9 @@ EDGE: stepI:p2:ne-expand | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-re
 EDGE: stepI:p2:ne-invert | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-reduce@L188-L188 | Q^{-1} = P S^{-1}
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-reduce@L188-L188 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-reduce@L188-L188 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -612,9 +612,9 @@ EDGE: stepI:p2:ne-invert | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-es
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-est@L190-L190 | C_red, C_sym, C_Omega, C_lin, C_E1, Theta, m
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-est@L190-L190 | gamma, M
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-est@L190-L190 | gamma <= Theta
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -635,7 +635,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p1:energy-approx, bpI:p1:border-solve, K:bp:p1:taylor, bpI:p2:correction, stepI:p2:ne-invert, bpI:p2:standing#k-bridge, bpI:p2:standing, bpI:p2:constants, bpI:p2:admissible
+DEPS: bpI:p1:energy-approx, bpI:p1:border-solve, K:bp:p1:taylor, bpI:p2:correction, stepI:p2:ne-invert, bpI:p2:standing#k-bridge, bpI:p2:standing, bpI:p2:constants, bpI:p2:admissible, bpI:p1:geometry-noA5, K:bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p1:energy-approx | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-energy@L192-L192 | (f): avg(DH(K)DeltaK) and the bound on D(H o K)
@@ -647,8 +647,10 @@ EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-energy@L192-L192 | M, omega, D^2 H bound
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-energy@L192-L192 | C_E2, C_E, C_Omega, Theta, m
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-energy@L192-L192 | gamma delta^{kappa+1} <= Theta
+EDGE: bpI:p1:geometry-noA5 | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-energy@L192-L192 | the bound on Omega_K and the eta bounds supply the displayed estimate for D(H o K)
+EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-energy@L192-L192 | continuous integrands on the compact real cube; linearity of the energy average and norm bounded by the unit-cube supremum
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -662,9 +664,9 @@ STATEMENT_SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L205-L21
 PROOF_SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L214-L225
 CONTRACT_ID: bpI:p2:torsion
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: standing data; K (r,beta,eps,s)-admissible; 0<delta<=1, 4delta<r; Kbar, omegabar as in bpI:p2:newton-error; d<beta; 2 m C_DeltaT d/delta^2 <= 1
-SOURCE_QUANTIFIERS: as in bpI:p2:newton-error; then beta, d
-SOURCE_CONCLUSION: omegabar in R^n; T_H for (Kbar,omegabar) defined on T_{r-3delta}; Kbar holomorphic on T_{r-2delta}, primary, real on reals; det Gbar != 0 on T_{r-3delta} with ¦DKbar¦ <= 2m, ¦Bbar¦ <= 2m; B_{beta-d}(Kbar) in D on T_{r-2delta}; ¦DKbar-DK¦ <= nd/delta and ¦Bbar-B¦ <= C_B d/delta on T_{r-3delta}; avg Tbar := avg T_H(Kbar,omegabar) defined, invertible, ¦avg Tbar - avg T¦ <= C_DeltaT d/delta^2, ¦avg Tbar^{-1} - avg T^{-1}¦ <= 2 m^2 C_DeltaT d/delta^2
+SOURCE_HYPOTHESES: standing data; K (r,beta,eps,s)-admissible; 0<delta<=1, 4delta<r; Kbar, omegabar as in bpI:p2:newton-error; d<beta; 2 m C_DeltaScriptT d/delta^2 <= 1
+SOURCE_QUANTIFIERS: standing data and constants fixed; r,beta,eps,s,delta,K as stated, with 4delta<r; use the correction/new-error constructions Kbar,omegabar and d := hatC_Delta eps/(gamma^2 delta^a); impose the stated smallness conditions on this d, not a new independent parameter
+SOURCE_CONCLUSION: omegabar in R^n; T_H for (Kbar,omegabar) defined on T_{r-3delta}; Kbar holomorphic on T_{r-2delta}, primary, real on reals; det Gbar != 0 on T_{r-3delta} with ¦DKbar¦ <= 2m, ¦Bbar¦ <= 2m; B_{beta-d}(Kbar) in D on T_{r-2delta}; ¦DKbar-DK¦ <= nd/delta and ¦Bbar-B¦ <= C_B d/delta on T_{r-3delta}; avg Tbar := avg T_H(Kbar,omegabar) defined, invertible, ¦avg Tbar - avg T¦ <= C_DeltaScriptT d/delta^2, ¦avg Tbar^{-1} - avg T^{-1}¦ <= 2 m^2 C_DeltaScriptT d/delta^2
 CONSTANT_SCOPE: Constants of Definition bpI:p2:constants: all depend only on (n,tau,M,sigma_K,sigma_B,sigma_T); hat-c_* also on (mu,nu); delta_0 on (rho,rho_infty); no dependence on K, s, e, gamma, omega*, sigma_omega
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -674,18 +676,18 @@ DEPS: bpI:p2:standing, bpI:p2:constants, bpI:p2:admissible, bpI:p2:standing#k-br
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L206-L206 | standing data
-EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L206-L206 | C_DeltaT, C_B, m
+EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L206-L206 | C_DeltaScriptT, C_B, m
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L206-L206 | K is (r,beta,eps,s)-admissible; B1-B7 and the frequency bound
-EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L206-L206 | K averages/matrix lemmas applied
+EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L222-L222 | K averages/matrix lemmas applied to the displayed full-matrix difference
 EDGE: bpI:p2:newton-error | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L206-L206 | Kbar, omegabar as in the new-error lemma
-EDGE: bpI:p2:correction | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L205-L205 | d, DeltaK, Deltaomega, bounds
+EDGE: bpI:p2:correction | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L216-L216 | the correction supplies norm(Kbar-K) <= d for the frame perturbation application
 EDGE: stepI:p2:to-frame | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L215-L215 | proof step of this result
 EDGE: stepI:p2:to-omega | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L217-L217 | proof step of this result
 EDGE: stepI:p2:to-row | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L219-L219 | proof step of this result
 EDGE: stepI:p2:to-avg | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L221-L221 | proof step of this result
 EDGE: stepI:p2:to-inv | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L223-L223 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -702,7 +704,7 @@ CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: The stated local context and premises of bpI:p2:torsion, with its definitions and inherited packages. Bounds and conclusions of cited prerequisite nodes are derived in this proof, not additional hypotheses.
 SOURCE_QUANTIFIERS: All data quantified in bpI:p2:torsion, in the same order; the quantities constructed by earlier proof steps remain derived. All pointwise formulas are on the strip or real cube stated in this step.
 SOURCE_CONCLUSION: ball B_{beta-d}(Kbar) in D, derivative and Gram-inverse bounds, ¦Nbar-N¦ <= C_DeltaN d/delta, ¦Nbar¦ <= 2m^2 on T_{r-3delta}, ¦Tbar_omega - T_omega¦ <= C_DeltaT d/delta^2 on T_{r-4delta}; Nbar, Tbar_omega holomorphic on T_{r-3delta} so T_H(Kbar,omegabar) is continuous on R^n and its average is defined
-CONSTANT_SCOPE: C_DeltaN, C_DeltaT^K from the constants
+CONSTANT_SCOPE: C_DeltaN and the old K torsion constant C_DeltaT from bpI:p2:constants; the inherited smallness uses C_DeltaScriptT >= C_DeltaT
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -719,12 +721,12 @@ EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-fram
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-frame@L216-L216 | B1-B4 hypotheses of the perturbation lemma
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-frame@L216-L216 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: scoped to the final parenthetical application of bpI:p1:extended-basic at L216 with Kbar and omegabar. That lemma assumes bpI:p1:setting, including a positive Diophantine constant for this same frequency. The torsion lemma explicitly uses no Diophantine property of omegabar, and none is supplied here; the k-bridge concerns the old omega=s omega*. The frame perturbation application at the old omega is paid by the stated local data. The printed holomorphy/continuity discussion suggests a direct finite-frequency proof, but this record does not silently strengthen the cited Part 1 contract or add Diophantinity as a source hypothesis.
 
 NODE: stepI:p2:to-omega
 KIND: step
@@ -751,9 +753,9 @@ EDGE: bpI:p0:stripdata#torsion | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-omega@L218-L218 | m
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-omega@L218-L218 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-omega@L218-L218 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -784,9 +786,9 @@ EDGE: stepI:p2:ne-invert | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-ro
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-row@L220-L220 | M, ¦D^2 H¦ <= M on D
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-row@L220-L220 | C_Y, C_DeltaN, m
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-row@L220-L220 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -801,8 +803,8 @@ CONTRACT_ID: stepI:p2:to-avg
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: The stated local context and premises of bpI:p2:torsion, with its definitions and inherited packages. Bounds and conclusions of cited prerequisite nodes are derived in this proof, not additional hypotheses.
 SOURCE_QUANTIFIERS: All data quantified in bpI:p2:torsion, in the same order; the quantities constructed by earlier proof steps remain derived. All pointwise formulas are on the strip or real cube stated in this step.
-SOURCE_CONCLUSION: avg Tbar - avg T = avg of [[Tbar_{omegabar}-T_omega, Deltaomega],[Ybar-Y, 0]] on R^n in T_{r-4delta}; its norm <= max{C_DeltaT^K d/delta^2 + 8 n^2 m^4 d/delta + d, C_Y d/delta} <= C_DeltaT d/delta^2
-CONSTANT_SCOPE: C_DeltaT from the constants
+SOURCE_CONCLUSION: avg Tbar - avg T = avg of [[Tbar_{omegabar}-T_omega, Deltaomega],[Ybar-Y, 0]] on R^n in T_{r-4delta}; its norm <= max{C_DeltaT^K d/delta^2 + 8 n^2 m^4 d/delta + d, C_Y d/delta} <= C_DeltaScriptT d/delta^2
+CONSTANT_SCOPE: C_DeltaScriptT from the constants
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -818,11 +820,11 @@ EDGE: stepI:p2:to-omega | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg
 EDGE: stepI:p2:to-row | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | bound on Ybar - Y
 EDGE: bpI:p2:correction | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | ¦Deltaomega¦ <= d
 EDGE: bpI:p1:extended-basic | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | block structure of T_H and its average
-EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | C_DeltaT
+EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | C_DeltaScriptT
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | Uses B-component premises or frequency bound in the inherited admissible context.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -850,10 +852,10 @@ ROUTE_FOR: -
 EDGE: K:bp:p1:neumann | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L224-L224 | Neumann series (HL19 Lemma A.1)
 EDGE: stepI:p2:to-avg | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L224-L224 | difference bound for the averages
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L224-L224 | B5: ¦avg T^{-1}¦ <= sigma_T
-EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L224-L224 | sigma_T <= m, C_DeltaT
+EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L224-L224 | sigma_T <= m, C_DeltaScriptT
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L224-L224 | sigma_T
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -903,7 +905,7 @@ CONTRACT_ID: stepI:p2:st-small
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: The stated local context and premises of bpI:p2:step, with its definitions and inherited packages. Bounds and conclusions of cited prerequisite nodes are derived in this proof, not additional hypotheses.
 SOURCE_QUANTIFIERS: All data quantified in bpI:p2:step, in the same order; the quantities constructed by earlier proof steps remain derived. All pointwise formulas are on the strip or real cube stated in this step.
-SOURCE_CONCLUSION: C_sym eps/(gamma delta^{kappa+1}) <= Theta^3 C_sym X <= 1/2; d <= Theta^2 C_Delta X <= beta/2; 2 m C_DeltaT d/delta^2 <= 2 m Theta^2 C_DeltaT C_Delta X <= 1
+SOURCE_CONCLUSION: C_sym eps/(gamma delta^{kappa+1}) <= Theta^3 C_sym X <= 1/2; d <= Theta^2 C_Delta X <= beta/2; 2 m C_DeltaScriptT d/delta^2 <= 2 m Theta^2 C_DeltaScriptT C_Delta X <= 1
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -913,10 +915,10 @@ DEPS: bpI:p2:admissible, bpI:p2:constants, bpI:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-small@L244-L244 | gamma <= Theta (bpI:p2:freq) and gamma^2 delta^{a-2} <= Theta^2
-EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-small@L244-L244 | c_step, C_sym, C_Delta, C_DeltaT, Theta, m
+EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-small@L244-L244 | c_step, C_sym, C_Delta, C_DeltaScriptT, Theta, m
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-small@L244-L244 | gamma
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -947,9 +949,9 @@ EDGE: stepI:p2:st-small | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-err
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-error@L247-L247 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-error@L247-L247 | Uses constants or exponents fixed by this package.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-error@L247-L247 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -980,9 +982,9 @@ EDGE: stepI:p2:st-small | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-fra
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-frame@L249-L249 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-frame@L249-L249 | Uses constants or exponents fixed by this package.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-frame@L249-L249 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1038,9 +1040,9 @@ EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:error-deca
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:error-decay@L262-L262 | C_E, a, delta_0
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:error-decay@L262-L262 | gamma
 EDGE: K:bp:p1:iteration | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:error-decay@L265-L265 | iteration lemma with p = 2a
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1055,7 +1057,7 @@ CONTRACT_ID: bpI:p2:iteration
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p2:standing; K and s=s_0>1 satisfy (I5)-(I12) of I-G1 on T_rho with margin mu: B1; B_mu(K) in D; ¦DK¦<=sigma_K-mu; det G != 0, ¦B¦<=sigma_B-mu; det avg T_H != 0, ¦avg T_H^{-1}¦<=sigma_T-mu; ¦E_{H,K,s omega*}¦<=e, ¦Ebar_H(K)-E_0¦<=e; nu(s_0)>=nu; e<=1; c_* e/(gamma^4 delta_0^{2a}) <= 1
 SOURCE_QUANTIFIERS: standing data, constants, schedule fixed; then K, s_0, e; then there are K_j, s_j (K_0 = K) for all j
-SOURCE_CONCLUSION: with D_j := sum_{i<j} d_i, for every j: (i) K_j is (r_j,mu-D_j,eps_j,s_j)-admissible, eps_j<=e<=1; (ii) D_j<=mu/4, D_j<=nu/2, ¦K_j-K¦<=D_j on T_{r_j}, ¦s_j-s_0¦¦omega*¦<=D_j, nu(s_j)>=nu-D_j>=nu/2, 1<s_j<sigma_omega; (iii) ¦DK_j¦ <= sigma_K-mu+sum nd_i/delta_i <= sigma_K-mu/2; (iv) ¦B_j¦ <= sigma_B-mu+sum C_B d_i/delta_i <= sigma_B-mu/2; (v) ¦avg T_j^{-1}¦ <= sigma_T-mu+sum 2 m^2 C_DeltaT d_i/delta_i^2 <= sigma_T-mu/2; (vi) ¦K_{j+1}-K_j¦<=d_j, ¦DK_{j+1}-DK_j¦<=nd_j/delta_j on T_{r_{j+1}}, ¦s_{j+1}-s_j¦¦omega*¦<=d_j
+SOURCE_CONCLUSION: with D_j := sum_{i<j} d_i, for every j: (i) K_j is (r_j,mu-D_j,eps_j,s_j)-admissible, eps_j<=e<=1; (ii) D_j<=mu/4, D_j<=nu/2, ¦K_j-K¦<=D_j on T_{r_j}, ¦s_j-s_0¦¦omega*¦<=D_j, nu(s_j)>=nu-D_j>=nu/2, 1<s_j<sigma_omega; (iii) ¦DK_j¦ <= sigma_K-mu+sum nd_i/delta_i <= sigma_K-mu/2; (iv) ¦B_j¦ <= sigma_B-mu+sum C_B d_i/delta_i <= sigma_B-mu/2; (v) ¦avg T_j^{-1}¦ <= sigma_T-mu+sum 2 m^2 C_DeltaScriptT d_i/delta_i^2 <= sigma_T-mu/2; (vi) ¦K_{j+1}-K_j¦<=d_j, ¦DK_{j+1}-DK_j¦<=nd_j/delta_j on T_{r_{j+1}}, ¦s_{j+1}-s_j¦¦omega*¦<=d_j
 CONSTANT_SCOPE: Constants of Definition bpI:p2:constants: all depend only on (n,tau,M,sigma_K,sigma_B,sigma_T); hat-c_* also on (mu,nu); delta_0 on (rho,rho_infty); no dependence on K, s, e, gamma, omega*, sigma_omega
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1073,7 +1075,7 @@ EDGE: stepI:p2:it-sums | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:iteration
 EDGE: stepI:p2:it-stepsmall | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:iteration@L288-L288 | proof step of this result
 EDGE: stepI:p2:it-step | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:iteration@L290-L290 | proof step of this result
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1089,7 +1091,7 @@ CONTRACT_ID: stepI:p2:it-sums
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: The stated local context and premises of bpI:p2:iteration, with its definitions and inherited packages. Bounds and conclusions of cited prerequisite nodes are derived in this proof, not additional hypotheses.
 SOURCE_QUANTIFIERS: All data quantified in bpI:p2:iteration, in the same order; the quantities constructed by earlier proof steps remain derived. For each j>=0.
-SOURCE_CONCLUSION: gamma <= Theta; sum_i d_i/delta_i^k <= 2 Theta^2 C_Delta X for k=0,1,2; hence sum d_i <= min{mu/4,nu/2}, sum n d_i/delta_i <= mu/4, sum C_B d_i/delta_i <= mu/4, sum 2 m^2 C_DeltaT d_i/delta_i^2 <= mu/2
+SOURCE_CONCLUSION: gamma <= Theta; sum_i d_i/delta_i^k <= 2 Theta^2 C_Delta X for k=0,1,2; hence sum d_i <= min{mu/4,nu/2}, sum n d_i/delta_i <= mu/4, sum C_B d_i/delta_i <= mu/4, sum 2 m^2 C_DeltaScriptT d_i/delta_i^2 <= mu/2
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1101,10 +1103,10 @@ ROUTE_FOR: -
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@L286-L286 | gamma <= Theta from K admissible (bpI:p2:freq)
 EDGE: bpI:p2:error-decay | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@L286-L286 | eps_s/delta_s^j and sum bounds
 EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@L286-L286 | d_i := C_Delta eps_i/(gamma^2 delta_i^a)
-EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@L287-L287 | c_* >= 2^{2a}C_E, 2 c_sum/mu, 4 Theta^2 C_Delta/nu; C_B, C_DeltaT
+EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@L287-L287 | c_* >= 2^{2a}C_E, 2 c_sum/mu, 4 Theta^2 C_Delta/nu; C_B, C_DeltaScriptT
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@L286-L286 | gamma
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1134,9 +1136,9 @@ EDGE: bpI:p2:error-decay | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-st
 EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-stepsmall@L289-L289 | eps_j, delta_j
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-stepsmall@L289-L289 | c_step <= c_*
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-stepsmall@L289-L289 | gamma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1166,10 +1168,10 @@ EDGE: stepI:p2:it-stepsmall | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it
 EDGE: bpI:p2:ray | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@L291-L291 | (b): 1<sbar_j<sigma_omega, nu(sbar_j) >= nu(s_j)-d_j
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@L291-L291 | admissibility at j and j+1; B3-B5
 EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@L291-L291 | r_{j+1} = r_j-4 delta_j, d_j
-EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@L291-L291 | c_*, C_B, C_DeltaT
+EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@L291-L291 | c_*, C_B, C_DeltaScriptT
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@L291-L291 | standing data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1203,9 +1205,9 @@ EDGE: stepI:p2:lim-margins | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:limit
 EDGE: stepI:p2:lim-inv | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:limit@L312-L312 | proof step of this result
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:limit@L295-L295 | The setting of iteration includes admissibility and its scheduled sequences.
 EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:limit@L295-L295 | The setting of iteration includes admissibility and its scheduled sequences.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1236,9 +1238,9 @@ EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-conv
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-conv@L307-L307 | C_Delta, delta_0
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-conv@L307-L307 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-conv@L307-L307 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1269,9 +1271,9 @@ EDGE: stepI:p2:lim-conv | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-cl
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-close@L309-L309 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-close@L309-L309 | Uses constants or exponents fixed by this package.
 EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-close@L309-L309 | Uses the scheduled eps_j,delta_j,d_j or their partial sums.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1300,9 +1302,9 @@ EDGE: stepI:p2:lim-close | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-m
 EDGE: stepI:p2:lim-conv | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-margins@L311-L311 | DK_infty = lim DK_j
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-margins@L311-L311 | D
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-margins@L311-L311 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1335,9 +1337,9 @@ EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p2-iso-iteration.tex#
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-inv@L313-L313 | Uses B-component premises or frequency bound in the inherited admissible context.
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-inv@L313-L313 | Uses constants or exponents fixed by this package.
 EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-inv@L313-L313 | Uses the scheduled eps_j,delta_j,d_j or their partial sums.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1397,9 +1399,9 @@ EDGE: bpI:p2:limit | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-unif@L32
 EDGE: bpI:p2:iteration | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-unif@L321-L321 | ¦K_j-K¦ <= D_j <= mu/4 and B_mu(K) in D
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-unif@L321-L321 | ¦DH¦ <= M on D
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-unif@L321-L321 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1432,9 +1434,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-int@L
 EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-int@L323-L323 | Ebar_H
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-int@L323-L323 | Uses B-component premises or frequency bound in the inherited admissible context.
 EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-int@L323-L323 | Uses the scheduled eps_j,delta_j,d_j or their partial sums.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1496,9 +1498,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-constants@L340-L340 | finiteness, positivity and dependence of all constants
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-constants@L340-L340 | n, tau, M, sigma's, nu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1523,9 +1525,9 @@ DEPS: bpI:p2:standing
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-standing@L342-L342 | the stated hypotheses are exactly the standing data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1552,9 +1554,9 @@ ROUTE_FOR: -
 EDGE: stepI:p2:g1-constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-e@L344-L344 | C_1 >= rho^{4tau} gammabar^4 and C_1 >= rho^{4tau}c_* delta_0^{-2a}
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-e@L344-L344 | c_*, delta_0, a
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-e@L344-L344 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1583,9 +1585,9 @@ EDGE: bpI:p1:extended-basic | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1
 EDGE: bpI:p2:ray | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-dict@L346-L346 | s>1 gives s omega* in Dio_{gamma,tau}
 EDGE: stepI:p2:g1-e | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-dict@L346-L346 | e<=1 so that eps = e is in the admissible range 0<=eps<=1 (prose L114-115)
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-dict@L346-L346 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1617,9 +1619,9 @@ EDGE: stepI:p2:g1-standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-apply@L348-L348 | constants
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-apply@L348-L348 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-apply@L348-L348 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1648,9 +1650,9 @@ EDGE: stepI:p2:g1-apply | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o@L
 EDGE: stepI:p2:g1-constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o@L350-L350 | C_2,C_3 definitions/positivity
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o@L350-L350 | C_Delta, delta_0, a
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o@L350-L350 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1677,9 +1679,9 @@ ROUTE_FOR: -
 EDGE: bpI:p2:limit | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o2@L352-L352 | (e)
 EDGE: stepI:p2:g1-apply | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o2@L352-L352 | limit applied
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o2@L352-L352 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1711,9 +1713,9 @@ EDGE: stepI:p2:g1-o2 | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o3@L35
 EDGE: stepI:p2:g1-apply | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o3@L354-L354 | limit applied
 EDGE: bpI:p2:ray | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o3@L354-L354 | s_infty omega* in Dio_{gamma,tau} since s_infty>1
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o3@L354-L354 | E_0, D, H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
-REVIEWER: -
+REVIEWER: sol-delta-I-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

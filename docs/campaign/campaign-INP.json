@@ -6,9 +6,62 @@
    "model": "Claude Opus 5.5",
    "account": "claude-8",
    "session": "kam-suborch",
-   "assignment": "Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns",
-   "branch": "inp",
+   "assignment": "Tracks I, N, P: additions (D25, D28 frozen), blueprints, dependency graphs, proof campaigns",
    "state": "active"
+  },
+  {
+   "id": "bpN-p12",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track N Part 12: N-AVERAGING blueprint (D28)",
+   "state": "running"
+  },
+  {
+   "id": "graphN-ext",
+   "kind": "graph extractors (subagents)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track N dependency graph: slice extraction (Parts 4-7 now)",
+   "state": "running"
+  },
+  {
+   "id": "grev-1",
+   "kind": "graph delta review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-grev-1",
+   "assignment": "Track I graph: delta reviews (I-p67a, I-p7b, I-p1, I-p3)",
+   "state": "running"
+  },
+  {
+   "id": "grev-2",
+   "kind": "graph delta review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "inp-grev-2",
+   "assignment": "Track I graph: delta reviews (I-p5, I-p8, I-p2)",
+   "state": "running"
+  },
+  {
+   "id": "bprev-2",
+   "kind": "blueprint/graph review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-bprev-2",
+   "assignment": "Track I graph: slice I-nown review; track P blueprint reviews",
+   "state": "running"
+  },
+  {
+   "id": "rev-n11",
+   "kind": "critical review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-4",
+   "session": "inp-rev-n11",
+   "assignment": "Track I graph: imports review; earlier N Part 11 (3 rounds, ACCEPT) and P Part 11b reviews",
+   "state": "running"
   },
   {
    "id": "track-N",
@@ -16,8 +69,8 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "N-AVERAGING draft v0.5 from the primary AKN06 pages (sources supplied by the owner)",
-   "state": "running"
+   "assignment": "N additions drafter (D25/D28 frozen); idle",
+   "state": "idle"
   },
   {
    "id": "track-P",
@@ -25,53 +78,8 @@
    "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P additions: v0.4 done; idle for owner-requested changes",
+   "assignment": "P additions drafter (D25 frozen); idle",
    "state": "idle"
-  },
-  {
-   "id": "bprev-1",
-   "kind": "blueprint review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-3",
-   "session": "inp-bprev-1",
-   "assignment": "Refute-first blueprint reviews (I and N): now I Parts 6-7 and N Part 6",
-   "state": "running"
-  },
-  {
-   "id": "bprev-2",
-   "kind": "blueprint review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "inp-bprev-2",
-   "assignment": "Refute-first blueprint reviews (P, and I Part 5: ACCEPT WITH FIXES): now P Part 2 and P Part 3 round 2",
-   "state": "running"
-  },
-  {
-   "id": "bpN-p10",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track N blueprint Part 10: assembly and complete proof of N-HEAD-C",
-   "state": "running"
-  },
-  {
-   "id": "bpP-p5",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track P blueprint Part 5: P-G assembly and complete proof",
-   "state": "running"
-  },
-  {
-   "id": "bpP-p7",
-   "kind": "blueprint writer (subagent)",
-   "model": "Claude Sonnet 5.5",
-   "account": "claude-8",
-   "session": null,
-   "assignment": "Track P blueprint Part 7: Poincare chart through e = 0, product chart",
-   "state": "running"
   }
  ]
 }

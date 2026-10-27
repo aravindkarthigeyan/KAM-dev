@@ -1,0 +1,350 @@
+\section{D25: P-AMD-CONFINEMENT and P-EXP-SAFE}\label{bpP:p14}
+\begingroup\sloppy
+
+This part proves the two D25 theorems of Part~0, \S\ref{bpP:p0:d25-sec}: the deterministic stopped-input helper
+P-AMD-CONFINEMENT (Theorem~\ref{bpP:p0:amd}) and P-EXP-SAFE (Theorem~\ref{bpP:p0:expsafe}). Throughout $G=m_0=1$, $n\ge2$ is the number of planets,
+$\mathcal B$ is an admissible box (Definition~\ref{bpP:p0:d25-box}, fields $m,\ell,\ell^0,u^0,u,e_*,A_0,A_1,d,R$) and $H_{\rm mov}=H_{\rm mov}^{(\mu)}$ is the moving-Sun Hamiltonian
+of Definition~\ref{bpP:p0:movham} with $G=m_0=1$.
+\begin{itemize}
+\item \texttt{elements}, \texttt{ecc-bound}, \texttt{geometry}, \texttt{closure} (Lemmas~\ref{bpP:p14:elements}--\ref{bpP:p14:closure}): the algebra of prograde elliptic points (eccentricity, radial and momentum bounds) and the elementary
+  consequences of low AMD and separated annuli: eccentricity bound, radial separation, pair bounds, a compact collision-free set, and closedness of the sub-region of the outer region cut out by the stopped bound (round~2 \S2, Lemmas~2 and~5);
+\item \texttt{moving-ode}, \texttt{ang-mom} (Lemma~\ref{bpP:p14:moving-ode}, Proposition~\ref{bpP:p14:ang-mom}): the frozen moving-Sun solution predicate is the solution predicate of the $C^1$ field $X_{H_{\rm mov}}$ on the collision-free set; exact conservation of $J=\sum_i\operatorname{cr}(q_i,p_i)$ for the literal system (round~2 Lemma~1);
+\item \texttt{amd} (Theorem~\ref{bpP:p14:amd}): the complete proof of the frozen P-AMD-CONFINEMENT: first exit, bootstrap with the stopped bound, compact continuation (round~2 Lemma~6, with the stopped-source correction of round~3);
+\item \texttt{enlarge}, \texttt{real-domain}, \texttt{h-data}, \texttt{perturbation} (\S\S\ref{bpP:p14:sec-domain}--\ref{bpP:p14:sec-pert}): the larger domains $G'\supset G$, the slow ball $D$, the complex width $\rho$, the Hessian data of the Kepler Hamiltonian and the analytic perturbation $P$ with its bound $B_0$ (the data demanded by finding F-NADD-4 of the N audit);
+\item \texttt{lift}, \texttt{stopped} (Proposition~\ref{bpP:p14:lift}, \ref{bpP:p14:stopped}): lifting of an arbitrary finite solution segment to the Poincar\'e chart, and the discharge of $\operatorname{StoppedBound}$ from the frozen N-PARTIAL-CONVEX (\Nref{bpN:p0:partial}, an input), for $H_{\rm mov}$ and, by time reversal, $-H_{\rm mov}$;
+\item \texttt{expsafe} (Theorem~\ref{bpP:p14:expsafe}) and \texttt{constants} (Remark~\ref{bpP:p14:constants}): the complete proof of the frozen P-EXP-SAFE and the order of every constant against the frozen quantifiers.
+\end{itemize}
+
+\subsection{Conventions and external facts}\label{bpP:p14:conv}
+
+\emph{Notation.} For $z=(q,p)\in\Ph{2n}$ write $q_i,p_i\in\R^2$ for the body vectors, $r_i=\pl{q_i}$, and, where defined, $E_i,a_i,\Lambda_i,\mathbf e_i$ as in Definition~\ref{bpP:p0:d25-kepler},
+$C_i(z)=\operatorname{cr}(q_i,p_i)$, $e_i(z)=\pl{\mathbf e_i(z)}$, $J(z)=\sum_iC_i(z)$, $\mathcal A(z)=\sum_i\Lambda_i(z)-J(z)$. The \emph{outer} and \emph{inner} regions are
+\[\mathcal R_{\rm out}=\operatorname{LowAMD}(m,\ell,u,A_1),\qquad\mathcal R_{\rm in}=\operatorname{LowAMD}(m,\ell^0,u^0,A_0)\subset\mathcal R_{\rm out}\]
+(the inclusion is $\ell_i<\ell_i^0$, $u_i^0<u_i$, $A_0<A_1$). $W=\{z:\operatorname{NoColl}(q)\}$ is the collision-free set (Lemma~\ref{bpP:p6:domain}). $a=\alpha_n$, $b=\beta_n=\tfrac32a$ (Definition~\ref{bpP:p0:d25-exponents}).
+All norms on phase space are the max norms of Part~0; physical lengths are $\pl\cdot$.
+
+\emph{External facts} (Mathlib level; used by label).
+\begin{enumerate}[label=(X\arabic*),ref=(X\arabic*)]
+\item\label{bpP:p14:x-planar} Planar algebra: Cauchy--Schwarz $\abs{u\cdot v}\le\pl u\pl v$; the Lagrange identity $(u\cdot v)^2+\operatorname{cr}(u,v)^2=\pl u^2\pl v^2$; bilinearity of $\operatorname{cr}$ and $\operatorname{cr}(u,u)=0$, $\operatorname{cr}(u,v)=-\operatorname{cr}(v,u)$.
+\item\label{bpP:p14:x-top} Continuity and compactness: preimages of open sets under continuous maps are open; closed bounded sets of $\R^N$ are compact; a continuous function on a nonempty compact set attains its extrema; the neighbourhood form (\ref{bpP:p7:e-comp}): if $K\subset V\subset\R^N$, $K$ compact, $V$ open, some $\delta>0$ has the closed $\delta$-neighbourhood of $K$ inside $V$.
+\item\label{bpP:p14:x-calc} Calculus on $\R$: a function continuous on an interval with derivative $0$ at every point is constant; chain rule for \Lean{HasDerivAt}; if $y$ has derivative $v(t)$ then $s\mapsto y(-s)$ has derivative $-v(-s)$.
+\item\label{bpP:p14:x-cx} \emph{Complexification of real analytic functions.} If $f$ is real analytic at $x\in\R^N$, there is $r>0$ and a holomorphic $g$ on the polydisc $D(x,r)=\{z\in\C^N:\abs{z-x}_\infty<r\}$ with $g=f$ on $D(x,r)\cap\R^N$ (the power series of $f$ at $x$ converges on a complex polydisc of the same radii).
+\item\label{bpP:p14:x-id} \emph{Identity theorem.} If $g$ is holomorphic on a connected open $\mathcal O\subset\C^N$ and vanishes on a nonempty open subset of $\mathcal O\cap\R^N$, then $g\equiv0$ (the complex Taylor coefficients at a real point are the real ones; then \Kref{bp:p1:holomorphic-analytic} and the identity theorem for analytic functions on connected sets). Convex sets, in particular polydiscs and their intersections, are connected.
+\item\label{bpP:p14:x-hol} Holomorphic calculus: finite sums, products, quotients by non-vanishing functions of holomorphic functions are holomorphic; the monomial $z^{-k}$ is holomorphic on $z\ne0$ with derivative $-kz^{-k-1}$; holomorphic functions are continuous (\Kref{bp:p1:holomorphic-analytic}).
+\end{enumerate}
+\emph{Cited results.} Track N, Part~3 (the ODE layer): \Nref{bpN:p3:gen-sol} ($\texttt{IsSolIn}$), \Nref{bpN:p3:gen-symmetry}, \Nref{bpN:p3:gen-uniqueness}, \Nref{bpN:p3:gen-maximal}, \Nref{bpN:p3:gen-continuation},
+\Nref{bpN:p3:gen-continuation-compact}, \Nref{bpN:p3:gen-uniform-compact}, \Nref{bpN:p3:gen-exit}, \Nref{bpN:p3:ham-smooth}; the frozen theorem N-PARTIAL-CONVEX \Nref{bpN:p0:partial} with its definitions
+\Nref{bpN:p0:partial-domain}--\Nref{bpN:p0:partial-exponents}. Track P: Lemma~\ref{bpP:p6:domain}, Proposition~\ref{bpP:p6:hamilton-eqs}, Lemma~\ref{bpP:p6:bary-algebra}, Proposition~\ref{bpP:p6:reconstruction}; Corollary~\ref{bpP:p1:chart-orbit};
+Theorem~\ref{bpP:p7:product-chart}, Proposition~\ref{bpP:p7:d25}. \emph{Totality:} Remark~\ref{bpP:p0:d25-totality} (every Kepler quantity is used under $\operatorname{ProgradeElliptic}$).
+
+\subsection{Prograde elliptic points: elements, eccentricity, geometry}\label{bpP:p14:sec-elements}
+
+\begin{lemma}[Elements of one planet]\label{bpP:p14:elements}
+Let $m>0$, $(q,p)\in\R^2\times\R^2$ with $r=\pl q>0$, $E=\frac{\pl p^2}{2m}-\frac mr<0$ and $C=\operatorname{cr}(q,p)>0$. Put $a=-m/(2E)$, $\Lambda=m\sqrt a$,
+$\mathbf e=\bigl(\frac{\pl p^2}{m^2}-\frac1r\bigr)q-\frac{q\cdot p}{m^2}p$ and $e=\pl{\mathbf e}$ (Definition~\ref{bpP:p0:d25-kepler}). Then:
+\begin{enumerate}[label=(\alph*)]
+\item $a>0$, $\Lambda>0$, $\Lambda^2=m^2a$ and $E=-m^3/(2\Lambda^2)$;
+\item $e^2=1-C^2/\Lambda^2$; hence $0<C\le\Lambda$, $0\le e<1$ and $C=\Lambda\sqrt{1-e^2}$;
+\item $q\cdot\mathbf e=C^2/m^2-r=a(1-e^2)-r$;
+\item $a(1-e)\le r\le a(1+e)$;
+\item $\pl p^2<2m^2/r$;
+\item $\Lambda-C=\Lambda\bigl(1-\sqrt{1-e^2}\bigr)\ge0$, and $\Lambda-C\ge\Lambda(1-\sqrt{1-e'^2})$ whenever $e\ge e'\in[0,1)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p14:el-a} $E<0$ and $m>0$ give $a=m/(2\abs E)>0$, so $\Lambda=m\sqrt a>0$ and $\Lambda^2=m^2a=-m^3/(2E)$, i.e.\ $E=-m^3/(2\Lambda^2)$.
+\proofstep{(b)}\label{stepP:p14:el-b} Put $s=\pl p^2/m^2$. Expanding $\pl{\mathbf e}^2$ (\ref{bpP:p14:x-planar}):
+\[e^2=(s-\tfrac1r)^2r^2-2(s-\tfrac1r)\tfrac{(q\cdot p)^2}{m^2}+\tfrac{(q\cdot p)^2}{m^4}\pl p^2=(sr-1)^2+\tfrac{(q\cdot p)^2}{m^2}\bigl(\tfrac2r-s\bigr).\]
+By the Lagrange identity $(q\cdot p)^2=r^2m^2s-C^2$, so $e^2=(sr-1)^2+(r^2s-\tfrac{C^2}{m^2})(\tfrac2r-s)=1-\tfrac{C^2}{m^2}(\tfrac2r-s)$. Since $E=\tfrac m2s-\tfrac mr$ we have $\tfrac2r-s=-\tfrac{2E}m$, hence
+$e^2=1+\tfrac{2EC^2}{m^3}=1-\tfrac{C^2}{\Lambda^2}$ by (a). As $e^2\ge0$ and $C>0$: $0<C\le\Lambda$, $e<1$.
+\proofstep{(c)}\label{stepP:p14:el-c} $q\cdot\mathbf e=(s-\tfrac1r)r^2-\tfrac{(q\cdot p)^2}{m^2}=sr^2-r-r^2s+\tfrac{C^2}{m^2}=\tfrac{C^2}{m^2}-r$, and $C^2=\Lambda^2(1-e^2)=m^2a(1-e^2)$ by (a), (b).
+\proofstep{(d)}\label{stepP:p14:el-d} By (c) and Cauchy--Schwarz, $\abs{a(1-e^2)-r}\le re$. The inequality $r\ge a(1-e^2)-re$ gives $r(1+e)\ge a(1-e)(1+e)$, i.e.\ $r\ge a(1-e)$; the inequality $r-a(1-e^2)\le re$ gives $r(1-e)\le a(1-e)(1+e)$, i.e.\ $r\le a(1+e)$ as $e<1$.
+\proofstep{(e)}\label{stepP:p14:el-e} $E<0$ means $\pl p^2/(2m)<m/r$.
+\proofstep{(f)}\label{stepP:p14:el-f} (b) gives $\Lambda-C=\Lambda(1-\sqrt{1-e^2})$; $e\mapsto1-\sqrt{1-e^2}$ is nonnegative and increasing on $[0,1)$.
+\end{proof}
+
+\begin{lemma}[Low AMD bounds every eccentricity]\label{bpP:p14:ecc-bound}
+Let $z\in\Ph{2n}$ with $\operatorname{ProgradeElliptic}(m,z)$ and $\ell\in(0,\infty)^n$, $A\in\R$, $e_*\in(0,1)$ with $\Lambda_i(z)>\ell_i$ for all $i$, $\mathcal A(z)<A$ and $A\le\ell_i(1-\sqrt{1-e_*^2})$ for all $i$. Then for every $i$
+\[e_i(z)<e_*,\qquad C_i(z)>\Lambda_i(z)\sqrt{1-e_*^2}.\]
+\end{lemma}
+\begin{proof}
+\proofstep{Each summand is at most the total}\label{stepP:p14:eb-sum} $\mathcal A(z)=\sum_j(\Lambda_j-C_j)$ and each summand is $\ge0$ (Lemma~\ref{bpP:p14:elements}(f)); so $\Lambda_i-C_i\le\mathcal A(z)<A$.
+\proofstep{Eccentricity}\label{stepP:p14:eb-ecc} $A\le\ell_i(1-\sqrt{1-e_*^2})<\Lambda_i(1-\sqrt{1-e_*^2})$ (as $\Lambda_i>\ell_i$ and $1-\sqrt{1-e_*^2}>0$). Hence $C_i>\Lambda_i\sqrt{1-e_*^2}$, i.e.\ $1-e_i^2=C_i^2/\Lambda_i^2>1-e_*^2$ (Lemma~\ref{bpP:p14:elements}(b)): $e_i<e_*$.
+\end{proof}
+
+\begin{lemma}[Geometry of the outer region]\label{bpP:p14:geometry}
+Let $\mathcal B$ be admissible and $z\in\mathcal R_{\rm out}$. Then for all $i$ and all $j\ne i$:
+\begin{enumerate}[label=(\alph*)]
+\item $\ell_i^2/m_i^2<a_i<u_i^2/m_i^2$ and $e_i<e_*$;
+\item $a_i(1-e_i)\le\pl{q_i}\le a_i(1+e_i)$ and $d\le\pl{q_i}\le R$;
+\item for $i<j$: $\pl{q_j}-\pl{q_i}\ge d$; hence $\pl{q_i-q_j}\ge d$ and $\pl{q_i-q_j}\le\pl{q_i}+\pl{q_j}\le2R$ for all $i\ne j$; in particular $z\in W$;
+\item $\pl{p_i}<m_i\sqrt{2/d}$.
+\end{enumerate}
+Consequently $\mathcal R_{\rm out}\subset K_1:=\{(q,p):\ d\le\pl{q_i}\le R,\ \pl{q_i-q_j}\ge d\ (i\neq j),\ \pl{p_i}\le m_i\sqrt{2/d}\ \forall i\}$, a compact subset of $W$.
+\end{lemma}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p14:geo-a} $\Lambda_i=m_i\sqrt{a_i}\in(\ell_i,u_i)$ gives the axis bounds; $e_i<e_*$ is Lemma~\ref{bpP:p14:ecc-bound} with $A=A_1$ (hypothesis (B2)).
+\proofstep{(b)}\label{stepP:p14:geo-b} By Lemma~\ref{bpP:p14:elements}(d), $\pl{q_i}\ge a_i(1-e_i)>(\ell_i/m_i)^2(1-e_*)\ge d$ by (a) and (B3); and $\pl{q_i}\le a_i(1+e_i)<(u_i/m_i)^2(1+e_*)\le R$.
+\proofstep{(c)}\label{stepP:p14:geo-c} For $i<j$: $\pl{q_j}-\pl{q_i}\ge a_j(1-e_j)-a_i(1+e_i)>(\ell_j/m_j)^2(1-e_*)-(u_i/m_i)^2(1+e_*)\ge d$ by (a) and (B4). Then $\pl{q_i-q_j}\ge\abs{\pl{q_j}-\pl{q_i}}\ge d>0$ (reverse triangle inequality, \ref{bpP:p6:ext-tri}) and the upper bound is the triangle inequality with (b). So $\operatorname{NoColl}(q)$.
+\proofstep{(d)}\label{stepP:p14:geo-d} Lemma~\ref{bpP:p14:elements}(e) and $\pl{q_i}\ge d$.
+\proofstep{The compact set}\label{stepP:p14:geo-k} $K_1$ is closed (finitely many non-strict inequalities between continuous functions) and bounded in $\R^{4n}$ (each $\pl{q_i}\le R$, $\pl{p_i}\le m_i\sqrt{2/d}$), hence compact (\ref{bpP:p14:x-top}); $K_1\subset W$ because $d>0$.
+\end{proof}
+
+\begin{lemma}[Openness and closure]\label{bpP:p14:closure}
+Let $\mathcal B$ be admissible and $\delta>0$ with $\ell_i+2\delta<\ell^0_i$, $u^0_i+2\delta<u_i$, $A_0+2n\delta<A_1$.
+\begin{enumerate}[label=(\alph*)]
+\item $\mathcal R_{\rm out}$ is open in $\Ph{2n}$, and $\Lambda_i,\ \mathcal A$ are continuous on the open set $\{z:\ \pl{q_i}>0,\ E_i(z)<0\ \forall i\}$.
+\item Let $\mathcal R_\delta=\{z\in\mathcal R_{\rm out}:\ \ell_i+\delta\le\Lambda_i(z)\le u_i-\delta\ \forall i,\ \mathcal A(z)\le A_0+n\delta\}$. If $z^{(k)}\in\mathcal R_\delta$ and $z^{(k)}\to z^*$ with $\pl{q^*_i}>0$ for all $i$, then $z^*\in\mathcal R_\delta$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\proofstep{(a) Continuity}\label{stepP:p14:cl-a} $E_i$ is continuous on $\{\pl{q_i}>0\}$ (open). On $\{E_i<0\}$, $a_i=-m_i/(2E_i)$, $\Lambda_i=m_i\sqrt{a_i}$ are continuous; $C_i$ is a polynomial, so $\mathcal A=\sum\Lambda_i-\sum C_i$ is continuous. $\mathcal R_{\rm out}$ is a finite intersection of preimages of open sets (\ref{bpP:p14:x-top}).
+\proofstep{(b) Uniform margins along the sequence}\label{stepP:p14:cl-b} For each $k$, $\ell_i+\delta\le\Lambda_i(z^{(k)})\le u_i-\delta$, hence $E_i(z^{(k)})=-m_i^3/(2\Lambda_i^2)\le-m_i^3/(2(u_i-\delta)^2)=:-\epsilon_i<0$ (Lemma~\ref{bpP:p14:elements}(a)), and by Lemma~\ref{bpP:p14:ecc-bound} (with $A=A_1$) $C_i(z^{(k)})>\Lambda_i\sqrt{1-e_*^2}\ge(\ell_i+\delta)\sqrt{1-e_*^2}=:c_i>0$. 
+\proofstep{Passage to the limit}\label{stepP:p14:cl-c} $E_i$ and $C_i$ are continuous at $z^*$ ($\pl{q^*_i}>0$), so $E_i(z^*)\le-\epsilon_i<0$ and $C_i(z^*)\ge c_i>0$: $\operatorname{ProgradeElliptic}(m,z^*)$ (the masses are positive). By (a) $\Lambda_i,\mathcal A$ are continuous at $z^*$, so $\ell_i+\delta\le\Lambda_i(z^*)\le u_i-\delta$ and $\mathcal A(z^*)\le A_0+n\delta<A_1$. As $\ell_i<\ell_i+\delta$ and $u_i-\delta<u_i$, $z^*\in\mathcal R_{\rm out}$, hence $z^*\in\mathcal R_\delta$.
+\end{proof}
+
+\subsection{The moving-Sun ODE and the conservation of angular momentum}\label{bpP:p14:sec-ode}
+
+\begin{lemma}[Moving-Sun solutions are solutions of a $C^1$ field on $W$]\label{bpP:p14:moving-ode}
+Let $\mu\in\R$, $H=H_{\rm mov}$, $F=X_H$ (Definition~\ref{bpP:p0:hamsymp}). Then $W$ is open, $F$ is $C^1$ on $W$ and, for every $J\subset\R$ and $z:\R\to\Ph{2n}$,
+\[\operatorname{IsMovSolOn}(m,\mu,J,z)\iff\texttt{IsSolIn}\,F\,W\,J\,z\quad(\Nref{bpN:p3:gen-sol}).\]
+In particular \Nref{bpN:p3:gen-uniqueness}, \Nref{bpN:p3:gen-maximal}, \Nref{bpN:p3:gen-continuation-compact}, \Nref{bpN:p3:gen-exit} apply to $\operatorname{IsMovSolOn}$. The same holds for $-H$ and $-F$.
+\end{lemma}
+\begin{proof}
+\proofstep{Regularity}\label{stepP:p14:mo-reg} $W$ is open and $H$ is $C^\infty$ on $W$ (Lemma~\ref{bpP:p6:domain}); $F$ is $C^1$ on $W$ (\Nref{bpN:p3:ham-smooth}, $k=1$).
+\proofstep{Equivalence}\label{stepP:p14:mo-eq} ($\Rightarrow$) $\operatorname{NoColl}(z(t)_1)$ is $z(t)\in W$, and the derivative clause is the same. ($\Leftarrow$) $z(t)\in W$ is $\operatorname{NoColl}$; $H$ is differentiable at $z(t)$ by the regularity step; the momentum-domain clause $z(t)_2\in\texttt{univ}$ is trivial. The statement for $-H$ is \Nref{bpN:p3:gen-symmetry}(b) and $X_{-H}=-X_H$.
+\end{proof}
+
+\begin{proposition}[Conservation of the total angular momentum]\label{bpP:p14:ang-mom}
+Let $\mu\in\R$, $J_0\subset\R$ an interval and $z:\R\to\Ph{2n}$ with $\operatorname{IsMovSolOn}(m,\mu,J_0,z)$. Then $t\mapsto J(z(t))=\sum_i\operatorname{cr}(q_i(t),p_i(t))$ is constant on $J_0$.
+\end{proposition}
+\begin{proof}
+\proofstep{The equations}\label{stepP:p14:am-eq} Fix $t\in J_0$ and write $P=\sum_ip_i$. By Lemma~\ref{bpP:p14:moving-ode} and Proposition~\ref{bpP:p6:hamilton-eqs} ($G=m_0=1$): $q_i'=p_i/m_i+\mu P$ and $p_i'=-m_i\,q_i/r_i^3+\mu m_if_i(q)$, with $f_i(q)=\sum_{j\ne i}m_j\frac{q_j-q_i}{\pl{q_j-q_i}^3}$.
+\proofstep{Derivative}\label{stepP:p14:am-der} $\operatorname{cr}$ is bilinear, so $J(z(\cdot))$ has derivative $\sum_i[\operatorname{cr}(q_i',p_i)+\operatorname{cr}(q_i,p_i')]$ at $t$ (\ref{bpP:p14:x-calc}). First sum: $\sum_i\operatorname{cr}(p_i/m_i,p_i)+\mu\sum_i\operatorname{cr}(P,p_i)=0+\mu\operatorname{cr}(P,P)=0$. Second sum: $\operatorname{cr}(q_i,q_i)=0$ kills the central term, leaving $\mu\sum_im_i\operatorname{cr}(q_i,f_i)=\mu\sum_{i\ne j}m_im_j\frac{\operatorname{cr}(q_i,q_j-q_i)}{\pl{q_j-q_i}^3}=\mu\sum_{i\ne j}m_im_j\frac{\operatorname{cr}(q_i,q_j)}{\pl{q_j-q_i}^3}$. The summand $s_{ij}$ satisfies $s_{ji}=-s_{ij}$ (antisymmetry of $\operatorname{cr}$, evenness of $\pl\cdot$), so the sum over ordered pairs vanishes (\ref{bpP:p6:ext-sum}).
+\proofstep{Constancy}\label{stepP:p14:am-const} $J(z(\cdot))$ is continuous on $J_0$ (differentiable at each point) with derivative $0$: constant (\ref{bpP:p14:x-calc}).
+\end{proof}
+
+\subsection{Proof of P-AMD-CONFINEMENT}\label{bpP:p14:sec-amd}
+
+\begin{theorem}[P-AMD-CONFINEMENT, Theorem~\ref{bpP:p0:amd}]\label{bpP:p14:amd}
+Under the hypotheses of Theorem~\ref{bpP:p0:amd}, the conclusions (a)--(d) hold.
+\frozen{KAM.Planetary.amdConfinement}
+\source{Round 2 \S2, Lemmas 1, 2, 5, 6; round 3 (the stopped form of the input); LP17 (9)--(11), p.~2.}
+\end{theorem}
+\begin{proof}
+Let $\mathcal B,\mu,T,\delta$, $z_0\in\mathcal R_{\rm in}$ and $\operatorname{StoppedBound}(\mathcal B,\mu,T,\delta,z_0)$ be given, with $\ell_i+2\delta<\ell_i^0$, $u^0_i+2\delta<u_i$, $A_0+2n\delta<A_1$. Write $\mathcal R_\delta$ as in Lemma~\ref{bpP:p14:closure}.
+\proofstep{The maximal solution}\label{stepP:p14:amd-max} $z_0\in\mathcal R_{\rm in}\subset\mathcal R_{\rm out}$, so $z_0\in W$ (Lemma~\ref{bpP:p14:geometry}(c)). By Lemma~\ref{bpP:p14:moving-ode} and \Nref{bpN:p3:gen-maximal} there are $T_-<0<T_+$ ($T_\pm$ possibly infinite) and $z:\R\to\Ph{2n}$ with $z(0)=z_0$ and $\operatorname{IsMovSolOn}(m,\mu,(T_-,T_+),z)$, such that every $\operatorname{IsMovSolOn}$-solution $w$ on an interval $J'\ni0$ with $w(0)=z_0$ satisfies $J'\subset(T_-,T_+)$ and $w=z$ on $J'$.
+\proofstep{Forward: no exit before $\min(T,T_+)$}\label{stepP:p14:amd-fwd} \emph{Claim:} $z(t)\in\mathcal R_{\rm out}$ for all $t\in[0,T_+)\cap[0,T]$. Suppose not. $\mathcal R_{\rm out}$ is open (Lemma~\ref{bpP:p14:closure}(a)) and $z(0)\in\mathcal R_{\rm out}$, so by \Nref{bpN:p3:gen-exit} there is a first exit time $t^*\in(0,T_+)$, with $z([0,t^*))\subset\mathcal R_{\rm out}$ and $z(t^*)\notin\mathcal R_{\rm out}$; the supposition means $t^*\le T$.
+For every $s\in(0,t^*)$ the restriction of $z$ satisfies the hypotheses of the stopped bound with $(l,r)=(0,s)$: $l\le0\le r$, $l<r$, $z(0)=z_0$, $\operatorname{IsMovSolOn}(m,\mu,[0,s],z)$ (restriction), and $z(t)\in\mathcal R_{\rm out}$ on $[0,s]$. Since $[0,s]\subset[-T,T]$ it gives $\abs{\Lambda_i(z(t))-\Lambda_i(z_0)}\le\delta$ for $t\in[0,s]$, hence for all $t\in[0,t^*)$ and all $i$.
+\proofstep{The margins at times before $t^*$}\label{stepP:p14:amd-margin} Let $t\in[0,t^*)$. As $\ell^0_i<\Lambda_i(z_0)<u^0_i$: $\Lambda_i(z(t))\ge\Lambda_i(z_0)-\delta>\ell_i^0-\delta>\ell_i+\delta$ and $\Lambda_i(z(t))\le\Lambda_i(z_0)+\delta<u_i^0+\delta<u_i-\delta$. By Proposition~\ref{bpP:p14:ang-mom} (on $[0,t]$), $J(z(t))=J(z_0)$, so by Definition~\ref{bpP:p0:d25-amd}
+\begin{equation}\label{bpP:p14:eq:amd-id}
+\mathcal A(z(t))-\mathcal A(z_0)=\sum_i\bigl(\Lambda_i(z(t))-\Lambda_i(z_0)\bigr)\le n\delta,
+\end{equation}
+so $\mathcal A(z(t))\le\mathcal A(z_0)+n\delta<A_0+n\delta$. Thus $z(t)\in\mathcal R_\delta$ for all $t\in[0,t^*)$.
+\proofstep{Closure at $t^*$}\label{stepP:p14:amd-close} $z(t^*)\in W$, so $\pl{q_i(t^*)}>0$; $z(t)\to z(t^*)$ as $t\uparrow t^*$ (continuity of the solution). Lemma~\ref{bpP:p14:closure}(b) gives $z(t^*)\in\mathcal R_\delta\subset\mathcal R_{\rm out}$, contradicting the choice of $t^*$. This proves the claim; moreover Step~\ref{stepP:p14:amd-margin} applies to \emph{every} $t\in[0,T_+)\cap[0,T]$ (for $t>0$ apply the stopped bound on $[0,t]$; $t=0$ is trivial), so $z(t)\in\mathcal R_\delta$ there.
+\proofstep{Backward}\label{stepP:p14:amd-bwd} The same argument with $t\mapsto z(-t)$ in \Nref{bpN:p3:gen-exit} (\Nref{bpN:p3:gen-symmetry}(b)) and the stopped bound on $[-s,0]$, $(l,r)=(-s,0)$: $z(t)\in\mathcal R_\delta$ for all $t\in(T_-,0]\cap[-T,0]$.
+\proofstep{The solution reaches $\pm T$ and a bit more}\label{stepP:p14:amd-cont} Suppose $T_+\le T$. By Step~\ref{stepP:p14:amd-fwd}, $z(t)\in\mathcal R_{\rm out}\subset K_1$ (Lemma~\ref{bpP:p14:geometry}) for all $t\in[0,T_+)$, and $K_1\subset W$ is compact: \Nref{bpN:p3:gen-continuation-compact} gives $T_+=\infty$, a contradiction. So $T_+>T$; likewise $T_->-T$. Hence $[-T,T]\subset(T_-,T_+)$ and $z(t)\in\mathcal R_\delta\subset\mathcal R_{\rm out}$ for all $t\in[-T,T]$.
+\proofstep{(a) Existence and uniqueness}\label{stepP:p14:amd-a} $\operatorname{IsMovSolOn}(m,\mu,[-T,T],z)$ by restriction; the derivatives at $\pm T$ are two-sided because $z$ is a solution on the open interval $(T_-,T_+)\ni\pm T$. Let $U\subset\R$ be open and convex (an interval) with $0\in U$ and $w$ with $w(0)=z_0$, $\operatorname{IsMovSolOn}(m,\mu,U,w)$. Then $w=z$ on the interval $U\cap(T_-,T_+)\ni0$ by \Nref{bpN:p3:gen-uniqueness} (Lemma~\ref{bpP:p14:moving-ode}), hence on $U\cap[-T,T]$: $\operatorname{MovUniqueOn}(m,\mu,[-T,T],z)$.
+\proofstep{(b) Newton}\label{stepP:p14:amd-b} Proposition~\ref{bpP:p6:reconstruction} with $G=m_0=1$ and $J=[-T,T]$ gives $\operatorname{IsNewtonOn}(\operatorname{mass}_\mu,[-T,T],Q,V)$ for $Q=\texttt{barycentricPositions}\,1\,m\,\mu\,q$, $V=\texttt{barycentricVelocities}\,1\,m\,\mu\,p$ (Remark~\ref{bpP:p6:units}).
+\proofstep{(c) Region, momentum, geometry}\label{stepP:p14:amd-c} For $t\in[-T,T]$: $z(t)\in\mathcal R_{\rm out}$ (Step~\ref{stepP:p14:amd-cont}); $J(z(t))=J(z(0))$ by Proposition~\ref{bpP:p14:ang-mom} on $[-T,T]$; $e_i<e_*$ and $d\le\pl{q_i}\le R$ by Lemma~\ref{bpP:p14:geometry}(a),(b). For $\operatorname{PairBounds}(d,2R;Q)$ use Lemma~\ref{bpP:p6:bary-algebra}(a): for planets $i\ne j$, $\pl{Q_j-Q_i}=\pl{q_j-q_i}\in[d,2R]$ (Lemma~\ref{bpP:p14:geometry}(c)), and for the Sun and planet $i$, $\pl{Q_i-Q_0}=\pl{q_i}\in[d,R]\subset[d,2R]$; $\pl{Q_0-Q_i}=\pl{Q_i-Q_0}$.
+\proofstep{(d) AMD and actions}\label{stepP:p14:amd-d} For $t\in[-T,T]$, Step~\ref{stepP:p14:amd-margin} (and its backward analogue, for $t<0$) gives $\abs{\Lambda_i(z(t))-\Lambda_i(z_0)}\le\delta$, and \eqref{bpP:p14:eq:amd-id} gives $\mathcal A(z(t))\le\mathcal A(z_0)+n\delta\le A_0+n\delta$ (with $\mathcal A(z_0)<A_0$).
+\end{proof}
+
+\begin{remark}[Where each hypothesis is used]\label{bpP:p14:amd-uses}
+The margins $\ell_i+2\delta<\ell_i^0$, $u_i^0+2\delta<u_i$ and $A_0+2n\delta<A_1$ give the strict inequality $z(t)\in\mathcal R_\delta\subset\mathcal R_{\rm out}$ with room $\delta$, which is what makes the limit point $z(t^*)$ lie in the \emph{open} outer region (no circularity at first exit); $\mathcal A\ge\Lambda_i-C_i$ and $J$ conserved make the AMD bound exact (no assumption of conservation of $\mathcal A$: it is \emph{not} conserved); admissibility (B2)--(B4) give eccentricity, radial and pair bounds for every point of $\mathcal R_{\rm out}$, independent of $\mu$; (B1) $m_i>0$ guards all divisions. The stopped bound is used only on solutions that already stay in $\mathcal R_{\rm out}$ on the tested segment.
+\end{remark}
+
+\subsection{The enlarged analytic domain}\label{bpP:p14:sec-domain}
+
+From here on $\Psi=\Psi^{(n)}$ is the product Poincar\'e chart of Theorem~\ref{bpP:p7:product-chart} with $\kappa=Gm_0=1$ and weights $m$; a chart point is $w=((\lambda,\xi),(\Lambda,\eta))\in\Ph{2n}$ with $\lambda,\xi,\Lambda,\eta\in\R^n$
+(fast block first: this is the phase-space order $(\varphi,\mathsf I)=((\varphi_{\rm f},q),(I,p))$ of \Nref{bpN:p0:partial} with $n$ fast and $k=n$ slow degrees of freedom), $\Gamma_i(w)=\frac12(\xi_i^2+\eta_i^2)$, $\Gamma(w)=\sum_i\Gamma_i(w)$,
+$\mathcal O_n=\{\Lambda_i>0,\ \Gamma_i<\Lambda_i\}$, $\tau_k(w)=w+((2\pi k,0),0)$ for $k\in\Z^n$, and $H^\Psi=H_{\rm mov}\circ\Psi$, $\hat f=f_{\rm mov}\circ\Psi$ with $f_{\rm mov}=\frac12\pl{\sum_ip_i}^2-\sum_{i<j}\frac{m_im_j}{\pl{q_i-q_j}}$ (Lemma~\ref{bpP:p6:split}, $G=m_0=1$).
+Put $\mathcal W=\{w\in\mathcal O_n:\Psi(w)\in W\}$, open and $\tau_k$-invariant. We recall from Theorem~\ref{bpP:p7:product-chart} and Proposition~\ref{bpP:p7:d25}(d):
+\begin{enumerate}[label=(Ch\arabic*),ref=(Ch\arabic*)]
+\item\label{bpP:p14:ch-chart} $\Psi$ is a real analytic $1$-chart on $\mathcal O_n$, $\Psi\circ\tau_k=\Psi$, and $\Psi(\mathcal O_n)=\{z:\operatorname{ProgradeElliptic}(m,z)\}$ (onto).
+\item\label{bpP:p14:ch-elements} For $z=\Psi(w)$: $\Lambda_i(z)=\Lambda_i$ (the chart action), $C_i(z)=\Lambda_i-\Gamma_i(w)$, $\mathcal A(z)=\Gamma(w)$, $a_i(z)=\Lambda_i^2/m_i^2$, $E_i(z)=-m_i^3/(2\Lambda_i^2)$, $\mathbf e_i(z)=v_i$ with $\pl{v_i}^2=1-(1-\Gamma_i/\Lambda_i)^2$.
+\item\label{bpP:p14:ch-split} For all $w\in\mathcal O_n$ and $\mu$: $H^\Psi(w)=h(\Lambda)+\mu\hat f(w)$, with $h(\Lambda)=-\sum_im_i^3/(2\Lambda_i^2)$; $\hat f$ is real analytic on $\mathcal W$, $\hat f\circ\tau_k=\hat f$, and $H^\Psi$ is $C^\infty$ on $\mathcal W$ with $D\Psi\,X_{H^\Psi}=X_{H_{\rm mov}}\circ\Psi$ there (Lemma~\ref{bpP:p1:chart-field}).
+\end{enumerate}
+(Part~7 proves (Ch2) for $n=2$ and states that it holds componentwise for every $n$; the proof is the one-planet identity of Proposition~\ref{bpP:p7:poincare}(d),(e) in each block.)
+
+\begin{lemma}[Enlarged data]\label{bpP:p14:enlarge}
+Let $\mathcal B$ be admissible. There are $\kappa>0$, $e_1\in(e_*,1)$ and $A^+>A_1$ such that, with $r_i^-=\bigl(\frac{\ell_i-2\kappa}{m_i}\bigr)^2(1-e_1)$ and $r_i^+=\bigl(\frac{u_i+2\kappa}{m_i}\bigr)^2(1+e_1)$,
+\begin{enumerate}[label=(E\arabic*)]
+\item $\kappa\le\ell_i/8$ for all $i$;
+\item $A^+<(\ell_i-2\kappa)\bigl(1-\sqrt{1-e_1^2}\bigr)$ for all $i$;
+\item $r_i^-\ge d/2$ for all $i$, and $r_j^--r_i^+\ge d/2$ for all $i<j$.
+\end{enumerate}
+They depend only on $(n,\mathcal B)$. Put $G=\prod_i(\ell_i-\kappa,u_i+\kappa)$, $G'=\prod_i(\ell_i-2\kappa,u_i+2\kappa)$ (open convex boxes in $\R^n$), $D=\{(\xi,\eta)\in\Ph n:\Gamma(\xi,\eta)<A^+\}$ (an open Euclidean ball of radius $\sqrt{2A^+}$ in $\R^{2n}$), and $\varepsilon_D=(\sqrt{2A^+}-\sqrt{2A_1})/\sqrt{2n}>0$.
+\end{lemma}
+\begin{proof}
+\proofstep{Strict inequalities at the limit point}\label{stepP:p14:en-lim} The three families are inequalities between continuous functions of $(\kappa,e_1,A^+)\in\R^3$ with $e_1<1$, finitely many in number. At $(\kappa,e_1,A^+)=(0,e_*,A_1)$: (E1) holds strictly; (E2) holds strictly by (B2); (E3) holds in the stronger form $r^-_i\ge d$, $r^-_j-r^+_i\ge d$ by (B3), (B4) (with $\ge d>d/2$ since $d>0$).
+\proofstep{Choice}\label{stepP:p14:en-choice} By continuity there is a neighbourhood of this point on which all of them hold; pick in it $\kappa>0$, $e_1>e_*$, $A^+>A_1$ ($e_1<1$). The positivity of $\varepsilon_D$ is $A^+>A_1$.
+\end{proof}
+
+\begin{lemma}[The real domain is collision free]\label{bpP:p14:real-domain}
+With the data of Lemma~\ref{bpP:p14:enlarge} put $\mathcal K=\{w\in\Ph{2n}:\ \Lambda_i\in[\ell_i-2\kappa,u_i+2\kappa]\ \forall i,\ \Gamma(w)\le A^+\}$ (all $\lambda,\xi,\eta$ subject only to the last condition). Then $\mathcal K\subset\mathcal W$, and for $w\in\mathcal K$, $z=\Psi(w)$: $e_i(z)<e_1$, $\pl{q_i}\ge d/2$ and $\pl{q_i-q_j}\ge d/2$ ($i\ne j$).
+Moreover for $w\in\Ph{2n}$ with $\Lambda\in\prod_i[\ell_i,u_i]$ and $\Gamma(w)\le A_1$ one has $w\in\mathcal K$.
+\end{lemma}
+\begin{proof}
+\proofstep{Chart domain}\label{stepP:p14:rd-o} $\Lambda_i\ge\ell_i-2\kappa\ge\frac34\ell_i>0$ by (E1). $\Gamma_i\le\Gamma\le A^+<(\ell_i-2\kappa)(1-\sqrt{1-e_1^2})\le\Lambda_i(1-\sqrt{1-e_1^2})<\Lambda_i$ by (E2). So $w\in\mathcal O_n$ and $k_i:=1-\Gamma_i/\Lambda_i>\sqrt{1-e_1^2}$.
+\proofstep{Eccentricity and radii}\label{stepP:p14:rd-ecc} By (Ch2), $e_i(z)^2=1-k_i^2<e_1^2$ and $a_i=\Lambda_i^2/m_i^2$; $z$ is prograde elliptic (Ch1). Lemma~\ref{bpP:p14:elements}(d): $r_i^-\le a_i(1-e_i)\le\pl{q_i}\le a_i(1+e_i)\le r_i^+$ since $\Lambda_i\in[\ell_i-2\kappa,u_i+2\kappa]$ and $e_i<e_1$.
+\proofstep{Separation}\label{stepP:p14:rd-sep} By (E3), $\pl{q_i}\ge d/2>0$; for $i<j$: $\pl{q_j-q_i}\ge\pl{q_j}-\pl{q_i}\ge r_j^--r_i^+\ge d/2>0$. So $\operatorname{NoColl}(q)$, $z\in W$, $w\in\mathcal W$.
+\proofstep{Last assertion}\label{stepP:p14:rd-last} Obvious: $[\ell_i,u_i]\subset[\ell_i-2\kappa,u_i+2\kappa]$ and $A_1<A^+$.
+\end{proof}
+
+\begin{lemma}[Kepler Hamiltonian: data for N-PARTIAL-CONVEX]\label{bpP:p14:h-data}
+Let $\kappa,G,G'$ be as in Lemma~\ref{bpP:p14:enlarge} and $\rho\in(0,\kappa]$. Define $h:\C^n\to\C$ by $h(\Lambda)=-\sum_im_i^3/(2\Lambda_i^2)$ (total; the value at a zero coordinate plays no role). Put $\bar u_i=u_i+3\kappa$,
+\[g_h=\min_i\frac{m_i^3}{\bar u_i^3},\qquad\varsigma_h=\min_i\frac{3m_i^3}{\bar u_i^4},\qquad M_{\C}=\max_i\frac{3m_i^3}{(5\ell_i/8)^4}\qquad(\text{all positive}).\]
+Then: (i) $\overline B(I,\rho)\subset G'$ for every $I\in G$ (closed max-norm ball); (ii) $h$ is complex differentiable and complex $C^2$ on $G'_\rho$ (Definition~\ref{bpN:p0:actionnbhd}) with $\operatorname{Re}\Lambda_i\ge\ell_i-3\kappa\ge\frac58\ell_i>0$ there; (iii) $\operatorname{Im}h(I)=0$ for real $I\in G'_\rho$; (iv) $\norm{D^2h(z)}\le M_\C$ for $z\in G'_\rho$ (operator norm, max norms);
+(v) $\texttt{HasDefiniteFastPart}\,G'\,\rho\,g_h\,\varsigma_h\,h$ holds with $\sigma=-1$, and $\texttt{HasDefiniteFastPart}\,G'\,\rho\,g_h\,\varsigma_h\,(-h)$ holds with $\sigma=+1$; (iv) and (ii), (iii) hold for $-h$ as well.
+\end{lemma}
+\begin{proof}
+\proofstep{(i)}\label{stepP:p14:hd-i} For $I_i\in(\ell_i-\kappa,u_i+\kappa)$ (an \emph{open} interval) and $\abs{v_i-I_i}\le\rho\le\kappa$: $v_i\ge I_i-\kappa>\ell_i-2\kappa$ and $v_i\le I_i+\kappa<u_i+2\kappa$, i.e.\ $v\in G'$.
+\proofstep{(ii),(iii)}\label{stepP:p14:hd-ii} If $z\in G'_\rho$ there is $J\in G'$ with $\abs{z-J}_\infty<\rho$; so $\operatorname{Re}z_i>\ell_i-2\kappa-\rho\ge\ell_i-3\kappa\ge\frac58\ell_i$ by (E1). Hence $z_i\ne0$ and $h$ is a finite sum of monomials $z_i^{-2}$, holomorphic (\ref{bpP:p14:x-hol}); a holomorphic function is complex $C^2$ ($h'_i=m_i^3z_i^{-3}$, $h''_{ii}=-3m_i^3z_i^{-4}$). For real $I$ the value is real.
+\proofstep{(iv)}\label{stepP:p14:hd-iv} $D^2h(z)=\operatorname{diag}(-3m_i^3z_i^{-4})$, whose operator norm in the max norm is $\max_i3m_i^3\abs{z_i}^{-4}\le\max_i3m_i^3(5\ell_i/8)^{-4}=M_\C$ since $\abs{z_i}\ge\operatorname{Re}z_i\ge\frac58\ell_i$.
+\proofstep{(v)}\label{stepP:p14:hd-v} The set $U$ of real points of $G'_\rho$ is contained in $\prod[\ell_i-3\kappa,u_i+3\kappa]$ and every $I\in U$ has $0<I_i\le\bar u_i$. There $h_\R=h|_{\R^n}$ is $C^\infty$, $\omega_h(I)_i=m_i^3I_i^{-3}\ge m_i^3\bar u_i^{-3}\ge g_h$, so $\abs{\omega_h(I)}_\infty\ge g_h>0$, and $D^2h_\R(I)[v,v]=-\sum_i3m_i^3I_i^{-4}v_i^2\le-\varsigma_h\sum_iv_i^2$: $\varsigma_h\sum v_i^2\le(-1)D^2h_\R(I)[v,v]$ with $\sigma=-1$. For $-h$ the frequency has the same modulus and $D^2(-h)_\R[v,v]\ge\varsigma_h\sum v_i^2$, $\sigma=+1$. The statements on $\operatorname{Im}$ and $D^2$ for $-h$ are clear.
+\end{proof}
+
+\subsection{The analytic perturbation}\label{bpP:p14:sec-pert}
+
+\begin{lemma}[Uniform complex tube]\label{bpP:p14:tube}
+Let $\mathcal W\subset\Ph{2n}=\R^{4n}$ be open and $\tau_k$-invariant ($k\in\Z^n$), $f:\mathcal W\to\R$ real analytic with $f\circ\tau_k=f$, $K_*\subset\mathcal W$ compact and $K_0=\bigcup_k\tau_k(K_*)$. There are $r_0>0$ and a holomorphic function $f^{\C}$ on the open set $\mathcal T=\{z\in\C^{4n}:\exists x\in K_0,\ \abs{z-x}_\infty<r_0\}$ with $f^\C=f$ on $\mathcal T\cap\R^{4n}$ (which is contained in $\mathcal W$) and $f^\C\circ\tau_k=f^\C$ on $\mathcal T$ ($\tau_k$ acting on $\C^{4n}$ by the same formula; $\mathcal T$ is $\tau_k$-invariant).
+\end{lemma}
+\begin{proof}
+\proofstep{Local extensions}\label{stepP:p14:tb-local} For $x\in K_*$, \ref{bpP:p14:x-cx} gives $r_x>0$ and $g_x$ holomorphic on $D(x,r_x)$ with $g_x=f$ on $D(x,r_x)\cap\R^{4n}$; shrinking $r_x$ we may assume $D(x,r_x)\cap\R^{4n}\subset\mathcal W$ ($\mathcal W$ is open).
+\proofstep{A Lebesgue number}\label{stepP:p14:tb-leb} The polydiscs $D(x,r_x/2)$, $x\in K_*$, cover the compact $K_*$: choose $x_1,\dots,x_s$ with $K_*\subset\bigcup_jD(x_j,r_j/2)$ ($r_j=r_{x_j}$) and put $r_0=\min_jr_j/2$. If $x\in K_*$, $x\in D(x_j,r_j/2)$ then $D(x,r_0)\subset D(x_j,r_j)$.
+\proofstep{Gluing}\label{stepP:p14:tb-glue} On $U_*=\bigcup_jD(x_j,r_j)$ put $f_*=g_{x_j}$ on $D(x_j,r_j)$. This is well defined: $D(x_j,r_j)\cap D(x_k,r_k)$ is convex, hence connected, both functions are holomorphic on it and equal $f$ on its real points; its real points form a nonempty open set whenever it is nonempty (the polydiscs have real centres, so $\operatorname{Re}z$ lies in both if $z$ does, and the real trace of a polydisc is open). By \ref{bpP:p14:x-id}, $g_{x_j}=g_{x_k}$ there. So $f_*$ is holomorphic on $U_*$ with $f_*=f$ on $U_*\cap\R^{4n}$.
+\proofstep{Periodisation}\label{stepP:p14:tb-per} Let $z\in\mathcal T$: $\abs{z-x}_\infty<r_0$ with $x=\tau_k(x_*)$, $x_*\in K_*$. Then $\tau_{-k}z\in D(x_*,r_0)\subset U_*$ (Step~\ref{stepP:p14:tb-leb}); put $f^\C(z)=f_*(\tau_{-k}z)$. If also $z\in D(x',r_0)$, $x'=\tau_{k'}(x_*')$, the two functions $f_*\circ\tau_{-k}$ and $f_*\circ\tau_{-k'}$ are holomorphic on the convex set $D(x,r_0)\cap D(x',r_0)\ni z$ and agree with $f$ on its real points, a nonempty open set since it contains $\operatorname{Re}z$ (they equal $f\circ\tau_{-k}=f$ by periodicity); by \ref{bpP:p14:x-id} they coincide, so $f^\C$ is well defined and locally equal to $f_*\circ\tau_{-k}$, hence holomorphic. The identities $f^\C=f$ on real points and $f^\C\circ\tau_k=f^\C$ follow from the construction (replace $k$ by $k+k'$).
+\end{proof}
+
+\begin{proposition}[The perturbation $P$ and its bound $B_0$]\label{bpP:p14:perturbation}
+Let $\kappa,e_1,A^+,G,G',D$ be as in Lemma~\ref{bpP:p14:enlarge}. There are $\rho\in(0,\kappa]$, $B_0\ge1$ and $P:\C^{2n}\times\C^{2n}\to\C$, depending only on $(n,\mathcal B)$ and the choices of Lemma~\ref{bpP:p14:enlarge}, such that
+\begin{enumerate}[label=(\roman*)]
+\item $\texttt{IsPartialPerturbation}\,G'\,D\,\rho\,P$ (Definition~\ref{bpN:p0:partial-pert}, with $n$ fast and $k=n$ slow variables) and likewise for $-P$;
+\item for every real $w$ in $\mathcal V=\{w\in\Ph{2n}:\ \Lambda\in G,\ (\xi,\eta)\in D\}$ (an open set, contained in $\mathcal K\subset\mathcal W$): $P(\mathrm{cx}(w))=\hat f(w)/B_0\in\R$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\proofstep{Analytic input}\label{stepP:p14:pt-input} $\hat f$ is real analytic on the open set $\mathcal W$ and $\tau_k$-invariant (Ch3). Let $K_*=\{w:\lambda\in[0,2\pi]^n,\ \Lambda\in\overline{G'},\ \Gamma(w)\le A^+\}$, compact (the conditions bound $\lambda$, $\Lambda$ and $\xi_i^2+\eta_i^2\le2A^+$) and $K_*\subset\mathcal K\subset\mathcal W$ (Lemma~\ref{bpP:p14:real-domain}); $K_0=\bigcup_k\tau_k(K_*)=\{w:\Lambda\in\overline{G'},\Gamma\le A^+\}$. Lemma~\ref{bpP:p14:tube} gives $r_0$ and $f^\C=\hat f^\C$ on $\mathcal T$.
+\proofstep{Choice of $\rho,B_0$}\label{stepP:p14:pt-rho} $\rho=\min(\kappa,r_0/2)$. The tube $F_\rho=\mathcal F(G',D,\rho)$ of Definition~\ref{bpN:p0:partial-domain} consists of $z$ with $\operatorname{Re}z\in\R^n\times G'\times D\subset K_0$ (in chart order: $\operatorname{Re}\Lambda\in G'$, $\operatorname{Re}(\xi,\eta)\in D$, all $\abs{\operatorname{Im}z_i}<\rho$); thus $\abs{z-\operatorname{Re}z}_\infty<\rho<r_0$ and $F_\rho\subset\mathcal T$, $F_\rho$ is open and $\tau_k$-invariant. For $z\in F_\rho$ choose $k$ with $\operatorname{Re}\lambda(\tau_{-k}z)\in[0,2\pi)^n$; then $\tau_{-k}z$ lies in the compact set $\{z:\operatorname{dist}_\infty(z,K_*)\le\rho\}\subset\mathcal T$ on which the continuous $f^\C$ is bounded by some $B'$; $f^\C(z)=f^\C(\tau_{-k}z)$. Put $B_0=\max(1,B')$: $\abs{f^\C}\le B_0$ on $F_\rho$.
+\proofstep{Definition of $P$}\label{stepP:p14:pt-def} $P=f^\C/B_0$ on $\mathcal T$ and $P=0$ elsewhere. 
+\proofstep{(P1),(P2)}\label{stepP:p14:pt-p12} $P$ is holomorphic, hence complex differentiable, on $F_\rho\subset\mathcal T$; $\abs P\le1$ there.
+\proofstep{(P3)}\label{stepP:p14:pt-p3} A real $w$ with $\mathrm{cx}(w)\in F_\rho$ has $w\in\R^n\times G'\times D\subset K_0\subset\mathcal T\cap\R^{4n}$, so $P(\mathrm{cx}\,w)=\hat f(w)/B_0\in\R$ (Lemma~\ref{bpP:p14:tube}). This also proves (ii), because $\mathcal V\subset\R^n\times G'\times D$ and $\mathcal V\subset\mathcal K$ (Lemma~\ref{bpP:p14:real-domain}, $G\subset G'$, $\Gamma<A^+$); $\mathcal V$ is open as the preimage of open sets under coordinate projections.
+\proofstep{(P4)}\label{stepP:p14:pt-p4} $\mathrm{cx}(\texttt{fastShift}\,\ell)=\tau_\ell$ on the fast angles ($2\pi\ell$ added to $\lambda$); for $z\in F_\rho$, $P(\tau_\ell z)=f^\C(\tau_\ell z)/B_0=P(z)$ (Lemma~\ref{bpP:p14:tube}).
+\proofstep{$-P$}\label{stepP:p14:pt-neg} (P1)--(P4) are invariant under $P\mapsto-P$.
+\end{proof}
+
+\subsection{Lifting finite solution segments to the Poincar\'e chart}\label{bpP:p14:sec-lift}
+
+\begin{lemma}[Uniform data over compact slow sets]\label{bpP:p14:uniform-data}
+Let $\mathcal W\subset\R^{4n}$ be open and $\tau_k$-invariant, $F:\R^{4n}\to\R^{4n}$ $C^1$ on $\mathcal W$ with $F\circ\tau_k=F$ on $\mathcal W$, and $Q\subset\R^{3n}$ compact (the coordinates $(\xi,\Lambda,\eta)$) with $\R^n\times Q\subset\mathcal W$ ($\lambda$-coordinates free). Then $\Phi=\R^n\times Q$ has uniform data $(\delta,M,L)$ for $F$ on $\mathcal W$ (Definition~\ref{bpN:p3:gen-uniform}), some $\delta\in(0,\pi]$.
+\end{lemma}
+\begin{proof}
+\proofstep{A compact cell}\label{stepP:p14:ud-cell} $[-\pi,3\pi]^n\times Q\subset\mathcal W$ is compact; by \ref{bpP:p14:x-top} there is $\delta\in(0,\pi]$ with its closed $\delta$-neighbourhood $C\subset\mathcal W$; $C$ is compact and \Nref{bpN:p3:gen-lip} gives $M,L$ with $\norm F\le M$ and $F$ $L$-Lipschitz on $C$.
+\proofstep{Translation}\label{stepP:p14:ud-transl} For $x=(\lambda,y)\in\Phi$ choose $k$ with $\lambda-2\pi k\in[0,2\pi)^n$ and $x'=\tau_{-k}x$; since $\delta\le\pi$, $\overline B(x',\delta)\subset C$ (max norm). Then $\overline B(x,\delta)=\tau_k\overline B(x',\delta)\subset\mathcal W$, and $F\circ\tau_k=F$ transfers the bounds.
+\end{proof}
+
+\begin{proposition}[Lifting a solution segment]\label{bpP:p14:lift}
+Let $\mathcal B$ be admissible, $\mu\in\R$, $l\le0\le r$, and $z:\R\to\Ph{2n}$ with $\operatorname{IsMovSolOn}(m,\mu,[l,r],z)$ and $z(t)\in\mathcal R_{\rm out}$ for all $t\in[l,r]$. Then there is $y:\R\to\Ph{2n}$ such that for all $t\in[l,r]$: $y(t)\in\mathcal W$, $\Psi(y(t))=z(t)$, and $y$ has derivative $X_{H^\Psi}(y(t))$ at $t$ ($H^\Psi$ is differentiable at $y(t)$). Moreover $\Lambda_i(y(t))=\Lambda_i(z(t))\in(\ell_i,u_i)$ and $\Gamma(y(t))=\mathcal A(z(t))<A_1$, so $y(t)\in\mathcal K$.
+\end{proposition}
+\begin{proof}
+\proofstep{Initial point}\label{stepP:p14:li-init} $z(0)\in\mathcal R_{\rm out}$ is prograde elliptic, so $z(0)=\Psi(w_0)$ for some $w_0\in\mathcal O_n$ (Ch1); $z(0)\in W$ gives $w_0\in\mathcal W$. By (Ch2) for every $t\in[l,r]$ and every $w\in\mathcal O_n$ with $\Psi(w)=z(t)$: $\Lambda_i(w)=\Lambda_i(z(t))\in(\ell_i,u_i)$ and $\Gamma(w)=\mathcal A(z(t))<A_1$; by Lemma~\ref{bpP:p14:real-domain} (last assertion) such $w$ lie in $\mathcal K\subset\mathcal W$. This proves the last sentence once $y$ exists.
+\proofstep{The maximal chart solution}\label{stepP:p14:li-max} $F=X_{H^\Psi}$ is $C^1$ on the open $\mathcal W$ (Ch3) and $\tau_k$-periodic ($\tau_k$ is a translation and $H^\Psi\circ\tau_k=H^\Psi$ on the invariant open set $\mathcal W$; differentiating, $DH^\Psi\circ\tau_k=DH^\Psi$ and so $X_{H^\Psi}\circ\tau_k=X_{H^\Psi}$: the proof of \Nref{bpN:p3:ham-periodic}, which is stated for angle blocks, uses only that the shift is a translation). Let $y_{\max}$ be the maximal solution through $w_0$, with maximal interval $(S_-,S_+)\ni0$ (\Nref{bpN:p3:gen-maximal}).
+\proofstep{It projects to the physical solution}\label{stepP:p14:li-proj} By Corollary~\ref{bpP:p1:chart-orbit}, $x=\Psi\circ y_{\max}$ has derivative $X_{H_{\rm mov}}(x(t))$ at every $t\in(S_-,S_+)$, with $x(t)\in W$ (as $y_{\max}(t)\in\mathcal W$); i.e.\ $\texttt{IsSolIn}\,X_{H_{\rm mov}}\,W\,(S_-,S_+)\,x$. Also $z$ is a solution in $W$ on $[l,r]$ (Lemma~\ref{bpP:p14:moving-ode}), and $x(0)=\Psi(w_0)=z(0)$. By \Nref{bpN:p3:gen-uniqueness} on the interval $(S_-,S_+)\cap[l,r]$, $x=z$ there.
+\proofstep{The chart solution lives on all of $[l,r]$}\label{stepP:p14:li-cont} Suppose $S_+\le r$. For $t\in[0,S_+)$: $z(t)=\Psi(y_{\max}(t))$ with $z(t)\in\mathcal R_{\rm out}$, so by Step~\ref{stepP:p14:li-init} $y_{\max}(t)\in\R^n\times Q_0$ with $Q_0=\{(\xi,\Lambda,\eta):\Lambda_i\in[\ell_i,u_i],\ \Gamma\le A_1\}$ compact and $\R^n\times Q_0\subset\mathcal K\subset\mathcal W$ (Lemma~\ref{bpP:p14:real-domain}). Lemma~\ref{bpP:p14:uniform-data} gives uniform data for $\Phi=\R^n\times Q_0$ and \Nref{bpN:p3:gen-continuation} gives $S_+=\infty$: contradiction. So $S_+>r$, and likewise $S_-<l$.
+\proofstep{Conclusion}\label{stepP:p14:li-concl} $y=y_{\max}$ has all the properties on $[l,r]\subset(S_-,S_+)$; $H^\Psi$ is differentiable on $\mathcal W$.
+\end{proof}
+
+\subsection{The stopped action bound from N-PARTIAL-CONVEX}\label{bpP:p14:sec-stopped}
+
+Throughout this subsection the data of Lemma~\ref{bpP:p14:enlarge} ($\kappa,e_1,A^+,G,G',D,\varepsilon_D$), Lemma~\ref{bpP:p14:h-data} ($\rho,g_h,\varsigma_h,M_\C,h$) and Proposition~\ref{bpP:p14:perturbation} ($B_0,P$) are fixed, with $\rho$ and $B_0$ of Proposition~\ref{bpP:p14:perturbation} (so $\rho\le\kappa$ and Lemma~\ref{bpP:p14:h-data} applies). For $\nu>0$ let, on $\Ph{2n}$ (chart coordinates, N's phase order),
+\[H_\nu^{\pm}(\varphi,\mathsf I)=\pm\Bigl[\operatorname{Re}h\bigl(\mathrm{fast}(\mathsf I)\bigr)+\nu\operatorname{Re}P\bigl(\mathrm{cx}(\varphi,\mathsf I)\bigr)\Bigr],\qquad H_\nu=H_\nu^+ .\]
+$H^+_\nu$ is the Hamiltonian $H_\nu$ of N-PARTIAL-CONVEX for the data $(h,P)$, and $H_\nu^-$ the one for $(-h,-P)$ (both satisfy its hypotheses by Lemma~\ref{bpP:p14:h-data}, Proposition~\ref{bpP:p14:perturbation}); $H_\nu^-=-H_\nu^+$.
+
+\begin{lemma}[The N-Hamiltonian is the chart Hamiltonian on $\mathcal V$]\label{bpP:p14:hnu}
+For $\mu>0$ and $\nu=B_0\mu$: $H_\nu^+=H^\Psi$ on the open set $\mathcal V=\{w:\Lambda\in G,\ (\xi,\eta)\in D\}$ (with $H^\Psi=H_{\rm mov}^{(\mu)}\circ\Psi$). Consequently, if $w\in\mathcal V$, $H^+_\nu$ is differentiable at $w$ and $X_{H^+_\nu}(w)=X_{H^\Psi}(w)$; and $X_{H^-_\nu}=-X_{H^+_\nu}$ there.
+\end{lemma}
+\begin{proof}
+\proofstep{Equality}\label{stepP:p14:hn-eq} For $w\in\mathcal V$ and real: $\mathrm{cx}(w)$ has real part $w$ and zero imaginary part, and $\operatorname{Re}\Lambda\in G\subset G'$, $\operatorname{Re}(\xi,\eta)\in D$, so $\mathrm{cx}(w)\in F_\rho$ (Definition~\ref{bpN:p0:partial-domain}). By Proposition~\ref{bpP:p14:perturbation}(ii), $\nu\operatorname{Re}P(\mathrm{cx}\,w)=B_0\mu\hat f(w)/B_0=\mu\hat f(w)$; $\operatorname{Re}h(\Lambda)=h(\Lambda)$ is real. So $H_\nu^+(w)=h(\Lambda)+\mu\hat f(w)=H^\Psi(w)$ by (Ch3) ($w\in\mathcal V\subset\mathcal K\subset\mathcal O_n$).
+\proofstep{Fields}\label{stepP:p14:hn-field} Two functions equal on an open set have the same \Lean{fderiv} there; $H^\Psi$ is differentiable on $\mathcal W\supset\mathcal V$ (Ch3). The last claim is linearity of $X$.
+\end{proof}
+
+\begin{proposition}[Stopped action bound]\label{bpP:p14:stopped}
+Let $n\ge2$ and $\mathcal B$ be admissible. There is $\nu_0\in(0,1]$, depending only on $(n,\mathcal B)$ and the choices above, such that for every $\mu>0$ with $\nu:=B_0\mu<\nu_0$, every $z_0\in\Ph{2n}$, and all $T>0$, $\delta>0$ with
+\[T\le\nu^{-1}\exp(\nu^{-a}),\qquad\delta\ge\tfrac12\nu^{b}\qquad(a=\alpha_n,\ b=\beta_n),\]
+the predicate $\operatorname{StoppedBound}(\mathcal B,\mu,T,\delta,z_0)$ holds.
+\end{proposition}
+\begin{proof}
+\proofstep{The threshold}\label{stepP:p14:st-thr} Apply \Nref{bpN:p0:partial} with $n$ fast actions, $k=n$ slow pairs ($n\ge2$, $k\ge1$), the sets $G,G'$ (open, convex), $D$ (open), the numbers $\rho,g_h,\varsigma_h,M_\C$ (positive, $\overline B(I,\rho)\subset G'$ for $I\in G$) and the function $h$: its hypotheses are exactly Lemma~\ref{bpP:p14:h-data} (i)--(v) (with $\sigma=-1$). It yields $\mu_+>0$. Apply it again to $-h$ (Lemma~\ref{bpP:p14:h-data}, $\sigma=+1$): $\mu_->0$. Both thresholds depend on $(n,k,G,G',D,\rho,g_h,\varsigma_h,M_\C,h)$ only, not on $P$. Put
+\[\nu_0=\min\{1,\ \mu_+,\ \mu_-,\ \kappa^{1/b},\ \varepsilon_D^{1/b}\}.\]
+For $\nu<\nu_0$: $\nu^b<\min(\kappa,\varepsilon_D)$ (as $b>0$, $\nu<1$). The exponents of \Nref{bpN:p0:partial-exponents} are $\alpha_n,\beta_n$ for the same $n$ (Definition~\ref{bpP:p0:d25-exponents}; the number of fast actions equals the number of planets).
+\proofstep{The segment}\label{stepP:p14:st-seg} Let $l\le0\le r$, $l<r$, $z$ with $z(0)=z_0$, $\operatorname{IsMovSolOn}(m,\mu,[l,r],z)$ and $z(t)\in\mathcal R_{\rm out}$ for all $t\in[l,r]$; let $t\in[l,r]\cap[-T,T]$ and $i<n$. Proposition~\ref{bpP:p14:lift} gives $y$. For $s\in[l,r]$: $\Lambda(y(s))\in\prod(\ell_i,u_i)\subset G$ and $(\xi,\eta)(y(s))\in D$, because $\Gamma(y(s))=\mathcal A(z(s))<A_1<A^+$; so $y(s)\in\mathcal V$, and $\Lambda_i(y(s))=\Lambda_i(z(s))=\texttt{keplerAction}$ (Ch2). We must show $\abs{\Lambda_i(y(t))-\Lambda_i(y(0))}\le\delta$ (note $y(0)$ projects to $z_0$, so $\Lambda_i(y(0))=\Lambda_i(z_0)$). For $t=0$ this is trivial.
+\proofstep{$y$ solves the N-system on $[0,r]$ and on the reversed segment}\label{stepP:p14:st-sol} By Lemma~\ref{bpP:p14:hnu}, on $[l,r]$: $H^+_\nu$ is differentiable at $y(s)$ and $y$ has derivative $X_{H^\Psi}(y(s))=X_{H^+_\nu}(y(s))$. Also $\mathrm{fast}(y(s)_2)=\Lambda(y(s))\in G$. Hence $\texttt{IsSolutionOn}\,H^+_\nu\,\{\mathsf I:\mathrm{fast}\,\mathsf I\in G\}\,[0,r]\,y$ (Definition~\ref{bpN:p0:sol}). For the reversed curve $\tilde y(s)=y(-s)$, $s\in[0,-l]$: by \ref{bpP:p14:x-calc} it has derivative $-X_{H^+_\nu}(y(-s))=X_{H^-_\nu}(\tilde y(s))$ and $H_\nu^-$ is differentiable at $\tilde y(s)$ (Lemma~\ref{bpP:p14:hnu}): $\texttt{IsSolutionOn}\,H^-_\nu\,\{\mathrm{fast}\in G\}\,[0,-l]\,\tilde y$.
+\proofstep{Erosions}\label{stepP:p14:st-core} (Z2) $\Lambda(z_0)\in\prod(\ell_i,u_i)$, and for $v\in\R^n$ with $\abs{v-\Lambda(z_0)}_\infty\le\nu^b<\kappa$: $v_i>\ell_i-\kappa$, $v_i<u_i+\kappa$; thus $\Lambda(y(0))=\Lambda(z_0)\in\operatorname{core}(G,\nu^b)$ (Definition~\ref{bpN:p0:partial-core}). Slow: for $s\in[l,r]$ put $x=(\xi,\eta)(y(s))$, $\abs x_2^2=2\Gamma(y(s))<2A_1$. If $\abs{v-x}_\infty\le\nu^b<\varepsilon_D$ then $\abs{v-x}_2\le\sqrt{2n}\nu^b<\sqrt{2A^+}-\sqrt{2A_1}$, hence $\abs v_2<\sqrt{2A^+}$, i.e.\ $v\in D$. So $x\in\operatorname{core}(D,\nu^b)$ for every $s\in[l,r]$.
+\proofstep{Positive times}\label{stepP:p14:st-fwd} Let $t\in(0,r]\cap[0,T]$. Then $C:=r>0$, $t\le\min(C,T)\le\min(C,\nu^{-1}\exp(\nu^{-a}))$ and, for all $u\in[0,t]$, $(\mathrm{slow}(y(u)_1),\mathrm{slow}(y(u)_2))=(\xi,\eta)(y(u))\in\operatorname{core}(D,\nu^b)$ by Step~\ref{stepP:p14:st-core}. \Nref{bpN:p0:partial} (with $\mu:=\nu\in(0,\mu_+)$, the perturbation $P$ of Proposition~\ref{bpP:p14:perturbation}(i), the constant $C=r$, the solution $y$) gives $\abs{\Lambda(y(t))-\Lambda(y(0))}_\infty\le\frac12\nu^b\le\delta$.
+\proofstep{Negative times}\label{stepP:p14:st-bwd} Let $t\in[l,0)\cap[-T,T]$, $s_0=-t\in(0,-l]\cap[0,T]$. Apply \Nref{bpN:p0:partial} to $(-h,-P)$ (threshold $\mu_-$, $\nu<\mu_-$), $C=-l>0$ and the solution $\tilde y$: its conditions (Z1), (Z2) and the slow-erosion condition on $[0,s_0]$ are Steps~\ref{stepP:p14:st-sol}, \ref{stepP:p14:st-core} (the slow curve of $\tilde y$ is that of $y$ reversed); $s_0\le\min(-l,\nu^{-1}\exp(\nu^{-a}))$. Hence $\abs{\Lambda(\tilde y(s_0))-\Lambda(\tilde y(0))}_\infty=\abs{\Lambda(y(t))-\Lambda(y(0))}_\infty\le\frac12\nu^b\le\delta$.
+\proofstep{Translation to physical actions}\label{stepP:p14:st-phys} In both cases $\abs{\Lambda_i(z(t))-\Lambda_i(z_0)}=\abs{\Lambda_i(y(t))-\Lambda_i(y(0))}\le\delta$ by Step~\ref{stepP:p14:st-seg}.
+\end{proof}
+
+\begin{remark}[What N provides and what it does not]\label{bpP:p14:st-limits}
+Proposition~\ref{bpP:p14:stopped} gives $\operatorname{StoppedBound}$ only for $\nu=B_0\mu<\nu_0$ and the specific $T,\delta$; it is not the unconditional hypothesis of Theorem~\ref{bpP:p0:amd}, which must never be taken as a proof of it. N supplies no slow confinement: the slow erosion is verified on the tested segment from membership of $z(s)$ in $\mathcal R_{\rm out}$ ($\mathcal A<A_1<A^+$), exactly the hypothesis of $\operatorname{StoppedBound}$. N's initial erosion $\operatorname{core}(G,\nu^b)$ is used through $\Lambda(z_0)\in(\ell,u)$ only.
+\end{remark}
+
+\subsection{Proof of P-EXP-SAFE}\label{bpP:p14:sec-expsafe}
+
+\begin{theorem}[P-EXP-SAFE, Theorem~\ref{bpP:p0:expsafe}]\label{bpP:p14:expsafe}
+The statement of Theorem~\ref{bpP:p0:expsafe} holds, with the constants of Remark~\ref{bpP:p14:constants}.
+\frozen{KAM.Planetary.planetaryExponentialSafety}
+\source{Nek77 Thm.~12.3, pp.~55--56 and \S12.4 (Poincar\'e variables, Lemma~12.4.B, pp.~56--57: analyticity of the perturbed Hamiltonian on a complex neighbourhood of a compact domain), via Nek77 Thm.~4.4 (N-PARTIAL-CONVEX) and Prop.~\ref{bpP:p14:stopped}; round 2 \S2.}
+\end{theorem}
+\begin{proof}
+\proofstep{Fixed data and constants}\label{stepP:p14:es-const} Let $n\ge2$, $\mathcal B$ admissible, and $\kappa,e_1,A^+,G,G',D,\varepsilon_D,\rho,B_0,P,\nu_0$ as in the preceding subsections. Put
+\[\theta=\min\Bigl\{\kappa,\ \varepsilon_D,\ \min_i(\ell^0_i-\ell_i),\ \min_i(u_i-u_i^0),\ \tfrac{A_1-A_0}n\Bigr\}>0,\]
+\[\mu_*=\frac1{B_0}\min\Bigl\{\frac{\nu_0}2,\ \bigl(\tfrac\theta2\bigr)^{1/b}\Bigr\},\qquad c=B_0^{-a},\qquad C=B_0^{\,b}\max_i\frac{u_i}{m_i^2}.\]
+All are positive and depend only on $(n,\mathcal B)$ (the Lean quantifier order: $\mu_*,c,C$ before $\mu$ and $z_0$).
+\proofstep{Parameters}\label{stepP:p14:es-par} Let $0<\mu<\mu_*$, $z_0\in\mathcal R_{\rm in}$, $\nu=B_0\mu$, $T=\exp(c\mu^{-a})$, $\delta=\frac12\nu^b$. Then $\nu<\nu_0/2<\nu_0\le1$, $\nu^b\le\theta/2$ and $\nu^{-a}=B_0^{-a}\mu^{-a}=c\mu^{-a}$, so $T=\exp(\nu^{-a})\le\nu^{-1}\exp(\nu^{-a})$ (as $\nu\le1$). Moreover $2\delta=\nu^b\le\theta/2<\min_i(\ell_i^0-\ell_i)$ and $<\min_i(u_i-u_i^0)$, and $2n\delta=n\nu^b\le n\theta/2<A_1-A_0$.
+\proofstep{The stopped bound}\label{stepP:p14:es-stop} Proposition~\ref{bpP:p14:stopped} applies ($\nu<\nu_0$, $T\le\nu^{-1}\exp(\nu^{-a})$, $\delta=\frac12\nu^b$): $\operatorname{StoppedBound}(\mathcal B,\mu,T,\delta,z_0)$.
+\proofstep{The helper}\label{stepP:p14:es-amd} The hypotheses of Theorem~\ref{bpP:p14:amd} hold: $\mu,T,\delta>0$; the margins $\ell_i+2\delta<\ell_i^0$, $u_i^0+2\delta<u_i$, $A_0+2n\delta<A_1$ (Step~\ref{stepP:p14:es-par}); $z_0\in\mathcal R_{\rm in}$; the stopped bound. It gives $z$ with $z(0)=z_0$ and clauses (a)--(d), which contain all the clauses of Theorem~\ref{bpP:p0:expsafe}(a), and $\abs{\Lambda_i(z(t))-\Lambda_i(z_0)}\le\delta$ for $|t|\le T$.
+\proofstep{Axis drift}\label{stepP:p14:es-axis} For $\abs t\le T$ and each $i$ both $z(t)$ and $z_0$ are prograde elliptic with $\Lambda_i(z(t)),\Lambda_i(z_0)\in(0,u_i)$, and $a_i=\Lambda_i^2/m_i^2$ (Lemma~\ref{bpP:p14:elements}(a)); thus
+\[\abs{a_i(z(t))-a_i(z_0)}=\frac{\abs{\Lambda_i(z(t))-\Lambda_i(z_0)}\,\bigl(\Lambda_i(z(t))+\Lambda_i(z_0)\bigr)}{m_i^2}\le\frac{2u_i}{m_i^2}\delta=\frac{u_i}{m_i^2}B_0^b\mu^b\le C\mu^b.\]
+\proofstep{Assembly}\label{stepP:p14:es-assemble} The function $z$ and the horizon $T=\exp(c\mu^{-a})$ are those demanded by Theorem~\ref{bpP:p0:expsafe}; the first four clause groups are those of Theorem~\ref{bpP:p0:amd}(a)--(c).
+\end{proof}
+
+\begin{remark}[Order of every constant against the frozen quantifiers]\label{bpP:p14:constants}
+The chain of choices, with what each depends on:
+\begin{center}\small
+\begin{tabular}{p{0.34\textwidth}p{0.6\textwidth}}
+\textbf{Constant} & \textbf{Depends on (and is chosen after)}\\\hline
+$\kappa,e_1,A^+$; $G,G',D,\varepsilon_D$ (Lemma~\ref{bpP:p14:enlarge}) & $n,\mathcal B$ only (strict admissibility inequalities and continuity)\\
+$\rho\le\kappa$, $B_0\ge1$, $P$ (Prop.~\ref{bpP:p14:perturbation}) & the above; the compact real set $\overline{G'}\times\overline D\times\T^n$ (via $r_0$ of Lemma~\ref{bpP:p14:tube}); \emph{not} on $\mu$\\
+$g_h,\varsigma_h,M_\C$ (Lemma~\ref{bpP:p14:h-data}) & $m,\ell,u,\kappa$\\
+$\mu_\pm$ (N-PARTIAL-CONVEX, applied to $\pm h$) & $n,k=n,G,G',D,\rho,g_h,\varsigma_h,M_\C,h$; \emph{before} $P,\mu,C,z$ (N's order), hence independent of $B_0$ and of $P$\\
+$\nu_0$ (Prop.~\ref{bpP:p14:stopped}) & $\mu_\pm,\kappa,\varepsilon_D,b$\\
+$\theta,\mu_*,c,C$ (Thm.~\ref{bpP:p14:expsafe}) & $\nu_0,B_0,\kappa,\varepsilon_D,\ell^0-\ell,u-u^0,(A_1-A_0)/n,a,b,u,m$: i.e.\ on $(n,\mathcal B)$ only --- \textbf{before} $\mu$ and $z_0$, as in the frozen $\exists\,\mu_*\,c\,C\ \forall\mu\ \forall z_0$\\
+$\nu=B_0\mu$, $T=\exp(c\mu^{-a})$, $\delta=\frac12\nu^b$ & $\mu$ (and constants); independent of $z_0$\\
+$z$ & $z_0,\mu$ (maximal solution)
+\end{tabular}
+\end{center}
+In Theorem~\ref{bpP:p14:amd} (P-AMD-CONFINEMENT) the frozen order is $\mathcal B,\mu,T,\delta$, then $z_0$ with the stopped bound, and no constant is produced; the proof only uses the hypotheses. Exponents: $a=\alpha_n$ and $b=\beta_n=\frac32a$ are the frozen ones, \emph{not} an optimisation: $b$ enters only through $\nu^b\le\theta/2$ and through $C$.
+\end{remark}
+
+\begin{remark}[Index bookkeeping between N and P]\label{bpP:p14:index}
+N-PARTIAL-CONVEX has $n$ fast actions and $k$ slow pairs and exponents $a_n=2/(6n^2-3n+14)$, $b_n=\frac32a_n$ (\Nref{bpN:p0:partial-exponents}); P-EXP-SAFE has $n$ planets and the same formulas $\alpha_n,\beta_n$ (Nek77 (12.4)--(12.5), p.~56: $s$ = number of planets, page image read). We take N's $n$ = number of planets and $k=n$: each planet contributes one fast action $\Lambda_i$ and one slow pair $(\xi_i,\eta_i)$. No theorem with $2n$ fast actions is used, and the exponents are those with the planet count. The N phase space $\Ph{n+k}=\Ph{2n}$ and P's physical phase space $\Ph{n\cdot 2}$ are both $\R^{2n}\times\R^{2n}$; the Poincar\'e chart is the dictionary (fast block $(\lambda;\Lambda)$ first, then slow block $(\xi;\eta)$), see Theorem~\ref{bpP:p7:product-chart} and Part~0's block convention. The N time unit is that of $H_\nu=h+\mu\hat f$, i.e.\ of $H_{\rm mov}$ (the Hamiltonians are not rescaled; $B_0$ only rescales the coupling: $\mu\hat f=\nu P$ on $\mathcal V$).
+\end{remark}
+
+\subsection{Sources, deviations, doubts, forward references}\label{bpP:p14:notes}
+
+\paragraph{Sources read.} Nek77 \S12.1--12.4, printed pp.~54--57 (statement of Thm.~12.3 with $a=2/(6s^2-3s+14)$, $b=\frac32a$, p.~56, from the page image; the text layer loses the formulas); Lemma~12.4.B p.~57 (analytic extension to a complex neighbourhood of a compact domain: our Lemma~\ref{bpP:p14:tube}, Prop.~\ref{bpP:p14:perturbation}); LP17 p.~2, (7)--(11) (Hamiltonian, total momentum, AMD); the frozen Lean files and the audits \texttt{docs/tracks/P/AUDIT-additions-v0.3.md} \S6, \texttt{docs/tracks/N/AUDIT-additions-v0.3.md} \S6, \texttt{AUDIT-additions-v0.4-delta.md} \S6; round 2 \S2 and round 3 item~1c.
+
+\paragraph{Deviations.} (1) Nek77's proof of Thm.~12.3 (domains $B(\alpha,\beta,\gamma)$, barycentric elements, $N(v)$ in a domain of planetary motions) is \emph{not} followed: the frozen statement is the low-AMD specialisation of D25 and its proof here is the one prescribed by the audits (chart, collars, N-PARTIAL-CONVEX, deterministic helper). The AMD argument replaces Nek77's use of $N(v)$ by exact conservation of $J$. (2) The N input has a Euclidean-erosion/closed-imaginary-bound form in the source and a max-norm/open-width form in the frozen N statement (\Nref{bpN:p0:partial}); we use only the frozen form. (3) The Poincar\'e chart uses the unscaled heliocentric variables with the perturbation $\mu f_{\rm mov}$ containing the indirect term (Remark~\ref{bpP:p7:same-chart}); no reduced-mass correction is needed and none is made, so no $O(\mu)$ element-comparison error is added to $\delta$ (the audit's alternative route).
+
+\paragraph{Doubts about frozen statements.} None found. Checked: (i) $\operatorname{MovUniqueOn}$ quantifies over open convex $U\ni0$ and requires $w$ to be an $\operatorname{IsMovSolOn}$ solution on $U$, which forces $U\subset$ the maximal interval; proved by \Nref{bpN:p3:gen-uniqueness}. (ii) The derivatives at $t=\pm T$ in $\operatorname{IsMovSolOn}$ are two-sided, so one needs $T_\pm>\pm T$ strictly: shown in Step~\ref{stepP:p14:amd-cont}. (iii) $\operatorname{StoppedBound}$ allows $l=0$ or $r=0$ but not $l=r=0$; used with $(0,s)$, $(-s,0)$. (iv) The theorems assert $\Lambda_i$-drift $\le\delta$ for \emph{all} $t\in[-T,T]$, which for P-EXP-SAFE needs the stopped bound on both sides of $0$ (done through $-H_\nu$). (v) $B.\mathrm{radius}\ge\pl{q_i}$ and $\operatorname{PairBounds}(d,2R)$ use $\pl{q_i-q_j}\le\pl{q_i}+\pl{q_j}\le2R$; true.
+
+\paragraph{Suspected errata.} None in a pinned source. (The N audit's slow-ball collar $(\sqrt{2A^+}-\sqrt{2A_1})/(2\sqrt{2n})$, AUDIT v0.4-delta \S6 item~3, is conservative; our $\varepsilon_D$ is the sharp value for max-norm balls of $\R^{2n}$.)
+
+\paragraph{Forward references and consumers.} None to unwritten parts: this part cites only Parts~0, 1, 6, 7 and tracks N (Parts~0 and 3, the frozen \Nref{bpN:p0:partial}). Track~N's Parts~11a--c prove \Nref{bpN:p0:partial}; if it slips, Theorem~\ref{bpP:p14:expsafe} is conditional on it as an input (not a premise of the frozen statement).
+
+\paragraph{External facts used.} \ref{bpP:p14:x-planar}--\ref{bpP:p14:x-hol} of \S\ref{bpP:p14:conv}; \ref{bpP:p6:ext-sum}, \ref{bpP:p6:ext-tri}, \ref{bpP:p7:e-comp}.
+
+\paragraph{Label index.} \texttt{elements}, \texttt{ecc-bound}, \texttt{geometry}, \texttt{closure}, \texttt{moving-ode}, \texttt{ang-mom}, \texttt{amd}, \texttt{amd-uses}, \texttt{enlarge}, \texttt{real-domain}, \texttt{h-data}, \texttt{tube}, \texttt{perturbation}, \texttt{uniform-data}, \texttt{lift}, \texttt{hnu}, \texttt{stopped}, \texttt{st-limits}, \texttt{expsafe}, \texttt{constants}, \texttt{index}.
+\endgroup
