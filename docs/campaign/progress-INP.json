@@ -62,8 +62,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.03,
-   "note": "blueprint-N: Part 0 and plan written (11 parts, ~95 pp.); Part 3 (shared ODE) being written"
+   "done": 0.06,
+   "note": "blueprint-N: Part 0, plan, Part 3 (shared ODE layer) written; Parts 1-2 being written"
   },
   {
    "group": "Track P (planetary)",
@@ -78,16 +78,16 @@
    "id": "P.PROOF.PDKAM",
    "title": "Properly degenerate KAM: blueprint, graph, proofs",
    "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
+   "done": 0.02,
+   "note": "blueprint-P: Part 0 and plan (14 parts, ~210 pp.); Part 3 (two-scale KAM) being written"
   },
   {
    "group": "Track P (planetary)",
    "id": "P.PROOF.PLANAR",
    "title": "Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy",
    "difficulty": "VH",
-   "done": 0.0,
-   "note": ""
+   "done": 0.01,
+   "note": "route gap: weak-nondegeneracy KAM gate (Part 11) under route study"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -110,8 +110,8 @@
    "id": "P.ADD.PHASE0",
    "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.3,
-   "note": "drafted (v0.3); independent GPT-6.1-Sol statement audit running"
+   "done": 0.5,
+   "note": "audit done (F-P-A1 major: inline result bundles; errata E-P-A-*); revision v0.4 running"
   },
   {
    "group": "Track P (planetary)",
