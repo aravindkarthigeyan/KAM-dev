@@ -136,6 +136,13 @@ public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
 public import KAM.Frozen.Theorems.VolumeNotDiophantineLe
+public import KAM.Head.CoverMono
+public import KAM.Head.Data
+public import KAM.Head.DyadicApprox
+public import KAM.Head.DyadicBoxes
+public import KAM.Head.HBounded
+public import KAM.Head.MatrixNorms
+public import KAM.Head.PhaseAverage
 public import KAM.Matrix.Inverse
 public import KAM.Matrix.Neumann
 public import KAM.Matrix.Norms
