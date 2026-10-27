@@ -6,8 +6,11 @@ Authors: Scott Armstrong, Zohar Komargodski
 module
 
 public import KAM.Frozen.Defs.ComplexStrip
+public import KAM.Frozen.Defs.HamiltonianVectorField
+public import KAM.Frozen.Defs.HamiltonianVectorFieldC
 public import KAM.Frozen.Defs.IsPrimaryOnStrip
 public import KAM.Frozen.Defs.IsRealOnReals
+public import KAM.Frozen.Defs.OmegaZero
 public import KAM.Strip.Analytic
 
 /-!
@@ -26,11 +29,17 @@ restriction is `KAM.realRestriction K = Re ∘ K ∘ ι`, where `ι : ℝⁿ →
   `KAM.norm_fderiv_realRestriction_le`: for `K` holomorphic on the strip `T_ρ` and real on reals,
   `k` is real-analytic, its real derivative is the restriction of the complex derivative, and
   `‖Dk(x)‖ ≤ ‖DK(x)‖`.
+* `KAM.hamiltonian_real` (blueprint `bp:p1:hamiltonian-real`), with steps
+  `KAM.hamiltonian_real_fderiv`, `KAM.hamiltonianVectorField_eq_of_real` and
+  `KAM.hamiltonianVectorFieldℂ_eq_neg_omegaZero`: if `H` agrees with `Re h` near a real point and
+  `h` is holomorphic and real on reals, then `X_H(z) = X_h(z)`; and `X_φ = J (Dφ)ᵀ` with
+  `J = -Ω₀`, equivalently `Ω₀ X_φ = (Dφ)ᵀ`.
 -/
 
 @[expose] public noncomputable section
 
-open Metric Set
+open Metric Set Filter
+open scoped Topology
 
 namespace KAM
 
@@ -222,5 +231,126 @@ theorem real_restriction (hρ : 0 < ρ) (hK : DifferentiableOn ℂ K (complexStr
     fun hp x m => realRestriction_add_int hρ hp hreal x m⟩
 
 end RealRestriction
+
+theorem realInclusion_single {n : ℕ} (i : Fin n) :
+    realInclusion n (Pi.single i 1) = Pi.single i 1 := by
+  ext j
+  by_cases h : j = i <;> simp [h]
+
+section Hamiltonian
+
+variable {n : ℕ} {V : Set ((Fin n → ℂ) × (Fin n → ℂ))} {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ}
+  {z : (Fin n → ℝ) × (Fin n → ℝ)} {H : (Fin n → ℝ) × (Fin n → ℝ) → ℝ}
+
+/-- Blueprint `step:p1:hr-derivative`. -/
+theorem hamiltonian_real_fderiv (hV : IsOpen V) (hh : DifferentiableOn ℂ h V)
+    (hreal : ∀ y : (Fin n → ℝ) × (Fin n → ℝ), realInclusion₂ n y ∈ V →
+      (h (realInclusion₂ n y)).im = 0)
+    (hz : realInclusion₂ n z ∈ V) (hH : ∀ᶠ y in 𝓝 z, H y = (h (realInclusion₂ n y)).re) :
+    DifferentiableAt ℝ H z ∧ ∀ e : (Fin n → ℝ) × (Fin n → ℝ),
+      ((fderiv ℝ H z e : ℝ) : ℂ) = fderiv ℂ h (realInclusion₂ n z) (realInclusion₂ n e) := by
+  have hhd : DifferentiableAt ℂ h (realInclusion₂ n z) := hh.differentiableAt (hV.mem_nhds hz)
+  have h2 : HasFDerivAt (fun y => h (realInclusion₂ n y))
+      (((fderiv ℂ h (realInclusion₂ n z)).restrictScalars ℝ).comp (realInclusion₂ n)) z :=
+    (hhd.hasFDerivAt.restrictScalars ℝ).comp z ((realInclusion₂ n).hasFDerivAt)
+  have h3 : HasFDerivAt (fun y => (h (realInclusion₂ n y)).re)
+      (Complex.reCLM.comp
+      (((fderiv ℂ h (realInclusion₂ n z)).restrictScalars ℝ).comp (realInclusion₂ n))) z :=
+    Complex.reCLM.hasFDerivAt.comp z h2
+  have h4 : HasFDerivAt H (Complex.reCLM.comp
+      (((fderiv ℂ h (realInclusion₂ n z)).restrictScalars ℝ).comp (realInclusion₂ n))) z :=
+    h3.congr_of_eventuallyEq hH
+  refine ⟨h4.differentiableAt, fun e => ?_⟩
+  have hmem : ∀ᶠ y in 𝓝 z, realInclusion₂ n y ∈ V :=
+    (realInclusion₂ n).continuous.continuousAt.eventually_mem (hV.mem_nhds hz)
+  have hev : (fun y => h (realInclusion₂ n y)) =ᶠ[𝓝 z] fun y => ((H y : ℝ) : ℂ) := by
+    filter_upwards [hH, hmem] with y hy hyV
+    rw [hy]
+    exact Complex.ext (by simp) (by simpa using hreal y hyV)
+  have h5 : HasFDerivAt (fun y => ((H y : ℝ) : ℂ)) (Complex.ofRealCLM.comp (fderiv ℝ H z)) z :=
+    Complex.ofRealCLM.hasFDerivAt.comp z h4.differentiableAt.hasFDerivAt
+  have h6 := (h2.congr_of_eventuallyEq hev.symm).unique h5
+  simpa using (congrArg (fun L => L e) h6).symm
+
+/-- Blueprint `step:p1:hr-components`. Under the hypotheses of the lemma, the real Hamiltonian
+vector field of `H` at `z` is the complex Hamiltonian vector field of `h` at `z`, identifying
+`ℝⁿ × ℝⁿ` with the real points of `ℂⁿ × ℂⁿ`. -/
+theorem hamiltonianVectorField_eq_of_real (hV : IsOpen V) (hh : DifferentiableOn ℂ h V)
+    (hreal : ∀ y : (Fin n → ℝ) × (Fin n → ℝ), realInclusion₂ n y ∈ V →
+      (h (realInclusion₂ n y)).im = 0)
+    (hz : realInclusion₂ n z ∈ V) (hH : ∀ᶠ y in 𝓝 z, H y = (h (realInclusion₂ n y)).re) :
+    realInclusion₂ n (hamiltonianVectorField H z) =
+      hamiltonianVectorFieldℂ h (realInclusion₂ n z) := by
+  have hd := (hamiltonian_real_fderiv hV hh hreal hz hH).2
+  have h0 : ∀ e, ((fderiv ℝ H z e : ℝ) : ℂ) = fderiv ℂ h (realInclusion₂ n z) (realInclusion₂ n e)
+    := hd
+  ext i
+  · simpa [hamiltonianVectorField, hamiltonianVectorFieldℂ, realInclusion_single] using
+      h0 (0, Pi.single i 1)
+  · simpa [hamiltonianVectorField, hamiltonianVectorFieldℂ, realInclusion_single] using
+      h0 (Pi.single i 1, 0)
+
+end Hamiltonian
+
+section MatrixForm
+
+variable {n : ℕ}
+
+/-- The column `(Dφ)ᵀ = (∂_θ φ, ∂_I φ)` of partial derivatives of `φ` at `w`, `θ`-block
+first. -/
+def gradientColumn (φ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ) (w : (Fin n → ℂ) × (Fin n → ℂ)) :
+    (Fin n → ℂ) × (Fin n → ℂ) :=
+  (fun i => fderiv ℂ φ w (Pi.single i 1, 0), fun i => fderiv ℂ φ w (0, Pi.single i 1))
+
+/-- The map `J : L(ℂ²ⁿ, ℂ) → ℂ²ⁿ`, `J(ℓ) = ((ℓ(0, eᵢ))ᵢ, (-ℓ(eᵢ, 0))ᵢ)`. -/
+def hamiltonianJ (ℓ : ((Fin n → ℂ) × (Fin n → ℂ)) →L[ℂ] ℂ) : (Fin n → ℂ) × (Fin n → ℂ) :=
+  (fun i => ℓ (0, Pi.single i 1), fun i => -ℓ (Pi.single i 1, 0))
+
+/-- The frozen complex Hamiltonian vector field is `J` applied to the derivative. -/
+theorem hamiltonianVectorFieldℂ_eq_J (φ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ)
+    (w : (Fin n → ℂ) × (Fin n → ℂ)) :
+    hamiltonianVectorFieldℂ φ w = hamiltonianJ (fderiv ℂ φ w) := rfl
+
+/-- Blueprint `step:p1:hr-matrix`: `X_φ = J (Dφ)ᵀ` with `J = -Ω₀`. -/
+theorem hamiltonianVectorFieldℂ_eq_neg_omegaZero (φ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ)
+    (w : (Fin n → ℂ) × (Fin n → ℂ)) :
+    hamiltonianVectorFieldℂ φ w = -omegaZero (gradientColumn φ w) := by
+  ext i <;> simp [hamiltonianVectorFieldℂ, omegaZero, gradientColumn]
+
+/-- Blueprint `step:p1:hr-matrix`, equivalent form: `Ω₀ X_φ = (Dφ)ᵀ`. -/
+theorem omegaZero_hamiltonianVectorFieldℂ (φ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ)
+    (w : (Fin n → ℂ) × (Fin n → ℂ)) :
+    omegaZero (hamiltonianVectorFieldℂ φ w) = gradientColumn φ w := by
+  ext i <;> simp [hamiltonianVectorFieldℂ, omegaZero, gradientColumn]
+
+end MatrixForm
+
+section HamiltonianReal
+
+variable {n : ℕ} {V : Set ((Fin n → ℂ) × (Fin n → ℂ))}
+  {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {z : (Fin n → ℝ) × (Fin n → ℝ)}
+  {H : (Fin n → ℝ) × (Fin n → ℝ) → ℝ}
+
+/-- **Blueprint `bp:p1:hamiltonian-real`.** Let `V ⊆ ℂⁿ × ℂⁿ` be open, `h` holomorphic on `V` and
+real at the real points of `V`, `z` a real point of `V`, and `H : ℝⁿ × ℝⁿ → ℝ` agree with `Re h`
+near `z`. Then `H` is differentiable at `z` and `X_H(z) = X_h(z)` (real points identified with
+their images in `ℂⁿ × ℂⁿ`). For every `φ` (holomorphy is not needed for the algebraic identity),
+`X_φ = J (Dφ)ᵀ` with `J = -Ω₀`, equivalently `Ω₀ X_φ = (Dφ)ᵀ`. -/
+theorem hamiltonian_real (hV : IsOpen V) (hh : DifferentiableOn ℂ h V)
+    (hreal : ∀ y : (Fin n → ℝ) × (Fin n → ℝ), realInclusion₂ n y ∈ V →
+      (h (realInclusion₂ n y)).im = 0)
+    (hz : realInclusion₂ n z ∈ V) (hH : ∀ᶠ y in 𝓝 z, H y = (h (realInclusion₂ n y)).re) :
+    (DifferentiableAt ℝ H z ∧ realInclusion₂ n (hamiltonianVectorField H z) =
+      hamiltonianVectorFieldℂ h (realInclusion₂ n z)) ∧
+    ∀ (φ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ) (w : (Fin n → ℂ) × (Fin n → ℂ)),
+      hamiltonianVectorFieldℂ φ w = -omegaZero (gradientColumn φ w) ∧
+      omegaZero (hamiltonianVectorFieldℂ φ w) = gradientColumn φ w :=
+  ⟨⟨(hamiltonian_real_fderiv hV hh hreal hz hH).1,
+      hamiltonianVectorField_eq_of_real hV hh hreal hz hH⟩,
+    fun φ w => ⟨hamiltonianVectorFieldℂ_eq_neg_omegaZero φ w,
+      omegaZero_hamiltonianVectorFieldℂ φ w⟩⟩
+
+end HamiltonianReal
+
 
 end KAM

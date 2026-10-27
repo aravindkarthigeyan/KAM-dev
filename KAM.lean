@@ -134,9 +134,13 @@ public import KAM.Frozen.Planetary.Defs.Slow
 public import KAM.Frozen.Planetary.Defs.StoppedActionBound
 public import KAM.Frozen.Planetary.Defs.TotalMomentum
 public import KAM.Matrix.Neumann
+public import KAM.Strip.Analytic
+public import KAM.Strip.AnalyticSeries
+public import KAM.Strip.AnalyticTaylor
 public import KAM.Strip.Averages
 public import KAM.Strip.Cauchy
 public import KAM.Strip.HigherCauchy
+public import KAM.Strip.RealRestriction
 public import KAM.Strip.Regularity
 
 /-!
