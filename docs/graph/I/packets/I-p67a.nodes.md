@@ -19,9 +19,9 @@ ROUTE_FOR: -
 EDGE: stepI:p6:expand | blueprint-I/parts/p6-kepler.tex#bpI:p6:det-formula@L21-L21 | proof step: Sarrus expansion
 EDGE: stepI:p6:eval | blueprint-I/parts/p6-kepler.tex#bpI:p6:det-formula@L29-L29 | proof step: evaluation of the expansion
 EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p6-kepler.tex#bpI:p6:det-formula@L16-L16 | K_{kappa,Omega}(L) is the frozen Kepler bordered matrix
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -46,9 +46,9 @@ DEPS: bpI:p0:keplerborder#keplerBorder
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p6-kepler.tex#stepI:p6:expand@L23-L23 | entries of the frozen matrix keplerBorder (carrier L > 0)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -73,9 +73,9 @@ DEPS: stepI:p6:expand
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p6:expand | blueprint-I/parts/p6-kepler.tex#stepI:p6:eval@L30-L30 | uses the entries and the expansion of the previous step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -102,9 +102,9 @@ ROUTE_FOR: -
 EDGE: stepI:p6:k-value | blueprint-I/parts/p6-kepler.tex#bpI:p6:kepler@L44-L44 | proof step Value
 EDGE: stepI:p6:k-pos | blueprint-I/parts/p6-kepler.tex#bpI:p6:kepler@L46-L46 | proof step Positivity
 EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p6-kepler.tex#bpI:p6:kepler@L38-L38 | K_{kappa,Omega}(L) is the frozen matrix keplerBorder
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -129,9 +129,9 @@ DEPS: bpI:p6:det-formula
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p6:det-formula | blueprint-I/parts/p6-kepler.tex#stepI:p6:k-value@L44-L44 | the determinant formula, valid for all real kappa, Omega
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -156,9 +156,9 @@ DEPS: stepI:p6:k-value
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p6:k-value | blueprint-I/parts/p6-kepler.tex#stepI:p6:k-pos@L46-L46 | the value whose numerator and denominator are shown positive
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -182,9 +182,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -217,9 +217,9 @@ EDGE: stepI:p6:kb-grad | blueprint-I/parts/p6-kepler.tex#bpI:p6:kep-border@L94-L
 EDGE: stepI:p6:kb-hess | blueprint-I/parts/p6-kepler.tex#bpI:p6:kep-border@L98-L98 | proof step
 EDGE: stepI:p6:kb-entries | blueprint-I/parts/p6-kepler.tex#bpI:p6:kep-border@L101-L101 | proof step
 EDGE: stepI:p6:kb-det | blueprint-I/parts/p6-kepler.tex#bpI:p6:kep-border@L106-L106 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -244,9 +244,9 @@ DEPS: bpI:p6:kep-ham
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-real@L90-L90 | h_{kappa,Omega} evaluated at real points
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -273,9 +273,9 @@ ROUTE_FOR: -
 EDGE: stepI:p6:kb-real | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-grad@L95-L95 | Re h o iota agrees with phi near J0
 EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-grad@L95-L95 | frequencyMap is the real gradient of Re h o iota
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-grad@L95-L95 | the Hamiltonian h
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -296,13 +296,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p6:kb-grad, bpI:p0:realham#frequencyMap
+DEPS: stepI:p6:kb-grad, bpI:p0:realham#frequencyMap, bpI:p6:kep-ham
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p6:kb-grad | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-hess@L98-L98 | frequencyMap h = g on the open set V, so derivatives agree
 EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-hess@L98-L98 | frequencyMap h
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-hess@L98-L99 | h or h~ is the Hamiltonian fixed by the Kepler package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -324,15 +325,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p0:bordered#borderedHessian, stepI:p6:kb-hess, stepI:p6:kb-grad, bpI:p0:keplerborder#keplerBorder
+DEPS: bpI:p0:bordered#borderedHessian, stepI:p6:kb-hess, stepI:p6:kb-grad, bpI:p0:keplerborder#keplerBorder, bpI:p6:kep-ham
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L101-L101 | definition of the bordered Hessian: block, border and corner entries
 EDGE: stepI:p6:kb-hess | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L102-L102 | the Hessian block Dg(I)
 EDGE: stepI:p6:kb-grad | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L102-L102 | the border entries g(I)_a
 EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L103-L103 | entrywise comparison with keplerBorder at L = I_1
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L101-L104 | h or h~ is the Hamiltonian fixed by the Kepler package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -354,14 +356,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p6:kb-entries, bpI:p6:det-formula, bpI:p0:bordered#borderedHessian
+DEPS: stepI:p6:kb-entries, bpI:p6:det-formula, bpI:p0:bordered#borderedHessian, bpI:p6:kep-ham
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p6:kb-entries | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L106-L106 | borderedHessian h I = reindex K
 EDGE: bpI:p6:det-formula | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L107-L107 | value of det K at L = I_1 > 0
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L106-L106 | determinant of the frozen bordered Hessian
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L106-L107 | h or h~ is the Hamiltonian fixed by the Kepler package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -386,9 +389,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -403,7 +406,7 @@ CONTRACT_ID: bpI:p6:conversion
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: kappa, Omega in R; kappa' = kappa (2 pi)^2, Omega' = Omega/(2 pi); (a) H differentiable; (b) I in C^2 with I_1 != 0; (c),(d) I in R^2 with I_1 > 0
 SOURCE_QUANTIFIERS: kappa, Omega first (then kappa', Omega'), then H or I
-SOURCE_CONCLUSION: (a) D S^T J D S = J = D S J D S^T, D S X_{H o S} = X_H o S, and w solves w' = X_{H o S}(w) iff S w solves y' = X_H(y); (b) h_{kappa,Omega}(I/(2 pi)) = h_{kappa',Omega'}(I), so h~ is the Kepler-rotation Hamiltonian of the converted constants, holomorphic on {I_1 != 0}, real at real I; (c) grad h~(I) = (kappa'/I_1^3, -Omega') = (1/(2 pi)) grad h_{kappa,Omega}(I/(2 pi)); (d) K_{kappa',Omega'}(I_1) = D K_{kappa,Omega}(I_1/(2 pi)) D with D = diag(1/(2 pi), 1/(2 pi), 1), borderedHessian h~ I = reindex K_{kappa',Omega'}(I_1), det = 3 kappa' Omega'^2 / I_1^4 = 3 kappa Omega^2 / I_1^4
+SOURCE_CONCLUSION: (a) D S^T J D S = J = D S J D S^T, D S X_{H o S} = X_H o S, and w solves w' = X_{H o S}(w) iff S w solves y' = X_H(y); (b) h_{kappa,Omega}(I/(2 pi)) = h_{kappa',Omega'}(I), so h~ is the Kepler-rotation Hamiltonian of the converted constants, holomorphic on {I_1 != 0}, real at real I; (c) grad h~(I) = (kappa'/I_1^3, -Omega') = (1/(2 pi)) grad h_{kappa,Omega}(I/(2 pi)); (d) K_{kappa',Omega'}(I_1) = D K_{kappa,Omega}(I_1/(2 pi)) D with D = diag(1/(2 pi), 1/(2 pi), 1), borderedHessian h~ I = reindex K_{kappa',Omega'}(I_1), det = 3 kappa' Omega'^2 / I_1^4 = 3 kappa Omega^2 / I_1^4; for kappa = Omega = 1, kappa' = (2pi)^2 > 0, Omega' = 1/(2pi) > 0 and det borderedHessian h~ I = 3/I_1^4 > 0 for real I_1 > 0
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -420,7 +423,7 @@ EDGE: stepI:p6:cv-sympl | blueprint-I/parts/p6-kepler.tex#bpI:p6:conversion@L143
 EDGE: stepI:p6:cv-ham | blueprint-I/parts/p6-kepler.tex#bpI:p6:conversion@L149-L149 | proof of (b)
 EDGE: stepI:p6:cv-border | blueprint-I/parts/p6-kepler.tex#bpI:p6:conversion@L151-L151 | proof of (c) and (d)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -446,9 +449,9 @@ DEPS: bpI:p6:conversion-map
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-sympl@L143-L143 | D S of the conversion map
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -474,9 +477,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-ham@L149-L149 | h_{kappa,Omega} at I/(2 pi) and h_{kappa',Omega'} at I
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-ham@L149-L149 | the substitution I -> I/(2 pi) is the action part of S
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -506,9 +509,9 @@ EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-border@L151-L
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-border@L151-L151 | chain rule for I -> I/(2 pi)
 EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-border@L153-L153 | entries of K_{kappa',Omega'}(I_1)
 EDGE: bpI:p6:det-formula | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-border@L154-L154 | det K_{kappa,Omega}(L) at L = I_1/(2 pi) gives the second value of the determinant
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -539,9 +542,9 @@ EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p6-kepler.tex#bpI:p6:n
 EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p6-kepler.tex#bpI:p6:nondeg@L158-L158 | B_{r_0} is the frozen action neighbourhood
 EDGE: stepI:p6:nd-domain | blueprint-I/parts/p6-kepler.tex#bpI:p6:nondeg@L161-L161 | proof step Domain
 EDGE: stepI:p6:nd-concl | blueprint-I/parts/p6-kepler.tex#bpI:p6:nondeg@L162-L162 | proof step Conclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -566,9 +569,9 @@ DEPS: bpI:p0:domains#actionNbhd
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-domain@L161-L161 | definition of B_{r_0}: I within r_0 of some J in B
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -589,14 +592,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p6:conversion, bpI:p6:kep-border, stepI:p6:nd-domain
+DEPS: bpI:p6:conversion, bpI:p6:kep-border, stepI:p6:nd-domain, bpI:p6:kep-ham
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p6:conversion | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162-L162 | (b),(d) with kappa = Omega = 1
 EDGE: bpI:p6:kep-border | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162-L162 | bordered Hessian determinant
 EDGE: stepI:p6:nd-domain | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162-L162 | I_1 != 0 (and > 0 for real I) on B_{r_0}
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162-L162 | h or h~ is the Hamiltonian fixed by the Kepler package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -621,9 +625,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -647,9 +651,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -673,9 +677,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -699,9 +703,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -725,9 +729,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -751,9 +755,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -786,9 +790,9 @@ EDGE: bpN:p3:newton-reduction | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@
 EDGE: stepI:p7:he-smooth | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L59-L59 | proof step
 EDGE: stepI:p7:he-deriv | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L61-L61 | proof step
 EDGE: stepI:p7:he-sol | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L69-L69 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -816,9 +820,9 @@ EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-smooth
 EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-smooth@L59-L59 | r_j^2 = radiusSq
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-smooth@L59-L59 | r_j = rad
 EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-smooth@L59-L59 | terms of H^R3_mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -839,7 +843,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p7:he-smooth, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:restricted#restrictedVectorField
+DEPS: stepI:p7:he-smooth, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:restricted#restrictedVectorField, bpI:p7:sec-ham#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:he-smooth | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-deriv@L61-L61 | differentiability of H^R3_mu on W_mu
@@ -847,8 +851,9 @@ EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.te
 EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-deriv@L61-L61 | a_1(mu)
 EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-deriv@L61-L61 | a_2(mu)
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-deriv@L67-L67 | the display of V_mu in Definition restricted
+EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-deriv@L61-L67 | r_j and W_mu are fixed in the section data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -870,7 +875,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p0:primaries#CollisionFree, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:restricted#restrictedVectorField, stepI:p7:he-deriv, bpN:p3:newton-reduction
+DEPS: bpI:p0:primaries#CollisionFree, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:restricted#restrictedVectorField, stepI:p7:he-deriv, bpN:p3:newton-reduction, bpI:p7:sec-ham#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | first clause of RSol_mu is collision-freeness
@@ -878,8 +883,9 @@ EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p7-delaunay.t
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | V_mu
 EDGE: stepI:p7:he-deriv | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | V_mu = X_H
 EDGE: bpN:p3:newton-reduction | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | reduction to IsSolIn
+EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | r_j and W_mu are fixed in the section data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -911,9 +917,9 @@ EDGE: stepI:p7:ke-hol | blueprint-I/parts/p7-delaunay.tex#bpI:p7:kepler-eq@L125-
 EDGE: stepI:p7:ke-a | blueprint-I/parts/p7-delaunay.tex#bpI:p7:kepler-eq@L129-L129 | proof of (a)
 EDGE: stepI:p7:ke-b | blueprint-I/parts/p7-delaunay.tex#bpI:p7:kepler-eq@L131-L131 | proof of (b)
 EDGE: stepI:p7:ke-c | blueprint-I/parts/p7-delaunay.tex#bpI:p7:kepler-eq@L133-L133 | proof of (c)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -937,9 +943,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -963,9 +969,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -993,9 +999,9 @@ EDGE: stepI:p7:ke-const | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-contr@L1
 EDGE: stepI:p7:ke-trig | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-contr@L122-L122 | bounds of Im(e sin u) and ¦cos u¦
 EDGE: K:bp:p1:ext-mvt | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-contr@L123-L123 | mean value inequality on the convex S
 EDGE: K:bp:p1:ext-banach | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-contr@L123-L123 | Banach fixed point theorem
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1024,9 +1030,9 @@ EDGE: stepI:p7:ke-const | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-hol@L126
 EDGE: stepI:p7:ke-trig | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-hol@L126-L126 | ¦sin ell¦ <= cosh y_0 for ¦Im ell¦ < y_0
 EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-hol@L125-L125 | u_m holomorphic as compositions
 EDGE: bpI:p7:x-weier | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-hol@L127-L127 | uniform limit of holomorphic functions
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1053,9 +1059,9 @@ ROUTE_FOR: -
 EDGE: stepI:p7:ke-contr | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-a@L129-L129 | u in S
 EDGE: stepI:p7:ke-trig | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-a@L129-L129 | trigonometric bounds
 EDGE: stepI:p7:ke-const | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-a@L129-L129 | e_2 cosh y_0 = vartheta_*
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1082,9 +1088,9 @@ ROUTE_FOR: -
 EDGE: stepI:p7:ke-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-b@L131-L131 | u holomorphic, so the identity can be differentiated
 EDGE: stepI:p7:ke-a | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-b@L131-L131 | 1 - e cos u != 0 to divide
 EDGE: stepI:p7:ke-contr | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-b@L131-L131 | uniqueness of the solution in S
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1105,15 +1111,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p7:ke-contr, stepI:p7:ke-hol, K:bp:p1:holomorphic-analytic, stepI:p7:ke-b
+DEPS: stepI:p7:ke-contr, stepI:p7:ke-hol, K:bp:p1:holomorphic-analytic, stepI:p7:ke-b, K:bp:p1:ext-banach, K:bp:p1:ext-mvt
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:ke-contr | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L133-L133 | uniqueness in S gives u = u_R at real points of P
 EDGE: stepI:p7:ke-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L134-L134 | u_R is the restriction of a holomorphic function
 EDGE: K:bp:p1:holomorphic-analytic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L134-L134 | holomorphic implies real-analytic
 EDGE: stepI:p7:ke-b | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L134-L134 | d_ell u_R = 1/(1 - e cos u_R)
+EDGE: K:bp:p1:ext-banach | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L133-L133 | the complete nonempty real line carries the contraction with constant abs(e) < 1
+EDGE: K:bp:p1:ext-mvt | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L133-L133 | abs(e cos u) <= abs(e) bounds the derivative on the convex real line
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1138,9 +1146,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1165,9 +1173,9 @@ DEPS: bpI:p7:kepler-eq
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps@L159-L159 | u = u(ell,e), and u = u_R on the real domain
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1195,9 +1203,9 @@ EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps-e@L
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps-e@L171-L171 | the map Q_el
 EDGE: stepI:p7:om-hol | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps-e@L176-L176 | proof step Holomorphy
 EDGE: stepI:p7:om-per | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps-e@L178-L178 | proof step Periodicity, reality
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1224,9 +1232,9 @@ ROUTE_FOR: -
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:om-hol@L176-L176 | holomorphy of u and the bound ¦1 - e cos u¦ >= 1 - vartheta_*
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:om-hol@L176-L176 | formulas for X, Y, P_X, P_Y
 EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:om-hol@L176-L176 | holomorphy of compositions, R(g) entire, principal square root
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1252,9 +1260,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:om-per@L178-L178 | (b) periodicity of u, (c) reality of u
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:om-per@L178-L178 | R is 2pi-periodic and the formulas are real at real arguments
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1284,9 +1292,9 @@ EDGE: stepI:p7:oi-r | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-identities@
 EDGE: stepI:p7:oi-gam | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-identities@L197-L197 | proof of (b)
 EDGE: stepI:p7:oi-en | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-identities@L200-L200 | proof of (c)
 EDGE: stepI:p7:oi-d | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-identities@L202-L202 | proof of (d)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1311,9 +1319,9 @@ DEPS: bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-r@L194-L194 | X, Y, P_X, P_Y, D >= 1 - e > 0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1326,7 +1334,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-gam@L197-L198
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-gam@L197-L198
 CONTRACT_ID: stepI:p7:oi-gam
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: rotations preserve Gamma and q.p; step oi-r
+SOURCE_HYPOTHESES: (ell,g,L,G) in D_R; orbit-map formulas with k = G/L, k^2 = 1-e^2; rotations preserve angular momentum and the dot product
 SOURCE_QUANTIFIERS: as in the enclosing result
 SOURCE_CONCLUSION: Gamma = X P_Y - Y P_X = L k = G and q.p = X P_X + Y P_Y = L e s
 CONSTANT_SCOPE: none
@@ -1339,7 +1347,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-gam@L197-L197 | X, Y, P_X, P_Y
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1361,14 +1369,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p7:oi-r, bpI:p7:elements, bpI:p7:orbit-maps
+DEPS: stepI:p7:oi-r, bpI:p7:elements, bpI:p7:orbit-maps, stepI:p7:oi-gam
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:oi-r | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L200 | r and ¦p¦^2
 EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L200 | membership in C (G > 0, G^2 < L^2 = -1/(2E)) and the elements
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L200 | p and q of the orbit map
+EDGE: stepI:p7:oi-gam | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L200 | Gamma(q,p) = G is needed for the strict angular-momentum inequality and recovery of the elements
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1390,12 +1399,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p7:oi-r
+DEPS: stepI:p7:oi-r, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:oi-r | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-d@L202-L202 | r = L^2 (1 - e c)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-d@L202-L202 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1426,9 +1436,9 @@ EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L2
 EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L232-L232 | proof step
 EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L234-L234 | proof step
 EDGE: stepI:p7:sy-field | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L237-L237 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1454,9 +1464,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L217-L217 | xi, pi and the rotation form of q, p
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L218-L218 | (b): Gamma = X P_Y - Y P_X = G
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1482,9 +1492,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L220 | X, Y, P_X, P_Y
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L220 | d_ell u > 0 and u = u_R: (ell,L,G) -> (u,L,e) is a diffeomorphism
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1505,14 +1515,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p7:sy-g, stepI:p7:sy-coord, bpI:p7:kepler-eq
+DEPS: stepI:p7:sy-g, stepI:p7:sy-coord, bpI:p7:kepler-eq, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:sy-g | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | p.dq = pi.dxi + G dg
 EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | pi.dxi
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | ell = u - e sin u relates dell to du, de
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1526,7 +1537,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
 CONTRACT_ID: stepI:p7:sy-ext
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: step sy-compare; M^T J M = J with M invertible
+SOURCE_HYPOTHESES: on D_R; the one-form identity established by sy-compare; exterior calculus from x-forms (no invertibility premise)
 SOURCE_QUANTIFIERS: as in the enclosing result
 SOURCE_CONCLUSION: Q^*(sum dp_i wedge dq_i) = dL wedge dell + dG wedge dg, i.e. D Q^T J D Q = J, det D Q != 0, D Q J D Q^T = J
 CONSTANT_SCOPE: none
@@ -1534,13 +1545,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p7:sy-compare, bpI:p7:x-forms
+DEPS: stepI:p7:sy-compare, bpI:p7:x-forms, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L234 | Q^*(sum p_i dq_i) = L dell + G dg + dF
 EDGE: bpI:p7:x-forms | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L234 | d^2 = 0, pull-back commutes with d, form determined by values on vectors
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1562,12 +1574,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p7:sy-ext
+DEPS: stepI:p7:sy-ext, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237 | D Q J D Q^T = J
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1602,9 +1615,9 @@ EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L250-L2
 EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L254-L254 | proof step
 EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L256-L256 | proof step
 EDGE: stepI:p7:ch-diffeo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L258-L258 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1617,7 +1630,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246
 CONTRACT_ID: stepI:p7:ch-reg
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: e(L,G) real-analytic on C_0
+SOURCE_HYPOTHESES: (ell,g,L,G) in D_R, so 0 < G < L and 1-G^2/L^2 > 0; e(L,G) = sqrt(1-G^2/L^2)
 SOURCE_QUANTIFIERS: as in the enclosing result
 SOURCE_CONCLUSION: Q is real-analytic on D_R; D Q invertible; Q(D_R) subset C
 CONSTANT_SCOPE: none
@@ -1633,7 +1646,7 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246
 EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | invertibility of D Q
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | (c): Q(D_R) subset C
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1661,9 +1674,9 @@ ROUTE_FOR: -
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248 | L = 1/sqrt(-2E), G = Gamma, cos u = (1 - r/L^2)/e, sin u = q.p/(L e)
 EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248 | elements of (q,p)
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248 | X, Y and q = R(g)(X,Y)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1688,9 +1701,9 @@ DEPS: bpI:p7:elements
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L250-L250 | definition of L, G, e on C
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1717,9 +1730,9 @@ ROUTE_FOR: -
 EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254 | relation (*)
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254 | (c): u = u_R(ell,e) by uniqueness
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254 | X, Y, D
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1746,9 +1759,9 @@ ROUTE_FOR: -
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256 | (b),(c): E, Gamma and q.p of Q
 EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256 | the chosen (ell,g,L,G)
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256 | Q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1769,7 +1782,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:kepler-eq, stepI:p7:ch-reg, stepI:p7:ch-inj, stepI:p7:ch-surj3, bpI:p7:x-ift
+DEPS: bpI:p7:kepler-eq, stepI:p7:ch-reg, stepI:p7:ch-inj, stepI:p7:ch-surj3, bpI:p7:x-ift, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | (b): periodicity of u
@@ -1777,8 +1790,9 @@ EDGE: stepI:p7:ch-reg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L25
 EDGE: stepI:p7:ch-inj | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | injectivity modulo 2pi
 EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | surjectivity
 EDGE: bpI:p7:x-ift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | bijective local real-analytic diffeomorphism is a diffeomorphism
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a
+EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1809,9 +1823,9 @@ EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-h
 EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-ham#data@L48-L48 | a_2(mu)
 EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-ham#data@L49-L49 | H^R3_mu on W_mu
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-ham#data@L49-L49 | V_mu on W_mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

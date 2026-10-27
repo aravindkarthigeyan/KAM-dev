@@ -3,45 +3,45 @@ KIND: external
 SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:x-topo@L28-L31
 DISPOSITION: NODE bpI:p8:x-topo
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: bpI:p8:x-norm
 KIND: external
 SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:x-norm@L32-L32
 DISPOSITION: NODE bpI:p8:x-norm
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: bpI:p8:x-cont
 KIND: external
 SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:x-cont@L33-L33
 DISPOSITION: NODE bpI:p8:x-cont
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: bpI:p8:A
 KIND: definition
 SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:A@L49-L59
 DISPOSITION: NODE bpI:p8:A
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: bpI:p8:topology
 KIND: proposition
 SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:topology@L61-L72
 DISPOSITION: NODE bpI:p8:topology
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: stepI:p8:tp-A
 KIND: proof-region
@@ -84,9 +84,9 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:collision-exclusion@L86-L98
 DISPOSITION: NODE bpI:p8:collision-exclusion
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: stepI:p8:ce-quant
 KIND: proof-region
@@ -111,9 +111,9 @@ KIND: corollary
 SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:shell-exclusion@L105-L112
 DISPOSITION: NODE bpI:p8:shell-exclusion
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: stepI:p8:se-inst
 KIND: proof-region
@@ -165,9 +165,9 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe-region@L149-L159
 DISPOSITION: NODE bpI:p8:safe-region
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: stepI:p8:sr-incl
 KIND: proof-region
@@ -255,9 +255,9 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:bounds@L204-L207
 DISPOSITION: NODE bpI:p8:bounds
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 
 ITEM: stepI:p8:bd-r
 KIND: proof-region
@@ -334,8 +334,8 @@ REVIEWER: -
 ITEM: stepI:p8:pf-uniq
 KIND: proof-region
 SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L231
-DISPOSITION: NODE stepI:p8:pf-uniq
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE stepI:p8:pf-uniq, bpI:p0:r3bp
+REASON: L229 is physical arbitrary-interval uniqueness; L231 gathers all six conclusions at the frozen root, whose direct inputs already include topology, constants and every pf-* step
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p8
 REVIEWER: -

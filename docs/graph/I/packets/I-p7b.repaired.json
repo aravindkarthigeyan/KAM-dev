@@ -1,0 +1,42 @@
+{
+ "replaced": [
+  "bpI:p7:h0",
+  "stepI:p7:h0-formula",
+  "bpI:p7:sec-complex#data",
+  "stepI:p7:cd-uc",
+  "stepI:p7:eh-delta",
+  "stepI:p7:sh-div",
+  "stepI:p7:eh-hol",
+  "stepI:p7:po-prop",
+  "bpI:p7:nondeg",
+  "stepI:p7:nd-dom",
+  "stepI:p7:nd-det",
+  "bpI:p7:transfer",
+  "stepI:p7:tr-cf",
+  "stepI:p7:tr-open",
+  "stepI:p7:tr-chain",
+  "stepI:p7:eh-shell",
+  "stepI:p7:eh-exact",
+  "stepI:p7:po-exact",
+  "bpI:p7:period-one"
+ ],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
+  "bpI:p7:near-circular",
+  "stepI:p7:nc-sub",
+  "stepI:p7:nc-sup",
+  "stepI:p7:nc-image",
+  "bpI:p7:complex-domain",
+  "stepI:p7:cd-branch",
+  "bpI:p7:shift-def",
+  "bpI:p7:shift",
+  "stepI:p7:sh-pos",
+  "stepI:p7:sh-bound",
+  "stepI:p7:sh-zero",
+  "stepI:p7:sh-real",
+  "bpI:p7:exact-ham",
+  "stepI:p7:po-dom"
+ ]
+}
