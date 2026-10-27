@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 19.0 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:01 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 19.0 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:00 UTC from `main` at `f9ec180` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:01 UTC from `main` at `fa15db5` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -276,6 +276,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:01 | `fa15db5` | Record D19: owner rulings on track I questions 1-5, as recommended |
 | 2026-10-27 15:56 | `4df9d8c` | Track I Phase 0: sources, statement draft, notes; statement audit running |
 | 2026-10-27 15:54 | `388f8c1` | Track P Phase 0: sources, statement draft, notes; statement audit running |
 | 2026-10-27 15:53 | `dfd5e62` | Record D18: owner rulings on track N questions 2-6, as recommended |
@@ -287,7 +288,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:33 | `544042a` | Plan four parallel tracks; add Zohar Komargodski as author; pin new sources |
 | 2026-10-27 15:26 | `725e81c` | Start Phase 1: blueprint skeleton, package board, Diophantine bridge |
 | 2026-10-27 15:20 | `83b6e08` | HQ: credit the collaborator's Fourier and Diophantine infrastructure |
-| 2026-10-27 15:19 | `1f4bdd2` | HQ updater: merge collaborators' pushes to main before regenerating |
 <!-- /AUTO:landed -->
 
 ## Decisions
