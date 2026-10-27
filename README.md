@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 22:55 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **31,879 lines of Lean** of an estimated ≈ 222,000
+> **Last updated: 2026-10-27 22:56 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.2 %** · frozen statements proved: 4 / 22 · **31,879 lines of Lean** of an estimated ≈ 222,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 22:55 UTC from `main` at `5895584` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 22:56 UTC from `main` at `abb8a23` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 22:56 | `abb8a23` | Briefs for P4-7, P4-9 |
 | 2026-10-27 22:55 | `5895584` | Brief for P2-14 (G1 provider) |
 | 2026-10-27 22:52 | `5d10d4c` | P3-3 (difference equation), P2-9 (Newton error), P3-4 (quadratic), P4-8 (Lagrangian) landed; lag-regular BYPASSED (route) |
 | 2026-10-27 22:51 | `1a5e851` | Land k/p4-8 into main |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 22:39 | `dc1230f` | Land k/p2-8b into main |
 | 2026-10-27 22:38 | `1e50c58` | OVERNIGHT: track K decisions 22:10–22:45 |
 | 2026-10-27 22:37 | `ba52564` | Brief for P3-5 (G2 provider) |
-| 2026-10-27 22:35 | `8c68b90` | Brief for P2-12 |
 <!-- /AUTO:landed -->
 
 ## Decisions
