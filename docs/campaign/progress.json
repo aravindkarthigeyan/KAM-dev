@@ -6,7 +6,7 @@
   "H": 4,
   "VH": 8
  },
- "reviewed": "2026-10-27 14:45 UTC",
+ "reviewed": "2026-10-27 15:15 UTC",
  "items": [
   {
    "group": "Statement and planning",
@@ -37,16 +37,16 @@
    "id": "S.STMT",
    "title": "Mathematical statement of the headline theorem and the gate theorems, with owner rulings",
    "difficulty": "M",
-   "done": 0.7,
-   "note": "docs/statement.md draft 0.1; rulings Q1–Q5 in"
+   "done": 0.9,
+   "note": "docs/statement.md draft 0.2"
   },
   {
    "group": "Statement and planning",
    "id": "S.LEAN",
    "title": "Exact Lean statements (headline + gates): independent audit, owner approval, freeze",
    "difficulty": "H",
-   "done": 0.3,
-   "note": "exact drafts elaborate (5 theorems, 19 definitions); independent audit running"
+   "done": 0.6,
+   "note": "drafts v0.2 audited approvable (v0.1 G1 refuted in Lean, fixed); awaiting owner approval"
   },
   {
    "group": "Statement and planning",

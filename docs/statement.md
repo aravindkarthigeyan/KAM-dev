@@ -1,4 +1,4 @@
-# Statements (draft 0.1)
+# Statements (draft 0.2)
 
 The mathematical statements to be frozen, with their sources and quantifier orders, following the owner's
 rulings D1, D2, D8 and D9. This is planning evidence. What the owner approves is the exact Lean text drafted from
@@ -70,7 +70,8 @@ G = I, J = Ω₀ (Rem. 3.3, Case III: A = 0) and primary tori (Rem. 2.3).
 - T(θ) = N(θ)ᵀ Ω₀ X_N(θ), and ⟨T⟩ its average over [0,1]ⁿ;
 - E(θ) = X_h(K(θ)) − DK(θ)ω.
 
-**Parameters**, fixed first: n ≥ 2, τ ≥ n − 1, 0 < ρ∞ < ρ, and the bounds M, σ_K, σ_B, σ_T > 0 and margin μ > 0.
+**Parameters**, fixed first: n ≥ 2, τ ≥ n − 1, 0 < ρ∞ < ρ, the bounds M, σ_K, σ_B, σ_T > 0, a margin μ > 0, and an upper
+bound γ̄ > 0 for γ.
 
 **Constants.** There are C₁, C₂ > 0 depending only on the parameters such that the following holds.
 
@@ -81,19 +82,20 @@ G = I, J = Ω₀ (Rem. 3.3, Case III: A = 0) and primary tori (Rem. 2.3).
   θ ∈ T_ρ, and |DK| ≤ σ_K − μ on T_ρ.
 - **H3.** L(θ)ᵀL(θ) is invertible and |B(θ)| ≤ σ_B − μ on T_ρ.
 - **H4.** ⟨T⟩ is invertible and |⟨T⟩⁻¹| ≤ σ_T − μ.
-- **H5.** ω ∈ D_{γ,τ} with γ > 0.
+- **H5.** ω ∈ D_{γ,τ} with 0 < γ ≤ γ̄.
 - **Error.** |E(θ)| ≤ e on T_ρ, and C₁·e/(γ⁴ρ^{4τ}) < 1.
 
 **Conclusion.** There is K∞ with:
 - K∞ holomorphic on T_{ρ∞}, a primary torus, and real on real θ;
 - invariant with frequency ω: X_h(K∞(θ)) = DK∞(θ)ω on T_{ρ∞};
-- K∞(T_{ρ∞}) ⊂ 𝔅 and |DK∞| < σ_K on T_{ρ∞};
+- the (μ/2)-ball around K∞(θ) lies in 𝔅, and |DK∞| ≤ σ_K − μ/2, on T_{ρ∞};
 - close to K: |K∞ − K| ≤ C₂·e/(γ²ρ^{2τ}) on T_{ρ∞}.
 
 **Quantifier order.** Parameters; ∃ C₁, C₂; ∀ 𝔅, h, K, ω, γ, e. In HL19 the constants of Appendix B depend on the
 actual norms through the gaps σ − |·| and on dist(K(T_ρ), ∂𝔅), and slightly on γ through factors that increase
 with γ. Read literally, "∃ C₁" chosen after K would make the statement vacuous. The margin μ makes the source's
-dependence explicit and uniform: ledger D-G1-1.
+dependence explicit and uniform: ledger D-G1-1. App. B's constants also increase with γ. Without the bound γ ≤ γ̄ the
+statement is false: the 2026-10-27 audit gave a counterexample, checked in Lean, with h = ½|I|², K = (θ, 0) and γ → ∞.
 
 **Not transcribed.**
 - The estimate on ⟨c∘K∞⟩ for first integrals c (HL19 (3.11), first part).

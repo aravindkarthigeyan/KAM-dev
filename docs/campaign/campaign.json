@@ -1,5 +1,5 @@
 {
- "current_phase": "Phase 0: statements. Owner rulings Q1–Q5 recorded (D9); mathematical statement draft 0.1 in docs/statement.md; exact Lean drafts of the headline (rate and qualitative), G1 (a-posteriori), G2 (local uniqueness for flows), G3 (Diophantine measure) and 19 definitions elaborate against Mathlib; independent refute-first statement audit running; then owner approval and freeze.",
+ "current_phase": "Phase 0: statements. Exact Lean drafts v0.2 of the headline (rate and qualitative), G1 (a-posteriori), G2 (local uniqueness for flows), G3 (Diophantine measure) and 20 definitions passed the independent audit (v0.1 G1 was false without a bound on γ; fixed). Waiting for owner approval on the review page; then freeze. A Codex exploration of the collaborator's planetary/Nekhoroshev suggestions runs in parallel.",
  "workers": [
   {
    "id": "orchestrator",
@@ -11,18 +11,18 @@
    "state": "active"
   },
   {
-   "id": "statement-audit",
-   "kind": "audit subagent",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1",
-   "session": null,
-   "assignment": "Refute-first audit of the drafted Lean statements against HL19, Pos01, GJLV05 and the rulings",
+   "id": "zohar-exploration",
+   "kind": "exploration (Codex)",
+   "model": "GPT-6-Astra high",
+   "account": "codex-1",
+   "session": "kam-zohar",
+   "assignment": "Planetary KAM, open-region stability (2 DOF, Nekhoroshev) and follow-up headline candidates, from the collaborator's comments",
    "state": "running"
   }
  ],
  "queued": [
   {
-   "title": "Owner approval of the exact Lean statements, then freeze (manifest, DRAFT_SORRY anchors)"
+   "title": "Owner approval of the exact Lean statements v0.2, then freeze (manifest, DRAFT_SORRY anchors)"
   }
  ],
  "graph": {

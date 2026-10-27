@@ -56,6 +56,12 @@ convention, the content of "invariant torus" and the gate theorems.
   rotation, by ODE uniqueness, since t ↦ K(θ + tω) solves ż = X_H(z).
 - **Strip losses.** Three nested levels (existence, re-application, uniqueness), e.g. ρ → ρ/2 → ρ/4 → ρ/8.
 
+### Planned provider node (audit F3)
+
+STAB: stability of H2–H4 under C⁰-small holomorphic perturbations on T_ρ → T_{ρ′}. The bounds on DK, the Gram
+inverse B and the twist ⟨T⟩⁻¹ follow from closeness by Cauchy estimates (D²K enters through DN[ω]) and Neumann
+series. LIP and UNIQ need it, because they re-apply G1 and G2 at tori that G1 produced.
+
 ## 3. Framework
 
 Weighted norms, with |k| = |k|₁:

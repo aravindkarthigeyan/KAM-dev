@@ -180,6 +180,42 @@
    "kind": "proof supplement",
    "status": "PLANNED",
    "effect": "explicit constants of our own"
+  },
+  {
+   "id": "E-HL19-1",
+   "type": "erratum",
+   "source": "HL19",
+   "location": "p. 18, (3.11)",
+   "printed": "‖K∞ − K‖_{ρ∞} < C₂‖E‖_ρ/(γ²ρ^{2τ})",
+   "claim": "the strict inequality is false when E = 0, where it would require ‖K∞ − K‖ < 0; it should read ≤",
+   "kind": "typo",
+   "evidence": "with E = 0 the bound reads ‖K∞ − K‖ < 0, which no K∞ satisfies",
+   "status": "CANDIDATE",
+   "checked_by": "statement audit 2026-10-27 (to be re-verified by writer and verifier)",
+   "effect": "none; G1 uses ≤"
+  },
+  {
+   "id": "E-HL19-2",
+   "type": "erratum",
+   "source": "HL19",
+   "location": "p. 42, (5.66)",
+   "printed": "denominator σ_B − ‖B‖",
+   "claim": "in the estimate for the twist term the denominator should be σ_T − |⟨T⟩⁻¹|",
+   "kind": "typo",
+   "evidence": "the left side of the same display (5.66) has σ_T − |⟨T⟩⁻¹|",
+   "status": "CANDIDATE",
+   "checked_by": "statement audit 2026-10-27 (to be re-verified)",
+   "effect": "none on the statements"
+  },
+  {
+   "id": "D-G1-1",
+   "type": "deviation",
+   "source": "HL19",
+   "location": "Theorem 3.1, pp. 16–18; App. B (5.74)–(5.77)",
+   "claim": "Uniform constants: C₁, C₂ depend only on n, τ, ρ, ρ∞, a bound M for the Hamiltonian's derivatives, σK, σB, σT, a margin μ (gaps σ − ‖·‖ and distance to the boundary) and an upper bound γbar ≥ γ (App. B's constants increase with γ; without γbar the statement is false: machine-checked counterexample). Dropped hypotheses implied up to 2n factors: σ_{Kᵀ}, c_{X_hᵀ,1}; first integrals and the estimate on ⟨c∘K∞⟩ not transcribed. Pointwise operator norms on the open strip instead of sums of sups on the closed strip. Conclusion strengthened to explicit margins (μ/2) and ≤ in the closeness bound (cf. E-HL19-1). Same uniformization in our G2, where no γbar is needed: invariance with H2–H3 bounds |ω|, hence γ",
+   "kind": "reformulation (uniform constants)",
+   "status": "PLANNED",
+   "effect": "G1 as drafted v0.2; G2"
   }
  ]
 }
