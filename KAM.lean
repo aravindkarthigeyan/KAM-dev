@@ -165,6 +165,7 @@ public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
+public import KAM.Head.Parameters
 public import KAM.Head.PhaseAverage
 public import KAM.Head.Shift
 public import KAM.Head.Standing
