@@ -1201,9 +1201,9 @@ EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:cohomol
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.cohomological (Zohar's KAM/Strip/Cohomological.lean + node assembly)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:coh-data
@@ -1462,9 +1462,9 @@ EDGE: bp:p1:cohomological | blueprint/parts/p1-analysis.tex#bp:p1:cohomological-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.cohomological_operator, KAM.cohomological_apriori_operator, KAM.cohSolutionMat
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/I-STRIP-3b-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p1:coo-entries
