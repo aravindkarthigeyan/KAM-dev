@@ -22,7 +22,7 @@ nothing here depends on `h`, `f` or `ε` except the ball inclusion (g).
 * (a) `KAM.Head.differentiable_unperturbedTorus`, `KAM.Head.isPrimaryOnStrip_unperturbedTorus`,
   `KAM.Head.isRealOnReals_unperturbedTorus`, `KAM.Head.tangentMat_unperturbedTorus`,
   `KAM.Head.norm_fderiv_unperturbedTorus`.
-* (b) `KAM.Head.gramMatrix_unperturbedTorus`, `KAM.Head.norm_one_matrix`.
+* (b) `KAM.Head.gramMatrix_unperturbedTorus`, `KAM.Head.unperturbed_norm_one`.
 * (c) `KAM.Head.normalFrame_unperturbedTorus`, `KAM.Head.normalMat_unperturbedTorus`,
   `KAM.Head.fderiv_normalFrame_unperturbedTorus`.
 * (g) `KAM.Head.ball_unperturbedTorus_subset_domainD`.
@@ -84,7 +84,7 @@ theorem gramMatrix_unperturbedTorus (I : Fin n → ℝ) (θ : Fin n → ℂ) :
   simp [gramMatrix, fderiv_unperturbedTorus, dotℂ, Matrix.one_apply, Pi.single_apply, eq_comm]
 
 /-- `‖Id‖ = 1` in the row-sum norm, for `n ≥ 1`. -/
-theorem norm_one_matrix (hn : 0 < n) : ‖(1 : Matrix (Fin n) (Fin n) ℂ)‖ = 1 := by
+theorem unperturbed_norm_one (hn : 0 < n) : ‖(1 : Matrix (Fin n) (Fin n) ℂ)‖ = 1 := by
   have : Nonempty (Fin n) := ⟨⟨0, hn⟩⟩
   exact norm_one
 
@@ -111,10 +111,6 @@ theorem fderiv_normalFrame_unperturbedTorus (I : Fin n → ℝ) (θ : Fin n → 
 
 /-! ### Item (g): the ball around `K⁰` -/
 
-/-- `δ_* ≤ s/4`. -/
-theorem deltaStar_le_stripWidth_quarter (s₀ r₀ : ℝ) : deltaStar s₀ r₀ ≤ stripWidth s₀ / 4 :=
-  deltaStar_le_stripWidth_div s₀ r₀
-
 /-- Blueprint `bp:p4:unperturbed` (g): for `θ ∈ T_{s/4}` and `I_* ∈ B`, the open ball of radius
 `δ_*` around `K⁰(θ)` lies in `𝔇`. -/
 theorem ball_unperturbedTorus_subset_domainD {s₀ r₀ : ℝ} (hr₀ : 0 < r₀) {B : Set (Fin n → ℝ)}
@@ -131,7 +127,7 @@ theorem ball_unperturbedTorus_subset_domainD {s₀ r₀ : ℝ} (hr₀ : 0 < r₀
       have := Complex.abs_im_le_norm (w.1 i - θ i)
       simpa using this.trans_lt h1
     have h3 := hθ i
-    have h4 := deltaStar_le_stripWidth_quarter s₀ r₀
+    have h4 := deltaStar_le_stripWidth_div s₀ r₀
     have h5 : |(w.1 i).im| ≤ |(θ i).im| + |(w.1 i).im - (θ i).im| := by
       calc |(w.1 i).im| = |(θ i).im + ((w.1 i).im - (θ i).im)| := by ring_nf
         _ ≤ _ := abs_add_le _ _

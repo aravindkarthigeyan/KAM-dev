@@ -48,7 +48,7 @@ theorem h1_differentiableOn (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀
   have hr := hD.r₀_pos
   have h1 : DifferentiableOn ℂ (fun z : (Fin n → ℂ) × (Fin n → ℂ) => h z.2)
       (domainD n s₀ r₀ B) :=
-    hD.holo.comp differentiableOn_snd fun z hz => actionNbhd_mono B (by linarith) hz.2
+    hD.holo.comp differentiableOn_snd fun z hz => actionNbhd_mono B (half_le_self hr.le) hz.2
   exact h1.add (hP.holo.mono (h1_domainD_subset_domain n hD.s₀_pos hr B))
 
 /-- Step `step:p4:h1-holo`: `𝐡` is `ℤⁿ`-periodic in `θ` on `𝔇`. -/
@@ -65,7 +65,7 @@ theorem h1_im_eq_zero (hD : Data τ s₀ r₀ B h Lh) (hP : Pert s₀ r₀ B f �
     (hz : ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ))) ∈ domainD n s₀ r₀ B) :
     (hbold h f ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ)))).im = 0 := by
   have hr := hD.r₀_pos
-  have hI : (fun i => (I i : ℂ)) ∈ actionNbhd B r₀ := actionNbhd_mono B (by linarith) hz.2
+  have hI : (fun i => (I i : ℂ)) ∈ actionNbhd B r₀ := actionNbhd_mono B (half_le_self hr.le) hz.2
   have hz' := h1_domainD_subset_domain n hD.s₀_pos hr B hz
   simp only [hbold, Complex.add_im]
   rw [hD.real I hI, hP.real θ I hz', add_zero]
