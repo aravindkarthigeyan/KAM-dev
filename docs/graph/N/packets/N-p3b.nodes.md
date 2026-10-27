@@ -5,24 +5,25 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L328-
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L342-L350
 CONTRACT_ID: bpN:p3:gen-exit
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: IsSolIn F W J z with J an interval, 0 ∈ J; V ⊂ E open; z(0) ∈ V; A = {t ∈ J : t ≥ 0, z(t) ∉ V}; only continuity of z on J is used (F and W play no role)
+SOURCE_QUANTIFIERS: E; F; W; J; z; V; A
+SOURCE_CONCLUSION: exactly one of: (i) A = ∅, i.e. z(t) ∈ V for all t ∈ J, t ≥ 0; (ii) t* = min A exists, t* > 0, t* ∈ J, z(t) ∈ V on [0,t*), z(t*) ∈ ∂V = V̄∖V, and t* = sup{t ∈ J : t ≥ 0, z([0,t]) ⊂ V}; the same backwards in time
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:exit-closed, stepN:p3:exit-min, stepN:p3:exit-bdry, stepN:p3:exit-sup, bpN:p3:gen-symmetry
+DEPS: bpN:p3:gen-sol, bpN:p3:gen-symmetry, stepN:p3:exit-closed, stepN:p3:exit-min, stepN:p3:exit-bdry, stepN:p3:exit-sup
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:exit-closed | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L343-L343 | proof step of this result
-EDGE: stepN:p3:exit-min | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L345-L345 | proof step of this result
-EDGE: stepN:p3:exit-bdry | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L347-L347 | proof step of this result
-EDGE: stepN:p3:exit-sup | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L349-L349 | proof step of this result
-EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L338-L338 | cited at this line (statement; \ref{bpN:p3:gen-symmetry})
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L329-L329 | hypothesis IsSolIn F W J z
+EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L340-L340 | backwards in time via z(−t) (gen-symmetry(b))
+EDGE: stepN:p3:exit-closed | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L343-L343 | A closed
+EDGE: stepN:p3:exit-min | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L345-L345 | t* = min A
+EDGE: stepN:p3:exit-bdry | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L347-L347 | boundary point
+EDGE: stepN:p3:exit-sup | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L349-L349 | supremum formula
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -36,19 +37,20 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-closed@
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-closed@L343-L343
 CONTRACT_ID: stepN:p3:exit-closed
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: z continuous on J; E∖V closed
+SOURCE_QUANTIFIERS: A
+SOURCE_CONCLUSION: A is closed in J ∩ [0,∞)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpN:p3:gen-sol#consequences
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-closed@L343-L343 | z continuous on J (consequence (ii))
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -62,19 +64,20 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-min@L34
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-min@L345-L345
 CONTRACT_ID: stepN:p3:exit-min
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: A ≠ ∅; A closed (exit-closed); J an interval containing 0; z(0) ∈ V
+SOURCE_QUANTIFIERS: t* = inf A
+SOURCE_CONCLUSION: t* ∈ J, t* ∈ A, so z(t*) ∉ V, and t* > 0
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepN:p3:exit-closed
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepN:p3:exit-closed | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-min@L345-L345 | by closedness t* ∈ A
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -88,19 +91,21 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-bdry@L3
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-bdry@L347-L347
 CONTRACT_ID: stepN:p3:exit-bdry
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: t* from exit-min; z continuous; V open
+SOURCE_QUANTIFIERS: t ∈ [0,t*)
+SOURCE_CONCLUSION: z(t) ∈ V on [0,t*) and z(t*) ∈ V̄∖V = ∂V
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepN:p3:exit-min, bpN:p3:gen-sol#consequences
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepN:p3:exit-min | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-bdry@L347-L347 | t* and z(t*) ∉ V
+EDGE: bpN:p3:gen-sol#consequences | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-bdry@L347-L347 | continuity of z at t*
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -114,129 +119,21 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-sup@L34
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-sup@L349-L349
 CONTRACT_ID: stepN:p3:exit-sup
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: t* from exit-min; boundary statement of exit-bdry
+SOURCE_QUANTIFIERS: t ∈ J, t ≥ 0
+SOURCE_CONCLUSION: z([0,t]) ⊂ V iff t < t*, so the supremum equals t*
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepN:p3:exit-min, stepN:p3:exit-bdry
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepN:p3:exit-min | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-sup@L349-L349 | t* = min A
+EDGE: stepN:p3:exit-bdry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:exit-sup@L349-L349 | z(t) ∈ V on [0,t*)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bpN:p3:gen-invariant
-KIND: definition
-TITLE: Invariant sets
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-invariant@L352-L356
-PROOF_SOURCE: -
-CONTRACT_ID: bpN:p3:gen-invariant
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-uniqueness
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-invariant@L355-L355 | cited at this line (statement; \ref{bpN:p3:gen-uniqueness})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bpN:p3:gen-barrier
-KIND: corollary
-TITLE: Barrier
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-barrier@L358-L363
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-barrier@L364-L368
-CONTRACT_ID: bpN:p3:gen-barrier
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:barrier-fwd, stepN:p3:barrier-bwd, bpN:p3:ham-energy
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepN:p3:barrier-fwd | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-barrier@L365-L365 | proof step of this result
-EDGE: stepN:p3:barrier-bwd | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-barrier@L367-L367 | proof step of this result
-EDGE: bpN:p3:ham-energy | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-barrier@L361-L361 | cited at this line (statement; \ref{bpN:p3:ham-energy})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:barrier-fwd
-KIND: step
-TITLE: Forward
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-fwd@L365-L365
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-fwd@L365-L365
-CONTRACT_ID: stepN:p3:barrier-fwd
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-exit
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p3:gen-exit | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-fwd@L365-L365 | cited at this line (step; \ref{bpN:p3:gen-exit})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:barrier-bwd
-KIND: step
-TITLE: Backward
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-bwd@L367-L367
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-bwd@L367-L367
-CONTRACT_ID: stepN:p3:barrier-bwd
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:barrier-fwd
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepN:p3:barrier-fwd | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barrier-bwd@L367-L367 | cited at this line (step; \ref{stepN:p3:barrier-fwd})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -250,26 +147,27 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L37
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L382-L386
 CONTRACT_ID: bpN:p3:ham-smooth
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: P = ℝⁿ × ℝⁿ (max norm); W ⊂ P open; H : P → ℝ is C^{k+1} on W, k ≥ 0; X_H the frozen hamiltonianVectorField
+SOURCE_QUANTIFIERS: n; W; H; k
+SOURCE_CONCLUSION: X_H is C^k on W; for k ≥ 1 it is C¹ (hence locally Lipschitz) on W, and H is differentiable at every point of W
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:hs-deriv, stepN:p3:hs-comp
+DEPS: bpN:p0:vf#hamiltonianVectorField, stepN:p3:hs-deriv, stepN:p3:hs-comp
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:hs-deriv | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L383-L383 | proof step of this result
-EDGE: stepN:p3:hs-comp | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L385-L385 | proof step of this result
+EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L379-L379 | X_H is the frozen hamiltonianVectorField (Part 0 Definition vf)
+EDGE: stepN:p3:hs-deriv | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L383-L383 | DH is C^k
+EDGE: stepN:p3:hs-comp | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L385-L385 | components of X_H
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: prose-L372-L375 (phase space P, X_H, partials) is recorded here and in ham-energy, ham-periodic, ham-reduction
 
 NODE: stepN:p3:hs-deriv
 KIND: step
@@ -278,10 +176,10 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-deriv@L38
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-deriv@L383-L383
 CONTRACT_ID: stepN:p3:hs-deriv
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: H C^{k+1} on the open set W
+SOURCE_QUANTIFIERS: H; W
+SOURCE_CONCLUSION: DH : W → L(P,ℝ) is C^k on W
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -289,9 +187,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p3:ext-calc
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-deriv@L383-L383 | cited at this line (step; \ref{bpN:p3:ext-calc})
+EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-deriv@L383-L383 | ContDiffOn.fderiv_of_isOpen
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -305,19 +203,21 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-comp@L385
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-comp@L385-L385
 CONTRACT_ID: stepN:p3:hs-comp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: DH is C^k on W (hs-deriv); X_H(z) = ((DH(z)(0,e_i))_i, (−DH(z)(e_i,0))_i)
+SOURCE_QUANTIFIERS: i
+SOURCE_CONCLUSION: each coordinate of X_H is ± DH composed with a continuous linear evaluation, hence C^k, and X_H is C^k
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepN:p3:hs-deriv, bpN:p0:vf#hamiltonianVectorField
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepN:p3:hs-deriv | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-comp@L385-L385 | DH is C^k
+EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hs-comp@L385-L385 | coordinates of X_H in terms of DH
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -331,22 +231,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L38
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L394-L400
 CONTRACT_ID: bpN:p3:ham-energy
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: H : P → ℝ; J ⊂ ℝ an interval; z : ℝ → P with H differentiable at z(t) and z having derivative X_H(z(t)) at t, for every t ∈ J; no regularity of H and no confinement beyond this
+SOURCE_QUANTIFIERS: n; H; J; z
+SOURCE_CONCLUSION: t ↦ H(z(t)) is constant on J
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:en-chain, stepN:p3:en-cancel, stepN:p3:en-const
+DEPS: bpN:p0:vf#hamiltonianVectorField, stepN:p3:en-chain, stepN:p3:en-cancel, stepN:p3:en-const
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:en-chain | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L395-L395 | proof step of this result
-EDGE: stepN:p3:en-cancel | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L397-L397 | proof step of this result
-EDGE: stepN:p3:en-const | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L399-L399 | proof step of this result
+EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L389-L389 | z' = X_H(z) with the frozen hamiltonianVectorField
+EDGE: stepN:p3:en-chain | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L395-L395 | derivative of H∘z
+EDGE: stepN:p3:en-cancel | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L397-L397 | DH(z)[X_H(z)] = 0
+EDGE: stepN:p3:en-const | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L399-L399 | constancy
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -360,10 +261,10 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-chain@L39
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-chain@L395-L395
 CONTRACT_ID: stepN:p3:en-chain
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: H differentiable at z(t), z' = X_H(z(t))
+SOURCE_QUANTIFIERS: t ∈ J
+SOURCE_CONCLUSION: d/dt H(z(t)) = DH(z(t))[X_H(z(t))]
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -371,9 +272,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p3:ext-calc
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-chain@L395-L395 | cited at this line (step; \ref{bpN:p3:ext-calc})
+EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-chain@L395-L395 | chain rule HasFDerivAt.comp_hasDerivAt
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -387,19 +288,20 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-cancel@L3
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-cancel@L397-L397
 CONTRACT_ID: stepN:p3:en-cancel
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: ℓ = DH(z) linear; X_H(z) = (a,b) with a_i = ℓ(0,e_i), b_i = −ℓ(e_i,0)
+SOURCE_QUANTIFIERS: z = z(t)
+SOURCE_CONCLUSION: ℓ(a,b) = 0 by linearity (the two sums cancel)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpN:p0:vf#hamiltonianVectorField
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-cancel@L397-L397 | components a_i, b_i of X_H
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -413,20 +315,22 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-const@L39
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-const@L399-L399
 CONTRACT_ID: stepN:p3:en-const
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: H∘z continuous on [s,t] ⊂ J with derivative 0 at every point
+SOURCE_QUANTIFIERS: s < t in J
+SOURCE_CONCLUSION: H(z(t)) = H(z(s))
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ext-calc
+DEPS: stepN:p3:en-chain, stepN:p3:en-cancel, bpN:p3:ext-calc
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-const@L399-L399 | cited at this line (step; \ref{bpN:p3:ext-calc})
+EDGE: stepN:p3:en-chain | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-const@L399-L399 | H∘z differentiable with derivative DH(z)[X_H(z)]
+EDGE: stepN:p3:en-cancel | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-const@L399-L399 | that derivative is 0
+EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-const@L399-L399 | continuous with right derivative 0 implies constant
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -440,21 +344,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L408-L412
 CONTRACT_ID: bpN:p3:ham-periodic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: W ⊂ P open with W + (k,0) = W for k ∈ ℤⁿ; H : P → ℝ with H(θ+k,I) = H(θ,I) on W; (second part) IsSolIn X_H W J z
+SOURCE_QUANTIFIERS: n; W; H; k ∈ ℤⁿ; J; z
+SOURCE_CONCLUSION: X_H(θ+k,I) = X_H(θ,I) on W; hence IsSolIn X_H W J (z+(k,0)) for every k and H∘(z+(k,0)) = H∘z
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:per-field, stepN:p3:per-sol
+DEPS: bpN:p0:vf#hamiltonianVectorField, bpN:p3:gen-sol, stepN:p3:per-field, stepN:p3:per-sol
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:per-field | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L409-L409 | proof step of this result
-EDGE: stepN:p3:per-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L411-L411 | proof step of this result
+EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L403-L403 | X_H as frozen hamiltonianVectorField
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L405-L405 | predicate IsSolIn X_H W J z
+EDGE: stepN:p3:per-field | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L409-L409 | periodicity of the field
+EDGE: stepN:p3:per-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L411-L411 | solutions translate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -468,19 +374,21 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-field@L4
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-field@L409-L409
 CONTRACT_ID: stepN:p3:per-field
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: H∘τ_k = H on W, τ_k(x) = x + (k,0); W open
+SOURCE_QUANTIFIERS: x ∈ W
+SOURCE_CONCLUSION: DH = DH∘τ_k on W (fderiv; both sides 0 where H is not differentiable), so X_H∘τ_k = X_H on W
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpN:p3:ext-calc, bpN:p0:vf#hamiltonianVectorField
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-field@L409-L409 | derivative of a translate (chain rule)
+EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-field@L409-L409 | evaluate DH on (0,e_i), (e_i,0) to get X_H
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -494,20 +402,21 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-sol@L411
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-sol@L411-L411
 CONTRACT_ID: stepN:p3:per-sol
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: IsSolIn X_H W J z; X_H∘τ_k = X_H on W (per-field); W + (k,0) = W
+SOURCE_QUANTIFIERS: v = (k,0)
+SOURCE_CONCLUSION: IsSolIn X_H W J (z+(k,0)) (space translation)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-symmetry
+DEPS: bpN:p3:gen-symmetry, stepN:p3:per-field
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-sol@L411-L411 | cited at this line (step; \ref{bpN:p3:gen-symmetry})
+EDGE: bpN:p3:gen-symmetry | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-sol@L411-L411 | space translation gen-symmetry(c) with v = (k,0), F = X_H
+EDGE: stepN:p3:per-field | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:per-sol@L411-L411 | F(x+v) = F(x) on W
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -521,28 +430,30 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L428-L432
 CONTRACT_ID: bpN:p3:ham-reduction
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: H : P → ℝ; U ⊂ ℝⁿ open; W ⊂ P open with ℝⁿ × U ⊂ W; H C² on W; W_U = ℝⁿ × U
+SOURCE_QUANTIFIERS: n; H; U; W; then for every J ⊂ ℝ and z : ℝ → P
+SOURCE_CONCLUSION: IsSolutionOn H U J z ⇔ IsSolIn X_H W_U J z ⇔ IsHamiltonianSolutionOn H U J z, and X_H is C¹ on W_U
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:red-mem, stepN:p3:red-diff, bpN:p0:sol#IsSolutionOn, I:bpI:p0:hamsol#IsHamiltonianSolutionOn
+DEPS: bpN:p0:sol#IsSolutionOn, I:bpI:p0:hamsol#IsHamiltonianSolutionOn, bpN:p3:gen-sol, bpN:p0:vf#hamiltonianVectorField, stepN:p3:red-mem, stepN:p3:red-diff
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:red-mem | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L429-L429 | proof step of this result
-EDGE: stepN:p3:red-diff | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L431-L431 | proof step of this result
-EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L416-L416 | this result carries \frozen{KAM.Nekhoroshev.IsSolutionOn} (a statement about it)
-EDGE: I:bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L416-L416 | this result carries \frozen{KAM.Iso.IsHamiltonianSolutionOn}, a track-I frozen declaration
+EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L420-L420 | frozen predicate KAM.Nekhoroshev.IsSolutionOn
+EDGE: I:bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L421-L421 | frozen predicate KAM.Iso.IsHamiltonianSolutionOn (track I)
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L420-L420 | general predicate IsSolIn
+EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L420-L420 | X_H, frozen hamiltonianVectorField
+EDGE: stepN:p3:red-mem | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L429-L429 | membership clause
+EDGE: stepN:p3:red-diff | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L431-L431 | differentiability is implied
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: kept as one node (SPEC ruling); \frozen tags name IsSolutionOn and IsHamiltonianSolutionOn; the two predicates have the same formula up to naming of the action set
 
 NODE: stepN:p3:red-mem
 KIND: step
@@ -551,19 +462,21 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-mem@L429
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-mem@L429-L429
 CONTRACT_ID: stepN:p3:red-mem
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: W_U = ℝⁿ × U
+SOURCE_QUANTIFIERS: t
+SOURCE_CONCLUSION: z(t)₂ ∈ U ⇔ z(t) ∈ W_U
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpN:p0:sol#IsSolutionOn, bpN:p3:gen-sol
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-mem@L429-L429 | membership clause of the frozen predicate (action coordinate in U)
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-mem@L429-L429 | membership clause z(t) ∈ W of IsSolIn
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -577,192 +490,58 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L43
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L431-L431
 CONTRACT_ID: stepN:p3:red-diff
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: z(t) ∈ W_U ⊂ W; H C² on the open W; red-mem
+SOURCE_QUANTIFIERS: t
+SOURCE_CONCLUSION: DifferentiableAt ℝ H (z t) holds automatically, so IsSolutionOn and IsHamiltonianSolutionOn coincide with IsSolIn X_H W_U; X_H is C¹ on W_U
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ham-smooth
+DEPS: bpN:p3:ham-smooth, stepN:p3:red-mem, bpN:p0:sol#IsSolutionOn, I:bpI:p0:hamsol#IsHamiltonianSolutionOn
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:ham-smooth | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L431-L431 | cited at this line (step; \ref{bpN:p3:ham-smooth})
+EDGE: bpN:p3:ham-smooth | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L431-L431 | C² gives H differentiable and X_H C¹ (k = 1)
+EDGE: stepN:p3:red-mem | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L431-L431 | membership clause
+EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L431-L431 | differentiability clause of the frozen predicate
+EDGE: I:bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:red-diff@L431-L431 | same formula in track I's predicate
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
 
-NODE: bpN:p3:newton-reduction
-KIND: proposition
-TITLE: Newtonian predicates
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L434-L449
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L450-L454
-CONTRACT_ID: bpN:p3:newton-reduction
+NODE: bpN:p3:s-N#data
+KIND: definition
+TITLE: Standing data of the section on the track-N statements
+STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-N@L472-L477
+PROOF_SOURCE: -
+CONTRACT_ID: bpN:p3:s-N#data
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: R, s > 0; h : ℂⁿ → ℂ with IsAnalyticIntegrable R s h; ε ≥ 0; f : ℂⁿ×ℂⁿ → ℂ with IsAnalyticPerturbation R s ε f; H = H_{h,f}; U ⊂ B(0,R+s) open (in N-HEAD-C, U = B(0,R))
+SOURCE_QUANTIFIERS: R, s; h; ε; f; U
+SOURCE_CONCLUSION: defines the standing data of §s-N: H = H_{h,f}; W_s = ℝⁿ × B(0,R+s) ⊂ P (open), with B(0,R+s) = 𝓑_s(R) by Remark rdomain-eq; U an open subset of B(0,R+s)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:nr-smooth, stepN:p3:nr-pair, P:bpP:p0:newton#IsNewtonSolution, P:bpP:p0:fixedsol#IsFixedSolution, I:bpI:p0:restricted#IsRestrictedSolutionOn
+DEPS: bpN:p0:integrable#IsAnalyticIntegrable, bpN:p0:pert#IsAnalyticPerturbation, bpN:p0:realH#realHamiltonian, bpN:p0:rdomain-eq
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:nr-smooth | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L451-L451 | proof step of this result
-EDGE: stepN:p3:nr-pair | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L453-L453 | proof step of this result
-EDGE: P:bpP:p0:newton#IsNewtonSolution | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L434-L434 | this result carries \frozen{KAM.Planetary.IsNewtonSolution}, a track-P frozen declaration
-EDGE: P:bpP:p0:fixedsol#IsFixedSolution | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L434-L434 | this result carries \frozen{KAM.Planetary.IsFixedSolution}, a track-P frozen declaration
-EDGE: I:bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L434-L434 | this result carries \frozen{KAM.Iso.IsRestrictedSolutionOn}, a track-I frozen declaration
+EDGE: bpN:p0:integrable#IsAnalyticIntegrable | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-N#data@L475-L475 | h satisfies IsAnalyticIntegrable R s
+EDGE: bpN:p0:pert#IsAnalyticPerturbation | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-N#data@L475-L475 | f satisfies IsAnalyticPerturbation R s ε
+EDGE: bpN:p0:realH#realHamiltonian | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-N#data@L476-L476 | H = H_{h,f}
+EDGE: bpN:p0:rdomain-eq | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:s-N#data@L476-L476 | B(0,R+s) = 𝓑_s(R) so W_s is open and contains ℝⁿ × B(0,R)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:nr-smooth
-KIND: step
-TITLE: Open domain and smoothness
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-smooth@L451-L451
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-smooth@L451-L451
-CONTRACT_ID: stepN:p3:nr-smooth
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:nr-pair
-KIND: step
-TITLE: Derivatives of pairs
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-pair@L453-L453
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-pair@L453-L453
-CONTRACT_ID: stepN:p3:nr-pair
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bpN:p3:newton-continuation
-KIND: corollary
-TITLE: Newtonian continuation
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-continuation@L456-L462
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-continuation@L463-L468
-CONTRACT_ID: bpN:p3:newton-continuation
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:nc-data, stepN:p3:nc-apply, bpN:p3:newton-reduction, bpN:p3:gen-maximal
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepN:p3:nc-data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-continuation@L464-L464 | proof step of this result
-EDGE: stepN:p3:nc-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-continuation@L467-L467 | proof step of this result
-EDGE: bpN:p3:newton-reduction | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-continuation@L457-L457 | cited at this line (statement; \ref{bpN:p3:newton-reduction})
-EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-continuation@L458-L458 | cited at this line (statement; \ref{bpN:p3:gen-maximal})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:nc-data
-KIND: step
-TITLE: Uniform data
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nc-data@L464-L465
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nc-data@L464-L465
-CONTRACT_ID: stepN:p3:nc-data
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ext-mvt
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p3:ext-mvt | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nc-data@L465-L465 | cited at this line (step; \ref{bpN:p3:ext-mvt})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:nc-apply
-KIND: step
-TITLE: Apply
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nc-apply@L467-L467
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nc-apply@L467-L467
-CONTRACT_ID: stepN:p3:nc-apply
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-continuation
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p3:gen-continuation | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nc-apply@L467-L467 | cited at this line (step; \ref{bpN:p3:gen-continuation})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
+NOTE: section data for coverage item p3:prose-L472-L477; consumers: holo-input, local-exist, uniqueness-closed, confinement-glue
 
 NODE: bpN:p3:holo-input
 KIND: lemma
@@ -771,30 +550,27 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L47
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L484-L490
 CONTRACT_ID: bpN:p3:holo-input
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: standing data of §s-N (bpN:p3:s-N#data): R, s > 0; h with IsAnalyticIntegrable R s h; ε ≥ 0; f with IsAnalyticPerturbation R s ε f; H = H_{h,f}; W_s = ℝⁿ × B(0,R+s)
+SOURCE_QUANTIFIERS: R, s; h; f; ε
+SOURCE_CONCLUSION: H_{h,f} is C^∞ (in particular C²) on the open set W_s; X_H = X_{h+f} on W_s ∩ (ℝⁿ×ℝⁿ); H(θ+k,I) = H(θ,I) for (θ,I) ∈ W_s, k ∈ ℤⁿ
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:hi-cite, stepN:p3:hi-reg, stepN:p3:hi-per, bpN:p1:holo-real, K:bp:p1:holomorphic-regularity, K:bp:p1:hamiltonian-real
+DEPS: bpN:p3:s-N#data, bpN:p0:vf#hamiltonianVectorField, stepN:p3:hi-cite
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:hi-cite | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L485-L485 | proof step of this result
-EDGE: stepN:p3:hi-reg | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L487-L487 | proof step of this result
-EDGE: stepN:p3:hi-per | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L489-L489 | proof step of this result
-EDGE: bpN:p1:holo-real | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L482-L482 | cited at this line (statement; \ref{bpN:p1:holo-real}; in \source: provenance unless consumed)
-EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L482-L482 | cited at this line (statement; \Kref{bp:p1:holomorphic-regularity}; in \source: provenance unless consumed)
-EDGE: K:bp:p1:hamiltonian-real | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L482-L482 | cited at this line (statement; \Kref{bp:p1:hamiltonian-real}; in \source: provenance unless consumed)
+EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L479-L479 | standing data of §s-N (h, f, H, W_s)
+EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L480-L480 | X_H = X_{h+f} with the frozen hamiltonianVectorField
+EDGE: stepN:p3:hi-cite | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-input@L485-L485 | citation of Part 1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: hi-reg and hi-per ('for orientation', repeating the argument of bpN:p1:holo-real) are not nodes; forward pointer: bpN:p1:holo-real(b)-(d) is the proof, cited at hi-cite
 
 NODE: stepN:p3:hi-cite
 KIND: step
@@ -803,10 +579,10 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-cite@L485
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-cite@L485-L485
 CONTRACT_ID: stepN:p3:hi-cite
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Lemma bpN:p1:holo-real(b),(c),(d) under the standing data
+SOURCE_QUANTIFIERS: as holo-input
+SOURCE_CONCLUSION: (b),(c),(d) of holo-real are exactly the three claims of holo-input
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -814,153 +590,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p1:holo-real
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p1:holo-real | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-cite@L485-L485 | cited at this line (step; \ref{bpN:p1:holo-real})
+EDGE: bpN:p1:holo-real | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-cite@L485-L485 | (b), (c), (d) are exactly the three claims
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:hi-reg
-KIND: step
-TITLE: Regularity
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-reg@L487-L487
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-reg@L487-L487
-CONTRACT_ID: stepN:p3:hi-reg
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p0:integrable#IsAnalyticIntegrable, bpN:p0:pert#IsAnalyticPerturbation, bpN:p1:holo-real, K:bp:p1:holomorphic-regularity, K:bp:p1:hamiltonian-real
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p0:integrable#IsAnalyticIntegrable | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-reg@L487-L487 | cited at this line (step; \ref{bpN:p0:integrable})
-EDGE: bpN:p0:pert#IsAnalyticPerturbation | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-reg@L487-L487 | cited at this line (step; \ref{bpN:p0:pert})
-EDGE: bpN:p1:holo-real | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-reg@L487-L487 | cited at this line (step; \ref{bpN:p1:holo-real})
-EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-reg@L487-L487 | cited at this line (step; \Kref{bp:p1:holomorphic-regularity})
-EDGE: K:bp:p1:hamiltonian-real | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-reg@L487-L487 | cited at this line (step; \Kref{bp:p1:hamiltonian-real})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:hi-per
-KIND: step
-TITLE: Periodicity
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-per@L489-L489
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:hi-per@L489-L489
-CONTRACT_ID: stepN:p3:hi-per
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bpN:p3:lipschitz
-KIND: theorem
-TITLE: $X_H$ is $C^1$, hence locally Lipschitz
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:lipschitz@L492-L496
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:lipschitz@L497-L500
-CONTRACT_ID: bpN:p3:lipschitz
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:lip-smooth, stepN:p3:lip-lip, bpN:p3:gen-uniform-periodic
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepN:p3:lip-smooth | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:lipschitz@L498-L498 | proof step of this result
-EDGE: stepN:p3:lip-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:lipschitz@L499-L499 | proof step of this result
-EDGE: bpN:p3:gen-uniform-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:lipschitz@L494-L494 | cited at this line (statement; \ref{bpN:p3:gen-uniform-periodic})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:lip-smooth
-KIND: step
-TITLE: Smoothness
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-smooth@L498-L498
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-smooth@L498-L498
-CONTRACT_ID: stepN:p3:lip-smooth
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:holo-input, bpN:p3:ham-smooth
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p3:holo-input | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-smooth@L498-L498 | cited at this line (step; \ref{bpN:p3:holo-input})
-EDGE: bpN:p3:ham-smooth | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-smooth@L498-L498 | cited at this line (step; \ref{bpN:p3:ham-smooth})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:lip-lip
-KIND: step
-TITLE: Lipschitz
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-lip@L499-L499
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-lip@L499-L499
-CONTRACT_ID: stepN:p3:lip-lip
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-lip, bpN:p3:gen-uniform-periodic, bpN:p3:ham-periodic, bpN:p3:holo-input
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p3:gen-lip | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-lip@L499-L499 | cited at this line (step; \ref{bpN:p3:gen-lip})
-EDGE: bpN:p3:gen-uniform-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-lip@L499-L499 | cited at this line (step; \ref{bpN:p3:gen-uniform-periodic})
-EDGE: bpN:p3:ham-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-lip@L499-L499 | cited at this line (step; \ref{bpN:p3:ham-periodic})
-EDGE: bpN:p3:holo-input | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-lip@L499-L499 | cited at this line (step; \ref{bpN:p3:holo-input})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -974,22 +606,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L5
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L508-L511
 CONTRACT_ID: bpN:p3:local-exist
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: standing data of §s-N (bpN:p3:s-N#data), U ⊂ B(0,R+s) open; t₀ ∈ ℝ; z₀ ∈ ℝⁿ × U; for uniqueness: J an interval, t₀ ∈ J, y₁, y₂ with IsSolutionOn H U J y_i and y₁(t₀) = y₂(t₀)
+SOURCE_QUANTIFIERS: R, s; h; f; ε; U; t₀; z₀ (resp. J, y₁, y₂)
+SOURCE_CONCLUSION: there are ε' > 0 and y : ℝ → P with y(t₀) = z₀ and IsSolutionOn H U (t₀−ε',t₀+ε') y (both time directions); and y₁ = y₂ on J
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:le-red, stepN:p3:le-apply, bpN:p3:ext-pl
+DEPS: bpN:p3:s-N#data, bpN:p0:sol#IsSolutionOn, stepN:p3:le-red, stepN:p3:le-apply
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:le-red | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L509-L509 | proof step of this result
-EDGE: stepN:p3:le-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L510-L510 | proof step of this result
-EDGE: bpN:p3:ext-pl | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L506-L506 | cited at this line (statement; \ref{bpN:p3:ext-pl}; in \source: provenance unless consumed)
+EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L502-L502 | standing data of §s-N (H, U)
+EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L503-L503 | frozen predicate IsSolutionOn
+EDGE: stepN:p3:le-red | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L509-L509 | reduction to the general predicate
+EDGE: stepN:p3:le-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L510-L510 | existence and uniqueness
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1003,21 +636,22 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-L509
 CONTRACT_ID: stepN:p3:le-red
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: H C² on W_s (holo-input); ℝⁿ × U ⊂ W_s
+SOURCE_QUANTIFIERS: t
+SOURCE_CONCLUSION: IsSolutionOn H U ⇔ IsSolIn X_H (ℝⁿ×U), with X_H C¹ on ℝⁿ × U
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ham-reduction, bpN:p3:holo-input
+DEPS: bpN:p3:ham-reduction, bpN:p3:holo-input, bpN:p3:s-N#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:ham-reduction | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-L509 | cited at this line (step; \ref{bpN:p3:ham-reduction})
-EDGE: bpN:p3:holo-input | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-L509 | cited at this line (step; \ref{bpN:p3:holo-input})
+EDGE: bpN:p3:ham-reduction | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-L509 | Proposition ham-reduction with W = W_s
+EDGE: bpN:p3:holo-input | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-L509 | H is C² on W_s
+EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-red@L509-L509 | W_s and U ⊂ B(0,R+s)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1031,162 +665,22 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L51
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L510-L510
 CONTRACT_ID: stepN:p3:le-apply
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: le-red; F = X_H C¹ on W = ℝⁿ × U open
+SOURCE_QUANTIFIERS: t₀, z₀; J
+SOURCE_CONCLUSION: existence from gen-local (both directions) and uniqueness on J from gen-uniqueness
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-local, bpN:p3:gen-uniqueness
+DEPS: bpN:p3:gen-local, bpN:p3:gen-uniqueness, stepN:p3:le-red
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:gen-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L510-L510 | cited at this line (step; \ref{bpN:p3:gen-local})
-EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L510-L510 | cited at this line (step; \ref{bpN:p3:gen-uniqueness})
+EDGE: bpN:p3:gen-local | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L510-L510 | local existence for X_H on ℝⁿ × U
+EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L510-L510 | uniqueness on every interval
+EDGE: stepN:p3:le-red | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:le-apply@L510-L510 | reduction to IsSolIn
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bpN:p3:energy
-KIND: theorem
-TITLE: Energy conservation for $\texttt{IsSolutionOn}$
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:energy@L513-L517
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:energy@L518-L520
-CONTRACT_ID: bpN:p3:energy
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:en-direct
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepN:p3:en-direct | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:energy@L519-L519 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:en-direct
-KIND: step
-TITLE: Direct
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-direct@L519-L519
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-direct@L519-L519
-CONTRACT_ID: stepN:p3:en-direct
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ham-energy
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p3:ham-energy | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-direct@L519-L519 | cited at this line (step; \ref{bpN:p3:ham-energy})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bpN:p3:continuation
-KIND: theorem
-TITLE: Maximal solutions and continuation
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:continuation@L522-L529
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:continuation@L530-L533
-CONTRACT_ID: bpN:p3:continuation
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:co-general, stepN:p3:co-periodic, bpN:p3:gen-maximal, bpN:p3:ham-reduction
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepN:p3:co-general | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:continuation@L531-L531 | proof step of this result
-EDGE: stepN:p3:co-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:continuation@L532-L532 | proof step of this result
-EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:continuation@L525-L525 | cited at this line (statement; \ref{bpN:p3:gen-maximal})
-EDGE: bpN:p3:ham-reduction | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:continuation@L525-L525 | cited at this line (statement; \ref{bpN:p3:ham-reduction})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:co-general
-KIND: step
-TITLE: General statements
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:co-general@L531-L531
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:co-general@L531-L531
-CONTRACT_ID: stepN:p3:co-general
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ham-reduction, bpN:p3:gen-maximal
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p3:ham-reduction | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:co-general@L531-L531 | cited at this line (step; \ref{bpN:p3:ham-reduction})
-EDGE: bpN:p3:gen-maximal | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:co-general@L531-L531 | cited at this line (step; \ref{bpN:p3:gen-maximal})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepN:p3:co-periodic
-KIND: step
-TITLE: Periodic cylinder
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:co-periodic@L532-L532
-PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:co-periodic@L532-L532
-CONTRACT_ID: stepN:p3:co-periodic
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ham-periodic, bpN:p3:holo-input, bpN:p3:gen-continuation-periodic
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpN:p3:ham-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:co-periodic@L532-L532 | cited at this line (step; \ref{bpN:p3:ham-periodic})
-EDGE: bpN:p3:holo-input | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:co-periodic@L532-L532 | cited at this line (step; \ref{bpN:p3:holo-input})
-EDGE: bpN:p3:gen-continuation-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:co-periodic@L532-L532 | cited at this line (step; \ref{bpN:p3:gen-continuation-periodic})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1200,26 +694,27 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:uniqueness-clo
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:uniqueness-closed@L540-L542
 CONTRACT_ID: bpN:p3:uniqueness-closed
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: standing data of §s-N; L ≥ 0; y₁, y₂ with y₁(0) = y₂(0) and IsSolutionOn H U [−L,L] y_i
+SOURCE_QUANTIFIERS: R, s; h; f; ε; U; L; y₁, y₂
+SOURCE_CONCLUSION: y₁ = y₂ on [−L,L]; in particular a solution on [−L,L] agrees with every solution on a larger interval with the same initial value; no confinement of y assumed
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:uc-apply, bpN:p3:gen-uniqueness
+DEPS: bpN:p3:s-N#data, bpN:p0:sol#IsSolutionOn, stepN:p3:uc-apply
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:uc-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:uniqueness-closed@L541-L541 | proof step of this result
-EDGE: bpN:p3:gen-uniqueness | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:uniqueness-closed@L537-L537 | cited at this line (statement; \ref{bpN:p3:gen-uniqueness})
+EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:uniqueness-closed@L535-L535 | standing data of §s-N (H, U)
+EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:uniqueness-closed@L536-L536 | frozen predicate IsSolutionOn
+EDGE: stepN:p3:uc-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:uniqueness-closed@L541-L541 | apply local-exist (uniqueness part)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: [pre-extract: dropped reference to bpN:p0:head, which part p3 proves or sets up]
+NOTE: -
 
 NODE: stepN:p3:uc-apply
 KIND: step
@@ -1228,10 +723,10 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-apply@L54
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-apply@L541-L541
 CONTRACT_ID: stepN:p3:uc-apply
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: J = [−L,L], t₀ = 0
+SOURCE_QUANTIFIERS: L
+SOURCE_CONCLUSION: uniqueness part of local-exist on J = [−L,L]
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -1239,9 +734,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p3:local-exist
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:local-exist | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-apply@L541-L541 | cited at this line (step; \ref{bpN:p3:local-exist})
+EDGE: bpN:p3:local-exist | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:uc-apply@L541-L541 | uniqueness part with J = [−L,L], t₀ = 0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1255,26 +750,28 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confinement-gl
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confinement-glue@L553-L557
 CONTRACT_ID: bpN:p3:confinement-glue
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: standing data of §s-N; θ₀ ∈ ℝⁿ; I₀ ∈ U; τ > 0; ρ > 0 with B̄(I₀,ρ) ⊂ U; for every open interval J ∋ 0 and y with y(0) = (θ₀,I₀) and IsSolutionOn H U J y: ¦y(t)₂−I₀¦ ≤ ρ for t ∈ J, ¦t¦ ≤ τ
+SOURCE_QUANTIFIERS: R, s; h; f; ε; U; θ₀, I₀; τ; ρ; then z; L ∈ [0,τ]; y
+SOURCE_CONCLUSION: there is z with z(0) = (θ₀,I₀), IsSolutionOn H U [−τ,τ] z and ¦z(t)₂−I₀¦ ≤ ρ for ¦t¦ ≤ τ; and for every L ∈ [0,τ] and y with y(0) = z(0) and IsSolutionOn H U [−L,L] y, y = z on [−L,L]
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p3:cg-set, stepN:p3:cg-glue
+DEPS: bpN:p3:s-N#data, bpN:p0:sol#IsSolutionOn, stepN:p3:cg-set, stepN:p3:cg-glue
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p3:cg-set | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confinement-glue@L554-L554 | proof step of this result
-EDGE: stepN:p3:cg-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confinement-glue@L555-L555 | proof step of this result
+EDGE: bpN:p3:s-N#data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confinement-glue@L544-L544 | standing data of §s-N (H, U)
+EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confinement-glue@L545-L545 | frozen predicate IsSolutionOn in hypothesis and conclusion
+EDGE: stepN:p3:cg-set | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confinement-glue@L554-L554 | compact confinement set
+EDGE: stepN:p3:cg-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confinement-glue@L555-L555 | general glue
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: [pre-extract: dropped reference to bpN:p0:head, which part p3 proves or sets up]
+NOTE: constants: ρ = Cε^{1/(2n)} when used in Part 10; the proof does not cite local-exist/continuation (SPEC check)
 
 NODE: stepN:p3:cg-set
 KIND: step
@@ -1283,21 +780,23 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554
 CONTRACT_ID: stepN:p3:cg-set
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: K = B̄(I₀,ρ) compact ⊂ U; F = X_H periodic in θ on W = ℝⁿ × U
+SOURCE_QUANTIFIERS: Φ = ℝⁿ × K
+SOURCE_CONCLUSION: Φ has uniform data (gen-uniform-periodic with W = ℝⁿ × U, F = X_H)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:gen-uniform-periodic, bpN:p3:ham-periodic
+DEPS: bpN:p3:gen-uniform-periodic, bpN:p3:ham-periodic, bpN:p3:holo-input, bpN:p3:ham-reduction
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:gen-uniform-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554 | cited at this line (step; \ref{bpN:p3:gen-uniform-periodic})
-EDGE: bpN:p3:ham-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554 | cited at this line (step; \ref{bpN:p3:ham-periodic})
+EDGE: bpN:p3:gen-uniform-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554 | uniform data for ℝⁿ × K
+EDGE: bpN:p3:ham-periodic | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554 | X_H periodic in the angles
+EDGE: bpN:p3:holo-input | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554 | H is C² and 1-periodic in θ on W_s, hypotheses of ham-periodic and ham-smooth
+EDGE: bpN:p3:ham-reduction | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-set@L554-L554 | X_H is C¹ on ℝⁿ × U, hypothesis of gen-uniform-periodic
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1311,22 +810,22 @@ STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L555
 PROOF_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L555-L556
 CONTRACT_ID: stepN:p3:cg-glue
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: hypothesis of the theorem; Φ from cg-set
+SOURCE_QUANTIFIERS: τ; x₀ = (θ₀,I₀)
+SOURCE_CONCLUSION: by ham-reduction the confinement hypothesis reads as that of gen-confinement; gen-confinement gives z on [−τ,τ] in Φ and uniqueness on [−L,L]
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p3:ham-reduction, bpN:p3:gen-confinement, bpN:p3:uniqueness-closed
+DEPS: bpN:p3:ham-reduction, bpN:p3:gen-confinement, stepN:p3:cg-set
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p3:ham-reduction | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L555-L555 | cited at this line (step; \ref{bpN:p3:ham-reduction})
-EDGE: bpN:p3:gen-confinement | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L556-L556 | cited at this line (step; \ref{bpN:p3:gen-confinement})
-EDGE: bpN:p3:uniqueness-closed | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L556-L556 | cited at this line (step; \ref{bpN:p3:uniqueness-closed})
+EDGE: bpN:p3:ham-reduction | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L555-L555 | IsSolutionOn H U ⇔ IsSolIn X_H (ℝⁿ×U)
+EDGE: bpN:p3:gen-confinement | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L556-L556 | Theorem gen-confinement gives z and uniqueness
+EDGE: stepN:p3:cg-set | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:cg-glue@L555-L555 | uniform data of Φ
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

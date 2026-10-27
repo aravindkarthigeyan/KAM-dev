@@ -3,36 +3,36 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L261-L270
 DISPOSITION: NODE bpI:p7:near-circular
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:nc-sub
 KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L272-L272
 DISPOSITION: NODE stepI:p7:nc-sub
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:nc-sup
 KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L274-L274
 DISPOSITION: NODE stepI:p7:nc-sup
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:nc-image
 KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276
 DISPOSITION: NODE stepI:p7:nc-image
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: bpI:p7:h0
 KIND: lemma
@@ -129,9 +129,9 @@ KIND: lemma
 SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L337-L343
 DISPOSITION: NODE bpI:p7:complex-domain
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:cd-uc
 KIND: proof-region
@@ -147,45 +147,45 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L347-L348
 DISPOSITION: NODE stepI:p7:cd-branch
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: bpI:p7:shift-def
 KIND: definition
 SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L354-L360
 DISPOSITION: NODE bpI:p7:shift-def
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: bpI:p7:shift
 KIND: lemma
 SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L362-L376
 DISPOSITION: NODE bpI:p7:shift
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sh-pos
 KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L378-L382
 DISPOSITION: NODE stepI:p7:sh-pos
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sh-bound
 KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L384-L384
 DISPOSITION: NODE stepI:p7:sh-bound
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sh-div
 KIND: proof-region
@@ -201,27 +201,27 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L388-L388
 DISPOSITION: NODE stepI:p7:sh-zero
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sh-real
 KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L390-L390
 DISPOSITION: NODE stepI:p7:sh-real
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: bpI:p7:exact-ham
 KIND: proposition
 SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L393-L411
 DISPOSITION: NODE bpI:p7:exact-ham
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:eh-shell
 KIND: proof-region
@@ -273,9 +273,9 @@ KIND: proof-region
 SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441
 DISPOSITION: NODE stepI:p7:po-dom
 REASON: labelled unit extracted as a node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
-REVIEWER: -
+REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:po-prop
 KIND: proof-region

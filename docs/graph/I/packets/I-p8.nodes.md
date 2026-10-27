@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -83,7 +83,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:e-vs-k@L36-L44
 PROOF_SOURCE: -
 CONTRACT_ID: bpI:p8:e-vs-k
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (L,G) in C_0 (so G/L in (0,1)); 0 <= e' < e'' < 1; kappa(e) = sqrt(1-e^2); e = kappa(G/L); kappa is a strictly decreasing involution of [0,1]
+SOURCE_HYPOTHESES: (L,G) in C_0; 0<=e_prime<e_doubleprime<1; kappa(x)=sqrt(1-x^2), e(L,G)=kappa(G/L)
 SOURCE_QUANTIFIERS: for all (L,G) in C_0 and 0 <= e' < e'' < 1
 SOURCE_CONCLUSION: e(L,G) in (e',e'') iff G/L in (kappa(e''),kappa(e')); and e(L,G) in [e',e''] iff G/L in [kappa(e''),kappa(e')]
 CONSTANT_SCOPE: none
@@ -97,12 +97,12 @@ ROUTE_FOR: -
 EDGE: bpI:p8:x-cont | blueprint-I/parts/p8-r3bp.tex#bpI:p8:e-vs-k@L37-L37 | kappa continuous strictly decreasing with kappa(kappa(x)) = x
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:e-vs-k@L36-L36 | C_0, e(L,G) = sqrt(1-G^2/L^2) of Parts 6-7
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: Display with label bpI:p8:e-vs-k (reused by tp-A and sr-elements); notation prose L36-L44 maps here.
+NOTE: The involution identity kappa(kappa(x))=x on [0,1] is the elementary square-root calculation at L44, combined with strict monotonicity; it is not included in the statement of x-cont as a separate external assumption.
 
 NODE: bpI:p8:sec-safe#data
 KIND: definition
@@ -123,9 +123,9 @@ DEPS: bpI:p8:A
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#bpI:p8:sec-safe#data@L132-L132 | A, A^cl for the fixed parameters
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -152,9 +152,9 @@ ROUTE_FOR: -
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#bpI:p8:A@L57-L57 | A open bounded, A^cl closed bounded hence compact, closure(A) subset A^cl
 EDGE: bpI:p8:x-cont | blueprint-I/parts/p8-r3bp.tex#bpI:p8:A@L52-L52 | kappa(e) = sqrt(1-e^2) with kappa positive and decreasing, giving G >= kappa(e_+)L > 0 and G <= kappa(e_-)L < L
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:A@L58-L58 | C_0 of Parts 6-7
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -185,9 +185,9 @@ EDGE: stepI:p8:tp-nonempty | blueprint-I/parts/p8-r3bp.tex#bpI:p8:topology@L80-L
 EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#bpI:p8:topology@L67-L67 | A of the statement
 EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p8-r3bp.tex#bpI:p8:topology@L66-L66 | the region N
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:topology@L65-L65 | Delaunay orbit map Q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -200,7 +200,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74
 CONTRACT_ID: stepI:p8:tp-A
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A subset A^cl subset C_0 (Definition A); display e-vs-k; L > 0
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; (L,G) in C_0
 SOURCE_QUANTIFIERS: for (L,G) in C_0
 SOURCE_CONCLUSION: (a): a_-<L^2<a_+ iff sqrt(a_-)<L<sqrt(a_+) and e_-<e<e_+ iff kappa(e_+)L < G < kappa(e_-)L
 CONSTANT_SCOPE: none
@@ -208,13 +208,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p8:A, bpI:p8:e-vs-k
+DEPS: bpI:p8:A, bpI:p8:e-vs-k, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74 | A subset A^cl subset C_0
 EDGE: bpI:p8:e-vs-k | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74 | e in (e_-,e_+) iff G/L in (kappa(e_+),kappa(e_-))
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74 | C_0 and/or e(L,G), Q are the orbit-map data used here
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -228,22 +229,23 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76
 CONTRACT_ID: stepI:p8:tp-chart
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Lemma bpI:p7:near-circular; part (a)
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59
+SOURCE_QUANTIFIERS: For each fixed a_pm,e_pm as in the topology proposition, every z_0 in N has some ell_0,g_0 in R and (L_0,G_0) in A with Q(ell_0,g_0,L_0,G_0)=z_0
 SOURCE_CONCLUSION: N = Q(R^2 x A) and every z_0 in N has a preimage in R^2 x A
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:near-circular, stepI:p8:tp-A, bpI:p7:orbit-maps
+DEPS: bpI:p7:near-circular, stepI:p8:tp-A, bpI:p7:orbit-maps, bpI:p8:A
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:near-circular | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76 | N = Q({(l,g,L,G) in D_R : a_-<L^2<a_+, e_-<e<e_+})
 EDGE: stepI:p8:tp-A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76 | (a) converts the conditions to membership in A
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76 | Q and D_R
+EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76 | A and the fixed parameterization of the initial region
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -257,22 +259,23 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78
 CONTRACT_ID: stepI:p8:tp-open
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Lemma bpI:p7:near-circular description of N by a and e on C; a, e continuous on the open set C
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59
+SOURCE_QUANTIFIERS: For each a_pm,e_pm satisfying the enclosing topology proposition; no new point or witness is selected
 SOURCE_CONCLUSION: N is open in R^2 x R^2
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:near-circular, bpI:p7:elements, bpI:p8:x-topo
+DEPS: bpI:p7:near-circular, bpI:p7:elements, bpI:p8:x-topo, bpI:p8:A
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:near-circular | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | N = {(q,p) in C : a_-<a<a_+, e_-<e<e_+}
 EDGE: bpI:p7:elements | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | C open, a and e continuous on C
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | finite intersection of preimages of open intervals is open
+EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | A and the fixed parameterization of the initial region
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -286,8 +289,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80-L80
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80-L80
 CONTRACT_ID: stepI:p8:tp-nonempty
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: a_* = (a_-+a_+)/2, e_* = (e_-+e_+)/2, L_* = sqrt(a_*), G_* = L_* kappa(e_*)
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; a_*=(a_-+a_+)/2, e_*=(e_-+e_+)/2, L_*=sqrt(a_*), G_*=L_* kappa(e_*)
+SOURCE_QUANTIFIERS: After a_pm,e_pm, define a_*,e_*,L_*,G_* in that order; the displayed point Q(0,0,L_*,G_*) witnesses nonemptiness
 SOURCE_CONCLUSION: (L_*,G_*) in A and Q(0,0,L_*,G_*) = ((a_*(1-e_*),0),(0,kappa(e_*)/(L_*(1-e_*)))) in N; hence N nonempty
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -303,7 +306,7 @@ EDGE: stepI:p8:tp-chart | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80-L80 | u(0,e) = 0 (Proposition kepler-eq (c))
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80-L80 | evaluation of Q at l=g=0: c=1, s=0, D=1-e_*, R(0)=id
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -330,9 +333,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p8:ce-quant | blueprint-I/parts/p8-r3bp.tex#bpI:p8:collision-exclusion@L100-L100 | proof step (a)
 EDGE: stepI:p8:ce-compact | blueprint-I/parts/p8-r3bp.tex#bpI:p8:collision-exclusion@L102-L102 | proof step (b)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -345,8 +348,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-quant@L100-L100
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-quant@L100-L100
 CONTRACT_ID: stepI:p8:ce-quant
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: S, delta with |q-x_j| >= delta on S; mu_* as defined; |mu| <= mu_*
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: X is a real normed space; m in N; x_j in X; c>=0, mu_1>0; y_j(mu) defined for |mu|<=mu_1 with |y_j(mu)-x_j|<=c|mu|; S subset X, delta>0 with |q-x_j|>=delta for q in S and j; mu_* as in L93
+SOURCE_QUANTIFIERS: For fixed X,m,x_j,c,mu_1,y_j, then S,delta as in (a), define mu_*; for every real mu with |mu|<=mu_*, every q in S and every j<=m
 SOURCE_CONCLUSION: |q - y_j(mu)| >= |q-x_j| - |x_j - y_j(mu)| >= delta - c|mu| >= delta/2
 CONSTANT_SCOPE: depends on (delta,c,mu_1) only
 FROZEN_FILE: -
@@ -358,7 +361,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:x-norm | blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-quant@L100-L100 | reverse triangle inequality
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -372,8 +375,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-compact@L102-L102
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-compact@L102-L102
 CONTRACT_ID: stepI:p8:ce-compact
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: X finite dimensional, S compact nonempty, x_j not in S; part (a)
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: X is a real normed space; m in N; x_j in X; c>=0, mu_1>0; y_j(mu) defined for |mu|<=mu_1 with |y_j(mu)-x_j|<=c|mu|; X finite dimensional; S compact, x_j not in S; the nondegenerate branch has S nonempty and m>=1 (the other branches are vacuous as stated at L95)
+SOURCE_QUANTIFIERS: For fixed X,m,x_j,c,mu_1,y_j and compact S with x_j not in S, handle S empty or m=0 vacuously; otherwise choose a minimizing q_j in S for each j, then delta_S>0 and mu_*,d, before mu,q,j
 SOURCE_CONCLUSION: delta_S = min_j min_{q in S}|q-x_j| > 0 (attained, q_j != x_j) and (a) applies with delta = delta_S
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -386,7 +389,7 @@ ROUTE_FOR: -
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-compact@L102-L102 | continuous function attains its minimum on a nonempty compact set
 EDGE: stepI:p8:ce-quant | blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-compact@L102-L102 | apply (a) with delta = delta_S
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -416,9 +419,9 @@ EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p8-r3bp.tex#bpI:p8:shell-exc
 EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p8-r3bp.tex#bpI:p8:shell-exclusion@L111-L111 | a_2(mu)
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p8-r3bp.tex#bpI:p8:shell-exclusion@L106-L106 | rad
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p8-r3bp.tex#bpI:p8:shell-exclusion@L110-L110 | collision free
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -431,8 +434,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst@L114-L114
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst@L114-L114
 CONTRACT_ID: stepI:p8:se-inst
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: X = R^2 with |.|_2 = rad, m=2, x_1=(0,0), x_2=(1,0), y_j(mu)=a_j(mu), c=1, S the shell {r_min <= |q|_2 <= rho_max}
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<r_min<=rho_max<1; nu_0=min{r_min,1-rho_max}; |mu|<=nu_0/2; X=R^2 with Euclidean length, m=2, x_1=(0,0), x_2=(1,0), y_j(mu)=primary_j(mu), c=1 and S the radial shell
+SOURCE_QUANTIFIERS: For fixed r_min,rho_max, let nu_0=min{r_min,1-rho_max}; instantiate the mass family and shell, choosing any mu_1>=nu_0/2; for all mu with |mu|<=nu_0/2, all q in the shell and all p in R^2
 SOURCE_CONCLUSION: rad(q-a_j(mu)) >= nu_0/2 for q in S, and positive radii mean collision freedom
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -449,7 +452,7 @@ EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst@L114-L114 | rad is the Euclidean norm
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst@L114-L114 | rad > 0 is collision freedom
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -471,20 +474,20 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p8:A, bpI:p8:sec-safe#data, bpI:p8:x-cont, bpI:p7:exact-ham
+DEPS: bpI:p8:A, bpI:p8:sec-safe#data, bpI:p8:x-cont, bpI:p7:sec-complex#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L142-L142 | U and calK are A, A^cl for (a_pm_pr, e_pm_pr)
 EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L136-L136 | rho_*, e_+ and the fixed parameters
 EDGE: bpI:p8:x-cont | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L139-L139 | kappa(e_pr) for the primed parameters
-EDGE: bpI:p7:exact-ham | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L146-L146 | r_min, rho_max of Part 7 for calK (section data of sec-complex)
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L146-L146 | r_min and rho_max are precisely the min/max definitions of Part 7 L325-335 specialized to K
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: PENDING: r_min, rho_max are defined in unlabelled prose of Part 7 L325-335 (SPEC section data bpI:p7:sec-complex#data, not yet a node); edge currently to bpI:p7:exact-ham whose statement uses them; writer may retarget once the #data node exists.
+NOTE: The radius symbols specialize the section-data definitions to K; their nonempty compact carrier and positivity are verified by sr-incl and sr-radii, before head-data applies exact-ham. No exact-ham application occurs in the definition.
 
 NODE: bpI:p8:safe-region
 KIND: lemma
@@ -510,9 +513,9 @@ EDGE: stepI:p8:sr-radii | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe-region@L165-
 EDGE: stepI:p8:sr-B | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe-region@L167-L167 | proof step (d),(e)
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe-region@L151-L151 | t, U, calK, B, B_pr, r_min, rho_max
 EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe-region@L152-L152 | standing parameters a_pm, e_pm, rho_*
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -525,8 +528,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161
 CONTRACT_ID: stepI:p8:sr-incl
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Definition A for (a'_pm,e'_pm); Proposition topology (d): A nonempty; kappa strictly decreasing
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147
+SOURCE_QUANTIFIERS: For fixed a_pm,e_pm, form the primed parameters,U,K; for every (L,G) in A^cl prove (L,G) in U, yielding the set inclusions
 SOURCE_CONCLUSION: calK subset C_0 compact, U open bounded, calK nonempty, and closure(A) subset A^cl subset U subset calK
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -542,7 +545,7 @@ EDGE: bpI:p8:x-cont | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161 |
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161 | U, calK, primed parameters
 EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161 | sqrt(a_-_pr) < sqrt(a_-), e_+_pr > e_+, e_-_pr < e_-
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -556,7 +559,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L163
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L163
 CONTRACT_ID: stepI:p8:sr-elements
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (L,G) in calK subset C_0; display e-vs-k
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; (L,G) in K
 SOURCE_QUANTIFIERS: for (L,G) in calK
 SOURCE_CONCLUSION: L^2 in [a'_-,a'_+] and e(L,G) in [e'_-,e'_+]
 CONSTANT_SCOPE: none
@@ -564,14 +567,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p8:e-vs-k, stepI:p8:sr-incl, bpI:p8:safe
+DEPS: bpI:p8:e-vs-k, stepI:p8:sr-incl, bpI:p8:safe, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:e-vs-k | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L163 | closed-interval form of the equivalence
 EDGE: stepI:p8:sr-incl | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L163 | calK subset C_0
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L163 | definition of calK
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L163 | C_0 and/or e(L,G), Q are the orbit-map data used here
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -585,15 +589,15 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165
 CONTRACT_ID: stepI:p8:sr-radii
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (b); t <= 1/8, e_+ < 1/4, t(2+e_+)+t^2 <= 3t <= (1-rho_*)/(2a_+); calK compact
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147
+SOURCE_QUANTIFIERS: For fixed a_pm,e_pm and the resulting K, bound L^2(1+e) and L^2(1-e) for every (L,G) in K; take the maximum and minimum on the nonempty compact K
 SOURCE_CONCLUSION: rho_max <= a'_+(1+e'_+) <= (1+rho_*)/2 < 1; r_min >= a'_-(1-e'_+) > 0; max and min exist; r_min <= rho_max
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p8:sr-elements, bpI:p8:safe, bpI:p8:sec-safe#data, bpI:p8:x-topo, stepI:p8:sr-incl
+DEPS: stepI:p8:sr-elements, bpI:p8:safe, bpI:p8:sec-safe#data, bpI:p8:x-topo, stepI:p8:sr-incl, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p8:sr-elements | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165 | (b) bounds on L^2 and e
@@ -601,8 +605,9 @@ EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165 | 
 EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165 | rho_*, e_+ < 1/4
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165 | max and min exist by compactness
 EDGE: stepI:p8:sr-incl | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165 | calK compact nonempty
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165 | C_0 and/or e(L,G), Q are the orbit-map data used here
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -616,8 +621,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167
 CONTRACT_ID: stepI:p8:sr-B
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: U open bounded nonempty; closure(A) subset U
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147
+SOURCE_QUANTIFIERS: For fixed a_pm,e_pm and U,A,K, define B=2 pi U and B_prime=2 pi A; no additional binder
 SOURCE_CONCLUSION: B = 2 pi U open bounded nonempty with B subset 2 pi calK; B' open, closure(B') = 2 pi closure(A) compact inside B; (e) explicit dependence on (a_pm,e_pm)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -631,7 +636,7 @@ EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167 | li
 EDGE: stepI:p8:sr-incl | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167 | (a): closure(A) subset U subset calK
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167 | B = 2 pi U, B_pr = 2 pi A
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -653,7 +658,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p8:hd-h, stepI:p8:hd-f, stepI:p8:hd-sets, bpI:p8:safe, bpI:p8:safe-region, bpI:p7:exact-ham, bpI:p7:period-one, bpI:p0:bordered#borderedHessian, bpI:p0:domains#complexStrip, bpI:p0:domains#actionNbhd
+DEPS: stepI:p8:hd-h, stepI:p8:hd-f, stepI:p8:hd-sets, bpI:p8:safe, bpI:p8:safe-region, bpI:p7:exact-ham, bpI:p7:period-one, bpI:p0:bordered#borderedHessian, bpI:p0:domains#complexStrip, bpI:p0:domains#actionNbhd, bpI:p6:kep-ham, bpI:p6:conversion-map
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p8:hd-h | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L180-L180 | proof step (a)
@@ -666,8 +671,10 @@ EDGE: bpI:p7:period-one | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L171-L1
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L173-L173 | det B_h~
 EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L174-L174 | T_{s_0}
 EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L173-L173 | B_{r_0}
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L170-L178 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L171-L171 | the specified period-one scales and converted Hamiltonian
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -681,22 +688,24 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180
 CONTRACT_ID: stepI:p8:hd-h
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Corollary period-one (b): h~ holomorphic on B_{r_0}, real at real I, Re I_1 > pi m_L > 0; Proposition nondeg
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain
+SOURCE_QUANTIFIERS: After fixing a_pm,e_pm and the common analytic data of L171, for every real I in B_{r_0}
 SOURCE_CONCLUSION: h~ holomorphic on B_{r_0}, real at real I, and det B_h~(I) = 3/I_1^4 > 0 for every real I in B_{r_0}
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:period-one, bpI:p7:nondeg, bpI:p0:bordered#borderedHessian
+DEPS: bpI:p7:period-one, bpI:p7:nondeg, bpI:p0:bordered#borderedHessian, bpI:p6:kep-ham, bpI:p8:safe
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:period-one | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180 | (b) holomorphy, reality, I_1 > 0
 EDGE: bpI:p7:nondeg | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180 | det B_h~(I) = 3/I_1^4
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180 | the bordered Hessian
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
+EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180 | K, B, B_prime and/or the safe radii fixed by this package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -710,20 +719,22 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-f@L182-L182
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-f@L182-L182
 CONTRACT_ID: stepI:p8:hd-f
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Corollary period-one (c); extension by 0 outside T_{s_0} x B_{r_0}
-SOURCE_QUANTIFIERS: real mu with |mu| < mu_2
-SOURCE_CONCLUSION: f~_mu holomorphic on T_{s_0} x B_{r_0}, 1-periodic, real at real (theta,I), bounded by |mu| C_F = epsilon
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain; real mu with 0<=mu<mu_2, epsilon=C_F mu
+SOURCE_QUANTIFIERS: For each real mu with 0<=mu<mu_2, put epsilon=C_F mu; for all (theta,I) in T_{s_0} x B_{r_0}, with reality at its real points
+SOURCE_CONCLUSION: f_tilde_mu is holomorphic on T_{s_0} x B_{r_0}, 1-periodic, real at its real points and bounded by |mu| C_F = C_F mu = epsilon since 0<=mu<mu_2; extension by zero does not change these on-domain facts
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:period-one
+DEPS: bpI:p7:period-one, bpI:p6:kep-ham, bpI:p8:safe
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:period-one | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-f@L182-L182 | (c)
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-f@L182-L182 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
+EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-f@L182-L182 | K, B, B_prime and/or the safe radii fixed by this package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -737,22 +748,23 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184
 CONTRACT_ID: stepI:p8:hd-sets
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Lemma safe-region (d); delta_2 > 0; Corollary period-one (e)
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain
+SOURCE_QUANTIFIERS: For fixed a_pm,e_pm and the analytic constants selected for K at L171; no new solution, point or parameter is chosen
 SOURCE_CONCLUSION: B open bounded nonempty, B' open with compact closure in B, s_0, r_0 > 0; (c) dependence on (a_pm,e_pm) only
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p8:safe-region, bpI:p7:period-one, bpI:p7:exact-ham
+DEPS: bpI:p8:safe-region, bpI:p7:period-one, bpI:p7:exact-ham, bpI:p8:safe
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:safe-region | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184 | (d) and (e)
 EDGE: bpI:p7:period-one | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184 | (e) dependence of s_0, r_0, mu_2, C_F
 EDGE: bpI:p7:exact-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184 | delta_2 in (0,delta_1]
+EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184 | K, B, B_prime and/or the safe radii fixed by this package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -774,7 +786,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p8:safe, bpI:p8:safe-region, bpI:p8:head-data, bpI:p7:shift, bpI:p0:head, bpI:p8:sec-safe#data
+DEPS: bpI:p8:safe, bpI:p8:safe-region, bpI:p8:head-data, bpI:p7:shift, bpI:p0:head, bpI:p8:sec-safe#data, bpI:p6:kep-ham, bpI:p6:conversion-map
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L193-L193 | step (1) data
@@ -783,8 +795,10 @@ EDGE: bpI:p8:head-data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L194-L19
 EDGE: bpI:p7:shift | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L194-L194 | C_F = 6/(eps_0^sh sqrt(c_*)) > 0
 EDGE: bpI:p0:head | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L195-L195 | eps_H is the constant epsilon_0 of I-HEAD
 EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L193-L193 | rho_* and the parameters a_pm, e_pm
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L190-L202 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L194-L194 | s_0,r_0 and h_tilde are selected in the period-one normalization
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -814,9 +828,9 @@ EDGE: stepI:p8:bd-p | blueprint-I/parts/p8-r3bp.tex#bpI:p8:bounds@L211-L211 | pr
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#bpI:p8:bounds@L205-L205 | calK, r_min, rho_max
 EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#bpI:p8:bounds@L205-L205 | R
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:bounds@L205-L205 | Q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
-REVIEWER: -
+REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -829,21 +843,22 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-r@L209-L209
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-r@L209-L209
 CONTRACT_ID: stepI:p8:bd-r
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Proposition orbit-identities (a): L^2(1-e) <= |q|_2 <= L^2(1+e); r_min, rho_max min/max over calK
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; R from L198; (L,G) in K, ell,g real, (q,p)=Q(ell,g,L,G)
+SOURCE_QUANTIFIERS: For every (L,G) in K and real ell,g, with (q,p)=Q(ell,g,L,G), as in the enclosing lemma
 SOURCE_CONCLUSION: r_min <= rad(q) <= rho_max
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:orbit-identities, bpI:p8:safe
+DEPS: bpI:p7:orbit-identities, bpI:p8:safe, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-r@L209-L209 | (a) bounds on ¦q¦_2
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-r@L209-L209 | definition of r_min, rho_max
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-r@L209-L209 | Q and e(L,G) of the Delaunay orbit data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -857,22 +872,25 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211
 CONTRACT_ID: stepI:p8:bd-p
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Proposition orbit-identities (c): E(q,p) = -1/(2L^2); |q|_2 >= r_min
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; R from L198; (L,G) in K, ell,g real, (q,p)=Q(ell,g,L,G)
+SOURCE_QUANTIFIERS: For every (L,G) in K and real ell,g, with (q,p)=Q(ell,g,L,G), as in the enclosing lemma
 SOURCE_CONCLUSION: |p|_2^2 = 2/|q|_2 - 1/L^2 <= 2/r_min = R^2
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:orbit-identities, stepI:p8:bd-r, bpI:p8:constants
+DEPS: bpI:p7:orbit-identities, stepI:p8:bd-r, bpI:p8:constants, bpI:p8:safe, bpI:p7:orbit-maps, bpI:p7:elements
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 | (c) energy -1/(2L^2)
 EDGE: stepI:p8:bd-r | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 | ¦q¦_2 >= r_min
 EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 | R = sqrt(2/r_min)
+EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 | K, B, B_prime and/or the safe radii fixed by this package
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 | Q and e(L,G) of the Delaunay orbit data
+EDGE: bpI:p7:elements | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 | E(q,p)=¦p¦_2^2/2-1/¦q¦_2 is the energy definition used in rearranging the identity
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -886,8 +904,8 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L217-L217
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L217-L217
 CONTRACT_ID: stepI:p8:pf-coord
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: a_pm,e_pm as in I-R3BP; mu_0,d,R of Definition constants; mu in [0,mu_0), z_0 in N; Proposition topology (b)
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain; constants mu_0,d,R chosen at L190-202; 0<=mu<mu_0; z_0 in N
+SOURCE_QUANTIFIERS: After a_pm,e_pm and mu_0,d,R, for each mu in [0,mu_0) and z_0 in N choose ell_0,g_0,L_0,G_0, then define z_tilde_0 with I_0 in B_prime
 SOURCE_CONCLUSION: z_0 = Q(l_0,g_0,L_0,G_0) with (L_0,G_0) in A; z~_0 = (theta_0,I_0) := S^{-1}(l_0,g_0,L_0,G_0) = ((l_0,g_0)/(2 pi), 2 pi (L_0,G_0)), Q(S(z~_0)) = z_0 and I_0 in 2 pi A = B'
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -902,7 +920,7 @@ EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L2
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L217-L217 | B_pr = 2 pi A
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L217-L217 | Q
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -916,22 +934,23 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219
 CONTRACT_ID: stepI:p8:pf-small
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 0 <= mu < mu_0 <= mu_2; mu_0 <= eps_H/C_F
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain; constants mu_0,d,R chosen at L190-202; 0<=mu<mu_0; z_0 in N
+SOURCE_QUANTIFIERS: After a_pm,e_pm and mu_0,d,R, for each mu in [0,mu_0) and z_0 in N put f=f_tilde_mu and epsilon=C_F mu; no new witness
 SOURCE_CONCLUSION: f = f~_mu and epsilon = C_F mu satisfy the hypotheses of I-HEAD on (f,epsilon) and epsilon < eps_H = epsilon_0; the remaining hypotheses of I-HEAD hold by head-data (a)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p8:head-data, bpI:p8:constants, bpI:p8:safe
+DEPS: bpI:p8:head-data, bpI:p8:constants, bpI:p8:safe, bpI:p6:kep-ham
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:head-data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219 | (a) and (b) discharge the premises of I-HEAD
 EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219 | mu_0 <= mu_2 and C_F mu_0 <= eps_H
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219 | B, B_pr, eta data of I-HEAD
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -945,15 +964,15 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221
 CONTRACT_ID: stepI:p8:pf-head
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: I-HEAD (frozen) for (B,s_0,r_0,h~,B',eta); f = f~_mu; epsilon = C_F mu < eps_H; z~_0 with I_0 in B'
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain; constants mu_0,d,R chosen at L190-202; 0<=mu<mu_0; z_0 in N; z_tilde_0 and I_0 are the coordinates chosen at L217
+SOURCE_QUANTIFIERS: After the fixed geometric data, their common epsilon_H, mu in [0,mu_0), z_0 and the chosen z_tilde_0, there exists z_tilde:R->R^2 x R^2; then for every t in R
 SOURCE_CONCLUSION: z~ : R -> R^2 x R^2 with z~(0) = z~_0 and Sol(Ham_{h~,f~_mu},B,R,z~): z~(t)_2 in B, Ham differentiable at z~(t), z~'(t) = X(z~(t)); confinement and uniqueness clauses not needed
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p0:head, stepI:p8:pf-small, stepI:p8:pf-coord, bpI:p8:head-data, bpI:p0:hamsol#IsHamiltonianSolutionOn, bpI:p0:realham#realHamiltonian, bpI:p8:safe
+DEPS: bpI:p0:head, stepI:p8:pf-small, stepI:p8:pf-coord, bpI:p8:head-data, bpI:p0:hamsol#IsHamiltonianSolutionOn, bpI:p0:realham#realHamiltonian, bpI:p8:safe, bpI:p6:kep-ham, bpI:p8:constants
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:head | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221 | frozen theorem I-HEAD applied (not re-proved)
@@ -963,8 +982,10 @@ EDGE: bpI:p8:head-data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L22
 EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221 | Sol
 EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221 | Ham_{h~,f~_mu}
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221 | B, B_pr, eta
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
+EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221 | epsilon_H is the same I-HEAD threshold selected before mu and z_0; retain this witness
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -978,15 +999,15 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223
 CONTRACT_ID: stepI:p8:pf-sol
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: z = Q o S o z~; |mu| < mu_2; B subset 2 pi calK; J = R; Proposition transfer
-SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain; constants mu_0,d,R chosen at L190-202; 0<=mu<mu_0; z_0 in N; z_tilde is the same trajectory obtained at L221; define z=Q o S o z_tilde
+SOURCE_QUANTIFIERS: After choosing the same z_tilde at L221, define z=Q o S o z_tilde:R->R^2 x R^2; then for every t in R
 SOURCE_CONCLUSION: z(0) = z_0 and RSol_mu(R,z)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p8:pf-head, stepI:p8:pf-coord, bpI:p7:transfer, bpI:p8:constants, bpI:p8:safe-region, bpI:p6:conversion-map, bpI:p0:restricted#IsRestrictedSolutionOn
+DEPS: stepI:p8:pf-head, stepI:p8:pf-coord, bpI:p7:transfer, bpI:p8:constants, bpI:p8:safe-region, bpI:p6:conversion-map, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p8:safe, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p8:pf-head | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223 | the Delaunay solution z~
@@ -996,8 +1017,10 @@ EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223
 EDGE: bpI:p8:safe-region | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223 | (d): B subset 2 pi calK
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223 | S
 EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223 | RSol_mu
+EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223 | K, B, B_prime and/or the safe radii fixed by this package
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223 | Q and e(L,G) of the Delaunay orbit data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1011,7 +1034,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L225
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L225
 CONTRACT_ID: stepI:p8:pf-bounds
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: z~(t)_2 in B = 2 pi U; (L,G) = z~(t)_2/(2 pi) in U subset calK; z(t) = Q(l,g,L,G)
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain; constants mu_0,d,R chosen at L190-202; 0<=mu<mu_0; z_0 in N; z_tilde is the trajectory from L221, z=Q o S o z_tilde as at L223; t in R
 SOURCE_QUANTIFIERS: for t in R
 SOURCE_CONCLUSION: r_min <= rad(q(t)) <= rho_max < 1 < R and rad(p(t)) <= R
 CONSTANT_SCOPE: none
@@ -1031,7 +1054,7 @@ EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L225 | S z~(t) = (l,g,L,G) with (L,G) = z~(t)_2/(2 pi)
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L225 | rad
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1045,7 +1068,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L227
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L227
 CONTRACT_ID: stepI:p8:pf-dist
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: mu < mu_0 <= nu_0/2; nu_0 = min{r_min,1-rho_max}; radius bounds r_min <= rad(q(t)) <= rho_max
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain; constants mu_0,d,R chosen at L190-202; 0<=mu<mu_0; z_0 in N; z is the physical trajectory defined at L223; t in R
 SOURCE_QUANTIFIERS: for t in R
 SOURCE_CONCLUSION: rad(q(t) - a_j(mu)) >= nu_0/2 = d for j = 1,2 and all t in R
 CONSTANT_SCOPE: none
@@ -1064,7 +1087,7 @@ EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist
 EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L227 | a_2(mu)
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L227 | rad
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1074,19 +1097,19 @@ NOTE: -
 NODE: stepI:p8:pf-uniq
 KIND: step
 TITLE: Uniqueness
-STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L231
-PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L231
+STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229
+PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229
 CONTRACT_ID: stepI:p8:pf-uniq
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: a < 0 < b; y with y(0) = z_0 and RSol_mu((a,b),y); W_mu = collision-free points (open), F_mu the total formula extension of V_mu, C^infty on W_mu; z from the physical solution step
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; t,a_pm_prime,e_pm_prime,U,K,B,B_prime,eta defined at L134-147; delta_2,mu_2,C_F,F are selected for K as at L171, s_0=delta_2/(2 pi), r_0=2 pi delta_2, h_tilde=h_{(2 pi)^2,1/(2 pi)}, f_tilde_mu the period-one perturbation extended by zero outside the analytic domain; constants mu_0,d,R chosen at L190-202; 0<=mu<mu_0; z_0 in N; z is the physical trajectory from L223; a<0<b, y:R->R^2 x R^2 with y(0)=z_0 and RSol_mu((a,b),y)
 SOURCE_QUANTIFIERS: for all a<0<b and y
-SOURCE_CONCLUSION: IsSolIn F_mu W_mu (a,b) y and for z on (a,b); y(t) = z(t) for t in (a,b); the six conclusions of I-R3BP follow
+SOURCE_CONCLUSION: IsSolIn F_mu W_mu (a,b) y and IsSolIn F_mu W_mu (a,b) z; for every t in (a,b), y(t)=z(t)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:ham-eq, bpN:p3:newton-reduction, N:bpN:p3:gen-sol, N:bpN:p3:gen-uniqueness, stepI:p8:pf-sol, stepI:p8:pf-coord, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:restricted#restrictedVectorField, bpI:p0:primaries#CollisionFree
+DEPS: bpI:p7:ham-eq, bpN:p3:newton-reduction, N:bpN:p3:gen-sol, N:bpN:p3:gen-uniqueness, stepI:p8:pf-sol, stepI:p8:pf-coord, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:restricted#restrictedVectorField, bpI:p0:primaries#CollisionFree, bpI:p7:sec-ham#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:ham-eq | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | RSol iff z(t) in W_mu and z_pr = X_Ham; shared ODE layer
@@ -1098,8 +1121,9 @@ EDGE: stepI:p8:pf-coord | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L2
 EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | RSol_mu
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | V_mu
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | W_mu = collision-free points
+EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | W_mu is the open collision-free domain and F_mu is the same total formula extension
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8
+EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

@@ -152,3 +152,5 @@ For each phi the explicit orbit `t -> K_ph(phi+t w)` is defined for **all real t
 **Suspected pinned-source errata:** none new. Existing errata are consumed only through the audited/cited interfaces; the isolated wording corrections above are blueprint issues. **Deviation check:** the strict half-radius, fast-only cylinder transport and cell measure argument are justified adaptations, and the unused CP09/Rüssmann route supplies no hidden hypothesis.
 
 Acceptance is local to the assembly with its stated inputs. Apply the minor fixes before treating the text as an exact graph-extraction contract; no additional planetary or KAM hypothesis is requested.
+
+Closeout hash recheck: every input in the snapshot table remained byte-identical at final verification.
