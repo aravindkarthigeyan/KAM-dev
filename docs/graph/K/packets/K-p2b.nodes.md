@@ -419,9 +419,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:newton-error@L72
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.newton_error (defs newtonMap, sMat, linError, quadRemainder)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-9-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:ne-invert
@@ -448,9 +448,9 @@ EDGE: bp:p2:frame-identities | blueprint/parts/p2-aposteriori.tex#step:p2:ne-inv
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.NewtonError.sMat_spec
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-9-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:ne-domain
@@ -476,9 +476,9 @@ EDGE: bp:p2:correction | blueprint/parts/p2-aposteriori.tex#step:p2:ne-domain@L7
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.NewtonError.newtonMap_mem
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-9-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:ne-expand
@@ -505,9 +505,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L755
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.NewtonError.sumVec_invarianceError_newtonMap
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-9-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 EDGE: bp:p2:frame-basic | blueprint/parts/p2-aposteriori.tex#step:p2:ne-expand@L755-L757 | admissibility supplies holomorphic K and A2-A4, so part (a) gives holomorphic P for differentiating Delta K=P xi
 
@@ -536,9 +536,9 @@ EDGE: step:p2:ne-invert | blueprint/parts/p2-aposteriori.tex#step:p2:ne-reduce@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.NewtonError.alg_core, xi_equation
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-9-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:ne-lin
@@ -564,9 +564,9 @@ EDGE: bp:p2:correction | blueprint/parts/p2-aposteriori.tex#step:p2:ne-lin@L766-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.NewtonError.norm_linError_le, lin_arith
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-9-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:ne-quad
@@ -593,9 +593,9 @@ EDGE: step:p2:ne-domain | blueprint/parts/p2-aposteriori.tex#step:p2:ne-quad@L77
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.NewtonError.norm_quadRemainder_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-9-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:ne-total
@@ -625,9 +625,9 @@ EDGE: step:p2:ne-quad | blueprint/parts/p2-aposteriori.tex#step:p2:ne-total@L779
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.NewtonError.total_arith
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-9-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:perturbation
@@ -961,9 +961,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:step@L885-L885 |
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:st-small
@@ -989,9 +989,9 @@ EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:st-small@L909
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step (step_small)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:st-error
@@ -1018,9 +1018,9 @@ EDGE: step:p2:st-small | blueprint/parts/p2-aposteriori.tex#step:p2:st-error@L91
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step (item (c) via newton_error)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:st-ball
@@ -1047,9 +1047,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:st-ball@L923-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step (item (b), perturbation margin)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:st-perturb
@@ -1078,9 +1078,9 @@ EDGE: step:p2:st-error | blueprint/parts/p2-aposteriori.tex#step:p2:st-perturb@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.step (perturbation on T_{r-2δ})
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-12-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:schedule

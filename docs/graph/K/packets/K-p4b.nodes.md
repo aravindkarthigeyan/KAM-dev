@@ -166,9 +166,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:normalize@L728-L734 | Miss
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.normalize
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-5-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:normalize-proof
@@ -196,9 +196,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#step:p4:normalize-proof@L737-L74
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.isApplyTorus_phaseShift
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-5-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:mixed-difference
@@ -697,9 +697,9 @@ EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#bp:p4:lagrangian@L962-L962 | D
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.lagrangian
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-8-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:lag-regular
@@ -725,9 +725,9 @@ EDGE: bp:p1:periodic-bounded | blueprint/parts/p4-measure.tex#step:p4:lag-regula
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: BYPASSED
+LEAN_REF: KAM.Head.lagrangeMat_regular (holomorphy and periodicity only)
+LEAN_NOTE: route substitution (D27; overnight ruling 23:00): KAM.Head.lagrangian applies coh_unique_zero directly on T_ρ, which needs no boundedness of Λ, u, v, Du; the bound clauses of this step are therefore not formalized. Audit docs/campaign/audits/P4-8-audit-1.md F1 (major for the step mapping; main theorem PASS)
 NOTE: -
 
 NODE: step:p4:lag-exact
@@ -754,9 +754,9 @@ EDGE: step:p4:lag-regular | blueprint/parts/p4-measure.tex#step:p4:lag-exact@L98
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.avg_lagrangeMat_eq_zero (via bp:p2:exactness)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-8-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:lag-transport
@@ -783,9 +783,9 @@ EDGE: bp:p4:matrix-norms | blueprint/parts/p4-measure.tex#step:p4:lag-transport@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.fderiv_lagrangeMat_omega
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-8-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:lag-unique
@@ -814,9 +814,9 @@ EDGE: step:p4:lag-regular | blueprint/parts/p4-measure.tex#step:p4:lag-unique@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.lagrangian (coh_unique_zero entrywise on T_ρ)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-8-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:real-torus
@@ -1096,9 +1096,9 @@ EDGE: bp:p4:freq-map | blueprint/parts/p4-measure.tex#bp:p4:preimage-measure@L10
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.preimage_measure
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-6-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:pm-proof
@@ -1125,9 +1125,9 @@ EDGE: bp:p0:g3 | blueprint/parts/p4-measure.tex#step:p4:pm-proof@L1099-L1099 | m
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.preimage_measure
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-6-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:good-actions
