@@ -6,7 +6,7 @@
   "H": 4,
   "VH": 8
  },
- "reviewed": "2026-10-27 15:25 UTC",
+ "reviewed": "2026-10-27 16:05 UTC",
  "items": [
   {
    "group": "Statement and planning",
@@ -237,6 +237,62 @@
    "id": "M.ASSEMBLY",
    "title": "Assembly of the headline theorem",
    "difficulty": "M",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track I (isoenergetic, confinement, R3BP)",
+   "id": "I.PHASE0",
+   "title": "Sources, statements, owner approval, freeze",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track I (isoenergetic, confinement, R3BP)",
+   "id": "I.PROOF",
+   "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
+   "difficulty": "VH",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track N (Nekhoroshev)",
+   "id": "N.PHASE0",
+   "title": "Sources, statements, owner approval, freeze",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track N (Nekhoroshev)",
+   "id": "N.PROOF",
+   "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
+   "difficulty": "VH",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track P (planetary)",
+   "id": "P.PHASE0",
+   "title": "Sources, statements, owner approval, freeze",
+   "difficulty": "H",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track P (planetary)",
+   "id": "P.PROOF.PDKAM",
+   "title": "Properly degenerate KAM: blueprint, graph, proofs",
+   "difficulty": "VH",
+   "done": 0.0,
+   "note": ""
+  },
+  {
+   "group": "Track P (planetary)",
+   "id": "P.PROOF.PLANAR",
+   "title": "Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy",
+   "difficulty": "VH",
    "done": 0.0,
    "note": ""
   }

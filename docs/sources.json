@@ -200,6 +200,106 @@
    "pdf": null,
    "sha256": null,
    "role": "Original theorem (restated in CF24; not downloaded)"
+  },
+  {
+   "key": "CP11",
+   "tier": "track P",
+   "citation": "L. Chierchia, G. Pinzari, *The planetary N-body problem: symplectic foliation, reductions and invariant tori*, Invent. Math. 186 (2011) 1–77",
+   "arxiv": null,
+   "doi": "10.1007/s00222-011-0313-z",
+   "pdf": "cp11_planetary_invent.pdf",
+   "sha256": "9b525c5896cfd006b813e79ce56df0b33fcdc55595c972e5090f4a839de4c30f",
+   "role": "Track P: properly degenerate KAM (Thm 11.1, pp. 50–51) and the spatial planetary theorem"
+  },
+  {
+   "key": "CP10",
+   "tier": "track P",
+   "citation": "L. Chierchia, G. Pinzari, *Properly-degenerate KAM theory (following V. I. Arnold)*, Discrete Contin. Dyn. Syst. Ser. S 3 (2010) 545–578",
+   "arxiv": null,
+   "doi": "10.3934/dcdss.2010.3.545",
+   "pdf": null,
+   "sha256": null,
+   "role": "Track P: provider of CP11 Thm 11.1 (Thm 1.3); not yet obtained"
+  },
+  {
+   "key": "Fej04",
+   "tier": "track P",
+   "citation": "J. Féjoz, *Démonstration du « théorème d'Arnold » sur la stabilité du système planétaire (d'après Herman)*, Ergodic Theory Dynam. Systems 24 (2004) 1521–1582",
+   "arxiv": null,
+   "doi": "10.1017/s0143385704000410",
+   "pdf": "fejoz04_herman_arnold_revised.pdf",
+   "sha256": "d5a05c79f754da467d8148ee572a22098e1e1ee16a8c6f3052356657a02ac9e3",
+   "role": "Track P: Herman–Féjoz proof of Arnold's planetary theorem (revised version; erratum fejoz04_erratum.pdf)"
+  },
+  {
+   "key": "Arn63b",
+   "tier": "track P",
+   "citation": "V. I. Arnold, *Small denominators and problems of stability of motion in classical and celestial mechanics*, Russian Math. Surveys 18(6) (1963) 85–191",
+   "arxiv": null,
+   "doi": "10.1070/RM1963v018n06ABEH001143",
+   "pdf": null,
+   "sha256": null,
+   "role": "Track P: Arnold's planetary theorem (not downloaded)"
+  },
+  {
+   "key": "BM11",
+   "tier": "track N",
+   "citation": "A. Bounemoura, J.-P. Marco, *Improved exponential stability for near-integrable quasi-convex Hamiltonians*, Nonlinearity 24 (2011) 97–112",
+   "arxiv": "1004.1014v2",
+   "doi": "10.1088/0951-7715/24/1/005",
+   "pdf": "arxiv_1004.1014v2_BM_quasiconvex.pdf",
+   "sha256": "90f0f6b3b3b183b8898f4e961f0127b3a143453f76645d960d3095fda5b9b818",
+   "role": "Track N: quasi-convex Nekhoroshev, Thm 2.1, p. 5 (classical exponents at the endpoint)"
+  },
+  {
+   "key": "Pos93",
+   "tier": "track N",
+   "citation": "J. Pöschel, *Nekhoroshev estimates for quasi-convex Hamiltonian systems*, Math. Z. 213 (1993) 187–216",
+   "arxiv": null,
+   "doi": "10.1007/BF03025718",
+   "pdf": null,
+   "sha256": null,
+   "role": "Track N: classical quasi-convex route (not yet obtained)"
+  },
+  {
+   "key": "GCB16",
+   "tier": "track N",
+   "citation": "M. Guzzo, L. Chierchia, G. Benettin, *The steep Nekhoroshev's theorem*, Comm. Math. Phys. 342 (2016) 569–601",
+   "arxiv": "1403.6776v1",
+   "doi": "10.1007/s00220-015-2555-x",
+   "pdf": "arxiv_1403.6776v1_GCB_steep.pdf",
+   "sha256": "7b89f25ed0e1b4815df095bac4af5095bff9e205287a6822f39a77122d44b176",
+   "role": "Track N (later): steep systems, Thm 1"
+  },
+  {
+   "key": "BN18",
+   "tier": "track N/P",
+   "citation": "S. Barbieri, L. Niederman, *Sharp Nekhoroshev estimates for the three-body problem around periodic orbits*, arXiv preprint (2018)",
+   "arxiv": "1810.05987v1",
+   "doi": null,
+   "pdf": "arxiv_1810.05987v1_BN_planetary.pdf",
+   "sha256": "b543c39ee7731b8b6b9cf229a3304ba6b6dd14058a3310d84871107283514815",
+   "role": "Tracks N/P: planetary and restricted problems near periodic Kepler tori"
+  },
+  {
+   "key": "LG09",
+   "tier": "context",
+   "citation": "J. Laskar, M. Gastineau, *Existence of collisional trajectories of Mercury, Mars and Venus with the Earth*, Nature 459 (2009) 817–819",
+   "arxiv": null,
+   "doi": "10.1038/nature08096",
+   "pdf": null,
+   "sha256": null,
+   "role": "Context: numerical instability of the observed Solar System"
+  },
+  {
+   "key": "CFG24",
+   "tier": "context",
+   "citation": "J. Clarke, J. Féjoz, M. Guardia, *A counterexample to the theorem of Laplace–Lagrange on the stability of semimajor axes*, Arch. Ration. Mech. Anal. 248 (2024)",
+   "arxiv": null,
+   "doi": "10.1007/s00205-024-01960-6",
+   "pdf": "cfg24_laplace_lagrange_counterexample.pdf",
+   "sha256": "cc8ace076a0f85b7605550203a6d683a037d703910cf73b09fe2268ef1cceeed",
+   "role": "Context: analytic instability in a hierarchical three-planet problem"
   }
  ]
 }

@@ -3,7 +3,9 @@
 Lean 4 + Mathlib formalization of the **Kolmogorov–Arnold–Moser theorem** in its positive-measure form:
 for a nearly-integrable real-analytic Hamiltonian H(θ, I) = h(I) + f(θ, I) with a Kolmogorov-nondegenerate
 h, most of phase space is filled by invariant Lagrangian tori that carry quasi-periodic motion with
-Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
+Diophantine frequencies, as soon as f is small enough.
+
+**Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
 > **Last updated: 2026-10-27 15:26 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 19.7 %** · frozen statements proved: 0 / 5 · **1,948 lines of Lean** of an estimated ≈ 40,000
@@ -133,6 +135,19 @@ DRAFT_IMPORT_VIOLATIONS: 0 (frozen-anchor guard, run at every landing)
 SEALED: 0 / 5
 ```
 <!-- /AUTO:glance -->
+
+## Tracks
+
+Four parallel tracks (decision D14; details in [`docs/TRACKS.md`](docs/TRACKS.md)):
+
+| Track | Headline | Stage |
+|---|---|---|
+| **K** | Positive-measure KAM for nearly-integrable analytic Hamiltonians, complement ≤ C·ε^{1/4} | statements frozen; blueprint being written |
+| **I** | All-time confinement in two degrees of freedom (isoenergetic KAM); restricted circular planar three-body problem | Phase 0 |
+| **N** | Nekhoroshev stability for quasi-convex Hamiltonians, exponents 1/(2n) | Phase 0 |
+| **P** | Properly degenerate KAM; planar two-planet problem; n planets around a fixed Sun; spatial n-body later | Phase 0 |
+
+The phase table below is track K's.
 
 ## Phases
 
@@ -276,6 +291,8 @@ Full text: [`docs/DECISIONS.md`](docs/DECISIONS.md).
   ledger is kept for every formalized source. *(Scott, 2026-10-27)*
 - **D7** Hosting: public GitHub repository `scottnarmstrong/KAM-dev` (source PDFs stay out of git). *(Scott)*
 - **D11** Statements approved and frozen: 5 theorem anchors and 20 definitions. *(Scott, 2026-10-27)*
+- **D14** Parallel tracks K, I, N, P: formalize the planetary programme too. *(Scott, 2026-10-27)*
+- **D15** Authors: Scott Armstrong and Zohar Komargodski. *(Scott)*
 - **D8** Route verdict: rate ε^{1/4}; local uniqueness for flows is proved by us; Lipschitz dependence by
   re-application (CCdlL13); measure step by McShane extension (Pos01). *(orchestrator, 2026-10-27; revisable)*
 

@@ -62,4 +62,15 @@ Owner rulings are marked *(Scott)*. Orchestrator decisions are revisable unless 
   - Phase 1 runs as in `docs/PHASE1.md`: blueprint parts p0–p4, then the dependency graph.
   - Collaborators pick work from `docs/campaign/PACKAGES.md`.
   - The orchestrator may change collaborators' code directly; it reviews and fixes such code as it lands.
+- **D14 (2026-10-27) Parallel tracks.** *(Scott: "Let's incorporate all this planetary stuff into the plan. Let's
+  formalize all of it! It's ok if it is on parallel tracks.")* Four tracks (`docs/TRACKS.md`):
+  - K: positive-measure KAM;
+  - I: isoenergetic KAM, two-degree-of-freedom confinement, the restricted three-body problem;
+  - N: Nekhoroshev (quasi-convex, then steep);
+  - P: planetary (properly degenerate KAM, planar two-planet problem, the fixed-Sun n-planet variant, the spatial
+    theorem later).
+
+  Each track runs the full pipeline, with its own owner approval of exact Lean statements before freezing.
+- **D15 (2026-10-27) Authors.** The repository's authors are Scott Armstrong and Zohar Komargodski (GitHub
+  zkomargo). *(Scott)*
 

@@ -1,5 +1,5 @@
 {
- "current_phase": "Phase 1: blueprint (LaTeX, blueprint/) and dependency graph. p0 (conventions, frozen statements) and the p1 interface are written; Opus writers draft p2 (G1, HL19 §4–5), p3 (G2, uniqueness for flows) and p4 (measure layer, HEAD, HEAD-Q, G3). Infrastructure packages are open on docs/campaign/PACKAGES.md.",
+ "current_phase": "Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).",
  "workers": [
   {
    "id": "orchestrator",
@@ -11,21 +11,12 @@
    "state": "active"
   },
   {
-   "id": "zohar-exploration",
-   "kind": "exploration (Codex)",
-   "model": "GPT-6-Astra high",
-   "account": "codex-1",
-   "session": "kam-zohar",
-   "assignment": "Planetary KAM, open-region stability (2 DOF, Nekhoroshev) and follow-up headline candidates, from the collaborator's comments",
-   "state": "running"
-  },
-  {
    "id": "zohar",
    "kind": "collaborator",
    "model": "—",
    "account": "GitHub zkomargo",
    "session": null,
-   "assignment": "Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine), pushed to main",
+   "assignment": "Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md",
    "state": "active"
   },
   {
@@ -53,6 +44,33 @@
    "account": "claude-1",
    "session": null,
    "assignment": "Blueprint part 4: G3, APPLY, STAB, LIP, McShane and measure, HEAD, HEAD-Q",
+   "state": "running"
+  },
+  {
+   "id": "track-I",
+   "kind": "Phase 0 (Codex)",
+   "model": "GPT-6-Astra high",
+   "account": "codex-1",
+   "session": "kam-track-i",
+   "assignment": "Track I Phase 0: isoenergetic KAM (HL19 Thm 3.6), 2-DOF confinement, restricted three-body problem",
+   "state": "running"
+  },
+  {
+   "id": "track-N",
+   "kind": "Phase 0 (Codex)",
+   "model": "GPT-6-Astra high",
+   "account": "codex-3",
+   "session": "kam-track-n",
+   "assignment": "Track N Phase 0: quasi-convex Nekhoroshev (Bounemoura–Marco Thm 2.1; Pöschel 1993)",
+   "state": "running"
+  },
+  {
+   "id": "track-P",
+   "kind": "Phase 0 (Codex)",
+   "model": "GPT-6-Astra high",
+   "account": "codex-4",
+   "session": "kam-track-p",
+   "assignment": "Track P Phase 0: properly degenerate KAM (CP11 Thm 11.1), planar two-planet and fixed-Sun statements",
    "state": "running"
   }
  ],
