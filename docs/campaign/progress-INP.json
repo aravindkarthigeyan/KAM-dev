@@ -46,8 +46,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.06,
-   "note": "blueprint-I: Part 0 (reviewed, fixed), Part 1 written; Part 2 (iteration, I-G1) being written"
+   "done": 0.1,
+   "note": "blueprint-I: Parts 0-2 written (I-G1 proof complete in blueprint); Part 3 being written; reviews round 1"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -62,8 +62,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.06,
-   "note": "blueprint-N: Part 0, plan, Part 3 (shared ODE layer) written; Parts 1-2 being written"
+   "done": 0.1,
+   "note": "blueprint-N: Parts 0-3 written (N-QC, N-ZERO complete in blueprint); Parts 4-5 being written"
   },
   {
    "group": "Track P (planetary)",
@@ -87,15 +87,15 @@
    "title": "Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy",
    "difficulty": "VH",
    "done": 0.01,
-   "note": "route gap: weak-nondegeneracy KAM gate (Part 11) under route study"
+   "note": "route decided: P-PLANAR via P-G + CP11 planar torsion; P-FIXED KAM gate blocked on pinning Russmann 2001"
   },
   {
    "group": "Track N (Nekhoroshev)",
    "id": "N.ADD.PHASE0",
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.45,
-   "note": "audit done; N-PARTIAL-CONVEX revision v0.4 running (F-NADD-1); N-AVERAGING deferred until the primary AKN source is pinned"
+   "done": 0.55,
+   "note": "N-PARTIAL-CONVEX v0.4 under delta audit; N-AVERAGING deferred (primary source requested)"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -110,8 +110,8 @@
    "id": "P.ADD.PHASE0",
    "title": "P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze",
    "difficulty": "M",
-   "done": 0.5,
-   "note": "audit done (F-P-A1 major: inline result bundles; errata E-P-A-*); revision v0.4 running"
+   "done": 0.7,
+   "note": "v0.4 delta audit READY FOR OWNER; approval packet docs/tracks/P/REVIEW-additions.md"
   },
   {
    "group": "Track P (planetary)",
