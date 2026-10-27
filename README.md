@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:06 UTC from `main` at `c1171f3` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:06 UTC from `main` at `b876ed8` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -277,6 +277,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:06 | `b876ed8` | Merge remote-tracking branch 'origin/main' |
 | 2026-10-27 16:06 | `c1171f3` | Blueprint Part 2: the a-posteriori theorem G1, complete proof |
 | 2026-10-27 16:04 | `060f2b3` | Exploration round 1 of the collaborator's almost-every/shorter-time question; round 2 launched |
 | 2026-10-27 16:01 | `fa15db5` | Record D19: owner rulings on track I questions 1-5, as recommended |
@@ -288,7 +289,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:51 | `3599e6e` | Blueprint Part 3: local uniqueness for flows (G2), complete proof |
 | 2026-10-27 15:40 | `28ab456` | HQ: exploration of almost-every, shorter-time stability (collaborator's question) |
 | 2026-10-27 15:37 | `6f73a2b` | Name both authors in the frozen and project file headers (D16) |
-| 2026-10-27 15:33 | `544042a` | Plan four parallel tracks; add Zohar Komargodski as author; pin new sources |
 <!-- /AUTO:landed -->
 
 ## Decisions
