@@ -10,6 +10,8 @@ public import KAM.Apost.Constants
 public import KAM.Apost.Frame
 public import KAM.Apost.Hamiltonian
 public import KAM.Apost.Periodicity
+public import KAM.Apost.Perturbation
+public import KAM.Apost.PerturbationTorsion
 public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
 public import KAM.Apost.Tools
