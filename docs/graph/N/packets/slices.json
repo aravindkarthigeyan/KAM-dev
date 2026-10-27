@@ -1,0 +1,197 @@
+{
+ "N-p02": {
+  "ranges": [
+   {
+    "part": "p0",
+    "lines": [
+     1,
+     1000000000
+    ]
+   },
+   {
+    "part": "p2",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p02",
+  "nodes": 63,
+  "coverage": 109
+ },
+ "N-p1": {
+  "ranges": [
+   {
+    "part": "p1",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p1",
+  "nodes": 52,
+  "coverage": 74
+ },
+ "N-p3a": {
+  "ranges": [
+   {
+    "part": "p3",
+    "lines": [
+     1,
+     325
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p3a",
+  "nodes": 52,
+  "coverage": 73
+ },
+ "N-p3b": {
+  "ranges": [
+   {
+    "part": "p3",
+    "lines": [
+     326,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p3b",
+  "nodes": 48,
+  "coverage": 69
+ },
+ "N-p4": {
+  "ranges": [
+   {
+    "part": "p4",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p4",
+  "nodes": 38,
+  "coverage": 65
+ },
+ "N-p5": {
+  "ranges": [
+   {
+    "part": "p5",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p5",
+  "nodes": 50,
+  "coverage": 74
+ },
+ "N-p6": {
+  "ranges": [
+   {
+    "part": "p6",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p6",
+  "nodes": 42,
+  "coverage": 69
+ },
+ "N-p7": {
+  "ranges": [
+   {
+    "part": "p7",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p7",
+  "nodes": 69,
+  "coverage": 96
+ },
+ "N-p8": {
+  "ranges": [
+   {
+    "part": "p8",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p8",
+  "nodes": 53,
+  "coverage": 76
+ },
+ "N-p910": {
+  "ranges": [
+   {
+    "part": "p9",
+    "lines": [
+     1,
+     1000000000
+    ]
+   },
+   {
+    "part": "p10",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p910",
+  "nodes": 73,
+  "coverage": 102
+ },
+ "N-p11ab": {
+  "ranges": [
+   {
+    "part": "p11a",
+    "lines": [
+     1,
+     1000000000
+    ]
+   },
+   {
+    "part": "p11b",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p11ab",
+  "nodes": 51,
+  "coverage": 70
+ },
+ "N-p11c": {
+  "ranges": [
+   {
+    "part": "p11c",
+    "lines": [
+     1,
+     1000000000
+    ]
+   }
+  ],
+  "extractor": "sonnet-extract-N-p11c",
+  "nodes": 65,
+  "coverage": 77
+ },
+ "N-imports": {
+  "imports": true,
+  "extractor": "claude-suborch-INP",
+  "nodes": 18,
+  "coverage": 18
+ }
+}

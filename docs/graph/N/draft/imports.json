@@ -1,0 +1,286 @@
+{
+ "I:bpI:p0:hamsol#IsHamiltonianSolutionOn": {
+  "owner": "I",
+  "target": "bpI:p0:hamsol#IsHamiltonianSolutionOn",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\frozen{KAM.Iso.IsHamiltonianSolutionOn}"
+  ],
+  "candidate_users": [
+   "bpN:p3:ham-reduction"
+  ],
+  "source_fields": "to be filled from blueprint-I/parts/p0-conventions.tex"
+ },
+ "I:bpI:p0:restricted#IsRestrictedSolutionOn": {
+  "owner": "I",
+  "target": "bpI:p0:restricted#IsRestrictedSolutionOn",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\frozen{KAM.Iso.IsRestrictedSolutionOn}"
+  ],
+  "candidate_users": [
+   "bpN:p3:newton-reduction"
+  ],
+  "source_fields": "to be filled from blueprint-I/parts/p0-conventions.tex"
+ },
+ "K:bp:p1:decay": {
+  "owner": "K",
+  "target": "bp:p1:decay",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:decay}"
+  ],
+  "candidate_users": [
+   "bpN:p1:norm-convert",
+   "bpN:p4:sup-weighted",
+   "stepN:p1:nc-decay",
+   "stepN:p4:b1-b"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:exp-sums": {
+  "owner": "K",
+  "target": "bp:p1:exp-sums",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:exp-sums}"
+  ],
+  "candidate_users": [
+   "bpN:p1:norm-convert",
+   "bpN:p4:sup-weighted",
+   "stepN:p1:nc-sum",
+   "stepN:p4:b1-b",
+   "stepN:p4:b3-a",
+   "stepN:p4:co-series"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-cauchy": {
+  "owner": "K",
+  "target": "bp:p1:ext-cauchy",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-cauchy}"
+  ],
+  "candidate_users": [
+   "stepN:p4:b3-b",
+   "stepN:p4:c1-cauchy"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-fourier": {
+  "owner": "K",
+  "target": "bp:p1:ext-fourier",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-fourier}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-integral": {
+  "owner": "K",
+  "target": "bp:p1:ext-integral",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-integral}"
+  ],
+  "candidate_users": [
+   "stepN:p5:ta-taylor"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-mvt": {
+  "owner": "K",
+  "target": "bp:p1:ext-mvt",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-mvt}"
+  ],
+  "candidate_users": [
+   "stepN:p11:rs-b",
+   "stepN:p5:fl-max",
+   "stepN:p5:fl-picard",
+   "stepN:p6:lip-seg",
+   "stepN:p7:ec-proj",
+   "stepN:p7:nr-t3",
+   "stepN:p7:pi-contr",
+   "stepN:p9:om-max"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-schwarz": {
+  "owner": "K",
+  "target": "bp:p1:ext-schwarz",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-schwarz}"
+  ],
+  "candidate_users": [
+   "bpN:p0:bm#HasDerivativeBounds",
+   "bpN:p11:symplectic",
+   "bpN:p1:partials",
+   "bpN:p2:qc-deriv",
+   "stepN:p1:hr-field",
+   "stepN:p1:pa-sym",
+   "stepN:p2:qd-sym",
+   "stepN:p5:sy-field"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:fourier-basic": {
+  "owner": "K",
+  "target": "bp:p1:fourier-basic",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:fourier-basic}"
+  ],
+  "candidate_users": [
+   "bpN:p4:coefficients",
+   "stepN:p4:co-deriv",
+   "stepN:p4:co-repr"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:hamiltonian-real": {
+  "owner": "K",
+  "target": "bp:p1:hamiltonian-real",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:hamiltonian-real}"
+  ],
+  "candidate_users": [
+   "bpN:p0:totality",
+   "bpN:p1:holo-real",
+   "bpN:p3:holo-input",
+   "bpN:p5:setting",
+   "bpN:p7:real-system",
+   "bpN:p7:setting",
+   "stepN:p11:rs-a",
+   "stepN:p1:hr-field",
+   "stepN:p3:hi-reg",
+   "stepN:p7:rs-field"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:holomorphic-regularity": {
+  "owner": "K",
+  "target": "bp:p1:holomorphic-regularity",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:holomorphic-regularity}"
+  ],
+  "candidate_users": [
+   "bpN:p0:integrable#IsAnalyticIntegrable",
+   "bpN:p1:holo-real",
+   "bpN:p3:holo-input",
+   "bpN:p5:flow",
+   "bpN:p7:real-system",
+   "stepN:p1:hc-entries",
+   "stepN:p1:hr-field",
+   "stepN:p1:hr-holo",
+   "stepN:p3:hi-reg",
+   "stepN:p4:co-deriv",
+   "stepN:p4:co-holo",
+   "stepN:p5:ld-ind",
+   "stepN:p7:rs-smooth"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:real-restriction": {
+  "owner": "K",
+  "target": "bp:p1:real-restriction",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:real-restriction}"
+  ],
+  "candidate_users": [
+   "bpN:p0:integrable#IsAnalyticIntegrable",
+   "stepN:p5:fl-symmetry",
+   "stepN:p7:cj-real"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:summation": {
+  "owner": "K",
+  "target": "bp:p1:summation",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:summation}"
+  ],
+  "candidate_users": [
+   "bpN:p1:norm-convert",
+   "bpN:p1:period-convert",
+   "bpN:p4:coefficients",
+   "bpN:p4:sup-weighted",
+   "stepN:p1:nc-decay",
+   "stepN:p4:co-repr",
+   "stepN:p4:co-series"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:uniform-limits": {
+  "owner": "K",
+  "target": "bp:p1:uniform-limits",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:uniform-limits}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "P:bpP:p0:fixedsol#IsFixedSolution": {
+  "owner": "P",
+  "target": "bpP:p0:fixedsol#IsFixedSolution",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\frozen{KAM.Planetary.IsFixedSolution}"
+  ],
+  "candidate_users": [
+   "bpN:p3:newton-reduction"
+  ],
+  "source_fields": "to be filled from blueprint-P/parts/p0-conventions.tex"
+ },
+ "P:bpP:p0:newton#IsNewtonSolution": {
+  "owner": "P",
+  "target": "bpP:p0:newton#IsNewtonSolution",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\frozen{KAM.Planetary.IsNewtonSolution}"
+  ],
+  "candidate_users": [
+   "bpN:p3:newton-reduction"
+  ],
+  "source_fields": "to be filled from blueprint-P/parts/p0-conventions.tex"
+ },
+ "P:bpP:p2:direct": {
+  "owner": "P",
+  "target": "bpP:p2:direct",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Pref{bpP:p2:direct}"
+  ],
+  "candidate_users": [
+   "bpN:p6:iterative-direct"
+  ],
+  "source_fields": "to be filled from blueprint-P/parts/p2-averaging.tex"
+ }
+}
