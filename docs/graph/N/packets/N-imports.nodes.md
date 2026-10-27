@@ -24,32 +24,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED (pending I graph): frozen definition KAM.Iso.IsHamiltonianSolutionOn, anchor node bpI:p0:hamsol#IsHamiltonianSolutionOn of the track-I graph; not an anchor of this graph. Cited as \frozen{KAM.Iso.IsHamiltonianSolutionOn}.
 
-NODE: I:bpI:p0:restricted#IsRestrictedSolutionOn
-KIND: external
-TITLE: [I] Restricted Hamiltonian and field: KAM.Iso.IsRestrictedSolutionOn
-STATEMENT_SOURCE: blueprint-I/parts/p0-conventions.tex#bpI:p0:restricted@L139-L153
-PROOF_SOURCE: -
-CONTRACT_ID: I:bpI:p0:restricted#IsRestrictedSolutionOn
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: typing data: mu in R, J subset R, z : R -> R^2 x R^2
-SOURCE_QUANTIFIERS: mu, J, z
-SOURCE_CONCLUSION: defines RSol_mu(J,z): for every t in J, z(t) is collision free and z is differentiable at t with z'(t) = V_mu(z(t))
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED (pending I graph): frozen definition KAM.Iso.IsRestrictedSolutionOn, anchor node bpI:p0:restricted#IsRestrictedSolutionOn of the track-I graph; not an anchor of this graph. Cited as \frozen{KAM.Iso.IsRestrictedSolutionOn}.
-
 NODE: K:bp:p1:decay
 KIND: external
 TITLE: [K] Coefficient decay
@@ -127,32 +101,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-cauchy (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bp:p1:ext-cauchy v1. Cited as \Kref{bp:p1:ext-cauchy}.
-
-NODE: K:bp:p1:ext-fourier
-KIND: external
-TITLE: [K] Fourier series on the torus
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-fourier@L87-L91
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p1:ext-fourier
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: v:R^n->C continuous and 1-periodic; sum_k |hat v_k|<infinity
-SOURCE_QUANTIFIERS: v arbitrary with the stated properties; then x in R^n
-SOURCE_CONCLUSION: v(x)=sum_k hat v_k chi_k(x) for every x in R^n
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-fourier (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bp:p1:ext-fourier v1. Cited as \Kref{bp:p1:ext-fourier}.
 
 NODE: K:bp:p1:ext-integral
 KIND: external
@@ -387,81 +335,3 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p1:uniform-limits; shared Lean provider. There: KIND lemma, contract bp:p1:uniform-limits v1. Cited as \Kref{bp:p1:uniform-limits}.
-
-NODE: P:bpP:p0:fixedsol#IsFixedSolution
-KIND: external
-TITLE: [P] Fixed-Sun solutions: KAM.Planetary.IsFixedSolution
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixedsol@L235-L242
-PROOF_SOURCE: -
-CONTRACT_ID: P:bpP:p0:fixedsol#IsFixedSolution
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: typing data: n in N, G, m_0, epsilon in R, m in R^n, Q, V : R -> (R^2)^n
-SOURCE_QUANTIFIERS: G, m_0, m, epsilon, Q, V
-SOURCE_CONCLUSION: defines IsFixedSol(G,m_0,m,epsilon,Q,V): for all t and i != j: pl(Q_i(t)) > 0, pl(Q_j(t) - Q_i(t)) > 0, Q_i has derivative V_i(t), and V_i has derivative -G m_0 Q_i(t) / pl(Q_i(t))^3 + epsilon sum_{j != i} G m_j (Q_j(t) - Q_i(t)) / pl(Q_j(t) - Q_i(t))^3; the Sun is the constant origin
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED (pending P graph): frozen definition KAM.Planetary.IsFixedSolution, anchor node bpP:p0:fixedsol#IsFixedSolution of the track-P graph; not an anchor of this graph. Cited as \frozen{KAM.Planetary.IsFixedSolution}.
-
-NODE: P:bpP:p0:newton#IsNewtonSolution
-KIND: external
-TITLE: [P] Newton solutions: KAM.Planetary.IsNewtonSolution
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:newton@L226-L233
-PROOF_SOURCE: -
-CONTRACT_ID: P:bpP:p0:newton#IsNewtonSolution
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: typing data: N in N, G in R, M in R^N, Q, V : R -> (R^2)^N
-SOURCE_QUANTIFIERS: G, M, Q, V
-SOURCE_CONCLUSION: defines IsNewton(G,M,Q,V): for all t in R and i != j (indices < N): pl(Q_j(t) - Q_i(t)) > 0; Q_i has derivative V_i(t) at t; V_i has derivative sum_{j != i} G M_j (Q_j(t) - Q_i(t)) / pl(Q_j(t) - Q_i(t))^3 at t (HasDerivAt)
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED (pending P graph): frozen definition KAM.Planetary.IsNewtonSolution, anchor node bpP:p0:newton#IsNewtonSolution of the track-P graph; not an anchor of this graph. Cited as \frozen{KAM.Planetary.IsNewtonSolution}.
-
-NODE: P:bpP:p2:direct
-KIND: external
-TITLE: [P] Iterative Lemma, direct form
-STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#bpP:p2:direct@L45-L50
-PROOF_SOURCE: -
-CONTRACT_ID: P:bpP:p2:direct
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the data of bpN:p6:homological and bpN:p6:iterative, with their hypotheses (N1) bpN:p6:cond-nr, (N2) bpN:p6:cond-L and KLr <= alpha/p replaced by (Div_q) for some q >= 1
-SOURCE_QUANTIFIERS: as in bpN:p6:homological and bpN:p6:iterative; q >= 1 arbitrary (q = 1 allowed)
-SOURCE_CONCLUSION: bpN:p6:homological and bpN:p6:iterative (with bpN:p6:iterative-special) hold verbatim: the same phi = sum_{k in Z_K minus Lambda} hat f_k / (2 pi i k.omega) chi_k, the same constants and the same estimates
-CONSTANT_SCOPE: the constants of bpN:p6:iterative, unchanged
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED (pending P graph): proved in the track-P graph, node bpP:p2:direct; shared Lean provider. Cited as \Pref{bpP:p2:direct}.

@@ -5,8 +5,7 @@ This part fixes notation and restates, in mathematical form, the three frozen th
 \texttt{\seqsplit{KAM/Frozen/Nekhoroshev/Defs/}} together with the five track-K definitions they use. The Lean
 declarations are authoritative; the statements below are transcriptions of them, with the Lean names
 recorded under each. N-HEAD with real bounds only is \emph{not} frozen (source gap F-N1, D17/D18/D20); the
-frozen headline is N-HEAD-C. The additions of D22 (N-PARTIAL-CONVEX, N-AVERAGING) are not yet frozen and are
-not part of this part. Results of track K's blueprint are cited as \Kref{bp:p1:\dots}.
+frozen headline is N-HEAD-C. The additions of D22 (N-PARTIAL-CONVEX, N-AVERAGING) were frozen by D25 and D28 and are transcribed below. Results of track K's blueprint are cited as \Kref{bp:p1:\dots}.
 
 \subsection{Conventions}\label{bpN:p0:conventions}
 
@@ -338,3 +337,70 @@ The order of choice is: $n,k$; $G,G',D,\rho,g,m,M_{\C},h$ (together with their h
 \begin{remark}[Lean totality for the D25 objects]\label{bpN:p0:partial-totality}
 (a) $\mu^{b_n}$, $\mu^{-a_n}$, $\mu^{-1}$ occur only for $\mu>0$ (rpow of a positive base), and $6n^2-3n+14>0$. (b) $\omega_h$, $D^2h_\R$ in \texttt{HasDefiniteFastPart} are guarded: $h_\R$ is $C^3$ on the real slice $U$ of the open set $G'_\rho$, which is open in $\R^n$ ($G'$ open), so the \Lean{fderiv} are true derivatives at every $I\in U$ (Lemma~\ref{bpN:p1:holo-real} for the relation with the complex derivatives). (c) $\texttt{IsSolutionOn}$ asserts differentiability of $H_\mu$ at $z(u)$, $u\in[0,C]$; where $\mathrm{slow}(z(u))\notin D$ the value $P(\mathrm{cx}\,w)$ is the arbitrary value of the function $P$ outside $\mathcal F$, and the theorem uses the solution only for $u\in[0,t]$ where the slow variables lie in $\operatorname{core}(D,\mu^{b_n})\subset D$, an open set on which $H_\mu$ is real analytic. (d) If $\operatorname{core}(D,\mu^{b_n})$ is empty the confinement hypothesis fails for $t\ge0$ and the statement is vacuous. (e) $\texttt{fderiv}\,\C\,(\texttt{fderiv}\,\C\,h)$ is the true second derivative on the open set $G'_\rho$ where $h$ is complex $C^2$.
 \end{remark}
+
+\subsection{D28 additions: multi-frequency averaging}\label{bpN:p0:avg-sec}
+
+Owner approval D28 (27 October 2026) froze two further theorems, N-AVERAGING-MEAN and N-AVERAGING-MOST, and two definitions
+(\texttt{\seqsplit{KAM/Frozen/Nekhoroshev/Theorems/\{AveragingMean,AveragingMost\}.lean}},
+\texttt{\seqsplit{KAM/Frozen/Nekhoroshev/Defs/\{HasAveragingFrequencyRank,AveragingError\}.lean}}).
+The Lean text is authoritative. Notation of the Lean statements: a \emph{phase point} is $x=(\theta,I)\in\R^n\times\R^n$, the action is
+\texttt{x.2}$=x_2=I$, norms are max norms, $\texttt{vol}$ is Lebesgue measure on $\R^n\times\R^n$ (``unnormalised phase volume'': no
+division by $\operatorname{vol}K$ and no probability), and for $\varepsilon>0$ the Hamiltonian is
+$H_\varepsilon=H_{h,\varepsilon f}=\operatorname{Re}\bigl(h(I)+\varepsilon f(\theta,I)\bigr)$ (Definition~\ref{bpN:p0:realH} with the perturbation
+$w\mapsto(\varepsilon:\C)\,f(w)$). With the averaged action orbit $J(t)\equiv I_0$ (Remark~\ref{bpN:p12:averaged}) the error
+of the averaging method is $\sup_{0\le t\le1/\varepsilon}\abs{I(t)-I_0}$.
+
+\begin{definition}[\Lean{HasAveragingFrequencyRank}: the two rank alternatives]\label{bpN:p0:avg-rank}
+For $U\subset\R^n$ and $h:\C^n\to\C$ write $\omega=\omega_h$ (Definition~\ref{bpN:p0:freq}). $\texttt{HasAveragingFrequencyRank}\,U\,h$ holds iff
+\[\text{(A)}\ \ \forall I\in U:\ D\omega(I):\R^n\to\R^n\ \text{is surjective}\qquad\text{or}\qquad
+\text{(B)}\ \ \forall I\in U:\ \omega(I)\ne0\ \text{and}\ (v,c)\mapsto D\omega(I)v+c\,\omega(I),\ \R^n\times\R\to\R^n,\ \text{is surjective,}\]
+with $D\omega(I)=\texttt{fderiv}\,\R\,\omega\,I$. The alternative is global: the same branch (A) or (B) holds at every point of $U$
+(the quantifier $\forall I\in U$ is inside each branch). (B) says that the projective class $(\omega_1:\dots:\omega_n)$ has differential of rank $n-1$ at $I$
+(its image is $(\operatorname{range}D\omega(I)+\R\omega(I))/\R\omega(I)$); no chart $\omega_1\ne0$ is chosen. Branch (A) may hold at a point where $\omega=0$.
+\frozen{KAM.Nekhoroshev.\allowbreak HasAveragingFrequencyRank}
+\source{AKN06 Theorem~6.11, p.~243 (PDF p.~254): ``either the rank of the map $I\mapsto\omega(I)$ is equal to the number of frequencies, or the rank of the map $I\mapsto(\omega_1(I):\dots:\omega_m(I))$ is by one less than the number of frequencies''; Nei76 p.~1296 hypothesis~3$^\circ$ is the chart form.}
+\end{definition}
+
+\begin{definition}[\Lean{averagingError}]\label{bpN:p0:avg-error}
+For $n\in\N$, $\varepsilon\in\R$, $\Phi:(\R^n\times\R^n)\to\R\to(\R^n\times\R^n)$ and $x=(\theta_0,I_0)$:
+\[e_\varepsilon^\Phi(x)=\texttt{averagingError}\,\varepsilon\,\Phi\,x=\sup\Bigl\{\abs{(\Phi\,x\,t)_2-I_0}:\ t\in[0,1/\varepsilon]\Bigr\}\in\R,\]
+the Lean real supremum \Lean{sSup} (which is $0$ for an empty or unbounded-above set).
+\frozen{KAM.Nekhoroshev.\allowbreak averagingError}
+\source{AKN06 (6.27), p.~243: $\max_{0\le t\le1/\varepsilon}\abs{I(t)-J(t)}$ with $J(t)=I_0$; Nei76 p.~1295 (4).}
+\end{definition}
+
+\begin{remark}[Lean totality for $\texttt{averagingError}$]\label{bpN:p0:avg-totality}
+\Lean{sSup} on $\R$ is the true supremum only for a nonempty set bounded above; otherwise it is the junk value $0$. The theorems use the definition
+only under the following guards, each verified in Part~\ref{bpN:p12}:
+\begin{enumerate}[label=(\alph*)]
+\item $\varepsilon>0$ (the quantifier $0<\varepsilon\le\varepsilon_0$), so $1/\varepsilon>0$ and $0\in[0,1/\varepsilon]$: the interval is a nonempty compact interval (for $\varepsilon<0$ it is empty, for $\varepsilon=0$ it is $\{0\}$ since $1/0=0$ in Lean);
+\item the family is a genuine solution on $[0,1/\varepsilon]$, so $t\mapsto(\Phi x\,t)_2$ is continuous on the compact interval (a solution is differentiable at every $t\in J$), whence the image of $t\mapsto\abs{(\Phi x\,t)_2-x_2}$ is compact, nonempty and bounded; moreover $(\Phi x\,t)_2\in B(0,R)$ and $x_2\in B(0,R/2)$ bound the set by $3R/2$ (the bound is also available without continuity);
+\item then the supremum is attained, is $\ge0$ (it is $\ge$ the value $0$ at $t=0$ when $\Phi x\,0=x$), and $\abs{(\Phi x\,t)_2-x_2}\le e^\Phi_\varepsilon(x)$ for every $t\in[0,1/\varepsilon]$.
+\end{enumerate}
+No division by a quantity that may vanish occurs: $1/\varepsilon$ with $\varepsilon>0$, and $\sqrt\varepsilon$ with $\varepsilon>0$, $A\sqrt\varepsilon/\kappa$ with $\kappa>0$, $A\sqrt\varepsilon/\eta$ with $\eta>0$. The derivatives behind $\omega_h$ and $D\omega_h$ in
+Definition~\ref{bpN:p0:avg-rank} are genuine on $B(0,R)\subset\mathcal B_s(R)$ because $h_\R\in C^3$ there (Definition~\ref{bpN:p0:integrable}(v)), so $\omega_h$ is $C^2$ and \Lean{fderiv} is the true derivative. As a stand-alone predicate on an arbitrary $h$ or on $U=\emptyset$ the definition has its usual vacuity/off-locus behaviour; no theorem uses it there.
+\end{remark}
+
+\begin{theorem}[N-AVERAGING-MEAN: mean error and Markov form]\label{bpN:p0:avg-mean}
+Let $n\ge2$, $R,s>0$, $h:\C^n\to\C$, $f:\C^n\times\C^n\to\C$ with $\texttt{IsAnalyticIntegrable}\,R\,s\,h$, $\texttt{IsAnalyticPerturbation}\,R\,s\,1\,f$,
+$\texttt{HasAveragingFrequencyRank}\,B(0,R)\,h$, and $K\subset\R^n\times\R^n$ compact with $x_2\in B(0,R/2)$ for every $x\in K$. Then there are $A,\varepsilon_0>0$ such that for every $\varepsilon\in(0,\varepsilon_0]$ and
+every $\Phi:(\R^n\times\R^n)\to\R\to(\R^n\times\R^n)$ with
+\[\forall x\in K:\quad\Phi\,x\,0=x\quad\text{and}\quad\texttt{IsSolutionOn}\ H_{h,\varepsilon f}\ B(0,R)\ [0,1/\varepsilon]\ (\Phi\,x),\]
+the function $e^\Phi_\varepsilon$ is integrable on $K$,
+\[\int_K^{-}\operatorname{ofReal}\bigl(e^\Phi_\varepsilon(x)\bigr)\,dx\le\operatorname{ofReal}(A\sqrt\varepsilon)\qquad(\text{Lean \Lean{lintegral} over }K),\]
+and for every $\kappa>0$ there is a measurable $E\subset K$ with $\operatorname{vol}E\le\kappa$ and $\abs{(\Phi\,x\,t)_2-x_2}\le A\sqrt\varepsilon/\kappa$ for all $x\in K\setminus E$ and $t\in[0,1/\varepsilon]$.
+The order of choice: $n,R,s,h,f,K$ and their hypotheses; then $A,\varepsilon_0$; then $\varepsilon$, $\Phi$; then $\kappa$ and $E$. The flow premise is only existence and typing on $[0,1/\varepsilon]$; it contains no error bound and no exceptional set.
+\frozen{KAM.Nekhoroshev.\allowbreak averaging\_\allowbreak mean}
+\source{AKN06 Theorem~6.11 and Corollary~6.1 with (6.27), (6.28), p.~243 (printed pages; PDF $=$ printed $+11$); Nei76 pp.~1295--1298, Theorem~1; analytic specialisation, period-one angles, max norms and unnormalised volume as in \texttt{docs/tracks/N/statement.md}, \S N-AVERAGING v0.5.}
+\sourcegap{Nei76 p.~1298 (17) writes $\sup_tz(t)=\int_{U'}h$, interchanging a supremum in time with an integral over initial data (ledger E-NAVG-NEI-17). The proof in Part~\ref{bpN:p12} bounds the integral of the maximum directly (Remark~\ref{bpN:p12:errata}).}
+\end{theorem}
+
+\begin{theorem}[N-AVERAGING-MOST: existence and small drift for most initial data]\label{bpN:p0:avg-most}
+With the same $n,R,s,h,f,K$ and hypotheses as in Theorem~\ref{bpN:p0:avg-mean}, there are $A,\varepsilon_0,\eta_0>0$ with $\eta_0\le R/4$ such that for every $\varepsilon\in(0,\varepsilon_0]$ and every $\eta\in(0,\eta_0]$ there is a measurable $E\subset K$ with
+\[\operatorname{vol}E\le\operatorname{ofReal}\bigl(A\sqrt\varepsilon/\eta\bigr),\]
+and for every $x\in K\setminus E$ there is $z:\R\to\R^n\times\R^n$ with $z(0)=x$, $\texttt{IsSolutionOn}\ H_{h,\varepsilon f}\ B(0,R)\ [0,1/\varepsilon]\ z$ and $\abs{z(t)_2-x_2}\le\eta$ for all $t\in[0,1/\varepsilon]$.
+The order of choice: the fixed data; then $A,\varepsilon_0,\eta_0$; then $\varepsilon$, then $\eta$, then $E$, then $x$ and $z$. Existence of the solution on the whole window and confinement are \emph{conclusions} on the good data, not premises.
+\frozen{KAM.Nekhoroshev.\allowbreak averaging\_\allowbreak most}
+\source{AKN06 p.~243 (6.28) and Nei76 Theorems~1--2, pp.~1295--1298 (the set $\Phi(\rho,\varepsilon)$ of p.~1296 includes existence on $[0,\varepsilon^{-1}]$ and its complement includes data that reach $\partial G$); AKN06 p.~3 footnote~1 (smoothness convention) and Remark~6.4, pp.~217--218 (averaged orbit away from the boundary).}
+\sourcegap{As for Theorem~\ref{bpN:p0:avg-mean}; in addition the printed Theorem~2 of Nei76 imposes $\rho<\rho_1/2$ with an auxiliary collar $\rho_1$; the route of Part~\ref{bpN:p12} uses the exit radius $\rho=R/8$ and $\eta_0=R/8$ (a proof choice inside the existential constants; no strict inequality $\eta<\rho/2$ is needed there).}
+\end{theorem}

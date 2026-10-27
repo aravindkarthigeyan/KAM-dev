@@ -7,8 +7,11 @@ module
 
 public import KAM.Analysis.Iteration
 public import KAM.Apost.Constants
+public import KAM.Apost.Hamiltonian
+public import KAM.Apost.Periodicity
 public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
+public import KAM.Apost.Tools
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
 public import KAM.Diophantine.FrequencyDependence
@@ -172,6 +175,7 @@ public import KAM.Strip.AnalyticTaylor
 public import KAM.Strip.Averages
 public import KAM.Strip.Bridges
 public import KAM.Strip.Cauchy
+public import KAM.Strip.Cohomological
 public import KAM.Strip.CohomologicalDefs
 public import KAM.Strip.Fourier
 public import KAM.Strip.FourierBasic

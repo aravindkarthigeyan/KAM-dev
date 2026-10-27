@@ -79,9 +79,9 @@ EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p2-aposteriori.tex#bp:p2:mat
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.matrix_facts
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:matrix-op
@@ -106,9 +106,9 @@ EDGE: bp:p1:operator-norms | blueprint/parts/p2-aposteriori.tex#step:p2:matrix-o
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.isGreatest_norm_mulVec, KAM.norm_entry_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:matrix-transpose
@@ -133,9 +133,9 @@ EDGE: bp:p1:matrix-norms | blueprint/parts/p2-aposteriori.tex#step:p2:matrix-tra
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.norm_transpose_le_card_mul, Matrix.linfty_opNorm_mul
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:matrix-blocks
@@ -161,9 +161,9 @@ EDGE: bp:p1:matrix-norms | blueprint/parts/p2-aposteriori.tex#step:p2:matrix-blo
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Tools.{norm_fromCols_le_add, norm_fromBlocks_diagonal, omegaZeroMatrix_transpose_mul_self, omegaZeroMatrix_inv, omegaZeroMatrix_mul_fromRows}
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:averages
@@ -190,9 +190,9 @@ EDGE: bp:p0:domains#complexStrip | blueprint/parts/p2-aposteriori.tex#bp:p2:aver
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.averages
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:avg-bound
@@ -218,9 +218,9 @@ EDGE: bp:p1:averages-matrix | blueprint/parts/p2-aposteriori.tex#step:p2:avg-bou
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Tools.{torusAverage_basic, torusAverage_vector_apply, im_integral_eq_zero}
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:avg-deriv
@@ -246,9 +246,9 @@ EDGE: step:p2:avg-deriv#bounded-route | blueprint/parts/p2-aposteriori.tex#step:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Tools.torusAverage_fderiv_apply_eq_zero
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-3-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: The two proofs at L176-L179 are alternatives, not a conjunction. The C^1 property in the first route is derived from holomorphy.
 
 NODE: bp:p2:cohomological
@@ -369,9 +369,9 @@ EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p2-aposteriori.tex#bp:p2:ham
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.hamiltonian
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-4-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:ham-regular
@@ -637,9 +637,9 @@ EDGE: bp:p0:stripdata#IsRealOnReals | blueprint/parts/p2-aposteriori.tex#bp:p2:p
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.periodicity
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-4-audit-1.md (PASS); kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:per-dk

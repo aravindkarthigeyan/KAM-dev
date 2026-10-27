@@ -94,10 +94,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p8:x-cont, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p8:x-cont | blueprint-I/parts/p8-r3bp.tex#bpI:p8:e-vs-k@L37-L37 | kappa continuous strictly decreasing with kappa(kappa(x)) = x
+EDGE: bpI:p8:x-cont | blueprint-I/parts/p8-r3bp.tex#bpI:p8:e-vs-k@L37-L44 | kappa is continuous and strictly decreasing on [0,1]; the involution identity at L44 is a local square-root calculation, not part of this external input
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:e-vs-k@L36-L36 | C_0, e(L,G) = sqrt(1-G^2/L^2) of Parts 6-7
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -202,7 +202,7 @@ CONTRACT_ID: stepI:p8:tp-A
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59; (L,G) in C_0
 SOURCE_QUANTIFIERS: for (L,G) in C_0
-SOURCE_CONCLUSION: (a): a_-<L^2<a_+ iff sqrt(a_-)<L<sqrt(a_+) and e_-<e<e_+ iff kappa(e_+)L < G < kappa(e_-)L
+SOURCE_CONCLUSION: A subset A^cl subset C_0; (a): a_-<L^2<a_+ iff sqrt(a_-)<L<sqrt(a_+) and e_-<e<e_+ iff kappa(e_+)L < G < kappa(e_-)L
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -215,7 +215,7 @@ EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74 | A subset 
 EDGE: bpI:p8:e-vs-k | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74 | e in (e_-,e_+) iff G/L in (kappa(e_+),kappa(e_-))
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74 | C_0 and/or e(L,G), Q are the orbit-map data used here
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -244,9 +244,9 @@ EDGE: bpI:p7:near-circular | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76
 EDGE: stepI:p8:tp-A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76 | (a) converts the conditions to membership in A
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76 | Q and D_R
 EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76 | A and the fixed parameterization of the initial region
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -259,7 +259,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78
 PROOF_SOURCE: blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78
 CONTRACT_ID: stepI:p8:tp-open
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the action region A and Delaunay notation of L36-59
+SOURCE_HYPOTHESES: 0<a_-<a_+, 0<e_-<e_+<1/4, a_+(1+e_+)<1; the frozen physical set N and the Kepler region C with the elements a(q,p), e(q,p)
 SOURCE_QUANTIFIERS: For each a_pm,e_pm satisfying the enclosing topology proposition; no new point or witness is selected
 SOURCE_CONCLUSION: N is open in R^2 x R^2
 CONSTANT_SCOPE: none
@@ -267,15 +267,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:near-circular, bpI:p7:elements, bpI:p8:x-topo, bpI:p8:A
+DEPS: bpI:p7:near-circular, bpI:p7:elements, bpI:p8:x-topo
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:near-circular | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | N = {(q,p) in C : a_-<a<a_+, e_-<e<e_+}
 EDGE: bpI:p7:elements | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | C open, a and e continuous on C
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | finite intersection of preimages of open intervals is open
-EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | A and the fixed parameterization of the initial region
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -305,9 +304,9 @@ EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80-L80 | (L
 EDGE: stepI:p8:tp-chart | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80-L80 | Q(0,0,L_*,G_*) in N by (b)
 EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80-L80 | u(0,e) = 0 (Proposition kepler-eq (c))
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80-L80 | evaluation of Q at l=g=0: c=1, s=0, D=1-e_*, R(0)=id
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -360,9 +359,9 @@ DEPS: bpI:p8:x-norm
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:x-norm | blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-quant@L100-L100 | reverse triangle inequality
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -377,7 +376,7 @@ CONTRACT_ID: stepI:p8:ce-compact
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: X is a real normed space; m in N; x_j in X; c>=0, mu_1>0; y_j(mu) defined for |mu|<=mu_1 with |y_j(mu)-x_j|<=c|mu|; X finite dimensional; S compact, x_j not in S; the nondegenerate branch has S nonempty and m>=1 (the other branches are vacuous as stated at L95)
 SOURCE_QUANTIFIERS: For fixed X,m,x_j,c,mu_1,y_j and compact S with x_j not in S, handle S empty or m=0 vacuously; otherwise choose a minimizing q_j in S for each j, then delta_S>0 and mu_*,d, before mu,q,j
-SOURCE_CONCLUSION: delta_S = min_j min_{q in S}|q-x_j| > 0 (attained, q_j != x_j) and (a) applies with delta = delta_S
+SOURCE_CONCLUSION: if S is empty or m=0, choose any delta_S>0 (for example 1), and the separation assertion is vacuous; if S is nonempty and m>=1, each continuous distance attains its minimum at q_j in S with q_j != x_j, and delta_S := min_j min_{q in S} norm(q-x_j) > 0; part (a) applies with this delta_S, giving mu_*>0 and d=delta_S/2 with norm(q-y_j(mu))>=d for every q in S, abs(mu)<=mu_* and every j
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -389,7 +388,7 @@ ROUTE_FOR: -
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-compact@L102-L102 | continuous function attains its minimum on a nonempty compact set
 EDGE: stepI:p8:ce-quant | blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-compact@L102-L102 | apply (a) with delta = delta_S
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -451,9 +450,9 @@ EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst
 EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst@L114-L114 | y_2(mu) = a_2(mu)
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst@L114-L114 | rad is the Euclidean norm
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p8-r3bp.tex#stepI:p8:se-inst@L114-L114 | rad > 0 is collision freedom
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -481,9 +480,9 @@ EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L142-L142 | U and cal
 EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L136-L136 | rho_*, e_+ and the fixed parameters
 EDGE: bpI:p8:x-cont | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L139-L139 | kappa(e_pr) for the primed parameters
 EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L146-L146 | r_min and rho_max are precisely the min/max definitions of Part 7 L325-335 specialized to K
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -544,9 +543,9 @@ EDGE: bpI:p8:topology | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161
 EDGE: bpI:p8:x-cont | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161 | kappa strictly decreasing: kappa(e_+_pr)L < kappa(e_+)L and kappa(e_-)L < kappa(e_-_pr)L
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161 | U, calK, primed parameters
 EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161-L161 | sqrt(a_-_pr) < sqrt(a_-), e_+_pr > e_+, e_-_pr < e_-
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -574,9 +573,9 @@ EDGE: bpI:p8:e-vs-k | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L1
 EDGE: stepI:p8:sr-incl | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L163 | calK subset C_0
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L163 | definition of calK
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L163-L163 | C_0 and/or e(L,G), Q are the orbit-map data used here
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -606,9 +605,9 @@ EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L16
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165 | max and min exist by compactness
 EDGE: stepI:p8:sr-incl | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165 | calK compact nonempty
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L165 | C_0 and/or e(L,G), Q are the orbit-map data used here
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -629,14 +628,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p8:x-topo, stepI:p8:sr-incl, bpI:p8:safe
+DEPS: bpI:p8:x-topo, stepI:p8:sr-incl, bpI:p8:safe, bpI:p8:A
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167 | linear isomorphism is a homeomorphism; closures
 EDGE: stepI:p8:sr-incl | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167 | (a): closure(A) subset U subset calK
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167 | B = 2 pi U, B_pr = 2 pi A
+EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167 | A is open and closure(A) is contained in compact A^cl; scaling gives openness of B_prime and compactness of its closure
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -658,7 +658,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p8:hd-h, stepI:p8:hd-f, stepI:p8:hd-sets, bpI:p8:safe, bpI:p8:safe-region, bpI:p7:exact-ham, bpI:p7:period-one, bpI:p0:bordered#borderedHessian, bpI:p0:domains#complexStrip, bpI:p0:domains#actionNbhd, bpI:p6:kep-ham, bpI:p6:conversion-map
+DEPS: stepI:p8:hd-h, stepI:p8:hd-f, stepI:p8:hd-sets, bpI:p8:safe, bpI:p8:safe-region, bpI:p7:exact-ham, bpI:p7:period-one, bpI:p0:bordered#borderedHessian, bpI:p0:domains#complexStrip, bpI:p0:domains#actionNbhd, bpI:p6:kep-ham
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p8:hd-h | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L180-L180 | proof step (a)
@@ -672,9 +672,8 @@ EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p8-r3bp.tex#bpI:p8:hea
 EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L174-L174 | T_{s_0}
 EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L173-L173 | B_{r_0}
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L170-L178 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#bpI:p8:head-data@L171-L171 | the specified period-one scales and converted Hamiltonian
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -704,9 +703,9 @@ EDGE: bpI:p7:nondeg | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180 | de
 EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180 | the bordered Hessian
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-h@L180-L180 | K, B, B_prime and/or the safe radii fixed by this package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -727,14 +726,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:period-one, bpI:p6:kep-ham, bpI:p8:safe
+DEPS: bpI:p7:period-one, bpI:p8:safe
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:period-one | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-f@L182-L182 | (c)
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-f@L182-L182 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-f@L182-L182 | K, B, B_prime and/or the safe radii fixed by this package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -763,9 +761,9 @@ EDGE: bpI:p8:safe-region | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L
 EDGE: bpI:p7:period-one | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184 | (e) dependence of s_0, r_0, mu_2, C_F
 EDGE: bpI:p7:exact-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184 | delta_2 in (0,delta_1]
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:hd-sets@L184-L184 | K, B, B_prime and/or the safe radii fixed by this package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -786,7 +784,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p8:safe, bpI:p8:safe-region, bpI:p8:head-data, bpI:p7:shift, bpI:p0:head, bpI:p8:sec-safe#data, bpI:p6:kep-ham, bpI:p6:conversion-map
+DEPS: bpI:p8:safe, bpI:p8:safe-region, bpI:p8:head-data, bpI:p7:shift, bpI:p0:head, bpI:p8:sec-safe#data, bpI:p6:kep-ham
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L193-L193 | step (1) data
@@ -796,9 +794,8 @@ EDGE: bpI:p7:shift | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L194-L194 | 
 EDGE: bpI:p0:head | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L195-L195 | eps_H is the constant epsilon_0 of I-HEAD
 EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L193-L193 | rho_* and the parameters a_pm, e_pm
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L190-L202 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#bpI:p8:constants@L194-L194 | s_0,r_0 and h_tilde are selected in the period-one normalization
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -857,9 +854,9 @@ ROUTE_FOR: -
 EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-r@L209-L209 | (a) bounds on ¦q¦_2
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-r@L209-L209 | definition of r_min, rho_max
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-r@L209-L209 | Q and e(L,G) of the Delaunay orbit data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -889,9 +886,9 @@ EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 |
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 | K, B, B_prime and/or the safe radii fixed by this package
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 | Q and e(L,G) of the Delaunay orbit data
 EDGE: bpI:p7:elements | blueprint-I/parts/p8-r3bp.tex#stepI:p8:bd-p@L211-L211 | E(q,p)=¦p¦_2^2/2-1/¦q¦_2 is the energy definition used in rearranging the identity
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -919,9 +916,9 @@ EDGE: bpI:p8:topology | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L217-L21
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L217-L217 | S and its inverse (period-one conversion)
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L217-L217 | B_pr = 2 pi A
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-coord@L217-L217 | Q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -949,9 +946,9 @@ EDGE: bpI:p8:head-data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L2
 EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219 | mu_0 <= mu_2 and C_F mu_0 <= eps_H
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219 | B, B_pr, eta data of I-HEAD
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-small@L219-L219 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -984,9 +981,9 @@ EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221 | B, B_pr, eta
 EDGE: bpI:p6:kep-ham | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221 | the converted h_tilde is the h_{kappa,Omega} defined in Part 6
 EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-head@L221-L221 | epsilon_H is the same I-HEAD threshold selected before mu and z_0; retain this witness
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1019,9 +1016,9 @@ EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223
 EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223 | RSol_mu
 EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223 | K, B, B_prime and/or the safe radii fixed by this package
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-sol@L223-L223 | Q and e(L,G) of the Delaunay orbit data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1042,7 +1039,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p8:pf-sol, stepI:p8:pf-head, bpI:p8:bounds, bpI:p8:safe, bpI:p8:safe-region, bpI:p8:constants, bpI:p6:conversion-map, bpI:p0:primaries#radius
+DEPS: stepI:p8:pf-sol, stepI:p8:pf-head, bpI:p8:bounds, bpI:p8:safe, bpI:p8:safe-region, bpI:p8:constants, bpI:p6:conversion-map, bpI:p0:primaries#radius, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p8:pf-sol | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L225 | z = Q o S o z~
@@ -1053,8 +1050,9 @@ EDGE: bpI:p8:safe-region | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225
 EDGE: bpI:p8:constants | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L225 | R > 1 > rho_max
 EDGE: bpI:p6:conversion-map | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L225 | S z~(t) = (l,g,L,G) with (L,G) = z~(t)_2/(2 pi)
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L225 | rad
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-bounds@L225-L225 | Q(ell,g,L,G) gives the position and momentum of the same physical trajectory
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1076,7 +1074,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p8:shell-exclusion, stepI:p8:pf-bounds, bpI:p8:constants, bpI:p8:safe-region, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:primaries#radius
+DEPS: bpI:p8:shell-exclusion, stepI:p8:pf-bounds, bpI:p8:constants, bpI:p8:safe-region, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:primaries#radius, bpI:p8:safe
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p8:shell-exclusion | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L227 | shell around the primary (instance of the collision-exclusion lemma)
@@ -1086,8 +1084,9 @@ EDGE: bpI:p8:safe-region | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L
 EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L227 | a_1(mu)
 EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L227 | a_2(mu)
 EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L227 | rad
+EDGE: bpI:p8:safe | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-dist@L227-L227 | r_min and rho_max are the fixed safe-region radii; with their safe-region bounds they specify the shell used here
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
+EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1122,9 +1121,9 @@ EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p8-r3bp.tex#s
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | V_mu
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | W_mu = collision-free points
 EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-L229 | W_mu is the open collision-free domain and F_mu is the same total formula extension
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
