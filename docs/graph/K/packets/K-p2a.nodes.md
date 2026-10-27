@@ -304,9 +304,9 @@ EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:coh-component
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.cohomological (KAM/Apost/Tools.lean:322), first conjunct; via KAM.cohomological
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md (supersedes the "blocked" rows of docs/campaign/audits/P2-3-audit-1.md); kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:coh-apriori
@@ -335,9 +335,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:coh-apriori@L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a+sol-review-r4
 REVIEWER: sol-review-d2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.cohomological (KAM/Apost/Tools.lean:322), second conjunct; via KAM.cohomological_apriori_operator
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/I-STRIP-3b-audit-1.md (supersedes "PARTIAL/blocked" row of docs/campaign/audits/P2-3-audit-1.md); kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p2:hamiltonian
@@ -398,9 +398,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:ham-regular@L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.differentiableOn_fderiv_h, differentiableOn_ham, differentiableOn_fderiv_ham, norm_fderiv_fderiv_eq, ham_regularity (KAM/Apost/Hamiltonian.lean:140-165)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-4-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:ham-periodic
@@ -425,9 +425,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:ham-periodic@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.fderiv_h_translate, ham_translate, fderiv_ham_translate, ham_periodic (KAM/Apost/Hamiltonian.lean:178-203)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-4-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:ham-real
@@ -452,9 +452,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:ham-real@L244-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.im_fderiv_real_direction, im_ham_eq_zero, im_sqMat_ham, ham_real (KAM/Apost/Hamiltonian.lean:75,212,244,258)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-4-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:ham-symplectic
@@ -481,9 +481,9 @@ EDGE: bp:p2:matrix | blueprint/parts/p2-aposteriori.tex#step:p2:ham-symplectic@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.sumVec_omegaZero_ham, fderiv_fderiv_comm, omegaZeroMatrix_mul_sqMat_apply, ham_symplectic (KAM/Apost/Hamiltonian.lean:269-329)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-4-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:ham-mvt
@@ -511,9 +511,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:ham-mvt@L256-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.ham_mvt (KAM/Apost/Hamiltonian.lean:351)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-4-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p2:objects
@@ -664,9 +664,9 @@ EDGE: bp:p0:stripdata#IsPrimaryOnStrip | blueprint/parts/p2-aposteriori.tex#step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.isPeriodicOn_fderiv_of_shift, periodic_fderiv_K, periodic_K_snd (KAM/Apost/Periodicity.lean:61,99,135)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-4-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:per-compose
@@ -694,9 +694,9 @@ EDGE: bp:p2:objects | blueprint/parts/p2-aposteriori.tex#step:p2:per-compose@L34
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.ham_translate_single, periodic_tangentMat ... periodic_eta (KAM/Apost/Periodicity.lean:88-192)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-4-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:per-real
@@ -726,9 +726,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:per-real@L350-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a+sol-review-r4
 REVIEWER: sol-review-d2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.im_sumVec_fderiv_real, hasRealEntries_* , hasRealVec_eta, im_action_dot, im_torsionAverage (KAM/Apost/Periodicity.lean:281-438)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-4-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p2:frequency
@@ -1606,9 +1606,9 @@ EDGE: bp:p1:averages-real | blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Tools.torusAverage_fderiv_apply_eq_zero (KAM/Apost/Tools.lean:158); scalar predecessors KAM.torusAverage_complex_direction_eq_zero, KAM.torusAverage_complex_coordinate_eq_zero, KAM.continuous_fderiv_real_of_holomorphic (KAM/Strip/Averages.lean)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-3-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:avg-deriv#bounded-route
@@ -1634,7 +1634,7 @@ EDGE: bp:p1:averages | blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#boun
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: BYPASSED
+LEAN_REF: none (alternative route not used)
+LEAN_NOTE: route substitution (D27): Audit row marks it BYPASSED (alternative): the proof does not shrink the strip or use periodic_bounded; the parent step is proved via the real route. (docs/campaign/audits/P2-3-audit-1.md)
 NOTE: -

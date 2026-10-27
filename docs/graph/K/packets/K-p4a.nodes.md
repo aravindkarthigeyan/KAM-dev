@@ -1867,7 +1867,7 @@ EDGE: bp:p0:diophantine#IsDiophantine | blueprint/parts/p4-measure.tex#bp:p4:SA@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.SA (structure), KAM.Head.eta0, KAM.Head.OmegaGamma (KAM/Head/Defs.lean:262-275)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P4-0-audit-1.md; docs/campaign/audits/DESIGN-P4-audit-1.md; kernel replay passed with the package
 NOTE: Local hypothesis package only; STANDING_ASSUMPTIONS remains none.

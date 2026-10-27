@@ -54,9 +54,9 @@ EDGE: bp:p2:cohomological | blueprint/parts/p2-aposteriori.tex#step:p2:tri-first
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.cohomological (KAM/Apost/Tools.lean:322) applied inline in KAM.Apost.triangular (KAM/Apost/Triangular.lean:270, lines 307-315); KAM.Apost.Triangular.triXiN_differentiableOn, triXiN_periodic, fderiv_triXiN, norm_triXiN_le (:175-193)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-8a-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:tri-xi0
@@ -82,9 +82,9 @@ EDGE: step:p2:tri-first | blueprint/parts/p2-aposteriori.tex#step:p2:tri-xi0@L65
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Triangular.norm_triXi0_le, avg_mulVec_triXi0, avg_triGL_eq_zero (KAM/Apost/Triangular.lean:131,152,157); KAM.Apost.triangular
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-8a-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:tri-second
@@ -111,9 +111,9 @@ EDGE: step:p2:tri-first | blueprint/parts/p2-aposteriori.tex#step:p2:tri-second@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.triangular (KAM/Apost/Triangular.lean:270, lines 328-340) with KAM.Apost.cohomological; helpers triGL_differentiableOn, triGL_periodic, norm_triGL_le (:201-212)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-8a-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:tri-form
@@ -139,9 +139,9 @@ EDGE: step:p2:tri-second | blueprint/parts/p2-aposteriori.tex#step:p2:tri-form@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Triangular.fderiv_triXiN (KAM/Apost/Triangular.lean:185); KAM.Apost.triangular (component equations, line 333) with triGL (:56)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-8a-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:tri-real
@@ -167,9 +167,9 @@ EDGE: step:p2:tri-xi0 | blueprint/parts/p2-aposteriori.tex#step:p2:tri-real@L666
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Triangular.triXi0_im_eq_zero, isRealVec_triXiN, isRealVec_triGL (KAM/Apost/Triangular.lean:228,253,259); KAM.Apost.triangular (last conjunct)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-8a-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p2:correction
@@ -1622,9 +1622,9 @@ EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1097-L1097 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.g1_explicit (KAM/Apost/G1.lean:76), with KAM.Apost.C_1, C_2, C_1_pos, C_2_pos (G1.lean:48-61)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P2-14-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p2:g1-constants

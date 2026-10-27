@@ -93,6 +93,25 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   - This was fixed rather than bypassed: the prover added `rt_small_full` and `rt_small_normDisp`.
   - A delta audit is running.
 
+### 23:50: graph K amendments and a source tension (orchestrator, Opus)
+- **44 append-only AMEND records** (`docs/graph/K/AMENDMENTS.md`) now state the Part 1 standing convention in
+  SOURCE_HYPOTHESES (p1-analysis.tex L37–39: positive widths; n ≥ 1 wherever a strip occurs).
+  - Trigger: track N's global review (finding G1).
+  - The first 5 were drafted by me and approved by an independent Sol reviewer.
+  - The other 39 were found by that reviewer's full scan. I checked them mechanically: each new field is the
+    standing prefix plus the old field verbatim.
+  - No mathematical change.
+- **For the owner (not amended): source tension S1.**
+  - The convention says every strip in a statement has positive width.
+  - But `bp:p1:periodic-bounded` (L518) quantifies "for every ρ' < ρ", and `step:p1:pb-compact` (L523) treats
+    ρ' ≤ 0 (an empty strip).
+  - Both nodes are left unamended until you rule. Options: keep the ρ' ≤ 0 branch as an explicit exception to the
+    convention, or restrict to 0 < ρ' < ρ.
+  - Details: `docs/graph/K/reviews/AMEND-n-ge-1-review.md`, section S1.
+- **Retro audit (running) of Zohar's Fourier and summation layer.** `KAM/Strip/FourierBasic.lean` and
+  `FourierSeries.lean` never had a dedicated package audit, so their 9 graph nodes stay unmarked until it passes.
+  The bookkeeping pass flagged `step:p1:sum-bound` as partial: uniform convergence of the partial sums is not stated.
+
 ## Tracks I, N, P (sub-orchestrator, D23)
 
 - **21:15. No new freezes; packets only.** Nothing is pending owner approval from tracks I/N/P tonight (D25 and D28

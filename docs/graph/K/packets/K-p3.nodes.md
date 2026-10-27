@@ -87,9 +87,9 @@ EDGE: bp:p3:standing#constants | blueprint/parts/p3-uniqueness.tex#step:p3:norms
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.matrix_norms (KAM/Uniq/Frame.lean:220)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P3-1-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p3:lagrangian
@@ -145,9 +145,9 @@ EDGE: bp:p2:exactness | blueprint/parts/p3-uniqueness.tex#step:p3:lagrangian-tra
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.FrameAux.fderiv_lagrangeMat_eq_zero (KAM/Uniq/Frame.lean:165); KAM.Apost.periodic_lagrangeMat (KAM/Apost/Periodicity.lean:123); KAM.Apost.exactness, first conjunct (KAM/Apost/Exactness.lean:292)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P3-1-audit-1.md (route note D1); inputs: docs/campaign/audits/P2-6-audit-1.md (frame-identities), docs/campaign/audits/P2-7-audit-1.md (exactness), docs/campaign/audits/P2-4-audit-1.md (periodicity); kernel replay passed with the package
 NOTE: -
 
 NODE: step:p3:lagrangian-unique
@@ -233,9 +233,9 @@ EDGE: bp:p2:frequency | blueprint/parts/p3-uniqueness.tex#step:p3:frequency-omeg
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.frequency_bound (first conjunct, KAM/Uniq/Frame.lean:255) from KAM.Apost.frequency (KAM/Apost/Frame.lean:423) with eps=0
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P3-1-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p3:frequency-gamma
@@ -262,9 +262,9 @@ EDGE: step:p3:frequency-omega | blueprint/parts/p3-uniqueness.tex#step:p3:freque
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.frequency_bound (second conjunct, KAM/Uniq/Frame.lean:255)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P3-1-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p3:reducibility
@@ -322,9 +322,9 @@ EDGE: bp:p1:holomorphic-inverse | blueprint/parts/p3-uniqueness.tex#step:p3:red-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.reducibility (first three conjuncts, KAM/Uniq/Frame.lean:267: B, N, P holomorphic); KAM.Torus.differentiableOn_tangentMat, differentiableOn_gramMatrix (KAM/Torus/FrozenAgreement.lean:91,105) for L and L^T L
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P3-1-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p3:red-frame
@@ -351,9 +351,9 @@ EDGE: bp:p2:matrix | blueprint/parts/p3-uniqueness.tex#step:p3:red-frame@L216-L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.reducibility (KAM/Uniq/Frame.lean:267): IsUnit det P, P^{-1}=Q=(B L^T; -L^T Omega_0), P^T Omega_0 P = Omega_0, torsion = B L^T X_N
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P3-1-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p3:red-tangent
@@ -378,9 +378,9 @@ EDGE: bp:p2:frame-identities | blueprint/parts/p3-uniqueness.tex#step:p3:red-tan
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: BYPASSED
+LEAN_REF: none as a statement; ingredients KAM.Apost.frame_identities (d) (KAM/Apost/Identities.lean:445) and KAM.Uniq.FrameAux.errDerivMat_eq_zero (KAM/Uniq/Frame.lean:152)
+LEAN_NOTE: route substitution (D27): X_L = DX_h L - d_omega L = 0 is never formed: reducibility uses frame_identities (e) with redDefect=0 (from DE_1=0) to get the assembled identity directly, so the column-wise step has no separate content. (docs/campaign/audits/P3-1-audit-1.md (reducibility parent only))
 NOTE: -
 
 NODE: step:p3:red-normal
@@ -406,9 +406,9 @@ EDGE: step:p3:red-frame | blueprint/parts/p3-uniqueness.tex#step:p3:red-normal@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: BYPASSED
+LEAN_REF: none as a statement; ingredients KAM.Apost.frame_identities (e) and KAM.Uniq.FrameAux.errDerivMat_eq_zero
+LEAN_NOTE: route substitution (D27): X_N = L T is not stated; the last conjunct of reducibility is obtained from the reduced identity reducer*(A P - d_omega P)=Lambda+redDefect with redDefect=0, bypassing the column split. (docs/campaign/audits/P3-1-audit-1.md (reducibility parent only))
 NOTE: -
 
 NODE: step:p3:red-assembly
@@ -434,9 +434,9 @@ EDGE: step:p3:red-normal | blueprint/parts/p3-uniqueness.tex#step:p3:red-assembl
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.reducibility, last conjunct (KAM/Uniq/Frame.lean:267): linMat*frameMat - d_omega frameMat = frameMat * triangularMat(torsion)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P3-1-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p3:torsion-bound
@@ -494,9 +494,9 @@ EDGE: bp:p3:standing | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-holomor
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.torsion_bound (first two conjuncts, KAM/Uniq/Frame.lean:313: T holomorphic on T_rho, continuous on R^n); X_N via KAM.Apost.FrameAux.differentiableOn_normalFieldMat (used inside torsion_bound)
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P3-1-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: step:p3:torsion-bound-step
@@ -524,9 +524,9 @@ EDGE: bp:p3:reducibility | blueprint/parts/p3-uniqueness.tex#step:p3:torsion-bou
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Uniq.torsion_bound (third conjunct, KAM/Uniq/Frame.lean:313) with local facts hdir' (Cauchy, delta=rho/4, via KAM.cauchy_corollaries_directional_real) and hX in its proof
+LEAN_NOTE: recorded 2026-10-27 (bookkeeping pass); covered by docs/campaign/audits/P3-1-audit-1.md; kernel replay passed with the package
 NOTE: -
 
 NODE: bp:p3:phase
