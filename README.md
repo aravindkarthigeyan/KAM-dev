@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 12.6 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:09 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 14.3 %** · frozen statements proved: 0 / 0 · **0 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -51,20 +51,20 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **12.6 %**
+### Estimated completion: **14.3 %**
 
-`███░░░░░░░░░░░░░░░░░░░░░░` 12.6 %
+`████░░░░░░░░░░░░░░░░░░░░░` 14.3 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
-| Statement and planning | 8 | 26 | 9.3 | `████░░░░░░` 36 % |
+| Statement and planning | 8 | 26 | 11.0 | `████░░░░░░` 42 % |
 | Campaign infrastructure | 4 | 5 | 2.1 | `████░░░░░░` 42 % |
 | Analytic infrastructure | 8 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 0.0 | `░░░░░░░░░░` 0 % |
 | Measure of the invariant tori | 5 | 12 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 29 | 91 | 11.4 | **12.6 %** |
+| **Total** | 29 | 91 | 13.1 | **14.3 %** |
 
-**How this is estimated.** The project is divided into 29 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 14:45 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
+**How this is estimated.** The project is divided into 29 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 15:15 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
 <details><summary>All work items with their weight and status</summary>
 
@@ -73,8 +73,8 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | S.SURVEY | Literature survey: candidate sources, prior formal work, Mathlib inventory | M | ✅ 100 % | three research reports (2026-10-27): sources, warm-ups and norms, prior formalizations |
 | S.SOURCES | Pinned source library: PDFs with SHA-256, bibliographic data checked against arXiv and Crossref | L | 🟨 85 % | 50 PDFs pinned in sources/SHA256SUMS; 20 in the registry; per-paper summaries still to write |
 | S.ROUTE | Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency) | H | 🟨 90 % | verdict: route works; rate ε^{1/4}; flow local uniqueness must be proved by us (no published version) |
-| S.STMT | Mathematical statement of the headline theorem and the gate theorems, with owner rulings | M | 🟨 70 % | docs/statement.md draft 0.1; rulings Q1–Q5 in |
-| S.LEAN | Exact Lean statements (headline + gates): independent audit, owner approval, freeze | H | 🟨 30 % | exact drafts elaborate (5 theorems, 19 definitions); independent audit running |
+| S.STMT | Mathematical statement of the headline theorem and the gate theorems, with owner rulings | M | 🟨 90 % | docs/statement.md draft 0.2 |
+| S.LEAN | Exact Lean statements (headline + gates): independent audit, owner approval, freeze | H | 🟨 60 % | drafts v0.2 audited approvable (v0.1 G1 refuted in Lean, fixed); awaiting owner approval |
 | S.BP | Blueprint: every proof step written out against the pinned sources | VH | ⬜ 0 % |  |
 | S.GRAPH | Source-level dependency graph anchored to the frozen statements | H | ⬜ 0 % |  |
 | S.ERRATA | Errata and deviations ledger for every formalized source (continuous) | L | 🟨 30 % | ledger: 8 candidate errata, 6 planned deviations |
@@ -117,9 +117,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:00 UTC from `main` at `96e4b4c` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:09 UTC from `main` at `ed21566` by `scripts/hq-status.py`.*
 
-**Current phase:** Phase 0: statements. Owner rulings Q1–Q5 recorded (D9); mathematical statement draft 0.1 in docs/statement.md; exact Lean drafts of the headline (rate and qualitative), G1 (a-posteriori), G2 (local uniqueness for flows), G3 (Diophantine measure) and 19 definitions elaborate against Mathlib; independent refute-first statement audit running; then owner approval and freeze.
+**Current phase:** Phase 0: statements. Exact Lean drafts v0.2 of the headline (rate and qualitative), G1 (a-posteriori), G2 (local uniqueness for flows), G3 (Diophantine measure) and 20 definitions passed the independent audit (v0.1 G1 was false without a bound on γ; fixed). Waiting for owner approval on the review page; then freeze. A Codex exploration of the collaborator's planetary/Nekhoroshev suggestions runs in parallel.
 
 **Frozen statements proved: 0 / 0** · frozen definitions: 0
 
@@ -221,9 +221,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | Agent | Kind | Model | Account | State | Assignment | Branch | Unlanded commits |
 |---|---|---|---|---|---|---|---|
 | **orchestrator** | lead | Claude Opus 5.5 | claude-1 | 🔄 active | Campaign lead: sources, statements, assignments, landings, owner questions, this README | — | — |
-| **statement-audit** | audit subagent | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first audit of the drafted Lean statements against HL19, Pos01, GJLV05 and the rulings | — | — |
+| **zohar-exploration** `kam-zohar` | exploration (Codex) | GPT-6-Astra high | codex-1 | 🔄 working | Planetary KAM, open-region stability (2 DOF, Nekhoroshev) and follow-up headline candidates, from the collaborator's comments | — | — |
 
-**Queued:** Owner approval of the exact Lean statements, then freeze (manifest, DRAFT_SORRY anchors)
+**Queued:** Owner approval of the exact Lean statements v0.2, then freeze (manifest, DRAFT_SORRY anchors)
 <!-- /AUTO:workers -->
 
 ### Recent changes on `main`
@@ -231,6 +231,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 15:09 | `ed21566` | Statement drafts v0.2 audited; ledger and plan updated; exploration launched |
 | 2026-10-27 14:35 | `4db4826` | Record D10: the errata ledger stays public |
 | 2026-10-27 14:32 | `80d65f4` | HQ: statement drafts elaborate; independent audit running |
 | 2026-10-27 14:28 | `227e9b6` | Make the repository public; record rulings Q1-Q5; add statement draft 0.1 |
@@ -286,7 +287,7 @@ against the pinned PDF.
 | CCdlL13 | 1 candidate | 1 planned |
 | FdlLS09 | 2 candidate | 0 |
 | GJLV05 | 2 candidate | 1 planned |
-| HL19 | 0 | 2 planned |
+| HL19 | 2 candidate | 3 planned |
 | Pos01 | 3 candidate | 2 planned |
 
 <details><summary>All ledger entries</summary>
@@ -307,6 +308,9 @@ against the pinned PDF.
 | D-COORD-1 | deviation | HL19 | §2 (Hamiltonian systems and invariant tori) | Phase space Tⁿ × B is represented in coordinates: angles in ℝⁿ with ℤⁿ-periodicity, actions in an open set of ℝⁿ (no manifold structure, no general symplectic form) | PLANNED |
 | D-UNIQ-1 | deviation | GJLV05 | Theorem 2 (maps), §6, §8 | Proof supplement: local uniqueness modulo phase for flows. No published statement exists in this framework (GJLV05 Rem. 7: 'We do not formulate such a theorem'; HL19 Rem. 3.5 asserts it without proof). We prove it by adapting the map proof of GJLV05 §6 with the flow reducibility of §8 and Prop. 18, directly for flows (not through the time-one map, which needs map-Diophantine frequencies). | PLANNED |
 | D-LIP-1 | deviation | CCdlL13 | Cor. 29–30 | Lipschitz dependence on the frequency by re-applying the a-posteriori theorem at a nearby frequency (CCdlL13 template), with the error estimate ‖E′‖ ≲ (ε + ‖K_ω − K⁰_ω‖_{C¹})·∣ω − ω′∣ and Lipschitz defect O(ε/γ⁴) | PLANNED |
+| E-HL19-1 | erratum | HL19 | p. 18, (3.11) | the strict inequality is false when E = 0, where it would require ‖K∞ − K‖ < 0; it should read ≤ | CANDIDATE |
+| E-HL19-2 | erratum | HL19 | p. 42, (5.66) | in the estimate for the twist term the denominator should be σ_T − ∣⟨T⟩⁻¹∣ | CANDIDATE |
+| D-G1-1 | deviation | HL19 | Theorem 3.1, pp. 16–18; App. B (5.74)–(5.77) | Uniform constants: C₁, C₂ depend only on n, τ, ρ, ρ∞, a bound M for the Hamiltonian's derivatives, σK, σB, σT, a margin μ (gaps σ − ‖·‖ and distance to the boundary) and an upper bound γbar ≥ γ (App. B's constants increase with γ; without γbar the statement is false: machine-checked counterexample). Dropped hypotheses implied up to 2n factors: σ_{Kᵀ}, c_{X_hᵀ,1}; first integrals and the estimate on ⟨c∘K∞⟩ not transcribed. Pointwise operator norms on the open strip instead of sums of sups on the closed strip. Conclusion strengthened to explicit margins (μ/2) and ≤ in the closeness bound (cf. E-HL19-1). Same uniformization in our G2, where no γbar is needed: invariance with H2–H3 bounds ∣ω∣, hence γ | PLANNED |
 
 </details>
 <!-- /AUTO:errata -->
