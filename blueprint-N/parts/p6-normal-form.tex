@@ -12,7 +12,7 @@ It is shared infrastructure: track~P derives CP10's averaging lemma ($\alpha_1=\
 \[\ba:=2\pi\alpha,\qquad \kappa:=2\pi Ks .\]
 By Remark~\ref{bpN:p4:dictionary}, $\ba$ and $\kappa$ are P\"oschel's $\alpha$ and $Ks$ (his $\omega$ is $2\pi$ times ours, his weight $e^{\abs k_1s_P}$ is $e^{2\pi\abs k_1s}$, his $\rho_P\sigma_P$ is our $\rho\sigma$), so every formula of pp.~192--196, 211--213 holds with $\alpha\to\ba$, $Ks\to\kappa$ and $r$ unchanged in the combination $\alpha r$; the arithmetic below is nevertheless redone in our variables.
 
-\paragraph{Lattice cut-offs (finding N06).} Only the $\ell^1$ ball $Z_K$ occurs here, and $\abs{k\cdot v}\le\abs k_1\abs v_\infty$ is all that is used about it. The Euclidean ball $\{\norm k_2\le K_g\}$ of the geometry of resonances (Part~8) is contained in $Z_{\sqrt nK_g}$ since $\abs k_1\le\sqrt n\norm k_2$; so wherever the two meet, the analytic cut-off is $K=K_a\ge\sqrt nK_g$ (the factor $\sqrt n$ is carried by the caller). The results below are insensitive to the choice of $K$.
+\paragraph{Lattice cut-offs (finding N06).} Only the $\ell^1$ ball $Z_K$ occurs here, and $\abs{k\cdot v}\le\abs k_1\abs v_\infty$ is all that is used about it. Nonresonance of the geometry of resonances (Part~8) is obtained on the Euclidean ball $\{\norm k_2\le K_g\}$; since $Z_{K}\subset\{\norm k_2\le K\}$ ($\norm k_2\le\abs k_1$), it holds on $Z_K$ as soon as $K=K_a\le K_g$. The factor $\sqrt n$ enters only through the radius condition $KLr\le\alpha/p$ with $L=\sqrt nM$ against the covering radius of Part~8, which holds iff $K_g\ge\sqrt nK_a$ (Part~\ref{bpN:p8}, Remark~\ref{bpN:p8:direction}, Corollary~\ref{bpN:p8:cutoffs}); it is carried by the caller. The results below are insensitive to the choice of $K$.
 
 \subsection{External facts}\label{bpN:p6:s-ext}
 \begin{enumerate}[label=(E\arabic*),leftmargin=2.2em]
@@ -123,6 +123,17 @@ Both terms are holomorphic and periodic (Theorem~\ref{bpN:p5:composition}(ii), C
 \proofstep{Reality}\label{stepN:p6:it-real} If $\Lambda=-\Lambda$ and $h,g,f$ are real, then $\omega$ is real at real points ($h$ is real-valued and holomorphic on the open set $V_rD$, so its partial derivatives at real points of $V_rD$ are real), and Proposition~\ref{bpN:p6:homological}(c) gives $\phi,\xi$ real; $\Phi$ preserves real points (Proposition~\ref{bpN:p5:canonical-map}(b)); so $g_+=g+\xi$ is real and $f_+=H\circ\Phi-h-g_+$ is real on real points of $\Dom{r-2\rho}{s-2\sigma}$.
 \end{proof}
 
+\begin{corollary}[Iterative Lemma, direct divisor form]\label{bpN:p6:iterative-direct}
+Let $D\subset\C^n$, $r>0$, $K\ge0$, $\alpha>0$, $\Lambda\subset\Z^n$, $p>1$, $q=p/(p-1)$, $h$ holomorphic on $V_rD$ with $\omega=\partial_Ih$, and assume, in place of \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L} and $KLr\le\alpha/p$, the single hypothesis
+\[\textup{(N-dir)}\qquad\abs{k\cdot\omega(I)}\ge\frac\alpha q\quad\text{for all }I\in V_rD,\ k\in Z_K\setminus\Lambda .\]
+Then Proposition~\ref{bpN:p6:homological}, Theorem~\ref{bpN:p6:iterative} (all of (a)--(e), with the same constants and the same hypotheses on $s,\rho,\sigma,g,f,\delta$) and Remark~\ref{bpN:p6:iterative-special} hold verbatim.
+\source{Ours (observation); track~P, \Pref{bpP:p2:direct}, records the same remark. Pos93 pp.~211--212 uses the divisor bound only on the whole neighbourhood.}
+\end{corollary}
+\begin{proof}
+\proofstep{Where the old hypotheses enter}\label{stepN:p6:dir-use} In the proofs of Proposition~\ref{bpN:p6:homological} and Theorem~\ref{bpN:p6:iterative} the hypotheses \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L} and $KLr\le\alpha/p$ are used only through Lemma~\ref{bpN:p6:divisor}, i.e.\ through the bound $\abs{k\cdot\omega(I)}\ge\alpha/q$ on $V_rD$, $k\in Z_K\setminus\Lambda$ (Steps~\ref{stepN:p6:hom-def}, \ref{stepN:p6:hom-norm}; Steps~\ref{stepN:p6:it-gen}--\ref{stepN:p6:it-real} use only the conclusions of the homological equation, Parts~\ref{bpN:p4}, \ref{bpN:p5}, and the holomorphy and (for reality) the realness of $h$ on $V_rD$, which is part of the data). \textup{(N-dir)} is exactly that bound.
+\proofstep{Conclusion}\label{stepN:p6:dir-concl} Replace Lemma~\ref{bpN:p6:divisor} by \textup{(N-dir)} in those two steps; nothing else changes. In particular \textup{(N-dir)} follows from the original hypotheses (Lemma~\ref{bpN:p6:divisor}), so the corollary generalises the theorem. Only the Iterative Lemma is claimed in direct form; the Normal Form Lemma keeps its hypotheses (its Step~\ref{stepN:p6:nf-first} uses $KLr\le\alpha/p$ only to invoke the Iterative Lemma and in the displacement constant, which was not re-examined).
+\end{proof}
+
 \begin{remark}[Special cases for track~P]\label{bpN:p6:iterative-special}
 (1) \emph{First step, $g=0$:} $\abs g_*=0$ and (d) reads $\abs{f_+}\le(1-\frac{2q\delta}{\ba\rho\sigma})^{-1}\bigl(\frac{2q\delta}{e\ba\rho\sigma}+e^{-2\pi K\sigma}\bigr)\delta$.
 (2) \emph{Averaging, $\Lambda=\{0\}$:} $P_\Lambda T_Kf=\hat f_0=\avg f$, the $\theta$-average; \ref{bpN:p6:cond-nr} is $\abs{k\cdot\omega(I)}\ge\alpha$ for $0<\abs k_1\le K$; the transformed Hamiltonian is $h+g+\avg f+f_+$.
@@ -229,6 +240,6 @@ and $g=0=P_\Lambda g$ is in $\Lambda$-normal form for every $\Lambda$. (No nonre
 \end{remark}
 
 \begin{remark}[Consumers]\label{bpN:p6:consumers}
-Part~7 uses Theorem~\ref{bpN:p6:normal-form}, Corollary~\ref{bpN:p6:action-displacement} and Proposition~\ref{bpN:p6:nonresonant-case}; Part~9 fixes $q=9$, $p=\frac98$ and, with Part~8, chooses $K$ (as $K_a\ge\sqrt nK_g$) and the domain $D$. Track~P (Part~2 of its plan) takes Theorem~\ref{bpN:p6:iterative} with $\Lambda=\{0\}$, Remark~\ref{bpN:p6:iterative-special}(2), the elementary constant bookkeeping being its own.
+Part~7 uses Theorem~\ref{bpN:p6:normal-form}, Corollary~\ref{bpN:p6:action-displacement} and Proposition~\ref{bpN:p6:nonresonant-case}; Part~9 fixes $q=9$, $p=\frac98$ and, with Part~8, chooses $K=K_a$ with $K_g=\sqrt nK_a$ (so $K_a\le K_g$ transfers nonresonance from the Euclidean ball to $Z_{K_a}$, and $K_g\ge\sqrt nK_a$ gives the radius condition; Part~\ref{bpN:p8}, Remark~\ref{bpN:p8:direction}) and the domain $D$. The Cauchy estimates entering through Lemma~\ref{bpN:p4:bracket} are those of Lemma~\ref{bpN:p4:cauchy} in its corrected pointwise-in-$I$ form (findings N45-01/02); this part never sums global derivative norms over the angle index. Track~P (Part~2 of its plan) takes Theorem~\ref{bpN:p6:iterative} with $\Lambda=\{0\}$, Remark~\ref{bpN:p6:iterative-special}(2), the elementary constant bookkeeping being its own.
 \end{remark}
 \endgroup
