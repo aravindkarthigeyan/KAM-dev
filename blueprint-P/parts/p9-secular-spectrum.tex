@@ -1,0 +1,221 @@
+\section{The spectrum of the secular matrix}\label{bpP:p9}
+\begingroup\sloppy
+
+Part~8 reduced the secular function to $S=C_0+\xi^\top Q_h\xi+\eta^\top Q_h\eta+O(|(\xi,\eta)|^4)$ with the real analytic symmetric $n\times n$ matrix $Q_h$ (Definition~\ref{bpP:p8:coeffs}, Theorem~\ref{bpP:p8:quadratic-form}). This part studies the spectrum of $Q_h$ and turns it into the frozen first-order Birkhoff data $\Omega_j=2\sigma_j$ of Definition~\ref{bpP:p0:birkhoff}.
+\begin{itemize}
+\item \texttt{lemmas-70-72} (Lemma~\ref{bpP:p9:lemma70}, Lemma~\ref{bpP:p9:lemma71}, Corollary~\ref{bpP:p9:cor72}): eigenvalue perturbation of $\operatorname{Diag}(d)+\varepsilon B$. Fej04r's Lemma~71 is re-proved in a sharper, fully explicit form (eigenvectors included, no sorting, no dependence on $\lVert D\rVert$);
+\item \texttt{definite} (Lemma~\ref{bpP:p9:l74}, Lemma~\ref{bpP:p9:l75}, Proposition~\ref{bpP:p9:definite}): $Q_h$ is negative definite for $n\ge2$ with an explicit bound; Lemma~74 is replaced by a one-line integration by parts that gives the one inequality needed, $b_{s}^{(1)}>b_{s}^{(2)}$;
+\item \texttt{diagonalize} (Proposition~\ref{bpP:p9:local-analytic}, Proposition~\ref{bpP:p9:lift}, Theorem~\ref{bpP:p9:diagonalize}): on a patch where the spectrum is simple, the eigenvalues $\sigma_j$ and the rotation $\varrho\in SO(n)$ are real analytic; the rotation of $(\xi,\eta)$ has an explicit symplectic lift to the full chart, under which the secular function is simply composed with the rotation; relation to $\Omega_j=2\sigma_j$ and the frozen $R_j$;
+\item \texttt{interface} (Definition~\ref{bpP:p9:good}, Proposition~\ref{bpP:p9:good-set}, Lemma~\ref{bpP:p9:top-simple}, Corollary~\ref{bpP:p9:n2}): a single analytic function $\Phi_4$ of the axes whose non-vanishing means \emph{simple spectrum and non-resonance up to order four}; its zero set, the consequence of one good point, and the explicit case $n=2$ (the spectrum is always simple there, and non-resonance is the exclusion of four ratios).
+\end{itemize}
+Global continuation of the eigenvalues over the whole domain of axes is \emph{not} used (Part~10; Fej04r Lemma~76 is false as printed, Remark~\ref{bpP:p8:no76}). Everything here is local, or an identity between analytic functions.
+
+\subsection{Conventions and external facts}\label{bpP:p9:conv}
+
+$\lvert x\rvert$ is the Euclidean norm of $x\in\R^n$ or $\C^n$, $\lVert M\rVert$ the induced operator norm, $\lVert M\rVert_F$ the Frobenius norm ($\lVert M\rVert\le\lVert M\rVert_F$), $e_j$ the unit vectors, $\operatorname{Sym}_n$ the real symmetric matrices. For a matrix, $\lvert M_{jk}\rvert\le\lVert M\rVert$ and every column has Euclidean norm $\le\lVert M\rVert$. The data are as in Part~8: $n\ge1$, $G,m_0,m,\kappa$, increasing axes $a_1<\dots<a_n$, $\Lambda_i=m_i\sqrt{\kappa a_i}$; $\mathfrak a_{ij},\mathfrak b_{ij},\hat q,Q_h=\Delta^{-1}\hat q\Delta^{-1}$ are those of Definition~\ref{bpP:p8:coeffs}. Note that $\hat q$ is a function of $a$ (and $G,m$) and $\Delta$ a function of $\Lambda(a)$, so $Q_h=Q_h(a)$ is a real analytic function of $a$ on $\{a_1<\dots<a_n\}$ (Definition~\ref{bpP:p8:coeffs}).
+The eigenvalues of $Q_h$ are labelled in \emph{increasing} order $\sigma_1<\dots<\sigma_n$ wherever they are simple; this labelling is unrelated to the order of the planets (Fej04r's decreasing planet order corresponds to $j\mapsto n+1-j$ in the matrix entries only, Remark~\ref{bpP:p8:factor-half}(1)).
+
+\emph{External facts.}
+\begin{enumerate}[label=(E\arabic*),ref=(E\arabic*)]
+\item\label{bpP:p9:e-spec} \emph{Real spectral theorem.} A real symmetric matrix $M$ has an orthonormal basis of eigenvectors: $M=\varrho\operatorname{diag}(\lambda)\varrho^\top$ with $\varrho\in O(n)$, and $\det(sI-M)=\prod_j(s-\lambda_j)$. Mathlib: \texttt{Matrix.IsHermitian.spectral\_theorem}, \texttt{Matrix.IsHermitian.eigenvalues}, \texttt{eigenvectorBasis}, \texttt{eigenvectorUnitary}, \texttt{Matrix.IsHermitian.charpoly\_eq}, \texttt{det\_eq\_prod\_eigenvalues} (for $\R$, \texttt{Matrix.isHermitian\_iff\_isSymm}). Mathlib's \texttt{eigenvalues} is indexed by an arbitrary finite type; \texttt{eigenvalues$_0$} is antitone. Neither is analytic in parameters; the blueprint therefore never uses them as functions of $a$ except through Proposition~\ref{bpP:p9:local-analytic}.
+\item\label{bpP:p9:e-ift} \emph{Analytic implicit function theorem.} If $p(w,s)$ is real analytic near $(w^0,s^0)\in\R^m\times\R$, $p(w^0,s^0)=0$, $\partial_sp(w^0,s^0)\ne0$, then there is a real analytic $s(w)$ near $w^0$ with $s(w^0)=s^0$ and $p(w,s(w))=0$, and it is the only continuous solution near $(w^0,s^0)$. (Mathlib has the one-variable analytic inverse function theorem, \texttt{analyticAt\_localInverse}; the version with parameters was not found and is quoted.)
+\item\label{bpP:p9:e-fts} \emph{Fundamental theorem of symmetric polynomials.} Every symmetric polynomial in $\sigma_1,\dots,\sigma_n$ with real coefficients is a polynomial in the elementary symmetric polynomials; the latter are, up to sign, the coefficients of $\det(sI-M)=\prod(s-\sigma_j)$. Mathlib: \texttt{MvPolynomial.esymmAlgEquiv}; \texttt{Matrix.charpoly}.
+\item\label{bpP:p9:e-id} \emph{Identity theorem.} A real analytic function on a connected open set $\mathcal A\subset\R^m$ that vanishes on a nonempty open subset vanishes identically; if it is not identically zero its zero set is closed, has empty interior and Lebesgue measure zero.
+\item\label{bpP:p9:e-ibp} Integration by parts and positivity of the integral of a continuous nonnegative function that is positive somewhere.
+\end{enumerate}
+
+\subsection{Eigenvalue perturbation: Fej04r Lemmas 70, 71, Corollary 72}\label{bpP:p9:sec-pert}
+
+\begin{lemma}[Fej04r Lemma 70]\label{bpP:p9:lemma70}
+Let $D=\operatorname{diag}(\delta_1,\dots,\delta_n)$ with $\delta_j\in\R$, $A\in M_n(\C)$, and $\sigma\in\C$ an eigenvalue of $D+A$. Then $\min_j\lvert\sigma-\delta_j\rvert\le\lVert A\rVert$.
+\source{Fej04r Lemme~70, p.~53 (the norm ``as in (23)'' is not specified; we take the Euclidean operator norm). Proof ours, by eigenvectors.}
+\end{lemma}
+\begin{proof}
+\proofstep{Eigenvector}\label{stepP:p9:l70} Let $(D+A)x=\sigma x$, $\lvert x\rvert=1$. If $\sigma=\delta_j$ for some $j$ there is nothing to prove. Otherwise $(D-\sigma)x=-Ax$, so $x=-(D-\sigma)^{-1}Ax$ and $1\le\max_j\lvert\sigma-\delta_j\rvert^{-1}\lVert A\rVert$.
+\end{proof}
+
+\begin{lemma}[Fej04r Lemma 71, sharpened: second-order perturbation with eigenvectors]\label{bpP:p9:lemma71}
+Let $n\ge2$, $d\in\R^n$ with $g:=\min_{j\ne k}\lvert d_j-d_k\rvert>0$ (no ordering assumed), $D=\operatorname{diag}(d)$, $B\in\operatorname{Sym}_n$ with $B_{jj}=0$ for all $j$, $\varepsilon\in\R$, and $\tau:=\lvert\varepsilon\rvert\lVert B\rVert/g$. Assume $8\sqrt n\,\tau\le1$. Then there are $\varrho\in SO(n)$ with columns $v^{(1)},\dots,v^{(n)}$ and $\lambda\in\R^n$ with $(D+\varepsilon B)\varrho=\varrho\operatorname{diag}(\lambda)$ and, for all $j\ne k$,
+\begin{enumerate}[label=(\alph*)]
+\item $\lvert\lambda_j-d_j\rvert\le2\tau^2g=2\varepsilon^2\lVert B\rVert^2/g$;
+\item $\lvert v^{(j)}-e_j\rvert\le3\tau$; hence $\lVert\varrho-I\rVert_F\le3\sqrt n\,\tau\le\tfrac38$;
+\item $\lvert\lambda_j-\lambda_k\rvert\ge\tfrac{15}{16}g$: the spectrum of $D+\varepsilon B$ is simple, and these are all its eigenvalues.
+\end{enumerate}
+\source{Fej04r Lemme~71, p.~53 (printed constants $\tfrac3\sigma(1+\lVert D\rVert/\sigma)^2$ in the statement against $\tfrac2\sigma(\cdots)$ at the end of the proof are inconsistent, and the proof only says ``$\varepsilon$ small'', see \S\ref{bpP:p9:notes}). The statement here and its proof are ours; the idea (eliminate the first-order term) is the source's.}
+\end{lemma}
+\begin{proof}
+Put $N=D+\varepsilon B$ (symmetric) and note $\tau\le\frac1{8\sqrt2}<\frac18$.
+\proofstep{Localisation}\label{stepP:p9:l71-loc} Let $\lambda$ be an eigenvalue of $N$ with unit eigenvector $v$. By Lemma~\ref{bpP:p9:lemma70} (with $A=\varepsilon B$) there is $j$ with $\lvert\lambda-d_j\rvert\le\lvert\varepsilon\rvert\lVert B\rVert=\tau g$. For $k\ne j$, $\lvert\lambda-d_k\rvert\ge g-\tau g\ge\frac78g$. Write $j=j(\lambda)$.
+\proofstep{Eigenvector equations}\label{stepP:p9:l71-eig} Let $b\in\R^{n-1}$ be the $j$-th column of $B$ without its (zero) $j$-th entry, $B'$ the submatrix of $B$ with row and column $j$ removed, $\Delta'=\operatorname{diag}(\lambda-d_k)_{k\ne j}$ (invertible by Step~\ref{stepP:p9:l71-loc}) and $u=(v_k)_{k\ne j}$. Row $k\ne j$ of $Nv=\lambda v$ reads $(\lambda-d_k)v_k=\varepsilon(B_{kj}v_j+\sum_{l\ne j}B_{kl}v_l)$, i.e.\ $\Delta'u=\varepsilon(v_jb+B'u)$; row $j$ reads $(\lambda-d_j)v_j=\varepsilon\,b\cdot u$ (as $B_{jj}=0$ and $B$ is symmetric). Since $\lVert\Delta'^{-1}\rVert\le\frac8{7g}$ and $\lvert b\rvert,\lVert B'\rVert\le\lVert B\rVert$: $\lvert u\rvert\le\frac{8\tau}7(\lvert v_j\rvert+\lvert u\rvert)$, i.e.\ $\lvert u\rvert\le\frac{8\tau/7}{1-8\tau/7}\lvert v_j\rvert\le\frac{4\tau}3\lvert v_j\rvert$. In particular $v_j\ne0$ (else $u=0$, $v=0$). Put $w=u/v_j$: $\lvert w\rvert\le\frac43\tau\le 2\tau$.
+\proofstep{Estimates (a), (b)}\label{stepP:p9:l71-ab} From row $j$: $\lvert\lambda-d_j\rvert=\lvert\varepsilon\,b\cdot w\rvert\le\lvert\varepsilon\rvert\lVert B\rVert\lvert w\rvert\le\tau g\cdot2\tau$. Normalise $v_j>0$: $v=(1+\lvert w\rvert^2)^{-1/2}(e_j+w)$, so $\lvert v-e_j\rvert\le(1-v_j)+v_j\lvert w\rvert\le\tfrac12\lvert w\rvert^2+\lvert w\rvert\le2\tau+2\tau^2\le3\tau$.
+\proofstep{The map $\lambda\mapsto j(\lambda)$ is a bijection}\label{stepP:p9:l71-bij} Take an orthonormal eigenbasis of $N$ (\ref{bpP:p9:e-spec}) and for each member the index $j$ of Step~\ref{stepP:p9:l71-loc}. If two members $v,v'$ had the same index, then $v\cdot v'=v_jv'_j(1+w\cdot w')$ with $\lvert w\cdot w'\rvert\le4\tau^2<1$ and $v_jv'_j\ne0$, so $v\cdot v'\ne0$, contradicting orthogonality. So the assignment is injective, hence bijective; order the basis so that member $j$ has index $j$, and fix the signs so that $v^{(j)}_j>0$.
+\proofstep{(c)}\label{stepP:p9:l71-c} $\lvert\lambda_j-\lambda_k\rvert\ge g-2\cdot2\tau^2g\ge g(1-\tfrac4{64})$.
+\proofstep{$\varrho\in SO(n)$}\label{stepP:p9:l71-so} $\varrho$ is orthogonal; $\lVert\varrho-I\rVert\le\lVert\varrho-I\rVert_F\le\sqrt n\,3\tau<2$. If $\det\varrho=-1$, a real orthogonal matrix has an odd number of eigenvalues $-1$ (non-real ones come in conjugate pairs of product $1$), so $\varrho x=-x$ for some unit $x$ and $\lvert(\varrho-I)x\rvert=2$, a contradiction. Hence $\det\varrho=1$.
+\end{proof}
+
+\begin{corollary}[Fej04r Corollary 72, quantitative]\label{bpP:p9:cor72}
+Let $n\ge2$, $\hat D\in\operatorname{Sym}_{n-1}$ with eigenvalues $\delta_1,\dots,\delta_{n-1}$, $\delta_n:=0$, and $\sigma:=\min_{j\ne k}\lvert\delta_j-\delta_k\rvert>0$ (so the $\delta_j$ are distinct and nonzero for $j<n$). Let $D=\operatorname{diag}(\hat D,0)$, $K>0$, and $0<\varepsilon$ with $32\sqrt n\,\varepsilon K\le\sigma$. Let $A\in\operatorname{Sym}_n$ (it may depend on $\varepsilon$) with $\lVert A\rVert\le K$. Then $D+\varepsilon A$ has $n$ simple eigenvalues $\lambda_1,\dots,\lambda_n$, pairwise at distance $\ge\sigma/4$, with
+\[\lvert\lambda_n-\varepsilon A_{nn}\rvert\le\frac{16\,\varepsilon^2K^2}{\sigma}.\]
+In particular, if $A_{nn}=c_1+c_2\varepsilon^\beta$ ($0\le\beta<2$), then $\lambda_n=\varepsilon(c_1+c_2\varepsilon^\beta)+O(\varepsilon^2)$, with the constant in $O$ explicit; and if $\lvert c_1+c_2\varepsilon^\beta\rvert\ge c>0$ and $16\varepsilon K^2<c\,\sigma$ this eigenvalue is nonzero. If $\hat D$ is diagonal, $D+\varepsilon A$ is conjugated to a diagonal matrix by some $\varrho\in SO(n)$ with $\lVert\varrho-I\rVert_F\le12\sqrt n\,\varepsilon K/\sigma$ (in general $\lVert\varrho-\varrho_0\rVert_F$ is bounded by the same quantity, with $\varrho_0=\operatorname{diag}(\hat\varrho,1)$, $\hat\varrho\in SO(n-1)$ diagonalising $\hat D$).
+\source{Fej04r Corollaire~72, p.~54. The printed statement leaves implicit that $A_\varepsilon$ is bounded as $\varepsilon\to0$ (we assume $\lVert A\rVert\le K$) and that $\beta$ plays no role in the proof; the explicit remainder is ours.}
+\end{corollary}
+\begin{proof}
+\proofstep{Diagonalise $\hat D$}\label{stepP:p9:c72-rot} Take $\hat\varrho\in SO(n-1)$ (\ref{bpP:p9:e-spec}, flipping a sign if needed) with $\hat\varrho^\top\hat D\hat\varrho=\operatorname{diag}(\delta_1,\dots,\delta_{n-1})$ and $\varrho_0=\operatorname{diag}(\hat\varrho,1)$. Then $\varrho_0^\top(D+\varepsilon A)\varrho_0=\operatorname{diag}(\delta)+\varepsilon A'$, $A'=\varrho_0^\top A\varrho_0$, $\lVert A'\rVert=\lVert A\rVert\le K$, $A'_{nn}=A_{nn}$.
+\proofstep{Split off the diagonal}\label{stepP:p9:c72-split} $A'=\operatorname{Diag}(A')+B$ with $B\in\operatorname{Sym}_n$ of zero diagonal, $\lVert B\rVert\le2K$ (diagonal entries are $\le\lVert A'\rVert$). Put $d_j=\delta_j+\varepsilon A'_{jj}$, so $\operatorname{diag}(\delta)+\varepsilon A'=\operatorname{diag}(d)+\varepsilon B$. Its gap is $g\ge\sigma-2\varepsilon K\ge\sigma/2$.
+\proofstep{Apply Lemma~\ref{bpP:p9:lemma71}}\label{stepP:p9:c72-apply} $\tau=\varepsilon\lVert B\rVert/g\le4\varepsilon K/\sigma$ and $8\sqrt n\tau\le32\sqrt n\varepsilon K/\sigma\le1$. Part~(a) with $j=n$, $d_n=\varepsilon A_{nn}$ gives $\lvert\lambda_n-\varepsilon A_{nn}\rvert\le2\varepsilon^2\lVert B\rVert^2/g\le2\varepsilon^2\cdot4K^2\cdot\frac2\sigma=16\varepsilon^2K^2/\sigma$. Part~(c) gives the separation $\ge\frac{15}{16}g\ge\frac{15}{32}\sigma\ge\sigma/4$. Part~(b): $\lVert\varrho_1-I\rVert_F\le3\sqrt n\tau\le12\sqrt n\varepsilon K/\sigma$ for the rotation $\varrho_1$ of the lemma; $\varrho=\varrho_0\varrho_1$ and $\lVert\varrho-\varrho_0\rVert_F=\lVert\varrho_1-I\rVert_F$.
+\end{proof}
+
+\subsection{Negative definiteness of $Q_h$: Fej04r Proposition 73, Lemmas 74, 75}\label{bpP:p9:sec-def}
+
+\begin{lemma}[Hadamard; Fej04r Lemma 75]\label{bpP:p9:l75}
+Let $Q\in\operatorname{Sym}_n$ with $q_{jk}\ge0$ for $j\ne k$, and $\delta q_j:=-q_{jj}-\sum_{l\ne j}q_{jl}$. Then for all $x\in\R^n$
+\[x^\top Qx=-\sum_j\delta q_j\,x_j^2-\sum_{j<k}q_{jk}(x_j-x_k)^2 .\]
+Hence if $\delta q_j\ge0$ for all $j$ then $Q\le0$, and if $c:=\min_j\delta q_j>0$ then $x^\top Qx\le-c\lvert x\rvert^2$.
+\source{Fej04r Lemme~75, p.~55 (hypotheses there: $q_{jj}<0<q_{jk}$, $\delta q_j>0$). Proof: expand.}
+\end{lemma}
+\begin{proof}
+\proofstep{Expansion}\label{stepP:p9:l75} $-\sum_j\delta q_jx_j^2=\sum_jq_{jj}x_j^2+\sum_{j}\sum_{l\ne j}q_{jl}x_j^2$ and $\sum_{j<k}q_{jk}(x_j-x_k)^2=\sum_j\sum_{l\ne j}q_{jl}x_j^2-2\sum_{j<k}q_{jk}x_jx_k$. The sum of the two with the sign as stated is $\sum_jq_{jj}x_j^2+2\sum_{j<k}q_{jk}x_jx_k=x^\top Qx$.
+\end{proof}
+
+\begin{lemma}[Laplace coefficients: $b_s^{(1)}>b_s^{(2)}$; the case of Fej04r Lemma 74 that is needed]\label{bpP:p9:l74}
+For every $s>0$ and $\alpha\in(0,1)$, with $A(t)=1+\alpha^2-2\alpha\cos t$ (Definition~\ref{bpP:p8:laplace-def}),
+\[b_s^{(1)}(\alpha)-b_s^{(2)}(\alpha)=\frac{2s\alpha}{\pi}\int_0^\pi\sin^2t\,(1-\cos t)\,A(t)^{-s-1}\,dt>0.\]
+In particular $b_{3/2}^{(1)}(\alpha)>b_{3/2}^{(2)}(\alpha)>0$.
+\source{Fej04r Lemme~74, p.~54 states $b_s^{(j)}>b_s^{(j+1)}$ for all $s\in\R_+\setminus\N$, $j\in\N$, by an induction on $s$ using three-term recurrences that are only quoted from [Poin05, LR95]; the proof is not complete in the source as printed. Only $j=1$, $s=\tfrac32$ is used; the proof below is ours and does not need the recurrences.}
+\end{lemma}
+\begin{proof}
+\proofstep{Reduction to $[0,\pi]$}\label{stepP:p9:l74-red} $w(t)=A(t)^{-s}$ is even and $2\pi$-periodic, so $b_s^{(k)}=\frac1\pi\int_0^\pi\cos(kt)\,w(t)\,dt$.
+\proofstep{Integration by parts}\label{stepP:p9:l74-ibp} Let $H(t)=\sin t\,(1-\cos t)$. Then $H'(t)=\cos t-\cos2t$, $H(0)=H(\pi)=0$, and $H>0$ on $(0,\pi)$. So $b_s^{(1)}-b_s^{(2)}=\frac1\pi\int_0^\pi H'w\,dt=-\frac1\pi\int_0^\pi Hw'\,dt$, and $-w'(t)=2s\alpha\sin t\,A(t)^{-s-1}\ge0$ on $[0,\pi]$. This is the stated formula (\ref{bpP:p9:e-ibp}); the integrand is continuous, $\ge0$ and positive on $(0,\pi)$. For the last claim use Lemma~\ref{bpP:p8:laplace} (positivity of $b_s^{(k)}$ from the series).
+\end{proof}
+
+\begin{proposition}[Fej04r Proposition 73]\label{bpP:p9:definite}
+Let $n\ge2$, $a_1<\dots<a_n$ (so $0<\alpha_{ij}=a_i/a_j<1$ for $i<j$), all masses positive. With $\mathfrak a_{ij},\mathfrak b_{ij}$ of Definition~\ref{bpP:p8:coeffs} put
+\[c_{\hat q}(a):=\min_j\sum_{k\ne j}(\mathfrak a_{jk}-\mathfrak b_{jk})>0.\]
+Then for all $x\in\R^n$: $x^\top\hat qx\le-\sum_{j}\big(\sum_{k\ne j}(\mathfrak a_{jk}-\mathfrak b_{jk})\big)x_j^2\le-c_{\hat q}\lvert x\rvert^2$, and
+\[x^\top Q_hx\le-\frac{c_{\hat q}(a)}{\max_i\Lambda_i}\lvert x\rvert^2 .\]
+So $\hat q$ and $Q_h$ are negative definite, every eigenvalue satisfies $\sigma_j\le-c_{\hat q}/\max_i\Lambda_i<0$, and $\Omega_j=2\sigma_j<0$. The bound $c_{\hat q}/\max\Lambda$ is continuous, hence locally uniformly positive, on $\{a_1<\dots<a_n\}$. (For $n=1$ there is no pair and $Q_h=0$.)
+\source{Fej04r Prop.~73 and proof, pp.~54--55 (proof via Lemmas~74, 75 and a maximum-component argument for definiteness). The source's remark that Herman omitted the sign of the Newtonian potential is consistent with Part~8, where $V_{ij}=-Gm_im_j/\lvert q^{(i)}-q^{(j)}\rvert$. The quantitative proof is ours.}
+\end{proposition}
+\begin{proof}
+\proofstep{Strong diagonal dominance}\label{stepP:p9:p73-dom} Definition~\ref{bpP:p8:coeffs}: $\hat q_{jk}=\mathfrak b_{jk}>0$ ($j\ne k$), $\hat q_{jj}=-\sum_{k\ne j}\mathfrak a_{jk}$, hence $\delta\hat q_j=\sum_{k\ne j}(\mathfrak a_{jk}-\mathfrak b_{jk})$. For $j<k$: $\mathfrak a_{jk}-\mathfrak b_{jk}=\frac{Gm_jm_ka_j}{4a_k^2}\big(b_{3/2}^{(1)}-b_{3/2}^{(2)}\big)(\alpha_{jk})>0$ by Lemma~\ref{bpP:p9:l74}, and the same for $k<j$ by symmetry of $\mathfrak a,\mathfrak b$. As $n\ge2$ every $j$ has at least one $k\ne j$, so $\delta\hat q_j>0$.
+\proofstep{Lemma~\ref{bpP:p9:l75}}\label{stepP:p9:p73-had} gives the first two inequalities (the dropped term $-\sum_{j<k}\hat q_{jk}(x_j-x_k)^2\le0$).
+\proofstep{Congruence}\label{stepP:p9:p73-cong} $x^\top Q_hx=(\Delta^{-1}x)^\top\hat q(\Delta^{-1}x)\le-c_{\hat q}\lvert\Delta^{-1}x\rvert^2\le-c_{\hat q}\lvert x\rvert^2/\max_i\Lambda_i$ since $\Delta^{-1}=\operatorname{diag}(\Lambda_i^{-1/2})$. An eigenvalue is $x^\top Q_hx$ for a unit eigenvector $x$. Continuity: $\mathfrak a_{jk},\mathfrak b_{jk}$ are continuous in $a$ (Lemma~\ref{bpP:p8:laplace}).
+\end{proof}
+
+\subsection{Local analytic diagonalisation; the symplectic rotation}\label{bpP:p9:sec-diag}
+
+\begin{proposition}[Local analytic spectral decomposition]\label{bpP:p9:local-analytic}
+Let $\mathcal W\subset\R^m$ be open, $M:\mathcal W\to\operatorname{Sym}_n$ real analytic, $w^0\in\mathcal W$ such that $M(w^0)$ has $n$ distinct eigenvalues $\sigma_1^0<\dots<\sigma_n^0$ (equivalently $\operatorname{discr}(M(w^0))\ne0$, \texttt{Matrix.discr}). Then there are an open ball $\mathcal W'\ni w^0$ and real analytic $\sigma_j:\mathcal W'\to\R$, $\varrho:\mathcal W'\to SO(n)$ with $\sigma_1<\dots<\sigma_n$ on $\mathcal W'$, $M(w)=\varrho(w)\operatorname{diag}(\sigma(w))\varrho(w)^\top$ and $\sigma_j(w^0)=\sigma_j^0$. The spectrum of $M(w)$ is simple on $\mathcal W'$. On a connected open set, $\sigma_j$ is unique, and $\varrho$ is unique up to multiplying columns by $\pm1$ (with $\det=1$).
+\end{proposition}
+\begin{proof}
+\proofstep{Eigenvalues}\label{stepP:p9:la-ev} $p(w,s)=\det(sI-M(w))$ is real analytic in $(w,s)$ and $\partial_sp(w^0,\sigma_j^0)=\prod_{k\ne j}(\sigma^0_j-\sigma^0_k)\ne0$. By \ref{bpP:p9:e-ift} there are analytic $\sigma_j(w)$ near $w^0$ with $p(w,\sigma_j(w))=0$, $\sigma_j(w^0)=\sigma_j^0$. Shrinking to a ball the $\sigma_j(w)$ stay in disjoint intervals around the $\sigma_j^0$, so they are $n$ distinct real roots of the degree-$n$ polynomial $p(w,\cdot)$: they are all of its roots, they are the eigenvalues of $M(w)$ with $\sigma_1<\dots<\sigma_n$, and $M(w)$ has simple spectrum.
+\proofstep{Eigenprojections by the adjugate}\label{stepP:p9:la-adj} Fix $w$, an orthonormal eigenbasis $v_k$ ($M(w)v_k=\sigma_kv_k$). In this basis $\operatorname{adj}(\sigma_jI-M)=\operatorname{diag}\big(\prod_{l\ne k}(\sigma_j-\sigma_l)\big)_k$ has only its $(j,j)$ entry nonzero, so $\operatorname{adj}(\sigma_jI-M)=p_s(\sigma_j)\,v_jv_j^\top$ with $p_s=\partial_sp(w,\cdot)\ne0$. Hence $\Pi_j(w):=\operatorname{adj}(\sigma_j(w)I-M(w))/\partial_sp(w,\sigma_j(w))=v_jv_j^\top$ is the orthogonal projection onto the $\sigma_j$-eigenspace, and \emph{real analytic in $w$} (adjugate: polynomial in the entries).
+\proofstep{Eigenvectors}\label{stepP:p9:la-vec} $\operatorname{tr}\Pi_j(w^0)=1$, so some diagonal entry $\Pi_j(w^0)_{kk}>0$, with $k=k(j)$; on a smaller ball $\Pi_j(w)_{kk}>0$ and $v_j(w):=\Pi_j(w)e_k/\sqrt{\Pi_j(w)_{kk}}$ is analytic, of unit norm, an eigenvector for $\sigma_j(w)$ with $\Pi_jv_j=v_j$, hence $v_j=\pm$ the vectors of the eigenbasis. The $v_j(w)$ are orthonormal.
+\proofstep{$SO(n)$ and uniqueness}\label{stepP:p9:la-so} $\det[v_1|\dots|v_n]$ is continuous with values $\pm1$, so constant on the ball; replace $v_1$ by $-v_1$ if it equals $-1$. Uniqueness: an eigenvalue branch is a continuous root of $p$, unique by \ref{bpP:p9:e-ift} and the ordering; eigenvectors for a simple eigenvalue are determined up to sign, locally constant.
+\end{proof}
+
+\begin{proposition}[Symplectic lift of a $\Lambda$-dependent rotation]\label{bpP:p9:lift}
+Let $\mathcal W\subset\R^n$ be open (actions $\Lambda$) and $\varrho:\mathcal W\to SO(n)$ real analytic. On $\R^n\times\mathcal W\times\R^n\times\R^n\ni(\lambda,\Lambda,\xi,\eta)$ with the chart form $\Omega_{\rm chart}=d\Lambda\wedge d\lambda+d\eta\wedge d\xi$ (Theorem~\ref{bpP:p7:product-chart}, Part~7) define
+\[\Phi_\varrho(\lambda,\Lambda,\xi,\eta)=(\tilde\lambda,\Lambda,\tilde\xi,\tilde\eta),\quad\tilde\xi=\varrho(\Lambda)^\top\xi,\ \tilde\eta=\varrho(\Lambda)^\top\eta,\ \tilde\lambda_l=\lambda_l-\eta^\top\big(\partial_{\Lambda_l}\varrho\big)\varrho^\top\xi\ \ (l=1,\dots,n).\]
+Then $\Phi_\varrho$ is a real analytic diffeomorphism of $\R^n\times\mathcal W\times\R^n\times\R^n$ onto itself with inverse $\xi=\varrho\tilde\xi$, $\eta=\varrho\tilde\eta$, $\lambda_l=\tilde\lambda_l+\tilde\eta^\top(\varrho^\top\partial_{\Lambda_l}\varrho)\tilde\xi$; it is symplectic, $\Phi_\varrho^*\Omega_{\rm chart}=\Omega_{\rm chart}$ (a $1$-chart in the sense of Definition~\ref{bpP:p1:chart}); $\Phi_\varrho(\lambda+c,\Lambda,\xi,\eta)=\Phi_\varrho(\lambda,\Lambda,\xi,\eta)+(c,0,0,0)$ for every $c\in\R^n$ (in particular it commutes with $2\pi$-shifts of the angles); and it preserves $\Lambda$ and $\lvert\xi\rvert,\lvert\eta\rvert$ (Euclidean norms).
+\source{Ours; the lift of a parameter-dependent symplectic map is standard (Maurer--Cartan). Numerically confirmed ($n=3$, Jacobian by finite differences, $\lVert J^\top\Omega J-\Omega\rVert_\infty=10^{-5}$, scratch script \texttt{.drafts/P/bp-scratch-bpP-p9/chk.py}).}
+\end{proposition}
+\begin{proof}
+\proofstep{Bijectivity}\label{stepP:p9:lift-bij} $\varrho(\Lambda)$ is orthogonal; the displayed inverse is read off, with $H_l(\Lambda,\tilde\xi,\tilde\eta):=\tilde\eta^\top\Omega_l\tilde\xi$, $\Omega_l:=\varrho^\top\partial_{\Lambda_l}\varrho$, since $\eta^\top(\partial_l\varrho)\varrho^\top\xi=\tilde\eta^\top\varrho^\top(\partial_l\varrho)\tilde\xi=H_l$. All maps are analytic. The commutation with angle translations holds because $\tilde\lambda-\lambda$ does not depend on $\lambda$.
+\proofstep{Antisymmetry}\label{stepP:p9:lift-anti} $\varrho^\top\varrho=I$ gives $\Omega_l^\top=-\Omega_l$; $d\varrho=\varrho\sum_l\Omega_ld\Lambda_l$, $d\varrho^\top=-\sum_l\Omega_l\varrho^\top d\Lambda_l$.
+\proofstep{Pull-back computation}\label{stepP:p9:lift-form} Substitute $\xi=\varrho\tilde\xi$, $\eta=\varrho\tilde\eta$ in $d\eta^\top\wedge d\xi=\sum_id\eta_i\wedge d\xi_i$:
+\[d\eta^\top\!\wedge d\xi=d\tilde\eta^\top\!\wedge d\tilde\xi+\sum_l\big(d\tilde\eta^\top\Omega_l\tilde\xi+\tilde\eta^\top\Omega_ld\tilde\xi\big)\wedge d\Lambda_l-\sum_{l,m}\tilde\eta^\top\Omega_l\Omega_m\tilde\xi\ d\Lambda_l\wedge d\Lambda_m,\]
+using $\varrho^\top d\varrho=\sum\Omega_ld\Lambda_l$ and $d\varrho^\top\varrho=-\sum\Omega_ld\Lambda_l$ (the mixed terms $d\tilde\eta^\top\varrho^\top\wedge d\varrho\tilde\xi$, $\tilde\eta^\top d\varrho^\top\wedge\varrho\,d\tilde\xi$ and $\tilde\eta^\top d\varrho^\top\wedge d\varrho\,\tilde\xi$). The first bracket is $d_{(\tilde\xi,\tilde\eta)}H_l$, the differential of $H_l$ in the variables $(\tilde\xi,\tilde\eta)$ only. The full differential is $dH_l=d_{(\tilde\xi,\tilde\eta)}H_l+\sum_m\tilde\eta^\top(\partial_m\Omega_l)\tilde\xi\,d\Lambda_m$, so
+\[d\eta^\top\!\wedge d\xi=d\tilde\eta^\top\!\wedge d\tilde\xi+\sum_ldH_l\wedge d\Lambda_l-\sum_{l,m}\tilde\eta^\top\big(\partial_m\Omega_l+\Omega_m\Omega_l\big)\tilde\xi\ d\Lambda_m\wedge d\Lambda_l .\]
+\proofstep{Maurer--Cartan}\label{stepP:p9:lift-mc} $\partial_m\Omega_l=\partial_m\varrho^\top\,\partial_l\varrho+\varrho^\top\partial_m\partial_l\varrho=-\Omega_m\Omega_l+\varrho^\top\partial_m\partial_l\varrho$ (as $\partial_m\varrho^\top=-\Omega_m\varrho^\top$), so $\partial_m\Omega_l+\Omega_m\Omega_l=\varrho^\top\partial_m\partial_l\varrho$ is symmetric in $(m,l)$ and the last sum vanishes against $d\Lambda_m\wedge d\Lambda_l$.
+\proofstep{Conclusion}\label{stepP:p9:lift-concl} $d\eta^\top\wedge d\xi=d\tilde\eta^\top\wedge d\tilde\xi-\sum_ld\Lambda_l\wedge dH_l$, hence $\sum_ld\Lambda_l\wedge d\lambda_l+d\eta\wedge d\xi=\sum_ld\Lambda_l\wedge d(\lambda_l-H_l)+d\tilde\eta\wedge d\tilde\xi=\sum_ld\Lambda_l\wedge d\tilde\lambda_l+d\tilde\eta\wedge d\tilde\xi$, i.e.\ $\Phi_\varrho^*\Omega_{\rm chart}=\Omega_{\rm chart}$. Euclidean norms are preserved since $\varrho$ is orthogonal.
+\end{proof}
+
+\begin{theorem}[Diagonalisation and the frozen Birkhoff data]\label{bpP:p9:diagonalize}
+In the situation of Prop.~\ref{bpP:p8:perturbation-analytic} and Theorem~\ref{bpP:p8:quadratic-form} with $n\ge2$, let $\mathcal W\subset\{\Lambda:a(\Lambda)\text{ increasing}\}$ be open, and suppose that $Q_h(\Lambda)$ has simple spectrum on $\mathcal W$ and $\sigma_j,\varrho$ are the analytic functions of Proposition~\ref{bpP:p9:local-analytic} on $\mathcal W$ (this holds on a ball around every $\Lambda^0$ where $\operatorname{discr}Q_h\ne0$; if $\mathcal W$ is connected the labelling by increasing order is global on $\mathcal W$). Then:
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{Quadratic part.}) With $(\tilde\xi,\tilde\eta)=\Phi_\varrho$-image of Prop.~\ref{bpP:p9:lift},
+\[\xi^\top Q_h\xi+\eta^\top Q_h\eta=\sum_j\sigma_j(\tilde\xi_j^2+\tilde\eta_j^2)=\sum_j\Omega_j\tilde R_j,\qquad \tilde R_j:=\tfrac12(\tilde\eta_j^2+\tilde\xi_j^2),\quad\Omega_j:=2\sigma_j<0 .\]
+\item (\emph{Secular function of the rotated problem.}) For $S\in\{S_{\rm fix},S_{\rm mov}\}$ and $\hat f\in\{\hat f_{\rm fix},\hat f_{\rm mov}\}$ (Prop.~\ref{bpP:p8:perturbation-analytic}) the angle-average of $\hat f\circ\Phi_\varrho^{-1}$ is
+\[\big\langle\hat f\circ\Phi_\varrho^{-1}\big\rangle(\Lambda,\tilde\xi,\tilde\eta)=S(\Lambda,\varrho\tilde\xi,\varrho\tilde\eta)=C_0+[\delta]+\sum_j\Omega_j(\Lambda)\tilde R_j+O(\lvert(\tilde\xi,\tilde\eta)\rvert^4),\]
+where $[\delta]=0$ for fix and $=\delta(\Lambda)$ for mov (Theorem~\ref{bpP:p8:identification}), locally uniformly in $\Lambda\in\mathcal W$, on the set where $(\xi,\Lambda,\eta)=(\varrho\tilde\xi,\Lambda,\varrho\tilde\eta)\in\mathcal N_\R(\rho_*)$; for $\mu>0$ the Hamiltonians $H_{\rm fix}^\Psi,H_{\rm mov}^\Psi$ transformed by $\Phi_\varrho^{-1}$ are $h(\Lambda)+\mu\,\hat f\circ\Phi_\varrho^{-1}$ ($h$ depends on $\Lambda$ only, which $\Phi_\varrho$ preserves).
+\item (\emph{Frozen dictionary.}) With $(I,p,q)=(\Lambda,\tilde\eta,\tilde\xi)$ as in \S\ref{bpP:p8:conv}, $P_0=C_0(+\delta)$, $\Omega_j(\mu,I)=2\sigma_j(a(I))$ (independent of $\mu$) and $R_j=\tfrac12(p_j^2+q_j^2)$ of Definition~\ref{bpP:p0:birkhoff}, the zeroth- and first-order terms of $\operatorname{HasBirkhoff}$ for $P=\hat f\circ\Phi_\varrho^{-1}$ are those of (b). \emph{The matrix $\beta$ and the integrability clause (i) are not treated here} (Part~11b, Corollary~\ref{bpP:p8:same-jets}(c)). The domains: if $\tilde\xi_j^2+\tilde\eta_j^2<\delta_0^2$ for all $j$ then $\lvert\xi\rvert,\lvert\eta\rvert<\sqrt n\,\delta_0$, so $(\xi,\Lambda,\eta)\in\mathcal N_\R(\rho_*)$ as soon as $\sqrt n\,\delta_0\le\rho_*$ and $\lvert\Lambda-\Lambda^*\rvert_\infty<\rho_*$.
+\item (\emph{Transport.}) $\Psi\circ\Phi_\varrho^{-1}$ is a symplectic chart of Part~1 (Definition~\ref{bpP:p1:chart}) on the preimage of $\mathcal O_n$, satisfies the lattice compatibility (Q1)--(Q2) of Theorem~\ref{bpP:p1:torus-transport} whenever $\Psi$ does (the angle-shift of $\Phi_\varrho$ is independent of $\lambda$), and the torus-transport theorem applies to it.
+\end{enumerate}
+\source{Fej04r Formule (36)--(37), pp.~50--51 and the diagonalisation around Prop.~73, pp.~54--55; CP09 Thm.~4 (properly degenerate form $\sum\Omega_j(u_j^2+v_j^2)/2$), CP10 (A$_2''$). The factor: Remark~\ref{bpP:p8:factor-half}(2) (halving of $Q_h$, E-P-Fej04r-3). The lift (b), (d) is ours; Fej04r and CP11 pass to ``Birkhoff variables'' without mentioning the $\Lambda$-dependence of the rotation.}
+\sourcegap{The sources treat the diagonalising rotation as a plain symplectic change of the slow variables; because $\varrho$ depends on the actions $\Lambda$ it is symplectic on the full phase space only after the angle correction of Prop.~\ref{bpP:p9:lift}. The correction is a shift of $\lambda$ independent of $\lambda$ and so does not affect any average over $\lambda$ (part (b)).}
+\end{theorem}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p9:d-a} $Q_h=\varrho\operatorname{diag}(\sigma)\varrho^\top$ gives $\xi^\top Q_h\xi=\sum_j\sigma_j\tilde\xi_j^2$, similarly for $\eta$; and $\sigma_j(\tilde\xi_j^2+\tilde\eta_j^2)=2\sigma_j\tilde R_j$. Negativity: Prop.~\ref{bpP:p9:definite}.
+\proofstep{(b)}\label{stepP:p9:d-b} $\Phi_\varrho^{-1}(\tilde\lambda,\Lambda,\tilde\xi,\tilde\eta)=(\tilde\lambda+H(\Lambda,\tilde\xi,\tilde\eta),\Lambda,\varrho\tilde\xi,\varrho\tilde\eta)$, with $H$ independent of $\tilde\lambda$. Hence $\hat f\circ\Phi_\varrho^{-1}(\tilde\lambda,\cdot)=\hat f(\tilde\lambda+H,\Lambda,\varrho\tilde\xi,\varrho\tilde\eta)$, which is continuous and $2\pi$-periodic in $\tilde\lambda$ (Prop.~\ref{bpP:p8:perturbation-analytic}(b)). The average over $\tilde\lambda\in[0,2\pi]^n$ is invariant under the translation by the constant vector $H$ (periodicity, \ref{bpP:p8:e-diff}), so it equals $S(\Lambda,\varrho\tilde\xi,\varrho\tilde\eta)$. Insert Theorem~\ref{bpP:p8:quadratic-form}, Theorem~\ref{bpP:p8:identification} and (a): the remainder $O(\lvert(\xi,\eta)\rvert^4)$ becomes $O(\lvert(\tilde\xi,\tilde\eta)\rvert^4)$ since $\lvert\varrho\tilde\xi\rvert=\lvert\tilde\xi\rvert$. The statement on $H^\Psi\circ\Phi_\varrho^{-1}$ is Theorem~\ref{bpP:p7:product-chart}(b),(c) and $\Phi_\varrho^{-1}$ preserving $\Lambda$.
+\proofstep{(c)}\label{stepP:p9:d-c} Read off from (a), (b) and Definition~\ref{bpP:p0:birkhoff}; the norm comparison is $\lvert\xi\rvert_\infty\le\lvert\xi\rvert=\lvert\tilde\xi\rvert\le\sqrt n\max_j\lvert\tilde\xi_j\rvert$ and $\max_j\lvert\tilde\xi_j\rvert<\delta_0$.
+\proofstep{(d)}\label{stepP:p9:d-d} Compositions of symplectic charts are symplectic charts (the pull-back of $\Omega_{\rm cart}$ by $\Psi\circ\Phi_\varrho^{-1}$ is $(\Phi_\varrho^{-1})^*\Omega_{\rm chart}=\Omega_{\rm chart}$ by Prop.~\ref{bpP:p9:lift}, Theorem~\ref{bpP:p7:product-chart}). (Q1): $\Phi_\varrho^{-1}(z+2\pi e_k)=\Phi_\varrho^{-1}(z)+2\pi e_k$ and Part~7's $\Psi$ has the same property; (Q2): if $\Psi\Phi_\varrho^{-1}(z')=\Psi\Phi_\varrho^{-1}(z)+\sigma_k$ then, by the property of $\Psi$, $\Phi_\varrho^{-1}z'=\Phi_\varrho^{-1}z+2\pi m$, hence $z'=z+2\pi m$ as $\Phi_\varrho$ is injective and commutes with the shifts.
+\end{proof}
+
+\begin{remark}[Dictionary: Fej04r, CP09/CP10, frozen]\label{bpP:p9:dict}
+(1) Frozen $\Omega_j$ multiplies $R_j=\tfrac12(p_j^2+q_j^2)$ (Definition~\ref{bpP:p0:birkhoff}; CP09 Thm.~4 writes $\Omega_j(u_j^2+v_j^2)/2$). Under the frozen chart (Part~7, $\lvert u\rvert^2=2\Gamma$) $S=C_0+\sum\sigma_j(\tilde\xi_j^2+\tilde\eta_j^2)=C_0+\sum2\sigma_j\tilde R_j$, so $\Omega_j=2\sigma_j$ with $\sigma_j$ the eigenvalues of the \emph{halved} $Q_h$ of Definition~\ref{bpP:p8:coeffs}; they are the eigenvalues of the matrix printed in Fej04r (36)--(37) in the $\xi$-basis, i.e.\ of $Q_h^{\rm F}=2Q_h$ (suspected erratum E-P-Fej04r-3, Remark~\ref{bpP:p8:factor-half}(2)). Both sets of eigenvalues are negative (Prop.~\ref{bpP:p9:definite}).
+(2) Sign: $\Omega_j<0$ for all $j$. CP10 (A$_2''$), (8) only requires $\lvert\sum_j\Omega_jk_j\rvert\ge\mathrm{const}>0$ for $0<\lvert k\rvert_1\le4$, which is insensitive to the overall sign.
+(3) Coordinate permutation: the Lean order of the entries of $Q_h$ is that of increasing axes ($Q_h$ index $i$ = planet $i$); the eigenvalue labelling is increasing in $\sigma$ and independent of it; the frozen $\Omega:\R\times\R^a\to\R^b$ is total, so Part~12 sets it to $0$ off the patch (nothing is claimed there).
+(4) $n=1$: there is no secular problem, $Q_h=0$ and $\Omega_1=0$ (no pair); statements with $n\ge2$ above do not apply.
+\end{remark}
+
+\subsection{Distinct and non-resonant spectrum: the interface for Parts 10--11}\label{bpP:p9:sec-int}
+
+\begin{definition}[Non-resonance up to order four; the function $\Phi_4$]\label{bpP:p9:good}
+Let $K_4=\{k\in\Z^n:\ 0<\lvert k\rvert_1\le4\}$. For $\sigma\in\R^n$ put
+\[\operatorname{NR}_4(\sigma):\Longleftrightarrow\ \sigma_j\ \text{pairwise distinct and}\ k\cdot\sigma\ne0\ \ \forall k\in K_4,\]
+and
+\[\mathcal R_k(\sigma)=\prod_{\pi\in S_n}\ \sum_jk_j\sigma_{\pi(j)}\quad(k\in K_4),\qquad \mathcal D(\sigma)=\prod_{j<l}(\sigma_j-\sigma_l)^2,\qquad \Phi_4(\sigma)=\mathcal D(\sigma)\prod_{k\in K_4}\mathcal R_k(\sigma).\]
+For $a\in\{a_1<\dots<a_n\}$ write $\Phi_4(a):=\Phi_4(\sigma(a))$ for the eigenvalues $\sigma(a)$ of $Q_h(a)$ in any order. (Since $\sigma\mapsto 2\sigma$ rescales, $\operatorname{NR}_4(\sigma)\Leftrightarrow\operatorname{NR}_4(\Omega)$, $\Omega=2\sigma$; and the quantitative form $\lvert\Omega\cdot k\rvert\ge\alpha>0$ on $K_4$ of CP10 (8) holds on every compact subset of $\{\operatorname{NR}_4\}$ by continuity.)
+\source{CP10 Remark~1 and (A$_2'$), pp.~548--549, formula (8) with $6$ replaced by $4$; Prop.~2 (27), p.~553.}
+\end{definition}
+
+\begin{proposition}[The good set]\label{bpP:p9:good-set}
+\begin{enumerate}[label=(\alph*)]
+\item $\Phi_4$ is a symmetric polynomial in $\sigma$; hence $a\mapsto\Phi_4(a)$ is a polynomial in the coefficients of $\det(sI-Q_h(a))$ and is \emph{real analytic on $\{a_1<\dots<a_n\}$}, and independent of the labelling.
+\item $\Phi_4(a)\ne0$ if and only if $\operatorname{NR}_4(\sigma(a))$; then $Q_h(a)$ has simple spectrum, all $\Omega_j=2\sigma_j\ne0$, and Propositions~\ref{bpP:p9:local-analytic}, Theorem~\ref{bpP:p9:diagonalize} apply on a ball around $a$.
+\item Let $\mathcal A\subset\{a_1<\dots<a_n\}$ be open and connected. Either $\Phi_4\equiv0$ on $\mathcal A$ or $\mathcal G:=\{a\in\mathcal A:\Phi_4(a)\ne0\}$ is open, dense and of full Lebesgue measure in $\mathcal A$. So: \emph{one} point $a^0\in\mathcal A$ with $\operatorname{NR}_4(\sigma(a^0))$ gives an open dense full-measure subset on every point of which the eigenvalues are analytic and distinct and $\Omega$ is non-resonant to order four, uniformly on compact subsets of $\mathcal G$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p9:gs-a} $\mathcal D$ is symmetric (squares), and $\mathcal R_k$ is invariant under $\sigma\mapsto\sigma\circ\pi'$ because the product runs over all of $S_n$; so $\Phi_4$ is a symmetric polynomial and, by \ref{bpP:p9:e-fts}, a polynomial $\Pi$ in the elementary symmetric polynomials of $\sigma$, which up to sign are the coefficients of $\det(sI-Q_h(a))$ (\ref{bpP:p9:e-spec}); these are polynomials in the entries of $Q_h(a)$, real analytic by Definition~\ref{bpP:p8:coeffs}.
+\proofstep{(b)}\label{stepP:p9:gs-b} $\mathcal D\ne0$ iff the $\sigma_j$ are distinct; $\mathcal R_k\ne0$ iff $\sum k_j\sigma_{\pi(j)}\ne0$ for all $\pi$, iff $k'\cdot\sigma\ne0$ for all rearrangements $k'$ of $k$. $K_4$ is invariant under rearrangement of coordinates, so the conjunction over $k\in K_4$ is $k\cdot\sigma\ne0$ for all $k\in K_4$. Simple spectrum: Prop.~\ref{bpP:p9:local-analytic} (with $\operatorname{discr}=\mathcal D\ne0$).
+\proofstep{(c)}\label{stepP:p9:gs-c} Identity theorem \ref{bpP:p9:e-id} for the analytic function $\Phi_4$ on connected $\mathcal A$: if it is not identically zero, it does not vanish on any open set; its zero set is closed, nowhere dense and null. Uniformity on compacts: continuity of $a\mapsto\sigma(a)$ (continuity of roots; or locally Prop.~\ref{bpP:p9:local-analytic}) and finiteness of $K_4$.
+\end{proof}
+
+\begin{lemma}[The top eigenvalue is always simple]\label{bpP:p9:top-simple}
+For $n\ge2$ and increasing axes, the largest eigenvalue $\sigma_{\max}$ of $Q_h$ (the one closest to $0$) is simple and has an eigenvector with all entries nonzero of one sign.
+\end{lemma}
+\begin{proof}
+\proofstep{Positivity}\label{stepP:p9:ts-pos} Off the diagonal, $(Q_h)_{jk}=\mathfrak b_{jk}/\sqrt{\Lambda_j\Lambda_k}>0$ for \emph{all} $j\ne k$ (Definition~\ref{bpP:p8:coeffs}, including non-adjacent planets). Take $c$ with $M=Q_h+cI$ entrywise $>0$. Let $x$ be a unit eigenvector for $\sigma_{\max}$; $\lvert x\rvert$ (entrywise) satisfies $\lvert x\rvert^\top M\lvert x\rvert\ge x^\top Mx=\max_{\lvert y\rvert=1}y^\top My$, so $\lvert x\rvert$ is also a maximiser, hence an eigenvector for $\sigma_{\max}$, and $M\lvert x\rvert=(\sigma_{\max}+c)\lvert x\rvert$ has strictly positive entries, hence $\lvert x\rvert>0$ entrywise. So every eigenvector for $\sigma_{\max}$ has all entries nonzero. If the eigenspace had dimension $\ge2$ it would contain a nonzero vector with a vanishing first entry, a contradiction. Sign: $\lvert x\rvert$ and $x$ are both eigenvectors of a simple eigenvalue, so $x=\pm\lvert x\rvert$.
+\end{proof}
+
+\begin{corollary}[$n=2$: explicit]\label{bpP:p9:n2}
+Let $n=2$, $\alpha=a_1/a_2$, $\mathfrak a=\mathfrak a_{12}$, $\mathfrak b=\mathfrak b_{12}$. Then
+\[Q_h=\begin{pmatrix}-\mathfrak a/\Lambda_1&\mathfrak b/\sqrt{\Lambda_1\Lambda_2}\\ \mathfrak b/\sqrt{\Lambda_1\Lambda_2}&-\mathfrak a/\Lambda_2\end{pmatrix},\quad\operatorname{tr}Q_h=-\mathfrak a\Big(\frac1{\Lambda_1}+\frac1{\Lambda_2}\Big),\quad\det Q_h=\frac{\mathfrak a^2-\mathfrak b^2}{\Lambda_1\Lambda_2}>0,\]
+\[\operatorname{tr}^2-4\det=\mathfrak a^2\Big(\frac1{\Lambda_1}-\frac1{\Lambda_2}\Big)^2+\frac{4\mathfrak b^2}{\Lambda_1\Lambda_2}>0 .\]
+Hence for every $a_1<a_2$ the eigenvalues $\sigma_1<\sigma_2<0$ are distinct and real analytic with $\varrho$ analytic on all of $\{a_1<a_2\}$ \emph{(no patch needed for $n=2$; the discriminant never vanishes)}, and, with $t=\sigma_1/\sigma_2>1$,
+\[\operatorname{NR}_4(\sigma)\iff t\notin\{2,3\}\iff\big(2\operatorname{tr}^2-9\det\big)\big(3\operatorname{tr}^2-16\det\big)\ne0 .\]
+So for $n=2$, $\Phi_4$ (up to the nonvanishing factors $\mathcal D$ and powers of $\sigma_j$) is $(2\operatorname{tr}^2-9\det)(3\operatorname{tr}^2-16\det)$, an explicit analytic function of $a$ built from $b_{3/2}^{(1)},b_{3/2}^{(2)}$; Part~10 must show that it does not vanish identically, or at one point.
+\end{corollary}
+\begin{proof}
+\proofstep{Matrix}\label{stepP:p9:n2-mat} Definition~\ref{bpP:p8:coeffs} with $n=2$: $\hat q_{11}=\hat q_{22}=-\mathfrak a$ (as $\mathfrak a_{21}=\mathfrak a_{12}$), $\hat q_{12}=\mathfrak b$; conjugate by $\Delta^{-1}$. $\det=(\mathfrak a^2-\mathfrak b^2)/(\Lambda_1\Lambda_2)>0$ by Lemma~\ref{bpP:p9:l74}; the discriminant of a $2\times2$ symmetric matrix is $(q_{11}-q_{22})^2+4q_{12}^2$, here $>0$ because $\mathfrak b>0$.
+\proofstep{Resonances}\label{stepP:p9:n2-res} $\sigma_j<0$ (Prop.~\ref{bpP:p9:definite}). For $k\in K_4$ with a zero entry, $k\cdot\sigma\ne0$. For $k_1k_2>0$, $k\cdot\sigma<0$. For $k_1k_2<0$ ($\lvert k\rvert_1\le4$): $k\cdot\sigma=0\iff\sigma_1/\sigma_2=-k_2/k_1\in\{1,2,\tfrac12,3,\tfrac13\}$ (from $(1,-1),(2,-2)\mapsto1$; $(1,-2),(2,-1)\mapsto2,\tfrac12$; $(1,-3),(3,-1)\mapsto3,\tfrac13$). Distinctness excludes $1$; with $\sigma_1<\sigma_2<0$, $t=\sigma_1/\sigma_2>1$ so $\tfrac12,\tfrac13$ are impossible. Finally $\operatorname{tr}^2/\det=t+1/t+2$ equals $\tfrac92$ at $t=2$ and $\tfrac{16}3$ at $t=3$, and $t\mapsto t+1/t$ is injective on $(1,\infty)$.
+\end{proof}
+
+\subsection{Sources, deviations, errata, forward references}\label{bpP:p9:notes}
+
+\paragraph{Sources read.} Fej04r pp.~52--56 (``7.1 Lemmes sur les valeurs propres'', Lemmas~70--75, Prop.~73 with its proof, start of 7.3); Fej07e (\texttt{fejoz04\_erratum.txt}); CP10 pp.~548--549, 553 (non-resonance of order four, Prop.~2); CP09 Thm.~4 for the form $\sum\Omega_j(u_j^2+v_j^2)/2$ (via Part~8); Part~8 of this blueprint in full; Mathlib names in \ref{bpP:p9:e-spec}--\ref{bpP:p9:e-fts} were checked in \texttt{.lake/packages/mathlib}.
+
+\paragraph{Deviations.} (1) Lemma~\ref{bpP:p9:lemma71} is a new statement: no ordering of $d$, no hypothesis on $\lVert D\rVert$ (the printed bound $\propto(1+\lVert D\rVert/\sigma)^2$ is replaced by an absolute constant), eigenvectors included; the proof is a direct eigenvector elimination, not the conjugation $e^{-\varepsilon U}(D+\varepsilon A)e^{\varepsilon U}$ (whose bound $\lVert U\rVert\le\lVert A\rVert/\sigma$ is not elementary for the operator norm, while for the Frobenius norm the product estimates change). (2) Corollary~\ref{bpP:p9:cor72} adds the boundedness hypothesis on $A_\varepsilon$. (3) Lemma~74 is replaced by Lemma~\ref{bpP:p9:l74} (one inequality, complete proof). (4) The lift Prop.~\ref{bpP:p9:lift} and the explicit $\Phi_4$ are not in the sources. (5) Eigenvalue labelling by increasing value; $Q_h$ halved against the print (Part~8).
+
+\paragraph{Suspected errata (for the ledger).} E-P-Fej04r-4 (new): Lemma~71, p.~53, statement versus proof: the statement has $\tfrac3\sigma$, the last line of the proof $\tfrac2\sigma$, and ``$\varepsilon$ assez petit'' is not quantified. E-P-Fej04r-5 (new, minor): Lemma~74, p.~54 is stated for all $j\in\N$ and $s\in\R_+\setminus\N$ with an induction on $s$ whose recurrences are quoted, not proved, (not completed in the source as printed); not used beyond $j=1$. E-P-Fej04r-6 (minor): Cor.~72 does not say that $A_\varepsilon$ is bounded. Already recorded: E-P-Fej04r-3 (factor $\tfrac12$), E-P-Fej04r-2 (Lemma 76).
+
+\paragraph{Doubts about frozen statements.} None. The Birkhoff form is stated for the given $(p,q)$ (Definition~\ref{bpP:p0:birkhoff}): with $\varrho$ depending on the action it is reached from the physical chart only through $\Phi_\varrho$ (Prop.~\ref{bpP:p9:lift}), so the \emph{perturbation} handed to P-G is $\hat f\circ\Phi_\varrho^{-1}$, not $\hat f$.
+
+\paragraph{External facts used.} \ref{bpP:p9:e-spec}--\ref{bpP:p9:e-ibp}; \ref{bpP:p8:e-diff}; Parts~7, 8, 0 and Part~1 (chart, torus transport).
+
+\paragraph{Forward references and consumers.} Part~10: Prop.~\ref{bpP:p9:good-set}(c) (must exhibit one point with $\Phi_4\ne0$ on the connected domain of axes, or a point of each patch), Corollary~\ref{bpP:p9:n2} ($n=2$: show $(2\operatorname{tr}^2-9\det)(3\operatorname{tr}^2-16\det)\not\equiv0$; asymptotically $\sigma_{1,2}\sim$ explicit, giving ratios $\ne2,3$), Cor.~\ref{bpP:p9:cor72} (induction for $n\ge3$), Lemma~\ref{bpP:p9:top-simple}. Parts~11b/12: Prop.~\ref{bpP:p9:local-analytic}, Theorem~\ref{bpP:p9:diagonalize} (the rotation $\Phi_\varrho$ and $\Omega=2\sigma$), Definition~\ref{bpP:p9:good}. Part~13 (fix): same, by Corollary~\ref{bpP:p8:same-jets}. No forward references to unwritten parts in this part.
+
+\paragraph{Label index.} \texttt{lemma70}, \texttt{lemma71}, \texttt{cor72}, \texttt{l75}, \texttt{l74}, \texttt{definite}, \texttt{local-analytic}, \texttt{lift}, \texttt{diagonalize}, \texttt{dict}, \texttt{good}, \texttt{good-set}, \texttt{top-simple}, \texttt{n2}.
+\par\endgroup
