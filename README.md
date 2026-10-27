@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 20:40 UTC from `main` at `5736df2` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 20:40 UTC from `main` at `d4695a5` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K: 120/453 graph nodes proved and audited. G1/G2 proof campaign started: Lean design audited (PASS, no corrected signatures); wave 1 running (P2-1a carrier, P2-1b standing/constants); I-P1C running; Zohar's I-STRIP-3 (cohomological equation) gates wave 5. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -298,6 +298,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 20:40 | `d4695a5` | Briefs for P2-2 (frozen agreement) and P2-3 (tools; cohomological part gated on I-STRIP-3) |
 | 2026-10-27 20:38 | `0b23778` | P2-11 landed: schedule and error decay; audit PASS |
 | 2026-10-27 20:37 | `2edfb0e` | Land k/p2-11 into main |
 | 2026-10-27 20:29 | `dcdde7b` | Land inp into main |
@@ -309,7 +310,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 20:18 | `2a05f0a` | I-P1C landed (14ea2b3): Taylor (factor 1/2) and increments; audit PASS WITH NOTES |
 | 2026-10-27 20:17 | `14ea2b3` | Land k/p1c into main |
 | 2026-10-27 20:14 | `06426fb` | Land inp into main |
-| 2026-10-27 20:06 | `52e99b9` | Land inp into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
