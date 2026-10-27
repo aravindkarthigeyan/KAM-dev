@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 21:37 UTC from `main` at `d00df98` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 21:37 UTC from `main` at `8dca456` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 21:37 | `8dca456` | Overnight log: move the 22:05 entry into the main orchestrator's section |
 | 2026-10-27 21:37 | `d00df98` | Overnight log: keep main-orchestrator entries above the Tracks I, N, P section |
 | 2026-10-27 21:36 | `37c34d0` | Part 4 design audit brief |
 | 2026-10-27 21:36 | `ea80dea` | Overnight log: Part 4 design adopted (GValid premise, for owner confirmation) |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 21:30 | `8db3c62` | Land k/p2-5 into main |
 | 2026-10-27 21:29 | `9fa8a74` | I-P4B landed (bc93762): derivative bounds, torsion regularity, phase shifts, mixed differences; audit PASS WITH NOTES |
 | 2026-10-27 21:27 | `bc93762` | Land k/p4b into main |
-| 2026-10-27 21:26 | `48775fb` | Overnight log: overlapping packages |
 <!-- /AUTO:landed -->
 
 ## Decisions
