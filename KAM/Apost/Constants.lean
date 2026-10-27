@@ -354,6 +354,198 @@ theorem constants_spec (hP : Params n τ M σK σB σT) :
     one_le_kappa hP, four_le_aExp hP, fun μ _ => one_le_c_star hP μ,
     fun _ _ _ h => ⟨delta0_pos h, delta0_le_one _ _⟩⟩
 
+/-! ### Orderings between the constants (`step:p2:pt-small`) -/
+
+theorem two_mul_n_mul_mSize_le_C_DN (hP : Params n τ M σK σB σT) :
+    2 * (n : ℝ) * mSize M σK σB σT ≤ C_DN n M σK σB σT := by
+  have h : 0 ≤ mSize M σK σB σT * C_B n M σK σB σT :=
+    mul_nonneg (zero_le_one.trans one_le_mSize) (zero_le_one.trans (one_le_C_B hP))
+  unfold C_DN
+  linarith
+
+theorem mSize_mul_C_B_le_C_DN (hP : Params n τ M σK σB σT) :
+    mSize M σK σB σT * C_B n M σK σB σT ≤ C_DN n M σK σB σT := by
+  have h : 0 ≤ 2 * (n : ℝ) * mSize M σK σB σT := by
+    have := hP.one_le_cast
+    have := one_le_mSize (M := M) (σK := σK) (σB := σB) (σT := σT)
+    positivity
+  unfold C_DN
+  linarith
+
+theorem C_G_le_mSize_mul_C_B (hP : Params n τ M σK σB σT) :
+    C_G n M σK σB σT ≤ mSize M σK σB σT * C_B n M σK σB σT := by
+  have hm : 1 ≤ mSize M σK σB σT := one_le_mSize
+  have h3 : 1 ≤ mSize M σK σB σT ^ 3 := one_le_pow₀ hm
+  have hG := zero_le_one.trans (one_le_C_G hP)
+  calc C_G n M σK σB σT = 1 * C_G n M σK σB σT := (one_mul _).symm
+    _ ≤ (2 * mSize M σK σB σT ^ 3) * C_G n M σK σB σT :=
+        mul_le_mul_of_nonneg_right (by linarith) hG
+    _ = mSize M σK σB σT * C_B n M σK σB σT := by unfold C_B; ring
+
+theorem C_DN_le_C_DT (hP : Params n τ M σK σB σT) :
+    C_DN n M σK σB σT ≤ C_DT n M σK σB σT := by
+  have hn := hP.one_le_cast
+  have hDN := zero_le_one.trans (one_le_C_DN hP)
+  have hX := one_le_C_X hP
+  have h1 : 0 ≤ 4 * (n : ℝ) * mSize M σK σB σT ^ 2 * C_DX n M σK σB σT := by
+    have := zero_le_one.trans (one_le_C_DX hP)
+    have := one_le_mSize (M := M) (σK := σK) (σB := σB) (σT := σT)
+    positivity
+  have h2 : C_DN n M σK σB σT ≤ 2 * (n : ℝ) * C_DN n M σK σB σT * C_X n M σK σB σT :=
+    calc C_DN n M σK σB σT = 1 * C_DN n M σK σB σT := (one_mul _).symm
+      _ ≤ (2 * n * C_X n M σK σB σT) * C_DN n M σK σB σT :=
+          mul_le_mul_of_nonneg_right
+            (by nlinarith [one_le_mul_of_one_le_of_one_le hn hX]) hDN
+      _ = 2 * (n : ℝ) * C_DN n M σK σB σT * C_X n M σK σB σT := by ring
+  unfold C_DT
+  linarith
+
+theorem n_le_C_DT (hP : Params n τ M σK σB σT) : (n : ℝ) ≤ C_DT n M σK σB σT := by
+  have hn := hP.one_le_cast
+  have hm : 1 ≤ mSize M σK σB σT := one_le_mSize
+  have h := two_mul_n_mul_mSize_le_C_DN hP
+  have h2 : (n : ℝ) ≤ 2 * n * mSize M σK σB σT := by nlinarith
+  exact (h2.trans h).trans (C_DN_le_C_DT hP)
+
+theorem C_G_le_C_DT (hP : Params n τ M σK σB σT) : C_G n M σK σB σT ≤ C_DT n M σK σB σT :=
+  ((C_G_le_mSize_mul_C_B hP).trans (mSize_mul_C_B_le_C_DN hP)).trans (C_DN_le_C_DT hP)
+
+theorem one_le_mSize_mul_C_DT (hP : Params n τ M σK σB σT) :
+    1 ≤ mSize M σK σB σT * C_DT n M σK σB σT :=
+  one_le_mul_of_one_le_of_one_le one_le_mSize (one_le_C_DT hP)
+
+/-- The coefficient `4 n 𝔪 · n + 2 n · 𝔪 ≤ C_G` of `step:p2:pt-gram`. -/
+theorem gram_coeff_le (hP : Params n τ M σK σB σT) :
+    4 * (n : ℝ) * mSize M σK σB σT * n + 2 * n * mSize M σK σB σT ≤ C_G n M σK σB σT := by
+  have hn := hP.one_le_cast
+  have hm : 1 ≤ mSize M σK σB σT := one_le_mSize
+  unfold C_G
+  nlinarith [mul_pos (zero_lt_one.trans_le hn) (zero_lt_one.trans_le hm)]
+
+/-- Consequences of the smallness hypothesis of Lemma `bp:p2:perturbation`
+(`step:p2:pt-small`): with `d / δ ≤ d / δ²`,
+`n d/δ ≤ 𝔪`, `𝔪 C_G d/δ ≤ 1/2`, `C_ΔN d/δ ≤ 𝔪²` and `𝔪 C_ΔT d/δ² ≤ 1/2`. -/
+theorem perturbation_small (hP : Params n τ M σK σB σT) {δ d : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1)
+    (hd : 0 ≤ d)
+    (hsmall : 2 * mSize M σK σB σT * C_DT n M σK σB σT * d / δ ^ 2 ≤ 1) :
+    (n : ℝ) * d / δ ≤ mSize M σK σB σT ∧
+    mSize M σK σB σT * C_G n M σK σB σT * d / δ ≤ 1 / 2 ∧
+    C_DN n M σK σB σT * d / δ ≤ mSize M σK σB σT ^ 2 ∧
+    mSize M σK σB σT * C_DT n M σK σB σT * d / δ ^ 2 ≤ 1 / 2 := by
+  have hm : 1 ≤ mSize M σK σB σT := one_le_mSize
+  have hm0 : 0 < mSize M σK σB σT := zero_lt_one.trans_le hm
+  have hδ2 : 0 < δ ^ 2 := pow_pos hδ 2
+  have hδδ : δ ^ 2 ≤ δ := by nlinarith
+  -- `m C_DT d / δ² ≤ 1/2`
+  have h4 : mSize M σK σB σT * C_DT n M σK σB σT * d / δ ^ 2 ≤ 1 / 2 := by
+    have : 2 * mSize M σK σB σT * C_DT n M σK σB σT * d / δ ^ 2 =
+        2 * (mSize M σK σB σT * C_DT n M σK σB σT * d / δ ^ 2) := by ring
+    linarith
+  set q := mSize M σK σB σT * C_DT n M σK σB σT * d / δ ^ 2 with hq
+  have hq0 : 0 ≤ q := by
+    have := zero_le_one.trans (one_le_C_DT hP)
+    positivity
+  -- general step: `c d / δ ≤ c d / δ²` and `c ≤ C_DT` gives `m c d / δ ≤ q`
+  have key : ∀ c : ℝ, 0 ≤ c → c ≤ C_DT n M σK σB σT →
+      mSize M σK σB σT * c * d / δ ≤ q := by
+    intro c hc hcC
+    have h1 : mSize M σK σB σT * c * d / δ ≤ mSize M σK σB σT * c * d / δ ^ 2 := by
+      apply div_le_div_of_nonneg_left (by positivity) hδ2 hδδ
+    have h2 : mSize M σK σB σT * c * d / δ ^ 2 ≤ q := by
+      apply div_le_div_of_nonneg_right _ hδ2.le
+      apply mul_le_mul_of_nonneg_right _ hd
+      exact mul_le_mul_of_nonneg_left hcC hm0.le
+    exact h1.trans h2
+  have hG : mSize M σK σB σT * C_G n M σK σB σT * d / δ ≤ 1 / 2 :=
+    (key _ (zero_le_one.trans (one_le_C_G hP)) (C_G_le_C_DT hP)).trans h4
+  have hn : (n : ℝ) * d / δ ≤ mSize M σK σB σT := by
+    have h := key n (by linarith [hP.one_le_cast]) (n_le_C_DT hP)
+    have hnm : mSize M σK σB σT * n * d / δ = mSize M σK σB σT * ((n : ℝ) * d / δ) := by ring
+    -- `m (n d / δ) ≤ 1/2`, so `n d / δ ≤ 1/(2m) ≤ m`
+    have h' : mSize M σK σB σT * ((n : ℝ) * d / δ) ≤ 1 / 2 := by
+      rw [← hnm]; exact h.trans h4
+    nlinarith [div_nonneg (mul_nonneg (zero_le_one.trans hP.one_le_cast) hd) hδ.le]
+  have hN : C_DN n M σK σB σT * d / δ ≤ mSize M σK σB σT ^ 2 := by
+    have h := key _ (zero_le_one.trans (one_le_C_DN hP)) (C_DN_le_C_DT hP)
+    have hnm : mSize M σK σB σT * C_DN n M σK σB σT * d / δ =
+        mSize M σK σB σT * (C_DN n M σK σB σT * d / δ) := by ring
+    have h' : mSize M σK σB σT * (C_DN n M σK σB σT * d / δ) ≤ 1 / 2 := by
+      rw [← hnm]; exact h.trans h4
+    nlinarith [div_nonneg (mul_nonneg (zero_le_one.trans (one_le_C_DN hP)) hd) hδ.le]
+  exact ⟨hn, hG, hN, h4⟩
+
+/-- The sum of `step:p2:pt-xn`: for `δ ≤ 1`,
+`2 𝔪³ d + 𝔪 C_ΔN d/δ + n Θ C_ΔN d/δ² ≤ C_ΔX d/δ²`. -/
+theorem pt_xn_sum_le (hP : Params n τ M σK σB σT) {δ d : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1)
+    (hd : 0 ≤ d) :
+    2 * mSize M σK σB σT ^ 3 * d + mSize M σK σB σT * C_DN n M σK σB σT * d / δ +
+      n * Theta n M σK σB σT * C_DN n M σK σB σT * d / δ ^ 2 ≤
+        C_DX n M σK σB σT * d / δ ^ 2 := by
+  have hm0 : 0 < mSize M σK σB σT := zero_lt_one.trans_le one_le_mSize
+  have hδ2 : 0 < δ ^ 2 := pow_pos hδ 2
+  have hδδ : δ ^ 2 ≤ δ := by nlinarith
+  have hDN := zero_le_one.trans (one_le_C_DN hP)
+  have h1 : 2 * mSize M σK σB σT ^ 3 * d ≤ 2 * mSize M σK σB σT ^ 3 * d / δ ^ 2 := by
+    rw [le_div_iff₀ hδ2]
+    have : 0 ≤ 2 * mSize M σK σB σT ^ 3 * d := by positivity
+    nlinarith
+  have h2 : mSize M σK σB σT * C_DN n M σK σB σT * d / δ ≤
+      mSize M σK σB σT * C_DN n M σK σB σT * d / δ ^ 2 :=
+    div_le_div_of_nonneg_left (by positivity) hδ2 hδδ
+  have h3 : C_DX n M σK σB σT * d / δ ^ 2 =
+      2 * mSize M σK σB σT ^ 3 * d / δ ^ 2 + mSize M σK σB σT * C_DN n M σK σB σT * d / δ ^ 2 +
+        n * Theta n M σK σB σT * C_DN n M σK σB σT * d / δ ^ 2 := by
+    unfold C_DX
+    ring
+  rw [h3]
+  linarith
+
+/-! ### Absorption of powers of `γ` and `δ` (`cor-absorb`, `st-small`, `ne-total`) -/
+
+/-- `γ δ^j ≤ Θ` for `γ ≤ Θ`, `δ ≤ 1`, `j ≥ 0` (`step:p2:cor-absorb`). -/
+theorem mul_rpow_le {γ Θ δ j : ℝ} (hγ : 0 < γ) (hγΘ : γ ≤ Θ) (hδ : 0 < δ) (hδ1 : δ ≤ 1)
+    (hj : 0 ≤ j) : γ * δ ^ j ≤ Θ := by
+  have h : δ ^ j ≤ 1 := Real.rpow_le_one hδ.le hδ1 hj
+  calc γ * δ ^ j ≤ γ * 1 := mul_le_mul_of_nonneg_left h hγ.le
+    _ ≤ Θ := by linarith
+
+/-- Absorption: if `0 < γ ≤ Θ`, `0 < δ ≤ 1`, `i ≤ k` and `j ≤ J`, then
+`x / (γ^i δ^j) ≤ Θ^(k-i) x / (γ^k δ^J)`. -/
+theorem div_absorb {γ Θ δ x j J : ℝ} {i k : ℕ} (hγ : 0 < γ) (hγΘ : γ ≤ Θ) (hδ : 0 < δ)
+    (hδ1 : δ ≤ 1) (hik : i ≤ k) (hjJ : j ≤ J) (hx : 0 ≤ x) :
+    x / (γ ^ i * δ ^ j) ≤ Θ ^ (k - i) * x / (γ ^ k * δ ^ J) := by
+  have hγk : γ ^ k = γ ^ i * γ ^ (k - i) := by
+    rw [← pow_add]; congr 1; omega
+  have hδJ : δ ^ J = δ ^ j * δ ^ (J - j) := by
+    rw [← Real.rpow_add hδ]; congr 1; ring
+  have hg : γ ^ (k - i) ≤ Θ ^ (k - i) := pow_le_pow_left₀ hγ.le hγΘ _
+  have hd : δ ^ (J - j) ≤ 1 := Real.rpow_le_one hδ.le hδ1 (by linarith)
+  have hγi : 0 < γ ^ i := pow_pos hγ _
+  have hδj : 0 < δ ^ j := Real.rpow_pos_of_pos hδ _
+  have hγd : 0 < γ ^ (k - i) := pow_pos hγ _
+  have hδd : 0 < δ ^ (J - j) := Real.rpow_pos_of_pos hδ _
+  have hprod : γ ^ (k - i) * δ ^ (J - j) ≤ Θ ^ (k - i) :=
+    calc γ ^ (k - i) * δ ^ (J - j) ≤ Θ ^ (k - i) * 1 :=
+          mul_le_mul hg hd hδd.le ((pow_nonneg hγ.le _).trans hg)
+      _ = Θ ^ (k - i) := mul_one _
+  rw [hγk, hδJ, div_le_div_iff₀ (mul_pos hγi hδj) (mul_pos (mul_pos hγi hγd) (mul_pos hδj hδd))]
+  calc x * (γ ^ i * γ ^ (k - i) * (δ ^ j * δ ^ (J - j)))
+      = (x * (γ ^ i * δ ^ j)) * (γ ^ (k - i) * δ ^ (J - j)) := by ring
+    _ ≤ (x * (γ ^ i * δ ^ j)) * Θ ^ (k - i) :=
+        mul_le_mul_of_nonneg_left hprod (mul_nonneg hx (mul_pos hγi hδj).le)
+    _ = Θ ^ (k - i) * x * (γ ^ i * δ ^ j) := by ring
+
+/-- The form of `div_absorb` used with a constant: if `Θ^(k-i) X ≤ c` then
+`X ε / (γ^i δ^j) ≤ c ε / (γ^k δ^J)`. -/
+theorem absorb_mul_le {γ Θ δ ε X c j J : ℝ} {i k : ℕ} (hγ : 0 < γ) (hγΘ : γ ≤ Θ) (hδ : 0 < δ)
+    (hδ1 : δ ≤ 1) (hik : i ≤ k) (hjJ : j ≤ J) (hε : 0 ≤ ε) (hX : 0 ≤ X)
+    (hc : Θ ^ (k - i) * X ≤ c) :
+    X * ε / (γ ^ i * δ ^ j) ≤ c * ε / (γ ^ k * δ ^ J) := by
+  refine (div_absorb hγ hγΘ hδ hδ1 hik hjJ (mul_nonneg hX hε)).trans ?_
+  apply div_le_div_of_nonneg_right _ (mul_pos (pow_pos hγ _) (Real.rpow_pos_of_pos hδ _)).le
+  calc Θ ^ (k - i) * (X * ε) = (Θ ^ (k - i) * X) * ε := by ring
+    _ ≤ c * ε := mul_le_mul_of_nonneg_right hc hε
+
 end KAM.Apost
 
 end
