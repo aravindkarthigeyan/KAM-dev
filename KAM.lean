@@ -169,6 +169,7 @@ public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
 public import KAM.Head.HeadQ
 public import KAM.Head.InverseFrequency
+public import KAM.Head.Lagrangian
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
 public import KAM.Head.Parameters
