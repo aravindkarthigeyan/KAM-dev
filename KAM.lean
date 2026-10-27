@@ -13,6 +13,7 @@ public import KAM.Apost.Frame
 public import KAM.Apost.Geometry
 public import KAM.Apost.Hamiltonian
 public import KAM.Apost.Identities
+public import KAM.Apost.NewtonError
 public import KAM.Apost.Periodicity
 public import KAM.Apost.Perturbation
 public import KAM.Apost.PerturbationTorsion
@@ -169,6 +170,7 @@ public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
 public import KAM.Head.HeadQ
 public import KAM.Head.InverseFrequency
+public import KAM.Head.Lagrangian
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
 public import KAM.Head.Parameters
@@ -230,8 +232,10 @@ public import KAM.Strip.Taylor
 public import KAM.Torus.Basic
 public import KAM.Torus.FrozenAgreement
 public import KAM.Torus.Objects
+public import KAM.Uniq.Difference
 public import KAM.Uniq.Frame
 public import KAM.Uniq.Phase
+public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
 
 /-!
