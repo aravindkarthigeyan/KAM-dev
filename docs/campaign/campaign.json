@@ -88,8 +88,8 @@
    "model": "GPT-6-Astra xhigh",
    "account": "codex-1",
    "session": "kam-audit-i",
-   "assignment": "Refute-first statement audit of track I drafts",
-   "state": "running"
+   "assignment": "Track I audit v0.1: all 4 theorems and 15 definitions APPROVABLE; minor fixes applied (author header, three source locators)",
+   "state": "done"
   },
   {
    "id": "review-p2",

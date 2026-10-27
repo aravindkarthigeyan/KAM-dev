@@ -146,7 +146,7 @@ independent source check; they are not assertions of a completed independent aud
    checked visually in `hl19-page19.png`.
 2. **HL19, p. 18, (3.12), invariance sign.** Printed:
    “Xh(K(θ)) = Lω K(θ)”. But p. 20, (4.1), defines
-   “Lω := −∑ᵢ ωᵢ ∂/∂θᵢ”; (2.1), p. 7, and (3.14), p. 19, use
+   “Lω := −∑ᵢ ωᵢ ∂/∂θᵢ”; (2.1), p. 6, and (3.14), p. 19, use
    Xh(K)=DKω. Proposed correction: Xh(K)=−LωK in (3.12).
    This is a source inconsistency, not permission to change the frozen
    invariance error. The draft follows (2.1)/(3.14). Page 18 was checked visually.
@@ -163,7 +163,7 @@ independent source check; they are not assertions of a completed independent aud
    “Section 6.3”. This locator typo has no statement effect; text extraction
    inspected, separate rendered-page verification still needed.
 5. **CC03, p. 7, Theorem 1.1, complex-parameter wording.** The extension is
-   stated for “any complex perturbative parameter” |ε|<10⁻³, while the
+   stated for “any complex perturbative parameter” |ε|≤10⁻³ (as printed, CC03 p. 7), while the
    theorem's region and flow are in a real phase space. A genuinely nonreal
    coefficient in a nonconstant real perturbation need not define a real
    vector field. Proposed clarification: restrict the physical-flow conclusion

@@ -145,7 +145,7 @@ so it too must not be identified with our μ without conversion. Our proof route
 uses the μ=0 coordinate map and a direct O(μ) estimate instead.
 
 Equations (1.2), pp. 1–2, are the actual Newton equations after setting the third
-mass to zero. Section 3, pp. 11–12, chooses barycenter zero, primary distance one
+mass to zero. Section 3, pp. 11–13 ((3.37) is on p. 13), chooses barycenter zero, primary distance one
 and total mass one, (3.34), (3.37). Its force law (3.36) is heliocentric and has
 an indirect term; our barycentric rotating Hamiltonian is derived from (1.2),
 not obtained by deleting that indirect term. The determinant on p. 17 was
@@ -164,7 +164,7 @@ whose interior contains
     {(ℓ,g,L,G)∈S_(ĒV): |L−LV|<0.0015, |G−GV|<0.0059}.
 
 The constants are LV=0.670, GV=0.654, ĒV=−1.769, εSJ=0.954·10⁻³
-((1.5)–(1.6), pp. 6–7). The theorem also extends its statement to complex ε with |ε|<10⁻³. This last wording needs a real-domain qualification for physical flows.
+((1.5)–(1.6), pp. 6–7). The theorem also extends its statement to complex ε with |ε|≤10⁻³ (CC03 p. 7). This last wording needs a real-domain qualification for physical flows.
 
 Crucially, p. 6 says “we replace the perturbation F”; (1.4) is a trigonometric
 polynomial and (1.5) uses it. We borrow only the two-boundary-torus mechanism.
