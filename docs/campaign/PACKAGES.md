@@ -79,7 +79,7 @@ If another form lands, Part 2 adds an adapter.
 
 | ID | Goal | Graph nodes | Owned files | Status |
 |---|---|---|---|---|
-| I-P1C | Taylor bound (factor ½) and increments on strips | `bp:p1:taylor`, `bp:p1:increments` | `KAM/Strip/Taylor.lean` | claimed (orchestrator, 2026-10-27) |
+| I-P1C | Taylor bound (factor ½) and increments on strips | `bp:p1:taylor`, `bp:p1:increments` | `KAM/Strip/{Taylor,Increments}.lean` | done (14ea2b3) |
 | P2-*, P3-* | Parts 2 and 3 (G1, G2), 21 packages in 10 waves | see the design §5 | see the design §4 | design audited (PASS); wave 1 claimed (orchestrator, 2026-10-27): P2-1a, P2-1b |
 
 ## Waiting for the blueprint
