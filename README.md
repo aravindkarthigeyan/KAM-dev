@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 17:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 22.3 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 17:27 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 22.3 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 17:20 UTC from `main` at `74564ee` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 17:27 UTC from `main` at `67b8129` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks (94 anchors: K 25, I 19, N 14, P 36). Track K: blueprint complete, consolidation running, then dependency graph and the proof campaign (Sonnet provers, GPT-6.1-Sol auditors, D21). Tracks I, N, P: blueprints next.
 
@@ -273,7 +273,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | 🔄 working | Track N additions Phase 0 (D22): N-PARTIAL-CONVEX, N-AVERAGING | — | — |
-| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | 🔄 working | Track P additions Phase 0 (D22): P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX | — | — |
+| **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P additions Phase 0 (D22): P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX | — | — |
 
 **Queued:** Dependency graph extraction for track K
 <!-- /AUTO:workers -->
@@ -283,6 +283,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 17:27 | `67b8129` | Blueprint consolidation: Part 1 canonical, shared geometry, review fixes applied; 59 pages, clean build |
 | 2026-10-27 17:12 | `0c3002b` | Adopt the five research milestones into tracks N and P (D22); Phase 0 started |
 | 2026-10-27 17:00 | `6626668` | Freeze tracks I, N and P (D20); record the proof-campaign model policy (D21) |
 | 2026-10-27 16:56 | `7a88b9f` | HQ: blueprint complete; consolidation pass running |
@@ -294,7 +295,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 16:40 | `32e70fa` | Track P delta audit v0.2: approvable; review page published for owner approval |
 | 2026-10-27 16:33 | `2b84d71` | Exploration round 2: exponential-time safety for all low-AMD planetary data, secular Jupiter-Saturn box, ranked milestones; round 3 refutation running |
 | 2026-10-27 16:29 | `cac339c` | Merge remote-tracking branch 'origin/main' |
-| 2026-10-27 16:29 | `a034fc9` | Track N v0.2: complex-bound headline variant N-HEAD-C; delta audit running |
 <!-- /AUTO:landed -->
 
 ## Decisions
