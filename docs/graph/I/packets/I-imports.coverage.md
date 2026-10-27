@@ -9,7 +9,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:cauchy-corollaries
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L615-L619
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L617-L621
 DISPOSITION: NODE K:bp:p1:cauchy-corollaries
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -18,7 +18,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:cauchy-open
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L472-L477
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L474-L479
 DISPOSITION: NODE K:bp:p1:cauchy-open
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -27,7 +27,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:cauchy-strip
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L566-L572
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L568-L574
 DISPOSITION: NODE K:bp:p1:cauchy-strip
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -36,7 +36,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:cohomological
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L885-L895
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L887-L897
 DISPOSITION: NODE K:bp:p1:cohomological
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -45,7 +45,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:ext-banach
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-banach@L93-L94
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-banach@L95-L96
 DISPOSITION: NODE K:bp:p1:ext-banach
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -54,7 +54,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:ext-cramer
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cramer@L95-L97
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cramer@L97-L99
 DISPOSITION: NODE K:bp:p1:ext-cramer
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -63,7 +63,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:ext-integral
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L80-L84
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L82-L86
 DISPOSITION: NODE K:bp:p1:ext-integral
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -72,7 +72,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:ext-mvt
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-mvt@L73-L76
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-mvt@L75-L78
 DISPOSITION: NODE K:bp:p1:ext-mvt
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -81,7 +81,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:hamiltonian-real
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1071-L1077
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1073-L1079
 DISPOSITION: NODE K:bp:p1:hamiltonian-real
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -90,7 +90,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:holomorphic-analytic
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L294-L310
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L296-L312
 DISPOSITION: NODE K:bp:p1:holomorphic-analytic
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -99,7 +99,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:holomorphic-inverse
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L402-L405
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L404-L407
 DISPOSITION: NODE K:bp:p1:holomorphic-inverse
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -108,7 +108,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:holomorphic-regularity
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L225-L234
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L227-L236
 DISPOSITION: NODE K:bp:p1:holomorphic-regularity
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -117,7 +117,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:increments-open
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L423-L426
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L425-L428
 DISPOSITION: NODE K:bp:p1:increments-open
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -126,7 +126,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:iteration
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1007-L1012
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1009-L1014
 DISPOSITION: NODE K:bp:p1:iteration
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -135,7 +135,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:matrix-norms
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L146-L151
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L148-L153
 DISPOSITION: NODE K:bp:p1:matrix-norms
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -144,7 +144,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:neumann
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L175-L179
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L177-L181
 DISPOSITION: NODE K:bp:p1:neumann
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -153,7 +153,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:real-inverse
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L203-L206
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L205-L208
 DISPOSITION: NODE K:bp:p1:real-inverse
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -162,7 +162,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:real-restriction
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1045-L1049
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L1051
 DISPOSITION: NODE K:bp:p1:real-restriction
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -171,7 +171,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:taylor
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L434-L437
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L436-L439
 DISPOSITION: NODE K:bp:p1:taylor
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
@@ -180,7 +180,7 @@ REVIEWER: -
 
 ITEM: K:bp:p1:uniform-limits
 KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L362-L366
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L364-L368
 DISPOSITION: NODE K:bp:p1:uniform-limits
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED

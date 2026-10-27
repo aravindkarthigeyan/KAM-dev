@@ -27,7 +27,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p0:g3; shared Lean provider
 NODE: K:bp:p1:cauchy-corollaries
 KIND: external
 TITLE: [K] Cauchy corollaries
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L615-L619
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L617-L621
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:cauchy-corollaries
 CONTRACT_VERSION: 1
@@ -53,7 +53,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:cauchy-corollaries; shar
 NODE: K:bp:p1:cauchy-open
 KIND: external
 TITLE: [K] Cauchy estimate on open sets
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L472-L477
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L474-L479
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:cauchy-open
 CONTRACT_VERSION: 1
@@ -79,7 +79,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:cauchy-open; shared Lean
 NODE: K:bp:p1:cauchy-strip
 KIND: external
 TITLE: [K] Cauchy estimate on strips
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L566-L572
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L568-L574
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:cauchy-strip
 CONTRACT_VERSION: 1
@@ -105,7 +105,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:cauchy-strip; shared Lea
 NODE: K:bp:p1:cohomological
 KIND: external
 TITLE: [K] Cohomological equation on strips
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L885-L895
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L887-L897
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:cohomological
 CONTRACT_VERSION: 1
@@ -131,7 +131,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:cohomological; shared Le
 NODE: K:bp:p1:ext-banach
 KIND: external
 TITLE: [K] Banach's fixed point theorem
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-banach@L93-L94
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-banach@L95-L96
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:ext-banach
 CONTRACT_VERSION: 1
@@ -157,7 +157,7 @@ NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-banach (Math
 NODE: K:bp:p1:ext-cramer
 KIND: external
 TITLE: [K] Cramer's rule
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cramer@L95-L97
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cramer@L97-L99
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:ext-cramer
 CONTRACT_VERSION: 1
@@ -183,7 +183,7 @@ NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-cramer (Math
 NODE: K:bp:p1:ext-integral
 KIND: external
 TITLE: [K] Integrals
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L80-L84
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L82-L86
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:ext-integral
 CONTRACT_VERSION: 1
@@ -209,7 +209,7 @@ NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-integral (Ma
 NODE: K:bp:p1:ext-mvt
 KIND: external
 TITLE: [K] Mean value inequality
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-mvt@L73-L76
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-mvt@L75-L78
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:ext-mvt
 CONTRACT_VERSION: 1
@@ -235,7 +235,7 @@ NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-mvt (Mathlib
 NODE: K:bp:p1:hamiltonian-real
 KIND: external
 TITLE: [K] Real and complex Hamiltonian fields
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1071-L1077
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1073-L1079
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:hamiltonian-real
 CONTRACT_VERSION: 1
@@ -261,7 +261,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:hamiltonian-real; shared
 NODE: K:bp:p1:holomorphic-analytic
 KIND: external
 TITLE: [K] Holomorphic maps are analytic
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L294-L310
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L296-L312
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:holomorphic-analytic
 CONTRACT_VERSION: 1
@@ -287,7 +287,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:holomorphic-analytic; sh
 NODE: K:bp:p1:holomorphic-inverse
 KIND: external
 TITLE: [K] Holomorphic inverse
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L402-L405
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L404-L407
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:holomorphic-inverse
 CONTRACT_VERSION: 1
@@ -313,7 +313,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:holomorphic-inverse; sha
 NODE: K:bp:p1:holomorphic-regularity
 KIND: external
 TITLE: [K] Derivatives of holomorphic maps
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L225-L234
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L227-L236
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:holomorphic-regularity
 CONTRACT_VERSION: 1
@@ -339,7 +339,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:holomorphic-regularity; 
 NODE: K:bp:p1:increments-open
 KIND: external
 TITLE: [K] Increments on open sets
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L423-L426
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L425-L428
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:increments-open
 CONTRACT_VERSION: 1
@@ -365,7 +365,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:increments-open; shared 
 NODE: K:bp:p1:iteration
 KIND: external
 TITLE: [K] Quadratic iteration on nested strips
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1007-L1012
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1009-L1014
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:iteration
 CONTRACT_VERSION: 1
@@ -391,7 +391,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:iteration; shared Lean p
 NODE: K:bp:p1:matrix-norms
 KIND: external
 TITLE: [K] Max-norm matrix facts
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L146-L151
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L148-L153
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:matrix-norms
 CONTRACT_VERSION: 1
@@ -417,7 +417,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:matrix-norms; shared Lea
 NODE: K:bp:p1:neumann
 KIND: external
 TITLE: [K] Neumann series
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L175-L179
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L177-L181
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:neumann
 CONTRACT_VERSION: 1
@@ -443,7 +443,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:neumann; shared Lean pro
 NODE: K:bp:p1:real-inverse
 KIND: external
 TITLE: [K] Real inverses
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L203-L206
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L205-L208
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:real-inverse
 CONTRACT_VERSION: 1
@@ -469,7 +469,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:real-inverse; shared Lea
 NODE: K:bp:p1:real-restriction
 KIND: external
 TITLE: [K] Real restriction
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1045-L1049
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L1051
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:real-restriction
 CONTRACT_VERSION: 1
@@ -495,7 +495,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:real-restriction; shared
 NODE: K:bp:p1:taylor
 KIND: external
 TITLE: [K] Second-order Taylor bound
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L434-L437
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L436-L439
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:taylor
 CONTRACT_VERSION: 1
@@ -521,7 +521,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:taylor; shared Lean prov
 NODE: K:bp:p1:uniform-limits
 KIND: external
 TITLE: [K] Uniform limits
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L362-L366
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L364-L368
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:uniform-limits
 CONTRACT_VERSION: 1
