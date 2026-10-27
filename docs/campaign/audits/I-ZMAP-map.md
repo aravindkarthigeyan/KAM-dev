@@ -27,7 +27,7 @@ Verdicts:
   blueprint's "`W` a finite-dimensional complex normed space".
 - **Averages.** `torusAverage f = ∫ x in [0,1]ⁿ, f x` (Bochner integral in the target space). For matrices the
   blueprint, and the frozen `KAM.torsionAverage`, integrate entrywise; the two agree
-  (`torusAverage_matrix_apply`, `KAM/Strip/Bridges.lean:282`).
+  (`torusAverage_matrix_apply`, `KAM/Strip/Bridges.lean:291`).
 - **Directional derivatives.** `∂_ℓ u = fderiv ℂ u θ (Pi.single ℓ 1)`, `∂_ω u = fderiv ℂ u θ ω`.
 
 ## Summary table
@@ -35,16 +35,17 @@ Verdicts:
 | Node | Declarations (file:line) | Verdict | Adapter (file:line) |
 |---|---|---|---|
 | `bp:p1:neumann` (L175) | `matrix_isUnit_add_of_inv_norm_mul_le_half`, `matrix_norm_inv_add_le`, `matrix_norm_inv_add_sub_inv_le`, `matrix_neumann_uniform` (`KAM/Matrix/Neumann.lean:104,110,116,124`); ring level `isUnit_add_of_inverse_norm_mul_le_half`, `norm_inverse_add_le`, `norm_inverse_add_sub_inverse_le` (`:33,51,67`) | COVERED for `Matrix (Fin n) (Fin n) ℂ` | `neumann`, `neumann_pointwise` (`KAM/Matrix/Bridges.lean:33,46`): any finite index type, e.g. `Fin n ⊕ Fin n` |
-| `bp:p1:holomorphic-regularity` (L225) | `differentiableOn_fderiv_of_isOpen` (`KAM/Strip/Regularity.lean:178`), `..._pi` (`:120`), `contDiffOn_infty_of_differentiableOn` (`:163`), `contDiffOn_nat_of_differentiableOn` (`:173`) | PARTIAL: `DF` holomorphic and `C^∞` only | `holomorphic_regularity` (`KAM/Strip/Bridges.lean:127`), `holomorphic_regularity_of_finiteDimensional` (`:93`), `differentiableOn_iteratedFDeriv_of_differentiableOn` (`:60`), `fderiv_apply_comm_of_differentiableOn` (`:70`) |
-| `bp:p1:cauchy-open` (L472) | `norm_coordinate_fderiv_le_of_closedBall` (`KAM/Strip/Cauchy.lean:87`), `norm_fderiv_le_of_closedBall` (`:80`), `norm_iteratedFDeriv_two_le_of_closedBall` (`KAM/Strip/HigherCauchy.lean:45`), `norm_iteratedFDeriv_three_le_of_closedBall` (`:60`) | COVERED | `cauchy_open` (`KAM/Strip/Bridges.lean:152`): packaging only |
-| `bp:p1:cauchy-strip` (L566) | `norm_coordinate_fderiv_le_of_mem_complexStrip` (`KAM/Strip/Cauchy.lean:126`), `norm_fderiv_le_of_mem_complexStrip` (`:117`) | PARTIAL: `∂_ℓ` part exact; `Du` part has the sharper `A/δ`, not the stated `n δ⁻¹ A` | `cauchy_strip` (`KAM/Strip/Bridges.lean:179`) |
-| `bp:p1:cauchy-corollaries` (L615) | none (the coordinate bound at `Cauchy.lean:126` is the input) | NONE | `cauchy_corollaries_transpose` (`:207`), `cauchy_corollaries_directional` (`:232`), `cauchy_corollaries_directional_real` (`:249`) |
+| `bp:p1:holomorphic-regularity` (L225) | `differentiableOn_fderiv_of_isOpen` (`KAM/Strip/Regularity.lean:178`), `..._pi` (`:120`), `contDiffOn_infty_of_differentiableOn` (`:163`), `contDiffOn_nat_of_differentiableOn` (`:173`) | PARTIAL: `DF` holomorphic and `C^∞` only | `holomorphic_regularity` (`KAM/Strip/Bridges.lean:135`), `holomorphic_regularity_of_finiteDimensional` (`:101`), `differentiableOn_iteratedFDeriv_of_differentiableOn` (`:68`), `fderiv_apply_comm_of_differentiableOn` (`:78`) |
+| `bp:p1:cauchy-open` (L472) | `norm_coordinate_fderiv_le_of_closedBall` (`KAM/Strip/Cauchy.lean:87`), `norm_fderiv_le_of_closedBall` (`:80`), `norm_iteratedFDeriv_two_le_of_closedBall` (`KAM/Strip/HigherCauchy.lean:45`), `norm_iteratedFDeriv_three_le_of_closedBall` (`:60`) | COVERED | `cauchy_open` (`KAM/Strip/Bridges.lean:160`): packaging only |
+| `bp:p1:cauchy-strip` (L566) | `norm_coordinate_fderiv_le_of_mem_complexStrip` (`KAM/Strip/Cauchy.lean:126`), `norm_fderiv_le_of_mem_complexStrip` (`:117`) | PARTIAL: `∂_ℓ` part exact; `Du` part has the sharper `A/δ`, not the stated `n δ⁻¹ A` | `cauchy_strip` (`KAM/Strip/Bridges.lean:187`) |
+| `bp:p1:cauchy-corollaries` (L615) | none (the coordinate bound at `Cauchy.lean:126` is the input) | NONE | `cauchy_corollaries_transpose` (`:215`), `cauchy_corollaries_directional` (`:240`), `cauchy_corollaries_directional_real` (`:257`) |
 | `bp:p1:averages-real` (L644) | `torusAverage_coordinate_eq_zero` (`KAM/Strip/Averages.lean:108`), `torusAverage_direction_eq_zero` (`:126`), `torusAverage_fderiv_eq_zero` (`:142`) | COVERED | none needed |
-| `bp:p1:averages` (L663) | `torusAverage_complex_coordinate_eq_zero` (`KAM/Strip/Averages.lean:172`), `torusAverage_complex_direction_eq_zero` (`:199`), `norm_torusAverage_le_of_strip_bound` (`:220`) | COVERED | `averages` (`KAM/Strip/Bridges.lean:266`): packaging only |
-| `bp:p1:averages-matrix` (L684) | `norm_torusAverage_le` (`KAM/Strip/Averages.lean:43`), `torusAverage_fderiv_eq_zero` (`:142`) | PARTIAL: stated for the Bochner average in the matrix space, not the entrywise average | `averages_matrix` (`KAM/Strip/Bridges.lean:294`), `torusAverage_matrix_apply` (`:282`) |
-| `bp:p1:decay` (L784) | `norm_torusCoeff_le_of_lt` (`KAM/Strip/Fourier.lean:229`); boundary radius `norm_torusCoeff_le` (`:291`) | COVERED (scalar-valued `u`) | none needed |
+| `bp:p1:averages` (L663) | `torusAverage_complex_coordinate_eq_zero` (`KAM/Strip/Averages.lean:172`), `torusAverage_complex_direction_eq_zero` (`:199`), `norm_torusAverage_le_of_strip_bound` (`:220`) | COVERED | `averages` (`KAM/Strip/Bridges.lean:274`): packaging only |
+| `bp:p1:averages-matrix` (L684) | `norm_torusAverage_le` (`KAM/Strip/Averages.lean:43`), `torusAverage_fderiv_eq_zero` (`:142`) | PARTIAL: stated for the Bochner average in the matrix space, not the entrywise average | `averages_matrix` (`KAM/Strip/Bridges.lean:303`), `torusAverage_matrix_apply` (`:291`) |
+| `bp:p1:decay` (L784) | `norm_torusCoeff_le_of_lt` (`KAM/Strip/Fourier.lean:229`); boundary radius `norm_torusCoeff_le` (`:291`) | PARTIAL: `ℂ`-valued `u` only; the blueprint proof is for `u` valued in `W` | `decay`, `decay_boundary_radius`, `torusCoeffW` (`KAM/Strip/Bridges.lean`, W-valued, dimension-free, by duality) |
 
-After the adapters every one of the nine nodes has a single declaration whose statement is the blueprint's.
+After the adapters every one of the nine nodes has a single declaration whose statement is the blueprint's (for
+`decay`, `KAM.decay` for `W`-valued `u`).
 
 ## Node by node
 
@@ -79,13 +80,13 @@ Blueprint conclusions and where each stands (`F : U → W` holomorphic, `U ⊆ �
 | Conclusion | Zohar | Adapter |
 |---|---|---|
 | `DF` holomorphic | `differentiableOn_fderiv_of_isOpen` (`Regularity.lean:178`, any finite-dimensional complex `E`), `differentiableOn_fderiv_of_isOpen_pi` (:120, `ℂⁿ`), both with `[CompleteSpace W] [SecondCountableTopology W]` | in `holomorphic_regularity` |
-| every `D^jF` (`j ≥ 1`) exists and is holomorphic | not stated (only `ContDiffOn`) | `differentiableOn_iteratedFDeriv_of_differentiableOn` (Bridges:60) |
+| every `D^jF` (`j ≥ 1`) exists and is holomorphic | not stated (only `ContDiffOn`) | `differentiableOn_iteratedFDeriv_of_differentiableOn` (Bridges:68) |
 | `F` is `C^∞` | `contDiffOn_infty_of_differentiableOn` (:163), `contDiffOn_nat_of_differentiableOn` (:173) | in `holomorphic_regularity` |
 | `‖D^{j+1}F z‖ = ‖D^j(DF) z‖ = ‖D(D^jF) z‖` | not stated; Mathlib `norm_iteratedFDeriv_fderiv`, `norm_fderiv_iteratedFDeriv` hold without hypotheses (Zohar uses the first at `HigherCauchy.lean:51`) | in `holomorphic_regularity` |
-| `D²F(z)[v,w] = D²F(z)[w,v]` | none | `fderiv_apply_comm_of_differentiableOn` (Bridges:70), via Mathlib `second_derivative_symmetric_of_eventually`; in `holomorphic_regularity` as `iteratedFDeriv ℂ 2 F z ![v, w] = iteratedFDeriv ℂ 2 F z ![w, v]` |
+| `D²F(z)[v,w] = D²F(z)[w,v]` | none | `fderiv_apply_comm_of_differentiableOn` (Bridges:78), via Mathlib `second_derivative_symmetric_of_eventually`; in `holomorphic_regularity` as `iteratedFDeriv ℂ 2 F z ![v, w] = iteratedFDeriv ℂ 2 F z ![w, v]` |
 | `∂_i ∂_j F = ∂_j ∂_i F` | none | in `holomorphic_regularity` (coordinate form `fderiv ℂ (fun x => fderiv ℂ F x (Pi.single j 1)) z (Pi.single i 1)`) |
 
-`holomorphic_regularity_of_finiteDimensional` (Bridges:93) is the same lemma on any finite-dimensional complex
+`holomorphic_regularity_of_finiteDimensional` (Bridges:101) is the same lemma on any finite-dimensional complex
 domain (needed for `ℂⁿ × ℂⁿ`, the phase space of the Hamiltonian), without the coordinate statement.
 
 | Step | Declaration | Verdict |
@@ -94,8 +95,8 @@ domain (needed for `ℂⁿ × ℂⁿ`, the phase space of the Hamiltonian), with
 | `step:p1:hreg-integral` | none: the Cauchy integral for `DF(x)v` is used inside the proof of the next declaration (Mathlib `deriv_eq_smul_circleIntegral`) | NONE, BYPASSED (no separate statement) |
 | `step:p1:hreg-differentiate` | `differentiableAt_fderiv_apply_of_bounded` (`Regularity.lean:47`; the blueprint cites it) | PARTIAL, equivalent: it gives differentiability at the centre `z` (hypotheses `closedBall z (3r) ⊆ U`, `‖f‖ ≤ A` on `U`); the blueprint states it for every `x ∈ P(z₀,r)`, which follows by re-centring; the derivative formula is not stated and not used later |
 | `step:p1:hreg-full` | `differentiableOn_fderiv_of_isOpen_pi` (:120), `differentiableOn_fderiv_of_isOpen` (:178) | COVERED |
-| `step:p1:hreg-orders` | `contDiffOn_infty_of_differentiableOn` (:163) | PARTIAL → adapters (Bridges:60, :93) for "`D^jF` holomorphic" and the norm identities |
-| `step:p1:hreg-symmetry` | none | NONE → adapter (Bridges:70) |
+| `step:p1:hreg-orders` | `contDiffOn_infty_of_differentiableOn` (:163) | PARTIAL → adapters (Bridges:68, :101) for "`D^jF` holomorphic" and the norm identities |
+| `step:p1:hreg-symmetry` | none | NONE → adapter (Bridges:78) |
 
 ### `bp:p1:cauchy-open` (L472-L477, proof L479-L506)
 
@@ -114,7 +115,7 @@ Differences, all in Zohar's favour:
 - `j = 1` in the `iteratedFDeriv ℂ 1` form is one rewrite (`norm_iteratedFDeriv_one`) from `fderiv`.
 - For `j ≥ 2`, `CompleteSpace` and `SecondCountableTopology` of the target are assumed (they hold for every `W` in use).
 
-Adapter `cauchy_open` (Bridges:152) collects the four bounds with the explicit constants for `E = Fin m → ℂ`, `W`
+Adapter `cauchy_open` (Bridges:160) collects the four bounds with the explicit constants for `E = Fin m → ℂ`, `W`
 finite-dimensional.
 
 | Step | Declaration | Verdict |
@@ -136,7 +137,7 @@ gives `‖fderiv ℂ f z‖ ≤ A / δ`, which is stronger than `n δ⁻¹ A` fo
 L597-L600) but is not the stated inequality, and for `n = 0` the stated bound is `0`, which needs `Df = 0` on the
 trivial domain. Targets are arbitrary complex normed spaces.
 
-Adapter `cauchy_strip` (Bridges:179) states both claims literally (`δ⁻¹ * A` and `n * δ⁻¹ * A`), for all `n` including `0`.
+Adapter `cauchy_strip` (Bridges:187) states both claims literally (`δ⁻¹ * A` and `n * δ⁻¹ * A`), for all `n` including `0`.
 The hypothesis `δ < ρ` is not needed.
 
 | Step | Declaration | Verdict |
@@ -152,18 +153,18 @@ Blueprint: `f` holomorphic and bounded on `T_ρ`, `0 < δ < ρ`. For `f` valued 
 Zohar: nothing about transposes or `∂_ω`. Both follow from the coordinate bound `Cauchy.lean:126`.
 
 Adapters:
-- `cauchy_corollaries_transpose` (Bridges:207): for `f : (Fin n → ℂ) → Fin p → ℂ`,
+- `cauchy_corollaries_transpose` (Bridges:215): for `f : (Fin n → ℂ) → Fin p → ℂ`,
   `‖(Matrix.of fun i ℓ => fderiv ℂ f θ (Pi.single ℓ 1) i).transpose‖ ≤ p * δ⁻¹ * A` on `T_{ρ-δ}`, the blueprint's
   proof (row sum of the transpose, `step:p1:cc-transpose`) through I-MAT's `norm_le_iff_forall_rowSum`
   (`KAM/Matrix/Norms.lean:52`).
-- `cauchy_corollaries_directional` (:232): `‖fderiv ℂ f θ ω‖ ≤ (∑ ℓ, ‖ω ℓ‖) * δ⁻¹ * A` for `ω : Fin n → ℂ` and any
-  complex normed target; `cauchy_corollaries_directional_real` (:249) is the form for `ω : Fin n → ℝ` as used in the
+- `cauchy_corollaries_directional` (:240): `‖fderiv ℂ f θ ω‖ ≤ (∑ ℓ, ‖ω ℓ‖) * δ⁻¹ * A` for `ω : Fin n → ℂ` and any
+  complex normed target; `cauchy_corollaries_directional_real` (:257) is the form for `ω : Fin n → ℝ` as used in the
   frozen `KAM.invarianceError` (`fderiv ℂ K θ (fun i => (ω i : ℂ))`).
 
 | Step | Declaration | Verdict |
 |---|---|---|
-| `step:p1:cc-transpose` | none in Zohar's files | NONE → adapter (Bridges:207) |
-| `step:p1:cc-omega` | none in Zohar's files | NONE → adapters (Bridges:232, :249) |
+| `step:p1:cc-transpose` | none in Zohar's files | NONE → adapter (Bridges:215) |
+| `step:p1:cc-omega` | none in Zohar's files | NONE → adapters (Bridges:240, :257) |
 
 ### `bp:p1:averages-real` (L644-L647, proof L649-L661)
 
@@ -194,7 +195,7 @@ coordinate periodicity on the strip give `torusAverage (fun x => fderiv ℂ f (f
 `torusAverage_complex_direction_eq_zero` (:199): same for `ω : Fin n → ℂ` (so for real `ω` too).
 `norm_torusAverage_le_of_strip_bound` (:220): `∀ z ∈ T_ρ, ‖f z‖ ≤ A` gives `‖torusAverage (fun x => f ↑x)‖ ≤ A`.
 The proofs prove continuity of the derivative on `ℝⁿ` from holomorphy (`continuous_fderiv_real_of_holomorphic`, :160) and
-do not use boundedness for the derivative claims, as the blueprint says. COVERED. Adapter `averages` (Bridges:266)
+do not use boundedness for the derivative claims, as the blueprint says. COVERED. Adapter `averages` (Bridges:274)
 packages the three claims for a finite-dimensional target.
 
 | Step | Declaration | Verdict |
@@ -213,7 +214,7 @@ hypothesis than the sup over `ℝⁿ`; no integrability needed). `torusAverage_f
 
 Gap: both are about the Bochner integral in the matrix space; the blueprint and `KAM.torsionAverage`
 (`KAM/Frozen/Defs/TorsionAverage.lean`) use `Matrix.of fun i j => ∫ M x i j`. The adapter `averages_matrix`
-(Bridges:294) states both claims for the entrywise average, proved through `torusAverage_matrix_apply` (Bridges:282).
+(Bridges:303) states both claims for the entrywise average, proved through `torusAverage_matrix_apply` (Bridges:291).
 
 | Step | Declaration | Verdict |
 |---|---|---|
@@ -236,16 +237,28 @@ with `torusCoeff v k = torusAverage (fun x => character (-k) ↑x * v x)` (:44),
 `Fourier.modeSize k = ∑ |k_j|` (`KAM/Fourier/Derivative.lean:37`). `norm_torusCoeff_le` (:291) is the boundary radius
 (`0 < ρ`). Statement matches, with the conventions above (`A` for `‖u‖_ρ`, coordinatewise periodicity).
 
-Difference to note: `u` is `ℂ`-valued. The blueprint's proof begins "let `u` take values in `W`", but the lemma, its
-consumers (`summation`, `cohomological`, which treats vector and matrix data entrywise) and the definition of `û_k`
-for vector values (entrywise) are scalar; a `W`-valued statement with the operator norm is not implied entrywise and
-is not provided. COVERED for the node as stated.
+Gap (audit finding F1): Zohar's lemmas are `ℂ`-valued. The blueprint's proof begins "let `u` take values in `W`" and
+`W` is any finite-dimensional complex normed space (matrices with the operator norm included), with `û_k` entrywise
+(L26-L28, L44-L46). An entrywise estimate against one bound `A` does not give the same constant in the matrix
+operator norm (it loses the number of columns), so the `W`-valued statement is not implied by the scalar one by
+entrywise application. Adapters in `KAM/Strip/Bridges.lean`, for `W` any complete complex normed space (hence every
+finite-dimensional one, via `FiniteDimensional.complete`) with `[NormedSpace ℝ W] [IsScalarTower ℝ ℂ W]`:
+- `torusCoeffW v k = torusAverage fun x => character (-k) ↑x • v x`, the `W`-valued `⟨v χ_{-k}⟩`
+  (`torusCoeffW_complex`: equal to `torusCoeff` for `W = ℂ`);
+- `decay`: `‖torusCoeffW (fun x => u ↑x) k‖ ≤ exp (-(2π ρ' |k|₁)) * A` for `0 ≤ ρ' < ρ`, in the norm of `W`, no
+  dimension factor;
+- `decay_boundary_radius`: the same with `ρ' = ρ`, `0 < ρ`;
+- proof by duality (`norm_torusCoeffW_le_of_dual`): for `φ ∈ W*` the continuous map `φ` commutes with the torus
+  average, so `φ(û_k) = torusCoeff (φ ∘ u) k`; Zohar's scalar `norm_torusCoeff_le_of_lt` / `norm_torusCoeff_le`
+  applied to `φ ∘ u` (holomorphic, periodic, bounded by `‖φ‖ A`) gives `‖φ(û_k)‖ ≤ B ‖φ‖`, and
+  `NormedSpace.norm_le_dual_bound` (Hahn-Banach) gives `‖û_k‖ ≤ B`.
+After the adapters: COVERED for `W`-valued `u` (scalar case by Zohar's lemmas or by `torusCoeffW_complex`).
 
 | Step | Declaration | Verdict |
 |---|---|---|
 | `step:p1:dec-shift` | `torusAverage_imag_shift` (:114): the average of a periodic holomorphic `g` is unchanged when the torus moves to `ℝⁿ + i t`, `|t_j| ≤ ρ' < ρ` (derivative of the average in the shift size is the average of a periodic derivative, which is `0`) | NONE as stated (`I_{j-1} = I_j`, rectangle theorem, Fubini); BYPASSED by a one-step shift of all coordinates, `I_0 = I_n` directly |
-| `step:p1:dec-bound` | last part of `norm_torusCoeff_le_of_lt` (:229), with `norm_character` (:68), `norm_character_le` (:82) | COVERED (inlined) |
-| `bp:p1:decay#boundary-radius` | `norm_torusCoeff_le` (:291) | COVERED |
+| `step:p1:dec-bound` | last part of `norm_torusCoeff_le_of_lt` (:229), with `norm_character` (:68), `norm_character_le` (:82); `W`-valued: inside `decay` (Bridges) via the scalar bound and duality | COVERED (inlined; `W`-valued by the adapter) |
+| `bp:p1:decay#boundary-radius` | `norm_torusCoeff_le` (:291); `W`-valued: `decay_boundary_radius` (Bridges) | COVERED (`W`-valued by the adapter) |
 
 ## Adapters added (all in `KAM/Strip/Bridges.lean` unless noted; docstrings begin with the blueprint label)
 
@@ -260,13 +273,14 @@ is not provided. COVERED for the node as stated.
 | `cauchy_corollaries_transpose`, `cauchy_corollaries_directional`, `cauchy_corollaries_directional_real` | `bp:p1:cauchy-corollaries` |
 | `averages` | `bp:p1:averages` |
 | `torusAverage_matrix_apply`, `averages_matrix` | `bp:p1:averages-matrix` |
+| `torusCoeffW`, `torusCoeffW_complex`, `norm_torusCoeffW_le_of_dual`, `decay`, `decay_boundary_radius` | `bp:p1:decay`, `bp:p1:decay#boundary-radius` (`W`-valued) |
 | `neumann`, `neumann_pointwise` (`KAM/Matrix/Bridges.lean`) | `bp:p1:neumann` |
 
 ## Observations for the orchestrator
 
 1. **Proposed `LEAN_STATUS` for the nine nodes after the adapters:** all PROVED, with `LEAN_REF` the adapter named
    in the table above (or Zohar's declarations where the verdict is COVERED and no adapter was needed:
-   `averages-real`, `decay`). Steps to mark BYPASSED: `neu-series`, `hreg-integral`, `ar-one`, `dec-shift`.
+   `averages-real`). Steps to mark BYPASSED: `neu-series`, `hreg-integral`, `ar-one`, `dec-shift`.
    `neu-inverse` (no formula `S A⁻¹`) and `hreg-differentiate` (centre only, no derivative formula) are covered in
    content but not in literal statement.
 2. **Prod-valued targets.** Part 2 writes `K : ℂⁿ → ℂⁿ × ℂⁿ` and applies `cauchy-corollaries` with `p = 2n`. The

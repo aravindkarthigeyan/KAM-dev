@@ -7,7 +7,9 @@ module
 
 public import KAM.Strip.HigherCauchy
 public import KAM.Strip.Averages
+public import KAM.Strip.Fourier
 public import KAM.Matrix.Norms
+public import Mathlib.Analysis.Normed.Module.DoubleDual
 public import Mathlib.Analysis.Calculus.FDeriv.Symmetric
 public import Mathlib.Analysis.Matrix.Normed
 import Mathlib.Tactic.Positivity
@@ -36,6 +38,12 @@ The node-by-node map is `docs/campaign/audits/I-ZMAP-map.md`.
 * `bp:p1:averages`: `KAM.averages`, for finite-dimensional targets (scalars, vectors, matrices).
 * `bp:p1:averages-matrix`: `KAM.averages_matrix`, for the entrywise average of a matrix-valued
   function, as in the blueprint and in the frozen `KAM.torsionAverage`.
+* `bp:p1:decay`: `KAM.decay` and `KAM.decay_boundary_radius`, for `u` valued in a complete complex
+  normed space `W` (every finite-dimensional one: scalars, vectors, matrices with the operator
+  norm), with the `W`-valued coefficient `KAM.torusCoeffW`. The existing
+  `KAM.norm_torusCoeff_le_of_lt` is the scalar case; the `W`-valued bound is dimension-free, in the
+  norm of `W`, and is derived from the scalar one by duality (Hahn-Banach): the coefficient is
+  tested against `φ ∈ W*` with `‖φ‖ ≤ 1`.
 
 Sup norms are expressed pointwise (`∀ θ ∈ complexStrip n ρ, ‖u θ‖ ≤ A`), periodicity coordinatewise
 (`u (z + Pi.single i 1) = u z`), as in the existing files.
@@ -243,9 +251,9 @@ theorem cauchy_corollaries_directional {ρ δ A : ℝ} {f : (Fin n → ℂ) → 
   rw [norm_smul, mul_assoc]
   exact mul_le_mul_of_nonneg_left (hcoord ℓ θ hθ) (norm_nonneg _)
 
-/-- The real-frequency form of `KAM.cauchy_corollaries_directional`: for `ω ∈ ℝ^n`, with the
-derivative along `ω` written as in the frozen `KAM.invarianceError`,
-`‖D f θ (ω : ℂ^n)‖ ≤ (∑ |ω_ℓ|) δ⁻¹ A`. -/
+/-- Blueprint `bp:p1:cauchy-corollaries`, second estimate for a real frequency. This is
+`KAM.cauchy_corollaries_directional` for `ω ∈ ℝ^n`, with the derivative along `ω` written as in the
+frozen `KAM.invarianceError`: `‖D f θ (ω : ℂ^n)‖ ≤ (∑ |ω_ℓ|) δ⁻¹ A`. -/
 theorem cauchy_corollaries_directional_real {ρ δ A : ℝ} {f : (Fin n → ℂ) → W}
     (hf : DifferentiableOn ℂ f (complexStrip n ρ))
     (hA : ∀ θ ∈ complexStrip n ρ, ‖f θ‖ ≤ A) (hδ : 0 < δ) (ω : Fin n → ℝ) :
@@ -278,7 +286,8 @@ theorem averages {n : ℕ} {W : Type*} [NormedAddCommGroup W] [NormedSpace ℝ W
     fun ω => torusAverage_complex_direction_eq_zero hρ hv hp ω,
     norm_torusAverage_le_of_strip_bound hρ hA⟩
 
-/-- A matrix-valued Bochner average is the entrywise average. -/
+/-- Blueprint `bp:p1:averages-matrix` (the entrywise average). The Bochner average of a continuous
+matrix-valued function on the torus is the matrix of the entrywise averages. -/
 theorem torusAverage_matrix_apply {n p q : ℕ} {M : (Fin n → ℝ) → Matrix (Fin p) (Fin q) ℂ}
     (hM : Continuous M) (i : Fin p) (j : Fin q) :
     torusAverage M i j = ∫ x in Set.pi Set.univ (fun _ : Fin n => Icc (0 : ℝ) 1), M x i j := by
@@ -309,6 +318,102 @@ theorem averages_matrix {n p q : ℕ} {M : (Fin n → ℝ) → Matrix (Fin p) (F
       (hC.continuous_fderiv one_ne_zero).clm_apply continuous_const
     rw [← torusAverage_matrix_apply hcont i j]
     exact congrFun (congrFun (torusAverage_fderiv_eq_zero hC hp ω) i) j
+
+/-! ### Coefficient decay for `W`-valued functions (`bp:p1:decay`) -/
+
+/-- Blueprint `bp:p1:decay` (helper). The restriction to the real torus of a function holomorphic
+on a strip of positive width is continuous. -/
+private theorem continuous_realRestriction {n : ℕ} {W : Type*} [NormedAddCommGroup W]
+    [NormedSpace ℂ W] {ρ : ℝ} (hρ : 0 < ρ) {u : (Fin n → ℂ) → W}
+    (hu : DifferentiableOn ℂ u (complexStrip n ρ)) :
+    Continuous fun x : Fin n → ℝ => u (fun j => (x j : ℂ)) :=
+  hu.continuousOn.comp_continuous
+    (continuous_pi fun j => Complex.continuous_ofReal.comp (continuous_apply j))
+    fun x => ofReal_mem_complexStrip hρ x
+
+/-- Blueprint `bp:p1:decay` (helper). A pointwise strip bound is nonnegative when the strip is
+nonempty. -/
+private theorem nonneg_of_strip_bound {n : ℕ} {W : Type*} [NormedAddCommGroup W] {ρ A : ℝ}
+    (hρ : 0 < ρ) {u : (Fin n → ℂ) → W} (hA : ∀ z ∈ complexStrip n ρ, ‖u z‖ ≤ A) : 0 ≤ A :=
+  (norm_nonneg _).trans (hA 0 fun i => by simpa using hρ)
+
+section Decay
+
+variable {n : ℕ} {W : Type*} [NormedAddCommGroup W] [NormedSpace ℂ W] [NormedSpace ℝ W]
+  [IsScalarTower ℝ ℂ W] [CompleteSpace W]
+
+/-- Blueprint `bp:p1:decay` (the coefficient `û_k = ⟨u χ_{-k}⟩`, entrywise for vector and matrix
+values). The Fourier coefficient of a `W`-valued function on the real torus, as a `W`-valued torus
+average. For `W = ℂ` it is `KAM.torusCoeff`. -/
+@[expose] def torusCoeffW (v : (Fin n → ℝ) → W) (k : Fin n → ℤ) : W :=
+  torusAverage fun x => character (-k) (fun j => (x j : ℂ)) • v x
+
+/-- Blueprint `bp:p1:decay` (the coefficient for `W = ℂ`): `KAM.torusCoeffW` is `KAM.torusCoeff`. -/
+theorem torusCoeffW_complex (v : (Fin n → ℝ) → ℂ) (k : Fin n → ℤ) :
+    torusCoeffW v k = torusCoeff v k := rfl
+
+/-- Blueprint `bp:p1:decay` (duality step). A `W`-valued coefficient bound follows from the scalar
+bounds for `φ ∘ u`, `φ ∈ W*`: if `‖φ(û_k)‖ ≤ B ‖φ‖` for every continuous linear `φ : W → ℂ`, then
+`‖û_k‖ ≤ B`. The coefficient of `φ ∘ u` is `φ(û_k)` because `φ` commutes with the torus average. -/
+theorem norm_torusCoeffW_le_of_dual {v : (Fin n → ℝ) → W} (hv : Continuous v)
+    (k : Fin n → ℤ) {B : ℝ} (hB : 0 ≤ B)
+    (h : ∀ φ : W →L[ℂ] ℂ, ‖torusCoeff (fun x => φ (v x)) k‖ ≤ B * ‖φ‖) :
+    ‖torusCoeffW v k‖ ≤ B := by
+  refine NormedSpace.norm_le_dual_bound ℂ _ hB fun φ => ?_
+  have hL : Continuous fun x : Fin n → ℝ => fun j => (x j : ℂ) :=
+    continuous_pi fun j => Complex.continuous_ofReal.comp (continuous_apply j)
+  have hchar : Continuous fun x : Fin n → ℝ => character (-k) (fun j => (x j : ℂ)) :=
+    (differentiable_character (-k)).continuous.comp hL
+  have hint : Integrable (fun x : Fin n → ℝ => character (-k) (fun j => (x j : ℂ)) • v x)
+      (volume.restrict (Set.pi Set.univ fun _ : Fin n => Icc (0 : ℝ) 1)) :=
+    integrableOn_unitCube_of_continuous (hchar.smul hv)
+  have hcomm := (φ.restrictScalars ℝ).integral_comp_comm hint
+  have hφ : φ (torusCoeffW v k) = torusCoeff (fun x => φ (v x)) k := by
+    unfold torusCoeffW torusCoeff torusAverage
+    simpa [map_smul] using hcomm.symm
+  rw [hφ]
+  exact h φ
+
+/-- Blueprint `bp:p1:decay`. Let `u` be holomorphic, `1`-periodic and bounded by `A` on `T_ρ`, with
+values in a complete complex normed space `W` (every finite-dimensional one: `ℂ`, `ℂ^p`, `ℂ^{p×q}`
+with the operator norm). Then for every `k ∈ ℤⁿ` and `0 ≤ ρ' < ρ` the `W`-valued coefficient
+`û_k = ⟨u χ_{-k}⟩` satisfies `‖û_k‖ ≤ e^{-2π ρ' |k|₁} A`, in the norm of `W` and with no
+dimension factor. -/
+theorem decay {ρ ρ' A : ℝ} (hρ' : 0 ≤ ρ') (hρρ' : ρ' < ρ) {u : (Fin n → ℂ) → W}
+    (hu : DifferentiableOn ℂ u (complexStrip n ρ))
+    (hp : ∀ (i : Fin n) z, z ∈ complexStrip n ρ → u (z + Pi.single i 1) = u z)
+    (hA : ∀ z ∈ complexStrip n ρ, ‖u z‖ ≤ A) (k : Fin n → ℤ) :
+    ‖torusCoeffW (fun x => u (fun j => (x j : ℂ))) k‖ ≤
+      Real.exp (-(2 * Real.pi * ρ' * Fourier.modeSize k)) * A := by
+  have hρ : 0 < ρ := hρ'.trans_lt hρρ'
+  refine norm_torusCoeffW_le_of_dual (continuous_realRestriction hρ hu) k
+    (mul_nonneg (Real.exp_pos _).le (nonneg_of_strip_bound hρ hA)) fun φ => ?_
+  have h := norm_torusCoeff_le_of_lt hρ' hρρ'
+    (φ.differentiable.comp_differentiableOn hu)
+    (fun i z hz => by simp only [Function.comp_apply, hp i z hz])
+    (fun z hz => (φ.le_opNorm (u z)).trans
+      (mul_le_mul_of_nonneg_left (hA z hz) (norm_nonneg φ))) k
+  calc _ ≤ Real.exp (-(2 * Real.pi * ρ' * Fourier.modeSize k)) * (‖φ‖ * A) := h
+    _ = _ := by ring
+
+/-- Blueprint `bp:p1:decay#boundary-radius`. For `u` as in `KAM.decay` and `0 < ρ`, the `W`-valued
+coefficient satisfies `‖û_k‖ ≤ e^{-2π ρ |k|₁} A` at the full radius. -/
+theorem decay_boundary_radius {ρ A : ℝ} (hρ : 0 < ρ) {u : (Fin n → ℂ) → W}
+    (hu : DifferentiableOn ℂ u (complexStrip n ρ))
+    (hp : ∀ (i : Fin n) z, z ∈ complexStrip n ρ → u (z + Pi.single i 1) = u z)
+    (hA : ∀ z ∈ complexStrip n ρ, ‖u z‖ ≤ A) (k : Fin n → ℤ) :
+    ‖torusCoeffW (fun x => u (fun j => (x j : ℂ))) k‖ ≤
+      Real.exp (-(2 * Real.pi * ρ * Fourier.modeSize k)) * A := by
+  refine norm_torusCoeffW_le_of_dual (continuous_realRestriction hρ hu) k
+    (mul_nonneg (Real.exp_pos _).le (nonneg_of_strip_bound hρ hA)) fun φ => ?_
+  have h := norm_torusCoeff_le hρ (φ.differentiable.comp_differentiableOn hu)
+    (fun i z hz => by simp only [Function.comp_apply, hp i z hz])
+    (fun z hz => (φ.le_opNorm (u z)).trans
+      (mul_le_mul_of_nonneg_left (hA z hz) (norm_nonneg φ))) k
+  calc _ ≤ Real.exp (-(2 * Real.pi * ρ * Fourier.modeSize k)) * (‖φ‖ * A) := h
+    _ = _ := by ring
+
+end Decay
 
 end KAM
 
