@@ -86,7 +86,7 @@ DISPOSITION: NODE stepI:p1:eb-holo-frame
 REASON: labelled substep extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 
 ITEM: stepI:p1:eb-holo-inverse
 KIND: proof-region
@@ -95,7 +95,7 @@ DISPOSITION: NODE stepI:p1:eb-holo-inverse
 REASON: labelled substep extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 
 ITEM: stepI:p1:eb-holo-field
 KIND: proof-region
@@ -113,7 +113,7 @@ DISPOSITION: NODE stepI:p1:eb-holo-torsion
 REASON: labelled substep extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 
 ITEM: stepI:p1:eb-holo-conclude
 KIND: proof-region
@@ -122,7 +122,7 @@ DISPOSITION: NODE stepI:p1:eb-holo-conclude
 REASON: labelled substep extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 
 ITEM: stepI:p1:eb-period
 KIND: proof-region
@@ -509,7 +509,7 @@ DISPOSITION: NODE stepI:p1:geo-red
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sonnet-amend-I-p1
-REVIEWER: sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 
 ITEM: stepI:p1:geo-red-domega
 KIND: proof-region
@@ -518,7 +518,7 @@ DISPOSITION: NODE stepI:p1:geo-red-domega
 REASON: labelled substep extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 
 ITEM: stepI:p1:geo-red-ered
 KIND: proof-region
@@ -527,7 +527,7 @@ DISPOSITION: NODE stepI:p1:geo-red-ered
 REASON: labelled substep extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-I-p1
-REVIEWER: sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 
 ITEM: stepI:p1:geo-sym
 KIND: proof-region

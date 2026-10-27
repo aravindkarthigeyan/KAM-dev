@@ -1,20 +1,9 @@
 {
- "replaced": [
-  "stepI:p7:sy-field"
- ],
- "added": [
-  "stepI:p1:eb-holo-frame",
-  "stepI:p1:eb-holo-inverse",
-  "stepI:p1:eb-holo-torsion",
-  "stepI:p1:eb-holo-conclude",
-  "stepI:p1:geo-red",
-  "stepI:p1:geo-red-domega",
-  "stepI:p1:geo-red-ered"
- ],
+ "replaced": [],
+ "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "bpI:p7:symplectic",
-  "bpI:p7:symplectic"
+  "stepI:p7:sy-field"
  ]
 }

@@ -662,7 +662,7 @@ DISPOSITION: NODE stepI:p7:sy-field
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sonnet-amend-I-p1
-REVIEWER: sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 
 ITEM: bpI:p7:chart
 KIND: theorem

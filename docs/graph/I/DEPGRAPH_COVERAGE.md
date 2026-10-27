@@ -652,9 +652,18 @@ COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
 
+ITEM: bpI:p1:ext-neumann
+KIND: external
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:ext-neumann@L101-L105
+DISPOSITION: NODE bpI:p1:ext-neumann
+REASON: labelled external fact (radius-one Neumann criterion) extracted as a node
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta-I-amend
+
 ITEM: bpI:p1:extended-basic
 KIND: lemma
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L106-L122
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L111-L127
 DISPOSITION: NODE bpI:p1:extended-basic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -663,16 +672,61 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:eb-holo
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L125-L128
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L130-L146
 DISPOSITION: NODE stepI:p1:eb-holo
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-global
+EXTRACTOR: sonnet-extract-I-p1+sonnet-amend-I-p1
+REVIEWER: sol-delta-I-amend
+
+ITEM: stepI:p1:eb-holo-frame
+KIND: proof-region
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L133-L134
+DISPOSITION: NODE stepI:p1:eb-holo-frame
+REASON: labelled substep extracted as a node
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
+
+ITEM: stepI:p1:eb-holo-inverse
+KIND: proof-region
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L136-L137
+DISPOSITION: NODE stepI:p1:eb-holo-inverse
+REASON: labelled substep extracted as a node
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
+
+ITEM: stepI:p1:eb-holo-field
+KIND: proof-region
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L139-L140
+DISPOSITION: NODE stepI:p1:eb-holo-field
+REASON: labelled substep extracted as a node
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta-I-amend
+
+ITEM: stepI:p1:eb-holo-torsion
+KIND: proof-region
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143
+DISPOSITION: NODE stepI:p1:eb-holo-torsion
+REASON: labelled substep extracted as a node
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
+
+ITEM: stepI:p1:eb-holo-conclude
+KIND: proof-region
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L145-L146
+DISPOSITION: NODE stepI:p1:eb-holo-conclude
+REASON: labelled substep extracted as a node
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
 
 ITEM: stepI:p1:eb-period
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L130-L135
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L148-L153
 DISPOSITION: NODE stepI:p1:eb-period
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -681,7 +735,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:eb-average
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L137-L142
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L155-L160
 DISPOSITION: NODE stepI:p1:eb-average
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -690,7 +744,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:eb-bounds
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L144-L148
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L162-L166
 DISPOSITION: NODE stepI:p1:eb-bounds
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -699,7 +753,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: bpI:p1:trivial
 KIND: lemma
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L151-L165
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L169-L183
 DISPOSITION: NODE bpI:p1:trivial
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -708,7 +762,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:tr-torus
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L168-L171
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L186-L189
 DISPOSITION: NODE stepI:p1:tr-torus
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -717,7 +771,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:tr-frame
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L173-L175
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L191-L193
 DISPOSITION: NODE stepI:p1:tr-frame
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -726,7 +780,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:tr-field
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L177-L183
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L195-L201
 DISPOSITION: NODE stepI:p1:tr-field
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -735,7 +789,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:tr-torsion
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L185-L187
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L203-L205
 DISPOSITION: NODE stepI:p1:tr-torsion
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -744,7 +798,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:tr-border
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L189-L191
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L207-L209
 DISPOSITION: NODE stepI:p1:tr-border
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -753,7 +807,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:tr-compare
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L193-L200
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L211-L218
 DISPOSITION: NODE stepI:p1:tr-compare
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -762,7 +816,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:trivial-use
 KIND: claim
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial-use@L203-L208
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial-use@L221-L226
 DISPOSITION: EXCLUDED
 REASON: remark (Use): forward pointer to Part 3; consumes last-row and K:neumann but nothing in Part 1 uses it (checked \ref{bpI:p1:trivial-use} across all packets)
 COVERAGE_STATUS: REVIEWED
@@ -771,7 +825,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:last-row
 KIND: lemma
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L210-L229
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L228-L247
 DISPOSITION: NODE bpI:p1:last-row
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -780,7 +834,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:lr-gradient
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L232-L234
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L250-L252
 DISPOSITION: NODE stepI:p1:lr-gradient
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -789,7 +843,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:lr-insert
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L236-L243
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L254-L261
 DISPOSITION: NODE stepI:p1:lr-insert
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -798,7 +852,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:lr-average
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L245-L251
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L263-L269
 DISPOSITION: NODE stepI:p1:lr-average
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -807,7 +861,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:energy-approx
 KIND: lemma
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L257-L280
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L275-L298
 DISPOSITION: NODE bpI:p1:energy-approx
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -816,7 +870,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:ea-chain
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L283-L287
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L301-L305
 DISPOSITION: NODE stepI:p1:ea-chain
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -825,7 +879,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:ea-omega
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L289-L291
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L307-L309
 DISPOSITION: NODE stepI:p1:ea-omega
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -834,7 +888,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:ea-gradient
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L293-L296
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L311-L314
 DISPOSITION: NODE stepI:p1:ea-gradient
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -843,7 +897,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:ea-avg
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L298-L301
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L316-L319
 DISPOSITION: NODE stepI:p1:ea-avg, stepI:p1:ea-avg#exactness-route, stepI:p1:ea-avg#gradient-route
 REASON: labelled averaging step with the direct exactness route and the separately sufficient gradient-identity route at L300-L301
 COVERAGE_STATUS: REVIEWED
@@ -852,7 +906,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:ea-size
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L303-L308
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L321-L326
 DISPOSITION: NODE stepI:p1:ea-size
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -861,7 +915,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:ea-defect
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L310-L316
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L328-L334
 DISPOSITION: NODE stepI:p1:ea-defect
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -870,7 +924,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:energy-conservation
 KIND: lemma
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L319-L330
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L337-L348
 DISPOSITION: NODE bpI:p1:energy-conservation
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -879,7 +933,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:ec-derivative
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L333-L335
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L351-L353
 DISPOSITION: NODE stepI:p1:ec-derivative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -888,7 +942,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:ec-unique
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L337-L341
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L355-L359
 DISPOSITION: NODE stepI:p1:ec-unique
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -897,7 +951,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:ec-pointwise
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L343-L344
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L361-L362
 DISPOSITION: NODE stepI:p1:ec-pointwise
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -906,7 +960,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:o3
 KIND: claim
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:o3@L347-L353
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:o3@L365-L371
 DISPOSITION: EXCLUDED
 REASON: remark: describes how (O3) of I-G1 is assembled in Part 2 (forward pointer; its content is the Part 2 step stepI:p2:g1-o3, which depends on energy-conservation directly); \ref{bpI:p1:o3} is only cited from I-p2
 COVERAGE_STATUS: REVIEWED
@@ -915,7 +969,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:border-solve
 KIND: lemma
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L364-L405
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L382-L423
 DISPOSITION: NODE bpI:p1:border-solve
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -924,7 +978,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:bs-first
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L408-L410
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L426-L428
 DISPOSITION: NODE stepI:p1:bs-first
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -933,7 +987,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:bs-averages
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L412-L416
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L430-L434
 DISPOSITION: NODE stepI:p1:bs-averages
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -942,7 +996,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:bs-bordered
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L418-L425
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L436-L443
 DISPOSITION: NODE stepI:p1:bs-bordered
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -951,7 +1005,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:bs-energy
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L427-L430
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L445-L448
 DISPOSITION: NODE stepI:p1:bs-energy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -960,7 +1014,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:bs-second
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L432-L439
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L450-L457
 DISPOSITION: NODE stepI:p1:bs-second
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -969,7 +1023,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:bs-unique
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L441-L447
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L459-L465
 DISPOSITION: NODE stepI:p1:bs-unique
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -978,7 +1032,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:bs-real
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L449-L452
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L467-L470
 DISPOSITION: NODE stepI:p1:bs-real
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -987,7 +1041,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:border-remarks
 KIND: claim
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-remarks@L455-L463
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-remarks@L473-L481
 DISPOSITION: EXCLUDED
 REASON: remark: differences from HL19 printed statement (comparison/provenance); the term omega xi^omega it explains is part of g^L in border-solve itself
 COVERAGE_STATUS: REVIEWED
@@ -996,7 +1050,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:reduced
 KIND: lemma
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L465-L485
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L483-L503
 DISPOSITION: NODE bpI:p1:reduced
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1005,7 +1059,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:rd-ql
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L488-L490
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L506-L508
 DISPOSITION: NODE stepI:p1:rd-ql
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1014,7 +1068,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:rd-expand
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L492-L496
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L510-L514
 DISPOSITION: NODE stepI:p1:rd-expand
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1023,16 +1077,16 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:rd-consequence
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L498-L503
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L516-L521
 DISPOSITION: NODE stepI:p1:rd-consequence
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-global
+EXTRACTOR: sonnet-extract-I-p1+sonnet-amend-I-p1
+REVIEWER: sol-delta-I-amend
 
 ITEM: bpI:p1:geometry-noA5
 KIND: lemma
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L517-L526
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L535-L544
 DISPOSITION: NODE bpI:p1:geometry-noA5
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1041,25 +1095,43 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:geo-de
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L529-L530
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L547-L548
 DISPOSITION: NODE stepI:p1:geo-de
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-a
+EXTRACTOR: sonnet-extract-I-p1+sonnet-amend-I-p1
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p1:geo-red
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L531-L533
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L549-L559
 DISPOSITION: NODE stepI:p1:geo-red
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-global
+EXTRACTOR: sonnet-extract-I-p1+sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
+
+ITEM: stepI:p1:geo-red-domega
+KIND: proof-region
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L552-L556
+DISPOSITION: NODE stepI:p1:geo-red-domega
+REASON: labelled substep extracted as a node
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
+
+ITEM: stepI:p1:geo-red-ered
+KIND: proof-region
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L558-L559
+DISPOSITION: NODE stepI:p1:geo-red-ered
+REASON: labelled substep extracted as a node
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
 
 ITEM: stepI:p1:geo-sym
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L534-L535
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L561-L562
 DISPOSITION: NODE stepI:p1:geo-sym
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1068,7 +1140,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: bpI:p1:perturbation-noA5
 KIND: lemma
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L539-L550
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L566-L577
 DISPOSITION: NODE bpI:p1:perturbation-noA5
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1077,7 +1149,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:pt-small
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L552-L554
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L579-L581
 DISPOSITION: NODE stepI:p1:pt-small
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1086,7 +1158,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:pt-domain
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L555-L556
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L582-L583
 DISPOSITION: NODE stepI:p1:pt-domain
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1095,7 +1167,7 @@ REVIEWER: sol-review-I-p1
 
 ITEM: stepI:p1:pt-frame
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L557-L558
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L584-L585
 DISPOSITION: NODE stepI:p1:pt-frame
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1104,7 +1176,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: stepI:p1:pt-torsion
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L559-L562
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L586-L589
 DISPOSITION: NODE stepI:p1:pt-torsion
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -1113,7 +1185,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:errata
 KIND: claim
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:errata@L569-L589
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:errata@L596-L616
 DISPOSITION: EXCLUDED
 REASON: errata remark: administrative (suspected defects of HL19), not consumed by any proof
 COVERAGE_STATUS: REVIEWED
@@ -1122,7 +1194,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: bpI:p1:doubts
 KIND: claim
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:doubts@L591-L597
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:doubts@L618-L624
 DISPOSITION: EXCLUDED
 REASON: doubts remark: administrative, not consumed by any proof
 COVERAGE_STATUS: REVIEWED
@@ -1149,7 +1221,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: heading:bpI:p1:sec-extended
 KIND: heading
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-extended@L104-L104
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-extended@L109-L109
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -1158,7 +1230,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: heading:bpI:p1:sec-energy
 KIND: heading
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-energy@L255-L255
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-energy@L273-L273
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -1167,7 +1239,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: heading:bpI:p1:sec-border
 KIND: heading
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-border@L356-L356
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-border@L374-L374
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -1176,7 +1248,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: heading:bpI:p1:sec-geometry
 KIND: heading
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-geometry@L507-L507
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-geometry@L525-L525
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -1185,7 +1257,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: heading:bpI:p1:sec-errata
 KIND: heading
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-errata@L567-L567
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:sec-errata@L594-L594
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -1194,7 +1266,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:sourcegap-L401
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#sourcegap@L401-L401
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#sourcegap@L419-L419
 DISPOSITION: NODE stepI:p1:bs-bordered, stepI:p1:bs-energy, stepI:p1:bs-second, stepI:p1:bs-unique, bpI:p1:border-solve
 REASON: the blueprint supplies the proof of HL19 Lemma 6.1 in full: the new points are exactly these steps and uniqueness (d); no gap left open in the blueprint
 COVERAGE_STATUS: REVIEWED
@@ -1203,7 +1275,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:source-L121
 KIND: citation
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L121-L121
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L126-L126
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -1212,7 +1284,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:source-L163
 KIND: citation
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L163-L163
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L181-L181
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -1221,7 +1293,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:source-L227
 KIND: citation
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L227-L227
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L245-L245
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -1230,7 +1302,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:source-L277
 KIND: citation
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L277-L277
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L295-L295
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -1239,7 +1311,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:source-L328
 KIND: citation
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L328-L328
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L346-L346
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -1248,7 +1320,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:source-L398
 KIND: citation
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L398-L398
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L416-L416
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -1257,7 +1329,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:source-L483
 KIND: citation
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L483-L483
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L501-L501
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -1266,7 +1338,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:source-L523
 KIND: citation
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L523-L523
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L541-L541
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -1275,7 +1347,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:source-L549
 KIND: citation
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L549-L549
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#source@L576-L576
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -1311,7 +1383,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:prose-L358-L362
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#prose@L358-L362
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#prose@L376-L380
 DISPOSITION: NODE bpI:p1:border-solve
 REASON: notation of script-T and the solution operator R (from K:bp:p2:cohomological(a)) used by the statement of border-solve
 COVERAGE_STATUS: REVIEWED
@@ -1320,7 +1392,7 @@ REVIEWER: sol-delta-I-a
 
 ITEM: p1:prose-L509-L515
 KIND: proof-region
-SOURCE: blueprint-I/parts/p1-iso-linear.tex#prose@L509-L515
+SOURCE: blueprint-I/parts/p1-iso-linear.tex#prose@L527-L533
 DISPOSITION: NODE bpI:p1:geometry-noA5, bpI:p1:perturbation-noA5
 REASON: explains that the two lemmas restate K conclusions without (A5) and that frame-basic(a)-(d) need only (A2)-(A6) minus (A5); this is used by their proofs (edges to K:bp:p2:admissible and K:bp:p2:frame-basic)
 COVERAGE_STATUS: REVIEWED
@@ -4074,16 +4146,16 @@ REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:symplectic
 KIND: proposition
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L205-L215
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L205-L217
 DISPOSITION: NODE bpI:p7:symplectic
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sonnet-amend-I-p1
+REVIEWER: sol-delta-I-amend
 
 ITEM: stepI:p7:sy-g
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L217-L218
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L219-L220
 DISPOSITION: NODE stepI:p7:sy-g
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4092,7 +4164,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sy-coord
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L230
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L232
 DISPOSITION: NODE stepI:p7:sy-coord
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4101,7 +4173,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sy-compare
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234
 DISPOSITION: NODE stepI:p7:sy-compare
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4110,7 +4182,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:sy-ext
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L237
 DISPOSITION: NODE stepI:p7:sy-ext
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4119,16 +4191,16 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:sy-field
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
 DISPOSITION: NODE stepI:p7:sy-field
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-g
+EXTRACTOR: sonnet-extract-I-p67a+sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
 
 ITEM: bpI:p7:chart
 KIND: theorem
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L240-L244
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L242-L246
 DISPOSITION: NODE bpI:p7:chart
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4137,7 +4209,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-reg
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248
 DISPOSITION: NODE stepI:p7:ch-reg
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4146,7 +4218,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:ch-inj
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250
 DISPOSITION: NODE stepI:p7:ch-inj
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4155,7 +4227,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-surj1
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L250-L253
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L252-L255
 DISPOSITION: NODE stepI:p7:ch-surj1
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4164,7 +4236,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-surj2
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256
 DISPOSITION: NODE stepI:p7:ch-surj2
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4173,7 +4245,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-surj3
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258
 DISPOSITION: NODE stepI:p7:ch-surj3
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4182,7 +4254,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-diffeo
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260
 DISPOSITION: NODE stepI:p7:ch-diffeo
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4326,7 +4398,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L214
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L214-L214
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L216-L216
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4335,7 +4407,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L243
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L243-L243
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L245-L245
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4371,7 +4443,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: bpI:p7:near-circular
 KIND: lemma
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L261-L270
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L263-L272
 DISPOSITION: NODE bpI:p7:near-circular
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4380,7 +4452,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:nc-sub
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L272-L272
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L274-L274
 DISPOSITION: NODE stepI:p7:nc-sub
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4389,7 +4461,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:nc-sup
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L274-L274
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L276-L276
 DISPOSITION: NODE stepI:p7:nc-sup
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4398,7 +4470,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:nc-image
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278-L278
 DISPOSITION: NODE stepI:p7:nc-image
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4407,7 +4479,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: bpI:p7:h0
 KIND: lemma
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L279-L283
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L281-L285
 DISPOSITION: NODE bpI:p7:h0
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4416,7 +4488,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p7:h0-formula
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L287-L287
 DISPOSITION: NODE stepI:p7:h0-formula
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4425,7 +4497,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:means
 KIND: proposition
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:means@L288-L294
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:means@L290-L296
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)
 COVERAGE_STATUS: REVIEWED
@@ -4434,7 +4506,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p7:mv-cv
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-cv@L296-L296
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-cv@L298-L298
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)
 COVERAGE_STATUS: REVIEWED
@@ -4443,7 +4515,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p7:mv-int
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-int@L298-L298
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-int@L300-L300
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)
 COVERAGE_STATUS: REVIEWED
@@ -4452,7 +4524,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: bpI:p7:circular
 KIND: corollary
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:circular@L301-L304
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:circular@L303-L306
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)
 COVERAGE_STATUS: REVIEWED
@@ -4461,7 +4533,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p7:ci-alg
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ci-alg@L306-L306
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ci-alg@L308-L308
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)
 COVERAGE_STATUS: REVIEWED
@@ -4470,7 +4542,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: bpI:p7:scaling
 KIND: proposition
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:scaling@L309-L316
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:scaling@L311-L318
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)
 COVERAGE_STATUS: REVIEWED
@@ -4479,7 +4551,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p7:sc-alg
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-alg@L318-L318
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-alg@L320-L320
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)
 COVERAGE_STATUS: REVIEWED
@@ -4488,7 +4560,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p7:sc-flow
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-flow@L319-L319
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-flow@L321-L321
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)
 COVERAGE_STATUS: REVIEWED
@@ -4497,7 +4569,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: bpI:p7:complex-domain
 KIND: lemma
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L337-L343
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L339-L345
 DISPOSITION: NODE bpI:p7:complex-domain
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4506,7 +4578,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:cd-uc
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L345-L345
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L347-L347
 DISPOSITION: NODE stepI:p7:cd-uc
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4515,7 +4587,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:cd-branch
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L347-L348
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L349-L350
 DISPOSITION: NODE stepI:p7:cd-branch
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4524,7 +4596,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: bpI:p7:shift-def
 KIND: definition
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L354-L360
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L356-L362
 DISPOSITION: NODE bpI:p7:shift-def
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4533,7 +4605,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: bpI:p7:shift
 KIND: lemma
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L362-L376
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L364-L378
 DISPOSITION: NODE bpI:p7:shift
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4542,7 +4614,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sh-pos
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L378-L382
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L380-L384
 DISPOSITION: NODE stepI:p7:sh-pos
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4551,7 +4623,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sh-bound
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L384-L384
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L386-L386
 DISPOSITION: NODE stepI:p7:sh-bound
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4560,7 +4632,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sh-div
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L388-L388
 DISPOSITION: NODE stepI:p7:sh-div
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4569,7 +4641,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:sh-zero
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L388-L388
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L390-L390
 DISPOSITION: NODE stepI:p7:sh-zero
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4578,7 +4650,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sh-real
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L390-L390
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L392-L392
 DISPOSITION: NODE stepI:p7:sh-real
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4587,7 +4659,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: bpI:p7:exact-ham
 KIND: proposition
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L393-L411
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L395-L413
 DISPOSITION: NODE bpI:p7:exact-ham
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4596,7 +4668,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:eh-shell
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L413-L413
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L415-L415
 DISPOSITION: NODE stepI:p7:eh-shell
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4605,7 +4677,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p7:eh-delta
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L416
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L417-L418
 DISPOSITION: NODE stepI:p7:eh-delta
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4614,7 +4686,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:eh-hol
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420
 DISPOSITION: NODE stepI:p7:eh-hol
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4623,7 +4695,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:eh-exact
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L422
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L424
 DISPOSITION: NODE stepI:p7:eh-exact
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4632,7 +4704,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:period-one
 KIND: corollary
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L425-L439
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L427-L441
 DISPOSITION: NODE bpI:p7:period-one
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4641,7 +4713,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p7:po-dom
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L443-L443
 DISPOSITION: NODE stepI:p7:po-dom
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4650,7 +4722,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:po-prop
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445
 DISPOSITION: NODE stepI:p7:po-prop
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4659,7 +4731,7 @@ REVIEWER: sol-delta-I-h
 
 ITEM: stepI:p7:po-exact
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447
 DISPOSITION: NODE stepI:p7:po-exact
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4668,7 +4740,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:transfer
 KIND: proposition
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L448-L453
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L450-L455
 DISPOSITION: NODE bpI:p7:transfer
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4677,7 +4749,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p7:tr-cf
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L457-L457
 DISPOSITION: NODE stepI:p7:tr-cf
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4686,7 +4758,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:tr-open
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459
 DISPOSITION: NODE stepI:p7:tr-open
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4695,7 +4767,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:tr-chain
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461
 DISPOSITION: NODE stepI:p7:tr-chain
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4704,7 +4776,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:nondeg
 KIND: proposition
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L465-L469
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L467-L471
 DISPOSITION: NODE bpI:p7:nondeg
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4713,7 +4785,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:nd-dom
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L473-L473
 DISPOSITION: NODE stepI:p7:nd-dom
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4722,7 +4794,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:nd-det
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L474-L474
 DISPOSITION: NODE stepI:p7:nd-det
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -4731,7 +4803,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:outputs
 KIND: claim
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:outputs@L477-L482
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:outputs@L479-L484
 DISPOSITION: EXCLUDED
 REASON: administrative 'outputs consumed by other parts' summary and forward reference; no proof consumes it
 COVERAGE_STATUS: REVIEWED
@@ -4740,7 +4812,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: bpI:p7:totality
 KIND: claim
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:totality@L484-L486
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:totality@L486-L488
 DISPOSITION: EXCLUDED
 REASON: administrative Lean-totality remark (guards on divisions and roots); the guards used are stated in the statements of complex-domain, shift, exact-ham; no proof consumes it
 COVERAGE_STATUS: REVIEWED
@@ -4749,7 +4821,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: bpI:p7:errata
 KIND: claim
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:errata@L488-L491
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:errata@L490-L493
 DISPOSITION: EXCLUDED
 REASON: administrative errata/doubts list for the ledger; no proof consumes it
 COVERAGE_STATUS: REVIEWED
@@ -4758,7 +4830,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: heading:bpI:p7:sec-complex
 KIND: heading
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex@L323-L323
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex@L325-L325
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -4767,7 +4839,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: heading:bpI:p7:sec-exact
 KIND: heading
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-exact@L352-L352
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-exact@L354-L354
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -4776,7 +4848,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: heading:bpI:p7:sec-nondeg
 KIND: heading
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-nondeg@L463-L463
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-nondeg@L465-L465
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -4785,7 +4857,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: heading:bpI:p7:sec-summary
 KIND: heading
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-summary@L475-L475
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-summary@L477-L477
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -4794,7 +4866,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L269
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L269-L269
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L271-L271
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4803,7 +4875,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L282
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L282-L282
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L284-L284
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4812,7 +4884,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L293
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L293-L293
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L295-L295
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4821,7 +4893,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L315
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L315-L315
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L317-L317
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4830,7 +4902,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L342
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L342-L342
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L344-L344
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4839,7 +4911,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L375
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L375-L375
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L377-L377
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4848,7 +4920,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L410
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L410-L410
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L412-L412
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4857,7 +4929,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L438
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L438-L438
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L440-L440
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4866,7 +4938,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L452
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L452-L452
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L454-L454
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4875,7 +4947,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L468
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L468-L468
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L470-L470
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -4884,7 +4956,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:prose-L325-L335
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#prose@L325-L335
+SOURCE: blueprint-I/parts/p7-delaunay.tex#prose@L327-L337
 DISPOSITION: NODE bpI:p7:sec-complex#data
 REASON: section data: K, e_-, e_1, e_2, m_L, m_G, r_min, rho_max, K_delta, U(delta); consumed by complex-domain, cd-uc, cd-branch, exact-ham, eh-shell, eh-delta, period-one, po-dom
 COVERAGE_STATUS: REVIEWED
@@ -5772,33 +5844,6 @@ REASON: imported node (track K): its statement is proved, or is an external inpu
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: sol-review-I-imports
-
-ITEM: K:step:p2:fb-holo
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L401-L406
-DISPOSITION: NODE K:step:p2:fb-holo
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
-
-ITEM: K:step:p2:geo-domegak
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-domegak@L571-L574
-DISPOSITION: NODE K:step:p2:geo-domegak
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
-
-ITEM: K:step:p2:geo-ered
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-ered@L576-L580
-DISPOSITION: NODE K:step:p2:geo-ered
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-I-e
 
 ITEM: K:step:p2:ham-real
 KIND: external

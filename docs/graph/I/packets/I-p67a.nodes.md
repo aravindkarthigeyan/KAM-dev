@@ -1438,7 +1438,7 @@ EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L236
 EDGE: stepI:p7:sy-field | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L239-L239 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sonnet-amend-I-p1
-REVIEWER: sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1579,9 +1579,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | D Q J D Q^T = J
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | the calculation uses the Delaunay orbit map or its element formulas
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-amend
-REVIEWER: -
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1832,4 +1832,3 @@ LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: section data node (SPEC): openness of W_mu is consumed by the ODE layer
-
