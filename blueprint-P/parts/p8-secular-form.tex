@@ -1,0 +1,256 @@
+\section{Averaged perturbation and the secular quadratic form}\label{bpP:p8}
+\begingroup\sloppy
+
+In the Poincar\'e chart of Part~7 both physical models are $h(\Lambda)+\mu f$ with a coupling-independent perturbation $f$ (Theorem~\ref{bpP:p7:product-chart}(c)). Averaging $f$ over the mean longitudes $\lambda\in\T^n$ gives the \emph{secular function} $S(\xi,\Lambda,\eta)$, whose Taylor expansion in the slow variables $(\xi,\eta)$ at the circular torus feeds the Birkhoff form (A$_2''$) of Part~0. This part proves what that expansion needs, and the exact relation between the two models.
+\begin{itemize}
+\item \texttt{perturbation-analytic} (Prop.~\ref{bpP:p8:perturbation-analytic}): on an explicit complex polydisc around the circular torus the pair interaction in the chart is holomorphic for every real $\lambda$, and $S$ is holomorphic (real analytic) there;
+\item \texttt{evenness} (Prop.~\ref{bpP:p8:symmetries} and Cor.~\ref{bpP:p8:evenness}): three exact symmetries of the chart; $S$ is even in $\eta$ and in $\xi$ and invariant under simultaneous rotation, so every odd Taylor coefficient vanishes and the quadratic and quartic parts have a prescribed invariant form;
+\item \texttt{lemma64} (Prop.~\ref{bpP:p8:lemma64}): $\langle p^{(j)}\cdot p^{(k)}\rangle_\lambda=0$ for $j\ne k$ \emph{exactly}, and $\langle|p^{(i)}|^2\rangle=m_i^2\kappa/a_i$;
+\item \texttt{laplace} (Def.~\ref{bpP:p8:laplace-def}, Lemma~\ref{bpP:p8:laplace}, Lemma~\ref{bpP:p8:identities}): Laplace coefficients, locally holomorphic on $|\alpha|<1$ from the series, and two series identities;
+\item \texttt{quadratic-form} (Thm.~\ref{bpP:p8:quadratic-form}): $C_0$ and $Q_h$ with the P5 corrections \emph{and} a further overall factor $\tfrac12$ forced by the erratum's normalisation (suspected erratum E-P-Fej04r-3);
+\item \texttt{identification} (Thm.~\ref{bpP:p8:identification}): $\langle f_{\rm mov}\rangle-\langle f_{\rm fix}\rangle=\delta(\Lambda)$ is a function of $\Lambda$ alone, \emph{exactly}, so all $(\xi,\eta)$-Taylor coefficients of order $\ge1$ agree (Cor.~\ref{bpP:p8:same-jets}); this is what lets $n=2$ P-FIXED follow route~(c);
+\item \texttt{quartic-jet} (Prop.~\ref{bpP:p8:quartic}): the interface for the planar torsion (Part~11b, CP11 \S8.1).
+\end{itemize}
+
+\subsection{Conventions, external facts, the secular polydisc}\label{bpP:p8:conv}
+
+Fix $n\ge1$, $G,m_0>0$, $\kappa=Gm_0$, $m\in(0,\infty)^n$, and the chart $\Psi=\Psi^{(n)}$ with $\hat f_{\rm fix}=f_{\rm fix}\circ\Psi$, $\hat f_{\rm mov}=f_{\rm mov}\circ\Psi$ (Theorem~\ref{bpP:p7:product-chart}). Coordinates $w=(\lambda,\xi,\Lambda,\eta)$; $u_i=(\xi_i,\eta_i)\in\R^2$; $\Gamma_i=|u_i|^2/2$; $a_i=\Lambda_i^2/(m_i^2\kappa)$. Angles have period $2\pi$ as in Part~7. For continuous $\varphi$ on $\{(\lambda,w')\}$, $w'=(\xi,\Lambda,\eta)$,
+\[\langle\varphi\rangle(w')=(2\pi)^{-n}\int_{[0,2\pi]^n}\varphi(\lambda,w')\,d\lambda,\qquad S_{\rm fix}=\langle\hat f_{\rm fix}\rangle,\ \ S_{\rm mov}=\langle\hat f_{\rm mov}\rangle .\]
+\emph{Dictionary to the frozen average.} Since $\operatorname{assemble}(I,\varphi,p,q)=((\varphi,q),(I,p))$ and $w=((\lambda,\xi),(\Lambda,\eta))$ (Part~7), $\texttt{secularAverage}\,P\,\mu\,I\,p\,q=\langle P\circ\cdot\rangle$ at $(\xi,\Lambda,\eta)=(q,I,p)$: the frozen momentum $p$ is $\eta$, the frozen position $q$ is $\xi$, $I=\Lambda$, and $R_j=\Gamma_j$.
+
+For the axes $0<a_1^*<\dots<a_n^*$ (the \emph{increasing} order of the Lean statements; Fej04r uses the decreasing one, see Remark~\ref{bpP:p8:dictionary}) put $\Lambda_i^*=m_i\sqrt{\kappa a_i^*}$ and, for $\rho>0$,
+\[\mathcal N(\rho)=\{(\xi,\Lambda,\eta)\in\C^{3n}:\ |\xi_i|,|\eta_i|<\rho,\ |\Lambda_i-\Lambda_i^*|<\rho\ \ \forall i\},\qquad \mathcal N_{\R}(\rho)=\mathcal N(\rho)\cap\R^{3n}.\]
+
+\emph{External facts.}
+\begin{enumerate}[label=(E\arabic*),ref=(E\arabic*)]
+\item\label{bpP:p8:e-param} \emph{Holomorphic parameter integrals.} If $\varphi(\lambda,w')$ is continuous on $[0,2\pi]^n\times U$ and holomorphic in $w'\in U\subset\C^N$ open for each $\lambda$, then $w'\mapsto\int\varphi\,d\lambda$ is holomorphic on $U$ (Morera/Fubini, differentiation under the integral); likewise real-analytic parameter dependence follows by restriction (\Iref{bpI:p7:x-param}, \ref{bpP:p7:e-hol}).
+\item\label{bpP:p8:e-diff} \emph{Differentiation under the integral:} if $\varphi$ is $C^k$ in $w'$ with derivatives jointly continuous on $[0,2\pi]^n\times U$, then $\partial^\alpha\langle\varphi\rangle=\langle\partial^\alpha\varphi\rangle$, $|\alpha|\le k$. Fubini on products of intervals; translation invariance of $\int_0^{2\pi}$ of a $2\pi$-periodic continuous function.
+\item\label{bpP:p8:e-taylor} Taylor expansion of a real-analytic function: the Taylor polynomial of order $N$ at a point has remainder $O(|x|^{N+1})$ locally uniformly; Taylor coefficients are the iterated derivatives; a composition of an analytic function with a real-analytic map is real analytic.
+\item\label{bpP:p8:e-weyl} \emph{First fundamental theorem for $O(2)$} (Weyl): a polynomial in vectors $u_1,\dots,u_r\in\R^2$ invariant under the diagonal action of $O(2)$ is a polynomial in the dot products $u_i\cdot u_j$.
+\item\label{bpP:p8:e-poch} Pochhammer symbols $(s)_p=s(s+1)\cdots(s+p-1)$, $(s)_{p+1}=(s)_p(s+p)$; binomial series $(1-z)^{-s}=\sum_p\frac{(s)_p}{p!}z^p$ for $|z|<1$, and $\frac{(s)_p}{p!}=O(p^{s-1})$.
+\end{enumerate}
+
+\begin{definition}[Secular polydisc constants]\label{bpP:p8:rho}
+$\rho_0:=\min_i\min\{\Lambda_i^*/2,\ \sqrt{\Lambda_i^*}/16\}$, so that $\mathcal N(\rho)$, $\rho<\rho_0$, is inside the domain of Proposition~\ref{bpP:p7:holomorphic} for each planet. $\rho_*=\rho_*(m,\kappa,a^*)\in(0,\rho_0)$ is the constant of Proposition~\ref{bpP:p8:perturbation-analytic}.
+\end{definition}
+
+\subsection{Analyticity of the interaction and of its average}\label{bpP:p8:sec-an}
+
+\begin{proposition}[Analytic perturbation near the circular torus]\label{bpP:p8:perturbation-analytic}
+There is $\rho_*\in(0,\rho_0)$ depending only on $(m,\kappa,a^*)$ such that, with $s_{ij}(\lambda,w')=\sum_{c=0,1}(q^{(i)}_c-q^{(j)}_c)^2$ (complex bilinear square, $q=\Psi$ of Prop.~\ref{bpP:p7:holomorphic}), for all real $\lambda$ and $w'\in\mathcal N(\rho_*)$ and all $i<j$:
+\begin{enumerate}[label=(\alph*)]
+\item $\operatorname{Re}s_{ij}\ge\tfrac12(a_j^*-a_i^*)^2$. Hence for real points $|q^{(i)}-q^{(j)}|\ge(a_j^*-a_i^*)/\sqrt2$ for \emph{all} $\lambda\in\R^n$: $\Psi(\lambda,w')\in W$ (Lemma~\ref{bpP:p6:domain}) and $\mathcal N_\R(\rho_*)\times\R^n\subset\Psi^{-1}(W)$.
+\item $\hat f_{\rm fix}(\lambda,w')=-G\sum_{i<j}m_im_j\,s_{ij}^{-1/2}$ (principal root) is holomorphic in $w'\in\mathcal N(\rho_*)$ for each real $\lambda$, jointly continuous, $2\pi$-periodic in $\lambda$, real at real points; the same holds for $\hat f_{\rm mov}=\hat f_{\rm fix}+|\sum_ip^{(i)}|^2/(2m_0)$.
+\item $S_{\rm fix},S_{\rm mov}$ are holomorphic on $\mathcal N(\rho_*)$, real at real points, hence real analytic on $\mathcal N_\R(\rho_*)$, and $\partial^\alpha_{(\xi,\eta,\Lambda)}S=\langle\partial^\alpha\hat f\rangle$ for all $\alpha$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\proofstep{Value at the circular torus}\label{stepP:p8:pa-circ} At $w'^*=(0,\Lambda^*,0)$, Theorem~\ref{bpP:p7:poincare}(f) gives $q^{(i)}=a_i^*(\cos\lambda_i,\sin\lambda_i)$, so $s_{ij}=a_i^{*2}+a_j^{*2}-2a_i^*a_j^*\cos(\lambda_i-\lambda_j)\ge(a_j^*-a_i^*)^2$.
+\proofstep{Uniformity}\label{stepP:p8:pa-unif} $s_{ij}$ is holomorphic in $w'$ on $\mathcal N(\rho_0)$ (Prop.~\ref{bpP:p7:holomorphic} and $\bar\Psi$ real at real points, polynomial in $q$) and continuous and $2\pi$-periodic in $\lambda\in\R^n$; hence uniformly continuous on $[0,2\pi]^n\times\overline{\mathcal N(\rho_0/2)}$ (compact). By Step~\ref{stepP:p8:pa-circ} there is $\rho_*<\rho_0/2$ with $\operatorname{Re}s_{ij}\ge\tfrac12(a_j^*-a_i^*)^2$ on $[0,2\pi]^n\times\mathcal N(\rho_*)$; it depends only on the data $(m,\kappa,a^*)$ (through $\Lambda^*$ and $\Psi$). This is (a); at real points $|q^{(i)}-q^{(j)}|^2=s_{ij}$, and $\operatorname{NoColl}$ also needs $|q^{(i)}|>0$, which holds on $\mathcal O_n$ (Lemma~\ref{bpP:p7:o-facts}, Theorem~\ref{bpP:p7:poincare}(d)).
+\proofstep{Holomorphy of $\hat f$}\label{stepP:p8:pa-hol} On $\{\operatorname{Re}s>0\}$ the principal $s^{-1/2}$ is holomorphic (\ref{bpP:p7:e-hol}); composing with the holomorphic $s_{ij}$ gives (b); at real points $s_{ij}>0$ and $s_{ij}^{-1/2}=1/|q^{(i)}-q^{(j)}|$ so the formula is $f_{\rm fix}\circ\Psi$ (Lemma~\ref{bpP:p6:split}). The extra term of $\hat f_{\rm mov}$ is a polynomial in the components of $p^{(i)}=\Psi_{m_i,\kappa}$-momenta, holomorphic by Prop.~\ref{bpP:p7:holomorphic}.
+\proofstep{The average}\label{stepP:p8:pa-avg} By \ref{bpP:p8:e-param} $S$ is holomorphic on $\mathcal N(\rho_*)$; real at real points; the derivative formula is \ref{bpP:p8:e-diff} (the $w'$-derivatives of a holomorphic function are jointly continuous in $(\lambda,w')$ by Cauchy's formula on a slightly smaller polydisc, uniformly in the compact $\lambda$-torus).
+\end{proof}
+
+\subsection{Symmetries and evenness}\label{bpP:p8:sec-sym}
+
+Write $R_\theta$ for the rotation of $\R^2$ by $\theta$, $\sigma=\operatorname{diag}(1,-1)$, $\mathbb 1=(1,\dots,1)$, and for $\xi,\eta\in\R^n$ put $R_\theta(\xi,\eta)=(\xi\cos\theta-\eta\sin\theta,\ \xi\sin\theta+\eta\cos\theta)$ (planetwise; this rotates each $u_i$ by $\theta$).
+
+\begin{proposition}[Symmetries of the chart]\label{bpP:p8:symmetries}
+For $w\in\mathcal O_n$ write $\Psi(w)=(q,p)$ (blocks $q^{(i)},p^{(i)}$). Then:
+\begin{enumerate}[label=(S\arabic*)]
+\item $\Psi(\lambda+\pi\mathbb 1,-\xi,\Lambda,-\eta)=(-q,-p)$;
+\item $\Psi(\lambda+\theta\mathbb 1,R_\theta(\xi,\eta),\Lambda)=(R_\theta q^{(i)},R_\theta p^{(i)})_i$ for every $\theta\in\R$;
+\item $\Psi(-\lambda,\xi,\Lambda,-\eta)=(\sigma q^{(i)},-\sigma p^{(i)})_i$.
+\end{enumerate}
+(The domain $\mathcal O_n$ is invariant under all three maps.) The Kepler functions $f_{\rm fix},f_{\rm mov}$ of Lemma~\ref{bpP:p6:split} satisfy $f(-q,-p)=f(q,p)=f(Rq,\pm Rp)$ for $R\in O(2)$ acting blockwise.
+\end{proposition}
+\begin{proof}
+It suffices to treat one planet. Put $\Phi(F,v)=F-v_0\sin F+v_1\cos F$, $c=(\cos F,\sin F)$.
+\proofstep{(S1)}\label{stepP:p8:sy-1} $\Phi(F+\pi,-v)=\Phi(F,v)+\pi$, so $F(\lambda+\pi,-v)=F(\lambda,v)+\pi$ (uniqueness, Prop.~\ref{bpP:p7:regular-kepler}(a)), $c\mapsto-c$, $J$ and $k$ are unchanged, $v\mapsto-v$. In $q=a(kc-v+\tfrac{v\cdot c}{1+k}v)$ and $p=\frac{m^2\kappa}{\Lambda J}(J_0c-\tfrac{v\cdot c}{1+k}J_0v)$ every term is odd under $(c,v)\mapsto(-c,-v)$ ($v\cdot c$ is even, the remaining factor is linear in $c$ or $v$, resp.\ quadratic factor $v\cdot c\,v$ odd).
+\proofstep{(S2)}\label{stepP:p8:sy-2} $v\mapsto R_\theta v$ for $(\xi,\eta)\mapsto R_\theta(\xi,\eta)$ ($v$ is a positive multiple of $(\xi,\eta)$ with $\Gamma,\Lambda$ unchanged); expanding, $\Phi(F+\theta,R_\theta v)=\Phi(F,v)+\theta$ (the $\cos\theta,\sin\theta$ terms combine to $-v_0\sin F+v_1\cos F$), so $F(\lambda+\theta,R_\theta v)=F+\theta$, $c\mapsto R_\theta c$, $J$ unchanged, and $R_\theta J_0=J_0R_\theta$, $(R_\theta v)\cdot(R_\theta c)=v\cdot c$: $q,p\mapsto R_\theta q,R_\theta p$.
+\proofstep{(S3)}\label{stepP:p8:sy-3} With $\bar v=\sigma v$ ($\eta\mapsto-\eta$): $\Phi(-F,\bar v)=-\Phi(F,v)$, so $F(-\lambda,\bar v)=-F(\lambda,v)$, $c\mapsto\sigma c$, $J$ unchanged, $\bar v\cdot\sigma c=v\cdot c$, $q\mapsto\sigma q$; $J_0\sigma=-\sigma J_0$ gives $p\mapsto-\sigma p$.
+\proofstep{The Kepler functions}\label{stepP:p8:sy-f} $f_{\rm fix}$ depends on $|q_i-q_j|$ and $f_{\rm mov}-f_{\rm fix}=|\sum p_i|^2/(2m_0)$; both are invariant under $(q,p)\mapsto(\pm Rq,\pm' Rp)$ for any isometry $R$.
+\end{proof}
+
+\begin{corollary}[Evenness and invariance of the secular function]\label{bpP:p8:evenness}
+Let $S\in\{S_{\rm fix},S_{\rm mov}\}$ on $\mathcal N_\R(\rho_*)$. Then $S(-\xi,\Lambda,-\eta)=S(\xi,\Lambda,\eta)=S(\xi,\Lambda,-\eta)=S(-\xi,\Lambda,\eta)$ and $S(R_\theta(\xi,\eta),\Lambda)=S(\xi,\Lambda,\eta)$. Consequently the Taylor expansion of $S$ at $(\xi,\eta)=0$ has only terms of even total degree, $(\xi,\eta)=0$ is a critical point (the origin is the circular torus, Fej04r p.~50), and the degree-$2d$ homogeneous part is an $O(2)$-invariant polynomial in $(u_1,\dots,u_n)$ with coefficients real-analytic in $\Lambda$; the degree-two part is
+\begin{equation}\label{bpP:p8:eq:quad-struct}
+\xi^{\top}A(\Lambda)\xi+\eta^{\top}A(\Lambda)\eta,\qquad A=A^{\top}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+\proofstep{Invariances}\label{stepP:p8:ev-inv} Each of (S1)--(S3) shifts or reflects the $\lambda$ variables and maps $\hat f$ to itself (Prop.~\ref{bpP:p8:symmetries}); the $\lambda$-average of a $2\pi$-periodic continuous function is invariant under translation $\lambda\mapsto\lambda+c\mathbb 1$ and under $\lambda\mapsto-\lambda$ (\ref{bpP:p8:e-diff}). This gives the invariances of $S$; the fourth equality combines the first and second.
+\proofstep{Taylor structure}\label{stepP:p8:ev-tay} $S$ is real analytic in $(\xi,\eta)$ (Prop.~\ref{bpP:p8:perturbation-analytic}(c)); evenness under $(\xi,\eta)\mapsto-(\xi,\eta)$ kills odd-degree parts. The degree-$2d$ part of an $O(2)$-invariant analytic function is invariant, because $O(2)$ acts linearly and preserves homogeneity.
+\proofstep{Quadratic part}\label{stepP:p8:ev-quad} Write the degree-two part as $\xi^\top A\xi+2\xi^\top B\eta+\eta^\top C\eta$. Evenness in $\eta$ alone gives $B=0$ (it kills terms odd in $\eta$); the rotation $\theta=\pi/2$, $(\xi,\eta)\mapsto(-\eta,\xi)$, gives $\eta^\top A\eta+\xi^\top C\xi=\xi^\top A\xi+\eta^\top C\eta$, so $C=A$.
+\end{proof}
+
+\subsection{Exact orthogonality of momenta (Fej04r Lemma 64)}\label{bpP:p8:sec-64}
+
+\begin{proposition}[Lemma 64, exactly]\label{bpP:p8:lemma64}
+For every $w\in\mathcal O_n$ (no neighbourhood, no collision hypothesis), $\nu_i=\kappa^2m_i^3/\Lambda_i^3$:
+\begin{enumerate}[label=(\alph*)]
+\item $m_i\nu_i\,\partial_{\lambda_i}q^{(i)}(w)=p^{(i)}(w)$ and $\partial_{\lambda_k}q^{(i)}=0$ for $k\ne i$;
+\item $\frac1{2\pi}\int_0^{2\pi}p^{(i)}\,d\lambda_i=0\in\R^2$;
+\item for $j\neq k$: $(2\pi)^{-n}\int_{[0,2\pi]^n}p^{(j)}\cdot p^{(k)}\,d\lambda=0$;
+\item $(2\pi)^{-n}\int|p^{(i)}|^2d\lambda=\frac1{2\pi}\int_0^{2\pi}|p^{(i)}|^2d\lambda_i=m_i^2\kappa/a_i=m_i^4\kappa^2/\Lambda_i^2$;
+\item hence $(2\pi)^{-n}\int\big|\sum_ip^{(i)}\big|^2d\lambda=\sum_im_i^4\kappa^2/\Lambda_i^2$.
+\end{enumerate}
+\source{Fej04r Lemme 64, pp.~49--50 (cross terms; proof: $Y_j=\mu_j\,dX_j/dt\propto\partial X_j/\partial\lambda_j$ and Fubini). The virial value (d) is ours (the source drops the diagonal term, which is not needed for $\langle F_{\rm per}\rangle=\langle F_{\rm princ}\rangle$; here it is).}
+\end{proposition}
+\begin{proof}
+\proofstep{(a)}\label{stepP:p8:l64-a} $H_{\rm Kep}$ is differentiable at $\Psi(w)$ (no pair terms; $q^{(i)}\ne0$) and $H_{\rm Kep}^\Psi=h(\Lambda)$ (Thm.~\ref{bpP:p7:product-chart}(b)). By Lemma~\ref{bpP:p1:chart-field}, $D\Psi\,X_h=X_{H_{\rm Kep}}\circ\Psi$ with $X_h$ having entries $\nu_i$ in the $\lambda_i$ slots and $0$ elsewhere (Thm.~\ref{bpP:p7:product-chart}(d), $\mu=0$). The position part of $X_{H_{\rm Kep}}$ is $(p^{(i)}/m_i)_i$ (Prop.~\ref{bpP:p6:hamilton-eqs} with $\mu=0$), the position part of $D\Psi X_h$ is $(\sum_k\nu_k\partial_{\lambda_k}q^{(i)})_i=\nu_i\partial_{\lambda_i}q^{(i)}$, since $q^{(i)}$ depends only on $(\lambda_i,\xi_i,\Lambda_i,\eta_i)$.
+\proofstep{(b)}\label{stepP:p8:l64-b} $q^{(i)}$ is real analytic and $2\pi$-periodic in $\lambda_i$, so $\int_0^{2\pi}\partial_{\lambda_i}q^{(i)}d\lambda_i=0$ (fundamental theorem of calculus); use (a) and $m_i\nu_i>0$.
+\proofstep{(c)}\label{stepP:p8:l64-c} $p^{(j)}\cdot p^{(k)}$ is continuous, $p^{(j)}$ depends on $\lambda_j$ only, $p^{(k)}$ on $\lambda_k$ only; by Fubini the integral is $\big(\tfrac1{2\pi}\!\int p^{(j)}d\lambda_j\big)\cdot\big(\tfrac1{2\pi}\!\int p^{(k)}d\lambda_k\big)=0$.
+\proofstep{(d)}\label{stepP:p8:l64-d} The first equality is Fubini. For $\Gamma_i>0$ write $p^{(i)}=\mathsf Q_{m_i,\kappa}(\ell,g,\Lambda,C)$ with $\ell=\lambda-g$ (Step~\ref{stepP:p7:po-del}); the period integral over $\lambda_i$ equals that over $\ell$ (shift of a periodic function), and Prop.~\ref{bpP:p7:kepler}(c) gives $m^2\kappa/a$. For $\Gamma_i=0$ the circular case of the same item. And $a_i=\Lambda_i^2/(m_i^2\kappa)$.
+\proofstep{(e)}\label{stepP:p8:l64-e} Expand $|\sum p^{(i)}|^2=\sum|p^{(i)}|^2+2\sum_{j<k}p^{(j)}\cdot p^{(k)}$ and use (c),(d).
+\end{proof}
+
+\subsection{Laplace coefficients}\label{bpP:p8:sec-lap}
+
+\begin{definition}[Laplace coefficients]\label{bpP:p8:laplace-def}
+For $s>0$, $k\in\Z$ and $\alpha\in[0,1)$,
+$b_s^{(k)}(\alpha)=\frac1{2\pi}\int_0^{2\pi}\cos(kt)\,(1+\alpha^2-2\alpha\cos t)^{-s}dt$, so $(1+\alpha^2-2\alpha\cos t)^{-s}=\sum_{k\in\Z}b_s^{(k)}(\alpha)e^{ikt}$ (Poincar\'e normalisation, as in Fej04r Def.~66).
+\source{Fej04r Def.~66, p.~50; CP11 App.~B footnote~72 ($b_{h,k}$, $\beta^{(r)}_k=b_{r/2,k}$).}
+\end{definition}
+
+\begin{lemma}[Series; local holomorphy]\label{bpP:p8:laplace}
+For $k\ge0$ and $\alpha\in[0,1)$,
+\[b_s^{(k)}(\alpha)=\sum_{q\ge0}\frac{(s)_{q+k}\,(s)_q}{(q+k)!\,q!}\ \alpha^{2q+k},\qquad b_s^{(-k)}=b_s^{(k)}.\]
+The series has radius of convergence $\ge1$; it defines a holomorphic function on $\{|\alpha|<1\}$, real and positive on $[0,1)$, and the Laplace coefficients are understood as this function wherever a complex argument is used. For $0<\alpha<1$ they are real analytic in $\alpha$, and $\alpha\mapsto b_s^{(k)}(a_i/a_j)$ is real analytic on $\{0<a_i<a_j\}$.
+\end{lemma}
+\begin{proof}
+\proofstep{Expansion}\label{stepP:p8:la-exp} $1+\alpha^2-2\alpha\cos t=(1-\alpha e^{it})(1-\alpha e^{-it})$, so by \ref{bpP:p8:e-poch} $(\cdot)^{-s}=\sum_{p,q\ge0}\frac{(s)_p(s)_q}{p!q!}\alpha^{p+q}e^{i(p-q)t}$, absolutely and uniformly in $t$ for $\alpha<1$ (coefficients are $O((pq)^{s-1})$). Integrating against $e^{-ikt}/(2\pi)$ termwise keeps $p-q=k$, i.e.\ $p=q+k$. Evenness in $k$ is evenness of $\cos$.
+\proofstep{Convergence}\label{stepP:p8:la-conv} The coefficient of $\alpha^{2q+k}$ is $O(q^{2s-2}(q+k)^{s-1})$, polynomial growth, so the radius is $\ge1$; positivity: all coefficients are positive for $s>0$.
+\end{proof}
+\begin{remark}[Fej04r Lemma 76 is not used]\label{bpP:p8:no76}
+Lemma 76 (p.~56) asserts meromorphy on the Riemann sphere with poles $0,\pm1,\infty$. This is false as printed: $b_{1/2}^{(0)}$ has a logarithmic singularity at $\alpha=1$ (suspected erratum E-P-Fej04r-2, recorded in Part~0). Only the local holomorphy of Lemma~\ref{bpP:p8:laplace} on the unit disc is used here and in Part~9--10.
+\end{remark}
+
+\begin{lemma}[Two identities]\label{bpP:p8:identities}
+For $\alpha\in[0,1)$ with $\beta=b_{1/2}^{(0)}$ and $b=b_{1/2}^{(1)}$:
+\begin{enumerate}[label=(I\arabic*)]
+\item $\alpha\beta''+2\beta'=b_{3/2}^{(1)}$;
+\item $\alpha^2b''+2\alpha b'-2b=\alpha\,b_{3/2}^{(2)}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Compare coefficients of the series of Lemma~\ref{bpP:p8:laplace}, using $(\tfrac32)_p=(\tfrac12)_{p+1}/\tfrac12=(2p+1)(\tfrac12)_p$ and $(\tfrac32)_{p-1}=2(\tfrac12)_p$.
+\proofstep{(I1)}\label{stepP:p8:id-1} $\beta=\sum_q\big(\tfrac{(1/2)_q}{q!}\big)^2\alpha^{2q}$ and $(\alpha\partial^2+2\partial)\alpha^{2q}=2q(2q+1)\alpha^{2q-1}$. The coefficient of $\alpha^{2q-1}$ ($q\ge1$) on the left is $2q(2q+1)\big(\tfrac{(1/2)_q}{q!}\big)^2$; on the right ($p=q-1$) it is $\frac{(3/2)_q(3/2)_{q-1}}{q!(q-1)!}=\frac{(2q+1)(1/2)_q\cdot2(1/2)_q}{q!(q-1)!}$, equal.
+\proofstep{(I2)}\label{stepP:p8:id-2} $b=\sum_q c_q\alpha^{2q+1}$, $c_q=\frac{(1/2)_{q+1}(1/2)_q}{(q+1)!q!}$, and $(\alpha^2\partial^2+2\alpha\partial-2)\alpha^m=(m+2)(m-1)\alpha^m$, which for $m=2q+1$ is $2q(2q+3)$. The coefficient of $\alpha^{2q+1}$ in $\alpha b_{3/2}^{(2)}$ is $\frac{(3/2)_{q+1}(3/2)_{q-1}}{(q+1)!(q-1)!}=\frac{(2q+3)(1/2)_{q+1}\cdot2(1/2)_q}{(q+1)!(q-1)!}=2q(2q+3)c_q$.
+\end{proof}
+
+\subsection{The quadratic part: $C_0$ and $Q_h$}\label{bpP:p8:sec-quad}
+
+\begin{definition}[Secular coefficients]\label{bpP:p8:coeffs}
+Let $a_1<\dots<a_n$, $\alpha_{ij}=a_i/a_j<1$ for $i<j$ (planet $i$ inner, $j$ outer), and
+\[\mathfrak a_{ij}=\frac{Gm_im_j\,a_i}{4a_j^2}\,b_{3/2}^{(1)}(\alpha_{ij})>0,\qquad \mathfrak b_{ij}=\frac{Gm_im_j\,a_i}{4a_j^2}\,b_{3/2}^{(2)}(\alpha_{ij})>0\qquad(i<j),\]
+$\mathfrak a_{ji}=\mathfrak a_{ij}$, $\mathfrak b_{ji}=\mathfrak b_{ij}$, and
+\[C_0(a)=-\sum_{i<j}\frac{Gm_im_j}{a_j}\,b_{1/2}^{(0)}(\alpha_{ij}),\quad\hat q_{jj}=-\sum_{k\ne j}\mathfrak a_{jk},\quad\hat q_{jk}=\mathfrak b_{jk}\ (j\ne k),\quad Q_h=\Delta^{-1}\hat q\,\Delta^{-1},\ \Delta=\operatorname{diag}(\sqrt{\Lambda_i}).\]
+All are real analytic functions of $\Lambda$ on $\{a_1<\dots<a_n\}$ ($a=a(\Lambda)$, Lemma~\ref{bpP:p8:laplace}).
+\end{definition}
+
+\begin{theorem}[Quadratic part of the secular function]\label{bpP:p8:quadratic-form}
+In the situation of Prop.~\ref{bpP:p8:perturbation-analytic}, with $a^*$ increasing, for $(\xi,\Lambda,\eta)\in\mathcal N_\R(\rho_*)$ (and also $a(\Lambda)$ increasing there, shrinking $\rho_*$ if needed):
+\[S_{\rm fix}(\xi,\Lambda,\eta)=C_0(a)+\xi^{\top}Q_h\xi+\eta^{\top}Q_h\eta+O\big(|(\xi,\eta)|^4\big),\]
+the error being real analytic and $O(|(\xi,\eta)|^4)$ locally uniformly in $\Lambda$. Equivalently the matrix $A$ of \eqref{bpP:p8:eq:quad-struct} is $Q_h$. If $\varrho\in SO(n)$ diagonalises $Q_h=\varrho\operatorname{diag}(\sigma)\varrho^\top$ then in the symplectic variables $(\tilde\xi,\tilde\eta)=\varrho^\top(\xi,\eta)$ the quadratic part is $\sum_j\sigma_j(\tilde\xi_j^2+\tilde\eta_j^2)=\sum_j2\sigma_j\tilde\Gamma_j$, i.e.\ $\Omega_j=2\sigma_j$ in the frozen sense.
+\source{Fej04r Formule 67 and (35)--(37), pp.~50--51; Prop.~73 proof, p.~55 (the matrix $\hat q=\Delta^{\top}Q_h\Delta$); CP11 (B.1)--(B.2), p.~62; corrections P5 (\texttt{statement.md}) \emph{and} the factor $\tfrac12$, see Remark~\ref{bpP:p8:factor-half}. The derivation is ours (the source cites Laplace--Lagrange and [LR95], not pinned).}
+\sourcegap{Fej04r p.~50: ``Le calcul complet est un peu long'', detailed only in [LR95], not pinned. The proof below is a complete replacement.}
+\end{theorem}
+\begin{proof}
+\proofstep{Pair decomposition}\label{stepP:p8:qf-pair} $\hat f_{\rm fix}=\sum_{i<j}V_{ij}$, $V_{ij}=-Gm_im_j/|q^{(i)}-q^{(j)}|$ depends on $(\lambda_i,\lambda_j)$ and on the data $(u_i,\Lambda_i,u_j,\Lambda_j)$ only. So $S_{\rm fix}=\sum_{i<j}S_{ij}$, $S_{ij}=\langle V_{ij}\rangle$ with the average over $(\lambda_i,\lambda_j)$ (Fubini). Corollary~\ref{bpP:p8:evenness} applies to each $S_{ij}$ (as the $n=2$ function of $(u_i,u_j)$): its degree-two part is $A_{ij}|u_i|^2+A'_{ij}|u_j|^2+B_{ij}\,u_i\cdot u_j$ (invariants of $O(2)$, \ref{bpP:p8:e-weyl}; the quadratic invariants of two vectors are spanned by the three dot products).
+\proofstep{Scaling}\label{stepP:p8:qf-scale} Let $\Phi(r_1,r_2)=\frac1{2\pi}\int_0^{2\pi}(r_1^2+r_2^2-2r_1r_2\cos t)^{-1/2}dt=\frac1{r_2}b_{1/2}^{(0)}(r_1/r_2)$ for $r_1<r_2$ and $\Phi(r_1,r_2)=\Phi(r_2,r_1)$: real analytic on $\{r_1\ne r_2\}$ and homogeneous of degree $-1$.
+\proofstep{$C_0$}\label{stepP:p8:qf-c0} At $u=0$ both planets are circular (Thm.~\ref{bpP:p7:poincare}(f)): $S_{ij}(0)=-Gm_im_j\Phi(a_i,a_j)=-Gm_im_ja_j^{-1}b_{1/2}^{(0)}(\alpha_{ij})$.
+\proofstep{Diagonal coefficients}\label{stepP:p8:qf-diag} Let $u_j=0$ ($j$ circular, any $i\ne j$, $u_i=(\xi_i,\eta_i)$). Averaging over $\lambda_j$ first, which by rotation invariance of the circle gives $\Phi(|q^{(i)}|,a_j)$, independent of the direction of $q^{(i)}$. By Prop.~\ref{bpP:p7:kepler}(b), $|q^{(i)}|=a_i(1-e\cos u)$, $d\lambda_i=(1-e\cos u)\,du$ over a period ($u$ the eccentric anomaly, or $F-g$; \Iref{bpI:p7:orbit-identities}); with $e^2=|v_i|^2=2\Gamma_i/\Lambda_i-\Gamma_i^2/\Lambda_i^2=:E$ (Lemma~\ref{bpP:p7:o-facts}),
+\[S_{ij}\big|_{u_j=0}=-Gm_im_j\,\frac1{2\pi}\int_0^{2\pi}h(e\cos u)\,du,\qquad h(\varepsilon)=\Phi\big(a_i(1-\varepsilon),a_j\big)(1-\varepsilon).\]
+Only even powers of $e\cos u$ survive and $\langle\cos^2\rangle=\tfrac12$, so the right side is $-Gm_im_j\big[h(0)+\tfrac14h''(0)E+O(E^2)\big]$ with $h''(0)=a_i^2\Phi_{11}+2a_i\Phi_1=(\,r_1^2\partial_{r_1}^2+2r_1\partial_{r_1})\Phi\,|_{(a_i,a_j)}$. For $i<j$ (inner eccentric): with $\beta=b_{1/2}^{(0)}$, $h''(0)=a_j^{-1}(\alpha^2\beta''+2\alpha\beta')=\alpha\,b^{(1)}_{3/2}(\alpha)/a_j$ by (I1). For $i>j$ (outer eccentric, inner circular of radius $c=a_j$): $g(r)=r^{-1}\beta(c/r)$, $r^2g''+2rg'=2c\beta'/r^2+c^2\beta''/r^3$, at $r=a_i$ equal to $\alpha\,b^{(1)}_{3/2}(\alpha)/a_i$ with $\alpha=c/a_i$ again by (I1). Since $E=|u|^2/\Lambda_i+O(|u|^4)$, the coefficient of $|u_i|^2$ is $-\mathfrak a_{ij}/\Lambda_i$ in both cases ($\mathfrak a_{ij}=Gm_im_j\frac\alpha{4a_{\max}}b^{(1)}_{3/2}$ with $a_{\max}$ the larger axis, $\alpha$ the ratio).
+\proofstep{Cross coefficient}\label{stepP:p8:qf-cross} Let $i<j$. By \ref{bpP:p8:e-diff}, $B_{ij}$ is determined by $\partial_{\xi_i}\partial_{\xi_j}\langle V_{ij}\rangle=\langle\partial_{\xi_i}\partial_{\xi_j}V_{ij}\rangle=B_{ij}$ at $0$. Use $v=(1-\Gamma/2\Lambda)^{1/2}\Lambda^{-1/2}u$, so to first order $v_i=u_i/\sqrt{\Lambda_i}$, and write $v_i=(s,0)$, $v_j=(t,0)$. To first order (Prop.~\ref{bpP:p7:regular-kepler}(a): $\partial_vF=(\sin F,-\cos F)$ at $v=0$, $F=\lambda$, $J=1$) the position of planet $i$ is $q=a[(1-v\cdot c)c-2(v\cdot J_0c)J_0c]$, $c=(\cos\lambda,\sin\lambda)$: in polar coordinates $r_i=a_i(1-s\cos\lambda_i)$, $\theta_i=\lambda_i+2s\sin\lambda_i$, and likewise for $j$ with $t$. Write $V_{ij}=U(r_i,r_j,\theta_i-\theta_j)$ with $U=-Gm_im_j(r_i^2+r_j^2-2r_ir_j\cos\vartheta)^{-1/2}=-Gm_im_j\big[B_0+2\sum_{k\ge1}B_k\cos k\vartheta\big]$, $B_k(r_i,r_j)=r_j^{-1}b_{1/2}^{(k)}(r_i/r_j)$ (Def.~\ref{bpP:p8:laplace-def}), homogeneous of degree $-1$. The mixed derivative at $s=t=0$ is $U_{r_ir_j}r_i'r_j'-U_{r_i\vartheta}r_i'\theta_j'+U_{\vartheta r_j}\theta_i'r_j'-U_{\vartheta\vartheta}\theta_i'\theta_j'$ with $r_i'=-a_i\cos\lambda_i$, $\theta_i'=2\sin\lambda_i$, etc. Averaging over $(\lambda_i,\lambda_j)$ with $\vartheta=\lambda_i-\lambda_j$ and $\langle\cos\lambda_i\cos\lambda_j\cos k\vartheta\rangle=\langle\sin\lambda_i\sin\lambda_j\cos k\vartheta\rangle=\tfrac14\delta_{k1}$, $\langle\sin\lambda_i\cos\lambda_j\sin k\vartheta\rangle=-\langle\cos\lambda_i\sin\lambda_j\sin k\vartheta\rangle=\tfrac14\delta_{k1}$, only $B_1$ survives:
+\[\partial_s\partial_t\langle V_{ij}\rangle=Gm_im_j\Big[-\tfrac12a_ia_j\partial_i\partial_jB_1-a_i\partial_iB_1-a_j\partial_jB_1-2B_1\Big]=Gm_im_j\Big[-\tfrac12a_ia_j\partial_i\partial_jB_1-B_1\Big]\]
+by Euler's relation $r_i\partial_iB_1+r_j\partial_jB_1=-B_1$. With $b=b_{1/2}^{(1)}$, $B_1=r_j^{-1}b(r_i/r_j)$, $\partial_i\partial_jB_1=-r_j^{-3}(2b'+\alpha b'')$; the bracket is $a_j^{-1}\big[\alpha b'+\tfrac12\alpha^2b''-b\big]=\frac{\alpha}{2a_j}b_{3/2}^{(2)}(\alpha)$ by (I2). Thus $\partial_s\partial_t\langle V_{ij}\rangle=2\mathfrak b_{ij}$, and $B_{ij}=\partial_{\xi_i}\partial_{\xi_j}S=2\mathfrak b_{ij}/\sqrt{\Lambda_i\Lambda_j}$.
+\proofstep{Assembly}\label{stepP:p8:qf-assembly} $S_{\rm fix}-C_0$ has degree-two part $\sum_{i<j}\big[-\mathfrak a_{ij}(|u_i|^2/\Lambda_i+|u_j|^2/\Lambda_j)+2\mathfrak b_{ij}\,u_i\cdot u_j/\sqrt{\Lambda_i\Lambda_j}\big]=\sum_{j,k}(Q_h)_{jk}(\xi_j\xi_k+\eta_j\eta_k)$ with $Q_h=\Delta^{-1}\hat q\Delta^{-1}$. The remainder is analytic with vanishing jet up to order three (Cor.~\ref{bpP:p8:evenness}), whence $O(|(\xi,\eta)|^4)$ by \ref{bpP:p8:e-taylor}. For the shrinking of $\rho_*$: $a(\Lambda)$ is continuous.
+\proofstep{Diagonalisation}\label{stepP:p8:qf-diag2} $(\xi,\eta)\mapsto(\varrho^\top\xi,\varrho^\top\eta)$ is symplectic for $d\eta\wedge d\xi$ and leaves $\Lambda$ and the form $\Gamma$-sum invariant in the sense $\sum_j(\tilde\xi_j^2+\tilde\eta_j^2)=\sum_j(\xi_j^2+\eta_j^2)$; $\tilde\Gamma_j=(\tilde\xi_j^2+\tilde\eta_j^2)/2$.
+\end{proof}
+
+\begin{remark}[Factor $\frac12$ against the source, dictionary, numerical evidence]\label{bpP:p8:factor-half}\label{bpP:p8:dictionary}
+(1) \emph{Index order.} Fej04r (34) orders $a_1>\dots>a_n$ and writes $C_1(a_j,a_k)=-\frac{a_k}{2a_j^2}b_{3/2}^{(1)}(\frac{a_k}{a_j})$, $C_2=\frac{a_k}{2a_j^2}b_{3/2}^{(2)}$, $j<k$ (outer $j$, inner $k$). The dictionary to Definition~\ref{bpP:p8:coeffs} is $j\leftrightarrow n+1-j$; each of $C_1,C_2$ is $-2\mathfrak a/(Gm_im_j)$, $+2\mathfrak b/(Gm_im_j)$ for the pair. The corrected entries of \texttt{statement.md} P5 (decreasing order, $\hat q=\Delta^{\top}Q_h\Delta$) are $2\hat q$ in the present notation.
+(2) \emph{Factor $\tfrac12$ (suspected erratum E-P-Fej04r-3).} (35)--(37) as printed give $\langle F_{\rm per}\rangle=C_0+Q^{\rm F}_h\cdot(\xi^2+\eta^2)$ with $Q_h^{\rm F}=2Q_h$. This is the right constant for the \emph{printed} (31), $r=\sqrt{\Lambda}\sqrt{1-\sqrt{1-\varepsilon^2}}\,e^{i\cdot}$, $|r|^2=\Gamma$; with the erratum's $\sqrt{2\Lambda_j}$ (Fej07e p.~3; the frozen chart, $|u|^2=2\Gamma$) every coefficient is halved, which Theorem~\ref{bpP:p8:quadratic-form} proves. In frozen terms $\langle f\rangle=C_0+\sum_j\Omega_j\tilde\Gamma_j$ with $\Omega_j=2\sigma_j=$ the eigenvalues of $2Q_h$, i.e.\ of the matrix printed in Fej04r (36)--(37) in the $\xi$-basis; \texttt{statement.md} P7 ``$\Omega_j=2\sigma_j$'' is correct only if $\sigma_j$ are the eigenvalues of the \emph{present} $Q_h$ (half of the printed). Positivity/definiteness (Part~9) is unaffected.
+(3) CP11 (B.2), p.~62 writes $C_2=\frac\alpha b\beta_2^{(3)}$ (no $\tfrac12$) while Fej04r (37) has $\tfrac12$ in $C_2$; with (B.1) read literally the off-diagonal term is twice too large (suspected erratum E-P-CP11-1; the diagonal part of (B.1) agrees with Theorem~\ref{bpP:p8:quadratic-form}).
+(4) \emph{Numerical check} (scratch script in \texttt{.drafts/P/bp-scratch-bpP-p8/}, three planets $m=(0.7,1.9,0.4)$, $a=(4.1,2.3,1.0)$, $G=1.3$, $m_0=0.9$, torus averages by trapezoid rule with $48^2$ nodes of the chart of Def.~\ref{bpP:p7:poincare-def}): $(S_{\rm fix}-C_0)/(\xi^\top Q_h\xi+\eta^\top Q_h\eta)=1.0000128,\ 1.0000021$ at amplitudes $10^{-3},5\cdot10^{-4}$ (error $O(|u|^2)$); $C_0$ agrees to $4\cdot10^{-14}$; $\langle p^{(1)}\!\cdot p^{(2)}\rangle=10^{-18}$; (S1)--(S3) hold to $5\cdot10^{-16}$. This is evidence, not a proof; the proof is Theorem~\ref{bpP:p8:quadratic-form}.
+\end{remark}
+
+\subsection{The exact identification of the two models}\label{bpP:p8:sec-ident}
+
+\begin{theorem}[Identification of $\langle H_{\rm mov}\rangle$ and $\langle H_{\rm fix}\rangle$]\label{bpP:p8:identification}
+Let $w'=(\xi,\Lambda,\eta)$ with $(\lambda,\xi,\Lambda,\eta)\in\mathcal O_n$, and put
+\[\delta(\Lambda)=\frac1{2m_0}\sum_{i=1}^n\frac{m_i^4\kappa^2}{\Lambda_i^2}=\frac G2\sum_i\frac{m_i^2}{a_i}\ \Big(=\tfrac{\kappa G}{2}\sum_i\tfrac{m_i^4}{\Lambda_i^2}\Big).\]
+Then $\lambda\mapsto\hat f_{\rm mov}(\lambda,w')-\hat f_{\rm fix}(\lambda,w')=|\sum_ip^{(i)}|^2/(2m_0)$ is continuous, and
+\[(2\pi)^{-n}\!\int_{[0,2\pi]^n}\!\big(\hat f_{\rm mov}-\hat f_{\rm fix}\big)\,d\lambda=\delta(\Lambda).\]
+Consequently $\hat f_{\rm fix}(\cdot,w')$ is integrable iff $\hat f_{\rm mov}(\cdot,w')$ is, and then $S_{\rm mov}=S_{\rm fix}+\delta(\Lambda)$; in particular on $\mathcal N_\R(\rho_*)$ (where both are analytic, Prop.~\ref{bpP:p8:perturbation-analytic}). With the same average for the full Hamiltonians: $\langle H_{\rm mov}^\Psi\rangle=h(\Lambda)+\mu S_{\rm mov}=h+\mu S_{\rm fix}+\mu\delta$ and $\langle H_{\rm fix}^\Psi\rangle=h+\varepsilon S_{\rm fix}$.
+\source{Ours (\texttt{statement.md} P7 item~4 gives the plan; Fej04r Lemma~64 gives the cross terms); Lemma~\ref{bpP:p6:split} for the difference.}
+\end{theorem}
+\begin{proof}
+\proofstep{Difference}\label{stepP:p8:id-diff} $f_{\rm mov}-f_{\rm fix}=|P|^2/(2m_0)$ identically (Lemma~\ref{bpP:p6:split}), a polynomial in the continuous functions $p^{(i)}(\lambda_i)$.
+\proofstep{Average}\label{stepP:p8:id-avg} Divide Prop.~\ref{bpP:p8:lemma64}(e) by $2m_0$ and use $\kappa/m_0=G$ for the second form.
+\proofstep{Integrability}\label{stepP:p8:id-int} A bounded continuous function is integrable on the compact torus, so integrability of one of $\hat f_{\rm fix},\hat f_{\rm mov}$ is that of the other, and the averages subtract. (Lean: where neither is integrable both Bochner averages are $0$ and the difference is $0$ rather than $\delta$; this never occurs on $\mathcal N_\R(\rho_*)$, where $\hat f$ is continuous on the torus, Prop.~\ref{bpP:p8:perturbation-analytic}(a).)
+\end{proof}
+
+\begin{corollary}[Same jets, same quadratic form, same Hamilton equations]\label{bpP:p8:same-jets}
+On $\mathcal N_\R(\rho_*)$, for every multi-index $\alpha$ in $(\xi,\eta)$ with $\alpha\ne0$ and every $\Lambda$-derivative,
+$\partial_{(\xi,\eta)}^\alpha S_{\rm mov}=\partial^\alpha_{(\xi,\eta)}S_{\rm fix}$ (all orders, not only quadratic). Therefore:
+\begin{enumerate}[label=(\alph*)]
+\item $S_{\rm mov}=C_0+\delta+\xi^\top Q_h\xi+\eta^\top Q_h\eta+O(|(\xi,\eta)|^4)$: same $Q_h$, same $\sigma_j$, same $\Omega_j=2\sigma_j$; only the constant term $P_0=C_0+\delta$ (resp.\ $C_0$) differs, by an action-only function; and the quartic jets (Prop.~\ref{bpP:p8:quartic}) coincide.
+\item For $\mu=\varepsilon$ the secular equations $\dot\xi_i=\mu\partial_{\eta_i}S$, $\dot\eta_i=-\mu\partial_{\xi_i}S$ (Thm.~\ref{bpP:p7:product-chart}(d), averaged) of the two models are \emph{identical}; $\Lambda$ is constant in both, and the frequencies $\dot\lambda_i$ differ by $\mu\partial_{\Lambda_i}\delta$.
+\item (\emph{Transfer to the frozen Birkhoff form.}) Take $P_{\rm mov}=\hat f_{\rm mov}$, $P_{\rm fix}=\hat f_{\rm fix}$ (no $\mu$-dependence), assembled as in the dictionary of \S\ref{bpP:p8:conv}. If $\operatorname{HasBirkhoff}(P_{\rm mov},V,r_0,\mu_0,P_0,\Omega,\beta)$ (Def.~\ref{bpP:p0:birkhoff}) holds, then $\operatorname{HasBirkhoff}(P_{\rm fix},V,r_0,\mu_0,P_0-\delta,\Omega,\beta)$ holds, and conversely, provided the points $(I,p,q)=(\Lambda,\eta,\xi)$ with $I\in V$, $p_j^2+q_j^2<r_0^2$ lie in $\mathcal N_\R(\rho_*)$; the hypotheses (H5), (H6) on $\beta$ are literally the same. If a slow-variable symplectic change $\chi(\Lambda;\cdot)$ (rotation $\varrho$, Birkhoff map of Part~11b), depending on $\Lambda$ only as a parameter, is applied before averaging, $S_{\rm mov}\circ\chi-S_{\rm fix}\circ\chi=\delta(\Lambda)$ still.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+$\delta$ does not depend on $(\xi,\eta)$ by Theorem~\ref{bpP:p8:identification}, so all derivatives of order $\ge1$ in $(\xi,\eta)$ of the difference vanish. (a),(b) follow from Theorem~\ref{bpP:p8:quadratic-form} and Theorem~\ref{bpP:p7:product-chart}(d). (c): $P_{\rm av}^{\rm mov}-P_{\rm av}^{\rm fix}=\delta(I)$ (frozen average of Def.~\ref{bpP:p0:secavg}, $I=\Lambda$) on the integrability set, so the integrability clause (i) transfers and the clause (ii) expansion with $P_0\to P_0-\delta$; $\Omega,\beta$ unchanged, $\chi$ acts on $(\xi,\eta)$ only.
+\end{proof}
+\begin{remark}[Use in Part 11]\label{bpP:p8:use11}
+For $n=2$ the hypotheses of P-G on $(\Omega,\beta,\det\beta)$ for $H_{\rm fix}=h+\varepsilon\hat f_{\rm fix}$ coincide with those for $H_{\rm mov}=h+\mu\hat f_{\rm mov}$; hence $n=2$ P-FIXED follows P-PLANAR route~(c) with $f_{\rm mov}$ replaced by $f_{\rm fix}$ (the Kepler part $h$ and the fast frequency map are the same, Lemma~\ref{bpP:p6:split}). The additional constant is the only change ($P_0$, not used by the KAM argument beyond the energy normalisation).
+\end{remark}
+
+\subsection{Quartic data for the planar torsion (interface for Part 11b)}\label{bpP:p8:sec-quartic}
+
+Part~11b evaluates the second-order Birkhoff invariants $\tau$ of CP11 \S8.1, pp.~32--34, (8.1)--(8.4) (the frozen $\beta$ of Def.~\ref{bpP:p0:birkhoff}). The input is the jet of $S$ to order four in $u=(u_1,u_2)$ ($n=2$, planar: no $(\bar p,\bar q)$) as an analytic function of the axes. CP11 (6.9)--(6.10) and (B.5)--(B.6), pp.~21, 62--63, write $\langle f\rangle=C_0+Q_h\cdot\frac{\eta^2+\xi^2}2+\frac12F_h\cdot\eta^2\xi^2$-type quartic with coefficients $r_1,r_2,r_3,r_4$ (functions of $(a_i,a_j)$ via $\beta^{(9)}_k=b_{9/2}^{(k)}$, $\beta_k^{(r)}:=b_{r/2,k}$); their ordering is $(\eta,\xi)=(p,q)$ and $a_1<a_2$, the Lean order. The statements below fix the interface; the quartic computation is left to Part~11b.
+
+\begin{proposition}[Quartic jet]\label{bpP:p8:quartic}
+Let $n\ge2$ and $\Lambda\in\mathcal N_\R(\rho_*)$-range. The degree-four part of $S_{\rm fix}$ (and of $S_{\rm mov}$, Cor.~\ref{bpP:p8:same-jets}) in $(\xi,\eta)$ is
+\[\mathcal Q_4=\sum_{i<j}\Big[c^{ij}_{1}|u_i|^4+c^{ij}_2|u_j|^4+c^{ij}_3|u_i|^2|u_j|^2+c^{ij}_4(u_i\cdot u_j)^2+c^{ij}_5|u_i|^2(u_i\cdot u_j)+c^{ij}_6|u_j|^2(u_i\cdot u_j)\Big],\]
+with $c^{ij}_\nu=c^{ij}_\nu(\Lambda_i,\Lambda_j)$ real analytic. Moreover:
+\begin{enumerate}[label=(\alph*)]
+\item (\emph{scaling}) In the eccentricity vectors $v$ of Def.~\ref{bpP:p7:poincare-def} the pair average is $S_{ij}=-Gm_im_ja_j^{-1}\mathcal W(\alpha_{ij};v_i,v_j)$ with $\mathcal W$ real analytic on $(0,1)\times\{|v|<\tfrac14\}$ and independent of $m,G,\kappa$. The passage to $u$ is exact: $v_i=(1-|u_i|^2/(4\Lambda_i))^{1/2}u_i/\sqrt{\Lambda_i}$, so if $\mathcal W_2=A\,|v_i|^2+A'|v_j|^2+B\,v_i\cdot v_j$ is the quadratic part and $\mathcal W_4$ the quartic part in $v$, then $\mathcal Q_4^{(ij)}=\mathcal W_4(u/\sqrt\Lambda)-\big(\tfrac{A}{4}\tfrac{|u_i|^4}{\Lambda_i^2}+\tfrac{A'}4\tfrac{|u_j|^4}{\Lambda_j^2}+\tfrac B8\tfrac{u_i\cdot u_j}{\sqrt{\Lambda_i\Lambda_j}}\big(\tfrac{|u_i|^2}{\Lambda_i}+\tfrac{|u_j|^2}{\Lambda_j}\big)\big)$ times the appropriate prefactor $-Gm_im_ja_j^{-1}$.
+\item (\emph{diagonal terms, exact}) $c_1^{ij}$ and $c_2^{ij}$ are
+\[c=-Gm_im_j\Big(\frac{h^{(4)}(0)}{64}-\frac{h''(0)}{16}\Big)\frac1{\Lambda^2},\quad h(\varepsilon)=\Phi\big(a(1-\varepsilon),a'\big)(1-\varepsilon),\]
+with $(a,\Lambda)=(a_i,\Lambda_i)$, $a'=a_j$ for $c_1$ and $(a_j,\Lambda_j)$, $a'=a_i$ for $c_2$.
+\item (\emph{provenance for the remaining ones}) $c_3,\dots,c_6$ follow by the same method as Theorem~\ref{bpP:p8:quadratic-form} (Fourier expansion of $U(r_i,r_j,\vartheta)$ in the orbit variables, now to second order in $v$ using $q=a(kc-v+\frac{v\cdot c}{1+k}v)$) and are linear combinations of $b_{s}^{(k)}(\alpha)$, $s\le\tfrac92$, with polynomial coefficients; the correspondence with CP11 is $c_1^{ij}=\tfrac{m_im_j}{2\Lambda_i^2}r_1(a_i,a_j)$, $c_2^{ij}=\tfrac{m_im_j}{2\Lambda_j^2}r_1(a_j,a_i)$ ($G=m_0=1$, units of CP11), and $r_2,r_3,r_4$ for the mixed monomials of (B.5), after the substitution $(\eta,\xi)\mapsto u$ and the $O(2)$-relations $\eta_i^2\xi_j^2+\xi_i^2\eta_j^2=|u_i|^2|u_j|^2-(\ldots)$ (CP11 use a non-symmetric tensor $F_h$).
+\end{enumerate}
+\source{CP11 \S8.1, pp.~32--34 ((8.1) $\tau_{11},\tau_{12},\tau_{22}$ for the planar block, asymptotics (8.2)--(8.4)); App.~B (B.5)--(B.6), pp.~62--64 (quartic tensor $F_h$ and $r_1,\dots,r_4$); (6.9)--(6.10), p.~21. Symmetry structure: Cor.~\ref{bpP:p8:evenness}, Weyl.}
+\sourcegap{CP11's proof of (B.1)--(B.17) is in App.~B only for the structure; the coefficients are printed without derivation of the $\beta^{(9)}$ polynomials.}
+\end{proposition}
+\begin{proof}
+\proofstep{Structure}\label{stepP:p8:q4-str} By Cor.~\ref{bpP:p8:evenness} and Prop.~\ref{bpP:p8:perturbation-analytic}, the degree-four part is an $O(2)$-invariant polynomial, analytic in $\Lambda$ (Taylor coefficients of a jointly analytic function). By pair decomposition (Step~\ref{stepP:p8:qf-pair}) it is a sum over pairs of $O(2)$-invariants of $(u_i,u_j)$, i.e.\ polynomials in $|u_i|^2,|u_j|^2,u_i\cdot u_j$ (\ref{bpP:p8:e-weyl}) of degree two: the six monomials listed.
+\proofstep{(a)}\label{stepP:p8:q4-a} $q^{(i)}=a_i\tilde q(\lambda_i,v_i)$ with $\tilde q$ independent of $a,m,\kappa$ (Def.~\ref{bpP:p7:poincare-def}), so $V_{ij}=-Gm_im_ja_j^{-1}\big|\alpha\tilde q(\lambda_i,v_i)-\tilde q(\lambda_j,v_j)\big|^{-1}$ and the average over $(\lambda_i,\lambda_j)$ is a function of $(\alpha,v_i,v_j)$, real analytic for $\alpha<1$ by the argument of Prop.~\ref{bpP:p8:perturbation-analytic} (a real $\alpha$-nbhd inside the separation condition). The conversion is the expansion of $(1-t)^{1/2}$ with $t=|u|^2/(4\Lambda)$.
+\proofstep{(b)}\label{stepP:p8:q4-b} For $u_j=0$ the computation of Step~\ref{stepP:p8:qf-diag} gives $S_{ij}=-Gm_im_j\sum_{l}E^{l}\frac{h^{(2l)}(0)}{(2l)!}\frac{\binom{2l}l}{4^l}$, i.e.\ the coefficient of $E^2$ is $h^{(4)}(0)/64$, and $E=|u|^2/\Lambda-|u|^4/(4\Lambda^2)$ gives $|u|^4$ coefficient $-Gm_im_j\big(h^{(4)}/64-h''/16\big)/\Lambda^2$.
+\proofstep{(c)}\label{stepP:p8:q4-c} The method is described; the printed formulas are compared in Remark~\ref{bpP:p8:cp11-check}.
+\end{proof}
+
+\begin{remark}[Check of CP11 (B.6) $r_1$; suspected erratum E-P-CP11-2]\label{bpP:p8:cp11-check}
+$c_1,c_2$ of Prop.~\ref{bpP:p8:quartic}(b) were evaluated numerically (mpmath, $\Phi$ by quadrature, $m=(0.7,1.9)$, $G=\kappa=1$) and independently by the series $\sum_k\binom{2k}k^24^{-2k}\alpha^{2k}\langle r^{2k}\rangle$ and by brute-force torus averages; the three agree. For $a=(1,3)$: $c_1=0.0065937$, $c_2=-0.0028633$, while $\frac{m_1m_2}{2\Lambda_i^2}r_1$ with $r_1$ of (B.6) as printed gives $0.007418$ and $-0.002975$; for $a=(1,10)$ the agreement is $1+4\cdot10^{-5}$ (the leading terms $\tfrac3{16}\alpha^2/a_2$, (8.2) of CP11, are right), for $a=(1,2)$ the printed value has the wrong sign ($0.0574$ against $-0.0310$). So the printed $r_1$ is correct only asymptotically (as $\alpha\to0$, which is all (8.2)--(8.4) use) and \emph{must not be used for the torsion at finite axis ratio}; either the printed coefficients contain misprints or CP11's $(\eta,\xi)$ differ from Poincar\'e variables beyond leading order (footnote 73 says they coincide in the planar case). Part~11b should recompute $c_1,\dots,c_6$ from the method above (exactly, and checkable by quadrature), not from (B.6). The quartic quantities CP11 uses for $\tau$ in (8.1) are all of $r_1,\dots,r_4$ (equivalently $c_1,\dots,c_6$), $C_1,C_2$ (equivalently $\mathfrak a,\mathfrak b$) and the eigenvector matrix $U_h$ of $Q_h$ (7.19), (7.27).
+\end{remark}
+
+\subsection{Sources, deviations, errata, forward references}\label{bpP:p8:notes}
+
+\paragraph{Sources read.} Fej04r pp.~46--55 (Thm.~62, \S6.2, Lemma~64, Def.~66, Formule 67, Prop.~73 proof incl.\ $\hat q$ on p.~55, Lemma 76 p.~56), Fej07e p.~3, CP11 pp.~21--22, 31--34, 62--65 (rendered pages 62--63 read as images), \texttt{docs/tracks/P/statement.md} P5--P7.
+
+\paragraph{Deviations.} (1) Lean (increasing) axis order throughout; Fej04r's decreasing order by $j\mapsto n+1-j$. (2) $Q_h$ halved against the printed formula (normalisation of the frozen chart). (3) Identification is proved to all orders and \emph{exactly}, not only at quadratic order, and the diagonal virial term is included. (4) $\delta$ is expressed in the action $\Lambda$ and in the axis $a$.
+
+\paragraph{Suspected errata (for the ledger).} E-P-Fej04r-3: (35)--(37) printed hold for $|r|^2=\Gamma$ (printed (31)); under Fej07e p.~3's $\sqrt{2\Lambda}$ every coefficient is halved (Remark~\ref{bpP:p8:factor-half}(2)). E-P-Fej04r-1 (P5) confirmed numerically up to that factor. E-P-Fej04r-2 (Lemma 76) unchanged. E-P-CP11-1: (B.2) $C_2$ has no $\tfrac12$ (p.~62). E-P-CP11-2: $r_1$ of (B.6), p.~63, disagrees with the exact quartic coefficient away from $\alpha\to0$ (Remark~\ref{bpP:p8:cp11-check}); $r_2,r_3,r_4$ not checked.
+
+\paragraph{Doubts about frozen statements.} None. \texttt{statement.md} P7 ``$\Omega_j=2\sigma_j$'' needs the qualifier of Remark~\ref{bpP:p8:factor-half}(2).
+
+\paragraph{External facts used.} \ref{bpP:p8:e-param}--\ref{bpP:p8:e-poch}, \ref{bpP:p7:e-hol}; Parts~1, 6, 7 and \Iref{bpI:p7:orbit-identities}.
+
+\paragraph{Forward references and consumers.} Part~9 (definiteness of $Q_h$, Lemmas~74--75: uses Def.~\ref{bpP:p8:coeffs} and positivity Lemma~\ref{bpP:p8:laplace}); Part~10 (analytic continuation: Lemma~\ref{bpP:p8:laplace}, no global meromorphy); Parts~11, 11a, 11b (Thm.~\ref{bpP:p8:quadratic-form}, Cor.~\ref{bpP:p8:same-jets}, Prop.~\ref{bpP:p8:quartic}, Remark~\ref{bpP:p8:use11}); Part~12 (Prop.~\ref{bpP:p8:perturbation-analytic}). Needed from other parts: none.
+
+\paragraph{Label index.} \texttt{rho}, \texttt{perturbation-analytic}, \texttt{symmetries}, \texttt{evenness}, \texttt{lemma64}, \texttt{laplace-def}, \texttt{laplace}, \texttt{identities}, \texttt{coeffs}, \texttt{quadratic-form}, \texttt{identification}, \texttt{same-jets}, \texttt{quartic}.
+\par\endgroup

@@ -26,7 +26,7 @@ solution predicate $\mathrm{Sol}(\cdot,B,\cdot,\cdot)$. No margin condition on $
 {\raggedright
 \begin{enumerate}[label=(Y\arabic*),ref=(Y\arabic*)]
 \item\label{bpI:p8:x-topo} \emph{Topology of $\R^k$.} Closed bounded sets are compact; a continuous real function on a nonempty compact set attains its minimum and maximum;
-  for a compact $S$ and a point $x\notin S$, $\operatorname{dist}(x,S)=\min_{q\in S}\abs{q-x}>0$; preimages of open sets under continuous maps are open;
+  for a nonempty compact $S$ and a point $x\notin S$, $\operatorname{dist}(x,S)=\min_{q\in S}\abs{q-x}>0$; preimages of open sets under continuous maps are open;
   a linear isomorphism of $\R^k$ is a homeomorphism, so it maps open sets to open sets and closures to closures; a closed subset of a compact set is compact.
   (\Lean{IsCompact.exists\_isMinOn}, \Lean{IsCompact.exists\_infDist\_eq\_dist}, \Lean{Continuous.isOpen\_preimage}.)
 \item\label{bpI:p8:x-norm} \emph{Triangle inequality} $\abs{u-w}\ge\abs{u-v}-\abs{v-w}$ in a normed space.
