@@ -225,6 +225,7 @@ public import KAM.Torus.Objects
 public import KAM.Uniq.Difference
 public import KAM.Uniq.Frame
 public import KAM.Uniq.Phase
+public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
 
 /-!
