@@ -19,6 +19,7 @@ public import KAM.Apost.Perturbation
 public import KAM.Apost.PerturbationTorsion
 public import KAM.Apost.Schedule
 public import KAM.Apost.Standing
+public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
 public import KAM.Diophantine.Basic
@@ -165,6 +166,7 @@ public import KAM.Head.DerivativeBounds
 public import KAM.Head.DyadicApprox
 public import KAM.Head.DyadicBoxes
 public import KAM.Head.Frequency
+public import KAM.Head.H1
 public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
 public import KAM.Head.HeadQ
@@ -178,6 +180,8 @@ public import KAM.Head.Shift
 public import KAM.Head.Standing
 public import KAM.Head.TorsionRegular
 public import KAM.Head.TorsionRegularGeneral
+public import KAM.Head.Unperturbed
+public import KAM.Head.UnperturbedFrame
 public import KAM.Iso.Kepler
 public import KAM.Matrix.Bridges
 public import KAM.Matrix.Calculus
