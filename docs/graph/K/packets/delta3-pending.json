@@ -1,0 +1,35 @@
+{
+ "K-p2a": [
+  "step:p2:fb-holo"
+ ],
+ "K-p2b": [
+  "step:p2:ne-expand",
+  "step:p2:pt-twist",
+  "step:p2:st-ball",
+  "step:p2:it-stepsmall",
+  "step:p2:lim-dk",
+  "step:p2:lim-primary",
+  "step:p2:lim-close",
+  "step:p2:lim-invariance"
+ ],
+ "K-p3": [
+  "step:p3:torsion-holomorphy",
+  "step:p3:phase-contraction",
+  "step:p3:diff-regularity",
+  "step:p3:diff-triangular",
+  "step:p3:diff-bounds"
+ ],
+ "K-p4a": [
+  "step:p4:db-vectorfield"
+ ],
+ "K-p4b": [
+  "step:p4:normalize-proof",
+  "bp:p4:lip",
+  "step:p4:lip-g1",
+  "bp:p4:real-torus",
+  "step:p4:rt-analytic",
+  "step:p4:ml-good",
+  "step:p4:mm-count",
+  "step:p4:hq-cover"
+ ]
+}

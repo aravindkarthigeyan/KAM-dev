@@ -1,7 +1,6 @@
 {
  "replaced": [
   "step:p3:torsion-holomorphy",
-  "step:p3:phase-fixed-point",
   "step:p3:phase-contraction",
   "step:p3:diff-regularity",
   "step:p3:diff-triangular",
@@ -11,8 +10,6 @@
  "items": [],
  "unresolved": {},
  "passes": [
-  "bp:p3:standing",
-  "bp:p3:difference-equation",
-  "bp:p3:standing#constants"
+  "step:p3:phase-fixed-point"
  ]
 }

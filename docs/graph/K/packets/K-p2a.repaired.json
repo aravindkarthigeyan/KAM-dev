@@ -1,25 +1,12 @@
 {
  "replaced": [
-  "step:p2:coh-apriori",
-  "step:p2:per-real",
   "step:p2:fb-holo"
  ],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "bp:p2:constants",
-  "bp:p2:averages",
-  "step:p2:avg-deriv",
-  "bp:p2:objects",
-  "step:p2:per-compose",
-  "bp:p2:frame-basic",
-  "bp:p2:exactness",
-  "step:p2:ex-avg-eta",
-  "step:p2:avg-deriv#real-route",
-  "step:p2:avg-deriv#bounded-route",
-  "step:p2:avg-deriv",
-  "step:p2:avg-deriv#real-route",
-  "step:p2:avg-deriv#bounded-route"
+  "step:p2:coh-apriori",
+  "step:p2:per-real"
  ]
 }
