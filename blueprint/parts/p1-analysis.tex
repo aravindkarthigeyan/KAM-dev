@@ -1,13 +1,556 @@
 \section{Analysis on strips and complex domains}\label{bp:p1}
 
-\emph{Status: interface fixed by the orchestrator (27 Oct 2026); proofs to be written.} The other
-parts cite only the labels below. A writer of another part who needs a further infrastructure
-lemma states it in that part, as a lemma of its own, and lists it for transfer here.
+% Local notation of Part 1: \pOneLab prints a label of the blueprint as a link.
+\newcommand{\pOneLab}[1]{\hyperref[#1]{\nolinkurl{#1}}}
+
+The statements of this part are the interface cited by Parts~\ref{bp:p2}--\ref{bp:p4}, and each of
+them is proved here. The other parts cite only the labels below. A writer of another part who needs a
+further infrastructure lemma states it in that part, as a lemma of its own, and lists it for transfer
+here.
 
 Throughout, functions on strips are holomorphic on the open strip and bounded there, and norms are
 sup norms (Part~\ref{bp:p0}). Constants called $c(\cdot)$ depend only on the displayed quantities.
 
-\subsection{Cauchy estimates}
+\paragraph{Route.} Every Cauchy estimate below restricts a function to a complex line and applies
+Cauchy's estimate in one variable, so it holds for the max norms of Part~\ref{bp:p0} as they stand.
+Holomorphic maps of several variables have holomorphic derivatives of all orders and are analytic;
+both facts follow from the one-variable Cauchy formula
+(Lemmas~\ref{bp:p1:holomorphic-regularity} and~\ref{bp:p1:holomorphic-analytic}). For periodic
+holomorphic functions on a strip $T_\rho$, a contour shift in each variable gives the decay
+$\abs{\hat u_k}\le e^{-2\pi\abs k_1\rho}\norm u_\rho$ of the Fourier coefficients, and conversely an
+absolutely convergent Fourier series with exponential weights defines a holomorphic function
+(Lemmas~\ref{bp:p1:decay} and~\ref{bp:p1:summation}). These two facts carry the coefficient solution
+of the cohomological equation, formalized in \texttt{KAM/Diophantine}, to sup norms on strips
+(Lemma~\ref{bp:p1:cohomological}). Uniqueness holds among all periodic holomorphic functions, bounded
+or not, because the Fourier coefficients determine such a function (Lemma~\ref{bp:p1:fourier-basic}).
+The remaining lemmas are finite-dimensional facts about matrices, real points, Lipschitz maps and
+Lebesgue measure.
+
+\paragraph{Conventions of the proofs.}
+\begin{itemize}
+\item $W$ denotes a finite-dimensional complex normed space. In the applications $W$ is $\C^p$ with the
+  max norm, the space of $p\times q$ matrices with the operator norm $\abs M=\max_i\sum_j\abs{M_{ij}}$,
+  or a space of linear or multilinear maps with the operator norm.
+\item A map $f:U\to W$ on an open set $U\subset\C^m$ is \emph{holomorphic} if it is complex (Fr\'echet)
+  differentiable at every point of $U$ (Lean \Lean{DifferentiableOn} $\C$). Its derivative
+  $Df(z)\in\mathcal L(\C^m,W)$ and its iterated derivatives $D^jf(z)$ (Lean \Lean{iteratedFDeriv})
+  carry the operator norms for the max norm on $\C^m$. We write $e_\ell$ for the $\ell$-th unit vector,
+  $\partial_\ell f=Df\,e_\ell$, and $\partial_\omega f=Df\,\omega=\sum_\ell\omega_\ell\partial_\ell f$.
+\item $P(z,r)=\{w\in\C^m:\abs{w-z}<r\}$ and $\bar P(z,r)=\{w\in\C^m:\abs{w-z}\le r\}$ are the open and the
+  closed polydisc. They are the balls of the max norm, hence convex.
+\item A map $u$ on $T_r$ is \emph{$1$-periodic} if $u(\theta+k)=u(\theta)$ for $\theta\in T_r$ and
+  $k\in\Z^n$. The real points $\R^n$ lie in every strip $T_r$ with $r>0$, and $T_r$ is convex. For
+  $k\in\Z^n$ let $\chi_k(\theta)=e^{2\pi ik\cdot\theta}$. Then $\chi_k$ is $1$-periodic,
+  $\chi_k\chi_l=\chi_{k+l}$, and
+  \begin{equation*}
+  \abs{\chi_k(\theta)}=e^{-2\pi k\cdot\operatorname{Im}\theta}\le
+  e^{2\pi\abs k_1\max_j\abs{\operatorname{Im}\theta_j}}\,.
+  \end{equation*}
+  For $v$ continuous on $\R^n$, or defined on a strip and restricted to $\R^n$, we write
+  $\avg v=\int_{[0,1]^n}v(x)\,dx$ and $\hat v_k=\avg{v\chi_{-k}}$, entrywise for vector or matrix
+  values. Sums over $k$ run over $\Z^n$.
+\item In expressions $(\tau/(ea))^\tau$ the value at $\tau=0$ is $1$.
+\item Boundedness of a function on a strip is used only where a statement names it. In particular the
+  proofs below cover Lemma~\ref{bp:p1:periodic-bounded} and the unbounded uniqueness class of
+  Lemma~\ref{bp:p1:cohomological} as written.
+\end{itemize}
+
+\paragraph{External inputs.} The proofs use the following classical results, each listed with a
+Mathlib counterpart where one exists.
+{\raggedright
+\begin{enumerate}[label=(E\arabic*),ref=(E\arabic*)]
+\item\label{bp:p1:ext-cauchy} \emph{Cauchy's formulas in one variable.} Let $\varphi$ be holomorphic on
+  an open subset of $\C$ containing the closed disc $\abs{\zeta-c}\le r$, with values in $W$. For
+  $\abs{w-c}<r$,
+  \begin{equation*}
+  \varphi(w)=\frac1{2\pi i}\oint_{\abs{\zeta-c}=r}\frac{\varphi(\zeta)}{\zeta-w}\,d\zeta\,,\qquad
+  \varphi'(c)=\frac1{2\pi i}\oint_{\abs{\zeta-c}=r}\frac{\varphi(\zeta)}{(\zeta-c)^2}\,d\zeta\,,
+  \end{equation*}
+  and therefore $\abs{\varphi'(c)}\le r^{-1}\max_{\abs{\zeta-c}=r}\abs{\varphi(\zeta)}$.
+  (\nolinkurl{DiffContOnCl.two_pi_i_inv_smul_circleIntegral_sub_inv_smul},
+  \nolinkurl{DiffContOnCl.deriv_eq_smul_circleIntegral},
+  \nolinkurl{Complex.norm_deriv_le_of_forall_mem_sphere_norm_le}.)
+\item\label{bp:p1:ext-rectangle} \emph{Cauchy's theorem for rectangles.} If $\varphi$ is holomorphic on
+  an open subset of $\C$ containing a closed rectangle $R$ with sides parallel to the axes, with values
+  in $W$, then the integral of $\varphi$ over the boundary of $R$ vanishes.
+  (\nolinkurl{Complex.integral_boundary_rect_eq_zero_of_differentiableOn}.)
+\item\label{bp:p1:ext-identity} \emph{Identity theorem in one variable.} If $\varphi$ is holomorphic on a
+  connected open set $S\subset\C$ and vanishes on a nonempty open interval of $\R$ contained in $S$, then
+  $\varphi=0$ on $S$. (\nolinkurl{DifferentiableOn.analyticOnNhd},
+  \nolinkurl{AnalyticOnNhd.eqOn_zero_of_preconnected_of_frequently_eq_zero}.)
+\item\label{bp:p1:ext-mvt} \emph{Mean value inequality.} If $C$ is a convex subset of a real or complex
+  normed space, $f$ is differentiable at every point of $C$ and $\abs{Df}\le A$ on $C$, then
+  $\abs{f(y)-f(x)}\le A\abs{y-x}$ for $x,y\in C$.
+  (\nolinkurl{Convex.norm_image_sub_le_of_norm_fderiv_le}.)
+\item\label{bp:p1:ext-schwarz} \emph{Symmetry of second derivatives.} If $f$ is differentiable near $z$
+  and $Df$ is differentiable at $z$, then the bilinear map $D^2f(z)$ is symmetric.
+  (\nolinkurl{second_derivative_symmetric_of_eventually}.)
+\item\label{bp:p1:ext-integral} \emph{Integrals.} A continuous function on a compact box is integrable,
+  and Fubini's theorem applies to it; $\int_a^b\varphi'=\varphi(b)-\varphi(a)$ for
+  $\varphi\in C^1([a,b])$; $\abs{\int F}\le\int\abs F$ for $W$-valued $F$ and every norm on $W$; a
+  uniformly convergent series of continuous functions on a box may be integrated term by term; and the
+  dominated convergence theorem holds.
+\item\label{bp:p1:ext-fourier} \emph{Fourier series on the torus.} If $v:\R^n\to\C$ is continuous and
+  $1$-periodic and $\sum_k\abs{\hat v_k}<\infty$, then $v(x)=\sum_k\hat v_k\chi_k(x)$ for every
+  $x\in\R^n$. (For $v$ regarded on $\R^n/\Z^n$:
+  \nolinkurl{UnitAddTorus.hasSum_mFourier_series_apply_of_summable}; its proof rests on the
+  Stone--Weierstrass theorem, \nolinkurl{UnitAddTorus.span_mFourier_closure_eq_top}.)
+\item\label{bp:p1:ext-lebesgue} \emph{Lebesgue outer measure.} For $S\subset\R^d$, $\meas S$ is the
+  infimum of $\sum_j\operatorname{vol}(R_j)$ over all countable covers of $S$ by closed boxes $R_j$. It is
+  monotone and countably subadditive.
+\item\label{bp:p1:ext-banach} \emph{Banach's fixed point theorem.} A contraction of a nonempty complete
+  metric space has a fixed point. (\nolinkurl{ContractingWith.fixedPoint}.)
+\item\label{bp:p1:ext-cramer} \emph{Cramer's rule.} If $\det M\ne0$, the square matrix $M$ is invertible
+  and $M^{-1}=(\det M)^{-1}\operatorname{adj}M$. The entries of $\operatorname{adj}M$ and $\det M$ are
+  polynomials with integer coefficients in the entries of $M$.
+\end{enumerate}
+\par}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Matrices}\label{bp:p1:sec-matrices}
+
+Vectors carry the max norm and matrices the operator norm it induces. The first lemma identifies this
+norm with the largest row sum; the others are its algebraic consequences.
+
+\begin{lemma}[Operator norms, blocks, $\Omega_0$]\label{bp:p1:operator-norms}
+For the max norms of Part~\ref{bp:p0}: the operator norm of a matrix is $\max_i\sum_j\abs{M_{ij}}$; for a block
+matrix $\left(\begin{smallmatrix}A&B\\C&D\end{smallmatrix}\right)$ the norm is at most $\max\{\abs A+\abs B,\abs C+\abs D\}$;
+$\abs{\Omega_0}=1$, $\Omega_0^\top=-\Omega_0$, $\Omega_0^2=-I$. (Proved as \texttt{bp:p2:matrix}(a), (c), (d).)
+\end{lemma}
+
+\begin{proof}
+\proofstep{Row sums}\label{step:p1:opn-rowsum}
+Let $M\in\C^{p\times q}$ and $v\in\C^q$ with $\abs v\le1$. For every $i$,
+$\abs{(Mv)_i}\le\sum_j\abs{M_{ij}}\abs{v_j}\le\sum_j\abs{M_{ij}}$, so
+$\sup_{\abs v\le1}\abs{Mv}\le\max_i\sum_j\abs{M_{ij}}$. Conversely, let $i_0$ be a row with the largest
+sum and put $v_j=\overline{M_{i_0j}}/\abs{M_{i_0j}}$ if $M_{i_0j}\ne0$ and $v_j=0$ otherwise. Then
+$\abs v\le1$ and $(Mv)_{i_0}=\sum_j\abs{M_{i_0j}}$. A linear map $\C^q\to\C^p$, such as a derivative, is
+identified with its matrix, and its operator norm is the same number.
+(Mathlib: \nolinkurl{Matrix.linfty_opNorm_def}.)
+
+\proofstep{Blocks}\label{step:p1:opn-blocks}
+A row of $\left(\begin{smallmatrix}A&B\\C&D\end{smallmatrix}\right)$ in the upper block row is a row of
+$A$ followed by the corresponding row of $B$, so its absolute sum is at most $\abs A+\abs B$. The rows
+in the lower block row have sums at most $\abs C+\abs D$.
+
+\proofstep{The matrix $\Omega_0$}\label{step:p1:opn-omega}
+By Definition~\ref{bp:p0:hamiltonian}, $\Omega_0(a,b)=(-b,a)$, that is,
+$\Omega_0=\left(\begin{smallmatrix}0&-I\\I&0\end{smallmatrix}\right)$. Hence
+$\Omega_0^2(a,b)=\Omega_0(-b,a)=(-a,-b)$, and
+$\Omega_0^\top=\left(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\right)=-\Omega_0$. Every row of
+$\Omega_0$ has exactly one nonzero entry, equal to $\pm1$, so $\abs{\Omega_0}=1$.
+\end{proof}
+
+\begin{lemma}[Max-norm matrix facts]\label{bp:p1:matrix-norms}
+For the norm $\abs{M}=\max_i\sum_j\abs{M_{ij}}$: $\abs{MN}\le\abs M\abs N$, $\abs{Mv}\le\abs M\abs v$, and
+$\abs{M^\top}\le m\abs M$ for $m\times m'$ matrices with $m'\le m$ (dimension factors explicit).
+\end{lemma}
+
+\begin{proof}
+\proofstep{Products}\label{step:p1:mn-products}
+By Lemma~\ref{bp:p1:operator-norms}, $\abs M=\sup_{\abs v\le1}\abs{Mv}$, and by homogeneity
+$\abs{Mv}\le\abs M\abs v$ for every $v$. Hence $\abs{MNv}\le\abs M\abs{Nv}\le\abs M\abs N\abs v$, and the
+supremum over $\abs v\le1$ gives $\abs{MN}\le\abs M\abs N$. (Mathlib:
+\nolinkurl{Matrix.linfty_opNorm_mul}, \nolinkurl{Matrix.linfty_opNorm_mulVec}.)
+
+\proofstep{Transposes}\label{step:p1:mn-transpose}
+Let $M$ be an $m\times m'$ matrix. Every entry is at most the absolute sum of its row, so
+$\abs{M_{ij}}\le\abs M$, and the $j$-th row of $M^\top$ has absolute sum
+$\sum_{i=1}^m\abs{M_{ij}}\le m\abs M$. Hence $\abs{M^\top}\le m\abs M$; the condition $m'\le m$ is not used.
+\end{proof}
+
+\begin{lemma}[Neumann series]\label{bp:p1:neumann}
+If $A$ is invertible and $\abs{A^{-1}}\abs{\Delta}\le\frac12$, then $A+\Delta$ is invertible with
+$\abs{(A+\Delta)^{-1}}\le2\abs{A^{-1}}$ and $\abs{(A+\Delta)^{-1}-A^{-1}}\le2\abs{A^{-1}}^2\abs{\Delta}$.
+The same holds pointwise for matrix-valued functions, with sup norms.
+\end{lemma}
+
+\begin{proof}
+\proofstep{The Neumann series}\label{step:p1:neu-series}
+Put $X=A^{-1}\Delta$. By Lemma~\ref{bp:p1:matrix-norms}, $\abs X\le\abs{A^{-1}}\abs\Delta\le\frac12$ and
+$\abs{X^j}\le2^{-j}$. The series $S=\sum_{j\ge0}(-X)^j$ therefore converges absolutely in the
+finite-dimensional space of square matrices, and $\abs S\le\sum_j2^{-j}=2$, since $\abs I=1$ by
+Lemma~\ref{bp:p1:operator-norms}. Telescoping gives
+$S(I+X)=(I+X)S=\lim_N\bigl(I-(-X)^{N+1}\bigr)=I$.
+
+\proofstep{The inverse of $A+\Delta$}\label{step:p1:neu-inverse}
+$A+\Delta=A(I+X)$ is a product of invertible matrices, with inverse $SA^{-1}$. Hence
+$\abs{(A+\Delta)^{-1}}\le\abs S\abs{A^{-1}}\le2\abs{A^{-1}}$.
+
+\proofstep{The difference}\label{step:p1:neu-difference}
+Multiplying on the left by $A+\Delta$ shows $(A+\Delta)^{-1}-A^{-1}=-(A+\Delta)^{-1}\Delta A^{-1}$, so
+$\abs{(A+\Delta)^{-1}-A^{-1}}\le2\abs{A^{-1}}\abs\Delta\abs{A^{-1}}=2\abs{A^{-1}}^2\abs\Delta$.
+
+\proofstep{Matrix-valued functions}\label{step:p1:neu-pointwise}
+Let $A(\theta)$ be invertible and $\Delta(\theta)$ be given for $\theta$ in a set $S'$, with
+$\sup_{S'}\abs{A^{-1}}\cdot\sup_{S'}\abs\Delta\le\frac12$. Then the hypothesis holds at every
+$\theta\in S'$, the conclusions hold at every $\theta$, and they pass to the suprema over $S'$.
+\end{proof}
+
+\begin{lemma}[Real inverses]\label{bp:p1:real-inverse}
+The inverse of an invertible real matrix is real; hence if $A(\theta)$ is real for real $\theta$ and invertible, so is
+$A(\theta)^{-1}$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{Adjugate}\label{step:p1:ri-adjugate}
+Let $A$ be a real invertible matrix. Then $\det A\ne0$, and $\det A$ and the entries of
+$\operatorname{adj}A$ are real, being polynomials with integer coefficients in the real entries of $A$.
+By~\ref{bp:p1:ext-cramer}, $A^{-1}=(\det A)^{-1}\operatorname{adj}A$ is real. The second claim is the
+first at each real $\theta$.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Holomorphic maps on open sets}\label{bp:p1:sec-holomorphic}
+
+This subsection works on an open set $U\subset\C^m$ and uses no periodicity. Its first two lemmas are
+the only places where several variables need more than one-variable theory: derivatives of
+holomorphic maps are holomorphic, and holomorphic maps are analytic. Both are proved from the Cauchy
+formula along complex lines. The other lemmas are mean value inequalities and Cauchy estimates for
+derivatives of order up to three.
+
+\begin{lemma}[Derivatives of holomorphic maps]\label{bp:p1:holomorphic-regularity}
+Let $U\subset\C^m$ be open and $F:U\to W$ holomorphic. Then $DF:U\to\mathcal L(\C^m,W)$ is holomorphic.
+Consequently, for every $j\ge1$ the iterated derivative $D^jF$ exists and is holomorphic on $U$, so
+that $F$ is $C^\infty$ on $U$, and
+\begin{equation*}
+\abs{D^{j+1}F(z)}=\abs{D^j(DF)(z)}=\abs{D(D^jF)(z)}\qquad(z\in U)\,.
+\end{equation*}
+Mixed partial derivatives commute: $D^2F(z)[v,w]=D^2F(z)[w,v]$ for $z\in U$ and $v,w\in\C^m$; in
+particular $\partial_i\partial_jF=\partial_j\partial_iF$ on $U$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{Cauchy's estimate along lines}\label{step:p1:hreg-line}
+Let $x\in U$ and $r>0$ with $\bar P(x,r)\subset U$ and $\abs F\le A$ on $\bar P(x,r)$. For $v\in\C^m$
+with $\abs v=1$, the set $\{\zeta\in\C:x+\zeta v\in U\}$ is open and contains the closed disc
+$\abs\zeta\le r$, because $\abs{\zeta v}=\abs\zeta$. On it $\varphi(\zeta)=F(x+\zeta v)$ is holomorphic,
+with $\varphi'(0)=DF(x)v$ and $\abs\varphi\le A$ on the circle $\abs\zeta=r$. By~\ref{bp:p1:ext-cauchy},
+$\abs{DF(x)v}\le A/r$. Every $v$ with $\abs v\le1$ is a multiple $tv'$ with $\abs{v'}=1$ and
+$0\le t\le1$, so $\abs{DF(x)}\le A/r$. (Lean: \nolinkurl{KAM.norm_fderiv_le_of_closedBall_bound}.)
+
+\proofstep{A Cauchy integral for the derivative}\label{step:p1:hreg-integral}
+Fix $z_0\in U$ and $r>0$ with $\bar P(z_0,3r)\subset U$, and let $A=\max_{\bar P(z_0,3r)}\abs F$, which
+is finite because $F$ is continuous and the polydisc is compact. Fix $v$ with $\abs v=1$. For
+$x\in P(z_0,r)$ and $\abs\zeta\le r$ the point $x+\zeta v$ lies in $P(z_0,2r)$, so the second formula
+of~\ref{bp:p1:ext-cauchy}, applied to $\zeta\mapsto F(x+\zeta v)$, gives
+\begin{equation*}
+DF(x)v=\frac1{2\pi i}\oint_{\abs\zeta=r}\frac{F(x+\zeta v)}{\zeta^2}\,d\zeta\qquad(x\in P(z_0,r))\,.
+\end{equation*}
+
+\proofstep{Differentiation under the integral}\label{step:p1:hreg-differentiate}
+For $y\in\bar P(z_0,2r)$ we have $\bar P(y,r)\subset\bar P(z_0,3r)$, so $\abs{DF(y)}\le A/r$ by
+Step~\ref{step:p1:hreg-line}. Fix $x\in P(z_0,r)$ and, for $\abs h<r-\abs{x-z_0}$, put
+\begin{equation*}
+R(h,\zeta)=F(x+h+\zeta v)-F(x+\zeta v)-DF(x+\zeta v)h\,.
+\end{equation*}
+For each $\zeta$ on the circle, $\abs{R(h,\zeta)}/\abs h\to0$ as $h\to0$, because $F$ is differentiable
+at $x+\zeta v$. The segment from $x+\zeta v$ to $x+h+\zeta v$ lies in $P(z_0,2r)$, so~\ref{bp:p1:ext-mvt}
+gives $\abs{R(h,\zeta)}\le2A\abs h/r$. The map $\zeta\mapsto DF(x+\zeta v)h$ is a pointwise limit of
+continuous difference quotients, hence measurable. By dominated convergence~\ref{bp:p1:ext-integral},
+\begin{equation*}
+\frac1{\abs h}\oint_{\abs\zeta=r}\frac{\abs{R(h,\zeta)}}{\abs\zeta^2}\,\abs{d\zeta}\to0\qquad(h\to0)\,,
+\end{equation*}
+which says that $x\mapsto DF(x)v$ is complex differentiable at $x$, with derivative
+$h\mapsto\frac1{2\pi i}\oint DF(x+\zeta v)h\,\zeta^{-2}\,d\zeta$. (Lean:
+\nolinkurl{KAM.differentiableAt_fderiv_apply_of_bounded}, through
+\nolinkurl{hasFDerivAt_circleIntegral_of_dominated_of_fderiv_le}.)
+
+\proofstep{The full derivative}\label{step:p1:hreg-full}
+By Step~\ref{step:p1:hreg-differentiate} with $v=e_1,\dots,e_m$, every $\partial_\ell F$ is holomorphic
+on $P(z_0,r)$. Since $DF(x)h=\sum_\ell h_\ell\,\partial_\ell F(x)$, the map $x\mapsto DF(x)$ is a finite
+sum of holomorphic maps multiplied by the fixed linear forms $h\mapsto h_\ell$, hence holomorphic on
+$P(z_0,r)$. As $z_0\in U$ is arbitrary, $DF$ is holomorphic on $U$. (Lean:
+\nolinkurl{KAM.differentiableOn_fderiv_of_isOpen}.)
+
+\proofstep{All orders}\label{step:p1:hreg-orders}
+The iterated derivative $D^{j+1}F$ is $D(D^jF)$ composed with the canonical isometry between
+$\mathcal L(\C^m,\mathcal L^j(\C^m,W))$ and $\mathcal L^{j+1}(\C^m,W)$. The previous steps, applied to
+the holomorphic map $D^jF$ with values in the finite-dimensional space $\mathcal L^j(\C^m,W)$, show by
+induction that every $D^jF$ exists and is holomorphic, hence continuous, so $F$ is $C^\infty$. The same
+isometries, applied to $DF$ in place of $F$, give the identities between the norms. (Mathlib:
+\nolinkurl{norm_iteratedFDeriv_fderiv}, \nolinkurl{norm_fderiv_iteratedFDeriv}; Lean:
+\nolinkurl{KAM.contDiffOn_infty_of_differentiableOn}.)
+
+\proofstep{Symmetry}\label{step:p1:hreg-symmetry}
+$F$ is differentiable on the open set $U$, and $DF$ is differentiable at every $z\in U$, so $D^2F(z)$ is
+symmetric by~\ref{bp:p1:ext-schwarz}. With $v=e_i$ and $w=e_j$ this is
+$\partial_i\partial_jF=\partial_j\partial_iF$.
+\end{proof}
+
+\begin{lemma}[Holomorphic maps are analytic]\label{bp:p1:holomorphic-analytic}
+Let $U\subset\C^m$ be open and $F:U\to W$ holomorphic.
+\begin{enumerate}[label=(\alph*)]
+\item Let $z_0\in U$ and $r>0$ with $\bar P(z_0,r)\subset U$, and let $A=\max_{\bar P(z_0,r)}\abs F$.
+  There are $c_\alpha\in W$, $\alpha\in\N^m$, with $\abs{c_\alpha}\le Ar^{-\abs\alpha}$ and
+  \begin{equation*}
+  F(z)=\sum_{\alpha\in\N^m}c_\alpha(z-z_0)^\alpha\qquad(z\in P(z_0,r))\,,
+  \end{equation*}
+  the series converging absolutely. Here $\N=\{0,1,2,\dots\}$, $\abs\alpha=\alpha_1+\dots+\alpha_m$ and
+  $(z-z_0)^\alpha=\prod_j(z_j-z_{0,j})^{\alpha_j}$. In particular $F$ is analytic on $U$ (Lean
+  \Lean{AnalyticOnNhd} $\C$ $F$ $U$).
+\item Let $U_\R=U\cap\R^m$. Near each point $x_0\in U_\R$, the restriction of $F$ to $U_\R$ is the sum of
+  an absolutely convergent power series in $x-x_0$; that is, $F|_{U_\R}$ is real-analytic on $U_\R$
+  (Lean \Lean{AnalyticOnNhd} $\R$). If $W=\C^p$ and $F(U_\R)\subset\R^p$, the coefficients may be taken
+  real, so that $F|_{U_\R}$ is real-analytic as a map into $\R^p$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\proofstep{A larger polydisc}\label{step:p1:han-margin}
+The closed polydisc $\bar P(z_0,r)$ is compact and $U$ is open, so $\bar P(z_0,r_1)\subset U$ for some
+$r_1>r$. Since $F$ is continuous, $A$ is finite.
+
+\proofstep{Iterated Cauchy formula}\label{step:p1:han-cauchy}
+Let $C_j=\{\zeta_j\in\C:\abs{\zeta_j-z_{0,j}}=r\}$ and $w\in P(z_0,r)$. For $1\le j\le m$ and
+$\zeta_1\in C_1,\dots,\zeta_{j-1}\in C_{j-1}$, the map
+$\xi\mapsto F(\zeta_1,\dots,\zeta_{j-1},\xi,w_{j+1},\dots,w_m)$ is holomorphic on the disc
+$\abs{\xi-z_{0,j}}<r_1$, because the point stays in $P(z_0,r_1)$. The first formula
+of~\ref{bp:p1:ext-cauchy} in the variable $\xi$, applied for $j=1,\dots,m$ in turn, gives
+\begin{equation*}
+F(w)=\frac1{(2\pi i)^m}\oint_{C_1}\!\!\cdots\oint_{C_m}
+\frac{F(\zeta)}{(\zeta_1-w_1)\cdots(\zeta_m-w_m)}\,d\zeta_m\cdots d\zeta_1\,.
+\end{equation*}
+The integrand is continuous on the compact torus $C_1\times\dots\times C_m$, since
+$\abs{\zeta_j-w_j}\ge r-\abs{w-z_0}>0$ there, so the iterated integral is an integral over the torus
+(Fubini,~\ref{bp:p1:ext-integral}).
+
+\proofstep{Geometric expansion}\label{step:p1:han-series}
+Let $t=\abs{w-z_0}/r<1$. On the torus,
+$(\zeta_j-w_j)^{-1}=\sum_{a\ge0}(w_j-z_{0,j})^a(\zeta_j-z_{0,j})^{-a-1}$, and the product over $j$ expands
+as $\sum_\alpha(w-z_0)^\alpha\prod_j(\zeta_j-z_{0,j})^{-\alpha_j-1}$, whose terms are bounded by
+$r^{-m}t^{\abs\alpha}$ uniformly in $\zeta$. Since $\sum_\alpha t^{\abs\alpha}=(1-t)^{-m}$, the expansion
+converges uniformly on the torus and may be integrated term by term:
+\begin{equation*}
+F(w)=\sum_\alpha c_\alpha(w-z_0)^\alpha\,,\qquad
+c_\alpha=\frac1{(2\pi i)^m}\oint_{C_1}\!\!\cdots\oint_{C_m}
+\frac{F(\zeta)}{\prod_j(\zeta_j-z_{0,j})^{\alpha_j+1}}\,d\zeta_m\cdots d\zeta_1\,.
+\end{equation*}
+
+\proofstep{Coefficient bounds}\label{step:p1:han-bounds}
+Each circle $C_j$ has length $2\pi r$, and the integrand defining $c_\alpha$ is at most
+$Ar^{-\abs\alpha-m}$, so $\abs{c_\alpha}\le Ar^{-\abs\alpha}$. Then
+$\sum_\alpha\abs{c_\alpha}\abs{(w-z_0)^\alpha}\le A\sum_\alpha t^{\abs\alpha}=A(1-t)^{-m}$, so the series
+converges absolutely on $P(z_0,r)$. Every point of the open set $U$ is the centre of such a polydisc,
+which proves (a).
+
+\proofstep{Real points}\label{step:p1:han-real}
+Let $x_0\in U_\R$ and choose $r>0$ with $\bar P(x_0,r)\subset U$. By (a), for real $x$ with
+$\abs{x-x_0}<r$ we have $F(x)=\sum_\alpha c_\alpha(x-x_0)^\alpha$, with
+$\sum_\alpha\abs{c_\alpha}\abs{x-x_0}^{\abs\alpha}<\infty$: a power series in the real variable
+$x-x_0$ with coefficients in $W$, absolutely convergent on a neighbourhood of $x_0$. If $W=\C^p$ and $F$
+is real on $U_\R$, taking real parts componentwise gives
+$F(x)=\sum_\alpha(\operatorname{Re}c_\alpha)(x-x_0)^\alpha$, with $\abs{\operatorname{Re}c_\alpha}\le
+\abs{c_\alpha}$. This is (b). (In Lean, (b) follows from (a) by
+\nolinkurl{AnalyticOnNhd.restrictScalars}, composition with the $\R$-linear inclusion
+$\R^m\to\C^m$, and, for real values, with the real part.)
+\end{proof}
+
+\begin{lemma}[Uniform limits]\label{bp:p1:uniform-limits}
+If $K_s$ are holomorphic on an open set and $K_s\to K$, $DK_s\to\Lambda$ uniformly there, then $K$ is holomorphic and
+$DK=\Lambda$; primary periodicity and realness on reals pass to the limit.
+\end{lemma}
+
+\begin{proof}
+Let $V\subset\C^m$ be the open set and let the $K_s$ take values in $W$. Only the pointwise convergence
+of $K_s$ is used. Put $\eta_s=\sup_V\abs{DK_s-\Lambda}$, which is finite for large $s$ and tends to $0$;
+we consider only such $s$.
+
+\proofstep{Linearization error of the differences}\label{step:p1:ul-differences}
+Fix $x\in V$ and $r>0$ with $P(x,r)\subset V$. For indices $s,t$ the map
+$\phi_{st}(y)=K_s(y)-K_t(y)-\bigl(DK_s(x)-DK_t(x)\bigr)(y-x)$ is differentiable on the convex set
+$P(x,r)$, with $\abs{D\phi_{st}(y)}=\abs{DK_s(y)-DK_t(y)-DK_s(x)+DK_t(x)}\le2(\eta_s+\eta_t)$.
+By~\ref{bp:p1:ext-mvt}, $\abs{\phi_{st}(y)-\phi_{st}(x)}\le2(\eta_s+\eta_t)\abs{y-x}$ for $y\in P(x,r)$,
+where $\phi_{st}(x)=K_s(x)-K_t(x)$.
+
+\proofstep{Passage to the limit}\label{step:p1:ul-limit}
+As $t\to\infty$, $K_t(y)\to K(y)$, $K_t(x)\to K(x)$, $DK_t(x)\to\Lambda(x)$ and $\eta_t\to0$. Hence, for
+$y\in P(x,r)$,
+\begin{equation*}
+\abs{K_s(y)-K(y)-\bigl(K_s(x)-K(x)\bigr)-\bigl(DK_s(x)-\Lambda(x)\bigr)(y-x)}\le2\eta_s\abs{y-x}\,.
+\end{equation*}
+
+\proofstep{Differentiability of the limit}\label{step:p1:ul-derivative}
+Let $\varepsilon>0$. Choose $s$ with $2\eta_s\le\varepsilon/2$, then $r'\in(0,r]$ with
+$\abs{K_s(y)-K_s(x)-DK_s(x)(y-x)}\le\frac\varepsilon2\abs{y-x}$ for $\abs{y-x}<r'$. Subtracting the
+display of Step~\ref{step:p1:ul-limit} gives $\abs{K(y)-K(x)-\Lambda(x)(y-x)}\le\varepsilon\abs{y-x}$ for
+$\abs{y-x}<r'$. The map $\Lambda(x)$ is complex linear, as a limit of complex linear maps, so $K$ is
+complex differentiable at $x$ with $DK(x)=\Lambda(x)$. (Mathlib:
+\nolinkurl{hasFDerivAt_of_tendstoUniformlyOn}.)
+
+\proofstep{Periodicity and realness}\label{step:p1:ul-primary}
+Let now $V=T_r$ and $W=\C^n\times\C^n$. If every $K_s$ is primary on $T_r$, then for $\theta\in T_r$ and
+$k\in\Z^n$ also $\theta+k\in T_r$, and
+$K(\theta+k)=\lim_sK_s(\theta+k)=\lim_s\bigl(K_s(\theta)+(k,0)\bigr)=K(\theta)+(k,0)$. The same argument
+passes $1$-periodicity to the limit. If every $K_s$ is real on reals, then for $x\in\R^n$ the limit
+$K(x)$ of the points $K_s(x)$ of the closed set $\R^n\times\R^n$ lies in it.
+\end{proof}
+
+\begin{lemma}[Holomorphic inverse]\label{bp:p1:holomorphic-inverse}
+If $A$ is a holomorphic matrix-valued function on an open set with $\det A\ne0$ there, then $A^{-1}$ is
+holomorphic there, and $D(A^{-1})=-A^{-1}(DA)A^{-1}$.
+\end{lemma}
+
+\begin{proof}
+Let $V$ be the open set and $A:V\to\C^{p\times p}$.
+
+\proofstep{Holomorphy}\label{step:p1:hi-holomorphic}
+By~\ref{bp:p1:ext-cramer}, $A^{-1}=(\det A)^{-1}\operatorname{adj}A$ on $V$. The entries of
+$\operatorname{adj}A$ and $\det A$ are polynomials in the entries of $A$, hence holomorphic on $V$, and
+$(\det A)^{-1}$ is holomorphic because $\det A$ does not vanish. Hence $A^{-1}$ is holomorphic on $V$.
+(Mathlib, for units of the normed algebra of matrices: \nolinkurl{differentiableAt_inverse}.)
+
+\proofstep{Derivative}\label{step:p1:hi-derivative}
+Differentiating the identity $A(z)A(z)^{-1}=I$ in a direction $v$ by the product rule gives
+$(DA(z)v)A(z)^{-1}+A(z)\,D(A^{-1})(z)v=0$. Multiplying on the left by $A(z)^{-1}$,
+$D(A^{-1})(z)v=-A(z)^{-1}(DA(z)v)A(z)^{-1}$, which is the asserted formula.
+(Mathlib: \nolinkurl{hasFDerivAt_ringInverse}.)
+\end{proof}
+
+\begin{lemma}[Increments on open sets]\label{bp:p1:increments-open}
+If $F$ is holomorphic on an open $U\subset\C^m$, $\abs{DF}\le A$ on $U$, and the segment $[z,z+w]\subset U$, then
+$\abs{F(z+w)-F(z)}\le A\abs w$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{Mean value inequality}\label{step:p1:io-mvt}
+The segment $[z,z+w]$ is convex and contained in $U$, $F$ is differentiable at each of its points, and
+$\abs{DF}\le A$ there. By~\ref{bp:p1:ext-mvt}, $\abs{F(z+w)-F(z)}\le A\abs w$.
+\end{proof}
+
+\begin{lemma}[Second-order Taylor bound]\label{bp:p1:taylor}
+If $F$ is holomorphic on an open $U\subset\C^m$ with $\abs{D^2F}\le A$ on $U$ and the segment $[z,z+w]\subset U$, then
+$\abs{F(z+w)-F(z)-DF(z)w}\le\frac A2\abs{w}^2$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{The derivative along the segment}\label{step:p1:tay-lipschitz}
+By Lemma~\ref{bp:p1:holomorphic-regularity}, $DF$ is holomorphic on $U$ and $\abs{D(DF)}=\abs{D^2F}\le A$.
+For $t\in[0,1]$ the segment $[z,z+tw]$ lies in $[z,z+w]\subset U$, and Lemma~\ref{bp:p1:increments-open}
+applied to $DF$ gives $\abs{DF(z+tw)-DF(z)}\le At\abs w$.
+
+\proofstep{Integration}\label{step:p1:tay-integrate}
+The compact segment has a neighbourhood in $U$, so $g(t)=F(z+tw)-F(z)-tDF(z)w$ is defined for $t$ in an
+open interval containing $[0,1]$. It is $C^1$, since $DF$ is continuous, with $g(0)=0$ and
+$g'(t)=\bigl(DF(z+tw)-DF(z)\bigr)w$, so $\abs{g'(t)}\le At\abs w^2$. By~\ref{bp:p1:ext-integral},
+$\abs{g(1)}=\abs{\int_0^1g'(t)\,dt}\le\int_0^1At\abs w^2\,dt=\frac A2\abs w^2$.
+\end{proof}
+
+\begin{lemma}[Mixed second differences]\label{bp:p1:mixed-difference}
+For $F$ holomorphic on a convex open set with $\abs{D^2F}\le A$:
+$\abs{F(z+v+w)-F(z+v)-F(z+w)+F(z)}\le A\abs v\abs w$. (Proved as \texttt{bp:p4:mixed-difference}.)
+\end{lemma}
+
+\begin{proof}
+Let $U$ be the convex open set. The statement presumes that $z$, $z+v$, $z+w$ and $z+v+w$ lie in $U$;
+by convexity $z+sv+tw\in U$ for all $s,t\in[0,1]$.
+
+\proofstep{The derivative across}\label{step:p1:md-inner}
+By Lemma~\ref{bp:p1:holomorphic-regularity}, $DF$ is holomorphic on $U$ with $\abs{D(DF)}\le A$. For
+$s\in[0,1]$ the segment from $z+sv$ to $z+sv+w$ lies in $U$, and Lemma~\ref{bp:p1:increments-open}
+applied to $DF$ gives $\abs{DF(z+sv+w)-DF(z+sv)}\le A\abs w$.
+
+\proofstep{The difference along}\label{step:p1:md-outer}
+Let $\psi(s)=F(z+sv+w)-F(z+sv)$, defined for $s$ in an open interval containing $[0,1]$ because $U$ is
+open. Then $\psi'(s)=\bigl(DF(z+sv+w)-DF(z+sv)\bigr)v$, so
+$\abs{\psi'(s)}\le A\abs v\abs w$ by the previous step, and~\ref{bp:p1:ext-mvt} on $[0,1]$ gives
+$\abs{\psi(1)-\psi(0)}\le A\abs v\abs w$. Finally $\psi(1)-\psi(0)=F(z+v+w)-F(z+v)-F(z+w)+F(z)$.
+\end{proof}
+
+\begin{lemma}[Cauchy estimate on open sets]\label{bp:p1:cauchy-open}
+Let $f$ be holomorphic on an open $U\subset\C^m$ with $\abs f\le A$ on $U$, and let the closed
+polydisc of radius $\delta$ around $z$ lie in $U$. Then $\abs{\partial_\ell f(z)}\le A/\delta$, and
+$\abs{D^jf(z)}\le c(m,j)A\delta^{-j}$ for $j=1,2,3$, where $D^j$ is the iterated Fréchet derivative and
+$\abs{\cdot}$ its operator norm (Lean \Lean{iteratedFDeriv}).
+\end{lemma}
+
+\begin{proof}
+Let $f:U\to W$. Only the bound $\abs f\le A$ on $\bar P(z,\delta)$ is used.
+
+\proofstep{First derivatives}\label{step:p1:co-first}
+Step~\ref{step:p1:hreg-line} of Lemma~\ref{bp:p1:holomorphic-regularity}, with $x=z$ and $r=\delta$, gives
+$\abs{Df(z)}\le A/\delta$. In particular $\abs{\partial_\ell f(z)}=\abs{Df(z)e_\ell}\le A/\delta$, since
+$\abs{e_\ell}=1$. (Lean: \nolinkurl{KAM.norm_fderiv_le_of_closedBall},
+\nolinkurl{KAM.norm_coordinate_fderiv_le_of_closedBall}.)
+
+\proofstep{Second derivatives}\label{step:p1:co-second}
+We show more generally: if $\bar P(z,\delta)\subset U$ and $\abs f\le A$ on $\bar P(z,\delta)$, then
+$\abs{D^2f(z)}\le4A/\delta^2$. For $y\in\bar P(z,\delta/2)$ we have $\bar P(y,\delta/2)\subset
+\bar P(z,\delta)$, so Step~\ref{step:p1:co-first} at $y$ with radius $\delta/2$ gives
+$\abs{Df(y)}\le2A/\delta$. By Lemma~\ref{bp:p1:holomorphic-regularity}, $Df$ is holomorphic on $U$, and
+Step~\ref{step:p1:co-first} applied to $Df$ at $z$, with radius $\delta/2$ and the bound $2A/\delta$ on
+$\bar P(z,\delta/2)$, gives $\abs{D(Df)(z)}\le4A/\delta^2$. By the same lemma,
+$\abs{D^2f(z)}=\abs{D(Df)(z)}$. (Lean: \nolinkurl{KAM.norm_iteratedFDeriv_two_le_of_closedBall}.)
+
+\proofstep{Third derivatives}\label{step:p1:co-third}
+Step~\ref{step:p1:co-second} applied to the holomorphic map $Df$ at $z$, with radius $\delta/2$ and the
+bound $2A/\delta$ on $\bar P(z,\delta/2)$ obtained there, gives
+$\abs{D^2(Df)(z)}\le4(2A/\delta)(\delta/2)^{-2}=32A/\delta^3$, and $\abs{D^3f(z)}=\abs{D^2(Df)(z)}$ by
+Lemma~\ref{bp:p1:holomorphic-regularity}. (Lean:
+\nolinkurl{KAM.norm_iteratedFDeriv_three_le_of_closedBall}.)
+
+\proofstep{Constants}\label{step:p1:co-constants}
+The lemma holds with $c(m,1)=1$, $c(m,2)=4$ and $c(m,3)=32$, independently of $m$.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Functions on strips}\label{bp:p1:sec-strips}
+
+The strip $T_\rho$ contains the closed polydisc of radius $\delta$ around every point of $T_{\rho-\delta}$,
+so the estimates of the previous subsection apply on strips with a loss $\delta$ of width. Periodicity
+gives boundedness on thinner strips, and the real points determine a holomorphic function on a strip.
+
+\begin{lemma}[Periodic functions are bounded on smaller strips]\label{bp:p1:periodic-bounded}
+If $u$ is holomorphic and $1$-periodic on $T_\rho$, then $u$ is bounded on $T_{\rho'}$ for every $\rho'<\rho$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{A compact fundamental set}\label{step:p1:pb-compact}
+If $\rho'\le0$, then $T_{\rho'}$ is empty. Let $0<\rho'<\rho$. The set
+$S=\{\theta\in\C^n:\operatorname{Re}\theta\in[0,1]^n,\ \abs{\operatorname{Im}\theta_j}\le\rho'\ \forall j\}$
+is compact and contained in $T_\rho$, and $u$ is continuous, so $\abs u$ has a maximum on $S$. Every
+$\theta\in T_{\rho'}$ is $\theta'+k$ with $\theta'\in S$ and $k_j=\lfloor\operatorname{Re}\theta_j\rfloor$,
+and $u(\theta)=u(\theta')$ by periodicity. Hence $\sup_{T_{\rho'}}\abs u\le\max_S\abs u$. The argument
+applies to values in any $W$, and $u$ is continuous on $\R^n\subset T_\rho$.
+\end{proof}
+
+\begin{lemma}[Identity theorem on strips]\label{bp:p1:strip-identity}
+Let $r>0$ and let $v$ be holomorphic on $T_r$ with values in $W$. If $v(x)=0$ for every $x\in\R^n$, then
+$v=0$ on $T_r$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{One coordinate at a time}\label{step:p1:si-induction}
+For $0\le j\le n$ let $(S_j)$ be the claim that $v(\theta)=0$ for every $\theta\in T_r$ whose
+coordinates $\theta_{j+1},\dots,\theta_n$ are real. $(S_0)$ is the hypothesis and $(S_n)$ the
+conclusion. Assume $(S_{j-1})$ and let $\theta\in T_r$ have $\theta_{j+1},\dots,\theta_n$ real.
+Replacing $\theta_j$ by any $\zeta$ with $\abs{\operatorname{Im}\zeta}<r$ keeps the point in $T_r$, so
+$\varphi(\zeta)=v(\theta_1,\dots,\theta_{j-1},\zeta,\theta_{j+1},\dots,\theta_n)$ is holomorphic on the
+connected open strip $\{\abs{\operatorname{Im}\zeta}<r\}$, and it vanishes for real $\zeta$ by
+$(S_{j-1})$. By~\ref{bp:p1:ext-identity}, applied to the coordinates of $\varphi$ in a basis of $W$,
+$\varphi=0$; in particular $v(\theta)=\varphi(\theta_j)=0$. This is $(S_j)$.
+\end{proof}
+
+No analyticity in several variables is needed here. The lemma also shows that two holomorphic maps on
+$T_r$ which agree on a thinner strip $T_{r'}$, $0<r'<r$, agree on $T_r$.
+
+\begin{lemma}[Increments]\label{bp:p1:increments}
+If $u$ is holomorphic on $T_\rho$ and $\theta,\theta+v\in T_{\rho-\delta}$ with the segment between them in
+$T_{\rho-\delta}$, then $\abs{u(\theta+v)-u(\theta)}\le\norm{Du}_{\rho-\delta}\abs{v}$; with
+Lemma~\ref{bp:p1:cauchy-strip}, $\le n\delta^{-1}\norm{u}_\rho\abs{v}$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{Mean value inequality}\label{step:p1:inc-mvt}
+Here $0<\delta<\rho$. The strip $T_{\rho-\delta}$ is convex, so the segment condition holds for all
+$\theta,\theta+v\in T_{\rho-\delta}$. If $\norm{Du}_{\rho-\delta}=\infty$ there is nothing to prove.
+Otherwise~\ref{bp:p1:ext-mvt} on the segment, with $\abs{Du}\le\norm{Du}_{\rho-\delta}$, gives
+$\abs{u(\theta+v)-u(\theta)}\le\norm{Du}_{\rho-\delta}\abs v$.
+
+\proofstep{With the Cauchy estimate}\label{step:p1:inc-cauchy}
+If in addition $u$ is bounded on $T_\rho$, Lemma~\ref{bp:p1:cauchy-strip} gives
+$\norm{Du}_{\rho-\delta}\le n\delta^{-1}\norm u_\rho$.
+\end{proof}
 
 \begin{lemma}[Cauchy estimate on strips]\label{bp:p1:cauchy-strip}
 Let $u$ be holomorphic and bounded on $T_\rho$ and $0<\delta<\rho$. Then for every $\ell$,
@@ -17,19 +560,254 @@ $u$ with the norms of Part~\ref{bp:p0}.
 \source{HL19 \S3.1, p.~15.}
 \end{lemma}
 
-\begin{lemma}[Cauchy estimate on open sets]\label{bp:p1:cauchy-open}
-Let $f$ be holomorphic on an open $U\subset\C^m$ with $\abs f\le A$ on $U$, and let the closed
-polydisc of radius $\delta$ around $z$ lie in $U$. Then $\abs{\partial_\ell f(z)}\le A/\delta$, and
-$\abs{D^jf(z)}\le c(m,j)A\delta^{-j}$ for $j=1,2,3$, where $D^j$ is the iterated Fréchet derivative and
-$\abs{\cdot}$ its operator norm (Lean \Lean{iteratedFDeriv}).
+\begin{proof}
+Let $u:T_\rho\to W$, let $\theta\in T_{\rho-\delta}$, and let $1\le\ell\le n$.
+
+\proofstep{One coordinate}\label{step:p1:cs-coordinate}
+The set $O=\{\zeta\in\C:\theta+\zeta e_\ell\in T_\rho\}=\{\zeta:\abs{\operatorname{Im}\theta_\ell+
+\operatorname{Im}\zeta}<\rho\}$ is open and contains the closed disc $\abs\zeta\le\delta$, because
+$\abs{\operatorname{Im}\theta_\ell}+\delta<\rho$. The function $\varphi(\zeta)=u(\theta+\zeta e_\ell)$ is
+holomorphic on $O$, with $\varphi'(0)=\partial_\ell u(\theta)$ and $\abs\varphi\le\norm u_\rho$ on the
+circle $\abs\zeta=\delta$. By~\ref{bp:p1:ext-cauchy}, $\abs{\partial_\ell u(\theta)}\le\delta^{-1}
+\norm u_\rho$. Only the norm of $W$ enters, so this holds for scalar values, for vector values with the
+max norm, and for matrix values with the operator norm. (Lean:
+\nolinkurl{KAM.norm_coordinate_fderiv_le_of_mem_complexStrip}.)
+
+\proofstep{The full derivative}\label{step:p1:cs-full}
+For $v\in\C^n$, $Du(\theta)v=\sum_\ell v_\ell\,\partial_\ell u(\theta)$, so by the previous step
+\begin{equation*}
+\abs{Du(\theta)v}\le\sum_\ell\abs{v_\ell}\abs{\partial_\ell u(\theta)}\le n\delta^{-1}\norm u_\rho\abs v\,,
+\end{equation*}
+that is, $\abs{Du(\theta)}\le n\delta^{-1}\norm u_\rho$. For $W=\C^p$ the operator norm of $Du(\theta)$ is
+the row-sum norm of the Jacobian matrix (Lemma~\ref{bp:p1:operator-norms}), which is the norm of
+Part~\ref{bp:p0}.
+\end{proof}
+
+Restricting $u$ to the line $\zeta\mapsto\theta+\zeta v$ with $\abs v=1$ instead of a coordinate line
+gives the sharper bound $\abs{Du(\theta)}\le\delta^{-1}\norm u_\rho$: this is
+Step~\ref{step:p1:hreg-line}, since $\bar P(\theta,\delta)\subset T_\rho$. The Lean theorem
+\nolinkurl{KAM.norm_fderiv_le_of_mem_complexStrip} proves this form, which implies the stated one.
+
+\begin{lemma}[Second-derivative Cauchy estimate on strips]\label{bp:p1:cauchy-strip-2}
+For $u$ holomorphic and bounded on $T_\rho$ and $0<\delta<\rho$: $\norm{D^2u}_{\rho-\delta}\le c(n)\delta^{-2}\norm u_\rho$.
 \end{lemma}
 
-\subsection{Fourier coefficients of periodic holomorphic functions}
+\begin{proof}
+\proofstep{Polydiscs in the strip}\label{step:p1:cs2-polydisc}
+Let $\theta\in T_{\rho-\delta}$. For $w\in\bar P(\theta,\delta)$,
+$\abs{\operatorname{Im}w_j}\le\abs{\operatorname{Im}\theta_j}+\delta<\rho$, so $\bar P(\theta,\delta)\subset
+T_\rho$. Lemma~\ref{bp:p1:cauchy-open} with $U=T_\rho$, $m=n$, $j=2$ and $A=\norm u_\rho$ gives
+$\abs{D^2u(\theta)}\le4\delta^{-2}\norm u_\rho$. Hence $c(n)=4$. (Lean:
+\nolinkurl{KAM.norm_iteratedFDeriv_two_le_of_mem_complexStrip}.)
+\end{proof}
+
+\begin{lemma}[Cauchy corollaries]\label{bp:p1:cauchy-corollaries}
+For $f$ holomorphic and bounded on $T_\rho$ (scalar, vector or matrix valued) and $0<\delta<\rho$:
+$\norm{(Df)^\top}_{\rho-\delta}\le c\,\delta^{-1}\norm f_\rho$ and
+$\norm{\partial_\omega f}_{\rho-\delta}\le\abs\omega_1\delta^{-1}\norm f_\rho$, with $c$ a dimension factor.
+(Proved as \texttt{bp:p2:cauchy}.)
+\end{lemma}
+
+\begin{proof}
+Let $\theta\in T_{\rho-\delta}$.
+
+\proofstep{Transposed derivative}\label{step:p1:cc-transpose}
+Let $f$ take values in $\C^p$ (for scalar $f$, $p=1$). Then $Df(\theta)$ is the $p\times n$ matrix
+$(\partial_\ell f_i(\theta))_{i\ell}$ and $(Df(\theta))^\top$ is $n\times p$. The $\ell$-th row of
+$(Df(\theta))^\top$ has absolute sum $\sum_{i=1}^p\abs{\partial_\ell f_i(\theta)}\le
+p\abs{\partial_\ell f(\theta)}\le p\delta^{-1}\norm f_\rho$, by Step~\ref{step:p1:cs-coordinate}. Hence the
+first estimate holds with $c=p$. Part~\ref{bp:p0} defines transposes only for matrices, so for
+matrix-valued $f$ only the second estimate is meaningful.
+
+\proofstep{Derivative along $\omega$}\label{step:p1:cc-omega}
+For $f$ with values in any $W$, Step~\ref{step:p1:cs-coordinate} gives
+$\abs{\partial_\omega f(\theta)}\le\sum_\ell\abs{\omega_\ell}\abs{\partial_\ell f(\theta)}\le
+\abs\omega_1\delta^{-1}\norm f_\rho$.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Averages}\label{bp:p1:sec-averages}
+
+The average of a derivative of a periodic function vanishes because the fundamental theorem of
+calculus, in one variable at a time, turns it into a difference of values at opposite faces of the
+unit cube, which periodicity identifies.
+
+\begin{lemma}[Averages of functions on the real torus]\label{bp:p1:averages-real}
+For $v:\R^n\to\C$ continuous, $1$-periodic and differentiable with continuous derivative:
+$\avg{\partial_{\theta_\ell}v}=0$ and $\avg{Dv\,\omega}=0$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{One variable}\label{step:p1:ar-one}
+Fix $\ell$ and the coordinates $x'=(x_j)_{j\ne\ell}\in[0,1]^{n-1}$. The function
+$t\mapsto v(x_1,\dots,x_{\ell-1},t,x_{\ell+1},\dots,x_n)$ is $C^1$ on $\R$ with derivative $\partial_\ell v$.
+By~\ref{bp:p1:ext-integral}, its integral of $\partial_\ell v$ over $[0,1]$ is the difference of its values
+at $t=1$ and $t=0$, which vanishes because $v(x+e_\ell)=v(x)$.
+
+\proofstep{Fubini}\label{step:p1:ar-fubini}
+$\partial_\ell v$ is continuous on $[0,1]^n$. Integrating first in $x_\ell$ (Fubini,~\ref{bp:p1:ext-integral})
+and using the previous step gives $\avg{\partial_\ell v}=0$. By linearity,
+$\avg{Dv\,\omega}=\sum_\ell\omega_\ell\avg{\partial_\ell v}=0$. For vector or matrix values the argument
+applies to each entry.
+\end{proof}
+
+\begin{lemma}[Averages]\label{bp:p1:averages}
+For $v$ holomorphic, bounded and $1$-periodic on $T_\rho$: $\avg{\partial_{\theta_\ell}v}=0$,
+$\avg{Dv\,\omega}=0$, and $\abs{\avg v}\le\norm{v}_\rho$.
+\end{lemma}
+
+\begin{proof}
+\proofstep{Derivatives}\label{step:p1:av-derivatives}
+The restriction of $v$ to $\R^n\subset T_\rho$ is continuous and $1$-periodic. By
+Lemma~\ref{bp:p1:holomorphic-regularity}, $\partial_\ell v$ is holomorphic, hence continuous, on $T_\rho$,
+and at real points it is the partial derivative of the restriction: the complex derivative in the real
+direction $e_\ell$ is the limit of real difference quotients. Lemma~\ref{bp:p1:averages-real}, applied
+to each entry, gives $\avg{\partial_\ell v}=0$ and $\avg{Dv\,\omega}=0$. Boundedness is not used here.
+
+\proofstep{The bound}\label{step:p1:av-bound}
+By~\ref{bp:p1:ext-integral} and since $[0,1]^n$ has measure $1$,
+$\abs{\avg v}\le\int_{[0,1]^n}\abs{v(x)}\,dx\le\sup_{\R^n}\abs v\le\norm v_\rho$. This holds for any norm
+on the values, in particular for vector values with the max norm and for matrix values with the
+operator norm.
+\end{proof}
+
+\begin{lemma}[Averages of matrix-valued functions]\label{bp:p1:averages-matrix}
+For $M$ continuous, $1$-periodic and matrix valued on $\R^n$: $\abs{\avg M}\le\sup_{\R^n}\abs M$, and $\avg{\partial_\omega M}=0$ if
+$M$ is $C^1$. (Proved as \texttt{bp:p2:averages}.)
+\end{lemma}
+
+\begin{proof}
+\proofstep{The bound}\label{step:p1:am-bound}
+$M$ is continuous, so it is integrable on $[0,1]^n$, and by~\ref{bp:p1:ext-integral} applied with the
+operator norm, $\abs{\avg M}\le\int_{[0,1]^n}\abs{M(x)}\,dx\le\sup_{\R^n}\abs M$.
+
+\proofstep{Derivative along $\omega$}\label{step:p1:am-derivative}
+If $M$ is $C^1$, then $\avg{\partial_\omega M}=\sum_\ell\omega_\ell\avg{\partial_\ell M}=0$ by
+Lemma~\ref{bp:p1:averages-real} applied to each entry.
+\end{proof}
+
+\begin{lemma}[Translation invariance of averages]\label{bp:p1:periodic-average}
+For $v$ continuous and $1$-periodic on $\R^n$ and $a\in\R^n$: $\avg{v(\cdot+a)}=\avg v$. (Proved as \texttt{bp:p4:periodic-average}.)
+\end{lemma}
+
+\begin{proof}
+\proofstep{One variable}\label{step:p1:pa-one}
+Let $\psi:\R\to\C$ be continuous and $1$-periodic, and $\Psi(b)=\int_0^1\psi(x+b)\,dx=\int_b^{b+1}\psi$.
+By~\ref{bp:p1:ext-integral}, $\Psi$ is differentiable with $\Psi'(b)=\psi(b+1)-\psi(b)=0$, so
+$\Psi(b)=\Psi(0)$. (Mathlib: \nolinkurl{Function.Periodic.intervalIntegral_add_eq}.)
+
+\proofstep{One coordinate at a time}\label{step:p1:pa-induction}
+Let $a^{(j)}=(a_1,\dots,a_j,0,\dots,0)$. For $1\le j\le n$, integrate $v(x+a^{(j)})$ over $[0,1]^n$ first in
+$x_j$ (Fubini). For fixed other coordinates the inner integrand is $\psi(x_j+a_j)$ with $\psi$ continuous
+and $1$-periodic, so the previous step replaces it by $\psi(x_j)$, and
+$\avg{v(\cdot+a^{(j)})}=\avg{v(\cdot+a^{(j-1)})}$. Since $a^{(n)}=a$ and $a^{(0)}=0$, the claim follows. For
+vector or matrix values the argument applies to each entry.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Fourier coefficients}\label{bp:p1:sec-fourier}
+
+We first record the elementary sums over $\Z^n$ that convert exponential decay of coefficients into
+sup-norm bounds. The sums factor over the coordinates, so no counting of lattice points is involved.
+Then come the basic facts on coefficients: derivatives act by multiplication, and coefficients determine
+a periodic holomorphic function. The decay lemma and its converse follow.
+
+\begin{lemma}[Exponential sums over $\Z^n$]\label{bp:p1:exp-sums}
+Let $n\ge1$.
+\begin{enumerate}[label=(\alph*)]
+\item For $y\ge0$, $a>0$ and $\tau\ge0$: $y^\tau e^{-ay}\le(\tau/(ea))^\tau$.
+\item For $x>0$: $\sum_{k\in\Z^n}e^{-x\abs k_1}=\coth(x/2)^n$, and $\coth(x/2)\le1+2/x$.
+\item For $x>0$: $\sum_{k\in\Z^n\setminus\{0\}}e^{-x\abs k_1}\le(8n/x)^n$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\proofstep{The power times the exponential}\label{step:p1:es-power}
+For $\tau=0$ the left side of (a) is $e^{-ay}\le1$. For $\tau>0$ the function $\tau\log y-ay$ on
+$(0,\infty)$ has its maximum at $y=\tau/a$, where $y^\tau e^{-ay}=(\tau/a)^\tau e^{-\tau}$; at $y=0$ the left
+side vanishes. (Lean: \nolinkurl{KAM.Fourier.rpow_mul_exp_neg_le}.)
+
+\proofstep{Product structure}\label{step:p1:es-product}
+Since $e^{-x\abs k_1}=\prod_je^{-x\abs{k_j}}$ and all terms are nonnegative, the sum over $\Z^n$ is the
+$n$-th power of $\sum_{m\in\Z}e^{-x\abs m}=1+2e^{-x}/(1-e^{-x})=(1+e^{-x})/(1-e^{-x})=\coth(x/2)$.
+For $y>0$, $\coth y=1+2/(e^{2y}-1)\le1+1/y$ because $e^{2y}-1\ge2y$; with $y=x/2$ this is (b).
+
+\proofstep{Nonzero modes}\label{step:p1:es-nonzero}
+For $k\ne0$, $\abs k_1\ge1$, so $e^{-x\abs k_1}\le e^{-x/2}e^{-(x/2)\abs k_1}$. By (b) with $x/2$,
+\begin{equation*}
+\sum_{k\ne0}e^{-x\abs k_1}\le e^{-x/2}\coth(x/4)^n\le e^{-x/2}\Bigl(1+\frac4x\Bigr)^n
+=e^{-x/2}(x+4)^nx^{-n}\,.
+\end{equation*}
+By convexity $(x+4)^n\le2^{n-1}(x^n+4^n)$; by (a), $x^ne^{-x/2}\le(2n/e)^n$; and $4^ne^{-x/2}\le4^n$.
+Since $2n/e\le4n$ and $4\le4n$, the right side is at most $2^{n-1}\cdot2(4n)^nx^{-n}=(8n/x)^n$.
+\end{proof}
+
+\begin{lemma}[Fourier coefficients of periodic functions]\label{bp:p1:fourier-basic}
+The following hold for $\C$-valued $v$, and componentwise for vector- and matrix-valued $v$.
+\begin{enumerate}[label=(\alph*)]
+\item If $v:\R^n\to\C$ is continuous, $1$-periodic and continuously differentiable, then
+  $\widehat{(\partial_\ell v)}_k=2\pi ik_\ell\hat v_k$ for all $k\in\Z^n$ and all $\ell$; hence
+  $\widehat{(\partial_\omega v)}_k=2\pi i(k\cdot\omega)\hat v_k$ for $\omega\in\C^n$.
+\item If $v:\R^n\to\C$ is continuous and $1$-periodic and $\sum_k\abs{\hat v_k}<\infty$, then
+  $v(x)=\sum_k\hat v_k\chi_k(x)$ for every $x\in\R^n$. In particular $v=0$ if $\hat v_k=0$ for every $k$.
+\item Let $r>0$ and let $v$ be holomorphic and $1$-periodic on $T_r$, not necessarily bounded. If
+  $\hat v_k=0$ for every $k$, then $v=0$ on $T_r$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\proofstep{Derivatives}\label{step:p1:fb-derivative}
+In (a), $w=v\chi_{-k}$ is continuous, $1$-periodic and $C^1$, with
+$\partial_\ell w=(\partial_\ell v)\chi_{-k}-2\pi ik_\ell v\chi_{-k}$. Lemma~\ref{bp:p1:averages-real} gives
+$\avg{\partial_\ell w}=0$, that is, $\widehat{(\partial_\ell v)}_k=2\pi ik_\ell\hat v_k$. The formula for
+$\partial_\omega v=\sum_\ell\omega_\ell\partial_\ell v$ follows by linearity. (The corresponding
+multiplier on coefficient families is \nolinkurl{KAM.Fourier.partialCoeff}.)
+
+\proofstep{Fourier series}\label{step:p1:fb-series}
+(b) is~\ref{bp:p1:ext-fourier}; if all coefficients vanish, they are summable and the series is $0$.
+
+\proofstep{Holomorphic functions}\label{step:p1:fb-holomorphic}
+In (c), the restriction of $v$ to $\R^n$ is continuous and $1$-periodic with vanishing coefficients, so
+$v=0$ on $\R^n$ by (b), and $v=0$ on $T_r$ by Lemma~\ref{bp:p1:strip-identity}.
+\end{proof}
 
 \begin{lemma}[Coefficient decay]\label{bp:p1:decay}
 Let $u$ be holomorphic, bounded and $1$-periodic on $T_\rho$. Then
 $\abs{\hat u_k}\le e^{-2\pi\abs{k}_1\rho'}\norm{u}_\rho$ for every $k\in\Z^n$ and $0\le\rho'<\rho$.
 \end{lemma}
+
+\begin{proof}
+Let $u$ take values in $W$, fix $k\in\Z^n$ and $0\le\rho'<\rho$, and put $t_j=-\rho'\operatorname{sgn}(k_j)$
+(with $\operatorname{sgn}0=0$), so that $\abs{t_j}\le\rho'$ and $k\cdot t=-\rho'\abs k_1$. Let
+$t^{(j)}=(t_1,\dots,t_j,0,\dots,0)$ and
+\begin{equation*}
+I_j=\int_{[0,1]^n}u\bigl(x+it^{(j)}\bigr)\chi_{-k}\bigl(x+it^{(j)}\bigr)\,dx\qquad(0\le j\le n)\,.
+\end{equation*}
+The integrands are continuous, since $x+it^{(j)}\in T_\rho$, and $I_0=\hat u_k$.
+
+\proofstep{Shifting one variable}\label{step:p1:dec-shift}
+Let $1\le j\le n$ and fix $x_l\in[0,1]$ for $l\ne j$. Let $y(\zeta)\in\C^n$ have coordinates $x_l+it_l$ for
+$l<j$, $\zeta$ for $l=j$, and $x_l$ for $l>j$, and put $\varphi(\zeta)=u(y(\zeta))\chi_{-k}(y(\zeta))$. For
+$\abs{\operatorname{Im}\zeta}<\rho$ the point $y(\zeta)$ lies in $T_\rho$, because $\abs{t_l}\le\rho'<\rho$, so
+$\varphi$ is holomorphic on this strip. It satisfies $\varphi(\zeta+1)=\varphi(\zeta)$, because $u$ and
+$\chi_{-k}$ are $1$-periodic in $\theta_j$. The rectangle with vertices $0$, $1$, $1+it_j$, $it_j$ lies in
+the strip, and~\ref{bp:p1:ext-rectangle} gives
+\begin{equation*}
+\int_0^1\varphi(s)\,ds+i\int_0^{t_j}\varphi(1+iy)\,dy-\int_0^1\varphi(s+it_j)\,ds-i\int_0^{t_j}\varphi(iy)\,dy=0\,.
+\end{equation*}
+The two vertical integrals cancel by periodicity, so $\int_0^1\varphi(s)\,ds=\int_0^1\varphi(s+it_j)\,ds$.
+Integrating over the remaining $x_l$ (Fubini,~\ref{bp:p1:ext-integral}) gives $I_{j-1}=I_j$.
+
+\proofstep{The bound}\label{step:p1:dec-bound}
+On the domain of $I_n$, $\abs{u(x+it)}\le\norm u_\rho$ and
+\begin{equation*}
+\abs{\chi_{-k}(x+it)}=\abs{e^{-2\pi ik\cdot x}e^{2\pi k\cdot t}}=e^{2\pi k\cdot t}=e^{-2\pi\rho'\abs k_1}\,.
+\end{equation*}
+Hence $\abs{\hat u_k}=\abs{I_n}\le e^{-2\pi\rho'\abs k_1}\norm u_\rho$.
+\end{proof}
+
+Letting $\rho'\uparrow\rho$ gives $\abs{\hat u_k}\le e^{-2\pi\abs k_1\rho}\norm u_\rho$, which is the form
+used below.
 
 \begin{lemma}[Summation]\label{bp:p1:summation}
 If $\sum_k\abs{a_k}e^{2\pi\abs{k}_1\rho}<\infty$, then $u(\theta)=\sum_ka_ke^{2\pi ik\cdot\theta}$ is
@@ -40,7 +818,59 @@ $\sum_k\abs{\hat u_k}e^{2\pi\abs{k}_1(\rho-\delta)}\le\coth(\pi\delta)^n\norm{u}
 its Fourier series on $T_{\rho}$.
 \end{lemma}
 
-\subsection{The cohomological equation}
+\begin{proof}
+Let $M=\sum_k\abs{a_k}e^{2\pi\abs k_1\rho}<\infty$ and $S_N=\sum_{\abs k_1\le N}a_k\chi_k$.
+
+\proofstep{Convergence and the bound}\label{step:p1:sum-bound}
+For $\theta\in T_\rho$, $\abs{a_k\chi_k(\theta)}\le\abs{a_k}e^{2\pi\abs k_1\rho}$. So the series converges
+absolutely and uniformly on $T_\rho$, $S_N\to u$ uniformly there, and $\abs{u(\theta)}\le M$. Each
+$\chi_k$ is $1$-periodic, hence so is $u$.
+
+\proofstep{Holomorphy}\label{step:p1:sum-holo}
+Fix $\varepsilon\in(0,\rho)$. Since $D\chi_k(\theta)v=2\pi i(k\cdot v)\chi_k(\theta)$ and
+$\abs{k\cdot v}\le\abs k_1\abs v$, Lemma~\ref{bp:p1:exp-sums}(a) with $y=2\pi\abs k_1$, $a=\varepsilon$ and
+$\tau=1$ gives, for $\theta\in T_{\rho-\varepsilon}$,
+\begin{equation*}
+\abs{a_kD\chi_k(\theta)}\le2\pi\abs k_1e^{-2\pi\abs k_1\varepsilon}\,\abs{a_k}e^{2\pi\abs k_1\rho}\le
+(e\varepsilon)^{-1}\abs{a_k}e^{2\pi\abs k_1\rho}\,.
+\end{equation*}
+Hence $DS_N$ converges uniformly on $T_{\rho-\varepsilon}$, and Lemma~\ref{bp:p1:uniform-limits} shows
+that $u$ is holomorphic on $T_{\rho-\varepsilon}$. As $\varepsilon$ is arbitrary, $u$ is holomorphic on
+$T_\rho$.
+
+\proofstep{Coefficients}\label{step:p1:sum-coeff}
+The series converges uniformly on $[0,1]^n$, so by~\ref{bp:p1:ext-integral} it may be integrated
+term by term against $\chi_{-k}$:
+\begin{equation*}
+\hat u_k=\sum_la_l\avg{\chi_{l-k}}=a_k\,,\qquad\text{since}\quad
+\avg{\chi_m}=\prod_{j=1}^n\int_0^1e^{2\pi im_jx_j}\,dx_j=\begin{cases}1&m=0\,,\\0&m\ne0\,.\end{cases}
+\end{equation*}
+
+\proofstep{The converse estimate}\label{step:p1:sum-converse}
+Let $u$ be as in Lemma~\ref{bp:p1:decay} and $0<\delta<\rho$. By that lemma, in the limit form
+$\abs{\hat u_k}\le e^{-2\pi\abs k_1\rho}\norm u_\rho$, and Lemma~\ref{bp:p1:exp-sums}(b) with $x=2\pi\delta$,
+\begin{equation*}
+\sum_k\abs{\hat u_k}e^{2\pi\abs k_1(\rho-\delta)}\le\norm u_\rho\sum_ke^{-2\pi\abs k_1\delta}
+=\coth(\pi\delta)^n\norm u_\rho\,.
+\end{equation*}
+
+\proofstep{Fourier representation}\label{step:p1:sum-representation}
+Let $\theta\in T_\rho$ and choose $\delta\in(0,\rho)$ with $\max_j\abs{\operatorname{Im}\theta_j}<\rho-\delta$.
+By the previous step and the first part of the lemma at radius $\rho-\delta$, the function
+$v=\sum_k\hat u_k\chi_k$ is holomorphic and $1$-periodic on $T_{\rho-\delta}$, with $\hat v_k=\hat u_k$. The
+difference $u-v$ is holomorphic and $1$-periodic on $T_{\rho-\delta}$ with vanishing coefficients, so
+$u=v$ on $T_{\rho-\delta}$ by Lemma~\ref{bp:p1:fourier-basic}(c), in particular at $\theta$.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{The cohomological equation}\label{bp:p1:sec-cohomological}
+
+On coefficients, the equation $Du\,\omega=g$ reads $2\pi i(k\cdot\omega)\hat u_k=\hat g_k$, and the
+Diophantine condition bounds the inverse small divisors by $\gamma^{-1}\abs k_1^\tau$. The coefficients
+of $g$ decay like $e^{-2\pi\abs k_1\rho}$ (Lemma~\ref{bp:p1:decay}); half of the loss $\delta$ absorbs the
+growth $\abs k_1^\tau$, the other half pays for the sum over $k$, and Lemma~\ref{bp:p1:summation} turns
+the coefficients back into a holomorphic function. Uniqueness and realness are statements about
+coefficients.
 
 \begin{lemma}[Cohomological equation on strips]\label{bp:p1:cohomological}
 Let $\omega\in\Dio_{\gamma,\tau}$ with $\gamma>0$, $\tau\ge0$, and let $g$ be holomorphic, bounded
@@ -54,45 +884,115 @@ matrix-valued $g$.
 decision D12). Coefficient form: \texttt{docs/cohomological-equation.md}, Lean \Lean{KAM.Diophantine}.}
 \end{lemma}
 
-\begin{lemma}[Averages]\label{bp:p1:averages}
-For $v$ holomorphic, bounded and $1$-periodic on $T_\rho$: $\avg{\partial_{\theta_\ell}v}=0$,
-$\avg{Dv\,\omega}=0$, and $\abs{\avg v}\le\norm{v}_\rho$.
+\begin{proof}
+We prove the lemma with
+\begin{equation*}
+c(n,\tau)=\frac1{2\pi}\Bigl(\frac{\tau}{e\pi}\Bigr)^\tau\Bigl(\frac{8n}{\pi}\Bigr)^n\,.
+\end{equation*}
+Let first $g$ be scalar.
+
+\proofstep{Coefficients of the datum}\label{step:p1:coh-data}
+$\hat g_0=\avg g=0$, and by Lemma~\ref{bp:p1:decay}, in the limit form,
+$\abs{\hat g_k}\le e^{-2\pi\abs k_1\rho}\norm g_\rho$ for every $k$.
+
+\proofstep{The coefficient solution}\label{step:p1:coh-coefficients}
+For $k\ne0$ the Diophantine condition gives $\abs{k\cdot\omega}\ge\gamma\abs k_1^{-\tau}>0$. Put $a_0=0$
+and $a_k=\hat g_k/(2\pi ik\cdot\omega)$ for $k\ne0$. Then $2\pi i(k\cdot\omega)a_k=\hat g_k$ for every $k$
+(both sides vanish at $k=0$), and $\abs{a_k}\le(2\pi\gamma)^{-1}\abs k_1^\tau\abs{\hat g_k}$. (Lean:
+\nolinkurl{KAM.Diophantine.solve}, \nolinkurl{KAM.Diophantine.directionalCoeff_solve},
+\nolinkurl{KAM.Diophantine.norm_solve_le}.)
+
+\proofstep{Weighted estimate}\label{step:p1:coh-weighted}
+Put $s=2\pi(\rho-\delta/2)$. By Step~\ref{step:p1:coh-data} and Lemma~\ref{bp:p1:exp-sums}(c) with
+$x=\pi\delta$,
+\begin{equation*}
+\sum_k\abs{\hat g_k}e^{s\abs k_1}\le\norm g_\rho\sum_{k\ne0}e^{-\pi\delta\abs k_1}
+\le\Bigl(\frac{8n}{\pi\delta}\Bigr)^n\norm g_\rho\,.
+\end{equation*}
+By Lemma~\ref{bp:p1:exp-sums}(a) with $a=\pi\delta$, $\abs k_1^\tau e^{-\pi\delta\abs k_1}\le
+(\tau/(e\pi\delta))^\tau$, and since $s-\pi\delta=2\pi(\rho-\delta)$,
+\begin{equation*}
+\sum_k\abs{a_k}e^{2\pi\abs k_1(\rho-\delta)}\le\frac1{2\pi\gamma}\Bigl(\frac{\tau}{e\pi\delta}\Bigr)^\tau
+\sum_k\abs{\hat g_k}e^{s\abs k_1}\le c(n,\tau)\,\gamma^{-1}\delta^{-(\tau+n)}\norm g_\rho\,.
+\end{equation*}
+In the coefficient radius of \texttt{docs/fourier-conventions.md}, the middle inequality is the weighted
+estimate at radius $s$ with loss $\pi\delta$, Lean \nolinkurl{KAM.Diophantine.weightedNorm_solve_le}, whose
+constant \nolinkurl{solveBound} $\gamma\ \tau\ (\pi\delta)$ equals $(2\pi\gamma)^{-1}(\tau/(e\pi\delta))^\tau$.
+
+\proofstep{Existence}\label{step:p1:coh-existence}
+By Lemma~\ref{bp:p1:summation} at radius $\rho-\delta$, $u=\sum_ka_k\chi_k$ is holomorphic, $1$-periodic
+and bounded on $T_{\rho-\delta}$, with $\hat u_k=a_k$, so $\avg u=a_0=0$, and
+$\norm u_{\rho-\delta}\le c(n,\tau)\gamma^{-1}\delta^{-(\tau+n)}\norm g_\rho$.
+
+\proofstep{The equation}\label{step:p1:coh-equation}
+The function $Du\,\omega-g$ is holomorphic (Lemma~\ref{bp:p1:holomorphic-regularity}) and $1$-periodic on
+$T_{\rho-\delta}$. The restriction of $u$ to $\R^n$ is $C^1$ with partial derivatives the restrictions of
+$\partial_\ell u$, so Lemma~\ref{bp:p1:fourier-basic}(a) gives
+$\widehat{(Du\,\omega)}_k=2\pi i(k\cdot\omega)a_k=\hat g_k$ for every $k$. All coefficients of
+$Du\,\omega-g$ vanish, and $Du\,\omega=g$ on $T_{\rho-\delta}$ by Lemma~\ref{bp:p1:fourier-basic}(c).
+
+\proofstep{Uniqueness}\label{step:p1:coh-unique}
+Let $\tilde u$ be holomorphic and $1$-periodic on $T_{\rho-\delta}$, with $\avg{\tilde u}=0$ and
+$D\tilde u\,\omega=g$ there; no bound on $\tilde u$ is assumed. As in the previous step,
+Lemma~\ref{bp:p1:fourier-basic}(a) gives $2\pi i(k\cdot\omega)\hat{\tilde u}_k=\hat g_k$, so
+$\hat{\tilde u}_k=a_k$ for $k\ne0$, and $\hat{\tilde u}_0=\avg{\tilde u}=0=a_0$. Hence $\tilde u-u$ is
+holomorphic and $1$-periodic on $T_{\rho-\delta}$ with vanishing coefficients, and $\tilde u=u$ by
+Lemma~\ref{bp:p1:fourier-basic}(c). In particular, for $g=0$ the only solution in the class is $u=0$.
+(Coefficient uniqueness in Lean: \nolinkurl{KAM.Diophantine.solve_unique}.)
+
+\proofstep{Realness}\label{step:p1:coh-real}
+If $g$ is real on $\R^n$, then $\overline{\hat g_k}=\hat g_{-k}$. Since $k\cdot\omega$ is real,
+$\overline{2\pi ik\cdot\omega}=2\pi i(-k)\cdot\omega$, so $\overline{a_k}=a_{-k}$ for every $k$. For
+$x\in\R^n$, $\overline{\chi_k(x)}=\chi_{-k}(x)$, and reindexing the absolutely convergent series gives
+$\overline{u(x)}=\sum_k\overline{a_k}\chi_{-k}(x)=\sum_ka_{-k}\chi_{-k}(x)=u(x)$. (Lean:
+\nolinkurl{KAM.Diophantine.solve_conjugateSymmetric}.)
+
+\proofstep{Vector- and matrix-valued data}\label{step:p1:coh-vector}
+For $g$ with values in $\C^p$, apply the scalar case to each component $g_i$, which has zero average and
+satisfies $\norm{g_i}_\rho\le\norm g_\rho$. The solution $u=(u_i)$ is unique because each component is,
+and $\norm u_{\rho-\delta}=\max_i\norm{u_i}_{\rho-\delta}\le c(n,\tau)\gamma^{-1}\delta^{-(\tau+n)}\norm g_\rho$
+with the same constant. For matrix-valued $g$ the same applies to each entry, with
+$\norm{g_{ij}}_\rho\le\norm g_\rho$; the bound in the operator norm is
+Lemma~\ref{bp:p1:cohomological-operator}.
+\end{proof}
+
+\begin{lemma}[Cohomological equation in operator norms, a-priori bound]\label{bp:p1:cohomological-operator}
+Lemma~\ref{bp:p1:cohomological} holds for matrix-valued $g$ with the operator norm, and every holomorphic periodic
+solution $u$ with $\avg u=0$ satisfies the same bound. (Proved as \texttt{bp:p2:cohomological}.)
 \end{lemma}
 
-\subsection{Matrices}
+\begin{proof}
+Let $g:T_\rho\to\C^{p\times q}$ be holomorphic, bounded and $1$-periodic with $\avg g=0$, let
+$0<\delta<\rho$, and put $\Gamma=c(n,\tau)\gamma^{-1}\delta^{-(\tau+n)}$.
 
-\begin{lemma}[Neumann series]\label{bp:p1:neumann}
-If $A$ is invertible and $\abs{A^{-1}}\abs{\Delta}\le\frac12$, then $A+\Delta$ is invertible with
-$\abs{(A+\Delta)^{-1}}\le2\abs{A^{-1}}$ and $\abs{(A+\Delta)^{-1}-A^{-1}}\le2\abs{A^{-1}}^2\abs{\Delta}$.
-The same holds pointwise for matrix-valued functions, with sup norms.
-\end{lemma}
+\proofstep{The entrywise solution}\label{step:p1:coo-entries}
+Lemma~\ref{bp:p1:cohomological}, applied to each entry, gives a unique $u:T_{\rho-\delta}\to\C^{p\times q}$,
+holomorphic and $1$-periodic with $\avg u=0$ and $Du\,\omega=g$. Every holomorphic $1$-periodic solution
+on $T_{\rho-\delta}$ with zero average equals $u$.
 
-\subsection{Further interface lemmas (transferred from Part 3, 27 Oct 2026)}
+\proofstep{Testing against vectors}\label{step:p1:coo-vectors}
+Fix $v\in\C^q$ with $\abs v\le1$. The function $gv$ is holomorphic and $1$-periodic, $\avg{gv}=\avg gv=0$,
+and $\abs{g(\theta)v}\le\abs{g(\theta)}\le\norm g_\rho$ by Lemma~\ref{bp:p1:matrix-norms}. The function
+$uv$ is holomorphic and $1$-periodic on $T_{\rho-\delta}$, with $\avg{uv}=0$ and $D(uv)\,\omega=gv$. By the
+uniqueness and the bound of Lemma~\ref{bp:p1:cohomological} for $\C^p$-valued data in the max norm,
+$\abs{u(\theta)v}\le\Gamma\norm{gv}_\rho\le\Gamma\norm g_\rho$ for $\theta\in T_{\rho-\delta}$.
 
-\begin{lemma}[Periodic functions are bounded on smaller strips]\label{bp:p1:periodic-bounded}
-If $u$ is holomorphic and $1$-periodic on $T_\rho$, then $u$ is bounded on $T_{\rho'}$ for every $\rho'<\rho$.
-\end{lemma}
+\proofstep{Operator norm}\label{step:p1:coo-norm}
+By Lemma~\ref{bp:p1:operator-norms}, $\abs{u(\theta)}=\sup_{\abs v\le1}\abs{u(\theta)v}\le\Gamma\norm g_\rho$.
+By Step~\ref{step:p1:coo-entries}, this bound holds for every holomorphic periodic solution with zero
+average.
 
-\begin{lemma}[Increments]\label{bp:p1:increments}
-If $u$ is holomorphic on $T_\rho$ and $\theta,\theta+v\in T_{\rho-\delta}$ with the segment between them in
-$T_{\rho-\delta}$, then $\abs{u(\theta+v)-u(\theta)}\le\norm{Du}_{\rho-\delta}\abs{v}$; with
-Lemma~\ref{bp:p1:cauchy-strip}, $\le n\delta^{-1}\norm{u}_\rho\abs{v}$.
-\end{lemma}
+\proofstep{A-priori form}\label{step:p1:coo-apriori}
+Let $u$ be holomorphic and $1$-periodic on $T_\rho$, with values in $\C^p$ or $\C^{p\times q}$,
+$\avg u=0$ and $\norm{Du\,\omega}_\rho\le H<\infty$. Then $g=Du\,\omega$ is holomorphic
+(Lemma~\ref{bp:p1:holomorphic-regularity}), $1$-periodic and bounded on $T_\rho$, with $\avg g=0$ by
+Lemma~\ref{bp:p1:averages-real} applied to the entries of the restriction of $u$ to $\R^n$. The restriction
+of $u$ to $T_{\rho-\delta}$ is a solution in the class of Step~\ref{step:p1:coo-entries}, so
+$\norm u_{\rho-\delta}\le\Gamma H$. This is the form used in Lemma~\ref{bp:p2:cohomological}(b).
+\end{proof}
 
-\begin{lemma}[Second-order Taylor bound]\label{bp:p1:taylor}
-If $F$ is holomorphic on an open $U\subset\C^m$ with $\abs{D^2F}\le A$ on $U$ and the segment $[z,z+w]\subset U$, then
-$\abs{F(z+w)-F(z)-DF(z)w}\le\frac A2\abs{w}^2$.
-\end{lemma}
-
-\begin{lemma}[Max-norm matrix facts]\label{bp:p1:matrix-norms}
-For the norm $\abs{M}=\max_i\sum_j\abs{M_{ij}}$: $\abs{MN}\le\abs M\abs N$, $\abs{Mv}\le\abs M\abs v$, and
-$\abs{M^\top}\le m\abs M$ for $m\times m'$ matrices with $m'\le m$ (dimension factors explicit).
-\end{lemma}
-
-\begin{lemma}[Holomorphic inverse]\label{bp:p1:holomorphic-inverse}
-If $A$ is a holomorphic matrix-valued function on an open set with $\det A\ne0$ there, then $A^{-1}$ is
-holomorphic there, and $D(A^{-1})=-A^{-1}(DA)A^{-1}$.
-\end{lemma}
+%----------------------------------------------------------------------------------------------------
+\subsection{Quadratic iteration}\label{bp:p1:sec-iteration}
 
 \begin{lemma}[Quadratic iteration on nested strips]\label{bp:p1:iteration}
 Let $Q>0$, $p\ge0$ and $y_0,y_1,\dots\ge0$ with $y_{m+1}\le Q2^{pm}y_m^2$ for every $m\ge0$ and
@@ -102,80 +1002,143 @@ If moreover only $q\coloneqq Q2^py_0\le1$ is assumed, then $y_m\le q^{2^m-1}2^{-
 \texttt{bp:p2:error-decay}(a).)
 \end{lemma}
 
-\begin{lemma}[Averages of functions on the real torus]\label{bp:p1:averages-real}
-For $v:\R^n\to\C$ continuous, $1$-periodic and differentiable with continuous derivative:
-$\avg{\partial_{\theta_\ell}v}=0$ and $\avg{Dv\,\omega}=0$.
-\end{lemma}
+\begin{proof}
+\proofstep{Super-exponential decay}\label{step:p1:it-super}
+Put $x_m=Q2^{p(m+1)}y_m\ge0$. Then $x_0=Q2^py_0\le\frac12$ and
+\begin{equation*}
+x_{m+1}=Q2^{p(m+2)}y_{m+1}\le Q2^{p(m+2)}\,Q2^{pm}y_m^2=\bigl(Q2^{p(m+1)}y_m\bigr)^2=x_m^2\,.
+\end{equation*}
+By induction $x_m\le2^{-2^m}$, that is, $y_m\le Q^{-1}2^{-p(m+1)}2^{-2^m}$, and $y_m\to0$.
 
-\subsection{Further interface lemmas (transferred from Part 2, 27 Oct 2026)}
+\proofstep{The form linear in $y_0$}\label{step:p1:it-linear}
+Assume only $q=Q2^py_0\le1$. The case $m=0$ is $y_0\le y_0$. If $y_m\le q^{2^m-1}2^{-pm}y_0$, then
+\begin{equation*}
+y_{m+1}\le Q2^{pm}q^{2^{m+1}-2}2^{-2pm}y_0^2=\bigl(Q2^py_0\bigr)q^{2^{m+1}-2}2^{-p(m+1)}y_0
+=q^{2^{m+1}-1}2^{-p(m+1)}y_0\,.
+\end{equation*}
+\end{proof}
 
-\begin{lemma}[Operator norms, blocks, $\Omega_0$]\label{bp:p1:operator-norms}
-For the max norms of Part~\ref{bp:p0}: the operator norm of a matrix is $\max_i\sum_j\abs{M_{ij}}$; for a block
-matrix $\left(\begin{smallmatrix}A&B\\C&D\end{smallmatrix}\right)$ the norm is at most $\max\{\abs A+\abs B,\abs C+\abs D\}$;
-$\abs{\Omega_0}=1$, $\Omega_0^\top=-\Omega_0$, $\Omega_0^2=-I$. (Proved as \texttt{bp:p2:matrix}(a), (c), (d).)
-\end{lemma}
+%----------------------------------------------------------------------------------------------------
+\subsection{Real points}\label{bp:p1:sec-real}
 
-\begin{lemma}[Cauchy corollaries]\label{bp:p1:cauchy-corollaries}
-For $f$ holomorphic and bounded on $T_\rho$ (scalar, vector or matrix valued) and $0<\delta<\rho$:
-$\norm{(Df)^\top}_{\rho-\delta}\le c\,\delta^{-1}\norm f_\rho$ and
-$\norm{\partial_\omega f}_{\rho-\delta}\le\abs\omega_1\delta^{-1}\norm f_\rho$, with $c$ a dimension factor.
-(Proved as \texttt{bp:p2:cauchy}.)
-\end{lemma}
-
-\begin{lemma}[Averages of matrix-valued functions]\label{bp:p1:averages-matrix}
-For $M$ continuous, $1$-periodic and matrix valued on $\R^n$: $\abs{\avg M}\le\sup_{\R^n}\abs M$, and $\avg{\partial_\omega M}=0$ if
-$M$ is $C^1$. (Proved as \texttt{bp:p2:averages}.)
-\end{lemma}
-
-\begin{lemma}[Cohomological equation in operator norms, a-priori bound]\label{bp:p1:cohomological-operator}
-Lemma~\ref{bp:p1:cohomological} holds for matrix-valued $g$ with the operator norm, and every holomorphic periodic
-solution $u$ with $\avg u=0$ satisfies the same bound. (Proved as \texttt{bp:p2:cohomological}.)
-\end{lemma}
-
-\begin{lemma}[Increments on open sets]\label{bp:p1:increments-open}
-If $F$ is holomorphic on an open $U\subset\C^m$, $\abs{DF}\le A$ on $U$, and the segment $[z,z+w]\subset U$, then
-$\abs{F(z+w)-F(z)}\le A\abs w$.
-\end{lemma}
-
-\begin{lemma}[Real inverses]\label{bp:p1:real-inverse}
-The inverse of an invertible real matrix is real; hence if $A(\theta)$ is real for real $\theta$ and invertible, so is
-$A(\theta)^{-1}$.
-\end{lemma}
-
-\begin{lemma}[Uniform limits]\label{bp:p1:uniform-limits}
-If $K_s$ are holomorphic on an open set and $K_s\to K$, $DK_s\to\Lambda$ uniformly there, then $K$ is holomorphic and
-$DK=\Lambda$; primary periodicity and realness on reals pass to the limit.
-\end{lemma}
-
-\subsection{Further interface lemmas (transferred from Part 4, 27 Oct 2026)}
-
-\begin{lemma}[Second-derivative Cauchy estimate on strips]\label{bp:p1:cauchy-strip-2}
-For $u$ holomorphic and bounded on $T_\rho$ and $0<\delta<\rho$: $\norm{D^2u}_{\rho-\delta}\le c(n)\delta^{-2}\norm u_\rho$.
-\end{lemma}
-
-\begin{lemma}[Translation invariance of averages]\label{bp:p1:periodic-average}
-For $v$ continuous and $1$-periodic on $\R^n$ and $a\in\R^n$: $\avg{v(\cdot+a)}=\avg v$. (Proved as \texttt{bp:p4:periodic-average}.)
-\end{lemma}
+The frozen torus of Definition~\ref{bp:p0:torus} is a real-analytic map on $\R^n$, and the frozen vector
+field $X_H$ is defined with real derivatives. The two lemmas below pass from the holomorphic objects on
+strips and complex domains to these real objects.
 
 \begin{lemma}[Real restriction]\label{bp:p1:real-restriction}
 If $K$ is holomorphic on $T_\rho$ and real on reals, its restriction to $\R^n$ is real-analytic, and its real derivative is
-the restriction of its complex derivative. (Proved as \texttt{bp:p4:real-restriction}.)
+the restriction of its complex derivative.
 \end{lemma}
+
+\begin{proof}
+Let $K:T_\rho\to\C^p$ be holomorphic with $K(\R^n)\subset\R^p$ (in the applications $p=2n$), and let
+$k:\R^n\to\R^p$ be its restriction.
+
+\proofstep{Analyticity}\label{step:p1:rr-analytic}
+$T_\rho$ is open and $T_\rho\cap\R^n=\R^n$. Lemma~\ref{bp:p1:holomorphic-analytic}(b), with $U=T_\rho$,
+$m=n$ and $W=\C^p$, shows that $k$ is real-analytic on $\R^n$ as a map into $\R^p$.
+
+\proofstep{The derivative}\label{step:p1:rr-derivative}
+Let $x\in\R^n$. Complex differentiability gives $K(x+h)-K(x)-DK(x)h=o(\abs h)$ as $h\to0$ in $\C^n$, in
+particular for real $h$. For real $h$, $DK(x)h=\lim_{t\to0}t^{-1}\bigl(k(x+th)-k(x)\bigr)$ is a limit of
+real vectors over real $t$, hence real. So $k$ is differentiable at $x$ and $Dk(x)h=DK(x)h$ for
+$h\in\R^n$.
+\end{proof}
+
+\begin{remark}[Consequences used in Part~\ref{bp:p4}]\label{bp:p1:real-restriction-consequences}
+In the setting of Lemma~\ref{bp:p1:real-restriction}, $\abs{Dk(x)}\le\abs{DK(x)}$ for $x\in\R^n$, since
+the supremum defining $\abs{Dk(x)}$ runs over the real $h$ with $\abs h\le1$, a subset of the complex
+ones. If $p=2n$ and $K$ is primary on $T_\rho$, then $k(x+m)=k(x)+(m,0)$ for $x\in\R^n$ and $m\in\Z^n$, by
+the primarity identity at the real point $x$.
+\end{remark}
 
 \begin{lemma}[Real and complex Hamiltonian fields]\label{bp:p1:hamiltonian-real}
 If $h$ is holomorphic near a real point $z$ and real on real points, then $X_{\operatorname{Re}h}(z)=X_h(z)$, and
 $X_\varphi=J\,D\varphi^\top$ in the frozen conventions. (Proved as \texttt{bp:p4:hamiltonian-real}.)
 \end{lemma}
 
-\begin{lemma}[Mixed second differences]\label{bp:p1:mixed-difference}
-For $F$ holomorphic on a convex open set with $\abs{D^2F}\le A$:
-$\abs{F(z+v+w)-F(z+v)-F(z+w)+F(z)}\le A\abs v\abs w$. (Proved as \texttt{bp:p4:mixed-difference}.)
-\end{lemma}
+\begin{proof}
+We read the statement as follows: $V\subset\C^n\times\C^n$ is open, $h$ is holomorphic on $V$ and real
+at the real points of $V$, $z\in\R^n\times\R^n$ lies in $V$, and $X_{\operatorname{Re}h}(z)$ is the
+frozen vector field (Definition~\ref{bp:p0:hamiltonian}) of a function $H:\R^n\times\R^n\to\R$ that
+agrees with $\operatorname{Re}h$ on a neighbourhood of $z$, for instance \Lean{realHamiltonian}.
+
+\proofstep{The real derivative}\label{step:p1:hr-derivative}
+The set $V_\R=\{y\in\R^n\times\R^n:y\in V\}$ is an open neighbourhood of $z$ on which
+$H(y)=\operatorname{Re}h(y)=h(y)$, since $h$ is real there. The map $y\mapsto h(y)$ on $V_\R$ is
+$\R$-differentiable with derivative $e\mapsto Dh(y)e$, by the chain rule for the $\R$-linear inclusion of
+$\R^{2n}$ into $\C^{2n}$. Hence $H$ is differentiable at $z$ with $DH(z)e=Dh(z)e$ for
+$e\in\R^n\times\R^n$, a real number because $H$ is real-valued.
+
+\proofstep{Components}\label{step:p1:hr-components}
+By the frozen definitions,
+\begin{equation*}
+X_H(z)=\bigl((DH(z)(0,e_i))_i,(-DH(z)(e_i,0))_i\bigr)\,,\qquad
+X_h(z)=\bigl((Dh(z)(0,e_i))_i,(-Dh(z)(e_i,0))_i\bigr)\,.
+\end{equation*}
+The previous step, with $e=(0,e_i)$ and $e=(e_i,0)$, gives $X_H(z)=X_h(z)$.
+
+\proofstep{Matrix form}\label{step:p1:hr-matrix}
+For $\varphi$ holomorphic, let $(D\varphi)^\top=(\partial_\theta\varphi,\partial_I\varphi)\in\C^{2n}$ be the
+column of partial derivatives, $\theta$-block first. The frozen formula reads
+$X_\varphi=(\partial_I\varphi,-\partial_\theta\varphi)=J(D\varphi)^\top$ with
+$J=\left(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\right)=-\Omega_0=\Omega_0^{-1}$
+(Lemma~\ref{bp:p1:operator-norms}); equivalently $\Omega_0X_\varphi=(D\varphi)^\top$. Regarded as a map
+$J:\mathcal L(\C^{2n},\C)\to\C^{2n}$, $J(\ell)=\bigl((\ell(0,e_i))_i,(-\ell(e_i,0))_i\bigr)$, which is the
+form used in Step~\ref{step:p4:db-vectorfield}.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Lipschitz maps and Lebesgue measure}\label{bp:p1:sec-measure}
+
+The measure argument of Part~\ref{bp:p4} needs three facts: Lipschitz maps enlarge outer measure by at
+most the $d$-th power of their constant, Lipschitz maps into $\R^d$ extend from any subset, and a
+Lipschitz-small perturbation of the identity is a bi-Lipschitz bijection. Throughout, $\R^d$ carries the
+max norm.
 
 \begin{lemma}[Lipschitz images and preimages]\label{bp:p1:lip-image}
 A $\Lambda$-Lipschitz map on $\R^d$ (max norm) multiplies outer Lebesgue measure by at most $\Lambda^d$; the preimage of a
 null set under a map with Lipschitz inverse is null. (Proved as \texttt{bp:p4:lip-image}, \texttt{bp:p4:preimage-measure}.)
 \end{lemma}
+
+\begin{proof}
+Let $S\subset\R^d$ and $F:S\to\R^d$ with $\abs{F(x)-F(y)}\le\Lambda\abs{x-y}$ for $x,y\in S$. A closed cube
+of side $\ell$ is a closed ball of radius $\ell/2$ for the max norm.
+
+\proofstep{Covers by cubes}\label{step:p1:li-cubes}
+For every $\varepsilon>0$ there are countably many closed cubes $Q_j$ with $S\subset\bigcup_jQ_j$ and
+$\sum_j\operatorname{vol}(Q_j)\le\meas S+\varepsilon$. Indeed, by~\ref{bp:p1:ext-lebesgue} choose closed
+boxes $R_j$ covering $S$ with $\sum_j\operatorname{vol}(R_j)\le\meas S+\varepsilon/2$. A box
+$R=\prod_i[a_i,b_i]$ is covered by the cubes of the grid of side $\eta$ that meet it; in each coordinate
+at most $(b_i-a_i)/\eta+2$ grid intervals meet $[a_i,b_i]$, so these cubes have total volume at most
+$\prod_i(b_i-a_i+2\eta)$, which tends to $\operatorname{vol}(R)$ as $\eta\to0$. Choose $\eta=\eta_j$ so
+that the total for $R_j$ is at most $\operatorname{vol}(R_j)+\varepsilon2^{-j-2}$.
+
+\proofstep{Image of one cube}\label{step:p1:li-image}
+Let $Q$ be a closed cube of side $\ell$. Points $x,y\in S\cap Q$ satisfy $\abs{x-y}\le\ell$, so every
+coordinate of $F$ varies by at most $\Lambda\ell$ on $S\cap Q$. Hence $F(S\cap Q)$ lies in the closed cube
+$\prod_i[m_i,m_i+\Lambda\ell]$, where $m_i$ is the infimum of the $i$-th coordinates of $F(S\cap Q)$, and
+$\meas F(S\cap Q)\le\Lambda^d\ell^d=\Lambda^d\operatorname{vol}(Q)$.
+
+\proofstep{Summation}\label{step:p1:li-sum}
+By countable subadditivity and the two previous steps,
+$\meas F(S)\le\sum_j\meas F(S\cap Q_j)\le\Lambda^d(\meas S+\varepsilon)$. Let $\varepsilon\to0$.
+(Alternative route in Mathlib: for the max norm, $d$-dimensional Hausdorff measure equals Lebesgue
+measure, \nolinkurl{MeasureTheory.hausdorffMeasure_pi_real}, and Lipschitz maps multiply it by at most
+$\Lambda^d$, \nolinkurl{LipschitzOnWith.hausdorffMeasure_image_le}.)
+
+\proofstep{Preimages of null sets}\label{step:p1:li-preimage}
+Let $\Phi:A\to\R^d$, $A\subset\R^d$, be injective with a $\Lambda$-Lipschitz inverse
+$\Phi^{-1}:\Phi(A)\to A$, and let $\meas N=0$. Then $\Phi^{-1}(N)=\Phi^{-1}(N\cap\Phi(A))$ is the image of
+$N\cap\Phi(A)$ under the Lipschitz map $\Phi^{-1}$, so its outer measure is at most
+$\Lambda^d\meas(N\cap\Phi(A))=0$.
+\end{proof}
+
+\begin{remark}[Products]\label{bp:p1:lip-image-product}
+The identification of $\R^n\times\R^n$ with $\R^{2n}$ is an isometry for the max norm of the two
+components and carries the product of the Lebesgue measures to Lebesgue measure on $\R^{2n}$. Hence
+Lemma~\ref{bp:p1:lip-image} holds on $\R^n\times\R^n$ with $d=2n$.
+\end{remark}
 
 \begin{lemma}[McShane extension]\label{bp:p1:mcshane}
 A $\Lambda$-Lipschitz map from a subset of a metric space to $\R^d$ with the max norm extends to a $\Lambda$-Lipschitz map on
@@ -183,13 +1146,317 @@ the whole space; it can be clamped to keep a given sup bound. (Mathlib \Lean{Lip
 \texttt{bp:p4:mcshane}.)
 \end{lemma}
 
+\begin{proof}
+Let $X$ be the metric space, $S\subset X$, $\Lambda\ge0$, and $\phi:S\to\R^d$ with
+$\abs{\phi(x)-\phi(y)}\le\Lambda\,\dist(x,y)$ for $x,y\in S$.
+
+\proofstep{One component}\label{step:p1:mc-component}
+If $S=\emptyset$, take the extension $0$. Otherwise, for each component put
+$U_j(x)=\inf_{y\in S}\bigl(\phi_j(y)+\Lambda\dist(x,y)\bigr)$ for $x\in X$. Fix $y_0\in S$. Every term is at
+least $\phi_j(y_0)-\Lambda\dist(x,y_0)$, by the Lipschitz bound and the triangle inequality, so $U_j$ is
+finite. As an infimum of $\Lambda$-Lipschitz functions of $x$, $U_j$ is $\Lambda$-Lipschitz. For $x\in S$,
+$\phi_j(y)+\Lambda\dist(x,y)\ge\phi_j(x)$ for all $y\in S$, with equality at $y=x$, so $U_j=\phi_j$ on $S$.
+(Mathlib: \nolinkurl{LipschitzOnWith.extend_real}.)
+
+\proofstep{All components}\label{step:p1:mc-components}
+In the max norm a map into $\R^d$ is $\Lambda$-Lipschitz exactly when each component is, so
+$U=(U_j)_j$ is a $\Lambda$-Lipschitz extension of $\phi$ to $X$. (Mathlib:
+\nolinkurl{LipschitzOnWith.extend_pi}.)
+
+\proofstep{Clamping}\label{step:p1:mc-clamp}
+Let $\abs\phi\le\beta$ on $S$ and $\Phi_j=\max(-\beta,\min(\beta,U_j))$. Clamping to $[-\beta,\beta]$ is
+$1$-Lipschitz and fixes $[-\beta,\beta]$, so $\Phi=(\Phi_j)_j$ is $\Lambda$-Lipschitz, extends $\phi$, and
+satisfies $\abs\Phi\le\beta$ on $X$.
+\end{proof}
+
 \begin{lemma}[Lipeomorphisms]\label{bp:p1:lipeo}
 If $G:\R^d\to\R^d$ is $\lambda$-Lipschitz with $\lambda<1$, then $\mathrm{id}+G$ is a bi-Lipschitz bijection of $\R^d$.
 (Proved as \texttt{bp:p4:lipeo}.)
 \end{lemma}
 
-\subsection{Diophantine frequencies}
+\begin{proof}
+Let $\Psi=\mathrm{id}+G$.
+
+\proofstep{Bi-Lipschitz bounds}\label{step:p1:lipeo-bounds}
+By the triangle inequality, $(1-\lambda)\abs{x-y}\le\abs{\Psi(x)-\Psi(y)}\le(1+\lambda)\abs{x-y}$ for
+$x,y\in\R^d$. Since $\lambda<1$, the lower bound shows that $\Psi$ is injective and that its inverse, on
+the image, is $(1-\lambda)^{-1}$-Lipschitz.
+
+\proofstep{Surjectivity}\label{step:p1:lipeo-onto}
+Let $y\in\R^d$. The map $x\mapsto y-G(x)$ is a $\lambda$-contraction of the complete space $\R^d$,
+so by~\ref{bp:p1:ext-banach} it has a fixed point $x$, and then $\Psi(x)=y$. Hence $\Psi$ is a bijection
+of $\R^d$ whose inverse is $(1-\lambda)^{-1}$-Lipschitz.
+\end{proof}
+
+\begin{remark}[The set where $G$ vanishes]\label{bp:p1:lipeo-fixed}
+In the setting of Lemma~\ref{bp:p1:lipeo}, if $G=0$ on a set $Z'\subset\R^d$, then $\Psi$ maps
+$\R^d\setminus Z'$ onto itself. Indeed, $\Psi$ fixes $Z'$ pointwise. If $x\notin Z'$ had $\Psi(x)\in Z'$,
+then $\Psi(\Psi(x))=\Psi(x)$ and injectivity would give $x=\Psi(x)\in Z'$. If $y\notin Z'$ and
+$y=\Psi(x)$, then $x\notin Z'$, since otherwise $y=x\in Z'$. Part~\ref{bp:p4} uses this in
+Step~\ref{step:p4:mm-extension}.
+\end{remark}
 
 \begin{lemma}[Measure of the resonant set]\label{bp:p1:dmeas}
 This is Theorem~\ref{bp:p0:g3}; its proof is written in Part~\ref{bp:p4}.
 \end{lemma}
+
+\begin{proof}
+The statement is Theorem~\ref{bp:p0:g3}. Its proof slices the non-Diophantine set into slabs and sums
+over the lattice; it is given in Subsection~\ref{bp:p4:sec-g3} (Lemmas~\ref{bp:p4:lattice-count},
+\ref{bp:p4:lattice-sum} and~\ref{bp:p4:slab}). No other result of this part depends on it.
+\end{proof}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Requests to the orchestrator}\label{bp:p1:requests}
+
+The statements above are the interface text, unchanged except that the provenance note of
+Lemma~\ref{bp:p1:real-restriction} was removed on the orchestrator's instruction. The proofs establish
+them as written, under the readings stated at the start of the proofs of
+Lemmas~\ref{bp:p1:mixed-difference}, \ref{bp:p1:hamiltonian-real} and~\ref{bp:p1:cauchy-corollaries}.
+The following changes are proposed; none requires a new proof beyond what is written above.
+\begin{enumerate}[label=(Q\arabic*),ref=(Q\arabic*)]
+\item\label{bp:p1:Q-bounded} \emph{Standing convention.} The sentence ``Throughout, functions on strips
+  are holomorphic on the open strip and bounded there'' contradicts Lemma~\ref{bp:p1:periodic-bounded},
+  whose conclusion it would make empty, and the clause ``no boundedness assumed'' of
+  Lemma~\ref{bp:p1:cohomological}, on which Steps~\ref{step:p3:lagrangian-unique}
+  and~\ref{step:p4:lag-unique} rely. Proposed: ``Throughout, functions on strips are holomorphic on the
+  open strip; they are assumed bounded only where a statement says so. Norms are sup norms
+  (Part~\ref{bp:p0}).''
+\item\label{bp:p1:Q-corollaries} \emph{Lemma~\ref{bp:p1:cauchy-corollaries}.} $(Df)^\top$ is undefined
+  for matrix-valued $f$, and ``$c$ a dimension factor'' is unspecified. Proposed: ``For $f$ holomorphic
+  and bounded on $T_\rho$ and $0<\delta<\rho$: if $f$ takes values in $\C^p$, then
+  $\norm{(Df)^\top}_{\rho-\delta}\le p\,\delta^{-1}\norm f_\rho$; if $f$ takes values in $\C^p$ or
+  $\C^{p\times q}$, then $\norm{\partial_\omega f}_{\rho-\delta}\le\abs\omega_1\delta^{-1}\norm f_\rho$.''
+  This is what Lemma~\ref{bp:p2:cauchy} uses.
+\item\label{bp:p1:Q-hamiltonian} \emph{Lemma~\ref{bp:p1:hamiltonian-real}.} $J$ is not defined in
+  Parts~\ref{bp:p0} or~\ref{bp:p1}, and $X_{\operatorname{Re}h}$ needs a real function on all of
+  $\R^n\times\R^n$. Proposed: ``Let $V\subset\C^n\times\C^n$ be open, $h$ holomorphic on $V$ and real at the
+  real points of $V$, and $z\in V\cap(\R^n\times\R^n)$. If $H:\R^n\times\R^n\to\R$ agrees with
+  $\operatorname{Re}h$ near $z$, then $H$ is differentiable at $z$ and $X_H(z)=X_h(z)$. For $\varphi$
+  holomorphic, $X_\varphi=J(D\varphi)^\top$ with
+  $J=-\Omega_0=\left(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\right)$; equivalently
+  $\Omega_0X_\varphi=(D\varphi)^\top$.''
+\item\label{bp:p1:Q-mixed} \emph{Lemma~\ref{bp:p1:mixed-difference}.} The four points are not said to lie
+  in the set. Proposed: ``Let $F$ be holomorphic on a convex open set $U$ with $\abs{D^2F}\le A$ on $U$,
+  and let $z,z+v,z+w,z+v+w\in U$. Then
+  $\abs{F(z+v+w)-F(z+v)-F(z+w)+F(z)}\le A\abs v\abs w$.'' Step~\ref{step:p4:le-h} applies it on a ball,
+  which is convex, inside the nonconvex set $B_{r_0/2}$.
+\item\label{bp:p1:Q-limits} \emph{Lemma~\ref{bp:p1:uniform-limits}.} The periodicity clause presupposes a
+  strip, and pointwise convergence of $K_s$ suffices (Step~\ref{step:p2:lim-holo} uses only that).
+  Proposed: ``Let $K_s$ be holomorphic on an open set $V$, with $K_s\to K$ pointwise and $DK_s\to\Lambda$
+  uniformly on $V$. Then $K$ is holomorphic on $V$ and $DK=\Lambda$. If $V=T_r$ and every $K_s$ is
+  primary on $T_r$, respectively real on reals, so is $K$.''
+\item\label{bp:p1:Q-increments} \emph{Lemma~\ref{bp:p1:increments}.} The second clause presupposes
+  $0<\delta<\rho$ and a bounded $u$; the segment condition is automatic because $T_{\rho-\delta}$ is
+  convex. Proposed: ``Let $u$ be holomorphic on $T_\rho$ and $0<\delta<\rho$. For
+  $\theta,\theta+v\in T_{\rho-\delta}$, $\abs{u(\theta+v)-u(\theta)}\le\norm{Du}_{\rho-\delta}\abs v$; if $u$ is
+  bounded on $T_\rho$, this is at most $n\delta^{-1}\norm u_\rho\abs v$.''
+\item\label{bp:p1:Q-lipimage} \emph{Lemma~\ref{bp:p1:lip-image}.} The domain and the inverse map are
+  implicit, and Part~\ref{bp:p4} needs the product form (Step~\ref{step:p4:mm-count}). Proposed: ``Let
+  $S\subset\R^d$ and $F:S\to\R^d$ with $\abs{F(x)-F(y)}\le\Lambda\abs{x-y}$. Then
+  $\meas F(S)\le\Lambda^d\meas S$ (outer measures). If $\Phi:A\to\R^d$ is injective and
+  $\Phi^{-1}:\Phi(A)\to A$ is Lipschitz, then $\meas\Phi^{-1}(N)=0$ whenever $\meas N=0$. Both hold on
+  $\R^n\times\R^n$ with the max norm of the two components and the product Lebesgue measure.'' The last
+  sentence is Remark~\ref{bp:p1:lip-image-product}.
+\item\label{bp:p1:Q-lipeo} \emph{Lemma~\ref{bp:p1:lipeo}.} Step~\ref{step:p4:mm-extension} uses the
+  constants and the invariance of the complement of the set where $G$ vanishes. Proposed: ``If
+  $G:\R^d\to\R^d$ is $\lambda$-Lipschitz with $\lambda<1$, then $\Psi=\mathrm{id}+G$ is a bijection of $\R^d$
+  with $(1-\lambda)\abs{x-y}\le\abs{\Psi(x)-\Psi(y)}\le(1+\lambda)\abs{x-y}$; if $G=0$ on a set $Z'$, then
+  $\Psi$ maps $\R^d\setminus Z'$ onto itself.'' The proof is Step~\ref{step:p1:lipeo-bounds} and
+  Remark~\ref{bp:p1:lipeo-fixed}.
+\item\label{bp:p1:Q-realrestr} \emph{Lemma~\ref{bp:p1:real-restriction}.} Steps~\ref{step:p4:rt-small}
+  and~\ref{step:p4:rt-analytic} also use $\abs{Dk(x)}\le\abs{DK(x)}$ and primarity of the restriction.
+  Proposed addition: ``Moreover $\abs{Dk(x)}\le\abs{DK(x)}$ for $x\in\R^n$, and if $K$ is primary on
+  $T_\rho$, then $k(x+m)=k(x)+(m,0)$ for $m\in\Z^n$.'' The proof is
+  Remark~\ref{bp:p1:real-restriction-consequences}.
+\item\label{bp:p1:Q-matrix} \emph{Lemma~\ref{bp:p1:matrix-norms}.} The restriction $m'\le m$ is unused.
+  Part~\ref{bp:p3} (Lemma~\ref{bp:p3:matrix-norms}(a)) also uses $\abs{\Omega_0M}=\abs M$ for $2n\times q$
+  matrices, $\abs{M\Omega_0}=\abs M$ for $p\times2n$ matrices, and
+  $\bigl|\left(\begin{smallmatrix}M_1\\M_2\end{smallmatrix}\right)\bigr|=\max\{\abs{M_1},\abs{M_2}\}$, all
+  immediate from Lemma~\ref{bp:p1:operator-norms} because $\Omega_0$ is a signed permutation matrix.
+  Proposed: drop ``with $m'\le m$'' and add these three identities.
+\item\label{bp:p1:Q-averages} \emph{Lemma~\ref{bp:p1:averages}.} The values of $v$ are not specified, and
+  Part~\ref{bp:p3} applies it to vector-valued functions. Proposed addition: ``The same holds for $v$ with
+  values in $\C^p$ or $\C^{p\times q}$, with the norms of Part~\ref{bp:p0}.'' The proof covers any norm.
+\item\label{bp:p1:Q-provenance} \emph{Provenance notes.} The parentheses ``(Proved as \dots)'' in the
+  statements of Lemmas~\ref{bp:p1:iteration}, \ref{bp:p1:operator-norms},
+  \ref{bp:p1:cauchy-corollaries}, \ref{bp:p1:averages-matrix}, \ref{bp:p1:cohomological-operator},
+  \ref{bp:p1:periodic-average}, \ref{bp:p1:hamiltonian-real}, \ref{bp:p1:mixed-difference},
+  \ref{bp:p1:lip-image}, \ref{bp:p1:mcshane} and~\ref{bp:p1:lipeo} are now inaccurate, since each is proved
+  here. Proposed: delete them; Subsection~\ref{bp:p1:xref} records the corresponding results of
+  Parts~\ref{bp:p2}--\ref{bp:p4}, which should cite the Part~\ref{bp:p1} labels instead.
+\item\label{bp:p1:Q-new} \emph{New results of this part.} Lemmas~\ref{bp:p1:holomorphic-regularity}
+  and~\ref{bp:p1:holomorphic-analytic} were added on the orchestrator's instruction.
+  Lemmas~\ref{bp:p1:strip-identity}, \ref{bp:p1:exp-sums} and~\ref{bp:p1:fourier-basic} and
+  Remarks~\ref{bp:p1:real-restriction-consequences}, \ref{bp:p1:lip-image-product}
+  and~\ref{bp:p1:lipeo-fixed} were added because the proofs need them; they need approval as interface
+  nodes. Lemma~\ref{bp:p1:strip-identity} replaces the several-variable identity theorem in
+  Steps~\ref{step:p4:nu-phase} and~\ref{step:p4:lag-unique}: two holomorphic maps on $T_r$ that agree on
+  $\R^n$ agree on $T_r$, by the one-variable identity theorem alone.
+\item\label{bp:p1:Q-constants} \emph{Constants.} Lemma~\ref{bp:p1:cauchy-open} holds with $c(m,1)=1$,
+  $c(m,2)=4$, $c(m,3)=32$, independent of $m$; Lemma~\ref{bp:p1:cauchy-strip-2} with $c(n)=4$;
+  Lemma~\ref{bp:p1:cohomological} with $c(n,\tau)=(2\pi)^{-1}(\tau/(e\pi))^\tau(8n/\pi)^n$; and
+  Lemma~\ref{bp:p1:cauchy-strip} even without the factor $n$ in the operator norm. No statement change is
+  needed.
+\item\label{bp:p1:Q-dmeas} \emph{Lemma~\ref{bp:p1:dmeas}} is Theorem~\ref{bp:p0:g3} under a second label and
+  is proved only in Part~\ref{bp:p4}; it is cited only by Remark~\ref{bp:p4:g3-remark}. Proposed: delete it,
+  or keep it as an explicit alias outside the Part~\ref{bp:p1} dependency graph.
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------------------
+\subsection{Cross-references}\label{bp:p1:xref}
+
+For each result of this part: the labels of Parts~\ref{bp:p2}--\ref{bp:p4} that cite it (the enclosing
+proof step, or the result when the citation is outside a proof); the results of those parts that prove
+the same fact under their own label (``counterpart''), with the labels citing the counterpart; and the
+state of the formalization (``Lean''). Mentions in the transfer and request lists of
+Parts~\ref{bp:p2}--\ref{bp:p4} (\pOneLab{bp:p2:sec-transfer}, \pOneLab{bp:p2:sec-requests},
+\pOneLab{bp:p3:transfer}, \pOneLab{bp:p3:requests}, \pOneLab{bp:p4:sec-notes}) and in errata notes are
+omitted. ``New'' means that no Lean proof exists yet.
+
+{\raggedright
+\medskip\noindent\textbf{Matrices.}\par
+\begin{itemize}
+\item \pOneLab{bp:p1:operator-norms}. Cited by \pOneLab{step:p4:mn-rowsum}. Counterparts:
+  \pOneLab{bp:p2:matrix}(a),(c),(d), cited by \pOneLab{step:p2:coh-apriori}, \pOneLab{bp:p2:transposes},
+  \pOneLab{step:p2:freq-upper}, \pOneLab{step:p2:fb-bounds}, \pOneLab{step:p2:fi-blocks},
+  \pOneLab{step:p2:fi-q}, \pOneLab{step:p2:geo-ered}, \pOneLab{step:p2:geo-esym};
+  \pOneLab{bp:p3:matrix-norms}(a), cited by \pOneLab{eq:p3:Cquad}, \pOneLab{step:p3:lagrangian-unique},
+  \pOneLab{step:p3:frequency-omega}, \pOneLab{step:p3:torsion-bound-step}, \pOneLab{step:p3:diff-bounds};
+  \pOneLab{bp:p4:matrix-norms}(i)--(iii), cited by \pOneLab{step:p4:tr-torsion},
+  \pOneLab{step:p4:stab-gram}, \pOneLab{step:p4:stab-torsion}, \pOneLab{step:p4:stab-twist},
+  \pOneLab{step:p4:lag-exact}, \pOneLab{step:p4:lag-transport}, \pOneLab{step:p4:rt-lagrangian}.
+  Lean: Mathlib \nolinkurl{Matrix.linfty_opNorm_def}; blocks and $\Omega_0$ new.
+\item \pOneLab{bp:p1:matrix-norms}. Cited by \pOneLab{bp:p2:matrix}, \pOneLab{step:p2:matrix-transpose},
+  \pOneLab{step:p4:mn-rowsum}. Counterparts: those of \pOneLab{bp:p1:operator-norms}. Lean: Mathlib
+  \nolinkurl{Matrix.linfty_opNorm_mul}, \nolinkurl{Matrix.linfty_opNorm_mulVec}; transpose bound new.
+\item \pOneLab{bp:p1:neumann}. Cited by \pOneLab{step:p2:ne-invert}, \pOneLab{step:p2:pt-binv},
+  \pOneLab{step:p2:pt-twist}, \pOneLab{step:p4:unp-twist}, \pOneLab{step:p4:stab-gram},
+  \pOneLab{step:p4:stab-twist}. Lean: new.
+\item \pOneLab{bp:p1:real-inverse}. Not cited. Counterpart: the adjugate argument in
+  \pOneLab{step:p2:per-real}. Lean: new.
+\end{itemize}
+
+\medskip\noindent\textbf{Holomorphic maps on open sets.}\par
+\begin{itemize}
+\item \pOneLab{bp:p1:holomorphic-regularity} (new). Not cited by label. Counterparts: the regularity
+  claims in \pOneLab{step:p2:ham-regular}, \pOneLab{bp:p3:hamiltonian-symmetry},
+  \pOneLab{step:p4:db-vectorfield}, \pOneLab{step:p4:tr-inverse}, \pOneLab{step:p4:stab-cauchy},
+  \pOneLab{step:p4:lag-regular}, \pOneLab{step:p4:lag-transport}, \pOneLab{step:p4:mixed-proof}. Lean:
+  exists, \nolinkurl{KAM.differentiableOn_fderiv_of_isOpen} and
+  \nolinkurl{KAM.contDiffOn_infty_of_differentiableOn} (\texttt{KAM/Strip/Regularity.lean}); symmetry by
+  Mathlib \nolinkurl{second_derivative_symmetric_of_eventually}.
+\item \pOneLab{bp:p1:holomorphic-analytic} (new). Not cited by label. Counterpart: the analyticity claim
+  in \pOneLab{step:p4:rr-analytic}, whose Mathlib pointer covers one variable only. Lean: new.
+\item \pOneLab{bp:p1:uniform-limits}. Not cited. Counterpart: \pOneLab{step:p2:lim-holo}. Lean: Mathlib
+  \nolinkurl{hasFDerivAt_of_tendstoUniformlyOn}; periodicity and realness of the limit new.
+\item \pOneLab{bp:p1:holomorphic-inverse}. Cited by \pOneLab{step:p2:fb-holo},
+  \pOneLab{step:p4:tr-inverse}. Counterpart: \pOneLab{step:p3:red-holomorphy}, cited by
+  \pOneLab{bp:p3:totality-check}. Lean: Mathlib \nolinkurl{differentiableAt_inverse},
+  \nolinkurl{hasFDerivAt_ringInverse}; assembly new.
+\item \pOneLab{bp:p1:increments-open}. Cited by \pOneLab{step:p4:stab-xn}. Counterpart: the first bound
+  of \pOneLab{bp:p2:hamiltonian}(e), in \pOneLab{step:p2:ham-mvt}. Lean: Mathlib
+  \nolinkurl{Convex.norm_image_sub_le_of_norm_fderiv_le}.
+\item \pOneLab{bp:p1:taylor}. Cited by \pOneLab{step:p2:ham-mvt}. Counterpart: \pOneLab{bp:p3:taylor},
+  cited by \pOneLab{step:p3:diff-bounds}. Lean: new.
+\item \pOneLab{bp:p1:mixed-difference}. Not cited. Counterpart: \pOneLab{bp:p4:mixed-difference}, cited by
+  \pOneLab{step:p4:le-h}. Lean: new.
+\item \pOneLab{bp:p1:cauchy-open}. Cited by \pOneLab{bp:p4:data}, \pOneLab{step:p4:db-cauchy}. Lean:
+  exists, \nolinkurl{KAM.norm_fderiv_le_of_closedBall}, \nolinkurl{KAM.norm_coordinate_fderiv_le_of_closedBall}
+  (\texttt{KAM/Strip/Cauchy.lean}), \nolinkurl{KAM.norm_iteratedFDeriv_two_le_of_closedBall},
+  \nolinkurl{KAM.norm_iteratedFDeriv_three_le_of_closedBall} (\texttt{KAM/Strip/HigherCauchy.lean}), with
+  the constants $1$, $4$, $32$.
+\end{itemize}
+
+\medskip\noindent\textbf{Functions on strips.}\par
+\begin{itemize}
+\item \pOneLab{bp:p1:periodic-bounded}. Cited by \pOneLab{step:p2:avg-deriv}, \pOneLab{step:p4:lag-regular}.
+  Counterpart: \pOneLab{bp:p3:periodic-bounded}, cited by \pOneLab{step:p3:tangent-average},
+  \pOneLab{bp:p3:totality-check}. Lean: new.
+\item \pOneLab{bp:p1:strip-identity} (new). Not cited. Replaces the several-variable identity theorem in
+  \pOneLab{step:p4:nu-phase} and \pOneLab{step:p4:lag-unique}. Lean: new (one-variable input in Mathlib).
+\item \pOneLab{bp:p1:increments}. Cited by \pOneLab{step:p4:lip-close}. Counterpart:
+  \pOneLab{bp:p3:increments}, cited by \pOneLab{step:p3:phase-derivatives}, \pOneLab{step:p3:g2-size}.
+  Lean: Mathlib mean value inequality with \nolinkurl{KAM.norm_fderiv_le_of_mem_complexStrip}; assembly new.
+\item \pOneLab{bp:p1:cauchy-strip}. Cited by \pOneLab{step:p2:cauchy-entries}, \pOneLab{bp:p3:increments},
+  \pOneLab{step:p3:torsion-bound-step}, \pOneLab{step:p4:stab-cauchy}, \pOneLab{step:p4:le-transport},
+  \pOneLab{step:p4:rt-small}. Lean: exists,
+  \nolinkurl{KAM.norm_coordinate_fderiv_le_of_mem_complexStrip} and, in the sharper operator-norm form,
+  \nolinkurl{KAM.norm_fderiv_le_of_mem_complexStrip}.
+\item \pOneLab{bp:p1:cauchy-strip-2}. Not cited. Counterpart: the two applications of
+  \pOneLab{bp:p1:cauchy-strip} in \pOneLab{step:p4:stab-cauchy}. Lean: exists,
+  \nolinkurl{KAM.norm_iteratedFDeriv_two_le_of_mem_complexStrip}.
+\item \pOneLab{bp:p1:cauchy-corollaries}. Not cited. Counterpart: \pOneLab{bp:p2:cauchy}, cited by
+  \pOneLab{step:p2:fb-torsion}, \pOneLab{step:p2:geo-de}, \pOneLab{step:p2:pt-dl}, \pOneLab{step:p2:pt-xn}.
+  Lean: new (a corollary of the strip estimate).
+\end{itemize}
+
+\medskip\noindent\textbf{Averages.}\par
+\begin{itemize}
+\item \pOneLab{bp:p1:averages-real}. Cited by \pOneLab{bp:p2:averages}, \pOneLab{step:p2:avg-deriv}. Lean:
+  new.
+\item \pOneLab{bp:p1:averages}. Cited by \pOneLab{bp:p2:averages}, \pOneLab{step:p2:avg-deriv},
+  \pOneLab{step:p3:tangent-average}, \pOneLab{step:p3:quad-normal-osc}, \pOneLab{step:p3:quad-normal-avg},
+  \pOneLab{step:p4:lag-exact}. Lean: new.
+\item \pOneLab{bp:p1:averages-matrix}. Cited by \pOneLab{step:p4:mn-rowsum}. Counterparts:
+  \pOneLab{bp:p2:averages}(a), cited by \pOneLab{step:p2:coh-apriori}, \pOneLab{step:p2:per-real},
+  \pOneLab{step:p2:ex-avg-omega}, \pOneLab{step:p2:ex-avg-eta}, \pOneLab{step:p2:tri-xi0},
+  \pOneLab{step:p2:pt-twist}; \pOneLab{bp:p4:matrix-norms}(v). Lean: new.
+\item \pOneLab{bp:p1:periodic-average}. Not cited. Counterpart: \pOneLab{bp:p4:periodic-average}, cited by
+  \pOneLab{step:p4:shift-phase}, \pOneLab{step:p4:lip-phase}. Lean: Mathlib
+  \nolinkurl{Function.Periodic.intervalIntegral_add_eq}; the several-variable form new.
+\end{itemize}
+
+\medskip\noindent\textbf{Fourier coefficients and the cohomological equation.}\par
+\begin{itemize}
+\item \pOneLab{bp:p1:exp-sums} (new). Used only in this part. Lean: (a) exists,
+  \nolinkurl{KAM.Fourier.rpow_mul_exp_neg_le}; (b), (c) new.
+\item \pOneLab{bp:p1:fourier-basic} (new). Used only in this part. Lean: (b) from Mathlib
+  \nolinkurl{UnitAddTorus.hasSum_mFourier_series_apply_of_summable}, after transport from periodic
+  functions on $\R^n$; (a), (c) new.
+\item \pOneLab{bp:p1:decay}. Used only in this part. Lean: new.
+\item \pOneLab{bp:p1:summation}. Used only in this part. Lean: new; the coefficient side uses
+  \nolinkurl{KAM.Fourier.weightedNorm} at coefficient radius $2\pi\rho$.
+\item \pOneLab{bp:p1:cohomological}. Cited by \pOneLab{bp:p2} (introduction), \pOneLab{bp:p2:constants},
+  \pOneLab{step:p2:coh-components}, \pOneLab{step:p2:g1-constants}, \pOneLab{eq:p3:constants},
+  \pOneLab{step:p3:lagrangian-unique}, \pOneLab{step:p3:quad-normal-osc}, \pOneLab{step:p3:quad-tangent},
+  \pOneLab{step:p4:lag-unique}. Lean: the coefficient level exists,
+  \nolinkurl{KAM.Diophantine.solve}, \nolinkurl{KAM.Diophantine.existsUnique_cohomological},
+  \nolinkurl{KAM.Diophantine.weightedNorm_solve_le}, \nolinkurl{KAM.Diophantine.solve_unique},
+  \nolinkurl{KAM.Diophantine.solve_conjugateSymmetric}; the passage to functions on strips is new.
+\item \pOneLab{bp:p1:cohomological-operator}. Not cited. Counterpart: \pOneLab{bp:p2:cohomological}, cited
+  by \pOneLab{step:p2:geo-omegak}, \pOneLab{bp:p2:triangular}, \pOneLab{step:p2:tri-first},
+  \pOneLab{step:p2:tri-second}, \pOneLab{step:p2:tri-real}. Lean: new.
+\item \pOneLab{bp:p1:iteration}. Cited by \pOneLab{bp:p2:error-decay}. Counterparts:
+  \pOneLab{bp:p2:error-decay}(a), cited by \pOneLab{bp:p2:constants}, \pOneLab{step:p2:it-sums},
+  \pOneLab{step:p2:it-stepsmall}, \pOneLab{step:p2:lim-k}, \pOneLab{step:p2:lim-invariance};
+  \pOneLab{bp:p3:iteration}, cited by \pOneLab{step:p3:g2-iteration}. Lean: new.
+\end{itemize}
+
+\medskip\noindent\textbf{Real points.}\par
+\begin{itemize}
+\item \pOneLab{bp:p1:real-restriction}. Not cited. Counterpart: \pOneLab{bp:p4:real-restriction}, cited by
+  \pOneLab{bp:p4:real-torus}, \pOneLab{step:p4:rt-analytic}, \pOneLab{step:p4:rt-small},
+  \pOneLab{step:p4:rt-lagrangian}, \pOneLab{step:p4:rt-ode}. Lean: new; it rests on
+  \pOneLab{bp:p1:holomorphic-analytic}.
+\item \pOneLab{bp:p1:hamiltonian-real}. Not cited. Counterparts: \pOneLab{bp:p4:hamiltonian-real}, cited by
+  \pOneLab{step:p4:rt-ode}; \pOneLab{step:p4:db-vectorfield}, cited by \pOneLab{step:p4:unp-torsion},
+  \pOneLab{step:p4:lag-transport}; \pOneLab{bp:p2:hamiltonian}(d). Lean: new.
+\end{itemize}
+
+\medskip\noindent\textbf{Lipschitz maps and Lebesgue measure.}\par
+\begin{itemize}
+\item \pOneLab{bp:p1:lip-image}. Not cited. Counterparts: \pOneLab{bp:p4:lip-image}, cited by
+  \pOneLab{step:p4:pm-proof}, \pOneLab{step:p4:mm-count}; \pOneLab{bp:p4:preimage-measure}, cited by
+  \pOneLab{step:p4:mm-bad}. Lean: Mathlib \nolinkurl{MeasureTheory.hausdorffMeasure_pi_real},
+  \nolinkurl{LipschitzOnWith.hausdorffMeasure_image_le}; assembly new.
+\item \pOneLab{bp:p1:mcshane}. Not cited. Counterpart: \pOneLab{bp:p4:mcshane}, cited by
+  \pOneLab{step:p4:mm-extension}. Lean: Mathlib \nolinkurl{LipschitzOnWith.extend_real},
+  \nolinkurl{LipschitzOnWith.extend_pi}; clamping new.
+\item \pOneLab{bp:p1:lipeo}. Not cited. Counterpart: \pOneLab{bp:p4:lipeo}, cited by
+  \pOneLab{step:p4:mm-extension}. Lean: Mathlib \nolinkurl{ContractingWith.fixedPoint}; assembly new.
+\item \pOneLab{bp:p1:dmeas}. Cited by \pOneLab{bp:p4:g3-remark}. It is Theorem~\ref{bp:p0:g3}, proved in
+  Subsection~\ref{bp:p4:sec-g3} and applied in \pOneLab{bp:p4:preimage-measure}. Lean: the frozen
+  statement \Lean{KAM.volume\_not\_diophantine\_le}.
+\end{itemize}
+\par}
