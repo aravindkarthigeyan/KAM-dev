@@ -175,6 +175,8 @@ public import KAM.Measure.McShane
 public import KAM.Measure.Slab
 public import KAM.Nekhoroshev.QuasiConvex
 public import KAM.Nekhoroshev.ZeroPerturbation
+public import KAM.ODE.Basic
+public import KAM.ODE.Lipschitz
 public import KAM.Provider.Iso.KeplerBorderedDet
 public import KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative
 public import KAM.Provider.Nekhoroshev.ZeroPerturbation
