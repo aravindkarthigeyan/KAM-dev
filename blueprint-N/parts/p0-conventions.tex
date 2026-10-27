@@ -256,3 +256,85 @@ No uniform radius of invertibility is asserted.
 \frozen{KAM.Nekhoroshev.\allowbreak quasiConvex\_\allowbreak isoenergetic\_\allowbreak derivative}
 \source{BM11 Lemma~3.3 and its proof, pp.~9--10 (only the derivative assertion).}
 \end{theorem}
+
+\subsection{D25 additions: the partial (slow--fast) convex theorem}\label{bpN:p0:partial-sec}
+
+Owner approval D25 (27 October 2026) froze one further theorem, N-PARTIAL-CONVEX, and seven definitions. The Lean
+declarations are authoritative (\texttt{\seqsplit{KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean}},
+\texttt{\seqsplit{KAM/Frozen/Nekhoroshev/Defs/\{ComplexifyPhase,InnerCore,PartialComplexDomain,HasDefiniteFastPart,IsPartialPerturbation,PartialTimeExponent,PartialDriftExponent\}.lean}}).
+Notation: $\mathrm{Ph}_d=\R^d\times\R^d$ (Lean \Lean{KAM.Planetary.Phase}\,$d$, positions first, then momenta) with the product of max norms,
+$\norm{(x,y)}=\max(\abs x,\abs y)$. For $v\in\R^{n+k}$ (or $\R^{n+k}$-valued vectors), $\mathrm{fast}(v)=(v_1,\dots,v_n)$ is the first block and
+$\mathrm{slow}(v)=(v_{n+1},\dots,v_{n+k})$ the second block (\Lean{KAM.Planetary.fast}, \Lean{KAM.Planetary.slow}).
+A phase point of the partial system is $z=(\varphi,\mathsf I)\in\mathrm{Ph}_{n+k}$: $\varphi=(\varphi_{\rm f},q)$ with $n$ fast angles $\varphi_{\rm f}=\mathrm{fast}(\varphi)$ and
+$k$ slow positions $q=\mathrm{slow}(\varphi)$; $\mathsf I=(I,p)$ with $n$ fast actions $I=\mathrm{fast}(\mathsf I)$ and $k$ slow momenta $p=\mathrm{slow}(\mathsf I)$. The slow pair is $(q,p)=\bigl(\mathrm{slow}(\varphi),\mathrm{slow}(\mathsf I)\bigr)\in\mathrm{Ph}_k$.
+The fast angles have period $2\pi$ (\Lean{KAM.Planetary.fastShift}\,$\ell=(2\pi\ell,0)$ in the fast block).
+
+\begin{definition}[\Lean{complexifyPhase}]\label{bpN:p0:partial-complexify}
+For $z=(x,y)\in\mathrm{Ph}_d$: $\mathrm{cx}(z)=\bigl((x_i)_i,(y_i)_i\bigr)\in\C^d\times\C^d$, componentwise inclusion $\R\subset\C$; no choices.
+\frozen{KAM.Nekhoroshev.\allowbreak complexifyPhase}
+\source{Ours (notation for Nek77 \S4.3, p.~29: ``for real values of the arguments $H$ is real-valued'').}
+\end{definition}
+
+\begin{definition}[\Lean{innerCore}: closed max-norm erosion]\label{bpN:p0:partial-core}
+For a normed group $E$, $U\subset E$ and $d\in\R$: $\operatorname{core}(U,d)=\{x\in U:\ \bar B(x,d)\subset U\}$ (closed ball of the norm of $E$). Used only with $d>0$ (for $d<0$ the ball is empty and $\operatorname{core}(U,d)=U$).
+It is used on $E=\R^n$ (max norm) and $E=\mathrm{Ph}_k$ (product of max norms).
+\frozen{KAM.Nekhoroshev.\allowbreak innerCore}
+\source{Nek77 \S4.2, p.~29 ($X-\varepsilon$: points of $X$ whose $\varepsilon$-neighbourhoods lie in $X$); here closed balls of the max norm, a stronger margin than the Euclidean erosion of the source.}
+\end{definition}
+
+\begin{definition}[\Lean{partialComplexDomain}]\label{bpN:p0:partial-domain}
+For $G\subset\R^n$, $D\subset\mathrm{Ph}_k$ and $\rho\in\R$,
+\[\mathcal F(G,D,\rho)=\Bigl\{(\varphi,\mathsf I)\in\C^{n+k}\times\C^{n+k}:\ \mathrm{fast}(\operatorname{Re}\mathsf I)\in G,\ \bigl(\mathrm{slow}(\operatorname{Re}\varphi),\mathrm{slow}(\operatorname{Re}\mathsf I)\bigr)\in D,\ \varphi,\mathsf I\in T^{n+k}_\rho\Bigr\},\]
+$T^{N}_\rho=\{u\in\C^N:\abs{\operatorname{Im}u_i}<\rho\ \forall i\}$ (Lean \Lean{KAM.complexStrip}). The fast real angles and the slow real positions carry no condition other than $(\mathrm{slow}\operatorname{Re}\varphi,\mathrm{slow}\operatorname{Re}\mathsf I)\in D$.
+\frozen{KAM.Nekhoroshev.\allowbreak partialComplexDomain}
+\source{Nek77 \S4.3.A, p.~29 (complex tube over arbitrary fast/slow real domains $G$, $D$; there the imaginary bounds are closed, $\le\rho$, and the slow variables are $(p,q)\in D\subset\R^{2(n-s)}$).}
+\end{definition}
+
+\begin{definition}[\Lean{HasDefiniteFastPart}]\label{bpN:p0:partial-definite}
+For $G\subset\R^n$, $\rho,g,m\in\R$ and $h:\C^n\to\C$, with $U=\{I\in\R^n:\ I\in G_\rho\}$ ($G_\rho=\texttt{actionNbhd}\,G\,\rho$, Definition~\ref{bpN:p0:actionnbhd}; its real points):
+$\texttt{HasDefiniteFastPart}\,G\,\rho\,g\,m\,h$\allowbreak\ holds iff $g>0$, $m>0$, the function $h_\R=\operatorname{Re}h|_{\R^n}$ is $C^3$ on $U$ (Lean \Lean{ContDiffOn}\,$\R\,3$, with $U$ the set above) and there is $\sigma\in\{1,-1\}$ with, for every $I\in U$:
+\[\abs{\omega_h(I)}\ge g\qquad\text{and}\qquad \forall v\in\R^n:\quad m\sum_iv_i^2\le\sigma\,D^2h_\R(I)[v,v],\]
+where $\omega_h=\nabla h_\R$ (Definition~\ref{bpN:p0:freq}; the norm of $\omega_h(I)\in\R^n$ is the max norm), and $D^2h_\R(I)[v,v]$ is the second \Lean{fderiv} of $h_\R$ at $I$ applied to $v$ and $v$ (Lean \Lean{fderiv}\,$\R$ twice).
+\frozen{KAM.Nekhoroshev.\allowbreak HasDefiniteFastPart}
+\source{Specialisation of Nek77 \S1.18 and \S4.1 (index-one steep class) to a definite fast Hessian of one global sign $\sigma$; deviation D-N-ADD-1 (\texttt{docs/tracks/N/REVIEW-additions.md}); not a source definition.}
+\end{definition}
+
+\begin{definition}[\Lean{IsPartialPerturbation}]\label{bpN:p0:partial-pert}
+For $G\subset\R^n$, $D\subset\mathrm{Ph}_k$, $\rho\in\R$ and $P:\C^{n+k}\times\C^{n+k}\to\C$, $\texttt{IsPartialPerturbation}\,G\,D\,\rho\,P$ holds iff
+\begin{enumerate}[label=(P\arabic*)]
+\item $P$ is complex differentiable on $\mathcal F(G,D,\rho)$ (Lean \Lean{DifferentiableOn}\,$\C$);
+\item $\abs{P(z)}\le1$ for $z\in\mathcal F(G,D,\rho)$;
+\item for real $z\in\mathrm{Ph}_{n+k}$ with $\mathrm{cx}(z)\in\mathcal F(G,D,\rho)$: $\operatorname{Im}P(\mathrm{cx}(z))=0$;
+\item for every $z\in\mathcal F(G,D,\rho)$ and $\ell\in\Z^n$: $P\bigl(z+\mathrm{cx}(\mathrm{fastShift}\,\ell)\bigr)=P(z)$, i.e.\ $P$ is $2\pi$-periodic in each fast angle; there is no periodicity in the slow variables.
+\end{enumerate}
+\frozen{KAM.Nekhoroshev.\allowbreak IsPartialPerturbation}
+\source{Nek77 \S4.3 and Remark 4.5.A, p.~30 (the perturbation $H_1$ is analytic on $F$, $2\pi$-periodic in $\varphi$, real for real arguments; its size $M=\sup\abs{H_1}$ is $\le\mu$ for $H_1=\mu P$).}
+\end{definition}
+
+\begin{definition}[\Lean{partialTimeExponent}, \Lean{partialDriftExponent}]\label{bpN:p0:partial-exponents}
+For $n\in\N$: $a_n=\dfrac2{6n^2-3n+14}$ and $b_n=\dfrac3{6n^2-3n+14}=\tfrac32a_n$ (real arithmetic; for $n\ge2$ the denominator is $\ge 6\cdot4-6+14=32>0$).
+\frozen{KAM.Nekhoroshev.\allowbreak partialTimeExponent, KAM.Nekhoroshev.\allowbreak partialDriftExponent}
+\source{Nek77 (4.1), (4.4), (4.5), p.~29--30, with all steepness indices $\alpha_i=1$ and $s=n$ (the formulas (4.4), (4.5) are images that the text layer of the scan loses; the frozen definitions and \texttt{docs/tracks/N/statement.md} are used); for $n=2$: $a=\frac1{16}$, $b=\frac3{32}$ (\texttt{docs/tracks/N/statement.md}).}
+\end{definition}
+
+\begin{theorem}[N-PARTIAL-CONVEX: exponential stability of the fast actions, definite fast part, slow--fast]\label{bpN:p0:partial}
+Let $n\ge2$, $k\ge1$, $G,G'\subset\R^n$ open and convex, $D\subset\mathrm{Ph}_k$ open, $\rho,g,m,M_{\C}\in\R$ with $\rho>0$, $M_{\C}>0$ and
+\[\bar B(I,\rho)\subset G'\quad\text{for every }I\in G\qquad(\text{closed max-norm ball}),\]
+and let $h:\C^n\to\C$ with: $h$ complex differentiable and complex $C^2$ on $G'_\rho$; $\operatorname{Im}h(I)=0$ for every real $I$ with $I\in G'_\rho$; $\norm{D^2h(z)}\le M_{\C}$ for every $z\in G'_\rho$ (operator norm of the complex Hessian, max norms); and $\texttt{HasDefiniteFastPart}\,G'\,\rho\,g\,m\,h$. Then there is $\mu_0>0$ such that for all $\mu\in(0,\mu_0)$, all $P$ with $\texttt{IsPartialPerturbation}\,G'\,D\,\rho\,P$, all $C>0$ and all $z:\R\to\mathrm{Ph}_{n+k}$ with
+\begin{enumerate}[label=(Z\arabic*)]
+\item $\texttt{IsSolutionOn}\;H_\mu\;\{\mathsf I:\mathrm{fast}(\mathsf I)\in G\}\;[0,C]\;z$, where $H_\mu(\varphi,\mathsf I)=\operatorname{Re}h\bigl(\mathrm{fast}(\mathsf I)\bigr)+\mu\operatorname{Re}P\bigl(\mathrm{cx}(\varphi,\mathsf I)\bigr)$ (Lean \Lean{KAM.Planetary.degenerateHamiltonian}\,$(\texttt{realPart }h)\,(\lambda\_\,w.\ \operatorname{Re}P(\mathrm{cx}\,w))\,\mu$, Definition~\ref{bpN:p0:realpart});
+\item $\mathrm{fast}(z(0)_2)\in\operatorname{core}(G,\mu^{b_n})$,
+\end{enumerate}
+and every $t\in\bigl[0,\min\bigl(C,\ \mu^{-1}\exp(\mu^{-a_n})\bigr)\bigr]$ with
+\[\Bigl(\mathrm{slow}(z(u)_1),\mathrm{slow}(z(u)_2)\Bigr)\in\operatorname{core}\bigl(D,\mu^{b_n}\bigr)\quad\text{for all }u\in[0,t],\]
+one has
+\[\bigl|\mathrm{fast}(z(t)_2)-\mathrm{fast}(z(0)_2)\bigr|\le\tfrac12\mu^{b_n}.\]
+The order of choice is: $n,k$; $G,G',D,\rho,g,m,M_{\C},h$ (together with their hypotheses); then $\mu_0$; then $\mu,P,C,z$; then $t$. The slow confinement is tested only on $[0,t]$ (never assumed up to the exponential time).
+\frozen{KAM.Nekhoroshev.\allowbreak partialConvex\_\allowbreak nekhoroshev}
+\source{Nek77 Theorem 4.4, p.~30, with Remarks 4.5.A--B; proof specialised to a definite fast Hessian as in \texttt{docs/tracks/N/notes.md}, F-NADD-1 (Lemma 10.6, p.~47, replaced by its definite-Hessian endpoint argument); deviation D-N-ADD-1 (collar $G\Subset G'$, $2\pi$ period, stopped quantifier, maximum-norm erosion).}
+\sourcegap{The printed theorem assumes steepness of $H_0$ on the whole source domain with explicit coefficients, a Euclidean erosion, closed imaginary bounds, and the confinement of $(p,q)$ on the whole $[0,C]$; the frozen statement (collar, closed max-norm erosion, confinement tested on $[0,t]$ only, imaginary width $\rho$ open) is proved here via the route of Part~\ref{bpN:p11}. The initial erosion $\operatorname{core}(G,\mu^{b_n})$ is used only through $\mathrm{fast}(z(0)_2)\in G$.}
+\end{theorem}
+
+\begin{remark}[Lean totality for the D25 objects]\label{bpN:p0:partial-totality}
+(a) $\mu^{b_n}$, $\mu^{-a_n}$, $\mu^{-1}$ occur only for $\mu>0$ (rpow of a positive base), and $6n^2-3n+14>0$. (b) $\omega_h$, $D^2h_\R$ in \texttt{HasDefiniteFastPart} are guarded: $h_\R$ is $C^3$ on the real slice $U$ of the open set $G'_\rho$, which is open in $\R^n$ ($G'$ open), so the \Lean{fderiv} are true derivatives at every $I\in U$ (Lemma~\ref{bpN:p1:holo-real} for the relation with the complex derivatives). (c) $\texttt{IsSolutionOn}$ asserts differentiability of $H_\mu$ at $z(u)$, $u\in[0,C]$; where $\mathrm{slow}(z(u))\notin D$ the value $P(\mathrm{cx}\,w)$ is the arbitrary value of the function $P$ outside $\mathcal F$, and the theorem uses the solution only for $u\in[0,t]$ where the slow variables lie in $\operatorname{core}(D,\mu^{b_n})\subset D$, an open set on which $H_\mu$ is real analytic. (d) If $\operatorname{core}(D,\mu^{b_n})$ is empty the confinement hypothesis fails for $t\ge0$ and the statement is vacuous. (e) $\texttt{fderiv}\,\C\,(\texttt{fderiv}\,\C\,h)$ is the true second derivative on the open set $G'_\rho$ where $h$ is complex $C^2$.
+\end{remark}
