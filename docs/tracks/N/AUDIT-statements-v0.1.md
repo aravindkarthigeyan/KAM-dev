@@ -578,3 +578,402 @@ checker and semantic output receipt; local PDF extracts and page images in the s
 directory. The audit is complete. The unresolved mathematical issue is F-N1's exact
 uniform analytic dependency, with the other source repairs and uncertainties explicitly
 bounded above; no requested file or binder audit is deferred.
+
+## v0.2 delta
+
+Independent delta audit, 2026-10-27. This section supersedes earlier status only
+where expressly stated; the preceding report is preserved byte for byte. Reviewed
+the response, revised Lean draft, statement, sources, notes, current campaign rules
+and frozen interfaces. Starting checkout:
+2867629a9824d65c4b8865dd793f589b129f886c. Writes remain confined to this report
+and .drafts/N/audit-scratch/. No draft, source packet, frozen file, manifest,
+generated file or other track was edited. No state-changing git command was used.
+
+### Delta verdict
+
+**The new predicate and separately named N-HEAD-C theorem are APPROVABLE.**
+The pinned Pöschel Theorem 1 supports the new theorem, with the conversions below.
+There is no missing frequency upper-bound parameter, domain-margin parameter,
+independent quantitative-QC parameter, or complex third-derivative bound for this
+route. Existing real B(M) supplies the frequency upper bound. A fixed smaller source
+tube supplies the margin. Mcomplex and ωmin, together with the retained premises,
+suffice for constants uniform in h, f, ε, angles and initial actions.
+
+This approves a mathematical statement and its source applicability, **not a Lean
+proof or an owner ruling selecting it as the headline**. The additional ωmin
+restriction is not a literal blanket hypothesis of Pöschel's theorem: it selects
+its nonexceptional, shrinking-radius branch and supplies one quantitative-QC
+conversion. This sufficient package is not claimed minimal. The original N-HEAD
+is unchanged and F-N1 remains open; the new theorem cannot discharge that type.
+
+Per-declaration verdicts for the current 203-line draft:
+
+| Declaration | Line | Verdict | Delta assessment |
+|---|---:|---|---|
+| actionBall | 31 | APPROVABLE | Unchanged maximum-norm open ball. |
+| realActionDomain | 34 | APPROVABLE | Unchanged real slice of the complex neighbourhood. |
+| complexDomain | 38 | APPROVABLE | Unchanged product, period-one angles and width s. |
+| realPart | 42 | APPROVABLE | Unchanged real restriction. |
+| IsAnalyticIntegrable | 48 | APPROVABLE | Unchanged analytic, realness and regularity guards. |
+| IsStrictlyQuasiConvex | 57 | APPROVABLE | Unchanged transverse positivity and nonvanishing. |
+| HasDerivativeBounds | 67 | APPROVABLE | Unchanged real coordinate bounds; first order pays the frequency upper bound. |
+| IsAnalyticPerturbation | 76 | APPROVABLE | Unchanged sup norm, periodicity, reality and domain. |
+| IsSolutionOn | 89 | APPROVABLE | Unchanged genuine Hamilton equations and two-sided derivatives. |
+| integrableOrbit | 97 | APPROVABLE | Unchanged explicit affine orbit. |
+| quasiConvex_isoenergetic_derivative | 103 | APPROVABLE | Dimension generalization is valid; no uniform inverse radius was added. |
+| zero_perturbation | 114 | APPROVABLE | Dimension generalization is valid; exact zero dynamics remain correct. |
+| quasiConvex_nekhoroshev | 130 | APPROVABLE WITH CHANGES | Same qualified v0.1 verdict: faithful BM transcription with unresolved F-N1 source import. Documentation now acknowledges it correctly; this is not proof-route sign-off. |
+| HasComplexHessianBound | 158 | APPROVABLE | Genuine guarded complex Hessian norm, with valid source-norm conversion. |
+| quasiConvex_nekhoroshev_complexBound | 169 | APPROVABLE | Correct separately stated consequence of the selected Pöschel route, including uniform constants and flow clauses. |
+
+### Exact delta and pins
+
+Reversing only the documented v0.2 changes reconstructs a complete draft with
+SHA-256 5d355931750abcade041a3ded28b12f99c981b4ed42ca8b4c7482173068a91cf,
+exactly the v0.1 pin in §2. Thus this compares actual audited bytes, not just the
+writer's change summary. Scratch files Statements-v0.1.txt, Statements-v0.2.txt
+and delta-v0.2.diff retain the comparison.
+
+The only Lean changes are the author/header revision, module documentation,
+deletion of both gate dimension hypotheses, the new predicate and theorem,
+and its axiom print. All ten old definitions and docstrings are byte-identical.
+The original N-HEAD declaration is byte-identical, SHA-256
+37028cd2d8cf0e9448e74428246814eb57cf9450ac811544aec70be7267abc56.
+The new theorem's conclusion from the universal initial angles/actions onward
+is byte-identical to the old conclusion.
+
+| Reviewed artifact | SHA-256 |
+|---|---|
+| .drafts/N/Statements.lean | a8e6d09a01d5e7f3c44f7efc05f9c17d93f72f9d8d179d78e731dd3d9017fe99 |
+| docs/tracks/N/statement.md | b076a5a037d314e1f8953a034defaf8b95e969033497d063d5e4b74ec9fbd470 |
+| docs/tracks/N/sources.md | 06d8c9256d3303907cde8fa65451bf42fe1f053b3499719aac4c758ee5c48bd2 |
+| docs/tracks/N/notes.md | fac85459d378531ad7452c5d31e8a639a7557b73ae2e35cdefe4a8982913dc37 |
+| docs/tracks/N/RESPONSE-v0.1.md | 63b535227abe9a4b033b1ee16b039bd5023a273050567c8ed00103330f63b162 |
+
+The Pöschel scan still has SHA-256
+27568ec63af069ab6d6c02e0327aa2d822998be47888f20dea0c6418552dc869.
+The revised documents correctly distinguish the two contracts, two norms, selected
+source branch and pending owner choice. No automatic amendment of D17/D18 is asserted.
+
+### Every prior finding's disposition
+
+| Finding | Disposition verified in v0.2 | Remaining obligation / exact Lean action |
+|---|---|---|
+| F-N1, major | Correctly **open for N-HEAD** throughout the packet. The oscillatory family and complex/real distinction are retained. The new predicate supplies the analytic bound for N-HEAD-C. | No change to the original type. Approval of the new theorem does not prove the original. |
+| F-N2, major source defect | Notes retain the checked unrestricted-λ counterexample; N-QC remains pointwise. Direct Pöschel Theorem 1 does not use BM's false uniform-radius sentence. | No Lean change. The original BM route still needs a restricted quantitative inverse theorem. Bypassing a defect is not repairing the printed assertion. |
+| F-N3, major source gap | Notes retain the checked inner-ball counterexample and larger-domain restart obligation. N-HEAD-C fixes P and its tube once. | No restart premise added. The new tube pays its own margin; the BM restart remains a provider obligation. |
+| F-N4, minor | Both unused gate dimension hypotheses were deleted exactly as suggested; both headlines keep n ≥ 3. | Corrected. No further Lean change. |
+| F-N5, note | Both exponential statements keep ε > 0; N-ZERO handles actual size-zero perturbations. | Correctly maintained; no negative-power evaluation at zero. |
+| F-N6, minor source repair | Notes specify the central half-interval, interior rational, distinct indices, nonzero primitive vector, factor 12 and integer-vector typo. | Correct repair specification, not a completed arithmetic proof. No headline premise added. Direct Pöschel route bypasses this argument. |
+| F-N7, minor | Both author lines now name Scott Armstrong and Zohar Komargodski. | Corrected under D15. |
+| F-N8, note | Original N-HEAD is byte-identical; both new numbers precede the existential constants in N-HEAD-C. | Correctly maintained. Explicit constants below verify the dependence. |
+| F-N9, minor | Historical lint failure remains labeled historical. Current lint and separate draft elaboration pass. | Corrected reporting; production lint still does not validate ignored drafts. |
+| F-N10, note | Shifted quadratic is retained, with Mcomplex = 3 and ωmin = 1. | Valid mathematical nonvacuity calculation below, not a claimed Lean membership proof. |
+
+All §9 errata observations remain in notes: E-N-BM-1 through E-N-BM-5,
+E-N-GCB-1 through E-N-GCB-3, and E-N-POS-1. The complex-symmetric spectral-radius
+sentence is not used to justify the new norm. No new suspected source defect was
+found. The ledger was not edited. Deviations D-N-8 through D-N-10 accurately
+describe the extra fixed inputs, dimension-independent gates and explicit conversions.
+
+### Source inspection and new findings
+
+Read the pinned scan's printed pp. 189–192, including both pages of Theorem 1.
+Also inspected printed pp. 197–199 and 203–204 to resolve the domain of Ω₀.
+P. 197 explicitly calls B₀ “The real ball”; p. 199 defines Ω on that ball and
+p. 204 uses the corresponding local Ω₀. Thus a real frequency upper bound suffices;
+no hidden complex-gradient bound is required for T. Images are retained as
+Pos-04 through Pos-07, Pos-12 through Pos-14, and Pos-18 through Pos-19.
+
+| ID | Declaration | Severity | Source evidence and audit result | Exact proposed Lean change |
+|---|---|---|---|---|
+| V2-N1 | HasComplexHessianBound | note, passes | Pöschel p. 190, complex-domain Hessian operator-bound display. The iterated norm bounds the actual matrix norm by a fixed dimension factor. | None. Never replace it by spectral radius. |
+| V2-N2 | N-HEAD-C, ωmin | note, explicit restriction | P. 190 quantitative QC and p. 191: “except when ‖ω(I₀)‖ ≤ mr₀/8”. The new lower bound pays QC conversion and branch exclusion on the required tube. | None for the separate proposal. Do not insert it into original N-HEAD or call it a literal blanket source hypothesis. |
+| V2-N3 | N-HEAD-C, uniform T | note, passes | P. 191: T₀ = A²s₀/Ω₀. Retained first-order B(M) gives Ω₀ ≤ 2πnM; proof pages confirm a real ball. | None. A new upper-frequency premise is redundant. |
+| V2-N4 | N-HEAD-C, domains | note, passes | P. 189 defines VᵣP; p. 190 requires r₀ ≤ 4l/m. Explicit r₀ fits both the complex domain and the real lower-bound domain. | None. No independent margin or confinement premise is needed. |
+| V2-N5 | N-HEAD-C, flow | note, passes | Pp. 190–191 give two-sided estimates for every initial orbit. Half the time prefactor and an interior tube permit continuation and genuine closed endpoints. | None. Existence and uniqueness are proof obligations, not hypotheses. |
+
+No blocking or major new finding is present for either new declaration.
+
+### Predicate, norms and junk derivatives
+
+On X = Fin n → ℂ with its existing maximum norm, the new expression is a
+continuous linear map X → (X →L[ℂ] ℂ). Its norm is the complex bilinear Hessian
+norm on two maximum-norm unit balls, not the Euclidean matrix norm or spectral
+radius. Applying it to coordinate unit vectors gives |Qᵢⱼ| ≤ Mcomplex. The
+Euclidean matrix operator norm is therefore ≤ n Mcomplex, for example through
+the Frobenius bound. This holds at complex points. At real points holomorphy
+and reality identify its entries with the real Hessian of realPart h.
+
+The frozen actionNbhd is a union of open balls. ContDiffOn ℂ 2 there consequently
+implies ambient differentiability of h and of fderiv ℂ h at every bounded point.
+Thus junk zero derivatives cannot satisfy the bound off the differentiability
+locus. The guard suffices even for the predicate alone; in the headline it is
+redundant regularity under holomorphy. Positivity repeated outside the predicate
+is harmless. Reality and QC are separate headline premises, correctly absent
+from the Hessian-bound predicate itself.
+
+The bound on the whole original complex neighbourhood is stronger in extent than
+the smaller tube actually used, consistent with the declared fixed-domain class.
+It does not silently replace real B(M) or change the frozen coordinate types.
+
+### Uniform conversion, checked clause by clause
+
+Use |·|∞ for the ambient norm and |·|₂ for the Euclidean norm in this calculation;
+no EuclideanSpace type is introduced. Exactly as in sources.md, put
+
+    q = m/n,  Bc = n Mcomplex + q,  μ = q/2,
+    ell = ωmin q / (8(Bc+q)).
+
+These are positive fixed quantities, with Bc ≥ q. The real Hessian norm is ≤ Bc.
+For u perpendicular to ω, drafted QC and |u|₂² ≤ n|u|∞² give
+Q[u,u] ≥ q|u|₂². For every real I in B, |ω|₂ ≥ |ω|∞ ≥ ωmin.
+For Euclidean unit v satisfying |ω·v| ≤ ell, decompose v = u+te with
+e = ω/|ω|₂ and u perpendicular to ω. Then
+
+    |t| ≤ q/[8(Bc+q)] ≤ 1/8,  |u|₂² = 1−t²,
+    Q[v,v] ≥ q(1−t²) − 2Bc|t| − Bc t²
+            = q − (q+Bc)t² − 2Bc|t| ≥ q/2 = μ.
+
+Indeed (q+Bc)t² ≤ (q+Bc)|t| ≤ q/8 and 2Bc|t| ≤ q/4, leaving at least 5q/8.
+Homogeneity gives |ω·v| > ell|v|₂ or Q[v,v] ≥ μ|v|₂² for all real v,
+including v = 0 through the second alternative. This respects the source's
+strict first alternative and weak second alternative, including the threshold.
+The source's quantitative l,m condition is derived, not assumed.
+
+For period 2π set φ = 2πθ and
+
+    H̃(φ,I) = 2π H(φ/(2π),I),  h̃ = 2πh.
+
+Then dI/dt = −∂φH̃ = −∂θH and dφ/dt = ∂IH̃ = 2π∂IH: **time is unchanged**.
+Frequencies, curvature μ, ell and Hessian bound Bc are multiplied by 2π.
+The packet includes the essential Hamiltonian factor. Actions and drift are unchanged.
+
+Take P to be the closed maximum-norm R/2 ball and choose
+
+    r₀ = min(s/2, R/8, 2ell/μ, 4ωmin/μ),
+    s₀ = πs,  σ = πs/4,  F = 2π coth(πs/4)^n,
+    A = 11Bc/μ ≥ 22,  R₀ = r₀/A.
+
+Pöschel permits an arbitrary initial-action set P, not necessarily an open
+Euclidean ball. This P contains every draft initial action. If z is in its complex
+Euclidean r₀-tube, choose J ∈ P with |z−J|₂ < r₀. Since J ∈ B and
+|z−J|∞ ≤ |z−J|₂ < r₀ ≤ s/2 < s, z lies in the frozen actionNbhd.
+On the real slice |I|∞ < R/2+R/8 = 5R/8 < 3R/4, so both the QC conversion
+and lower frequency bound apply on the full required tube. This is a uniform
+margin, not an h-dependent compactness argument.
+
+The radius requirement r₀ ≤ 4(2πell)/(2πμ) holds. At every initial point,
+
+    (2πμ)r₀/8 ≤ πωmin < 2πωmin ≤ |ω̃(I₀)|₂.
+
+This strictly excludes even the source's non-strict exceptional test. Ignoring
+that branch would be invalid: its fixed radius r₀ does not imply the desired
+ε^a radius. The stated lower bound explicitly pays branch selection.
+
+The available angle width after scaling is 2πs. Since
+s₀+2σ = 3πs/2 < 2πs, the exact p. 190 Fourier/sup comparison gives weighted
+source perturbation norm ≤ Fε. Its actions remain in the tube just checked.
+Periodicity handles the infinite real angle lift. Pöschel's inequality is
+non-strict, so this route does not additionally need BM's factor-two convention.
+
+The k = 1 clause of HasDerivativeBounds gives |ωᵢ(I)| ≤ M, hence
+|ω(I)|∞ ≤ M and |ω(I)|₂ ≤ √n M ≤ nM. The real closed R₀-ball about every
+I₀ ∈ P stays inside B because R₀ ≤ R/176. Therefore the source supremum satisfies
+
+    0 < 2πωmin ≤ Ω₀ ≤ 2πnM.
+
+The upper-frequency input is already present. No bound on complex frequencies
+is required for this real-ball prefactor.
+
+With a = 1/(2n), ε* = (2πμ)r₀²/(2¹⁰A^(2n)), choose
+
+    C = (r₀/A)(F/ε*)^a,
+    c = (s₀/6)(ε*/F)^a,
+    T = A²s₀/(4πnM).
+
+All are positive. Applying the source with size Fε ≤ ε* gives
+|I(t)−I₀|₂ ≤ Cε^a for time at least 2T exp(cε^(−a)), since T ≤ T₀/2.
+Maximum-norm drift is no greater. Choose positive ε₀ ≤ ε*/F with Cε₀^a ≤ R/4.
+This is possible since a > 0; indeed at ε*/F the displayed bound is already
+R₀ ≤ R/176. Every constant depends only on n,R,s,M,m,Mcomplex,ωmin,
+not on h, its existential value bound, f, ε or the initial point.
+
+Start the genuine smooth real Hamiltonian field at (θ₀,I₀) and apply the source
+estimate to its maximal orbit. Actions stay in a fixed interior compact set.
+Cauchy estimates for f on smaller positive-width domains and B(M) bound real
+velocity over the periodic angle lift. Neither an action boundary nor an angle
+escaping to infinity in finite time obstructs continuation at a requested
+endpoint. Local smooth ODE theory extends the orbit beyond both endpoints.
+The half-time choice also leaves room for any strict-time convention in a provider.
+Extend the curve arbitrarily outside an open neighbourhood of the interval to
+obtain the total Lean function; endpoint HasDerivAt statements stay two-sided.
+
+Local uniqueness propagates equality with each competitor across [−L,L];
+L = 0 follows from the common initial value. Source estimates already treat
+both time directions. The period conversion preserves the frozen field's signs
+and coordinate order. No confinement, existence, uniqueness or normal form
+has been assumed as a conclusion-shaped hypothesis.
+
+### Binder classification and input excess
+
+The original N-HEAD classification in §6 is unchanged. For N-QC, n,U,h,I are
+typing/domain data; m,hqc give source curvature/regularity/nonvanishing; hI
+places the point in the domain; lam,hlam give the positive source scale.
+The removed hn was campaign scope. At n = 0, hI and nonvanishing are inconsistent,
+so the implication is true; at n = 1, nonzero frequency makes the displayed
+two-by-two derivative invertible. The kernel proof works in all dimensions.
+
+For N-ZERO, n,h,f,θ₀,I₀ are typing data; R,s,hR,hs,hh give the source analytic
+domain; hf is the exact zero case under D18-Q2; hI is the standing initial-action
+domain. The initial value, equation and constant action are conclusions.
+No QC assumption is needed. At n = 0 the phase space is correctly a singleton.
+
+Every binder or hypothesis of the new theorem has the following role:
+
+| Binder / clause | Classification and justification |
+|---|---|
+| n : ℕ | Typing and fixed dimension; real casts in exponents refer to this n. |
+| hn : 3 ≤ n | Owner headline scope D17; ensures n > 0. |
+| R,s,hR,hs | Fixed source geometry and positivity. |
+| M,m,hM,hm | Retained BM source class and bounds; m pays curvature, first-order M pays Ω₀. |
+| Mcomplex,hMcomplex | Fixed source analytic bound, p. 190, before all existential constants. |
+| ωmin,hωmin | Explicit proposed standing restriction realizing quantitative QC and the selected source branch; not an original D18 or literal blanket Pöschel premise. |
+| ∃ C,T,c,ε₀ and positivity | Uniform-constant conclusions, depending only on preceding inputs. |
+| Cε₀^a ≤ R/4 | Owner-requested conclusion D18-Q4, achieved by the explicit choices. |
+| ∀ h,f,ε | Source Hamiltonian/size typing data, after the constants. |
+| IsAnalyticIntegrable R s h | Source holomorphy, reality, membership and regularity guards; its individual bound A is not used uniformly. |
+| HasComplexHessianBound R s h Mcomplex | Source complex operator bound after conversion, with redundant regularity guards. |
+| ∀ I ∈ B, ωmin ≤ ‖frequencyMap h I‖ | Proposed standing branch restriction, sufficient on the chosen tube; no stability conclusion is assumed. |
+| IsStrictlyQuasiConvex ... h m | Retained BM source condition, explicitly converted to ell,μ. |
+| HasDerivativeBounds ... h M | Retained BM source premise; first order supplies the time prefactor. |
+| IsAnalyticPerturbation R s ε f | Source perturbation class; fixed strip loss supplies the weighted Fourier bound. |
+| 0 < ε; ε ≤ ε₀ | Source positive-size/smallness restrictions; guard negative powers. |
+| ∀ θ₀,I₀; I₀ ∈ B(0,R/2) | Arbitrary source initial point and standing initial-action domain. |
+| ∃ z; z 0 = (θ₀,I₀) | Existence and initial-value conclusions under D18-Q4. |
+| IsSolutionOn; ∀ t and its time condition | Equation and drift conclusions; time restricts the asserted estimate, not the Hamiltonian class. |
+| ∀ L,y; 0 ≤ L; L ≤ time; y 0 = initial; IsSolutionOn ... y | Typing, common-data and domain premises inside the uniqueness conclusion, not assumptions of the main existence assertion. |
+| ∀ t ∈ [−L,L], y t = z t | Equality conclusion for every admissible competitor. |
+
+The two new numbers are **sufficient, not uniquely necessary or assumption-minimal**.
+Mcomplex bounds a literal source input. ωmin is a stronger transparent restriction
+used to select a branch and construct ell; this audit does not establish that no
+other argument could derive a suitable lower bound or handle low frequencies.
+It is acceptable for this explicitly separate proposal, not as an authorized
+weakening of the original N-HEAD obligation.
+
+Some clauses are redundant guards: outer versus predicate positivity, and complex
+C² versus holomorphy. The direct Theorem 1 conversion also does not use B(M)'s
+real second- and third-order bounds. These are inherited BM source-class premises,
+not invented assumptions claimed necessary for Pöschel; sources.md says so.
+The full domains of the new bounds also exceed the smaller regions actually used.
+An assumption-minimality claim would therefore be unwarranted. No unaccounted
+EXCESS premise, conclusion-shaped hypothesis or silent change to original N-HEAD
+was found. Owner selection of the proposed smaller class remains explicitly open.
+
+### Boundary cases and nonvacuity
+
+All conversion denominators are positive, as are fractional-power bases. n ≥ 3
+and ε > 0 exclude zero exponent denominators and the totalized ε = 0 negative
+power. No inverse matrix, integral, square root or spectral radius is newly
+introduced into the Lean statement. The positive-size/zero-size split is unchanged.
+
+For n = 3, R = s = 1, M = 6, m = 1 use the shifted quadratic and cosine from §8.
+The complex Hessian is Σᵢvᵢwᵢ, of iterated maximum-norm operator norm exactly 3:
+triangle inequality gives ≤ 3 and all-ones vectors attain it. Thus Mcomplex = 3,
+not its Euclidean matrix norm 1, is valid. On B, 3+I₀ > 2, so ωmin = 1 is valid.
+The remaining memberships follow from §8's explicit calculations; the cosine
+has norm ≤ ε/2. Choose any positive ε below the theorem's threshold.
+This gives a natural nonempty class, without pretending it is a Lean membership
+proof. Some arbitrary parameter tuples can be empty, for example ωmin > M;
+that does not make the theorem as a whole vacuous or justify hidden h-dependence.
+
+### Independent validation receipts
+
+All Lean invocations were serial at default resource limits with nice -n 5.
+No heartbeat, synthesis or recursion override, clean or whole-library build was used.
+
+Command: nice -n 5 lake env lean .drafts/N/Statements.lean — exit 0.
+Exactly four warnings, at 103:8, 114:8, 130:8 and 169:8:
+“declaration uses sorry”. All four theorem axiom lists are
+[propext, sorryAx, Classical.choice, Quot.sound]. These remain unproved drafts;
+elaboration is not theorem certification.
+
+New scratch module: .drafts/N/audit-scratch/DeltaV02Checks.lean, 203 lines,
+SHA-256 6e824c7b97aa46620b6e6d6a76e0ec60d0d359ddd5082290d240753eb9df4d75.
+It copies all eleven definitions and docstrings literally and imports no draft
+theorem. Command:
+nice -n 5 lake env lean .drafts/N/audit-scratch/DeltaV02Checks.lean — exit 0,
+no warnings or errors. Exact saved output: delta-v0.2-lean-output.txt.
+Each of these eight declarations prints only
+[propext, Classical.choice, Quot.sound], without sorryAx:
+
+~~~text
+KAM.Nekhoroshev.AuditV2.actionNbhd_open
+KAM.Nekhoroshev.AuditV2.complex_hessian_derivative_guards
+KAM.Nekhoroshev.AuditV2.frequency_upper_bound
+KAM.Nekhoroshev.AuditV2.complex_hessian_entry_bound
+KAM.Nekhoroshev.AuditV2.qc_loss
+KAM.Nekhoroshev.AuditV2.real_tube_margin
+KAM.Nekhoroshev.AuditV2.excludes_low_frequency
+KAM.Nekhoroshev.AuditV2.uniform_time_prefactor
+~~~
+
+These certify specific derivative, norm, scalar-QC, radius and prefactor steps.
+They do not formalize the full Euclidean decomposition, analytic/Fourier conversion,
+normal forms or ODE continuation. Those arguments are audited mathematically above
+and remain implementation work. The v0.1 scratch files and receipts are unchanged,
+not falsely reported as rerun.
+
+Command: nice -n 5 lake build KAM.Frozen.Defs.FrequencyMap — exit 0:
+
+~~~text
+Build completed successfully (2058 jobs).
+~~~
+
+Command: scripts/lint_sources.sh — exit 0:
+
+~~~text
+check_lean_modules: PASS (45 Lean files, 0 comparator configurations)
+FROZEN-ANCHOR GUARD OK
+ABI HASHES OK (25 frozen declarations)
+~~~
+
+Final static/pin/delta checks use the separate
+.drafts/N/audit-scratch/check-delta-v0.2.py. The v0.1 checker is retained unchanged
+because it pins the old draft. Checks cover input pins, exact reconstruction,
+declarations and copied definitions, the preserved old-report prefix, scratch
+module conventions/prohibited tokens, line caps and whitespace. git diff --check
+is also run, with a direct report whitespace check covering untracked files.
+
+Command: python3 .drafts/N/audit-scratch/check-delta-v0.2.py — exit 0:
+
+~~~text
+PASS input pin: .drafts/N/Statements.lean
+PASS input pin: docs/tracks/N/statement.md
+PASS input pin: docs/tracks/N/sources.md
+PASS input pin: docs/tracks/N/notes.md
+PASS input pin: docs/tracks/N/RESPONSE-v0.1.md
+PASS input pin: docs/DECISIONS.md
+PASS input pin: docs/TRACKS.md
+PASS input pin: sources/incoming-N/poschel1993_gdz.pdf
+PASS complete v0.1 reconstruction and v0.2 snapshot
+PASS ten original definitions and docstrings byte-identical
+PASS eleven scratch definitions and docstrings byte-identical
+PASS unchanged N-HEAD, exact gate delta, identical new conclusion and quantifier order
+PASS original 580-line audit preserved byte for byte; one appended delta
+PASS scratch pin/module/static checks: Semantics.lean (185 lines)
+PASS scratch pin/module/static checks: SourceRefutations.lean (104 lines)
+PASS scratch pin/module/static checks: DeltaV02Checks.lean (203 lines)
+PASS report and new text whitespace/control characters
+PASS saved eight-lemma axiom receipt, no sorryAx
+~~~
+
+git diff --check — exit 0, no output. The final tracked diff contains only this
+report's appended section; ignored audit scratch artifacts are checked directly.
+
+Delta deliverables: this appended section, DeltaV02Checks.lean, saved axiom receipt,
+separate delta checker, pinned before/after text and diff, input-pin record and
+additional source-page images. The new mathematical contract passes this independent
+audit; formal proof and owner selection remain separate. Original N-HEAD's F-N1
+remains explicitly unresolved.

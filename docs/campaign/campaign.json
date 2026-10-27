@@ -70,8 +70,8 @@
    "model": "GPT-6-Astra xhigh",
    "account": "codex-3",
    "session": "kam-audit-n",
-   "assignment": "Delta audit of track N v0.2 (N-HEAD-C)",
-   "state": "running"
+   "assignment": "Track N delta audit v0.2: N-HEAD-C approvable; N-HEAD faithful with source gap F-N1 open",
+   "state": "done"
   },
   {
    "id": "audit-P",
@@ -112,7 +112,7 @@
  ],
  "queued": [
   {
-   "title": "Owner approval: track I (claude.ai/artifact/5B9odMattAPViUVYUgNPDK), track P (claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1), track N question 7"
+   "title": "Owner approval: track I (claude.ai/artifact/5B9odMattAPViUVYUgNPDK), track P (claude.ai/artifact/QWmEaWZobMJmfs4fKz63D1), track N (claude.ai/artifact/YRbRbLgwvj9QZ6gKFFaM5H)"
   },
   {
    "title": "Blueprint consolidation (p2/p3 shared geometry, p3 copies, stale request sections; reviews p2 and p3)"
