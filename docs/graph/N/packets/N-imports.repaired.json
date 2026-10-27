@@ -1,13 +1,16 @@
 {
- "replaced": [
-  "K:bp:p1:decay",
-  "K:bp:p1:summation",
-  "K:bp:p1:averages",
-  "K:bp:p1:real-restriction",
-  "K:bp:p1:fourier-basic"
- ],
+ "replaced": [],
  "added": [],
- "items": [],
- "unresolved": {},
- "passes": []
+ "items": [
+  "K:bp:p1:real-restriction"
+ ],
+ "unresolved": {
+  "stepN:p11:ef-en": "N Part 11c L4–17, L78–89; N Part 7 L18–20, L155–170; N Part 1 L22–23; N Part 4 L47–54 | G3 removes the inapplicable canonical orbit theorem correctly, but the resulting direct proof also uses projecti"
+ },
+ "passes": [
+  "K:bp:p1:decay",
+  "K:bp:p1:fourier-basic",
+  "K:bp:p1:summation",
+  "K:bp:p1:averages"
+ ]
 }

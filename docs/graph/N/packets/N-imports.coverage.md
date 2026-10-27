@@ -14,7 +14,7 @@ DISPOSITION: NODE K:bp:p1:decay
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: sol-delta-N-global
 
 ITEM: K:bp:p1:exp-sums
 KIND: external
@@ -68,7 +68,7 @@ DISPOSITION: NODE K:bp:p1:fourier-basic
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: sol-delta-N-global
 
 ITEM: K:bp:p1:hamiltonian-real
 KIND: external
@@ -91,11 +91,11 @@ REVIEWER: sol-review-N-f
 ITEM: K:bp:p1:real-restriction
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L1051
-DISPOSITION: NODE K:bp:p1:real-restriction
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
+DISPOSITION: EXCLUDED
+REASON: outside every root closure of track N after the G2 fb-real repair; checked DEPS and ROUTES in every packet and reachability from all six frozen roots: no remaining consumer. The owning K statement is retained in its own graph; its source citation at fb-real has an incompatible entire-strip carrier.
+COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: -
 
 ITEM: K:bp:p1:summation
 KIND: external
@@ -104,7 +104,7 @@ DISPOSITION: NODE K:bp:p1:summation
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: sol-delta-N-global
 
 ITEM: K:bp:p1:uniform-limits
 KIND: external
@@ -122,7 +122,7 @@ DISPOSITION: NODE K:bp:p1:averages
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: sol-delta-N-global
 
 ITEM: K:bp:p1:cauchy-open
 KIND: external

@@ -374,7 +374,7 @@ DISPOSITION: NODE stepN:p1:nc-sum
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta-N-a
+REVIEWER: sol-delta-N-global
 
 ITEM: bpN:p1:constants
 KIND: lemma
