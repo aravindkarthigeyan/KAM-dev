@@ -22,8 +22,9 @@ Matrix.Norms.Operator`, as in `KAM/Matrix/Norms.lean`; `2n` rows or columns are 
 * `KAM.Head.frameL0` and `KAM.Head.frameN0` are `L⁰ = (Id; 0)` and `N⁰ = (0; Id)`, the tangent and
   normal frames of the unperturbed torus (computed directly; the unperturbed-torus lemma is not
   used).
-* (i) `KAM.norm_eq_iSup_rowSum`, `KAM.norm_toContinuousLinearMap_mulVecLin`, `Matrix.linfty_opNorm_mul`
-  and `KAM.norm_continuousLinearMap_eq_norm_toMatrix'` (from `KAM/Matrix/Norms.lean`).
+* (i) `KAM.norm_eq_iSup_rowSum`, `KAM.norm_toContinuousLinearMap_mulVecLin`,
+  `Matrix.linfty_opNorm_mul` and `KAM.norm_continuousLinearMap_eq_norm_toMatrix'` (from
+  `KAM/Matrix/Norms.lean`).
 * (ii) `KAM.matrix_norm_transpose`.
 * (iii) `KAM.Head.norm_frameL0` and its companions.
 * (iv) `KAM.Head.dotℂ_omegaZero`, `KAM.Head.omegaZeroMatrix_transpose_mul_self`,
@@ -116,7 +117,8 @@ section Bilinear
 
 variable {n : ℕ}
 
-/-- The frozen bilinear `dotℂ` is the dot product `uᵀ v` of the vectors indexed by `Fin n ⊕ Fin n`. -/
+/-- The frozen bilinear `dotℂ` is the dot product `uᵀ v` of the vectors indexed by
+`Fin n ⊕ Fin n`. -/
 theorem dotℂ_eq_dotProduct (u v : (Fin n → ℂ) × (Fin n → ℂ)) :
     dotℂ u v = (Equiv.sumArrowEquivProdArrow _ _ _).symm u ⬝ᵥ
       (Equiv.sumArrowEquivProdArrow _ _ _).symm v := by

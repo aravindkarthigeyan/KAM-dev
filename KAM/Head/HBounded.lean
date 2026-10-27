@@ -52,11 +52,12 @@ theorem isometry_ofReal_pi :
   norm_cast
   exact congrArg _ (funext fun i => Complex.isometry_ofReal.nndist_eq _ _)
 
-/-- `Q` is closed. -/
+/-- Blueprint `step:p4:hbdd-compact`: `Q` is closed. -/
 theorem isClosed_hbddCompact (B : Set (Fin n → ℝ)) (r₀ : ℝ) : IsClosed (hbddCompact B r₀) :=
   isClosed_le (continuous_infDist_pt _) continuous_const
 
-/-- `Q` is bounded when `B` is bounded and nonempty and `r₀ > 0`. -/
+/-- Blueprint `step:p4:hbdd-compact`: `Q` is bounded when `B` is bounded and nonempty and
+`r₀ > 0`. -/
 theorem isBounded_hbddCompact {B : Set (Fin n → ℝ)} (hB : Bornology.IsBounded B)
     (hne : B.Nonempty) {r₀ : ℝ} (hr₀ : 0 < r₀) : Bornology.IsBounded (hbddCompact B r₀) := by
   have hbdd : Bornology.IsBounded ((fun (J : Fin n → ℝ) i => (J i : ℂ)) '' B) :=
@@ -68,13 +69,13 @@ theorem isBounded_hbddCompact {B : Set (Fin n → ℝ)} (hB : Bornology.IsBounde
   obtain ⟨y, hy, hdist⟩ := (infDist_lt_iff hne').1 (lt_of_le_of_lt hI h34)
   exact ⟨y, hy, hdist⟩
 
-/-- `Q` is compact (`step:p4:hbdd-compact`, first claim). -/
+/-- Blueprint `step:p4:hbdd-compact`, first claim: `Q` is compact. -/
 theorem isCompact_hbddCompact {B : Set (Fin n → ℝ)} (hB : Bornology.IsBounded B)
     (hne : B.Nonempty) {r₀ : ℝ} (hr₀ : 0 < r₀) : IsCompact (hbddCompact B r₀) :=
   Metric.isCompact_of_isClosed_isBounded (isClosed_hbddCompact B r₀)
     (isBounded_hbddCompact hB hne hr₀)
 
-/-- `B_{3r₀/4} ⊆ Q` (`step:p4:hbdd-compact`, second claim, left inclusion). -/
+/-- Blueprint `step:p4:hbdd-compact`, second claim, left inclusion: `B_{3r₀/4} ⊆ Q`. -/
 theorem actionNbhd_subset_hbddCompact (B : Set (Fin n → ℝ)) (r₀ : ℝ) :
     actionNbhd B (3 * r₀ / 4) ⊆ hbddCompact B r₀ := by
   rintro I ⟨J, hJ, hlt⟩
@@ -82,8 +83,8 @@ theorem actionNbhd_subset_hbddCompact (B : Set (Fin n → ℝ)) (r₀ : ℝ) :
   rw [dist_eq_norm]
   exact hlt.le
 
-/-- `Q ⊆ B_{r₀}` for `B` nonempty and `r₀ > 0` (`step:p4:hbdd-compact`, right inclusion): a point
-of `Q` has some `J ∈ B` with `|I - ιJ| < r₀`, since `3r₀/4 < r₀`. -/
+/-- Blueprint `step:p4:hbdd-compact`, second claim, right inclusion: `Q ⊆ B_{r₀}` for `B` nonempty
+and `r₀ > 0`. A point of `Q` has some `J ∈ B` with `|I - ιJ| < r₀`, since `3r₀/4 < r₀`. -/
 theorem hbddCompact_subset_actionNbhd {B : Set (Fin n → ℝ)} (hne : B.Nonempty) {r₀ : ℝ}
     (hr₀ : 0 < r₀) : hbddCompact B r₀ ⊆ actionNbhd B r₀ := by
   intro I hI

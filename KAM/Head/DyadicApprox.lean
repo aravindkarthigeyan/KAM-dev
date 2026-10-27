@@ -11,14 +11,14 @@ public import KAM.Head.DyadicBoxes
 # Inner dyadic approximation
 
 Blueprint Part 4, `bp:p4:dyadic-approx`: an open bounded `B ⊆ ℝⁿ` contains an open `B'` with
-`meas (B \ B') ≤ η` whose boundary layers satisfy `meas {I ∈ B' : infDist(I, B'ᶜ) < t} ≤ C t` for all
-`t > 0` (the boundary-layer hypothesis of HEAD).
+`meas (B \ B') ≤ η` whose boundary layers satisfy `meas {I ∈ B' : infDist(I, B'ᶜ) < t} ≤ C t` for
+all `t > 0` (the boundary-layer hypothesis of HEAD).
 
 The proof follows the blueprint steps.
 
 * `step:p4:dy-exhaust`: `KAM.Head.dyadicFamily B j` is the finite set `𝒟_j` of generation-`j` closed
-  dyadic cubes `2⁻ʲ (m + [0,1]ⁿ)` in `B` (`KAM.Head.dyadicFamily_finite`), `KAM.Head.dyadicUnion B j`
-  is `E_j`, which is closed and increasing, with union `B`
+  dyadic cubes `2⁻ʲ (m + [0,1]ⁿ)` in `B` (`KAM.Head.dyadicFamily_finite`),
+  `KAM.Head.dyadicUnion B j` is `E_j`, which is closed and increasing, with union `B`
   (`KAM.Head.isClosed_dyadicUnion`, `KAM.Head.dyadicUnion_mono`,
   `KAM.Head.iUnion_dyadicUnion`); `KAM.Head.exists_dyadicUnion_diff_le` gives `j` with
   `meas (B \ E_j) ≤ η`.
@@ -75,7 +75,7 @@ theorem dyadicCorner_mem_dyadicCube (j : ℕ) (m : Fin n → ℤ) :
 
 /-! ### Step `step:p4:dy-exhaust` -/
 
-/-- `𝒟_j` is finite because `B` is bounded. -/
+/-- Blueprint `step:p4:dy-exhaust`: `𝒟_j` is finite because `B` is bounded. -/
 theorem dyadicFamily_finite {B : Set (Fin n → ℝ)} (hB : Bornology.IsBounded B) (j : ℕ) :
     (dyadicFamily B j).Finite := by
   obtain ⟨R, hR⟩ := hB.exists_norm_le
@@ -103,7 +103,7 @@ theorem dyadicFamily_finite {B : Set (Fin n → ℝ)} (hB : Bornology.IsBounded 
 theorem dyadicUnion_subset (B : Set (Fin n → ℝ)) (j : ℕ) : dyadicUnion B j ⊆ B :=
   iUnion₂_subset fun _ hm => hm
 
-/-- `E_j` is closed. -/
+/-- Blueprint `step:p4:dy-exhaust`: `E_j` is closed. -/
 theorem isClosed_dyadicUnion {B : Set (Fin n → ℝ)} (hB : Bornology.IsBounded B) (j : ℕ) :
     IsClosed (dyadicUnion B j) :=
   (dyadicFamily_finite hB j).isClosed_biUnion fun _ _ => isClosed_closedBox _ _
@@ -141,7 +141,7 @@ theorem exists_subcube (j : ℕ) (m : Fin n → ℤ) {x : Fin n → ℝ} (hx : x
       push_cast at hy1 hy2
       constructor <;> nlinarith
 
-/-- `E_j ⊆ E_{j+1}`. -/
+/-- Blueprint `step:p4:dy-exhaust`: `E_j ⊆ E_{j+1}`. -/
 theorem dyadicUnion_mono_succ (B : Set (Fin n → ℝ)) (j : ℕ) :
     dyadicUnion B j ⊆ dyadicUnion B (j + 1) := by
   intro x hx
@@ -153,7 +153,7 @@ theorem dyadicUnion_mono_succ (B : Set (Fin n → ℝ)) (j : ℕ) :
 theorem dyadicUnion_mono (B : Set (Fin n → ℝ)) : Monotone (dyadicUnion B) :=
   monotone_nat_of_le_succ (dyadicUnion_mono_succ B)
 
-/-- `⋃ⱼ E_j = B` for open `B`. -/
+/-- Blueprint `step:p4:dy-exhaust`: `⋃ⱼ E_j = B` for open `B`. -/
 theorem iUnion_dyadicUnion {B : Set (Fin n → ℝ)} (hB : IsOpen B) :
     ⋃ j, dyadicUnion B j = B := by
   refine Subset.antisymm (iUnion_subset fun j => dyadicUnion_subset B j) fun x hx => ?_
@@ -162,7 +162,8 @@ theorem iUnion_dyadicUnion {B : Set (Fin n → ℝ)} (hB : IsOpen B) :
   have hw := dyadicSide_pos j
   have hjr : dyadicSide j < r := hj
   let m : Fin n → ℤ := fun i => ⌊x i / dyadicSide j⌋
-  have hxm : ∀ i, (m i : ℝ) * dyadicSide j ≤ x i ∧ x i < (m i : ℝ) * dyadicSide j + dyadicSide j := by
+  have hxm : ∀ i, (m i : ℝ) * dyadicSide j ≤ x i ∧
+      x i < (m i : ℝ) * dyadicSide j + dyadicSide j := by
     intro i
     have h1 := Int.floor_le (x i / dyadicSide j)
     have h2 := Int.lt_floor_add_one (x i / dyadicSide j)
@@ -205,16 +206,16 @@ theorem exists_dyadicUnion_diff_le {B : Set (Fin n → ℝ)} (hB_open : IsOpen B
 
 /-! ### Step `step:p4:dy-open` -/
 
-/-- `B'` is open. -/
+/-- Blueprint `step:p4:dy-open`: `B'` is open. -/
 theorem isOpen_dyadicInterior (B : Set (Fin n → ℝ)) (j : ℕ) : IsOpen (dyadicInterior B j) :=
   isOpen_biUnion fun _ _ => isOpen_openBox _ _
 
-/-- `B' ⊆ B`. -/
+/-- Blueprint `step:p4:dy-open`: `B' ⊆ B`. -/
 theorem dyadicInterior_subset (B : Set (Fin n → ℝ)) (j : ℕ) : dyadicInterior B j ⊆ B :=
   iUnion₂_subset fun _ hm => (openBox_subset_closedBox _ _).trans hm
 
-/-- `E_j \ B'` lies in the union of the boundaries of the cubes, a null set, so
-`meas (B \ B') ≤ meas (B \ E_j)`. -/
+/-- Blueprint `step:p4:dy-open`: `E_j \ B'` lies in the union of the boundaries of the cubes, a
+null set, so `meas (B \ B') ≤ meas (B \ E_j)`. -/
 theorem volume_diff_dyadicInterior_le {B : Set (Fin n → ℝ)} (hB : Bornology.IsBounded B) (j : ℕ) :
     volume (B \ dyadicInterior B j) ≤ volume (B \ dyadicUnion B j) := by
   have hnull : volume (⋃ m ∈ dyadicFamily B j,
@@ -235,8 +236,8 @@ theorem volume_diff_dyadicInterior_le {B : Set (Fin n → ℝ)} (hB : Bornology.
 
 /-! ### Step `step:p4:dy-layer` -/
 
-/-- The boundary layer of `B'` has measure at most `C t` with `C = 2 n N ℓⁿ⁻¹`, where
-`N = #𝒟_j` and `ℓ = 2⁻ʲ`. -/
+/-- Blueprint `step:p4:dy-layer`: the boundary layer of `B'` has measure at most `C t` with
+`C = 2 n N ℓⁿ⁻¹`, where `N = #𝒟_j` and `ℓ = 2⁻ʲ`. -/
 theorem volume_layer_dyadicInterior_le (hn : 0 < n) {B : Set (Fin n → ℝ)}
     (hB : Bornology.IsBounded B) (j : ℕ) {t : ℝ} (ht : 0 < t) :
     volume {I | I ∈ dyadicInterior B j ∧ infDist I (dyadicInterior B j)ᶜ < t} ≤

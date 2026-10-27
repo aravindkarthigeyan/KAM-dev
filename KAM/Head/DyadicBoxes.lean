@@ -61,7 +61,8 @@ theorem volume_openBox (a : Fin n → ℝ) (ℓ : ℝ) :
 /-- The boundary of a box is a null set. -/
 theorem volume_closedBox_diff_openBox (a : Fin n → ℝ) (ℓ : ℝ) :
     volume (closedBox a ℓ \ openBox a ℓ) = 0 := by
-  rw [measure_sdiff (openBox_subset_closedBox a ℓ) (isOpen_openBox a ℓ).measurableSet.nullMeasurableSet
+  rw [measure_sdiff (openBox_subset_closedBox a ℓ)
+    (isOpen_openBox a ℓ).measurableSet.nullMeasurableSet
     (by rw [volume_openBox]; exact ENNReal.pow_ne_top ENNReal.ofReal_ne_top),
     volume_closedBox, volume_openBox, tsub_self]
 
@@ -73,7 +74,8 @@ section Slabs
 def loSlab (a : Fin n → ℝ) (ℓ t : ℝ) (i : Fin n) : Set (Fin n → ℝ) :=
   Icc a (Function.update (fun k => a k + ℓ) i (a i + min t ℓ))
 
-/-- The slab `{x ∈ closedBox a ℓ : xᵢ ≥ aᵢ + ℓ - t}` near the upper `i`-th face, written as a box. -/
+/-- The slab `{x ∈ closedBox a ℓ : xᵢ ≥ aᵢ + ℓ - t}` near the upper `i`-th face, written as a
+box. -/
 def hiSlab (a : Fin n → ℝ) (ℓ t : ℝ) (i : Fin n) : Set (Fin n → ℝ) :=
   Icc (Function.update a i (a i + ℓ - min t ℓ)) fun k => a k + ℓ
 
@@ -181,7 +183,7 @@ theorem layer_subset (S : Finset ι) (a : ι → Fin n → ℝ) {ℓ t : ℝ} (h
     · simp only [Function.update_of_ne hk]
       exact (hIs k (mem_univ k)).1.le
 
-/-- Blueprint `step:p4:dy-layer`, measure bound. A union `B'` of `N` open boxes of side `ℓ` with
+/-- Blueprint `step:p4:dy-layer`, general form. A union `B'` of `N` open boxes of side `ℓ` with
 `B'ᶜ ≠ ∅` has `meas {I ∈ B' : infDist(I, B'ᶜ) < t} ≤ 2 n N ℓⁿ⁻¹ t`. -/
 theorem volume_layer_le (S : Finset ι) (a : ι → Fin n → ℝ) {ℓ t : ℝ} (hℓ : 0 < ℓ) (ht : 0 < t)
     (hne : (⋃ s ∈ S, openBox (a s) ℓ)ᶜ.Nonempty) :

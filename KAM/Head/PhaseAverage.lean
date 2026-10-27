@@ -37,7 +37,7 @@ namespace KAM.Head
 
 variable {n : ℕ}
 
-/-- The angle displacement `u_K(θ) = K₁(θ) - θ`. -/
+/-- Blueprint `bp:p4:phase-average`: the angle displacement `u_K(θ) = K₁(θ) - θ`. -/
 def angleDisplacement (K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) (θ : Fin n → ℂ) :
     Fin n → ℂ :=
   (K θ).1 - θ
@@ -47,11 +47,11 @@ coordinatewise. -/
 def phaseAverage (K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) : Fin n → ℝ :=
   fun i => torusAverage fun x : Fin n → ℝ => (angleDisplacement K (fun l => (x l : ℂ)) i).re
 
-/-- A torus is *normalized* if its phase average vanishes. -/
+/-- Blueprint `bp:p4:phase-average`: a torus is *normalized* if its phase average vanishes. -/
 def IsNormalized (K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) : Prop :=
   phaseAverage K = 0
 
-/-- The phase shift `K^{[a]}(θ) = K(θ + ι a)`, `a ∈ ℝⁿ`. -/
+/-- Blueprint `bp:p4:phase-average`: the phase shift `K^{[a]}(θ) = K(θ + ι a)`, `a ∈ ℝⁿ`. -/
 def phaseShift (K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) (a : Fin n → ℝ)
     (θ : Fin n → ℂ) : (Fin n → ℂ) × (Fin n → ℂ) :=
   K (θ + fun i => (a i : ℂ))
