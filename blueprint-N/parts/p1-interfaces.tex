@@ -1,5 +1,5 @@
 \section{Interfaces and conversion of hypotheses}\label{bpN:p1}
-begingroup\sloppy
+\begingroup\sloppy
 
 This part connects the frozen hypotheses of track N (Definitions of Part~0) to the form in which the proofs use them. It proves: the real
 action domain and the inclusions of tubes (\S\ref{bpN:p1:s-domains}); that holomorphy gives a smooth real Hamiltonian with
@@ -38,9 +38,9 @@ $\sqrt n\,K_g\le K_a$. (c) The bilinear bound: if $\abs{Q_{ij}}\le M_0$ for a ma
 \source{Standard (\ref{bpN:p1:ext-norms}); the lattice inclusions correct the direction stated in \texttt{PLAN.md} (review N06).}
 \end{lemma}
 \begin{proof}
-\proofstep{Vectors}\label{step:p1:nc-vec} (a),(b) are \ref{bpN:p1:ext-norms}: $\abs x_2^2=\sum x_i^2\le n\max x_i^2$, $\abs x_1\le\sqrt n\abs x_2$ is Cauchy--Schwarz with $(1,\dots,1)$.
+\proofstep{Vectors}\label{stepN:p1:nc-vec} (a),(b) are \ref{bpN:p1:ext-norms}: $\abs x_2^2=\sum x_i^2\le n\max x_i^2$, $\abs x_1\le\sqrt n\abs x_2$ is Cauchy--Schwarz with $(1,\dots,1)$.
 
-\proofstep{Matrices}\label{step:p1:nc-mat} $\abs{x^\top Qy}\le M_0\abs x_1\abs y_1\le M_0\,n\abs x_2\abs y_2$ by (b).
+\proofstep{Matrices}\label{stepN:p1:nc-mat} $\abs{x^\top Qy}\le M_0\abs x_1\abs y_1\le M_0\,n\abs x_2\abs y_2$ by (b).
 \end{proof}
 
 \begin{lemma}[Domains]\label{bpN:p1:realdomain}
@@ -56,11 +56,11 @@ Let $R,s>0$, $n\ge0$.
 \source{Ours (Remark~\ref{bpN:p0:rdomain-eq}); BM11 p.~4 for the notation.}
 \end{lemma}
 \begin{proof}
-\proofstep{Real tube}\label{step:p1:rd-real} ($\subset$) $\abs I\le\abs J+\abs{I-J}<R+s$. ($\supset$) If $\abs I<R+s$ put $J=\frac R{R+s}I$; then $\abs J<R$ and $\abs{I-J}=\frac s{R+s}\abs I<s$ (for $I=0$ take $J=0$).
+\proofstep{Real tube}\label{stepN:p1:rd-real} ($\subset$) $\abs I\le\abs J+\abs{I-J}<R+s$. ($\supset$) If $\abs I<R+s$ put $J=\frac R{R+s}I$; then $\abs J<R$ and $\abs{I-J}=\frac s{R+s}\abs I<s$ (for $I=0$ take $J=0$).
 
-\proofstep{Openness and real points}\label{step:p1:rd-open} $B(0,R)_s=\bigcup_{J\in B(0,R)}\{\abs{I-J}<s\}$ is a union of open balls; $T_s$ is open as a preimage of an open set; products of open sets are open; the rest is the definition of $\iota$ and $\mathcal B_s(R)=B(0,R)_s\cap\R^n$ by Step~\ref{step:p1:rd-real}.
+\proofstep{Openness and real points}\label{stepN:p1:rd-open} $B(0,R)_s=\bigcup_{J\in B(0,R)}\{\abs{I-J}<s\}$ is a union of open balls; $T_s$ is open as a preimage of an open set; products of open sets are open; the rest is the definition of $\iota$ and $\mathcal B_s(R)=B(0,R)_s\cap\R^n$ by Step~\ref{stepN:p1:rd-real}.
 
-\proofstep{Euclidean tubes}\label{step:p1:rd-euclid} By \ref{bpN:p1:ext-norms} $\abs{I-J}_\infty\le\abs{I-J}_2<r_0\le s/2<s$, and $\abs J<R$ since $J\in P$; so $I\in B(0,R)_s$. For real $I$: $\abs I_\infty<R/2+R/8$.
+\proofstep{Euclidean tubes}\label{stepN:p1:rd-euclid} By \ref{bpN:p1:ext-norms} $\abs{I-J}_\infty\le\abs{I-J}_2<r_0\le s/2<s$, and $\abs J<R$ since $J\in P$; so $I\in B(0,R)_s$. For real $I$: $\abs I_\infty<R/2+R/8$.
 \end{proof}
 
 \subsection{Holomorphy implies real smoothness}\label{bpN:p1:s-holo}
@@ -84,17 +84,17 @@ $\partial_{\theta_i}G(w)=DG(w)[(e_i,0)]$, $\partial_{I_i}G(w)=DG(w)[(0,e_i)]$.
 \source{BM11 p.~4 (regularity of $h$ on $B_s$); \Kref{bp:p1:holomorphic-regularity}, \Kref{bp:p1:hamiltonian-real}; ours for the packaging. Part~3 uses this as \Nref{bpN:p3:holo-input}.}
 \end{lemma}
 \begin{proof}
-\proofstep{Holomorphy}\label{step:p1:hr-holo} $h$ is complex differentiable on the open set $B(0,R)_s$ and $f$ on $D_s(R)$ (Definitions~\ref{bpN:p0:integrable}(i), \ref{bpN:p0:pert}(i); openness Lemma~\ref{bpN:p1:realdomain}(b)); the map $(\theta,I)\mapsto h(I)$ is holomorphic on $D_s(R)$ (composition with the linear projection; $B(0,R)_s$ is the second factor). So $G$ is holomorphic on $D_s(R)$, hence $C^\infty$ with holomorphic derivatives of all orders (\Kref{bp:p1:holomorphic-regularity}), which is (a); by \ref{bpN:p1:ext-restrict} $G$ is $C^\infty$ in the real sense.
+\proofstep{Holomorphy}\label{stepN:p1:hr-holo} $h$ is complex differentiable on the open set $B(0,R)_s$ and $f$ on $D_s(R)$ (Definitions~\ref{bpN:p0:integrable}(i), \ref{bpN:p0:pert}(i); openness Lemma~\ref{bpN:p1:realdomain}(b)); the map $(\theta,I)\mapsto h(I)$ is holomorphic on $D_s(R)$ (composition with the linear projection; $B(0,R)_s$ is the second factor). So $G$ is holomorphic on $D_s(R)$, hence $C^\infty$ with holomorphic derivatives of all orders (\Kref{bp:p1:holomorphic-regularity}), which is (a); by \ref{bpN:p1:ext-restrict} $G$ is $C^\infty$ in the real sense.
 
-\proofstep{Reality}\label{step:p1:hr-real} $\iota(W_s)\subset D_s(R)$ (Lemma~\ref{bpN:p1:realdomain}(a)) and $W_s=\iota^{-1}(D_s(R))$ is open. For $z=(\theta,I)\in W_s$, $\operatorname{Im}h(I)=0$ (Definition~\ref{bpN:p0:integrable}(iv), $I\in\mathcal B_s(R)$) and $\operatorname{Im}f(\theta,I)=0$ (Definition~\ref{bpN:p0:pert}(iii)); so $G(\iota z)\in\R$ and $H(z)=\operatorname{Re}G(\iota z)=G(\iota z)$. Likewise $h_\R=h\circ\iota$ on $\mathcal B_s(R)$.
+\proofstep{Reality}\label{stepN:p1:hr-real} $\iota(W_s)\subset D_s(R)$ (Lemma~\ref{bpN:p1:realdomain}(a)) and $W_s=\iota^{-1}(D_s(R))$ is open. For $z=(\theta,I)\in W_s$, $\operatorname{Im}h(I)=0$ (Definition~\ref{bpN:p0:integrable}(iv), $I\in\mathcal B_s(R)$) and $\operatorname{Im}f(\theta,I)=0$ (Definition~\ref{bpN:p0:pert}(iii)); so $G(\iota z)\in\R$ and $H(z)=\operatorname{Re}G(\iota z)=G(\iota z)$. Likewise $h_\R=h\circ\iota$ on $\mathcal B_s(R)$.
 
-\proofstep{Derivatives of all orders}\label{step:p1:hr-deriv} On the open set $W_s$, $H=G\circ\iota$ with $\iota$ $\R$-linear and $G$ real-$C^\infty$ (Step~\ref{step:p1:hr-holo}): chain rule \ref{bpN:p1:ext-restrict} gives $H\in C^\infty(W_s)$ and the displayed formula for $D^kH$, with values real because $H$ is real-valued (the derivative of a real-valued function along real directions is a limit of real difference quotients). The same for $h_\R$.
+\proofstep{Derivatives of all orders}\label{stepN:p1:hr-deriv} On the open set $W_s$, $H=G\circ\iota$ with $\iota$ $\R$-linear and $G$ real-$C^\infty$ (Step~\ref{stepN:p1:hr-holo}): chain rule \ref{bpN:p1:ext-restrict} gives $H\in C^\infty(W_s)$ and the displayed formula for $D^kH$, with values real because $H$ is real-valued (the derivative of a real-valued function along real directions is a limit of real difference quotients). The same for $h_\R$.
 
-\proofstep{The field}\label{step:p1:hr-field} By Definition~\ref{bpN:p0:vf}, $X_H(z)=((DH(z)[(0,e_i)])_i,(-DH(z)[(e_i,0)])_i)$; by Step~\ref{step:p1:hr-deriv} these are $\partial_{I_i}G(\iota z)$ and $-\partial_{\theta_i}G(\iota z)$. This is \Kref{bp:p1:hamiltonian-real} (with $V=D_s(R)$, $H$ agreeing with $\operatorname{Re}G$ on the real neighbourhood $W_s$). Taking $k=1,2$ for $h_\R$ gives $\omega_h(I)_i=Dh_\R(I)[e_i]=\partial_ih(I)$ and $D^2h_\R(I)[e_i,e_j]=\partial_i\partial_jh(I)$, symmetric by \Kref{bp:p1:holomorphic-regularity} (\Kref{bp:p1:ext-schwarz}).
+\proofstep{The field}\label{stepN:p1:hr-field} By Definition~\ref{bpN:p0:vf}, $X_H(z)=((DH(z)[(0,e_i)])_i,(-DH(z)[(e_i,0)])_i)$; by Step~\ref{stepN:p1:hr-deriv} these are $\partial_{I_i}G(\iota z)$ and $-\partial_{\theta_i}G(\iota z)$. This is \Kref{bp:p1:hamiltonian-real} (with $V=D_s(R)$, $H$ agreeing with $\operatorname{Re}G$ on the real neighbourhood $W_s$). Taking $k=1,2$ for $h_\R$ gives $\omega_h(I)_i=Dh_\R(I)[e_i]=\partial_ih(I)$ and $D^2h_\R(I)[e_i,e_j]=\partial_i\partial_jh(I)$, symmetric by \Kref{bp:p1:holomorphic-regularity} (\Kref{bp:p1:ext-schwarz}).
 
-\proofstep{Periodicity}\label{step:p1:hr-per} For $(\theta,I)\in W_s$, $k\in\Z^n$ and real $\theta$: $(\theta,I),(\theta+k,I)\in D_s(R)$ and $f(\theta+k,I)=f(\theta,I)$ (Definition~\ref{bpN:p0:pert}(ii)), $h(I)$ does not depend on $\theta$. So $H\circ\tau_k=H$ on $W_s$, $\tau_k(\theta,I)=(\theta+k,I)$, which maps $W_s$ onto itself with $D\tau_k=\mathrm{id}$; differentiating (chain rule) gives $D^jH(\tau_kz)=D^jH(z)$ and hence $X_H(\tau_kz)=X_H(z)$.
+\proofstep{Periodicity}\label{stepN:p1:hr-per} For $(\theta,I)\in W_s$, $k\in\Z^n$ and real $\theta$: $(\theta,I),(\theta+k,I)\in D_s(R)$ and $f(\theta+k,I)=f(\theta,I)$ (Definition~\ref{bpN:p0:pert}(ii)), $h(I)$ does not depend on $\theta$. So $H\circ\tau_k=H$ on $W_s$, $\tau_k(\theta,I)=(\theta+k,I)$, which maps $W_s$ onto itself with $D\tau_k=\mathrm{id}$; differentiating (chain rule) gives $D^jH(\tau_kz)=D^jH(z)$ and hence $X_H(\tau_kz)=X_H(z)$.
 
-\proofstep{Zero perturbation}\label{step:p1:hr-zero} $\abs{f(w)}\le0$ on $D_s(R)$ gives $f=0$ there, so $H=\operatorname{Re}h(I)=h_\R(I)$ on $W_s$.
+\proofstep{Zero perturbation}\label{stepN:p1:hr-zero} $\abs{f(w)}\le0$ on $D_s(R)$ gives $f=0$ there, so $H=\operatorname{Re}h(I)=h_\R(I)$ on $W_s$.
 \end{proof}
 
 \begin{lemma}[Ordered partials and first-order bounds]\label{bpN:p1:partials}
@@ -104,9 +104,9 @@ $D^kh_\R(I)[e_{i_1},\dots,e_{i_k}]$ ($k\le3$) is invariant under permutations of
 \source{BM11 p.~4 ($B(M)$); \Kref{bp:p1:ext-schwarz}.}
 \end{lemma}
 \begin{proof}
-\proofstep{First order}\label{step:p1:pa-first} $k=1$ in the definition gives $\abs{Dh_\R(I)[e_i]}=\abs{\omega_h(I)_i}\le M$ (Definition~\ref{bpN:p0:freq}); then $\abs\omega_2\le\sqrt n\abs\omega_\infty$ (Lemma~\ref{bpN:p1:norm-compare}).
+\proofstep{First order}\label{stepN:p1:pa-first} $k=1$ in the definition gives $\abs{Dh_\R(I)[e_i]}=\abs{\omega_h(I)_i}\le M$ (Definition~\ref{bpN:p0:freq}); then $\abs\omega_2\le\sqrt n\abs\omega_\infty$ (Lemma~\ref{bpN:p1:norm-compare}).
 
-\proofstep{Symmetry}\label{step:p1:pa-sym} $h_\R\in C^3$ on the open set $U$: $D^2h_\R(I)$ and $D^3h_\R(I)$ are symmetric (\Kref{bp:p1:ext-schwarz} applied to $h_\R$, $Dh_\R$, $D^2h_\R$), which is the permutation invariance; the entry bound is $k=2$.
+\proofstep{Symmetry}\label{stepN:p1:pa-sym} $h_\R\in C^3$ on the open set $U$: $D^2h_\R(I)$ and $D^3h_\R(I)$ are symmetric (\Kref{bp:p1:ext-schwarz} applied to $h_\R$, $Dh_\R$, $D^2h_\R$), which is the permutation invariance; the entry bound is $k=2$.
 \end{proof}
 
 \begin{lemma}[Complex Hessian bound in Euclidean form]\label{bpN:p1:hessian-convert}
@@ -117,9 +117,9 @@ For real $I\in\mathcal B_s(R)$ this matrix is the real Hessian $D^2h_\R(I)[e_i,e
 \sourcegap{Pos93 p.~190 says that for the symmetric $Q$ the Euclidean operator norm ``amounts to the spectral radius norm''. For complex symmetric matrices this is false ($Q=\bigl(\begin{smallmatrix}1&i\\i&-1\end{smallmatrix}\bigr)$ has $Q^2=0$). The frozen definition uses the operator norm of $D^2h$ for the max norm, and so does this blueprint; no spectral-radius claim is used.}
 \end{lemma}
 \begin{proof}
-\proofstep{Entries}\label{step:p1:hc-entries} $D^2h(I)=D(Dh)(I)\in\mathcal L(\C^n,\mathcal L(\C^n,\C))$ has norm $\le M_\C$ by hypothesis and $\abs{e_i}=1$ for the max norm, so $\abs{\partial_i\partial_jh(I)}=\abs{D^2h(I)[e_i,e_j]}\le M_\C$ (the order of arguments is immaterial by symmetry, \Kref{bp:p1:holomorphic-regularity}).
+\proofstep{Entries}\label{stepN:p1:hc-entries} $D^2h(I)=D(Dh)(I)\in\mathcal L(\C^n,\mathcal L(\C^n,\C))$ has norm $\le M_\C$ by hypothesis and $\abs{e_i}=1$ for the max norm, so $\abs{\partial_i\partial_jh(I)}=\abs{D^2h(I)[e_i,e_j]}\le M_\C$ (the order of arguments is immaterial by symmetry, \Kref{bp:p1:holomorphic-regularity}).
 
-\proofstep{Euclidean bound}\label{step:p1:hc-eucl} Lemma~\ref{bpN:p1:norm-compare}(c). The operator-norm statement: $\abs{Qx}_2=\sup_{\abs y_2=1}\abs{\sum_i\bar y_i(Qx)_i}\le nM_\C\abs x_2$ by the same estimate applied to $\bar y$.
+\proofstep{Euclidean bound}\label{stepN:p1:hc-eucl} Lemma~\ref{bpN:p1:norm-compare}(c). The operator-norm statement: $\abs{Qx}_2=\sup_{\abs y_2=1}\abs{\sum_i\bar y_i(Qx)_i}\le nM_\C\abs x_2$ by the same estimate applied to $\bar y$.
 \end{proof}
 
 \subsection{Quasi-convexity: the uniform Euclidean form}\label{bpN:p1:s-qc}
@@ -132,16 +132,16 @@ If $\ell'\ge0$ and $\ell'\le\abs\omega_2\,q/(8(B+q))$, then for every $\xi\in\R^
 \source{Ours; the computation is in \texttt{docs/tracks/N/sources.md} (``Uniform conversion''); all inequalities re-checked here.}
 \end{lemma}
 \begin{proof}
-\proofstep{Reduction to unit vectors}\label{step:p1:cc-unit} Both hypothesis and conclusion are homogeneous (degrees $1$ and $2$) in $\xi$, and the case $\xi=0$ is trivial; so let $\abs\xi_2=1$.
+\proofstep{Reduction to unit vectors}\label{stepN:p1:cc-unit} Both hypothesis and conclusion are homogeneous (degrees $1$ and $2$) in $\xi$, and the case $\xi=0$ is trivial; so let $\abs\xi_2=1$.
 
-\proofstep{Decomposition}\label{step:p1:cc-decomp} Put $e=\omega/\abs\omega_2$, $t=\xi\cdot e$, $u=\xi-te$. Then $u\cdot\omega=0$, $\abs u_2^2=1-t^2$, $\abs t\le1$, and
+\proofstep{Decomposition}\label{stepN:p1:cc-decomp} Put $e=\omega/\abs\omega_2$, $t=\xi\cdot e$, $u=\xi-te$. Then $u\cdot\omega=0$, $\abs u_2^2=1-t^2$, $\abs t\le1$, and
 $\abs t=\abs{\omega\cdot\xi}/\abs\omega_2\le\ell'/\abs\omega_2\le\kappa:=q/(8(B+q))<\tfrac18$.
 
-\proofstep{Expansion}\label{step:p1:cc-expand} $Q[\xi,\xi]=Q[u,u]+tQ[u,e]+tQ[e,u]+t^2Q[e,e]$. By hypothesis $Q[u,u]\ge q(1-t^2)$; by the bound on $Q$ and $\abs u_2,\abs e_2\le1$:
+\proofstep{Expansion}\label{stepN:p1:cc-expand} $Q[\xi,\xi]=Q[u,u]+tQ[u,e]+tQ[e,u]+t^2Q[e,e]$. By hypothesis $Q[u,u]\ge q(1-t^2)$; by the bound on $Q$ and $\abs u_2,\abs e_2\le1$:
 $\abs{Q[u,e]},\abs{Q[e,u]},\abs{Q[e,e]}\le B$. So
 $Q[\xi,\xi]\ge q-(q+B)t^2-2B\abs t$.
 
-\proofstep{Numerics}\label{step:p1:cc-num} $(q+B)t^2\le(q+B)\kappa\cdot\kappa=\frac q8\kappa\le\frac q8$ and $2B\abs t\le2B\kappa=\frac{2Bq}{8(B+q)}\le\frac q4$ (as $B\le B+q$). Hence $Q[\xi,\xi]\ge q-\frac q8-\frac q4=\frac58q$.
+\proofstep{Numerics}\label{stepN:p1:cc-num} $(q+B)t^2\le(q+B)\kappa\cdot\kappa=\frac q8\kappa\le\frac q8$ and $2B\abs t\le2B\kappa=\frac{2Bq}{8(B+q)}\le\frac q4$ (as $B\le B+q$). Hence $Q[\xi,\xi]\ge q-\frac q8-\frac q4=\frac58q$.
 \end{proof}
 
 \begin{lemma}[Quasi-convexity in P\"oschel's quantified form]\label{bpN:p1:qc-convert}
@@ -160,15 +160,15 @@ The constants $q,B_c,\mu,\ell$ depend only on $(n,m,M_\C,\omega_{\min})$. In P\"
 \source{Pos93 p.~190 (anchors POS190-QC, POS190-HESS, POS191-LOW; I read the scan, p.~190, $\ell,m$-quasi-convexity, hypothesis $r_0\le4\ell/m$); conversion: \texttt{docs/tracks/N/sources.md}, ``Uniform conversion''; BM11 p.~4 for $QC(m)$. Review N05.}
 \end{lemma}
 \begin{proof}
-\proofstep{Regularity and Hessian}\label{step:p1:qc-reg} Since $B(0,R)\subset\mathcal B_s(R)$, $I\in\mathcal B_s(R)$; $Q$ is the real Hessian of Lemma~\ref{bpN:p1:hessian-convert}, so $\abs{Q[x,y]}\le nM_\C\abs x_2\abs y_2\le B_c\abs x_2\abs y_2$, the first half of (a).
+\proofstep{Regularity and Hessian}\label{stepN:p1:qc-reg} Since $B(0,R)\subset\mathcal B_s(R)$, $I\in\mathcal B_s(R)$; $Q$ is the real Hessian of Lemma~\ref{bpN:p1:hessian-convert}, so $\abs{Q[x,y]}\le nM_\C\abs x_2\abs y_2\le B_c\abs x_2\abs y_2$, the first half of (a).
 
-\proofstep{Transverse coercivity in the Euclidean norm}\label{step:p1:qc-trans} Definition~\ref{bpN:p0:qc} at $I\in\mathcal B_s(R)$ gives $\omega\cdot v=0\Rightarrow Q[v,v]\ge m\abs v_\infty^2\ge\frac mn\abs v_2^2=q\abs v_2^2$ (Lemma~\ref{bpN:p1:norm-compare}(a)). Also $\omega\ne0$.
+\proofstep{Transverse coercivity in the Euclidean norm}\label{stepN:p1:qc-trans} Definition~\ref{bpN:p0:qc} at $I\in\mathcal B_s(R)$ gives $\omega\cdot v=0\Rightarrow Q[v,v]\ge m\abs v_\infty^2\ge\frac mn\abs v_2^2=q\abs v_2^2$ (Lemma~\ref{bpN:p1:norm-compare}(a)). Also $\omega\ne0$.
 
-\proofstep{Frequency size}\label{step:p1:qc-freq} (c): $\abs\omega_\infty\ge\omega_{\min}$ on $B(0,R)$ by hypothesis, $\abs\omega_2\ge\abs\omega_\infty$; $\abs\omega_2\le\sqrt n\abs\omega_\infty$ by Lemma~\ref{bpN:p1:norm-compare}.
+\proofstep{Frequency size}\label{stepN:p1:qc-freq} (c): $\abs\omega_\infty\ge\omega_{\min}$ on $B(0,R)$ by hypothesis, $\abs\omega_2\ge\abs\omega_\infty$; $\abs\omega_2\le\sqrt n\abs\omega_\infty$ by Lemma~\ref{bpN:p1:norm-compare}.
 
-\proofstep{Conic coercivity}\label{step:p1:qc-conic} Apply Lemma~\ref{bpN:p1:conic-coercive} with $B=B_c$, $q$ and $\ell'=\ell$: $\ell=\omega_{\min}q/(8(B_c+q))\le\abs\omega_2q/(8(B_c+q))$ by (c). The conclusion is $Q[\xi,\xi]\ge\frac58q\abs\xi_2^2\ge\mu\abs\xi_2^2$.
+\proofstep{Conic coercivity}\label{stepN:p1:qc-conic} Apply Lemma~\ref{bpN:p1:conic-coercive} with $B=B_c$, $q$ and $\ell'=\ell$: $\ell=\omega_{\min}q/(8(B_c+q))\le\abs\omega_2q/(8(B_c+q))$ by (c). The conclusion is $Q[\xi,\xi]\ge\frac58q\abs\xi_2^2\ge\mu\abs\xi_2^2$.
 
-\proofstep{Scaling}\label{step:p1:qc-scale} Multiplying $h$ by $2\pi$ multiplies $\omega,Q,B_c$ and the three of $\mu,q,\ell$ by $2\pi$, and the implications are homogeneous, so they persist.
+\proofstep{Scaling}\label{stepN:p1:qc-scale} Multiplying $h$ by $2\pi$ multiplies $\omega,Q,B_c$ and the three of $\mu,q,\ell$ by $2\pi$, and the implications are homogeneous, so they persist.
 \end{proof}
 
 \subsection{Normalisations}\label{bpN:p1:s-period}
@@ -187,11 +187,11 @@ so $\tilde H=H_{\tilde h,\tilde f}$ when $H=H_{h,f}$, and $\tilde f$ is $2\pi\Z^
 \source{\texttt{docs/tracks/N/sources.md} (``For the period conversion''); Pos93 p.~189 (set-up: $\theta\in\R^n/2\pi\Z^n$, strip $W_{s_0}$ of width $s_0$ in the max norm of $\operatorname{Im}\theta$).}
 \end{lemma}
 \begin{proof}
-\proofstep{Chain rule}\label{step:p1:pc-chain} $\tilde H=2\pi\,H\circ\Lambda^{-1}$; $\Lambda$ is a linear isomorphism, so $\tilde H$ is differentiable at $\Lambda z$ iff $H$ is at $z$, with $\partial_{I_i}\tilde H(\Lambda z)=2\pi\partial_{I_i}H(z)$ and $\partial_{\varphi_i}\tilde H(\Lambda z)=\partial_{\theta_i}H(z)$.
+\proofstep{Chain rule}\label{stepN:p1:pc-chain} $\tilde H=2\pi\,H\circ\Lambda^{-1}$; $\Lambda$ is a linear isomorphism, so $\tilde H$ is differentiable at $\Lambda z$ iff $H$ is at $z$, with $\partial_{I_i}\tilde H(\Lambda z)=2\pi\partial_{I_i}H(z)$ and $\partial_{\varphi_i}\tilde H(\Lambda z)=\partial_{\theta_i}H(z)$.
 
-\proofstep{Vector field}\label{step:p1:pc-field} Hence $X_{\tilde H}(\Lambda z)=(2\pi\partial_IH(z),-\partial_\theta H(z))=(2\pi\dot\theta,\dot I)=\frac d{dt}\Lambda z$ when $\dot z=X_H(z)$, and conversely; the condition $z(t)_2\in U$ is unchanged. This is (a). (Rescaling the angle without the factor $2\pi$ in $H$ would change time.)
+\proofstep{Vector field}\label{stepN:p1:pc-field} Hence $X_{\tilde H}(\Lambda z)=(2\pi\partial_IH(z),-\partial_\theta H(z))=(2\pi\dot\theta,\dot I)=\frac d{dt}\Lambda z$ when $\dot z=X_H(z)$, and conversely; the condition $z(t)_2\in U$ is unchanged. This is (a). (Rescaling the angle without the factor $2\pi$ in $H$ would change time.)
 
-\proofstep{Scalars}\label{step:p1:pc-scalar} (b) is linearity of $h\mapsto\omega_h,D^2h_\R,D^kh_\R$ and of the operator norm. (c),(d) are the substitution $\varphi=2\pi\theta$, $\abs{\operatorname{Im}\varphi}=2\pi\abs{\operatorname{Im}\theta}$, and $e^{ik\cdot\varphi}=e^{2\pi ik\cdot\theta}$.
+\proofstep{Scalars}\label{stepN:p1:pc-scalar} (b) is linearity of $h\mapsto\omega_h,D^2h_\R,D^kh_\R$ and of the operator norm. (c),(d) are the substitution $\varphi=2\pi\theta$, $\abs{\operatorname{Im}\varphi}=2\pi\abs{\operatorname{Im}\theta}$, and $e^{ik\cdot\varphi}=e^{2\pi ik\cdot\theta}$.
 \end{proof}
 
 \begin{lemma}[From sup norm on a strip to the weighted Fourier norm]\label{bpN:p1:norm-convert}
@@ -202,9 +202,9 @@ Conversely $\norm u_{\rho}\le\sum_k\abs{\hat u_k}e^{2\pi\abs k_1\rho}$. For $I$-
 \source{Pos93 p.~190 (the displayed relation between the weighted and sup norms); frozen-convention statement: \Kref{bp:p1:summation}, \Kref{bp:p1:decay}, \Kref{bp:p1:exp-sums}(b).}
 \end{lemma}
 \begin{proof}
-\proofstep{Decay}\label{step:p1:nc-decay} For $\rho'\in(\rho-\delta,\rho)$, \Kref{bp:p1:decay} gives $\abs{\hat u_k}\le e^{-2\pi\abs k_1\rho'}\norm u_\rho$; hence $\abs{\hat u_k}e^{2\pi\abs k_1(\rho-\delta)}\le e^{-2\pi\abs k_1(\rho'-\rho+\delta)}\norm u_\rho$, and letting $\rho'\uparrow\rho$ (termwise, then summing, or directly \Kref{bp:p1:summation}, converse part) the bound is $e^{-2\pi\delta\abs k_1}\norm u_\rho$ per $k$.
+\proofstep{Decay}\label{stepN:p1:nc-decay} For $\rho'\in(\rho-\delta,\rho)$, \Kref{bp:p1:decay} gives $\abs{\hat u_k}\le e^{-2\pi\abs k_1\rho'}\norm u_\rho$; hence $\abs{\hat u_k}e^{2\pi\abs k_1(\rho-\delta)}\le e^{-2\pi\abs k_1(\rho'-\rho+\delta)}\norm u_\rho$, and letting $\rho'\uparrow\rho$ (termwise, then summing, or directly \Kref{bp:p1:summation}, converse part) the bound is $e^{-2\pi\delta\abs k_1}\norm u_\rho$ per $k$.
 
-\proofstep{Sum}\label{step:p1:nc-sum} $\sum_{k\in\Z^n}e^{-2\pi\delta\abs k_1}=\coth(\pi\delta)^n$ (\Kref{bp:p1:exp-sums}(b) with $x=2\pi\delta$). The case with parameters is pointwise in $I$.
+\proofstep{Sum}\label{stepN:p1:nc-sum} $\sum_{k\in\Z^n}e^{-2\pi\delta\abs k_1}=\coth(\pi\delta)^n$ (\Kref{bp:p1:exp-sums}(b) with $x=2\pi\delta$). The case with parameters is pointwise in $I$.
 \end{proof}
 
 \subsection{The dictionary of constants}\label{bpN:p1:s-const}
@@ -233,21 +233,21 @@ Then:
 \sourcegap{Pos93 states no theorem about the $\omega_{\min}$-conversion and the frozen-to-source dictionary: it exists only in \texttt{sources.md} and here (Part~0 \texttt{bpN:p0:head}). The choice of $T$ with the factor $1/2$ is slack, not needed by the source.}
 \end{lemma}
 \begin{proof}
-\proofstep{Positivity and dependence}\label{step:p1:co-pos} Each constant is a positive finite expression in earlier ones (denominators: $n,\mu,8(B_c+q),A,F,\varepsilon_*,4C,4\pi nM$, all $>0$); $\varepsilon_0>0$ as a minimum of positive numbers, and $C\varepsilon_0^a\le C\cdot\frac R{4C}=R/4$ since $((R/4C)^{2n})^{1/(2n)}=R/(4C)$. The list of inputs in each formula contains only $n,R,s,M,m,M_\C,\omega_{\min}$. This is (a).
+\proofstep{Positivity and dependence}\label{stepN:p1:co-pos} Each constant is a positive finite expression in earlier ones (denominators: $n,\mu,8(B_c+q),A,F,\varepsilon_*,4C,4\pi nM$, all $>0$); $\varepsilon_0>0$ as a minimum of positive numbers, and $C\varepsilon_0^a\le C\cdot\frac R{4C}=R/4$ since $((R/4C)^{2n})^{1/(2n)}=R/(4C)$. The list of inputs in each formula contains only $n,R,s,M,m,M_\C,\omega_{\min}$. This is (a).
 
-\proofstep{Size relations}\label{step:p1:co-size} $B_c=nM_\C+q\ge q=2\mu$ so $A=11B_c/\mu\ge22$. $4\ell_P/m_P=4\ell/\mu\ge2\ell/\mu\ge r_0$, and $R_0=r_0/A\le r_0/22\le R/176$. This is (b).
+\proofstep{Size relations}\label{stepN:p1:co-size} $B_c=nM_\C+q\ge q=2\mu$ so $A=11B_c/\mu\ge22$. $4\ell_P/m_P=4\ell/\mu\ge2\ell/\mu\ge r_0$, and $R_0=r_0/A\le r_0/22\le R/176$. This is (b).
 
-\proofstep{Tubes}\label{step:p1:co-tubes} $r_0\le\min(s/2,R/8)$: Lemma~\ref{bpN:p1:realdomain}(c) gives (c).
+\proofstep{Tubes}\label{stepN:p1:co-tubes} $r_0\le\min(s/2,R/8)$: Lemma~\ref{bpN:p1:realdomain}(c) gives (c).
 
-\proofstep{Quasi-convexity and Hessian}\label{step:p1:co-qc} For (d): $U_{r_0}P\subset B(0,R)$ by (c), so Lemma~\ref{bpN:p1:qc-convert}(b) applies at every point of $U_{r_0}P$ and, after Lemma~\ref{bpN:p1:period-convert}(b), gives the $(\ell_P,\mu_P)$-alternative for $\tilde h$. For $I\in V_{r_0}P\subset B(0,R)_s$ the Euclidean operator norm of $\tilde Q(I)$ is $\le2\pi nM_\C\le2\pi B_c=M_P$ (Lemma~\ref{bpN:p1:hessian-convert}). P\"oschel's $A=11M/m$ with $M=M_P$ and $m=\mu_P=m_P$ is $11B_c/\mu=A$.
+\proofstep{Quasi-convexity and Hessian}\label{stepN:p1:co-qc} For (d): $U_{r_0}P\subset B(0,R)$ by (c), so Lemma~\ref{bpN:p1:qc-convert}(b) applies at every point of $U_{r_0}P$ and, after Lemma~\ref{bpN:p1:period-convert}(b), gives the $(\ell_P,\mu_P)$-alternative for $\tilde h$. For $I\in V_{r_0}P\subset B(0,R)_s$ the Euclidean operator norm of $\tilde Q(I)$ is $\le2\pi nM_\C\le2\pi B_c=M_P$ (Lemma~\ref{bpN:p1:hessian-convert}). P\"oschel's $A=11M/m$ with $M=M_P$ and $m=\mu_P=m_P$ is $11B_c/\mu=A$.
 
-\proofstep{Perturbation}\label{step:p1:co-pert} By (H6) $\abs f\le\varepsilon$ on $D_s(R)\supset T_{3s/4}\times V_{r_0}P$ ($V_{r_0}P\subset B(0,R)_s$, (c)). For each fixed $I\in V_{r_0}P$ apply Lemma~\ref{bpN:p1:norm-convert} to $u=f(\cdot,I)$ with $\rho=3s/4$, $\delta=s/4$: $\sum_k\abs{\hat f_k(I)}e^{2\pi\abs k_1s/2}\le\coth(\pi s/4)^n\varepsilon$. Multiplying by $2\pi$ (Lemma~\ref{bpN:p1:period-convert}(d)) and noting $2\pi\cdot s/2=\pi s=s_0$ gives $\le F\varepsilon$. (In P\"oschel's terms $s_0+2\sigma=3\pi s/2=2\pi\cdot\frac{3s}4$.) $\varepsilon\le\varepsilon_*/F$ gives $F\varepsilon\le\varepsilon_*=\varepsilon_{0,P}$. This is (e).
+\proofstep{Perturbation}\label{stepN:p1:co-pert} By (H6) $\abs f\le\varepsilon$ on $D_s(R)\supset T_{3s/4}\times V_{r_0}P$ ($V_{r_0}P\subset B(0,R)_s$, (c)). For each fixed $I\in V_{r_0}P$ apply Lemma~\ref{bpN:p1:norm-convert} to $u=f(\cdot,I)$ with $\rho=3s/4$, $\delta=s/4$: $\sum_k\abs{\hat f_k(I)}e^{2\pi\abs k_1s/2}\le\coth(\pi s/4)^n\varepsilon$. Multiplying by $2\pi$ (Lemma~\ref{bpN:p1:period-convert}(d)) and noting $2\pi\cdot s/2=\pi s=s_0$ gives $\le F\varepsilon$. (In P\"oschel's terms $s_0+2\sigma=3\pi s/2=2\pi\cdot\frac{3s}4$.) $\varepsilon\le\varepsilon_*/F$ gives $F\varepsilon\le\varepsilon_*=\varepsilon_{0,P}$. This is (e).
 
-\proofstep{Exceptional branch}\label{step:p1:co-exc} $I_0\in B(0,R/2)\subset B(0,R)$ so $\abs{\omega(I_0)}_2\ge\omega_{\min}$ (Lemma~\ref{bpN:p1:qc-convert}(c)) and $\abs{\tilde\omega}_2=2\pi\abs\omega_2$. And $m_Pr_0/8=2\pi\mu r_0/8\le2\pi\mu\cdot\frac{4\omega_{\min}}{8\mu}=\pi\omega_{\min}$ by $r_0\le4\omega_{\min}/\mu$. This is (f).
+\proofstep{Exceptional branch}\label{stepN:p1:co-exc} $I_0\in B(0,R/2)\subset B(0,R)$ so $\abs{\omega(I_0)}_2\ge\omega_{\min}$ (Lemma~\ref{bpN:p1:qc-convert}(c)) and $\abs{\tilde\omega}_2=2\pi\abs\omega_2$. And $m_Pr_0/8=2\pi\mu r_0/8\le2\pi\mu\cdot\frac{4\omega_{\min}}{8\mu}=\pi\omega_{\min}$ by $r_0\le4\omega_{\min}/\mu$. This is (f).
 
-\proofstep{Time}\label{step:p1:co-time} The Euclidean ball $\{\abs{I-I_0}_2\le R_0\}$ with $R_0\le r_0$ lies in $\{\abs I_\infty<R/2+R_0\}\subset B(0,5R/8)$ ($\abs{I-I_0}_\infty\le\abs{I-I_0}_2$), inside $\mathcal B_s(R)$ where Lemma~\ref{bpN:p1:partials} gives $\abs{\omega(I)}_2\le\sqrt nM$. So $\Omega_0\le2\pi\sqrt nM\le2\pi nM$ and $T_0=A^2s_0/\Omega_0\ge A^2s_0/(2\pi nM)=2T$. (g).
+\proofstep{Time}\label{stepN:p1:co-time} The Euclidean ball $\{\abs{I-I_0}_2\le R_0\}$ with $R_0\le r_0$ lies in $\{\abs I_\infty<R/2+R_0\}\subset B(0,5R/8)$ ($\abs{I-I_0}_\infty\le\abs{I-I_0}_2$), inside $\mathcal B_s(R)$ where Lemma~\ref{bpN:p1:partials} gives $\abs{\omega(I)}_2\le\sqrt nM$. So $\Omega_0\le2\pi\sqrt nM\le2\pi nM$ and $T_0=A^2s_0/\Omega_0\ge A^2s_0/(2\pi nM)=2T$. (g).
 
-\proofstep{Exponent and constants}\label{step:p1:co-conc} $R_0(F\varepsilon/\varepsilon_*)^a=\frac{r_0}A(F/\varepsilon_*)^a\varepsilon^a=C\varepsilon^a$ and $\frac{s_0}6(\varepsilon_*/(F\varepsilon))^a=c\varepsilon^{-a}$. (h) follows from $T\le T_0/2$.
+\proofstep{Exponent and constants}\label{stepN:p1:co-conc} $R_0(F\varepsilon/\varepsilon_*)^a=\frac{r_0}A(F/\varepsilon_*)^a\varepsilon^a=C\varepsilon^a$ and $\frac{s_0}6(\varepsilon_*/(F\varepsilon))^a=c\varepsilon^{-a}$. (h) follows from $T\le T_0/2$.
 \end{proof}
 
 \begin{remark}[Forward use and an unused constant]\label{bpN:p1:constants-use}
