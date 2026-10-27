@@ -654,3 +654,12 @@ REASON: elementary consequences (i) restriction, (ii) continuity, (iii) local na
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: -
+
+ITEM: stepN:p3:lip-explicit
+KIND: proof-region
+SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:lip-explicit@L124-L133
+DISPOSITION: NODE stepN:p3:lip-explicit
+REASON: writer: the explicit compactness proof (steps lip-bdd, lip-contra, lip-compact) is the second route of gen-lip, alternative to lip-mathlib
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: writer-suborch-INP
+REVIEWER: -
