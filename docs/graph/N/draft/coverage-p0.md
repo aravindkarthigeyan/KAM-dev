@@ -1,0 +1,647 @@
+ITEM: bpN:p0:actionnbhd#actionNbhd
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:actionnbhd@L37-L42
+DISPOSITION: NODE bpN:p0:actionnbhd#actionNbhd
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:freq#frequencyMap
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:freq@L44-L51
+DISPOSITION: NODE bpN:p0:freq#frequencyMap
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:vf#hamiltonianVectorField
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:vf@L53-L59
+DISPOSITION: NODE bpN:p0:vf#hamiltonianVectorField
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:realH#realHamiltonian
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:realH@L61-L66
+DISPOSITION: NODE bpN:p0:realH#realHamiltonian
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:strip#complexStrip
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:strip@L68-L72
+DISPOSITION: NODE bpN:p0:strip#complexStrip
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:ball#actionBall
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:ball@L76-L80
+DISPOSITION: NODE bpN:p0:ball#actionBall
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:cdomain#complexDomain
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:cdomain@L82-L87
+DISPOSITION: NODE bpN:p0:cdomain#complexDomain
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:rdomain#realActionDomain
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:rdomain@L89-L93
+DISPOSITION: NODE bpN:p0:rdomain#realActionDomain
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:rdomain-eq
+KIND: claim
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:rdomain-eq@L95-L99
+DISPOSITION: NODE bpN:p0:rdomain-eq
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:realpart#realPart
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:realpart@L101-L105
+DISPOSITION: NODE bpN:p0:realpart#realPart
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:integrable#IsAnalyticIntegrable
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:integrable@L107-L120
+DISPOSITION: NODE bpN:p0:integrable#IsAnalyticIntegrable
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:pert#IsAnalyticPerturbation
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:pert@L122-L134
+DISPOSITION: NODE bpN:p0:pert#IsAnalyticPerturbation
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:bm#HasDerivativeBounds
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:bm@L136-L145
+DISPOSITION: NODE bpN:p0:bm#HasDerivativeBounds
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:qc#IsStrictlyQuasiConvex
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:qc@L147-L154
+DISPOSITION: NODE bpN:p0:qc#IsStrictlyQuasiConvex
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:hess#HasComplexHessianBound
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:hess@L156-L164
+DISPOSITION: NODE bpN:p0:hess#HasComplexHessianBound
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:sol#IsSolutionOn
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:sol@L166-L173
+DISPOSITION: NODE bpN:p0:sol#IsSolutionOn
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:orbit#integrableOrbit
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:orbit@L175-L180
+DISPOSITION: NODE bpN:p0:orbit#integrableOrbit
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:totality
+KIND: claim
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:totality@L182-L201
+DISPOSITION: NODE bpN:p0:totality
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:head
+KIND: theorem
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:head@L205-L238
+DISPOSITION: NODE bpN:p0:head
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:zero
+KIND: theorem
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:zero@L240-L247
+DISPOSITION: NODE bpN:p0:zero
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:qcthm
+KIND: theorem
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:qcthm@L249-L258
+DISPOSITION: NODE bpN:p0:qcthm
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-sec#Phase
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L265-L265
+DISPOSITION: NODE bpN:p0:partial-sec#Phase
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-sec#fast
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L266-L267
+DISPOSITION: NODE bpN:p0:partial-sec#fast
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-sec#slow
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L266-L267
+DISPOSITION: NODE bpN:p0:partial-sec#slow
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-sec#fastShift
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L270-L270
+DISPOSITION: NODE bpN:p0:partial-sec#fastShift
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-complexify#complexifyPhase
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-complexify@L272-L276
+DISPOSITION: NODE bpN:p0:partial-complexify#complexifyPhase
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-core#innerCore
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-core@L278-L283
+DISPOSITION: NODE bpN:p0:partial-core#innerCore
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-domain#partialComplexDomain
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-domain@L285-L291
+DISPOSITION: NODE bpN:p0:partial-domain#partialComplexDomain
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-definite#HasDefiniteFastPart
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-definite@L293-L300
+DISPOSITION: NODE bpN:p0:partial-definite#HasDefiniteFastPart
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-pert#IsPartialPerturbation
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-pert@L302-L312
+DISPOSITION: NODE bpN:p0:partial-pert#IsPartialPerturbation
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-exponents#partialTimeExponent
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-exponents@L314-L318
+DISPOSITION: NODE bpN:p0:partial-exponents#partialTimeExponent
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-exponents#partialDriftExponent
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-exponents@L314-L318
+DISPOSITION: NODE bpN:p0:partial-exponents#partialDriftExponent
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial
+KIND: theorem
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial@L320-L336
+DISPOSITION: NODE bpN:p0:partial
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-sec#degenerateHamiltonian
+KIND: definition
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L325-L325
+DISPOSITION: NODE bpN:p0:partial-sec#degenerateHamiltonian
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: bpN:p0:partial-totality
+KIND: claim
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-totality@L338-L340
+DISPOSITION: NODE bpN:p0:partial-totality
+REASON: mechanical inventory of a labelled unit
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: heading:bpN:p0
+KIND: heading
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0@L1-L1
+DISPOSITION: EXCLUDED
+REASON: section heading; its results are inventoried separately
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: heading:bpN:p0:conventions
+KIND: heading
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:conventions@L11-L11
+DISPOSITION: EXCLUDED
+REASON: section heading; its results are inventoried separately
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: heading:bpN:p0:kdefs
+KIND: heading
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:kdefs@L35-L35
+DISPOSITION: EXCLUDED
+REASON: section heading; its results are inventoried separately
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: heading:bpN:p0:defs
+KIND: heading
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:defs@L74-L74
+DISPOSITION: EXCLUDED
+REASON: section heading; its results are inventoried separately
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: heading:bpN:p0:theorems
+KIND: heading
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:theorems@L203-L203
+DISPOSITION: EXCLUDED
+REASON: section heading; its results are inventoried separately
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: heading:bpN:p0:partial-sec
+KIND: heading
+SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L260-L260
+DISPOSITION: EXCLUDED
+REASON: section heading; its results are inventoried separately
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:sourcegap-L234
+KIND: proof-region
+SOURCE: blueprint-N/parts/p0-conventions.tex#sourcegap@L234-L234
+DISPOSITION: TODO
+REASON: a \sourcegap note: model as a node with SOURCE_GAP: in NOTE, map it to the node(s) that supply the bridge, or exclude with reason
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:sourcegap-L335
+KIND: proof-region
+SOURCE: blueprint-N/parts/p0-conventions.tex#sourcegap@L335-L335
+DISPOSITION: TODO
+REASON: a \sourcegap note: model as a node with SOURCE_GAP: in NOTE, map it to the node(s) that supply the bridge, or exclude with reason
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L41
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L41-L41
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L50
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L50-L50
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L58
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L58-L58
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L65
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L65-L65
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L79
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L79-L79
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L86
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L86-L86
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L92
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L92-L92
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L104
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L104-L104
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L119
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L119-L119
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L133
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L133-L133
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L144
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L144-L144
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L153
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L153-L153
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L162
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L162-L162
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L172
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L172-L172
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L179
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L179-L179
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L232
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L232-L232
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L246
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L246-L246
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L257
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L257-L257
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L275
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L275-L275
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L282
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L282-L282
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L290
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L290-L290
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L299
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L299-L299
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L311
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L311-L311
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L317
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L317-L317
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:source-L334
+KIND: citation
+SOURCE: blueprint-N/parts/p0-conventions.tex#source@L334-L334
+DISPOSITION: EXCLUDED
+REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:prose-L3-L9
+KIND: proof-region
+SOURCE: blueprint-N/parts/p0-conventions.tex#prose@L3-L9
+DISPOSITION: TODO
+REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:prose-L13-L33
+KIND: proof-region
+SOURCE: blueprint-N/parts/p0-conventions.tex#prose@L13-L33
+DISPOSITION: TODO
+REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:prose-L262-L264
+KIND: proof-region
+SOURCE: blueprint-N/parts/p0-conventions.tex#prose@L262-L264
+DISPOSITION: TODO
+REASON: unlabelled prose without cross-references outside every node (--all-prose): map it to the node(s) that rely on a fact or datum it states (or make it a node), or exclude with a reason (motivation, outline, notation only)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -
+
+ITEM: p0:prose-L268-L269
+KIND: proof-region
+SOURCE: blueprint-N/parts/p0-conventions.tex#prose@L268-L269
+DISPOSITION: TODO
+REASON: unlabelled prose without cross-references outside every node (--all-prose): map it to the node(s) that rely on a fact or datum it states (or make it a node), or exclude with a reason (motivation, outline, notation only)
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: mechanical-preextract
+REVIEWER: -

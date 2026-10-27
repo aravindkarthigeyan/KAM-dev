@@ -710,7 +710,7 @@ EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
 
 ITEM: bpI:p2:B1
-KIND: label
+KIND: display
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B1@L97-L97
 DISPOSITION: NODE bpI:p2:admissible
 REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
@@ -719,7 +719,7 @@ EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
 
 ITEM: bpI:p2:B2
-KIND: label
+KIND: display
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B2@L98-L98
 DISPOSITION: NODE bpI:p2:admissible
 REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
@@ -728,7 +728,7 @@ EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
 
 ITEM: bpI:p2:B3
-KIND: label
+KIND: display
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B3@L99-L99
 DISPOSITION: NODE bpI:p2:admissible
 REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
@@ -737,7 +737,7 @@ EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
 
 ITEM: bpI:p2:B4
-KIND: label
+KIND: display
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B4@L100-L100
 DISPOSITION: NODE bpI:p2:admissible
 REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
@@ -746,7 +746,7 @@ EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
 
 ITEM: bpI:p2:B5
-KIND: label
+KIND: display
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B5@L101-L101
 DISPOSITION: NODE bpI:p2:admissible
 REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
@@ -755,7 +755,7 @@ EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
 
 ITEM: bpI:p2:B6
-KIND: label
+KIND: display
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B6@L102-L102
 DISPOSITION: NODE bpI:p2:admissible
 REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
@@ -764,7 +764,7 @@ EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
 
 ITEM: bpI:p2:B7
-KIND: label
+KIND: display
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:B7@L103-L103
 DISPOSITION: NODE bpI:p2:admissible
 REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
@@ -773,7 +773,7 @@ EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
 
 ITEM: bpI:p2:freq
-KIND: label
+KIND: display
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:freq@L107-L109
 DISPOSITION: NODE bpI:p2:admissible
 REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.
@@ -782,7 +782,7 @@ EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: -
 
 ITEM: bpI:p2:newerr
-KIND: label
+KIND: display
 SOURCE: blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newerr@L170-L172
 DISPOSITION: NODE bpI:p2:newton-error
 REASON: Equation/item label inside the enclosing result; SPEC requires its coverage alias, not a separate node.

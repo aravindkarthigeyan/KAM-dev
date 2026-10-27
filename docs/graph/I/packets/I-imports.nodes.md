@@ -27,7 +27,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p0:g3; shared Lean provider
 NODE: K:bp:p1:cauchy-corollaries
 KIND: external
 TITLE: [K] Cauchy corollaries
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L615-L619
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-corollaries@L617-L621
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:cauchy-corollaries
 CONTRACT_VERSION: 1
@@ -53,7 +53,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:cauchy-corollaries; shar
 NODE: K:bp:p1:cauchy-open
 KIND: external
 TITLE: [K] Cauchy estimate on open sets
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L472-L477
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L474-L479
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:cauchy-open
 CONTRACT_VERSION: 1
@@ -79,7 +79,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:cauchy-open; shared Lean
 NODE: K:bp:p1:cauchy-strip
 KIND: external
 TITLE: [K] Cauchy estimate on strips
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L566-L572
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L568-L574
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:cauchy-strip
 CONTRACT_VERSION: 1
@@ -105,7 +105,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:cauchy-strip; shared Lea
 NODE: K:bp:p1:cohomological
 KIND: external
 TITLE: [K] Cohomological equation on strips
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L885-L895
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cohomological@L887-L897
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:cohomological
 CONTRACT_VERSION: 1
@@ -131,7 +131,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:cohomological; shared Le
 NODE: K:bp:p1:ext-banach
 KIND: external
 TITLE: [K] Banach's fixed point theorem
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-banach@L93-L94
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-banach@L95-L96
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:ext-banach
 CONTRACT_VERSION: 1
@@ -157,7 +157,7 @@ NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-banach (Math
 NODE: K:bp:p1:ext-cramer
 KIND: external
 TITLE: [K] Cramer's rule
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cramer@L95-L97
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cramer@L97-L99
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:ext-cramer
 CONTRACT_VERSION: 1
@@ -183,7 +183,7 @@ NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-cramer (Math
 NODE: K:bp:p1:ext-integral
 KIND: external
 TITLE: [K] Integrals
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L80-L84
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L82-L86
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:ext-integral
 CONTRACT_VERSION: 1
@@ -209,7 +209,7 @@ NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-integral (Ma
 NODE: K:bp:p1:ext-mvt
 KIND: external
 TITLE: [K] Mean value inequality
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-mvt@L73-L76
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-mvt@L75-L78
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:ext-mvt
 CONTRACT_VERSION: 1
@@ -235,7 +235,7 @@ NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-mvt (Mathlib
 NODE: K:bp:p1:hamiltonian-real
 KIND: external
 TITLE: [K] Real and complex Hamiltonian fields
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1071-L1077
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1073-L1079
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:hamiltonian-real
 CONTRACT_VERSION: 1
@@ -261,7 +261,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:hamiltonian-real; shared
 NODE: K:bp:p1:holomorphic-analytic
 KIND: external
 TITLE: [K] Holomorphic maps are analytic
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L294-L310
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L296-L312
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:holomorphic-analytic
 CONTRACT_VERSION: 1
@@ -287,7 +287,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:holomorphic-analytic; sh
 NODE: K:bp:p1:holomorphic-inverse
 KIND: external
 TITLE: [K] Holomorphic inverse
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L402-L405
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-inverse@L404-L407
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:holomorphic-inverse
 CONTRACT_VERSION: 1
@@ -313,7 +313,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:holomorphic-inverse; sha
 NODE: K:bp:p1:holomorphic-regularity
 KIND: external
 TITLE: [K] Derivatives of holomorphic maps
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L225-L234
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-regularity@L227-L236
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:holomorphic-regularity
 CONTRACT_VERSION: 1
@@ -339,7 +339,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:holomorphic-regularity; 
 NODE: K:bp:p1:increments-open
 KIND: external
 TITLE: [K] Increments on open sets
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L423-L426
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:increments-open@L425-L428
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:increments-open
 CONTRACT_VERSION: 1
@@ -365,7 +365,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:increments-open; shared 
 NODE: K:bp:p1:iteration
 KIND: external
 TITLE: [K] Quadratic iteration on nested strips
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1007-L1012
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1009-L1014
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:iteration
 CONTRACT_VERSION: 1
@@ -391,7 +391,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:iteration; shared Lean p
 NODE: K:bp:p1:matrix-norms
 KIND: external
 TITLE: [K] Max-norm matrix facts
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L146-L151
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:matrix-norms@L148-L153
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:matrix-norms
 CONTRACT_VERSION: 1
@@ -417,7 +417,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:matrix-norms; shared Lea
 NODE: K:bp:p1:neumann
 KIND: external
 TITLE: [K] Neumann series
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L175-L179
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:neumann@L177-L181
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:neumann
 CONTRACT_VERSION: 1
@@ -443,7 +443,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:neumann; shared Lean pro
 NODE: K:bp:p1:real-inverse
 KIND: external
 TITLE: [K] Real inverses
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L203-L206
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-inverse@L205-L208
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:real-inverse
 CONTRACT_VERSION: 1
@@ -469,7 +469,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:real-inverse; shared Lea
 NODE: K:bp:p1:real-restriction
 KIND: external
 TITLE: [K] Real restriction
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1045-L1049
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L1051
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:real-restriction
 CONTRACT_VERSION: 1
@@ -495,7 +495,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:real-restriction; shared
 NODE: K:bp:p1:taylor
 KIND: external
 TITLE: [K] Second-order Taylor bound
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L434-L437
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:taylor@L436-L439
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:taylor
 CONTRACT_VERSION: 1
@@ -521,7 +521,7 @@ NOTE: IMPORTED: proved in the track-K graph, node bp:p1:taylor; shared Lean prov
 NODE: K:bp:p1:uniform-limits
 KIND: external
 TITLE: [K] Uniform limits
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L362-L366
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L364-L368
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:uniform-limits
 CONTRACT_VERSION: 1
@@ -647,32 +647,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p2:constants; shared Lean provider. There: KIND definition, contract bp:p2:constants v1. Cited as \Kref{bp:p2:constants}.
-
-NODE: K:bp:p2:error-decay
-KIND: external
-TITLE: [K] Decay of the errors
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L952-L957
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p2:error-decay
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: schedule (bp:p2:schedule); q:=2^{2a}C_E e/(γ⁴δ_0^{2a})≤1
-SOURCE_QUANTIFIERS: all s≥0; 0≤j≤2a; 0≤j≤2a−1 for the sums
-SOURCE_CONCLUSION: ε_s≤q^{2^s−1}2^{-2as}e≤2^{-2as}e; ε_s/δ_s^j≤2^{-(2a−j)s}e/δ_0^j≤e/δ_0^j for 0≤j≤2a; Σ_sε_s/δ_s^j≤2e/δ_0^j for 0≤j≤2a−1
-CONSTANT_SCOPE: a,C_E from bp:p2:constants (n,τ,M,σ_*); δ_0=δ_0(ρ,ρ_∞); none depends on s
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p2:error-decay; shared Lean provider. There: KIND lemma, contract bp:p2:error-decay v1. Cited as \Kref{bp:p2:error-decay}.
 
 NODE: K:bp:p2:exactness
 KIND: external
@@ -1064,32 +1038,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p4:h1; shared Lean provider. There: KIND lemma, contract bp:p4:h1 v1. Cited as \Kref{bp:p4:h1}.
 
-NODE: K:step:p2:cor-absorb
-KIND: external
-TITLE: [K] Absorbing powers of $\gamma\delta$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:cor-absorb@L691-L694
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:cor-absorb
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: γ≤Θ (previous step), δ≤1
-SOURCE_QUANTIFIERS: i,j≥0
-SOURCE_CONCLUSION: γδ^j≤Θ; ε≤Θε/(γδ^j); ε/(γδ^j)≤Θε/(γ²δ^{j+i})
-CONSTANT_SCOPE: Θ from bp:p2:constants
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:cor-absorb; shared Lean provider. There: KIND step, contract step:p2:cor-absorb v1. Cited as \Kref{step:p2:cor-absorb}.
-
 NODE: K:step:p2:fb-holo
 KIND: external
 TITLE: [K] Holomorphy
@@ -1193,32 +1141,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node step:p2:ham-real; shared Lean provider. There: KIND step, contract step:p2:ham-real v1. Cited as \Kref{step:p2:ham-real}.
-
-NODE: K:step:p2:it-step
-KIND: external
-TITLE: [K] Inductive step
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1021-L1029
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:it-step
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (i)–(v) at s; summed bounds; smallness at stage s; 4δ_s<r_s, δ_s≤1
-SOURCE_QUANTIFIERS: induction step s→s+1
-SOURCE_CONCLUSION: K_{s+1}:=K̄_s satisfies (vi) and (i)–(v) at s+1
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:it-step; shared Lean provider. There: KIND step, contract step:p2:it-step v1. Cited as \Kref{step:p2:it-step}.
 
 NODE: K:step:p2:pt-small
 KIND: external
@@ -1324,32 +1246,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node step:p4:h1-open; shared Lean provider. There: KIND step, contract step:p4:h1-open v1. Cited as \Kref{step:p4:h1-open}.
 
-NODE: N:bpN:p3:gen-barrier
-KIND: external
-TITLE: [N] Barrier
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-barrier@L358-L363
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:gen-barrier
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: E a finite-dimensional real normed space; F C^1 on the open set W; V subset E open; IsSolIn F W J z with J an interval, 0 in J, z(0) in V; G subset E with z(J) subset G; (boundary of V) cap G subset S with S invariant for (F,W) (Definition bpN:p3:gen-invariant) and z(0) not in S
-SOURCE_QUANTIFIERS: F, W, V, J, z, G, S fixed
-SOURCE_CONCLUSION: z(t) in V for all t in J (both time directions)
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-barrier; shared Lean provider. Cited as \Nref{bpN:p3:gen-barrier}.
-
 NODE: N:bpN:p3:gen-continuation-periodic
 KIND: external
 TITLE: [N] Closed sets, periodic fields
@@ -1375,32 +1271,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-continuation-periodic; shared Lean provider. Cited as \Nref{bpN:p3:gen-continuation-periodic}.
-
-NODE: N:bpN:p3:gen-invariant
-KIND: external
-TITLE: [N] Invariant sets
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-invariant@L352-L356
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:gen-invariant
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: F : E -> E; W subset E; S subset E (typing data)
-SOURCE_QUANTIFIERS: F, W, S
-SOURCE_CONCLUSION: defines: S is invariant for (F,W) iff for every interval J' and every y with IsSolIn F W J' y, if y(t1) in S for one t1 in J' then y(t) in S for all t in J'
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-invariant; shared Lean provider. Cited as \Nref{bpN:p3:gen-invariant}.
 
 NODE: N:bpN:p3:gen-maximal
 KIND: external
@@ -1558,16 +1428,16 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-reduction; shared Lean provider. Cited as \Nref{bpN:p3:ham-reduction}.
 
-NODE: N:bpN:p3:newton-reduction
+NODE: N:bpN:p3:gen-exit
 KIND: external
-TITLE: [N] Newtonian predicates
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L434-L449
+TITLE: [N] First exit
+STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-exit@L328-L341
 PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:newton-reduction
+CONTRACT_ID: N:bpN:p3:gen-exit
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: N >= 2, G in R, mass : Fin N -> R; E_N = (Fin N -> R^2) x (Fin N -> R^2) with the max norm; W_N = {(q,v) : planeLength(q_j - q_i) > 0 for all i != j} and F_N the Newtonian field; for IsFixedSolution G m0 m eps: W_N' = W_N cap {planeLength(q_i) > 0} and the field F'; for IsRestrictedSolutionOn mu J: W_mu = {(q,p) : CollisionFree mu (q,p)} and F_mu the total extension of restrictedVectorField mu
-SOURCE_QUANTIFIERS: N, G, mass (resp. G, m0, m, eps; resp. mu, J) fixed; for all Q, V : R -> (Fin N -> R^2) with x(t) = (Q(t),V(t)) (resp. all z : R -> R^2 x R^2)
-SOURCE_CONCLUSION: W_N is open, F_N is C^infinity on W_N and IsNewtonSolution G mass Q V <-> IsSolIn F_N W_N R x; likewise IsFixedSolution with (W_N', F'); IsRestrictedSolutionOn mu J z <-> IsSolIn F_mu W_mu J z; in all three cases F is C^infinity on the open set W and the general layer applies
+SOURCE_HYPOTHESES: IsSolIn F W J z with J an interval, 0 in J; V subset E open; z(0) in V; A = {t in J : t >= 0, z(t) not in V}
+SOURCE_QUANTIFIERS: F, W, J, z, V fixed
+SOURCE_CONCLUSION: exactly one holds: (i) A empty and z(t) in V for all t in J, t >= 0; (ii) A nonempty, t* = min A exists, t* > 0, t* in J, z(t) in V on [0,t*), z(t*) in boundary of V = closure(V) minus V; t* equals sup{t in J : t >= 0, z([0,t]) subset V}; the same holds backwards in time
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1582,4 +1452,82 @@ REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:newton-reduction; shared Lean provider. Cited as \Nref{bpN:p3:newton-reduction}.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-exit; shared Lean provider. Cited as \Nref{bpN:p3:gen-exit}.
+
+NODE: N:bpN:p3:gen-symmetry
+KIND: external
+TITLE: [N] Symmetries
+STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetry@L101-L110
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p3:gen-symmetry
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: IsSolIn F W J z; for (b) -F is C^1 on W if F is; for (c) v in E with W+v=W and F(x+v)=F(x) on W
+SOURCE_QUANTIFIERS: F, W, J, z, c, v
+SOURCE_CONCLUSION: (a) t -> z(t+c) is a solution on J-c; (b) t -> z(-t) is a solution of -F on -J, and -F is C^1 on W if F is; (c) t -> z(t)+v is a solution of F in W on J
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-symmetry; shared Lean provider. Cited as \Nref{bpN:p3:gen-symmetry}.
+
+NODE: P:bpP:p0:fixedsol#IsFixedSolution
+KIND: external
+TITLE: [P] Fixed-Sun solutions: KAM.Planetary.IsFixedSolution
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixedsol@L235-L242
+PROOF_SOURCE: -
+CONTRACT_ID: P:bpP:p0:fixedsol#IsFixedSolution
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: typing data: n in N, G, m_0, epsilon in R, m in R^n, Q, V : R -> (R^2)^n
+SOURCE_QUANTIFIERS: G, m_0, m, epsilon, Q, V
+SOURCE_CONCLUSION: defines IsFixedSol(G,m_0,m,epsilon,Q,V): for all t and i != j: pl(Q_i(t)) > 0, pl(Q_j(t) - Q_i(t)) > 0, Q_i has derivative V_i(t), and V_i has derivative -G m_0 Q_i(t) / pl(Q_i(t))^3 + epsilon sum_{j != i} G m_j (Q_j(t) - Q_i(t)) / pl(Q_j(t) - Q_i(t))^3; the Sun is the constant origin
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED (pending P graph): frozen definition KAM.Planetary.IsFixedSolution, anchor node bpP:p0:fixedsol#IsFixedSolution of the track-P graph; not an anchor of this graph. Cited as \frozen{KAM.Planetary.IsFixedSolution}.
+
+NODE: P:bpP:p0:newton#IsNewtonSolution
+KIND: external
+TITLE: [P] Newton solutions: KAM.Planetary.IsNewtonSolution
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:newton@L226-L233
+PROOF_SOURCE: -
+CONTRACT_ID: P:bpP:p0:newton#IsNewtonSolution
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: typing data: N in N, G in R, M in R^N, Q, V : R -> (R^2)^N
+SOURCE_QUANTIFIERS: G, M, Q, V
+SOURCE_CONCLUSION: defines IsNewton(G,M,Q,V): for all t in R and i != j (indices < N): pl(Q_j(t) - Q_i(t)) > 0; Q_i has derivative V_i(t) at t; V_i has derivative sum_{j != i} G M_j (Q_j(t) - Q_i(t)) / pl(Q_j(t) - Q_i(t))^3 at t (HasDerivAt)
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED (pending P graph): frozen definition KAM.Planetary.IsNewtonSolution, anchor node bpP:p0:newton#IsNewtonSolution of the track-P graph; not an anchor of this graph. Cited as \frozen{KAM.Planetary.IsNewtonSolution}.

@@ -774,7 +774,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p7:sec-ham#data, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:restricted#restrictedVectorField, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:primaries#CollisionFree, N:bpN:p3:newton-reduction, stepI:p7:he-smooth, stepI:p7:he-deriv, stepI:p7:he-sol
+DEPS: bpI:p7:sec-ham#data, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:restricted#restrictedVectorField, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:primaries#CollisionFree, bpN:p3:newton-reduction, stepI:p7:he-smooth, stepI:p7:he-deriv, stepI:p7:he-sol
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L52-L52 | W_mu and the formulas for H^R3_mu, V_mu
@@ -782,7 +782,7 @@ EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.te
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L52-L52 | frozen restrictedVectorField
 EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L53-L53 | RSol_mu
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L53-L53 | collision-freeness clause
-EDGE: N:bpN:p3:newton-reduction | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L54-L54 | shared ODE layer: IsRestrictedSolutionOn iff IsSolIn
+EDGE: bpN:p3:newton-reduction | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L54-L54 | shared ODE layer: IsRestrictedSolutionOn iff IsSolIn
 EDGE: stepI:p7:he-smooth | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L59-L59 | proof step
 EDGE: stepI:p7:he-deriv | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L61-L61 | proof step
 EDGE: stepI:p7:he-sol | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L69-L69 | proof step
@@ -870,14 +870,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p0:primaries#CollisionFree, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:restricted#restrictedVectorField, stepI:p7:he-deriv, N:bpN:p3:newton-reduction
+DEPS: bpI:p0:primaries#CollisionFree, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:restricted#restrictedVectorField, stepI:p7:he-deriv, bpN:p3:newton-reduction
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | first clause of RSol_mu is collision-freeness
 EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | RSol_mu
 EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | V_mu
 EDGE: stepI:p7:he-deriv | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | V_mu = X_H
-EDGE: N:bpN:p3:newton-reduction | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | reduction to IsSolIn
+EDGE: bpN:p3:newton-reduction | blueprint-I/parts/p7-delaunay.tex#stepI:p7:he-sol@L69-L69 | reduction to IsSolIn
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: -
