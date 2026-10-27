@@ -61,7 +61,7 @@
    "model": "GPT-6-Astra xhigh",
    "account": "codex-1",
    "session": "kam-zohar2",
-   "assignment": "Collaborator's research question: rounds 1–2 done (docs/explorations/almost-every-*.md); round 3 refutation running",
+   "assignment": "Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md",
    "state": "done"
   },
   {
@@ -98,15 +98,6 @@
    "account": "claude-1",
    "session": null,
    "assignment": "Proofs of the 30 part-1 interface lemmas",
-   "state": "running"
-  },
-  {
-   "id": "round3-refute",
-   "kind": "research referee",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1",
-   "session": null,
-   "assignment": "Round 3: refute-first check of the round-2 planetary claims (P-EXP-SAFE, secular box, averaging corrections)",
    "state": "running"
   }
  ],

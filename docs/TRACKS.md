@@ -68,3 +68,22 @@ The tracks share infrastructure. The background research is in
 | Lie series / canonical transformations, normal forms | | | ✓ | ✓ |
 | Hamiltonian flows, global existence of solutions | ✓ | ✓ | ✓ | ✓ |
 | Kepler problem, Delaunay/Poincaré coordinates | | ✓ (R3BP) | | ✓ |
+
+## Proposed additions from the collaborator's research question (awaiting the owner)
+
+Rounds 1–3 are in `explorations/almost-every-*.md`; round 3 is an independent refutation. The proposed statements are:
+- **P-EXP-SAFE.** Nekhoroshev 1977, §12, Theorem 12.3, pp. 55–56, specialized to the planar problem with a moving Sun.
+  - For EVERY initial condition with low angular-momentum deficit and separated semimajor axes there are no
+    collisions and no escapes for times exp(c·μ^{−a}), with the source's exponents a = 2/(6n²−3n+14) and b = 3a/2
+    (or "some a, b > 0").
+  - Round 2's exponent 1/(2n) is unverified, so it stays a separate, unfrozen strengthening.
+- **N-PARTIAL-CONVEX.** The stopped properly-degenerate Nekhoroshev theorem (Nekhoroshev 1977, Theorem 4.4, p. 30):
+  convexity only in the fast actions, any slow domain. This is the bridge from track N to track P.
+- **P-AMD-CONFINEMENT.** A helper: angular-momentum conservation plus a fast-action drift bound valid up to the
+  exit time give eccentricity, separation and continuation bounds.
+- **P-SECULAR-BOX.** At the actual masses, in the exactly averaged Sun–Jupiter–Saturn model, an explicit box of
+  initial conditions is safe for all time (a crude form of Laskar's deficit criterion).
+- **N-AVERAGING.** Averaging for most initial conditions (Arnold–Kozlov–Neishtadt Thm 6.11): drift below c√ε/κ up
+  to time 1/ε, outside a set of measure κ.
+- **Not a theorem yet.** A certificate for the full model at realistic masses is a feasibility study.
+
