@@ -249,7 +249,8 @@ theorem sum_norm_omegaZeroMatrix_apply (i : Fin n ⊕ Fin n) :
   rcases i with i | i <;>
     simp [omegaZeroMatrix, Matrix.one_apply, Matrix.neg_apply, apply_ite norm]
 
-/-- `‖Ω₀‖ = 1` in the max-row-sum norm (for `n ≥ 1`; the empty matrix has norm `0`). -/
+/-- `‖Ω₀‖ = 1` in the max-row-sum norm (for `n ≥ 1`, which Part 0's convention `n ≥ 2` supplies; the
+empty matrix has norm `0`). -/
 theorem norm_omegaZeroMatrix (hn : 0 < n) : ‖omegaZeroMatrix n‖ = 1 := by
   have : Nonempty (Fin n ⊕ Fin n) := ⟨Sum.inl ⟨0, hn⟩⟩
   rw [norm_eq_iSup_rowSum]
@@ -300,8 +301,9 @@ theorem matrix_operator_norm_omegaZero :
 
 /-- Blueprint `bp:p1:operator-norms`. For the max norms: the operator norm of a matrix is the
 largest row sum; the block matrix `(A B; C D)` has norm at most `max {‖A‖ + ‖B‖, ‖C‖ + ‖D‖}`;
-and `Ω₀` is the matrix of the frozen `omegaZero`, with `Ω₀ᵀ = -Ω₀`, `Ω₀² = -I`, `‖Ω₀‖ = 1`. The
-`2n` rows and columns of `Ω₀` are indexed by `Fin n ⊕ Fin n`. -/
+and `Ω₀` is the matrix of the frozen `omegaZero`, with `Ω₀ᵀ = -Ω₀`, `Ω₀² = -I`, and `‖Ω₀‖ = 1` when
+`0 < n` (the empty matrix has norm `0`; Part 0's standing convention `n ≥ 2` supplies `0 < n`).
+The `2n` rows and columns of `Ω₀` are indexed by `Fin n ⊕ Fin n`. -/
 theorem operator_norms :
     (∀ (p q : ℕ) (M : Matrix (Fin p) (Fin q) ℂ),
       IsGreatest ((fun v : Fin q → ℂ => ‖M.mulVec v‖) '' Metric.closedBall 0 1) ‖M‖ ∧
