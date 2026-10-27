@@ -13,7 +13,7 @@
   {
    "id": "track-N",
    "kind": "Phase 0 (Codex)",
-   "model": "GPT-6-Astra high",
+   "model": "GPT-6.1-Sol medium",
    "account": "codex-3",
    "session": "kam-track-n",
    "assignment": "Track N additions Phase 0 (D22): drafted (READY additions-N, d7ad21c); draft under audit",
@@ -22,11 +22,11 @@
   {
    "id": "track-P",
    "kind": "Phase 0 (Codex)",
-   "model": "GPT-6-Astra high",
+   "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
    "session": "kam-track-p",
-   "assignment": "Track P additions Phase 0 (D22): drafted (READY additions-P); draft under audit",
-   "state": "done"
+   "assignment": "Track P additions: revision v0.4 (audit finding F-P-A1), in the inp worktree",
+   "state": "running"
   },
   {
    "id": "audit-add-P",
@@ -34,8 +34,8 @@
    "model": "GPT-6.1-Sol high",
    "account": "codex-1",
    "session": "inp-audit-p",
-   "assignment": "Independent statement audit of the track-P D22 additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX)",
-   "state": "running"
+   "assignment": "Statement audit of the track-P D22 additions: done (1 major finding F-P-A1: inline two result bundles; rest approvable)",
+   "state": "done"
   },
   {
    "id": "audit-add-N",
@@ -52,8 +52,8 @@
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track I blueprint: Part 0 (conventions, frozen statements) and part plan",
-   "state": "running"
+   "assignment": "Track I blueprint: Part 0 (conventions, frozen statements) and part plan (done)",
+   "state": "done"
   },
   {
    "id": "bpN-p0",
@@ -61,8 +61,8 @@
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track N blueprint: Part 0 (conventions, frozen statements) and part plan",
-   "state": "running"
+   "assignment": "Track N blueprint: Part 0 (conventions, frozen statements) and part plan (done)",
+   "state": "done"
   },
   {
    "id": "bpP-p0",
@@ -70,7 +70,61 @@
    "model": "Claude Sonnet 5.5",
    "account": "claude-8",
    "session": null,
-   "assignment": "Track P blueprint: Part 0 (conventions, frozen statements) and part plan",
+   "assignment": "Track P blueprint: Part 0 (conventions, frozen statements) and part plan (done)",
+   "state": "done"
+  },
+  {
+   "id": "bpN-p3",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track N blueprint Part 3: shared Hamiltonian ODE layer for I, N, P (done)",
+   "state": "done"
+  },
+  {
+   "id": "bpI-p1",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track I blueprint Part 1: extended torsion, bordered triangular system (HL19 Lemma 6.1)",
+   "state": "running"
+  },
+  {
+   "id": "bprev-1",
+   "kind": "blueprint review (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-3",
+   "session": "inp-bprev-1",
+   "assignment": "Refute-first review of Part 0 of blueprints I and N (frozen-statement transcription) and of the part plans",
+   "state": "running"
+  },
+  {
+   "id": "bpN-p12",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track N blueprint Parts 1-2: interfaces and conversions; proofs of N-QC and N-ZERO",
+   "state": "running"
+  },
+  {
+   "id": "bpP-p3",
+   "kind": "blueprint writer (subagent)",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-8",
+   "session": null,
+   "assignment": "Track P blueprint Part 3: two-scale KAM theorem (CP10 Prop. 3, App. B)",
+   "state": "running"
+  },
+  {
+   "id": "route-P11",
+   "kind": "route study (Codex)",
+   "model": "GPT-6.1-Sol medium",
+   "account": "codex-1",
+   "session": "inp-route-p11",
+   "assignment": "Track P Part 11 route study: weak-nondegeneracy KAM gate for P-PLANAR/P-FIXED (CP09+Russmann vs Fejoz 2004 vs P-G fallback)",
    "state": "running"
   }
  ]

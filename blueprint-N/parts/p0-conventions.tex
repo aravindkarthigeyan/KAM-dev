@@ -1,0 +1,252 @@
+\section{Conventions, definitions and the frozen statements}\label{bpN:p0}
+
+This part fixes notation and restates, in mathematical form, the three frozen theorems of track N
+(owner approval D20, 27 October 2026) and the eleven frozen definitions of
+\texttt{\seqsplit{KAM/Frozen/Nekhoroshev/Defs/}} together with the five track-K definitions they use. The Lean
+declarations are authoritative; the statements below are transcriptions of them, with the Lean names
+recorded under each. N-HEAD with real bounds only is \emph{not} frozen (source gap F-N1, D17/D18/D20); the
+frozen headline is N-HEAD-C. The additions of D22 (N-PARTIAL-CONVEX, N-AVERAGING) are not yet frozen and are
+not part of this part. Results of track K's blueprint are cited as \Kref{bp:p1:\dots}.
+
+\subsection{Conventions}\label{bpN:p0:conventions}
+
+\begin{itemize}
+\item $n\in\N$ is the number of degrees of freedom; N-HEAD-C assumes $n\ge3$ (D17), N-ZERO and N-QC are stated
+  for every $n$. A phase point is $z=(\theta,I)$ with angles $\theta$ and actions $I$, in this order.
+\item Ambient spaces are those of the Lean text: $\R^n=(\texttt{Fin }n\to\R)$, $\C^n=(\texttt{Fin }n\to\C)$,
+  with the max norms $\abs v=\max_i\abs{v_i}$ on both. The embedding $\R^n\subset\C^n$ is componentwise. The
+  norm $\norm{\cdot}$ in every frozen statement is the max norm, with two exceptions that are Euclidean on
+  purpose: orthogonality in quasi-convexity uses the dot product $\sum_i\omega_iv_i$, and the phase space of
+  a solution is $\R^n\times\R^n$.
+\item Operator norms of linear and multilinear maps are the induced norms of these max norms. In particular
+  $\norm{D^2h(z)}$ for complex $h$ is the norm of $D^2h(z)\in\mathcal L(\C^n,\mathcal L(\C^n,\C))$ (Lean
+  \Lean{fderiv} applied twice), i.e.\ $\sup_{\abs u,\abs v\le1}\abs{D^2h(z)[u,v]}$.
+\item Angles are \emph{not} reduced modulo $\Z^n$ in the statements: $\theta\in\R^n$ or $\theta\in T_s\subset\C^n$,
+  and $1$-periodicity is a hypothesis on $f$ (Definition~\ref{bpN:p0:pert}). So the torus is $\R^n/\Z^n$ and
+  the Fourier characters are $e^{2\pi ik\cdot\theta}$ as in track K (\Kref{bp:p1:decay},
+  \Kref{bp:p1:summation}). P\"oschel's torus is $\R^n/2\pi\Z^n$ and his norms are Euclidean; the conversion is
+  a separate step of the proof (Part~1 of \texttt{PLAN.md}).
+\item The complex strip is $T_s=\{\theta\in\C^n:\abs{\operatorname{Im}\theta_i}<s\ \forall i\}$ (Lean
+  \Lean{KAM.complexStrip}), as in track K.
+\end{itemize}
+
+\subsection{Track-K definitions used}\label{bpN:p0:kdefs}
+
+\begin{definition}[Complex action neighbourhood]\label{bpN:p0:actionnbhd}
+For $B\subset\R^n$ and $r\in\R$, $B_r=\{I\in\C^n:\exists J\in B,\ \abs{I-J}<r\}$ (max norm, $J$ viewed in $\C^n$).
+Thus $B_r=\emptyset$ for $r\le0$, and for $B$ open $B_r$ is open.
+\frozen{KAM.actionNbhd}
+\source{BM11 p.~4 ($D_s$); track K, \Kref{bp:p0:domains}.}
+\end{definition}
+
+\begin{definition}[Frequency map]\label{bpN:p0:freq}
+For $h:\C^n\to\C$ and $I\in\R^n$, $\omega_h(I)=\nabla h(I)\in\R^n$ is the vector with
+$\omega_h(I)_i=D\bigl(J\mapsto\operatorname{Re}h(J)\bigr)(I)[e_i]$, the real partial derivatives of
+$\operatorname{Re}h$ on $\R^n$ at $I$. It is $0$ if $\operatorname{Re}h|_{\R^n}$ is not differentiable at $I$
+(Lean totality, Remark~\ref{bpN:p0:totality}).
+\frozen{KAM.frequencyMap}
+\source{BM11 p.~1; Pos93 p.~190 ($\omega(I)=\partial_Ih(I)$).}
+\end{definition}
+
+\begin{definition}[Hamiltonian vector field]\label{bpN:p0:vf}
+For $H:\R^n\times\R^n\to\R$ and $z=(\theta,I)$, $X_H(z)=\bigl((\partial_{I_i}H(z))_i,\,(-\partial_{\theta_i}H(z))_i\bigr)$,
+where $\partial_{I_i}H(z)=DH(z)[(0,e_i)]$ and $\partial_{\theta_i}H(z)=DH(z)[(e_i,0)]$ are the Fr\'echet
+derivatives in the Lean sense ($0$ if $H$ is not differentiable at $z$).
+\frozen{KAM.hamiltonianVectorField}
+\source{BM11 p.~1; track K, \Kref{bp:p0:hamiltonian}.}
+\end{definition}
+
+\begin{definition}[Real Hamiltonian]\label{bpN:p0:realH}
+For $h:\C^n\to\C$, $f:\C^n\times\C^n\to\C$ and real $z=(\theta,I)$,
+$H_{h,f}(z)=\operatorname{Re}\bigl(h(I)+f(\theta,I)\bigr)$, with $\theta,I$ viewed in $\C^n$.
+\frozen{KAM.realHamiltonian}
+\source{BM11 p.~5 ($H=h+f$).}
+\end{definition}
+
+\begin{remark}[Strip and neighbourhood notation]\label{bpN:p0:strip}
+\Lean{KAM.complexStrip}\,$n\,s=T_s$ as above; it is empty for $s\le0$.
+\frozen{KAM.complexStrip}
+\end{remark}
+
+\subsection{Frozen track-N definitions}\label{bpN:p0:defs}
+
+\begin{definition}[Action ball]\label{bpN:p0:ball}
+$B(0,R)=\{I\in\R^n:\abs I<R\}$, the open ball of the max norm; written $\texttt{actionBall}\,n\,R$.
+\frozen{KAM.Nekhoroshev.\allowbreak actionBall}
+\source{BM11 p.~4.}
+\end{definition}
+
+\begin{definition}[Complex domain]\label{bpN:p0:cdomain}
+$D_s(R)=T_s\times B(0,R)_s\subset\C^n\times\C^n$; \texttt{complexDomain}\,$n\,R\,s$. It is the
+period-one lift of BM11's $D_s$, with a single width $s$ for angles and actions. It is open.
+\frozen{KAM.Nekhoroshev.\allowbreak complexDomain}
+\source{BM11 p.~4 ($D_s$); ours for the lift.}
+\end{definition}
+
+\begin{definition}[Real action domain]\label{bpN:p0:rdomain}
+$\mathcal B_s(R)=\{I\in\R^n: I\in B(0,R)_s\}$; \texttt{realActionDomain}\,$n\,R\,s$.
+\frozen{KAM.Nekhoroshev.\allowbreak realActionDomain}
+\source{BM11 p.~4 ($B_s$).}
+\end{definition}
+
+\begin{remark}[Computing $\mathcal B_s(R)$]\label{bpN:p0:rdomain-eq}
+Since $\abs{I-J}$ for real $I,J$ is the real max norm, $\mathcal B_s(R)=\{I\in\R^n:\exists J,\ \abs J<R,\
+\abs{I-J}<s\}=B(0,R+s)$ for $R,s>0$. This identity is ours and is proved from the definitions (it is not stated in the
+source); it shows that $B(0,R)\subset\mathcal B_s(R)$ and that $\mathcal B_s(R)$ is open.
+\end{remark}
+
+\begin{definition}[Real part of the integrable part]\label{bpN:p0:realpart}
+For $h:\C^n\to\C$ and $I\in\R^n$, $h_{\R}(I)=\operatorname{Re}h(I)$; \texttt{realPart}\,$h$.
+\frozen{KAM.Nekhoroshev.\allowbreak realPart}
+\source{BM11 p.~4 ($h:B_s\to\R$).}
+\end{definition}
+
+\begin{definition}[Analytic integrable part, $h\in A_s(D)$]\label{bpN:p0:integrable}
+$\texttt{IsAnalyticIntegrable}\,R\,s\,h$ holds if
+\begin{enumerate}[label=(\roman*)]
+\item $h$ is complex differentiable on $B(0,R)_s$;
+\item $h$ is continuous on $\overline{B(0,R)_s}$ (closure in $\C^n$);
+\item there is $A\ge0$ with $\abs{h(I)}\le A$ for all $I\in B(0,R)_s$;
+\item $\operatorname{Im}h(I)=0$ for all $I\in\mathcal B_s(R)$;
+\item $h_\R$ is of class $C^3$ on $\mathcal B_s(R)$ (real Fr\'echet sense; the set is open).
+\end{enumerate}
+No numerical bound on $h$ is fixed. Clause (v) is redundant by holomorphy (\Kref{bp:p1:holomorphic-regularity},
+\Kref{bp:p1:real-restriction}) and records the regularity that guards every real derivative.
+\frozen{KAM.Nekhoroshev.\allowbreak IsAnalyticIntegrable}
+\source{BM11 p.~4 ($A_s(D)$, integrable case, with continuity on the closure).}
+\end{definition}
+
+\begin{definition}[Analytic perturbation of size $\varepsilon$]\label{bpN:p0:pert}
+$\texttt{IsAnalyticPerturbation}\,R\,s\,\varepsilon\,f$ holds if $\varepsilon\ge0$ and
+\begin{enumerate}[label=(\roman*)]
+\item $f$ is complex differentiable on $D_s(R)$ and continuous on $\overline{D_s(R)}$;
+\item $f(\theta+k,I)=f(\theta,I)$ for all $(\theta,I)\in D_s(R)$ and $k\in\Z^n$;
+\item $\operatorname{Im}f(\theta,I)=0$ for all $\theta\in\R^n$ and $I\in\mathcal B_s(R)$;
+\item $\abs{f(z)}\le\varepsilon$ for all $z\in D_s(R)$ (complex absolute value).
+\end{enumerate}
+The size is measured by $\le\varepsilon$, not the source's strict bound; the source is applied with $2\varepsilon$.
+For $\varepsilon=0$ this forces $f=0$ on $D_s(R)$.
+\frozen{KAM.Nekhoroshev.\allowbreak IsAnalyticPerturbation}
+\source{BM11 pp.~4--5 ($f\in A_s(D)$, $\abs f_s<\varepsilon$); deviation: $\le\varepsilon$ (ruling Q2, D18).}
+\end{definition}
+
+\begin{definition}[Derivative bounds $B(M)$]\label{bpN:p0:bm}
+For $U\subset\R^n$, $h:\C^n\to\C$ and $M\in\R$, $\texttt{HasDerivativeBounds}\,U\,h\,M$ holds if $M>0$, $U$ is open,
+$h_\R\in C^3(U)$, and for all $I\in U$, all $k\in\{1,2,3\}$ and all $(i_1,\dots,i_k)\in\{1,\dots,n\}^k$,
+\[\bigl\lvert D^kh_\R(I)[e_{i_1},\dots,e_{i_k}]\bigr\rvert\le M.\]
+These are all ordered coordinate partials of orders one to three; for $C^3$ functions they coincide with the multi-index
+partials $\partial^kh$ of the source (symmetry, \Kref{bp:p1:ext-schwarz}). The bound is on coordinate partials, not
+on operator norms.
+\frozen{KAM.Nekhoroshev.\allowbreak HasDerivativeBounds}
+\source{BM11 p.~4, $B(M)$.}
+\end{definition}
+
+\begin{definition}[Strict quasi-convexity $QC(m)$]\label{bpN:p0:qc}
+For $U\subset\R^n$, $h:\C^n\to\C$, $m\in\R$, $\texttt{IsStrictlyQuasiConvex}\,U\,h\,m$ holds if $m>0$, $U$ is open,
+$h_\R\in C^2(U)$, and for every $I\in U$: $\omega_h(I)\ne0$ and
+\[\sum_i\omega_h(I)_iv_i=0\ \Longrightarrow\ m\abs v^2\le D^2h_\R(I)[v,v]\qquad(v\in\R^n),\]
+with $\abs v$ the max norm on the left and the Euclidean dot product in the hypothesis.
+\frozen{KAM.Nekhoroshev.\allowbreak IsStrictlyQuasiConvex}
+\source{BM11 p.~4, $QC(m)$ (the source's norm on the right is the max norm, orthogonality is Euclidean).}
+\end{definition}
+
+\begin{definition}[Complex Hessian bound]\label{bpN:p0:hess}
+$\texttt{HasComplexHessianBound}\,R\,s\,h\,M_{\C}$ holds if $M_{\C}>0$, $h$ is $C^2$ in the complex sense on $B(0,R)_s$
+and $\norm{D^2h(z)}\le M_{\C}$ for all $z\in B(0,R)_s$, the norm being that of $D(Dh)(z)\in\mathcal L(\C^n,\mathcal L(\C^n,\C))$
+for the max norm. Every entry $\abs{\partial_i\partial_jh}$ is then $\le M_{\C}$, and the Euclidean operator norm of the
+Hessian matrix is $\le nM_{\C}$. This is not the spectral radius of a complex symmetric matrix.
+\frozen{KAM.Nekhoroshev.\allowbreak HasComplexHessianBound}
+\source{Pos93 p.~190, ``The Hessian of the integrable hamiltonian $h$'' (conversion by $n$ recorded in
+\texttt{\seqsplit{docs/tracks/N/sources.md}}, anchor POS190-HESS).}
+\end{definition}
+
+\begin{definition}[Solutions on a time set]\label{bpN:p0:sol}
+For $H:\R^n\times\R^n\to\R$, $U\subset\R^n$, $J\subset\R$ and $z:\R\to\R^n\times\R^n$,
+$\texttt{IsSolutionOn}\,H\,U\,J\,z$ holds if for every $t\in J$: $z(t)_2\in U$, $H$ is differentiable at $z(t)$, and
+$z$ is differentiable at $t$ (two-sided, also at endpoints of $J$, since $z$ is defined on $\R$) with
+$z'(t)=X_H(z(t))$.
+\frozen{KAM.Nekhoroshev.\allowbreak IsSolutionOn}
+\source{BM11 Theorem~2.1 p.~5 and the maximal-solution argument p.~13.}
+\end{definition}
+
+\begin{definition}[The integrable orbit]\label{bpN:p0:orbit}
+For $h:\C^n\to\C$, $\theta_0,I_0\in\R^n$ and $t\in\R$:
+$\gamma_{\theta_0,I_0}(t)=(\theta_0+t\,\omega_h(I_0),\,I_0)$.
+\frozen{KAM.Nekhoroshev.\allowbreak integrableOrbit}
+\source{BM11 p.~1 ($H(\theta,I)=h(I)$).}
+\end{definition}
+
+\begin{remark}[Lean totality]\label{bpN:p0:totality}
+The frozen definitions and theorems use \Lean{fderiv} (which is $0$ at a point of non-differentiability),
+\Lean{iteratedFDeriv}, the operator norm, \Lean{rpow} ($\varepsilon^{\pm1/(2n)}$), \Lean{Real.exp} and the max norm;
+there is no matrix inverse, no Bochner integral and no division by a quantity that may vanish. The guards are:
+\begin{enumerate}[label=(\alph*)]
+\item $\omega_h$ and $D^2h_\R$ are used only on the open set $\mathcal B_s(R)$ where $h_\R$ is $C^3$
+  (Definitions~\ref{bpN:p0:integrable}(v), \ref{bpN:p0:bm}, \ref{bpN:p0:qc}), so the derivatives are the genuine ones.
+\item $D^2h$ for complex $h$ is used only on $B(0,R)_s$, open, where $h$ is $C^2$ (Definition~\ref{bpN:p0:hess}).
+\item $X_H$ is used only inside \texttt{IsSolutionOn}, which requires differentiability of $H$ at every visited point;
+  in N-ZERO and N-HEAD-C this is a proof obligation: $H_{h,f}$ is real-differentiable on
+  $\mathcal B_s(R)\times\R^n\supset B(0,R)\times\R^n$ because $h,f$ are holomorphic on open sets containing the real
+  points (\Kref{bp:p1:hamiltonian-real}).
+\item $\varepsilon^{-1/(2n)}$ and $\varepsilon^{1/(2n)}$ occur only with $\varepsilon>0$ in N-HEAD-C, and $2n\ne0$.
+\item In N-QC the map $\Psi(I',\lambda)=(h_\R(I'),\lambda\omega_h(I'))$ is differentiable at $(I,\lambda)$ because
+  $h_\R\in C^2$ on the open set $U\ni I$; \Lean{fderiv} is then the true derivative.
+\end{enumerate}
+\end{remark}
+
+\subsection{The frozen theorems}\label{bpN:p0:theorems}
+
+\begin{theorem}[N-HEAD-C: exponential stability, complex Hessian bound]\label{bpN:p0:head}
+Let $n\ge3$ and $R,s,M,m,M_{\C},\omega_{\min}>0$. Then there are $C,T,c,\varepsilon_0>0$ with
+\[C\,\varepsilon_0^{1/(2n)}\le R/4\]
+such that the following holds for every $h:\C^n\to\C$, $f:\C^n\times\C^n\to\C$ and $\varepsilon\in\R$ with
+\begin{enumerate}[label=(H\arabic*)]
+\item $\texttt{IsAnalyticIntegrable}\,R\,s\,h$ (Definition~\ref{bpN:p0:integrable});
+\item $\texttt{HasComplexHessianBound}\,R\,s\,h\,M_{\C}$ (Definition~\ref{bpN:p0:hess});
+\item $\omega_{\min}\le\abs{\omega_h(I)}$ for every $I\in B(0,R)$ (max norm);
+\item $\texttt{IsStrictlyQuasiConvex}\,\mathcal B_s(R)\,h\,m$ (Definition~\ref{bpN:p0:qc});
+\item $\texttt{HasDerivativeBounds}\,\mathcal B_s(R)\,h\,M$ (Definition~\ref{bpN:p0:bm});
+\item $\texttt{IsAnalyticPerturbation}\,R\,s\,\varepsilon\,f$ (Definition~\ref{bpN:p0:pert});
+\item $0<\varepsilon\le\varepsilon_0$.
+\end{enumerate}
+For every $\theta_0\in\R^n$ and $I_0\in B(0,R/2)$, with $\tau:=T\exp\bigl(c\,\varepsilon^{-1/(2n)}\bigr)$ and
+$H=H_{h,f}$, there is $z:\R\to\R^n\times\R^n$ with
+\begin{enumerate}[label=(\alph*)]
+\item $z(0)=(\theta_0,I_0)$;
+\item $\texttt{IsSolutionOn}\,H\,B(0,R)\,[-\tau,\tau]\,z$;
+\item $\abs{z(t)_2-I_0}\le C\varepsilon^{1/(2n)}$ for all $t$ with $\abs t\le\tau$;
+\item (uniqueness) for every $L\in[0,\tau]$ and every $y:\R\to\R^n\times\R^n$ with $y(0)=(\theta_0,I_0)$ and
+  $\texttt{IsSolutionOn}\,H\,B(0,R)\,[-L,L]\,y$: $y(t)=z(t)$ for all $t\in[-L,L]$.
+\end{enumerate}
+The order of choice is: $n$; $R,s,M,m,M_{\C},\omega_{\min}$; then $C,T,c,\varepsilon_0$, depending only on these
+seven data; then $h,f,\varepsilon$, then $\theta_0,I_0$; the solution $z$ may depend on all of them. There is no
+dependence on $A$ in Definition~\ref{bpN:p0:integrable}(iii). In (H4)--(H5) the set is $\mathcal B_s(R)=B(0,R+s)$
+(Remark~\ref{bpN:p0:rdomain-eq}), in (H3) the smaller ball $B(0,R)$.
+\frozen{KAM.Nekhoroshev.\allowbreak quasiConvex\_\allowbreak nekhoroshev\_\allowbreak complexBound}
+\source{Pos93 Theorem~1, pp.~190--191 (with the conversions and anchors of \texttt{\seqsplit{docs/tracks/N/sources.md}}); exponent $1/(2n)$
+as BM11 p.~5 with $\delta=(2n(n-1))^{-1}$; ruling D18 Q2, Q4; deviation D20: the extra inputs $M_{\C}$ and $\omega_{\min}$.}
+\sourcegap{The printed theorem is for a $2\pi$-periodic torus, Euclidean norms and exceptional initial frequencies
+$\norm{\omega(I_0)}\le mr_0/8$; the conversion to the frozen statement (rescaling $H\mapsto2\pi H(\varphi/2\pi,I)$,
+choice of $r_0,s_0$ from the seven data, exclusion of the exceptional branch by $\omega_{\min}$, existence and
+uniqueness of the solution) is given only in \texttt{sources.md} and is proved in Part~10 of \texttt{PLAN.md}.}
+\end{theorem}
+
+\begin{theorem}[N-ZERO: exact integrable dynamics]\label{bpN:p0:zero}
+Let $n\in\N$, $R,s>0$, $h$ with $\texttt{IsAnalyticIntegrable}\,R\,s\,h$ and $f$ with
+$\texttt{IsAnalyticPerturbation}\,R\,s\,0\,f$. For every $\theta_0\in\R^n$ and $I_0\in B(0,R/2)$, with
+$\gamma=\gamma_{\theta_0,I_0}$ (Definition~\ref{bpN:p0:orbit}):
+\[\gamma(0)=(\theta_0,I_0),\qquad \texttt{IsSolutionOn}\,H_{h,f}\,B(0,R)\,\R\,\gamma,\qquad \gamma(t)_2=I_0\ \ (t\in\R).\]
+\frozen{KAM.Nekhoroshev.\allowbreak zero\_perturbation}
+\source{Ours (supplement to BM11 Theorem~2.1, p.~5, whose strict bound excludes $\varepsilon=0$); from $H=h(I)$, BM11 p.~1.}
+\end{theorem}
+
+\begin{theorem}[N-QC: nonsingular isoenergetic derivative]\label{bpN:p0:qcthm}
+Let $n\in\N$, $U\subset\R^n$, $h:\C^n\to\C$, $m\in\R$ with $\texttt{IsStrictlyQuasiConvex}\,U\,h\,m$. For $I\in U$ and
+$\lambda>0$, the derivative at $(I,\lambda)$ of
+\[\Psi:\R^n\times\R\to\R\times\R^n,\qquad\Psi(I',\lambda')=\bigl(h_\R(I'),\ \lambda'\omega_h(I')\bigr)\]
+is a bijective linear map $\R^n\times\R\to\R\times\R^n$. Explicitly it is
+$D\Psi(I,\lambda)[v,u]=\bigl(\omega_h(I)\cdot v,\ u\,\omega_h(I)+\lambda D^2h_\R(I)v\bigr)$.
+No uniform radius of invertibility is asserted.
+\frozen{KAM.Nekhoroshev.\allowbreak quasiConvex\_\allowbreak isoenergetic\_\allowbreak derivative}
+\source{BM11 Lemma~3.3 and its proof, pp.~9--10 (only the derivative assertion).}
+\end{theorem}
