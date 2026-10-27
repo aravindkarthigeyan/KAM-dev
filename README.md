@@ -6,7 +6,7 @@ h, most of phase space is filled by invariant Lagrangian tori that carry quasi-p
 Diophantine frequencies, as soon as f is small enough. Public development repository; owner Scott Armstrong.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 15:16 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 16.4 %** · frozen statements proved: 0 / 5 · **1,046 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 15:19 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 16.4 %** · frozen statements proved: 0 / 5 · **1,912 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -109,22 +109,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **1,046** (417 excluding blank lines and comments) · **+1,046** since 2026-10-27 13:33 UTC |
+| On `main` now | **1,912** (1,013 excluding blank lines and comments) · **+1,912** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
 | **Estimated total at completion** | **≈ 40,000** |
-| Estimated still to write | ≈ 39,000 |
+| Estimated still to write | ≈ 38,000 |
 
 **How the size is estimated.** The estimate is a planning figure (infrastructure ≈ 12k, a-posteriori theorem ≈ 15k, measure layer ≈ 8k, interfaces ≈ 5k lines); it switches to a rate-based estimate once 8 weight units of Lean work are done. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 15:16 UTC from `main` at `1f0d755` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 15:19 UTC from `main` at `d27ab4d` by `scripts/hq-status.py`.*
 
 **Current phase:** Phase 0 complete: the headline (rate and qualitative), G1, G2, G3 and 20 definitions are approved and frozen (D11). Phase 1 next: blueprint and source-level dependency graph anchored to the frozen statements; infrastructure (weighted Fourier algebras) can start in parallel.
 
 **Frozen statements proved: 0 / 5** · frozen definitions: 20
 
-**Lean on `main`:** 30 modules · 1,046 lines · 5 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 37 modules · 1,912 lines · 63 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 5 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean)
@@ -208,8 +208,8 @@ flowchart BT
 | Area | Content | Modules | Lines | Theorems |
 |---|---|---|---|---|
 | [`KAM/Frozen/`](KAM/Frozen) | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 25 | 974 | 5 |
-| `KAM/Fourier/` *(not created yet)* | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 0 | 0 | 0 |
-| `KAM/Diophantine/` *(not created yet)* | Diophantine vectors, cohomological equation, measure of the Diophantine set | 0 | 0 | 0 |
+| [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 3 | 359 | 24 |
+| [`KAM/Diophantine/`](KAM/Diophantine) | Diophantine vectors, cohomological equation, measure of the Diophantine set | 4 | 507 | 34 |
 | `KAM/Newton/` *(not created yet)* | Abstract Newton/KAM convergence on analytic scales | 0 | 0 | 0 |
 | `KAM/Hamiltonian/` *(not created yet)* | Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits | 0 | 0 | 0 |
 | `KAM/APosteriori/` *(not created yet)* | A-posteriori KAM theorem at fixed frequency and local uniqueness | 0 | 0 | 0 |

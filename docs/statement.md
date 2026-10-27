@@ -15,6 +15,8 @@ statements live in `KAM/Frozen/` and are the only authoritative versions.
 - **Hamiltonian vector field** for the standard form ω₀ = Σ dIᵢ ∧ dθᵢ (HL19 Rem. 2.1, with z = (θ, I)):
   X_H = (∂_I H, −∂_θ H).
 - **Complex strip** (HL19 §2.1). T_ρ = {θ ∈ ℂⁿ : |Im θ| < ρ}, as a ℤⁿ-periodic set.
+- **Fourier normalization.** Characters are e^{2πik·θ}. The internal weight e^{|k|₁s} uses coefficient radius
+  s = 2πρ; strip widths here, including s₀ below, are geometric widths. See [the convention note](fourier-conventions.md).
 - **Complex neighbourhoods** of the action domain B ⊂ ℝⁿ:
   B_r = {I ∈ ℂⁿ : dist(I, B) < r}, and D(s, r) = T_s × B_r.
 - **Primary torus** (HL19 Rem. 2.3). A parameterization K : ℝⁿ → ℝⁿ × ℝⁿ, or K : T_ρ → ℂⁿ × ℂⁿ, with
