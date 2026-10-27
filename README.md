@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:13 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 20.1 %** · frozen statements proved: 0 / 5 · **2,384 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 16:15 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 20.1 %** · frozen statements proved: 0 / 5 · **2,384 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -130,7 +130,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:13 UTC from `main` at `9fcd939` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 16:15 UTC from `main` at `ddec667` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1 (blueprint parts 2–4 being written; package board open). Tracks I, N, P in Phase 0: Codex agents pin sources and draft exact statements for owner approval (docs/TRACKS.md).
 
@@ -260,10 +260,10 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bp-g2** | blueprint writer | Claude Opus 5.5 | claude-1 | ✅ done | Blueprint part 3 (G2) written: 830 lines, complete proof; in review | — | — |
 | **bp-meas** | blueprint writer | Claude Opus 5.5 | claude-1 | 🔄 running | Blueprint part 4: G3, APPLY, STAB, LIP, McShane and measure, HEAD, HEAD-Q | — | — |
 | **track-I** `kam-track-i` | Phase 0 (Codex) | GPT-6-Astra high | codex-1 | ✅ handed off | Track I Phase 0 done: isoenergetic KAM gate, 2-DOF all-time confinement, restricted three-body near-circular theorem, Kepler determinant gate; audit running | — | — |
-| **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N Phase 0 done: statement draft 0.1 (N-HEAD quasi-convex Nekhoroshev, N-ZERO, N-QC); audit running | — | — |
+| **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N revision v0.2: N-HEAD as approved plus a complex-bound variant; owner choice of headline | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | 🔄 working | Track P revision v0.2 addressing the audit (docs/tracks/P/RESPONSE-v0.1.md) | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Collaborator's research question, round 2: longer horizons for most initial conditions, one best planetary statement with proof sketch, realistic-parameter feasibility (round 1: docs/explorations/almost-every-shorter-times.md) | — | — |
-| **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | 🔄 working | Refute-first statement audit of track N drafts | — | — |
+| **audit-N** `kam-audit-n` | statement audit (Codex) | GPT-6-Astra xhigh | codex-3 | ✅ handed off | Track N audit v0.1: approvable with changes; F-N1 (BM11 uniformity in h needs a complex Hessian bound) blocks proof-route sign-off | — | — |
 | **audit-P** `kam-audit-p` | statement audit (Codex) | GPT-6-Astra xhigh | codex-4 | ✅ handed off | Track P audit v0.1: P-G REJECT (box vs disc region, diffeomorphism on a neighbourhood, boundary regularity); P-PLANAR, P-FIXED approvable with changes | — | — |
 | **audit-I** `kam-audit-i` | statement audit (Codex) | GPT-6-Astra xhigh | codex-1 | 🔄 working | Refute-first statement audit of track I drafts | — | — |
 | **review-p2** | blueprint reviewer | Claude Opus 5.5 | claude-1 | 🔄 running | Refute-first review of blueprint part 2 (G1) | — | — |
@@ -276,6 +276,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 16:15 | `ddec667` | Track N statement audit v0.1: approvable with changes; source gap F-N1 (uniformity in h needs a complex Hessian bound); revision v0.2 under way |
 | 2026-10-27 16:13 | `9fcd939` | Track P statement audit v0.1: P-G rejected as drafted (three blocking defects with counterexamples); revision v0.2 under way |
 | 2026-10-27 16:07 | `1e0a048` | Blueprint Part 3 review: ACCEPT WITH FIXES (no blocking or major findings); step labels prefixed with S |
 | 2026-10-27 16:06 | `b876ed8` | Merge remote-tracking branch 'origin/main' |
@@ -287,7 +288,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 15:53 | `dfd5e62` | Record D18: owner rulings on track N questions 2-6, as recommended |
 | 2026-10-27 15:53 | `e4266b2` | Record D17: track N is stated for n >= 3 (owner ruling) |
 | 2026-10-27 15:52 | `f0d0bda` | Track N Phase 0: sources, statement draft 0.1, notes; statement audit running |
-| 2026-10-27 15:51 | `3599e6e` | Blueprint Part 3: local uniqueness for flows (G2), complete proof |
 <!-- /AUTO:landed -->
 
 ## Decisions
