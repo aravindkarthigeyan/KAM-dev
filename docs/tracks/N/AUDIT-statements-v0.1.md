@@ -552,3 +552,29 @@ scratch-proof validation; the direct elaborations and separate static checks are
 compared byte for byte by a Python assertion and passed. Final report/scratch whitespace,
 line-cap, prohibited-token, and pin checks are recorded below. Other agents' concurrent
 changes are outside this audit's ownership and were not reverted or included as audit work.
+
+Command: `python3 .drafts/N/audit-scratch/check-audit.py` — exit 0. Output:
+
+```text
+PASS module/static checks: .drafts/N/audit-scratch/Semantics.lean (185 lines)
+PASS module/static checks: .drafts/N/audit-scratch/SourceRefutations.lean (104 lines)
+PASS report whitespace/control characters
+PASS ten copied definitions and docstrings byte-identical
+PASS final pin: .drafts/N/Statements.lean
+PASS final pin: docs/tracks/N/statement.md
+PASS final pin: docs/tracks/N/sources.md
+PASS final pin: docs/tracks/N/notes.md
+PASS final pin: docs/DECISIONS.md
+a76a24c469f119701c2e0c6aad314a8023568d0768db41b3439a60b77a6fe047 .drafts/N/audit-scratch/Semantics.lean
+b9dcde785abe00e6af96308039ab8601d05c9fc00e3bf4970c041087c5a7345c .drafts/N/audit-scratch/SourceRefutations.lean
+```
+
+The final scoped `git diff --check -- docs/tracks/N/AUDIT-statements-v0.1.md` also exits
+0 without output. Because this new report is untracked, the direct whitespace check
+above is the check that actually covers its contents.
+
+Deliverables: this report; `Semantics.lean`; `SourceRefutations.lean`; the read-only
+checker and semantic output receipt; local PDF extracts and page images in the scratch
+directory. The audit is complete. The unresolved mathematical issue is F-N1's exact
+uniform analytic dependency, with the other source repairs and uncertainties explicitly
+bounded above; no requested file or binder audit is deferred.

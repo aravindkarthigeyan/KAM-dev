@@ -61,8 +61,8 @@
    "model": "GPT-6-Astra high",
    "account": "codex-3",
    "session": "kam-track-n",
-   "assignment": "Track N Phase 0 done: statement draft 0.1 (N-HEAD quasi-convex Nekhoroshev, N-ZERO, N-QC); audit running",
-   "state": "done"
+   "assignment": "Track N revision v0.2: N-HEAD as approved plus a complex-bound variant; owner choice of headline",
+   "state": "running"
   },
   {
    "id": "track-P",
@@ -88,8 +88,8 @@
    "model": "GPT-6-Astra xhigh",
    "account": "codex-3",
    "session": "kam-audit-n",
-   "assignment": "Refute-first statement audit of track N drafts",
-   "state": "running"
+   "assignment": "Track N audit v0.1: approvable with changes; F-N1 (BM11 uniformity in h needs a complex Hessian bound) blocks proof-route sign-off",
+   "state": "done"
   },
   {
    "id": "audit-P",
