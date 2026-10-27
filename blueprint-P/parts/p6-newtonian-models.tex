@@ -13,7 +13,7 @@ $H_{\rm mov}-H_{\rm fix}|_{\varepsilon=\mu}=\mu\pl{\sum_ip^{(i)}}^2/(2m_0)$;
 \item \texttt{measure-positive} (Lemma~\ref{bpP:p6:measure-positive}): $0<\meas S<\infty$.
 \end{itemize}
 Nothing here is proved by a hypothesis shaped like its conclusion: the inputs are the Hamilton equations along the orbit, the collision-free clause, and (for the tube) the position of the orbit.
-\emph{Units.} The frozen definitions keep the gravitational constant $G$ and the Sun's mass $m_0$ as parameters; Fej04r uses $G=1$. The statements below are for general $G,m_0>0$ (the frozen \Lean{IsMovingSolutionOn} and \Lean{IsNewtonSolutionOn} use $G=m_0=1$; see Remark~\ref{bpP:p6:units}).
+\emph{Units.} The frozen definitions keep the gravitational constant $G$ and the Sun's mass $m_0$ as parameters; Fej04r uses $G=1$. The statements below are for general $G,m_0>0$ (the frozen \Lean{IsMovingSolutionOn} fixes $G=m_0=1$, whereas \Lean{IsNewtonSolutionOn} uses $G=1$ in its force formula with an arbitrary mass array; see Remark~\ref{bpP:p6:units}).
 
 \subsection{Conventions and external facts}\label{bpP:p6:conv}
 
@@ -177,11 +177,11 @@ $q_i'=\frac{p_i}{m_i}+\frac\mu{m_0}P=:a_i$ and $p_i'=-Gm_0m_ig_i(q)+\mu Gm_if_i(
 \proofstep{Packaging}\label{stepP:p6:rc-pack} The three bullet clauses are conjunctions over $t\in J$ of (a), (b), (c). For $J=\R$ and the frozen \texttt{IsNewtonSolution} (Definition~\ref{bpP:p0:newton}) they are literally the three conjuncts; \texttt{IsNewtonSolutionOn} differs by the restriction to $t\in J$ and by having $G$ absorbed in the mass, replace $M$ by $G\cdot M$. The case $\mu=0$ is included: then $M_l=0$ for planets, $Q_0=0$ and the equations are the test-particle equations.
 \end{proof}
 \begin{remark}[Units and the D25 predicates]\label{bpP:p6:units}
-The frozen \texttt{IsMovingSolutionOn} and \texttt{IsNewtonSolutionOn} carry no $G$, $m_0$: $G=m_0=1$ (the D25 normalisation, \texttt{OrbitalUnit}). Proposition~\ref{bpP:p6:reconstruction} then states: if $z$ satisfies \texttt{IsMovingSolutionOn} $m\,\mu\,J$ (Hamiltonian solution on $J$ in $B=\text{univ}$, plus \texttt{NoCollision}), then $\texttt{IsNewtonSolutionOn}\,(\texttt{actualMasses}\,1\,m\,\mu)\,J\,Q\,V$ for $Q=\texttt{barycentricPositions}\,1\,m\,\mu\,q$, $V=\texttt{barycentricVelocities}\,1\,m\,\mu\,p$. The interval need not be open or connected; each time is treated separately. Track~N's Prop.~\Nref{bpN:p3:newton-reduction} covers only the all-time predicates (a $\texttt{IsSolIn}$ reformulation) and is not needed here; the equivalence it gives for \texttt{IsNewtonSolutionOn} is the same two-line argument with $J$ in place of $\R$.
+The frozen \texttt{IsMovingSolutionOn} fixes the Hamiltonian parameters $G=m_0=1$ (the D25 normalisation, \texttt{OrbitalUnit}). The frozen \texttt{IsNewtonSolutionOn} instead uses $G=1$ in its force formula and accepts an \emph{arbitrary mass array}, with no restriction making its Sun entry $1$: it absorbs $G$ into the masses, so the general-$G$ application uses the array $(k\mapsto G\,M_k)$, and only the normalised D25 application has the array $\texttt{actualMasses}\,1\,m\,\mu$. Proposition~\ref{bpP:p6:reconstruction} then states: if $z$ satisfies \texttt{IsMovingSolutionOn} $m\,\mu\,J$ (Hamiltonian solution on $J$ in $B=\text{univ}$, plus \texttt{NoCollision}), then $\texttt{IsNewtonSolutionOn}\,(\texttt{actualMasses}\,1\,m\,\mu)\,J\,Q\,V$ for $Q=\texttt{barycentricPositions}\,1\,m\,\mu\,q$, $V=\texttt{barycentricVelocities}\,1\,m\,\mu\,p$. The interval need not be open or connected; each time is treated separately. Track~N's Prop.~\Nref{bpN:p3:newton-reduction} covers only the all-time predicates (a $\texttt{IsSolIn}$ reformulation) and is not needed here; the equivalence it gives for \texttt{IsNewtonSolutionOn} is the same two-line argument with $J$ in place of $\R$.
 \end{remark}
 
 \begin{proposition}[Reconstruction: fixed Sun]\label{bpP:p6:reconstruction-fixed}
-Let $G,m_0>0$, $m_i>0$, $\varepsilon\in\R$, $J\subset\R$ arbitrary, and $z=(q,p):\R\to\Ph{2n}$ with, for $t\in J$: $\operatorname{NoColl}(q(t))$ and $z$ has derivative $X_{H_{\rm fix}}(z(t))$ at $t$ ($H_{\rm fix}=\texttt{fixedHamiltonian}\,G\,m_0\,m\,\varepsilon$). Put $Q_i(t)=q_i(t)$, $V_i(t)=\frac1{m_i}p_i(t)$. Then for all $t\in J$ and $i\ne j$: $\ell(Q_i(t))>0$, $\ell(Q_j(t)-Q_i(t))>0$, $Q_i$ has derivative $V_i(t)$ at $t$, and $V_i$ has derivative
+Let $G,m_0>0$, $m_i>0$, $\varepsilon\in\R$, $J\subset\R$ arbitrary, and $z=(q,p):\R\to\Ph{2n}$ with, for $t\in J$: $\operatorname{NoColl}(q(t))$ and $z$ has derivative $X_{H_{\rm fix}}(z(t))$ at $t$ ($H_{\rm fix}=\texttt{fixedHamiltonian}\,G\,m_0\,m\,\varepsilon$). Put $Q_i(t)=q_i(t)$, $V_i(t)=\frac1{m_i}p_i(t)$. Then for all $t\in J$: for every $i$, $\ell(Q_i(t))>0$; for all $i,j$ with $i\ne j$, $\ell(Q_j(t)-Q_i(t))>0$; for every $i$, $Q_i$ has derivative $V_i(t)$ at $t$, and $V_i$ has derivative
 \[-\frac{Gm_0}{\ell(Q_i)^3}Q_i+\varepsilon\sum_{j\ne i}\frac{Gm_j}{\ell(Q_j-Q_i)^3}(Q_j-Q_i)\]
 at $t$. For $J=\R$ this is $\texttt{IsFixedSolution}\,G\,m_0\,m\,\varepsilon\,Q\,V$ (Definition~\ref{bpP:p0:fixedsol}).
 \frozen{KAM.Planetary.IsFixedSolution}
@@ -266,7 +266,7 @@ In P-PLANAR/P-FIXED, $S$ is the image under the symplectic chart $\Phi$ of the c
 \begin{proposition}[Physical clauses of $\operatorname{MovKol}$]\label{bpP:p6:movkol-assembly}
 Let $G,m_0>0$, $m_i>0$, $a_i>0$ pairwise distinct, $\eta>0$, and $\zeta_*,d,D$ as in Definition~\ref{bpP:p6:tube-constants}. Let $\mu\ge0$ and $S\subset\Ph{2n}$ satisfy:
 \begin{enumerate}[label=(S\arabic*)]
-\item $S$ is measurable and $S\subset U_{\zeta_*}$;
+\item $S$ is measurable (the frozen \texttt{MeasurableSet}~$S$, i.e.\ Borel measurable in the standard ambient measurable space; the Borel version of Lemma~\ref{bpP:p6:measure-positive}, not mere Lebesgue-completion measurability, is the one used) and $S\subset U_{\zeta_*}$;
 \item every $z\in S$ has $w\in\R^{2n}$, $K$, $\theta$ with $K(\theta)=z$, $K(\R^{2n})\subset S$ and $\operatorname{IsPhysTorus}(H_{\rm mov},w,K)$.
 \end{enumerate}
 Then $\operatorname{MovKol}(G,m_0,m,a,\mu,\eta,d,D,S)$ (Definition~\ref{bpP:p0:movkol}). The constants $d,D$ depend on $a$ only, so in P-PLANAR they may be fixed \emph{before} $\mu_0$ and $\mu$; the dependence on the coupling is confined to (S1)--(S2).
