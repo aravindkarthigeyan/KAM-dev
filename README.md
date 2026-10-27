@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 23:18 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 41.8 %** · frozen statements proved: 5 / 22 · **34,639 lines of Lean** of an estimated ≈ 242,000
+> **Last updated: 2026-10-27 23:25 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 42.3 %** · frozen statements proved: 6 / 22 · **35,673 lines of Lean** of an estimated ≈ 249,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,9 +53,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **41.8 %**
+### Estimated completion: **42.3 %**
 
-`██████████░░░░░░░░░░░░░░░` 41.8 %
+`███████████░░░░░░░░░░░░░░` 42.3 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
@@ -67,8 +67,8 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 8.2 | `███████░░░` 68 % |
 | Track N (Nekhoroshev) | 4 | 22 | 11.2 | `█████░░░░░` 51 % |
 | Track P (planetary) | 5 | 30 | 13.2 | `████░░░░░░` 44 % |
-| Sealing of the frozen statements | 22 | 22 | 5.0 | `██░░░░░░░░` 23 % |
-| **Total** | 62 | 177 | 73.9 | **41.8 %** |
+| Sealing of the frozen statements | 22 | 22 | 6.0 | `███░░░░░░░` 27 % |
+| **Total** | 62 | 177 | 74.9 | **42.3 %** |
 
 **How this is estimated.** The project is divided into 40 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -125,28 +125,28 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **34,639** (22,958 excluding blank lines and comments) · **+34,639** since 2026-10-27 13:33 UTC |
+| On `main` now | **35,673** (23,707 excluding blank lines and comments) · **+35,673** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
-| **Estimated total at completion** | **≈ 242,000** |
-| Estimated still to write | ≈ 207,000 |
+| **Estimated total at completion** | **≈ 249,000** |
+| Estimated still to write | ≈ 213,000 |
 
 **How the size is estimated.** The estimate scales the lines per completed Lean weight unit to all Lean work items. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 23:18 UTC from `main` at `d29b04d` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 23:25 UTC from `main` at `f4cdc0d` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
-**Frozen statements proved: 5 / 22** · frozen definitions: 122
+**Frozen statements proved: 6 / 22** · frozen definitions: 122
 
-**Lean on `main`:** 276 modules · 34,639 lines · 1,447 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 279 modules · 35,673 lines · 1,483 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
-DRAFT_ANCHORS: 17 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMean.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMost.lean)
+DRAFT_ANCHORS: 16 (KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMean.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMost.lean)
 UNREGISTERED_SORRIES: 0
 DRAFT_IMPORT_VIOLATIONS: 0 (frozen-anchor guard, run at every landing)
-SEALED: 5 / 22 (kam.local_uniqueness_flow.v1, kam.volume_not_diophantine_le.v1, iso.kepler_bordered_det.v1, nekhoroshev.quasiConvex_isoenergetic_derivative.v1, nekhoroshev.zero_perturbation.v1)
+SEALED: 6 / 22 (kam.aposteriori_kam.v1, kam.local_uniqueness_flow.v1, kam.volume_not_diophantine_le.v1, iso.kepler_bordered_det.v1, nekhoroshev.quasiConvex_isoenergetic_derivative.v1, nekhoroshev.zero_perturbation.v1)
 ```
 <!-- /AUTO:glance -->
 
@@ -177,7 +177,7 @@ The phase table below is track K's.
 <!-- AUTO:statements -->
 | ID | Source | Lean name | Status | Notes |
 |---|---|---|---|---|
-| **kam.aposteriori_kam.v1** | Theorem 3.1, pp. 16–18; Rem. 2.3, 3.2, 3.3; App. B (5.74)–(5.77) (ledger D-G1-1) | [`aposteriori_kam`](KAM/Frozen/Theorems/AposterioriKam.lean) | ⬜ not yet | G1 |
+| **kam.aposteriori_kam.v1** | Theorem 3.1, pp. 16–18; Rem. 2.3, 3.2, 3.3; App. B (5.74)–(5.77) (ledger D-G1-1) | [`aposteriori_kam`](KAM/Frozen/Theorems/AposterioriKam.lean) | ✅ proved and sealed | G1 |
 | **kam.kam_positive_measure.v1** | Classical KAM Theorem, p. 6, at rate ε^{1/4} (D8, D9; ledger D-MEAS-1) | [`kam_positive_measure`](KAM/Frozen/Theorems/KamPositiveMeasure.lean) | ⬜ not yet | HEAD |
 | **kam.kam_positive_measure_qualitative.v1** | Classical KAM Theorem, p. 6 (D9 Q1: qualitative corollary) | [`kam_positive_measure_qualitative`](KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean) | ⬜ not yet | HEAD-Q |
 | **kam.local_uniqueness_flow.v1** | Theorem 2, p. 862 (template for flows; ledger D-UNIQ-1) | [`local_uniqueness_flow`](KAM/Frozen/Theorems/LocalUniquenessFlow.lean) | ✅ proved and sealed | G2 |
@@ -262,7 +262,7 @@ flowchart BT
 | `KAM/Hamiltonian/` *(not created yet)* | Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits | 0 | 0 | 0 |
 | `KAM/APosteriori/` *(not created yet)* | A-posteriori KAM theorem at fixed frequency and local uniqueness | 0 | 0 | 0 |
 | [`KAM/Measure/`](KAM/Measure) | Lipschitz dependence on the frequency and the measure of the union of tori | 5 | 965 | 44 |
-| [`KAM/Provider/`](KAM/Provider) | One provider module per frozen theorem, where its proof is assembled | 22 | 574 | 10 |
+| [`KAM/Provider/`](KAM/Provider) | One provider module per frozen theorem, where its proof is assembled | 22 | 630 | 11 |
 <!-- /AUTO:areas -->
 
 ## What the agents are doing now
@@ -302,6 +302,9 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 23:25 | `f4cdc0d` | Seal G1: KAM.aposteriori_kam is proved (third sealed frozen theorem) |
+| 2026-10-27 23:22 | `d7d6b9d` | Land k/p4-7 into main |
+| 2026-10-27 23:20 | `075754b` | Land k/p2-14 into main |
 | 2026-10-27 23:18 | `bbecd69` | Brief for P4-11 |
 | 2026-10-27 23:18 | `d29b04d` | P2-13 (iteration) and P4-4 (STAB) landed; audits PASS WITH NOTES |
 | 2026-10-27 23:17 | `cac0156` | Land k/p4-4 into main |
@@ -311,9 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 23:06 | `ec1dbe3` | Land k/p4-6 into main |
 | 2026-10-27 23:04 | `3f7a461` | Land k/p4-5 into main |
 | 2026-10-27 23:02 | `76df1f8` | Land k/p3-5 into main |
-| 2026-10-27 23:00 | `f537ef1` | Land k/p2-12 into main |
-| 2026-10-27 22:59 | `6ca5df6` | Land k/p4-2 into main |
-| 2026-10-27 22:56 | `abb8a23` | Briefs for P4-7, P4-9 |
 <!-- /AUTO:landed -->
 
 ## Decisions
