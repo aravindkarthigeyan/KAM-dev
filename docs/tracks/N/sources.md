@@ -250,10 +250,11 @@ This preserves time in Hamilton's equations; changing the angle without the Hami
 The source curvature, Hessian, quantitative-QC and frequency bounds are multiplied by 2π.
 Take P to be the closed maximum-norm ball of radius R/2 and choose
 
-    r₀ = min(s/2, R/8, 2ell/μ, 4ωmin/μ) > 0,
+    r₀ = min(s/2, R/8, ell/(2B_c), 4ωmin/μ) > 0,      [updated to match blueprint-N bpN:p1:constants; was 2ell/μ]
     s₀ = πs,    σ = πs/4,    F = 2π cothⁿ(πs/4),    A = 11 Bc/μ.
 
-The complex Euclidean r₀-tube of P lies in B_s^ℂ; its real slice lies in B(0,3R/4), where the lower
+[Updated to match blueprint-N: the entries r₀ and c above supersede the earlier 2ell/μ and c without √n; r₀≤ell/(2B_c) is the extra radius condition needed on the block ℤⁿ, and √n in c comes from the cut-off K_g=√n K_a. The tubes are the max-norm tubes of Part 4, with the Euclidean tube contained in them.]
+The complex r₀-tube of P (max norm; the Euclidean tube is contained in it) lies in B_s^ℂ; its real slice lies in B(0,3R/4), where the lower
 frequency bound holds. The source inequality r₀≤4ell/μ holds. Its exceptional threshold is at most
 (2πμ)r₀/8≤πωmin, strictly below every source initial frequency ≥2πωmin. Moreover A≥22, so the source
 R₀-ball used to define Ω₀ remains inside B. The source perturbation norm is ≤Fε by POS190-BRIDGE:
@@ -262,7 +263,7 @@ s₀+2σ=3πs/2<2πs. All domain and width choices are independent of h,f and th
 With ε*= (2πμ)r₀²/(2¹⁰A^{2n}), the source estimates give the required exponent a=1/(2n) and permit
 
     C = (r₀/A)(F/ε*)^a,
-    c = (s₀/6)(ε*/F)^a,
+    c = (s₀/(6√n))(ε*/F)^a,      [updated to match bpN:p1:constants; was s₀/6, no √n]
     T = (A²s₀)/(4π n M).
 
 The time prefactor is at most half the source prefactor since Ω₀≤2πnM. Shrink ε₀≤ε*/F further so that
