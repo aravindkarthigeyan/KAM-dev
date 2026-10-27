@@ -1,5 +1,5 @@
 {
- "current_phase": "Phase 0: sources and statements. Route verdict in: the a-posteriori route gives the positive-measure theorem with complement O(ε^{1/4}); local uniqueness for flows must be proved by us. Next: mathematical statement and owner questions Q1–Q5, then exact Lean statements for approval.",
+ "current_phase": "Phase 0: statements. Owner rulings Q1–Q5 recorded (D9); mathematical statement draft 0.1 in docs/statement.md; exact Lean drafts of the headline (rate and qualitative), G1 (a-posteriori), G2 (local uniqueness for flows), G3 (Diophantine measure) and 19 definitions elaborate against Mathlib; independent refute-first statement audit running; then owner approval and freeze.",
  "workers": [
   {
    "id": "orchestrator",
@@ -9,11 +9,20 @@
    "session": null,
    "assignment": "Campaign lead: sources, statements, assignments, landings, owner questions, this README",
    "state": "active"
+  },
+  {
+   "id": "statement-audit",
+   "kind": "audit subagent",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1",
+   "session": null,
+   "assignment": "Refute-first audit of the drafted Lean statements against HL19, Pos01, GJLV05 and the rulings",
+   "state": "running"
   }
  ],
  "queued": [
   {
-   "title": "Mathematical statement of the headline and gates (docs/statement.md), after Q1–Q5"
+   "title": "Owner approval of the exact Lean statements, then freeze (manifest, DRAFT_SORRY anchors)"
   }
  ],
  "graph": {
