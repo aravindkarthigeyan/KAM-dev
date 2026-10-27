@@ -478,9 +478,9 @@ EDGE: stepI:p2:ne-expand | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-
 EDGE: stepI:p2:ne-reduce | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L187-L187 | proof step of this result
 EDGE: stepI:p2:ne-est | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L189-L189 | proof step of this result
 EDGE: stepI:p2:ne-energy | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-error@L191-L191 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -649,9 +649,9 @@ EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-ener
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-energy@L192-L192 | gamma delta^{kappa+1} <= Theta
 EDGE: bpI:p1:geometry-noA5 | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-energy@L192-L192 | the bound on Omega_K and the eta bounds supply the displayed estimate for D(H o K)
 EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:ne-energy@L192-L192 | continuous integrands on the compact real cube; linearity of the energy average and norm bounded by the unit-cube supremum
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -686,9 +686,9 @@ EDGE: stepI:p2:to-omega | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@
 EDGE: stepI:p2:to-row | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L219-L219 | proof step of this result
 EDGE: stepI:p2:to-avg | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L221-L221 | proof step of this result
 EDGE: stepI:p2:to-inv | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L223-L223 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -720,9 +720,9 @@ EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-frame@L216-L216 | C_DeltaT, C_DeltaN, m
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-frame@L216-L216 | B1-B4 hypotheses of the perturbation lemma
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-frame@L216-L216 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -823,9 +823,9 @@ EDGE: bpI:p1:extended-basic | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | C_DeltaScriptT
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | Uses the standing H,D,omega*,gamma,sigmas and ray data.
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg@L222-L222 | Uses B-component premises or frequency bound in the inherited admissible context.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -854,9 +854,9 @@ EDGE: stepI:p2:to-avg | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L224-L224 | B5: ¦avg T^{-1}¦ <= sigma_T
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L224-L224 | sigma_T <= m, C_DeltaScriptT
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L224-L224 | sigma_T
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -917,9 +917,9 @@ ROUTE_FOR: -
 EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-small@L244-L244 | gamma <= Theta (bpI:p2:freq) and gamma^2 delta^{a-2} <= Theta^2
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-small@L244-L244 | c_step, C_sym, C_Delta, C_DeltaScriptT, Theta, m
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-small@L244-L244 | gamma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1074,9 +1074,9 @@ EDGE: bpI:p2:ray | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:iteration@L276-
 EDGE: stepI:p2:it-sums | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:iteration@L285-L285 | proof step of this result
 EDGE: stepI:p2:it-stepsmall | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:iteration@L288-L288 | proof step of this result
 EDGE: stepI:p2:it-step | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:iteration@L290-L290 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1105,9 +1105,9 @@ EDGE: bpI:p2:error-decay | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-su
 EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@L286-L286 | d_i := C_Delta eps_i/(gamma^2 delta_i^a)
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@L287-L287 | c_* >= 2^{2a}C_E, 2 c_sum/mu, 4 Theta^2 C_Delta/nu; C_B, C_DeltaScriptT
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@L286-L286 | gamma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
-REVIEWER: -
+REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1153,7 +1153,7 @@ CONTRACT_ID: stepI:p2:it-step
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: The stated local context and premises of bpI:p2:iteration, with its definitions and inherited packages. For the induction transition assume (i)-(v) at j, as explicitly stated at L291. Bounds and conclusions of cited prerequisite nodes are derived in this proof, not additional hypotheses.
 SOURCE_QUANTIFIERS: All data quantified in bpI:p2:iteration, in the same order; the quantities constructed by earlier proof steps remain derived. For each j>=0.
-SOURCE_CONCLUSION: (i)-(vi) at j+1: Proposition step applies with (r_j,delta_j,mu-D_j,eps_j,s_j) and yields K_{j+1} := Kbar_j, s_{j+1} := sbar_j; 1<s_{j+1}<sigma_omega and nu(s_{j+1}) >= nu-D_{j+1}; B1-B7 for K_{j+1}; (iii)-(v) with the summed bounds
+SOURCE_CONCLUSION: (i)-(v) at j+1 and (vi) at j: Proposition step applies with (r_j,delta_j,mu-D_j,eps_j,s_j) and yields K_{j+1} := Kbar_j, s_{j+1} := sbar_j; 1<s_{j+1}<sigma_omega and nu(s_{j+1}) >= nu-D_{j+1}; B1-B7 for K_{j+1}; (iii)-(v) with the summed bounds
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1171,7 +1171,7 @@ EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@
 EDGE: bpI:p2:constants | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@L291-L291 | c_*, C_B, C_DeltaScriptT
 EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@L291-L291 | standing data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
+EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-d
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

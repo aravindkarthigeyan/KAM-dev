@@ -455,7 +455,7 @@ DISPOSITION: NODE stepI:p1:geo-red
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-a
+REVIEWER: sol-delta-I-c
 
 ITEM: stepI:p1:geo-sym
 KIND: proof-region
@@ -464,7 +464,7 @@ DISPOSITION: NODE stepI:p1:geo-sym
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
-REVIEWER: sol-delta-I-a
+REVIEWER: sol-delta-I-c
 
 ITEM: bpI:p1:perturbation-noA5
 KIND: lemma
