@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 17:38 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 23.0 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 17:39 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 23.0 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 17:38 UTC from `main` at `a5a7105` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 17:39 UTC from `main` at `67b5a4b` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks (94 anchors). Track K: blueprint consolidated; Part 1 under review; dependency graph extraction running (464 draft nodes, 9 slices; 6 Sonnet extractors, Part 1 slices after its review). Tracks I, N, P: Opus sub-orchestrator (D23): D22 additions in audit, blueprints starting.
 
@@ -280,7 +280,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **extract-K-p3** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p3: confirm edges, fill source fields | — | — |
 | **extract-K-p4a** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p4a: confirm edges, fill source fields | — | — |
 | **extract-K-p4b** `-` | graph extraction | Claude Sonnet 5.5 | claude-1 (subagent) | 🔄 working | Dependency graph slice K-p4b: confirm edges, fill source fields | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 0 |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 1 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6-Astra high | codex-3 | ✅ handed off | Track N additions Phase 0 (D22): drafted (READY additions-N, d7ad21c); draft under audit | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6-Astra high | codex-4 | ✅ handed off | Track P additions Phase 0 (D22): drafted (READY additions-P); draft under audit | — | — |
 | **audit-add-P** `inp-audit-p` | statement audit (Codex) | GPT-6.1-Sol high | codex-1 | 🔄 working | Independent statement audit of the track-P D22 additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX) | — | — |
@@ -297,6 +297,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 17:39 | `67b5a4b` | D24: Codex agents on GPT-6.1-Sol medium; Astra sessions moved |
 | 2026-10-27 17:38 | `a5a7105` | Blueprint Part 1 review: ACCEPT WITH FIXES; apply P1-R1 (cauchy-open states δ>0) |
 | 2026-10-27 17:37 | `82caf9e` | HQ: track K graph extraction running |
 | 2026-10-27 17:37 | `d353460` | Track K dependency graph: extraction spec, mechanical pre-extraction, slice packets |
@@ -308,7 +309,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 17:12 | `0c3002b` | Adopt the five research milestones into tracks N and P (D22); Phase 0 started |
 | 2026-10-27 17:00 | `6626668` | Freeze tracks I, N and P (D20); record the proof-campaign model policy (D21) |
 | 2026-10-27 16:56 | `7a88b9f` | HQ: blueprint complete; consolidation pass running |
-| 2026-10-27 16:55 | `f095eaa` | Blueprint Part 1: complete proofs of all interface lemmas, including several-variable holomorphic implies analytic |
 <!-- /AUTO:landed -->
 
 ## Decisions
