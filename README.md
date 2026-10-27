@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 19:43 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 34.4 %** · frozen statements proved: 1 / 20 · **11,455 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 19:47 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 34.4 %** · frozen statements proved: 1 / 20 · **12,708 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -125,22 +125,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **11,455** (6,783 excluding blank lines and comments) · **+11,455** since 2026-10-27 13:33 UTC |
+| On `main` now | **12,708** (7,545 excluding blank lines and comments) · **+12,708** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
 | **Estimated total at completion** | **≈ 40,000** |
-| Estimated still to write | ≈ 29,000 |
+| Estimated still to write | ≈ 27,000 |
 
 **How the size is estimated.** The estimate is a planning figure (infrastructure ≈ 12k, a-posteriori theorem ≈ 15k, measure layer ≈ 8k, interfaces ≈ 5k lines); it switches to a rate-based estimate once 8 weight units of Lean work are done. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 19:43 UTC from `main` at `a28a623` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 19:47 UTC from `main` at `672efcb` by `scripts/hq-status.py`.*
 
 **Current phase:** G3 sealed (D26). Track K proof campaign: wave 1 landed (P-G3, I-MAT, I-LIP; I-STRIP-5 in audit); wave 2 running (I-ZMAP, I-P1B, I-P4A); 40/453 graph nodes proved. Part 2 (G1) Lean architecture being designed. Tracks I, N, P: Opus sub-orchestrator; N-AVERAGING awaiting owner approval.
 
 **Frozen statements proved: 1 / 20** · frozen definitions: 120
 
-**Lean on `main`:** 185 modules · 11,455 lines · 266 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 192 modules · 12,708 lines · 349 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 19 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexIsoenergeticDerivative.lean, KAM/Frozen/Nekhoroshev/Theorems/ZeroPerturbation.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean)
@@ -279,7 +279,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **prover-I-STRIP-5** `worktree /root/code/KAM-w-strip5` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-STRIP-5 (docs/campaign/briefs/I-STRIP-5.md) | — | — |
-| **audit-I-STRIP-5** `kam-audit-strip5` | package audit (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Independent audit of package I-STRIP-5 (five explicit audit questions) | — | — |
+| **audit-I-STRIP-5** `kam-audit-strip5` | package audit (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Independent audit of package I-STRIP-5 (five explicit audit questions) | — | — |
 | **prover-I-ZMAP** `worktree /root/code/KAM-w-zmap` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-ZMAP (docs/campaign/briefs/I-ZMAP.md) | — | — |
 | **prover-I-P1B** `worktree /root/code/KAM-w-p1b` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P1B (docs/campaign/briefs/I-P1B.md) | — | — |
 | **prover-I-P4A** `worktree /root/code/KAM-w-p4a` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P4A (docs/campaign/briefs/I-P4A.md) | — | — |
@@ -300,6 +300,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 19:47 | `672efcb` | I-P4A landed (ac75cab): audit PASS WITH NOTES; graph nodes PROVED |
+| 2026-10-27 19:45 | `ac75cab` | Land k/p4a into main |
 | 2026-10-27 19:43 | `a28a623` | I-P1B landed (ef03b72): audit PASS WITH NOTES; 20 graph nodes PROVED |
 | 2026-10-27 19:39 | `ef03b72` | Land k/p1b into main |
 | 2026-10-27 19:36 | `aec5b8b` | Blueprint Part 1 conventions: strip widths are positive (made explicit after three proof packages needed it); graph locators remapped |
@@ -310,8 +312,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 19:12 | `0969b0d` | HQ: wave 2 running (I-ZMAP, I-P1B, I-P4A) |
 | 2026-10-27 19:12 | `e356ab5` | Claim wave-2 packages |
 | 2026-10-27 19:12 | `22a8b42` | Track K proof campaign, wave 2 briefs: I-ZMAP, I-P1B, I-P4A |
-| 2026-10-27 19:10 | `8f161e6` | I-LIP landed (c9695bc): audit PASS WITH NOTES; graph: 14 nodes PROVED, li-cubes and li-image BYPASSED (alternative Mathlib route) |
-| 2026-10-27 19:09 | `c9695bc` | Land k/lip into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
