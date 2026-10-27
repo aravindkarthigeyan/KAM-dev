@@ -134,9 +134,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 20:04 UTC from `main` at `4bc1818` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 20:04 UTC from `main` at `478547e` by `scripts/hq-status.py`.*
 
-**Current phase:** G3 sealed (D26). Track K: waves 1-2 landed (P-G3, I-MAT, I-LIP, I-STRIP-5, I-ZMAP, I-P1B, I-P4A): 120/453 graph nodes proved and audited. Part 2/3 (G1, G2) Lean design done (21 packages, 10 waves); its signatures under independent audit; I-P1C running; Zohar: I-STRIP-2 done, I-STRIP-3 (cohomological equation) next. Tracks I, N, P: Opus sub-orchestrator; track I graph under construction.
+**Current phase:** G3 sealed (D26). Track K: 120/453 graph nodes proved and audited. G1/G2 proof campaign started: Lean design audited (PASS, no corrected signatures); wave 1 running (P2-1a carrier, P2-1b standing/constants); I-P1C running; Zohar's I-STRIP-3 (cohomological equation) gates wave 5. Tracks I, N, P: Opus sub-orchestrator.
 
 **Frozen statements proved: 1 / 20** · frozen definitions: 120
 
@@ -279,8 +279,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
 | **prover-I-P1C** `worktree /root/code/KAM-w-p1c` | Lean prover | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package I-P1C: Taylor (factor 1/2) and increments | — | — |
-| **design-audit-P2** `kam-dsgn-p2` | design audit (Codex) | GPT-6.1-Sol medium | codex-1 | ⚠️ session missing | Refute-first audit of the Part 2 (G1) Lean signatures and assembly | — | — |
-| **design-audit-P3** `kam-dsgn-p3` | design audit (Codex) | GPT-6.1-Sol medium | codex-4 | ⚠️ session missing | Refute-first audit of the Part 3 (G2) Lean signatures, assembly and Part 1 interfaces | — | — |
+| **prover-P2-1a** `worktree /root/code/KAM-w-p2-1a` | Lean prover (G1 design wave 1) | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package P2-1a (docs/campaign/briefs/P2-1a.md) | — | — |
+| **prover-P2-1b** `worktree /root/code/KAM-w-p2-1b` | Lean prover (G1 design wave 1) | Claude Sonnet 5.5 | claude-1 (subagent) | ⚠️ session missing | Package P2-1b (docs/campaign/briefs/P2-1b.md) | — | — |
 | **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: D22 additions, blueprints, dependency graphs, proof campaigns | `inp` | 1 |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | N-AVERAGING draft v0.5 from the primary AKN06 pages (sources supplied by the owner) | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P additions: v0.4 done; idle for owner-requested changes | — | — |
@@ -298,6 +298,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 20:04 | `478547e` | HQ: G1/G2 proof campaign wave 1 running (P2-1a, P2-1b) |
 | 2026-10-27 20:04 | `4bc1818` | Parts 2/3 proof campaign: common brief and wave-1 briefs (P2-1a carrier, P2-1b standing and constants) |
 | 2026-10-27 20:04 | `38d48ee` | Part 2/3 Lean design: both signature audits PASS WITH NOTES (no corrected signatures) |
 | 2026-10-27 20:01 | `a3a3623` | Land inp into main |
@@ -309,7 +310,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 19:56 | `ee2416e` | Land k/design into main |
 | 2026-10-27 19:51 | `38f8519` | I-STRIP-5 landed (43c6f7b): several-variable analyticity; audits PASS WITH NOTES; han-series BYPASSED (D27) |
 | 2026-10-27 19:50 | `43c6f7b` | Land k/strip5 into main |
-| 2026-10-27 15:49 | `5459d7a` | Complete I-STRIP-2: Fourier series and Fourier representation on strips |
 <!-- /AUTO:landed -->
 
 ## Decisions
