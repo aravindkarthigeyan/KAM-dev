@@ -33,3 +33,6 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **21:15. Proof waves before full graph publication, off-frontier only where safe.** The first Lean packages are
   self-contained gates (I-KEPLER, N-QC, N-ZERO) and the shared ODE infrastructure (N Part 3), which need no
   unpublished graph topology; everything else waits for the reviewed graphs.
+- **21:20. Split `KAM/Uniq/Standing.lean` out of the design's package P3-1 as P3-0, to start G2 early.**
+  - Only the packaging changes; no signature changes.
+  - Reversal: none needed.
