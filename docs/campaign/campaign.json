@@ -1,5 +1,5 @@
 {
- "current_phase": "G3 sealed (D26). Track K: 120/453 graph nodes proved and audited. G1/G2 proof campaign started: Lean design audited (PASS, no corrected signatures); wave 1 running (P2-1a carrier, P2-1b standing/constants); I-P1C running; Zohar's I-STRIP-3 (cohomological equation) gates wave 5. Tracks I, N, P: Opus sub-orchestrator.",
+ "current_phase": "OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.",
  "workers": [
   {
    "id": "orchestrator",
@@ -47,12 +47,30 @@
    "state": "active"
   },
   {
-   "id": "prover-P2-3",
-   "kind": "Lean prover (G1 design wave 2)",
+   "id": "prover-I-STRIP-3",
+   "kind": "Lean prover",
    "model": "Claude Sonnet 5.5",
    "account": "claude-1 (subagent)",
-   "session": "worktree /root/code/KAM-w-p2-3",
-   "assignment": "Package P2-3 (docs/campaign/briefs/P2-3.md)",
+   "session": "worktree",
+   "assignment": "I-STRIP-3: cohomological equation on strips (overnight claim, D29)",
+   "state": "running"
+  },
+  {
+   "id": "prover-I-P4B",
+   "kind": "Lean prover",
+   "model": "Claude Sonnet 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree",
+   "assignment": "I-P4B: derivative bounds, torsion regularity, shifts, mixed differences",
+   "state": "running"
+  },
+  {
+   "id": "design-P4",
+   "kind": "Lean architect",
+   "model": "Claude Opus 5.5",
+   "account": "claude-1 (subagent)",
+   "session": "worktree /root/code/KAM-w-design4",
+   "assignment": "Part 4 (HEAD, HEAD-Q) Lean design",
    "state": "running"
   }
  ],
