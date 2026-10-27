@@ -3,5 +3,6 @@
 # Source PDFs are copyrighted; they stay local. Their hashes are tracked in sources/SHA256SUMS.
 /sources/pdf/
 /sources/incoming-*/
+/sources/incoming/
 /.hq/
 /.drafts/

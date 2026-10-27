@@ -300,6 +300,25 @@
    "pdf": "cfg24_laplace_lagrange_counterexample.pdf",
    "sha256": "cc8ace076a0f85b7605550203a6d683a037d703910cf73b09fe2268ef1cceeed",
    "role": "Context: analytic instability in a hierarchical three-planet problem"
+  },
+  {
+   "key": "AKN06",
+   "tier": "track N",
+   "citation": "V. I. Arnold, V. V. Kozlov, A. I. Neishtadt, *Mathematical Aspects of Classical and Celestial Mechanics*, 3rd ed., Encyclopaedia of Mathematical Sciences 3, Springer (2006)",
+   "doi": "10.1007/978-3-540-48926-9",
+   "chapter_doi": "10.1007/978-3-540-48926-9_6 (Ch. 6, Perturbation Theory for Integrable Systems, pp. 207-349)",
+   "pdf": "AKN06_3rd_ed_978-3-540-48926-9.pdf",
+   "sha256": "77b7670103aa4d040ad724275356645ad8ee79c63b1dabf5a90fd803d67ba208",
+   "role": "N-AVERAGING: §6.1.9, Theorem 6.11 and Corollary 6.1, printed p. 243 (PDF page 254; printed page = PDF page - 11). Supplied by the owner 2026-10-27."
+  },
+  {
+   "key": "Rus01",
+   "tier": "track P",
+   "citation": "H. Rüssmann, *Invariant tori in non-degenerate nearly integrable Hamiltonian systems*, Regul. Chaotic Dyn. 6(2) (2001) 119-204 (MR1843664)",
+   "doi": "10.1070/RD2001v006n02ABEH000169",
+   "pdf": "Russmann01_RCD_6_2_119-204.pdf",
+   "sha256": "cf2066ad478e5a42e737ce1d875967f902ab6050344b7e85909137bdacc1de30",
+   "role": "P-FIXED: the analytic weak-nondegeneracy KAM theorem, Theorem 1.7 (p. 127), cited by CP09 Thm 4. Its proof relies on the 2005 addendum (RCD 10(1) 21-31, DOI 10.1070/RD2005v010n01ABEH000297), not yet pinned. Supplied by the owner 2026-10-27."
   }
  ]
 }
