@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 23:25 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 42.3 %** · frozen statements proved: 6 / 22 · **35,673 lines of Lean** of an estimated ≈ 249,000
+> **Last updated: 2026-10-27 23:27 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 42.3 %** · frozen statements proved: 6 / 22 · **35,673 lines of Lean** of an estimated ≈ 249,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 23:25 UTC from `main` at `f4cdc0d` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 23:27 UTC from `main` at `ed163d2` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -302,6 +302,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-27 23:27 | `ed163d2` | Brief for P4-S1 (HEAD provider) |
 | 2026-10-27 23:25 | `f4cdc0d` | Seal G1: KAM.aposteriori_kam is proved (third sealed frozen theorem) |
 | 2026-10-27 23:22 | `d7d6b9d` | Land k/p4-7 into main |
 | 2026-10-27 23:20 | `075754b` | Land k/p2-14 into main |
@@ -313,7 +314,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 23:10 | `c9dec45` | Seal G2: KAM.local_uniqueness_flow is proved (second sealed frozen theorem) |
 | 2026-10-27 23:06 | `ec1dbe3` | Land k/p4-6 into main |
 | 2026-10-27 23:04 | `3f7a461` | Land k/p4-5 into main |
-| 2026-10-27 23:02 | `76df1f8` | Land k/p3-5 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
