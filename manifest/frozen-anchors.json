@@ -773,7 +773,7 @@
     "module": "KAM.Provider.AposterioriKam",
     "export": "KAM.Provider.aposteriori_kam"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "a9f69097bd77eb62431b08692dc3a4da40d06d6fc45befed0369f0d394494811",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {

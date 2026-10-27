@@ -7,7 +7,7 @@ CONVENTIONS: docs/graph/K/SPEC.md "Conventions to watch": max norm on C^m and in
 STANDING_ASSUMPTIONS: -
 EXTERNAL_POLICY: the eleven Mathlib-level inputs (E1)-(E11) of Part 1 are KIND external nodes bp:p1:ext-*; any other unproved fact is a step node with NOTE SOURCE_GAP
 FROZEN_ANCHORS: bp:p0:diophantine#IsDiophantine, bp:p0:domains#complexStrip, bp:p0:domains#actionNbhd, bp:p0:domains#fundamentalDomain, bp:p0:hamiltonian#hamiltonianVectorField, bp:p0:hamiltonian#hamiltonianVectorFieldC, bp:p0:hamiltonian#symplecticForm, bp:p0:hamiltonian#omegaZero, bp:p0:nearlyintegrable#realHamiltonian, bp:p0:nearlyintegrable#frequencyMap, bp:p0:torus#IsInvariantLagrangianTorus, bp:p0:cover#kamCover, bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:stripdata#invarianceError, bp:p0:stripdata#dotC, bp:p0:stripdata#gramMatrix, bp:p0:stripdata#normalFrame, bp:p0:stripdata#torsion, bp:p0:stripdata#torsionAverage, bp:p0:head, bp:p0:headq, bp:p0:g1, bp:p0:g2, bp:p0:g3
-FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:ccd64470ada5c3dd7b682697054f501eb3a939065c8db484be295913e1a13aa3
+FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:055c54243bb558f19c0b39dc85929191938263d0b22f1216bbd818cbdf00ff46
 WRITER: claude-main-orchestrator
 GLOBAL_REVIEWER: sol-global-K
 GLOBAL_REVIEW_REF: docs/graph/K/reviews/GLOBAL-review.md and docs/graph/K/reviews/GLOBAL-recheck.md (Codex GPT-6.1-Sol medium, tmux kam-graph-global)
@@ -655,9 +655,9 @@ EDGE: bp:p0:stripdata#torsionAverage | blueprint/parts/p0-conventions.tex#bp:p0:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.aposteriori_kam (SEALED: by exact KAM.Provider.aposteriori_kam …; provider ⟨_, _, KAM.Apost.g1_explicit …⟩)
+LEAN_NOTE: SEALED 2026-10-27 (D26): provider package P2-14, audit docs/campaign/audits/P2-14-audit-1.md PASS WITH NOTES (exact-type probe); axioms propext/Classical.choice/Quot.sound; leanchecker replay of the frozen module, provider, KAM.Apost.G1 and KAM.Apost.Limit exit 0
 NOTE: -
 
 NODE: bp:p0:g2
@@ -7559,9 +7559,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:iteration@L972-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.iteration (def KAM.Apost.kamSeq)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:it-sums
@@ -7589,9 +7589,9 @@ EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-sums@L1001-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.sums_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:it-stepsmall
@@ -7619,9 +7619,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:it-stepsmall@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.stepsmall_seq
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:it-base
@@ -7646,9 +7646,9 @@ EDGE: bp:p2:admissible | blueprint/parts/p2-aposteriori.tex#step:p2:it-base@L101
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.stage_zero
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:it-step
@@ -7677,9 +7677,9 @@ EDGE: bp:p2:schedule | blueprint/parts/p2-aposteriori.tex#step:p2:it-step@L1023-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.stage_succ
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-13-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:limit
@@ -7714,9 +7714,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:limit@L1033-L103
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-r3
 REVIEWER: sol-review-r1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.limit (def KAM.Apost.kamLimit)
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:lim-k
@@ -7743,9 +7743,9 @@ EDGE: bp:p2:error-decay | blueprint/parts/p2-aposteriori.tex#step:p2:lim-k@L1058
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.lim_k
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:lim-dk
@@ -7772,9 +7772,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-dk@L1062-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.lim_dk
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:lim-holo
@@ -7802,9 +7802,9 @@ EDGE: bp:p2:iteration | blueprint/parts/p2-aposteriori.tex#step:p2:lim-holo@L106
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.lim_holo
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:lim-primary
@@ -7833,9 +7833,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-primary@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.lim_primary
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:lim-close
@@ -7863,9 +7863,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-close@L107
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.lim_close
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:lim-margins
@@ -7892,9 +7892,9 @@ EDGE: step:p2:lim-holo | blueprint/parts/p2-aposteriori.tex#step:p2:lim-margins@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.lim_margins
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:lim-invariance
@@ -7925,9 +7925,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#step:p2:lim-invariance
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b+sol-review-d2
 REVIEWER: sol-review-d3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.lim_invariance
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p2:g1
@@ -7985,9 +7985,9 @@ EDGE: bp:p1:cohomological | blueprint/parts/p2-aposteriori.tex#step:p2:g1-consta
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.C_1_pos, C_2_pos
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:g1-standing
@@ -8013,9 +8013,9 @@ EDGE: bp:p2:frozen-agreement | blueprint/parts/p2-aposteriori.tex#step:p2:g1-sta
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inside KAM.Apost.g1_explicit
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:g1-e
@@ -8040,9 +8040,9 @@ EDGE: step:p2:g1-constants | blueprint/parts/p2-aposteriori.tex#step:p2:g1-e@L11
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.g1_error_small
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:g1-apply
@@ -8070,9 +8070,9 @@ EDGE: step:p2:g1-standing | blueprint/parts/p2-aposteriori.tex#step:p2:g1-apply@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inside KAM.Apost.g1_explicit
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:g1-check
@@ -8100,9 +8100,9 @@ EDGE: step:p2:g1-constants | blueprint/parts/p2-aposteriori.tex#step:p2:g1-check
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inside KAM.Apost.g1_explicit
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P2-14-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p3:standing
@@ -10973,9 +10973,9 @@ EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#bp:p4:stab@L587-L587 | e
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.stab
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:stab-small
@@ -11000,9 +11000,9 @@ EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:stab-small@L606-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.Stab.eta_small
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:stab-cauchy
@@ -11030,9 +11030,9 @@ EDGE: bp:p4:unperturbed | blueprint/parts/p4-measure.tex#step:p4:stab-cauchy@L61
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.Stab.tangent_close, norm_fderiv_fderiv_le, norm_dL_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:stab-ball
@@ -11059,9 +11059,9 @@ EDGE: bp:p4:data | blueprint/parts/p4-measure.tex#step:p4:stab-ball@L621-L621 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.Stab.ball_subset_domainD
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:stab-gram
@@ -11092,9 +11092,9 @@ EDGE: step:p4:stab-ball | blueprint/parts/p4-measure.tex#step:p4:stab-gram@L629-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.Stab.norm_gram_sub_one_le, gram_inv
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:stab-frame
@@ -11124,9 +11124,9 @@ EDGE: step:p4:stab-small | blueprint/parts/p4-measure.tex#step:p4:stab-frame@L63
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.Stab.norm_normal_sub_le, norm_dN_le, frame_basic, frame_deriv
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:stab-xn
@@ -11156,9 +11156,9 @@ EDGE: step:p4:stab-small | blueprint/parts/p4-measure.tex#step:p4:stab-xn@L645-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.Stab.norm_fderivX_sub_le, normalField_close
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:stab-torsion
@@ -11188,9 +11188,9 @@ EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:stab-torsion@L65
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.Stab.torsion_close
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:stab-twist
@@ -11220,9 +11220,9 @@ EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:stab-twist@L658-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.Stab.twist_close
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:stab-h2h4
@@ -11252,9 +11252,9 @@ EDGE: bp:p0:stripdata#IsRealOnReals | blueprint/parts/p4-measure.tex#step:p4:sta
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4a
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inside KAM.Head.stab
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-4-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:SA
@@ -11574,9 +11574,9 @@ EDGE: bp:p4:SA | blueprint/parts/p4-measure.tex#bp:p4:lip-error@L820-L829 | Miss
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r2
 REVIEWER: sol-review-d2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.lip_error
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-basic
@@ -11605,9 +11605,9 @@ EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:le-basic@L833-L83
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.lip_error (normalize clauses), invarianceError_shift_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-split
@@ -11633,9 +11633,9 @@ EDGE: bp:p4:freq-map | blueprint/parts/p4-measure.tex#step:p4:le-split@L842-L842
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.invarianceError_shift_eq, hamiltonianVectorField_hbold, lipError_split
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-h
@@ -11664,9 +11664,9 @@ EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:le-h@L854-L858 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.gradC_mixed_difference, norm_iteratedFDeriv_two_gradC_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-f
@@ -11695,9 +11695,9 @@ EDGE: step:p4:le-basic | blueprint/parts/p4-measure.tex#step:p4:le-f@L861-L861 |
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b+sol-review-r4
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.norm_hamiltonianVectorField_f_shift_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-transport
@@ -11723,9 +11723,9 @@ EDGE: bp:p4:normalize | blueprint/parts/p4-measure.tex#step:p4:le-transport@L868
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.norm_fderiv_sub_unperturbed_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p4:le-sum
@@ -11754,9 +11754,9 @@ EDGE: bp:p4:parameters | blueprint/parts/p4-measure.tex#step:p4:le-sum@L872-L872
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Head.lipError_const_le
+LEAN_NOTE: prover evidence + independent audit docs/campaign/audits/P4-7-audit-1.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: bp:p4:lip
