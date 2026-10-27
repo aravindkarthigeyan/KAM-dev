@@ -1,134 +1,160 @@
-# Independent review 1: N interfaces, N-QC and N-ZERO
+# Part 12 review 1: N-AVERAGING
 
-## Verdict: REVISE
+Reviewer: independent mathematical audit. Date: 2026-10-27.
 
-The two frozen gate proofs in Part 2 are mathematically correct as stated, including arbitrary dimension, the n=0 case, the full derivative guard and the genuine all-time solution predicate. The principal Part-1 conversions and constants dictionary also work under the headline hypotheses. However, the periodic/holomorphic conclusions of `period-convert` omit the corresponding premises on f after the earlier subsection-wide assumptions have ended. The dictionary has those premises available, so repairing that helper does not strengthen a frozen theorem. The Hessian conversion does inherit reality of h from its own subsection-wide assumptions and is valid in that scope. Smaller normalization, example and API issues are recorded below.
+**Verdict: REVISE.** The proposed route is viable and the frozen statements need no change. Three local errors must be corrected before the written proof is approved: the inverse-flow argument reverses the vector field, two regularizer inequalities are false at zero under Lean's total division, and the coefficient-holomorphy application uses the wrong action width. The slab estimate, pointwise envelope, transport, stopping argument, and final constants survive these corrections. There is no reason to reject the route or reinstate the cohort/Gronwall construction.
 
-## Scope, materials and checks
+**Part 12 ready for graph extraction: NO**, pending the major corrections below. This is a mathematical blueprint review, not a provider proof or sealing receipt.
 
-- `blueprint-N/parts/p1-interfaces.tex`: **257 lines, 30,482 bytes**, SHA-256 `88d5494e2b624a80808322cb3d7eca6321438a157fd7163b2caec98669f78feb`; 10 lemmas, 1 remark, 37 proof steps.
-- `blueprint-N/parts/p2-qc-zero.tex`: **102 lines, 9,178 bytes**, SHA-256 `ca0b1f0ec339cf735a97bd5081c21d526e14774819f4864ea5864ed66146e1b7`; 3 lemmas, 2 theorems, 3 remarks, 20 proof steps.
-- Read the current review brief, rules, governing PLAN/decisions, conventions ruling, N PLAN, Part 0, the shared Part-3 interfaces and relevant statement/source/audit context. Compared the frozen N-QC/N-ZERO theorem types, the eleven frozen N definitions and five K definitions used by the conversions. Read the exact K holomorphic restriction, Hamiltonian, Fourier decay/summation and cohomological interfaces that are cited.
-- Read BM11 pp.4–5 and 9–10 directly and checked the integrable-model formula. Visually read Pöschel printed pp.189–191 and 204 (scan PDF pages 4–6 and 19): domains, max-norm angle strip, Euclidean action tubes, weighted norm, quantitative QC alternative, threshold, exceptional branch, time prefactor and exponent. No normal-form proof is being accepted merely from this dictionary review.
-- `cd blueprint-N && latexmk -pdf -interaction=nonstopmode -outdir=.build/review blueprint.tex`: **exit 0**, initially 24 pages. The final rebuild, after concurrent Part-3 fixes and the addition of Part 4, also passed: **36 pages**, no undefined references or overfull boxes; six hyperref PDF-bookmark warnings in the expanded assembly. Parts 1–2 remained byte-identical, and the newly added Part 4 is outside this review. Every concrete local and K label resolves.
-- `scripts/lint_sources.sh`: **exit 0**, `check_lean_modules: PASS (124 Lean files, 0 comparator configurations)`, `FROZEN-ANCHOR GUARD OK`, `ABI HASHES OK (94 frozen declarations)`. No Lean file was changed or built; no fresh `#print axioms` receipt or axiom-free provider certification is claimed.
+## Inputs and scope
+
+Read the complete specific and generic review briefs, AGENTS.md, docs/PLAN.md, docs/DECISIONS.md through D29, the track-N blueprint plan/preamble, the convention ruling in bp-part-writer.md, the v0.5 statement/source/notes packet, its independent audit and approval packet, and the model track-K review. The historical “unapproved” wording in the v0.5 packet is superseded by D28 and the current frozen files.
+
+Reviewed:
+
+- `blueprint-N/parts/p12-averaging.tex`: 309 lines, 43,380 bytes; SHA256 `69fdefa09a0a61c69942d909b4681722698cd3587a629051e4e52cf4053b5f2f`.
+- `blueprint-N/parts/p0-conventions.tex`: D28 subsection L342–407, within a 407-line, 35,933-byte file; whole-file SHA256 `756e6f2e801cb5938a029adf9fb480def80f123b6842d6f03769e4a2ce66c6ca`.
+- Authoritative frozen `AveragingMean.lean`, `AveragingMost.lean`, `HasAveragingFrequencyRank.lean`, `AveragingError.lean`, and their analytic/solution definitions. No implementation/provider was used as evidence.
+- Actual cited statements in N Parts 1, 3, 4, 5 and K Part 1, especially the maximal-solution/continuation/reduction interfaces, Fourier coefficient domains, decay and real restrictions.
+- Primary AKN06 printed pp.3, 207–209, 217–218, 242–244, extracted directly from the pinned PDF. Chapter 6 has PDF page = printed page + 11; printed p.3 is PDF p.16. Read all four pages of Nei76, pp.1295–1298, and visually inspected p.1298, including (17) and its piecewise regularizer.
 
 ## Findings
 
-| ID | Location / label | Severity | Finding | Evidence | Exact proposed fix |
-|---|---|---|---|---|---|
-| N12-01 | `bpN:p1:period-convert`, lines 177–185 | major | The helper introduces arbitrary complex h,f but asserts periodicity and holomorphy of the transformed f without assuming either for f. The earlier standing convention is explicitly limited to a different subsection. | f(θ,I)=θ₁ is entire but not periodic; then 2πf(φ/(2π),I)=φ₁ is not 2π-periodic. A bounded, nonholomorphic f also refutes (c)'s analyticity conclusion under the value bound alone. Dynamics and the algebraic scaling formulas themselves do not require these premises. | Separate unconditional transport/scaling statements from conditional ones: periodicity assumes f is 1-periodic; (c) assumes f holomorphic on D_s(R) and the stated size bound; Fourier reconstruction assumes the analytic periodic hypotheses. Equivalently state the f-dependent clauses for `IsAnalyticPerturbation R s ε f`. Do not impose those analytic premises on the general Hamiltonian solution-equivalence clause. |
-| N12-02 | `period-convert` (d), line 185 | minor, normalization notation | The displayed Fourier expansion uses hat f as if it were unchanged, then the prose says “times 2π”. The old and transformed coefficients should have distinct names. The dictionary correctly includes the 2π in F. | By substitution, the transformed coefficient is **tilde hat f_k=2π hat f_k**, where hat f_k is the displayed integral of the original f. | Write `tilde f=Σ_k tilde hat f_k e^(ik·φ)` and `tilde hat f_k=2π∫_[0,1]^n f(θ,I)e^(−2πik·θ)dθ`. Retain F=2πcoth(πs/4)^n. |
-| N12-03 | `qc-convert` warning, line 159 | minor | The example incorrectly says ω=e₁ throughout the domain. | For h(I)=I₁+(I₂²+I₃²)/2, ω(I)=(1,I₂,I₃), equal to e₁ only on I₂=I₃=0. The example still correctly disproves full Hessian positivity because Q[e₁,e₁]=0 everywhere. | Give the correct frequency, or specify the example point I₂=I₃=0. Say QC holds with a constant depending on the bounded set. |
-| N12-04 | `norm-compare` (a), line 34; proof line 41 | minor, edge case/notation | The divided inequality uses n in the denominator without separating n=0; the complex proof writes Σx_i² instead of Σ|x_i|². | The norm comparison itself is valid for every n, with all norms zero at n=0. The ordinary mathematical quotient 0/0 is undefined; interpreting Lean division gives a harmless default but is not an unguarded mathematical division. For complex vectors the sum of squares need not be real or positive. | State the divided consequence only for n>0; keep `‖x‖₂²≤n‖x‖∞²` for all n. Use Σ|x_i|² in the complex proof. No dimension restriction should be added to N-ZERO or N-QC. |
-| N12-05 | External fact `bpN:p1:ext-linalg`, line 19; `stepN:p2:qk-bij` | minor, exact API | `LinearMap.injective_iff_surjective` is an endomorphism theorem, whereas L here maps ℝⁿ×ℝ to ℝ×ℝⁿ. Equal dimension is sufficient, but the named declaration is not directly its interface. | Installed `LinearAlgebra/FiniteDimensional/Basic.lean:309` has f:V→ₗV. The general theorem is `LinearMap.injective_iff_surjective_of_finrank_eq_finrank` in `FiniteDimensional/Lemmas.lean:204`. | Cite the latter and prove both product finranks equal n+1, or conjugate by the product-swap equivalence and use the endomorphism theorem. No mathematical change to N-QC. |
-| N12-06 | `constants` (g), `stepN:p1:co-time`, lines 229,248 | minor, division guard | The reciprocal comparison uses Ω₀ in a denominator but only records its upper bound. Positivity follows from already available data and should be stated before inverting. | The closed radius-R₀ ball contains I₀ and ω_min>0, so Ω₀≥|tilde ω(I₀)|₂≥2πω_min>0. | Insert this lower bound and the finiteness already obtained from B(M), then derive T₀≥2T by taking reciprocals of positive quantities. Also scope (h)'s genuine negative-power/time expression to ε>0, as frozen N-HEAD-C does; N-ZERO handles ε=0. |
+| ID | Location / label | Severity | Finding and evidence | Exact proposed fix |
+|---|---|---|---|---|
+| N12-01 | p12 L64, `stepN:p12:fl-inverse` | major | The curve `u ↦ gamma_x(t-u)` has derivative `-F(gamma_x(t-u))`. It is a solution of **-F**, not the F-solution used to conclude membership in `Omega_{-t}`. Even the Hamiltonian `H=I_1`, whose angle velocity is +1, refutes the stated argument. | For fixed t>0 use `y(u)=gamma_x(t+u)` on `[-t,0]`. Then y solves F, y(0)=Phi_t(x), and y(-t)=x. Apply gen-maximal to this closed interval to get `T_-(Phi_t x)<-t`, identify y with the maximal solution there, and conclude `Phi_{-t}(Phi_t x)=x`. Apply the same argument with -t to obtain the converse. No new premise is needed. |
+| N12-02 | p12 L100, `bpN:p12:corrector` | major | The all-y assertions `abs(psi')<=min(kappa^-2,y^-2)` and `kappa^2/(y^2+kappa^2)<=min(1,kappa^2 y^-2)` fail at y=0 with real total division: their left sides are kappa^-2 and 1, but the displayed right sides are 0. In ordinary partial-division notation they are simply undefined there. Resonant q_k=0 is explicitly allowed. | State the nonsingular global bounds `abs psi<=1/(2 kappa)`, `abs psi'<=kappa^-2`, and `0<=1-y psi=kappa^2/(y^2+kappa^2)<=1`. State `abs psi<=1/abs y`, `abs psi'<=y^-2`, and the residual bound `<=kappa^2 y^-2` **only for y!=0**. The outer dyadic shells already imply y!=0; use the global bounds on Z_0. All later constants remain valid. |
+| N12-03 | p12 L93, `stepN:p12:co-a`; N Part 4 domains/class | major | The proof says to apply `bpN:p4:coefficients(a)` to `f in O(R,s)`. In Part 4 the first argument is the **action-neighborhood width**. Frozen hf provides `T_s x V_s(iota B(0,R))`, not `T_s x V_R(iota B(0,R))`. No ordering R<=s is assumed. For example R=2, s=1/2 and `f=1/[4(3-I_1)]`, extended totally at its pole, satisfy the smaller-domain analytic/bound requirements but not holomorphy on V_R B(0,R), which contains the pole at I_1=3. | Specify the Part 4 base set `D=iota(B(0,R))`, action width `r=s`, angle width `s`; apply the lemma to `f in O(s,s)` for that D. Its action domain is exactly `B(0,R)_s`. Do not enlarge hf's domain or change the Fourier decay exponent. |
+| N12-04 | p12 L22 and L140, cited `bpN:p1:partials` / `bpN:p1:ext-linalg` | minor | The regularity citation points to an ordered-partials estimate with an additional derivative-bound hypothesis, whereas only analytic hh is supplied here. The rectangular adjoint assertion in branch B is true but not the equal-dimension injective/bijective assertion actually listed in ext-linalg. | Cite `bpN:p1:holo-real(b),(c)` for smoothness of omega and continuity of M. For adjoint injectivity give the direct proof: if A is onto and A^T e=0, choose z with Az=e; then `abs(e)_2^2=e dot Az=(A^T e) dot z=0`, hence e=0. This covers both square M and rectangular A=(M,omega), with no new rank assumption. |
+| N12-05 | p12 L37, `bpN:p12:ext-dep` | minor; substantive formalization obligation | The C1 local-dependence theorem is standard and sufficient. I found local flows and Lipschitz dependence in the pinned Mathlib ODE sources, but no theorem giving the asserted initial-data derivative/variational equation. The phrase “has ... only” understates the available Lipschitz-flow API. The stated smallness a sup abs DF<1 controls Picard contraction, but the derivative-convergence sentence should expose its additional argument and the ball-staying choice. | Keep this as a separately proved infrastructure lemma, not an available Mathlib result or a premise added to averaging. Choose a compact ball in W, smaller initial ball, `a sup abs F` below the remaining radius, and q=a sup abs DF<1. Supply the derivative-limit argument described below (uniform continuity of DF plus the linear Volterra fixed point); alternatively use the analytic-field construction already outlined in Part 5 after explicit local scaling. Correct the API description. |
+| N12-06 | p12 L38, `bpN:p12:ext-markov` | minor | The external maximum-continuity assertion uses `max_{u<=s}` without a lower endpoint or compact time domain. It is false for arbitrary jointly continuous g on R, e.g. g(u,x)=-u. Every actual use in this part is over [0,t] or [0,T], where the required result is valid. | State continuity of `(t,x) ↦ max_{0<=u<=t} g(u,x)` on nonnegative times for which the entire compact segment is in the open flow domain, with joint continuity there. For fixed T use a jointly continuous function on `[0,T] x U`. Local compact-segment containment supplies the relevant neighborhood in the variable-domain case. |
 
-## What I recomputed (refutation attempts that failed)
+The first three are defects of the written proof/interfaces, not counterexamples to N-AVERAGING. No frozen declaration, source, graph packet or ledger was changed.
 
-### Domains, holomorphic restriction and derivative bounds
+## Frozen-contract comparison
 
-The real tube identity is exact for R,s>0, including n=0. If I lies within s of a real J with |J|<R, the triangle inequality gives |I|<R+s. Conversely choose J=R I/(R+s): |J|<R and |I−J|=s|I|/(R+s)<s. In dimension zero J=0 supplies the same inequalities. Complex action tubes are not identified with complex balls of radius R+s; only their real slice is.
+Both Part 0 theorem transcriptions agree with the authoritative frozen binder order and conclusions.
 
-For P={|J|∞≤R/2} and |I−J|₂<r₀≤min(s/2,R/8), the max norm is ≤the Euclidean norm, so J∈B(0,R) witnesses I in the frozen complex action neighbourhood. At real I, |I|∞<5R/8. This verifies the tube inclusion used by all subsequent constant choices, including strictness at the real boundary.
-
-Under the frozen H1/H6 analytic premises, G(θ,I)=h(I)+f(θ,I) is holomorphic on the **open** D_s(R). Restricting scalars to ℝ and composing with the real inclusion gives real smoothness on W_s=ℝⁿ×B(0,R+s). Reality of h,f there identifies Re G with G, and all real-direction derivatives take real values. The canonical field is exactly `(∂_I G,−∂_θ G)` at real points, after casting. Period-one shifts preserve W_s and have identity derivative, so every derivative of H and its field are periodic. The frequency and real Hessian formulas follow with the same guards. I found no angle/action reversal or off-domain derivative use.
-
-The ordered coordinate derivatives in B(M) give |ω_i|≤M and |ω|₂≤sqrt(n)M, plus the Hessian entry bound. C³ on an open real set gives symmetry through order three. Nothing upgrades this to a complex C³ bound; the separate complex Hessian premise remains explicit. Installed scalar-restriction declarations include `DifferentiableAt.restrictScalars` and `ContDiffOn.restrict_scalars`; their names and purposes match the cited facts.
-
-For the nested complex Hessian norm, evaluate on two coordinate vectors to obtain |Q_ij|≤M_C. Then
-
-```text
-|x^TQy| ≤ M_C |x|₁ |y|₁ ≤ nM_C |x|₂ |y|₂.
-```
-
-Testing with conjugated dual unit vectors gives the complex Euclidean operator bound. The complex symmetric matrix need not be normal or Hermitian; no spectral-radius equality is used. The **bound** is valid without reality; the **real identification** uses `IsAnalyticIntegrable R s h`, explicitly assumed throughout this subsection at lines 68–70. I tested h(z)=i z²/2 as a possible refutation: it satisfies the complex-Hessian bound but has real Hessian zero at real points. It is excluded by that standing reality premise, so it is **not** a finding against the scoped lemma. The later constants dictionary supplies the same premise as H1.
-
-### Quantitative quasi-convexity: alternative, not full positivity
-
-At I∈B(0,R), put q=m/n, B_c=nM_C+q, μ=q/2 and ell=ω_min q/(8(B_c+q)). All denominators are positive because this helper assumes n≥1. The frozen transverse inequality implies Q[v,v]≥q|v|₂² on ω⊥; the complex bound implies |Q[x,y]|≤B_c|x|₂|y|₂. Also |ω|₂≥ω_min.
-
-For a Euclidean unit ξ with |ω·ξ|≤ell, take e=ω/|ω|₂, t=ξ·e, u=ξ−te. Then u⊥ω, |u|₂²=1−t² and
-
-```text
-|t| ≤ q/[8(B_c+q)] < 1/8,
-Q[ξ,ξ] ≥ q−(q+B_c)t²−2B_c|t|
-         ≥ q−q/8−q/4 = 5q/8 ≥ μ.
-```
-
-The bilinear core does not require symmetry: bound Q[u,e] and Q[e,u] separately. Homogeneity handles every ξ, including zero. This is exactly the conditional coercivity, equivalently Pöschel's disjunction, required on the real tube. It does not assert positive definiteness in the frequency direction. Scaling h,ω,Q,μ,ell,B_c by 2π preserves the implication. No additional uniform-QC premise was smuggled into the headline.
-
-### Period transport and the coth loss
-
-With Λ(θ,I)=(2πθ,I) and tilde H=2πH∘Λ⁻¹, differentiation gives
-
-```text
-X_tildeH(Λz) = (2π∂_I H(z),−∂_θH(z)) = DΛ X_H(z).
-```
-
-The invertible linear transport also preserves differentiability of H at the visited points, action membership and ordinary two-sided curve derivatives. Thus the frozen solution-predicate equivalence is valid for every time set J without changing time or actions. The factor 2π in the Hamiltonian is necessary. Every order of action derivative and all curvature/frequency bounds scale by 2π. A geometric θ-strip of width ρ becomes a φ-strip of width 2πρ. These algebraic statements remain correct independently of the missing analytic/periodic premises in N12-01.
-
-Fourier decay on the open period-one strip gives, by approaching its boundary from below,
-
-```text
-|hat u_k| exp(2π|k|₁(ρ−δ)) ≤ exp(−2πδ|k|₁) ‖u‖ρ.
-Σ_(k∈ℤⁿ) exp(−2πδ|k|₁) = coth(πδ)^n.
-```
-
-The inequality is termwise before summation; no unjustified exchange of an infinite sum and boundary limit is needed. The reverse bound follows from Fourier reconstruction and the triangle inequality, allowing an infinite right side. The parameter-I version takes the supremum **after** the pointwise coefficient sum; it never interchanges sum and supremum. In Pöschel's notation the width gap is 2σ=2πδ, hence the factor coth(σ)^n, not coth(σ/2)^n. The concrete choice ρ=3s/4, δ=s/4 gives target coefficient radius πs and precisely the F below.
-
-## Every constant in the N dictionary
-
-All symbols in this table depend only on n,R,s,M,m,M_C,ω_min, before h,f,ε and the initial point. The A in this dictionary is a dimensionless ratio, distinct from the existential bound on the value of h.
-
-| Choice / relation | Recomputed verification |
+| Interface | Checked contract |
 |---|---|
-| a=1/(2n), q=m/n, B_c=nM_C+q, μ=q/2, ell=ω_min q/[8(B_c+q)] | All positive for n≥3. The preceding conic proof supplies the exact source alternative. |
-| r₀=min(s/2,R/8,2ell/μ,4ω_min/μ) | Positive, gives both tube inclusions, satisfies r₀≤4ell/μ with slack, and supplies the exceptional-frequency exclusion. |
-| A=11B_c/μ | B_c≥q=2μ gives A≥22. Thus R₀=r₀/A≤R/176. |
-| s₀=πs, σ=πs/4 | s₀+2σ=3πs/2<2πs, inside the transformed original strip. |
-| F=2πcoth(πs/4)^n | The coth factor uses the fixed strip loss; the prefactor 2π is the Hamiltonian scaling. Therefore the source weighted perturbation size is ≤Fε. |
-| m_P=2πμ, ell_P=2πell, M_P=2πB_c | Euclidean action-Hessian bound is ≤2πnM_C≤M_P; real-tube QC follows from the alternative. A_P=11M_P/m_P=A and r₀≤4ell_P/m_P. |
-| ε*=m_P r₀²/(2¹⁰A^(2n)) | Exactly Pöschel's printed threshold. All inputs are fixed before h and f. |
-| C=(r₀/A)(F/ε*)^a | Source radius R₀(ε_P/ε*)^a with ε_P=Fε is exactly Cε^a; passing from Euclidean displacement to max displacement only weakens the conclusion. |
-| c=(s₀/6)(ε*/F)^a | Source exponential is exp(cε^(−a)) for ε>0. The 1/6 and exponent a match the printed statement. |
-| T=A²s₀/(4πnM) | B(M) gives |tilde ω|₂≤2πsqrt(n)M≤2πnM on the real R₀ ball. With Ω₀>0 as in N12-06, T₀=A²s₀/Ω₀≥2T. No h-value bound is used. |
-| ε₀=min(ε*/F,(R/(4C))^(2n)) | Both terms are positive. Monotonicity and positive-base real-power identities give Cε₀^a≤R/4 and Fε≤ε* when 0<ε≤ε₀. |
-| Exceptional branch | |tilde ω(I₀)|₂≥2πω_min>πω_min≥m_Pr₀/8, using r₀≤4ω_min/μ. Hence the source's fixed-radius exception is excluded strictly. |
-| Source prefactor ball | For |I−I₀|₂≤R₀ and |I₀|∞<R/2, |I|∞<R/2+R₀<5R/8. The real derivative and frequency lower bounds are available there. |
+| Fixed data | n>=2; R,s>0; fixed h,f with the two analytic predicates; rank on open B(0,R); compact K with initial actions in B(0,R/2), before any A or epsilon_0. Part 12's observation that its argument also works for n=1 does not alter the frozen targets. |
+| Rank definition | A global disjunction of two universal conditions, not a pointwise choice of branch. Branch B includes omega!=0 and surjectivity of `(v,c) ↦ Mv+c omega`; branch A permits zero frequency. Both derivatives are genuine under hh on the real open domain. |
+| AveragingError | The real sSup of action displacement from **x.2**, over `[0,1/epsilon]`; it compares exactly with the constant averaged action, not an averaged angle or corrected initial action. |
+| Mean | A,epsilon_0 precede epsilon, arbitrary supplied Phi and kappa. Phi need only be a genuine family on K and the stated window; no measurability away from K is assumed. IntegrableOn and the nonnegative lintegral bound are conclusions, as is the exceptional set of absolute volume <=kappa. |
+| Most | A,epsilon_0,eta_0 precede epsilon and eta; eta_0<=R/4; E precedes every good x and its exhibited z. Actual full-window solution existence is an output. No future-confinement or error premise was inserted. |
+| Constants used | rho=R/8, epsilon_0=1, eta_0=R/8, A_most=A_1>=1, A_mean=13A_1. Positivity and eta_0<=R/4 hold. Uniformity over norm-one f is stronger than the frozen fixed-f conclusion and is justified by the Cauchy bounds; no uniformity over h is claimed. |
 
-This dictionary retains the complex-Hessian and frequency-lower inputs before the constants and does not claim they follow from the older real-bounds-only class. Pöschel uses a non-strict size bound, so this particular source import needs no additional BM11 factor-of-two adjustment. The factor 1/2 in T is explicit slack. The ε=0 dynamics are treated by N-ZERO rather than interpreted through an unguarded negative real power.
+For epsilon>0 the time interval contains 0, is compact and nonempty. A genuine supplied trajectory is continuous there; its error image is compact and bounded above, also bounded by 3R/2 from the domain memberships. Thus sSup is its attained maximum and the junk cases are excluded. Values of Phi off K have no effect. The proof never needs sSup for an unbounded or nonexistent stopped trajectory: Psi is constructed separately as a nonnegative envelope.
 
-## Part 2: complete gate-proof comparison
+## What I recomputed
 
-### N-QC
+### Analytic inputs, Fourier normalization and regularizer
 
-The frozen type quantifies over every n, arbitrary U,h,m with `IsStrictlyQuasiConvex U h m`, I∈U and λ>0, and concludes `Function.Bijective (fderiv ℝ Ψ (I,λ))`. Part 2 preserves this exactly; it adds neither analyticity nor a uniform inverse radius.
+For real I in B(0,R), the closed phase polydisc of radius s/2 lies strictly inside the complex domain. Cauchy therefore gives each first partial <=2/s without an extra dimension factor; the row-sum estimate for D_I f_k subsequently supplies the required n. At fixed complex action, shift the Fourier contour by s/2 to obtain beta_k=exp(-pi s abs k_1). Action Cauchy preserves this same beta_k and gives `(2/s) beta_k`. The polynomially weighted exponential sum sigma is finite. There is no need for a weighted Fourier norm on the **full** original angle strip, which need not be finite.
 
-C² of h_R on open U gives genuine Dh_R and a C¹ frequency map. Evaluating its derivative yields Dω(I)[v]_i=D²h_R(I)[v,e_i]; symmetry identifies this with the matrix Qv in the claimed order. The product rule then gives
+The zero mode of `a=-partial_theta f` vanishes by period-one integration. With `u_k=f_k psi(q_k) k` and `w=-sum u_k e_k`,
 
-```text
-DΨ(I,λ)[v,u] = (ω·v, uω+λQv).
-```
+    partial_theta w omega = -2 pi i sum f_k q_k psi(q_k) k e_k,
+    r = -2 pi i sum f_k [kappa^2/(q_k^2+kappa^2)] k e_k.
 
-If this is zero, pair the second component with v and use ω·v=0. It gives λ vᵀQv=0, while the frozen QC condition gives vᵀQv≥m‖v‖∞². Since m,λ>0, v=0; then uω=0 and ω≠0 force u=0. Domain and codomain both have dimension n+1, so injectivity implies bijectivity, with the API correction in N12-05. The generalized kernel core correctly only needs λ≠0 and nonvanishing of the transverse quadratic form; it does not assume symmetry or a norm bound.
+The sign and all factors 2 pi are correct. In particular there is no missing `1/(2 pi i)` in w: it cancels the multiplier in a. At exact resonance psi=0 and the residual is the full corresponding a-mode, as it must be. Near resonance it is bounded by the nonsingular global bounds in the proposed N12-02 fix. If a real-valued w is desired, `f_{-k}=conj(f_k)` and oddness of psi give `u_{-k}=conj(u_k)`, so the paired sum is real. The written complex-valued calculation is also valid after the canonical real-to-complex inclusion.
 
-For n=0 the nonzero-frequency requirement is impossible at any I∈U. The proof correctly derives n≥1 locally from the premises and does not alter the frozen dimension quantifier. The empty U case is likewise vacuous. No compactness-based uniform inverse estimate is inferred.
+For the action derivatives I checked
 
-### N-ZERO
+    sum_j abs(partial_j q_k)
+      <= sum_i abs(k_i) sum_j abs(M_ij)
+      <= M_2 abs k_1.
 
-The frozen type fixes R,s>0, h in the analytic integrable class and f in the size-zero perturbation class, arbitrary θ₀ and I₀∈B(0,R/2). It states the initial value, `IsSolutionOn H B(0,R) ℝ` for the explicit integrableOrbit, and constant action at every real time. All three conclusions and their conjunction order are represented in Part 2; no uniqueness conclusion is inserted.
+Thus the displayed B envelope has the right row-sum norm and dimension factors. For fixed positive kappa, every value and first-derivative series has a summable uniform bound on smaller action balls, so termwise differentiation and continuity of the derivative are justified. No differentiation of an absolute value at a zero coefficient is used.
 
-The size bound forces f=0 on the **open complex** D_s(R). On its open real slice W_s, H=h_R∘pr₂. Local equality on this open set gives genuine differentiability of H at every visited point and DH[(a,b)]=Dh_R[b]. Thus X_H=(ω_h(I),0). The explicit γ(t)=(θ₀+tω_h(I₀),I₀) has this derivative for every real t; its action remains I₀∈B(0,R), and γ(0) is the required initial point. These are exactly all clauses of the frozen predicate, not merely a formal computation using a totalized derivative. Dimension zero works without any exception, and no ODE existence theorem, quasi-convexity or frequency lower bound is needed.
+### Rank, finite cover and dyadic arithmetic
 
-The optional uniqueness remark refers to the separate shared ODE layer. It is not used to prove any extra frozen conclusion. The supplied C³ real clause and local vanishing already suffice for this direct gate proof.
+For either frozen rank branch the adjoint of `(M,omega)` is injective. Compactness of `G x S^{n-1}` yields a positive lambda for the sum of its squared components, even when branch A has omega=0 at a point. On `abs(e dot omega)<=lambda/2`, the gradient has squared Euclidean norm >=3 lambda^2/4. Some coordinate derivative consequently has modulus at least `sqrt(3) lambda/(2 sqrt(n))`, strictly above `c_0=lambda/(2 sqrt(n))`.
 
-## Source fidelity, limits and handoff
+The neighborhoods can be chosen as full cubes **inside B(0,R)** even for I on the boundary of G, since G is compactly inside that larger open ball. A finite cover of pairs (I,e), not a single trajectory chart, is sufficient. On each selected cube the coordinate derivative has constant sign; Fubini and the mean value theorem bound every relevant one-dimensional section by 2v/c_0. Intersecting with G cannot enlarge it. Cubes may overlap: the proof only sums upper bounds. The proposed `C_1=max(1,2p/c_0,2 Vol(G)/lambda)` handles both v<=lambda/2 and larger v. Its dependence on omega includes its first derivative and the compactness modulus used in the cover. For k!=0, scaling by abs k_2 gives precisely `V_k(u)<=C_1 u/abs k_2`.
 
-BM11 p.4 has max-norm QC with Euclidean orthogonality and coordinate derivative bounds; pp.9–10 give the exact derivative/kernel computation. Its additional uniform image-ball assertion is outside frozen N-QC and is not used here. Pöschel pp.189–191 give the action tube, strip, norm, Hessian bound, QC disjunction and theorem constants above; p.204 confirms K=(ε*/ε_P)^(1/(2n)) and the exceptional block interpretation. The dictionary is our conversion proof, not a source theorem claiming those frozen inputs verbatim.
+For the shells Z_0,Z_j, the derivative and residual sums are respectively
 
-The complex-symmetric spectral-radius sentence on Pöschel p.190 is correctly flagged: Q=[[1,i],[i,−1]] has Q²=0 but nonzero operator norm. Retain the actual operator bound; no new source defect was discovered beyond this already documented issue. The findings above concern blueprint contracts and notation, not a change to a pinned source or frozen theorem. No ledger was edited.
+    C_1/(kappa abs k_2) * [1+4 sum_{j>=1} 2^-j],
+    C_1 kappa/abs k_2 * [1+4 sum_{j>=1} 2^-j].
 
-These parts do not prove N-HEAD-C: its normal-form theorem, resonance geometry and final continuation assembly remain future obligations. They do provide a valid dictionary under the actual headline premises and mathematically complete N-QC/N-ZERO proofs after the helper/API repairs. No frozen statement was refuted, no new source premise was introduced, and no mathematical deviation was added by this review.
+Both brackets equal 5. The reciprocal shell contribution is <=2 C_1/abs k_2 per nonempty outer shell; the bound on their number yields `5/2+3 ln^+(Omega_0 abs k_1/kappa)` because `2/ln 2=2.885390...<3`. The subsequent logarithm bound and `ell_kappa<=1/kappa` hold for 0<kappa<=1. The summation weights in c_W,c_B,c_R absorb all powers of k: W_1 needs degree three; the derivative term uses `abs k_1/abs k_2<=sqrt n`; the residual uses abs k_2>=1. I found no missing dimension or Fourier factor.
 
-Only this report and the requested I Part-2 report were written. Input hashes, report whitespace/conflicts and `git diff --check` passed at closeout. No state-changing git command was run. For downstream Lean briefs: **Never use `set_option maxHeartbeats`** (or any heartbeat-budget override). A default-heartbeat elaboration failure is a design signal to refactor or split the proof, not something to mask with a larger budget. If a proof will not elaborate at default heartbeats, report it as a design signal. **No Lean file may exceed 1500 lines of code.** When a file approaches the cap, split it into focused modules, preserving public import paths as cheap facades.
+At kappa=sqrt(epsilon), epsilon/kappa=sqrt(epsilon). Also `sqrt(epsilon) ln(1/epsilon)<=2/e<1`, which verifies the stated loose `epsilon ell_kappa<=2 sqrt(epsilon)`. Hence the constants c_Phi and the bound `2 epsilon integral W<=4c_W sqrt(epsilon)` are valid. In fact some factors can be improved, but that is unnecessary.
+
+As non-vacuity tests, `h=(sum_j I_j^2)/2` has M=id, including at zero frequency, and `h=I_1+I_2^2/2` in dimension two has the projective-only branch `(omega_1,omega_2)=(1,I_2)` with rank M=1. Both fit the compact transversality argument; it does not silently strengthen branch B to full rank.
+
+### Identity, maximum and stopping
+
+Along the exact orbit,
+
+    d/dt w = a-r + epsilon Q,
+    Q = partial_theta w partial_I f + D_I w a.
+
+Integrating yields exactly the stated corrector identity, with `-epsilon^2 integral Q`. The key maximum bound comes from variation of the **coefficients** u_k along the action curve, not from differentiating the full oscillatory w and losing its fast oscillations:
+
+    max abs Lambda <= W(I_0)+(2 epsilon/s) integral B.
+
+Only one moving endpoint Lambda(u) occurs; Lambda(0) contributes W(I_0) with no additional derivative integral. Together with `abs Q<=(2/s)(W_1+B)` this gives
+
+    max drift <= 2 epsilon W(I_0)
+                 + epsilon integral [(4 epsilon/s) B
+                                      +(2 epsilon/s) W_1+Rhat].
+
+This verifies the important coefficient 4/s, not 6/s or 2/s. It bounds the time maximum **before** any initial-data integration and repairs the precise sup/integral problem in Nei76.
+
+At a finite tube exit tau, periodic-field continuation over the compact action ball gives tau<T_+, and the drift at tau equals rho. Before exit, abs I<5R/8<3R/4. There is no hidden bound on the real angle lift: the periodic continuation theorem is exactly what is needed. The stopped domain S is relatively open, and the integrand is defined there and extended by zero on its complement. The singleton endpoint tau has zero time measure, so the replacement by the stopped time integral loses nothing. The cases tau=infinity and tau=T are covered. No existence to T is assumed in the most-data proof.
+
+### Liouville, cell transport and measurable sets
+
+After N12-01 is corrected, the flow is injective with inverse Phi_{-t}. The short-time C1-dependence lemma and finite chaining give the stated open flow domain and continuous initial derivative. For `DF=J S`, S symmetric, I recomputed `DF^T J+J DF=0`. Consequently `Y^T JY=J`, det Y lies in {+1,-1}, and continuity from t=0 gives det Y=+1, not just absolute determinant one. Translation equivariance preserves the maximal domains as well as the curves.
+
+The period-cell argument is valid even when the lifted image crosses many unit cells. If two translated image pieces overlap, equivariance plus injectivity gives initial points differing by an integer angle vector. Two points of a **single half-open cell** cannot differ by a nonzero integer vector. The folded pieces are therefore disjoint, and their nonnegative integrals sum to at most that over `[0,1)^n x G`. No unproved bound on angular motion or image width is used. The dependence on the initial angular lift enters only through finite N_K. K may be empty, null, disconnected or non-product.
+
+All relevant stopped sets are Borel sections of S, the envelopes are sums of nonnegative continuous functions, and zero extension from S is measurable. Tonelli is legitimate before proving finiteness. Change of variables applies to each fixed-time injective C1 flow map, with determinant one. This establishes the stopped mean bound with `A_1=max(1,N_K(c_Phi+4c_W))`, independently of epsilon and, beyond its analytic norm-one bounds, f.
+
+For most data, `Gamma_eta=K intersect Omega_T intersect {maximum<eta}` is relatively open in compact K. If tau<=T, Psi>=rho>=eta; otherwise an excluded datum has its full-window maximum >=eta. Markov gives `Vol E<=A_1 sqrt(epsilon)/eta`. Its complement supplies genuine maximal solutions on a neighborhood of [0,T], hence the two-sided endpoint derivatives required by IsSolutionOn. The allowed endpoint eta=rho causes no problem.
+
+For the mean theorem, the supplied solution on the closed interval is identified with the maximal solution using gen-maximal; this also proves T<T_+ without assuming it. The error agrees on K with the continuous compact-time maximum of the actual flow. Thus integrability is obtained despite arbitrary nonmeasurable values of Phi outside K. On Gamma_rho the maximum is <=Psi. On its complement it is <3R/2, and that set has volume <=A_1 sqrt(epsilon)/rho. Therefore the multiplier is exactly
+
+    1+(3R/2)/(R/8)=13.
+
+The final Markov choice `lambda=A sqrt(epsilon)/kappa` is positive for every allowed kappa. Taking the strict superlevel set leaves maximum <=lambda outside and gives absolute volume <=kappa. All lintegral/ofReal conversions have nonnegative, integrable real functions available.
+
+### The C1-dependence obligation
+
+The statement of ext-dep is standard under C1 on an open set, with no hidden global Lipschitz hypothesis. The following supplies the missing details behind its derivative-convergence sentence without requiring DF to be Lipschitz. Choose the compact trapping ball and time as in N12-05. On the time/initial-point rectangle the Picard iterates y_m converge uniformly to y and their derivative iterates satisfy
+
+    Y_0=Id,
+    Y_{m+1}=Id+integral DF(y_m) Y_m,
+    sup abs Y_m <= 1/(1-q).
+
+The linear map `Z ↦ Id+integral DF(y)Z` is a contraction on continuous matrix families, so has a continuous fixed point Y. Uniform continuity of DF on the trapping ball yields `d_m=sup abs(DF(y_m)-DF(y)) ->0`. Thus
+
+    sup abs(Y_{m+1}-Y)
+       <=q sup abs(Y_m-Y)+a d_m/(1-q) ->0.
+
+Uniform convergence of maps and their initial derivatives on a smaller open ball proves D_x y=Y and its joint continuity. The integral equation gives the variational equation. This uses a standard linear Volterra fixed point and a uniform derivative-limit theorem; it is a genuine proof obligation, not an existing ODE differentiability API discovered in this review. Part 5 offers an analytic specialization/reuse option but cannot be applied without matching its normalized-domain and size hypotheses.
+
+Local Mathlib inspection confirmed the Jacobian theorem in `MeasureTheory/Function/Jacobian.lean:1183` and the open-set termwise derivative theorem `hasFDerivAt_tsum_of_isPreconnected` in `Analysis/Calculus/SmoothSeries.lean:72`. The globally named tsum theorem needs localization for the action domain; the proof's smaller-ball bounds supply it. `Analysis/ODE/ExistUnique.lean` and `PicardLindelof.lean` provide local flows, initial Lipschitz control, uniqueness and related tools, but not the full ext-dep conclusion located here.
+
+## Primary-source fidelity, errata and deviations
+
+AKN06 p.243 puts the maximum **inside** the integral in (6.27), gives the two rank alternatives in Theorem 6.11, and gives both the tolerance and exceptional-volume forms in (6.28)/Corollary 6.1. The fixed-system constants convention is p.207; the standard equations and matched averaged motion are pp.208–209. Printed p.3 footnote 1 provides the global smoothness convention. Remark 6.4, pp.217–218, concerns the **averaged** trajectory's distance from the boundary. Here J=I_0 and the explicit action collar discharges it. No additional boundary condition on future perturbed orbits has been smuggled into the frozen hypotheses.
+
+For the orchestrator's ledger, retain **E-NAVG-NEI-17** with its existing D28 candidate classification: Nei76 p.1298 (17), visibly printed `sup z(t) = integral_{U'} h`; p.1297 defines z as a fixed-time integral, while p.1295 (4) defines h by a time supremum. That interchange is not automatic; only `sup integral <= integral sup` is generally justified. No counterexample to Nei76's theorem is asserted. The blueprint's pointwise envelope, once the local corrections above are made, supplies an explicit repair. Calling the displayed inference a checked proof gap does not by itself authorize changing the public ledger classification.
+
+Also checked the regularizer printed on Nei76 p.1298: its inner polynomial is `-y^3 kappa^-4+2y kappa^-2`. At y=kappa its second derivative from inside is -6/kappa^3, whereas 1/y from outside has second derivative +2/kappa^3. It is C1, not C2. First derivatives suffice for the original argument; the rational regularizer here is smooth. This is a regularity caution, not a new theorem erratum.
+
+The declared departures are justified: analytic fixed-system specialization; period-one/max-norm conventions; intrinsic compact rank geometry; rational regularization and untruncated exponentially summable Fourier series; exact Hamiltonian Liouville transport; one first-exit stop instead of cohorts; no Gronwall because the averaged slow field is zero. The new choices epsilon_0=1 and eta_0=rho do not follow by invoking Nei76's own smallness/collar constants: they follow from the independent estimates here. Those estimates do support them. No mathematical erratum in AKN06 pp.242–244 was found. No frozen-statement defect was found.
+
+## Checks and deliverables
+
+- `cd blueprint-N && latexmk -pdf -interaction=nonstopmode -outdir=.build/review blueprint.tex`: exit 0; output `.build/review/blueprint.pdf`, 101 pages. Final log: 0 lines beginning `!`, 0 undefined-reference warnings. Typography/PDF-string warnings remain. A direct scan also resolved all 129 exact-label references in Part 12, including cross-track labels.
+- `PYTHONDONTWRITEBYTECODE=1 scripts/lint_sources.sh`: exit 0; `check_lean_modules: PASS (219 Lean files, 0 comparator configurations)`; `FROZEN-ANCHOR GUARD OK`; `ABI HASHES OK (144 frozen declarations)`.
+- `.drafts/N/review-scratch-p12/check_corrector.py`: nine diagnostic cases for the two-action full-rank Hamiltonian with one active cosine mode, including q=0 and finite first exits. All numerical corrector-identity residuals <5.27e-12; all stopped envelope inequalities passed. These are diagnostics, not a proof of the mean theorem. Independent elementary arithmetic checked the shell factor 5, 2/log(2)<3, 2/e<1, the factor 13 and the y=0 failures in N12-02.
+- No Lean file was authored or built; no new result has an axioms receipt, and no provider/anchor proof closure is claimed. No resource override was used. A targeted Lean build is inapplicable to this Markdown/source audit.
+- `git diff --check -- blueprint-N/reviews/p12-review-1.md .drafts/N/review-scratch-p12/check_corrector.py`: exit 0, no output. The two reviewed TeX input hashes were rechecked unchanged at handoff.
+- Authored only this review and permitted scratch (`check_corrector.py`, the local Nei76 page render) under `.drafts/N/review-scratch-p12/`; the requested LaTeX build generated ignored review outputs. No source, frozen file, manifest, generated root, other report or git state was edited.
+
+Required follow-up: repair N12-01–03 and clarify N12-04–06, then recheck the edited spans. The route does not require a new assumption, a frozen-text successor, a return to the old proof plan, or any change to the final rates.
