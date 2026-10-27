@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 17:12 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 22.3 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 17:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 22.3 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 17:12 UTC from `main` at `0c3002b` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 17:20 UTC from `main` at `74564ee` by `scripts/hq-status.py`.*
 
 **Current phase:** Statements frozen on all four tracks (94 anchors: K 25, I 19, N 14, P 36). Track K: blueprint complete, consolidation running, then dependency graph and the proof campaign (Sonnet provers, GPT-6.1-Sol auditors, D21). Tracks I, N, P: blueprints next.
 
