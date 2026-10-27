@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 16:56 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 25.4 %** · frozen statements proved: 0 / 5 · **2,758 lines of Lean** of an estimated ≈ 40,000
+> **Last updated: 2026-10-27 17:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 23.7 %** · frozen statements proved: 0 / 15 · **6,280 lines of Lean** of an estimated ≈ 40,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,9 +53,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **25.4 %**
+### Estimated completion: **23.7 %**
 
-`██████░░░░░░░░░░░░░░░░░░░` 25.4 %
+`██████░░░░░░░░░░░░░░░░░░░` 23.7 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
@@ -67,8 +67,8 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 3.2 | `███░░░░░░░` 27 % |
 | Track N (Nekhoroshev) | 2 | 12 | 3.2 | `███░░░░░░░` 27 % |
 | Track P (planetary) | 3 | 20 | 3.2 | `██░░░░░░░░` 16 % |
-| Sealing of the frozen statements | 5 | 5 | 0.0 | `░░░░░░░░░░` 0 % |
-| **Total** | 41 | 140 | 35.6 | **25.4 %** |
+| Sealing of the frozen statements | 15 | 15 | 0.0 | `░░░░░░░░░░` 0 % |
+| **Total** | 51 | 150 | 35.6 | **23.7 %** |
 
 **How this is estimated.** The project is divided into 36 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
@@ -121,28 +121,28 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **2,758** (1,619 excluding blank lines and comments) · **+2,758** since 2026-10-27 13:33 UTC |
+| On `main` now | **6,280** (3,496 excluding blank lines and comments) · **+6,280** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
 | **Estimated total at completion** | **≈ 40,000** |
-| Estimated still to write | ≈ 37,000 |
+| Estimated still to write | ≈ 34,000 |
 
 **How the size is estimated.** The estimate is a planning figure (infrastructure ≈ 12k, a-posteriori theorem ≈ 15k, measure layer ≈ 8k, interfaces ≈ 5k lines); it switches to a rate-based estimate once 8 weight units of Lean work are done. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 16:56 UTC from `main` at `7a88b9f` by `scripts/hq-status.py`.*
+*Generated 2026-10-27 17:00 UTC from `main` at `b1422e0` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K Phase 1: blueprint complete (parts 0–4, ~5,250 lines; all reviewed or proved); consolidation pass running, then Part 1 review and dependency-graph extraction. Tracks I, N, P: statements audited, awaiting owner approval.
 
-**Frozen statements proved: 0 / 5** · frozen definitions: 20
+**Frozen statements proved: 0 / 15** · frozen definitions: 79
 
-**Lean on `main`:** 43 modules · 2,758 lines · 111 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 122 modules · 6,280 lines · 121 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
-DRAFT_ANCHORS: 5 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean)
+DRAFT_ANCHORS: 15 (KAM/Frozen/Theorems/AposterioriKam.lean, KAM/Frozen/Theorems/KamPositiveMeasure.lean, KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Theorems/LocalUniquenessFlow.lean, KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexIsoenergeticDerivative.lean, KAM/Frozen/Nekhoroshev/Theorems/ZeroPerturbation.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean)
 UNREGISTERED_SORRIES: 0
 DRAFT_IMPORT_VIOLATIONS: 0 (frozen-anchor guard, run at every landing)
-SEALED: 0 / 5
+SEALED: 0 / 15
 ```
 <!-- /AUTO:glance -->
 
@@ -178,6 +178,16 @@ The phase table below is track K's.
 | **kam.kam_positive_measure_qualitative.v1** | Classical KAM Theorem, p. 6 (D9 Q1: qualitative corollary) | [`kam_positive_measure_qualitative`](KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean) | ⬜ not yet | HEAD-Q |
 | **kam.local_uniqueness_flow.v1** | Theorem 2, p. 862 (template for flows; ledger D-UNIQ-1) | [`local_uniqueness_flow`](KAM/Frozen/Theorems/LocalUniquenessFlow.lean) | ⬜ not yet | G2 |
 | **kam.volume_not_diophantine_le.v1** | §1d, p. 5 | [`volume_not_diophantine_le`](KAM/Frozen/Theorems/VolumeNotDiophantineLe.lean) | ⬜ not yet | G3 |
+| **iso.isoenergetic_kam.v1** | HL19 Theorem 3.6 and Remark 3.7, pp. 18–19 (statement.md §I-G1) | [`isoenergetic_kam`](KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean) | ⬜ not yet |  |
+| **iso.all_time_confinement.v1** | statement.md §I-HEAD (our deduction: KAM tori separate the energy surface) | [`all_time_confinement`](KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean) | ⬜ not yet |  |
+| **iso.kepler_bordered_det.v1** | statement.md §I-KEPLER (direct calculation) | [`kepler_bordered_det`](KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean) | ⬜ not yet |  |
+| **iso.restricted_near_circular.v1** | statement.md §I-R3BP (Arnold 1963; Chierchia 2005 (3.37); our deduction) | [`restricted_near_circular`](KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean) | ⬜ not yet |  |
+| **nekhoroshev.quasiConvex_isoenergetic_derivative.v1** | BM11 Lemma 3.3, pp. 9–10 (statement.md §N-QC) | [`quasiConvex_isoenergetic_derivative`](KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexIsoenergeticDerivative.lean) | ⬜ not yet |  |
+| **nekhoroshev.zero_perturbation.v1** | statement.md §N-ZERO (our supplement; BM11 p. 1) | [`zero_perturbation`](KAM/Frozen/Nekhoroshev/Theorems/ZeroPerturbation.lean) | ⬜ not yet |  |
+| **nekhoroshev.quasiConvex_nekhoroshev_complexBound.v1** | Pöschel 1993 Theorem 1, pp. 190–191, via BM11 Theorem 2.1, p. 5 (statement.md §N-HEAD-C) | [`quasiConvex_nekhoroshev_complexBound`](KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean) | ⬜ not yet |  |
+| **planetary.properlyDegenerateKAM.v1** | CP11 Theorem 11.1, pp. 50–51, and CP10 Theorem 1.3, as the corrected specialization of Q-P1 (statement.md §P-G) | [`properlyDegenerateKAM`](KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean) | ⬜ not yet |  |
+| **planetary.planarTwoPlanetKAM.v1** | Féjoz 2004 Proposition 77 and CP09 Theorem 4 (statement.md §P-PLANAR) | [`planarTwoPlanetKAM`](KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean) | ⬜ not yet |  |
+| **planetary.fixedSunPlanetaryKAM.v1** | statement.md §P-FIXED (our deduction; Féjoz Lemma 64, Proposition 77; CP09 Theorem 4) | [`fixedSunPlanetaryKAM`](KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean) | ⬜ not yet |  |
 <!-- /AUTO:statements -->
 
 ## The proof map
@@ -232,7 +242,7 @@ flowchart BT
 <!-- AUTO:areas -->
 | Area | Content | Modules | Lines | Theorems |
 |---|---|---|---|---|
-| [`KAM/Frozen/`](KAM/Frozen) | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 25 | 974 | 5 |
+| [`KAM/Frozen/`](KAM/Frozen) | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 94 | 4,347 | 15 |
 | [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 3 | 359 | 24 |
 | [`KAM/Diophantine/`](KAM/Diophantine) | Diophantine vectors, cohomological equation, measure of the Diophantine set | 5 | 543 | 35 |
 | [`KAM/Strip/`](KAM/Strip) | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 4 | 665 | 38 |
@@ -241,7 +251,7 @@ flowchart BT
 | `KAM/Hamiltonian/` *(not created yet)* | Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits | 0 | 0 | 0 |
 | `KAM/APosteriori/` *(not created yet)* | A-posteriori KAM theorem at fixed frequency and local uniqueness | 0 | 0 | 0 |
 | `KAM/Measure/` *(not created yet)* | Lipschitz dependence on the frequency and the measure of the union of tori | 0 | 0 | 0 |
-| [`KAM/Provider/`](KAM/Provider) | One provider module per frozen theorem, where its proof is assembled | 5 | 72 | 0 |
+| [`KAM/Provider/`](KAM/Provider) | One provider module per frozen theorem, where its proof is assembled | 15 | 221 | 0 |
 <!-- /AUTO:areas -->
 
 ## What the agents are doing now
