@@ -39,6 +39,43 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   - Alternative: allow ordinary modules to import SEALED frozen theorems, and wait for the seals.
   - Reversal: switch to that rule after the seals. The `GValid` lemmas then specialize trivially.
 
+### 22:45: track K decisions since 22:10 (orchestrator, Opus)
+- **P3-1 `lagrangian` route substitution.** Ω_K = 0 is derived from the operator a-priori bound (item (b) of
+  `KAM.Apost.cohomological`, with H = 0), not from "uniqueness with g = 0". The audit (D1) confirms it is valid.
+  Graph step `step:p3:lagrangian-unique` is marked BYPASSED (D27).
+- **`diffMap` placement.** The Appendix A def `KAM.Uniq.diffMap` lives in `Uniq/Phase.lean` (P3-2), because `phase`
+  is stated with it. The design listed it under `Uniq/Difference`. `Difference` now imports `Phase`; there is no
+  duplicate.
+- **`coh_unique_zero` placement.** It lives in `Head/CohUnique.lean` (P4-0), not in `Head/Lagrangian.lean`. P4-8
+  imports it.
+- **Part 4 adapters (P4-0).**
+  - The design's expected forms of the landed I-P4B lemmas are proved under new names: `derivative_bounds_design`,
+    `torsion_regular_design`, `shift_design` and `mixed_difference_design`. Constant identities link
+    `Hconst`/`Fconst`/`Mconst` to `derivConstH/F/M`.
+  - No landed name was changed.
+  - The four `bp:p4:*` nodes keep the I-P4B references plus the adapters.
+- **Recommended follow-up (not done).** Generalize `KAM.holomorphic_inverse` from `Fin p` to any `Fintype` index.
+  P3-3 hit a unification timeout on `Fin n ⊕ Fin n` and added a local helper,
+  `KAM.Uniq.DiffAux.differentiableOn_inv_of_isUnit_det`.
+- **Overlapping packages.** These started from branches still in audit, with landing order kept strict:
+  - P3-2 and P3-3 from P3-1;
+  - P3-4 from P3-3;
+  - P3-5 from P3-4;
+  - P2-9 from P2-8b;
+  - P2-12 from P2-9;
+  - P4-1, P4-3 and P4-Q from P4-0;
+  - P4-2 from P4-1.
+
+### 23:00: P4-8 step mapping (orchestrator, Opus)
+- The P4-8 audit failed the graph step `step:p4:lag-regular` only. The step claims boundedness of Λ on T_ρ and of
+  u, v, Du on T_{ρ/2}, and the wrapper `KAM.Head.lagrangeMat_regular` exports only holomorphy and periodicity.
+- The main theorem `KAM.Head.lagrangian` passed. Its route applies `coh_unique_zero` directly on T_ρ, which needs
+  none of those bounds.
+- **Ruling:** the step is marked BYPASSED (D27, route substitution), and the package landed. The Appendix A
+  signature is unchanged.
+- **Alternative for the owner:** a separately named full-regularity theorem could be added later if the bound
+  clauses are wanted for their own sake.
+
 ## Tracks I, N, P (sub-orchestrator, D23)
 
 - **21:15. No new freezes; packets only.** Nothing is pending owner approval from tracks I/N/P tonight (D25 and D28

@@ -7,11 +7,13 @@ module
 
 public import KAM.Analysis.Iteration
 public import KAM.Apost.Constants
+public import KAM.Apost.Correction
 public import KAM.Apost.Exactness
 public import KAM.Apost.Frame
 public import KAM.Apost.Geometry
 public import KAM.Apost.Hamiltonian
 public import KAM.Apost.Identities
+public import KAM.Apost.NewtonError
 public import KAM.Apost.Periodicity
 public import KAM.Apost.Perturbation
 public import KAM.Apost.PerturbationTorsion
@@ -167,6 +169,7 @@ public import KAM.Head.HBounded
 public import KAM.Head.HamiltonianField
 public import KAM.Head.HeadQ
 public import KAM.Head.InverseFrequency
+public import KAM.Head.Lagrangian
 public import KAM.Head.MatrixNorms
 public import KAM.Head.MixedDifference
 public import KAM.Head.Parameters
