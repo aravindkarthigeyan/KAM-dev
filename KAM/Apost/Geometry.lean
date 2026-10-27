@@ -22,32 +22,22 @@ and `0 < δ ≤ 1`, `2δ < r`, the bounds
   `|E_red| ≤ C_red ε/δ`;
 * on `T_{r-2δ}`: `|Ω_K| ≤ C_Ω ε/(γ δ^{κ+1})`, `|E_sym| ≤ C_sym ε/(γ δ^{κ+1})`.
 
-## Status: the final theorem `KAM.Apost.geometry` is deliberately absent
+## The node
 
-The two bounds on `T_{r-2δ}` pass through Corollary `bp:p2:cohomological`(b) (the operator-norm
-a-priori bound for the cohomological equation), which waits for Zohar's package I-STRIP-3. The
-Appendix A theorem `geometry` is therefore left out of this module until `KAM.Apost.cohomological`
-exists, and the cohomological corollary is never assumed as a hypothesis. Everything that does not
-need it is proved here, in the namespace `KAM.Apost.Geometry`:
+`KAM.Apost.geometry` assembles the steps. The two bounds on `T_{r-2δ}` pass through item (b) of
+Corollary `bp:p2:cohomological` (`KAM.Apost.cohomological`), applied to `u = Ω_K` on the strip
+`T_{r-δ}` with loss `δ` (so `0 < r - δ`, `δ < r - δ` and `r - δ - δ = r - 2δ`). The helper lemmas
+live in the namespace `KAM.Apost.Geometry`:
 
 * `geo_de` (step `step:p2:geo-de`): `|DE| ≤ nε/δ` and `|(DE)ᵀ| ≤ 2nε/δ` on `T_{r-δ}`;
 * `geo_domegak` (step `step:p2:geo-domegak`): `|∂_ω Ω_K| ≤ 2n(n+1)𝔪 ε/δ` on `T_{r-δ}`;
 * `geo_ered` (step `step:p2:geo-ered`): `|E_red| ≤ C_red ε/δ` on `T_{r-δ}`;
-* `geo_esym_le` (the pointwise half of step `step:p2:geo-esym`): `|E_sym| ≤ 𝔪² |Ω_K|`, with no
-  cohomological input;
-* `geo_omegak_inputs` (the hypotheses of the cohomological corollary for `u = Ω_K` on the strip
-  `T_{r-δ}`): holomorphy, periodicity, `⟨Ω_K⟩ = 0` (`KAM.Apost.exactness`) and the bound on
-  `∂_ω Ω_K`;
-* `geo_omegak_arith`, `geo_esym_arith`: the constant bookkeeping
-  `c_R γ⁻¹ δ^{-κ} · 2n(n+1)𝔪 ε/δ = C_Ω ε/(γ δ^{κ+1})` and `𝔪² C_Ω = C_sym`.
-
-## What remains for `geometry`
-
-Once `KAM.Apost.cohomological` exists, `geometry` is assembled in a few lines: apply item (b) of
-the cohomological corollary to `u = Ω_K`, on the strip `T_{r-δ}` with loss `δ` (so
-`0 < r - δ`, `δ < r - δ`, and `r - δ - δ = r - 2δ`), with the data of `geo_omegak_inputs`; rewrite
-the resulting bound with `geo_omegak_arith`; then bound `E_sym` by `geo_esym_le` and
-`geo_esym_arith`.
+* `geo_omegak_inputs` and `geo_omegak_arith` (step `step:p2:geo-omegak`): the hypotheses of the
+  cohomological corollary for `u = Ω_K` (holomorphy, periodicity, `⟨Ω_K⟩ = 0` by
+  `KAM.Apost.exactness`, the bound on `∂_ω Ω_K`) and the constant identity
+  `c_R γ⁻¹ δ^{-κ} · 2n(n+1)𝔪 ε/δ = C_Ω ε/(γ δ^{κ+1})`;
+* `geo_esym_le` and `geo_esym_arith` (step `step:p2:geo-esym`): `|E_sym| ≤ 𝔪² |Ω_K|` and
+  `𝔪² C_Ω = C_sym`.
 -/
 
 @[expose] public noncomputable section
@@ -300,6 +290,51 @@ theorem geo_esym_arith :
 end OmegaK
 
 end Geometry
+
+variable {n : ℕ} {τ M σK σB σT : ℝ} {𝔅 : Set ((Fin n → ℂ) × (Fin n → ℂ))}
+  {h : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ω : Fin n → ℝ} {γ : ℝ}
+
+/-- Blueprint `bp:p2:geometry`. -/
+theorem geometry (hS : Standing n τ M σK σB σT 𝔅 h ω γ) {r β ε δ : ℝ}
+    {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)} (hK : Admissible σK σB σT 𝔅 h ω r β ε K)
+    (hδ : 0 < δ) (hδ1 : δ ≤ 1) (h2δ : 2 * δ < r) :
+    (∀ θ ∈ complexStrip n (r - δ),
+      ‖errDerivMat h K ω θ‖ ≤ n * ε / δ ∧ ‖(errDerivMat h K ω θ)ᵀ‖ ≤ 2 * n * ε / δ ∧
+      ‖fderiv ℂ (lagrangeMat K) θ (fun l => (ω l : ℂ))‖ ≤
+        2 * n * (n + 1) * mSize M σK σB σT * ε / δ ∧
+      ‖redDefect h K ω θ‖ ≤ C_red n M σK σB σT * ε / δ) ∧
+    (∀ θ ∈ complexStrip n (r - 2 * δ),
+      ‖lagrangeMat K θ‖ ≤ C_Omega n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 1)) ∧
+      ‖symDefect K θ‖ ≤ C_sym n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 1))) := by
+  -- `δ ≤ 1` is part of the blueprint statement; no step uses it.
+  have _hδ1 : δ ≤ 1 := hδ1
+  have hr := hK.r_pos
+  have hK𝔅 : ∀ θ ∈ complexStrip n r, K θ ∈ 𝔅 := fun θ hθ =>
+    hK.ball_sub θ hθ (Metric.mem_ball_self hK.β_pos)
+  obtain ⟨hdiff, hper, havg, hbound⟩ := Geometry.geo_omegak_inputs hS hr hK.holo hK.primary hK𝔅
+    hK.deriv_le hK.error_le hδ
+  have hΩ : ∀ θ ∈ complexStrip n (r - 2 * δ),
+      ‖lagrangeMat K θ‖ ≤ C_Omega n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 1)) := by
+    intro θ hθ
+    have hθ' : θ ∈ complexStrip n (r - δ - δ) := by
+      have : r - δ - δ = r - 2 * δ := by ring
+      rw [this]
+      exact hθ
+    have hcoh := (cohomological hS (r := r - δ) (δ := δ) (by linarith) hδ (by linarith)).2
+      (lagrangeMat K) _ hdiff hper havg hbound θ hθ'
+    rwa [Geometry.geo_omegak_arith hS.gamma_pos hδ] at hcoh
+  refine ⟨fun θ hθ => ?_, fun θ hθ => ?_⟩
+  · obtain ⟨h1, h2⟩ := Geometry.geo_de hS hK.holo hK𝔅 hK.error_le hδ θ hθ
+    exact ⟨h1, h2, hbound θ hθ, Geometry.geo_ered hS hK.holo hK𝔅 hK.deriv_le
+      (fun θ hθ => (hK.gram θ hθ).2) hK.error_le hδ θ hθ⟩
+  · have hθr : θ ∈ complexStrip n r := fun i => lt_of_lt_of_le (hθ i) (by linarith)
+    refine ⟨hΩ θ hθ, ?_⟩
+    calc ‖symDefect K θ‖ ≤ mSize M σK σB σT ^ 2 * ‖lagrangeMat K θ‖ :=
+          Geometry.geo_esym_le (hK.gram θ hθr).1 (hK.gram θ hθr).2
+      _ ≤ mSize M σK σB σT ^ 2 *
+            (C_Omega n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 1))) :=
+          mul_le_mul_of_nonneg_left (hΩ θ hθ) (by positivity)
+      _ = C_sym n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 1)) := Geometry.geo_esym_arith
 
 end KAM.Apost
 

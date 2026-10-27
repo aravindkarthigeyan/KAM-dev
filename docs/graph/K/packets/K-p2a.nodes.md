@@ -1424,9 +1424,9 @@ EDGE: bp:p2:standing | blueprint/parts/p2-aposteriori.tex#bp:p2:geometry@L550-L5
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.geometry
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/P2-7-audit-1.md and P2-7-audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:geo-de
@@ -1547,9 +1547,9 @@ EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:geo-omegak@L5
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.geometry (item (b) of KAM.Apost.cohomological on T_{r-δ}); Geometry.geo_omegak_inputs, geo_omegak_arith
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/P2-7-audit-1.md and P2-7-audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:geo-esym
@@ -1578,9 +1578,9 @@ EDGE: bp:p2:constants | blueprint/parts/p2-aposteriori.tex#step:p2:geo-esym@L595
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2a
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.Geometry.geo_esym_le, geo_esym_arith
+LEAN_NOTE: prover evidence + independent audits docs/campaign/audits/P2-7-audit-1.md and P2-7-audit-2.md; kernel replay passed (2026-10-27)
 NOTE: -
 
 NODE: step:p2:avg-deriv#real-route
