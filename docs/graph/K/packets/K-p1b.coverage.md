@@ -93,18 +93,18 @@ KIND: lemma
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip-2@L592-L594
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-r2+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-r4
 
 ITEM: step:p1:cs2-polydisc
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:cs2-polydisc@L597-L602
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-r2+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-r4
 
 ITEM: bp:p1:cauchy-corollaries
 KIND: lemma
@@ -579,6 +579,6 @@ KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay#boundary-radius@L809-L810
 DISPOSITION: NODE bp:p1:decay#boundary-radius
 REASON: A reused intermediate claim, applied at L850-L851 and L895-L896.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-r2
-REVIEWER: -
+REVIEWER: sol-review-r4

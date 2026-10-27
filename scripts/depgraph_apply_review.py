@@ -33,7 +33,7 @@ for f in fences:
         if b.startswith("ITEM: "):
             b = re.split(r"\n\s*\n", b.strip())[0]
             new_items[re.match(r"ITEM: (\S+)", b).group(1)] = b
-rows = re.findall(r"^\|\s*`?([^`|]+?)`?\s*\|\s*(PASS|FAIL)\s*\|(.*)$", text, re.M)
+rows = re.findall(r"^\|\s*`?([^`|]+?)`?\s*\|(?:\s*(?:node|item|coverage)\s*\|)?\s*(PASS|FAIL)\s*\|(.*)$", text, re.M)
 fails = {r[0].strip(): r[2] for r in rows if r[1] == "FAIL"}
 passes = [r[0].strip() for r in rows if r[1] == "PASS"]
 

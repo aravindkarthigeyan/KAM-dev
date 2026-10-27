@@ -516,42 +516,42 @@ KIND: definition
 SOURCE: blueprint/parts/p3-uniqueness.tex#p3:setting-notation@L74-L93
 DISPOSITION: NODE bp:p3:standing
 REASON: Missing inventory item: explicit supply of the Part 2 package and the attached-object notation; included in the corrected standing source span.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: eq:p3:Cquad
 KIND: display
 SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:Cquad@L105-L112
 DISPOSITION: NODE bp:p3:standing#constants
 REASON: Missing named display: definitions of C^N, C^L and C_quad belong to the constants construction.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: eq:p3:phase-small
 KIND: display
 SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:phase-small@L281-L283
 DISPOSITION: NODE bp:p3:phase
 REASON: Missing named display: smallness hypothesis of phase normalization.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: eq:p3:Delta
 KIND: display
 SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:Delta@L350-L353
 DISPOSITION: NODE bp:p3:difference-equation
 REASON: Missing named display: construction of Delta used in the difference equation; include it in that node source span.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: eq:p3:c
 KIND: display
 SOURCE: blueprint/parts/p3-uniqueness.tex#eq:p3:c@L515-L518
 DISPOSITION: NODE step:p3:g2-constant
 REASON: Missing named display: threshold construction in the G2 constant step.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p3
-REVIEWER: -
+REVIEWER: sol-review-r1

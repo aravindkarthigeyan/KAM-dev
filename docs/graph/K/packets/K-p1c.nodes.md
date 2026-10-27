@@ -44,9 +44,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -70,9 +70,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -96,9 +96,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p0:stripdata#IsPrimaryOnStrip, bp:p0:stripdata#IsRealOnReals, bp:p0:domains#complexStrip
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -209,9 +209,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:rr-derivative | blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1056-L1057 | previous step: Dk(x) is the restriction of DK(x)
 EDGE: bp:p1:real-restriction-consequences | blueprint/parts/p1-analysis.tex#step:p1:rr-consequences@L1057-L1058 | remark gives the norm bound and the primary identity
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -241,9 +241,9 @@ EDGE: step:p1:hr-matrix | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real
 EDGE: bp:p0:hamiltonian#hamiltonianVectorField | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1063-L1064 | X_H in the statement is the frozen real vector field
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1063-L1064 | X_h, X_varphi in the statement is the frozen complex vector field
 EDGE: bp:p0:hamiltonian#omegaZero | blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1065-L1066 | Omega_0 in the statement
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -267,9 +267,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -296,9 +296,9 @@ ROUTE_FOR: -
 EDGE: step:p1:hr-derivative | blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1087-L1087 | previous step with e=(0,e_i) and e=(e_i,0)
 EDGE: bp:p0:hamiltonian#hamiltonianVectorField | blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1082-L1084 | component formula for X_H by the frozen definition
 EDGE: bp:p0:hamiltonian#hamiltonianVectorFieldC | blueprint/parts/p1-analysis.tex#step:p1:hr-components@L1082-L1085 | component formula for X_h by the frozen definition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -436,9 +436,9 @@ DEPS: bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-cubes@L1124-L1125 | definition of outer measure by closed box covers gives boxes R_j
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -462,9 +462,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -492,9 +492,9 @@ ROUTE_FOR: -
 EDGE: step:p1:li-cubes | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1138-L1139 | cube cover
 EDGE: step:p1:li-image | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1138-L1139 | image of one cube
 EDGE: bp:p1:ext-lebesgue | blueprint/parts/p1-analysis.tex#step:p1:li-sum@L1138-L1138 | countable subadditivity
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -519,9 +519,9 @@ DEPS: step:p1:li-sum, bp:p1:ext-lebesgue
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:li-sum | blueprint/parts/p1-analysis.tex#step:p1:li-preimage@L1147-L1148 | Lipschitz image estimate applied to Phi^{-1} on Phi(A)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -549,9 +549,9 @@ ROUTE_FOR: -
 EDGE: bp:p1:lip-image-product | blueprint/parts/p1-analysis.tex#step:p1:li-product@L1151-L1151 | identification of R^n x R^n with R^{2n}
 EDGE: step:p1:li-sum | blueprint/parts/p1-analysis.tex#step:p1:li-product@L1151-L1152 | case d=2n of the image estimate
 EDGE: step:p1:li-preimage | blueprint/parts/p1-analysis.tex#step:p1:li-product@L1151-L1152 | case d=2n of the preimage claim
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -631,9 +631,9 @@ DEPS: step:p1:mc-component
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:mc-component | blueprint/parts/p1-analysis.tex#step:p1:mc-components@L1172-L1174 | componentwise extensions
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -658,9 +658,9 @@ DEPS: step:p1:mc-components
 ROUTES: -
 ROUTE_FOR: -
 EDGE: step:p1:mc-components | blueprint/parts/p1-analysis.tex#step:p1:mc-clamp@L1178-L1179 | clamp the extension U
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -795,9 +795,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bp:p1:lipeo-fixed | blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1210-L1211 | bijection fixing Z' pointwise preserves the complement
 EDGE: step:p1:lipeo-onto | blueprint/parts/p1-analysis.tex#step:p1:lipeo-zero@L1210-L1210 | Psi is a bijection of R^d
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1c+sol-review-r1
-REVIEWER: -
+REVIEWER: sol-review-r3
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

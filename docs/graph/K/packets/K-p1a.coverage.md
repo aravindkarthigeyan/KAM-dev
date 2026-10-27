@@ -462,27 +462,27 @@ KIND: lemma
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mixed-difference@L442-L445
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-r3
 
 ITEM: step:p1:md-inner
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-inner@L450-L453
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-r3
 
 ITEM: step:p1:md-outer
 KIND: proof-region
 SOURCE: blueprint/parts/p1-analysis.tex#step:p1:md-outer@L455-L459
 DISPOSITION: EXCLUDED
 REASON: outside every root closure: no proof of a frozen root consumes it (orchestrator ruling, docs/graph/K/SPEC.md change log; skill exclusion 'outside the root closure')
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1a+claude-main-orchestrator
-REVIEWER: -
+REVIEWER: sol-review-r3
 
 ITEM: bp:p1:cauchy-open
 KIND: lemma

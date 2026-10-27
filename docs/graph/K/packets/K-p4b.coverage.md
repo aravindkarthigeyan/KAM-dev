@@ -669,51 +669,51 @@ KIND: proof-region
 SOURCE: blueprint/parts/p4-measure.tex#sourcegap@L792-L798
 DISPOSITION: NODE bp:p4:lip
 REASON: gap note on CCdlL13 Cor. 30: the blueprint supplies the stability (Theorem STAB) and the action shift in the proofs of lip-error and LIP; no unproved input remains
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
-REVIEWER: -
+REVIEWER: sol-review-r2
 
 ITEM: p4:sourcegap-L970
 KIND: proof-region
 SOURCE: blueprint/parts/p4-measure.tex#sourcegap@L970-L971
 DISPOSITION: NODE bp:p4:lagrangian
 REASON: gap note on HL19 eq. (2.3): isotropy from quasi-periodicity is proved in this lemma, so no missing input
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
-REVIEWER: -
+REVIEWER: sol-review-r2
 
 ITEM: p4:source-L674
 KIND: citation
 SOURCE: blueprint/parts/p4-measure.tex#source@L674-L675
 DISPOSITION: EXCLUDED
 REASON: provenance note only; the cited result is proved in the blueprint
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
-REVIEWER: -
+REVIEWER: sol-review-r2
 
 ITEM: p4:source-L790
 KIND: citation
 SOURCE: blueprint/parts/p4-measure.tex#source@L790-L791
 DISPOSITION: EXCLUDED
 REASON: provenance note only; the cited result is proved in the blueprint
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
-REVIEWER: -
+REVIEWER: sol-review-r2
 
 ITEM: p4:source-L968
 KIND: citation
 SOURCE: blueprint/parts/p4-measure.tex#source@L968-L969
 DISPOSITION: EXCLUDED
 REASON: provenance note only; the cited result is proved in the blueprint
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
-REVIEWER: -
+REVIEWER: sol-review-r2
 
 ITEM: p4:source-L1083
 KIND: citation
 SOURCE: blueprint/parts/p4-measure.tex#source@L1083-L1085
 DISPOSITION: EXCLUDED
 REASON: provenance note only; the cited result is proved in the blueprint
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p4b
-REVIEWER: -
+REVIEWER: sol-review-r2

@@ -47,39 +47,21 @@
    "state": "active"
   },
   {
-   "id": "graph-review-r1",
-   "kind": "graph slice review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "kam-graph-r1",
-   "assignment": "Refute-first topology review of slices K-p0, K-p1a, K-p1c",
-   "state": "running"
-  },
-  {
-   "id": "graph-review-r2",
-   "kind": "graph slice review (Codex)",
-   "model": "GPT-6.1-Sol medium",
-   "account": "codex-3",
-   "session": "kam-graph-r2",
-   "assignment": "Refute-first topology review of slices K-p1b, K-p2a",
-   "state": "running"
-  },
-  {
-   "id": "graph-review-r3",
-   "kind": "graph slice review (Codex)",
+   "id": "graph-delta2",
+   "kind": "graph review (Codex)",
    "model": "GPT-6.1-Sol medium",
    "account": "codex-4",
-   "session": "kam-graph-r3",
-   "assignment": "Refute-first topology review of slices K-p2b, K-p3",
+   "session": "kam-graph-d2",
+   "assignment": "Fresh check of the 39 node records rewritten in the delta round",
    "state": "running"
   },
   {
-   "id": "graph-review-r4",
-   "kind": "graph slice review (Codex)",
+   "id": "graph-global",
+   "kind": "graph global review (Codex)",
    "model": "GPT-6.1-Sol medium",
-   "account": "codex-1",
-   "session": "kam-graph-r4",
-   "assignment": "Refute-first topology review of slices K-p4a, K-p4b",
+   "account": "codex-3",
+   "session": "kam-graph-global",
+   "assignment": "Global root-closure review of the track K dependency graph",
    "state": "running"
   }
  ],

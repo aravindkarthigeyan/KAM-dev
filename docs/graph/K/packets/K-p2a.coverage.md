@@ -75,9 +75,9 @@ KIND: proof-region
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv@L175-L179
 DISPOSITION: NODE step:p2:avg-deriv
 REASON: This proof-region contains two routes; retain both through ROUTES rather than silently dropping L178-L179.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-r2
-REVIEWER: -
+REVIEWER: sol-review-r4
 
 ITEM: bp:p2:cohomological
 KIND: corollary
@@ -651,15 +651,15 @@ KIND: proof-region
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#real-route@L176-L178
 DISPOSITION: NODE step:p2:avg-deriv#real-route
 REASON: Main proof via real restriction and averages-real.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-r2
-REVIEWER: -
+REVIEWER: sol-review-r4
 
 ITEM: step:p2:avg-deriv#bounded-route
 KIND: proof-region
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:avg-deriv#bounded-route@L178-L179
 DISPOSITION: NODE step:p2:avg-deriv#bounded-route
 REASON: Explicit alternative via boundedness on T_{r/2} and averages.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-r2
-REVIEWER: -
+REVIEWER: sol-review-r4

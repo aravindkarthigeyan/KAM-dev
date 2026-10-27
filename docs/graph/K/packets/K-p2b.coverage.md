@@ -723,87 +723,87 @@ KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V1@L1180-L1182
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V2
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V2@L1183-L1186
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V3
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V3@L1187-L1189
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V4
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V4@L1190-L1194
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V5
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V5@L1195-L1197
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V6
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V6@L1198-L1200
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V7
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V7@L1201-L1203
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V8
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V8@L1204-L1204
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: bp:p2:V9
 KIND: definition
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:V9@L1205-L1207
 DISPOSITION: EXCLUDED
 REASON: Missing inventory item: administrative subitem of the excluded deviations remark bp:p2:deviations; no proof uses this subitem as an input.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
 
 ITEM: p2:perturbation-average-applicability
 KIND: proof-region
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-twist@L874-L876
 DISPOSITION: NODE bp:p2:perturbation#average-applicability
 REASON: unsupported use of the periodic-input averages corollary under the nonperiodic perturbation hypotheses
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p2b
-REVIEWER: -
+REVIEWER: sol-review-r1
