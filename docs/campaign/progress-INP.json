@@ -14,8 +14,8 @@
    "id": "I.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.3,
-   "note": "blueprint-I complete (Parts 0-3, 5-8: proofs of I-G1, I-HEAD, I-KEPLER, I-R3BP); review fix rounds in progress; next: dependency graph"
+   "done": 0.35,
+   "note": "blueprint-I complete (Parts 0-3, 5-8); final consolidation round, then dependency graph"
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -30,8 +30,8 @@
    "id": "N.PROOF",
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
-   "done": 0.33,
-   "note": "blueprint-N: Parts 0-9 written and consolidated (Poschel Thm 1 internal); Part 10 (N-HEAD-C assembly) being written"
+   "done": 0.38,
+   "note": "blueprint-N complete for D20 (Parts 0-10: N-HEAD-C, N-ZERO, N-QC proved in the blueprint); reviews and consolidation in progress; next: dependency graph"
   },
   {
    "group": "Track P (planetary)",
