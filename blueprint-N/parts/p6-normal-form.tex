@@ -1,0 +1,234 @@
+\section{The homological equation, the Iterative Lemma and the Normal Form Lemma (shared by tracks N, P)}\label{bpN:p6}
+\providecommand{\wn}[3]{\lvert #1\rvert_{#2,#3}}
+\providecommand{\Dom}[2]{\mathcal D_{#1,#2}}
+\providecommand{\Os}[2]{\mathcal O(#1,#2)}
+\providecommand{\ba}{\bar\alpha}
+\begingroup\sloppy
+
+This part is Section~2 of P\"oschel~1993 (the Normal Form Lemma, pp.~192--196, with the Iterative Lemma, p.~193) and Appendix~A (pp.~211--213), in the frozen conventions of Part~\ref{bpN:p4}: angles of period $1$, weight $e^{2\pi\abs k_1s}$, geometric widths, max norms on $\R^n,\C^n$, and the Lie transform of Part~\ref{bpN:p5}.
+It is shared infrastructure: track~P derives CP10's averaging lemma ($\alpha_1=\alpha_2$, $\Lambda=\{0\}$) from Theorem~\ref{bpN:p6:iterative}, which is therefore stated for an arbitrary set $\Lambda\subset\Z^n$ (including $\{0\}$), arbitrary $n$, and an arbitrary domain $D\subset\C^n$, with all constants explicit. Nothing but Parts~\ref{bpN:p4} and~\ref{bpN:p5} is used.
+
+\paragraph{Notation.} $Z_K=\{k\in\Z^n:\abs k_1\le K\}$ for real $K\ge0$ (the $\ell^1$ ball: it is the cut-off of $T_K$, Lemma~\ref{bpN:p4:projections}); $\omega=\partial_Ih$ is the frequency; $p>1$ and $q=p/(p-1)$, so $p^{-1}+q^{-1}=1$ (P\"oschel takes $q=9$, $p=\tfrac98$; nothing below depends on that choice); for $\alpha>0$ and $s>0$
+\[\ba:=2\pi\alpha,\qquad \kappa:=2\pi Ks .\]
+By Remark~\ref{bpN:p4:dictionary}, $\ba$ and $\kappa$ are P\"oschel's $\alpha$ and $Ks$ (his $\omega$ is $2\pi$ times ours, his weight $e^{\abs k_1s_P}$ is $e^{2\pi\abs k_1s}$, his $\rho_P\sigma_P$ is our $\rho\sigma$), so every formula of pp.~192--196, 211--213 holds with $\alpha\to\ba$, $Ks\to\kappa$ and $r$ unchanged in the combination $\alpha r$; the arithmetic below is nevertheless redone in our variables.
+
+\paragraph{Lattice cut-offs (finding N06).} Only the $\ell^1$ ball $Z_K$ occurs here, and $\abs{k\cdot v}\le\abs k_1\abs v_\infty$ is all that is used about it. The Euclidean ball $\{\norm k_2\le K_g\}$ of the geometry of resonances (Part~8) is contained in $Z_{\sqrt nK_g}$ since $\abs k_1\le\sqrt n\norm k_2$; so wherever the two meet, the analytic cut-off is $K=K_a\ge\sqrt nK_g$ (the factor $\sqrt n$ is carried by the caller). The results below are insensitive to the choice of $K$.
+
+\subsection{External facts}\label{bpN:p6:s-ext}
+\begin{enumerate}[label=(E\arabic*),leftmargin=2.2em]
+\item\label{bpN:p6:ext-numerics} \emph{Numerics.} $2/e<1$; $e^{-3\ln2}=\tfrac18$; $e^2<8$, hence $\ln2>\tfrac23$ and $12\ln2>8$; $\sum_{i\ge1}4^{1-i}=\tfrac43$; $(1-\tfrac1{2^7})^{-1}=\tfrac{128}{127}$, $(1-\tfrac18)^{-1}=\tfrac87$. Exists.
+\item\label{bpN:p6:ext-chain} \emph{Chain rule for holomorphic maps.} Compositions of holomorphic maps are holomorphic and $D(F\circ G)=DF\circ G\cdot DG$. Exists.
+\end{enumerate}
+Besides these, \Kref{bp:p1:ext-mvt} (mean value inequality) and the external facts of Parts~\ref{bpN:p4} and~\ref{bpN:p5} are used.
+
+\subsection{Setting and the divisor bound}\label{bpN:p6:s-setting}
+
+\begin{definition}[Resonant setting]\label{bpN:p6:setting}
+Let $D\subset\C^n$, $r>0$, $K\ge0$, $\alpha>0$, $L\ge0$, $\Lambda\subset\Z^n$, and let $h$ be holomorphic on $V_rD$ (Definition~\ref{bpN:p4:domains}), regarded as a $\theta$-independent function on $\Dom rs$ for every $s>0$; $\omega=\partial_Ih:V_rD\to\C^n$. We say that $(D,r,K,\alpha,L,\Lambda,h)$ satisfies
+\begin{enumerate}[label=(\textup{N}\arabic*)]
+\item\label{bpN:p6:cond-nr} (\emph{$(\alpha,K)$-nonresonant modulo $\Lambda$}) $\abs{k\cdot\omega(I)}\ge\alpha$ for all $I\in D$ and $k\in Z_K\setminus\Lambda$ (P\"oschel p.~192);
+\item\label{bpN:p6:cond-L} (\emph{frequency Lipschitz bound}) $\abs{\omega(I)-\omega(I_0)}_\infty\le L\abs{I-I_0}_\infty$ whenever $I_0\in D$, $I\in V_rD$, $\abs{I-I_0}_\infty<r$.
+\end{enumerate}
+For $\Lambda=\{0\}$ and $\Lambda=\Z^n$ these are the completely nonresonant and the trivial cases. If $0\notin\Lambda$ then \ref{bpN:p6:cond-nr} forces $D=\emptyset$ (take $k=0$), which is harmless.
+For $g=\sum_{j\in J}g_j$ ($J$ finite, $g_j\in\Os{r_j}{s_j}$ with finite norm, $r_j\ge r$, $s_j\ge s$) and $0<\rho<r$, $0<\sigma<s$ put
+\[\abs g_*:=\sum_{j\in J}\frac12\Bigl(\frac\rho{r_j-r+\rho}+\frac\sigma{s_j-s+\sigma}\Bigr)\abs{g_j}_{r_j,s_j}\qquad(\text{depends on the decomposition}).\]
+If $J=\{1\}$, $g_1=g\in\Os rs$ then $\abs g_*=\abs g_{r,s}$.
+\source{Pos93 p.~192 (nonresonance), p.~193 ($\abs g_*$), p.~211--212 (``on the domain $D$ we have $\abs{k\cdot\omega(I)}\ge\alpha$ \ldots by the mean value theorem and our assumptions on $Q$ and $r$''): the Lipschitz bound is stated as hypothesis \ref{bpN:p6:cond-L} instead of via $\sup\abs Q$, in max norms.}
+\end{definition}
+
+\begin{lemma}[Lipschitz bound from the Hessian]\label{bpN:p6:lipschitz}
+If $\omega=\partial_Ih$ is holomorphic on $V_rD$ and the operator norm of $D\omega=\partial_I^2h$ (max norm on both sides) is $\le L$ on $V_rD$, then \ref{bpN:p6:cond-L} holds. In particular $L=nM_C$ if every entry of the Hessian has modulus $\le M_C$ (Lemma~\ref{bpN:p1:hessian-convert}).
+\source{Pos93 p.~212 (mean value theorem); standard.}
+\end{lemma}
+\begin{proof}
+\proofstep{Segment}\label{stepN:p6:lip-seg} For $I_0\in D$, $I\in V_rD$ with $\abs{I-I_0}_\infty<r$ the segment $[I_0,I]$ lies in the polydisc $P(I_0,r)\subset V_rD$ (convex, Definition~\ref{bpN:p4:domains}). \Kref{bp:p1:ext-mvt} gives $\abs{\omega(I)-\omega(I_0)}_\infty\le L\abs{I-I_0}_\infty$.
+\end{proof}
+
+\begin{lemma}[Divisor bound]\label{bpN:p6:divisor}
+Assume \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L} and $KLr\le\alpha/p$. Then $\abs{k\cdot\omega(I)}\ge\alpha-KLr\ge\alpha/q$ for all $I\in V_rD$ and $k\in Z_K\setminus\Lambda$.
+\source{Pos93 p.~211--212 (``$\abs{k\cdot\omega(I)}\ge\alpha-MKr\ge(1-\tfrac1p)\alpha=\alpha/q$'').}
+\end{lemma}
+\begin{proof}
+\proofstep{Move to $D$}\label{stepN:p6:div} Let $I\in V_rD$ and choose $I_0\in D$ with $\abs{I-I_0}_\infty<r$. Then $\abs{k\cdot\omega(I)}\ge\abs{k\cdot\omega(I_0)}-\abs k_1\abs{\omega(I)-\omega(I_0)}_\infty\ge\alpha-KLr$ by \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L}. Finally $\alpha-\alpha/p=\alpha/q$.
+\end{proof}
+
+\subsection{The homological equation}\label{bpN:p6:s-hom}
+
+\begin{proposition}[Homological equation]\label{bpN:p6:homological}
+Assume \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L} and $KLr\le\alpha/p$. Let $s>0$, $f\in\Os rs$ with $\delta=\abs f_{r,s}<\infty$, and define
+\[\xi=P_\Lambda T_Kf,\qquad\phi=\sum_{k\in Z_K\setminus\Lambda}\frac{\hat f_k(I)}{2\pi i\,k\cdot\omega(I)}\,\chi_k(\theta),\qquad\chi_k(\theta)=e^{2\pi ik\cdot\theta}.\]
+Then $\xi,\phi\in\Os rs$ are finite sums of characters (trigonometric polynomials of degree $\le K$ in $\theta$), and
+\begin{enumerate}[label=(\alph*)]
+\item $\{\phi,h\}+\xi=T_Kf$ on $\Dom rs$, where $\{\phi,h\}=\partial_\theta\phi\cdot\omega$; $P_\Lambda\phi=0$, $P_\Lambda\xi=\xi$, $\xi=P_{\Lambda\cap Z_K}f$;
+\item $\abs\xi_{r,s}\le\delta$, $\abs{T_Kf}_{r,s}\le\delta$, and $\abs\phi_{r,s}\le q\delta/\ba=q\delta/(2\pi\alpha)$;
+\item if $\Lambda=-\Lambda$, $f$ is real on real points and $\omega(I)\in\R^n$ for real $I\in V_rD$, then $\xi$ and $\phi$ are real on real points.
+\end{enumerate}
+\source{Pos93 p.~211--212 (``$\xi=P_\Lambda T_Kf$, $\phi=L^{-1}(T_Kf-P_\Lambda T_Kf)$, $\phi_k=f_k/(ik\cdot\omega(I))$ \ldots $\abs\xi_{r,s}\le\delta$, $\abs\phi_{r,s}\le q\delta/\alpha$''); the $2\pi$ in the divisor is the period-$1$ convention, so that the bound reads $q\delta/\ba$ as in the source.}
+\end{proposition}
+\begin{proof}
+\proofstep{Well defined and holomorphic}\label{stepN:p6:hom-def} For $k\in Z_K\setminus\Lambda$, $k\cdot\omega$ is holomorphic on $V_rD$ and has modulus $\ge\alpha/q>0$ (Lemma~\ref{bpN:p6:divisor}), so $\hat\phi_k:=\hat f_k/(2\pi ik\cdot\omega)$ is holomorphic (Lemma~\ref{bpN:p4:coefficients}(a)). The sets $Z_K\cap\Lambda$ and $Z_K\setminus\Lambda$ are finite. Hence $\phi,\xi$ are finite sums of terms $a_k(I)\chi_k(\theta)$ with $a_k$ holomorphic and $\sup_I\sum\abs{a_k}e^{2\pi\abs k_1s}<\infty$, so they lie in $\Os rs$ with the stated coefficients (Lemma~\ref{bpN:p4:coefficients}(c)); $\xi=P_\Lambda T_Kf=P_{\Lambda\cap Z_K}f$ by Lemma~\ref{bpN:p4:projections}.
+
+\proofstep{Norms}\label{stepN:p6:hom-norm} $\abs{\hat\phi_k(I)}\le\frac{q}{2\pi\alpha}\abs{\hat f_k(I)}$ by Lemma~\ref{bpN:p6:divisor}; multiplying by $e^{2\pi\abs k_1s}$, summing over $k\in Z_K\setminus\Lambda$ and taking the supremum over $I$ gives $\abs\phi_{r,s}\le q\delta/\ba$. The bounds for $\xi$ and $T_Kf$ are Lemma~\ref{bpN:p4:projections}.
+
+\proofstep{The equation}\label{stepN:p6:hom-eq} By Lemma~\ref{bpN:p4:coefficients}(b), $\partial_{\theta_j}\phi$ has coefficients $2\pi ik_j\hat\phi_k$; since $h$ is independent of $\theta$, $\{\phi,h\}=\sum_j\partial_{\theta_j}\phi\,\omega_j$, and multiplication by the $\theta$-independent $\omega_j(I)$ multiplies each coefficient by $\omega_j(I)$ (integrate against $\chi_{-k}$). So $\widehat{\{\phi,h\}}_k=2\pi i(k\cdot\omega)\hat\phi_k=\hat f_k$ for $k\in Z_K\setminus\Lambda$ and $0$ otherwise. Adding $\hat\xi_k=\hat f_k\mathbf 1_{Z_K\cap\Lambda}(k)$ gives the coefficients of $T_Kf$; coefficients determine the function (Lemma~\ref{bpN:p4:coefficients}(d)).
+
+\proofstep{Reality}\label{stepN:p6:hom-real} If $f$ is real on real points, $\overline{\hat f_k(I)}=\hat f_{-k}(I)$ for real $I$ (conjugate the integral defining $\hat f_k$). If $\omega(I)$ is real and $k\notin\Lambda$ with $-k\notin\Lambda$, then $\overline{\hat\phi_k}=\hat f_{-k}/\overline{2\pi ik\cdot\omega}=-\hat f_{-k}/(2\pi ik\cdot\omega)=\hat\phi_{-k}$; the set $Z_K\setminus\Lambda$ is symmetric. A finite sum $\sum a_k\chi_k$ with $\bar a_k=a_{-k}$ is real at real $\theta$. The same for $\xi$.
+\end{proof}
+
+\begin{lemma}[Bracket with a decomposed $g$]\label{bpN:p6:bracket-g}
+Let $\phi\in\Os rs$ and $g=\sum_{j\in J}g_j$ as in Definition~\ref{bpN:p6:setting}, $0<\rho<r$, $0<\sigma<s$. Then $\{g,\phi\}\in\Os{r-\rho}{s-\sigma}$ and
+$\abs{\{g,\phi\}}_{r-\rho,s-\sigma}\le\dfrac2{e\rho\sigma}\abs g_*\abs\phi_{r,s}\le\dfrac2{\rho\sigma}\abs g_*\abs\phi_{r,s}$.
+\source{Pos93 p.~212 (``$\abs{\{g,\phi\}}_{r-\rho,s-\sigma}\le\frac q{\alpha\rho\sigma}\abs g_*\abs f_{r,s}$''), with the bracket estimate of Lemma~\ref{bpN:p4:bracket}.}
+\end{lemma}
+\begin{proof}
+\proofstep{One term}\label{stepN:p6:bg-term} Lemma~\ref{bpN:p4:bracket} with $(u,v;r_0,s_0)\to(g_j,\phi;r_j,s_j)$ (admissible: $r-\rho<r_j$, $s-\sigma<s_j$) gives $\abs{\{g_j,\phi\}}_{r-\rho,s-\sigma}\le\frac1e\bigl(\frac1{(r_j-r+\rho)\sigma}+\frac1{(s_j-s+\sigma)\rho}\bigr)\abs{g_j}\abs\phi=\frac2{e\rho\sigma}\cdot\frac12\bigl(\frac\rho{r_j-r+\rho}+\frac\sigma{s_j-s+\sigma}\bigr)\abs{g_j}\abs\phi$.
+\proofstep{Sum}\label{stepN:p6:bg-sum} The bracket is bilinear and the norm satisfies the triangle inequality; sum over $j$ and use \ref{bpN:p6:ext-numerics} ($e>2$).
+\end{proof}
+
+\subsection{The Iterative Lemma}\label{bpN:p6:s-iter}
+
+\begin{theorem}[Iterative Lemma]\label{bpN:p6:iterative}
+Let $(D,r,K,\alpha,L,\Lambda,h)$ satisfy \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L} with $KLr\le\alpha/p$ ($p>1$, $q=p/(p-1)$), let $s>0$, $0<\rho$, $0<\sigma$ with $2\rho<r$, $2\sigma<s$, and put $\ba=2\pi\alpha$. Let $H=h+g+f$ on $\Dom rs$, where $g=\sum_{j\in J}g_j$ is as in Definition~\ref{bpN:p6:setting} (any finite decomposition), $f\in\Os rs$, and
+\[\delta:=\abs f_{r,s}\le\frac{\ba\,\rho\sigma}{4q},\qquad\text{equivalently}\qquad u:=\frac{q\delta}{\ba\rho\sigma}\le\frac14 .\]
+Then there is $\phi\in\Os rs$ (the one of Proposition~\ref{bpN:p6:homological}, so $\abs\phi_{r,s}\le q\delta/\ba$) such that the time-one map $\Phi=X^1_\phi$ of Part~\ref{bpN:p5} satisfies:
+\begin{enumerate}[label=(\alph*)]
+\item $\Phi$ is defined and holomorphic on $\Dom{r-\frac32\rho}{s-\frac32\sigma}$ with values in $\Dom{r-\rho}{s-\sigma}\subset\Dom rs$; it is canonical: $(D\Phi)^\top J\,D\Phi=J$, $\Phi(\theta+k,I)=\Phi(\theta,I)+(k,0)$ ($k\in\Z^n$), and $\Phi$ is injective on $\Dom{r-2\rho}{s-2\sigma}$ with left inverse $X^{-1}_\phi$ (Proposition~\ref{bpN:p5:canonical-map}(d),(e),(b));
+\item (displacement) with $\nu=\nu_{\rho,\sigma}$ of Definition~\ref{bpN:p5:setting}: $\nu(\Phi-\mathrm{id})\le u$ on $\Dom{r-\frac32\rho}{s-\frac32\sigma}$, and $\abs{\Phi_\theta-\theta}_\infty\le\dfrac{q\delta}{\ba\rho}$, $\abs{\Phi_I-I}_\infty\le\dfrac{q\delta}{e\,\ba\sigma}$; on $\Dom{r-2\rho}{s-2\sigma}$: $\abs{D\Phi-\mathbf 1}_\nu\le2u$;
+\item (normal form) $H\circ\Phi=h+g_++f_+$ on $\Dom{r-2\rho}{s-2\sigma}$ with
+\[g_+=g+P_\Lambda T_Kf,\qquad \abs{g_+-g}_{r,s}\le\delta,\qquad f_+\in\Os{r-2\rho}{s-2\sigma};\]
+\item (estimate of $f_+$)
+\[\abs{f_+}_{r-2\rho,s-2\sigma}\le\Bigl(1-\frac{2q\delta}{\ba\rho\sigma}\Bigr)^{-1}\Bigl(\frac{2q}{e\,\ba\rho\sigma}\bigl(\abs g_*+\delta\bigr)+e^{-2\pi K\sigma}\Bigr)\delta,\]
+with $\abs g_*$ computed with these $\rho,\sigma$;
+\item (reality) if $\Lambda=-\Lambda$, and $h,g,f$ are real on real points, then $\phi$, $g_+$, $f_+$ are real on real points and $\Phi$ maps real points to real points.
+\end{enumerate}
+\source{Pos93 p.~193 (Iterative Lemma; the hypothesis there is $\abs f_{r,s}<\alpha\rho\sigma/2q$, the estimate $\abs{f_+}\le(1-\frac{2q\delta}{\alpha\rho\sigma})^{-1}(\frac{\abs g_*+\abs f}{\alpha\rho\sigma/q}+e^{-K\sigma})\abs f$) and Appendix~A, pp.~211--213. P\"oschel's $\alpha,\sigma,\abs{W(\Phi-\mathrm{id})}\le\frac{q\delta}{\alpha\rho\sigma}$ correspond to $\ba,2\pi\sigma$ and $u$ (Remark~\ref{bpN:p4:dictionary}). \emph{Deviation}: the smallness is $\abs\phi\le\rho\sigma/4$ (so $\eta=2\abs\phi/(\rho\sigma)\le\frac12$) instead of $<\rho\sigma/2$, because Theorem~\ref{bpN:p5:composition} proves the Lie series identity only for $\eta\le\frac12$ (Remark~\ref{bpN:p5:route}); the estimate has the extra factor $2/e<1$ from Lemma~\ref{bpN:p4:bracket}. Constants only change.}
+\end{theorem}
+\begin{proof}
+\proofstep{The generating function}\label{stepN:p6:it-gen} By Proposition~\ref{bpN:p6:homological}, $\phi,\xi$ exist with $\{\phi,h\}+\xi=T_Kf$, $\abs\xi,\abs{T_Kf}\le\delta$, $\abs\phi_{r,s}\le q\delta/\ba$. Put $\varepsilon:=\abs\phi_{r,s}/(\rho\sigma)\le u\le\frac14$ and $\eta:=2\abs\phi_{r,s}/(\rho\sigma)\le2u\le\frac12$.
+
+\proofstep{Items (a), (b)}\label{stepN:p6:it-map} Proposition~\ref{bpN:p5:canonical-map} (with $\rho<r/2$, $\sigma<s/2$, $\varepsilon\le\frac12$) gives (a), the displacement bounds of (b) with $\abs\phi/(\rho\sigma)\le u$, $\abs\phi/\rho\le q\delta/(\ba\rho)$, $\abs\phi/(e\sigma)\le q\delta/(e\ba\sigma)$, and $\abs{D\Phi-\mathbf 1}_\nu\le2\varepsilon\le2u$.
+
+\proofstep{Taylor identity}\label{stepN:p6:it-taylor} Put $f_0=g+T_Kf\in\Os{r-\rho}{s-\sigma}$ (finite norm: $g=\sum g_j$ and monotonicity, $\abs{g}_{r,s}\le\sum\abs{g_j}$), $w=\{h,\phi\}=-\{\phi,h\}=\xi-T_Kf$ (Proposition~\ref{bpN:p6:homological}(a), antisymmetry, Definition~\ref{bpN:p5:setting}); $w$ has finite norm. Apply Proposition~\ref{bpN:p5:transform} with the data $(r,s;r',s')\to(r-\rho,s-\sigma;r,s)$ (admissible: $\rho<r-\rho$ iff $2\rho<r$, $r-\rho\le r'-\rho$; likewise for $s$; and $\eta\le\frac12$):
+on $\Dom{r-2\rho}{s-2\sigma}$, $(h+f_0)\circ\Phi=h+w+f_0+\mathcal R$ with $\mathcal R=\int_0^1\{(1-t)w+f_0,\phi\}\circ X^t_\phi\,dt$. Here $h+w+f_0=h+g+\xi=h+g_+$, and $(1-t)w+f_0=g+f_t$ with $f_t:=(1-t)\xi+tT_Kf$.
+
+\proofstep{Decomposition of $H\circ\Phi$}\label{stepN:p6:it-decomp} $H=(h+f_0)+(f-T_Kf)$ with $f-T_Kf\in\Os rs$, so on $\Dom{r-2\rho}{s-2\sigma}$
+\[H\circ\Phi=h+g_++f_+,\qquad f_+:=\mathcal R+(f-T_Kf)\circ\Phi .\]
+Both terms are holomorphic and periodic (Theorem~\ref{bpN:p5:composition}(ii), Corollary~\ref{bpN:p5:composition-integral}), so $f_+\in\Os{r-2\rho}{s-2\sigma}$ once the norm below is finite. This is (c); $\abs{g_+-g}=\abs\xi\le\delta$.
+
+\proofstep{The integrand}\label{stepN:p6:it-integrand} $v_t:=\{g+f_t,\phi\}\in\Os{r-\rho}{s-\sigma}$ is affine in $t$, so $(t,z)\mapsto v_t(z)$ and $Dv_t(z)$ are continuous. By Lemma~\ref{bpN:p6:bracket-g} and Lemma~\ref{bpN:p4:bracket} (the single-term decomposition $f_t$, $\abs{f_t}\le\delta$ since $\abs\xi,\abs{T_Kf}\le\delta$),
+\[\abs{v_t}_{r-\rho,s-\sigma}\le\frac2{e\rho\sigma}\bigl(\abs g_*+\delta\bigr)\abs\phi_{r,s}\le\frac{2q}{e\,\ba\rho\sigma}\bigl(\abs g_*+\delta\bigr)\delta=:V .\]
+
+\proofstep{The two terms}\label{stepN:p6:it-terms} Corollary~\ref{bpN:p5:composition-integral} (data as in Step~\ref{stepN:p6:it-taylor}) gives $\abs{\mathcal R}_{r-2\rho,s-2\sigma}\le(1-\eta)^{-1}V$. By Lemma~\ref{bpN:p4:projections} and monotonicity, $\abs{f-T_Kf}_{r-\rho,s-\sigma}\le\abs{f-T_Kf}_{r,s-\sigma}\le e^{-2\pi K\sigma}\delta$, and Theorem~\ref{bpN:p5:composition}(ii) (same data) gives $\abs{(f-T_Kf)\circ\Phi}_{r-2\rho,s-2\sigma}\le(1-\eta)^{-1}e^{-2\pi K\sigma}\delta$. Add and use $(1-\eta)^{-1}\le(1-2q\delta/(\ba\rho\sigma))^{-1}$ ($\abs\phi\le q\delta/\ba$). This is (d).
+
+\proofstep{Reality}\label{stepN:p6:it-real} If $\Lambda=-\Lambda$ and $h,g,f$ are real, then $\omega$ is real at real points ($h$ is real-valued and holomorphic on the open set $V_rD$, so its partial derivatives at real points of $V_rD$ are real), and Proposition~\ref{bpN:p6:homological}(c) gives $\phi,\xi$ real; $\Phi$ preserves real points (Proposition~\ref{bpN:p5:canonical-map}(b)); so $g_+=g+\xi$ is real and $f_+=H\circ\Phi-h-g_+$ is real on real points of $\Dom{r-2\rho}{s-2\sigma}$.
+\end{proof}
+
+\begin{remark}[Special cases for track~P]\label{bpN:p6:iterative-special}
+(1) \emph{First step, $g=0$:} $\abs g_*=0$ and (d) reads $\abs{f_+}\le(1-\frac{2q\delta}{\ba\rho\sigma})^{-1}\bigl(\frac{2q\delta}{e\ba\rho\sigma}+e^{-2\pi K\sigma}\bigr)\delta$.
+(2) \emph{Averaging, $\Lambda=\{0\}$:} $P_\Lambda T_Kf=\hat f_0=\avg f$, the $\theta$-average; \ref{bpN:p6:cond-nr} is $\abs{k\cdot\omega(I)}\ge\alpha$ for $0<\abs k_1\le K$; the transformed Hamiltonian is $h+g+\avg f+f_+$.
+(3) \emph{Constants:} no constant depends on $f$ or on $H$ beyond $\delta$, $\abs g_*$; the data are $(n,r,s,\rho,\sigma,K,\alpha,L,p)$. The hypotheses involve only $\delta$ through $u\le\frac14$.
+\end{remark}
+
+\subsection{Composition of the steps}\label{bpN:p6:s-comp}
+
+\begin{lemma}[Telescoping]\label{bpN:p6:telescope}
+Let $U_0\supset U_1\supset\dots\supset U_{m+1}$ be subsets of $\C^{2n}$ and $\Phi_i:U_{i+1}\to U_i$ ($0\le i\le m$) maps. Put $\Psi=\Phi_0\circ\dots\circ\Phi_m:U_{m+1}\to U_0$. Then for every $z\in U_{m+1}$ and every seminorm $\mu$ on $\C^{2n}$ (e.g.\ $\abs{\Pi_I\,\cdot}_\infty$, $\abs{\Pi_\theta\,\cdot}_\infty$), $\mu(\Psi(z)-z)\le\sum_{i=0}^m\sup_{U_{i+1}}\mu(\Phi_i-\mathrm{id})$. If every $\Phi_i$ is holomorphic and $(D\Phi_i)^\top JD\Phi_i=J$, then $\Psi$ is holomorphic, $(D\Psi)^\top JD\Psi=J$; if every $\Phi_i$ is injective, so is $\Psi$.
+\end{lemma}
+\begin{proof}
+\proofstep{Telescoping}\label{stepN:p6:tel} Put $z_{m+1}=z$, $z_i=\Phi_i(z_{i+1})\in U_i$ (so $z_{i+1}\in U_{i+1}$ for the next step because $U_{i+1}\subset U_i$). Then $\Psi(z)-z=\sum_{i=0}^m(z_i-z_{i+1})$ and $z_i-z_{i+1}=(\Phi_i-\mathrm{id})(z_{i+1})$; apply the triangle inequality. The chain rule \ref{bpN:p6:ext-chain} gives $D\Psi=\prod D\Phi_i(z_{i+1})$ and $(D\Psi)^\top JD\Psi=J$ by induction; injectivity is clear.
+\end{proof}
+
+\subsection{The Normal Form Lemma}\label{bpN:p6:s-nfl}
+
+\begin{theorem}[Normal Form Lemma]\label{bpN:p6:normal-form}
+Let $(D,r,K,\alpha,L,\Lambda,h)$ satisfy \ref{bpN:p6:cond-nr}, \ref{bpN:p6:cond-L}, $K>0$, and $KLr\le\alpha/p$ ($p>1$, $q=p/(p-1)$). Let $s>0$ and $H=h+f$ with $f\in\Os rs$ of finite norm $\varepsilon:=\abs f_{r,s}$. Assume
+\[\textup{(i)}\ \ \varepsilon\le\frac1{2^7q}\cdot\frac{\alpha r}K,\qquad\qquad\textup{(ii)}\ \ \kappa=2\pi Ks\ge6 .\]
+Put $r_*=r/2$, $s_*=s/6$, $c=2qK/(\alpha r)$, $g_0=P_\Lambda T_Kf$. Then there are
+\begin{itemize}
+\item a holomorphic, injective map $\Psi:\Dom{r_*}{s_*}\to\Dom rs$ with $(D\Psi)^\top JD\Psi=J$ and $\Psi(\theta+k,I)=\Psi(\theta,I)+(k,0)$ ($k\in\Z^n$);
+\item $g,f_*\in\Os{r_*}{s_*}$, with $g$ a trigonometric polynomial in $\theta$ with frequencies in $\Lambda\cap Z_K$ (so $P_\Lambda g=g$: $h+g+f_*$ is in \emph{$\Lambda$-resonant normal form up to $f_*$}),
+\end{itemize}
+such that $H\circ\Psi=h+g+f_*$ on $\Dom{r_*}{s_*}$ and
+\begin{enumerate}[label=(\alph*)]
+\item $\abs{g-g_0}_{r_*,s_*}\le16c\,\varepsilon^2$ \quad ($g=g_0$ if $N=0$ (Step~\ref{stepN:p6:nf-N}) or in the second case of Step~\ref{stepN:p6:nf-case});
+\item $\abs{f_*}_{r_*,s_*}\le e^{-2\pi Ks/6}\varepsilon=e^{-\kappa/6}\varepsilon$;
+\item $\abs{\Pi_I\Psi-I}_\infty\le qK\varepsilon/\alpha\ \bigl(=\tfrac12c\,r\varepsilon\bigr)$ and $\abs{\Pi_\theta\Psi-\theta}_\infty\le10\,q\varepsilon/(2\pi\alpha r)$ on $\Dom{r_*}{s_*}$;
+\item if $\Lambda=-\Lambda$ and $h,f$ are real on real points, then $g$, $f_*$ are real on real points and $\Psi$ maps real points to real points.
+\end{enumerate}
+The data on which $\Psi,g,f_*$ are constructed are $(h,f,K,\alpha,L,\Lambda,p)$ and $(r,s)$; $r_*,s_*,c$ depend only on $(r,s,K,\alpha,q)$.
+\source{Pos93 p.~192 (Normal Form Lemma) and pp.~193--196 (proof). Changes: (1) frozen conventions ($\ba=2\pi\alpha$, $\kappa=2\pi Ks$ are his $\alpha$, $Ks$; max norms); (2) $\abs{\Pi_I\Psi-I}\le qK\varepsilon/\alpha$ in the max norm instead of $\norm{\Pi_I\Psi-I}\le c\varepsilon r=2qK\varepsilon/\alpha$ (Euclidean); (3) the smallness $\eta\le\frac12$ of Theorem~\ref{bpN:p5:composition} is built into Theorem~\ref{bpN:p6:iterative}; every numerical step below was recomputed (Remark~\ref{bpN:p6:deviations}). \sourcegap{P\"oschel's text p.~194 ends the second case with ``$\le e^{Ks/6}\varepsilon$''; the correct (and used) bound is $e^{-Ks/6}\varepsilon$, as the first line of that display shows.}}
+\end{theorem}
+\begin{proof}
+Throughout $\ba=2\pi\alpha$ and $\kappa=2\pi Ks$; note $\ba s=\alpha\kappa/K$ and $K\ge3/(\pi s)$. \emph{Indexing:} $V_i=\Dom{r_i}{s_i}$, $f_0:=f$, $g_{-1}:=0$; step $i$ applies Theorem~\ref{bpN:p6:iterative} to $H_i=h+g_{i-1}+f_i$ on $V_i$ with losses $(\rho_i,\sigma_i)$, producing $\Phi_i:V_{i+1}\to V_i$, $g_i=g_{i-1}+P_\Lambda T_Kf_i$, $f_{i+1}$ on $V_{i+1}$, $r_{i+1}=r_i-2\rho_i$, $s_{i+1}=s_i-2\sigma_i$; $\varepsilon_i:=\abs{f_i}_{V_i}$, $\varepsilon_0=\varepsilon$. ($V_{i+1}$ stands for $\Dom{r_i-2\rho_i}{s_i-2\sigma_i}$, which is where $\Phi_i$ is injective and $f_{i+1}$ lives; $\Phi_i$ maps it into $\Dom{r_i-\frac32\rho_i}{s_i-\frac32\sigma_i}\subset V_i$.)
+
+\proofstep{Step 0: hypotheses of the Iterative Lemma}\label{stepN:p6:nf-first} Let $\rho_0=r/8$, $\sigma_0=s/6$, so $r_1=\tfrac34r$, $s_1=\tfrac23s$, $\rho_0\sigma_0=rs/48$. Then $2\rho_0<r$, $2\sigma_0<s$, $KLr\le\alpha/p$. From (i), (ii): $\varepsilon\le\frac{\alpha r}{2^7qK}\le\frac{\alpha r}{2^7q}\cdot\frac{\pi s}3=\frac{\pi\alpha rs}{384q}=\frac{\ba\rho_0\sigma_0}{16q}$. Hence $y_0:=\frac{q\varepsilon}{\ba\rho_0\sigma_0}\le\frac1{16}$ and the hypothesis $u\le\frac14$ of Theorem~\ref{bpN:p6:iterative} holds. Also $\kappa/6=2\pi K\sigma_0\ge1$.
+
+\proofstep{Step 0: two cases}\label{stepN:p6:nf-case} Apply Theorem~\ref{bpN:p6:iterative}(d) with $g=0$ ($\abs g_*=0$), $\delta=\varepsilon$: $\abs{f_1}\le(1-2y_0)^{-1}\bigl(\tfrac2ey_0+e^{-\kappa/6}\bigr)\varepsilon$, with $(1-2y_0)^{-1}\le\frac87$.
+
+\emph{Case A: $e^{-\kappa/6}\le y_0$.} Then $\abs{f_1}\le\frac87(\frac2e+1)y_0\varepsilon\le\frac{16}7y_0\varepsilon$, so
+\[\varepsilon_1\le\frac{16}7\cdot\frac{48\,q\varepsilon^2}{\ba rs}\le\frac{2^7q\varepsilon^2}{\ba rs}\le\frac{2^7q\varepsilon}{\ba rs}\cdot\frac{\alpha r}{2^7qK}\,\varepsilon=\frac{\varepsilon}{2\pi Ks}=\frac\varepsilon\kappa\le\frac\varepsilon6\le\frac\varepsilon4 .\tag{6.1}\]
+\emph{Case B: $e^{-\kappa/6}>y_0$.} Repeat the step with twice the losses $\rho'=r/4$, $\sigma'=s/3$ (so $2\rho'<r$, $2\sigma'<s$, $\ba\rho'\sigma'=4\ba\rho_0\sigma_0$, the hypothesis $u'=y_0/4\le\frac14$ holds). Then $\abs{f_1}_{r/2,s/3}\le(1-y_0/2)^{-1}\bigl(\frac2e\cdot\frac{y_0}4+e^{-2\kappa/6}\bigr)\varepsilon$; as $e^{-2\kappa/6}\le e^{-1}e^{-\kappa/6}$ and $y_0<e^{-\kappa/6}$, this is $\le\frac{32}{31}\bigl(\frac1{2e}+\frac1e\bigr)e^{-\kappa/6}\varepsilon\le e^{-\kappa/6}\varepsilon$. We stop: $\Psi=\Phi_0'$ on $\Dom{r/2}{s/3}\supset\Dom{r_*}{s_*}$, $g=g_0$, $f_*=f_1$ restricted to $V_{r_*,s_*}$. Items (a), (b) hold; items (c), (d) in Step~\ref{stepN:p6:nf-disp}. From now on \emph{Case A}.
+
+\proofstep{Number of steps}\label{stepN:p6:nf-N} Let $N=\lfloor\kappa/(12\ln2)\rfloor\ge0$, so $N\le\frac\kappa{12\ln2}<N+1$ and $\kappa\ge12\ln2\,N>8N$ (\ref{bpN:p6:ext-numerics}). If $N=0$ stop after Step~0: $\Psi=\Phi_0$, $g=g_0$, $f_*=f_1$ on $V_1\supset\Dom{r_*}{s_*}$ and $\abs{f_*}\le\varepsilon_1\le\varepsilon/4\le e^{-\kappa/6}\varepsilon$, because $\kappa<12\ln2$ gives $e^{-\kappa/6}>e^{-2\ln2}=\frac14$. Let $N\ge1$ and, for $1\le i\le N$,
+\[\rho_i=\rho=\frac r{8N},\quad\sigma_i=\sigma=\frac s{4N},\qquad r_i=\tfrac34r-2(i-1)\rho,\quad s_i=\tfrac23s-2(i-1)\sigma;\]
+then $r_{N+1}=\frac34r-\frac r4=r_*$ and $s_{N+1}=\frac23s-\frac s2=s_*$. Note $2\pi K\sigma=\kappa/(4N)\ge3\ln2$, i.e.\ $e^{-2\pi K\sigma}\le\frac18$, and $\rho\sigma=rs/(32N^2)$. Smallness constants: from (i), $\kappa>8N$ and $K=\kappa/(2\pi s)$,
+\[\varepsilon\le\frac{\alpha r\cdot2\pi s}{2^7q\kappa}\le\frac{\ba rs}{2^{10}qN},\qquad \text{hence by (6.1)}\quad\varepsilon_1\le\frac{2^7q}{\ba rs}\Bigl(\frac{\ba rs}{2^{10}qN}\Bigr)^2=\frac{\ba rs}{2^{13}qN^2}=\frac{\ba\rho\sigma}{2^8q}.\tag{6.2}\]
+
+\proofstep{Induction}\label{stepN:p6:nf-induct} \emph{Claim:} for $1\le i\le N$, step $i$ is admissible and $\varepsilon_{i+1}\le\varepsilon_i/4$. Hence $\varepsilon_i\le4^{1-i}\varepsilon_1$ for $1\le i\le N+1$, and $\abs{g_i-g_{i-1}}_{V_i}=\abs{P_\Lambda T_Kf_i}\le\varepsilon_i$ (Lemma~\ref{bpN:p4:projections}).
+Induct on $i$; $\varepsilon_1\le\varepsilon/4$ is (6.1) (so for $i=1$ the claim ``$\varepsilon_i\le4^{1-i}\varepsilon_1$'' is trivial). Let $i\le N$ and suppose $\varepsilon_j\le4^{1-j}\varepsilon_1$ for $1\le j\le i$.
+\emph{Admissibility.} $r_i\ge r_{N+1}=r/2>2\rho$; $s_i\ge s_N=s_*+2\sigma=\frac s6+\frac s{2N}>2\sigma$; $KLr_i\le KLr\le\alpha/p$; and $\varepsilon_i\le\varepsilon_1\le\ba\rho\sigma/(2^8q)\le\ba\rho\sigma/(4q)$ by (6.2).
+\emph{Size of $\abs{g_{i-1}}_*$} (computed with $(r_i,s_i,\rho,\sigma)$ in Definition~\ref{bpN:p6:setting}). Decompose $g_{i-1}=g_0+\sum_{j=1}^{i-1}(g_j-g_{j-1})$, the term $j\ge1$ living on $V_j$ with $r_j-r_i=2(i-j)\rho\ge2\rho$, $s_j-s_i\ge2\sigma$, so its weight is $\le\frac12(\frac13+\frac13)\le\frac12$; the term $g_0=P_\Lambda T_Kf$ lives on $V_0=\Dom rs$ with norm $\le\varepsilon$ and $r-r_i\ge r-r_1=\frac r4$, $s-s_i\ge\frac s3$, so its weight is $\le\frac12\bigl(\frac{r/8N}{r/4}+\frac{s/4N}{s/3}\bigr)=\frac5{8N}\le\frac1N$. Thus
+\[\abs{g_{i-1}}_*\le\tfrac12(\varepsilon_{i-1}+\dots+\varepsilon_1)+\tfrac1N\varepsilon\le\tfrac12\cdot\tfrac43\varepsilon_1+\tfrac\varepsilon N\le\varepsilon_1+\frac\varepsilon N\le\frac{\ba\rho\sigma}{2^8q}+\frac{\ba\rho\sigma}{2^5q}\le\frac{\ba\rho\sigma}{2^4q},\]
+using (6.2) and $\varepsilon/N\le\ba rs/(2^{10}qN^2)=2^5\ba\rho\sigma/(2^{10}q)$.
+\emph{The step.} Theorem~\ref{bpN:p6:iterative}(d) with $\delta=\varepsilon_i$: $\frac{2q}{\ba\rho\sigma}\varepsilon_i\le2^{-7}$, so $(1-2^{-7})^{-1}=\frac{128}{127}$, and $\frac{2q}{e\ba\rho\sigma}(\abs{g_{i-1}}_*+\varepsilon_i)\le\frac2e(\frac1{16}+\frac1{2^8})\le\frac1{16}+\frac1{2^8}$, $e^{-2\pi K\sigma}\le\frac18$:
+\[\varepsilon_{i+1}\le\frac{128}{127}\Bigl(\frac1{2^4}+\frac1{2^8}+\frac18\Bigr)\varepsilon_i\le\frac{128}{127}\cdot0.1915\,\varepsilon_i<\frac14\varepsilon_i .\]
+
+\proofstep{Conclusion of the construction}\label{stepN:p6:nf-concl} Put $\Psi=\Phi_0\circ\dots\circ\Phi_N$, $g=g_N=g_0+\sum_{i=1}^NP_\Lambda T_Kf_i$, $f_*=f_{N+1}$, all restricted to $V_{N+1}=\Dom{r_*}{s_*}$. Since $H_{i+1}=H_i\circ\Phi_i$, $H\circ\Psi=H_{N+1}=h+g+f_*$. $g$ is a finite sum of trigonometric polynomials with frequencies in $\Lambda\cap Z_K$. Lemma~\ref{bpN:p6:telescope} with $U_i=V_i$ gives the symplectic, periodic (each $\Phi_i$ is, Theorem~\ref{bpN:p6:iterative}(a)) and injective $\Psi$.
+(b): $\abs{f_*}=\varepsilon_{N+1}\le4^{-N}\varepsilon_1\le4^{-N-1}\varepsilon\le e^{-\kappa/6}\varepsilon$, because $N+1>\kappa/(12\ln2)$ gives $4^{-(N+1)}=e^{-(N+1)2\ln2}<e^{-\kappa/6}$.
+(a): $g-g_0=\sum_{i=1}^NP_\Lambda T_Kf_i$, so $\abs{g-g_0}\le\frac43\varepsilon_1\le\frac43\cdot\frac{2^7q\varepsilon^2}{\ba rs}$ by (6.1); $\ba s=\alpha\kappa/K$ and $\kappa>8N\ge8$ give $\le\frac43\cdot\frac{2^7}{8}\cdot\frac{qK\varepsilon^2}{\alpha r}\le32\frac{qK\varepsilon^2}{\alpha r}=16c\varepsilon^2$.
+
+\proofstep{(c) Displacement}\label{stepN:p6:nf-disp} By Lemma~\ref{bpN:p6:telescope} and Theorem~\ref{bpN:p6:iterative}(b) ($\abs{\Phi_I-I}\le q\delta/(e\ba\sigma)$, $\abs{\Phi_\theta-\theta}\le q\delta/(\ba\rho)$, $\delta=\varepsilon_i$): in Case A
+\[\abs{\Pi_I\Psi-I}_\infty\le\frac{q\varepsilon}{e\ba\sigma_0}+\sum_{i=1}^N\frac{q\varepsilon_i}{e\ba\sigma}\le\frac{6q\varepsilon}{e\ba s}+\frac{q}{e\ba\sigma}\cdot\frac43\varepsilon_1 .\]
+Now $1/(\ba s)=K/(\alpha\kappa)\le K/(6\alpha)$; $1/(\ba\sigma)=4NK/(\alpha\kappa)\le4K/(12\ln2\,\alpha)$ because $N\le\kappa/(12\ln2)$, and $\varepsilon_1\le\varepsilon/4$; so the right side is at most $\frac{qK\varepsilon}{e\alpha}\bigl(1+\frac{4}{12\ln2}\cdot\frac43\cdot\frac14\bigr)\le\frac{qK\varepsilon}{e\alpha}\cdot1.17\le\frac{qK\varepsilon}\alpha$. Similarly $\abs{\Pi_\theta\Psi-\theta}_\infty\le\frac{q\varepsilon}{\ba\rho_0}+\frac q{\ba\rho}\cdot\frac43\varepsilon_1=\frac{8q\varepsilon}{\ba r}+\frac{8Nq}{\ba r}\cdot\frac43\cdot\frac\varepsilon\kappa\le\frac{q\varepsilon}{\ba r}\bigl(8+\frac{32}{3\cdot12\ln2}\bigr)\le\frac{10\,q\varepsilon}{\ba r}$ (using $\varepsilon_1\le\varepsilon/\kappa$ from (6.1), $N/\kappa\le1/(12\ln2)$). In Case B, $\Psi=\Phi_0'$ with losses $(2\rho_0,2\sigma_0)$ and $\delta=\varepsilon$, and the bounds are smaller by the factor $\frac12$.
+
+\proofstep{(d) Reality}\label{stepN:p6:nf-real} Each step preserves reality (Theorem~\ref{bpN:p6:iterative}(e)); $g_i$, $f_i$, $H_i$ stay real on real points and so do the $\Phi_i$; compositions of real-point-preserving maps preserve real points.
+\end{proof}
+
+\begin{corollary}[Consequence for the action variable]\label{bpN:p6:action-displacement}
+In Theorem~\ref{bpN:p6:normal-form}, if $(\theta',I')=\Psi(\theta,I)$ with $(\theta,I)\in\Dom{r_*}{s_*}$ then $\abs{I'-I}_\infty\le qK\varepsilon/\alpha$; in particular if $\varepsilon\le\alpha r/(2^7qK)$ (hypothesis (i)) this is $\le r/2^7$.
+\source{Pos93 p.~196, last display.}
+\end{corollary}
+\begin{proof}
+Theorem~\ref{bpN:p6:normal-form}(c) and hypothesis (i).
+\end{proof}
+
+\subsection{The case $2\pi Ks<6$}\label{bpN:p6:s-nonres}
+
+\begin{proposition}[No transformation for small $Ks$]\label{bpN:p6:nonresonant-case}
+Let $H=h+f$ on $\Dom rs$, $f\in\Os rs$ with finite norm $\varepsilon$ and $\kappa=2\pi Ks<6$. Then, with $\Psi=\mathrm{id}$, $g=0$, $f_*=f$, one has $H\circ\Psi=h+g+f_*$ on $\Dom rs$ and
+\[\abs{\Psi-\mathrm{id}}=0,\qquad\abs{f_*}_{r,s}=\varepsilon\le e\cdot e^{-\kappa/6}\varepsilon,\]
+and $g=0=P_\Lambda g$ is in $\Lambda$-normal form for every $\Lambda$. (No nonresonance, convexity or smallness hypothesis is used.)
+\source{Pos93 p.~197, first line (``For $Ks\le6$ the same reasoning applies in original coordinates, letting $g=0$ and $f_*=f_\varepsilon$'').
+\sourcegap{The source does not say what is claimed about $\abs{f_*}$ in this case. With $f_*=f$, the bound $\abs{f_*}\le e^{-\kappa/6}\varepsilon$ of the Normal Form Lemma is \emph{false} for $\kappa<6$ (take $\Psi=\mathrm{id}$, $f\ne0$, $K\to0$); what holds is $\abs{f_*}\le e^{1-\kappa/6}\varepsilon$, since $\kappa/6<1$. Part~7 (Proposition 1, the time bound $\frac{sr}{5\varepsilon}e^{Ks/6}$) must therefore carry the factor $e^{-1}$ in this case or use $\abs{f_*}=\varepsilon$ directly; this changes constants only. The trivial statement is recorded here once so that Parts 7 and 9 cite it.}}
+\end{proposition}
+\begin{proof}
+\proofstep{Trivial}\label{stepN:p6:nr-triv} Identity map, $g=0$; $\abs{f_*}=\varepsilon$ and $1\le e^{1-\kappa/6}$ for $\kappa\le6$.
+\end{proof}
+
+\subsection{Deviations, errata, uses}\label{bpN:p6:s-dev}
+
+\begin{remark}[Deviations from P\"oschel and bookkeeping]\label{bpN:p6:deviations}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Lie-series range.} Part~\ref{bpN:p5} proves $u\circ X^1_\phi=\sum_h\frac1{h!}\operatorname{ad}^h_\phi u$ for $\eta=2\abs\phi/(\rho\sigma)\le\frac12$ only. Hence the Iterative Lemma assumes $\abs\phi\le\rho\sigma/4$, which is implied by $\delta\le\ba\rho\sigma/(4q)$ (P\"oschel: $\delta<\alpha\rho\sigma/2q$). All hypotheses on $\varepsilon$ in the Normal Form Lemma are already stronger than this: $\varepsilon_0\le\ba\rho_0\sigma_0/(16q)$ and $\varepsilon_i\le\ba\rho\sigma/(2^8q)$ (Steps~\ref{stepN:p6:nf-first}, \ref{stepN:p6:nf-induct}). The numerical constants $2^7$, $4^{1-i}$, $N=\lfloor\kappa/(12\ln2)\rfloor$, $r_*=r/2$, $s_*=s/6$, $16c\varepsilon^2$ are therefore \emph{the same as P\"oschel's} (re-derived above), and the number of iteration steps is unchanged.
+\item \emph{Constants gained.} The factor $2/e<1$ in the estimate of $f_+$ (from $\frac1e<\frac12$ in Lemma~\ref{bpN:p4:bracket}); where the source's arithmetic is reused we simply bound $2/e\le1$.
+\item \emph{Norms.} Max norms on actions and angles replace his Euclidean/sup norms; the divisor bound uses $\abs{k\cdot v}\le\abs k_1\abs v_\infty$, which is why $Z_K$ is the $\ell^1$ ball and hypothesis \ref{bpN:p6:cond-L} is stated in $\abs\cdot_\infty$. The Euclidean bound $\norm{\Pi_I\Psi-I}\le c\varepsilon r$ of the source follows from the max-norm statement of Theorem~\ref{bpN:p6:normal-form}(c) only with a factor $\sqrt n$.
+\item \emph{Not proved in the source, proved here:} the $\theta$-displacement of $\Psi$ and the injectivity of $\Psi$ (from Proposition~\ref{bpN:p5:canonical-map}(e)); the $\abs{W_0(\Psi-\mathrm{id})}$ bound of p.~195 (``usual telescoping arguments'') is replaced by the componentwise bound of Theorem~\ref{bpN:p6:normal-form}(c). \sourcegap{P\"oschel's last display of p.~195 asserts $\abs{W_0(D\Psi-I)W_0^{-1}}\le2q\varepsilon_0/(\alpha\rho_0\sigma_0)$ by telescoping; the later steps contribute $\sum_{i\ge1}q\varepsilon_i/(\ba\rho\sigma)$ in the scaled norm $\nu_{\rho,\sigma}$, which is not obviously $\lesssim q\varepsilon_0/(\ba\rho_0\sigma_0)$ for large $N$ since $\rho\sigma/(\rho_0\sigma_0)=3/(2N^2)$. It is not used by the stability estimates (only $\Pi_I\Psi$ is), so it is not reproduced.}
+\item \emph{The second case of the first step} (his ``twice the step size'') is Step~\ref{stepN:p6:nf-case}, Case~B, and ends with the correct sign of the exponent (see the \sourcegap{} of Theorem~\ref{bpN:p6:normal-form}).
+\item \emph{Domains.} The generating function lives on $\Dom rs$, the map $\Phi$ on $\Dom{r-\frac32\rho}{s-\frac32\sigma}$ and the new remainder on $\Dom{r-2\rho}{s-2\sigma}$; hence the chain $V_{i+1}=\Dom{r_i-2\rho_i}{s_i-2\sigma_i}$ and $\Psi$ on $\Dom{r/2}{s/6}$ as in the source.
+\end{enumerate}
+\end{remark}
+
+\begin{remark}[Consumers]\label{bpN:p6:consumers}
+Part~7 uses Theorem~\ref{bpN:p6:normal-form}, Corollary~\ref{bpN:p6:action-displacement} and Proposition~\ref{bpN:p6:nonresonant-case}; Part~9 fixes $q=9$, $p=\frac98$ and, with Part~8, chooses $K$ (as $K_a\ge\sqrt nK_g$) and the domain $D$. Track~P (Part~2 of its plan) takes Theorem~\ref{bpN:p6:iterative} with $\Lambda=\{0\}$, Remark~\ref{bpN:p6:iterative-special}(2), the elementary constant bookkeeping being its own.
+\end{remark}
+\endgroup
