@@ -165,9 +165,9 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L1051
 DISPOSITION: NODE K:bp:p1:real-restriction
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:bp:p1:taylor
 KIND: external
@@ -183,9 +183,9 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L364-L368
 DISPOSITION: NODE K:bp:p1:uniform-limits
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:bp:p2:admissible
 KIND: external
@@ -219,9 +219,9 @@ KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:constants@L78-L108
 DISPOSITION: NODE K:bp:p2:constants
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:bp:p2:exactness
 KIND: external
@@ -246,9 +246,9 @@ KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:frame-identities@L441-L463
 DISPOSITION: NODE K:bp:p2:frame-identities
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:bp:p2:frequency
 KIND: external
@@ -282,9 +282,9 @@ KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:matrix@L122-L139
 DISPOSITION: NODE K:bp:p2:matrix
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:bp:p2:objects
 KIND: external
@@ -318,9 +318,9 @@ KIND: external
 SOURCE: blueprint/parts/p4-measure.tex#bp:p4:data@L138-L163
 DISPOSITION: NODE K:bp:p4:data
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:bp:p4:derivative-bounds
 KIND: external
@@ -363,27 +363,27 @@ KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L401-L406
 DISPOSITION: NODE K:step:p2:fb-holo
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:step:p2:geo-domegak
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-domegak@L571-L574
 DISPOSITION: NODE K:step:p2:geo-domegak
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:step:p2:geo-ered
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-ered@L576-L580
 DISPOSITION: NODE K:step:p2:geo-ered
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:step:p2:ham-real
 KIND: external
@@ -408,9 +408,9 @@ KIND: external
 SOURCE: blueprint/parts/p4-measure.tex#step:p4:db-cauchy@L204-L208
 DISPOSITION: NODE K:step:p4:db-cauchy
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: K:step:p4:h1-holo
 KIND: external
@@ -507,9 +507,9 @@ KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetry@L101-L110
 DISPOSITION: NODE N:bpN:p3:gen-symmetry
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-I-e
 
 ITEM: P:bpP:p0:fixedsol#IsFixedSolution
 KIND: external

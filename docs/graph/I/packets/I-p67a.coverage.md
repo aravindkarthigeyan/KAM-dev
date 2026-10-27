@@ -104,7 +104,7 @@ DISPOSITION: NODE stepI:p6:kb-hess
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p6:kb-entries
 KIND: proof-region
@@ -113,7 +113,7 @@ DISPOSITION: NODE stepI:p6:kb-entries
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p6:kb-det
 KIND: proof-region
@@ -122,7 +122,7 @@ DISPOSITION: NODE stepI:p6:kb-det
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p6:conversion-map
 KIND: definition
@@ -194,7 +194,7 @@ DISPOSITION: NODE stepI:p6:nd-concl
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p6:uses
 KIND: claim
@@ -401,7 +401,7 @@ DISPOSITION: NODE stepI:p7:he-deriv
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:he-sol
 KIND: proof-region
@@ -410,7 +410,7 @@ DISPOSITION: NODE stepI:p7:he-sol
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:newton
 KIND: lemma
@@ -509,7 +509,7 @@ DISPOSITION: NODE stepI:p7:ke-c
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:ke-ift
 KIND: claim
@@ -590,7 +590,7 @@ DISPOSITION: NODE stepI:p7:oi-gam
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:oi-en
 KIND: proof-region
@@ -599,7 +599,7 @@ DISPOSITION: NODE stepI:p7:oi-en
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:oi-d
 KIND: proof-region
@@ -608,7 +608,7 @@ DISPOSITION: NODE stepI:p7:oi-d
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:symplectic
 KIND: proposition
@@ -644,7 +644,7 @@ DISPOSITION: NODE stepI:p7:sy-compare
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:sy-ext
 KIND: proof-region
@@ -653,7 +653,7 @@ DISPOSITION: NODE stepI:p7:sy-ext
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:sy-field
 KIND: proof-region
@@ -662,7 +662,7 @@ DISPOSITION: NODE stepI:p7:sy-field
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:chart
 KIND: theorem
@@ -680,7 +680,7 @@ DISPOSITION: NODE stepI:p7:ch-reg
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:ch-inj
 KIND: proof-region
@@ -725,7 +725,7 @@ DISPOSITION: NODE stepI:p7:ch-diffeo
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-delta-I-c
+REVIEWER: sol-delta-I-g
 
 ITEM: heading:bpI:p7
 KIND: heading

@@ -12,18 +12,18 @@ KIND: definition
 SOURCE: blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:setting@L19-L26
 DISPOSITION: NODE bpN:p5:setting
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: bpN:p5:vf-bound
 KIND: lemma
 SOURCE: blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:vf-bound@L29-L34
 DISPOSITION: NODE bpN:p5:vf-bound
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p5:vf-deriv
 KIND: proof-region
@@ -91,8 +91,8 @@ REVIEWER: -
 ITEM: stepN:p5:fl-symmetry
 KIND: proof-region
 SOURCE: blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-symmetry@L72-L73
-DISPOSITION: NODE stepN:p5:fl-symmetry
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE stepN:p5:fl-symmetry, stepN:p5:fl-symmetry#real-restriction
+REASON: Translation and reality proof; the general-domain real-restriction application at L73 is exposed separately because the cited K strip lemma has unmet domain premises.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p5
 REVIEWER: -
@@ -102,9 +102,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:symplectic@L76-L81
 DISPOSITION: NODE bpN:p5:symplectic
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p5:sy-var
 KIND: proof-region
@@ -120,9 +120,9 @@ KIND: proof-region
 SOURCE: blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:sy-field@L85-L85
 DISPOSITION: NODE stepN:p5:sy-field
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p5:sy-conserve
 KIND: proof-region
@@ -138,9 +138,9 @@ KIND: corollary
 SOURCE: blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:canonical@L90-L98
 DISPOSITION: NODE bpN:p5:canonical
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p5:ca-chain
 KIND: proof-region
@@ -228,9 +228,9 @@ KIND: lemma
 SOURCE: blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:adjoint@L141-L145
 DISPOSITION: NODE bpN:p5:adjoint
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p5:ad-setup
 KIND: proof-region
@@ -264,9 +264,9 @@ KIND: theorem
 SOURCE: blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:composition@L157-L168
 DISPOSITION: NODE bpN:p5:composition
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
-REVIEWER: -
+REVIEWER: sol-review-N-b
 
 ITEM: stepN:p5:co-field
 KIND: proof-region

@@ -42,7 +42,7 @@ theorem quasiConvex_isoenergetic_derivative {n : ℕ}
       (fderiv ℝ (fun p : (Fin n → ℝ) × ℝ =>
         (realPart h p.1, p.2 • KAM.frequencyMap h p.1)) (I, lam)) :=
   -- FROZEN_ANCHOR_PROOF_BEGIN
-  by sorry
+  by exact KAM.Provider.Nekhoroshev.quasiConvex_isoenergetic_derivative hqc hI hlam
   -- FROZEN_ANCHOR_PROOF_END
 -- FROZEN_ANCHOR_SUFFIX_BEGIN
 
