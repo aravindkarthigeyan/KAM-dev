@@ -1415,8 +1415,8 @@ NOTE: -
 NODE: bpI:p7:symplectic
 KIND: proposition
 TITLE: The Delaunay map is symplectic
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L205-L215
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L216-L238
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L205-L217
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L218-L240
 CONTRACT_ID: bpI:p7:symplectic
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (ell,g,L,G) in D_R (open in R^4); F = 2 L e sin u; for the consequence, H a C^1 function on an open subset of R^4 on which Q is defined
@@ -1431,11 +1431,11 @@ DEPS: bpI:p7:orbit-maps, stepI:p7:sy-g, stepI:p7:sy-coord, stepI:p7:sy-compare, 
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L206-L206 | the map Q on D_R
-EDGE: stepI:p7:sy-g | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L217-L217 | proof step
-EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L220-L220 | proof step
-EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L232-L232 | proof step
-EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L234-L234 | proof step
-EDGE: stepI:p7:sy-field | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L237-L237 | proof step
+EDGE: stepI:p7:sy-g | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L219-L219 | proof step
+EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L222-L222 | proof step
+EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L234-L234 | proof step
+EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L236-L236 | proof step
+EDGE: stepI:p7:sy-field | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L239-L239 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -1447,8 +1447,8 @@ NOTE: -
 NODE: stepI:p7:sy-g
 KIND: step
 TITLE: Reduction of the angle $g$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L217-L218
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L217-L218
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L219-L220
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L219-L220
 CONTRACT_ID: stepI:p7:sy-g
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: q = R(g) xi, xi = (X,Y), pi = (P_X,P_Y), p = R(g) pi
@@ -1462,8 +1462,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-maps, bpI:p7:orbit-identities
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L217-L217 | xi, pi and the rotation form of q, p
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L218-L218 | (b): Gamma = X P_Y - Y P_X = G
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L219-L219 | xi, pi and the rotation form of q, p
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L220-L220 | (b): Gamma = X P_Y - Y P_X = G
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -1475,8 +1475,8 @@ NOTE: -
 NODE: stepI:p7:sy-coord
 KIND: step
 TITLE: Coordinates $(u,L,e)$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L230
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L230
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L232
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L232
 CONTRACT_ID: stepI:p7:sy-coord
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: on D_R use (u, L, e) in place of (ell, L, G); X = L^2(c-e), Y = L^2 k s
@@ -1490,8 +1490,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-maps, bpI:p7:kepler-eq
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L220 | X, Y, P_X, P_Y
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L220 | d_ell u > 0 and u = u_R: (ell,L,G) -> (u,L,e) is a diffeomorphism
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L222 | X, Y, P_X, P_Y
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L222 | d_ell u > 0 and u = u_R: (ell,L,G) -> (u,L,e) is a diffeomorphism
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -1503,8 +1503,8 @@ NOTE: -
 NODE: stepI:p7:sy-compare
 KIND: step
 TITLE: Comparison with $L\,d\ell$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234
 CONTRACT_ID: stepI:p7:sy-compare
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (ell,g,L,G) in D_R=R^2 x C_0 with 0<G<L; e=e(L,G), k=G/L, (q,p)=Q(ell,g,L,G), u,c,s,D as in the orbit-map definitions; the one-form calculation is on D_R, F=2Le sin u
@@ -1518,10 +1518,10 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:sy-g, stepI:p7:sy-coord, bpI:p7:kepler-eq, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:sy-g | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | p.dq = pi.dxi + G dg
-EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | pi.dxi
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | ell = u - e sin u relates dell to du, de
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | the calculation uses the Delaunay orbit map or its element formulas
+EDGE: stepI:p7:sy-g | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234 | p.dq = pi.dxi + G dg
+EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234 | pi.dxi
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234 | ell = u - e sin u relates dell to du, de
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -1533,8 +1533,8 @@ NOTE: -
 NODE: stepI:p7:sy-ext
 KIND: step
 TITLE: Exterior derivative
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L237
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L237
 CONTRACT_ID: stepI:p7:sy-ext
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Q is the Delaunay map on D_R as fixed in the symplectic proposition; F=2Le sin u; no one-form identity or invertibility is assumed as a source premise
@@ -1548,9 +1548,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:sy-compare, bpI:p7:x-forms, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L234 | Q^*(sum p_i dq_i) = L dell + G dg + dF
-EDGE: bpI:p7:x-forms | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L234 | d^2 = 0, pull-back commutes with d, form determined by values on vectors
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235 | the calculation uses the Delaunay orbit map or its element formulas
+EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L236 | Q^*(sum p_i dq_i) = L dell + G dg + dF
+EDGE: bpI:p7:x-forms | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L236 | d^2 = 0, pull-back commutes with d, form determined by values on vectors
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L237 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -1562,8 +1562,8 @@ NOTE: -
 NODE: stepI:p7:sy-field
 KIND: step
 TITLE: Hamiltonian fields
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
 CONTRACT_ID: stepI:p7:sy-field
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Q is the Delaunay map on D_R; H is C^1 on the stated open domain for composition with Q; the curve assertion concerns C^1 curves w with values in D_R
@@ -1577,8 +1577,8 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:sy-ext, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237 | D Q J D Q^T = J
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237 | the calculation uses the Delaunay orbit map or its element formulas
+EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | D Q J D Q^T = J
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -1590,8 +1590,8 @@ NOTE: -
 NODE: bpI:p7:chart
 KIND: theorem
 TITLE: Delaunay chart
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L240-L244
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L245-L259
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L242-L246
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L247-L261
 CONTRACT_ID: bpI:p7:chart
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: none beyond the definitions of Q, C_0, C, D_R
@@ -1605,16 +1605,16 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-maps, bpI:p7:elements, bpI:p7:symplectic, bpI:p7:orbit-identities, stepI:p7:ch-reg, stepI:p7:ch-inj, stepI:p7:ch-surj1, stepI:p7:ch-surj2, stepI:p7:ch-surj3, stepI:p7:ch-diffeo
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L241-L241 | the map Q and D_R
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L241-L241 | the region C and the elements
-EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L241-L241 | symplectic quotient map
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L242-L242 | E o Q and Gamma o Q
-EDGE: stepI:p7:ch-reg | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L246-L246 | proof step
-EDGE: stepI:p7:ch-inj | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L248-L248 | proof step
-EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L250-L250 | proof step
-EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L254-L254 | proof step
-EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L256-L256 | proof step
-EDGE: stepI:p7:ch-diffeo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L258-L258 | proof step
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L243-L243 | the map Q and D_R
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L243-L243 | the region C and the elements
+EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L243-L243 | symplectic quotient map
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L244-L244 | E o Q and Gamma o Q
+EDGE: stepI:p7:ch-reg | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L248-L248 | proof step
+EDGE: stepI:p7:ch-inj | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L250-L250 | proof step
+EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L252-L252 | proof step
+EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L256-L256 | proof step
+EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L258-L258 | proof step
+EDGE: stepI:p7:ch-diffeo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L260-L260 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -1626,8 +1626,8 @@ NOTE: -
 NODE: stepI:p7:ch-reg
 KIND: step
 TITLE: Regularity
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248
 CONTRACT_ID: stepI:p7:ch-reg
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (ell,g,L,G) in D_R, so 0 < G < L and 1-G^2/L^2 > 0; e(L,G) = sqrt(1-G^2/L^2)
@@ -1641,12 +1641,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:kepler-eq, bpI:p7:orbit-maps, bpI:p7:symplectic, bpI:p7:orbit-identities, bpI:p7:x-hol, K:bp:p1:holomorphic-analytic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | (c): u_R real-analytic
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | Q built from u_R, e(L,G), R(g)
-EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | invertibility of D Q
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | (c): Q(D_R) subset C
-EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | the positive square-root formula for e extends holomorphically locally on C_0
-EDGE: K:bp:p1:holomorphic-analytic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | restrict the local holomorphic square-root formula to real actions to justify real analyticity of e
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | (c): u_R real-analytic
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | Q built from u_R, e(L,G), R(g)
+EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | invertibility of D Q
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | (c): Q(D_R) subset C
+EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | the positive square-root formula for e extends holomorphically locally on C_0
+EDGE: K:bp:p1:holomorphic-analytic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | restrict the local holomorphic square-root formula to real actions to justify real analyticity of e
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -1658,8 +1658,8 @@ NOTE: -
 NODE: stepI:p7:ch-inj
 KIND: step
 TITLE: Injectivity modulo $2\pi$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250
 CONTRACT_ID: stepI:p7:ch-inj
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Q(ell,g,L,G) = (q,p)
@@ -1673,9 +1673,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-identities, bpI:p7:elements, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248 | L = 1/sqrt(-2E), G = Gamma, cos u = (1 - r/L^2)/e, sin u = q.p/(L e)
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248 | elements of (q,p)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248 | X, Y and q = R(g)(X,Y)
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250 | L = 1/sqrt(-2E), G = Gamma, cos u = (1 - r/L^2)/e, sin u = q.p/(L e)
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250 | elements of (q,p)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250 | X, Y and q = R(g)(X,Y)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -1687,8 +1687,8 @@ NOTE: -
 NODE: stepI:p7:ch-surj1
 KIND: step
 TITLE: Surjectivity: the elements
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L250-L253
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L250-L253
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L252-L255
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L252-L255
 CONTRACT_ID: stepI:p7:ch-surj1
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (q,p) in C
@@ -1702,7 +1702,7 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:elements
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L250-L250 | definition of L, G, e on C
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L252-L252 | definition of L, G, e on C
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -1714,8 +1714,8 @@ NOTE: -
 NODE: stepI:p7:ch-surj2
 KIND: step
 TITLE: Surjectivity: the anomaly
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256
 CONTRACT_ID: stepI:p7:ch-surj2
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: step ch-surj1
@@ -1729,9 +1729,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:ch-surj1, bpI:p7:kepler-eq, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254 | relation (*)
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254 | (c): u = u_R(ell,e) by uniqueness
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254 | X, Y, D
+EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256 | relation (*)
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256 | (c): u = u_R(ell,e) by uniqueness
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256 | X, Y, D
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -1743,8 +1743,8 @@ NOTE: -
 NODE: stepI:p7:ch-surj3
 KIND: step
 TITLE: Surjectivity: the momentum
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258
 CONTRACT_ID: stepI:p7:ch-surj3
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: steps ch-surj2; (q,p') = Q(ell,g,L,G)
@@ -1758,9 +1758,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-identities, stepI:p7:ch-surj2, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256 | (b),(c): E, Gamma and q.p of Q
-EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256 | the chosen (ell,g,L,G)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256 | Q
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258 | (b),(c): E, Gamma and q.p of Q
+EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258 | the chosen (ell,g,L,G)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258 | Q
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -1772,8 +1772,8 @@ NOTE: -
 NODE: stepI:p7:ch-diffeo
 KIND: step
 TITLE: Quotient diffeomorphism
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260
 CONTRACT_ID: stepI:p7:ch-diffeo
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Q is the Delaunay map D_R -> C defined from the orbit formulas; no regularity, injectivity, surjectivity or periodicity conclusion is an added premise
@@ -1787,12 +1787,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:kepler-eq, stepI:p7:ch-reg, stepI:p7:ch-inj, stepI:p7:ch-surj3, bpI:p7:x-ift, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | (b): periodicity of u
-EDGE: stepI:p7:ch-reg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | local diffeomorphism
-EDGE: stepI:p7:ch-inj | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | injectivity modulo 2pi
-EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | surjectivity
-EDGE: bpI:p7:x-ift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | bijective local real-analytic diffeomorphism is a diffeomorphism
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | the calculation uses the Delaunay orbit map or its element formulas
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | (b): periodicity of u
+EDGE: stepI:p7:ch-reg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | local diffeomorphism
+EDGE: stepI:p7:ch-inj | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | injectivity modulo 2pi
+EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | surjectivity
+EDGE: bpI:p7:x-ift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | bijective local real-analytic diffeomorphism is a diffeomorphism
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g

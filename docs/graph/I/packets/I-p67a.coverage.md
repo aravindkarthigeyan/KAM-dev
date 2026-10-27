@@ -612,7 +612,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:symplectic
 KIND: proposition
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L205-L215
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L205-L217
 DISPOSITION: NODE bpI:p7:symplectic
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -621,7 +621,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sy-g
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L217-L218
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L219-L220
 DISPOSITION: NODE stepI:p7:sy-g
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -630,7 +630,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sy-coord
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L230
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L232
 DISPOSITION: NODE stepI:p7:sy-coord
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -639,7 +639,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:sy-compare
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234
 DISPOSITION: NODE stepI:p7:sy-compare
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -648,7 +648,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:sy-ext
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L237
 DISPOSITION: NODE stepI:p7:sy-ext
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -657,7 +657,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:sy-field
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
 DISPOSITION: NODE stepI:p7:sy-field
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -666,7 +666,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: bpI:p7:chart
 KIND: theorem
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L240-L244
+SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L242-L246
 DISPOSITION: NODE bpI:p7:chart
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -675,7 +675,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-reg
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248
 DISPOSITION: NODE stepI:p7:ch-reg
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -684,7 +684,7 @@ REVIEWER: sol-delta-I-g
 
 ITEM: stepI:p7:ch-inj
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250
 DISPOSITION: NODE stepI:p7:ch-inj
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -693,7 +693,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-surj1
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L250-L253
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L252-L255
 DISPOSITION: NODE stepI:p7:ch-surj1
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -702,7 +702,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-surj2
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256
 DISPOSITION: NODE stepI:p7:ch-surj2
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -711,7 +711,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-surj3
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258
 DISPOSITION: NODE stepI:p7:ch-surj3
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -720,7 +720,7 @@ REVIEWER: sol-review-I-p67
 
 ITEM: stepI:p7:ch-diffeo
 KIND: proof-region
-SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258
+SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260
 DISPOSITION: NODE stepI:p7:ch-diffeo
 REASON: labelled unit extracted as a node
 COVERAGE_STATUS: REVIEWED
@@ -864,7 +864,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L214
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L214-L214
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L216-L216
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
@@ -873,7 +873,7 @@ REVIEWER: sol-delta-I-c
 
 ITEM: p7:source-L243
 KIND: citation
-SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L243-L243
+SOURCE: blueprint-I/parts/p7-delaunay.tex#source@L245-L245
 DISPOSITION: EXCLUDED
 REASON: provenance note (\source) for a result proved in the blueprint; nothing unproved is relied on (checked against the proof)
 COVERAGE_STATUS: REVIEWED
