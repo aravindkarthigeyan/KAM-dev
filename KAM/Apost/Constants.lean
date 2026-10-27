@@ -546,6 +546,185 @@ theorem absorb_mul_le {γ Θ δ ε X c j J : ℝ} {i k : ℕ} (hγ : 0 < γ) (h�
   calc Θ ^ (k - i) * (X * ε) = (Θ ^ (k - i) * X) * ε := by ring
     _ ≤ c * ε := mul_le_mul_of_nonneg_right hc hε
 
+/-! ### Dominance of `c_step`, `c_sum`, `c_star` -/
+
+theorem two_mul_pow_mul_le_aux {Θ X Y : ℝ} {p : ℕ} (hΘ : 1 ≤ Θ) (hp : p ≤ 4) (hX : 0 ≤ X)
+    (hXY : X ≤ Y) : 2 * Θ ^ p * X ≤ 2 * Θ ^ 4 * Y := by
+  have h1 : Θ ^ p ≤ Θ ^ 4 := pow_le_pow_right₀ hΘ hp
+  have h0 : 0 ≤ Θ ^ 4 := pow_nonneg (zero_le_one.trans hΘ) 4
+  calc 2 * Θ ^ p * X ≤ 2 * Θ ^ 4 * X :=
+        mul_le_mul_of_nonneg_right (by linarith) hX
+    _ ≤ 2 * Θ ^ 4 * Y := mul_le_mul_of_nonneg_left hXY (by linarith)
+
+/-- `2 Θ³ C_sym ≤ 𝔠_step`. -/
+theorem two_Theta_pow_three_mul_C_sym_le_c_step (hP : Params n τ M σK σB σT) :
+    2 * Theta n M σK σB σT ^ 3 * C_sym n τ M σK σB σT ≤ c_step n τ M σK σB σT := by
+  unfold c_step
+  exact two_mul_pow_mul_le_aux (one_le_Theta hP) (by norm_num)
+    (zero_le_one.trans (one_le_C_sym hP)) (le_max_left _ _)
+
+/-- `2 Θ² C_ΔK ≤ 𝔠_step`. -/
+theorem two_Theta_sq_mul_C_DK_le_c_step (hP : Params n τ M σK σB σT) :
+    2 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT ≤ c_step n τ M σK σB σT := by
+  have hK := one_le_C_DK hP
+  have hmC := one_le_mSize_mul_C_DT hP
+  have hle : C_DK n τ M σK σB σT ≤
+      2 * mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT := by
+    calc C_DK n τ M σK σB σT = 1 * C_DK n τ M σK σB σT := (one_mul _).symm
+      _ ≤ (2 * (mSize M σK σB σT * C_DT n M σK σB σT)) * C_DK n τ M σK σB σT :=
+          mul_le_mul_of_nonneg_right (by linarith) (zero_le_one.trans hK)
+      _ = _ := by ring
+  unfold c_step
+  exact two_mul_pow_mul_le_aux (one_le_Theta hP) (by norm_num) (zero_le_one.trans hK)
+    (hle.trans (le_max_right _ _))
+
+/-- `4 Θ² (𝔪 C_ΔT C_ΔK) ≤ 𝔠_step`. -/
+theorem four_Theta_sq_mul_le_c_step (hP : Params n τ M σK σB σT) :
+    4 * Theta n M σK σB σT ^ 2 *
+      (mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT) ≤
+        c_step n τ M σK σB σT := by
+  have hK := zero_le_one.trans (one_le_C_DK hP)
+  have hmC := zero_le_one.trans (one_le_mSize_mul_C_DT hP)
+  have h := two_mul_pow_mul_le_aux (Θ := Theta n M σK σB σT) (p := 2) (one_le_Theta hP)
+    (by norm_num)
+    (X := 2 * mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT)
+    (by
+      have : 0 ≤ mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT :=
+        mul_nonneg hmC hK
+      linarith)
+    (Y := max (C_sym n τ M σK σB σT)
+      (2 * mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT))
+    (le_max_right _ _)
+  unfold c_step
+  calc 4 * Theta n M σK σB σT ^ 2 *
+        (mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT)
+      = 2 * Theta n M σK σB σT ^ 2 *
+          (2 * mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT) := by ring
+    _ ≤ _ := h
+
+theorem four_Theta_sq_mul_C_DK_le_c_sum (hP : Params n τ M σK σB σT) :
+    4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT ≤ c_sum n τ M σK σB σT := by
+  have hn := hP.one_le_cast
+  have h0 : 0 ≤ 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT := by
+    have := zero_le_one.trans (one_le_C_DK hP)
+    have := zero_le_one.trans (one_le_Theta hP)
+    positivity
+  unfold c_sum
+  calc 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT
+      = 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT * 1 := (mul_one _).symm
+    _ ≤ _ := mul_le_mul_of_nonneg_left (hn.trans (le_max_left _ _)) h0
+
+theorem four_Theta_sq_mul_n_mul_C_DK_le_c_sum (hP : Params n τ M σK σB σT) :
+    4 * Theta n M σK σB σT ^ 2 * ((n : ℝ) * C_DK n τ M σK σB σT) ≤ c_sum n τ M σK σB σT := by
+  have h0 : 0 ≤ 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT := by
+    have := zero_le_one.trans (one_le_C_DK hP)
+    have := zero_le_one.trans (one_le_Theta hP)
+    positivity
+  unfold c_sum
+  calc 4 * Theta n M σK σB σT ^ 2 * ((n : ℝ) * C_DK n τ M σK σB σT)
+      = 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT * n := by ring
+    _ ≤ _ := mul_le_mul_of_nonneg_left (le_max_left _ _) h0
+
+theorem four_Theta_sq_mul_C_B_mul_C_DK_le_c_sum (hP : Params n τ M σK σB σT) :
+    4 * Theta n M σK σB σT ^ 2 * (C_B n M σK σB σT * C_DK n τ M σK σB σT) ≤
+      c_sum n τ M σK σB σT := by
+  have h0 : 0 ≤ 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT := by
+    have := zero_le_one.trans (one_le_C_DK hP)
+    have := zero_le_one.trans (one_le_Theta hP)
+    positivity
+  unfold c_sum
+  calc 4 * Theta n M σK σB σT ^ 2 * (C_B n M σK σB σT * C_DK n τ M σK σB σT)
+      = 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT * C_B n M σK σB σT := by ring
+    _ ≤ _ := mul_le_mul_of_nonneg_left
+        ((le_max_left _ _).trans (le_max_right _ _)) h0
+
+theorem four_Theta_sq_mul_mSize_sq_mul_le_c_sum (hP : Params n τ M σK σB σT) :
+    4 * Theta n M σK σB σT ^ 2 *
+      (mSize M σK σB σT ^ 2 * C_DT n M σK σB σT * C_DK n τ M σK σB σT) ≤
+        c_sum n τ M σK σB σT := by
+  have h0 : 0 ≤ 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT := by
+    have := zero_le_one.trans (one_le_C_DK hP)
+    have := zero_le_one.trans (one_le_Theta hP)
+    positivity
+  unfold c_sum
+  calc 4 * Theta n M σK σB σT ^ 2 *
+        (mSize M σK σB σT ^ 2 * C_DT n M σK σB σT * C_DK n τ M σK σB σT)
+      = 4 * Theta n M σK σB σT ^ 2 * C_DK n τ M σK σB σT *
+          (mSize M σK σB σT ^ 2 * C_DT n M σK σB σT) := by ring
+    _ ≤ _ := mul_le_mul_of_nonneg_left
+        ((le_max_right _ _).trans (le_max_right _ _)) h0
+
+theorem two_rpow_mul_C_E_le_c_star (μ : ℝ) :
+    (2 : ℝ) ^ (2 * aExp n τ) * C_E n τ M σK σB σT ≤ c_star n τ M σK σB σT μ :=
+  le_max_left _ _
+
+theorem c_step_mul_max_le_c_star (μ : ℝ) :
+    c_step n τ M σK σB σT * max 1 (2 / μ) ≤ c_star n τ M σK σB σT μ :=
+  (le_max_left _ _).trans (le_max_right _ _)
+
+theorem two_mul_c_sum_div_le_c_star (μ : ℝ) :
+    2 * c_sum n τ M σK σB σT / μ ≤ c_star n τ M σK σB σT μ :=
+  (le_max_right _ _).trans (le_max_right _ _)
+
+/-! ### Smallness of the KAM step (`step:p2:st-small`) -/
+
+/-- The three consequences of the smallness hypothesis of Proposition `bp:p2:step`
+(`step:p2:st-small`): for `d = C_ΔK ε / (γ² δ^a)`, `C_sym ε/(γ δ^(κ+1)) ≤ 1/2`, `d ≤ β/2` and
+`2 𝔪 C_ΔT d/δ² ≤ 1/2`. The hypothesis `γ ≤ Θ` is Lemma `bp:p2:frequency`. -/
+theorem step_small (hP : Params n τ M σK σB σT) {γ δ ε β : ℝ} (hγ : 0 < γ)
+    (hγΘ : γ ≤ Theta n M σK σB σT) (hδ : 0 < δ) (hδ1 : δ ≤ 1) (hε : 0 ≤ ε)
+    (hsmall : c_step n τ M σK σB σT * ε / (γ ^ 4 * δ ^ (2 * aExp n τ)) ≤ min 1 β) :
+    C_sym n τ M σK σB σT * ε / (γ * δ ^ (kappa n τ + 1)) ≤ 1 / 2 ∧
+    C_DK n τ M σK σB σT * ε / (γ ^ 2 * δ ^ aExp n τ) ≤ β / 2 ∧
+    2 * mSize M σK σB σT * C_DT n M σK σB σT *
+      (C_DK n τ M σK σB σT * ε / (γ ^ 2 * δ ^ aExp n τ)) / δ ^ 2 ≤ 1 / 2 := by
+  have ha := eight_le_aExp hP
+  have hκ : aExp n τ = 2 * kappa n τ + 2 := rfl
+  have hQ1 : c_step n τ M σK σB σT * ε / (γ ^ 4 * δ ^ (2 * aExp n τ)) ≤ 1 :=
+    hsmall.trans (min_le_left _ _)
+  have hQβ : c_step n τ M σK σB σT * ε / (γ ^ 4 * δ ^ (2 * aExp n τ)) ≤ β :=
+    hsmall.trans (min_le_right _ _)
+  have hhalf : ∀ c : ℝ, c = c_step n τ M σK σB σT / 2 →
+      c * ε / (γ ^ 4 * δ ^ (2 * aExp n τ)) =
+        c_step n τ M σK σB σT * ε / (γ ^ 4 * δ ^ (2 * aExp n τ)) / 2 := by
+    intro c hc
+    rw [hc]; ring
+  refine ⟨?_, ?_, ?_⟩
+  · have h := absorb_mul_le (i := 1) (k := 4) (j := kappa n τ + 1) (J := 2 * aExp n τ)
+      (c := c_step n τ M σK σB σT / 2) hγ hγΘ hδ hδ1 (by norm_num) (by linarith) hε
+      (zero_le_one.trans (one_le_C_sym hP))
+      (by have := two_Theta_pow_three_mul_C_sym_le_c_step hP; norm_num; linarith)
+    rw [hhalf _ rfl, pow_one] at h
+    linarith
+  · have h := absorb_mul_le (i := 2) (k := 4) (j := aExp n τ) (J := 2 * aExp n τ)
+      (c := c_step n τ M σK σB σT / 2) hγ hγΘ hδ hδ1 (by norm_num) (by linarith) hε
+      (zero_le_one.trans (one_le_C_DK hP))
+      (by have := two_Theta_sq_mul_C_DK_le_c_step hP; norm_num; linarith)
+    rw [hhalf _ rfl] at h
+    linarith
+  · have hrw : 2 * mSize M σK σB σT * C_DT n M σK σB σT *
+        (C_DK n τ M σK σB σT * ε / (γ ^ 2 * δ ^ aExp n τ)) / δ ^ 2 =
+        (2 * mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT) * ε /
+          (γ ^ 2 * δ ^ (aExp n τ + 2)) := by
+      rw [Real.rpow_add hδ, Real.rpow_two]
+      field_simp
+    have hX : 0 ≤ 2 * mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT := by
+      have := zero_le_one.trans (one_le_mSize_mul_C_DT hP)
+      have := zero_le_one.trans (one_le_C_DK hP)
+      have h2 : 2 * mSize M σK σB σT * C_DT n M σK σB σT * C_DK n τ M σK σB σT =
+          2 * (mSize M σK σB σT * C_DT n M σK σB σT) * C_DK n τ M σK σB σT := by ring
+      rw [h2]
+      positivity
+    have h := absorb_mul_le (i := 2) (k := 4) (j := aExp n τ + 2) (J := 2 * aExp n τ)
+      (c := c_step n τ M σK σB σT / 2) hγ hγΘ hδ hδ1 (by norm_num) (by linarith) hε hX
+      (by
+        have := four_Theta_sq_mul_le_c_step hP
+        norm_num
+        nlinarith)
+    rw [hhalf _ rfl] at h
+    rw [hrw]
+    linarith
+
 end KAM.Apost
 
 end
