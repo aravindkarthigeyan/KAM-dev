@@ -223,15 +223,6 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: K:bp:p2:constants-register
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:constants-register@L1145-L1172
-DISPOSITION: NODE K:bp:p2:constants-register
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
 ITEM: K:bp:p2:error-decay
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:error-decay@L952-L957
@@ -286,24 +277,6 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: K:bp:p2:g1
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:g1@L1095-L1108
-DISPOSITION: NODE K:bp:p2:g1
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: K:bp:p2:geometry
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:geometry@L549-L563
-DISPOSITION: NODE K:bp:p2:geometry
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
 ITEM: K:bp:p2:hamiltonian
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:hamiltonian@L214-L230
@@ -317,15 +290,6 @@ ITEM: K:bp:p2:matrix
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:matrix@L122-L139
 DISPOSITION: NODE K:bp:p2:matrix
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: K:bp:p2:newton-error
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:newton-error@L723-L740
-DISPOSITION: NODE K:bp:p2:newton-error
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
@@ -349,37 +313,10 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: K:bp:p2:perturbation
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:perturbation@L798-L820
-DISPOSITION: NODE K:bp:p2:perturbation
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: K:bp:p2:schedule
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:schedule@L935-L947
-DISPOSITION: NODE K:bp:p2:schedule
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
 ITEM: K:bp:p2:standing
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:standing@L56-L65
 DISPOSITION: NODE K:bp:p2:standing
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: K:bp:p2:triangular
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#bp:p2:triangular@L616-L644
-DISPOSITION: NODE K:bp:p2:triangular
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
@@ -425,15 +362,6 @@ ITEM: K:bp:p4:h1
 KIND: external
 SOURCE: blueprint/parts/p4-measure.tex#bp:p4:h1@L309-L313
 DISPOSITION: NODE K:bp:p4:h1
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: K:step:p1:hr-derivative
-KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#step:p1:hr-derivative@L1083-L1089
-DISPOSITION: NODE K:step:p1:hr-derivative
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
@@ -493,24 +421,6 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: K:step:p2:ne-domain
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ne-domain@L749-L752
-DISPOSITION: NODE K:step:p2:ne-domain
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: K:step:p2:ne-invert
-KIND: external
-SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:ne-invert@L743-L747
-DISPOSITION: NODE K:step:p2:ne-invert
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
 ITEM: K:step:p2:pt-small
 KIND: external
 SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:pt-small@L823-L832
@@ -543,15 +453,6 @@ KIND: external
 SOURCE: blueprint/parts/p4-measure.tex#step:p4:h1-open@L316-L319
 DISPOSITION: NODE K:step:p4:h1-open
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: N:bpN:p2:qc-kernel
-KIND: external
-SOURCE: blueprint-N/parts/p2-qc-zero.tex#bpN:p2:qc-kernel@L11-L18
-DISPOSITION: NODE N:bpN:p2:qc-kernel
-REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -

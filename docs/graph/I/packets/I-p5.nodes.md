@@ -880,7 +880,7 @@ PROOF_SOURCE: blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-open@L155-L155
 CONTRACT_ID: stepI:p5:sp-open
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Omega open; m_c continuous on Omega subset U_c; mu_pm continuous
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: calV open in P
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -942,7 +942,7 @@ PROOF_SOURCE: blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-closure@L157-L157
 CONTRACT_ID: stepI:p5:sp-closure
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Omega subset calK; calK compact hence closed
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: closure(Omega) subset calK and closure(calV) subset R^2 x calK
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1135,7 +1135,7 @@ PROOF_SOURCE: blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-cont@L177-L177
 CONTRACT_ID: stepI:p5:cf-cont
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: calK compact subset of B; X_R C^1 and Z^2-periodic on R^2 x B; z(t)_2 in calK on [0,T_+) and (T_-,0]
-SOURCE_QUANTIFIERS: 
+SOURCE_QUANTIFIERS: inherits the fixed data and quantifiers of the enclosing proof; no new binders
 SOURCE_CONCLUSION: T_- = -infinity and T_+ = +infinity
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
