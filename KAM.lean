@@ -25,6 +25,7 @@ public import KAM.Apost.Standing
 public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
+public import KAM.Canonical.Flow
 public import KAM.Canonical.Setting
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
@@ -206,6 +207,7 @@ public import KAM.Iso.Confinement.Confinement
 public import KAM.Iso.Confinement.EnergyCoordinate
 public import KAM.Iso.Confinement.Graph
 public import KAM.Iso.Confinement.Invariance
+public import KAM.Iso.Confinement.Main
 public import KAM.Iso.Confinement.PatchConst
 public import KAM.Iso.Confinement.Position
 public import KAM.Iso.Confinement.RealHam
@@ -218,6 +220,7 @@ public import KAM.Iso.R3bp.Uniqueness
 public import KAM.Iso.RestrictedHam
 public import KAM.Iso.ShiftPotential
 public import KAM.Kepler.Basic
+public import KAM.Kepler.DelaunayChart
 public import KAM.Kepler.DelaunayJacobian
 public import KAM.Kepler.DelaunaySymplectic
 public import KAM.Kepler.Energy
