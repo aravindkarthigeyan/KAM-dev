@@ -1,0 +1,4 @@
+# I1-4 prover handoff (branch inp-i14, e09ab3f; contains inp-i11 + inp-id0; offloaded package run by the main orchestrator)
+
+File KAM/Iso/Linear/Trivial.lean (251 lines). Node bpI:p1:trivial = KAM.Iso.Linear.trivial_torus (statement identical to Appendix A; hypotheses hU, hh, hreal, hI only). Reuses K's *_unperturbedTorus lemmas; torsion of h ∘ pr₂ on univ ×ˢ U proved directly (K's version needs Data with the Kolmogorov condition, issue B4); freq_map_local (I1-1); private det/inverse/norm lemmas over any finite index (singular case included).
+AUDIT FOCUS (design docs/tracks/I/design/PART123-LEAN-DESIGN.md v2 §7 row I1-4, issue B4; audits PART123-design-audit-{1,2}.md; blueprint-I p1 trivial): (1) statement = blueprint (the trivial torus K(θ) = (θ, I) satisfies the iso setting with its frame, torsion = Hessian, bordered average); (2) the re-derived torsion identity is correct without the Kolmogorov condition; (3) hygiene. Audit git diff inp-i11...HEAD.
