@@ -1687,3 +1687,263 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:telescope; shared Lean provider. There: KIND lemma, contract bpN:p6:telescope v1. Cited as \Nref{bpN:p6:telescope}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+
+NODE: N:bpN:p0:actionnbhd#actionNbhd
+KIND: external
+TITLE: [N] Complex action neighbourhood: KAM.actionNbhd
+STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:actionnbhd@L36-L41
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p0:actionnbhd#actionNbhd
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: none (typing data: B ⊂ ℝⁿ, r ∈ ℝ; max norm on ℂⁿ, J viewed in ℂⁿ componentwise)
+SOURCE_QUANTIFIERS: n; B ⊂ ℝⁿ; r ∈ ℝ
+SOURCE_CONCLUSION: defines B_r = {I ∈ ℂⁿ : ∃ J ∈ B, ¦I−J¦ < r}; B_r = ∅ for r ≤ 0, and B_r is open for B open
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:actionnbhd#actionNbhd; shared Lean provider. There: KIND definition, contract kam.actionNbhd v1, frozen anchor KAM.actionNbhd (kam.actionNbhd.v1); not an anchor of this graph.
+
+NODE: N:bpN:p0:partial-complexify#complexifyPhase
+KIND: external
+TITLE: [N] \Lean{complexifyPhase}: KAM.Nekhoroshev.complexifyPhase
+STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-complexify@L271-L275
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p0:partial-complexify#complexifyPhase
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: none (typing data: z = (x,y) ∈ Ph_d)
+SOURCE_QUANTIFIERS: d; z ∈ Ph_d
+SOURCE_CONCLUSION: defines cx(z) = ((x_i)_i, (y_i)_i) ∈ ℂᵈ × ℂᵈ, componentwise inclusion ℝ ⊂ ℂ; no choices
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-complexify#complexifyPhase; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.complexifyPhase v1, frozen anchor KAM.Nekhoroshev.complexifyPhase (nekhoroshev.d25.complexifyPhase.v1); not an anchor of this graph.
+
+NODE: N:bpN:p0:partial-core#innerCore
+KIND: external
+TITLE: [N] \Lean{innerCore}: closed max-norm erosion: KAM.Nekhoroshev.innerCore
+STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-core@L277-L282
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p0:partial-core#innerCore
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: none (typing data: E a normed group, U ⊂ E, d ∈ ℝ)
+SOURCE_QUANTIFIERS: E; U ⊂ E; d ∈ ℝ
+SOURCE_CONCLUSION: defines core(U,d) = {x ∈ U : B̄(x,d) ⊂ U} (closed ball of the norm of E); used only with d > 0
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-core#innerCore; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.innerCore v1, frozen anchor KAM.Nekhoroshev.innerCore (nekhoroshev.d25.innerCore.v1); not an anchor of this graph.
+
+NODE: N:bpN:p0:partial-definite#HasDefiniteFastPart
+KIND: external
+TITLE: [N] \Lean{HasDefiniteFastPart}: KAM.Nekhoroshev.HasDefiniteFastPart
+STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-definite@L292-L299
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p0:partial-definite#HasDefiniteFastPart
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: G ⊂ ℝⁿ; ρ, g, m ∈ ℝ; h : ℂⁿ → ℂ; U = {I ∈ ℝⁿ : I ∈ G_ρ}
+SOURCE_QUANTIFIERS: n; G; ρ, g, m; h
+SOURCE_CONCLUSION: HasDefiniteFastPart G ρ g m h holds iff g > 0, m > 0, h_ℝ is C³ on U, and ∃ σ ∈ {1,−1} with, for every I ∈ U: ¦ω_h(I)¦ ≥ g and ∀ v ∈ ℝⁿ: m Σ v_i² ≤ σ D²h_ℝ(I)[v,v]
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-definite#HasDefiniteFastPart; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.HasDefiniteFastPart v1, frozen anchor KAM.Nekhoroshev.HasDefiniteFastPart (nekhoroshev.d25.HasDefiniteFastPart.v1); not an anchor of this graph.
+
+NODE: N:bpN:p0:partial-domain#partialComplexDomain
+KIND: external
+TITLE: [N] \Lean{partialComplexDomain}: KAM.Nekhoroshev.partialComplexDomain
+STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-domain@L284-L290
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p0:partial-domain#partialComplexDomain
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: none (typing data: G ⊂ ℝⁿ, D ⊂ Ph_k, ρ ∈ ℝ)
+SOURCE_QUANTIFIERS: n, k; G; D; ρ
+SOURCE_CONCLUSION: defines 𝓕(G,D,ρ) = {(φ,𝖨) ∈ ℂ^{n+k} × ℂ^{n+k} : fast(Re 𝖨) ∈ G, (slow(Re φ), slow(Re 𝖨)) ∈ D, φ, 𝖨 ∈ T^{n+k}_ρ}, T^N_ρ = complexStrip N ρ; no other condition on fast real angles and slow real positions
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-domain#partialComplexDomain; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.partialComplexDomain v1, frozen anchor KAM.Nekhoroshev.partialComplexDomain (nekhoroshev.d25.partialComplexDomain.v1); not an anchor of this graph.
+
+NODE: N:bpN:p0:partial-pert#IsPartialPerturbation
+KIND: external
+TITLE: [N] \Lean{IsPartialPerturbation}: KAM.Nekhoroshev.IsPartialPerturbation
+STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-pert@L301-L311
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p0:partial-pert#IsPartialPerturbation
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: G ⊂ ℝⁿ; D ⊂ Ph_k; ρ ∈ ℝ; P : ℂ^{n+k} × ℂ^{n+k} → ℂ
+SOURCE_QUANTIFIERS: n, k; G; D; ρ; P
+SOURCE_CONCLUSION: IsPartialPerturbation G D ρ P holds iff (P1) P complex differentiable on 𝓕(G,D,ρ); (P2) ¦P(z)¦ ≤ 1 on 𝓕(G,D,ρ); (P3) Im P(cx(z)) = 0 for real z ∈ Ph_{n+k} with cx(z) ∈ 𝓕(G,D,ρ); (P4) P(z + cx(fastShift ℓ)) = P(z) for z ∈ 𝓕(G,D,ρ), ℓ ∈ ℤⁿ (2π-periodic in each fast angle, none in slow variables)
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-pert#IsPartialPerturbation; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.IsPartialPerturbation v1, frozen anchor KAM.Nekhoroshev.IsPartialPerturbation (nekhoroshev.d25.IsPartialPerturbation.v1); not an anchor of this graph.
+
+NODE: N:bpN:p0:partial-sec#degenerateHamiltonian
+KIND: external
+TITLE: [N] prose transcription: KAM.Planetary.degenerateHamiltonian
+STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L324-L324
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p0:partial-sec#degenerateHamiltonian
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: none (typing data: H₀ : ℝᵃ → ℝ, P : ℝ → Ph_{a+b} → ℝ, μ ∈ ℝ, z ∈ Ph_{a+b})
+SOURCE_QUANTIFIERS: a, b; H₀; P; μ; z
+SOURCE_CONCLUSION: defines degenerateHamiltonian H₀ P μ z = H₀(fast(z_2)) + μ P(μ,z), i.e. H_μ(φ,𝖨) = Re h(fast 𝖨) + μ Re P(cx(φ,𝖨)) for H₀ = h_ℝ
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-sec#degenerateHamiltonian; shared Lean provider. There: KIND definition, contract planetary.degenerateHamiltonian v1, frozen anchor KAM.Planetary.degenerateHamiltonian (planetary.degenerateHamiltonian.v1); not an anchor of this graph.
+
+NODE: N:bpN:p0:partial-sec#fast
+KIND: external
+TITLE: [N] prose transcription: KAM.Planetary.fast
+STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L265-L266
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p0:partial-sec#fast
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: none (typing data: v ∈ ℝ^{n+k})
+SOURCE_QUANTIFIERS: n, k; v ∈ ℝ^{n+k}
+SOURCE_CONCLUSION: defines fast(v) = (v_1,…,v_n), the first block of v ∈ ℝ^{n+k}
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-sec#fast; shared Lean provider. There: KIND definition, contract planetary.fast v1, frozen anchor KAM.Planetary.fast (planetary.fast.v1); not an anchor of this graph.
+
+NODE: N:bpN:p0:sol#IsSolutionOn
+KIND: external
+TITLE: [N] Solutions on a time set: KAM.Nekhoroshev.IsSolutionOn
+STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:sol@L165-L172
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p0:sol#IsSolutionOn
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: H : ℝⁿ × ℝⁿ → ℝ; U ⊂ ℝⁿ; J ⊂ ℝ; z : ℝ → ℝⁿ × ℝⁿ
+SOURCE_QUANTIFIERS: n; H; U; J; z
+SOURCE_CONCLUSION: IsSolutionOn H U J z holds iff for every t ∈ J: z(t)_2 ∈ U, H is differentiable at z(t), and z is (two-sided) differentiable at t with z'(t) = X_H(z(t))
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:sol#IsSolutionOn; shared Lean provider. There: KIND definition, contract nekhoroshev.IsSolutionOn v1, frozen anchor KAM.Nekhoroshev.IsSolutionOn (nekhoroshev.IsSolutionOn.v1); not an anchor of this graph.
+
+NODE: N:bpN:p3:gen-uniform
+KIND: external
+TITLE: [N] Uniform data
+STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform@L136-L141
+PROOF_SOURCE: -
+CONTRACT_ID: N:bpN:p3:gen-uniform
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: F C¹ on the open set W; Φ ⊂ E; δ > 0; M, L ≥ 0 (§s-conv conventions: E finite-dimensional real normed space; F : E → E total; W ⊂ E open; 'C¹ on W' = ContDiffOn ℝ 1 F W; intervals are order-connected; derivatives two-sided)
+SOURCE_QUANTIFIERS: E; W; F; Φ; δ, M, L
+SOURCE_CONCLUSION: defines 'Φ has uniform data (δ,M,L)': for every x ∈ Φ, B̄(x,δ) ⊂ W, ¦F¦ ≤ M on B̄(x,δ) and F is L-Lipschitz on B̄(x,δ)
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniform; shared Lean provider. There: KIND definition, contract bpN:p3:gen-uniform v1.
