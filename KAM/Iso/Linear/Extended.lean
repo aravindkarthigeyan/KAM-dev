@@ -247,7 +247,7 @@ open ExtendedAux
 
 section Torus
 
-variable {τ M σK σB σT γ : ℝ} {D : Set ((Fin n → ℂ) × (Fin n → ℂ))}
+variable {n : ℕ} {τ M σK σB σT γ : ℝ} {D : Set ((Fin n → ℂ) × (Fin n → ℂ))}
   {H : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ω : Fin n → ℝ}
 
 /-- Regularity of `𝖳_H` at ANY real frequency `ω'` (blueprint issue B1: `bpI:p2:torsion` uses
