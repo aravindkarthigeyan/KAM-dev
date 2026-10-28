@@ -718,7 +718,7 @@ theorem delaunay_hamiltonianVectorField {H : Phase 2 → ℝ} {w : Phase 2} (hw 
     linarith
   refine sub_eq_zero.1 (eq_zero_of_sf_eq_zero fun a => ?_)
   obtain ⟨v, rfl⟩ := A.surjective a
-  rw [sf_comm, hAv] 
+  rw [sf_comm, hAv]
   have := key v
   rw [hAv] at this
   rw [this]
