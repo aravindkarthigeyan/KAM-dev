@@ -144,7 +144,8 @@ theorem composition_integral {D : Set (Fin n → ℂ)} {r s r' s' ρ σ Φ V : �
   have hw : ∀ k : Fin n → ℤ, 0 < modeWeight (s - σ) k := fun k => Real.exp_pos _
   have hcoef : ∀ k, coeff (fun z => ∫ t in (0 : ℝ)..1,
       v t (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega t z)) I k =
-      ∫ t in (0 : ℝ)..1, coeff (fun z => v t (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega t z)) I k
+      ∫ t in (0 : ℝ)..1,
+        coeff (fun z => v t (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega t z)) I k
       ∧ IntervalIntegrable (fun t => coeff (fun z => v t (flow (KAM.hamiltonianVectorFieldℂ φ)
         hd.omega t z)) I k) volume 0 1 := fun k =>
     coeff_integral (w := fun t z => v t (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega t z)) k hF

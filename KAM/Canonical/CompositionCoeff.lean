@@ -18,7 +18,8 @@ Package C5-8 (design `docs/tracks/N/design/PART145-LEAN-DESIGN.md`). Scalar func
 
 * `KAM.Canonical.coeff_congr`, `wbound_congr`, `inClass_congr`: the class, the coefficients and the
   weighted bound only see the values on `𝒟_{r,s}` (for `0 < s`);
-* `KAM.Canonical.wbound_of_finset_le`: the weighted bound from the bounds of the finite partial sums;
+* `KAM.Canonical.wbound_of_finset_le`: the weighted bound from the bounds of the finite partial
+  sums;
 * `KAM.Canonical.hasSum_coeff`: coefficients commute with a uniformly dominated series;
 * `KAM.Canonical.wbound_tsum`: a series of class members with summable weighted bounds is in the
   class with the summed bound (the series is the sum of the functions, pointwise on `𝒟_{r,s}`).

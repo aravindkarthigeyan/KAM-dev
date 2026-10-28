@@ -23,7 +23,8 @@ Package C5-8. For `ComposeData` and `u ∈ O(r, s)` of norm `≤ U` write `a_j =
 * `KAM.Canonical.lieSeries_class`, `lieSeries_bound`, `lieSeries_tail`: the sum `∑ a_j` is in the
   class with norm `≤ (1-q)⁻¹ U` and its tails are small in the norm;
 * `KAM.Canonical.series_eq`: on `𝒟_{r-ρ, s-σ}` the series is `u ∘ X¹_φ` (`taylor_lie` with the
-  hatted loss `ρ̂ = 3ρ/4`, `σ̂ = 3σ/4`, for which `η̂ ≤ 8/9`, so the Taylor remainder is `≤ q̂^N U`).
+  hatted loss `ρ̂ = 3ρ/4`, `σ̂ = 3σ/4`, for which `η̂ ≤ 8/9`, so the Taylor remainder is
+  `≤ q̂^N U`).
 -/
 
 @[expose] public noncomputable section

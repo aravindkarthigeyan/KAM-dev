@@ -80,7 +80,8 @@ theorem paramHyp_integrand (hd : ComposeData D r s r' s' ρ σ Φ φ)
       (Icc (-1 : ℝ) 1 ×ˢ Dom n D (r - ρ) (s - σ)) (Icc 0 1 ×ˢ Dom n D r s) :=
     fun p hp => ⟨clampT_mem _, hdom p.2 hp.2 _ (clampT_mem_Icc _)⟩
   have hdiffv : ∀ τ ∈ Icc (-1 : ℝ) 1, ∀ z ∈ Dom n D (r - ρ) (s - σ),
-      DifferentiableAt ℂ (v (clampT τ)) (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega (clampT τ) z) :=
+      DifferentiableAt ℂ (v (clampT τ))
+        (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega (clampT τ) z) :=
     fun τ hτ z hz => ((hv _ (clampT_mem τ)).differentiableOn.differentiableAt
       ((isOpen_Dom _ _ _).mem_nhds (hdom z hz _ (clampT_mem_Icc _))))
   have hdiffF : ∀ τ ∈ Icc (-1 : ℝ) 1, ∀ z ∈ Dom n D (r - ρ) (s - σ),
@@ -93,7 +94,8 @@ theorem paramHyp_integrand (hd : ComposeData D r s r' s' ρ σ Φ φ)
   · have hcomp : ∀ p ∈ Icc (-1 : ℝ) 1 ×ˢ Dom n D (r - ρ) (s - σ),
         fderiv ℂ (fun z => v (clampT p.1) (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega
           (clampT p.1) z)) p.2 =
-        (fderiv ℂ (v (clampT p.1)) (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega (clampT p.1) p.2)).comp
+        (fderiv ℂ (v (clampT p.1))
+          (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega (clampT p.1) p.2)).comp
           (fderiv ℂ (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega (clampT p.1)) p.2) :=
       fun p hp => fderiv_comp p.2 (hdiffv p.1 hp.1 p.2 hp.2) (hdiffF p.1 hp.1 p.2 hp.2)
     refine ContinuousOn.congr (ContinuousOn.clm_comp (hDc.comp hΦ hΦm) (fDc.comp hP hPm)) hcomp
@@ -143,7 +145,8 @@ theorem integral_inClass (hd : ComposeData D r s r' s' ρ σ Φ φ)
   have hdom := (composition_domain hd).2.2.2
   have hcg : ∀ z : (Fin n → ℂ) × (Fin n → ℂ),
       ∫ t in (0 : ℝ)..1, v t (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega t z) =
-      ∫ t in (0 : ℝ)..1, v (clampT t) (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega (clampT t) z) :=
+      ∫ t in (0 : ℝ)..1,
+        v (clampT t) (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega (clampT t) z) :=
     fun z => intervalIntegral.integral_congr fun t ht => by
       rw [clampT_of_mem (by simpa [uIcc_of_le zero_le_one] using ht)]
   refine ⟨?_, fun j z hz => ?_⟩

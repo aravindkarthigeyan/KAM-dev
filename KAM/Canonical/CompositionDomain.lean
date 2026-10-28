@@ -13,7 +13,7 @@ import Mathlib.Tactic.Positivity
 import Mathlib.Tactic.Linarith
 
 /-!
-# Composition with the time-one map: the premises and the domain statement (`bpN:p5:composition` (i))
+# Composition with the time-one map: premises and domain (`bpN:p5:composition` (i))
 
 Blueprint-N Part 5, node `bpN:p5:composition` (design `docs/tracks/N/design/PART145-LEAN-DESIGN.md`,
 package C5-8).
@@ -38,8 +38,8 @@ open KAM.Weighted
 
 variable {n : ℕ}
 
-/-- The source premises of `bpN:p5:composition`: `0<ρ<r≤r'-ρ`, `0<σ<s≤s'-σ`, `φ ∈ Os r' s'` of finite
-norm `Φ`, `η = 2Φ/(ρσ) ≤ 1/2`. -/
+/-- The source premises of `bpN:p5:composition`: `0<ρ<r≤r'-ρ`, `0<σ<s≤s'-σ`, `φ ∈ Os r' s'` of
+finite norm `Φ`, `η = 2Φ/(ρσ) ≤ 1/2`. -/
 structure ComposeData (D : Set (Fin n → ℂ)) (r s r' s' ρ σ Φ : ℝ)
     (φ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ) : Prop where
   hρ : 0 < ρ
