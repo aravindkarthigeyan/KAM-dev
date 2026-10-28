@@ -242,6 +242,7 @@ public import KAM.Nekhoroshev.Interfaces.Domains
 public import KAM.Nekhoroshev.Interfaces.HoloReal
 public import KAM.Nekhoroshev.Interfaces.Norms
 public import KAM.Nekhoroshev.Interfaces.Setting
+public import KAM.Nekhoroshev.ODE.Specialization
 public import KAM.Nekhoroshev.QuasiConvex
 public import KAM.Nekhoroshev.ZeroPerturbation
 public import KAM.ODE.Basic
