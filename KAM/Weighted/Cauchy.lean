@@ -20,8 +20,8 @@ For `u` in the class `O(r₀, s₀)` with `|u|_{r₀,s₀} ≤ M`:
   proof is coefficientwise: `û_k(∂_{θⱼ}u) = 2πi kⱼ û_k(u)`, `∑ⱼ 2π |kⱼ| = 2π |k|₁` and
   `x e^{-ax} ≤ 1/(e a)` (K's `KAM.Fourier.mul_exp_radius_sub_le`).
 * `cauchy_action` (b): the action derivatives lose radius `r₀ - r` and a factor `1/(r₀ - r)`. For a
-  finite set `Λ` of modes, norming functionals `λ_k` of the derivatives `∂_{Iᵢ}û_k(I)` give the scalar
-  holomorphic function `J ↦ ∑_{k ∈ Λ} e^{2π s₀|k|₁} λ_k(û_k(J))`, bounded by `M` on the ball
+  finite set `Λ` of modes, norming functionals `λ_k` of the derivatives `∂_{Iᵢ}û_k(I)` give the
+  scalar holomorphic function `J ↦ ∑_{k ∈ Λ} e^{2π s₀|k|₁} λ_k(û_k(J))`, bounded by `M` on the ball
   `B(I, r₀ - r) ⊆ V_{r₀} D`; `general_cauchy` bounds its derivative at `I`, which is the finite
   weighted sum of the derivative coefficients. The sum over modes thus stays inside the Cauchy
   estimate (no `∑ₖ sup_I`).
@@ -58,28 +58,25 @@ private theorem theta_weight_le {s₀ s : ℝ} (hss : s < s₀) (a : ℝ) (ha : 
     (k : Fin n → ℤ) :
     (∑ j : Fin n, 2 * Real.pi * |(k j : ℝ)| * a) * modeWeight s k ≤
       (1 / (Real.exp 1 * (s₀ - s))) * (a * modeWeight s₀ k) := by
-  have hδ : 0 < 2 * Real.pi * (s₀ - s) := by
-    have := Real.pi_pos
-    have : 0 < s₀ - s := by linarith
-    positivity
-  have hsum : ∑ j : Fin n, 2 * Real.pi * |(k j : ℝ)| * a = 2 * Real.pi * KAM.Fourier.modeSize k * a := by
-    unfold KAM.Fourier.modeSize
-    rw [Finset.mul_sum, Finset.sum_mul]
-  have hx := KAM.Fourier.mul_exp_radius_sub_le (2 * Real.pi * s₀) (KAM.Fourier.modeSize k) hδ
-  have hexp : (2 * Real.pi * s₀ - 2 * Real.pi * (s₀ - s)) * KAM.Fourier.modeSize k =
-      2 * Real.pi * s * KAM.Fourier.modeSize k := by ring
-  rw [hexp] at hx
-  unfold modeWeight
-  rw [hsum]
   have hpi := Real.pi_pos
   have hs : 0 < s₀ - s := by linarith
-  have hcalc : 2 * Real.pi * KAM.Fourier.modeSize k * a * Real.exp (2 * Real.pi * s * KAM.Fourier.modeSize k) =
-      (2 * Real.pi * a) * (KAM.Fourier.modeSize k * Real.exp (2 * Real.pi * s * KAM.Fourier.modeSize k)) := by
-    ring
+  have hδ : 0 < 2 * Real.pi * (s₀ - s) := by positivity
+  unfold modeWeight
+  set x : ℝ := KAM.Fourier.modeSize k with hxdef
+  have hsum : ∑ j : Fin n, 2 * Real.pi * |(k j : ℝ)| * a = 2 * Real.pi * x * a := by
+    rw [hxdef]
+    unfold KAM.Fourier.modeSize
+    rw [Finset.mul_sum, Finset.sum_mul]
+  have hx := KAM.Fourier.mul_exp_radius_sub_le (2 * Real.pi * s₀) x hδ
+  have hexp : (2 * Real.pi * s₀ - 2 * Real.pi * (s₀ - s)) * x = 2 * Real.pi * s * x := by ring
+  rw [hexp] at hx
+  rw [hsum]
+  have hcalc : 2 * Real.pi * x * a * Real.exp (2 * Real.pi * s * x) =
+      (2 * Real.pi * a) * (x * Real.exp (2 * Real.pi * s * x)) := by ring
   rw [hcalc]
-  have h1 : (2 * Real.pi * a) * (KAM.Fourier.modeSize k * Real.exp (2 * Real.pi * s * KAM.Fourier.modeSize k)) ≤
+  have h1 : (2 * Real.pi * a) * (x * Real.exp (2 * Real.pi * s * x)) ≤
       (2 * Real.pi * a) * ((Real.exp (-1) / (2 * Real.pi * (s₀ - s))) *
-        Real.exp (2 * Real.pi * s₀ * KAM.Fourier.modeSize k)) :=
+        Real.exp (2 * Real.pi * s₀ * x)) :=
     mul_le_mul_of_nonneg_left hx (by positivity)
   refine h1.trans (le_of_eq ?_)
   rw [Real.exp_neg]
@@ -175,7 +172,8 @@ private theorem action_partial_sum_le {D : Set (Fin m → ℂ)} {r₀ r s₀ M :
     calc ‖H J‖ ≤ ∑ k ∈ Λ, ‖(w k : ℂ) * g k (coeff u J k)‖ := norm_sum_le _ _
       _ ≤ ∑ k ∈ Λ, ‖coeff u J k‖ * modeWeight s₀ k := by
           refine Finset.sum_le_sum fun k _ => ?_
-          rw [norm_mul, Complex.norm_real, Real.norm_of_nonneg (show 0 ≤ w k from (Real.exp_pos _).le)]
+          rw [norm_mul, Complex.norm_real,
+            Real.norm_of_nonneg (show 0 ≤ w k from (Real.exp_pos _).le)]
           have h1 : ‖g k (coeff u J k)‖ ≤ ‖coeff u J k‖ :=
             ((g k).le_opNorm _).trans (mul_le_of_le_one_left (norm_nonneg _) (hgn k))
           rw [mul_comm]
@@ -220,6 +218,9 @@ theorem cauchy_action {D : Set (Fin m → ℂ)} {r₀ r s₀ M : ℝ} {u : (Fin 
 
 /-! ### Losses -/
 
+-- `hρr : ρ < r` is part of the signature (`r - ρ > 0` is not needed by the proof: for `r ≤ ρ` the
+-- region `V_{r-ρ} D` is empty), so the unused-variable linter is silenced for this statement only.
+set_option linter.unusedVariables false in
 /-- `bpN:p4:cauchy`, "in particular" (losses `σ`, `ρ`): `|∂θ u|_{r,s-σ} ≤ |u|_{r,s}/(eσ)`,
 `|∂I u|_{r-ρ,s} ≤ |u|_{r,s}/ρ`. -/
 theorem cauchy_loss {D : Set (Fin m → ℂ)} {r s ρ σ M : ℝ} {u : (Fin n → ℂ) × (Fin m → ℂ) → W}
