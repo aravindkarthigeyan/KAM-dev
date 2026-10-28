@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -98,9 +98,9 @@ EDGE: bpP:p4:conv#data | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:collar@L24-L
 EDGE: stepP:p4:co-compact | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:collar@L31-L31 | proof step (a)
 EDGE: stepP:p4:co-meas | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:collar@L33-L33 | proof step (b)
 EDGE: stepP:p4:co-nbhd | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:collar@L35-L35 | proof step (c)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -125,9 +125,9 @@ DEPS: bpP:p4:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:co-compact@L32-L32 | definition of D_t
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -153,9 +153,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:co-meas@L34-L34 | the hypothesis hboundary and the set D_t
 EDGE: K:bp:p1:ext-lebesgue | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:co-meas@L34-L34 | meas V <= meas D_t + meas(V minus D_t) (monotone, subadditive)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -181,9 +181,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:ext-conn | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:co-nbhd@L36-L36 | a connected ball meeting V and missing its boundary lies in V
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:co-nbhd@L35-L36 | definitions of N_s and D_t
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -209,9 +209,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p4:lc-contra | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lip-compact@L45-L45 | proof step
 EDGE: stepP:p4:lc-local | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lip-compact@L47-L47 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -235,9 +235,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -253,7 +253,7 @@ CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the sequences of stepP:p4:lc-contra; O open; D_x f jointly continuous
 SOURCE_QUANTIFIERS: delta > 0 with closed polydisc around (theta*, x*) in O; M_* := sup of ¦D_x f¦ over it; m large
 SOURCE_CONCLUSION: for large m the segment [x_m, x_m'] lies in B_delta(x*), so the mean value inequality gives ¦f(theta_m,x_m) - f(theta_m,x_m')¦ <= M_* ¦x_m - x_m'¦, contradicting the choice for m > M_*
-CONSTANT_SCOPE: M_* depends on (f, theta*, x*) only
+CONSTANT_SCOPE: M_* is local to the chosen closed delta-neighbourhood in O; no uniform dependence beyond that choice is asserted
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -261,10 +261,10 @@ FROZEN_ABI_SHA256: -
 DEPS: stepP:p4:lc-contra, K:bp:p1:ext-mvt
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p4:lc-contra | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lc-local@L45-L47 | sequences and limit point (theta*, x*) produced by the contradiction step
+EDGE: stepP:p4:lc-contra | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lc-local@L48-L48 | sequences and limit point (theta*, x*) produced by the contradiction step
 EDGE: K:bp:p1:ext-mvt | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lc-local@L48-L48 | mean value inequality on a convex ball (replaces the alias item bpP:p4:ext-mvt)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -293,9 +293,9 @@ EDGE: bpP:p0:fastdiffeo#HasFastDiffeomorphism | blueprint-P/parts/p4-pg-measure.
 EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lip-inverse@L52-L52 | omega_{H_0} = fastFrequency H_0
 EDGE: stepP:p4:li-cont | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lip-inverse@L56-L56 | proof step
 EDGE: stepP:p4:li-lip | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lip-inverse@L58-L58 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -316,14 +316,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p4:ext-deriv, bpP:p0:fastdiffeo#HasFastDiffeomorphism, bpP:p0:fastfreq#fastFrequency
+DEPS: bpP:p4:ext-deriv, bpP:p0:fastdiffeo#HasFastDiffeomorphism, bpP:p0:fastfreq#fastFrequency, bpP:p1:ext-borel
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:ext-deriv | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-cont@L57-L57 | the derivative of a real analytic function is real analytic
 EDGE: bpP:p0:fastdiffeo#HasFastDiffeomorphism | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-cont@L57-L57 | clauses (i) and (ii)
 EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-cont@L57-L57 | omega_{H_0} is the derivative of H_0
+EDGE: bpP:p1:ext-borel | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-cont@L57-L57 | the continuous image Y_0 of the compact closure of V is compact
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -351,9 +352,9 @@ ROUTE_FOR: -
 EDGE: bpP:p4:lip-compact | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-lip@L59-L59 | applied with p = 0
 EDGE: bpP:p0:fastdiffeo#HasFastDiffeomorphism | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-lip@L59-L59 | clause (iii): g is C^1 on omega_{H_0}(W)
 EDGE: stepP:p4:li-cont | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-lip@L58-L59 | Y_0 compact and contained in omega_{H_0}(W)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -378,9 +379,9 @@ DEPS: K:bp:p1:ext-cramer
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:ext-cramer | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:beta-inverse@L66-L66 | inverse of a nonsingular matrix as adjugate over determinant
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -409,9 +410,9 @@ EDGE: bpP:p3:period-dictionary | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq
 EDGE: bpP:p1:dio-basic | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L75-L75 | cone property (c) of the two-scale Diophantine condition
 EDGE: bpP:p1:two-scale | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L75-L75 | the set D_{alpha_1,alpha_2,tau}
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L75-L75 | D^dio := omega_0^{-1}(D_{gamma_1,gamma_2,tau}) intersect D and the conventions of Part 3
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -438,9 +439,9 @@ ROUTE_FOR: -
 EDGE: bpP:p4:freq | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:data@L79-L84 | G_mu, omega^s_mu, beta of the averaged frequency map in (N1) to (N3)
 EDGE: bpP:p4:lip-inverse | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:data@L85-L85 | constants R_y, L_g, Lambda_g in mu_1 and M
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:data@L79-L79 | V and the compact D subset V
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -465,9 +466,9 @@ DEPS: bpP:p4:ext-tonelli
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:ext-tonelli | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:affine-slab@L92-L92 | each section in the coordinate x_i with ¦ell_i¦ = ¦ell¦ lies in an interval of length 2a'/¦ell_i¦; Tonelli
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -480,7 +481,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lattice-tail@L95-L9
 PROOF_SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lattice-tail@L99-L102
 CONTRACT_ID: bpP:p4:lattice-tail
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: n, b >= 1 integers; tau > n (so tau - 1 > n - 1); (b) real m >= 1
+SOURCE_HYPOTHESES: a, b >= 1 integers and n = a + b (Part 4 conventions); tau > n (so tau - 1 > n - 1 and tau > b - 1); (b) real m >= 1
 SOURCE_QUANTIFIERS: n, b, tau fixed; (b) then m
 SOURCE_CONCLUSION: (a) sum over k in Z^n minus 0 of ¦k¦_1^{-tau} <= S_1 := 2 3^{n-1} (tau+1-n)/(tau-n); sum over k_2 in Z^b minus 0 of ¦k_2¦_1^{-tau-1} <= S_2 := 2 3^{b-1} (tau+2-b)/(tau+1-b); (b) sum over ¦k¦_1 > m of ¦k¦_1^{-tau-1} <= C_T (2/m)^{tau+1-n}, C_T := 2 3^{n-1}/(tau+1-n)
 CONSTANT_SCOPE: S_1, S_2, C_T depend on (n, b, tau) only
@@ -494,7 +495,7 @@ ROUTE_FOR: -
 EDGE: stepP:p4:lt-a | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lattice-tail@L100-L100 | proof step (a)
 EDGE: stepP:p4:lt-b | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lattice-tail@L101-L101 | proof step (b)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -508,7 +509,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lt-a@L100-L100
 PROOF_SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lt-a@L100-L100
 CONTRACT_ID: stepP:p4:lt-a
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: tau > n; K lattice sum with (n, tau - 1) (valid as tau - 1 > n - 1) and with (b, tau)
+SOURCE_HYPOTHESES: a, b >= 1 and n = a + b; tau > n; K lattice sum with (n, tau - 1) (valid as tau - 1 > n - 1) and with (b, tau) (valid as tau > b - 1)
 SOURCE_QUANTIFIERS: n, b, tau fixed
 SOURCE_CONCLUSION: sums S_1 and S_2 bounds of part (a)
 CONSTANT_SCOPE: none
@@ -521,7 +522,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p4:lattice-sum | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lt-a@L100-L100 | Z^n sum with exponent tau-1 and Z^b sum with exponent tau
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -537,7 +538,7 @@ CONTRACT_ID: stepP:p4:lt-b
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: tau > n; m >= 1 real; lattice count of {¦k¦_1 = l}
 SOURCE_QUANTIFIERS: m >= 1 given; l ranges over integers > m
-SOURCE_CONCLUSION: the tail sum is <= 2 3^{n-1} sum_{l > m} l^{-p} (p = tau + 2 - n > 1) <= (m/2)^{1-p}/(p-1)
+SOURCE_CONCLUSION: the tail sum is <= 2 3^{n-1} sum_{l > m} l^{-p} (p = tau + 2 - n > 1) <= 2 3^{n-1} (m/2)^{1-p}/(p-1)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -548,7 +549,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p4:lattice-count | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lt-b@L101-L101 | number of lattice points with ¦k¦_1 = l is at most 2 3^{n-1} l^{n-1}
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -570,7 +571,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p4:data, bpP:p4:freq, bpP:p1:two-scale, bpP:p4:lip-inverse, stepP:p4:dm-slow, stepP:p4:dm-y, stepP:p4:dm-A, stepP:p4:dm-Bstruct, stepP:p4:dm-B, stepP:p4:dm-sum
+DEPS: bpP:p4:data, bpP:p4:freq, bpP:p1:two-scale, bpP:p4:lip-inverse, stepP:p4:dm-slow, stepP:p4:dm-y, stepP:p4:dm-A, stepP:p4:dm-Bstruct, stepP:p4:dm-B, stepP:p4:dm-sum, bpP:p4:lattice-tail
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale-diophantine-measure@L105-L105 | standing data (S4), (N1) to (N3), mu_1, Lambda_N, L_beta
@@ -583,8 +584,9 @@ EDGE: stepP:p4:dm-A | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale-dioph
 EDGE: stepP:p4:dm-Bstruct | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale-diophantine-measure@L130-L130 | proof step: structure of K_B
 EDGE: stepP:p4:dm-B | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale-diophantine-measure@L133-L133 | proof step: case K_B
 EDGE: stepP:p4:dm-sum | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale-diophantine-measure@L139-L139 | proof step: sum
+EDGE: bpP:p4:lattice-tail | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale-diophantine-measure@L109-L109 | S_1, S_2 and C_T in the displayed definitions of c_1 and c_2
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -614,9 +616,9 @@ EDGE: bpP:p4:lattice-tail | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-slow
 EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-slow@L119-L119 | (N3): beta^T k_2 != 0 and ¦beta^T k_2¦ >= ¦k_2¦_1/(b L_beta)
 EDGE: bpP:p4:freq | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-slow@L119-L119 | F_k = mu k_2.omega^s_mu when k_1 = 0
 EDGE: bpP:p4:ext-tonelli | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-slow@L119-L119 | integration in I of the xi-sections
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -645,9 +647,9 @@ EDGE: bpP:p1:ext-borel | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-y@L122-
 EDGE: K:bp:p1:lip-image | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-y@L122-L122 | meas R_k <= Lambda_g^n meas R_k' in R^n
 EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-y@L123-L123 | (N1) with Lambda_N
 EDGE: bpP:p4:freq | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-y@L122-L123 | G_mu, omega^s_mu composed with g
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -671,12 +673,12 @@ FROZEN_ABI_SHA256: -
 DEPS: stepP:p4:dm-y, bpP:p4:ext-tonelli, bpP:p4:lattice-tail, bpP:p4:data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p4:dm-y | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L125-L125 | coordinates y, F_k = k_1.y + mu G_k and the Lipschitz bound of G_k
+EDGE: stepP:p4:dm-y | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L126-L128 | coordinates y, F_k = k_1.y + mu G_k and the Lipschitz bound of G_k
 EDGE: bpP:p4:ext-tonelli | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L127-L127 | short sections plus projection in [-R_y,R_y]^{a-1} x [-lambda,lambda]^b
 EDGE: bpP:p4:lattice-tail | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L127-L127 | sum of ¦k¦_1^{-tau} bounded by S_1
-EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L125-L125 | Lambda_N, Lambda_g in the definition of K_A
+EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L126-L127 | Lambda_N, Lambda_g in the definition of K_A
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -702,9 +704,9 @@ DEPS: bpP:p4:data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-Bstruct@L130-L131 | M, mu_1, Lambda_N, L_beta and the bound mu <= mu_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -734,9 +736,9 @@ EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-B@L133-L136 
 EDGE: bpP:p4:freq | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-B@L135-L135 | omega^s_mu affine in xi
 EDGE: bpP:p4:ext-tonelli | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-B@L137-L137 | short xi_j-sections plus projection
 EDGE: bpP:p4:lattice-tail | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-B@L137-L137 | tail sum (b) over ¦k¦_1 > K_mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -757,15 +759,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p4:dm-slow, stepP:p4:dm-A, stepP:p4:dm-B, K:bp:p1:ext-lebesgue
+DEPS: stepP:p4:dm-slow, stepP:p4:dm-A, stepP:p4:dm-B, K:bp:p1:ext-lebesgue, bpP:p4:data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p4:dm-slow | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L139-L139 | bound for R^{(0)}
-EDGE: stepP:p4:dm-A | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L139-L139 | bound for R^{(A)}
-EDGE: stepP:p4:dm-B | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L139-L139 | bound for R^{(B)}
-EDGE: K:bp:p1:ext-lebesgue | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L139-L139 | subadditivity of meas over the union
+EDGE: stepP:p4:dm-slow | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L140-L140 | bound for R^{(0)}
+EDGE: stepP:p4:dm-A | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L140-L140 | bound for R^{(A)}
+EDGE: stepP:p4:dm-B | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L140-L140 | bound for R^{(B)}
+EDGE: K:bp:p1:ext-lebesgue | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L140-L140 | subadditivity of meas over the union
+EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L140-L140 | standing D and Lambda_g in the scalar assembly and normalization by meas D
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -779,7 +782,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L161-L162
 PROOF_SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L161-L162
 CONTRACT_ID: stepP:p4:dc-prod
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 0 < t < d; 0 < r_K < min{t, lambda_1}; D = D_t x A_sh of bpP:p4:conv#shell; max norm so dist(x, X x Y) = max(dist(x_1, X), dist(x_2, Y))
+SOURCE_HYPOTHESES: 0 < t < d; 0 < r_K < min{t, lambda_1}; D = D_t x A_sh of bpP:p4:conv#shell; max norm
 SOURCE_QUANTIFIERS: t, r_K, lambda_1, lambda_2 fixed
 SOURCE_CONCLUSION: Re(D_{r_K}) = N_{r_K}(D_t) x (lambda_1 - r_K, lambda_2 + r_K)^b subset V x (0, infinity)^b (the real neighbourhood of a product is the product of real neighbourhoods; N_{r_K}(D_t) subset V by the collar lemma (c))
 CONSTANT_SCOPE: none
@@ -787,14 +790,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p4:collar, bpP:p4:conv#shell, bpP:p3:conv#data
+DEPS: bpP:p4:collar, bpP:p4:conv#shell, bpP:p3:conv#data, bpP:p4:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:collar | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L162-L162 | N_{r_K}(D_t) subset V, Lemma collar (c)
-EDGE: bpP:p4:conv#shell | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L161-L161 | D = D_t x A_sh
-EDGE: bpP:p3:conv#data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L161-L161 | Re(D_r) is the real neighbourhood of Part 3 conventions
+EDGE: bpP:p4:conv#shell | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L162-L162 | D = D_t x A_sh
+EDGE: bpP:p3:conv#data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L162-L162 | Re(D_r) is the real neighbourhood of Part 3 conventions
+EDGE: bpP:p4:conv#data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L162-L162 | the definitions of N_s and D_t used in the specialized inclusion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -825,9 +829,9 @@ EDGE: bpP:p4:conv#data | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:disc-measure
 EDGE: stepP:p4:dm-jac | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:disc-measure@L180-L180 | proof step (a)
 EDGE: stepP:p4:dm-cell | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:disc-measure@L182-L182 | proof step (b)
 EDGE: stepP:p4:dm-shell | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:disc-measure@L184-L184 | proof step (c)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -851,12 +855,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpP:p4:s-disc#chart, bpP:p1:typical, bpP:p1:liouville, bpP:p1:ext-area
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p4:s-disc#chart | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-jac@L180-L180 | Pi and E
+EDGE: bpP:p4:s-disc#chart | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-jac@L181-L181 | Pi and E
 EDGE: bpP:p1:typical | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-jac@L181-L181 | dp ^ dq = d xi ^ d psi, Remark typical (1)
 EDGE: bpP:p1:liouville | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-jac@L181-L181 | charts scale Lebesgue measure on injectivity sets
 EDGE: bpP:p1:ext-area | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-jac@L181-L181 | area formula
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -882,12 +886,12 @@ DEPS: stepP:p4:dm-jac, bpP:p0:cylinder#cylinderCell, bpP:p0:cylinder#cylinder, b
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p4:dm-jac | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L183-L183 | meas E(X) = (2pi)^n meas X
-EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L182-L182 | F(V,r) fundamental cell
-EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L182-L182 | the discs (p_j^2 + q_j^2)/2 < r^2/2 of the cylinder
-EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L182-L182 | xi_j = R_j = (p_j^2 + q_j^2)/2
-EDGE: bpP:p4:s-disc#chart | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L182-L182 | z = E(I,xi,theta)
+EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L183-L183 | F(V,r) fundamental cell
+EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L183-L183 | the discs (p_j^2 + q_j^2)/2 < r^2/2 of the cylinder
+EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L183-L183 | xi_j = R_j = (p_j^2 + q_j^2)/2
+EDGE: bpP:p4:s-disc#chart | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L183-L183 | z = E(I,xi,theta)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -903,19 +907,20 @@ CONTRACT_ID: stepP:p4:dm-shell
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: lambda_1 < lambda_2 = r^2/2; F = E(V x (0,lambda_2)^b x [0,1)^n) up to a null set; dm-cell
 SOURCE_QUANTIFIERS: 0 < lambda_1 < lambda_2
-SOURCE_CONCLUSION: the set {z in F(V,r): xi_j <= lambda_1 some j} is E(V x {xi: exists j, xi_j <= lambda_1} x [0,1)^n) with the xi-set of measure <= b lambda_1 lambda_2^{b-1}; dividing by (b) gives <= b (lambda_1/lambda_2) meas F
+SOURCE_CONCLUSION: up to the null set of part (b), the set {z in F(V,r): xi_j <= lambda_1 some j} is E(V x {xi: exists j, xi_j <= lambda_1} x [0,1)^n) with the xi-set of measure <= b lambda_1 lambda_2^{b-1}; dividing by (b) gives <= b (lambda_1/lambda_2) meas F
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p4:s-disc#chart, stepP:p4:dm-cell
+DEPS: bpP:p4:s-disc#chart, stepP:p4:dm-cell, stepP:p4:dm-jac
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p4:s-disc#chart | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-shell@L184-L184 | chart E
+EDGE: bpP:p4:s-disc#chart | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-shell@L185-L185 | chart E
 EDGE: stepP:p4:dm-cell | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-shell@L185-L185 | meas F(V,r) of part (b)
+EDGE: stepP:p4:dm-jac | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-shell@L185-L185 | the chart measure multiplier (2pi)^n converts the action-shell volume to physical measure
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p4
+EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -941,9 +946,9 @@ DEPS: bpP:p4:ext-conn
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:ext-conn | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:conv#data@L19-L19 | the nonemptiness of the boundary: V nonempty open and not R^a, and R^a is connected, so it meets the boundary of V
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -968,9 +973,9 @@ DEPS: bpP:p4:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:conv#shell@L153-L153 | D_t as the action factor of D
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -996,9 +1001,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:blocks#assemble | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:s-disc#chart@L170-L170 | Pi lands in the assembled coordinates z = ((phi,q),(I,p))
 EDGE: bpP:p3:period-dictionary | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:s-disc#chart@L171-L171 | E is the dictionary of the period lemma with Q
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

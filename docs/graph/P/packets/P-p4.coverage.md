@@ -3,9 +3,9 @@ KIND: external
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:ext-tonelli@L11-L11
 DISPOSITION: NODE bpP:p4:ext-tonelli
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: bpP:p4:ext-mvt
 KIND: external
@@ -21,72 +21,72 @@ KIND: external
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:ext-deriv@L13-L13
 DISPOSITION: NODE bpP:p4:ext-deriv
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: bpP:p4:ext-conn
 KIND: external
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:ext-conn@L14-L14
 DISPOSITION: NODE bpP:p4:ext-conn
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: bpP:p4:collar
 KIND: lemma
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:collar@L22-L29
 DISPOSITION: NODE bpP:p4:collar
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:co-compact
 KIND: proof-region
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:co-compact@L31-L32
 DISPOSITION: NODE stepP:p4:co-compact
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:co-meas
 KIND: proof-region
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:co-meas@L33-L34
 DISPOSITION: NODE stepP:p4:co-meas
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:co-nbhd
 KIND: proof-region
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:co-nbhd@L35-L36
 DISPOSITION: NODE stepP:p4:co-nbhd
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: bpP:p4:lip-compact
 KIND: lemma
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lip-compact@L41-L43
 DISPOSITION: NODE bpP:p4:lip-compact
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:lc-contra
 KIND: proof-region
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lc-contra@L45-L46
 DISPOSITION: NODE stepP:p4:lc-contra
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:lc-local
 KIND: proof-region
@@ -102,9 +102,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lip-inverse@L51-L54
 DISPOSITION: NODE bpP:p4:lip-inverse
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:li-cont
 KIND: proof-region
@@ -120,45 +120,45 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-lip@L58-L59
 DISPOSITION: NODE stepP:p4:li-lip
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: bpP:p4:beta-inverse
 KIND: lemma
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:beta-inverse@L62-L64
 DISPOSITION: NODE bpP:p4:beta-inverse
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: bpP:p4:freq
 KIND: definition
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L72-L76
 DISPOSITION: NODE bpP:p4:freq
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: bpP:p4:data
 KIND: definition
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:data@L78-L86
 DISPOSITION: NODE bpP:p4:data
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: bpP:p4:affine-slab
 KIND: lemma
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:affine-slab@L88-L90
 DISPOSITION: NODE bpP:p4:affine-slab
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: bpP:p4:lattice-tail
 KIND: lemma
@@ -201,18 +201,18 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-slow@L118-L119
 DISPOSITION: NODE stepP:p4:dm-slow
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:dm-y
 KIND: proof-region
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-y@L121-L123
 DISPOSITION: NODE stepP:p4:dm-y
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:dm-A
 KIND: proof-region
@@ -228,18 +228,18 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-Bstruct@L130-L131
 DISPOSITION: NODE stepP:p4:dm-Bstruct
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:dm-B
 KIND: proof-region
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-B@L133-L138
 DISPOSITION: NODE stepP:p4:dm-B
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:dm-sum
 KIND: proof-region
@@ -300,9 +300,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:disc-measure@L173-L178
 DISPOSITION: NODE bpP:p4:disc-measure
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: -
+REVIEWER: sol-review-P-f
 
 ITEM: stepP:p4:dm-jac
 KIND: proof-region

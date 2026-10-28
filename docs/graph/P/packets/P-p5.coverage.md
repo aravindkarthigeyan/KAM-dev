@@ -3,18 +3,18 @@ KIND: claim
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:order@L13-L23
 DISPOSITION: NODE bpP:p5:order
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:ext
 KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:ext@L29-L31
 DISPOSITION: NODE bpP:p5:ext
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:ext-loc
 KIND: proof-region
@@ -39,36 +39,36 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ext-per@L35-L35
 DISPOSITION: NODE stepP:p5:ext-per
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:ext-H0
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ext-H0@L36-L36
 DISPOSITION: NODE stepP:p5:ext-H0
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:consts
 KIND: definition
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:consts@L39-L44
 DISPOSITION: NODE bpP:p5:consts
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:birkhoff-ext
 KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:birkhoff-ext@L49-L56
 DISPOSITION: NODE bpP:p5:birkhoff-ext
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:be-coef
 KIND: proof-region
@@ -102,27 +102,27 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-det@L61-L61
 DISPOSITION: NODE stepP:p5:be-det
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:uniform-remainder
 KIND: proposition
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:uniform-remainder@L64-L70
 DISPOSITION: NODE bpP:p5:uniform-remainder
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:ur-bound
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ur-bound@L72-L72
 DISPOSITION: NODE stepP:p5:ur-bound
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:ur-schwarz
 KIND: proof-region
@@ -138,18 +138,18 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lip-complex@L80-L82
 DISPOSITION: NODE bpP:p5:lip-complex
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:bilip
 KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:bilip@L88-L90
 DISPOSITION: NODE bpP:p5:bilip
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:bl-real
 KIND: proof-region
@@ -174,18 +174,18 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:dio-one@L96-L98
 DISPOSITION: NODE bpP:p5:dio-one
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:freq-data
 KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:freq-data@L104-L108
 DISPOSITION: NODE bpP:p5:freq-data
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:fd-bd
 KIND: proof-region
@@ -201,9 +201,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-lip@L111-L111
 DISPOSITION: NODE stepP:p5:fd-lip
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:fd-beta
 KIND: proof-region
@@ -219,18 +219,18 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:freq-inj@L115-L125
 DISPOSITION: NODE bpP:p5:freq-inj
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:fi-inj
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-inj@L127-L127
 DISPOSITION: NODE stepP:p5:fi-inj
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:fi-blk
 KIND: proof-region
@@ -271,8 +271,8 @@ REVIEWER: -
 ITEM: bpP:p5:rstar
 KIND: definition
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rstar@L147-L156
-DISPOSITION: NODE bpP:p5:rstar
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE bpP:p5:rstar, bpP:p5:rstar#Cgamma
+REASON: labelled unit plus its separately consumed numerical constant choice; the choice must remain distinct from the later estimate to preserve direct dependencies without cycles
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
@@ -291,27 +291,27 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:avg@L170-L174
 DISPOSITION: NODE bpP:p5:avg
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:av-dict
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-dict@L176-L176
 DISPOSITION: NODE stepP:p5:av-dict
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:av-R1
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-R1@L177-L177
 DISPOSITION: NODE stepP:p5:av-R1
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:av-R2
 KIND: proof-region
@@ -336,9 +336,9 @@ KIND: definition
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:phi@L184-L186
 DISPOSITION: NODE bpP:p5:phi
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:phi-chart
 KIND: lemma
@@ -363,24 +363,24 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:pc-lat@L194-L194
 DISPOSITION: NODE stepP:p5:pc-lat
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:pc-ham
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:pc-ham@L195-L195
 DISPOSITION: NODE stepP:p5:pc-ham
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:kam-hyp
 KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-hyp@L198-L202
-DISPOSITION: NODE bpP:p5:kam-hyp
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE bpP:p5:kam-hyp, bpP:p5:kam-hyp#C1
+REASON: labelled unit plus its separately consumed numerical constant choice; the choice must remain distinct from the later estimate to preserve direct dependencies without cycles
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
@@ -399,9 +399,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-h@L205-L205
 DISPOSITION: NODE stepP:p5:kh-h
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:kh-f
 KIND: proof-region
@@ -424,8 +424,8 @@ REVIEWER: -
 ITEM: bpP:p5:kam-cond
 KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L212-L222
-DISPOSITION: NODE bpP:p5:kam-cond
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE bpP:p5:kam-cond, bpP:p5:kam-cond#scales
+REASON: labelled unit plus its separately consumed numerical constant choice; the choice must remain distinct from the later estimate to preserve direct dependencies without cycles
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
@@ -435,9 +435,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kc-eval@L224-L224
 DISPOSITION: NODE stepP:p5:kc-eval
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:kc-small
 KIND: proof-region
@@ -462,9 +462,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:rk-dir@L233-L233
 DISPOSITION: NODE stepP:p5:rk-dir
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:use5-fix
 KIND: claim
@@ -489,9 +489,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-range@L245-L245
 DISPOSITION: NODE stepP:p5:lo-range
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:lo-act
 KIND: proof-region
@@ -507,18 +507,18 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-disc@L247-L247
 DISPOSITION: NODE stepP:p5:lo-disc
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:kset
 KIND: definition
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kset@L250-L254
 DISPOSITION: NODE bpP:p5:kset
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:torus-conv
 KIND: proposition
@@ -552,9 +552,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-pipe@L262-L262
 DISPOSITION: NODE stepP:p5:tc-pipe
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:tc-freq
 KIND: proof-region
@@ -579,9 +579,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-cell@L270-L270
 DISPOSITION: NODE stepP:p5:ct-cell
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:ct-dec
 KIND: proof-region
@@ -622,8 +622,8 @@ REVIEWER: -
 ITEM: bpP:p5:budget
 KIND: lemma
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:budget@L280-L283
-DISPOSITION: NODE bpP:p5:budget
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE bpP:p5:budget, bpP:p5:budget#constant
+REASON: labelled unit plus its separately consumed numerical constant choice; the choice must remain distinct from the later estimate to preserve direct dependencies without cycles
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
@@ -633,9 +633,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-read@L285-L285
 DISPOSITION: NODE stepP:p5:bu-read
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:bu-dio
 KIND: proof-region
@@ -658,8 +658,8 @@ REVIEWER: -
 ITEM: bpP:p5:lower
 KIND: proposition
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L290-L293
-DISPOSITION: NODE bpP:p5:lower
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: NODE bpP:p5:lower, bpP:p5:lower#constant
+REASON: labelled unit plus its separately consumed numerical constant choice; the choice must remain distinct from the later estimate to preserve direct dependencies without cycles
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
@@ -678,9 +678,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-bad@L296-L296
 DISPOSITION: NODE stepP:p5:lo-bad
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:lo-lost
 KIND: proof-region
@@ -714,9 +714,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-null@L310-L310
 DISPOSITION: NODE stepP:p5:st-null
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:st-ivt
 KIND: proof-region
@@ -750,36 +750,36 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:mn-const@L322-L322
 DISPOSITION: NODE stepP:p5:mn-const
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:mn-given
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:mn-given@L323-L323
 DISPOSITION: NODE stepP:p5:mn-given
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:mn-set
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:mn-set@L324-L324
 DISPOSITION: NODE stepP:p5:mn-set
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: stepP:p5:mn-meas
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:mn-meas@L325-L325
 DISPOSITION: NODE stepP:p5:mn-meas
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: -
+REVIEWER: sol-review-P-g
 
 ITEM: bpP:p5:quant
 KIND: claim
@@ -1019,7 +1019,7 @@ ITEM: p5:prose-L334-L339
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#prose@L334-L339
 DISPOSITION: EXCLUDED
-REASON: errata, deviations, external-facts list, forward references and label index (administrative). Check made: every item of the external-facts list (identity theorem, Cauchy, compactness, Cramer, Schur/Neumann, Schwarz lemma, monotone continuity of measure, Lebesgue number) was linked where a step uses it (Cauchy: K:bp:p1:cauchy-open, Cramer: K:bp:p1:ext-cramer); the others are classical facts without a track-P external node, flagged in the NOTE of the steps ext-loc, ext-glue, be-jet, ur-schwarz, fi-blk, st-ivt
+REASON: administrative errata, deviations, external-facts list, forward references and index. The list itself is not an approved external. Unregistered inputs are exposed as SOURCE_GAP in ext-loc, ext-glue, be-coef, be-an, be-jet, ur-schwarz, bl-real, bl-comp, fi-blk, fi-inv and st-ivt. Cauchy and Cramer use their existing K imports; Neumann inversion uses bpP:p3:ext-neumann. The coverage exclusion does not certify that the unregistered inputs have been proved.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -

@@ -3,63 +3,63 @@ KIND: external
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:ext-comp@L21-L21
 DISPOSITION: NODE bpP:p1:ext-comp
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:ext-ift
 KIND: external
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:ext-ift@L22-L22
 DISPOSITION: NODE bpP:p1:ext-ift
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:ext-area
 KIND: external
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:ext-area@L23-L23
 DISPOSITION: NODE bpP:p1:ext-area
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:ext-borel
 KIND: external
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:ext-borel@L24-L24
 DISPOSITION: NODE bpP:p1:ext-borel
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:ext-det
 KIND: external
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:ext-det@L25-L25
 DISPOSITION: NODE bpP:p1:ext-det
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:omega-algebra
 KIND: lemma
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:omega-algebra@L30-L34
 DISPOSITION: NODE bpP:p1:omega-algebra
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p1:oa-mat
 KIND: proof-region
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:oa-mat@L36-L36
 DISPOSITION: NODE stepP:p1:oa-mat
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p1:oa-b
 KIND: proof-region
@@ -84,27 +84,27 @@ KIND: definition
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart@L46-L48
 DISPOSITION: NODE bpP:p1:chart
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:chart-field
 KIND: lemma
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart-field@L51-L55
 DISPOSITION: NODE bpP:p1:chart-field
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p1:cf-diff
 KIND: proof-region
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-diff@L57-L57
 DISPOSITION: NODE stepP:p1:cf-diff
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p1:cf-field
 KIND: proof-region
@@ -120,9 +120,9 @@ KIND: corollary
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart-orbit@L61-L63
 DISPOSITION: NODE bpP:p1:chart-orbit
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:vs-N
 KIND: claim
@@ -147,9 +147,9 @@ KIND: definition
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:lattice-torus@L81-L92
 DISPOSITION: NODE bpP:p1:lattice-torus
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:torus-transport
 KIND: theorem
@@ -165,9 +165,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-an@L111-L111
 DISPOSITION: NODE stepP:p1:tt-an
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p1:tt-lat
 KIND: proof-region
@@ -210,27 +210,27 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-dio@L116-L116
 DISPOSITION: NODE stepP:p1:tt-dio
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:typical
 KIND: claim
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:typical@L119-L121
 DISPOSITION: NODE bpP:p1:typical
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:period-convert
 KIND: lemma
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:period-convert@L127-L135
 DISPOSITION: NODE bpP:p1:period-convert
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p1:pc-a
 KIND: proof-region
@@ -264,27 +264,27 @@ KIND: corollary
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:cyl-pipeline@L142-L144
 DISPOSITION: NODE bpP:p1:cyl-pipeline
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:phys-pipeline
 KIND: corollary
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:phys-pipeline@L149-L151
 DISPOSITION: NODE bpP:p1:phys-pipeline
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:two-scale
 KIND: definition
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:two-scale@L158-L161
 DISPOSITION: NODE bpP:p1:two-scale
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:dio-basic
 KIND: lemma
@@ -300,9 +300,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:dio-sources@L176-L181
 DISPOSITION: NODE bpP:p1:dio-sources
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p1:dio-d
 KIND: claim
@@ -318,9 +318,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouville@L191-L193
 DISPOSITION: NODE bpP:p1:liouville
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p1:li-det
 KIND: proof-region
@@ -381,18 +381,18 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:torus-union@L212-L214
 DISPOSITION: NODE bpP:p1:torus-union
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p1:tu-ext
 KIND: proof-region
 SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-ext@L216-L216
 DISPOSITION: NODE stepP:p1:tu-ext
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p1:tu-meas
 KIND: proof-region
@@ -642,9 +642,9 @@ KIND: definition
 SOURCE: blueprint-P/parts/p2-averaging.tex#bpP:p2:setting@L40-L43
 DISPOSITION: NODE bpP:p2:setting
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: bpP:p2:direct
 KIND: lemma
@@ -705,9 +705,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p2-averaging.tex#bpP:p2:nfb@L78-L93
 DISPOSITION: NODE bpP:p2:nfb
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p2:nfb-first
 KIND: proof-region
@@ -768,9 +768,9 @@ KIND: corollary
 SOURCE: blueprint-P/parts/p2-averaging.tex#bpP:p2:avg@L136-L146
 DISPOSITION: NODE bpP:p2:avg
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p2:av-dict
 KIND: proof-region
@@ -885,9 +885,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-averaging@L198-L210
 DISPOSITION: NODE bpP:p2:osc-averaging
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p2:oa-first
 KIND: proof-region
@@ -921,9 +921,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p2-averaging.tex#bpP:p2:averaged-remainder@L222-L234
 DISPOSITION: NODE bpP:p2:averaged-remainder
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 
 ITEM: stepP:p2:ar-apply
 KIND: proof-region

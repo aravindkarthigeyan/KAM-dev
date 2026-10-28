@@ -180,32 +180,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:orbit-maps; shared Lean provider. There: KIND definition, contract bpI:p7:orbit-maps v1. Cited as \Iref{bpI:p7:orbit-maps}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
 
-NODE: I:bpI:p7:orbit-maps-e
-KIND: external
-TITLE: [I] Orbit maps near $e=0$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps-e@L170-L174
-PROOF_SOURCE: -
-CONTRACT_ID: I:bpI:p7:orbit-maps-e
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 0 < e_1 < 1; P = P(e_1) as in Proposition kepler-eq
-SOURCE_QUANTIFIERS: e_1, then (ell,g,L,e,k)
-SOURCE_CONCLUSION: Q_el is holomorphic on {(ell,g,L,e,k) : (ell,e) in P, g in C, L in C minus {0}, k in C}, 2pi-periodic in ell and g, real on real points with |e| <= e_1; holomorphic on a neighbourhood of e = 0 (P contains the disc |e| < delta_E), e.g. with k = sqrt(1 - e^2)
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:orbit-maps-e; shared Lean provider. There: KIND proposition, contract bpI:p7:orbit-maps-e v1. Cited as \Iref{bpI:p7:orbit-maps-e}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
-
 NODE: I:bpI:p7:scaling
 KIND: external
 TITLE: [I] Scaling to a general Kepler strength
@@ -257,32 +231,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:symplectic; shared Lean provider. There: KIND proposition, contract bpI:p7:symplectic v1. Cited as \Iref{bpI:p7:symplectic}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
-
-NODE: I:bpI:p7:x-change
-KIND: external
-TITLE: [I] Change of variables in $\R$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:x-change@L41-L41
-PROOF_SOURCE: -
-CONTRACT_ID: I:bpI:p7:x-change
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:x-change; shared Lean provider. Cited as \Iref{bpI:p7:x-change}. WARNING: EXCLUDED in the I graph: outside every root closure; cited by track P: used only by Proposition means (step mv-cv), which no track-I root consumes (checked: no reference from Parts 0-3, 5, 8 or from any root-feeding node of Part 7). Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
 
 NODE: I:bpI:p7:x-forms
 KIND: external
@@ -336,32 +284,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: external input of the track-I graph, node bpI:p7:x-hol (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpI:p7:x-hol v1. Cited as \Iref{bpI:p7:x-hol}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
 
-NODE: I:bpI:p7:x-param
-KIND: external
-TITLE: [I] Parameter integrals
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:x-param@L36-L36
-PROOF_SOURCE: -
-CONTRACT_ID: I:bpI:p7:x-param
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Phi holomorphic on an open U in C^m x C with (q, t mu) in U for all t in [0,1]
-SOURCE_QUANTIFIERS: Phi, U
-SOURCE_CONCLUSION: (q, mu) -> int_0^1 Phi(q, t mu) dt is holomorphic on that set
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: external input of the track-I graph, node bpI:p7:x-param (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpI:p7:x-param v1. Cited as \Iref{bpI:p7:x-param}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
-
 NODE: I:bpI:p7:x-weier
 KIND: external
 TITLE: [I] Weierstrass
@@ -387,58 +309,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: external input of the track-I graph, node bpI:p7:x-weier (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpI:p7:x-weier v1. Cited as \Iref{bpI:p7:x-weier}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
-
-NODE: I:bpI:p8:collision-exclusion
-KIND: external
-TITLE: [I] Collision exclusion from a compact safe set
-STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:collision-exclusion@L86-L98
-PROOF_SOURCE: -
-CONTRACT_ID: I:bpI:p8:collision-exclusion
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (X,|.|) normed space over R; m in N; x_1,...,x_m in X; c >= 0, mu_1 > 0; for each j and each real mu with |mu| <= mu_1 a point y_j(mu) in X (no continuity) with |y_j(mu) - x_j| <= c|mu|
-SOURCE_QUANTIFIERS: X, m, x_j, c, mu_1, y_j fixed; (a) for all S subset X, delta > 0 with |q-x_j| >= delta on S; then for all mu, q, j; (b) S compact
-SOURCE_CONCLUSION: (a) with mu_* = mu_1 (c=0) or min{mu_1, delta/(2c)} (c>0): for |mu| <= mu_*, q in S, j: |q - y_j(mu)| >= delta/2; (b) if X finite dimensional, S compact and x_j not in S: delta_S := min_j min_{q in S}|q-x_j| > 0 (vacuous if S empty or m=0) and there are mu_* > 0, d = delta_S/2 > 0 with |q - y_j(mu)| >= d for all q in S, |mu| <= mu_*, j; in particular q != y_j(mu)
-CONSTANT_SCOPE: mu_*, delta/2 depend only on (delta, c, mu_1), not on mu, q or the family y_j
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p8:collision-exclusion; shared Lean provider. There: KIND lemma, contract bpI:p8:collision-exclusion v1. Cited as \Iref{bpI:p8:collision-exclusion}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
-
-NODE: I:bpI:p8:min-distance
-KIND: external
-TITLE: [I] Minimal separation of a compact set of $N$-body configurations
-STATEMENT_SOURCE: blueprint-I/parts/p8-r3bp.tex#bpI:p8:min-distance@L117-L120
-PROOF_SOURCE: -
-CONTRACT_ID: I:bpI:p8:min-distance
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p8:min-distance; shared Lean provider. Cited as \Iref{bpI:p8:min-distance}. WARNING: EXCLUDED in the I graph: outside every root closure; cited by track P (SPEC ruling). Checked: no \ref{bpI:p8:min-distance} in Parts 0-8 and no I-R3BP proof step uses it (pf-dist uses shell-exclusion only); track P's graph owns it. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
 
 NODE: I:stepI:p7:ke-trig
 KIND: external
@@ -674,32 +544,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-rectangle (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bp:p1:ext-rectangle v1. Cited as \Kref{bp:p1:ext-rectangle}.
 
-NODE: K:bp:p1:hamiltonian-real
-KIND: external
-TITLE: [K] Real and complex Hamiltonian fields
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:hamiltonian-real@L1073-L1079
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p1:hamiltonian-real
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: V open in C^n x C^n; h holomorphic on V and real at real points of V; z in V cap (R^n x R^n); H:R^n x R^n->R agrees with Re h near z; (second claim) phi holomorphic; X_H frozen vector field, J=-Omega_0
-SOURCE_QUANTIFIERS: for all V, h, z, H; for all holomorphic phi
-SOURCE_CONCLUSION: H differentiable at z and X_H(z)=X_h(z); X_phi=J (Dphi)^T with J=[[0,I],[-I,0]]=-Omega_0, equivalently Omega_0 X_phi=(Dphi)^T
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p1:hamiltonian-real; shared Lean provider. There: KIND lemma, contract bp:p1:hamiltonian-real v1. Cited as \Kref{bp:p1:hamiltonian-real}.
-
 NODE: K:bp:p1:holomorphic-analytic
 KIND: external
 TITLE: [K] Holomorphic maps are analytic
@@ -804,84 +648,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p1:real-restriction; shared Lean provider. There: KIND lemma, contract bp:p1:real-restriction v1. Cited as \Kref{bp:p1:real-restriction}.
 
-NODE: K:bp:p1:uniform-limits
-KIND: external
-TITLE: [K] Uniform limits
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L364-L368
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p1:uniform-limits
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K_s holomorphic on an open set V; K_s->K pointwise; DK_s->Lambda uniformly on V; for V=T_r, every K_s primary on T_r, respectively real on reals
-SOURCE_QUANTIFIERS: V,K_s,K,Lambda; sequence index s
-SOURCE_CONCLUSION: K holomorphic on V and DK=Lambda; if V=T_r and all K_s primary (resp. real on reals) then K is primary (resp. real on reals)
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p1:uniform-limits; shared Lean provider. There: KIND lemma, contract bp:p1:uniform-limits v1. Cited as \Kref{bp:p1:uniform-limits}.
-
-NODE: K:bp:p4:cover-mono
-KIND: external
-TITLE: [K] Monotonicity of the cover
-STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:cover-mono@L1188-L1191
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p4:cover-mono
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: B' subset B; kappa'<=kappa
-SOURCE_QUANTIFIERS: h,f,B',B,r0,tau,kappa',kappa
-SOURCE_CONCLUSION: kamCover h f B' r0 tau kappa' subset kamCover h f B r0 tau kappa
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p4:cover-mono; shared Lean provider. There: KIND lemma, contract bp:p4:cover-mono v1. Cited as \Kref{bp:p4:cover-mono}.
-
-NODE: K:bp:p4:dyadic-approx
-KIND: external
-TITLE: [K] Inner dyadic approximation
-STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:dyadic-approx@L1241-L1245
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p4:dyadic-approx
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: B in R^n open and bounded; eta>0
-SOURCE_QUANTIFIERS: B,eta
-SOURCE_CONCLUSION: exists B' open subset of B with meas(B minus B')<=eta and C_B' with meas{I in B': infDist(I,B'^c)<t}<=C_B' t for all t>0
-CONSTANT_SCOPE: C_B' depends on B' (number and side of cubes); chosen after B', eta
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p4:dyadic-approx; shared Lean provider. There: KIND lemma, contract bp:p4:dyadic-approx v1. Cited as \Kref{bp:p4:dyadic-approx}.
-
 NODE: K:bp:p4:lattice-count
 KIND: external
 TITLE: [K] Counting lattice points on $\ell^1$ spheres
@@ -934,58 +700,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p4:lattice-sum; shared Lean provider. There: KIND lemma, contract bp:p4:lattice-sum v1. Cited as \Kref{bp:p4:lattice-sum}.
 
-NODE: K:bp:p4:preimage-measure
-KIND: external
-TITLE: [K] Actions with non-Diophantine frequency
-STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:preimage-measure@L1087-L1093
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p4:preimage-measure
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: C_3 the constant of G3 for the bounded set Omega=g(B); C_3^+=max(C_3,0)
-SOURCE_QUANTIFIERS: alpha>0
-SOURCE_CONCLUSION: meas{I in B: g(I) not in Dio_{alpha,tau}}<=L_+^n C_3^+ alpha
-CONSTANT_SCOPE: C_3 is the G3 constant for Omega=g(B), depends only on (n,tau,Omega); L_+ depends only on L_h
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p4:preimage-measure; shared Lean provider. There: KIND lemma, contract bp:p4:preimage-measure v1. Cited as \Kref{bp:p4:preimage-measure}.
-
-NODE: K:bp:p4:slab
-KIND: external
-TITLE: [K] Slabs in a cube
-STATEMENT_SOURCE: blueprint/parts/p4-measure.tex#bp:p4:slab@L84-L89
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p4:slab
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: n>=1, R>0, a>0, k in Z^n\{0}
-SOURCE_QUANTIFIERS: n,R,a,k
-SOURCE_CONCLUSION: meas{omega in [-R,R]^n : |k.omega|<a} <= 2n(2R)^{n-1} a/|k|_1
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p4:slab; shared Lean provider. There: KIND lemma, contract bp:p4:slab v1. Cited as \Kref{bp:p4:slab}.
-
 NODE: N:bpN:p0:partial
 KIND: external
 TITLE: [N] N-PARTIAL-CONVEX: exponential stability of the fast actions, definite fast part, slow--fast
@@ -1011,32 +725,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial; shared Lean provider. There: KIND theorem, contract nekhoroshev.d25.partialConvex_nekhoroshev v1, frozen anchor KAM.Nekhoroshev.partialConvex_nekhoroshev (nekhoroshev.d25.partialConvex_nekhoroshev.v1); not an anchor of this graph. Cited as \Nref{bpN:p0:partial}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:bpN:p0:partial-domain#partialComplexDomain
-KIND: external
-TITLE: [N] \Lean{partialComplexDomain}: KAM.Nekhoroshev.partialComplexDomain
-STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-domain@L284-L290
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p0:partial-domain#partialComplexDomain
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data: G ⊂ ℝⁿ, D ⊂ Ph_k, ρ ∈ ℝ)
-SOURCE_QUANTIFIERS: n, k; G; D; ρ
-SOURCE_CONCLUSION: defines 𝓕(G,D,ρ) = {(φ,𝖨) ∈ ℂ^{n+k} × ℂ^{n+k} : fast(Re 𝖨) ∈ G, (slow(Re φ), slow(Re 𝖨)) ∈ D, φ, 𝖨 ∈ T^{n+k}_ρ}, T^N_ρ = complexStrip N ρ; no other condition on fast real angles and slow real positions
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-domain#partialComplexDomain; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.partialComplexDomain v1, frozen anchor KAM.Nekhoroshev.partialComplexDomain (nekhoroshev.d25.partialComplexDomain.v1); not an anchor of this graph. Cited as \Nref{bpN:p0:partial-domain}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
 NODE: N:bpN:p0:partial-exponents#partialDriftExponent
 KIND: external
@@ -1089,32 +777,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-exponents#partialTimeExponent; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.partialTimeExponent v1, frozen anchor KAM.Nekhoroshev.partialTimeExponent (nekhoroshev.d25.partialTimeExponent.v1); not an anchor of this graph. Cited as \Nref{bpN:p0:partial-exponents}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:bpN:p3:gen-confinement
-KIND: external
-TITLE: [N] Confinement glue
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-confinement@L310-L318
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:gen-confinement
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: F C¹ on the open set W; x₀ ∈ W; τ > 0; Φ ⊂ E with uniform data; a priori confinement: every solution y on an open interval J ∋ 0 with y(0) = x₀ satisfies y(t) ∈ Φ for t ∈ J, ¦t¦ ≤ τ
-SOURCE_QUANTIFIERS: E; W; F; x₀; τ; Φ; (δ,M,L); then z
-SOURCE_CONCLUSION: the maximal interval contains [−τ,τ] in its interior, z is a solution on [−τ,τ] with z(t) ∈ Φ for ¦t¦ ≤ τ, and every solution on [−L,L] (0 ≤ L ≤ τ) with initial value x₀ equals z there
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-confinement; shared Lean provider. There: KIND theorem, contract bpN:p3:gen-confinement v1. Cited as \Nref{bpN:p3:gen-confinement}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
 NODE: N:bpN:p3:gen-continuation
 KIND: external
@@ -1298,32 +960,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-symmetry; shared Lean provider. There: KIND lemma, contract bpN:p3:gen-symmetry v1. Cited as \Nref{bpN:p3:gen-symmetry}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
-NODE: N:bpN:p3:gen-uniform-compact
-KIND: external
-TITLE: [N] Compact sets have uniform data
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform-compact@L143-L146
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:gen-uniform-compact
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: F C¹ on the open set W; K ⊂ W compact; uniform data of bpN:p3:gen-uniform
-SOURCE_QUANTIFIERS: E; W; F; K; then δ > 0, M, L
-SOURCE_CONCLUSION: K has uniform data (δ,M,L) for some δ > 0, and K_δ = {y : ∃x∈K, ¦y−x¦ ≤ δ} ⊂ W is compact
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniform-compact; shared Lean provider. There: KIND lemma, contract bpN:p3:gen-uniform-compact v1. Cited as \Nref{bpN:p3:gen-uniform-compact}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
 NODE: N:bpN:p3:gen-uniqueness
 KIND: external
 TITLE: [N] Uniqueness on arbitrary intervals
@@ -1349,32 +985,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniqueness; shared Lean provider. There: KIND theorem, contract bpN:p3:gen-uniqueness v1. Cited as \Nref{bpN:p3:gen-uniqueness}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:bpN:p3:ham-energy
-KIND: external
-TITLE: [N] Energy conservation
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-energy@L388-L393
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:ham-energy
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: H : P → ℝ; J ⊂ ℝ an interval; z : ℝ → P with H differentiable at z(t) and z having derivative X_H(z(t)) at t, for every t ∈ J; no regularity of H and no confinement beyond this
-SOURCE_QUANTIFIERS: n; H; J; z
-SOURCE_CONCLUSION: t ↦ H(z(t)) is constant on J
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-energy; shared Lean provider. There: KIND theorem, contract bpN:p3:ham-energy v1. Cited as \Nref{bpN:p3:ham-energy}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
 NODE: N:bpN:p3:ham-periodic
 KIND: external
@@ -1402,32 +1012,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-periodic; shared Lean provider. There: KIND lemma, contract bpN:p3:ham-periodic v1. Cited as \Nref{bpN:p3:ham-periodic}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
-NODE: N:bpN:p3:ham-reduction
-KIND: external
-TITLE: [N] Track N and track I Hamiltonian predicates
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-reduction@L416-L427
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:ham-reduction
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: H : P → ℝ; U ⊂ ℝⁿ open; W ⊂ P open with ℝⁿ × U ⊂ W; H C² on W; W_U = ℝⁿ × U
-SOURCE_QUANTIFIERS: n; H; U; W; then for every J ⊂ ℝ and z : ℝ → P
-SOURCE_CONCLUSION: IsSolutionOn H U J z ⇔ IsSolIn X_H W_U J z ⇔ IsHamiltonianSolutionOn H U J z, and X_H is C¹ on W_U
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-reduction; shared Lean provider. There: KIND proposition, contract bpN:p3:ham-reduction v1. Cited as \Nref{bpN:p3:ham-reduction}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
 NODE: N:bpN:p3:ham-smooth
 KIND: external
 TITLE: [N] Regularity of $X_H$
@@ -1454,84 +1038,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-smooth; shared Lean provider. There: KIND lemma, contract bpN:p3:ham-smooth v1. Cited as \Nref{bpN:p3:ham-smooth}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
-NODE: N:bpN:p3:local-exist
-KIND: external
-TITLE: [N] Local existence and uniqueness for $\texttt{IsSolutionOn}$
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-exist@L502-L507
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:local-exist
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: standing data of §s-N (bpN:p3:s-N#data), U ⊂ B(0,R+s) open; t₀ ∈ ℝ; z₀ ∈ ℝⁿ × U; for uniqueness: J an interval, t₀ ∈ J, y₁, y₂ with IsSolutionOn H U J y_i and y₁(t₀) = y₂(t₀)
-SOURCE_QUANTIFIERS: R, s; h; f; ε; U; t₀; z₀ (resp. J, y₁, y₂)
-SOURCE_CONCLUSION: there are ε' > 0 and y : ℝ → P with y(t₀) = z₀ and IsSolutionOn H U (t₀−ε',t₀+ε') y (both time directions); and y₁ = y₂ on J
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:local-exist; shared Lean provider. There: KIND theorem, contract bpN:p3:local-exist v1. Cited as \Nref{bpN:p3:local-exist}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:bpN:p3:newton-continuation
-KIND: external
-TITLE: [N] Newtonian continuation
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-continuation@L456-L462
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:newton-continuation
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:newton-continuation; shared Lean provider. Cited as \Nref{bpN:p3:newton-continuation}. WARNING: EXCLUDED in the N graph: outside every root closure; owned by the importing graph (track I/P): used by no track-N proof (only the excluded remark gen-uniform-remark and the label index mention it); track P cites it; check: grep of blueprint-N/parts/p0..p11c for the label (and \Nref uses) found no consumer in a proof of a track-N root closure. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:bpN:p3:newton-reduction
-KIND: external
-TITLE: [N] Newtonian predicates
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:newton-reduction@L434-L449
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:newton-reduction
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:newton-reduction; shared Lean provider. Cited as \Nref{bpN:p3:newton-reduction}. WARNING: EXCLUDED in the N graph: outside every root closure; owned by the importing graph (track I/P): used only by newton-continuation inside Part 3, and by tracks I and P (bpI:p7:ham-eq, stepI:p7:he-sol, stepI:p8:pf-uniq; track P cites \Nref); check: grep of blueprint-N/parts/p0..p11c for the label (and \Nref uses) found no consumer in a proof of a track-N root closure. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
 NODE: N:bpN:p4:algebra
 KIND: external
 TITLE: [N] B.2
@@ -1557,32 +1063,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:algebra; shared Lean provider. There: KIND lemma, contract bpN:p4:algebra v1. Cited as \Nref{bpN:p4:algebra}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:bpN:p4:bracket
-KIND: external
-TITLE: [N] B.4
-STATEMENT_SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L149-L153
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p4:bracket
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: m = n; u ∈ 𝒪(r_0,s_0), v ∈ 𝒪(r,s) with finite norms; 0<ρ<r, 0<σ<s, r−ρ<r_0, s−σ<s_0; {u,v} the bracket of s-b4#data
-SOURCE_QUANTIFIERS: D, n; r_0, s_0, r, s; u, v; ρ, σ
-SOURCE_CONCLUSION: {u,v} ∈ 𝒪(r−ρ,s−σ) and ¦{u,v}¦_{r−ρ,s−σ} ≤ (1/e)(1/((r_0−r+ρ)σ) + 1/((s_0−s+σ)ρ)) ¦u¦_{r_0,s_0}¦v¦_{r,s}
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:bracket; shared Lean provider. There: KIND lemma, contract bpN:p4:bracket v1. Cited as \Nref{bpN:p4:bracket}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
 NODE: N:bpN:p4:cauchy
 KIND: external
@@ -1635,32 +1115,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:coefficients; shared Lean provider. There: KIND lemma, contract bpN:p4:coefficients v1. Cited as \Nref{bpN:p4:coefficients}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:bpN:p4:dictionary
-KIND: external
-TITLE: [N] Dictionary with P\"oschel's normalisation and with Part~1
-STATEMENT_SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:dictionary@L218-L226
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p4:dictionary
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:dictionary; shared Lean provider. Cited as \Nref{bpN:p4:dictionary}. WARNING: EXCLUDED in the N graph: administrative remark (comparison with Pöschel's normalisation; track P/I cite it): no track-N proof consumes it as a result; cited only in \source/'see Remark' pointers (sup-weighted L91, cauchy L129) and in Part 6 L13 / Part 7 Remark p7:dictionary L277 notation/dictionary paragraphs whose arithmetic is stated 'redone in our variables, not dependent on either dictionary'; checked by grep of blueprint-N/parts for p4:dictionary; owned by the importing graph. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
 NODE: N:bpN:p4:domains
 KIND: external
@@ -2078,32 +1532,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:vf-bound; shared Lean provider. There: KIND lemma, contract bpN:p5:vf-bound v1. Cited as \Nref{bpN:p5:vf-bound}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
-NODE: N:bpN:p6:deviations
-KIND: external
-TITLE: [N] Deviations from P\"oschel and bookkeeping
-STATEMENT_SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:deviations@L234-L243
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p6:deviations
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:deviations; shared Lean provider. Cited as \Nref{bpN:p6:deviations}. WARNING: EXCLUDED in the N graph: administrative remark (deviations from Pöschel, bookkeeping); no proof consumes a fact it states (its (1)-(5) restate facts proved in the cited steps). Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
 NODE: N:bpN:p6:divisor
 KIND: external
 TITLE: [N] Divisor bound
@@ -2208,58 +1636,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:iterative; shared Lean provider. There: KIND theorem, contract bpN:p6:iterative v1. Cited as \Nref{bpN:p6:iterative}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
 
-NODE: N:bpN:p6:iterative-special
-KIND: external
-TITLE: [N] Special cases for track~P
-STATEMENT_SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative-special@L140-L144
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p6:iterative-special
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:iterative-special; shared Lean provider. Cited as \Nref{bpN:p6:iterative-special}. WARNING: EXCLUDED in the N graph: remark of special cases for track P (first step g=0, averaging Lambda={0}, constants). outside every root closure; owned by the importing graph (track I/P). Check: grep over Parts 7-11 (and 1-5) finds no reference to bpN:p6:iterative-special; the only in-corpus mention is the statement of iterative-direct ("and Remark iterative-special hold verbatim"), a claim not consumed by any proof; Part 11 re-derives its own estimates (bpN:p11:iterative, nf). Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:bpN:p6:normal-form
-KIND: external
-TITLE: [N] Normal Form Lemma
-STATEMENT_SOURCE: blueprint-N/parts/p6-normal-form.tex#bpN:p6:normal-form@L157-L174
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p6:normal-form
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (N1), (N2), K>0, KLr<=alpha/p (p>1, q=p/(p-1)); s>0; H=h+f with f in O(r,s) of finite norm eps=|f|_{r,s}; (i) eps<=(1/(2^7 q))(alpha r/K); (ii) kappa=2πKs>=6; r_*=r/2, s_*=s/6, c=2qK/(alpha r), g_0=P_Lambda T_K f
-SOURCE_QUANTIFIERS: (D,r,K,alpha,L,Lambda,h); p; s; f
-SOURCE_CONCLUSION: there are a holomorphic injective Psi:D_{r_*,s_*}->D_{r,s} with (DPsi)^T J DPsi=J and Psi(theta+k,I)=Psi(theta,I)+(k,0), and g, f_* in O(r_*,s_*), g a trig. polynomial in theta with frequencies in Lambda∩Z_K (P_Lambda g=g), such that H∘Psi=h+g+f_* on D_{r_*,s_*} and (a) |g-g_0|_{r_*,s_*}<=16c eps^2 (g=g_0 if N=0 or in case B); (b) |f_*|_{r_*,s_*}<=e^{-2πKs/6}eps=e^{-kappa/6}eps; (c) |Pi_I Psi-I|_inf<=qK eps/alpha (=c r eps/2) and |Pi_theta Psi-theta|_inf<=10q eps/(2πalpha r); (d) if Lambda=-Lambda and h,f real on real points then g, f_* real on real points and Psi maps real points to real points
-CONSTANT_SCOPE: Psi, g, f_* are constructed from (h,f,K,alpha,L,Lambda,p) and (r,s); r_*, s_*, c depend only on (r,s,K,alpha,q)
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:normal-form; shared Lean provider. There: KIND theorem, contract bpN:p6:normal-form v1. Cited as \Nref{bpN:p6:normal-form}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
 NODE: N:bpN:p6:setting
 KIND: external
 TITLE: [N] Resonant setting
@@ -2311,107 +1687,3 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:telescope; shared Lean provider. There: KIND lemma, contract bpN:p6:telescope v1. Cited as \Nref{bpN:p6:telescope}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:stepN:p5:cm-ab
-KIND: external
-TITLE: [N] (a),(b)
-STATEMENT_SOURCE: blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:cm-ab@L229-L229
-PROOF_SOURCE: -
-CONTRACT_ID: N:stepN:p5:cm-ab
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: D ⊂ ℂⁿ; φ∈𝒪(r,s) with finite norm; 0<ρ<r/2, 0<σ<s/2; ε:=¦φ¦_{r,s}/(ρσ)≤1/2; Ω:=𝒟_{r−ρ,s−σ}; ν:=ν_{ρ,σ}; Φ:=X^1_φ; Ψ:=X^{−1}_φ; z∈𝒟_{r−3ρ/2,s−3σ/2}; ¦t¦≤1; k∈ℤⁿ; for reality φ real at real points
-SOURCE_QUANTIFIERS: D,n; r,s,r′,s′ when present; ρ,σ; φ; then u or h,w,f₀ or (v_t), with exactly SOURCE_HYPOTHESES; then local data in source order: z; t; k
-SOURCE_CONCLUSION: Φ, Ψ holomorphic with X^t(z) ∈ P̄(z;εσ,ερ) ⊂ 𝒟_{r−ρ,s−σ}; Φ(θ+k,I) = Φ(θ,I)+(k,0); reality; ¦X^t_θ−θ¦ ≤ ¦t¦¦φ¦/ρ, ¦X^t_I−I¦ ≤ ¦t¦¦φ¦/(eσ); Ψ = X^1_{−φ}
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node stepN:p5:cm-ab; shared Lean provider. There: KIND step, contract stepN:p5:cm-ab v1. Cited as \Nref{stepN:p5:cm-ab}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:stepN:p6:hom-def
-KIND: external
-TITLE: [N] Well defined and holomorphic
-STATEMENT_SOURCE: blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-def@L72-L72
-PROOF_SOURCE: -
-CONTRACT_ID: N:stepN:p6:hom-def
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: statement of homological; Lemma divisor gives |k·omega|>=alpha/q on V_rD
-SOURCE_QUANTIFIERS: k in Z_K\Lambda
-SOURCE_CONCLUSION: phihat_k=fhat_k/(2πi k·omega) is holomorphic on V_rD; Z_K∩Lambda and Z_K\Lambda finite; phi, xi are finite sums a_k(I)chi_k(theta) with finite norm so lie in O(r,s); xi=P_Lambda T_K f=P_{Lambda∩Z_K} f
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node stepN:p6:hom-def; shared Lean provider. There: KIND step, contract stepN:p6:hom-def v1. Cited as \Nref{stepN:p6:hom-def}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:stepN:p6:hom-norm
-KIND: external
-TITLE: [N] Norms
-STATEMENT_SOURCE: blueprint-N/parts/p6-normal-form.tex#stepN:p6:hom-norm@L74-L74
-PROOF_SOURCE: -
-CONTRACT_ID: N:stepN:p6:hom-norm
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: statement of homological; phi, xi as constructed in hom-def
-SOURCE_QUANTIFIERS: I in V_rD; k in Z_K\Lambda
-SOURCE_CONCLUSION: |phihat_k(I)|<=q/(2πalpha)|fhat_k(I)|; summing with weights e^{2π|k|_1 s} and sup over I gives |phi|_{r,s}<=q delta/abar; |xi|_{r,s}, |T_K f|_{r,s}<=delta
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node stepN:p6:hom-norm; shared Lean provider. There: KIND step, contract stepN:p6:hom-norm v1. Cited as \Nref{stepN:p6:hom-norm}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
-NODE: N:stepN:p6:nf-induct
-KIND: external
-TITLE: [N] Induction
-STATEMENT_SOURCE: blueprint-N/parts/p6-normal-form.tex#stepN:p6:nf-induct@L191-L198
-PROOF_SOURCE: -
-CONTRACT_ID: N:stepN:p6:nf-induct
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: nf-N: rho, sigma, (6.1), (6.2)
-SOURCE_QUANTIFIERS: 1<=i<=N
-SOURCE_CONCLUSION: step i admissible and eps_{i+1}<=eps_i/4, so eps_i<=4^{1-i}eps_1 and |g_i-g_{i-1}|<=eps_i; |g_{i-1}|_*<=(1/2)(eps_{i-1}+...+eps_1)+eps/N<=abar rho sigma/(2^4 q); eps_{i+1}<=(128/127)(1/16+1/256+1/8)eps_i<eps_i/4
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node stepN:p6:nf-induct; shared Lean provider. There: KIND step, contract stepN:p6:nf-induct v1. Cited as \Nref{stepN:p6:nf-induct}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.

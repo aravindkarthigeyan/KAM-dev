@@ -498,9 +498,9 @@ DEPS: bpP:p0:fastfreq#fastFrequency
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p0-conventions.tex#bpP:p0:fastdiffeo@L139-L140 | omega_{H_0} is the fast frequency map in (ii) and (iii)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -753,9 +753,9 @@ DEPS: bpP:p0:body#bodyVector
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:barycentric@L217-L217 | q^(i) = body(q,i)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -780,9 +780,9 @@ DEPS: bpP:p0:body#bodyVector
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:barycentric@L218-L218 | p^(i) = body(p,i)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -807,9 +807,9 @@ DEPS: bpP:p0:plane#planeLength
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:newton@L228-L228 | ¦.¦ is the physical length in (i) and (iii)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -834,9 +834,9 @@ DEPS: bpP:p0:plane#planeLength
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixedsol@L237-L237 | ¦.¦ is the physical length
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -865,9 +865,9 @@ EDGE: bpP:p0:plane#planeSq | blueprint-P/parts/p0-conventions.tex#bpP:p0:movham@
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:movham@L247-L247 | ¦q^(i)¦
 EDGE: bpP:p0:plane#planeDot | blueprint-P/parts/p0-conventions.tex#bpP:p0:movham@L248-L248 | p^(i).p^(j)
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:movham@L247-L247 | q^(i), p^(i)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -895,9 +895,9 @@ EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixham@L2
 EDGE: bpP:p0:plane#planeSq | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixham@L259-L259 | ¦p^(i)¦^2
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixham@L259-L259 | ¦q^(i)¦
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixham@L259-L259 | q^(i), p^(i)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -961,9 +961,9 @@ EDGE: bpP:p0:barycentric#actualMasses | blueprint-P/parts/p0-conventions.tex#bpP
 EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p0-conventions.tex#bpP:p0:movkol@L290-L290 | x in (b) and (c)
 EDGE: bpP:p0:barycentric#barycentricVelocities | blueprint-P/parts/p0-conventions.tex#bpP:p0:movkol@L290-L290 | v in (b)
 EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p0-conventions.tex#bpP:p0:movkol@L291-L291 | clause (c)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -995,9 +995,9 @@ EDGE: bpP:p0:nocoll#NoCollision | blueprint-P/parts/p0-conventions.tex#bpP:p0:fi
 EDGE: bpP:p0:fixedsol#IsFixedSolution | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixkol@L300-L300 | IsFixedSol clause
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixkol@L300-L300 | K(..)_1^(i) are body vectors
 EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixkol@L301-L301 | PairBounds clause
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1040,9 +1040,9 @@ EDGE: bpP:p0:phystorus#IsPhysicalTorus | blueprint-P/parts/p0-conventions.tex#bp
 EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L312-L313 | the smaller cylinder C(V,r) is the analytic domain being used
 EDGE: bpP:p0:degham#degenerateHamiltonian | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L313-L313 | H_mu is the family whose analyticity guards the vector field
 EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L314-L314 | the Lagrangian assertion Omega(DK .,DK .)=0 uses the genuine derivatives
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1075,9 +1075,9 @@ EDGE: bpP:p0:degham#degenerateHamiltonian | blueprint-P/parts/p0-conventions.tex
 EDGE: bpP:p0:cylkol#IsCylinderKolmogorovSet | blueprint-P/parts/p0-conventions.tex#bpP:p0:pg@L351-L351 | IsCylKol(H_mu,V,r,mu,C,S)
 EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p0-conventions.tex#bpP:p0:pg@L353-L353 | F(V,r) in the measure conclusions
 EDGE: bpP:p5:main | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:main@L317-L317 | this result carries \frozen{KAM.Planetary.properlyDegenerateKAM}: it proves the anchor
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1104,9 +1104,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:planar@L370-L370 | S subset Ph_{2.2}
 EDGE: bpP:p0:movkol#MovingKolmogorovSet | blueprint-P/parts/p0-conventions.tex#bpP:p0:planar@L371-L371 | MovKol(G,m_0,m,a,mu,eta,d,D,S) with n = 2
 EDGE: bpP:p12:planar | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:planar@L159-L159 | this result carries \frozen{KAM.Planetary.planarTwoPlanetKAM}: it proves the anchor
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1188,9 +1188,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:d25-kepler#keplerEnergy | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L414-L414 | a_i is defined through E_i
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L411 | z is a point of Ph_{2n}, explicitly the domain of this definition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1216,9 +1216,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:d25-kepler#keplerAxis | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L415-L415 | Lambda_i is defined through a_i
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L411 | z is a point of Ph_{2n}, explicitly the domain of this definition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1661,9 +1661,9 @@ EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd
 EDGE: bpP:p0:d25-amd#physicalAMD | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L506-L506 | A(z(t)) in (d)
 EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L506-L506 | Lambda_i in (d)
 EDGE: bpP:p14:amd | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:amd@L129-L129 | this result carries \frozen{KAM.Planetary.amdConfinement}: it proves the anchor
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1707,9 +1707,9 @@ EDGE: bpP:p0:d25-kepler#keplerEccVector | blueprint-P/parts/p0-conventions.tex#b
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use planeLength; the frozen conclusion expands that use
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use bodyVector; the frozen conclusion expands that use
 EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use PairBounds; the frozen conclusion expands that use
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
-REVIEWER: -
+REVIEWER: sol-delta-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

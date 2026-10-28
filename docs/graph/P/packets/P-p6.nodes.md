@@ -1716,3 +1716,4 @@ LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: created from p6:prose-L20-L24 (SPEC section data); consumers: domain, split, action-reaction, hamilton-eqs and steps, bary-algebra, reconstruction(-fixed) and steps, newton-in-tube
+

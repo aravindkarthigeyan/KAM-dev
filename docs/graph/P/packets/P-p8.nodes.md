@@ -5,10 +5,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:e-param@L26-L26
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p8:e-param
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: phi(lambda,w') continuous on [0,2pi]^n x U, U subset C^N open, holomorphic in w' in U for each lambda
+SOURCE_QUANTIFIERS: n, N, U, phi
+SOURCE_CONCLUSION: w' -> int phi dlambda is holomorphic on U (Morera/Fubini, differentiation under the integral); real-analytic parameter dependence follows by restriction
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -17,12 +17,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: external item that cites \ref{bpP:p7:e-hol}, \Iref{bpI:p7:x-param}: if it only restates the cited external, exclude it as an alias and point its consumers at the cited node (SPEC)
+NOTE: external; adds content to I:bpI:p7:x-param (only int_0^1 Phi(q,t mu) dt) and does not restate bpP:p7:e-hol (not an alias): carrier is a torus-parameter integral of a jointly continuous function; related nodes I:bpI:p7:x-param, I:bpI:p7:x-hol
 
 NODE: bpP:p8:e-diff
 KIND: external
@@ -31,10 +31,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:e-diff@L27-L27
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p8:e-diff
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: phi is C^k in w' with derivatives jointly continuous on [0,2pi]^n x U; 2pi-periodic continuous functions for the translation clause
+SOURCE_QUANTIFIERS: k, U, phi, multi-index alpha with ¦alpha¦<=k
+SOURCE_CONCLUSION: d^alpha <phi> = <d^alpha phi> for ¦alpha¦<=k; translation invariance of the integral of a 2pi-periodic continuous function
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -43,12 +43,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: external (Fubini on products of intervals; translation invariance of the period integral)
 
 NODE: bpP:p8:e-taylor
 KIND: external
@@ -57,10 +57,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:e-taylor@L28-L28
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p8:e-taylor
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: f real analytic near a point
+SOURCE_QUANTIFIERS: f, point, order N
+SOURCE_CONCLUSION: Taylor polynomial of order N has remainder O(¦x¦^(N+1)) locally uniformly; Taylor coefficients are the iterated derivatives; composition of an analytic function with a real-analytic map is real analytic
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -69,7 +69,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -83,10 +83,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:e-weyl@L29-L29
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p8:e-weyl
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: polynomial in vectors u_1,...,u_r in R^2 invariant under the diagonal action of O(2)
+SOURCE_QUANTIFIERS: r, polynomial
+SOURCE_CONCLUSION: the polynomial is a polynomial in the dot products u_i.u_j (first fundamental theorem for O(2))
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -95,7 +95,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -109,10 +109,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:e-poch@L30-L30
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p8:e-poch
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: s real, p>=0, ¦z¦<1
+SOURCE_QUANTIFIERS: s, p, z
+SOURCE_CONCLUSION: Pochhammer (s)_p=s(s+1)...(s+p-1), (s)_{p+1}=(s)_p (s+p); (1-z)^{-s}=sum_p (s)_p/p! z^p for ¦z¦<1; (s)_p/p!=O(p^(s-1))
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -121,12 +121,44 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
+
+NODE: bpP:p8:conv#data
+KIND: definition
+TITLE: Conventions and secular polydisc data of Part 8 (chart, averages, dictionary, N(rho))
+STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L17-L22
+PROOF_SOURCE: -
+CONTRACT_ID: bpP:p8:conv#data
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: n>=1; G,m0>0, kappa=G m0; m in (0,inf)^n; chart Psi=Psi^(n) of Theorem product-chart with hat f_fix=f_fix o Psi, hat f_mov=f_mov o Psi; axes 0<a_1*<...<a_n* (increasing); angles of period 2pi
+SOURCE_QUANTIFIERS: n,G,m0,m,a*; then rho>0; then points (xi,Lambda,eta); for continuous phi on {(lambda,w')}
+SOURCE_CONCLUSION: defines w=(lambda,xi,Lambda,eta), u_i=(xi_i,eta_i), Gamma_i=¦u_i¦^2/2, a_i=Lambda_i^2/(m_i^2 kappa), the average <phi>(w')=(2pi)^-n int phi dlambda, S_fix=<hat f_fix>, S_mov=<hat f_mov>, the dictionary to secularAverage (frozen p=eta, q=xi, I=Lambda, R_j=Gamma_j), Lambda_i*=m_i sqrt(kappa a_i*), N(rho), N_R(rho)=N(rho) cap R^(3n)
+CONSTANT_SCOPE: kappa=G m0; a* and rho are fixed positive data; axes in increasing (Lean) order
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p7:product-chart, bpP:p7:product-def, bpP:p7:sec-product#data, bpP:p6:split, bpP:p0:blocks#assemble, bpP:p0:secavg#secularAverage
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L17-L17 | chart Psi^(n) and hat f_fix, hat f_mov
+EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L17-L17 | Psi^(n), O_n
+EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L17-L17 | coordinates w and data n, G, m0, m
+EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L17-L17 | f_fix, f_mov
+EDGE: bpP:p0:blocks#assemble | blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L19-L19 | assemble(I,phi,p,q)=((phi,q),(I,p)) in the dictionary
+EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L19-L19 | dictionary to the frozen secularAverage
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p8
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: created from p8:prose-L17-L19 and p8:prose-L21-L22 (SPEC section data; N(rho), Lambda*, averages); consumers: nearly every node of Part 8 and Part 9
 
 NODE: bpP:p8:rho
 KIND: definition
@@ -135,26 +167,25 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:rho@L33-L35
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p8:rho
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: the data of bpP:p8:conv#data (n>=1; G,m0>0, kappa=G m0; m in (0,inf)^n; chart Psi=Psi^(n) with hat f_fix, hat f_mov; axes a*; N(rho))
+SOURCE_QUANTIFIERS: data of conv#data; then rho_0 explicit; rho_* in (0,rho_0) fixed by bpP:p8:perturbation-analytic
+SOURCE_CONCLUSION: defines rho_0=min_i min{Lambda_i*/2, sqrt(Lambda_i*)/16}, so that N(rho), rho<rho_0, lies in the domain of Prop holomorphic; rho_* is named as the constant of the proposition
+CONSTANT_SCOPE: rho_0 depends only on Lambda* (hence on m,kappa,a*); rho_* depends only on (m,kappa,a*)
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:holomorphic, bpP:p8:perturbation-analytic
+DEPS: bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:rho@L34-L34 | cited at this line (statement; \ref{bpP:p7:holomorphic})
-EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:rho@L34-L34 | cited at this line (statement; \ref{bpP:p8:perturbation-analytic})
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:rho@L34-L34 | Lambda_i*, N(rho) and the data n, m, kappa, a*
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: rho_* is only named here (its existence is the content of bpP:p8:perturbation-analytic); no edge to that proposition (would be a cycle). The statement that N(rho), rho<rho_0, lies in the domain of Prop holomorphic is consumed at stepP:p8:pa-unif, which cites the proposition
 
 NODE: bpP:p8:perturbation-analytic
 KIND: proposition
@@ -163,25 +194,27 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-anal
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L47-L52
 CONTRACT_ID: bpP:p8:perturbation-analytic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: the data of bpP:p8:conv#data (n>=1; G,m0>0, kappa=G m0; m in (0,inf)^n; chart Psi=Psi^(n) with hat f_fix, hat f_mov; axes a*; N(rho)); rho_0 of bpP:p8:rho; Psi of Prop holomorphic; s_ij=sum_c (q^(i)_c-q^(j)_c)^2 (complex bilinear square)
+SOURCE_QUANTIFIERS: (m,kappa,a*); then rho_* in (0,rho_0); then real lambda, w' in N(rho_*), i<j
+SOURCE_CONCLUSION: exists rho_* in (0,rho_0) depending only on (m,kappa,a*) such that: (a) Re s_ij>=(a_j*-a_i*)^2/2, real points ¦q^(i)-q^(j)¦>=(a_j*-a_i*)/sqrt2, Psi(lambda,w') in W and N_R(rho_*) x R^n subset Psi^-1(W); (b) hat f_fix=-G sum m_i m_j s_ij^(-1/2) holomorphic in w' for each real lambda, jointly continuous, 2pi-periodic, real at real points, likewise hat f_mov=hat f_fix+sum_c(sum_i p^(i)_c)^2/(2 m0) (bilinear square); (c) S_fix, S_mov holomorphic on N(rho_*), real at real points, real analytic on N_R(rho_*), d^alpha S=<d^alpha hat f>
+CONSTANT_SCOPE: rho_* depends only on (m,kappa,a*), not on lambda or w'
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:pa-circ, stepP:p8:pa-unif, stepP:p8:pa-hol, stepP:p8:pa-avg, bpP:p7:holomorphic, bpP:p6:domain
+DEPS: stepP:p8:pa-circ, stepP:p8:pa-unif, stepP:p8:pa-hol, stepP:p8:pa-avg, bpP:p8:conv#data, bpP:p8:rho, bpP:p7:holomorphic, bpP:p6:domain
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:pa-circ | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L48-L48 | proof step of this result
-EDGE: stepP:p8:pa-unif | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L49-L49 | proof step of this result
-EDGE: stepP:p8:pa-hol | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L50-L50 | proof step of this result
-EDGE: stepP:p8:pa-avg | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L51-L51 | proof step of this result
-EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L40-L40 | cited at this line (statement; \ref{bpP:p7:holomorphic})
-EDGE: bpP:p6:domain | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L42-L42 | cited at this line (statement; \ref{bpP:p6:domain})
+EDGE: stepP:p8:pa-circ | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L48-L48 | proof step Value at the circular torus
+EDGE: stepP:p8:pa-unif | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L49-L49 | proof step Uniformity
+EDGE: stepP:p8:pa-hol | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L50-L50 | proof step Holomorphy
+EDGE: stepP:p8:pa-avg | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L51-L51 | proof step The average
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L40-L40 | data, Psi, hat f, a*, N(rho_*), averages
+EDGE: bpP:p8:rho | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L40-L40 | rho_0 in the range of rho_*
+EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L40-L40 | q=Psi of Prop holomorphic in the definition of s_ij
+EDGE: bpP:p6:domain | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L42-L42 | W of Lemma domain
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -195,20 +228,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-circ@L48-L48
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-circ@L48-L48
 CONTRACT_ID: stepP:p8:pa-circ
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: w'*=(0,Lambda*,0); Theorem poincare(f): q^(i)=a_i*(cos lambda_i, sin lambda_i)
+SOURCE_QUANTIFIERS: real lambda in R^n; i<j
+SOURCE_CONCLUSION: s_ij=a_i*^2+a_j*^2-2 a_i* a_j* cos(lambda_i-lambda_j)>=(a_j*-a_i*)^2 at the circular torus
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare
+DEPS: bpP:p7:poincare, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-circ@L48-L48 | cited at this line (step; \ref{bpP:p7:poincare})
+EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-circ@L48-L48 | (f): circular values of q
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-circ@L48-L48 | a_i*, Lambda*
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -222,23 +256,26 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49
 CONTRACT_ID: stepP:p8:pa-unif
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: s_ij holomorphic in w' on N(rho_0) and continuous 2pi-periodic in lambda; Step pa-circ
+SOURCE_QUANTIFIERS: lambda in R^n; w' in N(rho_0/2) closure (compact)
+SOURCE_CONCLUSION: exists rho_*<rho_0/2 depending only on (m,kappa,a*) with Re s_ij>=(a_j*-a_i*)^2/2 on [0,2pi]^n x N(rho_*), i.e. (a); at real points ¦q^(i)-q^(j)¦^2=s_ij and NoColl holds (¦q^(i)¦>0)
+CONSTANT_SCOPE: rho_* depends only on (m,kappa,a*) (through Lambda* and Psi)
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:holomorphic, stepP:p8:pa-circ, bpP:p7:o-facts, bpP:p7:poincare
+DEPS: bpP:p7:holomorphic, stepP:p8:pa-circ, bpP:p7:o-facts, bpP:p7:poincare, bpP:p8:rho, bpP:p6:domain, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | cited at this line (step; \ref{bpP:p7:holomorphic})
-EDGE: stepP:p8:pa-circ | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | cited at this line (step; \ref{stepP:p8:pa-circ})
-EDGE: bpP:p7:o-facts | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | cited at this line (step; \ref{bpP:p7:o-facts})
-EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | cited at this line (step; \ref{bpP:p7:poincare})
+EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | s_ij holomorphic on N(rho_0), Psi real at real points
+EDGE: stepP:p8:pa-circ | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | value at the circular torus gives the lower bound at w'*
+EDGE: bpP:p7:o-facts | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | ¦q^(i)¦>0 on O_n
+EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | (d): Psi(O) in K, so q^(i)!=0
+EDGE: bpP:p8:rho | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | rho_0 and the polydisc N(rho_0/2)
+EDGE: bpP:p6:domain | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | NoColl and W (a: Psi in W)
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | N(rho), R^n torus domain
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -252,27 +289,28 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50
 CONTRACT_ID: stepP:p8:pa-hol
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Re s_ij>=(a_j*-a_i*)^2/2 on N(rho_*) (Step pa-unif); principal s^(-1/2) holomorphic on Re s>0; Psi holomorphic
+SOURCE_QUANTIFIERS: real lambda; w' in N(rho_*); i<j
+SOURCE_CONCLUSION: (b): hat f_fix=-G sum m_i m_j s_ij^(-1/2) and hat f_mov are holomorphic in w', jointly continuous, 2pi-periodic, real at real points, equal to f_fix o Psi resp. f_mov o Psi
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:e-hol, bpP:p6:split, bpP:p7:holomorphic
+DEPS: I:bpI:p7:x-hol, stepP:p8:pa-unif, bpP:p6:split, bpP:p7:holomorphic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p7:e-hol | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | cited at this line (step; \ref{bpP:p7:e-hol})
-EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | cited at this line (step; \ref{bpP:p6:split})
-EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | cited at this line (step; \ref{bpP:p7:holomorphic})
+EDGE: I:bpI:p7:x-hol | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | principal s^(-1/2) holomorphic on Re s>0 and composition
+EDGE: stepP:p8:pa-unif | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | Re s_ij>0 on N(rho_*)
+EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | formula equals f_fix o Psi; f_mov-f_fix=¦P¦^2/(2 m0)
+EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | p^(i) holomorphic, Psi real at real points
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: retargeted from bpP:p7:e-hol (excluded as alias in P-p7) to I:bpI:p7:x-hol; the Weierstrass part (I:bpI:p7:x-weier) is not used
 
 NODE: stepP:p8:pa-avg
 KIND: step
@@ -281,21 +319,25 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51
 CONTRACT_ID: stepP:p8:pa-avg
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: hat f holomorphic in w' on N(rho_*), jointly continuous and 2pi-periodic (Step pa-hol)
+SOURCE_QUANTIFIERS: w' in N(rho_*)
+SOURCE_CONCLUSION: (c): S holomorphic on N(rho_*), real at real points, real analytic on N_R(rho_*), d^alpha S=<d^alpha hat f>
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:e-param, bpP:p8:e-diff
+DEPS: stepP:p8:pa-hol, bpP:p8:e-param, bpP:p8:e-diff, K:bp:p1:cauchy-open, K:bp:p1:holomorphic-analytic, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:e-param | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | cited at this line (step; \ref{bpP:p8:e-param})
-EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | cited at this line (step; \ref{bpP:p8:e-diff})
+EDGE: stepP:p8:pa-hol | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | f hat holomorphic, continuous, periodic
+EDGE: bpP:p8:e-param | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | S holomorphic
+EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | derivative formula
+EDGE: K:bp:p1:cauchy-open | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | Cauchy formula: derivatives jointly continuous, uniformly on the compact torus
+EDGE: K:bp:p1:holomorphic-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | holomorphic implies real analytic on the real part (restriction)
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | definition of S as the average
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -309,24 +351,26 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L58-L6
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L67-L73
 CONTRACT_ID: bpP:p8:symmetries
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: the data of bpP:p8:conv#data (n>=1; G,m0>0, kappa=G m0; m in (0,inf)^n; chart Psi=Psi^(n) with hat f_fix, hat f_mov; axes a*; N(rho)); w in O_n, Psi(w)=(q,p) with blocks q^(i), p^(i); R_theta, sigma=diag(1,-1), 1=(1,...,1)
+SOURCE_QUANTIFIERS: n,m,kappa; w in O_n; theta in R
+SOURCE_CONCLUSION: (S1) Psi(lambda+pi 1,-xi,Lambda,-eta)=(-q,-p); (S2) Psi(lambda+theta 1,R_theta(xi,eta),Lambda)=(R_theta q^(i),R_theta p^(i)); (S3) Psi(-lambda,xi,Lambda,-eta)=(sigma q^(i),-sigma p^(i)); O_n invariant; f_fix,f_mov satisfy f(-q,-p)=f(q,p)=f(Rq,±Rp), R in O(2) blockwise
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:sy-1, stepP:p8:sy-2, stepP:p8:sy-3, stepP:p8:sy-f, bpP:p6:split
+DEPS: stepP:p8:sy-1, stepP:p8:sy-2, stepP:p8:sy-3, stepP:p8:sy-f, bpP:p6:split, bpP:p7:product-def, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:sy-1 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L69-L69 | proof step of this result
-EDGE: stepP:p8:sy-2 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L70-L70 | proof step of this result
-EDGE: stepP:p8:sy-3 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L71-L71 | proof step of this result
-EDGE: stepP:p8:sy-f | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L72-L72 | proof step of this result
-EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L65-L65 | cited at this line (statement; \ref{bpP:p6:split})
+EDGE: stepP:p8:sy-1 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L69-L69 | proof step (S1)
+EDGE: stepP:p8:sy-2 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L70-L70 | proof step (S2)
+EDGE: stepP:p8:sy-3 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L71-L71 | proof step (S3)
+EDGE: stepP:p8:sy-f | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L72-L72 | proof step Kepler functions
+EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L65-L65 | f_fix, f_mov of Lemma split
+EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L59-L59 | Psi^(n), O_n
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L56-L56 | R_theta, sigma and data notation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -340,20 +384,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-1@L69-L69
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-1@L69-L69
 CONTRACT_ID: stepP:p8:sy-1
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: one planet; Phi(F,v)=F-v_0 sin F+v_1 cos F; c=(cos F,sin F); q=a(kc-v+(v.c)v/(1+k)), p=m^2 kappa/(Lambda J) (J_0 c-(v.c)J_0 v/(1+k))
+SOURCE_QUANTIFIERS: one planet; (lambda,v,Lambda)
+SOURCE_CONCLUSION: Phi(F+pi,-v)=Phi(F,v)+pi so F(lambda+pi,-v)=F(lambda,v)+pi, c->-c, J,k unchanged, v->-v, hence (q,p)->(-q,-p): (S1)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:regular-kepler
+DEPS: bpP:p7:regular-kepler, bpP:p7:poincare-def
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-1@L69-L69 | cited at this line (step; \ref{bpP:p7:regular-kepler})
+EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-1@L69-L69 | (a): uniqueness of the solution F of the regular Kepler equation
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-1@L69-L69 | formulas for q, p, v, k, J, c
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -367,19 +412,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-2@L70-L70
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-2@L70-L70
 CONTRACT_ID: stepP:p8:sy-2
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: one planet; v positive multiple of (xi,eta) with Gamma,Lambda unchanged under rotation; R_theta J_0=J_0 R_theta
+SOURCE_QUANTIFIERS: one planet; theta in R
+SOURCE_CONCLUSION: v->R_theta v, Phi(F+theta,R_theta v)=Phi(F,v)+theta, so F(lambda+theta,R_theta v)=F+theta, c->R_theta c, J unchanged, (q,p)->(R_theta q,R_theta p): (S2)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p7:regular-kepler, bpP:p7:poincare-def
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-2@L70-L70 | (a): uniqueness of F
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-2@L70-L70 | definition of v, q, p, J_0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -393,19 +440,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-3@L71-L71
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-3@L71-L71
 CONTRACT_ID: stepP:p8:sy-3
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: one planet; bar v=sigma v (eta->-eta); J_0 sigma=-sigma J_0
+SOURCE_QUANTIFIERS: one planet
+SOURCE_CONCLUSION: Phi(-F,bar v)=-Phi(F,v), F(-lambda,bar v)=-F(lambda,v), c->sigma c, J unchanged, q->sigma q, p->-sigma p: (S3)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p7:regular-kepler, bpP:p7:poincare-def
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-3@L71-L71 | (a): uniqueness of F
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-3@L71-L71 | definition of v, q, p, J_0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -419,19 +468,20 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-f@L72-L72
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-f@L72-L72
 CONTRACT_ID: stepP:p8:sy-f
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: f_fix depends on ¦q_i-q_j¦; f_mov-f_fix=¦sum p_i¦^2/(2 m0)
+SOURCE_QUANTIFIERS: isometries R of R^2, signs
+SOURCE_CONCLUSION: f_fix,f_mov invariant under (q,p)->(±Rq,±' Rp) for any isometry R
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p6:split
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-f@L72-L72 | f_fix depends on ¦q_i-q_j¦ and f_mov-f_fix=¦P¦^2/(2 m0)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -445,27 +495,29 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L75-L80
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L81-L85
 CONTRACT_ID: bpP:p8:evenness
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: S in {S_fix,S_mov} on N_R(rho_*) (rho_* of bpP:p8:perturbation-analytic)
+SOURCE_QUANTIFIERS: n,m,kappa,a*; rho_*; (xi,Lambda,eta) in N_R(rho_*); theta
+SOURCE_CONCLUSION: S(-xi,Lambda,-eta)=S(xi,Lambda,eta)=S(xi,Lambda,-eta)=S(-xi,Lambda,eta), S(R_theta(xi,eta),Lambda)=S(xi,Lambda,eta); Taylor expansion at (xi,eta)=0 has only even total degree, origin critical, degree-2d part O(2)-invariant polynomial in (u_1,...,u_n) with coefficients real-analytic in Lambda; degree-two part xi^T A(Lambda) xi+eta^T A(Lambda) eta, A=A^T
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:ev-inv, stepP:p8:ev-tay, stepP:p8:ev-quad
+DEPS: stepP:p8:ev-inv, stepP:p8:ev-tay, stepP:p8:ev-quad, bpP:p8:perturbation-analytic, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:ev-inv | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L82-L82 | proof step of this result
-EDGE: stepP:p8:ev-tay | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L83-L83 | proof step of this result
-EDGE: stepP:p8:ev-quad | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L84-L84 | proof step of this result
+EDGE: stepP:p8:ev-inv | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L82-L82 | proof step Invariances
+EDGE: stepP:p8:ev-tay | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L83-L83 | proof step Taylor structure
+EDGE: stepP:p8:ev-quad | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L84-L84 | proof step Quadratic part
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L76-L76 | rho_*, S real analytic on N_R(rho_*)
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L76-L76 | S_fix, S_mov, N_R(rho), R_theta notation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: suspected defect: S(R_theta(xi,eta),Lambda) needs R_theta(xi,eta) in N_R(rho_*), but N_R(rho) is the box ¦xi_i¦,¦eta_i¦<rho, which is not invariant under rotations by theta not in (pi/2)Z; the identity holds for small (xi,eta) (local invariance suffices for steps ev-tay, ev-quad)
 
 NODE: stepP:p8:ev-inv
 KIND: step
@@ -474,21 +526,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82
 CONTRACT_ID: stepP:p8:ev-inv
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Prop symmetries (S1)-(S3); hat f=f o Psi invariant; S=<hat f>
+SOURCE_QUANTIFIERS: S in {S_fix,S_mov}
+SOURCE_CONCLUSION: S is invariant under (xi,eta)->-(xi,eta), eta->-eta, xi->-xi, rotations R_theta; fourth equality from the first and second
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:symmetries, bpP:p8:e-diff
+DEPS: bpP:p8:symmetries, bpP:p8:e-diff, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:symmetries | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82 | cited at this line (step; \ref{bpP:p8:symmetries})
-EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82 | cited at this line (step; \ref{bpP:p8:e-diff})
+EDGE: bpP:p8:symmetries | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82 | (S1)-(S3) and invariance of f
+EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82 | translation invariance of the average of a periodic function
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82 | definition of S as the lambda-average
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -502,20 +555,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83
 CONTRACT_ID: stepP:p8:ev-tay
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: S real analytic in (xi,eta); evenness under (xi,eta)->-(xi,eta); rotation invariance
+SOURCE_QUANTIFIERS: S in {S_fix,S_mov}
+SOURCE_CONCLUSION: odd-degree Taylor parts vanish; the degree-2d part of an O(2)-invariant analytic function is O(2)-invariant (O(2) linear, preserves homogeneity)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:perturbation-analytic
+DEPS: bpP:p8:perturbation-analytic, stepP:p8:ev-inv, bpP:p8:e-taylor
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | cited at this line (step; \ref{bpP:p8:perturbation-analytic})
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | (c): S real analytic in (xi,eta)
+EDGE: stepP:p8:ev-inv | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | evenness and invariance
+EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | Taylor coefficients, expansion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -529,19 +584,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84
 CONTRACT_ID: stepP:p8:ev-quad
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: degree-two part xi^T A xi+2 xi^T B eta+eta^T C eta; evenness in eta alone; invariance under (xi,eta)->(-eta,xi)
+SOURCE_QUANTIFIERS: degree-two part
+SOURCE_CONCLUSION: B=0 and C=A
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepP:p8:ev-inv, stepP:p8:ev-tay
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepP:p8:ev-inv | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84 | evenness in eta alone and the rotation theta=pi/2
+EDGE: stepP:p8:ev-tay | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84 | degree-two part of the Taylor expansion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -555,24 +612,26 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L89-L99
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L100-L106
 CONTRACT_ID: bpP:p8:lemma64
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: the data of bpP:p8:conv#data (n>=1; G,m0>0, kappa=G m0; m in (0,inf)^n; chart Psi=Psi^(n) with hat f_fix, hat f_mov; axes a*; N(rho)); nu_i=kappa^2 m_i^3/Lambda_i^3
+SOURCE_QUANTIFIERS: n,m,kappa; every w in O_n (no neighbourhood, no collision hypothesis)
+SOURCE_CONCLUSION: (a) m_i nu_i d_{lambda_i} q^(i)=p^(i), d_{lambda_k} q^(i)=0 for k!=i; (b) (2pi)^-1 int p^(i) dlambda_i=0; (c) for j!=k (2pi)^-n int p^(j).p^(k) dlambda=0; (d) (2pi)^-n int ¦p^(i)¦^2 dlambda=m_i^2 kappa/a_i=m_i^4 kappa^2/Lambda_i^2; (e) (2pi)^-n int ¦sum p^(i)¦^2 dlambda=sum m_i^4 kappa^2/Lambda_i^2
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:l64-a, stepP:p8:l64-b, stepP:p8:l64-c, stepP:p8:l64-d, stepP:p8:l64-e
+DEPS: stepP:p8:l64-a, stepP:p8:l64-b, stepP:p8:l64-c, stepP:p8:l64-d, stepP:p8:l64-e, bpP:p7:product-def, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:l64-a | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L101-L101 | proof step of this result
-EDGE: stepP:p8:l64-b | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L102-L102 | proof step of this result
-EDGE: stepP:p8:l64-c | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L103-L103 | proof step of this result
-EDGE: stepP:p8:l64-d | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L104-L104 | proof step of this result
-EDGE: stepP:p8:l64-e | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L105-L105 | proof step of this result
+EDGE: stepP:p8:l64-a | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L101-L101 | proof step (a)
+EDGE: stepP:p8:l64-b | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L102-L102 | proof step (b)
+EDGE: stepP:p8:l64-c | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L103-L103 | proof step (c)
+EDGE: stepP:p8:l64-d | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L104-L104 | proof step (d)
+EDGE: stepP:p8:l64-e | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L105-L105 | proof step (e)
+EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L90-L90 | Psi^(n), O_n, q^(i), p^(i)
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L90-L90 | data n, m, kappa and a_i=Lambda_i^2/(m_i^2 kappa)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -586,28 +645,29 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101
 CONTRACT_ID: stepP:p8:l64-a
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: H_Kep=sum[¦p^(i)¦^2/(2 m_i)-kappa m_i/¦q^(i)¦] differentiable where each q^(i)!=0; H_Kep o Psi=h(Lambda); chart field identity; q^(i) depends only on (lambda_i,xi_i,Lambda_i,eta_i)
+SOURCE_QUANTIFIERS: w in O_n
+SOURCE_CONCLUSION: m_i nu_i d_{lambda_i} q^(i)=p^(i) and d_{lambda_k} q^(i)=0 (k!=i)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p6:kepler-part, bpP:p6:hamilton-eqs, bpP:p7:product-chart, bpP:p1:chart-field
+DEPS: bpP:p6:kepler-part, bpP:p7:product-chart, bpP:p1:chart-field, bpP:p7:product-def, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p6:kepler-part | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | cited at this line (step; \ref{bpP:p6:kepler-part})
-EDGE: bpP:p6:hamilton-eqs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | cited at this line (step; \ref{bpP:p6:hamilton-eqs})
-EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | cited at this line (step; \ref{bpP:p7:product-chart})
-EDGE: bpP:p1:chart-field | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | cited at this line (step; \ref{bpP:p1:chart-field})
+EDGE: bpP:p6:kepler-part | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | decoupled Kepler Hamiltonian, no pair term
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | (b): H_Kep o Psi=h(Lambda), form of X_h
+EDGE: bpP:p1:chart-field | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | D Psi X_h=X_{H_Kep} o Psi (applied to the chart)
+EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | q^(i) depends only on block i
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | nu_i and data
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: the edge to bpP:p6:hamilton-eqs is deleted: the step states that it does not use it (its hypotheses include the collision guard)
 
 NODE: stepP:p8:l64-b
 KIND: step
@@ -616,19 +676,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-b@L102-L102
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-b@L102-L102
 CONTRACT_ID: stepP:p8:l64-b
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: q^(i) real analytic and 2pi-periodic in lambda_i; step (a); m_i nu_i>0
+SOURCE_QUANTIFIERS: w in O_n
+SOURCE_CONCLUSION: (2pi)^-1 int_0^{2pi} p^(i) dlambda_i=0 in R^2
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p7:poincare, stepP:p8:l64-a
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-b@L102-L102 | (a): q^(i) real analytic and 2pi-periodic in lambda_i
+EDGE: stepP:p8:l64-a | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-b@L102-L102 | p^(i)=m_i nu_i d_{lambda_i} q^(i)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -642,19 +704,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103
 CONTRACT_ID: stepP:p8:l64-c
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: p^(j).p^(k) continuous; p^(j) depends on lambda_j only, p^(k) on lambda_k only; step (b)
+SOURCE_QUANTIFIERS: j!=k; w in O_n
+SOURCE_CONCLUSION: (2pi)^-n int p^(j).p^(k) dlambda=0
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepP:p8:l64-b, bpP:p7:product-def, bpP:p7:poincare
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepP:p8:l64-b | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | both single-period averages vanish
+EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | p^(j) depends only on lambda_j
+EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | (a): continuity
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -668,21 +733,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104
 CONTRACT_ID: stepP:p8:l64-d
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Gamma_i>0: p^(i)=Q_{m_i,kappa}(ell,g,Lambda,C), ell=lambda-g; circular case Gamma_i=0
+SOURCE_QUANTIFIERS: w in O_n; planet i
+SOURCE_CONCLUSION: (2pi)^-n int ¦p^(i)¦^2 dlambda=(2pi)^-1 int ¦p^(i)¦^2 dlambda_i=m_i^2 kappa/a_i=m_i^4 kappa^2/Lambda_i^2
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:po-del, bpP:p7:kepler
+DEPS: stepP:p7:po-del, bpP:p7:kepler, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p7:po-del | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | cited at this line (step; \ref{stepP:p7:po-del})
-EDGE: bpP:p7:kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | cited at this line (step; \ref{bpP:p7:kepler})
+EDGE: stepP:p7:po-del | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | p^(i)=Q(ell,g,Lambda,C), ell=lambda-g
+EDGE: bpP:p7:kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | (c): mean of ¦p¦^2 over one period equals m^2 kappa/a; circular case of the same item
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | a_i=Lambda_i^2/(m_i^2 kappa)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -696,19 +762,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-e@L105-L105
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-e@L105-L105
 CONTRACT_ID: stepP:p8:l64-e
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: step (c) and (d)
+SOURCE_QUANTIFIERS: w in O_n
+SOURCE_CONCLUSION: (2pi)^-n int ¦sum p^(i)¦^2 dlambda=sum m_i^4 kappa^2/Lambda_i^2
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepP:p8:l64-c, stepP:p8:l64-d
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepP:p8:l64-c | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-e@L105-L105 | cross terms vanish
+EDGE: stepP:p8:l64-d | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-e@L105-L105 | diagonal terms
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -722,10 +790,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace-def@L110-
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p8:laplace-def
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: s>0, k in Z, alpha in [0,1)
+SOURCE_QUANTIFIERS: s,k,alpha
+SOURCE_CONCLUSION: defines b_s^(k)(alpha)=(2pi)^-1 int_0^{2pi} cos(kt)(1+alpha^2-2 alpha cos t)^(-s) dt so that (1+alpha^2-2 alpha cos t)^(-s)=sum_k b_s^(k)(alpha) e^{ikt}
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -734,7 +802,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -748,21 +816,23 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L116-L120
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L121-L124
 CONTRACT_ID: bpP:p8:laplace
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: s>0, k>=0, alpha in [0,1); b_s^(k) of Definition laplace-def
+SOURCE_QUANTIFIERS: s>0; k>=0; alpha in [0,1)
+SOURCE_CONCLUSION: b_s^(k)(alpha)=sum_q (s)_{q+k}(s)_q/((q+k)! q!) alpha^(2q+k), b_s^(-k)=b_s^(k); radius of convergence >=1, holomorphic on ¦alpha¦<1, real nonnegative on [0,1), strictly positive on (0,1), b_s^(0)(0)=1, b_s^(k)(0)=0 for k>0; real analytic for 0<alpha<1 and alpha->b_s^(k)(a_i/a_j) real analytic on {0<a_i<a_j}
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:la-exp, stepP:p8:la-conv
+DEPS: stepP:p8:la-exp, stepP:p8:la-conv, bpP:p8:laplace-def, bpP:p8:e-taylor
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:la-exp | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L122-L122 | proof step of this result
-EDGE: stepP:p8:la-conv | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L123-L123 | proof step of this result
+EDGE: stepP:p8:la-exp | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L122-L122 | proof step Expansion
+EDGE: stepP:p8:la-conv | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L123-L123 | proof step Convergence
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L118-L118 | the coefficients b_s^(k)
+EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L119-L119 | composition of analytic functions (alpha=a_i/a_j) is real analytic
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -776,20 +846,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-exp@L122-L12
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-exp@L122-L122
 CONTRACT_ID: stepP:p8:la-exp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: 1+alpha^2-2 alpha cos t=(1-alpha e^{it})(1-alpha e^{-it}); binomial series
+SOURCE_QUANTIFIERS: s>0; alpha<1; t real
+SOURCE_CONCLUSION: the series sum_{p,q} (s)_p(s)_q/(p!q!) alpha^(p+q) e^{i(p-q)t} converges absolutely and uniformly in t; termwise integration against e^{-ikt}/(2pi) gives the series of Lemma laplace, evenness in k
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:e-poch
+DEPS: bpP:p8:e-poch, bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-exp@L122-L122 | cited at this line (step; \ref{bpP:p8:e-poch})
+EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-exp@L122-L122 | binomial series and the growth O(p^(s-1))
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-exp@L122-L122 | Fourier coefficient definition of b_s^(k)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -803,51 +874,26 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L1
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L123
 CONTRACT_ID: stepP:p8:la-conv
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: coefficient of alpha^(2q+k) is O((q+k+1)^(s-1)(q+1)^(s-1)); all coefficients >=0
+SOURCE_QUANTIFIERS: s>0; k>=0
+SOURCE_CONCLUSION: radius of convergence >=1; b_s^(k)>0 on (0,1)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p8:e-poch, stepP:p8:la-exp
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L123 | (s)_p/p!=O(p^(s-1)), positivity of the Pochhammer symbols
+EDGE: stepP:p8:la-exp | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L123 | the series coefficients
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
-
-NODE: bpP:p8:no76
-KIND: claim
-TITLE: Fej04r Lemma 76 is not used
-STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:no76@L125-L127
-PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:no76@L125-L127
-CONTRACT_ID: bpP:p8:no76
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:laplace
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#bpP:p8:no76@L126-L126 | cited at this line (statement; \ref{bpP:p8:laplace})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: remark: its justification is inline (confirm, or exclude if not a mathematical claim)
 
 NODE: bpP:p8:identities
 KIND: lemma
@@ -856,10 +902,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L129-L
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L136-L140
 CONTRACT_ID: bpP:p8:identities
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: alpha in [0,1); beta=b_{1/2}^(0), b=b_{1/2}^(1)
+SOURCE_QUANTIFIERS: alpha in [0,1)
+SOURCE_CONCLUSION: (I1) alpha beta''+2 beta'=b_{3/2}^(1); (I2) alpha^2 b''+2 alpha b'-2b=alpha b_{3/2}^(2)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -867,11 +913,11 @@ FROZEN_ABI_SHA256: -
 DEPS: stepP:p8:id-1, stepP:p8:id-2, bpP:p8:laplace
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:id-1 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L138-L138 | proof step of this result
-EDGE: stepP:p8:id-2 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L139-L139 | proof step of this result
-EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L137-L137 | cited at this line (proof; \ref{bpP:p8:laplace})
+EDGE: stepP:p8:id-1 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L138-L138 | proof step (I1)
+EDGE: stepP:p8:id-2 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L139-L139 | proof step (I2)
+EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L137-L137 | series of Lemma laplace compared coefficientwise
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -885,19 +931,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L138-L138
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L138-L138
 CONTRACT_ID: stepP:p8:id-1
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: beta=sum_q ((1/2)_q/q!)^2 alpha^(2q); (3/2)_p=(2p+1)(1/2)_p, (3/2)_{p-1}=2 (1/2)_p
+SOURCE_QUANTIFIERS: alpha in [0,1); q>=1
+SOURCE_CONCLUSION: coefficient of alpha^(2q-1) of alpha beta''+2 beta' is 2q(2q+1)((1/2)_q/q!)^2, equal to that of b_{3/2}^(1)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p8:laplace, bpP:p8:e-poch
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L138-L138 | series of b_{1/2}^(0) and b_{3/2}^(1)
+EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L137-L137 | (s)_{p+1}=(s)_p(s+p) giving the Pochhammer relations
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -911,19 +959,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L139-L139
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L139-L139
 CONTRACT_ID: stepP:p8:id-2
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: b=sum_q c_q alpha^(2q+1); (alpha^2 d^2+2 alpha d-2) alpha^m=(m+2)(m-1) alpha^m
+SOURCE_QUANTIFIERS: alpha in [0,1); q>=0
+SOURCE_CONCLUSION: coefficient of alpha^(2q+1) on both sides agree (q=0 both zero; q>=1 equal 2q(2q+3)c_q)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p8:laplace, bpP:p8:e-poch
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L139-L139 | series of b_{1/2}^(1) and b_{3/2}^(2)
+EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L137-L137 | Pochhammer relations
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -937,20 +987,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:coeffs@L144-L150
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p8:coeffs
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: a_1<...<a_n axes; alpha_ij=a_i/a_j<1 for i<j; G, m_i as in conv#data; Delta=diag(sqrt(Lambda_i))
+SOURCE_QUANTIFIERS: n,G,m,a; Lambda
+SOURCE_CONCLUSION: defines fraktur a_ij=G m_i m_j a_i b_{3/2}^(1)(alpha_ij)/(4 a_j^2)>0, fraktur b_ij=G m_i m_j a_i b_{3/2}^(2)(alpha_ij)/(4 a_j^2)>0 (i<j, symmetric extension), C_0(a)=-sum_{i<j} G m_i m_j a_j^-1 b_{1/2}^(0)(alpha_ij), hat q_jj=-sum_{k!=j} a_jk, hat q_jk=b_jk, Q_h=Delta^-1 hat q Delta^-1; all real analytic in Lambda on {a_1<...<a_n}, a=a(Lambda)
+CONSTANT_SCOPE: none (functions of a, hence of Lambda)
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:laplace
+DEPS: bpP:p8:laplace-def, bpP:p8:laplace, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#bpP:p8:coeffs@L149-L149 | cited at this line (statement; \ref{bpP:p8:laplace})
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:coeffs@L146-L146 | b_s^(k) in the definitions
+EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#bpP:p8:coeffs@L149-L149 | real analyticity of the coefficients and positivity
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:coeffs@L145-L145 | data n, G, m, axes and a(Lambda)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -964,34 +1016,36 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L1
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L159-L171
 CONTRACT_ID: bpP:p8:quadratic-form
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: situation of bpP:p8:perturbation-analytic; a* increasing; (xi,Lambda,eta) in N_R(rho_*) with a(Lambda) increasing there (rho_* shrunk if needed); for the last clause varrho in SO(n) with Q_h=varrho diag(sigma) varrho^T
+SOURCE_QUANTIFIERS: data of conv#data and Definition coeffs; rho_*; then points; varrho
+SOURCE_CONCLUSION: S_fix=C_0(a)+xi^T Q_h xi+eta^T Q_h eta+O(¦(xi,eta)¦^4), error real analytic and O(¦(xi,eta)¦^4) locally uniformly in Lambda; the matrix A of the evenness corollary is Q_h; in (tilde xi,tilde eta)=varrho^T(xi,eta) the quadratic part is sum_j sigma_j(tilde xi_j^2+tilde eta_j^2)=sum_j 2 sigma_j tilde Gamma_j, i.e. Omega_j=2 sigma_j in the frozen sense
+CONSTANT_SCOPE: rho_* depends only on (m,kappa,a*) (possibly shrunk for a(Lambda) increasing); the O-constant is locally uniform in Lambda
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:qf-pair, stepP:p8:qf-scale, stepP:p8:qf-c0, stepP:p8:qf-diag, stepP:p8:qf-cross, stepP:p8:qf-assembly, stepP:p8:qf-diag2, bpP:p8:perturbation-analytic, bpP:p8:evenness, bpP:p8:factor-half
+DEPS: stepP:p8:qf-pair, stepP:p8:qf-scale, stepP:p8:qf-c0, stepP:p8:qf-diag, stepP:p8:qf-cross, stepP:p8:qf-assembly, stepP:p8:qf-diag2, bpP:p8:perturbation-analytic, bpP:p8:evenness, bpP:p8:coeffs, bpP:p8:conv#data, bpP:p0:birkhoff#HasSecularBirkhoffForm
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L160-L160 | proof step of this result
-EDGE: stepP:p8:qf-scale | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L161-L161 | proof step of this result
-EDGE: stepP:p8:qf-c0 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L162-L162 | proof step of this result
-EDGE: stepP:p8:qf-diag | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L163-L163 | proof step of this result
-EDGE: stepP:p8:qf-cross | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L166-L166 | proof step of this result
-EDGE: stepP:p8:qf-assembly | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L169-L169 | proof step of this result
-EDGE: stepP:p8:qf-diag2 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L170-L170 | proof step of this result
-EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L153-L153 | cited at this line (statement; \ref{bpP:p8:perturbation-analytic})
-EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L155-L155 | cited at this line (statement; \ref{bpP:p8:eq:quad-struct})
-EDGE: bpP:p8:factor-half | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L156-L156 | cited at this line (statement; \ref{bpP:p8:factor-half}; in \source: provenance unless consumed)
+EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L160-L160 | proof step Pair decomposition
+EDGE: stepP:p8:qf-scale | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L161-L161 | proof step Scaling
+EDGE: stepP:p8:qf-c0 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L162-L162 | proof step C_0
+EDGE: stepP:p8:qf-diag | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L163-L163 | proof step Diagonal coefficients
+EDGE: stepP:p8:qf-cross | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L166-L166 | proof step Cross coefficient
+EDGE: stepP:p8:qf-assembly | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L169-L169 | proof step Assembly
+EDGE: stepP:p8:qf-diag2 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L170-L170 | proof step Diagonalisation
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L153-L153 | situation, rho_*, S_fix analytic on N_R(rho_*)
+EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L155-L155 | matrix A of the evenness corollary
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L154-L154 | C_0, Q_h
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L154-L154 | S_fix, N_R, data
+EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L155-L155 | frozen sense of Omega_j (R_j=Gamma_j)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: edge to bpP:p8:factor-half deleted (remark: erratum and normalisation comparison, no proof consumes it; the factor 1/2 is proved here). The sourcegap at L157 (calculation only in [LR95], not pinned) is closed by the blueprint proof steps
 
 NODE: stepP:p8:qf-pair
 KIND: step
@@ -1000,21 +1054,23 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L1
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160
 CONTRACT_ID: stepP:p8:qf-pair
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: hat f_fix=sum_{i<j} V_ij, V_ij=-G m_i m_j/¦q^(i)-q^(j)¦ depends on (lambda_i,lambda_j) and (u_i,Lambda_i,u_j,Lambda_j) only
+SOURCE_QUANTIFIERS: pairs i<j
+SOURCE_CONCLUSION: S_fix=sum S_ij with S_ij=<V_ij> (average over lambda_i,lambda_j by Fubini); Cor evenness applies to each S_ij (n=2 function of (u_i,u_j)); degree-two part A_ij ¦u_i¦^2+A'_ij ¦u_j¦^2+B_ij u_i.u_j
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:evenness, bpP:p8:e-weyl
+DEPS: bpP:p8:evenness, bpP:p8:e-weyl, bpP:p8:perturbation-analytic, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | cited at this line (step; \ref{bpP:p8:evenness})
-EDGE: bpP:p8:e-weyl | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | cited at this line (step; \ref{bpP:p8:e-weyl})
+EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | evenness corollary applied to the n=2 function S_ij
+EDGE: bpP:p8:e-weyl | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | quadratic O(2)-invariants of two vectors are spanned by the three dot products
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | formula hat f_fix=-G sum m_i m_j s_ij^(-1/2) and analyticity
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | S_fix and averages
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1028,19 +1084,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-scale@L161-L
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-scale@L161-L161
 CONTRACT_ID: stepP:p8:qf-scale
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Phi(r_1,r_2)=(2pi)^-1 int (r_1^2+r_2^2-2 r_1 r_2 cos t)^(-1/2) dt
+SOURCE_QUANTIFIERS: r_1,r_2>0, r_1!=r_2
+SOURCE_CONCLUSION: Phi(r_1,r_2)=r_2^-1 b_{1/2}^(0)(r_1/r_2) for r_1<r_2, symmetric, real analytic on {r_1!=r_2}, homogeneous of degree -1
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p8:laplace-def, bpP:p8:laplace
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-scale@L161-L161 | b_{1/2}^(0)
+EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-scale@L161-L161 | real analyticity of alpha->b_{1/2}^(0)(alpha)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1054,20 +1112,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162
 CONTRACT_ID: stepP:p8:qf-c0
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: u=0: both planets circular (Thm poincare(f)); S_ij(0)=<V_ij>
+SOURCE_QUANTIFIERS: pairs i<j
+SOURCE_CONCLUSION: S_ij(0)=-G m_i m_j Phi(a_i,a_j)=-G m_i m_j a_j^-1 b_{1/2}^(0)(alpha_ij)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare
+DEPS: bpP:p7:poincare, stepP:p8:qf-scale, stepP:p8:qf-pair
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | cited at this line (step; \ref{bpP:p7:poincare})
+EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | (f): circular orbits at u=0
+EDGE: stepP:p8:qf-scale | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | Phi and b_{1/2}^(0)
+EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | S_ij=<V_ij>
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1081,22 +1141,29 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L1
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L165
 CONTRACT_ID: stepP:p8:qf-diag
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: u_j=0 (j circular), u_i=(xi_i,eta_i); Prop kepler(b): ¦q^(i)¦=a_i(1-e cos u), d lambda_i=(1-e cos u)du; e^2=¦v_i¦^2=2Gamma_i/Lambda_i-Gamma_i^2/Lambda_i^2=:E; identity (I1)
+SOURCE_QUANTIFIERS: i!=j
+SOURCE_CONCLUSION: coefficient of ¦u_i¦^2 in S_ij at u_j=0 is -fraktur a_ij/Lambda_i, in both orderings i<j and i>j
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:kepler, bpP:p7:o-facts, I:bpI:p7:orbit-identities
+DEPS: bpP:p7:kepler, bpP:p7:o-facts, I:bpI:p7:orbit-identities, bpP:p7:poincare, stepP:p8:qf-scale, stepP:p8:qf-pair, stepP:p8:id-1, bpP:p8:e-taylor, bpP:p8:coeffs, bpP:p7:poincare-def
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p7:kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | cited at this line (step; \ref{bpP:p7:kepler})
-EDGE: bpP:p7:o-facts | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | cited at this line (step; \ref{bpP:p7:o-facts})
-EDGE: I:bpI:p7:orbit-identities | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | cited at this line (step; \Iref{bpI:p7:orbit-identities})
+EDGE: bpP:p7:kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | (b): ¦q¦=a(1-e cos u), mean-anomaly relation
+EDGE: bpP:p7:o-facts | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | e^2=¦v¦^2=E in terms of Gamma, Lambda
+EDGE: I:bpI:p7:orbit-identities | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | d lambda=(1-e cos u)du, r=a(1-e cos u)
+EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | (f): circular planet j (u_j=0)
+EDGE: stepP:p8:qf-scale | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L161-L161 | Phi and its homogeneity
+EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | S_ij=<V_ij>
+EDGE: stepP:p8:id-1 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | by (I1) the second derivative of h
+EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | Taylor expansion of h and E=¦u¦^2/Lambda+O(¦u¦^4)
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | identification with fraktur a_ij
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | v=(1-Gamma/(2 Lambda))^(1/2) Lambda^(-1/2) u
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1110,22 +1177,26 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L168
 CONTRACT_ID: stepP:p8:qf-cross
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: i<j; B_ij=d_{xi_i}d_{xi_j}<V_ij> at 0; first-order orbit formulas in v with v=(1-Gamma/2Lambda)^(1/2)Lambda^(-1/2)u; B_k=r_j^-1 b_{1/2}^(k)(r_i/r_j) homogeneous of degree -1; identity (I2)
+SOURCE_QUANTIFIERS: i<j
+SOURCE_CONCLUSION: B_ij=2 fraktur b_ij/sqrt(Lambda_i Lambda_j) (partial_s partial_t <V_ij>=2 fraktur b_ij)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:e-diff, bpP:p7:regular-kepler, bpP:p8:laplace-def
+DEPS: bpP:p8:e-diff, bpP:p7:regular-kepler, bpP:p7:poincare-def, bpP:p8:laplace-def, stepP:p8:id-2, stepP:p8:qf-pair, bpP:p8:coeffs
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | cited at this line (step; \ref{bpP:p8:e-diff})
-EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | cited at this line (step; \ref{bpP:p7:regular-kepler})
-EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | cited at this line (step; \ref{bpP:p8:laplace-def})
+EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | differentiation under the average
+EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | (a): d_v F=(sin F,-cos F) at v=0, F=lambda, J=1
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | v in terms of u; position formula q=a(kc-v+(v.c)v/(1+k))
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | Fourier expansion of U in Laplace coefficients B_k
+EDGE: stepP:p8:id-2 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L168-L168 | by (I2)
+EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | V_ij, S_ij=<V_ij>
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L168-L168 | identification with fraktur b_ij
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1139,21 +1210,27 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L16
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169
 CONTRACT_ID: stepP:p8:qf-assembly
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: degree-two part of S_fix-C_0 as the sum of the diagonal and cross coefficients; remainder analytic with vanishing jet to order three
+SOURCE_QUANTIFIERS: (xi,Lambda,eta) in N_R(rho_*)
+SOURCE_CONCLUSION: quadratic part sum_{j,k}(Q_h)_jk(xi_j xi_k+eta_j eta_k), remainder O(¦(xi,eta)¦^4); rho_* shrunk so that a(Lambda) is increasing
+CONSTANT_SCOPE: shrinking depends only on continuity of a(Lambda)
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:evenness, bpP:p8:e-taylor
+DEPS: stepP:p8:qf-c0, stepP:p8:qf-diag, stepP:p8:qf-cross, stepP:p8:qf-pair, bpP:p8:evenness, bpP:p8:e-taylor, bpP:p8:coeffs, bpP:p8:perturbation-analytic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | cited at this line (step; \ref{bpP:p8:evenness})
-EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | cited at this line (step; \ref{bpP:p8:e-taylor})
+EDGE: stepP:p8:qf-c0 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L162-L162 | constant term C_0
+EDGE: stepP:p8:qf-diag | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | diagonal coefficients
+EDGE: stepP:p8:qf-cross | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | cross coefficient
+EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | sum over pairs
+EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | vanishing jet up to order three
+EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | O(¦(xi,eta)¦^4) from the vanishing jet of an analytic remainder
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | Q_h, C_0 definitions
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | analyticity on N_R(rho_*)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1167,53 +1244,27 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170
 CONTRACT_ID: stepP:p8:qf-diag2
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: varrho in SO(n) with Q_h=varrho diag(sigma) varrho^T; step Assembly
+SOURCE_QUANTIFIERS: varrho; (xi,eta)
+SOURCE_CONCLUSION: (xi,eta)->(varrho^T xi,varrho^T eta) is symplectic for d eta^ d xi, preserves sum(xi_j^2+eta_j^2); Gamma tilde_j=(tilde xi_j^2+tilde eta_j^2)/2, so quadratic part=sum 2 sigma_j tilde Gamma_j
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepP:p8:qf-assembly, bpP:p8:coeffs, bpP:p0:hamsymp#symplecticForm
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepP:p8:qf-assembly | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | quadratic part xi^T Q_h xi+eta^T Q_h eta
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | Q_h
+EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | symplectic for the frozen form
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
-
-NODE: bpP:p8:factor-half
-KIND: claim
-TITLE: Factor $\frac12$ against the source, dictionary, numerical evidence
-STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:factor-half@L173-L178
-PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:factor-half@L173-L178
-CONTRACT_ID: bpP:p8:factor-half
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:coeffs, bpP:p8:quadratic-form, bpP:p7:poincare-def
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#bpP:p8:factor-half@L174-L174 | cited at this line (statement; \ref{bpP:p8:coeffs})
-EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p8-secular-form.tex#bpP:p8:factor-half@L175-L175 | cited at this line (statement; \ref{bpP:p8:quadratic-form})
-EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:factor-half@L177-L177 | cited at this line (statement; \ref{bpP:p7:poincare-def})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: remark: its justification is inline (confirm, or exclude if not a mathematical claim)
 
 NODE: bpP:p8:identification
 KIND: theorem
@@ -1222,24 +1273,25 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L1
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L190-L194
 CONTRACT_ID: bpP:p8:identification
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: the data of bpP:p8:conv#data (n>=1; G,m0>0, kappa=G m0; m in (0,inf)^n; chart Psi=Psi^(n) with hat f_fix, hat f_mov; axes a*; N(rho)); w'=(xi,Lambda,eta) with (lambda,xi,Lambda,eta) in O_n; delta(Lambda)=(2 m0)^-1 sum m_i^4 kappa^2/Lambda_i^2=(G/2) sum m_i^2/a_i
+SOURCE_QUANTIFIERS: n,G,m0,m; w' with lambda in O_n-fibre
+SOURCE_CONCLUSION: lambda->hat f_mov-hat f_fix=¦sum p^(i)¦^2/(2 m0) is continuous and its average is delta(Lambda); hat f_fix(.,w') integrable iff hat f_mov(.,w') is, then S_mov=S_fix+delta(Lambda), in particular on N_R(rho_*); <H_mov^Psi>=h+mu S_mov=h+mu S_fix+mu delta, <H_fix^Psi>=h+eps S_fix
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:id-diff, stepP:p8:id-avg, stepP:p8:id-int, bpP:p8:perturbation-analytic, bpP:p6:split
+DEPS: stepP:p8:id-diff, stepP:p8:id-avg, stepP:p8:id-int, bpP:p8:perturbation-analytic, bpP:p7:product-chart, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:id-diff | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L191-L191 | proof step of this result
-EDGE: stepP:p8:id-avg | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L192-L192 | proof step of this result
-EDGE: stepP:p8:id-int | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L193-L193 | proof step of this result
-EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L187-L187 | cited at this line (statement; \ref{bpP:p8:perturbation-analytic})
-EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L188-L188 | cited at this line (statement; \ref{bpP:p6:split}; in \source: provenance unless consumed)
+EDGE: stepP:p8:id-diff | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L191-L191 | proof step Difference
+EDGE: stepP:p8:id-avg | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L192-L192 | proof step Average
+EDGE: stepP:p8:id-int | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L193-L193 | proof step Integrability
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L187-L187 | N_R(rho_*) where both are analytic
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L187-L187 | (c): H_mov^Psi=h+mu f_mov o Psi, H_fix^Psi=h+eps f_fix o Psi
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L183-L183 | data, averages, S_fix, S_mov
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1253,20 +1305,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L1
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191
 CONTRACT_ID: stepP:p8:id-diff
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: f_mov-f_fix=¦P¦^2/(2 m0) identically (Lemma split); p^(i)(lambda_i) continuous
+SOURCE_QUANTIFIERS: w' with lambda in O_n
+SOURCE_CONCLUSION: hat f_mov-hat f_fix=¦sum p^(i)¦^2/(2 m0) is a polynomial in the continuous p^(i)(lambda_i), hence continuous
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p6:split
+DEPS: bpP:p6:split, bpP:p7:poincare, bpP:p7:product-def
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | cited at this line (step; \ref{bpP:p6:split})
+EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | f_mov-f_fix=¦P¦^2/(2 m0)
+EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | (a): p^(i) real analytic hence continuous
+EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | p^(i) depends on lambda_i only
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1280,20 +1334,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L19
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L192
 CONTRACT_ID: stepP:p8:id-avg
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Prop lemma64(e); kappa/m0=G
+SOURCE_QUANTIFIERS: w' as in the statement
+SOURCE_CONCLUSION: (2pi)^-n int(hat f_mov-hat f_fix) dlambda=delta(Lambda), including the form (G/2) sum m_i^2/a_i
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:lemma64
+DEPS: bpP:p8:lemma64, stepP:p8:id-diff, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:lemma64 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L192 | cited at this line (step; \ref{bpP:p8:lemma64})
+EDGE: bpP:p8:lemma64 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L192 | (e): average of ¦sum p^(i)¦^2
+EDGE: stepP:p8:id-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L192 | difference equals ¦sum p¦^2/(2 m0)
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L192 | kappa=G m0 and a_i
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1307,20 +1363,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L19
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193
 CONTRACT_ID: stepP:p8:id-int
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: bounded continuous functions are integrable on the compact torus; on N_R(rho_*) hat f continuous on the torus
+SOURCE_QUANTIFIERS: w'
+SOURCE_CONCLUSION: integrability of hat f_fix is equivalent to that of hat f_mov and the averages subtract; on N_R(rho_*) both integrable
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:perturbation-analytic
+DEPS: stepP:p8:id-diff, bpP:p8:perturbation-analytic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193 | cited at this line (step; \ref{bpP:p8:perturbation-analytic})
+EDGE: stepP:p8:id-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193 | continuity of the difference
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193 | (a): hat f continuous on the torus for w' in N_R(rho_*)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1334,57 +1391,87 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L196-L2
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L205-L207
 CONTRACT_ID: bpP:p8:same-jets
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: on N_R(rho_*); alpha!=0 multi-index in (xi,eta); for (c): HasBirkhoff(P_mov,V,r_0,mu_0,P_0,Omega,beta) (Definition birkhoff), P_mov=hat f_mov, P_fix=hat f_fix assembled by the dictionary, points (I,p,q)=(Lambda,eta,xi) with I in V, p_j^2+q_j^2<r_0^2 in N_R(rho_*)
+SOURCE_QUANTIFIERS: data of conv#data; rho_*; alpha; Lambda-derivatives
+SOURCE_CONCLUSION: d^alpha_{(xi,eta)} S_mov=d^alpha S_fix for all alpha!=0 and Lambda-derivatives; (a) S_mov=C_0+delta+xi^T Q_h xi+eta^T Q_h eta+O(¦(xi,eta)¦^4), same Q_h, sigma_j, Omega_j, quartic jets coincide; (b) for mu=eps the secular equations of the two models coincide, Lambda constant, frequencies differ by mu d_{Lambda_i} delta; (c) HasBirkhoff(P_fix,V,r_0,mu_0,P_0-delta,Omega,beta) holds and conversely, beta hypotheses (H5),(H6) literally the same; S_mov o chi-S_fix o chi=delta(Lambda) for slow-variable symplectic chi(Lambda;.)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:quartic, bpP:p7:product-chart, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p8:identification, bpP:p8:quadratic-form, bpP:p0:secavg#secularAverage
+DEPS: bpP:p8:same-jets#jets, bpP:p8:same-jets#transfer, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:quartic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L200-L200 | cited at this line (statement; \ref{bpP:p8:quartic})
-EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L201-L201 | cited at this line (statement; \ref{bpP:p7:product-chart})
-EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L202-L202 | cited at this line (statement; \ref{bpP:p0:birkhoff})
-EDGE: bpP:p8:identification | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L206-L206 | cited at this line (proof; \ref{bpP:p8:identification})
-EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L206-L206 | cited at this line (proof; \ref{bpP:p8:quadratic-form})
-EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L206-L206 | cited at this line (proof; \ref{bpP:p0:secavg})
+EDGE: bpP:p8:same-jets#jets | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L206-L206 | proof: derivatives of the difference and (a),(b)
+EDGE: bpP:p8:same-jets#transfer | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L206-L206 | proof: (c) transfer to the frozen Birkhoff form
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L197-L197 | S_fix, S_mov, N_R, dictionary
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: edge to bpP:p8:quartic deleted (the coincidence of the quartic jets is a consequence of the all-order equality here; Prop quartic depends on this corollary, not conversely). Two step nodes #jets, #transfer added for the unmarked proof obligations
 
-NODE: bpP:p8:use11
-KIND: claim
-TITLE: Use in Part 11
-STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:use11@L208-L210
-PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:use11@L208-L210
-CONTRACT_ID: bpP:p8:use11
+NODE: bpP:p8:same-jets#jets
+KIND: step
+TITLE: All-order equality of the jets; same quadratic form; same equations
+STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206
+PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206
+CONTRACT_ID: bpP:p8:same-jets#jets
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: delta does not depend on (xi,eta); Thm identification; Thm quadratic-form; Thm product-chart (d)
+SOURCE_QUANTIFIERS: alpha!=0; (xi,Lambda,eta) in N_R(rho_*)
+SOURCE_CONCLUSION: all (xi,eta)-derivatives of order >=1 of S_mov-S_fix vanish; (a) same quadratic form Q_h and constant C_0+delta; (b) same secular equations, frequencies differ by mu d_Lambda delta
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p6:split
+DEPS: bpP:p8:identification, bpP:p8:quadratic-form, bpP:p7:product-chart, bpP:p8:perturbation-analytic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#bpP:p8:use11@L209-L209 | cited at this line (statement; \ref{bpP:p6:split})
+EDGE: bpP:p8:identification | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | S_mov=S_fix+delta(Lambda) with delta independent of (xi,eta)
+EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | (a): the quadratic form Q_h
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | (d): Hamilton equations in the chart
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | S_fix, S_mov analytic so derivatives exist
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: remark: its justification is inline (confirm, or exclude if not a mathematical claim)
+NOTE: added step: the all-order equality and (a),(b) are consumed by Parts 11b/12; proof paragraph L206
+
+NODE: bpP:p8:same-jets#transfer
+KIND: step
+TITLE: Transfer to the frozen Birkhoff form (c)
+STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206
+PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206
+CONTRACT_ID: bpP:p8:same-jets#transfer
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: HasBirkhoff for P_mov; P_av^mov-P_av^fix=delta(I) (frozen average of Def secavg, I=Lambda) on the integrability set; chi acts on (xi,eta) only
+SOURCE_QUANTIFIERS: V, r_0, mu_0, P_0, Omega, beta
+SOURCE_CONCLUSION: HasBirkhoff(P_fix,V,r_0,mu_0,P_0-delta,Omega,beta) and conversely: integrability clause (i) transfers and the expansion clause (ii) with P_0->P_0-delta; Omega, beta unchanged
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p8:identification, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p0:secavg#secularAverage, bpP:p8:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p8:identification | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | P_av^mov-P_av^fix=delta(I) on the integrability set
+EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | definition of HasBirkhoff, clauses (i), (ii)
+EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | frozen average, I=Lambda
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | dictionary (I,p,q)=(Lambda,eta,xi)
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p8
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: added step for the unmarked substantive transfer (c)
 
 NODE: bpP:p8:quartic
 KIND: proposition
@@ -1393,33 +1480,31 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L216-L229
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L230-L235
 CONTRACT_ID: bpP:p8:quartic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: n>=2; Lambda with (xi,Lambda,eta) in N_R(rho_*)-range; v the eccentricity vectors of Definition poincare-def
+SOURCE_QUANTIFIERS: n,m,kappa,a*; Lambda; for (a): alpha,v_i,v_j in the domain D
+SOURCE_CONCLUSION: degree-four part of S_fix (and S_mov) is Q_4=sum_{i<j}[c1 ¦u_i¦^4+c2 ¦u_j¦^4+c3 ¦u_i¦^2¦u_j¦^2+c4 (u_i.u_j)^2+c5 ¦u_i¦^2 u_i.u_j+c6 ¦u_j¦^2 u_i.u_j] with c_nu(Lambda_i,Lambda_j) real analytic; (a) S_ij=-G m_i m_j a_j^-1 W(alpha_ij;v_i,v_j) with W real analytic on the separated domain D, independent of m,G,kappa, exact passage u->v; (b) c_1,c_2 = -G m_i m_j (h^(4)(0)/64-h''(0)/16)/Lambda^2 with h(eps)=Phi(a(1-eps),a')(1-eps); (c) c_1=m_i m_j r_1^ex(a_i,a_j)/(2 Lambda_i^2), c_2 analogously, with r_1^ex=-h^(4)(0)/32+h''(0)/8 (G=m0=1); explicit c_3..c_6 are forward obligations of Part 11b
+CONSTANT_SCOPE: c_nu depend only on (Lambda_i,Lambda_j) (and m,G,kappa); W independent of m,G,kappa
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:q4-str, stepP:p8:q4-a, stepP:p8:q4-b, stepP:p8:q4-c, bpP:p8:same-jets, bpP:p7:poincare-def, bpP:p8:cp11-check, bpP:p8:quadratic-form, bpP:p8:evenness
+DEPS: stepP:p8:q4-str, stepP:p8:q4-a, stepP:p8:q4-b, stepP:p8:q4-c, bpP:p8:same-jets, bpP:p7:poincare-def, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:q4-str | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L231-L231 | proof step of this result
-EDGE: stepP:p8:q4-a | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L232-L232 | proof step of this result
-EDGE: stepP:p8:q4-b | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L233-L233 | proof step of this result
-EDGE: stepP:p8:q4-c | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L234-L234 | proof step of this result
-EDGE: bpP:p8:same-jets | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L217-L217 | cited at this line (statement; \ref{bpP:p8:same-jets})
-EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L221-L221 | cited at this line (statement; \ref{bpP:p7:poincare-def})
-EDGE: bpP:p8:cp11-check | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L225-L225 | cited at this line (statement; \ref{bpP:p8:cp11-check})
-EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L225-L225 | cited at this line (statement; \ref{bpP:p8:quadratic-form})
-EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L227-L227 | cited at this line (statement; \ref{bpP:p8:evenness}; in \source: provenance unless consumed)
+EDGE: stepP:p8:q4-str | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L231-L231 | proof step Structure
+EDGE: stepP:p8:q4-a | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L232-L232 | proof step (a)
+EDGE: stepP:p8:q4-b | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L233-L233 | proof step (b)
+EDGE: stepP:p8:q4-c | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L234-L234 | proof step (c)
+EDGE: bpP:p8:same-jets | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L217-L217 | S_mov has the same degree-four part
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L221-L221 | v of Definition poincare-def
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L217-L217 | data, N_R(rho_*), S_fix
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: edge to bpP:p8:cp11-check deleted (remark comparing CP11 (B.6); no proof consumes it; it depends on this proposition). Edges to evenness/quadratic-form/perturbation-analytic are carried by the steps
 
 NODE: stepP:p8:q4-str
 KIND: step
@@ -1428,23 +1513,24 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L23
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231
 CONTRACT_ID: stepP:p8:q4-str
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Cor evenness; Prop perturbation-analytic; pair decomposition (Step qf-pair)
+SOURCE_QUANTIFIERS: (xi,Lambda,eta) in N_R(rho_*)
+SOURCE_CONCLUSION: the degree-four part is an O(2)-invariant polynomial analytic in Lambda, a sum over pairs of degree-two polynomials in ¦u_i¦^2,¦u_j¦^2,u_i.u_j: the six listed monomials
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:evenness, bpP:p8:perturbation-analytic, stepP:p8:qf-pair, bpP:p8:e-weyl
+DEPS: bpP:p8:evenness, bpP:p8:perturbation-analytic, stepP:p8:qf-pair, bpP:p8:e-weyl, bpP:p8:e-taylor
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | cited at this line (step; \ref{bpP:p8:evenness})
-EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | cited at this line (step; \ref{bpP:p8:perturbation-analytic})
-EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | cited at this line (step; \ref{stepP:p8:qf-pair})
-EDGE: bpP:p8:e-weyl | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | cited at this line (step; \ref{bpP:p8:e-weyl})
+EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | even, O(2)-invariant Taylor parts
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | joint analyticity (Taylor coefficients analytic in Lambda)
+EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | pair decomposition
+EDGE: bpP:p8:e-weyl | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | invariants are polynomials in dot products
+EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | Taylor coefficients of a jointly analytic function
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1458,22 +1544,24 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232
 CONTRACT_ID: stepP:p8:q4-a
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: q^(i)=a_i tilde q(lambda_i,v_i) with tilde q independent of a,m,kappa; domain D (disjoint ellipses)
+SOURCE_QUANTIFIERS: alpha in (0,1); v_i,v_j in D
+SOURCE_CONCLUSION: S_ij=-G m_i m_j a_j^-1 W(alpha;v_i,v_j) with W real analytic on D, independent of m,G,kappa; Taylor coefficients at v=0 analytic for all alpha in (0,1); exact passage u->v via the expansion of (1-t)^(1/2)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare-def, bpP:p8:perturbation-analytic, stepP:p8:pa-circ
+DEPS: bpP:p7:poincare-def, bpP:p8:perturbation-analytic, stepP:p8:pa-circ, bpP:p8:e-taylor, stepP:p8:qf-pair
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | cited at this line (step; \ref{bpP:p7:poincare-def})
-EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | cited at this line (step; \ref{bpP:p8:perturbation-analytic})
-EDGE: stepP:p8:pa-circ | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | cited at this line (step; \ref{stepP:p8:pa-circ})
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | q^(i)=a_i tilde q(lambda_i,v_i), v in terms of u
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | the argument of the proposition applies on D (positive lower bound of the distance)
+EDGE: stepP:p8:pa-circ | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | Taylor coefficients at v=0 are those of the circular case
+EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | Taylor expansion of (1-t)^(1/2), t=¦u¦^2/(4 Lambda)
+EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | V_ij, S_ij
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1487,20 +1575,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233
 CONTRACT_ID: stepP:p8:q4-b
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: u_j=0; Step qf-diag computation; E=¦u¦^2/Lambda-¦u¦^4/(4 Lambda^2)
+SOURCE_QUANTIFIERS: i!=j
+SOURCE_CONCLUSION: coefficient of E^2 is h^(4)(0)/64, so the ¦u¦^4 coefficient is -G m_i m_j (h^(4)/64-h''/16)/Lambda^2
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:qf-diag
+DEPS: stepP:p8:qf-diag, bpP:p8:e-taylor
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:qf-diag | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233 | cited at this line (step; \ref{stepP:p8:qf-diag})
+EDGE: stepP:p8:qf-diag | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233 | S_ij at u_j=0 as sum over E^l h^(2l)(0) binomial moments
+EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233 | Taylor expansion of h and E in ¦u¦
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1514,49 +1603,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-c@L234-L234
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-c@L234-L234
 CONTRACT_ID: stepP:p8:q4-c
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: step (b); definition r_1^ex=-h^(4)(0)/32+h''(0)/8 (G=m0=1)
+SOURCE_QUANTIFIERS: pairs i<j
+SOURCE_CONCLUSION: c_1,c_2 equal m_i m_j r_1^ex/(2 Lambda^2); the mixed coefficients c_3..c_6 are not computed here (forward obligation of Part 11b); comparison with the printed CP11 r_1 is not asserted
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:cp11-check
+DEPS: stepP:p8:q4-b
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:cp11-check | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-c@L234-L234 | cited at this line (step; \ref{bpP:p8:cp11-check})
+EDGE: stepP:p8:q4-b | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-c@L234-L234 | identification of c_1,c_2 with r_1^ex is (b)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
-
-NODE: bpP:p8:cp11-check
-KIND: claim
-TITLE: Check of CP11 (B.6) $r_1$; suspected erratum E-P-CP11-2
-STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:cp11-check@L237-L239
-PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:cp11-check@L237-L239
-CONTRACT_ID: bpP:p8:cp11-check
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:quartic
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpP:p8:quartic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:cp11-check@L238-L238 | cited at this line (statement; \ref{bpP:p8:quartic})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: remark: its justification is inline (confirm, or exclude if not a mathematical claim)
+NOTE: the CP11 (B.6) comparison (equality of the repaired formula with r_1^ex, certificate in Remark cp11-check) is provenance/comparison and is not consumed: no edge

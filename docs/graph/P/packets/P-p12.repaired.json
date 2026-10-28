@@ -53,7 +53,10 @@
   "stepP:p12:pl-phys#route-tube",
   "bpP:p12:quantifiers"
  ],
- "added": [],
+ "added": [
+  "bpP:p12:data#choices",
+  "bpP:p12:chart#cylinder-domain"
+ ],
  "items": [
   "bpP:p12:data",
   "stepP:p12:ch-tube"

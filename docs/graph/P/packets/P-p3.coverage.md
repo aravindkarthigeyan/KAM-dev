@@ -12,9 +12,9 @@ KIND: definition
 SOURCE: blueprint-P/parts/p3a-two-scale-iteration.tex#bpP:p3:constants@L42-L55
 DISPOSITION: NODE bpP:p3:constants
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: -
+REVIEWER: sol-review-P-e
 
 ITEM: bpP:p3:two-scale-kam
 KIND: proposition
@@ -83,7 +83,7 @@ ITEM: bpP:p3:ext-fourier
 KIND: external
 SOURCE: blueprint-P/parts/p3a-two-scale-iteration.tex#bpP:p3:ext-fourier@L115-L115
 DISPOSITION: EXCLUDED
-REASON: alias of K:bp:p1:ext-fourier (Fourier coefficients of periodic continuous functions): consumer stepP:p3:fc-coef depends on the K node directly
+REASON: coefficient-definition notation associated with K:bp:p1:ext-fourier; the defining integral is copied in fc-coef NOTE and gives its elementary sup bound. The reconstruction theorem is consumed by fc-tail, not by fc-coef. No additional theorem is asserted by this definition-only external item.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p3
 REVIEWER: -
@@ -91,8 +91,8 @@ REVIEWER: -
 ITEM: bpP:p3:ext-weierstrass
 KIND: external
 SOURCE: blueprint-P/parts/p3a-two-scale-iteration.tex#bpP:p3:ext-weierstrass@L116-L116
-DISPOSITION: EXCLUDED
-REASON: alias of K:bp:p1:uniform-limits (Weierstrass: locally uniform limits of holomorphic functions): consumer stepP:p3:fc-tail depends on the K node directly
+DISPOSITION: NODE bpP:p3:ext-weierstrass
+REASON: the full Weierstrass statement adds content beyond K:bp:p1:uniform-limits; it does not assume derivative convergence, so keep the native labelled external and link fc-tail.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p3
 REVIEWER: -
@@ -129,9 +129,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p3a-two-scale-iteration.tex#bpP:p3:ball@L124-L126
 DISPOSITION: NODE bpP:p3:ball
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: -
+REVIEWER: sol-review-P-e
 
 ITEM: stepP:p3:ball-inv
 KIND: proof-region
@@ -174,9 +174,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p3a-two-scale-iteration.tex#bpP:p3:lip-sup@L138-L140
 DISPOSITION: NODE bpP:p3:lip-sup
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: -
+REVIEWER: sol-review-P-e
 
 ITEM: stepP:p3:ls-close
 KIND: proof-region
@@ -318,9 +318,9 @@ KIND: definition
 SOURCE: blueprint-P/parts/p3a-two-scale-iteration.tex#bpP:p3:seq@L236-L240
 DISPOSITION: NODE bpP:p3:seq
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: -
+REVIEWER: sol-review-P-e
 
 ITEM: bpP:p3:iterative
 KIND: lemma
@@ -633,9 +633,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p3b-two-scale-limit.tex#bpP:p3:fourier-compact@L64-L66
 DISPOSITION: NODE bpP:p3:fourier-compact
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: -
+REVIEWER: sol-review-P-e
 
 ITEM: stepP:p3:fc-decay
 KIND: proof-region
@@ -777,9 +777,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p3b-two-scale-limit.tex#bpP:p3:invariance@L126-L129
 DISPOSITION: NODE bpP:p3:invariance
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: -
+REVIEWER: sol-review-P-e
 
 ITEM: stepP:p3:inv-conj
 KIND: proof-region
@@ -822,9 +822,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p3b-two-scale-limit.tex#bpP:p3:cover@L150-L152
 DISPOSITION: NODE bpP:p3:cover
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: -
+REVIEWER: sol-review-P-e
 
 ITEM: stepP:p3:cv-ext
 KIND: proof-region
@@ -858,9 +858,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p3b-two-scale-limit.tex#bpP:p3:meas-actions@L162-L164
 DISPOSITION: NODE bpP:p3:meas-actions
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: -
+REVIEWER: sol-review-P-e
 
 ITEM: stepP:p3:ma-ext
 KIND: proof-region
@@ -885,9 +885,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p3b-two-scale-limit.tex#bpP:p3:meas-torus@L172-L174
 DISPOSITION: NODE bpP:p3:meas-torus
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: -
+REVIEWER: sol-review-P-e
 
 ITEM: stepP:p3:mt-split
 KIND: proof-region
@@ -1153,8 +1153,8 @@ REVIEWER: -
 ITEM: p3b:prose-L208-L218
 KIND: proof-region
 SOURCE: blueprint-P/parts/p3b-two-scale-limit.tex#prose@L208-L218
-DISPOSITION: EXCLUDED
-REASON: interface paragraph "What Part 5 consumes": identification of the parameters and obligations of Part 5; no proof of Part 3 uses it (Part 5 cites the proposition itself)
+DISPOSITION: NODE bpP:p3:constants, bpP:p3:period-dictionary, bpP:p3:two-scale-kam, bpP:p5:kam-hyp, stepP:p5:kc-eval, bpP:p1:cyl-pipeline, bpP:p4:freq
+REASON: map this interface data and its restated dictionaries to their existing owners and consumers. Part 5 L200 explicitly takes the numerical bounds from interface(2), and L224 uses its exact evaluation of L,x,K. Parts 1 and 4 own the pipeline/frequency dictionaries; the budget mention is a pointer to its separately inventoried interface. No new result node or edge back to the two-scale theorem is needed for a restatement.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p3
 REVIEWER: -
