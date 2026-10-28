@@ -33,9 +33,11 @@ open KAM KAM.Planetary
 /-- The orbit frame: position and momentum in the frame of the ellipse, at eccentric anomaly `u`. -/
 def orbitFrame (L e u : ℝ) : Phase 2 :=
   (![L ^ 2 * (Real.cos u - e), L ^ 2 * √(1 - e ^ 2) * Real.sin u],
-   ![-Real.sin u / (L * (1 - e * Real.cos u)), √(1 - e ^ 2) * Real.cos u / (L * (1 - e * Real.cos u))])
+   ![-Real.sin u / (L * (1 - e * Real.cos u)),
+     √(1 - e ^ 2) * Real.cos u / (L * (1 - e * Real.cos u))])
 
-/-- The orbit map in the parameters `(ℓ, g, L, e)`, `0 ≤ e < 1`: includes the circular endpoint `e = 0`. -/
+/-- The orbit map in the parameters `(ℓ, g, L, e)`, `0 ≤ e < 1`: includes the circular endpoint
+`e = 0`. -/
 def orbitMapR (ℓ g L e : ℝ) : Phase 2 :=
   (rot g (orbitFrame L e (eccAnom ℓ e)).1, rot g (orbitFrame L e (eccAnom ℓ e)).2)
 
@@ -54,7 +56,8 @@ private theorem pCross (v w : Fin 2 → ℝ) : planeCross v w = v 0 * w 1 - v 1 
 
 variable {L e u : ℝ}
 
-private theorem one_sub_mul_cos_pos (he0 : 0 ≤ e) (he1 : e < 1) (u : ℝ) : 0 < 1 - e * Real.cos u := by
+private theorem one_sub_mul_cos_pos (he0 : 0 ≤ e) (he1 : e < 1) (u : ℝ) :
+    0 < 1 - e * Real.cos u := by
   have := Real.cos_le_one u
   nlinarith
 
@@ -196,7 +199,8 @@ section Analytic
 
 variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
 
-private theorem analyticAt_mk2 {x₀ : E} {f g : E → ℝ} (hf : AnalyticAt ℝ f x₀) (hg : AnalyticAt ℝ g x₀) :
+private theorem analyticAt_mk2 {x₀ : E} {f g : E → ℝ} (hf : AnalyticAt ℝ f x₀)
+    (hg : AnalyticAt ℝ g x₀) :
     AnalyticAt ℝ (fun x => (![f x, g x] : Fin 2 → ℝ)) x₀ := by
   refine AnalyticAt.pi fun i => ?_
   fin_cases i
