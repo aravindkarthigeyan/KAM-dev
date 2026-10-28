@@ -26,6 +26,12 @@ public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
 public import KAM.Canonical.Adjoint
+public import KAM.Canonical.Composition
+public import KAM.Canonical.CompositionCoeff
+public import KAM.Canonical.CompositionDomain
+public import KAM.Canonical.CompositionIntegral
+public import KAM.Canonical.CompositionIntegralClass
+public import KAM.Canonical.CompositionSeries
 public import KAM.Canonical.Flow
 public import KAM.Canonical.FlowInverse
 public import KAM.Canonical.FlowPicard
@@ -300,6 +306,7 @@ public import KAM.Measure.McShane
 public import KAM.Measure.Slab
 public import KAM.Nekhoroshev.Interfaces.ConicCoercive
 public import KAM.Nekhoroshev.Interfaces.Constants
+public import KAM.Nekhoroshev.Interfaces.ConstantsAnalytic
 public import KAM.Nekhoroshev.Interfaces.Domains
 public import KAM.Nekhoroshev.Interfaces.Hessian
 public import KAM.Nekhoroshev.Interfaces.HoloReal
@@ -326,9 +333,12 @@ public import KAM.ODE.Uniqueness
 public import KAM.Planetary.Newtonian.Barycentric
 public import KAM.Planetary.Newtonian.Models
 public import KAM.Planetary.Newtonian.Reconstruction
+public import KAM.Planetary.Newtonian.Reduction
 public import KAM.Planetary.Newtonian.Tube
 public import KAM.Planetary.Poincare.Bijective
 public import KAM.Planetary.Poincare.Chart
+public import KAM.Planetary.Poincare.Holomorphic
+public import KAM.Planetary.Poincare.HolomorphicSymplectic
 public import KAM.Planetary.Poincare.Product
 public import KAM.Planetary.Poincare.Symplectic
 public import KAM.Provider.AposterioriKam
@@ -381,6 +391,7 @@ public import KAM.Weighted.Coefficients
 public import KAM.Weighted.Domains
 public import KAM.Weighted.Norm
 public import KAM.Weighted.Parametric
+public import KAM.Weighted.Projections
 public import KAM.Weighted.SupWeighted
 
 /-!

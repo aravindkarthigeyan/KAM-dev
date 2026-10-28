@@ -2416,3 +2416,11 @@ radicand-disk membership. Existing fields are unchanged, so the predicate only s
 fields (I-7, I-8) are unaffected; `complex_domain_spec` returns the strengthened predicate. The 2π-periodicity of
 `delaunayC` is exported as a corollary. (I-6 audit N2: the local real-tube extension needed because KEP-9's
 `orbitMapC_ofReal` requires `|e| ≤ e₁` is sound.)
+
+### Design omission K-O1 (2026-10-28; P7-4 audit 1, finding F1)
+The P7-4 row (§ Poincaré holomorphic extension) omitted the real-point symplectic derivative identity
+`DΨᵀ M₀ DΨ = M₀` that `blueprint-P/parts/p7-kepler-poincare.tex` L169 also requires. This is a design omission, not a
+source erratum. It is resolved by the glue module `KAM/Planetary/Poincare/HolomorphicSymplectic.lean`
+(`poincare_holomorphic_symplectic`, `poincare_fderiv_real_restriction`, built on P7-2); `Holomorphic.lean` is unchanged.
+Audit `docs/tracks/P/audits/P7-4-audit-2.md` (PASS WITH NOTES) closes F1. The prover's suggested "π/4" change is refuted
+(audit N1): the blueprint's `|arg Λ| < π/6` is correct.
