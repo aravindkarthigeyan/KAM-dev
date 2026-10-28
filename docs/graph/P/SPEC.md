@@ -353,3 +353,7 @@ Total 1061 nodes (968 corpus, 93 imports), 1494 coverage items, 171 with DISPOSI
   shared-ownership rule as in the I/N SPECs (above).
 - Slices: one or two parts each, big parts split, ≈40–90 nodes (15 corpus slices; `P-p3` at 96 keeps the two-scale
   theorem's two files together).
+- 2026-10-28 (writer ruling, after the P-p7 extraction): `bpP:p7:average`, `stepP:p7:av-cov` and the external
+  `bpP:p7:e-cov` are EXCLUDED as outside every root closure (Part 14b cites `average` only in consistency checks,
+  provenance and comparisons; the earlier "keep e-cov" note is superseded). Restore all three together if a consumer
+  is found. `bpP:p7:lattice` and `stepP:p7:la-*` are deferred with P-FIXED (consumed only by Part 11).

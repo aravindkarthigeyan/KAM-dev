@@ -4,7 +4,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-chain@L28-L28
 DISPOSITION: NODE bpP:p6:ext-chain
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:ext-sqrt
@@ -13,7 +13,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-sqrt@L29-L29
 DISPOSITION: NODE bpP:p6:ext-sqrt
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:ext-top
@@ -22,7 +22,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-top@L30-L30
 DISPOSITION: NODE bpP:p6:ext-top
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:ext-sum
@@ -31,7 +31,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-sum@L31-L31
 DISPOSITION: NODE bpP:p6:ext-sum
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:ext-tri
@@ -40,7 +40,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-tri@L32-L32
 DISPOSITION: NODE bpP:p6:ext-tri
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:ext-meas
@@ -49,7 +49,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-meas@L33-L33
 DISPOSITION: NODE bpP:p6:ext-meas
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:plane
@@ -58,7 +58,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:plane@L38-L45
 DISPOSITION: NODE bpP:p6:plane
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:pl-a
@@ -67,7 +67,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:pl-a@L47-L47
 DISPOSITION: NODE stepP:p6:pl-a
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:pl-b
@@ -76,7 +76,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:pl-b@L48-L48
 DISPOSITION: NODE stepP:p6:pl-b
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:pl-c
@@ -85,7 +85,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:pl-c@L49-L49
 DISPOSITION: NODE stepP:p6:pl-c
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:domain
@@ -94,7 +94,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:domain@L54-L56
 DISPOSITION: NODE bpP:p6:domain
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:dom-open
@@ -103,7 +103,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:dom-open@L58-L58
 DISPOSITION: NODE stepP:p6:dom-open
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:dom-smooth
@@ -112,7 +112,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:dom-smooth@L59-L59
 DISPOSITION: NODE stepP:p6:dom-smooth
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:split
@@ -121,7 +121,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:split@L62-L67
 DISPOSITION: NODE bpP:p6:split
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:sp-alg
@@ -130,7 +130,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:sp-alg@L69-L69
 DISPOSITION: NODE stepP:p6:sp-alg
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:kepler-part
@@ -139,7 +139,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:kepler-part@L71-L73
 DISPOSITION: NODE bpP:p6:kepler-part
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:action-reaction
@@ -148,7 +148,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:action-reaction@L75-L77
 DISPOSITION: NODE bpP:p6:action-reaction
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:hamilton-eqs
@@ -157,7 +157,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:hamilton-eqs@L82-L92
 DISPOSITION: NODE bpP:p6:hamilton-eqs
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:he-dir
@@ -166,7 +166,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:he-dir@L94-L97
 DISPOSITION: NODE stepP:p6:he-dir
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:he-coef
@@ -175,7 +175,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:he-coef@L98-L98
 DISPOSITION: NODE stepP:p6:he-coef
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:he-fix
@@ -184,7 +184,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:he-fix@L99-L99
 DISPOSITION: NODE stepP:p6:he-fix
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:he-curve
@@ -193,52 +193,52 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:he-curve@L100-L100
 DISPOSITION: NODE stepP:p6:he-curve
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:nbody
 KIND: definition
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:nbody@L105-L110
-DISPOSITION: NODE bpP:p6:nbody
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: outside every root closure of track P. Defines F_mu and the Newton equations used only by Prop bpP:p6:reduction (also excluded); grep of all corpus parts for bpP:p6:nbody finds no citation outside Part 6
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:reduction
 KIND: proposition
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:reduction@L112-L123
-DISPOSITION: NODE bpP:p6:reduction
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: outside every root closure of track P. Prop reduction is cited only by the Part 6 remark bpP:p6:reduction-role (excluded) and by forward-reference paragraphs (Part 6 L297, Part 14 pointers); the reconstruction proof says "nothing below uses (a)-(b)" and is verified directly from bpP:p6:hamilton-eqs
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:re-a
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:re-a@L125-L127
-DISPOSITION: NODE stepP:p6:re-a
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: proof step of bpP:p6:reduction, excluded (outside every root closure of track P)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:re-c
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:re-c@L128-L130
-DISPOSITION: NODE stepP:p6:re-c
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: proof step of bpP:p6:reduction, excluded (outside every root closure of track P)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:reduction-role
 KIND: claim
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:reduction-role@L132-L134
-DISPOSITION: NODE bpP:p6:reduction-role
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: administrative remark ("role of this proposition"); no proof cites bpP:p6:reduction-role (grep of all corpus parts)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:bary-algebra
@@ -247,7 +247,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:bary-algebra@L138-L146
 DISPOSITION: NODE bpP:p6:bary-algebra
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:ba-ab
@@ -256,7 +256,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:ba-ab@L148-L148
 DISPOSITION: NODE stepP:p6:ba-ab
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:ba-c
@@ -265,7 +265,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:ba-c@L149-L149
 DISPOSITION: NODE stepP:p6:ba-c
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:ba-d
@@ -274,7 +274,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:ba-d@L150-L150
 DISPOSITION: NODE stepP:p6:ba-d
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:reconstruction
@@ -283,7 +283,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:reconstruction@L153-L16
 DISPOSITION: NODE bpP:p6:reconstruction
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:rc-coords
@@ -292,7 +292,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:rc-coords@L170-L171
 DISPOSITION: NODE stepP:p6:rc-coords
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:rc-a
@@ -301,7 +301,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:rc-a@L172-L172
 DISPOSITION: NODE stepP:p6:rc-a
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:rc-sun
@@ -310,7 +310,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:rc-sun@L173-L173
 DISPOSITION: NODE stepP:p6:rc-sun
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:rc-planets
@@ -319,7 +319,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:rc-planets@L174-L174
 DISPOSITION: NODE stepP:p6:rc-planets
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:rc-vplanet
@@ -328,7 +328,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:rc-vplanet@L175-L175
 DISPOSITION: NODE stepP:p6:rc-vplanet
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:rc-vsun
@@ -337,7 +337,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:rc-vsun@L176-L176
 DISPOSITION: NODE stepP:p6:rc-vsun
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:rc-pack
@@ -346,7 +346,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:rc-pack@L177-L177
 DISPOSITION: NODE stepP:p6:rc-pack
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:units
@@ -355,7 +355,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:units@L179-L181
 DISPOSITION: NODE bpP:p6:units
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:reconstruction-fixed
@@ -364,7 +364,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:reconstruction-fixed@L1
 DISPOSITION: NODE bpP:p6:reconstruction-fixed
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:rf-eq
@@ -373,7 +373,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:rf-eq@L191-L191
 DISPOSITION: NODE stepP:p6:rf-eq
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:orbit-transfer
@@ -382,7 +382,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:orbit-transfer@L194-L20
 DISPOSITION: NODE bpP:p6:orbit-transfer
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:ot-curve
@@ -391,7 +391,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:ot-curve@L204-L204
 DISPOSITION: NODE stepP:p6:ot-curve
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:ot-apply
@@ -400,7 +400,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:ot-apply@L205-L205
 DISPOSITION: NODE stepP:p6:ot-apply
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:tube-constants
@@ -409,7 +409,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube-constants@L210-L21
 DISPOSITION: NODE bpP:p6:tube-constants
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:tube-geometry
@@ -418,7 +418,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube-geometry@L218-L228
 DISPOSITION: NODE bpP:p6:tube-geometry
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:tg-a
@@ -427,7 +427,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:tg-a@L230-L230
 DISPOSITION: NODE stepP:p6:tg-a
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:tg-b
@@ -436,7 +436,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:tg-b@L231-L231
 DISPOSITION: NODE stepP:p6:tg-b
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:tg-c
@@ -445,7 +445,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:tg-c@L232-L232
 DISPOSITION: NODE stepP:p6:tg-c
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:tg-d
@@ -454,7 +454,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:tg-d@L233-L233
 DISPOSITION: NODE stepP:p6:tg-d
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:tg-e
@@ -463,16 +463,16 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:tg-e@L234-L234
 DISPOSITION: NODE stepP:p6:tg-e
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:vs-I
 KIND: claim
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:vs-I@L236-L238
-DISPOSITION: NODE bpP:p6:vs-I
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: comparison remark: states that I:bpI:p8:collision-exclusion and I:bpI:p8:min-distance are NOT needed; no proof cites bpP:p6:vs-I (grep); not an edge
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:newton-in-tube
@@ -481,7 +481,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:newton-in-tube@L240-L24
 DISPOSITION: NODE bpP:p6:newton-in-tube
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:measure-positive
@@ -490,7 +490,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:measure-positive@L249-L
 DISPOSITION: NODE bpP:p6:measure-positive
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:mp-a
@@ -499,7 +499,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:mp-a@L257-L257
 DISPOSITION: NODE stepP:p6:mp-a
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:mp-b
@@ -508,16 +508,16 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:mp-b@L258-L258
 DISPOSITION: NODE stepP:p6:mp-b
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:mp-use
 KIND: claim
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:mp-use@L260-L262
-DISPOSITION: NODE bpP:p6:mp-use
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: "Use" remark (pointer to Part 11 and the chart-level torus union); administrative; no proof cites bpP:p6:mp-use (grep). Its edge to bpP:p1:measure-use (excluded as administrative by P-p1p2) is dropped; the consumed facts bpP:p1:torus-union and bpP:p1:liouville-lattice are linked from bpP:p6:measure-positive
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:movkol-assembly
@@ -526,7 +526,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:movkol-assembly@L266-L2
 DISPOSITION: NODE bpP:p6:movkol-assembly
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:ma-tube
@@ -535,7 +535,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:ma-tube@L275-L275
 DISPOSITION: NODE stepP:p6:ma-tube
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:ma-coll
@@ -544,7 +544,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:ma-coll@L276-L276
 DISPOSITION: NODE stepP:p6:ma-coll
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:ma-newton
@@ -553,7 +553,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:ma-newton@L277-L277
 DISPOSITION: NODE stepP:p6:ma-newton
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: stepP:p6:ma-pair
@@ -562,16 +562,16 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:ma-pair@L278-L278
 DISPOSITION: NODE stepP:p6:ma-pair
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: bpP:p6:fixkol-assembly
 KIND: proposition
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L281-L283
-DISPOSITION: NODE bpP:p6:fixkol-assembly
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: outside every root closure of this graph version; consumed by P-FIXED (deferred). Check: cited only by Part 13 (p13-fixed-assembly.tex, outside the corpus) and Part 11 L240 (outside the corpus); no corpus part in scope cites it
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6
@@ -580,7 +580,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6@L1-L1
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6:conv
@@ -589,7 +589,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:conv@L18-L18
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6:planar
@@ -598,7 +598,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:planar@L36-L36
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6:models
@@ -607,7 +607,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:models@L52-L52
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6:derivation
@@ -616,7 +616,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:derivation@L103-L103
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6:recon
@@ -625,7 +625,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:recon@L136-L136
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6:tube
@@ -634,7 +634,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube@L208-L208
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6:measure
@@ -643,7 +643,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:measure@L247-L247
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6:assembly
@@ -652,7 +652,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:assembly@L264-L264
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: heading:bpP:p6:notes
@@ -661,7 +661,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:notes@L285-L285
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:source-L109
@@ -670,7 +670,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#source@L109-L109
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:source-L122
@@ -679,7 +679,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#source@L122-L122
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:source-L167
@@ -688,7 +688,7 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#source@L167-L167
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:source-L188
@@ -697,95 +697,95 @@ SOURCE: blueprint-P/parts/p6-newtonian-models.tex#source@L188-L188
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L4-L16
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L4-L16
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: part introduction and outline of results (motivation, pointers, units sentence); the facts it restates are proved in the nodes it lists
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L20-L24
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L20-L24
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: NODE bpP:p6:conv#data
+REASON: conventions of Part 6 (n, G, m0, m_i, mu, eps, l, W, g_i, f_i, indexing): created as definition node bpP:p6:conv#data; consumers are linked
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L26-L27
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L26-L27
-DISPOSITION: TODO
-REASON: unlabelled prose without cross-references outside every node (--all-prose): map it to the node(s) that rely on a fact or datum it states (or make it a node), or exclude with a reason (motivation, outline, notation only)
+DISPOSITION: EXCLUDED
+REASON: lead-in sentence and enumerate header of the external facts; the labelled items are nodes bpP:p6:ext-*
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L287-L287
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L287-L287
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: Lean totality paragraph: guards of divisions, explains totality (SPEC: not hypotheses); no proof cites it (bpP:p0:totality is not an edge)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L289-L289
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L289-L289
-DISPOSITION: TODO
-REASON: unlabelled prose without cross-references outside every node (--all-prose): map it to the node(s) that rely on a fact or datum it states (or make it a node), or exclude with a reason (motivation, outline, notation only)
+DISPOSITION: EXCLUDED
+REASON: "Sources read" paragraph: provenance
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L291-L291
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L291-L291
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: "Deviations" paragraph: administrative (SPEC); the mu-independence it mentions is proved by bpP:p6:bary-algebra and stepP:p6:tg-e
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L293-L293
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L293-L293
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: "Suspected source errata" paragraph: administrative
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L295-L295
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L295-L295
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: "Doubts about frozen statements": administrative; the facts (IsNewtonSolution, PairBounds proved) are bpP:p6:reconstruction and bpP:p6:tube-geometry
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L297-L297
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L297-L297
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: forward references: pointers only (Part 13 is outside the corpus)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
 ITEM: p6:prose-L299-L300
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L299-L300
-DISPOSITION: TODO
-REASON: unlabelled prose without cross-references outside every node (--all-prose): map it to the node(s) that rely on a fact or datum it states (or make it a node), or exclude with a reason (motivation, outline, notation only)
+DISPOSITION: EXCLUDED
+REASON: label index: administrative
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
