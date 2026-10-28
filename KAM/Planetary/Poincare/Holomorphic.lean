@@ -190,13 +190,114 @@ private theorem nbhd_k_ne (hΛ : 0 < Λo) (hw : w ∈ poincareNbhd Λo) :
     rw [norm_div, div_lt_one (by linarith)]; linarith
   rw [h3] at h4
   simp at h4
-  linarith
 
 private theorem nbhd_jac_ne (hΛ : 0 < Λo) (hw : w ∈ poincareNbhd Λo) :
     1 - (poincareVC w 0 * Complex.cos (keplerLongC (w.1 0, poincareVC w)) +
       poincareVC w 1 * Complex.sin (keplerLongC (w.1 0, poincareVC w))) ≠ 0 := by
-  have := jac_ne_zero (nbhd_mem_tube hΛ hw)
+  have := Tube.jac_ne_zero (nbhd_mem_tube hΛ hw)
   simpa [sub_sub] using this
+
+private theorem diffAt_div {E : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E] {c d : E → ℂ}
+    {z : E} (hc : DifferentiableAt ℂ c z) (hd : DifferentiableAt ℂ d z) (hz : d z ≠ 0) :
+    DifferentiableAt ℂ (fun x => c x / d x) z := by
+  simpa [div_eq_mul_inv] using hc.fun_mul (hd.fun_inv hz)
+
+private theorem differentiableAt_poincareC (m κ : ℝ) (hΛ : 0 < Λo) (hw : w ∈ poincareNbhd Λo) :
+    DifferentiableAt ℂ (poincareC m κ) w := by
+  have hne := nbhd_ne hΛ hw
+  have hk := nbhd_k_ne hΛ hw
+  have hjac := nbhd_jac_ne hΛ hw
+  have hL : DifferentiableAt ℂ (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => w.1 0) w := by fun_prop
+  have hX : DifferentiableAt ℂ (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => w.1 1) w := by fun_prop
+  have hY : DifferentiableAt ℂ (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => w.2 1) w := by fun_prop
+  have hP : DifferentiableAt ℂ (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => w.2 0) w := by fun_prop
+  have hG : DifferentiableAt ℂ poincareGammaC w := by unfold poincareGammaC; fun_prop
+  have hA : DifferentiableAt ℂ (fun w => 1 - poincareGammaC w / (2 * w.2 0)) w :=
+    (differentiableAt_const _).sub (diffAt_div hG (by fun_prop) (mul_ne_zero two_ne_zero hne))
+  have hR : DifferentiableAt ℂ (fun w => (1 - poincareGammaC w / (2 * w.2 0)) / w.2 0) w :=
+    diffAt_div hA hP hne
+  have hS : DifferentiableAt ℂ
+      (fun w => ((1 - poincareGammaC w / (2 * w.2 0)) / w.2 0) ^ (1 / 2 : ℂ)) w :=
+    hR.cpow (differentiableAt_const _) (nbhd_radicand_slit hΛ hw)
+  have hV0 : DifferentiableAt ℂ (fun w => poincareVC w 0) w := by
+    have : (fun w => poincareVC w 0) = fun w => ((1 - poincareGammaC w / (2 * w.2 0)) / w.2 0) ^
+        (1 / 2 : ℂ) * w.1 1 := by funext w; simp [poincareVC]
+    rw [this]; exact hS.mul hX
+  have hV1 : DifferentiableAt ℂ (fun w => poincareVC w 1) w := by
+    have : (fun w => poincareVC w 1) = fun w => ((1 - poincareGammaC w / (2 * w.2 0)) / w.2 0) ^
+        (1 / 2 : ℂ) * w.2 1 := by funext w; simp [poincareVC]
+    rw [this]; exact hS.mul hY
+  have hVV : DifferentiableAt ℂ poincareVC w := differentiableAt_pi.2 fun i => by
+    fin_cases i
+    · exact hV0
+    · exact hV1
+  have hg : DifferentiableAt ℂ keplerLongC (w.1 0, poincareVC w) :=
+    (Tube.keplerLongC_analyticOnNhd (w.1 0, poincareVC w) (nbhd_mem_tube hΛ hw)).differentiableAt
+  have hF : DifferentiableAt ℂ (fun w => keplerLongC (w.1 0, poincareVC w)) w :=
+    DifferentiableAt.comp (g := keplerLongC) (f := fun w => (w.1 0, poincareVC w)) w hg
+      (hL.prodMk hVV)
+  have hK : DifferentiableAt ℂ (fun w => 1 - poincareGammaC w / w.2 0) w :=
+    (differentiableAt_const _).sub (diffAt_div hG hP hne)
+  have hC : DifferentiableAt ℂ (fun w => Complex.cos (keplerLongC (w.1 0, poincareVC w))) w :=
+    hF.ccos
+  have hS' : DifferentiableAt ℂ (fun w => Complex.sin (keplerLongC (w.1 0, poincareVC w))) w :=
+    hF.csin
+  have hVC : DifferentiableAt ℂ (fun w => poincareVC w 0 *
+      Complex.cos (keplerLongC (w.1 0, poincareVC w)) + poincareVC w 1 *
+      Complex.sin (keplerLongC (w.1 0, poincareVC w))) w := (hV0.mul hC).add (hV1.mul hS')
+  have hQ : DifferentiableAt ℂ (fun w => (poincareVC w 0 *
+      Complex.cos (keplerLongC (w.1 0, poincareVC w)) + poincareVC w 1 *
+      Complex.sin (keplerLongC (w.1 0, poincareVC w))) /
+      (1 + (1 - poincareGammaC w / w.2 0))) w :=
+    diffAt_div hVC ((differentiableAt_const _).add hK) hk
+  have hD : DifferentiableAt ℂ (fun w => ((m ^ 2 * κ : ℝ) : ℂ) / (w.2 0 * (1 - (poincareVC w 0 *
+      Complex.cos (keplerLongC (w.1 0, poincareVC w)) + poincareVC w 1 *
+      Complex.sin (keplerLongC (w.1 0, poincareVC w)))))) w :=
+    diffAt_div (differentiableAt_const _) (hP.mul ((differentiableAt_const _).sub hVC))
+      (mul_ne_zero hne hjac)
+  have hM : DifferentiableAt ℂ (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) =>
+      w.2 0 ^ 2 / (((m ^ 2 * κ : ℝ)) : ℂ)) w := by
+    have : DifferentiableAt ℂ (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => w.2 0 ^ 2) w := by fun_prop
+    have e : (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => w.2 0 ^ 2 / (((m ^ 2 * κ : ℝ)) : ℂ)) =
+        fun w => w.2 0 ^ 2 * (((m ^ 2 * κ : ℝ) : ℂ))⁻¹ := by
+      funext w; rw [div_eq_mul_inv]
+    rw [e]; exact this.fun_mul (differentiableAt_const _)
+  refine DifferentiableAt.prodMk (differentiableAt_pi.2 (Fin.forall_fin_two.2 ⟨?_, ?_⟩))
+    (differentiableAt_pi.2 (Fin.forall_fin_two.2 ⟨?_, ?_⟩))
+  · simp only [Pi.smul_apply, Pi.sub_apply, Pi.add_apply, Matrix.cons_val_zero,
+      Matrix.cons_val_one, smul_eq_mul]
+    exact hM.mul (((hK.mul hC).sub hV0).add (hQ.mul hV0))
+  · simp only [Pi.smul_apply, Pi.sub_apply, Pi.add_apply, Matrix.cons_val_zero,
+      Matrix.cons_val_one, smul_eq_mul]
+    exact hM.mul (((hK.mul hS').sub hV1).add (hQ.mul hV1))
+  · simp only [Pi.smul_apply, Pi.sub_apply, Matrix.cons_val_zero,
+      Matrix.cons_val_one, smul_eq_mul]
+    exact hD.mul ((hS'.neg).sub (hQ.mul hV1.neg))
+  · simp only [Pi.smul_apply, Pi.sub_apply, Matrix.cons_val_zero,
+      Matrix.cons_val_one, smul_eq_mul]
+    exact hD.mul ((hC).sub (hQ.mul hV0))
+
+private theorem poincareC_periodic (m κ : ℝ) (hΛ : 0 < Λo) (hw : w ∈ poincareNbhd Λo) :
+    (Function.update w.1 0 (w.1 0 + 2 * π), w.2) ∈ poincareNbhd Λo ∧
+      poincareC m κ (Function.update w.1 0 (w.1 0 + 2 * π), w.2) = poincareC m κ w := by
+  have h0 : Function.update w.1 0 (w.1 0 + 2 * π) 0 = w.1 0 + 2 * π := Function.update_self _ _ _
+  have h1 : Function.update w.1 0 (w.1 0 + 2 * π) 1 = w.1 1 :=
+    Function.update_of_ne (by decide) _ _
+  refine ⟨?_, ?_⟩
+  · obtain ⟨a, b, c, d⟩ := hw
+    refine ⟨?_, b, ?_, d⟩
+    · simpa [h0] using a
+    · simpa [h1] using c
+  · have hV : poincareVC (Function.update w.1 0 (w.1 0 + 2 * π), w.2) = poincareVC w := by
+      simp only [poincareVC, poincareGammaC, h1]
+    have hG : poincareGammaC (Function.update w.1 0 (w.1 0 + 2 * π), w.2) = poincareGammaC w := by
+      simp only [poincareGammaC, h1]
+    have hF : keplerLongC (Function.update w.1 0 (w.1 0 + 2 * π) 0, poincareVC w) =
+        keplerLongC (w.1 0, poincareVC w) + 2 * π := by
+      rw [h0]
+      exact keplerLongC_shift (x := (w.1 0, poincareVC w)) (nbhd_mem_tube hΛ hw)
+    unfold poincareC
+    simp only [hV, hG, hF, Complex.cos_add_two_pi, Complex.sin_add_two_pi]
 
 end Bounds
 
