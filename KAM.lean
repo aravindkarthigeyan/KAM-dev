@@ -207,6 +207,7 @@ public import KAM.Iso.Apost.ConstantsArith
 public import KAM.Iso.Apost.Correction
 public import KAM.Iso.Apost.Defs
 public import KAM.Iso.Apost.Iteration
+public import KAM.Iso.Apost.Limit
 public import KAM.Iso.Apost.NewtonError
 public import KAM.Iso.Apost.Schedule
 public import KAM.Iso.Apost.Standing
