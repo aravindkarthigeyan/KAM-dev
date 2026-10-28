@@ -98,3 +98,7 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   the fixes landed (Parts 1–4, 7–11b), and Part 14a gets its first review. Extraction starts on the accepted Parts 12
   and 14b. Reversal: none needed.
 - **23:50. Graph I published** (d00e232; 450 nodes; global review PASS in round 3).
+- **00:30. Offload to the main orchestrator (track K complete):** the dependency-ready Kepler-layer packages KEP-3, I-1,
+  I-3, I-5, P6-1, P6-2, the I Part 5/8 wave-1 packages P5-0, P8-1, and a Lean design for I Parts 1–3 (I-G1). They come
+  back as audited branches; the sub-orchestrator merges them into `inp`, regenerates `KAM.lean` and lands, so the
+  generated root file has one writer. Reversal: none needed.
