@@ -439,6 +439,16 @@
       "pdf": "sources/incoming-P/cp10.pdf",
       "sha256": "68fbf161e0aa62fc966f33b3b3c49e2ab0fbcca3eb7fdb0950d62eadcdf18338",
       "role": "Pinned-copy alias for CP10; the pre-existing record is preserved append-only. Pinned author text; PDF page = printed page − 544."
+    },
+    {
+      "key": "AS26",
+      "tier": "context",
+      "citation": "T. Alazard, C. Shao, *KAM via standard fixed point theorems*, Forum Math. Sigma (2026)",
+      "arxiv": "2312.13971v3",
+      "doi": "10.1017/fms.2026.10207",
+      "pdf": "arxiv_2312.13971.pdf",
+      "sha256": "5e2e6563bc0128e665ed744b11a9a7b87635745c5322a061d1a4073ca5c62a0d",
+      "role": "Context: finite-regularity (Sobolev) Kolmogorov and translated-torus theorems (Thms 1.1-1.2) by para-linearization and the Schauder fixed point theorem, with no KAM iteration; alternative route to G1-type a posteriori results, not consumed by any frozen statement"
     }
   ]
 }
