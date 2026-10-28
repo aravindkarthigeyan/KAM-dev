@@ -221,13 +221,15 @@ theorem border_solve {γ τ : ℝ} {ω : Fin n → ℝ} (hγ : 0 < γ) (hτ : 0 
     (hηL : DifferentiableOn ℂ d.ηL (complexStrip n r)) (hηLp : IsPeriodicOn d.ηL r)
     (hηN : DifferentiableOn ℂ d.ηN (complexStrip n r)) (hηNp : IsPeriodicOn d.ηN r)
     (hHL : ∀ θ ∈ complexStrip n r, ‖d.ηL θ‖ ≤ HL) (hHN : ∀ θ ∈ complexStrip n r, ‖d.ηN θ‖ ≤ HN)
-    (hηN0 : avg d.ηN = 0) (hT : DifferentiableOn ℂ d.T (complexStrip n r)) (hTp : IsPeriodicOn d.T r)
+    (hηN0 : avg d.ηN = 0) (hT : DifferentiableOn ℂ d.T (complexStrip n r))
+    (hTp : IsPeriodicOn d.T r)
     (hY : DifferentiableOn ℂ d.Y (complexStrip n r)) (hYp : IsPeriodicOn d.Y r)
     (hHT : ∀ θ ∈ complexStrip n (r - δ), ‖d.T θ‖ ≤ HT)
     (hHY : ∀ θ ∈ complexStrip n (r - δ), ∑ b, ‖d.Y θ b‖ ≤ HY)
     (hinv : IsUnit (bordAvg ω d).det) (hσ : ‖(bordAvg ω d)⁻¹‖ ≤ σ) (ξL0 : Fin n → ℂ) :
     -- (a)
-    (DifferentiableOn ℂ (bordXiN ω d) (complexStrip n (r - δ)) ∧ IsPeriodicOn (bordXiN ω d) (r - δ) ∧
+    (DifferentiableOn ℂ (bordXiN ω d) (complexStrip n (r - δ)) ∧
+      IsPeriodicOn (bordXiN ω d) (r - δ) ∧
       DifferentiableOn ℂ (bordGL ω d) (complexStrip n (r - δ)) ∧ IsPeriodicOn (bordGL ω d) (r - δ) ∧
       avg (bordGL ω d) = 0 ∧ DifferentiableOn ℂ (bordXiL ω d ξL0) (complexStrip n (r - 2 * δ)) ∧
       IsPeriodicOn (bordXiL ω d ξL0) (r - 2 * δ)) ∧
@@ -341,8 +343,8 @@ theorem border_solve {γ τ : ℝ} {ω : Fin n → ℝ} (hγ : 0 < γ) (hτ : 0 
     rw [hpt, avg_sub_of_continuous (hcY.dotProduct continuous_const) (hcY.dotProduct hcU),
       avg_dotProduct_const hcY, (bordSol_rows ω d hinv).2]
     ring
-  refine ⟨⟨hξd, hξp, hgd, hgp, hg0, hLd, hLp⟩, ⟨hb1, hb2, hb3⟩, ⟨?_, fun S hS => ⟨fun θ hθ => hX S hS θ hθ,
-    fun G hG θ hθ => ?_⟩⟩, ?_, ?_⟩
+  refine ⟨⟨hξd, hξp, hgd, hgp, hg0, hLd, hLp⟩, ⟨hb1, hb2, hb3⟩,
+    ⟨?_, fun S hS => ⟨fun θ hθ => hX S hS θ hθ, fun G hG θ hθ => ?_⟩⟩, ?_, ?_⟩
   · -- (c): the size of `(ξ₀, ξ^ω)`
     have := norm_bordSol_le (ω := ω) d hr hr1 hHL hHT hHY hUb hσ
     simpa only [mul_assoc] using this
