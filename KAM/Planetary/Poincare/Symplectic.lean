@@ -312,6 +312,163 @@ theorem poincare_eq_delaunayMK {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {lam Λ 
   · ext i; fin_cases i <;> simp [rot, ex, orbitalUnit, quarterTurn, Real.cos_add, Real.sin_add,
       hee] <;> field_simp <;> ring
 
+section Means
+
+private theorem sy_integral_shift {H : ℝ → ℝ} (hH : Function.Periodic H (2 * π)) (g : ℝ) :
+    ∫ lam in (0 : ℝ)..2 * π, H (lam - g) = ∫ x in (0 : ℝ)..2 * π, H x := by
+  rw [intervalIntegral.integral_comp_sub_right (fun x => H x) g]
+  have := hH.intervalIntegral_add_eq (0 - g) 0
+  rw [show 2 * π - g = 0 - g + 2 * π by ring]
+  simpa using this
+
+private theorem sy_polar (x y : ℝ) :
+    ∃ g : ℝ, x = √(x ^ 2 + y ^ 2) * Real.cos g ∧ y = √(x ^ 2 + y ^ 2) * Real.sin g := by
+  refine ⟨Complex.arg ⟨x, y⟩, ?_, ?_⟩
+  · have h := Complex.norm_mul_cos_arg (⟨x, y⟩ : ℂ)
+    rw [Complex.norm_def, Complex.normSq_mk] at h
+    simpa [sq] using h.symm
+  · have h := Complex.norm_mul_sin_arg (⟨x, y⟩ : ℂ)
+    rw [Complex.norm_def, Complex.normSq_mk] at h
+    simpa [sq] using h.symm
+
+private theorem sy_delaunayMK_eq {m κ : ℝ} (hm : 0 < m) {ℓ g Λ Γ : ℝ} (hΛ : 0 < Λ) :
+    delaunayMK m κ (![ℓ, g], ![Λ, Λ - Γ]) =
+      scaleMK m κ (orbitMapR ℓ g (Λ / m) (√(1 - (1 - Γ / Λ) ^ 2))) := by
+  have h := sy_eccOf_scaled hm hΛ (Γ := Γ)
+  simp only [delaunayMK, delaunay, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.smul_apply,
+    smul_eq_mul, h]
+  rw [show Λ / m = m⁻¹ * Λ from div_eq_inv_mul Λ m]
+
+private theorem sy_planeSq_smul (c : ℝ) (v : Fin 2 → ℝ) : planeSq (c • v) = c ^ 2 * planeSq v := by
+  simp only [sy_planeSq, Pi.smul_apply, smul_eq_mul]; ring
+
+private theorem sy_planeLength_unit (x : ℝ) : planeLength (![Real.cos x, Real.sin x] : Fin 2 → ℝ) = 1 := by
+  simp [planeLength, sy_planeSq, Real.cos_sq_add_sin_sq]
+
+private theorem sy_planeSq_unit (x : ℝ) : planeSq (![-Real.sin x, Real.cos x] : Fin 2 → ℝ) = 1 := by
+  simp only [sy_planeSq, Matrix.cons_val_zero, Matrix.cons_val_one]
+  nlinarith [Real.cos_sq_add_sin_sq x]
+
+/-- Mean values over `λ` of the chart (`bpP:p7:kepler` (c) transported; includes the circular
+case). -/
+theorem poincare_means {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2} (hw : w ∈ poincareDom) :
+    let a := w.2 0 ^ 2 / (m ^ 2 * κ)
+    let pt := fun lam : ℝ => poincare m κ (![lam, w.1 1], w.2)
+    (2 * π)⁻¹ * (∫ lam in (0 : ℝ)..2 * π, 1 / planeLength (pt lam).1) = 1 / a ∧
+    (2 * π)⁻¹ * (∫ lam in (0 : ℝ)..2 * π, planeSq (pt lam).2) = m ^ 2 * κ / a ∧
+    (2 * π)⁻¹ * (∫ lam in (0 : ℝ)..2 * π, planeLength (pt lam).1) =
+      a * (1 + (1 - poincareK w ^ 2) / 2) := by
+  intro a pt
+  have hΛ : 0 < w.2 0 := hw.1
+  have hΓlt : poincareGamma w < w.2 0 := hw.2
+  have ha : 0 < a := by positivity
+  have hpi : (2 * π)⁻¹ * (2 * π) = 1 := inv_mul_cancel₀ (by positivity)
+  obtain ⟨hΓ0, hK0, -⟩ := poincare_facts hw
+  rcases hΓ0.eq_or_lt with hΓ | hΓ
+  · -- the circular torus
+    have h1 : w.1 1 = 0 := by
+      have : w.1 1 ^ 2 = 0 := by unfold poincareGamma at hΓ; nlinarith [sq_nonneg (w.1 1), sq_nonneg (w.2 1)]
+      exact pow_eq_zero_iff two_ne_zero |>.1 this
+    have h2 : w.2 1 = 0 := by
+      have : w.2 1 ^ 2 = 0 := by unfold poincareGamma at hΓ; nlinarith [sq_nonneg (w.1 1), sq_nonneg (w.2 1)]
+      exact pow_eq_zero_iff two_ne_zero |>.1 this
+    have hK : poincareK w = 1 := by unfold poincareK; rw [← hΓ]; simp
+    have hpt : ∀ lam, pt lam = (a • (![Real.cos lam, Real.sin lam] : Fin 2 → ℝ),
+        (m * √(κ / a)) • (![-Real.sin lam, Real.cos lam] : Fin 2 → ℝ)) := by
+      intro lam
+      have : pt lam = poincare m κ (![lam, 0], ![w.2 0, 0]) := by
+        show poincare m κ (![lam, w.1 1], w.2) = _
+        congr 1
+        refine Prod.ext (by rw [h1]) ?_
+        ext i; fin_cases i <;> simp [h2]
+      rw [this, poincare_circular hm hκ hΛ]
+    have hq : ∀ lam, planeLength (pt lam).1 = a := by
+      intro lam
+      rw [hpt lam]
+      show planeLength (a • _) = a
+      rw [planeLength_smul, abs_of_pos ha, sy_planeLength_unit, mul_one]
+    have hp : ∀ lam, planeSq (pt lam).2 = m ^ 2 * κ / a := by
+      intro lam
+      rw [hpt lam]
+      show planeSq ((m * √(κ / a)) • _) = _
+      rw [sy_planeSq_smul, sy_planeSq_unit, mul_pow, Real.sq_sqrt (by positivity)]
+      ring
+    simp only [hq, hp, hK]
+    simp only [intervalIntegral.integral_const, smul_eq_mul, sub_zero]
+    refine ⟨?_, ?_, ?_⟩
+    · field_simp
+    · field_simp
+    · field_simp; ring
+  · -- `Γ > 0`
+    obtain ⟨Γ, hΓdef⟩ : ∃ Γ, poincareGamma w = Γ := ⟨_, rfl⟩
+    rw [hΓdef] at hΓ hΓlt
+    have hK : poincareK w = 1 - Γ / w.2 0 := by unfold poincareK; rw [hΓdef]
+    have hKlt : poincareK w < 1 := by
+      rw [hK]; have : 0 < Γ / w.2 0 := div_pos hΓ hΛ
+      linarith
+    obtain ⟨g, hg1, hg2⟩ := sy_polar (w.1 1) (w.2 1)
+    have hsum : w.1 1 ^ 2 + w.2 1 ^ 2 = 2 * Γ := by
+      rw [← hΓdef]; unfold poincareGamma; ring
+    rw [hsum] at hg1 hg2
+    have hpt : ∀ lam, pt lam = scaleMK m κ
+        (orbitMapR (lam - g) g (w.2 0 / m) (√(1 - (1 - Γ / w.2 0) ^ 2))) := by
+      intro lam
+      have : pt lam = poincare m κ (![lam, √(2 * Γ) * Real.cos g], ![w.2 0, √(2 * Γ) * Real.sin g]) := by
+        show poincare m κ (![lam, w.1 1], w.2) = _
+        congr 1
+        refine Prod.ext (by rw [← hg1]) ?_
+        ext i; fin_cases i
+        · rfl
+        · simpa using hg2
+      rw [this, poincare_eq_delaunayMK hm hκ hΓ hΓlt, sy_delaunayMK_eq hm hΛ]
+    have hK0' : 0 < 1 - Γ / w.2 0 := by rw [← hK]; exact hK0
+    have hK1' : 1 - Γ / w.2 0 < 1 := by rw [← hK]; exact hKlt
+    have hpos : 0 < 1 - (1 - Γ / w.2 0) ^ 2 := by nlinarith
+    have he0 : 0 < √(1 - (1 - Γ / w.2 0) ^ 2) := Real.sqrt_pos.2 hpos
+    have he1 : √(1 - (1 - Γ / w.2 0) ^ 2) < 1 := by
+      rw [Real.sqrt_lt' one_pos]; nlinarith
+    have he2 : √(1 - (1 - Γ / w.2 0) ^ 2) ^ 2 = 1 - (1 - Γ / w.2 0) ^ 2 :=
+      Real.sq_sqrt hpos.le
+    obtain ⟨e, hedef⟩ : ∃ e, e = √(1 - (1 - Γ / w.2 0) ^ 2) := ⟨_, rfl⟩
+    rw [← hedef] at hpt he0 he1 he2
+    obtain ⟨f, hfdef⟩ : ∃ f : ℝ → Phase 2, f = fun ℓ => scaleMK m κ (orbitMapR ℓ g (w.2 0 / m) e) :=
+      ⟨_, rfl⟩
+    have hptf : ∀ lam, pt lam = f (lam - g) := fun lam => by rw [hpt lam, hfdef]
+    have hper : Function.Periodic f (2 * π) := by
+      intro ℓ
+      have := orbitMapR_periodic (ℓ := ℓ) (g := g) (L := w.2 0 / m) (e := e) 1 0
+        (by positivity) he0.le he1
+      rw [hfdef]
+      simp only [Int.cast_one, mul_one, Int.cast_zero, mul_zero, add_zero] at this ⊢
+      rw [this]
+    have hmean := delaunayMK_means (m := m) (κ := κ) (g := g) (Λ := w.2 0) (e := e) hm hκ hΛ
+      he0.le he1
+    dsimp only at hmean
+    obtain ⟨m1, m2, m3⟩ := hmean
+    have hK2 : 1 - poincareK w ^ 2 = e ^ 2 := by rw [hK, he2]
+    refine ⟨?_, ?_, ?_⟩
+    · have hI : ∫ lam in (0 : ℝ)..2 * π, 1 / planeLength (f (lam - g)).1 =
+          ∫ x in (0 : ℝ)..2 * π, 1 / planeLength (f x).1 :=
+        sy_integral_shift (H := fun x => 1 / planeLength (f x).1)
+          (hper.comp fun z => 1 / planeLength z.1) g
+      simp only [hptf]
+      rw [hI, hfdef]
+      exact m1
+    · have hI : ∫ lam in (0 : ℝ)..2 * π, planeSq (f (lam - g)).2 =
+          ∫ x in (0 : ℝ)..2 * π, planeSq (f x).2 :=
+        sy_integral_shift (H := fun x => planeSq (f x).2) (hper.comp fun z => planeSq z.2) g
+      simp only [hptf]
+      rw [hI, hfdef]
+      exact m2
+    · have hI : ∫ lam in (0 : ℝ)..2 * π, planeLength (f (lam - g)).1 =
+          ∫ x in (0 : ℝ)..2 * π, planeLength (f x).1 :=
+        sy_integral_shift (H := fun x => planeLength (f x).1) (hper.comp fun z => planeLength z.1) g
+      simp only [hptf]
+      rw [hI, hfdef, hK2]
+      exact m3
+
+end Means
+
 end PoincareChart
 
 end KAM.Planetary
