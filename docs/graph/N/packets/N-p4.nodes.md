@@ -129,9 +129,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#stepN:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isOpen_polyNbhd, isOpen_Dom, polyNbhd_mono, Dom_mono (KAM/Weighted/Domains.lean)
+LEAN_NOTE: audit W4-1 PASS; rows domains(a)
 NOTE: -
 
 NODE: stepN:p4:dom-poly
@@ -156,9 +156,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#stepN:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: polydisc_subset_Dom (KAM/Weighted/Domains.lean)
+LEAN_NOTE: audit W4-1 PASS; row domains(b)
 NOTE: -
 
 NODE: bpN:p4:norm
@@ -271,9 +271,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:coefficien
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: coeff_differentiableOn, inClass_fderiv_apply, coefficients_deriv, coefficients_series, coefficients_repr (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; parts (a)-(d)
 NOTE: the one-variable ingredients cited in \source (K:fourier-basic, K:summation) are used by the steps and linked there
 
 NODE: stepN:p4:co-holo
@@ -301,9 +301,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-holo@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: coeff_differentiableOn (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; row (a)
 NOTE: -
 
 NODE: stepN:p4:co-deriv
@@ -333,9 +333,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-deriv
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inClass_fderiv_apply, coefficients_deriv (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; row (b)
 NOTE: -
 
 NODE: stepN:p4:co-series
@@ -366,9 +366,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
 REVIEWER: sol-delta-N-amend
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: coefficients_series (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; row (c)
 NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, singleton branch, no K result) and n≥1 (K results under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: stepN:p4:co-repr
@@ -397,9 +397,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
 REVIEWER: sol-delta-N-amend
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: coefficients_repr (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; row (d)
 NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, singleton branch, no K result) and n≥1 (K results under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: bpN:p4:sup-weighted
@@ -427,9 +427,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:sup-weight
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: sup_le_wbound, wbound_of_sup_bound (KAM/Weighted/SupWeighted.lean)
+LEAN_NOTE: audit W4-4 PASS WITH NOTES; B.1(a),(b)
 NOTE: candidate edges to bpN:p4:dictionary and bpN:p1:norm-convert dropped: 'In Pöschel's form … see Remark' and \source ('this is Lemma norm-convert with the I-dependence made explicit') are provenance/comparison
 
 NODE: stepN:p4:b1-a
@@ -458,9 +458,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b+sonnet-amend-N
 REVIEWER: sol-delta-N-amend
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: sup_le_wbound (KAM/Weighted/SupWeighted.lean)
+LEAN_NOTE: audit W4-4 PASS WITH NOTES; row B.1(a)
 NOTE: Explicit n=0 branch via Remark bpN:p4:n-zero; n≥1 as before.
 
 NODE: stepN:p4:b1-b
@@ -489,9 +489,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
 REVIEWER: sol-delta-N-amend
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: wbound_of_sup_bound (KAM/Weighted/SupWeighted.lean)
+LEAN_NOTE: audit W4-4 PASS WITH NOTES; row B.1(b)
 NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, singleton branch, no K result) and n≥1 (K results under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: bpN:p4:algebra
@@ -638,9 +638,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:cauchy@L12
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: cauchy_theta, cauchy_action, cauchy_loss (KAM/Weighted/Cauchy.lean)
+LEAN_NOTE: audit W4-6 PASS WITH NOTES; (a),(b) and loss form
 NOTE: Cycle bpN:p4:cauchy <-> bpN:p4:sharp resolved: the candidate edge cauchy -> sharp is the parenthetical remark at L125 ('with the norm ♯ of Lemma sharp it is bounded'), a forward pointer/comparison, not a use; sharp uses cauchy (it is a variant statement). No edge cauchy -> sharp. The edge to bpN:p4:dictionary (Pöschel comparison in \source) is provenance and dropped
 
 NODE: stepN:p4:b3-a
@@ -669,9 +669,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N
 REVIEWER: sol-delta-N-global2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: cauchy_theta (KAM/Weighted/Cauchy.lean)
+LEAN_NOTE: audit W4-6 PASS WITH NOTES; row cauchy (a)
 NOTE: For n=0 the no-angle convention and singleton branch of bpN:p4:n-zero give an empty angular sum, hence zero, and no K exp-sums application is needed. For n≥1 the coefficient computation uses K exp-sums(a) as cited. The native all-n contract is unchanged; the earlier missing-empty-sum SOURCE_GAP is resolved.
 
 NODE: stepN:p4:b3-b
@@ -700,9 +700,9 @@ EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-b@L140-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: cauchy_action (KAM/Weighted/Cauchy.lean)
+LEAN_NOTE: audit W4-6 PASS WITH NOTES; row cauchy (b)
 NOTE: -
 
 NODE: bpN:p4:s-b4#data

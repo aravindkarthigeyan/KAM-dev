@@ -20,9 +20,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-inv
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
 REVIEWER: sol-review-I-nown
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: IsInvariantSet, isInvariantSet_equilibria, isInvariantSet_union (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-4/N3-5 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:gen-barrier
@@ -50,9 +50,9 @@ EDGE: bpN:p3:gen-invariant | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
 REVIEWER: sol-review-I-nown
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: gen_barrier (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-4/N3-5 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:barrier-fwd
@@ -78,9 +78,9 @@ EDGE: bpN:p3:gen-invariant | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:b
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
 REVIEWER: sol-review-I-nown
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: gen_barrier (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-4/N3-5 PASS WITH NOTES; whole-J confinement, forward direction (private barrier_forward)
 NOTE: -
 
 NODE: stepN:p3:barrier-bwd
@@ -108,9 +108,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barri
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
 REVIEWER: sol-delta-I-e
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: gen_barrier (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-4/N3-5 PASS WITH NOTES; whole-J confinement, backward direction
 NOTE: -
 
 NODE: bpN:p3:newton-reduction
@@ -142,9 +142,9 @@ EDGE: bpI:p0:primaries#CollisionFree | blueprint-N/parts/p3-hamiltonian-ode.tex#
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
 REVIEWER: sol-delta-I-e
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: newtonDomain, newtonField, fixedDomain, fixedField, restrictedDomain, restrictedField, restrictedField_eq (KAM/ODE/NewtonDefs.lean); newton_reduction, fixed_reduction, restricted_reduction (KAM/ODE/NewtonReduction.lean)
+LEAN_NOTE: audit N3-8 PASS WITH NOTES; all three reductions
 NOTE: The fields are the displayed formulas, not arbitrary fields called Newtonian. No mass, G or mu positivity assumption, and no interval assumption on J in the restricted equivalence. planeLength and planeSq are the elementary planar formulas recalled at L451; the P solution-predicate imports remain pending the owning P graph.
 
 NODE: stepN:p3:nr-smooth
@@ -174,9 +174,9 @@ EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-N/parts/p3-hamiltonian
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
 REVIEWER: sol-delta-I-e
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: contDiffAt_force, newton_reduction, fixed_reduction, restricted_reduction (KAM/ODE/NewtonReduction.lean)
+LEAN_NOTE: audit N3-8 PASS WITH NOTES; rows nr-smooth
 NOTE: -
 
 NODE: stepN:p3:nr-pair
@@ -204,7 +204,7 @@ EDGE: N:bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-pa
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
 REVIEWER: sol-delta-I-e
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hasDerivAt_pair_iff, newton_reduction, fixed_reduction, restricted_reduction (KAM/ODE/NewtonReduction.lean)
+LEAN_NOTE: audit N3-8 PASS WITH NOTES; row nr-pair
 NOTE: L453 identifies the first block with domain membership before bundling the derivative blocks. Its final sentence omits the membership conjunct in words; retain that conjunct as required by the first block and IsSolIn. This is a reported source wording defect, not a new smoothness premise.

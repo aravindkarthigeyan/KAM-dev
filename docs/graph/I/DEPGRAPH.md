@@ -7,7 +7,7 @@ CONVENTIONS: docs/graph/I/SPEC.md "Conventions to watch": 1-periodic angles, ave
 STANDING_ASSUMPTIONS: -
 EXTERNAL_POLICY: track-I external inputs are the labelled items of the parts' external-fact lists (bpI:p1:ext-*, bpI:p3:ext-*, bpI:p5:ext-*, bpI:p7:x-*, bpI:p8:x-*; an item that only restates another external or points to a proved result is excluded as an alias); every result of another track's blueprint cited by \Kref or \Nref is an IMPORTED node K:<label> or N:<label> (plus the two authorized track-P definition imports P:bpP:p0:fixedsol#IsFixedSolution, P:bpP:p0:newton#IsNewtonSolution, SPEC revision G05) (KIND external, LEAN_STATUS EXTERNAL, STATEMENT_SOURCE in the owning blueprint, NOTE IMPORTED: proved in the track-K (resp. N) graph, node <label>; shared Lean provider), K's Mathlib-level externals included (K:bp:p1:ext-*); any other unproved fact is a step node with NOTE SOURCE_GAP
 FROZEN_ANCHORS: bpI:p0:domains#complexStrip, bpI:p0:domains#actionNbhd, bpI:p0:diophantine#IsDiophantine, bpI:p0:hamiltonian#hamiltonianVectorField, bpI:p0:hamiltonian#hamiltonianVectorFieldC, bpI:p0:realham#realHamiltonian, bpI:p0:realham#frequencyMap, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p0:stripdata#IsRealOnReals, bpI:p0:stripdata#dotC, bpI:p0:stripdata#omegaZero, bpI:p0:stripdata#invarianceError, bpI:p0:stripdata#gramMatrix, bpI:p0:stripdata#normalFrame, bpI:p0:stripdata#torsion, bpI:p0:extended#energyAverage, bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, bpI:p0:bordered#borderedHessian, bpI:p0:hamsol#IsHamiltonianSolutionOn, bpI:p0:primaries#radiusSq, bpI:p0:primaries#radius, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:primaries#CollisionFree, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:restricted#restrictedVectorField, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:nearcircular#NearCircular, bpI:p0:keplerborder#keplerBorder, bpI:p0:g1, bpI:p0:head, bpI:p0:kepler, bpI:p0:r3bp
-FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:a7d55a9a566d7d8408d455b1bfb2cc71bb9229baae5d1c547c96d9147159f8f3
+FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:b9b9fee8fa72332435a780c4b41d8250b2db4577594360bcf3891c85790488d2
 WRITER: claude-suborch-INP
 GLOBAL_REVIEWER: sol-global-I
 GLOBAL_REVIEW_REF: docs/graph/I/reviews/GLOBAL-review-3.md
@@ -857,9 +857,9 @@ EDGE: bpI:p2:g1 | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:g1@L335-L335 | f
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.isoenergetic_kam (KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean)
+LEAN_NOTE: I-G1 anchor SEALED (manifest iso.isoenergetic_kam.v1); provider audit I2-10 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p0:head
@@ -892,9 +892,9 @@ EDGE: stepI:p5:hd-uniq | blueprint-I/parts/p5-confinement.tex#bpI:p0:head@L184-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.all_time_confinement (KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean)
+LEAN_NOTE: I-HEAD anchor SEALED (manifest iso.all_time_confinement.v1); provider audit I-HEAD-audit-1 PASS
 NOTE: -
 
 NODE: bpI:p0:kepler
@@ -4140,9 +4140,9 @@ EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:limit@L295
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isoLimit, isoSLimit, limit, isoLimit_eq, isoLimit_of_not_mem, isoLimit_tendsto, isoSLimit_tendsto, isoLimit_eq_iff, isoSLimit_eq_iff (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES (selectors with convergence and uniqueness; I-G1 itself separate)
 NOTE: -
 
 NODE: stepI:p2:lim-conv
@@ -4173,9 +4173,9 @@ EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-co
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isoLimit_eq_of_tendsto, isoSLimit_eq_of_tendsto, isoDSeq_summable_tsum_le, isoDSeq_div_summable, exists_tendsto_of_dist_ray, tendsto_isoSLimit, isoLimit_tendsto, isoSLimit_tendsto (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES; rows lim-conv
 NOTE: -
 
 NODE: stepI:p2:lim-close
@@ -4272,9 +4272,9 @@ EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-inv@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isoEpsSeq_tendsto_zero, lim_invariance_moving (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES; rows lim-inv
 NOTE: -
 
 NODE: bpI:p2:energy-limit
@@ -4303,9 +4303,9 @@ EDGE: stepI:p2:el-int | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:energy-lim
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: sol-review-I-p2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: energy_limit, tendsto_energyAverage_of_uniform (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p2:el-unif
@@ -4334,9 +4334,9 @@ EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-uni
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: tendsto_energyAverage_of_uniform (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES; row el-unif / el-int
 NOTE: -
 
 NODE: stepI:p2:el-int
@@ -4369,9 +4369,9 @@ EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-int@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: tendsto_energyAverage_of_uniform (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES; row el-unif / el-int
 NOTE: -
 
 NODE: bpI:p2:g1
@@ -4405,9 +4405,9 @@ EDGE: stepI:p2:g1-o3 | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:g1@L353-L35
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: sol-review-I-p2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES (explicit-constant I-G1 body; frozen anchor sealed separately)
 NOTE: -
 
 NODE: stepI:p2:g1-constants
@@ -4433,9 +4433,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-const
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isoC1_pos, isoC2_pos (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p2:g1-standing
@@ -4460,9 +4460,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-stand
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; IsoStanding construction inside g1_explicit (G1:106-124)
 NOTE: -
 
 NODE: stepI:p2:g1-e
@@ -4489,9 +4489,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-e@L34
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: iso_g1_error_small (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p2:g1-dict
@@ -4520,9 +4520,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-dict@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: norm_le_of_rowSum_le_of_nonempty, margin_of_le, g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; dictionary G1:128-146
 NOTE: Preextract candidate edge to bpI:p0:totality dropped (administrative pointer, deleted in I-p0; the remark (T2) is a Lean-totality note, not a consumed fact).
 
 NODE: stepI:p2:g1-apply
@@ -4554,9 +4554,9 @@ EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-app
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; applies Apost.limit, G1:147-149
 NOTE: -
 
 NODE: stepI:p2:g1-o
@@ -4585,9 +4585,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o@L35
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; G1:156-164
 NOTE: -
 
 NODE: stepI:p2:g1-o2
@@ -4614,9 +4614,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o2@L3
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; G1:147-149,161
 NOTE: -
 
 NODE: stepI:p2:g1-o3
@@ -4648,9 +4648,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o3@L3
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; G1:151-155,161
 NOTE: Preextract candidate edge to bpI:p1:o3 dropped (deleted administrative remark; the used fact is carried by bpI:p1:energy-conservation).
 
 NODE: bpI:p3:setting
@@ -5742,9 +5742,9 @@ EDGE: stepI:p3:hd-bounds | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:hypo
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hypothesis_d (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES + I3-5 PASS WITH NOTES
 NOTE: Preextract candidate edge to bpI:p0:g1 dropped: the statement only names hypotheses (I1)-(I4) of I-G1 (a check that they hold), it does not consume the conclusion.
 
 NODE: stepI:p3:hd-open
@@ -5774,9 +5774,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-ope
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: TorusAux.differentiableOn_totalH (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES; row hd-open
 NOTE: -
 
 NODE: stepI:p3:hd-bounds
@@ -5805,9 +5805,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:hd-bou
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hypothesis_d (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES; hypothesis_d is stated to give all five Hamiltonian bounds and the j=1,2,3 estimates
 NOTE: -
 
 NODE: bpI:p3:torus
@@ -5846,9 +5846,9 @@ EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p3-iso-local-charts.te
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: torus (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES (interface note)
 NOTE: -
 
 NODE: stepI:p3:to-torus
@@ -5877,9 +5877,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-tor
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: TorusAux.toC_mem_half, TorusAux.unperturbed_mem, TorusAux.real_mem (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES; row to-torus
 NOTE: -
 
 NODE: stepI:p3:to-error
@@ -5909,9 +5909,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-err
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: TorusAux.invarianceError_flat (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES; row to-error
 NOTE: -
 
 NODE: stepI:p3:to-torsion
@@ -5943,9 +5943,9 @@ EDGE: stepI:p3:to-torsion#citation-route | blueprint-I/parts/p3-iso-local-charts
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-delta-I-b
 REVIEWER: sol-delta-I-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: TorusAux.torsion_flat, TorusAux.energyRow_flat, TorusAux.extendedTorsion_flat, TorusAux.norm_flatRemainder_le, TorusAux.norm_extendedAverage_sub_le (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES; rows to-torsion (documented flat route)
 NOTE: The direct DH(K)N calculation uses no invariance-error identity. The to-error dependency belongs only to the citation route, where E = X_f is substituted in eta^L. Both alternatives retain their own actual torsion-formula and frame prerequisites.
 
 NODE: stepI:p3:to-torsion#p1-setting
@@ -6005,9 +6005,9 @@ EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to-neu
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: TorusAux.extendedAverage_inv (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES; row to-neumann
 NOTE: -
 
 NODE: stepI:p3:to-energy
@@ -6034,9 +6034,9 @@ EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: TorusAux.norm_energyAverage_sub_le (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES; row to-energy
 NOTE: -
 
 NODE: bpI:p3:apply
@@ -6075,9 +6075,9 @@ EDGE: bpI:p3:apply#constants | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: apply, apply_local (KAM/Iso/Charts/Apply.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; conditional on the I-G1 statement as in the design (IG1Statement premise)
 NOTE: -
 
 NODE: stepI:p3:ap-d
@@ -6104,9 +6104,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-d
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: apply_local (KAM/Iso/Charts/Apply.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; rows ap-d through ap-conclusion
 NOTE: -
 
 NODE: stepI:p3:ap-k
@@ -6134,9 +6134,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-k@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: apply_local (KAM/Iso/Charts/Apply.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; rows ap-d through ap-conclusion
 NOTE: -
 
 NODE: stepI:p3:ap-t
@@ -6164,9 +6164,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-t@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: apply_local (KAM/Iso/Charts/Apply.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; rows ap-d through ap-conclusion
 NOTE: -
 
 NODE: stepI:p3:ap-ray
@@ -6194,9 +6194,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-ray
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: apply_local (KAM/Iso/Charts/Apply.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; rows ap-d through ap-conclusion
 NOTE: -
 
 NODE: stepI:p3:ap-error
@@ -6225,9 +6225,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ap-err
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: apply_local (KAM/Iso/Charts/Apply.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; rows ap-d through ap-conclusion
 NOTE: -
 
 NODE: stepI:p3:ap-small
@@ -6255,9 +6255,9 @@ EDGE: bpI:p3:apply#constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: apply_local (KAM/Iso/Charts/Apply.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; rows ap-d through ap-conclusion
 NOTE: -
 
 NODE: stepI:p3:ap-conclusion
@@ -6291,9 +6291,9 @@ EDGE: bpI:p3:apply#constants | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: apply_local (KAM/Iso/Charts/Apply.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; rows ap-d through ap-conclusion
 NOTE: -
 
 NODE: bpI:p3:uniform
@@ -6323,9 +6323,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:uniform@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: sol-review-I-p3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: uniform (KAM/Iso/Charts/Tori.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; existence form approved by the design (D16)
 NOTE: -
 
 NODE: bpI:p3:tori
@@ -6365,9 +6365,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:tori
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: tori, exists_ray_consts, part3_tori_of (KAM/Iso/Charts/Tori.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; T1-T7 encoded
 NOTE: Preextract candidate edge to bpI:p0:g1 at the statement dropped: I-G1 is consumed in stepI:p3:tori-ig1 and tori-position (the statement quotes it as provenance).
 
 NODE: stepI:p3:tori-patch
@@ -6426,9 +6426,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:to
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: toriSide_of_applyOut (KAM/Iso/Charts/Tori.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; row tori-base/close/position
 NOTE: -
 
 NODE: stepI:p3:tori-ig1
@@ -6494,9 +6494,9 @@ EDGE: bpI:p0:g1 | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-close@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: du_dv_bound, toriSide_of_applyOut (KAM/Iso/Charts/Tori.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; rows tori-close
 NOTE: -
 
 NODE: stepI:p3:tori-position
@@ -6528,9 +6528,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:tori-p
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: toriSide_of_applyOut (KAM/Iso/Charts/Tori.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; row tori-base/close/position
 NOTE: -
 
 NODE: bpI:p3:apply#constants
@@ -6560,9 +6560,9 @@ EDGE: bpI:p0:g1 | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:apply#constan
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: apply (KAM/Iso/Charts/Apply.lean)
+LEAN_NOTE: audit I3-5 PASS WITH NOTES; named with apply (retained full gate body)
 NOTE: Proposed by independent review; requires a different delta reviewer.
 
 NODE: stepI:p3:to-torsion#flat-route
@@ -6597,9 +6597,9 @@ EDGE: bpI:p0:stripdata#torsion | blueprint-I/parts/p3-iso-local-charts.tex#stepI
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-delta-I-b
 REVIEWER: sol-delta-I-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: TorusAux.torsion_flat, TorusAux.energyRow_flat, TorusAux.extendedTorsion_flat, TorusAux.norm_flatRemainder_le (KAM/Iso/Charts/Torus.lean)
+LEAN_NOTE: audit I3-4 PASS WITH NOTES; the documented flat route is the one implemented
 NOTE: The source supplies the direct value DH(K)N_b at L312 and the full R formula at L313 (stated at L296-L297). Continuity of these explicit derivative entries on the compact real cube and the already cited ext-integral give the average and bound; this route does not generalize the Part 1 lemmas or assume a Diophantine omega. Requires independent delta review.
 
 NODE: stepI:p3:to-torsion#citation-route
@@ -9145,9 +9145,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: kE, keplerRegion, elemL, elemA, elemEcc, isOpen_keplerRegion (KAM/Kepler/Energy.lean); eccOf_mem_Ioo, delaunay_elements (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-1 (addendum PASS) + KEP-5 (addendum PASS)
 NOTE: notation of Part 7 L20-27 (Gamma, E, C_0, e(L,G)) is used here
 
 NODE: bpI:p7:orbit-maps
@@ -9172,9 +9172,9 @@ EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps@L15
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: eccOf, deDom (KAM/Kepler/Energy.lean); orbitFrame, orbitMapR, delaunay, orbitMapR_radius_bounds (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-1 (addendum PASS) + KEP-5 (addendum PASS); real definitions; holomorphic extension is bpI:p7:orbit-maps-e
 NOTE: -
 
 NODE: bpI:p7:orbit-maps-e
@@ -9291,9 +9291,9 @@ EDGE: stepI:p7:oi-d | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-identities@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_radius, orbitMapR_radius_bounds, orbitMapR_speed_sq, orbitMapR_cross, orbitMapR_dot, orbitMapR_energy, orbitMapR_radial, delaunay_mem_region, delaunay_elements (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS (addendum closes H01); rows (a)-(d)
 NOTE: -
 
 NODE: stepI:p7:oi-r
@@ -9318,9 +9318,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-r@L194-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_radius, orbitMapR_radius_bounds, orbitMapR_speed_sq (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS; row (a)
 NOTE: -
 
 NODE: stepI:p7:oi-gam
@@ -9345,9 +9345,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-gam@L197
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_cross, orbitMapR_dot (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS; row (b)
 NOTE: -
 
 NODE: stepI:p7:oi-en
@@ -9375,9 +9375,9 @@ EDGE: stepI:p7:oi-gam | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_energy, delaunay_mem_region, delaunay_elements (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS; row (c)
 NOTE: -
 
 NODE: stepI:p7:oi-d
@@ -9403,9 +9403,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-d@L202-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_radial (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS; row (d)
 NOTE: -
 
 NODE: bpI:p7:symplectic
@@ -9614,9 +9614,9 @@ EDGE: stepI:p7:ch-diffeo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L260-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: audit KEP-7 PASS WITH NOTES covers periodicity/injectivity/image/local charts via delaunay_*; E,Gamma o Q and symplectic clauses rest on KEP-5/KEP-6 imports (KEP-5 has no passing audit)
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_periodic, delaunay_mem_region, delaunay_elements (KAM/Kepler/Orbit.lean); delaunay_periodic, delaunay_eq_iff, keplerRegion_subset_image, delaunay_localDiffeo (KAM/Kepler/DelaunayChart.lean); delaunay_symplectic (KAM/Kepler/DelaunaySymplectic.lean)
+LEAN_NOTE: audit KEP-5 PASS + KEP-7 PASS WITH NOTES + KEP-6 PASS WITH NOTES; periodic, bijection, surjective local diffeo, symplectic, E and Gamma along Q
 NOTE: -
 
 NODE: stepI:p7:ch-reg
@@ -9856,9 +9856,9 @@ EDGE: stepI:p7:nc-image | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: NearCircularWitness, nearCircular_witness_unique, nearCircular_eq, nearCircular_eq_image, isOpen_nearCircular, nearCircular_nonempty_iff (KAM/Iso/NearCircular.lean)
+LEAN_NOTE: audit I-4 PASS WITH NOTES (infrastructure; does not seal I-R3BP)
 NOTE: -
 
 NODE: stepI:p7:nc-sub
@@ -9884,9 +9884,9 @@ EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L274-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_eq, NearCircularWitness (KAM/Iso/NearCircular.lean)
+LEAN_NOTE: audit I-4 PASS WITH NOTES; both inclusions of nearCircular_eq
 NOTE: -
 
 NODE: stepI:p7:nc-sup
@@ -9912,9 +9912,9 @@ EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p7-delaunay.tex#stepI
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_eq, NearCircularWitness (KAM/Iso/NearCircular.lean)
+LEAN_NOTE: audit I-4 PASS WITH NOTES; both inclusions of nearCircular_eq
 NOTE: -
 
 NODE: stepI:p7:nc-image
@@ -9944,9 +9944,9 @@ EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_eq_image, isOpen_nearCircular (KAM/Iso/NearCircular.lean)
+LEAN_NOTE: audit I-4 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p7:h0
@@ -9976,7 +9976,7 @@ EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: audit KEP-5 PASS: delaunay_hamiltonian (KAM/Kepler/Orbit.lean) proves only H^K o Q = -1/(2L^2) - G; the identity H^R3_0 = H^K at collision-free z is not in an audited table
 NOTE: -
 
 NODE: stepI:p7:h0-formula
@@ -10006,7 +10006,7 @@ EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: audit KEP-5 PASS: delaunay_hamiltonian covers only the H^K o Q formula; the mu = 0 identification is not in an audited table
 NOTE: -
 
 NODE: bpI:p7:complex-domain
@@ -10403,9 +10403,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: audit I-7 PASS: Lean proves delta2<=delta1 (exactDelta, exact_radius_spec), weaker than step's delta1/2; parent exact-ham proved
+LEAN_STATUS: PROVED
+LEAN_REF: exactDelta, ExactRadiusData, exact_radius_spec, exact_positions_mem_shiftO (KAM/Iso/ExactHamiltonian.lean)
+LEAN_NOTE: audit I-7 PASS WITH NOTES; rows eh-delta (selection, output predicate, geometric export)
 NOTE: SOURCE_GAP: uniform continuity of the position component of Q on the compact fundamental-domain closure is invoked but not proved or listed as an external. x-topo pays compactness only. The bound concerns position parts, as explicitly specified at L415; it does not assert a momentum bound.
 
 NODE: stepI:p7:eh-hol
@@ -10508,9 +10508,9 @@ EDGE: stepI:p7:po-exact | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: tildeF, period_one, delaunay_periodOne_symplectic (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p7:po-dom
@@ -10540,9 +10540,9 @@ EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: period_one (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; rows po-dom (Aux lemmas) inside period_one
 NOTE: -
 
 NODE: stepI:p7:po-prop
@@ -10574,9 +10574,9 @@ EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L44
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-g
 REVIEWER: sol-delta-I-h
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: period_one (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; rows po-prop (Aux lemmas) inside period_one
 NOTE: L443 recalls the domain proof argument of Part 6; L441 already supplied Re(I_1/(2 pi))>m_L/2 and nonvanishing on B_{r_0} directly from complex-domain. Together with conversion(b), this proves holomorphy and reality. The source-explicit nondeg edge is retained as reuse of that proof argument, not an application of the full corollary with its infimum-radius premises. For empty B the domain claims are vacuous. No SOURCE_GAP is established here.
 
 NODE: stepI:p7:po-exact
@@ -10608,9 +10608,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: period_one, delaunay_periodOne_symplectic (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; row po-exact
 NOTE: -
 
 NODE: bpI:p7:transfer
@@ -10645,9 +10645,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfe
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: transfer, transfer_identities (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p7:tr-cf
@@ -10711,9 +10711,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L45
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hamiltonianVectorField_congr, transfer (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; row tr-open
 NOTE: -
 
 NODE: stepI:p7:tr-chain
@@ -10782,9 +10782,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nondeg_exact (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p7:nd-dom
@@ -10810,9 +10810,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-do
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nondeg_exact (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; positive first action on the real tube
 NOTE: -
 
 NODE: stepI:p7:nd-det
@@ -10840,9 +10840,9 @@ EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L474-L4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nondeg_exact (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; determinant 3/I_1^4
 NOTE: -
 
 NODE: bpI:p7:sec-complex#data
@@ -10975,9 +10975,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:e-vs-k@L36-L36 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: kappa, kappa_kappa, eccOf_eq_kappa, eccOf_mem_Ioo_iff, eccOf_mem_Icc_iff (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES (helper infrastructure; does not seal I-R3BP)
 NOTE: The involution identity kappa(kappa(x))=x on [0,1] is the elementary square-root calculation at L44, combined with strict monotonicity; it is not included in the statement of x-cont as a separate external assumption.
 
 NODE: bpI:p8:sec-safe#data
@@ -11031,9 +11031,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:A@L58-L58 | C_0 o
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: RegionParams, actionRegion, actionRegionCl, actionRegionCl_subset_cone, isOpen_actionRegion, isCompact_actionRegionCl, closure_actionRegion_subset (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p8:topology
@@ -11064,9 +11064,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:topology@L65-L65 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: mem_actionRegion_iff, nearCircular_eq_image_region, exists_delaunay_preimage, isOpen_nearCircular_region, nearCircular_nonempty (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; rows topology (a)-(d)
 NOTE: -
 
 NODE: stepI:p8:tp-A
@@ -11093,9 +11093,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: actionRegionCl_subset_cone, mem_actionRegion_iff (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; row topology(a)
 NOTE: -
 
 NODE: stepI:p8:tp-chart
@@ -11123,9 +11123,9 @@ EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76 | A and
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_eq_image_region, exists_delaunay_preimage (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; row topology(b)
 NOTE: -
 
 NODE: stepI:p8:tp-open
@@ -11152,9 +11152,9 @@ EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | f
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isOpen_nearCircular_region (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; row topology(c)
 NOTE: -
 
 NODE: stepI:p8:tp-nonempty
@@ -11183,9 +11183,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_nonempty (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; row topology(d)
 NOTE: -
 
 NODE: bpI:p8:collision-exclusion
@@ -11359,9 +11359,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L146-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safeT, safeAminus, safeAplus, safeEminus, safeEplus, safeU, safeK, safeB, safeB' (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES (helper infrastructure; does not seal I-R3BP)
 NOTE: The radius symbols specialize the section-data definitions to K; their nonempty compact carrier and positivity are verified by sr-incl and sr-radii, before head-data applies exact-ham. No exact-ham application occurs in the definition.
 
 NODE: bpI:p8:safe-region
@@ -11391,9 +11391,9 @@ EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe-region@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safeT_pos, safeT_le_eighth, safe_regionParams, safe_inclusions, safe_elements, safe_radii, safe_domain (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; rows safe-region and sr-*
 NOTE: -
 
 NODE: stepI:p8:sr-incl
@@ -11422,9 +11422,9 @@ EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safe_inclusions (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; row sr-incl
 NOTE: -
 
 NODE: stepI:p8:sr-elements
@@ -11452,9 +11452,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L16
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safe_elements (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; row sr-elements
 NOTE: -
 
 NODE: stepI:p8:sr-radii
@@ -11484,9 +11484,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safeT_mul_le, safe_rho_arith, safe_radii, kRmin_le, le_kRhoMax (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; row sr-radii
 NOTE: -
 
 NODE: stepI:p8:sr-B
@@ -11514,9 +11514,9 @@ EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167 | A is op
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safe_domain (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; row sr-B
 NOTE: -
 
 NODE: bpI:p8:head-data
@@ -13483,9 +13483,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-inv
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
 REVIEWER: sol-review-I-nown
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: IsInvariantSet, isInvariantSet_equilibria, isInvariantSet_union (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-4/N3-5 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:gen-barrier
@@ -13513,9 +13513,9 @@ EDGE: bpN:p3:gen-invariant | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
 REVIEWER: sol-review-I-nown
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: gen_barrier (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-4/N3-5 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:barrier-fwd
@@ -13541,9 +13541,9 @@ EDGE: bpN:p3:gen-invariant | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:b
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown
 REVIEWER: sol-review-I-nown
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: gen_barrier (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-4/N3-5 PASS WITH NOTES; whole-J confinement, forward direction (private barrier_forward)
 NOTE: -
 
 NODE: stepN:p3:barrier-bwd
@@ -13571,9 +13571,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:barri
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
 REVIEWER: sol-delta-I-e
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: gen_barrier (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-4/N3-5 PASS WITH NOTES; whole-J confinement, backward direction
 NOTE: -
 
 NODE: bpN:p3:newton-reduction
@@ -13605,9 +13605,9 @@ EDGE: bpI:p0:primaries#CollisionFree | blueprint-N/parts/p3-hamiltonian-ode.tex#
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
 REVIEWER: sol-delta-I-e
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: newtonDomain, newtonField, fixedDomain, fixedField, restrictedDomain, restrictedField, restrictedField_eq (KAM/ODE/NewtonDefs.lean); newton_reduction, fixed_reduction, restricted_reduction (KAM/ODE/NewtonReduction.lean)
+LEAN_NOTE: audit N3-8 PASS WITH NOTES; all three reductions
 NOTE: The fields are the displayed formulas, not arbitrary fields called Newtonian. No mass, G or mu positivity assumption, and no interval assumption on J in the restricted equivalence. planeLength and planeSq are the elementary planar formulas recalled at L451; the P solution-predicate imports remain pending the owning P graph.
 
 NODE: stepN:p3:nr-smooth
@@ -13637,9 +13637,9 @@ EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-N/parts/p3-hamiltonian
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
 REVIEWER: sol-delta-I-e
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: contDiffAt_force, newton_reduction, fixed_reduction, restricted_reduction (KAM/ODE/NewtonReduction.lean)
+LEAN_NOTE: audit N3-8 PASS WITH NOTES; rows nr-smooth
 NOTE: -
 
 NODE: stepN:p3:nr-pair
@@ -13667,9 +13667,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:nr-pa
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-nown+sol-review-I-nown
 REVIEWER: sol-delta-I-e
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hasDerivAt_pair_iff, newton_reduction, fixed_reduction, restricted_reduction (KAM/ODE/NewtonReduction.lean)
+LEAN_NOTE: audit N3-8 PASS WITH NOTES; row nr-pair
 NOTE: L453 identifies the first block with domain membership before bundling the derivative blocks. Its final sentence omits the membership conjunct in words; retain that conjunct as required by the first block and IsSolIn. This is a reported source wording defect, not a new smoothness premise.
 
 <!-- BEGIN PROOF DEPGRAPH GENERATED -->

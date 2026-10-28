@@ -1149,9 +1149,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: kE, keplerRegion, elemL, elemA, elemEcc, isOpen_keplerRegion (KAM/Kepler/Energy.lean); eccOf_mem_Ioo, delaunay_elements (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-1 (addendum PASS) + KEP-5 (addendum PASS)
 NOTE: notation of Part 7 L20-27 (Gamma, E, C_0, e(L,G)) is used here
 
 NODE: bpI:p7:orbit-maps
@@ -1176,9 +1176,9 @@ EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps@L15
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: eccOf, deDom (KAM/Kepler/Energy.lean); orbitFrame, orbitMapR, delaunay, orbitMapR_radius_bounds (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-1 (addendum PASS) + KEP-5 (addendum PASS); real definitions; holomorphic extension is bpI:p7:orbit-maps-e
 NOTE: -
 
 NODE: bpI:p7:orbit-maps-e
@@ -1295,9 +1295,9 @@ EDGE: stepI:p7:oi-d | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-identities@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_radius, orbitMapR_radius_bounds, orbitMapR_speed_sq, orbitMapR_cross, orbitMapR_dot, orbitMapR_energy, orbitMapR_radial, delaunay_mem_region, delaunay_elements (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS (addendum closes H01); rows (a)-(d)
 NOTE: -
 
 NODE: stepI:p7:oi-r
@@ -1322,9 +1322,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-r@L194-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_radius, orbitMapR_radius_bounds, orbitMapR_speed_sq (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS; row (a)
 NOTE: -
 
 NODE: stepI:p7:oi-gam
@@ -1349,9 +1349,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-gam@L197
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_cross, orbitMapR_dot (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS; row (b)
 NOTE: -
 
 NODE: stepI:p7:oi-en
@@ -1379,9 +1379,9 @@ EDGE: stepI:p7:oi-gam | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-en@L200-L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_energy, delaunay_mem_region, delaunay_elements (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS; row (c)
 NOTE: -
 
 NODE: stepI:p7:oi-d
@@ -1407,9 +1407,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:oi-d@L202-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_radial (KAM/Kepler/Orbit.lean)
+LEAN_NOTE: audit KEP-5 PASS; row (d)
 NOTE: -
 
 NODE: bpI:p7:symplectic
@@ -1618,9 +1618,9 @@ EDGE: stepI:p7:ch-diffeo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L260-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: audit KEP-7 PASS WITH NOTES covers periodicity/injectivity/image/local charts via delaunay_*; E,Gamma o Q and symplectic clauses rest on KEP-5/KEP-6 imports (KEP-5 has no passing audit)
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapR_periodic, delaunay_mem_region, delaunay_elements (KAM/Kepler/Orbit.lean); delaunay_periodic, delaunay_eq_iff, keplerRegion_subset_image, delaunay_localDiffeo (KAM/Kepler/DelaunayChart.lean); delaunay_symplectic (KAM/Kepler/DelaunaySymplectic.lean)
+LEAN_NOTE: audit KEP-5 PASS + KEP-7 PASS WITH NOTES + KEP-6 PASS WITH NOTES; periodic, bijection, surjective local diffeo, symplectic, E and Gamma along Q
 NOTE: -
 
 NODE: stepI:p7:ch-reg
