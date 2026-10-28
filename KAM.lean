@@ -175,6 +175,7 @@ public import KAM.Iso.Confinement.Setting
 public import KAM.Iso.Kepler
 public import KAM.Iso.KeplerHamiltonian
 public import KAM.Iso.RestrictedHam
+public import KAM.Iso.ShiftPotential
 public import KAM.Kepler.Basic
 public import KAM.Kepler.Energy
 public import KAM.Kepler.Equation
@@ -206,6 +207,7 @@ public import KAM.ODE.NewtonUniform
 public import KAM.ODE.UniformPeriodic
 public import KAM.ODE.Uniqueness
 public import KAM.Planetary.Newtonian.Barycentric
+public import KAM.Planetary.Newtonian.Models
 public import KAM.Planetary.Poincare.Chart
 public import KAM.Provider.Iso.KeplerBorderedDet
 public import KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative
