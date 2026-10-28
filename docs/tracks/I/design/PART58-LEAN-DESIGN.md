@@ -306,7 +306,7 @@ Setting, RealHam                         ← Graph, Invariance, EnergyCoordinate
 Setting, PatchConst, RealHam, EnergyCoordinate, Position, Invariance  ← Separation
 Setting, PatchConst, RealHam, Separation ← Confinement
 all of the above                         ← Confinement.Main
-[Part 3 final module (imports sealed I-G1)], Confinement.Main  ← Provider.Iso.AllTimeConfinement
+[Part 3 final module (its tori producer takes the I-G1 conclusion as a verbatim premise, discharged by the I-HEAD provider; no production module imports a frozen theorem; see PART123-LEAN-DESIGN)], Confinement.Main  ← Provider.Iso.AllTimeConfinement
 
 Frozen.Iso.Defs.{Radius, Primary1, Primary2, CollisionFree}                         ← Iso.Collision
 [Kepler: delaunay, nearCircular_eq_image, isOpen_nearCircular], Confinement.Setting ← R3bp.Region   (Setting only for later modules)

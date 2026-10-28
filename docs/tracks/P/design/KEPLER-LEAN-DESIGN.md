@@ -1391,7 +1391,7 @@ theorem periodOneMap_hasDerivAt_iff {n : ℕ} {H : Phase n → ℝ} {w : ℝ →
     HasDerivAt w (hamiltonianVectorField (H ∘ periodOneMap) (w t)) t ↔
       HasDerivAt (fun s => periodOneMap (w s)) (hamiltonianVectorField H (periodOneMap (w t))) t := sorry
 
-/-- `bpI:p6:conversion` (b): holds for every `I` by Lean totality (both sides vanish together at `I₀ = 0`). -/
+/-- `bpI:p6:conversion` (b): holds for every `I` by Lean totality (at `I₀ = 0` both sides equal `-(Ω/(2π))·I₁`; erratum noted by the I-2 audit). -/
 theorem keplerRotH_comp_div (κ Ω : ℝ) (I : Fin 2 → ℂ) :
     keplerRotH κ Ω (fun i => I i / ((2 * π : ℝ) : ℂ)) = keplerRotH (κ * (2 * π) ^ 2) (Ω / (2 * π)) I := sorry
 /-- (c). -/
