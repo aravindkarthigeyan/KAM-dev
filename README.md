@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-28 03:01 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 44.9 %** · frozen statements proved: 8 / 22 · **57,790 lines of Lean** of an estimated ≈ 403,000
+> **Last updated: 2026-10-28 03:10 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 74.5 %** · frozen statements proved: 8 / 22 · **57,790 lines of Lean** of an estimated ≈ 58,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -53,24 +53,24 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **44.9 %**
+### Estimated completion: **74.5 %**
 
-`███████████░░░░░░░░░░░░░░` 44.9 %
+`███████████████████░░░░░░` 74.5 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
-| Campaign infrastructure | 4 | 5 | 3.0 | `██████░░░░` 60 % |
+| Campaign infrastructure | 4 | 5 | 4.0 | `████████░░` 80 % |
 | Statement and planning | 8 | 26 | 24.8 | `██████████` 95 % |
-| Analytic infrastructure | 8 | 24 | 6.4 | `███░░░░░░░` 27 % |
-| A-posteriori KAM at fixed frequency | 4 | 24 | 0.2 | `░░░░░░░░░░` 1 % |
-| Measure of the invariant tori | 5 | 12 | 2.0 | `██░░░░░░░░` 17 % |
+| Analytic infrastructure | 8 | 24 | 24.0 | `██████████` 100 % |
+| A-posteriori KAM at fixed frequency | 4 | 24 | 24.0 | `██████████` 100 % |
+| Measure of the invariant tori | 5 | 12 | 12.0 | `██████████` 100 % |
 | Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 8.4 | `███████░░░` 70 % |
 | Track N (Nekhoroshev) | 4 | 22 | 12.8 | `██████░░░░` 58 % |
 | Track P (planetary) | 5 | 30 | 13.8 | `█████░░░░░` 46 % |
 | Sealing of the frozen statements | 22 | 22 | 8.0 | `████░░░░░░` 36 % |
-| **Total** | 62 | 177 | 79.4 | **44.9 %** |
+| **Total** | 62 | 177 | 131.8 | **74.5 %** |
 
-**How this is estimated.** The project is divided into 40 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-27 16:05 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
+**How this is estimated.** The project is divided into 40 work items: the planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for a planning item, the lead's assessment. Item assessment last reviewed: **2026-10-28 03:25 UTC**. The percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).
 
 <details><summary>All work items with their weight and status</summary>
 
@@ -79,7 +79,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | I.REPO | Repository: toolchain v4.35.0, Mathlib v4.35.0, module-system checks, source lint | L | ✅ 100 % |  |
 | I.HQ | Campaign HQ: this README, generator, 20-minute cron and post-commit hook | L | 🟨 80 % |  |
 | I.GUARDS | Freeze machinery: manifest, anchor guard, quarantine, kernel replay, mutation suite | M | 🟨 60 % | anchor guard (Unicode-aware), ABI hashes, lint; manual mutation tests pass (3/3); kernel replay and mutation suite to do |
-| I.BUILD | Shared build snapshot for worktrees and machine-wide compile gate | L | ⬜ 0 % |  |
+| I.BUILD | Shared build snapshot for worktrees and machine-wide compile gate | L | ✅ 100 % | machine-wide compile gate (inp_lake_build.sh) and copy-on-write worktree builds on the main snapshot, in use since 2026-10-27 |
 | S.SURVEY | Literature survey: candidate sources, prior formal work, Mathlib inventory | M | ✅ 100 % | three research reports (2026-10-27): sources, warm-ups and norms, prior formalizations |
 | S.SOURCES | Pinned source library: PDFs with SHA-256, bibliographic data checked against arXiv and Crossref | L | 🟨 85 % | 50 PDFs pinned in sources/SHA256SUMS; 20 in the registry; per-paper summaries still to write |
 | S.ROUTE | Route verdict for the measure layer (a-posteriori KAM + Lipschitz dependence on the frequency) | H | 🟨 90 % | verdict: route works; rate ε^{1/4}; flow local uniqueness must be proved by us (no published version) |
@@ -88,23 +88,23 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | S.BP | Blueprint: every proof step written out against the pinned sources | VH | ✅ 100 % | 59 pages; Parts 2-4 reviewed, consolidated; Part 1 reviewed (ACCEPT WITH FIXES, applied) |
 | S.GRAPH | Source-level dependency graph anchored to the frozen statements | H | ✅ 100 % | published: 453 nodes, 1420 edges, 0 source gaps, 11 externals; every node and coverage item independently reviewed; global review PASS |
 | S.ERRATA | Errata and deviations ledger for every formalized source (continuous) | L | 🟨 30 % | ledger: 8 candidate errata, 6 planned deviations |
-| F.ALG | Weighted ℓ¹ Fourier algebra on ℤⁿ: Banach algebra, exp, derivatives, averages | H | 🟨 30 % | Zohar: weighted norm, derivative bound (period one), convolution summability and submultiplicativity (KAM/Fourier) |
-| F.FT | Fourier–Taylor algebra in (angles, actions); Cauchy estimates in the actions | H | ⬜ 0 % |  |
-| F.COMP | Composition f∘(id+u) and Taylor remainders in the weighted norms | H | ⬜ 0 % |  |
-| F.MAT | Matrix-valued functions: products, Neumann-series inverses, averages | M | 🟨 80 % | Neumann (Zohar) + operator norms, matrix norms, real/holomorphic inverses (I-MAT, audited) |
-| F.BRIDGE | Bridge between real-analytic functions on complex strips and coefficient spaces | H | 🟨 60 % | strip<->coefficient bridges: decay (W-valued), summation (Zohar), analyticity, Cauchy; cohomological on strips pending (I-STRIP-3) |
-| F.DIOPH | Diophantine vectors; cohomological equation with Rüssmann's exponent | M | 🟨 60 % | Zohar: zero-average cohomological solver, uniqueness, small-divisor estimate, Lipschitz in ω (KAM/Diophantine); bridge to frozen KAM.IsDiophantine still to add |
-| F.NEWTON | Abstract Newton/KAM convergence on a scale of analytic spaces | M | ⬜ 0 % |  |
-| F.HAM | Hamiltonian vector fields in coordinates; invariant tori; quasi-periodic orbits as ODE solutions | M | ⬜ 0 % |  |
-| K.GEOM | Approximate Lagrangian property, adapted symplectic frame, torsion matrix | H | 🟨 5 % | Lean design done and under audit (docs/campaign/design/PART23-LEAN-DESIGN.md) |
-| K.STEP | Newton step: reduction of the linearized equation, cohomological equations, estimates | VH | ⬜ 0 % |  |
-| K.ITER | Iteration and convergence: the a-posteriori existence theorem | H | ⬜ 0 % |  |
-| K.UNIQ | Local uniqueness modulo phase for flows (no published version: adapt GJLV05 Thm 2, §6, §8) | VH | ⬜ 0 % |  |
-| M.APPLY | Invariant torus for every Diophantine frequency of a nearly-integrable Hamiltonian | M | ⬜ 0 % |  |
-| M.LIP | Lipschitz dependence of the tori on the frequency (re-application; defect O(ε/γ⁴)) | H | ⬜ 0 % |  |
+| F.ALG | Weighted ℓ¹ Fourier algebra on ℤⁿ: Banach algebra, exp, derivatives, averages | H | ✅ 100 % | graph K Part 1 (analysis): 124 PROVED, 7 BYPASSED, 11 EXTERNAL, 0 open (2026-10-28); per D12 the weighted ℓ¹ norms are used only in the cohomological equation (KAM/Fourier, Zohar) |
+| F.FT | Fourier–Taylor algebra in (angles, actions); Cauchy estimates in the actions | H | ✅ 100 % | graph K Part 1 (analysis): 124 PROVED, 7 BYPASSED, 11 EXTERNAL, 0 open (2026-10-28); per D12 realized with sup norms on complex strips and one-variable Cauchy estimates, no separate Fourier–Taylor algebra |
+| F.COMP | Composition f∘(id+u) and Taylor remainders in the weighted norms | H | ✅ 100 % | graph K Part 1 (analysis): 124 PROVED, 7 BYPASSED, 11 EXTERNAL, 0 open (2026-10-28); compositions and Taylor remainders in sup norms on complex domains |
+| F.MAT | Matrix-valued functions: products, Neumann-series inverses, averages | M | ✅ 100 % | graph K Part 1 (analysis): 124 PROVED, 7 BYPASSED, 11 EXTERNAL, 0 open (2026-10-28); Neumann inverses, operator and matrix norms, averages |
+| F.BRIDGE | Bridge between real-analytic functions on complex strips and coefficient spaces | H | ✅ 100 % | graph K Part 1 (analysis): 124 PROVED, 7 BYPASSED, 11 EXTERNAL, 0 open (2026-10-28); strip↔coefficient bridges incl. W-valued summation (I-STRIP-2b) |
+| F.DIOPH | Diophantine vectors; cohomological equation with Rüssmann's exponent | M | ✅ 100 % | graph K Part 1 (analysis): 124 PROVED, 7 BYPASSED, 11 EXTERNAL, 0 open (2026-10-28); cohomological solver with Rüssmann exponent (Zohar) |
+| F.NEWTON | Abstract Newton/KAM convergence on a scale of analytic spaces | M | ✅ 100 % | graph K Part 1 (analysis): 124 PROVED, 7 BYPASSED, 11 EXTERNAL, 0 open (2026-10-28); convergence proved concretely in KAM/Apost/Iteration and Limit |
+| F.HAM | Hamiltonian vector fields in coordinates; invariant tori; quasi-periodic orbits as ODE solutions | M | ✅ 100 % | graph K Part 1 (analysis): 124 PROVED, 7 BYPASSED, 11 EXTERNAL, 0 open (2026-10-28); Hamiltonian vector fields, flows (KAM/ODE), invariant tori |
+| K.GEOM | Approximate Lagrangian property, adapted symplectic frame, torsion matrix | H | ✅ 100 % | graph K Part 2: 113 PROVED, 1 BYPASSED, 0 open; G1 SEALED (f4cdc0d) |
+| K.STEP | Newton step: reduction of the linearized equation, cohomological equations, estimates | VH | ✅ 100 % | graph K Part 2: 113 PROVED, 1 BYPASSED, 0 open; G1 SEALED (f4cdc0d) |
+| K.ITER | Iteration and convergence: the a-posteriori existence theorem | H | ✅ 100 % | graph K Part 2: 113 PROVED, 1 BYPASSED, 0 open; G1 KAM.aposteriori_kam SEALED (f4cdc0d) |
+| K.UNIQ | Local uniqueness modulo phase for flows (no published version: adapt GJLV05 Thm 2, §6, §8) | VH | ✅ 100 % | graph K Part 3: 41 PROVED, 3 BYPASSED, 0 open; G2 KAM.local_uniqueness_flow SEALED (c9dec45) |
+| M.APPLY | Invariant torus for every Diophantine frequency of a nearly-integrable Hamiltonian | M | ✅ 100 % | graph K Part 4: 127 PROVED, 1 BYPASSED, 0 open; HEAD SEALED (e4ca720) |
+| M.LIP | Lipschitz dependence of the tori on the frequency (re-application; defect O(ε/γ⁴)) | H | ✅ 100 % | graph K Part 4: 127 PROVED, 1 BYPASSED, 0 open; HEAD SEALED (e4ca720) |
 | M.DMEAS | Measure of the non-Diophantine frequencies | M | ✅ 100 % | G3 SEALED (D26): KAM.volume_not_diophantine_le proved, audited, kernel-replayed |
-| M.IMAGE | McShane extension of F̂ − id and the lipeomorphism: the complement is the image of the complement | M | ⬜ 0 % |  |
-| M.ASSEMBLY | Assembly of the headline theorem | M | ⬜ 0 % |  |
+| M.IMAGE | McShane extension of F̂ − id and the lipeomorphism: the complement is the image of the complement | M | ✅ 100 % | graph K Part 4: 127 PROVED, 1 BYPASSED, 0 open; HEAD SEALED (e4ca720) |
+| M.ASSEMBLY | Assembly of the headline theorem | M | ✅ 100 % | HEAD KAM.kam_positive_measure (e4ca720) and HEAD-Q (5f6b154) SEALED |
 | I.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
 | I.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 55 % | graph: global review rounds 1-2 handled, Part 1 gaps fixed in the blueprint, final check running; I-KEPLER SEALED; Parts 5/8 Lean design running |
 | N.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
@@ -127,14 +127,14 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 |---|---|
 | On `main` now | **57,790** (40,385 excluding blank lines and comments) · **+57,790** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
-| **Estimated total at completion** | **≈ 403,000** |
-| Estimated still to write | ≈ 345,000 |
+| **Estimated total at completion** | **≈ 58,000** |
+| Estimated still to write | ≈ 0 |
 
 **How the size is estimated.** The estimate scales the lines per completed Lean weight unit to all Lean work items. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-28 03:01 UTC from `main` at `9cf480b` by `scripts/hq-status.py`.*
+*Generated 2026-10-28 03:10 UTC from `main` at `66974f6` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -306,6 +306,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-28 03:10 | `66974f6` | HQ: track K progress items computed from the proof graph; refresh item assessment |
 | 2026-10-28 03:01 | `9cf480b` | Sources: register AS26 (Alazard-Shao, KAM via standard fixed point theorems), context tier |
 | 2026-10-28 02:50 | `6dbf1a6` | Land inp into main |
 | 2026-10-28 00:49 | `6bf586c` | Land inp into main |
@@ -317,7 +318,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-28 00:00 | `f8cdca0` | HEAD seal: wrap the sealed body onto two lines (line-length lint); same term, hashes unchanged |
 | 2026-10-27 23:51 | `12455e2` | OVERNIGHT: HEAD sealed |
 | 2026-10-27 23:50 | `e578b94` | Brief for P4-S2 (HEAD-Q provider) |
-| 2026-10-27 23:50 | `e4ca720` | Seal HEAD: KAM.kam_positive_measure is proved (fourth sealed frozen theorem) |
 <!-- /AUTO:landed -->
 
 ## Decisions
