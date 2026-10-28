@@ -49,9 +49,9 @@ ROUTE_FOR: -
 EDGE: bpI:p7:means | blueprint-I/parts/p7-delaunay.tex#bpI:p7:scaling@L320-L321 | averages 1/¦Q¦ and ¦P¦^2 over the mean anomaly equal 1/a and 1/a, giving the scaled averages and E_k
 EDGE: stepI:p7:sc-alg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-alg@L320-L320 | local energy and symplectic block calculation
 EDGE: stepI:p7:sc-flow | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-flow@L321-L321 | local field transport, time rescaling and averages
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: writer-xown-sonnet+sol-review-P-p
-REVIEWER: -
+REVIEWER: sol-delta-P-p
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -81,9 +81,9 @@ EDGE: I:bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:means@L291-
 EDGE: bpI:p7:x-change | blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-cv@L298-L298 | change of variables with the increasing C1 Kepler anomaly map; the proof uses continuous integrands
 EDGE: stepI:p7:mv-cv | blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-cv@L298-L298 | the labelled change-of-variable proof step
 EDGE: stepI:p7:mv-int | blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-int@L300-L300 | the labelled three-integral and virial computation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: writer-xown-sonnet+sol-review-P-p
-REVIEWER: -
+REVIEWER: sol-delta-P-p
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -113,9 +113,9 @@ EDGE: bpI:p7:means | blueprint-I/parts/p7-delaunay.tex#bpI:p7:circular@L308-L308
 EDGE: bpI:p7:scaling | blueprint-I/parts/p7-delaunay.tex#bpI:p7:circular@L304-L304 | the scaling and mass dictionary of the statement is stated as holding for 0<=e<1 (proof does not otherwise re-derive it)
 EDGE: I:bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:circular@L304-L304 | the endpoint uses Q_el with independent eccentricity and G=L sqrt(1-e^2)
 EDGE: stepI:p7:ci-alg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ci-alg@L308-L308 | the labelled algebraic extension to e=0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: writer-xown-sonnet+sol-review-P-p
-REVIEWER: -
+REVIEWER: sol-delta-P-p
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -139,9 +139,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-p
-REVIEWER: -
+REVIEWER: sol-delta-P-p
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -168,9 +168,9 @@ ROUTE_FOR: -
 EDGE: I:bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-cv@L298-L298 | parts (b),(c) supply the real anomaly diffeomorphism, derivative and endpoints
 EDGE: I:bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-cv@L298-L298 | defines u and D used by the orbit parametrization
 EDGE: bpI:p7:x-change | blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-cv@L298-L298 | change of variables for the continuous integrand and increasing C1 inverse anomaly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-p
-REVIEWER: -
+REVIEWER: sol-delta-P-p
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -197,9 +197,9 @@ ROUTE_FOR: -
 EDGE: stepI:p7:mv-cv | blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-int@L300-L300 | replace dell by D du in the continuous integrals
 EDGE: I:bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-int@L300-L300 | r=aD and E=-1/(2a) supply the radius and virial calculation
 EDGE: I:bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:mv-int@L300-L300 | the orbit quantities q,p,r,a,e are the defined ones
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-p
-REVIEWER: -
+REVIEWER: sol-delta-P-p
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -228,9 +228,9 @@ EDGE: I:bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ci-
 EDGE: I:bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ci-alg@L308-L308 | real anomaly exists for ¦e¦<1 and u(ell,0)=ell
 EDGE: stepI:p7:mv-cv | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ci-alg@L308-L308 | reuse the change-of-variable computation, whose derivative and endpoint conditions still hold at e=0
 EDGE: stepI:p7:mv-int | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ci-alg@L308-L308 | reuse the integral and scalar virial computations with D=1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-p
-REVIEWER: -
+REVIEWER: sol-delta-P-p
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -254,9 +254,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-p
-REVIEWER: -
+REVIEWER: sol-delta-P-p
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -277,13 +277,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p7:sc-alg, bpI:p7:means
+DEPS: stepI:p7:sc-alg, bpI:p7:means, I:bpI:p7:orbit-identities
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:sc-alg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-flow@L321-L321 | energy rescaling and the symplectic matrix identity supply the local field calculation
 EDGE: bpI:p7:means | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-flow@L321-L321 | unit-strength mean values give the scaled averages
+EDGE: I:bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-flow@L321-L321 | part (c) supplies E_1=-1/(2a), a=L^2, used in the final scaled-energy identity
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: new+sol-review-P-p
+EXTRACTOR: new+sol-delta-P-p
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

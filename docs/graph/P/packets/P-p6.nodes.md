@@ -445,9 +445,9 @@ ROUTE_FOR: -
 EDGE: bpP:p6:split | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:kepler-part@L72-L72 | the splitting H=H_Kep+mu f
 EDGE: bpI:p7:scaling | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:kepler-part@L72-L72 | mass dictionary of the Kepler energy E_k used to rewrite each summand of H_Kep
 EDGE: bpP:p6:conv#data | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:kepler-part@L72-L72 | R1: direct use of the Part 6 data (n, positive masses, physical parameters, W or force/block notation)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6+sol-delta-P-h
-REVIEWER: -
+REVIEWER: sol-delta2-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1054,9 +1054,9 @@ EDGE: bpP:p0:barycentric#actualMasses | blueprint-P/parts/p6-newtonian-models.te
 EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:units@L180-L180 | barycentricPositions 1 m mu
 EDGE: bpP:p0:barycentric#barycentricVelocities | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:units@L180-L180 | barycentricVelocities 1 m mu
 EDGE: bpP:p6:conv#data | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:units@L180-L180 | R1: direct use of the Part 6 data (n, positive masses, physical parameters, W or force/block notation)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6+sol-delta-P-h
-REVIEWER: -
+REVIEWER: sol-delta2-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1155,9 +1155,9 @@ EDGE: bpP:p0:barycentric#actualMasses | blueprint-P/parts/p6-newtonian-models.te
 EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:orbit-transfer@L199-L199 | Q
 EDGE: bpP:p0:barycentric#barycentricVelocities | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:orbit-transfer@L199-L199 | V
 EDGE: bpP:p6:conv#data | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:orbit-transfer@L197-L200 | R1: direct use of the Part 6 data (n, positive masses, physical parameters, W or force/block notation)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6+sol-delta-P-h
-REVIEWER: -
+REVIEWER: sol-delta2-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1244,9 +1244,9 @@ ROUTE_FOR: -
 EDGE: bpP:p6:ext-top | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube-constants@L212-L212 | finite minima/maxima exist, so gamma_a>0 and a_max are defined
 EDGE: bpP:p6:conv#data | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube-constants@L211-L212 | R1: direct use of the Part 6 data (n, positive masses, physical parameters, W or force/block notation)
 EDGE: bpP:p6:tube-constants#a-max | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube-constants@L212-L212 | R5: a_max is the finite maximum subdefinition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6+sol-delta-P-h
-REVIEWER: -
+REVIEWER: sol-delta2-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1282,9 +1282,9 @@ EDGE: bpP:p0:nocoll#NoCollision | blueprint-P/parts/p6-newtonian-models.tex#bpP:
 EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube-geometry@L226-L226 | conclusion PairBounds
 EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube-geometry@L226-L226 | barycentric positions
 EDGE: bpP:p6:conv#data | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube-geometry@L219-L219 | R1: direct use of the Part 6 data (n, positive masses, physical parameters, W or force/block notation)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6+sol-delta-P-h
-REVIEWER: -
+REVIEWER: sol-delta2-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1509,9 +1509,9 @@ EDGE: bpP:p0:circular#circularTube | blueprint-P/parts/p6-newtonian-models.tex#b
 EDGE: bpP:p0:circular#circularPoint | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:measure-positive@L252-L252 | circ(phi)
 EDGE: bpP:p6:conv#data | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:measure-positive@L250-L252 | R1: direct use of the Part 6 data (n, positive masses, physical parameters, W or force/block notation)
 EDGE: bpP:p6:tube-constants#a-max | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:measure-positive@L252-L252 | R5: uses a_max=max_i a_i, without assuming pairwise distinct axes or the gap constants
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6+sol-delta-P-h
-REVIEWER: -
+REVIEWER: sol-delta2-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1570,9 +1570,9 @@ EDGE: bpP:p1:liouville-lattice | blueprint-P/parts/p6-newtonian-models.tex#stepP
 EDGE: stepP:p6:mp-a | blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:mp-b@L258-L258 | finiteness from (a)
 EDGE: bpP:p6:conv#data | blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:mp-b@L258-L258 | R1: direct use of the Part 6 data (n, positive masses, physical parameters, W or force/block notation)
 EDGE: bpP:p1:chart | blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:mp-b@L258-L258 | R1: the conditional measure result uses the source c-chart package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6+sol-delta-P-h
-REVIEWER: -
+REVIEWER: sol-delta2-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

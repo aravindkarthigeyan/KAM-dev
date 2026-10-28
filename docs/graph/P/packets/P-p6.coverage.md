@@ -140,7 +140,7 @@ DISPOSITION: NODE bpP:p6:kepler-part
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: sol-delta-P-h
+REVIEWER: sol-delta2-P-d
 
 ITEM: bpP:p6:action-reaction
 KIND: lemma
@@ -356,7 +356,7 @@ DISPOSITION: NODE bpP:p6:units
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: sol-delta-P-h
+REVIEWER: sol-delta2-P-d
 
 ITEM: bpP:p6:reconstruction-fixed
 KIND: proposition
@@ -383,7 +383,7 @@ DISPOSITION: NODE bpP:p6:orbit-transfer
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: sol-delta-P-h
+REVIEWER: sol-delta2-P-d
 
 ITEM: stepP:p6:ot-curve
 KIND: proof-region
@@ -410,7 +410,7 @@ DISPOSITION: NODE bpP:p6:tube-constants
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: sol-delta-P-h
+REVIEWER: sol-delta2-P-d
 
 ITEM: bpP:p6:tube-geometry
 KIND: lemma
@@ -419,7 +419,7 @@ DISPOSITION: NODE bpP:p6:tube-geometry
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: sol-delta-P-h
+REVIEWER: sol-delta2-P-d
 
 ITEM: stepP:p6:tg-a
 KIND: proof-region
@@ -491,7 +491,7 @@ DISPOSITION: NODE bpP:p6:measure-positive
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: sol-delta-P-h
+REVIEWER: sol-delta2-P-d
 
 ITEM: stepP:p6:mp-a
 KIND: proof-region
@@ -509,7 +509,7 @@ DISPOSITION: NODE stepP:p6:mp-b
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: sol-delta-P-h
+REVIEWER: sol-delta2-P-d
 
 ITEM: bpP:p6:mp-use
 KIND: claim

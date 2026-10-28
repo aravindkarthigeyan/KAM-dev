@@ -1890,7 +1890,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p11b:torsion, bpP:p11b:birkhoff-form, bpP:p11b:beta-def, bpP:p9:good, bpP:p11b:sec-set#data, bpP:p10:interface
+DEPS: bpP:p11b:torsion, bpP:p11b:birkhoff-form, bpP:p11b:beta-def, bpP:p9:good, bpP:p11b:sec-set#data, bpP:p10:interface, bpP:p10:interface
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:torsion | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L264-L264 | {Phi_4 det beta-hat!=0} open and dense
@@ -1899,10 +1899,11 @@ EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:pat
 EDGE: bpP:p9:good | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L261-L261 | {Phi_4!=0}
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L260-L260 | A_2
 EDGE: bpP:p10:interface | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L260-L262 | The last sentence takes the Part 10 frequency data on this same patch, using the extra analytic nonvanishing condition det beta-hat != 0.
+EDGE: bpP:p10:interface | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L261-L261 | the Moreover clause takes the Part 10 frequency data on the same patch using the final sentence of interface
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-l
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: The last sentence at L261 is part of the corollary conclusion and directly invokes bpP:p10:interface. Its supplier and prerequisite closure must be restored in slice P-p10; Part 12 not needing these extra data does not remove a clause of this corollary from its recorded contract. The proof at L264 establishes the basic torsion patch; the simultaneous frequency-data choice uses the final sentence of Part 10 interface with the analytic, not-identically-zero determinant supplied by torsion.
+NOTE: The last sentence is part of the retained source conclusion and explicitly invokes interface. Part 12 uses only the good-patch clauses, but that does not erase a direct dependency of this full corollary. Keep the full source statement and the direct edge; no P-FIXED theorem is thereby added as a root.

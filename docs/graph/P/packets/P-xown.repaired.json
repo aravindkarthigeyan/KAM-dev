@@ -1,27 +1,26 @@
 {
  "replaced": [
-  "bpI:p7:scaling",
-  "bpI:p7:means",
-  "bpI:p7:circular"
- ],
- "added": [
-  "bpI:p7:x-change",
-  "stepI:p7:mv-cv",
-  "stepI:p7:mv-int",
-  "stepI:p7:ci-alg",
-  "stepI:p7:sc-alg",
   "stepI:p7:sc-flow"
  ],
- "items": [
-  "bpI:p7:x-change",
-  "stepI:p7:mv-cv",
-  "stepI:p7:mv-int",
-  "stepI:p7:ci-alg",
-  "stepI:p7:sc-alg",
-  "stepI:p7:sc-flow"
- ],
+ "added": [],
+ "items": [],
  "unresolved": {},
  "passes": [
-  "bpN:p6:iterative-special"
+  "bpI:p7:scaling",
+  "bpI:p7:means",
+  "bpI:p7:circular",
+  "bpI:p7:x-change",
+  "stepI:p7:mv-cv",
+  "stepI:p7:mv-int",
+  "stepI:p7:ci-alg",
+  "stepI:p7:sc-alg",
+  "bpI:p7:scaling",
+  "bpI:p7:means",
+  "bpI:p7:circular",
+  "bpI:p7:x-change",
+  "stepI:p7:mv-cv",
+  "stepI:p7:mv-int",
+  "stepI:p7:ci-alg",
+  "stepI:p7:sc-alg"
  ]
 }
