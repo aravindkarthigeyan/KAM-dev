@@ -176,6 +176,144 @@ theorem delaunay_eq_iff {w w' : Phase 2} (hw : w ∈ deDom) (hw' : w' ∈ deDom)
 
 end Injective
 
+section Surjective
+
+/-- The scalar identity of `stepI:p7:ch-surj2`: `c² + s² = 1`. -/
+private theorem anomaly_sq {L r Γ d e : ℝ} (hL : 0 < L) (he : 0 < e)
+    (he2 : e ^ 2 = 1 - Γ ^ 2 / L ^ 2) (hd : d ^ 2 = -r ^ 2 / L ^ 2 + 2 * r - Γ ^ 2) :
+    ((L ^ 2 - r) / (L ^ 2 * e)) ^ 2 + (d / (L * e)) ^ 2 = 1 := by
+  have hL0 : L ≠ 0 := hL.ne'
+  have he0 : e ≠ 0 := he.ne'
+  have he2' : e ^ 2 * L ^ 2 = L ^ 2 - Γ ^ 2 := by rw [he2]; field_simp
+  have hd' : d ^ 2 * L ^ 2 = -r ^ 2 + 2 * r * L ^ 2 - Γ ^ 2 * L ^ 2 := by
+    rw [hd]; field_simp
+  have key : (L ^ 2 - r) ^ 2 + L ^ 2 * d ^ 2 = L ^ 4 * e ^ 2 := by
+    linear_combination hd' - L ^ 2 * he2'
+  have hform : ((L ^ 2 - r) / (L ^ 2 * e)) ^ 2 + (d / (L * e)) ^ 2 =
+      ((L ^ 2 - r) ^ 2 + L ^ 2 * d ^ 2) / (L ^ 4 * e ^ 2) := by
+    field_simp
+  rw [hform, key]
+  exact div_self (by positivity)
+
+/-- A rotation by `g0` taking `(1, 0)` to `(c, s)` gives `(cos g0, sin g0) = (c, s)`. -/
+private theorem exists_cos_sin {c s : ℝ} (h : c ^ 2 + s ^ 2 = 1) :
+    ∃ u : ℝ, Real.cos u = c ∧ Real.sin u = s := by
+  have h1 : planeLength (![1, 0] : Fin 2 → ℝ) = planeLength (![c, s] : Fin 2 → ℝ) := by
+    unfold planeLength
+    congr 1
+    simp [pSq, h]
+  obtain ⟨u, hu⟩ := exists_rot_eq h1
+  refine ⟨u, ?_, ?_⟩
+  · simpa [rot] using congrFun hu 0
+  · simpa [rot] using congrFun hu 1
+
+private theorem eccAnom_of_eq {ℓ e u : ℝ} (he : |e| < 1) (h : u - e * Real.sin u = ℓ) :
+    eccAnom ℓ e = u := by
+  refine keplerLong_unique (planeLength_eccVec he) ?_
+  simpa [keplerPhi] using h
+
+theorem keplerRegion_subset_image : keplerRegion ⊆ delaunay '' deDom := by
+  rintro z ⟨hr, hE, hG, hGE⟩
+  set r := planeLength z.1 with hr_def
+  set E := kE z with hE_def
+  set Γ := planeCross z.1 z.2 with hΓ_def
+  set d := planeDot z.1 z.2 with hd_def
+  -- the elements
+  have hE2 : 0 < -2 * E := by linarith
+  set L := 1 / √(-2 * E) with hL_def
+  have hsq : 0 < √(-2 * E) := Real.sqrt_pos.mpr hE2
+  have hL : 0 < L := by positivity
+  have hL2 : L ^ 2 = -1 / (2 * E) := by
+    rw [hL_def, div_pow, Real.sq_sqrt hE2.le]
+    field_simp
+  have hΓL : Γ < L := by
+    have : Γ ^ 2 < L ^ 2 := by rw [hL2]; exact hGE
+    nlinarith
+  obtain ⟨he0, he1, -⟩ := eccOf_data hG hΓL
+  set e := eccOf L Γ with he_def
+  have he : |e| < 1 := by rw [abs_lt]; constructor <;> linarith
+  have he2 : e ^ 2 = 1 - Γ ^ 2 / L ^ 2 := Real.sq_sqrt (by
+    have := eccOf_data hG hΓL
+    exact this.2.2.le)
+  -- the radial momentum
+  have hp2 : planeSq z.2 = 2 * (E + 1 / r) := by
+    have : E = planeSq z.2 / 2 - 1 / r := rfl
+    linarith
+  have hlag := planeSq_mul_planeSq z.1 z.2
+  have hq2 : planeSq z.1 = r ^ 2 := (planeLength_sq z.1).symm
+  have hd2 : d ^ 2 = -r ^ 2 / L ^ 2 + 2 * r - Γ ^ 2 := by
+    have h1 : d ^ 2 = r ^ 2 * (2 * (E + 1 / r)) - Γ ^ 2 := by
+      rw [← hp2, ← hq2]; linarith
+    rw [h1, hL2]
+    have : (2 * E) ≠ 0 := by linarith
+    field_simp
+  -- the anomaly
+  have hcs := anomaly_sq hL he0 he2 hd2
+  obtain ⟨u, hcu, hsu⟩ := exists_cos_sin hcs
+  set ℓ := u - e * Real.sin u with hℓ_def
+  have hu : eccAnom ℓ e = u := eccAnom_of_eq he rfl
+  -- the frame has length `r`
+  have hcos : e * Real.cos u = 1 - r / L ^ 2 := by
+    rw [hcu]; field_simp
+  have hF : planeLength (orbitFrame L e u).1 = r := by
+    have h1 := orbitMapR_radius (ℓ := ℓ) (g := 0) hL he0.le he1
+    have h2 : planeLength (orbitMapR ℓ 0 L e).1 = planeLength (orbitFrame L e u).1 := by
+      rw [orbitMapR, planeLength_rot, hu]
+    rw [← h2, h1, hu, hcos]
+    field_simp
+    ring
+  obtain ⟨g, hg⟩ := exists_rot_eq (hF : planeLength (orbitFrame L e u).1 = planeLength z.1)
+  -- the preimage
+  have hw : (![ℓ, g], ![L, Γ]) ∈ deDom := by
+    show 0 < (![L, Γ] : Fin 2 → ℝ) 1 ∧ (![L, Γ] : Fin 2 → ℝ) 1 < (![L, Γ] : Fin 2 → ℝ) 0
+    simpa using And.intro hG hΓL
+  refine ⟨(![ℓ, g], ![L, Γ]), hw, ?_⟩
+  have hdel : delaunay (![ℓ, g], ![L, Γ]) = orbitMapR ℓ g L e := by
+    simp [delaunay, he_def]
+  have hfst : (orbitMapR ℓ g L e).1 = z.1 := by
+    rw [orbitMapR, hu]; exact hg
+  have hdot : planeDot z.1 (orbitMapR ℓ g L e).2 = d := by
+    have := orbitMapR_dot (ℓ := ℓ) (g := g) hL he0.le he1
+    rw [hfst, hu, hsu] at this
+    rw [this]; field_simp
+  have hcr : planeCross z.1 (orbitMapR ℓ g L e).2 = Γ := by
+    have := (delaunay_elements hw).2.1
+    rw [hdel] at this
+    simpa [hfst] using this
+  have hz1 : z.1 ≠ 0 := planeLength_pos_iff.mp hr
+  have hsnd : (orbitMapR ℓ g L e).2 = z.2 :=
+    eq_of_planeDot_planeCross_eq hz1 hdot hcr
+  rw [hdel]
+  exact Prod.ext hfst hsnd
+
+end Surjective
+
+section LocalDiffeo
+
+theorem delaunay_localDiffeo {w : Phase 2} (hw : w ∈ deDom) :
+    ∃ φ : OpenPartialHomeomorph (Phase 2) (Phase 2), w ∈ φ.source ∧
+      (φ : Phase 2 → Phase 2) = delaunay ∧ AnalyticOnNhd ℝ φ.symm φ.target := by
+  obtain ⟨A, hA⟩ := delaunay_fderiv_equiv hw
+  have hc : ContDiffAt ℝ ω delaunay w := (analyticOnNhd_delaunay w hw).contDiffAt
+  have hf' : HasFDerivAt delaunay (A : Phase 2 →L[ℝ] Phase 2) w := by
+    rw [hA]; exact delaunay_hasFDerivAt hw
+  have hn : (ω : WithTop ℕ∞) ≠ 0 := by simp
+  let φ0 := hc.toOpenPartialHomeomorph delaunay hf' hn
+  let φ := φ0.restrOpen deDom isOpen_deDom
+  have hcoe : (φ : Phase 2 → Phase 2) = delaunay := rfl
+  refine ⟨φ, ⟨hc.mem_toOpenPartialHomeomorph_source hf' hn, hw⟩, hcoe, ?_⟩
+  intro y hy
+  have hxs : φ.symm y ∈ φ.source := φ.map_target hy
+  have hx : φ.symm y ∈ deDom := hxs.2
+  obtain ⟨B, hB⟩ := delaunay_fderiv_equiv hx
+  have hB' : HasFDerivAt φ (B : Phase 2 →L[ℝ] Phase 2) (φ.symm y) := by
+    rw [hcoe, hB]; exact delaunay_hasFDerivAt hx
+  have hcd : ContDiffAt ℝ ω φ (φ.symm y) := by
+    rw [hcoe]; exact (analyticOnNhd_delaunay _ hx).contDiffAt
+  exact (φ.contDiffAt_symm hy hB' hcd).analyticAt
+
+end LocalDiffeo
+
 end KAM.Kepler
 
 end
