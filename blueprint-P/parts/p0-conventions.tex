@@ -5,8 +5,8 @@ This part fixes notation and restates, in mathematical form, the three frozen th
 \texttt{KAM/Frozen/Planetary/Defs/} and the three track-K definitions \Lean{KAM.IsDiophantine},
 \Lean{KAM.hamiltonianVectorField}, \Lean{KAM.symplecticForm}. The Lean text is authoritative and the statements
 below transcribe it, with the same quantifier order and the same order in which constants are chosen. The D22
-additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX) are not frozen and are deliberately absent; a later part is
-reserved for them (\texttt{PLAN.md}, Part~14).
+additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX) were frozen by D25; they are not transcribed in this part but
+in the later part reserved for them (\texttt{PLAN.md}, Part~14).
 
 \subsection{Conventions}\label{bpP:p0:conventions}
 
@@ -373,8 +373,7 @@ The order is: data $(G,m_0,m,a,\eta)$, then $(\mu_0,d,D)$, then $\mu$, then $S$.
 \frozen{KAM.Planetary.planarTwoPlanetKAM}
 \source{CP09 Thm.~4, p.~8 with Fej04r Prop.~77, pp.~56--58, using the recorded source-proof repairs (\texttt{statement.md}, P5--P7); Fej07e p.~3--4 supplies
   the smooth counterpart. No threshold from CP11 \S8.1 (audit P4).}
-\sourcegap{The route is not signed off as proved: the analytic weak-nondegeneracy gate (CP09 Thm.~4 resting on R\"ussmann's theorem, CP09 Thm.~3, whose source is not pinned),
-  the continuation of eigenvalue branches (Fej04r Lemma~76 is false as printed) and the closeness of the tori to the circular torus (CP09 Thm.~4 says only ``close to''); see \texttt{PLAN.md}.}
+\sourcegap{Part~12 proves this theorem from the frozen gate P-G (Theorem~\ref{bpP:p0:pg}). The source-level issues of the route remain recorded: the analytic weak-nondegeneracy gate (CP09 Thm.~4 resting on R\"ussmann's theorem, CP09 Thm.~3, whose source is not pinned), the continuation of eigenvalue branches (Fej04r Lemma~76 is false as printed) and the closeness of the tori to the circular torus (CP09 Thm.~4 says only ``close to''); they are handled by the repairs of Parts~11b--12 and by P-G itself; see \texttt{PLAN.md}.}
 \end{theorem}
 
 \begin{theorem}[P-FIXED: $n$ planar planets around a fixed Sun]\label{bpP:p0:fixed}
