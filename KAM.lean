@@ -174,6 +174,7 @@ public import KAM.Head.TorsionRegularGeneral
 public import KAM.Iso.Confinement.Setting
 public import KAM.Iso.Kepler
 public import KAM.Iso.KeplerHamiltonian
+public import KAM.Iso.RestrictedHam
 public import KAM.Kepler.Basic
 public import KAM.Kepler.Energy
 public import KAM.Kepler.Equation
