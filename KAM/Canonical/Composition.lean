@@ -6,6 +6,7 @@ Authors: Scott Armstrong, Zohar Komargodski
 module
 
 public import KAM.Canonical.CompositionSeries
+public import KAM.Canonical.FlowInverse
 import Mathlib.Tactic.Positivity
 import Mathlib.Tactic.Linarith
 
@@ -141,6 +142,31 @@ theorem composition_t {D : Set (Fin n → ℂ)} {r s r' s' ρ σ Φ U : ℝ}
   refine ⟨inClass_congr heq h5, wbound_congr (by linarith [hd.hσs]) heq ?_⟩
   have h : 2 * (|t| * Φ) / (ρ * σ) = |t| * (2 * Φ / (ρ * σ)) := by ring
   rwa [h] at h6
+
+/-- `bpN:p5:composition` (iv): reality. -/
+theorem composition_real {D : Set (Fin n → ℂ)} {r s r' s' ρ σ Φ : ℝ}
+    {φ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} (hd : ComposeData D r s r' s' ρ σ Φ φ)
+    {u : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} (hur : RealOn (Dom n D r s) u)
+    (hφr : RealOn (Dom n D r' s') φ) :
+    RealOn (Dom n D (r - ρ) (s - σ))
+      (fun z => u (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega 1 z)) := by
+  intro x hx
+  have hsub : Dom n D (r' - ρ) (s' - σ) ⊆ Dom n D r' s' :=
+    Dom_mono (by linarith [hd.hρ]) (by linarith [hd.hσ])
+  have hreal : ∀ w ∈ hd.omega, w ∈ range (KAM.realInclusion₂ n) →
+      KAM.hamiltonianVectorFieldℂ φ w ∈ range (KAM.realInclusion₂ n) := by
+    rintro w hw ⟨y, rfl⟩
+    have hV : IsOpen (Dom n D r' s') := isOpen_Dom _ _ _
+    obtain ⟨⟨-, h2⟩, -⟩ := KAM.hamiltonian_real hV hd.φ_class.differentiableOn
+      (fun y hy => hφr y hy) (z := y) (hsub hw) (H := fun y' => (φ (KAM.realInclusion₂ n y')).re)
+      (Filter.Eventually.of_forall fun _ => rfl)
+    exact ⟨_, h2⟩
+  obtain ⟨y, hy⟩ := flow_e hd.smallField hreal _ (hd.gaugeInterior_half hx) ⟨x, rfl⟩ 1
+    ⟨by norm_num, le_rfl⟩
+  have hmem := (composition_domain hd).2.2.2 _ hx 1 ⟨by norm_num, le_rfl⟩
+  simp only []
+  rw [← hy] at hmem ⊢
+  exact hur y hmem
 
 end KAM.Canonical
 
