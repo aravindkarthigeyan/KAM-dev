@@ -1,0 +1,4 @@
+# P5-6 prover handoff (branch inp-p56, f78f477; offloaded package run by the main orchestrator)
+
+File KAM/Iso/Confinement/Position.lean (105 lines; imports only Setting). Node bpI:p5:mu: slope_close, slope_window_plus, slope_window_minus, slope_continuous (statements = IPart58Signatures.lean, whitespace-normalised). Private closedBall_subset_cthickening. slope_close uses the convex closed ball instead of the segment [I, Yφ] (contains it).
+AUDIT FOCUS (design docs/tracks/I/design/PART58-LEAN-DESIGN.md §8.1 row P5-6 + audits; blueprint-I p5-confinement.tex node mu): (1) statements = blueprint (slope closeness with constant Lm·C_K·ε, windows around mPlus/mMinus of width κ, continuity); (2) Smallness / PatchConst fields used as intended (no field assumed that encodes the conclusion); (3) hygiene.
