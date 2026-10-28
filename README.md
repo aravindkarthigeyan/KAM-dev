@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-28 00:13 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 43.5 %** · frozen statements proved: 8 / 22 · **37,836 lines of Lean** of an estimated ≈ 264,000
+> **Last updated: 2026-10-28 00:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 43.5 %** · frozen statements proved: 8 / 22 · **37,836 lines of Lean** of an estimated ≈ 264,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-28 00:13 UTC from `main` at `5f6b154` by `scripts/hq-status.py`.*
+*Generated 2026-10-28 00:20 UTC from `main` at `de02f02` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -285,11 +285,11 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **graphN-ext** | graph extractor (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Track N dependency graph: slices N-p11ab, N-p11c (N-PARTIAL-CONVEX) | — | — |
 | **design-N3** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design with exact signatures for blueprint-N Part 3 (shared Hamiltonian ODE layer) | — | — |
 | **seal-W1** `inp-seal-1` | seal audit (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Seal audit of package W1: I-KEPLER, N-QC, N-ZERO providers | — | — |
-| **grev-1** `inp-grev-1` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Track I graph: third-pass review of I-imports, I-nown | — | — |
-| **bprev-2** `inp-bprev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Track I graph: third-pass review of I-p2, I-p5, I-p8 | — | — |
+| **grev-1** `inp-grev-1` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: third-pass review of I-imports, I-nown | — | — |
+| **bprev-2** `inp-bprev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: third-pass review of I-p2, I-p5, I-p8 | — | — |
 | **grev-3** `inp-grev-3` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track I graph: third-pass review of I-p67a, I-p7b | — | — |
-| **grev-2** `inp-grev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Track N graph: slice review N-p02, N-p1 | — | — |
-| **grev-4** `inp-grev-4` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track N graph: slice review N-p4, N-p5 | — | — |
+| **grev-2** `inp-grev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track N graph: slice review N-p02, N-p1 | — | — |
+| **grev-4** `inp-grev-4` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Track N graph: slice review N-p4, N-p5 | — | — |
 | **rev-n11** `inp-rev-n11` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track N graph: slice review N-p3a, N-p3b (earlier: N Part 12 review, REVISE) | — | — |
 | **track-N** `kam-track-n` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-3 | ✅ handed off | N additions drafter (D25/D28 frozen); idle | — | — |
 | **track-P** `kam-track-p` | Phase 0 (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | P additions drafter (D25 frozen); idle | — | — |
