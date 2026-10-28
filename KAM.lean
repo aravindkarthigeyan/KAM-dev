@@ -216,6 +216,8 @@ public import KAM.Iso.R3bp.Uniqueness
 public import KAM.Iso.RestrictedHam
 public import KAM.Iso.ShiftPotential
 public import KAM.Kepler.Basic
+public import KAM.Kepler.DelaunayJacobian
+public import KAM.Kepler.DelaunaySymplectic
 public import KAM.Kepler.Energy
 public import KAM.Kepler.Equation
 public import KAM.Kepler.EquationComplex
