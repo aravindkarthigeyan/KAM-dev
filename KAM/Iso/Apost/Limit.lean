@@ -282,6 +282,230 @@ theorem tendsto_energyAverage_of_uniform {M μ ρinf : ℝ} (hρinf : 0 < ρinf)
 
 end Energy
 
+/-! ### The limit torus -/
+
+section Limit
+
+variable {τ M σK σB σT σω ν γ : ℝ} {ωstar : Fin n → ℝ}
+  {D : Set ((Fin n → ℂ) × (Fin n → ℂ))} {H : (Fin n → ℂ) × (Fin n → ℂ) → ℂ}
+
+/-- The ray parameters converge: `s_j → s_∞`, when `‖s_{j+1} ω* - s_j ω*‖ ≤ d_j` with `d`
+summable and `ω* ≠ 0`. -/
+theorem tendsto_isoSLimit {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)} {E₀ s₀ ρ ρinf : ℝ}
+    (hω : ωstar ≠ 0) {d : ℕ → ℝ} (hd : Summable d)
+    (hsd : ∀ j, ‖(isoSeq H K ωstar E₀ s₀ ρ ρinf (j + 1)).2 • ωstar -
+      (isoSeq H K ωstar E₀ s₀ ρ ρinf j).2 • ωstar‖ ≤ d j) :
+    Tendsto (fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).2) atTop
+      (𝓝 (isoSLimit H K ωstar E₀ s₀ ρ ρinf)) := by
+  obtain ⟨l, hl⟩ := exists_tendsto_of_dist_ray (ss := fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).2)
+    hω hd hsd
+  rw [isoSLimit_eq_of_tendsto H K ωstar E₀ s₀ ρ ρinf hl]
+  exact hl
+
+/-- `bpI:p2:limit` (a)–(e). -/
+theorem limit (hS : IsoStanding n τ M σK σB σT σω ν ωstar D H γ) {E₀ ρ ρinf μ e s₀ : ℝ}
+    (hρinf : 0 < ρinf) (hρ : ρinf < ρ) (hμ : 0 < μ) {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)}
+    (hK : IterHyp σK σB σT σω ν D H ωstar E₀ ρ μ e s₀ K) (he1 : e ≤ 1)
+    (hsmall : hatcStar n τ M σK σB σT μ ν * e / (γ ^ 4 * delta0 ρ ρinf ^ (2 * aExp n τ)) ≤ 1) :
+    (TendstoUniformlyOn (fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1)
+        (isoLimit H K ωstar E₀ s₀ ρ ρinf) atTop (complexStrip n ρinf) ∧
+      TendstoUniformlyOn (fun j θ => fderiv ℂ (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1 θ)
+        (fderiv ℂ (isoLimit H K ωstar E₀ s₀ ρ ρinf)) atTop (complexStrip n ρinf) ∧
+      Tendsto (fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).2) atTop
+        (𝓝 (isoSLimit H K ωstar E₀ s₀ ρ ρinf)) ∧
+      DifferentiableOn ℂ (isoLimit H K ωstar E₀ s₀ ρ ρinf) (complexStrip n ρinf) ∧
+      IsPrimaryOnStrip (isoLimit H K ωstar E₀ s₀ ρ ρinf) ρinf ∧
+      IsRealOnReals (isoLimit H K ωstar E₀ s₀ ρ ρinf)) ∧
+    ((∀ θ ∈ complexStrip n ρinf, ‖isoLimit H K ωstar E₀ s₀ ρ ρinf θ - K θ‖ ≤
+        2 * hatCDelta n τ M σK σB σT * e / (γ ^ 2 * delta0 ρ ρinf ^ aExp n τ)) ∧
+      ‖isoSLimit H K ωstar E₀ s₀ ρ ρinf • ωstar - s₀ • ωstar‖ ≤
+        2 * hatCDelta n τ M σK σB σT * e / (γ ^ 2 * delta0 ρ ρinf ^ aExp n τ) ∧
+      2 * hatCDelta n τ M σK σB σT * e / (γ ^ 2 * delta0 ρ ρinf ^ aExp n τ) ≤ μ / 4 ∧
+      2 * hatCDelta n τ M σK σB σT * e / (γ ^ 2 * delta0 ρ ρinf ^ aExp n τ) ≤ ν / 2) ∧
+    (1 < isoSLimit H K ωstar E₀ s₀ ρ ρinf ∧ isoSLimit H K ωstar E₀ s₀ ρ ρinf < σω ∧
+      ν / 2 ≤ rayMargin σω ωstar (isoSLimit H K ωstar E₀ s₀ ρ ρinf)) ∧
+    (∀ θ ∈ complexStrip n ρinf, Metric.ball (isoLimit H K ωstar E₀ s₀ ρ ρinf θ) (μ / 2) ⊆ D ∧
+      ‖fderiv ℂ (isoLimit H K ωstar E₀ s₀ ρ ρinf) θ‖ ≤ σK - μ / 2) ∧
+    (∀ θ ∈ complexStrip n ρinf, invarianceError H (isoLimit H K ωstar E₀ s₀ ρ ρinf)
+      (isoSLimit H K ωstar E₀ s₀ ρ ρinf • ωstar) θ = 0) := by
+  have hP := hS.toParams
+  have hγ := hS.gamma_pos
+  have hν := hS.ν_pos
+  have hρ0 : 0 < ρ := hρinf.trans hρ
+  have h00 : (0 : Fin n → ℂ) ∈ complexStrip n ρ := fun i => by simpa using hρ0
+  have he0 : 0 ≤ e := (norm_nonneg _).trans (hK.error_le 0 h00)
+  have hd0 := delta0_pos hρ
+  have hq := Arith.iso_error_decay_hyp hγ hd0 he0 hsmall
+  have st0 : IsoStage n τ M σK σB σT D H ωstar E₀ γ ρ ρinf μ e s₀ K 0 :=
+    iso_stage_zero hρ0 hμ he0 he1 hK
+  -- `γ ≤ Θ`, from the frequency estimate for `(K, s₀)`
+  obtain ⟨hγω, hω⟩ := st0.adm.freq hS
+  have hγΘ : γ ≤ Theta n M σK σB σT := hγω.trans hω
+  obtain ⟨-, hit⟩ := iteration hS hρinf hρ hμ hK he1 hsmall
+  -- the strips
+  have hsub : ∀ j, complexStrip n ρinf ⊆ complexStrip n (rSeq ρ ρinf j) := fun j =>
+    Triangular.strip_mono
+      (((schedule hρinf hρ).2.1).trans ((schedule hρinf hρ).2.2 j).2.1.le)
+  have hsubρ : complexStrip n ρinf ⊆ complexStrip n ρ := Triangular.strip_mono hρ.le
+  -- the summable bounds
+  obtain ⟨hdsum, htsum⟩ := isoDSeq_summable_tsum_le hP hρ hγ he0 hq
+  have hdksum := isoDSeq_div_summable hP hρ hγ he0 hq
+  -- differences on the strip `T_{ρ∞}`
+  have hdiff : ∀ j, ∀ θ ∈ complexStrip n ρinf,
+      ‖(isoSeq H K ωstar E₀ s₀ ρ ρinf (j + 1)).1 θ - (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1 θ‖ ≤
+        isoDSeq n τ M σK σB σT ρ ρinf γ e j := fun j θ hθ =>
+    ((hit j).2.2.2.2.2.1 θ (hsub (j + 1) hθ)).1
+  have hddiff : ∀ j, ∀ θ ∈ complexStrip n ρinf,
+      ‖fderiv ℂ (isoSeq H K ωstar E₀ s₀ ρ ρinf (j + 1)).1 θ -
+          fderiv ℂ (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1 θ‖ ≤
+        n * isoDSeq n τ M σK σB σT ρ ρinf γ e j / deltaSeq ρ ρinf j := fun j θ hθ =>
+    ((hit j).2.2.2.2.2.1 θ (hsub (j + 1) hθ)).2
+  have hsdiff : ∀ j, ‖(isoSeq H K ωstar E₀ s₀ ρ ρinf (j + 1)).2 • ωstar -
+      (isoSeq H K ωstar E₀ s₀ ρ ρinf j).2 • ωstar‖ ≤ isoDSeq n τ M σK σB σT ρ ρinf γ e j :=
+    fun j => (hit j).2.2.2.2.2.2
+  have hhol : ∀ j, DifferentiableOn ℂ (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1
+      (complexStrip n ρinf) := fun j => (hit j).1.1.holo.mono (hsub j)
+  have hprim : ∀ j, IsPrimaryOnStrip (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1 ρinf := fun j θ hθ k =>
+    (hit j).1.1.primary θ (hsub j hθ) k
+  have hreal : ∀ j, IsRealOnReals (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1 := fun j =>
+    (hit j).1.1.real
+  -- steps `lim-k`, `lim-dk`, `lim-holo`, `lim-primary`
+  obtain ⟨hconv, hpt, hLG⟩ := lim_k (Ks := fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1)
+    hdsum hdiff (fun θ hθ => isoLimit_eq H K ωstar E₀ s₀ ρ ρinf hθ)
+  obtain ⟨Λ, hΛ⟩ := lim_dk (Ks := fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1) hdksum hddiff
+  obtain ⟨hholo, hconvd⟩ := lim_holo (Ks := fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1)
+    hhol hpt hΛ
+  have hdpt : ∀ θ ∈ complexStrip n ρinf,
+      Tendsto (fun j => fderiv ℂ (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1 θ) atTop
+        (𝓝 (fderiv ℂ (isoLimit H K ωstar E₀ s₀ ρ ρinf) θ)) := fun θ hθ => hconvd.tendsto_at hθ
+  have hpr := lim_primary (Ks := fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1) hρinf hpt hprim
+    hreal
+  -- step `lim-close`
+  have hclose : ∀ θ ∈ complexStrip n ρinf, ‖isoLimit H K ωstar E₀ s₀ ρ ρinf θ - K θ‖ ≤
+      2 * hatCDelta n τ M σK σB σT * e / (γ ^ 2 * delta0 ρ ρinf ^ aExp n τ) := fun θ hθ =>
+    ((lim_close (Ks := fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1) hdsum hdiff hLG) θ hθ).trans
+      htsum
+  obtain ⟨hclμ, hclν⟩ := Arith.iso_closeness_le hP hγ hγΘ hd0 (delta0_le_one ρ ρinf) he0 hμ hν
+    hsmall
+  -- the ray parameters
+  have hs := tendsto_isoSLimit (H := H) (K := K) (E₀ := E₀) (s₀ := s₀) (ρ := ρ) (ρinf := ρinf)
+    hS.ωstar_ne hdsum hsdiff
+  have hsd : ‖isoSLimit H K ωstar E₀ s₀ ρ ρinf • ωstar - s₀ • ωstar‖ ≤
+      2 * hatCDelta n τ M σK σB σT * e / (γ ^ 2 * delta0 ρ ρinf ^ aExp n τ) := by
+    have hD : ∀ j, ‖(isoSeq H K ωstar E₀ s₀ ρ ρinf j).2 • ωstar - s₀ • ωstar‖ ≤
+        2 * hatCDelta n τ M σK σB σT * e / (γ ^ 2 * delta0 ρ ρinf ^ aExp n τ) := fun j =>
+      ((hit j).2.1.2.2.2.1).trans
+        ((hdsum.sum_le_tsum (Finset.range j) fun i _ => isoDSeq_nonneg hP hρ he0 i).trans htsum)
+    exact le_of_tendsto ((hs.smul_const ωstar).sub_const (s₀ • ωstar)).norm
+      (Eventually.of_forall hD)
+  obtain ⟨hs1, hs2, hs3⟩ := iso_ray_step hS hK.margin hsd hclν
+  -- step `lim-margins`
+  have hmarg : ∀ θ ∈ complexStrip n ρinf,
+      Metric.ball (isoLimit H K ωstar E₀ s₀ ρ ρinf θ) (μ / 2) ⊆ D := fun θ hθ =>
+    lim_margins ((hclose θ hθ).trans hclμ) (hK.ball_sub θ (hsubρ hθ))
+  have hdk : ∀ θ ∈ complexStrip n ρinf,
+      ‖fderiv ℂ (isoLimit H K ωstar E₀ s₀ ρ ρinf) θ‖ ≤ σK - μ / 2 := by
+    intro θ hθ
+    refine le_of_tendsto (hdpt θ hθ).norm (Eventually.of_forall fun j => ?_)
+    exact ((hit j).2.2.1.1 θ (hsub j hθ)).trans (hit j).2.2.1.2
+  -- step `lim-invariance` at the moving frequency
+  have hεz := isoEpsSeq_tendsto_zero hP hρ hγ he0 hq
+  have hXd : DifferentiableOn ℂ (hamiltonianVectorFieldℂ H) D :=
+    differentiableOn_ham (hS.setting (le_refl 1)).toStanding
+  refine ⟨⟨hconv, hconvd, hs, hholo, hpr.1, hpr.2⟩, ⟨hclose, hsd, hclμ, hclν⟩,
+    ⟨hs1, hs2, by linarith⟩, fun θ hθ => ⟨hmarg θ hθ, hdk θ hθ⟩, fun θ hθ => ?_⟩
+  have hmem : isoLimit H K ωstar E₀ s₀ ρ ρinf θ ∈ D :=
+    hmarg θ hθ (Metric.mem_ball_self (half_pos hμ))
+  exact lim_invariance_moving (Ks := fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1)
+    (ss := fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).2)
+    (ε := isoEpsSeq n τ M σK σB σT ρ ρinf γ e)
+    ((hXd.differentiableAt (hS.isOpen.mem_nhds hmem)).continuousAt) (hpt θ hθ) (hdpt θ hθ) hs
+    (fun j => (hit j).1.1.error_le θ (hsub j hθ)) hεz
+
+/-- The pointwise convergence `K_j θ → K_∞ θ` on `T_{ρ∞}` (the first part of `limit`). -/
+theorem isoLimit_tendsto (hS : IsoStanding n τ M σK σB σT σω ν ωstar D H γ)
+    {E₀ ρ ρinf μ e s₀ : ℝ} (hρinf : 0 < ρinf) (hρ : ρinf < ρ) (hμ : 0 < μ)
+    {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)}
+    (hK : IterHyp σK σB σT σω ν D H ωstar E₀ ρ μ e s₀ K) (he1 : e ≤ 1)
+    (hsmall : hatcStar n τ M σK σB σT μ ν * e / (γ ^ 4 * delta0 ρ ρinf ^ (2 * aExp n τ)) ≤ 1)
+    {θ : Fin n → ℂ} (hθ : θ ∈ complexStrip n ρinf) :
+    Tendsto (fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1 θ) atTop
+      (𝓝 (isoLimit H K ωstar E₀ s₀ ρ ρinf θ)) :=
+  (limit hS hρinf hρ hμ hK he1 hsmall).1.1.tendsto_at hθ
+
+/-- The convergence `s_j → s_∞` (the third part of `limit`). -/
+theorem isoSLimit_tendsto (hS : IsoStanding n τ M σK σB σT σω ν ωstar D H γ)
+    {E₀ ρ ρinf μ e s₀ : ℝ} (hρinf : 0 < ρinf) (hρ : ρinf < ρ) (hμ : 0 < μ)
+    {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)}
+    (hK : IterHyp σK σB σT σω ν D H ωstar E₀ ρ μ e s₀ K) (he1 : e ≤ 1)
+    (hsmall : hatcStar n τ M σK σB σT μ ν * e / (γ ^ 4 * delta0 ρ ρinf ^ (2 * aExp n τ)) ≤ 1) :
+    Tendsto (fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).2) atTop
+      (𝓝 (isoSLimit H K ωstar E₀ s₀ ρ ρinf)) :=
+  (limit hS hρinf hρ hμ hK he1 hsmall).1.2.2.1
+
+/-- Characterization of `isoLimit`: under the hypotheses of `iteration`, `K_∞ θ = z` on `T_{ρ∞}`
+exactly when `K_j θ → z`. -/
+theorem isoLimit_eq_iff (hS : IsoStanding n τ M σK σB σT σω ν ωstar D H γ)
+    {E₀ ρ ρinf μ e s₀ : ℝ} (hρinf : 0 < ρinf) (hρ : ρinf < ρ) (hμ : 0 < μ)
+    {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)}
+    (hK : IterHyp σK σB σT σω ν D H ωstar E₀ ρ μ e s₀ K) (he1 : e ≤ 1)
+    (hsmall : hatcStar n τ M σK σB σT μ ν * e / (γ ^ 4 * delta0 ρ ρinf ^ (2 * aExp n τ)) ≤ 1)
+    {θ : Fin n → ℂ} (hθ : θ ∈ complexStrip n ρinf) {z : (Fin n → ℂ) × (Fin n → ℂ)} :
+    isoLimit H K ωstar E₀ s₀ ρ ρinf θ = z ↔
+      Tendsto (fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1 θ) atTop (𝓝 z) := by
+  refine ⟨fun h => h ▸ isoLimit_tendsto hS hρinf hρ hμ hK he1 hsmall hθ, fun h => ?_⟩
+  exact isoLimit_eq_of_tendsto H K ωstar E₀ s₀ ρ ρinf hθ h
+
+/-- Characterization of `isoSLimit`: under the hypotheses of `iteration`, `s_∞ = l` exactly when
+`s_j → l`. -/
+theorem isoSLimit_eq_iff (hS : IsoStanding n τ M σK σB σT σω ν ωstar D H γ)
+    {E₀ ρ ρinf μ e s₀ : ℝ} (hρinf : 0 < ρinf) (hρ : ρinf < ρ) (hμ : 0 < μ)
+    {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)}
+    (hK : IterHyp σK σB σT σω ν D H ωstar E₀ ρ μ e s₀ K) (he1 : e ≤ 1)
+    (hsmall : hatcStar n τ M σK σB σT μ ν * e / (γ ^ 4 * delta0 ρ ρinf ^ (2 * aExp n τ)) ≤ 1)
+    {l : ℝ} :
+    isoSLimit H K ωstar E₀ s₀ ρ ρinf = l ↔
+      Tendsto (fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).2) atTop (𝓝 l) := by
+  refine ⟨fun h => h ▸ isoSLimit_tendsto hS hρinf hρ hμ hK he1 hsmall, fun h => ?_⟩
+  exact isoSLimit_eq_of_tendsto H K ωstar E₀ s₀ ρ ρinf h
+
+/-- `bpI:p2:energy-limit`. -/
+theorem energy_limit (hS : IsoStanding n τ M σK σB σT σω ν ωstar D H γ) {E₀ ρ ρinf μ e s₀ : ℝ}
+    (hρinf : 0 < ρinf) (hρ : ρinf < ρ) (hμ : 0 < μ) {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)}
+    (hK : IterHyp σK σB σT σω ν D H ωstar E₀ ρ μ e s₀ K) (he1 : e ≤ 1)
+    (hsmall : hatcStar n τ M σK σB σT μ ν * e / (γ ^ 4 * delta0 ρ ρinf ^ (2 * aExp n τ)) ≤ 1) :
+    KAM.Iso.energyAverage H (isoLimit H K ωstar E₀ s₀ ρ ρinf) = (E₀ : ℂ) ∧
+    Tendsto (fun j => KAM.Iso.energyAverage H (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1) atTop
+      (𝓝 (KAM.Iso.energyAverage H (isoLimit H K ωstar E₀ s₀ ρ ρinf))) := by
+  have hP := hS.toParams
+  have hγ := hS.gamma_pos
+  have hρ0 : 0 < ρ := hρinf.trans hρ
+  have h00 : (0 : Fin n → ℂ) ∈ complexStrip n ρ := fun i => by simpa using hρ0
+  have he0 : 0 ≤ e := (norm_nonneg _).trans (hK.error_le 0 h00)
+  have hq := Arith.iso_error_decay_hyp hγ (delta0_pos hρ) he0 hsmall
+  obtain ⟨-, hit⟩ := iteration hS hρinf hρ hμ hK he1 hsmall
+  obtain ⟨⟨hconv, -, -, hholo, -, -⟩, ⟨hclose, -, hclμ, -⟩, -⟩ :=
+    limit hS hρinf hρ hμ hK he1 hsmall
+  have hsub : ∀ j, complexStrip n ρinf ⊆ complexStrip n (rSeq ρ ρinf j) := fun j =>
+    Triangular.strip_mono
+      (((schedule hρinf hρ).2.1).trans ((schedule hρinf hρ).2.2 j).2.1.le)
+  have hsubρ : complexStrip n ρinf ⊆ complexStrip n ρ := Triangular.strip_mono hρ.le
+  have hT := tendsto_energyAverage_of_uniform hρinf hP.M_pos.le hS.isOpen hS.holo
+    (fun z hz => (hS.bounds z hz).1) hμ (K := K)
+    (Ks := fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1)
+    (fun θ hθ => hK.ball_sub θ (hsubρ hθ))
+    (fun j θ hθ => ((hit j).2.1.2.2.1 θ (hsub j hθ)).trans (hit j).2.1.1)
+    (fun θ hθ => (hclose θ hθ).trans hclμ)
+    (fun j => (hit j).1.1.holo.mono (hsub j)) hholo hconv
+  have hεz := isoEpsSeq_tendsto_zero hP hρ hγ he0 hq
+  have h0 : Tendsto (fun j => KAM.Iso.energyAverage H (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1) atTop
+      (𝓝 (E₀ : ℂ)) := by
+    rw [tendsto_iff_norm_sub_tendsto_zero]
+    exact squeeze_zero (fun _ => norm_nonneg _) (fun j => (hit j).1.1.energy_le) hεz
+  exact ⟨tendsto_nhds_unique hT h0, hT⟩
+
+end Limit
+
 end KAM.Iso.Apost
 
 end
