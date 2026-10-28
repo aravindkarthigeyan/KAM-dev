@@ -26,6 +26,10 @@ public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
 public import KAM.Canonical.Flow
+public import KAM.Canonical.FlowPicard
+public import KAM.Canonical.FlowPicardConverge
+public import KAM.Canonical.FlowRegular
+public import KAM.Canonical.FlowRegularIntegral
 public import KAM.Canonical.Setting
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
@@ -206,6 +210,7 @@ public import KAM.Iso.Apost.Constants
 public import KAM.Iso.Apost.ConstantsArith
 public import KAM.Iso.Apost.Correction
 public import KAM.Iso.Apost.Defs
+public import KAM.Iso.Apost.G1
 public import KAM.Iso.Apost.Iteration
 public import KAM.Iso.Apost.Limit
 public import KAM.Iso.Apost.NewtonError
