@@ -484,6 +484,204 @@ theorem shift_holomorphic {rmin ρmax ε₀ : ℝ} (h : ShiftConst rmin ρmax ε
     fun x hx => (differentiableAt_shiftFt (hmem x hx)).differentiableWithinAt
   exact hF.congr (fun x hx => shiftF_eq_shiftFt (hmem x hx))
 
+/-! ### The integral representation and the Schwarz bound -/
+
+/-- `bpI:p7:shift`, `f(q, μ) = -∫₀¹ ∂_μΨ(q, tμ) dt`. -/
+theorem shiftF_eq_integral {rmin ρmax ε₀ : ℝ} (h : ShiftConst rmin ρmax ε₀) {q : Fin 2 → ℂ}
+    (hq : q ∈ shiftO rmin ρmax ε₀) {μ : ℂ} (hμ : ‖μ‖ < ε₀ / 2) :
+    shiftF q μ = -∫ t in (0 : ℝ)..1, deriv (shiftPsi q) ((t : ℂ) * μ) := by
+  have hmem : ∀ t : ℝ, t ∈ Icc (0 : ℝ) 1 → (q, (t : ℂ) * μ) ∈ shiftXi := by
+    intro t ht
+    refine (shift_domain h hq ?_).1
+    rw [norm_mul, Complex.norm_real, Real.norm_eq_abs, abs_of_nonneg ht.1]
+    calc t * ‖μ‖ ≤ 1 * ‖μ‖ := mul_le_mul_of_nonneg_right ht.2 (norm_nonneg _)
+      _ ≤ ε₀ / 2 := by linarith
+  unfold shiftF
+  by_cases hμ0 : μ = 0
+  · subst hμ0
+    simp [dslope_same]
+  · rw [dslope_of_ne _ hμ0, slope_def_field]
+    have hder : ∀ t ∈ uIcc (0 : ℝ) 1, HasDerivAt (fun s : ℝ => shiftPsi q ((s : ℂ) * μ))
+        (deriv (shiftPsi q) ((t : ℂ) * μ) * μ) t := by
+      intro t ht
+      rw [uIcc_of_le zero_le_one] at ht
+      have h1 := (differentiableAt_shiftPsi (hmem t ht)).hasDerivAt
+      exact (h1.comp (t : ℂ) (hasDerivAt_mul_const μ)).comp_ofReal
+    have hint : IntervalIntegrable (fun t : ℝ => deriv (shiftPsi q) ((t : ℂ) * μ) * μ)
+        MeasureTheory.volume 0 1 := by
+      apply ContinuousOn.intervalIntegrable
+      rw [uIcc_of_le zero_le_one]
+      refine ContinuousOn.mul ?_ continuousOn_const
+      exact (continuousOn_deriv_shiftPsi q).comp
+        (Complex.continuous_ofReal.mul continuous_const).continuousOn (fun t ht => hmem t ht)
+    have key := intervalIntegral.integral_eq_sub_of_hasDerivAt hder hint
+    rw [intervalIntegral.integral_mul_const] at key
+    simp only [Complex.ofReal_one, Complex.ofReal_zero, one_mul, zero_mul] at key
+    rw [sub_zero, ← key, mul_div_cancel_right₀ _ hμ0]
+
+private theorem norm_cpow_neg_half_le {z : ℂ} {c : ℝ} (hc : 0 < c) (hz : c ≤ z.re) :
+    ‖z ^ (-(1 / 2 : ℂ))‖ ≤ (√c)⁻¹ := by
+  rw [cpow_neg_half, norm_inv]
+  apply inv_anti₀ (Real.sqrt_pos.mpr hc)
+  have hs : ‖z ^ (1 / 2 : ℂ)‖ ^ 2 = ‖z‖ := by rw [← norm_pow, cpow_half_sq]
+  have hz' : c ≤ ‖z ^ (1 / 2 : ℂ)‖ ^ 2 := by rw [hs]; exact hz.trans (Complex.re_le_norm z)
+  calc √c ≤ √(‖z ^ (1 / 2 : ℂ)‖ ^ 2) := Real.sqrt_le_sqrt hz'
+    _ = ‖z ^ (1 / 2 : ℂ)‖ := Real.sqrt_sq (norm_nonneg _)
+
+private theorem shiftPsi_zero (q : Fin 2 → ℂ) : shiftPsi q 0 = shiftW q := by
+  simp [shiftPsi, shiftW]
+
+/-- `|f| ≤ C_sh`: the Schwarz lemma for `g = Ψ(q, ·) - w(q)`, i.e. maximum modulus for
+`dslope (Ψ q) 0` on the disc of radius `ε₀/2`. -/
+theorem shift_bound {rmin ρmax ε₀ : ℝ} (h : ShiftConst rmin ρmax ε₀) {q : Fin 2 → ℂ}
+    (hq : q ∈ shiftO rmin ρmax ε₀) {μ : ℂ} (hμ : ‖μ‖ < ε₀ / 2) :
+    ‖shiftF q μ‖ ≤ shiftCsh rmin ρmax ε₀ := by
+  have hc := shiftCstar_pos h
+  have hε := eps_lt_quarter h
+  have hε0 := h.eps_pos
+  have hR : 0 < ε₀ / 2 := by linarith
+  have hsc : 0 < √(shiftCstar rmin ρmax ε₀) := Real.sqrt_pos.mpr hc
+  set s : ℝ := (√(shiftCstar rmin ρmax ε₀))⁻¹ with hs
+  have hs0 : 0 < s := inv_pos.mpr hsc
+  -- bounds on the closed disc
+  have hΨ : ∀ ζ : ℂ, ‖ζ‖ ≤ ε₀ / 2 → ‖shiftPsi q ζ - shiftW q‖ ≤ 3 * s := by
+    intro ζ hζ
+    obtain ⟨-, h1, h2, h3, -⟩ := shift_domain h hq hζ
+    have hA := norm_cpow_neg_half_le hc h2
+    have hB := norm_cpow_neg_half_le hc h3
+    have hW := norm_cpow_neg_half_le hc h1
+    have h1ζ : ‖1 - ζ‖ ≤ 1 + ε₀ / 2 := by
+      calc ‖1 - ζ‖ ≤ ‖(1 : ℂ)‖ + ‖ζ‖ := norm_sub_le _ _
+        _ ≤ 1 + ε₀ / 2 := by rw [norm_one]; linarith
+    have hP : ‖shiftPsi q ζ‖ ≤ (1 + ε₀ / 2) * s + (ε₀ / 2) * s := by
+      unfold shiftPsi
+      calc _ ≤ ‖(1 - ζ) * vtheta (q + ζ • e0) ^ (-(1 / 2 : ℂ))‖ +
+            ‖ζ * vtheta (q - (1 - ζ) • e0) ^ (-(1 / 2 : ℂ))‖ := norm_add_le _ _
+        _ ≤ _ := by
+          rw [norm_mul, norm_mul]
+          exact add_le_add (mul_le_mul h1ζ hA (norm_nonneg _) (by linarith))
+            (mul_le_mul hζ hB (norm_nonneg _) hR.le)
+    have hW' : ‖shiftW q‖ ≤ s := hW
+    calc ‖shiftPsi q ζ - shiftW q‖ ≤ ‖shiftPsi q ζ‖ + ‖shiftW q‖ := norm_sub_le _ _
+      _ ≤ 3 * s := by nlinarith
+  -- the maximum principle for `dslope (Ψ q) 0`
+  have hS : IsOpen {μ : ℂ | (q, μ) ∈ shiftXi} := isOpen_slice q
+  have h0S : (0 : ℂ) ∈ {μ : ℂ | (q, μ) ∈ shiftXi} :=
+    (shift_domain h hq (by simpa using hR.le)).1
+  have hΨd : DifferentiableOn ℂ (shiftPsi q) {μ : ℂ | (q, μ) ∈ shiftXi} :=
+    fun μ hμ => (differentiableAt_shiftPsi hμ).differentiableWithinAt
+  have hd : DifferentiableOn ℂ (dslope (shiftPsi q) 0) (closedBall 0 (ε₀ / 2)) :=
+    ((Complex.differentiableOn_dslope (hS.mem_nhds h0S)).mpr hΨd).mono
+      (fun ζ hζ => (shift_domain h hq (mem_closedBall_zero_iff.mp hζ)).1)
+  have hdc : DiffContOnCl ℂ (dslope (shiftPsi q) 0) (ball 0 (ε₀ / 2)) := by
+    apply DifferentiableOn.diffContOnCl
+    rwa [closure_ball _ hR.ne']
+  have hfr : ∀ ζ ∈ frontier (ball (0 : ℂ) (ε₀ / 2)), ‖dslope (shiftPsi q) 0 ζ‖ ≤ 3 * s / (ε₀ / 2) := by
+    intro ζ hζ
+    rw [frontier_ball _ hR.ne', mem_sphere_zero_iff_norm] at hζ
+    have hζ0 : ζ ≠ 0 := by
+      intro h0; rw [h0, norm_zero] at hζ; linarith
+    rw [dslope_of_ne _ hζ0, slope_def_field, shiftPsi_zero, sub_zero, norm_div, hζ]
+    exact div_le_div_of_nonneg_right (hΨ ζ hζ.le) hR.le
+  have hmax := Complex.norm_le_of_forall_mem_frontier_norm_le (Metric.isBounded_ball) hdc hfr
+    (z := μ) (by rw [closure_ball _ hR.ne']; exact mem_closedBall_zero_iff.mpr hμ.le)
+  unfold shiftF shiftCsh
+  rw [norm_neg]
+  refine hmax.trans (le_of_eq ?_)
+  rw [hs]
+  field_simp
+  ring
+
+/-! ### Real points -/
+
+private theorem planeSq_pos_of_re {v : Fin 2 → ℝ} {c : ℝ} (hc : 0 < c)
+    (h : c ≤ (vtheta (fun i => (v i : ℂ))).re) : 0 < planeSq v := by
+  rw [vtheta_ofReal, Complex.ofReal_re] at h
+  linarith
+
+private theorem cpow_neg_half_ofReal {x : ℝ} (hx : 0 < x) :
+    ((x : ℂ)) ^ (-(1 / 2 : ℂ)) = ((1 / √x : ℝ) : ℂ) := by
+  have h1 := Complex.ofReal_cpow hx.le (-(1 / 2 : ℝ))
+  push_cast at h1
+  rw [← h1, Real.sqrt_eq_rpow, one_div, Real.rpow_neg hx.le, one_div]
+
+private theorem cpow_neg_three_half_ofReal {x : ℝ} (hx : 0 < x) :
+    ((x : ℂ)) ^ (-(3 / 2 : ℂ)) = ((x ^ (-(3 / 2 : ℝ)) : ℝ) : ℂ) := by
+  have h1 := Complex.ofReal_cpow hx.le (-(3 / 2 : ℝ))
+  push_cast at h1
+  exact h1.symm
+
+private theorem vtheta_cpow_neg_half_ofReal {v : Fin 2 → ℝ} (hv : 0 < planeSq v) :
+    vtheta (fun i => (v i : ℂ)) ^ (-(1 / 2 : ℂ)) = ((1 / planeLength v : ℝ) : ℂ) := by
+  rw [vtheta_ofReal, cpow_neg_half_ofReal hv]
+  rfl
+
+private theorem ofReal_add_e0 (q : Fin 2 → ℝ) (μ : ℝ) :
+    (fun i => (q i : ℂ)) + (μ : ℂ) • e0 = fun i => (((q - primary₁ μ : Fin 2 → ℝ) i : ℝ) : ℂ) := by
+  ext i; fin_cases i <;> simp [e0, primary₁]
+
+private theorem ofReal_sub_e0 (q : Fin 2 → ℝ) (μ : ℝ) :
+    (fun i => (q i : ℂ)) - (1 - (μ : ℂ)) • e0 =
+      fun i => (((q - primary₂ μ : Fin 2 → ℝ) i : ℝ) : ℂ) := by
+  ext i; fin_cases i <;> simp [e0, primary₂]
+
+private theorem primary₂_zero : primary₂ 0 = e0R := by
+  simp [primary₂, e0R]
+
+/-- Real points: `(q, μ)` collision free and `f` real; `Ψ` is the frozen potential. -/
+theorem shift_real {rmin ρmax ε₀ : ℝ} (h : ShiftConst rmin ρmax ε₀) {q : Fin 2 → ℝ}
+    (hq : (fun i => (q i : ℂ)) ∈ shiftO rmin ρmax ε₀) {μ : ℝ} (hμ : |μ| < ε₀ / 2) (p : Fin 2 → ℝ) :
+    CollisionFree μ (q, p) ∧
+      shiftW (fun i => (q i : ℂ)) = ((1 / planeLength q : ℝ) : ℂ) ∧
+      shiftPsi (fun i => (q i : ℂ)) μ =
+        (((1 - μ) / radius (q - primary₁ μ) + μ / radius (q - primary₂ μ) : ℝ) : ℂ) ∧
+      (shiftF (fun i => (q i : ℂ)) μ).im = 0 := by
+  have hμ' : ‖(μ : ℂ)‖ ≤ ε₀ / 2 := by rw [Complex.norm_real, Real.norm_eq_abs]; exact hμ.le
+  obtain ⟨hΞ, h1, h2, h3, hc⟩ := shift_domain h hq hμ'
+  rw [ofReal_add_e0] at h2
+  rw [ofReal_sub_e0] at h3
+  have p1 := planeSq_pos_of_re hc h1
+  have p2 := planeSq_pos_of_re hc h2
+  have p3 := planeSq_pos_of_re hc h3
+  have hl1 : 0 < planeLength q := Real.sqrt_pos.mpr p1
+  have hl2 : 0 < planeLength (q - primary₁ μ) := Real.sqrt_pos.mpr p2
+  have hl3 : 0 < planeLength (q - primary₂ μ) := Real.sqrt_pos.mpr p3
+  have hW : shiftW (fun i => (q i : ℂ)) = ((1 / planeLength q : ℝ) : ℂ) :=
+    vtheta_cpow_neg_half_ofReal p1
+  have hP : shiftPsi (fun i => (q i : ℂ)) μ =
+      (((1 - μ) / radius (q - primary₁ μ) + μ / radius (q - primary₂ μ) : ℝ) : ℂ) := by
+    unfold shiftPsi
+    rw [ofReal_add_e0, ofReal_sub_e0, vtheta_cpow_neg_half_ofReal p2,
+      vtheta_cpow_neg_half_ofReal p3]
+    rw [radius_eq_planeLength]
+    push_cast
+    ring
+  refine ⟨⟨hl2, hl3⟩, hW, hP, ?_⟩
+  by_cases hμ0 : μ = 0
+  · subst hμ0
+    have hx0 : (fun i => (q i : ℂ), (0 : ℂ)) ∈ shiftXi := by simpa using hΞ
+    rw [Complex.ofReal_zero, shift_value_zero hx0, hW]
+    have h3' : 0 < planeSq (q - e0R) := by
+      rw [primary₂_zero] at h3
+      exact planeSq_pos_of_re hc h3
+    have hvt : vtheta ((fun i => (q i : ℂ)) - e0) =
+        ((planeSq (q - e0R) : ℝ) : ℂ) := by
+      rw [← vtheta_ofReal, real_vec_e0]
+    rw [hvt, vtheta_ofReal, cpow_neg_three_half_ofReal p1, cpow_neg_half_ofReal h3']
+    simp [Complex.mul_im]
+  · have hmul := shift_mul_eq h hq (μ := (μ : ℂ)) (by simpa using hμ)
+    rw [hP, hW] at hmul
+    have hμc : (μ : ℂ) ≠ 0 := by exact_mod_cast hμ0
+    have : shiftF (fun i => (q i : ℂ)) μ =
+        (((1 / planeLength q - ((1 - μ) / radius (q - primary₁ μ) +
+          μ / radius (q - primary₂ μ))) / μ : ℝ) : ℂ) := by
+      push_cast
+      field_simp
+      rw [← sub_eq_zero] at hmul ⊢
+      push_cast at hmul ⊢
+      linear_combination hmul
+    rw [this, Complex.ofReal_im]
+
 end Shift
 
 end KAM.Iso
