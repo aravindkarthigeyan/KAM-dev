@@ -58,7 +58,8 @@ def ExactHamData (K : Set (Fin 2 → ℝ)) (δ₂ : ℝ) : Prop :=
   DifferentiableOn ℂ (fun x : ((Fin 2 → ℂ) × (Fin 2 → ℂ)) × ℂ => exactF K x.1 x.2)
       (UDelta K δ₂ ×ˢ ball (0 : ℂ) (exactMu2 K)) ∧
   (∀ w ∈ UDelta K δ₂, ∀ μ : ℂ, ‖μ‖ < exactMu2 K → ‖exactF K w μ‖ ≤ exactCF K) ∧
-  (∀ w ∈ UDelta K δ₂, ∀ μ : ℂ, exactF K (Function.update w.1 0 (w.1 0 + 2 * π), w.2) μ = exactF K w μ ∧
+  (∀ w ∈ UDelta K δ₂, ∀ μ : ℂ,
+      exactF K (Function.update w.1 0 (w.1 0 + 2 * π), w.2) μ = exactF K w μ ∧
       exactF K (Function.update w.1 1 (w.1 1 + 2 * π), w.2) μ = exactF K w μ) ∧
   (∀ w : Phase 2, phaseToC w ∈ UDelta K δ₂ → ∀ μ : ℝ, |μ| < exactMu2 K →
       (exactF K (phaseToC w) μ).im = 0) ∧
@@ -68,9 +69,10 @@ def ExactHamData (K : Set (Fin 2 → ℝ)) (δ₂ : ℝ) : Prop :=
           -1 / (2 * w.2 0 ^ 2) - w.2 1 + μ * (exactF K (phaseToC w) μ).re) ∧
   (∀ w : Phase 2, w.2 ∈ K → phaseToC w ∈ UDelta K δ₂)
 
-/-- The full admissibility predicate of the exact radius (audit 2, R2-1): positivity, subordination to the selected
-complex-domain radius, the clauses (i)-(iv), AND the geometric control that the complex Delaunay positions lie in the
-shift neighbourhood. It is a result predicate (used in a choice and in theorem conclusions), never a premise. -/
+/-- The full admissibility predicate of the exact radius (audit 2, R2-1): positivity, subordination
+to the selected complex-domain radius, the clauses (i)-(iv), AND the geometric control that the
+complex Delaunay positions lie in the shift neighbourhood. It is a result predicate (used in a
+choice and in theorem conclusions), never a premise. -/
 def ExactRadiusData (K : Set (Fin 2 → ℝ)) (δ : ℝ) : Prop :=
   0 < δ ∧ δ ≤ complexDelta K ∧ ExactHamData K δ ∧
     ∀ w ∈ UDelta K δ, (delaunayC K w).1 ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K)
@@ -97,7 +99,8 @@ theorem isOpen_UDelta (K : Set (Fin 2 → ℝ)) (δ : ℝ) : IsOpen (UDelta K δ
       ext w; simp
     rw [e]
     refine isOpen_iInter_of_finite fun i => isOpen_lt ?_ continuous_const
-    exact continuous_abs.comp (Complex.continuous_im.comp ((continuous_apply i).comp continuous_fst))
+    exact continuous_abs.comp
+      (Complex.continuous_im.comp ((continuous_apply i).comp continuous_fst))
   have h2 : IsOpen (actionNbhd K δ) := by
     have e : actionNbhd K δ = ⋃ J ∈ K, ball (fun i => (J i : ℂ)) δ := by
       ext I; simp [actionNbhd, dist_eq_norm]
@@ -252,8 +255,10 @@ theorem exists_positions (hK : SafeAction K) (hρ : kRhoMax K < 1) :
   have hphi : Continuous (phaseToC : Phase 2 → (Fin 2 → ℂ) × (Fin 2 → ℂ)) := by
     unfold phaseToC
     exact Continuous.prodMk
-      (continuous_pi fun i => Complex.continuous_ofReal.comp ((continuous_apply i).comp continuous_fst))
-      (continuous_pi fun i => Complex.continuous_ofReal.comp ((continuous_apply i).comp continuous_snd))
+      (continuous_pi fun i =>
+        Complex.continuous_ofReal.comp ((continuous_apply i).comp continuous_fst))
+      (continuous_pi fun i =>
+        Complex.continuous_ofReal.comp ((continuous_apply i).comp continuous_snd))
   set S : Set ((Fin 2 → ℂ) × (Fin 2 → ℂ)) := phaseToC '' P with hS
   have hSc : IsCompact S := hPc.image hphi
   have hSU : S ⊆ UDelta K (complexDelta K) := by
@@ -326,7 +331,8 @@ theorem exact_identity (hK : SafeAction K) (hρ : kRhoMax K < 1) {w : Phase 2} {
     (hμ : |μ| < exactEps K / 2) (hw : w ∈ deDom) :
     ∃ hcf : CollisionFree μ (delaunay w),
       restrictedHamiltonian μ ⟨delaunay w, hcf⟩ =
-        -1 / (2 * w.2 0 ^ 2) - w.2 1 + μ * (shiftF (fun i => (((delaunay w).1 i : ℝ) : ℂ)) μ).re := by
+        -1 / (2 * w.2 0 ^ 2) - w.2 1 +
+          μ * (shiftF (fun i => (((delaunay w).1 i : ℝ) : ℂ)) μ).re := by
   have _ := hK
   have _ := hρ
   obtain ⟨hcf, hW, hP, -⟩ := shift_real hSC hq hμ (delaunay w).2
@@ -413,8 +419,8 @@ theorem exactRadiusData_of_positions (hK : SafeAction K) (hρ : kRhoMax K < 1) {
 
 end ExactAux
 
-/-- Existence (the source construction `stepI:p7:eh-delta`, by uniform continuity on a compact period) gives the
-full specification of the SELECTED radius. -/
+/-- Existence (the source construction `stepI:p7:eh-delta`, by uniform continuity on a compact
+period) gives the full specification of the SELECTED radius. -/
 theorem exact_radius_spec {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
     ExactRadiusData K (exactDelta K) := by
   obtain ⟨δ, hδ, hδ1, hpos⟩ := ExactAux.exists_positions hK hρ
@@ -427,13 +433,15 @@ theorem exact_radius_spec {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : k
   · rename_i h'
     exact absurd h h'
 
-/-- `bpI:p7:exact-ham`, assuming `ρ_max < 1` (the frozen `aPlus(1 + ePlus) < 1`): a projection of `exact_radius_spec`. -/
+/-- `bpI:p7:exact-ham`, assuming `ρ_max < 1` (the frozen `aPlus(1 + ePlus) < 1`): a projection of
+`exact_radius_spec`. -/
 theorem exact_ham {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
     0 < exactDelta K ∧ exactDelta K ≤ complexDelta K ∧ ExactHamData K (exactDelta K) := by
   obtain ⟨h1, h2, h3, -⟩ := exact_radius_spec hK hρ
   exact ⟨h1, h2, h3⟩
 
-/-- F3: a projection of `exact_radius_spec`; justified because the property is part of the choice predicate. -/
+/-- F3: a projection of `exact_radius_spec`; justified because the property is part of the choice
+predicate. -/
 theorem exact_positions_mem_shiftO {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
     ∀ w ∈ UDelta K (exactDelta K), (delaunayC K w).1 ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K) :=
   (exact_radius_spec hK hρ).2.2.2
