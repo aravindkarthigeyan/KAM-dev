@@ -144,7 +144,8 @@ end StripBounds
 
 section Pointwise
 
-/-- The fixed-point map `G ↦ c + a sin G - b cos G`: `keplerOp a b G = c` iff `fixMap a b c G = G`. -/
+/-- The fixed-point map `G ↦ c + a sin G - b cos G`: `keplerOp a b G = c` iff
+`fixMap a b c G = G`. -/
 def fixMap (a b c G : ℂ) : ℂ := c + a * Complex.sin G - b * Complex.cos G
 
 theorem keplerOp_eq_iff (a b c G : ℂ) : keplerOp a b G = c ↔ fixMap a b c G = G := by
@@ -193,31 +194,33 @@ theorem hasDerivAt_fixMap (a b c G : ℂ) :
   have h1 := (Complex.hasDerivAt_sin G).const_mul a
   have h2 := (Complex.hasDerivAt_cos G).const_mul b
   have h := ((hasDerivAt_const G c).add h1).sub h2
-  have e : fixMap a b c = ((fun _ => c) + fun y => a * Complex.sin y) - fun y => b * Complex.cos y := by
+  have e : fixMap a b c =
+      ((fun _ => c) + fun y => a * Complex.sin y) - fun y => b * Complex.cos y := by
     funext y
     simp [fixMap]
   rw [e]
   convert h using 1
   ring
 
+/-- The derivative of the fixed-point map is bounded by `κ` on the strip. -/
+theorem norm_dfix_le {a b : ℂ} {y₀ κ : ℝ} (hcon : (‖a‖ + ‖b‖) * Real.cosh y₀ ≤ κ) {z : ℂ}
+    (hz : |z.im| ≤ y₀) : ‖a * Complex.cos z + b * Complex.sin z‖ ≤ κ :=
+  calc ‖a * Complex.cos z + b * Complex.sin z‖
+      ≤ ‖a * Complex.cos z‖ + ‖b * Complex.sin z‖ := norm_add_le _ _
+    _ ≤ ‖a‖ * Real.cosh y₀ + ‖b‖ * Real.cosh y₀ := by
+        rw [norm_mul, norm_mul]
+        exact add_le_add (mul_le_mul_of_nonneg_left (norm_cos_le hz) (norm_nonneg _))
+          (mul_le_mul_of_nonneg_left (norm_sin_le hz) (norm_nonneg _))
+    _ = (‖a‖ + ‖b‖) * Real.cosh y₀ := by ring
+    _ ≤ κ := hcon
+
 /-- The fixed-point map is a `κ`-contraction on the strip, by the mean value inequality. -/
 theorem norm_fixMap_sub_le {a b c : ℂ} {y₀ κ : ℝ} (hcon : (‖a‖ + ‖b‖) * Real.cosh y₀ ≤ κ)
     {G H : ℂ} (hG : |G.im| ≤ y₀) (hH : |H.im| ≤ y₀) :
-    ‖fixMap a b c G - fixMap a b c H‖ ≤ κ * ‖G - H‖ := by
-  have hd : ∀ z ∈ strip y₀, HasDerivWithinAt (fixMap a b c)
-      (a * Complex.cos z + b * Complex.sin z) (strip y₀) z :=
-    fun z _ => (hasDerivAt_fixMap a b c z).hasDerivWithinAt
-  have hb : ∀ z ∈ strip y₀, ‖a * Complex.cos z + b * Complex.sin z‖ ≤ κ := by
-    intro z hz
-    calc ‖a * Complex.cos z + b * Complex.sin z‖
-        ≤ ‖a * Complex.cos z‖ + ‖b * Complex.sin z‖ := norm_add_le _ _
-      _ ≤ ‖a‖ * Real.cosh y₀ + ‖b‖ * Real.cosh y₀ := by
-          rw [norm_mul, norm_mul]
-          exact add_le_add (mul_le_mul_of_nonneg_left (norm_cos_le hz) (norm_nonneg _))
-            (mul_le_mul_of_nonneg_left (norm_sin_le hz) (norm_nonneg _))
-      _ = (‖a‖ + ‖b‖) * Real.cosh y₀ := by ring
-      _ ≤ κ := hcon
-  exact Convex.norm_image_sub_le_of_norm_hasDerivWithin_le hd hb (convex_strip y₀) hH hG
+    ‖fixMap a b c G - fixMap a b c H‖ ≤ κ * ‖G - H‖ :=
+  Convex.norm_image_sub_le_of_norm_hasDerivWithin_le
+    (fun z _ => (hasDerivAt_fixMap a b c z).hasDerivWithinAt)
+    (fun _ hz => norm_dfix_le hcon hz) (convex_strip y₀) hH hG
 
 /-- Uniqueness of the solution in the strip. -/
 theorem eq_of_keplerOp_eq {a b c : ℂ} {y₀ κ : ℝ} (hκ : κ < 1)
@@ -269,5 +272,209 @@ theorem existsUnique_keplerOp {a b c : ℂ} {y₀ κ : ℝ} (hy : 0 < y₀) (hκ
 end Pointwise
 
 end EqC
+
+/-! ### The data of the contraction and the solution -/
+
+/-- Quantitative hypotheses of the contraction (data, not a conclusion). On a parameter set `N` with
+holomorphic coefficients `a b c`: the strip `|Im G| ≤ y₀` is invariant and the map is a
+`κ`-contraction. -/
+structure KeplerData {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] [CompleteSpace P]
+    (N : Set P) (a b c : P → ℂ) (y₀ κ : ℝ) : Prop where
+  isOpen : IsOpen N
+  analytic_a : AnalyticOnNhd ℂ a N
+  analytic_b : AnalyticOnNhd ℂ b N
+  analytic_c : AnalyticOnNhd ℂ c N
+  y₀_pos : 0 < y₀
+  κ_lt : κ < 1
+  invariant : ∀ x ∈ N, |(c x).im| + (|(a x).re| + |(b x).re|) * Real.sinh y₀
+      + (|(a x).im| + |(b x).im|) * Real.cosh y₀ < y₀
+  contraction : ∀ x ∈ N, (‖a x‖ + ‖b x‖) * Real.cosh y₀ ≤ κ
+
+open scoped Classical in
+/-- The unique solution in the strip `|Im G| ≤ y₀` (junk `0` if there is none). -/
+def keplerSol (y₀ : ℝ) (a b c : ℂ) : ℂ :=
+  if h : ∃! G : ℂ, |G.im| ≤ y₀ ∧ keplerOp a b G = c then h.choose else 0
+
+namespace EqC
+
+/-- The specification of `keplerSol` whenever the solution in the strip is unique. -/
+theorem keplerSol_props {y₀ : ℝ} {a b c : ℂ}
+    (h : ∃! G : ℂ, |G.im| ≤ y₀ ∧ keplerOp a b G = c) :
+    |(keplerSol y₀ a b c).im| ≤ y₀ ∧ keplerOp a b (keplerSol y₀ a b c) = c ∧
+      ∀ G : ℂ, |G.im| ≤ y₀ → keplerOp a b G = c → G = keplerSol y₀ a b c := by
+  unfold keplerSol
+  split_ifs
+  obtain ⟨⟨h1, h2⟩, h3⟩ := h.choose_spec
+  exact ⟨h1, h2, fun G hG hGe => h3 G ⟨hG, hGe⟩⟩
+
+end EqC
+
+/-- Generic Kepler contraction: `bpI:p7:kepler-eq` and `bpP:p7:regular-kepler` (b) are instances.
+Joint holomorphy is by the analytic implicit function theorem (`ContDiffAt.implicitFunction` over
+`ℂ`, which needs `[CompleteSpace P]`) plus uniqueness in the open strip, NOT by a multivariable
+Weierstrass theorem (absent from Mathlib); hence the coefficients are `AnalyticOnNhd` (a
+holomorphic coefficient on `Fin m → ℂ` is analytic by `KAM.analyticOnNhd_of_differentiableOn`; the
+instances below are compositions of analytic maps and need no adapter). -/
+theorem keplerSol_spec {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] [CompleteSpace P]
+    {N : Set P} {a b c : P → ℂ} {y₀ κ : ℝ} (h : KeplerData N a b c y₀ κ) {x : P} (hx : x ∈ N) :
+    |(keplerSol y₀ (a x) (b x) (c x)).im| ≤ y₀ ∧
+      keplerOp (a x) (b x) (keplerSol y₀ (a x) (b x) (c x)) = c x ∧
+      ∀ G : ℂ, |G.im| ≤ y₀ → keplerOp (a x) (b x) G = c x → G = keplerSol y₀ (a x) (b x) (c x) :=
+  EqC.keplerSol_props
+    (EqC.existsUnique_keplerOp h.y₀_pos h.κ_lt (h.invariant x hx) (h.contraction x hx))
+
+theorem keplerSol_analyticOnNhd {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P]
+    [CompleteSpace P] {N : Set P} {a b c : P → ℂ} {y₀ κ : ℝ} (h : KeplerData N a b c y₀ κ) :
+    AnalyticOnNhd ℂ (fun x => keplerSol y₀ (a x) (b x) (c x)) N := by
+  intro x₀ hx₀
+  obtain ⟨hS1, hS2, -⟩ := keplerSol_spec h hx₀
+  set G₀ := keplerSol y₀ (a x₀) (b x₀) (c x₀) with hG₀
+  have hlt : |G₀.im| < y₀ := EqC.abs_im_lt_of_keplerOp (h.invariant x₀ hx₀) hS1 hS2
+  have haa := h.analytic_a x₀ hx₀
+  have hba := h.analytic_b x₀ hx₀
+  have hca := h.analytic_c x₀ hx₀
+  -- the implicit equation `Φ (x, G) = 0`
+  set Φ : P × ℂ → ℂ := fun p => p.2 - a p.1 * Complex.sin p.2 + b p.1 * Complex.cos p.2 - c p.1
+    with hΦdef
+  have hΦ : AnalyticAt ℂ Φ (x₀, G₀) := by
+    have h1 : AnalyticAt ℂ (fun p : P × ℂ => a p.1) (x₀, G₀) := haa.comp analyticAt_fst
+    have h2 : AnalyticAt ℂ (fun p : P × ℂ => b p.1) (x₀, G₀) := hba.comp analyticAt_fst
+    have h3 : AnalyticAt ℂ (fun p : P × ℂ => c p.1) (x₀, G₀) := hca.comp analyticAt_fst
+    have h4 : AnalyticAt ℂ (fun p : P × ℂ => Complex.sin p.2) (x₀, G₀) :=
+      Complex.analyticAt_sin.comp analyticAt_snd
+    have h5 : AnalyticAt ℂ (fun p : P × ℂ => Complex.cos p.2) (x₀, G₀) :=
+      Complex.analyticAt_cos.comp analyticAt_snd
+    exact ((analyticAt_snd.sub (h1.mul h4)).add (h2.mul h5)).sub h3
+  have hΦ0 : Φ (x₀, G₀) = 0 := by
+    have : keplerOp (a x₀) (b x₀) G₀ - c x₀ = 0 := sub_eq_zero.2 hS2
+    simpa [hΦdef, keplerOp] using this
+  -- the partial derivative in `G` is the nonzero number `d`
+  set d : ℂ := 1 - a x₀ * Complex.cos G₀ - b x₀ * Complex.sin G₀ with hd
+  have hd0 : d ≠ 0 := by
+    intro h0
+    have h1 : a x₀ * Complex.cos G₀ + b x₀ * Complex.sin G₀ = 1 := by
+      rw [hd] at h0
+      linear_combination -h0
+    have h2 := EqC.norm_dfix_le (h.contraction x₀ hx₀) hS1
+    rw [h1, norm_one] at h2
+    linarith [h.κ_lt]
+  have hpart : HasDerivAt (fun G => Φ (x₀, G)) d G₀ := by
+    have h1 := ((hasDerivAt_id G₀).sub ((Complex.hasDerivAt_sin G₀).const_mul (a x₀))).add
+      ((Complex.hasDerivAt_cos G₀).const_mul (b x₀)) |>.sub_const (c x₀)
+    refine (h1.congr_deriv ?_)
+    simp only [hd]
+    ring
+  have hfd : fderiv ℂ Φ (x₀, G₀) ∘L ContinuousLinearMap.inr ℂ P ℂ =
+      (1 : ℂ →L[ℂ] ℂ).smulRight d := by
+    have h1 := hΦ.differentiableAt.hasFDerivAt.comp G₀ (hasFDerivAt_prodMk_right x₀ G₀)
+    exact h1.unique hpart.hasFDerivAt
+  have hinv : (fderiv ℂ Φ (x₀, G₀) ∘L ContinuousLinearMap.inr ℂ P ℂ).IsInvertible := by
+    rw [hfd]
+    refine ContinuousLinearMap.IsInvertible.of_inverse (g := (1 : ℂ →L[ℂ] ℂ).smulRight d⁻¹) ?_ ?_
+    · ext
+      simp [hd0]
+    · ext
+      simp [hd0]
+  have hcd : ContDiffAt ℂ ω Φ (x₀, G₀) := hΦ.contDiffAt
+  have hpn : (ω : WithTop ℕ∞) ≠ 0 := by simp
+  set ψ := hcd.implicitFunction hpn hinv with hψdef
+  have hψa : AnalyticAt ℂ ψ x₀ :=
+    (hcd.contDiffAt_implicitFunction hpn hinv).analyticAt
+  have hψ0 : ψ x₀ = G₀ := hcd.implicitFunction_apply_self hpn hinv
+  have hev0 : ∀ᶠ x in 𝓝 x₀, Φ (x, ψ x) = 0 := by
+    have := hcd.eventually_apply_implicitFunction hpn hinv
+    simpa [hΦ0] using this
+  have hev1 : ∀ᶠ x in 𝓝 x₀, |(ψ x).im| < y₀ := by
+    have hc : ContinuousAt (fun x => |(ψ x).im|) x₀ :=
+      (continuous_abs.comp Complex.continuous_im).continuousAt.comp hψa.continuousAt
+    exact hc.eventually_lt continuousAt_const (by simpa [hψ0] using hlt)
+  have hev2 : ∀ᶠ x in 𝓝 x₀, x ∈ N := h.isOpen.mem_nhds hx₀
+  have hEq : ψ =ᶠ[𝓝 x₀] fun x => keplerSol y₀ (a x) (b x) (c x) := by
+    filter_upwards [hev0, hev1, hev2] with x hx0 hx1 hx2
+    have hop : keplerOp (a x) (b x) (ψ x) = c x := by
+      have : keplerOp (a x) (b x) (ψ x) - c x = 0 := by simpa [hΦdef, keplerOp] using hx0
+      exact sub_eq_zero.1 this
+    exact (keplerSol_spec h hx2).2.2 (ψ x) hx1.le hop
+  exact hψa.congr hEq
+
+theorem keplerSol_differentiableOn {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P]
+    [CompleteSpace P] {N : Set P} {a b c : P → ℂ} {y₀ κ : ℝ} (h : KeplerData N a b c y₀ κ) :
+    DifferentiableOn ℂ (fun x => keplerSol y₀ (a x) (b x) (c x)) N :=
+  (keplerSol_analyticOnNhd h).differentiableOn
+
+/-- Generic derivatives (implicit differentiation; the denominator `1 - a cos G - b sin G` is
+nonzero on `N` because `‖a cos G‖ + ‖b sin G‖ ≤ κ < 1`):
+`∂_x G = (a' sin G - b' cos G + c')/(1 - a cos G - b sin G)` in direction `v`. -/
+theorem keplerSol_fderiv {P : Type*} [NormedAddCommGroup P] [NormedSpace ℂ P] [CompleteSpace P]
+    {N : Set P} {a b c : P → ℂ} {y₀ κ : ℝ} (h : KeplerData N a b c y₀ κ) {x : P} (hx : x ∈ N)
+    (v : P) :
+    fderiv ℂ (fun x => keplerSol y₀ (a x) (b x) (c x)) x v *
+        (1 - a x * Complex.cos (keplerSol y₀ (a x) (b x) (c x))
+          - b x * Complex.sin (keplerSol y₀ (a x) (b x) (c x))) =
+      fderiv ℂ a x v * Complex.sin (keplerSol y₀ (a x) (b x) (c x))
+        - fderiv ℂ b x v * Complex.cos (keplerSol y₀ (a x) (b x) (c x)) + fderiv ℂ c x v := by
+  set S : P → ℂ := fun x => keplerSol y₀ (a x) (b x) (c x) with hS
+  have hSd : HasFDerivAt S (fderiv ℂ S x) x :=
+    ((keplerSol_analyticOnNhd h) x hx).differentiableAt.hasFDerivAt
+  have had : HasFDerivAt a (fderiv ℂ a x) x := (h.analytic_a x hx).differentiableAt.hasFDerivAt
+  have hbd : HasFDerivAt b (fderiv ℂ b x) x := (h.analytic_b x hx).differentiableAt.hasFDerivAt
+  have hcd : HasFDerivAt c (fderiv ℂ c x) x := (h.analytic_c x hx).differentiableAt.hasFDerivAt
+  have hF : HasFDerivAt
+      (fun y => S y - a y * Complex.sin (S y) + b y * Complex.cos (S y) - c y) _ x :=
+    ((hSd.sub (had.mul hSd.csin)).add (hbd.mul hSd.ccos)).sub hcd
+  have hzero : (fun y => S y - a y * Complex.sin (S y) + b y * Complex.cos (S y) - c y)
+      =ᶠ[𝓝 x] fun _ => (0 : ℂ) := by
+    filter_upwards [h.isOpen.mem_nhds hx] with y hy
+    have := (keplerSol_spec h hy).2.1
+    simp only [keplerOp] at this
+    simp only [hS]
+    rw [this, sub_self]
+  have h0 := hF.fderiv
+  rw [hzero.fderiv_eq] at h0
+  simp only [fderiv_fun_const, Pi.zero_apply] at h0
+  have h1 := congrArg (fun L => L v) h0
+  simp only [sub_apply, add_apply, smul_apply, smul_eq_mul, zero_apply] at h1
+  simp only [hS] at h1 ⊢
+  linear_combination -h1
+
+/-- Real coefficients give a real solution. -/
+theorem keplerSol_real {y₀ : ℝ} {a b c : ℂ} (ha : a.im = 0) (hb : b.im = 0) (hc : c.im = 0)
+    (hex : ∃ G : ℂ, |G.im| ≤ y₀ ∧ keplerOp a b G = c)
+    (huniq : ∃! G : ℂ, |G.im| ≤ y₀ ∧ keplerOp a b G = c) :
+    (keplerSol y₀ a b c).im = 0 := by
+  have _ := hex
+  obtain ⟨h1, h2, h3⟩ := EqC.keplerSol_props huniq
+  set S := keplerSol y₀ a b c with hS
+  have ha' : (starRingEnd ℂ) a = a := Complex.conj_eq_iff_im.2 ha
+  have hb' : (starRingEnd ℂ) b = b := Complex.conj_eq_iff_im.2 hb
+  have hc' : (starRingEnd ℂ) c = c := Complex.conj_eq_iff_im.2 hc
+  have hconj : keplerOp a b ((starRingEnd ℂ) S) = c := by
+    have e : keplerOp a b ((starRingEnd ℂ) S) = (starRingEnd ℂ) (keplerOp a b S) := by
+      simp [keplerOp, Complex.sin_conj, Complex.cos_conj, ha', hb']
+    rw [e, h2, hc']
+  have hmem : |((starRingEnd ℂ) S).im| ≤ y₀ := by simpa using h1
+  exact Complex.conj_eq_iff_im.1 (h3 _ hmem hconj)
+
+/-- Translation by `2π` in the right-hand side. -/
+theorem keplerSol_shift {y₀ : ℝ} {a b c : ℂ} (huniq : ∃! G : ℂ, |G.im| ≤ y₀ ∧ keplerOp a b G = c) :
+    keplerSol y₀ a b (c + 2 * π) = keplerSol y₀ a b c + 2 * π := by
+  obtain ⟨h1, h2, h3⟩ := EqC.keplerSol_props huniq
+  set S := keplerSol y₀ a b c with hS
+  have hmem : |(S + 2 * π).im| ≤ y₀ := by simpa using h1
+  have hop : keplerOp a b (S + 2 * π) = c + 2 * π := by
+    simp only [keplerOp, Complex.sin_add_two_pi, Complex.cos_add_two_pi]
+    simp only [keplerOp] at h2
+    linear_combination h2
+  have huniq' : ∃! G : ℂ, |G.im| ≤ y₀ ∧ keplerOp a b G = c + 2 * π := by
+    refine ⟨S + 2 * π, ⟨hmem, hop⟩, ?_⟩
+    rintro G ⟨hG, hGe⟩
+    have hG' : |(G - 2 * π).im| ≤ y₀ := by simpa using hG
+    have hGe' : keplerOp a b (G - 2 * π) = c := by
+      simp only [keplerOp, Complex.sin_sub_two_pi, Complex.cos_sub_two_pi]
+      simp only [keplerOp] at hGe
+      linear_combination hGe
+    have := h3 _ hG' hGe'
+    linear_combination this
+  exact ((EqC.keplerSol_props huniq').2.2 _ hmem hop).symm
 
 end KAM.Kepler
