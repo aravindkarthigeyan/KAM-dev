@@ -17,12 +17,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:chart; shared Lean provider. There: KIND theorem, contract bpI:p7:chart v1. Cited as \Iref{bpI:p7:chart}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:chart; shared Lean provider. There: KIND theorem, contract bpI:p7:chart v1. Cited as \Iref{bpI:p7:chart}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node bpI:p7:chart; source topology ownership only.
 
 NODE: I:bpI:p7:elements
 KIND: external
@@ -43,12 +43,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:elements; shared Lean provider. There: KIND definition, contract bpI:p7:elements v1. Cited as \Iref{bpI:p7:elements}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:elements; shared Lean provider. There: KIND definition, contract bpI:p7:elements v1. Cited as \Iref{bpI:p7:elements}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node bpI:p7:elements; source topology ownership only.
 
 NODE: I:bpI:p7:kepler-eq
 KIND: external
@@ -69,12 +69,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:kepler-eq; shared Lean provider. There: KIND proposition, contract bpI:p7:kepler-eq v1. Cited as \Iref{bpI:p7:kepler-eq}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:kepler-eq; shared Lean provider. There: KIND proposition, contract bpI:p7:kepler-eq v1. Cited as \Iref{bpI:p7:kepler-eq}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node bpI:p7:kepler-eq; source topology ownership only.
 
 NODE: I:bpI:p7:orbit-identities
 KIND: external
@@ -95,12 +95,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:orbit-identities; shared Lean provider. There: KIND proposition, contract bpI:p7:orbit-identities v1. Cited as \Iref{bpI:p7:orbit-identities}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:orbit-identities; shared Lean provider. There: KIND proposition, contract bpI:p7:orbit-identities v1. Cited as \Iref{bpI:p7:orbit-identities}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node bpI:p7:orbit-identities; source topology ownership only.
 
 NODE: I:bpI:p7:orbit-maps
 KIND: external
@@ -121,12 +121,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:orbit-maps; shared Lean provider. There: KIND definition, contract bpI:p7:orbit-maps v1. Cited as \Iref{bpI:p7:orbit-maps}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:orbit-maps; shared Lean provider. There: KIND definition, contract bpI:p7:orbit-maps v1. Cited as \Iref{bpI:p7:orbit-maps}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node bpI:p7:orbit-maps; source topology ownership only.
 
 NODE: I:bpI:p7:symplectic
 KIND: external
@@ -147,12 +147,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:symplectic; shared Lean provider. There: KIND proposition, contract bpI:p7:symplectic v1. Cited as \Iref{bpI:p7:symplectic}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:symplectic; shared Lean provider. There: KIND proposition, contract bpI:p7:symplectic v1. Cited as \Iref{bpI:p7:symplectic}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node bpI:p7:symplectic; source topology ownership only.
 
 NODE: I:bpI:p7:x-forms
 KIND: external
@@ -173,12 +173,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: external input of the track-I graph, node bpI:p7:x-forms (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpI:p7:x-forms v1. Cited as \Iref{bpI:p7:x-forms}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: external input of the track-I graph, node bpI:p7:x-forms (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpI:p7:x-forms v1. Cited as \Iref{bpI:p7:x-forms}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node bpI:p7:x-forms; source topology ownership only.
 
 NODE: I:bpI:p7:x-hol
 KIND: external
@@ -199,12 +199,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: external input of the track-I graph, node bpI:p7:x-hol (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpI:p7:x-hol v1. Cited as \Iref{bpI:p7:x-hol}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: external input of the track-I graph, node bpI:p7:x-hol (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpI:p7:x-hol v1. Cited as \Iref{bpI:p7:x-hol}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node bpI:p7:x-hol; source topology ownership only.
 
 NODE: I:bpI:p7:x-weier
 KIND: external
@@ -225,12 +225,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: external input of the track-I graph, node bpI:p7:x-weier (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpI:p7:x-weier v1. Cited as \Iref{bpI:p7:x-weier}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: external input of the track-I graph, node bpI:p7:x-weier (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpI:p7:x-weier v1. Cited as \Iref{bpI:p7:x-weier}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node bpI:p7:x-weier; source topology ownership only.
 
 NODE: I:stepI:p7:ke-trig
 KIND: external
@@ -251,12 +251,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node stepI:p7:ke-trig; shared Lean provider. There: KIND step, contract stepI:p7:ke-trig v1. Cited as \Iref{stepI:p7:ke-trig}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-I graph, node stepI:p7:ke-trig; shared Lean provider. There: KIND step, contract stepI:p7:ke-trig v1. Cited as \Iref{stepI:p7:ke-trig}. Ownership confirmed against the published track-I graph docs/graph/I/DEPGRAPH.md, node stepI:p7:ke-trig; source topology ownership only.
 
 NODE: K:bp:p1:cauchy-open
 KIND: external
@@ -276,9 +276,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -291,7 +291,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:decay@L786-L789
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:decay
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: u holomorphic, bounded and 1-periodic on T_rho
+SOURCE_HYPOTHESES: n >= 1 and rho > 0 (standing, p1-analysis.tex L37-L39); u holomorphic, bounded and 1-periodic on T_rho
 SOURCE_QUANTIFIERS: rho, u; k in Z^n; rho' with 0<=rho'<rho
 SOURCE_CONCLUSION: |hat u_k| <= e^{-2 pi |k|_1 rho'} ||u||_rho
 CONSTANT_SCOPE: none
@@ -303,7 +303,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -328,9 +328,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -354,9 +354,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -380,9 +380,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -406,9 +406,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -432,9 +432,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -458,9 +458,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -484,9 +484,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -510,9 +510,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -536,9 +536,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -551,7 +551,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:real-restriction
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K holomorphic on T_rho and real on reals; for the primary claim, K primary on T_rho (p=2n)
+SOURCE_HYPOTHESES: n >= 1 and rho > 0 (standing, p1-analysis.tex L37-L39); K holomorphic on T_rho and real on reals; for the primary claim, K primary on T_rho (p=2n)
 SOURCE_QUANTIFIERS: K, rho, p (=2n in applications); x in R^n; m in Z^n
 SOURCE_CONCLUSION: k=K|_{R^n} real-analytic with real derivative the restriction of the complex derivative; |Dk(x)|<=|DK(x)| for x in R^n; if K primary, k(x+m)=k(x)+(m,0) for m in Z^n
 CONSTANT_SCOPE: none
@@ -563,7 +563,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -588,9 +588,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -614,9 +614,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -641,12 +641,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial; shared Lean provider. There: KIND theorem, contract nekhoroshev.d25.partialConvex_nekhoroshev v1, frozen anchor KAM.Nekhoroshev.partialConvex_nekhoroshev (nekhoroshev.d25.partialConvex_nekhoroshev.v1); not an anchor of this graph. Cited as \Nref{bpN:p0:partial}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial; shared Lean provider. There: KIND theorem, contract nekhoroshev.d25.partialConvex_nekhoroshev v1, frozen anchor KAM.Nekhoroshev.partialConvex_nekhoroshev (nekhoroshev.d25.partialConvex_nekhoroshev.v1); not an anchor of this graph. Cited as \Nref{bpN:p0:partial}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p0:partial; source topology ownership only.
 
 NODE: N:bpN:p0:partial-exponents#partialDriftExponent
 KIND: external
@@ -667,12 +667,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-exponents#partialDriftExponent; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.partialDriftExponent v1, frozen anchor KAM.Nekhoroshev.partialDriftExponent (nekhoroshev.d25.partialDriftExponent.v1); not an anchor of this graph. Cited as \Nref{bpN:p0:partial-exponents}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-exponents#partialDriftExponent; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.partialDriftExponent v1, frozen anchor KAM.Nekhoroshev.partialDriftExponent (nekhoroshev.d25.partialDriftExponent.v1); not an anchor of this graph. Cited as \Nref{bpN:p0:partial-exponents}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p0:partial-exponents#partialDriftExponent; source topology ownership only.
 
 NODE: N:bpN:p0:partial-exponents#partialTimeExponent
 KIND: external
@@ -693,12 +693,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-exponents#partialTimeExponent; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.partialTimeExponent v1, frozen anchor KAM.Nekhoroshev.partialTimeExponent (nekhoroshev.d25.partialTimeExponent.v1); not an anchor of this graph. Cited as \Nref{bpN:p0:partial-exponents}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-exponents#partialTimeExponent; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.partialTimeExponent v1, frozen anchor KAM.Nekhoroshev.partialTimeExponent (nekhoroshev.d25.partialTimeExponent.v1); not an anchor of this graph. Cited as \Nref{bpN:p0:partial-exponents}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p0:partial-exponents#partialTimeExponent; source topology ownership only.
 
 NODE: N:bpN:p3:gen-continuation
 KIND: external
@@ -719,12 +719,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-continuation; shared Lean provider. There: KIND theorem, contract bpN:p3:gen-continuation v1. Cited as \Nref{bpN:p3:gen-continuation}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-continuation; shared Lean provider. There: KIND theorem, contract bpN:p3:gen-continuation v1. Cited as \Nref{bpN:p3:gen-continuation}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:gen-continuation; source topology ownership only.
 
 NODE: N:bpN:p3:gen-continuation-compact
 KIND: external
@@ -745,12 +745,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-continuation-compact; shared Lean provider. There: KIND corollary, contract bpN:p3:gen-continuation-compact v1. Cited as \Nref{bpN:p3:gen-continuation-compact}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-continuation-compact; shared Lean provider. There: KIND corollary, contract bpN:p3:gen-continuation-compact v1. Cited as \Nref{bpN:p3:gen-continuation-compact}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:gen-continuation-compact; source topology ownership only.
 
 NODE: N:bpN:p3:gen-exit
 KIND: external
@@ -771,12 +771,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-exit; shared Lean provider. There: KIND lemma, contract bpN:p3:gen-exit v1. Cited as \Nref{bpN:p3:gen-exit}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-exit; shared Lean provider. There: KIND lemma, contract bpN:p3:gen-exit v1. Cited as \Nref{bpN:p3:gen-exit}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:gen-exit; source topology ownership only.
 
 NODE: N:bpN:p3:gen-lip
 KIND: external
@@ -797,12 +797,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-lip; shared Lean provider. There: KIND lemma, contract bpN:p3:gen-lip v1. Cited as \Nref{bpN:p3:gen-lip}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-lip; shared Lean provider. There: KIND lemma, contract bpN:p3:gen-lip v1. Cited as \Nref{bpN:p3:gen-lip}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:gen-lip; source topology ownership only.
 
 NODE: N:bpN:p3:gen-maximal
 KIND: external
@@ -823,12 +823,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-maximal; shared Lean provider. There: KIND theorem, contract bpN:p3:gen-maximal v1. Cited as \Nref{bpN:p3:gen-maximal}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-maximal; shared Lean provider. There: KIND theorem, contract bpN:p3:gen-maximal v1. Cited as \Nref{bpN:p3:gen-maximal}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:gen-maximal; source topology ownership only.
 
 NODE: N:bpN:p3:gen-sol
 KIND: external
@@ -849,12 +849,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-sol; shared Lean provider. There: KIND definition, contract bpN:p3:gen-sol v1. Cited as \Nref{bpN:p3:gen-sol}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-sol; shared Lean provider. There: KIND definition, contract bpN:p3:gen-sol v1. Cited as \Nref{bpN:p3:gen-sol}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:gen-sol; source topology ownership only.
 
 NODE: N:bpN:p3:gen-symmetry
 KIND: external
@@ -875,12 +875,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-symmetry; shared Lean provider. There: KIND lemma, contract bpN:p3:gen-symmetry v1. Cited as \Nref{bpN:p3:gen-symmetry}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-symmetry; shared Lean provider. There: KIND lemma, contract bpN:p3:gen-symmetry v1. Cited as \Nref{bpN:p3:gen-symmetry}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:gen-symmetry; source topology ownership only.
 
 NODE: N:bpN:p3:gen-uniqueness
 KIND: external
@@ -901,12 +901,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniqueness; shared Lean provider. There: KIND theorem, contract bpN:p3:gen-uniqueness v1. Cited as \Nref{bpN:p3:gen-uniqueness}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniqueness; shared Lean provider. There: KIND theorem, contract bpN:p3:gen-uniqueness v1. Cited as \Nref{bpN:p3:gen-uniqueness}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:gen-uniqueness; source topology ownership only.
 
 NODE: N:bpN:p3:ham-periodic
 KIND: external
@@ -953,12 +953,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-smooth; shared Lean provider. There: KIND lemma, contract bpN:p3:ham-smooth v1. Cited as \Nref{bpN:p3:ham-smooth}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-smooth; shared Lean provider. There: KIND lemma, contract bpN:p3:ham-smooth v1. Cited as \Nref{bpN:p3:ham-smooth}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:ham-smooth; source topology ownership only.
 
 NODE: N:bpN:p4:algebra
 KIND: external
@@ -979,12 +979,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:algebra; shared Lean provider. There: KIND lemma, contract bpN:p4:algebra v1. Cited as \Nref{bpN:p4:algebra}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:algebra; shared Lean provider. There: KIND lemma, contract bpN:p4:algebra v1. Cited as \Nref{bpN:p4:algebra}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p4:algebra; source topology ownership only.
 
 NODE: N:bpN:p4:cauchy
 KIND: external
@@ -1005,12 +1005,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:cauchy; shared Lean provider. There: KIND lemma, contract bpN:p4:cauchy v1. Cited as \Nref{bpN:p4:cauchy}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:cauchy; shared Lean provider. There: KIND lemma, contract bpN:p4:cauchy v1. Cited as \Nref{bpN:p4:cauchy}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p4:cauchy; source topology ownership only.
 
 NODE: N:bpN:p4:coefficients
 KIND: external
@@ -1031,12 +1031,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:coefficients; shared Lean provider. There: KIND lemma, contract bpN:p4:coefficients v1. Cited as \Nref{bpN:p4:coefficients}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:coefficients; shared Lean provider. There: KIND lemma, contract bpN:p4:coefficients v1. Cited as \Nref{bpN:p4:coefficients}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p4:coefficients; source topology ownership only.
 
 NODE: N:bpN:p4:domains
 KIND: external
@@ -1057,12 +1057,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:domains; shared Lean provider. There: KIND definition, contract bpN:p4:domains v1. Cited as \Nref{bpN:p4:domains}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:domains; shared Lean provider. There: KIND definition, contract bpN:p4:domains v1. Cited as \Nref{bpN:p4:domains}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p4:domains; source topology ownership only.
 
 NODE: N:bpN:p4:norm
 KIND: external
@@ -1083,12 +1083,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:norm; shared Lean provider. There: KIND definition, contract bpN:p4:norm v1. Cited as \Nref{bpN:p4:norm}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:norm; shared Lean provider. There: KIND definition, contract bpN:p4:norm v1. Cited as \Nref{bpN:p4:norm}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p4:norm; source topology ownership only.
 
 NODE: N:bpN:p4:projections
 KIND: external
@@ -1109,12 +1109,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:projections; shared Lean provider. There: KIND lemma, contract bpN:p4:projections v1. Cited as \Nref{bpN:p4:projections}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:projections; shared Lean provider. There: KIND lemma, contract bpN:p4:projections v1. Cited as \Nref{bpN:p4:projections}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p4:projections; source topology ownership only.
 
 NODE: N:bpN:p4:sup-weighted
 KIND: external
@@ -1135,12 +1135,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:sup-weighted; shared Lean provider. There: KIND lemma, contract bpN:p4:sup-weighted v1. Cited as \Nref{bpN:p4:sup-weighted}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:sup-weighted; shared Lean provider. There: KIND lemma, contract bpN:p4:sup-weighted v1. Cited as \Nref{bpN:p4:sup-weighted}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p4:sup-weighted; source topology ownership only.
 
 NODE: N:bpN:p5:adjoint
 KIND: external
@@ -1161,12 +1161,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:adjoint; shared Lean provider. There: KIND lemma, contract bpN:p5:adjoint v1. Cited as \Nref{bpN:p5:adjoint}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:adjoint; shared Lean provider. There: KIND lemma, contract bpN:p5:adjoint v1. Cited as \Nref{bpN:p5:adjoint}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:adjoint; source topology ownership only.
 
 NODE: N:bpN:p5:canonical
 KIND: external
@@ -1187,12 +1187,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:canonical; shared Lean provider. There: KIND corollary, contract bpN:p5:canonical v1. Cited as \Nref{bpN:p5:canonical}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:canonical; shared Lean provider. There: KIND corollary, contract bpN:p5:canonical v1. Cited as \Nref{bpN:p5:canonical}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:canonical; source topology ownership only.
 
 NODE: N:bpN:p5:canonical-map
 KIND: external
@@ -1213,12 +1213,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:canonical-map; shared Lean provider. There: KIND proposition, contract bpN:p5:canonical-map v1. Cited as \Nref{bpN:p5:canonical-map}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:canonical-map; shared Lean provider. There: KIND proposition, contract bpN:p5:canonical-map v1. Cited as \Nref{bpN:p5:canonical-map}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:canonical-map; source topology ownership only.
 
 NODE: N:bpN:p5:composition
 KIND: external
@@ -1239,12 +1239,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:composition; shared Lean provider. There: KIND theorem, contract bpN:p5:composition v1. Cited as \Nref{bpN:p5:composition}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:composition; shared Lean provider. There: KIND theorem, contract bpN:p5:composition v1. Cited as \Nref{bpN:p5:composition}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:composition; source topology ownership only.
 
 NODE: N:bpN:p5:composition-integral
 KIND: external
@@ -1265,12 +1265,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:composition-integral; shared Lean provider. There: KIND corollary, contract bpN:p5:composition-integral v1. Cited as \Nref{bpN:p5:composition-integral}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:composition-integral; shared Lean provider. There: KIND corollary, contract bpN:p5:composition-integral v1. Cited as \Nref{bpN:p5:composition-integral}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:composition-integral; source topology ownership only.
 
 NODE: N:bpN:p5:flow
 KIND: external
@@ -1291,12 +1291,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:flow; shared Lean provider. There: KIND lemma, contract bpN:p5:flow v1. Cited as \Nref{bpN:p5:flow}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:flow; shared Lean provider. There: KIND lemma, contract bpN:p5:flow v1. Cited as \Nref{bpN:p5:flow}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:flow; source topology ownership only.
 
 NODE: N:bpN:p5:lie-derivative
 KIND: external
@@ -1317,12 +1317,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:lie-derivative; shared Lean provider. There: KIND lemma, contract bpN:p5:lie-derivative v1. Cited as \Nref{bpN:p5:lie-derivative}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:lie-derivative; shared Lean provider. There: KIND lemma, contract bpN:p5:lie-derivative v1. Cited as \Nref{bpN:p5:lie-derivative}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:lie-derivative; source topology ownership only.
 
 NODE: N:bpN:p5:setting
 KIND: external
@@ -1343,12 +1343,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:setting; shared Lean provider. There: KIND definition, contract bpN:p5:setting v1. Cited as \Nref{bpN:p5:setting}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:setting; shared Lean provider. There: KIND definition, contract bpN:p5:setting v1. Cited as \Nref{bpN:p5:setting}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:setting; source topology ownership only.
 
 NODE: N:bpN:p5:symplectic
 KIND: external
@@ -1369,12 +1369,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:symplectic; shared Lean provider. There: KIND lemma, contract bpN:p5:symplectic v1. Cited as \Nref{bpN:p5:symplectic}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:symplectic; shared Lean provider. There: KIND lemma, contract bpN:p5:symplectic v1. Cited as \Nref{bpN:p5:symplectic}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:symplectic; source topology ownership only.
 
 NODE: N:bpN:p5:taylor
 KIND: external
@@ -1395,12 +1395,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:taylor; shared Lean provider. There: KIND lemma, contract bpN:p5:taylor v1. Cited as \Nref{bpN:p5:taylor}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:taylor; shared Lean provider. There: KIND lemma, contract bpN:p5:taylor v1. Cited as \Nref{bpN:p5:taylor}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:taylor; source topology ownership only.
 
 NODE: N:bpN:p5:transform
 KIND: external
@@ -1421,12 +1421,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:transform; shared Lean provider. There: KIND proposition, contract bpN:p5:transform v1. Cited as \Nref{bpN:p5:transform}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:transform; shared Lean provider. There: KIND proposition, contract bpN:p5:transform v1. Cited as \Nref{bpN:p5:transform}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:transform; source topology ownership only.
 
 NODE: N:bpN:p5:vf-bound
 KIND: external
@@ -1447,12 +1447,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:vf-bound; shared Lean provider. There: KIND lemma, contract bpN:p5:vf-bound v1. Cited as \Nref{bpN:p5:vf-bound}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p5:vf-bound; shared Lean provider. There: KIND lemma, contract bpN:p5:vf-bound v1. Cited as \Nref{bpN:p5:vf-bound}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p5:vf-bound; source topology ownership only.
 
 NODE: N:bpN:p6:divisor
 KIND: external
@@ -1473,12 +1473,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:divisor; shared Lean provider. There: KIND lemma, contract bpN:p6:divisor v1. Cited as \Nref{bpN:p6:divisor}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:divisor; shared Lean provider. There: KIND lemma, contract bpN:p6:divisor v1. Cited as \Nref{bpN:p6:divisor}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p6:divisor; source topology ownership only.
 
 NODE: N:bpN:p6:ext-numerics
 KIND: external
@@ -1499,12 +1499,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: external input of the track-N graph, node bpN:p6:ext-numerics (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpN:p6:ext-numerics v1. Cited as \Nref{bpN:p6:ext-numerics}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: external input of the track-N graph, node bpN:p6:ext-numerics (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bpN:p6:ext-numerics v1. Cited as \Nref{bpN:p6:ext-numerics}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p6:ext-numerics; source topology ownership only.
 
 NODE: N:bpN:p6:homological
 KIND: external
@@ -1525,12 +1525,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:homological; shared Lean provider. There: KIND proposition, contract bpN:p6:homological v1. Cited as \Nref{bpN:p6:homological}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:homological; shared Lean provider. There: KIND proposition, contract bpN:p6:homological v1. Cited as \Nref{bpN:p6:homological}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p6:homological; source topology ownership only.
 
 NODE: N:bpN:p6:iterative
 KIND: external
@@ -1551,12 +1551,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:iterative; shared Lean provider. There: KIND theorem, contract bpN:p6:iterative v1. Cited as \Nref{bpN:p6:iterative}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:iterative; shared Lean provider. There: KIND theorem, contract bpN:p6:iterative v1. Cited as \Nref{bpN:p6:iterative}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p6:iterative; source topology ownership only.
 
 NODE: N:bpN:p6:setting
 KIND: external
@@ -1577,12 +1577,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:setting; shared Lean provider. There: KIND definition, contract bpN:p6:setting v1. Cited as \Nref{bpN:p6:cond-L}, \Nref{bpN:p6:cond-nr}, \Nref{bpN:p6:setting}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:setting; shared Lean provider. There: KIND definition, contract bpN:p6:setting v1. Cited as \Nref{bpN:p6:cond-L}, \Nref{bpN:p6:cond-nr}, \Nref{bpN:p6:setting}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p6:setting; source topology ownership only.
 
 NODE: N:bpN:p6:telescope
 KIND: external
@@ -1603,12 +1603,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:telescope; shared Lean provider. There: KIND lemma, contract bpN:p6:telescope v1. Cited as \Nref{bpN:p6:telescope}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
+NOTE: IMPORTED: proved in the track-N graph, node bpN:p6:telescope; shared Lean provider. There: KIND lemma, contract bpN:p6:telescope v1. Cited as \Nref{bpN:p6:telescope}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p6:telescope; source topology ownership only.
 
 NODE: N:bpN:p0:actionnbhd#actionNbhd
 KIND: external
@@ -1628,9 +1628,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1654,9 +1654,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1680,9 +1680,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1706,9 +1706,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1732,9 +1732,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1758,9 +1758,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1836,9 +1836,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1862,9 +1862,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1914,9 +1914,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1955,7 +1955,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L568-L574
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:cauchy-strip
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: u holomorphic and bounded on T_rho; 0<delta<rho; u scalar, vector (max norm) or matrix (operator norm) valued
+SOURCE_HYPOTHESES: n >= 1 (standing, p1-analysis.tex L37-L39); u holomorphic and bounded on T_rho; 0<delta<rho; u scalar, vector (max norm) or matrix (operator norm) valued
 SOURCE_QUANTIFIERS: rho, delta, u; every ell
 SOURCE_CONCLUSION: ||d_ell u||_{rho-delta} <= delta^-1 ||u||_rho and ||Du||_{rho-delta} <= n delta^-1 ||u||_rho
 CONSTANT_SCOPE: none
@@ -1967,7 +1967,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -1992,9 +1992,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2018,9 +2018,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2044,9 +2044,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2059,7 +2059,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:fourier-basic@L757-L768
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:fourier-basic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: v C-valued (componentwise for vector/matrix); (a) v continuous, 1-periodic, C^1; (b) v continuous, 1-periodic, sum |hat v_k| finite; (c) r>0, v holomorphic and 1-periodic on T_r, not necessarily bounded, all hat v_k=0
+SOURCE_HYPOTHESES: n >= 1 (standing, p1-analysis.tex L37-L39); v C-valued (componentwise for vector/matrix); (a) v continuous, 1-periodic, C^1; (b) v continuous, 1-periodic, sum |hat v_k| finite; (c) r>0, v holomorphic and 1-periodic on T_r, not necessarily bounded, all hat v_k=0
 SOURCE_QUANTIFIERS: v; k in Z^n; ell; omega in C^n; r
 SOURCE_CONCLUSION: (a) hat(d_ell v)_k = 2 pi i k_ell hat v_k and hat(d_omega v)_k = 2 pi i (k.omega) hat v_k; (b) v(x)=sum hat v_k chi_k(x) for all x, so v=0 if all hat v_k=0; (c) v=0 on T_r
 CONSTANT_SCOPE: none
@@ -2071,7 +2071,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -2122,9 +2122,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2137,7 +2137,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:summation@L824-L831
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:summation
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (forward) sum_k |a_k| e^{2 pi |k|_1 rho} finite; (converse) u as in decay, 0<delta<rho
+SOURCE_HYPOTHESES: n >= 1 (standing, p1-analysis.tex L37-L39); (forward) sum_k |a_k| e^{2 pi |k|_1 rho} finite, rho > 0; (converse) u as in decay, 0<delta<rho
 SOURCE_QUANTIFIERS: rho, a_k, u, delta
 SOURCE_CONCLUSION: u=sum a_k e^{2 pi i k.theta} holomorphic and 1-periodic on T_rho, hat u_k=a_k, ||u||_rho <= sum |a_k| e^{2 pi |k|_1 rho}; conversely sum |hat u_k| e^{2 pi |k|_1(rho-delta)} <= coth(pi delta)^n ||u||_rho and u equals its Fourier series on T_rho
 CONSTANT_SCOPE: none
@@ -2149,7 +2149,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -2163,7 +2163,7 @@ STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L364-L368
 PROOF_SOURCE: -
 CONTRACT_ID: K:bp:p1:uniform-limits
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K_s holomorphic on an open set V; K_s->K pointwise; DK_s->Lambda uniformly on V; for V=T_r, every K_s primary on T_r, respectively real on reals
+SOURCE_HYPOTHESES: for the V=T_r clauses only, n >= 1 and r > 0 (standing, p1-analysis.tex L37-L39); K_s holomorphic on an open set V; K_s->K pointwise; DK_s->Lambda uniformly on V; for V=T_r, every K_s primary on T_r, respectively real on reals
 SOURCE_QUANTIFIERS: V,K_s,K,Lambda; sequence index s
 SOURCE_CONCLUSION: K holomorphic on V and DK=Lambda; if V=T_r and all K_s primary (resp. real on reals) then K is primary (resp. real on reals)
 CONSTANT_SCOPE: none
@@ -2175,7 +2175,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
+EXTRACTOR: claude-suborch-INP+sol-review-P-imports
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -2226,9 +2226,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2252,9 +2252,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2278,9 +2278,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
