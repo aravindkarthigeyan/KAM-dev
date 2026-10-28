@@ -201,6 +201,7 @@ public import KAM.Head.TorsionRegularGeneral
 public import KAM.Head.Unperturbed
 public import KAM.Head.UnperturbedFrame
 public import KAM.Iso.Collision
+public import KAM.Iso.Confinement.Graph
 public import KAM.Iso.Confinement.Invariance
 public import KAM.Iso.Confinement.PatchConst
 public import KAM.Iso.Confinement.Position
