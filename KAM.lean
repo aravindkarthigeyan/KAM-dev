@@ -239,6 +239,7 @@ public import KAM.Measure.McShane
 public import KAM.Measure.Slab
 public import KAM.Nekhoroshev.Interfaces.ConicCoercive
 public import KAM.Nekhoroshev.Interfaces.Domains
+public import KAM.Nekhoroshev.Interfaces.HoloReal
 public import KAM.Nekhoroshev.Interfaces.Norms
 public import KAM.Nekhoroshev.Interfaces.Setting
 public import KAM.Nekhoroshev.QuasiConvex
