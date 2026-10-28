@@ -140,7 +140,7 @@ same holds for Part 8 with I-HEAD and the 6-line step in its provider.
 
 | Blueprint node | Lean declaration(s) | Module | Notes |
 |---|---|---|---|
-| `real-ham` (a) | `realHam_eq`, `realHam_contDiffOn`, `realHam_periodic` | `RealHam` | `DifferentiableOn.contDiffOn`, `ContDiffOn.comp` with `realInclusion₂`, `Complex.reCLM` |
+| `real-ham` (a) | `realHam_eq`, `realHam_contDiffOn`, `realHam_periodic` | `RealHam` | `KAM.holomorphic_regularity_of_finiteDimensional` (audit F05), `ContDiffOn.comp` with `realInclusion₂`, `Complex.reCLM` |
 | `real-ham` (b) | `realHam_field_eq` | `RealHam` | `KAM.hamiltonian_real` |
 | `real-ham` (c) | `realHam_field_contDiffOn`, `realHam_field_periodic`, `realHam_solution_iff` | `RealHam` | `ham_smooth_c1`, `ham_periodic`, `ham_reduction` |
 | `real-ham` (d) | `realHam_fderiv_bound`, `toC_pair_mem_fractD` | `RealHam` | `hD` = `bpI:p3:hypothesis-d` |
@@ -303,7 +303,7 @@ About 7,500 lines of proof plus statements.
 [ODE.Exit, ODE.Continuation, ODE.Hamiltonian, Strip.RealRestriction, Frozen.Defs.*, Frozen.Iso.Defs.*]  ← Confinement.Setting
 Setting                                  ← PatchConst, RealHam, Position
 Setting, RealHam                         ← Graph, Invariance, EnergyCoordinate
-Setting, PatchConst, RealHam, EnergyCoordinate, Position  ← Separation
+Setting, PatchConst, RealHam, EnergyCoordinate, Position, Invariance  ← Separation
 Setting, PatchConst, RealHam, Separation ← Confinement
 all of the above                         ← Confinement.Main
 [Part 3 final module (imports sealed I-G1)], Confinement.Main  ← Provider.Iso.AllTimeConfinement
@@ -340,8 +340,8 @@ after a statement audit. Hard rules for every Lean brief (verbatim):
 | P5-3 Graph | `torus_phase_*`, `torus_graph*` | `Graph` | 650 | P5-0, P5-2 | 3 | now |
 | P5-4 Invariance | `torus_flow`, `torus_invariant` | `Invariance` | 350 | P5-0, P5-2 | 3 | now |
 | P5-5 Energy coordinate | `energy_coordinate` | `EnergyCoordinate` | 300 | P5-0, P5-2 | 3 | now |
-| P5-7 Separation | `separation_*` | `Separation` | 800 | P5-1, P5-2, P5-5, P5-6 | 4 | now |
-| P5-8 Confinement | `confinement_prop` | `Confinement` | 350 | P5-1, P5-2, P5-7 | 5 | now |
+| P5-7 Separation | `separation_*` | `Separation` | 800 | P5-1, P5-2, P5-4, P5-5, P5-6 | 4 | now |
+| P5-8 Confinement | `confinement_prop` (source-facing) and `confinement_prop_of_invariant` (conditional helper) | `Confinement` | 350 | P5-1, P5-2, P5-7 | 5 | now |
 | P5-9 Main | `confinement_main_of_tori` | `Main` | 500 | P5-1 ... P5-8 | 6 | now |
 | P5-P Provider | `confinement_main`, provider | `Provider/Iso/AllTimeConfinement` | 60 | P5-9, **Part 3 final (I-G1 seal)** | after seal | **waits for I-G1** |
 
@@ -351,7 +351,7 @@ Critical path: P5-0 -> P5-2 -> P5-3/P5-5 -> P5-7 -> P5-8 -> P5-9 (6 waves). Wave
 
 | Package | Declarations | Modules | Lines | After | Wave | Status |
 |---|---|---|---|---|---|---|
-| P8-1 Collision | section K | `Iso/Collision` | 350 | (frozen defs only) | 1 | now (independent of everything) |
+| P8-1 Collision | section K | `Iso/Collision` | 350 | frozen defs and `KAM.Kepler.Plane` (proved on inp) | 1 | now |
 | P8-2 Region | section L | `R3bp/Region` | 500 | Kepler: `delaunay`, `eccOf`, `nearCircular_eq_image`, `isOpen_nearCircular` | 1 (when upstream) | upstream-gated |
 | P8-3 Safe | section M | `R3bp/Safe` | 600 | P8-2, Kepler `SafeAction`, `kRmin`, `kRhoMax` | 2 | upstream-gated |
 | P8-4 Head data | `r3bp_headData`, `r3bp_perturbData` | `R3bp/HeadData` | 350 | P8-3, P5-0, Kepler `period_one`, `nondeg_exact`, `exact_ham` | 3 | upstream-gated |
@@ -591,7 +591,7 @@ and `closure_prod_eq`).
 | Finding | Resolution |
 |---|---|
 | F01 blocking: `realHam_fderiv_bound` false without holomorphy of `f` (countermodel `f = conj(I 0)`, total `fderiv = 0`) | Added the binder `hf : PerturbData B s₀ r₀ f ε`; `hD` stays (the named Part 3 derivative bound, `ChartCover.dbound`). All callers (`energy_coordinate`, `SepSetting.perturb`) already carry `PerturbData`. |
-| F02 blocking: `min_distance` false for a negative length (`ℓ ≡ -1`) | Added `hnonneg : ∀ u, 0 ≤ ℓ u` to `min_distance` and to `collision_exclusion_compact` (same defect: the minimum over `S` could be negative); added `radius_nonneg`. |
+| F02 blocking: `min_distance` false for a negative length (`ℓ ≡ -1`) | Added `hnonneg : ∀ u, 0 ≤ ℓ u` to `min_distance` and to `collision_exclusion_compact` (defensive: its old evenness/subadditivity assumptions already implied nonnegativity, audit 2 I58R2-03; the minimum over `S` could otherwise be negative); added `radius_nonneg`. |
 | F03 major: `separation_confined`, `confinement_prop` carried the produced premise `hinv` | Renamed to `separation_confined_of_invariant`, `confinement_prop_of_invariant` (conditional helpers). New source-facing `separation_confined`, `confinement_prop` take `TorusOutput` for both tori and `range (realRestriction K_±) = graphSet Y_±`, and derive invariance inside (`torus_invariant` twice, `isInvariantSet_union`, membership `(k θ).2 ∈ B` from `GraphData.near/base_mem`, `PatchConst.thick_subset`, `Smallness.lt_r`). `confinement_main_of_tori` uses the wrapper. |
 | F04 major: `part3_tori` is a planned producer, not a discharge | Accepted as stated: `confinement_main_of_tori` is CONDITIONAL; `confinement_main` and the provider stay unproved until Part 3's `ChartCover`/`ToriExistence` producer and the I-G1 seal land (section 2 already says so; section 8.1 marks P5-P "waits"). No signature change. |
 | F05 minor: `DifferentiableOn.contDiffOn` has domain `ℂ` | Proof plan P5-2 and risk 12.1 now use `KAM.holomorphic_regularity_of_finiteDimensional` (finite-dimensional complex `E`, applies to `ℂ²×ℂ²`) and `KAM.Head.isOpen_actionNbhd`. Signatures unchanged. |
@@ -1843,3 +1843,7 @@ end KAM.Provider.Iso
 example : @KAM.Provider.Iso.all_time_confinement = @KAM.Iso.all_time_confinement := rfl
 example : @KAM.Provider.Iso.restricted_near_circular = @KAM.Iso.restricted_near_circular := rfl
 ```
+
+### Audit 2 fixes (orchestrator, 2026-10-28)
+
+I58R2-01: `Invariance` added to Separation's imports and P5-4 to P5-7's After list; both confinement helpers listed under P5-8. I58R2-02: P8-1 imports `KAM.Kepler.Plane` (proved on `inp`). I58R2-03: wording corrected (collision_exclusion_compact; regularity route in the node table). Verification gate: the unchanged signatures file elaborated to completion in the orchestrator's run (`lake env lean .drafts/design/IPart58Signatures.lean`: exit 0, 102 `declaration uses 'sorry'` warnings, nothing else).
