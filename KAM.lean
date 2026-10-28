@@ -300,6 +300,7 @@ public import KAM.Measure.McShane
 public import KAM.Measure.Slab
 public import KAM.Nekhoroshev.Interfaces.ConicCoercive
 public import KAM.Nekhoroshev.Interfaces.Constants
+public import KAM.Nekhoroshev.Interfaces.ConstantsAnalytic
 public import KAM.Nekhoroshev.Interfaces.Domains
 public import KAM.Nekhoroshev.Interfaces.Hessian
 public import KAM.Nekhoroshev.Interfaces.HoloReal
@@ -381,6 +382,7 @@ public import KAM.Weighted.Coefficients
 public import KAM.Weighted.Domains
 public import KAM.Weighted.Norm
 public import KAM.Weighted.Parametric
+public import KAM.Weighted.Projections
 public import KAM.Weighted.SupWeighted
 
 /-!
