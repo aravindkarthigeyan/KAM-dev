@@ -169,6 +169,169 @@ theorem poincare_eq_iff {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w w' : Phase 2
     rw [this]
     exact (poincare_periodic hm hκ hw k).symm
 
+section LocalDiffeo
+
+private theorem bj_sf_eq (a b : Phase 2) : symplecticForm a b =
+    (a.2 0 * b.1 0 + a.2 1 * b.1 1) - (a.1 0 * b.2 0 + a.1 1 * b.2 1) := by
+  simp [symplecticForm, Fin.sum_univ_two]
+
+/-- Nondegeneracy of the symplectic form in the first argument. -/
+private theorem bj_eq_zero_of_sf {u : Phase 2} (h : ∀ v, symplecticForm u v = 0) : u = 0 := by
+  have h0 : u.2 0 = 0 := by simpa [bj_sf_eq] using h ((![1, 0], ![0, 0]) : Phase 2)
+  have h1 : u.2 1 = 0 := by simpa [bj_sf_eq] using h ((![0, 1], ![0, 0]) : Phase 2)
+  have h2 : u.1 0 = 0 := by simpa [bj_sf_eq] using h ((![0, 0], ![1, 0]) : Phase 2)
+  have h3 : u.1 1 = 0 := by simpa [bj_sf_eq] using h ((![0, 0], ![0, 1]) : Phase 2)
+  refine Prod.ext (funext fun i => ?_) (funext fun i => ?_) <;> fin_cases i <;> simp [*]
+
+/-- `D poincare` is invertible on `𝒪`: a symplectic endomorphism of the finite-dimensional space
+`Phase 2` is injective (nondegeneracy), hence bijective. -/
+private theorem bj_fderiv_equiv {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2}
+    (hw : w ∈ poincareDom) :
+    ∃ A : Phase 2 ≃L[ℝ] Phase 2, (A : Phase 2 →L[ℝ] Phase 2) = fderiv ℝ (poincare m κ) w := by
+  have hs := poincare_symplectic hm hκ w hw
+  set A := fderiv ℝ (poincare m κ) w with hA
+  have hker : LinearMap.ker (A : Phase 2 →ₗ[ℝ] Phase 2) = ⊥ := by
+    rw [LinearMap.ker_eq_bot']
+    intro u hu
+    refine bj_eq_zero_of_sf fun v => ?_
+    have := hs u v
+    rw [one_mul] at this
+    rw [← this]
+    have hu' : A u = 0 := hu
+    rw [hu']
+    simp [bj_sf_eq]
+  have hinj : Function.Injective (A : Phase 2 →ₗ[ℝ] Phase 2) := LinearMap.ker_eq_bot.1 hker
+  have hsurj : Function.Surjective (A : Phase 2 →ₗ[ℝ] Phase 2) :=
+    LinearMap.injective_iff_surjective.1 hinj
+  refine ⟨ContinuousLinearEquiv.ofBijective A hker ?_, ?_⟩
+  · exact LinearMap.range_eq_top.2 hsurj
+  · exact ContinuousLinearMap.ext fun z => rfl
+
+theorem poincare_localDiffeo {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2}
+    (hw : w ∈ poincareDom) :
+    ∃ φ : OpenPartialHomeomorph (Phase 2) (Phase 2), w ∈ φ.source ∧
+      (φ : Phase 2 → Phase 2) = poincare m κ ∧ AnalyticOnNhd ℝ φ.symm φ.target := by
+  have hana := analyticOnNhd_poincare hm hκ
+  obtain ⟨A, hA⟩ := bj_fderiv_equiv hm hκ hw
+  have hc : ContDiffAt ℝ ω (poincare m κ) w := (hana w hw).contDiffAt
+  have hf' : HasFDerivAt (poincare m κ) (A : Phase 2 →L[ℝ] Phase 2) w := by
+    rw [hA]; exact (hana w hw).differentiableAt.hasFDerivAt
+  have hn : (ω : WithTop ℕ∞) ≠ 0 := by simp
+  let φ0 := hc.toOpenPartialHomeomorph (poincare m κ) hf' hn
+  let φ := φ0.restrOpen poincareDom isOpen_poincareDom
+  have hcoe : (φ : Phase 2 → Phase 2) = poincare m κ := rfl
+  refine ⟨φ, ⟨hc.mem_toOpenPartialHomeomorph_source hf' hn, hw⟩, hcoe, ?_⟩
+  intro y hy
+  have hxs : φ.symm y ∈ φ.source := φ.map_target hy
+  have hx : φ.symm y ∈ poincareDom := hxs.2
+  obtain ⟨B, hB⟩ := bj_fderiv_equiv hm hκ hx
+  have hB' : HasFDerivAt φ (B : Phase 2 →L[ℝ] Phase 2) (φ.symm y) := by
+    rw [hcoe, hB]
+    exact (hana _ hx).differentiableAt.hasFDerivAt
+  have hcd : ContDiffAt ℝ ω φ (φ.symm y) := by
+    rw [hcoe]; exact (hana _ hx).contDiffAt
+  exact (φ.contDiffAt_symm hy hB' hcd).analyticAt
+
+end LocalDiffeo
+
+section Surjective
+
+private theorem bj_planeSq (v : Fin 2 → ℝ) : planeSq v = v 0 ^ 2 + v 1 ^ 2 := by
+  simp [planeSq, Fin.sum_univ_two]
+
+/-- Points of `𝒦` with `C < Λ` are hit through `Γ > 0` (the Delaunay chart). -/
+private theorem bj_surj_lt {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {z : Phase 2}
+    (hz : z ∈ regionMK m κ) (hlt : planeCross z.1 z.2 < actionMK m κ z) :
+    ∃ w ∈ poincareDom, poincare m κ w = z := by
+  obtain ⟨y, hy, rfl⟩ := (delaunayMK_image hm hκ).symm.subset (show z ∈ _ from ⟨hz, hlt⟩)
+  obtain ⟨hy1, hy2⟩ := hy
+  set Γ := y.2 0 - y.2 1 with hΓdef
+  have hΓ : 0 < Γ := by simp only [hΓdef]; linarith
+  have hρ2 : √(2 * Γ) ^ 2 = 2 * Γ := Real.sq_sqrt (by linarith)
+  set w : Phase 2 := (![y.1 0 + y.1 1, √(2 * Γ) * Real.cos (y.1 1)],
+    ![y.2 0, √(2 * Γ) * Real.sin (y.1 1)]) with hw
+  have hGw : poincareGamma w = Γ := by
+    simp only [poincareGamma, hw, Matrix.cons_val_one, Matrix.cons_val_zero]
+    nlinarith [Real.cos_sq_add_sin_sq (y.1 1)]
+  have hwd : w ∈ poincareDom := by
+    refine ⟨?_, ?_⟩
+    · show 0 < y.2 0
+      linarith
+    · rw [hGw]; show Γ < y.2 0
+      simp only [hΓdef]; linarith
+  refine ⟨w, hwd, ?_⟩
+  have h := poincare_eq_delaunayMK hm hκ (lam := y.1 0 + y.1 1) (Λ := y.2 0) (Γ := Γ)
+    (g := y.1 1) hΓ (by simp only [hΓdef]; linarith)
+  rw [show w = ((![y.1 0 + y.1 1, √(2 * Γ) * Real.cos (y.1 1)] : Fin 2 → ℝ),
+    (![y.2 0, √(2 * Γ) * Real.sin (y.1 1)] : Fin 2 → ℝ)) from rfl, h]
+  congr 1
+  refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i <;> simp [hΓdef]
+
+/-- Points of `𝒦` with `C = Λ` lie on the circular torus. -/
+private theorem bj_surj_eq {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {z : Phase 2}
+    (hz : z ∈ regionMK m κ) (heq : planeCross z.1 z.2 = actionMK m κ z) :
+    ∃ w ∈ poincareDom, poincare m κ w = z := by
+  obtain ⟨hd, hr⟩ := (cross_eq_action_iff hm hκ hz).1 heq
+  obtain ⟨hr0, hE, hc0⟩ := hz
+  set r := planeLength z.1 with hrdef
+  set Λ := actionMK m κ z with hΛdef
+  have hcr : z.1 0 * z.2 1 - z.1 1 * z.2 0 = Λ := heq
+  have hd' : z.1 0 * z.2 0 + z.1 1 * z.2 1 = 0 := by
+    simpa [planeDot, Fin.sum_univ_two] using hd
+  have hΛpos : 0 < Λ := by rw [← heq]; exact hc0
+  have hΛsq : Λ ^ 2 = m ^ 2 * κ * r := by
+    have : 0 ≤ κ * axisMK m κ z := by rw [← hr]; positivity
+    rw [hΛdef]; unfold actionMK
+    rw [mul_pow, Real.sq_sqrt this, hr]; ring
+  have hr2 : r ^ 2 = z.1 0 ^ 2 + z.1 1 ^ 2 := by
+    rw [hrdef, planeLength_sq, bj_planeSq]
+  obtain ⟨θ, hθ0, hθ1⟩ := bj_polar (z.1 0) (z.1 1)
+  have hrθ : √(z.1 0 ^ 2 + z.1 1 ^ 2) = r := by rw [← hr2]; exact Real.sqrt_sq hr0.le
+  rw [hrθ] at hθ0 hθ1
+  refine ⟨((![θ, 0] : Fin 2 → ℝ), (![Λ, 0] : Fin 2 → ℝ)), ⟨hΛpos, ?_⟩, ?_⟩
+  · simp [poincareGamma, hΛpos]
+  rw [poincare_circular hm hκ hΛpos]
+  have hA : Λ ^ 2 / (m ^ 2 * κ) = r := by field_simp; linarith
+  have hs : m * √(κ / r) = Λ / r := by
+    have : κ / r = (Λ / (m * r)) ^ 2 := by field_simp; linarith
+    rw [this, Real.sqrt_sq (by positivity)]
+    field_simp
+  rw [hA]
+  rw [hs]
+  have hp0 : z.2 0 * r ^ 2 = -(z.1 1 * Λ) := by
+    rw [hr2]; linear_combination z.1 0 * hd' - z.1 1 * hcr
+  have hp1 : z.2 1 * r ^ 2 = z.1 0 * Λ := by
+    rw [hr2]; linear_combination z.1 1 * hd' + z.1 0 * hcr
+  refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i
+  · simp [hθ0]
+  · simp [hθ1]
+  · simp only [Fin.zero_eta, Pi.smul_apply, Matrix.cons_val_zero, smul_eq_mul]
+    rw [hθ1] at hp0
+    rw [div_mul_eq_mul_div, div_eq_iff hr0.ne']
+    exact mul_left_cancel₀ hr0.ne' (by linear_combination (-1 : ℝ) * hp0)
+  · simp only [Fin.mk_one, Pi.smul_apply, Matrix.cons_val_one, smul_eq_mul]
+    show Λ / r * Real.cos θ = z.2 1
+    rw [hθ0] at hp1
+    rw [div_mul_eq_mul_div, div_eq_iff hr0.ne']
+    exact mul_left_cancel₀ hr0.ne' (by linear_combination (-1 : ℝ) * hp1)
+
+private theorem bj_surj {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {z : Phase 2}
+    (hz : z ∈ regionMK m κ) : ∃ w ∈ poincareDom, poincare m κ w = z := by
+  rcases (cross_le_action hm hκ hz).lt_or_eq with h | h
+  · exact bj_surj_lt hm hκ hz h
+  · exact bj_surj_eq hm hκ hz h
+
+theorem poincare_image {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) :
+    poincare m κ '' poincareDom = regionMK m κ := by
+  refine Set.Subset.antisymm ?_ ?_
+  · rintro _ ⟨w, hw, rfl⟩
+    exact (poincare_elements hm hκ hw).1
+  · intro z hz
+    obtain ⟨w, hw, hwz⟩ := bj_surj hm hκ hz
+    exact ⟨w, hw, hwz⟩
+
+end Surjective
+
 end PoincareBijective
 
 end KAM.Planetary
