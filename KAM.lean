@@ -207,6 +207,7 @@ public import KAM.Iso.Confinement.Invariance
 public import KAM.Iso.Confinement.PatchConst
 public import KAM.Iso.Confinement.Position
 public import KAM.Iso.Confinement.RealHam
+public import KAM.Iso.Confinement.Separation
 public import KAM.Iso.Confinement.Setting
 public import KAM.Iso.Conversion
 public import KAM.Iso.Kepler
@@ -232,6 +233,9 @@ public import KAM.Measure.Lipeo
 public import KAM.Measure.Lipschitz
 public import KAM.Measure.McShane
 public import KAM.Measure.Slab
+public import KAM.Nekhoroshev.Interfaces.Domains
+public import KAM.Nekhoroshev.Interfaces.Norms
+public import KAM.Nekhoroshev.Interfaces.Setting
 public import KAM.Nekhoroshev.QuasiConvex
 public import KAM.Nekhoroshev.ZeroPerturbation
 public import KAM.ODE.Basic
