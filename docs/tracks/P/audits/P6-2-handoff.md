@@ -1,0 +1,6 @@
+# P6-2 prover handoff (branch inp-p62, 983a526; offloaded package run by the main orchestrator)
+
+File KAM/Planetary/Newtonian/Barycentric.lean (113 lines, namespace KAM.Planetary). Node bary-algebra (blueprint-P p6-newtonian-models.tex):
+barycentricPositions_succ_sub_zero, barycentricPositions_succ_sub_succ, barycentricPositions_zero, barycentricVelocities_zero, barycentricVelocities_succ, barycentricVelocities_succ_sub_zero, sum_actualMasses_smul_barycentricPositions, sum_actualMasses_smul_barycentricVelocities, planeLength_barycentricPositions_zero_le.
+Prover: statements token-identical to /root/code/KAM-inp-design-kep/.drafts/design/KeplerSignaturesP.lean L151–172; imports KAM.Kepler.Plane + frozen ActualMasses, BarycentricPositions, BarycentricVelocities, BodyVector. hm0 unused in barycentricVelocities_succ_sub_zero (kept, signature fixed). KAM.lean not regenerated (expected lint "out of date").
+AUDIT FOCUS (design docs/tracks/P/design/KEPLER-LEAN-DESIGN.md §2.3, §7 row P6-2, decision D5): (1) each statement = the blueprint bary-algebra items with the frozen definitions (sign conventions, masses, the length bound's constant); (2) the D5 sign-condition drops are genuine strengthenings; (3) proofs do not rely on division-by-zero junk in a way that changes meaning; (4) hygiene; no frozen theorem/provider imported.

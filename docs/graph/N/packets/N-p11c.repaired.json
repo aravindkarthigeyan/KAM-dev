@@ -4,6 +4,8 @@
  "items": [],
  "unresolved": {},
  "passes": [
-  "stepN:p11:rs-red"
+  "stepN:p11:ef-en",
+  "stepN:p11:ef-en-taylor",
+  "stepN:p11:ef-en-split"
  ]
 }

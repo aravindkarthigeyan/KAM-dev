@@ -364,8 +364,8 @@ SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206
 DISPOSITION: NODE stepN:p1:nc-decay
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta2-N-a
+EXTRACTOR: sonnet-extract-N-p1+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: stepN:p1:nc-sum
 KIND: proof-region
@@ -373,8 +373,8 @@ SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208
 DISPOSITION: NODE stepN:p1:nc-sum
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta-N-a
+EXTRACTOR: sonnet-extract-N-p1+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: bpN:p1:constants
 KIND: lemma

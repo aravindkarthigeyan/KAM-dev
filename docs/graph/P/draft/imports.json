@@ -1,0 +1,1271 @@
+{
+ "I:bpI:p7:chart": {
+  "owner": "I",
+  "target": "bpI:p7:chart",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:chart}"
+  ],
+  "candidate_users": [
+   "stepP:p7:ke-chart",
+   "stepP:p7:po-bij"
+  ],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:circular": {
+  "owner": "I",
+  "target": "bpI:p7:circular",
+  "status": "excluded",
+  "info": "EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)",
+  "cited": [
+   "\\Iref{bpI:p7:circular}"
+  ],
+  "candidate_users": [
+   "bpP:p7:kepler",
+   "stepP:p7:av-cov",
+   "stepP:p7:ke-c",
+   "stepP:p7:po-el"
+  ],
+  "source_fields": "to be filled from blueprint-I/parts/p7-delaunay.tex"
+ },
+ "I:bpI:p7:elements": {
+  "owner": "I",
+  "target": "bpI:p7:elements",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:elements}"
+  ],
+  "candidate_users": [
+   "stepP:p7:ke-chart"
+  ],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:kepler-eq": {
+  "owner": "I",
+  "target": "bpI:p7:kepler-eq",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:kepler-eq}"
+  ],
+  "candidate_users": [
+   "bpP:p7:ho-rem",
+   "bpP:p7:kepler",
+   "bpP:p7:regular-kepler"
+  ],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:means": {
+  "owner": "I",
+  "target": "bpI:p7:means",
+  "status": "excluded",
+  "info": "EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)",
+  "cited": [
+   "\\Iref{bpI:p7:means}"
+  ],
+  "candidate_users": [
+   "stepP:p7:ke-c"
+  ],
+  "source_fields": "to be filled from blueprint-I/parts/p7-delaunay.tex"
+ },
+ "I:bpI:p7:orbit-identities": {
+  "owner": "I",
+  "target": "bpI:p7:orbit-identities",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:orbit-identities}"
+  ],
+  "candidate_users": [
+   "stepP:p7:ke-b",
+   "stepP:p7:po-el",
+   "stepP:p8:qf-diag"
+  ],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:orbit-maps": {
+  "owner": "I",
+  "target": "bpI:p7:orbit-maps",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:orbit-maps}"
+  ],
+  "candidate_users": [
+   "bpP:p7:kepler",
+   "stepP:p7:po-del"
+  ],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:orbit-maps-e": {
+  "owner": "I",
+  "target": "bpI:p7:orbit-maps-e",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:orbit-maps-e}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:scaling": {
+  "owner": "I",
+  "target": "bpI:p7:scaling",
+  "status": "excluded",
+  "info": "EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg)",
+  "cited": [
+   "\\Iref{bpI:p7:scaling}"
+  ],
+  "candidate_users": [
+   "bpP:p6:kepler-part",
+   "bpP:p7:kepler",
+   "bpP:p7:kepler-data",
+   "stepP:p7:rg-scale"
+  ],
+  "source_fields": "to be filled from blueprint-I/parts/p7-delaunay.tex"
+ },
+ "I:bpI:p7:symplectic": {
+  "owner": "I",
+  "target": "bpI:p7:symplectic",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:symplectic}"
+  ],
+  "candidate_users": [
+   "stepP:p7:ke-form"
+  ],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:x-change": {
+  "owner": "I",
+  "target": "bpI:p7:x-change",
+  "status": "excluded",
+  "info": "EXCLUDED in the I graph: outside every root closure; cited by track P: used only by Proposition means (step mv-cv), which no track-I root consumes (checked: no reference from Parts 0-3, 5, 8 or from any root-feeding node of Part 7)",
+  "cited": [
+   "\\Iref{bpI:p7:x-change}"
+  ],
+  "candidate_users": [],
+  "source_fields": "to be filled from blueprint-I/parts/p7-delaunay.tex"
+ },
+ "I:bpI:p7:x-forms": {
+  "owner": "I",
+  "target": "bpI:p7:x-forms",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:x-forms}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:x-hol": {
+  "owner": "I",
+  "target": "bpI:p7:x-hol",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:x-hol}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:x-param": {
+  "owner": "I",
+  "target": "bpI:p7:x-param",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:x-param}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p7:x-weier": {
+  "owner": "I",
+  "target": "bpI:p7:x-weier",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p7:x-weier}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p8:collision-exclusion": {
+  "owner": "I",
+  "target": "bpI:p8:collision-exclusion",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{bpI:p8:collision-exclusion}"
+  ],
+  "candidate_users": [
+   "bpP:p6:vs-I"
+  ],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "I:bpI:p8:min-distance": {
+  "owner": "I",
+  "target": "bpI:p8:min-distance",
+  "status": "excluded",
+  "info": "EXCLUDED in the I graph: outside every root closure; cited by track P (SPEC ruling). Checked: no \\ref{bpI:p8:min-distance} in Parts 0-8 and no I-R3BP proof step uses it (pf-dist uses shell-exclusion only); track P's graph owns it",
+  "cited": [
+   "\\Iref{bpI:p8:min-distance}"
+  ],
+  "candidate_users": [
+   "bpP:p6:vs-I"
+  ],
+  "source_fields": "to be filled from blueprint-I/parts/p8-r3bp.tex"
+ },
+ "I:stepI:p7:ke-trig": {
+  "owner": "I",
+  "target": "stepI:p7:ke-trig",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Iref{stepI:p7:ke-trig}"
+  ],
+  "candidate_users": [
+   "stepP:p7:rk-contr"
+  ],
+  "source_fields": "copied from docs/graph/I/DEPGRAPH.md"
+ },
+ "K:bp:p1:cauchy-open": {
+  "owner": "K",
+  "target": "bp:p1:cauchy-open",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:cauchy-open}"
+  ],
+  "candidate_users": [
+   "bpP:p5:lip-complex",
+   "stepP:p3:inv-err",
+   "stepP:p3:inv-lim",
+   "stepP:p3:ls-close",
+   "stepP:p3:st-dg",
+   "stepP:p5:ext-H0"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:decay": {
+  "owner": "K",
+  "target": "bp:p1:decay",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:decay}"
+  ],
+  "candidate_users": [
+   "bpP:p5:consts"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-banach": {
+  "owner": "K",
+  "target": "bp:p1:ext-banach",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-banach}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-cramer": {
+  "owner": "K",
+  "target": "bp:p1:ext-cramer",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-cramer}"
+  ],
+  "candidate_users": [
+   "bpP:p4:beta-inverse"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-fourier": {
+  "owner": "K",
+  "target": "bp:p1:ext-fourier",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-fourier}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-lebesgue": {
+  "owner": "K",
+  "target": "bp:p1:ext-lebesgue",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-lebesgue}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-mvt": {
+  "owner": "K",
+  "target": "bp:p1:ext-mvt",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-mvt}"
+  ],
+  "candidate_users": [
+   "bpP:p5:lip-complex",
+   "stepP:p2:sp-int",
+   "stepP:p3:st-nonres"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:ext-rectangle": {
+  "owner": "K",
+  "target": "bp:p1:ext-rectangle",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:ext-rectangle}"
+  ],
+  "candidate_users": [
+   "stepP:p3:fc-decay"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:hamiltonian-real": {
+  "owner": "K",
+  "target": "bp:p1:hamiltonian-real",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:hamiltonian-real}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:holomorphic-analytic": {
+  "owner": "K",
+  "target": "bp:p1:holomorphic-analytic",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:holomorphic-analytic}"
+  ],
+  "candidate_users": [
+   "bpP:p1:hol-chart"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:lip-image": {
+  "owner": "K",
+  "target": "bp:p1:lip-image",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:lip-image}"
+  ],
+  "candidate_users": [
+   "bpP:p5:dio-one",
+   "stepP:p1:li-meas",
+   "stepP:p1:tu-bounds",
+   "stepP:p1:tu-meas",
+   "stepP:p3:ma-meas",
+   "stepP:p3:mt-meas",
+   "stepP:p4:dm-y"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:mcshane": {
+  "owner": "K",
+  "target": "bp:p1:mcshane",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:mcshane}"
+  ],
+  "candidate_users": [
+   "bpP:p5:dio-one",
+   "stepP:p1:tu-ext",
+   "stepP:p3:cv-ext"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:real-restriction": {
+  "owner": "K",
+  "target": "bp:p1:real-restriction",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:real-restriction}"
+  ],
+  "candidate_users": [
+   "bpP:p1:hol-chart",
+   "stepP:p7:ho-hol"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p1:uniform-limits": {
+  "owner": "K",
+  "target": "bp:p1:uniform-limits",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p1:uniform-limits}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p4:cover-mono": {
+  "owner": "K",
+  "target": "bp:p4:cover-mono",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p4:cover-mono}"
+  ],
+  "candidate_users": [
+   "bpP:p4:lemma-3-1"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p4:dyadic-approx": {
+  "owner": "K",
+  "target": "bp:p4:dyadic-approx",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p4:dyadic-approx}"
+  ],
+  "candidate_users": [
+   "bpP:p4:lemma-3-1"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p4:lattice-count": {
+  "owner": "K",
+  "target": "bp:p4:lattice-count",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p4:lattice-count}"
+  ],
+  "candidate_users": [
+   "bpP:p4:lemma-3-1",
+   "stepP:p4:lt-b"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p4:lattice-sum": {
+  "owner": "K",
+  "target": "bp:p4:lattice-sum",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p4:lattice-sum}"
+  ],
+  "candidate_users": [
+   "bpP:p4:lemma-3-1",
+   "stepP:p4:lt-a"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p4:preimage-measure": {
+  "owner": "K",
+  "target": "bp:p4:preimage-measure",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p4:preimage-measure}"
+  ],
+  "candidate_users": [
+   "bpP:p4:lemma-3-1"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "K:bp:p4:slab": {
+  "owner": "K",
+  "target": "bp:p4:slab",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Kref{bp:p4:slab}"
+  ],
+  "candidate_users": [
+   "bpP:p4:affine-slab",
+   "bpP:p4:lemma-3-1"
+  ],
+  "source_fields": "copied from docs/graph/K/DEPGRAPH.md"
+ },
+ "N:bpN:p0:partial": {
+  "owner": "N",
+  "target": "bpN:p0:partial",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p0:partial}"
+  ],
+  "candidate_users": [
+   "stepP:p14:st-bwd",
+   "stepP:p14:st-fwd",
+   "stepP:p14:st-thr"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p0:partial-domain#partialComplexDomain": {
+  "owner": "N",
+  "target": "bpN:p0:partial-domain#partialComplexDomain",
+  "status": "node",
+  "info": "split definition nodes",
+  "cited": [
+   "\\Nref{bpN:p0:partial-domain}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p0:partial-exponents#partialDriftExponent": {
+  "owner": "N",
+  "target": "bpN:p0:partial-exponents#partialDriftExponent",
+  "status": "node",
+  "info": "split definition nodes",
+  "cited": [
+   "\\Nref{bpN:p0:partial-exponents}"
+  ],
+  "candidate_users": [
+   "bpP:p14:index",
+   "stepP:p14:st-thr"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p0:partial-exponents#partialTimeExponent": {
+  "owner": "N",
+  "target": "bpN:p0:partial-exponents#partialTimeExponent",
+  "status": "node",
+  "info": "split definition nodes",
+  "cited": [
+   "\\Nref{bpN:p0:partial-exponents}"
+  ],
+  "candidate_users": [
+   "bpP:p14:index",
+   "stepP:p14:st-thr"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-confinement": {
+  "owner": "N",
+  "target": "bpN:p3:gen-confinement",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-confinement}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-continuation": {
+  "owner": "N",
+  "target": "bpN:p3:gen-continuation",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-continuation}"
+  ],
+  "candidate_users": [
+   "stepP:p11b:fl-bd",
+   "stepP:p14:li-cont"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-continuation-compact": {
+  "owner": "N",
+  "target": "bpN:p3:gen-continuation-compact",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-continuation-compact}"
+  ],
+  "candidate_users": [
+   "bpP:p14:moving-ode",
+   "bpP:p14:sb-global",
+   "bpP:p14:sb-slow",
+   "stepP:p14:amd-cont",
+   "stepP:p14:sb-sl-5"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-exit": {
+  "owner": "N",
+  "target": "bpN:p3:gen-exit",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-exit}"
+  ],
+  "candidate_users": [
+   "bpP:p14:moving-ode",
+   "stepP:p14:amd-bwd",
+   "stepP:p14:amd-fwd"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-lip": {
+  "owner": "N",
+  "target": "bpN:p3:gen-lip",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-lip}"
+  ],
+  "candidate_users": [
+   "stepP:p14:ud-cell"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-maximal": {
+  "owner": "N",
+  "target": "bpN:p3:gen-maximal",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-maximal}"
+  ],
+  "candidate_users": [
+   "bpP:p14:moving-ode",
+   "bpP:p14:sb-global",
+   "bpP:p14:sb-unique",
+   "stepP:p14:amd-max",
+   "stepP:p14:li-max",
+   "stepP:p14:sb-sl-2"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-sol": {
+  "owner": "N",
+  "target": "bpN:p3:gen-sol",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-sol}"
+  ],
+  "candidate_users": [
+   "bpP:p14:moving-ode",
+   "bpP:p14:sb-global",
+   "bpP:p14:sb-pred"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-symmetry": {
+  "owner": "N",
+  "target": "bpN:p3:gen-symmetry",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-symmetry}"
+  ],
+  "candidate_users": [
+   "stepP:p14:amd-bwd",
+   "stepP:p14:mo-eq"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-uniform-compact": {
+  "owner": "N",
+  "target": "bpN:p3:gen-uniform-compact",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-uniform-compact}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:gen-uniqueness": {
+  "owner": "N",
+  "target": "bpN:p3:gen-uniqueness",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:gen-uniqueness}"
+  ],
+  "candidate_users": [
+   "bpP:p14:moving-ode",
+   "bpP:p14:sb-unique",
+   "bpP:p1:torus-orbit",
+   "stepP:p11b:fl-an",
+   "stepP:p14:amd-a",
+   "stepP:p14:li-proj",
+   "stepP:p14:sb-un-2"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:ham-energy": {
+  "owner": "N",
+  "target": "bpN:p3:ham-energy",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:ham-energy}"
+  ],
+  "candidate_users": [
+   "bpP:p1:torus-orbit"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:ham-periodic": {
+  "owner": "N",
+  "target": "bpN:p3:ham-periodic",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:ham-periodic}"
+  ],
+  "candidate_users": [
+   "stepP:p14:li-max"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:ham-reduction": {
+  "owner": "N",
+  "target": "bpN:p3:ham-reduction",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:ham-reduction}"
+  ],
+  "candidate_users": [
+   "bpP:p14:sb-field",
+   "stepP:p14:sb-pr-2"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:ham-smooth": {
+  "owner": "N",
+  "target": "bpN:p3:ham-smooth",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:ham-smooth}"
+  ],
+  "candidate_users": [
+   "bpP:p14:sb-pred",
+   "bpP:p14:sb-smooth-prop",
+   "bpP:p1:torus-orbit",
+   "stepP:p14:mo-reg",
+   "stepP:p14:sb-pr-1",
+   "stepP:p14:sb-sl-1"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:local-exist": {
+  "owner": "N",
+  "target": "bpN:p3:local-exist",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p3:local-exist}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p3:newton-continuation": {
+  "owner": "N",
+  "target": "bpN:p3:newton-continuation",
+  "status": "excluded",
+  "info": "EXCLUDED in the N graph: outside every root closure; owned by the importing graph (track I/P): used by no track-N proof (only the excluded remark gen-uniform-remark and the label index mention it); track P cites it; check: grep of blueprint-N/parts/p0..p11c for the label (and \\Nref uses) found no consumer in a proof of a track-N root closure",
+  "cited": [
+   "\\Nref{bpN:p3:newton-continuation}"
+  ],
+  "candidate_users": [],
+  "source_fields": "to be filled from blueprint-N/parts/p3-hamiltonian-ode.tex"
+ },
+ "N:bpN:p3:newton-reduction": {
+  "owner": "N",
+  "target": "bpN:p3:newton-reduction",
+  "status": "excluded",
+  "info": "EXCLUDED in the N graph: outside every root closure; owned by the importing graph (track I/P): used only by newton-continuation inside Part 3, and by tracks I and P (bpI:p7:ham-eq, stepI:p7:he-sol, stepI:p8:pf-uniq; track P cites \\Nref); check: grep of blueprint-N/parts/p0..p11c for the label (and \\Nref uses) found no consumer in a proof of a track-N root closure",
+  "cited": [
+   "\\Nref{bpN:p3:newton-reduction}"
+  ],
+  "candidate_users": [
+   "bpP:p1:newton-transfer",
+   "bpP:p6:units"
+  ],
+  "source_fields": "to be filled from blueprint-N/parts/p3-hamiltonian-ode.tex"
+ },
+ "N:bpN:p4:algebra": {
+  "owner": "N",
+  "target": "bpN:p4:algebra",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p4:algebra}"
+  ],
+  "candidate_users": [
+   "stepP:p2:ob-prod"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p4:bracket": {
+  "owner": "N",
+  "target": "bpN:p4:bracket",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p4:bracket}"
+  ],
+  "candidate_users": [
+   "stepP:p2:dr-use",
+   "stepP:p2:oi-transfer"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p4:cauchy": {
+  "owner": "N",
+  "target": "bpN:p4:cauchy",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p4:cauchy}"
+  ],
+  "candidate_users": [
+   "stepP:p2:ob-der"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p4:coefficients": {
+  "owner": "N",
+  "target": "bpN:p4:coefficients",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p4:coefficients}"
+  ],
+  "candidate_users": [
+   "stepP:p2:sp-coef"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p4:dictionary": {
+  "owner": "N",
+  "target": "bpN:p4:dictionary",
+  "status": "excluded",
+  "info": "EXCLUDED in the N graph: administrative remark (comparison with Pöschel's normalisation; track P/I cite it): no track-N proof consumes it as a result; cited only in \\source/'see Remark' pointers (sup-weighted L91, cauchy L129) and in Part 6 L13 / Part 7 Remark p7:dictionary L277 notation/dictionary paragraphs whose arithmetic is stated 'redone in our variables, not dependent on either dictionary'; checked by grep of blueprint-N/parts for p4:dictionary; owned by the importing graph",
+  "cited": [
+   "\\Nref{bpN:p4:dictionary}"
+  ],
+  "candidate_users": [],
+  "source_fields": "to be filled from blueprint-N/parts/p4-weighted-norms.tex"
+ },
+ "N:bpN:p4:domains": {
+  "owner": "N",
+  "target": "bpN:p4:domains",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p4:domains}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p4:norm": {
+  "owner": "N",
+  "target": "bpN:p4:norm",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p4:norm}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p4:projections": {
+  "owner": "N",
+  "target": "bpN:p4:projections",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p4:projections}"
+  ],
+  "candidate_users": [
+   "stepP:p2:nfb-ind"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p4:sup-weighted": {
+  "owner": "N",
+  "target": "bpN:p4:sup-weighted",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p4:sup-weighted}"
+  ],
+  "candidate_users": [
+   "bpP:p2:diff",
+   "bpP:p5:consts",
+   "stepP:p2:nfb-concl",
+   "stepP:p5:kh-f"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:adjoint": {
+  "owner": "N",
+  "target": "bpN:p5:adjoint",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:adjoint}"
+  ],
+  "candidate_users": [
+   "stepP:p2:oi-transfer"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:canonical": {
+  "owner": "N",
+  "target": "bpN:p5:canonical",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:canonical}"
+  ],
+  "candidate_users": [
+   "bpP:p1:vs-N",
+   "stepP:p11b:lm-prop",
+   "stepP:p2:oi-transfer",
+   "stepP:p3:inv-lim"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:canonical-map": {
+  "owner": "N",
+  "target": "bpN:p5:canonical-map",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:canonical-map}"
+  ],
+  "candidate_users": [
+   "stepP:p2:dr-use",
+   "stepP:p2:oi-transfer",
+   "stepP:p2:sp-field"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:composition": {
+  "owner": "N",
+  "target": "bpN:p5:composition",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:composition}"
+  ],
+  "candidate_users": [
+   "stepP:p2:dr-use",
+   "stepP:p2:oi-range",
+   "stepP:p2:oi-transfer"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:composition-integral": {
+  "owner": "N",
+  "target": "bpN:p5:composition-integral",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:composition-integral}"
+  ],
+  "candidate_users": [
+   "stepP:p2:oi-ratio"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:flow": {
+  "owner": "N",
+  "target": "bpN:p5:flow",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:flow}"
+  ],
+  "candidate_users": [
+   "stepP:p2:dr-use",
+   "stepP:p2:oi-transfer",
+   "stepP:p2:sp-field"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:lie-derivative": {
+  "owner": "N",
+  "target": "bpN:p5:lie-derivative",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:lie-derivative}"
+  ],
+  "candidate_users": [
+   "stepP:p11b:li-tay"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:setting": {
+  "owner": "N",
+  "target": "bpN:p5:setting",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:setting}"
+  ],
+  "candidate_users": [
+   "stepP:p2:sp-field"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:symplectic": {
+  "owner": "N",
+  "target": "bpN:p5:symplectic",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:symplectic}"
+  ],
+  "candidate_users": [
+   "bpP:p1:vs-N",
+   "stepP:p11b:lm-prop",
+   "stepP:p2:oi-transfer",
+   "stepP:p3:inv-conj",
+   "stepP:p3:inv-lim"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:taylor": {
+  "owner": "N",
+  "target": "bpN:p5:taylor",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:taylor}"
+  ],
+  "candidate_users": [
+   "stepP:p11b:li-tay"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:transform": {
+  "owner": "N",
+  "target": "bpN:p5:transform",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:transform}"
+  ],
+  "candidate_users": [
+   "stepP:p2:dr-use",
+   "stepP:p2:oi-ratio",
+   "stepP:p2:oi-transfer"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p5:vf-bound": {
+  "owner": "N",
+  "target": "bpN:p5:vf-bound",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p5:vf-bound}"
+  ],
+  "candidate_users": [
+   "stepP:p2:ob-field",
+   "stepP:p2:oi-transfer",
+   "stepP:p2:sp-field"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p6:deviations": {
+  "owner": "N",
+  "target": "bpN:p6:deviations",
+  "status": "excluded",
+  "info": "EXCLUDED in the N graph: administrative remark (deviations from Pöschel, bookkeeping); no proof consumes a fact it states (its (1)-(5) restate facts proved in the cited steps)",
+  "cited": [
+   "\\Nref{bpN:p6:deviations}"
+  ],
+  "candidate_users": [
+   "bpP:p2:nums"
+  ],
+  "source_fields": "to be filled from blueprint-N/parts/p6-normal-form.tex"
+ },
+ "N:bpN:p6:divisor": {
+  "owner": "N",
+  "target": "bpN:p6:divisor",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p6:divisor}"
+  ],
+  "candidate_users": [
+   "stepP:p2:dr-use"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p6:ext-numerics": {
+  "owner": "N",
+  "target": "bpN:p6:ext-numerics",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p6:ext-numerics}"
+  ],
+  "candidate_users": [],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p6:homological": {
+  "owner": "N",
+  "target": "bpN:p6:homological",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p6:homological}"
+  ],
+  "candidate_users": [
+   "bpP:p2:direct",
+   "stepP:p2:dr-use",
+   "stepP:p2:oi-transfer",
+   "stepP:p2:sp-coef"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p6:iterative": {
+  "owner": "N",
+  "target": "bpN:p6:iterative",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p6:iterative}"
+  ],
+  "candidate_users": [
+   "bpP:p2:direct",
+   "bpP:p2:osc-iter",
+   "stepP:p2:dr-use",
+   "stepP:p2:nfb-concl",
+   "stepP:p2:nfb-disp",
+   "stepP:p2:oi-range"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p6:iterative-special": {
+  "owner": "N",
+  "target": "bpN:p6:iterative-special",
+  "status": "excluded",
+  "info": "EXCLUDED in the N graph: remark of special cases for track P (first step g=0, averaging Lambda={0}, constants). outside every root closure; owned by the importing graph (track I/P). Check: grep over Parts 7-11 (and 1-5) finds no reference to bpN:p6:iterative-special; the only in-corpus mention is the statement of iterative-direct (\"and Remark iterative-special hold verbatim\"), a claim not consumed by any proof; Part 11 re-derives its own estimates (bpN:p11:iterative, nf)",
+  "cited": [
+   "\\Nref{bpN:p6:iterative-special}"
+  ],
+  "candidate_users": [
+   "bpP:p2:direct"
+  ],
+  "source_fields": "to be filled from blueprint-N/parts/p6-normal-form.tex"
+ },
+ "N:bpN:p6:normal-form": {
+  "owner": "N",
+  "target": "bpN:p6:normal-form",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p6:normal-form}"
+  ],
+  "candidate_users": [
+   "bpP:p2:nfb",
+   "bpP:p2:nums",
+   "stepP:p2:nfb-ind"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p6:setting": {
+  "owner": "N",
+  "target": "bpN:p6:setting",
+  "status": "alias",
+  "info": "inner label bpN:p6:cond-nr of bpN:p6:setting",
+  "cited": [
+   "\\Nref{bpN:p6:cond-L}",
+   "\\Nref{bpN:p6:cond-nr}",
+   "\\Nref{bpN:p6:setting}"
+  ],
+  "candidate_users": [
+   "bpP:p2:direct",
+   "bpP:p2:nfb",
+   "stepP:p2:dr-use"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:bpN:p6:telescope": {
+  "owner": "N",
+  "target": "bpN:p6:telescope",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{bpN:p6:telescope}"
+  ],
+  "candidate_users": [
+   "stepP:p2:nfb-concl",
+   "stepP:p2:nfb-disp",
+   "stepP:p2:oa-concl"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:stepN:p5:cm-ab": {
+  "owner": "N",
+  "target": "stepN:p5:cm-ab",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{stepN:p5:cm-ab}"
+  ],
+  "candidate_users": [
+   "stepP:p2:sp-field"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:stepN:p6:hom-def": {
+  "owner": "N",
+  "target": "stepN:p6:hom-def",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{stepN:p6:hom-def}"
+  ],
+  "candidate_users": [
+   "stepP:p2:dr-use"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:stepN:p6:hom-norm": {
+  "owner": "N",
+  "target": "stepN:p6:hom-norm",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{stepN:p6:hom-norm}"
+  ],
+  "candidate_users": [
+   "stepP:p2:dr-use"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ },
+ "N:stepN:p6:nf-induct": {
+  "owner": "N",
+  "target": "stepN:p6:nf-induct",
+  "status": "node",
+  "info": "",
+  "cited": [
+   "\\Nref{stepN:p6:nf-induct}"
+  ],
+  "candidate_users": [
+   "stepP:p2:nfb-ind"
+  ],
+  "source_fields": "copied from docs/graph/N/DEPGRAPH.md"
+ }
+}

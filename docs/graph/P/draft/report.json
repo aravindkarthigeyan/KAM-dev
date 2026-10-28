@@ -1,0 +1,112 @@
+{
+ "skipped": [
+  "blueprint-P/parts/p2-averaging.tex:L36: \\Nref{bpN:p4:s-ext} (section)",
+  "blueprint-P/parts/p2-averaging.tex:L36: \\Nref{bpN:p6:s-ext} (section)"
+ ],
+ "unresolved": [
+  "blueprint-P/parts/p1-hamiltonian-tools.tex:L232: \\Nref{bpN:p3:newton-continuation} -> N:bpN:p3:newton-continuation (EXCLUDED in the N graph: outside every root closure; owned by the importing graph (track I/P): used by no track-N proof (only the excluded remark gen-uniform-remark and the label index mention it); track P cites it; check: grep of blueprint-N/parts/p0..p11c for the label (and \\Nref uses) found no consumer in a proof of a track-N root closure)",
+  "blueprint-P/parts/p1-hamiltonian-tools.tex:L232: \\Nref{bpN:p3:newton-reduction} -> N:bpN:p3:newton-reduction (EXCLUDED in the N graph: outside every root closure; owned by the importing graph (track I/P): used only by newton-continuation inside Part 3, and by tracks I and P (bpI:p7:ham-eq, stepI:p7:he-sol, stepI:p8:pf-uniq; track P cites \\Nref); check: grep of blueprint-N/parts/p0..p11c for the label (and \\Nref uses) found no consumer in a proof of a track-N root closure)",
+  "blueprint-P/parts/p1-hamiltonian-tools.tex:L244: \\Nref{bpN:p3:newton-reduction} -> N:bpN:p3:newton-reduction (EXCLUDED in the N graph: outside every root closure; owned by the importing graph (track I/P): used only by newton-continuation inside Part 3, and by tracks I and P (bpI:p7:ham-eq, stepI:p7:he-sol, stepI:p8:pf-uniq; track P cites \\Nref); check: grep of blueprint-N/parts/p0..p11c for the label (and \\Nref uses) found no consumer in a proof of a track-N root closure)",
+  "blueprint-P/parts/p2-averaging.tex:L131: \\Nref{bpN:p6:deviations} -> N:bpN:p6:deviations (EXCLUDED in the N graph: administrative remark (deviations from Pöschel, bookkeeping); no proof consumes a fact it states (its (1)-(5) restate facts proved in the cited steps))",
+  "blueprint-P/parts/p2-averaging.tex:L256: \\Nref{bpN:p4:dictionary} -> N:bpN:p4:dictionary (EXCLUDED in the N graph: administrative remark (comparison with Pöschel's normalisation; track P/I cite it): no track-N proof consumes it as a result; cited only in \\source/'see Remark' pointers (sup-weighted L91, cauchy L129) and in Part 6 L13 / Part 7 Remark p7:dictionary L277 notation/dictionary paragraphs whose arithmetic is stated 'redone in our variables, not dependent on either dictionary'; checked by grep of blueprint-N/parts for p4:dictionary; owned by the importing graph)",
+  "blueprint-P/parts/p2-averaging.tex:L256: \\Nref{bpN:p6:deviations} -> N:bpN:p6:deviations (EXCLUDED in the N graph: administrative remark (deviations from Pöschel, bookkeeping); no proof consumes a fact it states (its (1)-(5) restate facts proved in the cited steps))",
+  "blueprint-P/parts/p2-averaging.tex:L256: \\Nref{bpN:p6:iterative-special} -> N:bpN:p6:iterative-special (EXCLUDED in the N graph: remark of special cases for track P (first step g=0, averaging Lambda={0}, constants). outside every root closure; owned by the importing graph (track I/P). Check: grep over Parts 7-11 (and 1-5) finds no reference to bpN:p6:iterative-special; the only in-corpus mention is the statement of iterative-direct (\"and Remark iterative-special hold verbatim\"), a claim not consumed by any proof; Part 11 re-derives its own estimates (bpN:p11:iterative, nf))",
+  "blueprint-P/parts/p2-averaging.tex:L28: \\Nref{bpN:p4:dictionary} -> N:bpN:p4:dictionary (EXCLUDED in the N graph: administrative remark (comparison with Pöschel's normalisation; track P/I cite it): no track-N proof consumes it as a result; cited only in \\source/'see Remark' pointers (sup-weighted L91, cauchy L129) and in Part 6 L13 / Part 7 Remark p7:dictionary L277 notation/dictionary paragraphs whose arithmetic is stated 'redone in our variables, not dependent on either dictionary'; checked by grep of blueprint-N/parts for p4:dictionary; owned by the importing graph)",
+  "blueprint-P/parts/p2-averaging.tex:L46: \\Nref{bpN:p6:iterative-special} -> N:bpN:p6:iterative-special (EXCLUDED in the N graph: remark of special cases for track P (first step g=0, averaging Lambda={0}, constants). outside every root closure; owned by the importing graph (track I/P). Check: grep over Parts 7-11 (and 1-5) finds no reference to bpN:p6:iterative-special; the only in-corpus mention is the statement of iterative-direct (\"and Remark iterative-special hold verbatim\"), a claim not consumed by any proof; Part 11 re-derives its own estimates (bpN:p11:iterative, nf))",
+  "blueprint-P/parts/p6-newtonian-models.tex:L180: \\Nref{bpN:p3:newton-reduction} -> N:bpN:p3:newton-reduction (EXCLUDED in the N graph: outside every root closure; owned by the importing graph (track I/P): used only by newton-continuation inside Part 3, and by tracks I and P (bpI:p7:ham-eq, stepI:p7:he-sol, stepI:p8:pf-uniq; track P cites \\Nref); check: grep of blueprint-N/parts/p0..p11c for the label (and \\Nref uses) found no consumer in a proof of a track-N root closure)",
+  "blueprint-P/parts/p6-newtonian-models.tex:L237: \\Iref{bpI:p8:min-distance} -> I:bpI:p8:min-distance (EXCLUDED in the I graph: outside every root closure; cited by track P (SPEC ruling). Checked: no \\ref{bpI:p8:min-distance} in Parts 0-8 and no I-R3BP proof step uses it (pf-dist uses shell-exclusion only); track P's graph owns it)",
+  "blueprint-P/parts/p6-newtonian-models.tex:L72: \\Iref{bpI:p7:scaling} -> I:bpI:p7:scaling (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L158: \\Iref{bpI:p7:circular} -> I:bpI:p7:circular (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L22: \\Iref{bpI:p7:circular} -> I:bpI:p7:circular (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L22: \\Iref{bpI:p7:means} -> I:bpI:p7:means (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L23: \\Iref{bpI:p7:scaling} -> I:bpI:p7:scaling (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L273: \\Iref{bpI:p7:circular} -> I:bpI:p7:circular (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L43: \\Iref{bpI:p7:x-change} -> I:bpI:p7:x-change (EXCLUDED in the I graph: outside every root closure; cited by track P: used only by Proposition means (step mv-cv), which no track-I root consumes (checked: no reference from Parts 0-3, 5, 8 or from any root-feeding node of Part 7))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L55: \\Iref{bpI:p7:scaling} -> I:bpI:p7:scaling (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L57: \\Iref{bpI:p7:scaling} -> I:bpI:p7:scaling (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L64: \\Iref{bpI:p7:scaling} -> I:bpI:p7:scaling (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L76: \\Iref{bpI:p7:circular} -> I:bpI:p7:circular (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L80: \\Iref{bpI:p7:scaling} -> I:bpI:p7:scaling (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L88: \\Iref{bpI:p7:circular} -> I:bpI:p7:circular (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L88: \\Iref{bpI:p7:means} -> I:bpI:p7:means (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))",
+  "blueprint-P/parts/p7-kepler-poincare.tex:L9: \\Iref{bpI:p7:scaling} -> I:bpI:p7:scaling (EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg))"
+ ],
+ "frozen_unresolved": [
+  "bpP:p7:kepler-data: \\frozen{keplerAxis}",
+  "bpP:p7:kepler-data: \\frozen{keplerAction}",
+  "bpP:p7:kepler-data: \\frozen{planeCross(thecase$\\kappa=1$}",
+  "bpP:p7:kepler-data: \\frozen{$n$planetscomponentwise)}",
+  "bpP:p7:poincare-def: \\frozen{KAM.Planetary.secularEccVector}",
+  "bpP:p7:poincare-def: \\frozen{secularRoot}",
+  "bpP:p7:poincare-def: \\frozen{secularGamma}",
+  "bpP:p7:poincare-def: \\frozen{secularAxis}",
+  "bpP:p7:poincare-def: \\frozen{ellipsePosition}",
+  "bpP:p7:poincare-def: \\frozen{ellipseMomentum}",
+  "bpP:p7:poincare-def: \\frozen{keplerMeanLongitude}",
+  "bpP:p7:poincare-def: \\frozen{longitudeJacobian(for$\\kappa=1$)}",
+  "bpP:p14:sb-defs: \\frozen{KAM.Planetary.secularIntegrand}",
+  "bpP:p14:sb-defs: \\frozen{KAM.Planetary.exactSecularHamiltonian}",
+  "bpP:p14:sb-defs: \\frozen{KAM.Planetary.ellipsePhase}",
+  "bpP:p14:sb-defs: \\frozen{KAM.Planetary.ellipsePosition}",
+  "bpP:p14:sb-defs: \\frozen{KAM.Planetary.ellipseMomentum}",
+  "bpP:p14:sb-defs: \\frozen{KAM.Planetary.longitudeJacobian}",
+  "bpP:p14:sb-box: \\frozen{KAM.Planetary.SecularInputBox}",
+  "bpP:p14:sb-box: \\frozen{KAM.Planetary.jupiterSaturnWeights}",
+  "bpP:p14:sb-regular: \\frozen{KAM.Planetary.SecularRegular}",
+  "bpP:p14:sb-safety: \\frozen{KAM.Planetary.secularBoxSafety}",
+  "bpP:p14:sb-cited: \\frozen{KAM.Planetary.secularBoxAtCitedMasses}"
+ ],
+ "source_dropped": 5,
+ "cycles": [
+  "bpP:p0:birkhoff#HasSecularBirkhoffForm -> bpP:p0:pg -> bpP:p0:birkhoff#HasSecularBirkhoffForm",
+  "bpP:p5:main -> stepP:p5:mn-const -> bpP:p5:order -> bpP:p5:main",
+  "bpP:p0:birkhoff#HasSecularBirkhoffForm -> bpP:p0:pg -> bpP:p5:main -> stepP:p5:mn-const -> bpP:p5:order -> bpP:p5:birkhoff-ext -> stepP:p5:be-coef -> bpP:p0:birkhoff#HasSecularBirkhoffForm",
+  "bpP:p5:kam-hyp -> stepP:p5:kh-f -> bpP:p5:consts -> bpP:p5:kam-hyp",
+  "bpP:p5:order -> bpP:p5:kam-hyp -> bpP:p5:order",
+  "bpP:p2:nfb -> bpP:p2:nums -> bpP:p2:nfb",
+  "bpP:p3:avg -> bpP:p2:avg -> bpP:p3:avg",
+  "bpP:p3:step -> stepP:p3:st-small -> bpP:p3:avg -> bpP:p3:step",
+  "bpP:p3:avg -> bpP:p2:diff -> bpP:p3:avg",
+  "bpP:p3:two-scale-kam -> stepP:p3:pf-constr -> bpP:p3:iterative -> stepP:p3:it-ind -> bpP:p3:step -> stepP:p3:st-small -> bpP:p3:avg -> bpP:p2:diff -> bpP:p3:two-scale-kam",
+  "bpP:p3:two-scale-kam -> stepP:p3:pf-constr -> bpP:p3:iterative -> stepP:p3:it-ind -> bpP:p3:step -> bpP:p3:two-scale-kam",
+  "bpP:p3:two-scale-kam -> stepP:p3:pf-constr -> bpP:p3:iterative -> stepP:p3:it-base -> bpP:p3:two-scale-kam",
+  "bpP:p3:two-scale-kam -> stepP:p3:pf-constr -> bpP:p3:iterative -> stepP:p3:it-step -> bpP:p3:seq -> bpP:p3:two-scale-kam",
+  "bpP:p3:two-scale-kam -> stepP:p3:pf-constr -> bpP:p3:iterative -> bpP:p3:two-scale-kam",
+  "bpP:p3:two-scale-kam -> stepP:p3:pf-constr -> bpP:p3:limit-phi -> stepP:p3:lp-an -> bpP:p3:two-scale-kam",
+  "bpP:p3:two-scale-kam -> stepP:p3:pf-ad -> bpP:p3:estimates -> bpP:p3:two-scale-kam",
+  "bpP:p5:order -> bpP:p5:kam-hyp -> bpP:p5:params -> bpP:p5:order",
+  "bpP:p5:kam-hyp -> bpP:p5:params -> bpP:p5:kam-hyp",
+  "bpP:p5:kam-hyp -> bpP:p5:params -> bpP:p5:kam-cond -> bpP:p5:kam-hyp",
+  "bpP:p2:osc-averaging -> stepP:p2:oa-first -> bpP:p2:osc-iter -> stepP:p2:oi-range -> bpP:p2:osc-averaging",
+  "bpP:p3:period-dictionary -> stepP:p3:pd-dyn -> bpP:p1:period-convert -> bpP:p3:period-dictionary",
+  "bpP:p4:two-scale-diophantine-measure -> bpP:p4:lemma-3-1 -> bpP:p4:two-scale-diophantine-measure",
+  "bpP:p5:order -> bpP:p5:rstar -> bpP:p5:order",
+  "bpP:p0:birkhoff#HasSecularBirkhoffForm -> bpP:p0:pg -> bpP:p5:main -> stepP:p5:mn-meas -> bpP:p0:totality -> bpP:p0:birkhoff#HasSecularBirkhoffForm",
+  "bpP:p7:poincare-def -> bpP:p7:d25 -> stepP:p7:d25-c -> bpP:p7:poincare-def",
+  "bpP:p7:poincare -> bpP:p7:poincare-def -> bpP:p7:d25 -> stepP:p7:d25-d -> bpP:p7:poincare",
+  "bpP:p7:product-chart -> stepP:p7:pc-prod -> bpP:p7:poincare -> bpP:p7:poincare-def -> bpP:p7:d25 -> stepP:p7:d25-d -> bpP:p7:product-chart",
+  "bpP:p7:poincare-def -> bpP:p7:d25 -> bpP:p7:poincare-def",
+  "bpP:p8:quadratic-form -> bpP:p8:factor-half -> bpP:p8:quadratic-form",
+  "bpP:p8:quartic -> stepP:p8:q4-c -> bpP:p8:cp11-check -> bpP:p8:quartic",
+  "bpP:p8:same-jets -> bpP:p8:quartic -> bpP:p8:same-jets",
+  "bpP:p10:interface -> bpP:p10:stability -> bpP:p10:interface",
+  "bpP:p12:data -> bpP:p12:perturbation -> bpP:p12:data",
+  "bpP:p14:expsafe -> bpP:p14:constants -> bpP:p14:expsafe"
+ ],
+ "unlabelled": [],
+ "aliases": {
+  "N:bpN:p6:cond-nr": [
+   "N:bpN:p6:setting"
+  ],
+  "N:bpN:p6:cond-L": [
+   "N:bpN:p6:setting"
+  ],
+  "N:bpN:p0:partial-exponents": [
+   "N:bpN:p0:partial-exponents#partialDriftExponent"
+  ],
+  "N:bpN:p0:partial-domain": [
+   "N:bpN:p0:partial-domain#partialComplexDomain"
+  ]
+ },
+ "missing_proof_owner": []
+}

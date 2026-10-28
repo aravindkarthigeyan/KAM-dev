@@ -9,8 +9,8 @@ EXTERNAL_POLICY: track-I external inputs are the labelled items of the parts' ex
 FROZEN_ANCHORS: bpI:p0:domains#complexStrip, bpI:p0:domains#actionNbhd, bpI:p0:diophantine#IsDiophantine, bpI:p0:hamiltonian#hamiltonianVectorField, bpI:p0:hamiltonian#hamiltonianVectorFieldC, bpI:p0:realham#realHamiltonian, bpI:p0:realham#frequencyMap, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p0:stripdata#IsRealOnReals, bpI:p0:stripdata#dotC, bpI:p0:stripdata#omegaZero, bpI:p0:stripdata#invarianceError, bpI:p0:stripdata#gramMatrix, bpI:p0:stripdata#normalFrame, bpI:p0:stripdata#torsion, bpI:p0:extended#energyAverage, bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, bpI:p0:bordered#borderedHessian, bpI:p0:hamsol#IsHamiltonianSolutionOn, bpI:p0:primaries#radiusSq, bpI:p0:primaries#radius, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2, bpI:p0:primaries#CollisionFree, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:restricted#restrictedVectorField, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:nearcircular#NearCircular, bpI:p0:keplerborder#keplerBorder, bpI:p0:g1, bpI:p0:head, bpI:p0:kepler, bpI:p0:r3bp
 FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:96109bf3ff71b0a0ce6e52c842cb291f8a169e699f29f63280fde14f79221234
 WRITER: claude-suborch-INP
-GLOBAL_REVIEWER: -
-GLOBAL_REVIEW_REF: -
+GLOBAL_REVIEWER: sol-global-I
+GLOBAL_REVIEW_REF: docs/graph/I/reviews/GLOBAL-review-3.md
 
 The dependency direction is `NODE -> prerequisite`. Node blocks are assembled from `docs/graph/I/packets/<slice>.nodes.md`; edit those, then re-run `inp_depgraph_assemble.py` (orchestrator-tools).
 
@@ -1111,11 +1111,37 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: EXTERNAL kept (not an alias): K:step:p1:hr-derivative (of K:bp:p1:hamiltonian-real) states the real clause only (h real at real points, H agrees with Re h near z, DH(z)e = Dh(z)e real), while this item also asserts the directional derivative of a complex-valued phi on U cap R^n
 
+NODE: bpI:p1:ext-neumann
+KIND: external
+TITLE: Neumann criterion of radius one
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:ext-neumann@L101-L105
+PROOF_SOURCE: -
+CONTRACT_ID: bpI:p1:ext-neumann
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: none (external)
+SOURCE_QUANTIFIERS: X, m
+SOURCE_CONCLUSION: If X in C^{m x m} and the operator norm of X (induced by the max norm of C^m) is < 1, then I - X is invertible; only invertibility is claimed, no bound on the inverse
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
 NODE: bpI:p1:extended-basic
 KIND: lemma
 TITLE: Regularity, periodicity, realness and size of the extended torsion
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L106-L122
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L124-L149
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L111-L127
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L129-L167
 CONTRACT_ID: bpI:p1:extended-basic
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p1:setting (n>=2, tau>=0, M>0; D open, Z^n-invariant in theta; H holomorphic on D, 1-periodic in theta, real at real phase points of D, ¦DH¦,¦X_H¦,¦DX_H¦,¦D^2 X_H¦ <= M on D; gamma>0, omega in R^n cap Dio_{gamma,tau}; r>0, K holomorphic, primary, real on reals on T_r with K(T_r) subset D); det G_K != 0 on T_r; Y := DH(K)N on T_r; for (b): ¦DK¦ <= sigma_K' and ¦B¦ <= sigma_B' on T_r; ¦T¦ <= C_T on the set considered
@@ -1129,15 +1155,15 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, K:bp:p2:objects, bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, stepI:p1:eb-holo, stepI:p1:eb-period, stepI:p1:eb-average, stepI:p1:eb-bounds
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L107-L107 | Assume the setting
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L115-L115 | K objects (N, T, avg T) with h := H and K standing results applied
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L115-L115 | torsion average of K objects
-EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L120-L120 | T_H
-EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L111-L111 | avg(T_H)
-EDGE: stepI:p1:eb-holo | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L125-L125 | proof step: holomorphy
-EDGE: stepI:p1:eb-period | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L130-L130 | proof step: periodicity and realness
-EDGE: stepI:p1:eb-average | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L137-L137 | proof step: the average
-EDGE: stepI:p1:eb-bounds | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L144-L144 | proof step: bounds
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L112-L112 | Assume the setting
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L120-L120 | K objects (N, T, avg T) with h := H and K standing results applied
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L120-L120 | torsion average of K objects
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L125-L125 | T_H
+EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L116-L116 | avg(T_H)
+EDGE: stepI:p1:eb-holo | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L130-L130 | proof step: holomorphy
+EDGE: stepI:p1:eb-period | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L148-L148 | proof step: periodicity and realness
+EDGE: stepI:p1:eb-average | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L155-L155 | proof step: the average
+EDGE: stepI:p1:eb-bounds | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:extended-basic@L162-L162 | proof step: bounds
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1149,8 +1175,8 @@ NOTE: -
 NODE: stepI:p1:eb-holo
 KIND: step
 TITLE: Holomorphy
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L125-L128
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L125-L128
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L130-L146
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L130-L146
 CONTRACT_ID: stepI:p1:eb-holo
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 on T_r
@@ -1161,29 +1187,181 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpI:p1:setting, K:step:p2:fb-holo, bpI:p1:setting#k-bridge, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain, bpI:p0:extended#extendedTorsion, K:bp:p1:holomorphic-inverse
+DEPS: bpI:p1:setting, stepI:p1:eb-holo-frame, stepI:p1:eb-holo-inverse, stepI:p1:eb-holo-field, stepI:p1:eb-holo-torsion, stepI:p1:eb-holo-conclude
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L126-L126 | K(T_r) subset D, H holomorphic on D
-EDGE: K:step:p2:fb-holo | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L126-L126 | N and T holomorphic (K standing results)
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L126-L126 | supplies the K standing data of fb-holo
-EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L127-L127 | DH holomorphic on D
-EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L128-L128 | product of holomorphic functions
-EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L128-L128 | entries of the frozen T_H
-EDGE: K:bp:p1:holomorphic-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L126-L126 | holomorphic inverse in the construction of N, expressly cited
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L131-L131 | uses only holomorphy of K on the open strip, K(T_r) subset D open, det G_K != 0; no ball margin, no bounds, no torsion
+EDGE: stepI:p1:eb-holo-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L133-L134 | substep: frame and Gram matrix
+EDGE: stepI:p1:eb-holo-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L136-L137 | substep: inverse B, N, P
+EDGE: stepI:p1:eb-holo-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L139-L140 | substep: field along K
+EDGE: stepI:p1:eb-holo-torsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L142-L143 | substep: derivative along omega and torsion
+EDGE: stepI:p1:eb-holo-conclude | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo@L145-L146 | substep: conclusion
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-global-I
-REVIEWER: sol-delta-I-global
+EXTRACTOR: sonnet-extract-I-p1+sol-global-I+sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: the explicit K:step:p2:fb-holo import assumes A2-A4, including a uniform positive ball margin beta and global bounds for DK and G^{-1} on T_r. The Part 1 setting here supplies only K(T_r) subset D, holomorphy and det G != 0, not those uniform bounds. The parenthetical local assertion that the regularity proof uses no bounds needs a separately modelled direct derivation from holomorphic inversion/differentiation; no stronger imported contract is discharged by the existing k-bridge.
+NOTE: K:step:p2:fb-holo is only compared with (stated under K (A2)-(A4)), not used; the former SOURCE_GAP is closed by the direct substeps.
+
+NODE: stepI:p1:eb-holo-frame
+KIND: step
+TITLE: Frame and Gram matrix
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L133-L134
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L133-L134
+CONTRACT_ID: stepI:p1:eb-holo-frame
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r
+SOURCE_QUANTIFIERS: K, H on T_r
+SOURCE_CONCLUSION: L = DK and the entries of G = L^T L are holomorphic on T_r
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpI:p1:setting, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L134-L134 | K holomorphic on T_r
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L134-L134 | DK holomorphic on T_r
+EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-frame@L134-L134 | entries of G are finite sums of products of holomorphic entries of L
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: stepI:p1:eb-holo-inverse
+KIND: step
+TITLE: The inverse
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L136-L137
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L136-L137
+CONTRACT_ID: stepI:p1:eb-holo-inverse
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r
+SOURCE_QUANTIFIERS: K, H on T_r
+SOURCE_CONCLUSION: B = G^{-1}, N = Omega_0 L B and P = (L N) are holomorphic on T_r
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpI:p1:setting, stepI:p1:eb-holo-frame, K:bp:p1:holomorphic-inverse, bpI:p1:ext-chain
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L137-L137 | det G_K != 0 on T_r
+EDGE: stepI:p1:eb-holo-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L137-L137 | G holomorphic matrix function
+EDGE: K:bp:p1:holomorphic-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L137-L137 | G holomorphic with det != 0 on open T_r gives G^{-1} holomorphic
+EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-inverse@L137-L137 | products of holomorphic matrices with constant Omega_0
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: stepI:p1:eb-holo-field
+KIND: step
+TITLE: Field along K
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L139-L140
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L139-L140
+CONTRACT_ID: stepI:p1:eb-holo-field
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r; H holomorphic on D
+SOURCE_QUANTIFIERS: K, H on T_r
+SOURCE_CONCLUSION: A = DX_H o K and DH o K are holomorphic on T_r
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, K:bp:p2:hamiltonian, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L140-L140 | K(T_r) subset D, K holomorphic, H holomorphic on D
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L140-L140 | supplies the K standing data of the hamiltonian item
+EDGE: K:bp:p2:hamiltonian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L140-L140 | item (a): X_H and DX_H holomorphic on D
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L140-L140 | DH and DX_H holomorphic on D
+EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-field@L140-L140 | chain rule for A = DX_H o K and DH o K
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: stepI:p1:eb-holo-torsion
+KIND: step
+TITLE: Derivative along omega, torsion
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143
+CONTRACT_ID: stepI:p1:eb-holo-torsion
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r
+SOURCE_QUANTIFIERS: K, H on T_r
+SOURCE_CONCLUSION: X_N, T, E_sym, Q, eta, Y = DH(K) N are holomorphic on T_r; entries of T_H are T, the constant block omega, entries of Y and 0
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpI:p1:setting, stepI:p1:eb-holo-inverse, stepI:p1:eb-holo-field, K:bp:p1:holomorphic-regularity, bpI:p1:ext-chain, bpI:p0:extended#extendedTorsion
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143 | frequency vector omega is constant
+EDGE: stepI:p1:eb-holo-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143 | N holomorphic
+EDGE: stepI:p1:eb-holo-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143 | A and DH o K holomorphic
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L142 | DN holomorphic, regularity applied to N
+EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L142-L143 | products and sums of holomorphic functions
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-torsion@L143-L143 | the stated entries of T_H are the blocks of the frozen extended-torsion definition
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: stepI:p1:eb-holo-conclude
+KIND: step
+TITLE: Conclusion of the step
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L145-L146
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L145-L146
+CONTRACT_ID: stepI:p1:eb-holo-conclude
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: setting; K holomorphic on T_r with K(T_r) subset D open; det G_K != 0 on T_r
+SOURCE_QUANTIFIERS: K, H on T_r
+SOURCE_CONCLUSION: N, T, Y and every entry of T_H are holomorphic on T_r, hence continuous on R^n
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepI:p1:eb-holo-frame, stepI:p1:eb-holo-inverse, stepI:p1:eb-holo-torsion, bpI:p0:extended#extendedTorsion, bpI:p1:setting
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepI:p1:eb-holo-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | frame holomorphic
+EDGE: stepI:p1:eb-holo-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | N holomorphic
+EDGE: stepI:p1:eb-holo-torsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | T, Y holomorphic
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | entries of the frozen T_H
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-holo-conclude@L146-L146 | local H,K,omega,r and the real slice R^n subset T_r used in the conclusion
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
 
 NODE: stepI:p1:eb-period
 KIND: step
 TITLE: Periodicity and realness
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L130-L135
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L130-L135
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L148-L153
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L148-L153
 CONTRACT_ID: stepI:p1:eb-period
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 on T_r; K real on reals
@@ -1197,10 +1375,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, K:bp:p2:periodicity, K:step:p2:ham-real, bpI:p1:setting#k-bridge
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L131-L131 | H periodic in theta, K primary, H real at real points (I2, I3)
-EDGE: K:bp:p2:periodicity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L132-L132 | N, T periodic and real
-EDGE: K:step:p2:ham-real | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L134-L134 | DH real at real points of D
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L132-L132 | supplies the K standing data of periodicity and ham-real
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L149-L149 | H periodic in theta, K primary, H real at real points (I2, I3)
+EDGE: K:bp:p2:periodicity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L150-L150 | N, T periodic and real
+EDGE: K:step:p2:ham-real | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L152-L152 | DH real at real points of D
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-period@L150-L150 | supplies the K standing data of periodicity and ham-real
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1212,8 +1390,8 @@ NOTE: -
 NODE: stepI:p1:eb-average
 KIND: step
 TITLE: The average
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L137-L142
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L137-L142
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L155-L160
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L155-L160
 CONTRACT_ID: stepI:p1:eb-average
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 on T_r
@@ -1227,11 +1405,11 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:eb-holo, stepI:p1:eb-period, K:bp:p1:ext-integral, bpI:p0:extended#extendedTorsionAverage, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:eb-holo | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L138-L138 | continuity of the entries
-EDGE: stepI:p1:eb-period | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L141-L141 | realness of the integrand
-EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L139-L139 | continuous functions on a compact box are integrable
-EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L140-L140 | Bochner integral of the frozen average
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L138-L138 | direct use of the local H, K, omega, domain or standing constants
+EDGE: stepI:p1:eb-holo | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L156-L156 | continuity of the entries
+EDGE: stepI:p1:eb-period | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L159-L159 | realness of the integrand
+EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L157-L157 | continuous functions on a compact box are integrable
+EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L158-L158 | Bochner integral of the frozen average
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-average@L156-L156 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1243,8 +1421,8 @@ NOTE: -
 NODE: stepI:p1:eb-bounds
 KIND: step
 TITLE: Bounds
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L144-L148
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L144-L148
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L162-L166
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L162-L166
 CONTRACT_ID: stepI:p1:eb-bounds
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; ¦DK¦ <= sigma_K', ¦B¦ <= sigma_B' on T_r; ¦T¦ <= C_T
@@ -1258,10 +1436,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, K:bp:p2:matrix, K:bp:p2:objects, bpI:p1:setting#k-bridge
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L145-L145 | ¦DH¦ <= M (I4)
-EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L145-L145 | ¦MN¦ <= ¦M¦¦N¦, ¦Omega_0 M¦ = ¦M¦, block bounds
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L145-L145 | N = Omega_0 L B
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L145-L145 | K objects with h := H
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L163-L163 | ¦DH¦ <= M (I4)
+EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L163-L163 | ¦MN¦ <= ¦M¦¦N¦, ¦Omega_0 M¦ = ¦M¦, block bounds
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L163-L163 | N = Omega_0 L B
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:eb-bounds@L163-L163 | K objects with h := H
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1273,8 +1451,8 @@ NOTE: -
 NODE: bpI:p1:trivial
 KIND: lemma
 TITLE: $\mathsf T_H=\mathsf B_h$ at the trivial torus
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L151-L165
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L167-L201
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L169-L183
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L185-L219
 CONTRACT_ID: bpI:p1:trivial
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: U subset C^n open; h holomorphic on U with h(J) in R for every real J in U; D = C^n x U; H(theta,J) := h(J) on D; I in U cap R^n; K(theta) = (theta,I); omega := grad h(I) in R^n (frequencyMap); no Part 1 setting
@@ -1288,20 +1466,20 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, bpI:p0:bordered#borderedHessian, bpI:p0:realham#frequencyMap, bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p0:stripdata#IsRealOnReals, bpI:p0:stripdata#gramMatrix, bpI:p0:stripdata#invarianceError, stepI:p1:tr-torus, stepI:p1:tr-frame, stepI:p1:tr-field, stepI:p1:tr-torsion, stepI:p1:tr-border, stepI:p1:tr-compare
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L157-L157 | T_H
-EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L158-L158 | avg(T_H)
-EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L158-L158 | B_h(I)
-EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L154-L154 | omega := grad h(I)
-EDGE: bpI:p0:stripdata#IsPrimaryOnStrip | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L154-L154 | K primary
-EDGE: bpI:p0:stripdata#IsRealOnReals | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L154-L154 | K real on reals
-EDGE: bpI:p0:stripdata#gramMatrix | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L155-L155 | G_K = I_n
-EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L155-L155 | E_{H,K,omega} = 0
-EDGE: stepI:p1:tr-torus | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L168-L168 | proof step
-EDGE: stepI:p1:tr-frame | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L173-L173 | proof step
-EDGE: stepI:p1:tr-field | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L177-L177 | proof step
-EDGE: stepI:p1:tr-torsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L185-L185 | proof step
-EDGE: stepI:p1:tr-border | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L189-L189 | proof step
-EDGE: stepI:p1:tr-compare | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L193-L193 | proof step
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L175-L175 | T_H
+EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L176-L176 | avg(T_H)
+EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L176-L176 | B_h(I)
+EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L172-L172 | omega := grad h(I)
+EDGE: bpI:p0:stripdata#IsPrimaryOnStrip | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L172-L172 | K primary
+EDGE: bpI:p0:stripdata#IsRealOnReals | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L172-L172 | K real on reals
+EDGE: bpI:p0:stripdata#gramMatrix | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L173-L173 | G_K = I_n
+EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L173-L173 | E_{H,K,omega} = 0
+EDGE: stepI:p1:tr-torus | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L186-L186 | proof step
+EDGE: stepI:p1:tr-frame | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L191-L191 | proof step
+EDGE: stepI:p1:tr-field | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L195-L195 | proof step
+EDGE: stepI:p1:tr-torsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L203-L203 | proof step
+EDGE: stepI:p1:tr-border | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L207-L207 | proof step
+EDGE: stepI:p1:tr-compare | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L211-L211 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1313,8 +1491,8 @@ NOTE: -
 NODE: stepI:p1:tr-torus
 KIND: step
 TITLE: The torus
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L168-L171
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L168-L171
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L186-L189
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L186-L189
 CONTRACT_ID: stepI:p1:tr-torus
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of trivial (K(theta) = (theta,I))
@@ -1328,10 +1506,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:stripdata#IsPrimaryOnStrip, bpI:p0:stripdata#IsRealOnReals, bpI:p0:stripdata#dotC, bpI:p0:stripdata#gramMatrix
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:stripdata#IsPrimaryOnStrip | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L169-L169 | K primary
-EDGE: bpI:p0:stripdata#IsRealOnReals | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L169-L169 | K real on reals
-EDGE: bpI:p0:stripdata#dotC | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L170-L170 | bilinear dot gives G_K = (e_i.e_j) = I_n
-EDGE: bpI:p0:stripdata#gramMatrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L170-L170 | Gram matrix of K
+EDGE: bpI:p0:stripdata#IsPrimaryOnStrip | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L187-L187 | K primary
+EDGE: bpI:p0:stripdata#IsRealOnReals | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L187-L187 | K real on reals
+EDGE: bpI:p0:stripdata#dotC | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L188-L188 | bilinear dot gives G_K = (e_i.e_j) = I_n
+EDGE: bpI:p0:stripdata#gramMatrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torus@L188-L188 | Gram matrix of K
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1343,8 +1521,8 @@ NOTE: -
 NODE: stepI:p1:tr-frame
 KIND: step
 TITLE: The normal frame
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L173-L175
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L173-L175
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L191-L193
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L191-L193
 CONTRACT_ID: stepI:p1:tr-frame
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of bpI:p1:trivial (U, h, D, H, I, K and omega defined there); no Part 1 setting assumed
@@ -1358,9 +1536,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:tr-torus, bpI:p0:stripdata#normalFrame, bpI:p0:stripdata#omegaZero
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:tr-torus | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L174-L174 | G_K = I_n, B = I_n, DK e_k = (e_k,0)
-EDGE: bpI:p0:stripdata#normalFrame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L174-L174 | N_{.j} = sum_k (G^{-1})_{kj} Omega_0(DK e_k)
-EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L174-L174 | Omega_0(e_j,0) = (0,e_j)
+EDGE: stepI:p1:tr-torus | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L192-L192 | G_K = I_n, B = I_n, DK e_k = (e_k,0)
+EDGE: bpI:p0:stripdata#normalFrame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L192-L192 | N_{.j} = sum_k (G^{-1})_{kj} Omega_0(DK e_k)
+EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-frame@L192-L192 | Omega_0(e_j,0) = (0,e_j)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1372,8 +1550,8 @@ NOTE: -
 NODE: stepI:p1:tr-field
 KIND: step
 TITLE: The vector field
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L177-L183
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L177-L183
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L195-L201
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L195-L201
 CONTRACT_ID: stepI:p1:tr-field
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of bpI:p1:trivial (U, h, D, H, I, K and omega defined there); no Part 1 setting assumed
@@ -1387,11 +1565,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:hamiltonian#hamiltonianVectorFieldC, bpI:p0:stripdata#invarianceError, stepI:p1:tr-torus, bpI:p1:ext-real-direction, bpI:p0:realham#frequencyMap
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:hamiltonian#hamiltonianVectorFieldC | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L178-L178 | X_H of H(theta,J) = h(J)
-EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L178-L178 | E = X_H(K theta) - DK omega
-EDGE: stepI:p1:tr-torus | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L178-L178 | DK omega = (omega,0)
-EDGE: bpI:p1:ext-real-direction | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L179-L179 | complex derivative in a real direction for phi = h
-EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L182-L182 | definition of the frequency map
+EDGE: bpI:p0:hamiltonian#hamiltonianVectorFieldC | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L196-L196 | X_H of H(theta,J) = h(J)
+EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L196-L196 | E = X_H(K theta) - DK omega
+EDGE: stepI:p1:tr-torus | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L196-L196 | DK omega = (omega,0)
+EDGE: bpI:p1:ext-real-direction | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L197-L197 | complex derivative in a real direction for phi = h
+EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-field@L200-L200 | definition of the frequency map
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1403,8 +1581,8 @@ NOTE: -
 NODE: stepI:p1:tr-torsion
 KIND: step
 TITLE: The torsion
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L185-L187
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L185-L187
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L203-L205
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L203-L205
 CONTRACT_ID: stepI:p1:tr-torsion
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of bpI:p1:trivial (U, h, D, H, I, K and omega defined there); no Part 1 setting assumed
@@ -1418,12 +1596,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:stripdata#torsion, stepI:p1:tr-frame, stepI:p1:tr-field, bpI:p0:hamiltonian#hamiltonianVectorFieldC, bpI:p0:stripdata#omegaZero, bpI:p0:stripdata#dotC
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:stripdata#torsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L187-L187 | torsion formula
-EDGE: stepI:p1:tr-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L186-L186 | N_{.j} = (0,e_j) constant, D_theta N = 0
-EDGE: stepI:p1:tr-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L186-L186 | X_H = ((d_a h),0)
-EDGE: bpI:p0:hamiltonian#hamiltonianVectorFieldC | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L186-L186 | DX_H(theta,I)(0,e_j)
-EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L186-L186 | Omega_0(w,0) = (0,w)
-EDGE: bpI:p0:stripdata#dotC | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L187-L187 | N_{.i} . Omega_0(...)
+EDGE: bpI:p0:stripdata#torsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L205-L205 | torsion formula
+EDGE: stepI:p1:tr-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L204-L204 | N_{.j} = (0,e_j) constant, D_theta N = 0
+EDGE: stepI:p1:tr-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L204-L204 | X_H = ((d_a h),0)
+EDGE: bpI:p0:hamiltonian#hamiltonianVectorFieldC | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L204-L204 | DX_H(theta,I)(0,e_j)
+EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L204-L204 | Omega_0(w,0) = (0,w)
+EDGE: bpI:p0:stripdata#dotC | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-torsion@L205-L205 | N_{.i} . Omega_0(...)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1435,8 +1613,8 @@ NOTE: -
 NODE: stepI:p1:tr-border
 KIND: step
 TITLE: The border
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L189-L191
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L189-L191
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L207-L209
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L207-L209
 CONTRACT_ID: stepI:p1:tr-border
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of bpI:p1:trivial (U, h, D, H, I, K and omega defined there); no Part 1 setting assumed
@@ -1450,9 +1628,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:extended#extendedTorsion, stepI:p1:tr-field, stepI:p1:tr-frame
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L190-L190 | border of the frozen T_H
-EDGE: stepI:p1:tr-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L190-L190 | omega_a = d_a h(I)
-EDGE: stepI:p1:tr-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L191-L191 | N_{.b} = (0,e_b)
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L208-L208 | border of the frozen T_H
+EDGE: stepI:p1:tr-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L208-L208 | omega_a = d_a h(I)
+EDGE: stepI:p1:tr-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border@L209-L209 | N_{.b} = (0,e_b)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1464,8 +1642,8 @@ NOTE: -
 NODE: stepI:p1:tr-compare
 KIND: step
 TITLE: Comparison with the bordered Hessian
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L193-L200
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L193-L200
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L211-L218
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L211-L218
 CONTRACT_ID: stepI:p1:tr-compare
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of bpI:p1:trivial (U, h, D, H, I, K and omega defined there); no Part 1 setting assumed
@@ -1479,14 +1657,14 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:bordered#borderedHessian, stepI:p1:tr-field, bpI:p1:ext-real-direction, K:bp:p1:holomorphic-regularity, stepI:p1:tr-torsion, stepI:p1:tr-border, bpI:p0:extended#extendedTorsionAverage, K:bp:p1:real-inverse
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L194-L194 | entries of the frozen B_h(I)
-EDGE: stepI:p1:tr-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L195-L195 | grad h(J)_a = d_a h(J)
-EDGE: bpI:p1:ext-real-direction | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L196-L196 | real derivative equals complex partial
-EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L197-L197 | symmetry of the Hessian of a holomorphic function
-EDGE: stepI:p1:tr-torsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L197-L197 | upper-left blocks T = d_j d_i h
-EDGE: stepI:p1:tr-border | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L197-L197 | border agrees with grad h(I)
-EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L198-L198 | average of a constant matrix
-EDGE: K:bp:p1:real-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L199-L199 | real matrix and its cast have corresponding inverses
+EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L212-L212 | entries of the frozen B_h(I)
+EDGE: stepI:p1:tr-field | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L213-L213 | grad h(J)_a = d_a h(J)
+EDGE: bpI:p1:ext-real-direction | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L214-L214 | real derivative equals complex partial
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L215-L215 | symmetry of the Hessian of a holomorphic function
+EDGE: stepI:p1:tr-torsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L215-L215 | upper-left blocks T = d_j d_i h
+EDGE: stepI:p1:tr-border | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L215-L215 | border agrees with grad h(I)
+EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L216-L216 | average of a constant matrix
+EDGE: K:bp:p1:real-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-compare@L217-L217 | real matrix and its cast have corresponding inverses
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1498,8 +1676,8 @@ NOTE: -
 NODE: bpI:p1:last-row
 KIND: lemma
 TITLE: The energy row of the extended torsion
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L210-L229
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L231-L252
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L228-L247
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L249-L270
 CONTRACT_ID: bpI:p1:last-row
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p1:setting (n>=2, tau>=0, M>0; D open, Z^n-invariant in theta; H holomorphic on D, 1-periodic in theta, real at real phase points of D, ¦DH¦,¦X_H¦,¦DX_H¦,¦D^2 X_H¦ <= M on D; gamma>0, omega in R^n cap Dio_{gamma,tau}; r>0, K holomorphic, primary, real on reals on T_r with K(T_r) subset D); det G_K != 0 on T_r; E := E_{H,K,omega}, eta^L := -N^T Omega_0 E as in K:bp:p2:objects; for (c): ¦E¦ <= e, ¦L¦ <= sigma_K', ¦B¦ <= sigma_B' on T_r
@@ -1513,15 +1691,15 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, K:bp:p2:objects, bpI:p0:stripdata#invarianceError, bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, stepI:p1:lr-gradient, stepI:p1:lr-insert, stepI:p1:lr-average
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L211-L211 | Assume the setting
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L211-L211 | K objects with h := H, K results applied
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L211-L211 | E, eta^L, N as in K objects
-EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L211-L211 | E = E_{H,K,omega}
-EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L226-L226 | T_H and its last row
-EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L219-L219 | avg(T_H)
-EDGE: stepI:p1:lr-gradient | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L232-L232 | proof step
-EDGE: stepI:p1:lr-insert | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L236-L236 | proof step
-EDGE: stepI:p1:lr-average | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L245-L245 | proof step
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L229-L229 | Assume the setting
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L229-L229 | K objects with h := H, K results applied
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L229-L229 | E, eta^L, N as in K objects
+EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L229-L229 | E = E_{H,K,omega}
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L244-L244 | T_H and its last row
+EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L237-L237 | avg(T_H)
+EDGE: stepI:p1:lr-gradient | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L250-L250 | proof step
+EDGE: stepI:p1:lr-insert | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L254-L254 | proof step
+EDGE: stepI:p1:lr-average | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:last-row@L263-L263 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1533,8 +1711,8 @@ NOTE: -
 NODE: stepI:p1:lr-gradient
 KIND: step
 TITLE: The gradient identity
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L232-L234
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L232-L234
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L250-L252
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L250-L252
 CONTRACT_ID: stepI:p1:lr-gradient
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting
@@ -1548,10 +1726,10 @@ FROZEN_ABI_SHA256: -
 DEPS: K:bp:p2:hamiltonian, bpI:p1:setting#k-bridge, bpI:p1:setting, bpI:p0:stripdata#omegaZero
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:hamiltonian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L233-L233 | Omega_0 X_H = (DH)^T (item (d))
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L233-L233 | supplies the K standing data of the Hamiltonian lemma
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L233-L233 | H holomorphic on D
-EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L234-L234 | Omega_0
+EDGE: K:bp:p2:hamiltonian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L251-L251 | Omega_0 X_H = (DH)^T (item (d))
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L251-L251 | supplies the K standing data of the Hamiltonian lemma
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L251-L251 | H holomorphic on D
+EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-gradient@L252-L252 | Omega_0
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1563,8 +1741,8 @@ NOTE: -
 NODE: stepI:p1:lr-insert
 KIND: step
 TITLE: Insert the error
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L236-L243
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L236-L243
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L254-L261
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L254-L261
 CONTRACT_ID: stepI:p1:lr-insert
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 on T_r
@@ -1578,12 +1756,12 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:lr-gradient, bpI:p0:stripdata#invarianceError, K:bp:p2:frame-identities, bpI:p1:setting#k-bridge, K:bp:p2:objects, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:lr-gradient | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L239-L239 | DH = -X_H^T Omega_0
-EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L237-L237 | X_H(K) = L omega + E
-EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L241-L241 | L^T Omega_0 N = -I_n
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L241-L241 | supplies the K standing data of frame-identities
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L242-L242 | eta^L = -N^T Omega_0 E
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L237-L237 | direct use of the local H, K, omega, domain or standing constants
+EDGE: stepI:p1:lr-gradient | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L257-L257 | DH = -X_H^T Omega_0
+EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L255-L255 | X_H(K) = L omega + E
+EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L259-L259 | L^T Omega_0 N = -I_n
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L259-L259 | supplies the K standing data of frame-identities
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L260-L260 | eta^L = -N^T Omega_0 E
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-insert@L255-L255 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1595,8 +1773,8 @@ NOTE: -
 NODE: stepI:p1:lr-average
 KIND: step
 TITLE: Invariant torus and average
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L245-L251
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L245-L251
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L263-L269
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L263-L269
 CONTRACT_ID: stepI:p1:lr-average
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 on T_r; for the quantitative bound, norms of E, L, B as stated in last-row(c)
@@ -1610,13 +1788,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:extended#extendedTorsion, bpI:p0:extended#extendedTorsionAverage, bpI:p1:extended-basic, stepI:p1:lr-insert, K:bp:p2:averages, K:bp:p2:matrix, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L246-L246 | definition of T_H
-EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L248-L248 | avg(T_H)
-EDGE: bpI:p1:extended-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L247-L247 | block form of avg(T_H) (a)
-EDGE: stepI:p1:lr-insert | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L248-L248 | (a) averaged
-EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L249-L249 | ¦avg f¦ <= sup ¦f¦, linearity
-EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L250-L250 | norm inequalities for N, Omega_0, transposes
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L246-L246 | direct use of the local H, K, omega, domain or standing constants
+EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L264-L264 | definition of T_H
+EDGE: bpI:p0:extended#extendedTorsionAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L266-L266 | avg(T_H)
+EDGE: bpI:p1:extended-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L265-L265 | block form of avg(T_H) (a)
+EDGE: stepI:p1:lr-insert | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L266-L266 | (a) averaged
+EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L267-L267 | ¦avg f¦ <= sup ¦f¦, linearity
+EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L268-L268 | norm inequalities for N, Omega_0, transposes
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:lr-average@L264-L264 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1628,8 +1806,8 @@ NOTE: -
 NODE: bpI:p1:energy-approx
 KIND: lemma
 TITLE: Approximate energy identities
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L257-L280
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L282-L317
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L275-L298
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L300-L335
 CONTRACT_ID: bpI:p1:energy-approx
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p1:setting (n>=2, tau>=0, M>0; D open, Z^n-invariant in theta; H holomorphic on D, 1-periodic in theta, real at real phase points of D, ¦DH¦,¦X_H¦,¦DX_H¦,¦D^2 X_H¦ <= M on D; gamma>0, omega in R^n cap Dio_{gamma,tau}; r>0, K holomorphic, primary, real on reals on T_r with K(T_r) subset D); E := E_{H,K,omega}, E^en := H o K - avg(H o K) on T_r; (e): ¦E¦ <= eps on T_r, 0 < delta < r, 0 < delta' < r - delta; (f): det G_K != 0 on T_r, xi = (xi^L, xi^N) holomorphic on T_{r'} with 0 < r' <= r, Delta K = P xi, and for the consequence avg(Y xi^N) = eta^omega
@@ -1643,17 +1821,17 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, K:bp:p2:objects, bpI:p0:stripdata#invarianceError, bpI:p0:extended#energyAverage, stepI:p1:ea-chain, stepI:p1:ea-omega, stepI:p1:ea-gradient, stepI:p1:ea-avg, stepI:p1:ea-size, stepI:p1:ea-defect
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L258-L258 | Assume the setting
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L258-L258 | K objects (Omega_K, eta^N, P, N) with h := H and K results applied
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L258-L258 | E, Omega_K, eta, P, N
-EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L258-L258 | E = E_{H,K,omega}
-EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L261-L261 | avg(H o K) is the frozen energyAverage
-EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L283-L283 | proof step
-EDGE: stepI:p1:ea-omega | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L289-L289 | proof step
-EDGE: stepI:p1:ea-gradient | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L293-L293 | proof step
-EDGE: stepI:p1:ea-avg | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L298-L298 | proof step
-EDGE: stepI:p1:ea-size | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L303-L303 | proof step
-EDGE: stepI:p1:ea-defect | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L310-L310 | proof step
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L276-L276 | Assume the setting
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L276-L276 | K objects (Omega_K, eta^N, P, N) with h := H and K results applied
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L276-L276 | E, Omega_K, eta, P, N
+EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L276-L276 | E = E_{H,K,omega}
+EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L279-L279 | avg(H o K) is the frozen energyAverage
+EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L301-L301 | proof step
+EDGE: stepI:p1:ea-omega | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L307-L307 | proof step
+EDGE: stepI:p1:ea-gradient | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L311-L311 | proof step
+EDGE: stepI:p1:ea-avg | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L316-L316 | proof step
+EDGE: stepI:p1:ea-size | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L321-L321 | proof step
+EDGE: stepI:p1:ea-defect | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-approx@L328-L328 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1665,8 +1843,8 @@ NOTE: -
 NODE: stepI:p1:ea-chain
 KIND: step
 TITLE: Regularity and chain rule
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L283-L287
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L283-L287
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L301-L305
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L301-L305
 CONTRACT_ID: stepI:p1:ea-chain
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting
@@ -1680,10 +1858,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, bpI:p1:ext-chain, bpI:p0:extended#energyAverage, K:bp:p2:averages
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L284-L284 | K holomorphic with values in D, H holomorphic on D; periodicity and realness (I2, I3)
-EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L285-L285 | chain rule
-EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L286-L286 | average is the frozen energyAverage
-EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L287-L287 | integrability of a continuous periodic function
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L302-L302 | K holomorphic with values in D, H holomorphic on D; periodicity and realness (I2, I3)
+EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L303-L303 | chain rule
+EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L304-L304 | average is the frozen energyAverage
+EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-chain@L305-L305 | integrability of a continuous periodic function
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1695,8 +1873,8 @@ NOTE: -
 NODE: stepI:p1:ea-omega
 KIND: step
 TITLE: The derivative along $\omega$
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L289-L291
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L289-L291
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L307-L309
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L307-L309
 CONTRACT_ID: stepI:p1:ea-omega
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting
@@ -1710,11 +1888,11 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:ea-chain, bpI:p0:stripdata#invarianceError, K:bp:p2:hamiltonian, bpI:p1:setting#k-bridge, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L290-L290 | D(H o K) = DH(K) L
-EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L290-L290 | L omega = X_H(K) - E
-EDGE: K:bp:p2:hamiltonian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L290-L290 | DH = (Omega_0 X_H)^T, antisymmetry of Omega_0
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L290-L290 | supplies the K standing data of the Hamiltonian lemma
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L290-L290 | H holomorphic on D
+EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L308-L308 | D(H o K) = DH(K) L
+EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L308-L308 | L omega = X_H(K) - E
+EDGE: K:bp:p2:hamiltonian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L308-L308 | DH = (Omega_0 X_H)^T, antisymmetry of Omega_0
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L308-L308 | supplies the K standing data of the Hamiltonian lemma
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-omega@L308-L308 | H holomorphic on D
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1726,8 +1904,8 @@ NOTE: -
 NODE: stepI:p1:ea-gradient
 KIND: step
 TITLE: The gradient identity
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L293-L296
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L293-L296
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L311-L314
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L311-L314
 CONTRACT_ID: stepI:p1:ea-gradient
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 for the eta^N identification
@@ -1741,11 +1919,11 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:ea-chain, bpI:p1:setting#k-bridge, K:bp:p2:objects, bpI:p1:setting, K:bp:p2:exactness
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L294-L294 | DH(K)L = D(H o K)
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L294-L294 | supplies the K standing data of the Hamiltonian lemma
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L295-L295 | definitions of eta^N and Omega_K
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L294-L294 | direct use of the local H, K, omega, domain or standing constants
-EDGE: K:bp:p2:exactness | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L294-L294 | repeats the gradient step of exactness
+EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L312-L312 | DH(K)L = D(H o K)
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L312-L312 | supplies the K standing data of the Hamiltonian lemma
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L313-L313 | definitions of eta^N and Omega_K
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L312-L312 | direct use of the local H, K, omega, domain or standing constants
+EDGE: K:bp:p2:exactness | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-gradient@L312-L312 | repeats the gradient step of exactness
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1757,8 +1935,8 @@ NOTE: -
 NODE: stepI:p1:ea-avg
 KIND: step
 TITLE: Averages
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L298-L301
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L298-L301
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L316-L319
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L316-L319
 CONTRACT_ID: stepI:p1:ea-avg
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 where eta^N is used
@@ -1772,9 +1950,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting
 ROUTES: stepI:p1:ea-avg#exactness-route, stepI:p1:ea-avg#gradient-route
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L299-L299 | direct use of the local H, K, omega, domain or standing constants
-EDGE: stepI:p1:ea-avg#exactness-route | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L299-L301 | first alternative derivation of the vanishing average (exactness)
-EDGE: stepI:p1:ea-avg#gradient-route | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L299-L301 | second alternative derivation of the vanishing average (gradient identity)
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L317-L317 | direct use of the local H, K, omega, domain or standing constants
+EDGE: stepI:p1:ea-avg#exactness-route | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L317-L319 | first alternative derivation of the vanishing average (exactness)
+EDGE: stepI:p1:ea-avg#gradient-route | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg@L317-L319 | second alternative derivation of the vanishing average (gradient identity)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1786,8 +1964,8 @@ NOTE: -
 NODE: stepI:p1:ea-size
 KIND: step
 TITLE: The size of the energy fluctuation
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L303-L308
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L303-L308
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L321-L326
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L321-L326
 CONTRACT_ID: stepI:p1:ea-size
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; norm E <= eps on T_r; 0 < delta < r; 0 < delta' < r-delta
@@ -1801,12 +1979,12 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:ea-chain, stepI:p1:ea-omega, bpI:p1:setting, K:bp:p2:cohomological, bpI:p1:setting#k-bridge, K:bp:p1:cauchy-strip
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L304-L304 | E^en holomorphic and periodic with zero average
-EDGE: stepI:p1:ea-omega | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L304-L304 | d_omega E^en = -DH(K)E
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L305-L305 | ¦DH¦ <= M on D and K(T_r) subset D (I4)
-EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L306-L306 | cohomological equation in operator norms, (b)
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L306-L306 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
-EDGE: K:bp:p1:cauchy-strip | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L307-L307 | Cauchy estimate on strips
+EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L322-L322 | E^en holomorphic and periodic with zero average
+EDGE: stepI:p1:ea-omega | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L322-L322 | d_omega E^en = -DH(K)E
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L323-L323 | ¦DH¦ <= M on D and K(T_r) subset D (I4)
+EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L324-L324 | cohomological equation in operator norms, (b)
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L324-L324 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
+EDGE: K:bp:p1:cauchy-strip | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-size@L325-L325 | Cauchy estimate on strips
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1818,8 +1996,8 @@ NOTE: -
 NODE: stepI:p1:ea-defect
 KIND: step
 TITLE: The energy defect
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L310-L316
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L310-L316
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L328-L334
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L328-L334
 CONTRACT_ID: stepI:p1:ea-defect
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 on T_r; xi holomorphic on T_{r'}, 0 < r' <= r; Delta K = P xi; for the averaged consequence, avg(Y xi^N) = eta^omega
@@ -1833,13 +2011,13 @@ FROZEN_ABI_SHA256: -
 DEPS: K:bp:p2:objects, bpI:p1:setting#k-bridge, stepI:p1:ea-chain, stepI:p1:ea-gradient, K:bp:p1:ext-integral, K:bp:p2:matrix, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L311-L311 | P = (L N), Omega_K = L^T Omega_0 L
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L311-L311 | K objects with h := H
-EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L311-L311 | DH(K)L = D(H o K) (a)
-EDGE: stepI:p1:ea-gradient | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L312-L312 | D(H o K) = (eta^N + Omega_K omega)^T (c)
-EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L313-L313 | continuous on the compact cube, integrable; ¦avg f¦ <= sup ¦f¦
-EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L316-L316 | transpose of a row has norm <= n times the vector norm
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L311-L311 | direct use of the local H, K, omega, domain or standing constants
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L329-L329 | P = (L N), Omega_K = L^T Omega_0 L
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L329-L329 | K objects with h := H
+EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L329-L329 | DH(K)L = D(H o K) (a)
+EDGE: stepI:p1:ea-gradient | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L330-L330 | D(H o K) = (eta^N + Omega_K omega)^T (c)
+EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L331-L331 | continuous on the compact cube, integrable; ¦avg f¦ <= sup ¦f¦
+EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L334-L334 | transpose of a row has norm <= n times the vector norm
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-defect@L329-L329 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1851,8 +2029,8 @@ NOTE: -
 NODE: bpI:p1:energy-conservation
 KIND: lemma
 TITLE: Energy conservation of an invariant torus
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L319-L330
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L332-L345
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L337-L348
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L350-L363
 CONTRACT_ID: bpI:p1:energy-conservation
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p1:setting (n>=2, tau>=0, M>0; D open, Z^n-invariant in theta; H holomorphic on D, 1-periodic in theta, real at real phase points of D, ¦DH¦,¦X_H¦,¦DX_H¦,¦D^2 X_H¦ <= M on D; gamma>0, omega in R^n cap Dio_{gamma,tau}; r>0, K holomorphic, primary, real on reals on T_r with K(T_r) subset D); E_{H,K,omega}(theta) = 0 for all theta in T_r; for (b): E_0 in R (or C), Ebar_H(K) = E_0
@@ -1866,12 +2044,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, bpI:p0:stripdata#invarianceError, bpI:p0:extended#energyAverage, stepI:p1:ec-derivative, stepI:p1:ec-unique, stepI:p1:ec-pointwise
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L320-L320 | Assume the setting on T_r (omega in Dio_{gamma,tau})
-EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L320-L320 | E_{H,K,omega} = 0
-EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L323-L323 | Ebar_H(K) = frozen energyAverage
-EDGE: stepI:p1:ec-derivative | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L333-L333 | proof step
-EDGE: stepI:p1:ec-unique | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L337-L337 | proof step
-EDGE: stepI:p1:ec-pointwise | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L343-L343 | proof step
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L338-L338 | Assume the setting on T_r (omega in Dio_{gamma,tau})
+EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L338-L338 | E_{H,K,omega} = 0
+EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L341-L341 | Ebar_H(K) = frozen energyAverage
+EDGE: stepI:p1:ec-derivative | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L351-L351 | proof step
+EDGE: stepI:p1:ec-unique | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L355-L355 | proof step
+EDGE: stepI:p1:ec-pointwise | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:energy-conservation@L361-L361 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -1883,8 +2061,8 @@ NOTE: -
 NODE: stepI:p1:ec-derivative
 KIND: step
 TITLE: The derivative vanishes along $\omega$
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L333-L335
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L333-L335
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L351-L353
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L351-L353
 CONTRACT_ID: stepI:p1:ec-derivative
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; E = 0 on T_r
@@ -1898,9 +2076,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:energy-approx, bpI:p0:stripdata#invarianceError, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:energy-approx | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L334-L334 | (a): u holomorphic, periodic, zero average; (b) (line 335): Du omega = -DH(K)E = 0
-EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L335-L335 | E = 0
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L334-L334 | direct use of the local H, K, omega, domain or standing constants
+EDGE: bpI:p1:energy-approx | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L352-L352 | (a): u holomorphic, periodic, zero average; (b) (line 335): Du omega = -DH(K)E = 0
+EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L353-L353 | E = 0
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-derivative@L352-L352 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1912,8 +2090,8 @@ NOTE: -
 NODE: stepI:p1:ec-unique
 KIND: step
 TITLE: Uniqueness for the cohomological equation
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L337-L341
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L337-L341
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L355-L359
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L355-L359
 CONTRACT_ID: stepI:p1:ec-unique
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; E = 0 on T_r
@@ -1927,9 +2105,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:ec-derivative, K:bp:p1:cohomological, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:ec-derivative | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L338-L338 | u holomorphic periodic with zero average solving Du omega = 0
-EDGE: K:bp:p1:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L339-L339 | uniqueness clause of the cohomological equation
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L339-L339 | omega in Dio_{gamma,tau}, gamma > 0, tau >= 0
+EDGE: stepI:p1:ec-derivative | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L356-L356 | u holomorphic periodic with zero average solving Du omega = 0
+EDGE: K:bp:p1:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L357-L357 | uniqueness clause of the cohomological equation
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-unique@L357-L357 | omega in Dio_{gamma,tau}, gamma > 0, tau >= 0
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1941,8 +2119,8 @@ NOTE: -
 NODE: stepI:p1:ec-pointwise
 KIND: step
 TITLE: Pointwise energy
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L343-L344
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L343-L344
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L361-L362
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L361-L362
 CONTRACT_ID: stepI:p1:ec-pointwise
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; E = 0 on T_r; E_0 in R or C arbitrary, with Ebar_H(K) = E_0 additionally for conclusion (b)
@@ -1956,9 +2134,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:ec-unique, bpI:p0:extended#energyAverage, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:ec-unique | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L344-L344 | (a): H o K = Ebar_H(K)
-EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L344-L344 | Ebar_H(K)
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L344-L344 | direct use of the local H, K, omega, domain or standing constants
+EDGE: stepI:p1:ec-unique | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L362-L362 | (a): H o K = Ebar_H(K)
+EDGE: bpI:p0:extended#energyAverage | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L362-L362 | Ebar_H(K)
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ec-pointwise@L362-L362 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -1970,8 +2148,8 @@ NOTE: -
 NODE: bpI:p1:border-solve
 KIND: lemma
 TITLE: Bordered triangular equations (HL19 Lemma 6.1)
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L358-L405
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L407-L453
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L376-L423
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L425-L471
 CONTRACT_ID: bpI:p1:border-solve
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: gamma > 0, tau >= 0, omega in R^n cap Dio_{gamma,tau}, r > 0, delta > 0, 2 delta < r; Gamma_delta = c_R gamma^{-1} delta^{-kappa}; eta^L, eta^N : T_r -> C^n holomorphic, 1-periodic, ¦eta^L¦ <= H_L, ¦eta^N¦ <= H_N on T_r, avg(eta^N) = 0; eta^omega in C; T : T_r -> C^{nxn}, Y : T_r -> C^{1xn} holomorphic, 1-periodic with ¦T¦ <= H_T, ¦Y¦ <= H_Y on T_{r-delta}; script-T := [[avg T, omega],[avg Y, 0]] with det script-T != 0 and ¦script-T^{-1}¦ <= sigma (row-sum norm of C^{(n+1)x(n+1)}); xi^L_0 in C^n; R the solution operator of K:bp:p2:cohomological(a)
@@ -1985,17 +2163,17 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:diophantine#IsDiophantine, K:bp:p2:constants, K:bp:p2:cohomological, bpI:p1:setting#k-bridge, stepI:p1:bs-first, stepI:p1:bs-averages, stepI:p1:bs-bordered, stepI:p1:bs-energy, stepI:p1:bs-second, stepI:p1:bs-unique, stepI:p1:bs-real
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:diophantine#IsDiophantine | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L365-L365 | omega in Dio_{gamma,tau}
-EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L365-L365 | Gamma_delta, c_R, kappa
-EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L361-L361 | the solution operator R
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L361-L361 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
-EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L408-L408 | proof step
-EDGE: stepI:p1:bs-averages | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L412-L412 | proof step
-EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L418-L418 | proof step
-EDGE: stepI:p1:bs-energy | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L427-L427 | proof step
-EDGE: stepI:p1:bs-second | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L432-L432 | proof step
-EDGE: stepI:p1:bs-unique | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L441-L441 | proof step
-EDGE: stepI:p1:bs-real | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L449-L449 | proof step
+EDGE: bpI:p0:diophantine#IsDiophantine | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L383-L383 | omega in Dio_{gamma,tau}
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L383-L383 | Gamma_delta, c_R, kappa
+EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L379-L379 | the solution operator R
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L379-L379 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
+EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L426-L426 | proof step
+EDGE: stepI:p1:bs-averages | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L430-L430 | proof step
+EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L436-L436 | proof step
+EDGE: stepI:p1:bs-energy | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L445-L445 | proof step
+EDGE: stepI:p1:bs-second | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L450-L450 | proof step
+EDGE: stepI:p1:bs-unique | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L459-L459 | proof step
+EDGE: stepI:p1:bs-real | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve@L467-L467 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2007,8 +2185,8 @@ NOTE: -
 NODE: stepI:p1:bs-first
 KIND: step
 TITLE: First cohomological equation
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L408-L410
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L408-L410
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L426-L428
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L426-L428
 CONTRACT_ID: stepI:p1:bs-first
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of border-solve
@@ -2022,8 +2200,8 @@ FROZEN_ABI_SHA256: -
 DEPS: K:bp:p2:cohomological, bpI:p1:setting#k-bridge
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L409-L409 | (a): solution of the cohomological equation
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L409-L409 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
+EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L427-L427 | (a): solution of the cohomological equation
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-first@L427-L427 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -2035,8 +2213,8 @@ NOTE: -
 NODE: stepI:p1:bs-averages
 KIND: step
 TITLE: Averages of the products
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L412-L416
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L412-L416
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L430-L434
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L430-L434
 CONTRACT_ID: stepI:p1:bs-averages
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of border-solve
@@ -2050,8 +2228,8 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:bs-first, K:bp:p2:averages
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L413-L413 | u^N holomorphic, periodic, bounded by Gamma_delta H_N
-EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L414-L414 | existence of averages of continuous periodic functions and the sup bound
+EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L431-L431 | u^N holomorphic, periodic, bounded by Gamma_delta H_N
+EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-averages@L432-L432 | existence of averages of continuous periodic functions and the sup bound
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2063,8 +2241,8 @@ NOTE: -
 NODE: stepI:p1:bs-bordered
 KIND: step
 TITLE: The bordered average system
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L418-L425
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L418-L425
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L436-L443
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L436-L443
 CONTRACT_ID: stepI:p1:bs-bordered
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of border-solve, including det script-T != 0
@@ -2078,8 +2256,8 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:bs-averages, K:bp:p2:matrix
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:bs-averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L419-L419 | the right-hand side w and its bound
-EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L423-L423 | ¦Mv¦ <= ¦M¦¦v¦
+EDGE: stepI:p1:bs-averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L437-L437 | the right-hand side w and its bound
+EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@L441-L441 | ¦Mv¦ <= ¦M¦¦v¦
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2091,8 +2269,8 @@ NOTE: -
 NODE: stepI:p1:bs-energy
 KIND: step
 TITLE: The energy equation and $\xi^N$
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L427-L430
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L427-L430
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L445-L448
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L445-L448
 CONTRACT_ID: stepI:p1:bs-energy
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of border-solve
@@ -2106,8 +2284,8 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:bs-first, stepI:p1:bs-bordered
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L428-L428 | u^N and d_omega u^N = eta^N
-EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L429-L429 | second equation of the bordered average system, bound on xi_0
+EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L446-L446 | u^N and d_omega u^N = eta^N
+EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-energy@L447-L447 | second equation of the bordered average system, bound on xi_0
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2119,8 +2297,8 @@ NOTE: -
 NODE: stepI:p1:bs-second
 KIND: step
 TITLE: The second cohomological equation
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L432-L439
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L432-L439
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L450-L457
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L450-L457
 CONTRACT_ID: stepI:p1:bs-second
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of border-solve
@@ -2134,11 +2312,11 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:bs-bordered, stepI:p1:bs-first, stepI:p1:bs-energy, K:bp:p2:cohomological, bpI:p1:setting#k-bridge
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L435-L435 | first equation of the bordered average system gives avg g^L = 0
-EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L439-L439 | u^N
-EDGE: stepI:p1:bs-energy | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L439-L439 | xi^N and its bound
-EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L437-L437 | (a) on T_{r-delta} with loss delta
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L437-L437 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
+EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L453-L453 | first equation of the bordered average system gives avg g^L = 0
+EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L457-L457 | u^N
+EDGE: stepI:p1:bs-energy | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L457-L457 | xi^N and its bound
+EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L455-L455 | (a) on T_{r-delta} with loss delta
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-second@L455-L455 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2150,8 +2328,8 @@ NOTE: -
 NODE: stepI:p1:bs-unique
 KIND: step
 TITLE: Uniqueness
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L441-L447
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L441-L447
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L459-L465
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L459-L465
 CONTRACT_ID: stepI:p1:bs-unique
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of border-solve; tilde solution holomorphic and periodic on T_{r-2delta}, satisfying the same system, as in (d)
@@ -2165,10 +2343,10 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:bs-first, K:bp:p1:cohomological, K:bp:p2:averages, stepI:p1:bs-bordered
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L442-L442 | u^N with d_omega u^N = eta^N
-EDGE: K:bp:p1:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L443-L443 | uniqueness clause
-EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L445-L445 | avg(d_omega xi~^L) = 0
-EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L445-L445 | invertibility of script-T and the bordered average system
+EDGE: stepI:p1:bs-first | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L460-L460 | u^N with d_omega u^N = eta^N
+EDGE: K:bp:p1:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L461-L461 | uniqueness clause
+EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L463-L463 | avg(d_omega xi~^L) = 0
+EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-unique@L463-L463 | invertibility of script-T and the bordered average system
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2180,8 +2358,8 @@ NOTE: -
 NODE: stepI:p1:bs-real
 KIND: step
 TITLE: Realness
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L449-L452
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L449-L452
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L467-L470
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L467-L470
 CONTRACT_ID: stepI:p1:bs-real
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of border-solve; eta^L, eta^N, T, Y real on reals; eta^omega real and xi^L_0 real
@@ -2195,11 +2373,11 @@ FROZEN_ABI_SHA256: -
 DEPS: K:bp:p2:averages, K:bp:p1:real-inverse, K:bp:p2:cohomological, bpI:p1:setting#k-bridge, stepI:p1:bs-bordered
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L450-L450 | real averages of real continuous periodic functions
-EDGE: K:bp:p1:real-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L451-L451 | script-T real with real inverse
-EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L451-L451 | R preserves realness
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L451-L451 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
-EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L451-L451 | xi_0, xi^omega = script-T^{-1} w
+EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L468-L468 | real averages of real continuous periodic functions
+EDGE: K:bp:p1:real-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L469-L469 | script-T real with real inverse
+EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L469-L469 | R preserves realness
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L469-L469 | supplies the K standing data (gamma, tau, omega) of the cohomological lemma
+EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-real@L469-L469 | xi_0, xi^omega = script-T^{-1} w
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2211,8 +2389,8 @@ NOTE: -
 NODE: bpI:p1:reduced
 KIND: lemma
 TITLE: The linearized isoenergetic equation in the frame
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L465-L485
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L487-L504
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L483-L503
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L505-L522
 CONTRACT_ID: bpI:p1:reduced
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Assumption bpI:p1:setting (n>=2, tau>=0, M>0; D open, Z^n-invariant in theta; H holomorphic on D, 1-periodic in theta, real at real phase points of D, ¦DH¦,¦X_H¦,¦DX_H¦,¦D^2 X_H¦ <= M on D; gamma>0, omega in R^n cap Dio_{gamma,tau}; r>0, K holomorphic, primary, real on reals on T_r with K(T_r) subset D); det G_K != 0 on T_r; omega in R^n (any); xi = (xi^L, xi^N) holomorphic on T_{r'} with 0 < r' <= r; xi^omega in C; Delta K = P xi, Delta omega = -omega xi^omega; for (c): the bordered system of border-solve(b) holds on T_{r'}; for (d): det P != 0 on T_{r'}
@@ -2226,13 +2404,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, K:bp:p2:objects, bpI:p0:stripdata#invarianceError, stepI:p1:rd-ql, stepI:p1:rd-expand, stepI:p1:rd-consequence
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L466-L466 | Assume the setting
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L466-L466 | K objects and K frame results with h := H
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L481-L481 | eta^L, eta^N, T, Y data of K objects
-EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L474-L474 | E = E_{H,K,omega} in Res
-EDGE: stepI:p1:rd-ql | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L488-L488 | proof step
-EDGE: stepI:p1:rd-expand | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L492-L492 | proof step
-EDGE: stepI:p1:rd-consequence | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L498-L498 | proof step
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L484-L484 | Assume the setting
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L484-L484 | K objects and K frame results with h := H
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L499-L499 | eta^L, eta^N, T, Y data of K objects
+EDGE: bpI:p0:stripdata#invarianceError | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L492-L492 | E = E_{H,K,omega} in Res
+EDGE: stepI:p1:rd-ql | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L506-L506 | proof step
+EDGE: stepI:p1:rd-expand | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L510-L510 | proof step
+EDGE: stepI:p1:rd-consequence | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:reduced@L516-L516 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -2244,8 +2422,8 @@ NOTE: -
 NODE: stepI:p1:rd-ql
 KIND: step
 TITLE: The product $QL$
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L488-L490
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L488-L490
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L506-L508
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L506-L508
 CONTRACT_ID: stepI:p1:rd-ql
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 on T_r
@@ -2259,11 +2437,11 @@ FROZEN_ABI_SHA256: -
 DEPS: K:bp:p2:objects, K:bp:p2:frame-identities, bpI:p1:setting#k-bridge, K:bp:p2:matrix, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L489-L489 | Q = -Omega_0 P^T Omega_0, P = (L N), Omega_K
-EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L489-L489 | (a): L^T Omega_0 N = -I_n, N^T Omega_0 L = I_n
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L489-L489 | supplies the K standing data of frame-identities
-EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L490-L490 | Omega_0 (U_1; U_2) = (-U_2; U_1)
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L489-L489 | direct use of the local H, K, omega, domain or standing constants
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L507-L507 | Q = -Omega_0 P^T Omega_0, P = (L N), Omega_K
+EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L507-L507 | (a): L^T Omega_0 N = -I_n, N^T Omega_0 L = I_n
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L507-L507 | supplies the K standing data of frame-identities
+EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L508-L508 | Omega_0 (U_1; U_2) = (-U_2; U_1)
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-ql@L507-L507 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2275,8 +2453,8 @@ NOTE: -
 NODE: stepI:p1:rd-expand
 KIND: step
 TITLE: Expanding the linearized operator
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L492-L496
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L492-L496
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L510-L514
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L510-L514
 CONTRACT_ID: stepI:p1:rd-expand
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 on T_r; xi holomorphic on T_{r'}, 0 < r' <= r; xi^omega scalar; Delta K = P xi and Delta omega = -omega xi^omega
@@ -2290,12 +2468,12 @@ FROZEN_ABI_SHA256: -
 DEPS: K:bp:p2:frame-identities, bpI:p1:setting#k-bridge, stepI:p1:rd-ql, K:bp:p2:objects, bpI:p1:setting, bpI:p1:ext-chain
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L494-L494 | (e) Q(AP - d_omega P) = Lambda + E_red; (f) QP = I - Omega_0 E_sym
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L494-L494 | supplies the K standing data of frame-identities
-EDGE: stepI:p1:rd-ql | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L495-L495 | (a): Q L omega xi^omega
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L495-L495 | Q E = -eta
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L493-L493 | direct use of the local H, K, omega, domain or standing constants
-EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L493-L493 | product rule for the directional derivative of P xi
+EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L512-L512 | (e) Q(AP - d_omega P) = Lambda + E_red; (f) QP = I - Omega_0 E_sym
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L512-L512 | supplies the K standing data of frame-identities
+EDGE: stepI:p1:rd-ql | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L513-L513 | (a): Q L omega xi^omega
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L513-L513 | Q E = -eta
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L511-L511 | direct use of the local H, K, omega, domain or standing constants
+EDGE: bpI:p1:ext-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-expand@L511-L511 | product rule for the directional derivative of P xi
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2307,8 +2485,8 @@ NOTE: -
 NODE: stepI:p1:rd-consequence
 KIND: step
 TITLE: Consequence
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L498-L503
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L498-L503
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L516-L521
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L516-L521
 CONTRACT_ID: stepI:p1:rd-consequence
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0; xi, xi^omega and strip as in reduced; for (c) the bordered system holds; for (d) det P != 0, sufficient if norm E_sym < 1
@@ -2319,29 +2497,29 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepI:p1:rd-expand, K:bp:p2:frame-identities, bpI:p1:setting#k-bridge, K:bp:p1:neumann, K:bp:p1:matrix-norms, K:bp:p2:matrix, bpI:p1:setting
+DEPS: stepI:p1:rd-expand, K:bp:p2:frame-identities, bpI:p1:setting#k-bridge, bpI:p1:ext-neumann, K:bp:p1:matrix-norms, K:bp:p2:matrix, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:rd-expand | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L499-L499 | (b)
-EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L500-L500 | (b): P^T Omega_0 P = Omega_0 + E_sym
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L500-L500 | supplies the K standing data of frame-identities
-EDGE: K:bp:p1:neumann | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L501-L501 | Neumann series for I - Omega_0 E_sym
-EDGE: K:bp:p1:matrix-norms | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L501-L501 | ¦Omega_0 E_sym¦ = ¦E_sym¦
-EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L503-L503 | norm bounds for E_lin
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L499-L499 | direct use of the local H, K, omega, domain or standing constants
+EDGE: stepI:p1:rd-expand | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L517-L517 | (b)
+EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L518-L518 | (b): P^T Omega_0 P = Omega_0 + E_sym
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L518-L518 | supplies the K standing data of frame-identities
+EDGE: bpI:p1:ext-neumann | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L519-L519 | radius-one Neumann criterion: I - Omega_0 E_sym invertible when ¦E_sym¦ < 1 (not K:bp:p1:neumann, threshold 1/2)
+EDGE: K:bp:p1:matrix-norms | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L519-L519 | ¦Omega_0 E_sym¦ = ¦E_sym¦
+EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L521-L521 | norm bounds for E_lin
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:rd-consequence@L517-L517 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-global-I
-REVIEWER: sol-delta-I-global
+EXTRACTOR: sonnet-extract-I-p1+sol-global-I+sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: the source invokes K:bp:p1:neumann under norm E_sym < 1, while that imported result assumes norm A^{-1} norm Delta <= 1/2. With A=I and Delta=-Omega_0 E_sym, the available premise is only norm Delta < 1. No proof of the stronger radius-one invertibility criterion is supplied by the listed dependencies. The residual identities and conditional equivalence under det P != 0 are unaffected; this gap is the sufficient-condition branch for det P != 0.
+NOTE: -
 
 NODE: bpI:p1:geometry-noA5
 KIND: lemma
 TITLE: Geometry of an approximately invariant torus, without \Kref{bp:p2:A5}
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L517-L526
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L527-L536
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L535-L544
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L545-L563
 CONTRACT_ID: bpI:p1:geometry-noA5
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: omega in Dio_{gamma,tau}, 0 < delta <= 1, 2 delta < r, 0 <= eps <= 1; Part 1 setting data D, H, M, n, tau (Assumption bpI:p1:setting; K and r as in this lemma); K holomorphic, primary and real on reals on T_r with B_beta(K(theta)) subset D (some beta > 0), ¦DK¦ <= sigma_K, det G_K != 0, ¦B¦ <= sigma_B, ¦E_{H,K,omega}¦ <= eps on T_r
@@ -2355,14 +2533,14 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, K:bp:p2:constants, K:bp:p2:admissible, K:bp:p2:frame-basic, stepI:p1:geo-de, stepI:p1:geo-red, stepI:p1:geo-sym
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L518-L518 | D, H, M, n, tau from the setting
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L528-L528 | K Part 2 results (frame-basic, frame-identities, exactness, cohomological) applied with h := H
-EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L519-L519 | constants m, Theta, C_*
-EDGE: K:bp:p2:admissible | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L528-L528 | frame-basic hypotheses (A2)-(A4), (A6) are supplied by the hypotheses of this lemma
-EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L528-L528 | last sentence: items (b)-(d) of frame-basic
-EDGE: stepI:p1:geo-de | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L529-L529 | proof step
-EDGE: stepI:p1:geo-red | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L531-L531 | proof step
-EDGE: stepI:p1:geo-sym | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L534-L534 | proof step
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L536-L536 | D, H, M, n, tau from the setting
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L546-L546 | K Part 2 results (frame-basic, frame-identities, exactness, cohomological) applied with h := H
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L537-L537 | constants m, Theta, C_*
+EDGE: K:bp:p2:admissible | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L546-L546 | frame-basic hypotheses (A2)-(A4), (A6) are supplied by the hypotheses of this lemma
+EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L546-L546 | last sentence: items (b)-(d) of frame-basic
+EDGE: stepI:p1:geo-de | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L547-L547 | proof step
+EDGE: stepI:p1:geo-red | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L549-L549 | proof step
+EDGE: stepI:p1:geo-sym | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:geometry-noA5@L561-L561 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -2374,28 +2552,29 @@ NOTE: -
 NODE: stepI:p1:geo-de
 KIND: step
 TITLE: Derivatives of the error
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L529-L530
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L529-L530
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L547-L548
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L547-L548
 CONTRACT_ID: stepI:p1:geo-de
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: hypotheses of geometry-noA5
 SOURCE_QUANTIFIERS: delta
-SOURCE_CONCLUSION: E holomorphic with ¦E¦ <= eps on T_r; ¦DE¦ <= n eps/delta on T_{r-delta}
+SOURCE_CONCLUSION: E holomorphic with ¦E¦ <= eps on T_r; ¦DE¦ <= n eps/delta and ¦(DE)^T¦ <= 2n eps/delta on T_{r-delta}
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p2:frame-basic, bpI:p1:setting#k-bridge, K:bp:p1:cauchy-strip, bpI:p1:setting
+DEPS: K:bp:p2:frame-basic, bpI:p1:setting#k-bridge, K:bp:p1:cauchy-strip, K:bp:p1:cauchy-corollaries, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L530-L530 | (a): E holomorphic with ¦E¦ <= eps
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L530-L530 | supplies the K standing data of frame-basic
-EDGE: K:bp:p1:cauchy-strip | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L530-L530 | Cauchy estimate on strips
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L530-L530 | direct use of the local H, K, omega, domain or standing constants
+EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L548-L548 | (a): E holomorphic with ¦E¦ <= eps
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L548-L548 | supplies the K standing data of frame-basic
+EDGE: K:bp:p1:cauchy-strip | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L548-L548 | Cauchy estimate on strips
+EDGE: K:bp:p1:cauchy-corollaries | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L548-L548 | with p = 2n: ¦(DE)^T¦ <= 2n eps/delta
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-de@L548-L548 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
-REVIEWER: sol-delta-I-a
+EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1+sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2404,11 +2583,11 @@ NOTE: -
 NODE: stepI:p1:geo-red
 KIND: step
 TITLE: $\partial_\omega\Omega_K$ and $E_{\mathrm{red}}$
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L531-L533
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L531-L533
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L549-L559
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L549-L559
 CONTRACT_ID: stepI:p1:geo-red
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: hypotheses of geometry-noA5
+SOURCE_HYPOTHESES: hypotheses of geometry-noA5 (no torsion condition, no A5)
 SOURCE_QUANTIFIERS: delta
 SOURCE_CONCLUSION: ¦d_omega Omega_K¦ <= (2n m + 2n^2 m) eps/delta and ¦E_red¦ <= C_red eps/delta on T_{r-delta}
 CONSTANT_SCOPE: inherited constants m and C_red of K:bp:p2:constants, depending only on (n,tau,M,sigma_K,sigma_B,sigma_T); no new constants
@@ -2416,31 +2595,92 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p2:frame-identities, K:bp:p2:matrix, K:bp:p2:frame-basic, bpI:p1:setting#k-bridge, stepI:p1:geo-de, K:step:p2:geo-domegak, K:step:p2:geo-ered, bpI:p1:setting, K:bp:p2:constants
+DEPS: stepI:p1:geo-red-domega, stepI:p1:geo-red-ered, bpI:p1:setting, K:bp:p2:constants
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L532-L532 | (d), (e)
-EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L532-L532 | norm bounds
-EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L532-L532 | (b): bounds on L, N, B
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L532-L532 | supplies the K standing data of frame-identities and frame-basic
-EDGE: stepI:p1:geo-de | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L532-L532 | bound on DE
-EDGE: K:step:p2:geo-domegak | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L532-L532 | same estimate for d_omega Omega_K
-EDGE: K:step:p2:geo-ered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L532-L532 | same estimate for E_red
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L533-L533 | direct use of the local H, K, omega, domain or standing constants
-EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L533-L533 | definitions of m and C_red used in the displayed bounds
+EDGE: stepI:p1:geo-red-domega | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L552-L556 | substep: bound on d_omega Omega_K
+EDGE: stepI:p1:geo-red-ered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L558-L559 | substep: bound on E_red
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L550-L550 | the local frame data and geometry-noA5 setting inherited by this result
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red@L550-L559 | m and C_red are the named constants in the two estimates and their declared scope
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p1+sol-global-I
-REVIEWER: sol-delta-I-global
+EXTRACTOR: sonnet-extract-I-p1+sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: the represented conjunctive applications of K:step:p2:geo-domegak and K:step:p2:geo-ered assume full K admissibility including A5, by their current imported source contracts. geometry-noA5 supplies A1-A4 and A6 but no ordinary torsion-average invertibility. The common-data k-bridge does not discharge A5. The displayed local calculation from frame-identities, matrix and frame-basic may instead support a separately modelled direct route; it does not make these stronger import premises true.
+NOTE: K:step:p2:geo-domegak and K:step:p2:geo-ered are only compared with (stated under A5); the former SOURCE_GAP is closed by the direct substeps.
+
+NODE: stepI:p1:geo-red-domega
+KIND: step
+TITLE: Bound on $\partial_\omega\Omega_K$
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L552-L556
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L552-L556
+CONTRACT_ID: stepI:p1:geo-red-domega
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: hypotheses of geometry-noA5 (no torsion condition, no A5)
+SOURCE_QUANTIFIERS: delta
+SOURCE_CONCLUSION: ¦d_omega Omega_K¦ <= (2n m + 2n^2 m) eps/delta = 2n(n+1) m eps/delta on T_{r-delta}
+CONSTANT_SCOPE: inherited constant m of K:bp:p2:constants; no new constants
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, K:bp:p2:frame-identities, K:bp:p2:matrix, K:bp:p2:frame-basic, stepI:p1:geo-de, K:bp:p2:constants
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L553-L553 | local H, K, omega data
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L553-L553 | supplies the K standing data of frame-identities and frame-basic
+EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L553-L553 | (d): d_omega Omega_K = -(DE)^T Omega_0 L - L^T Omega_0 DE
+EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L553-L553 | (b), (d): norm of products, ¦Omega_0¦ = 1
+EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L553-L553 | (b): ¦L¦ <= m, ¦L^T¦ <= 2n m
+EDGE: stepI:p1:geo-de | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L553-L553 | ¦DE¦ and ¦(DE)^T¦ bounds
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-domega@L553-L555 | definition of m
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+
+NODE: stepI:p1:geo-red-ered
+KIND: step
+TITLE: Bound on $E_{\mathrm{red}}$
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L558-L559
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L558-L559
+CONTRACT_ID: stepI:p1:geo-red-ered
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: hypotheses of geometry-noA5 (no torsion condition, no A5)
+SOURCE_QUANTIFIERS: delta
+SOURCE_CONCLUSION: ¦E_red¦ <= C_red eps/delta = 2n(n+1) m^2 eps/delta on T_{r-delta}
+CONSTANT_SCOPE: inherited constants m and C_red of K:bp:p2:constants; no new constants
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, K:bp:p2:frame-identities, K:bp:p2:matrix, K:bp:p2:frame-basic, stepI:p1:geo-de, K:bp:p2:constants
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L559-L559 | local H, K, omega data
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L559-L559 | supplies the K standing data of frame-identities and frame-basic
+EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L559-L559 | (e): block form of E_red
+EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L559-L559 | (c): block-row norm bound
+EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L559-L559 | (b): ¦N¦ <= m^2, ¦N^T¦ <= 2n m^2, ¦L^T¦ <= 2n m
+EDGE: stepI:p1:geo-de | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L559-L559 | ¦DE¦ and ¦(DE)^T¦ bounds
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-red-ered@L559-L559 | definition of C_red and m >= 1
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-I-p1+sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
 
 NODE: stepI:p1:geo-sym
 KIND: step
 TITLE: Lagrangian defect and symplecticity defect
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L534-L535
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L534-L535
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L561-L562
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L561-L562
 CONTRACT_ID: stepI:p1:geo-sym
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: hypotheses of geometry-noA5
@@ -2454,13 +2694,13 @@ FROZEN_ABI_SHA256: -
 DEPS: K:bp:p2:exactness, K:bp:p2:cohomological, K:bp:p2:frame-identities, bpI:p1:setting#k-bridge, bpI:p1:setting, K:bp:p2:constants, stepI:p1:geo-red
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:exactness | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L535-L535 | avg Omega_K = 0, K primary
-EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L535-L535 | (b) on T_{r-delta} with loss delta
-EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L535-L535 | (b): E_sym = diag(Omega_K, B Omega_K B)
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L535-L535 | supplies the K standing data of exactness, cohomological, frame-identities
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L535-L535 | direct use of the local H, K, omega, domain or standing constants
-EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L535-L535 | definitions of m and C_Omega used in the cohomological and symplectic-defect bounds
-EDGE: stepI:p1:geo-red | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L535-L535 | preceding bound on d_omega Omega_K supplies the right-hand side for the cohomological a-priori estimate
+EDGE: K:bp:p2:exactness | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L562-L562 | avg Omega_K = 0, K primary
+EDGE: K:bp:p2:cohomological | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L562-L562 | (b) on T_{r-delta} with loss delta
+EDGE: K:bp:p2:frame-identities | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L562-L562 | (b): E_sym = diag(Omega_K, B Omega_K B)
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L562-L562 | supplies the K standing data of exactness, cohomological, frame-identities
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L562-L562 | direct use of the local H, K, omega, domain or standing constants
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L562-L562 | definitions of m and C_Omega used in the cohomological and symplectic-defect bounds
+EDGE: stepI:p1:geo-red | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:geo-sym@L562-L562 | preceding bound on d_omega Omega_K supplies the right-hand side for the cohomological a-priori estimate
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-delta-I-a
 REVIEWER: sol-delta-I-c
@@ -2472,8 +2712,8 @@ NOTE: -
 NODE: bpI:p1:perturbation-noA5
 KIND: lemma
 TITLE: Perturbation of the frame, without \Kref{bp:p2:A5}
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L539-L550
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L551-L563
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L566-L577
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L578-L590
 CONTRACT_ID: bpI:p1:perturbation-noA5
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: r > 0, 0 < delta <= 1, 2 delta < r, ¦omega¦ <= Theta, omega in R^n; Part 1 setting data D, H, M, n, tau (Assumption bpI:p1:setting; K, r as in this lemma); K holomorphic on T_r with B_beta(K(theta)) subset D, ¦DK¦ <= sigma_K, det G != 0, ¦B¦ <= sigma_B on T_r; K~ holomorphic on T_r with ¦K~ - K¦ <= d on T_r, d < beta, 2 m C_{DeltaT} d/delta^2 <= 1
@@ -2487,13 +2727,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, bpI:p1:setting#k-bridge, K:bp:p2:constants, stepI:p1:pt-small, stepI:p1:pt-domain, stepI:p1:pt-frame, stepI:p1:pt-torsion
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L540-L540 | D, H, M, n, tau from the setting
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L540-L540 | K Part 2 results applied with h := H
-EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L541-L541 | m, Theta, C_{DeltaT}, C_B, C_{DeltaN}
-EDGE: stepI:p1:pt-small | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L552-L552 | proof step
-EDGE: stepI:p1:pt-domain | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L555-L555 | proof step
-EDGE: stepI:p1:pt-frame | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L557-L557 | proof step
-EDGE: stepI:p1:pt-torsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L559-L559 | proof step
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L567-L567 | D, H, M, n, tau from the setting
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L567-L567 | K Part 2 results applied with h := H
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L568-L568 | m, Theta, C_{DeltaT}, C_B, C_{DeltaN}
+EDGE: stepI:p1:pt-small | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L579-L579 | proof step
+EDGE: stepI:p1:pt-domain | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L582-L582 | proof step
+EDGE: stepI:p1:pt-frame | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L584-L584 | proof step
+EDGE: stepI:p1:pt-torsion | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:perturbation-noA5@L586-L586 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -2505,8 +2745,8 @@ NOTE: -
 NODE: stepI:p1:pt-small
 KIND: step
 TITLE: Smallness
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L552-L554
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L552-L554
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L579-L581
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L579-L581
 CONTRACT_ID: stepI:p1:pt-small
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: hypotheses of perturbation-noA5
@@ -2520,9 +2760,9 @@ FROZEN_ABI_SHA256: -
 DEPS: K:bp:p2:constants, K:step:p2:pt-small, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L553-L553 | definitions of the constants
-EDGE: K:step:p2:pt-small | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L553-L553 | same arithmetic on constants
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L553-L553 | direct use of the local H, K, omega, domain or standing constants
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L580-L580 | definitions of the constants
+EDGE: K:step:p2:pt-small | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L580-L580 | same arithmetic on constants
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-small@L580-L580 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2534,8 +2774,8 @@ NOTE: -
 NODE: stepI:p1:pt-domain
 KIND: step
 TITLE: Domain
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L555-L556
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L555-L556
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L582-L583
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L582-L583
 CONTRACT_ID: stepI:p1:pt-domain
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: hypotheses of perturbation-noA5
@@ -2549,9 +2789,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, K:bp:p2:hamiltonian, bpI:p1:setting#k-bridge
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L556-L556 | D open domain of H, M from the setting
-EDGE: K:bp:p2:hamiltonian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L556-L556 | (e): Lipschitz bound for DX_h
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L556-L556 | supplies the K standing data of the Hamiltonian lemma
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L583-L583 | D open domain of H, M from the setting
+EDGE: K:bp:p2:hamiltonian | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L583-L583 | (e): Lipschitz bound for DX_h
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-domain@L583-L583 | supplies the K standing data of the Hamiltonian lemma
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
@@ -2563,8 +2803,8 @@ NOTE: -
 NODE: stepI:p1:pt-frame
 KIND: step
 TITLE: Frame
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L557-L558
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L557-L558
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L584-L585
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L584-L585
 CONTRACT_ID: stepI:p1:pt-frame
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: hypotheses of perturbation-noA5
@@ -2578,12 +2818,12 @@ FROZEN_ABI_SHA256: -
 DEPS: K:bp:p1:cauchy-strip, K:bp:p1:cauchy-corollaries, K:bp:p1:neumann, stepI:p1:pt-small, bpI:p1:setting, K:bp:p2:constants
 ROUTES: -
 ROUTE_FOR: -
-EDGE: K:bp:p1:cauchy-strip | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L558-L558 | Cauchy estimate for K~ - K
-EDGE: K:bp:p1:cauchy-corollaries | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L558-L558 | transpose bound (p = 2n)
-EDGE: K:bp:p1:neumann | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L558-L558 | Neumann series for G~
-EDGE: stepI:p1:pt-small | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L558-L558 | smallness n d/delta <= m, m C_G d/delta <= 1/2
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L558-L558 | direct use of the local H, K, omega, domain or standing constants
-EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L558-L558 | definitions of C_G, C_B and m
+EDGE: K:bp:p1:cauchy-strip | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L585-L585 | Cauchy estimate for K~ - K
+EDGE: K:bp:p1:cauchy-corollaries | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L585-L585 | transpose bound (p = 2n)
+EDGE: K:bp:p1:neumann | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L585-L585 | Neumann series for G~
+EDGE: stepI:p1:pt-small | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L585-L585 | smallness n d/delta <= m, m C_G d/delta <= 1/2
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L585-L585 | direct use of the local H, K, omega, domain or standing constants
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-frame@L585-L585 | definitions of C_G, C_B and m
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2595,8 +2835,8 @@ NOTE: -
 NODE: stepI:p1:pt-torsion
 KIND: step
 TITLE: Normal frame and torsion
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L559-L562
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L559-L562
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L586-L589
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L586-L589
 CONTRACT_ID: stepI:p1:pt-torsion
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: hypotheses of perturbation-noA5
@@ -2610,15 +2850,15 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p1:pt-frame, stepI:p1:pt-domain, K:bp:p1:cauchy-corollaries, K:bp:p2:objects, K:bp:p2:frame-basic, K:bp:p2:admissible, bpI:p1:setting#k-bridge, K:bp:p2:constants, bpI:p1:setting
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p1:pt-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L560-L560 | L~, B~ bounds for N~ - N
-EDGE: stepI:p1:pt-domain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L561-L561 | ¦A~ - A¦
-EDGE: K:bp:p1:cauchy-corollaries | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L561-L561 | bound on d_omega(N~ - N)
-EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L561-L561 | X_N and T definitions
-EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L562-L562 | (d): ¦X_N¦ <= C_X/delta
-EDGE: K:bp:p2:admissible | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L562-L562 | frame-basic hypotheses (A2)-(A4) are supplied by the hypotheses of this lemma
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L562-L562 | supplies the K standing data of frame-basic
-EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L561-L561 | constants C_{DeltaX}, C_{DeltaT}
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L560-L560 | direct use of the local H, K, omega, domain or standing constants
+EDGE: stepI:p1:pt-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L587-L587 | L~, B~ bounds for N~ - N
+EDGE: stepI:p1:pt-domain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L588-L588 | ¦A~ - A¦
+EDGE: K:bp:p1:cauchy-corollaries | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L588-L588 | bound on d_omega(N~ - N)
+EDGE: K:bp:p2:objects | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L588-L588 | X_N and T definitions
+EDGE: K:bp:p2:frame-basic | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L589-L589 | (d): ¦X_N¦ <= C_X/delta
+EDGE: K:bp:p2:admissible | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L589-L589 | frame-basic hypotheses (A2)-(A4) are supplied by the hypotheses of this lemma
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L589-L589 | supplies the K standing data of frame-basic
+EDGE: K:bp:p2:constants | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L588-L588 | constants C_{DeltaX}, C_{DeltaT}
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:pt-torsion@L587-L587 | direct use of the local H, K, omega, domain or standing constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2630,8 +2870,8 @@ NOTE: -
 NODE: stepI:p1:ea-avg#exactness-route
 KIND: route
 TITLE: Averages via exactness
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L299-L301
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L299-L301
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L317-L319
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L317-L319
 CONTRACT_ID: stepI:p1:ea-avg#exactness-route
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 where eta^N is used
@@ -2645,11 +2885,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, stepI:p1:ea-chain, K:bp:p2:averages, K:bp:p2:exactness, bpI:p1:setting#k-bridge
 ROUTES: -
 ROUTE_FOR: stepI:p1:ea-avg
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L299-L299 | standing H, K and omega
-EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L299-L299 | H o K holomorphic and periodic
-EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L300-L300 | zero average of derivatives
-EDGE: K:bp:p2:exactness | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L300-L300 | zero averaged Omega_K and eta^N
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L300-L300 | K data for exactness
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L317-L317 | standing H, K and omega
+EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L317-L317 | H o K holomorphic and periodic
+EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L318-L318 | zero average of derivatives
+EDGE: K:bp:p2:exactness | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L318-L318 | zero averaged Omega_K and eta^N
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#exactness-route@L318-L318 | K data for exactness
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -2661,8 +2901,8 @@ NOTE: Alternative source route; requires independent delta review. Exactness sup
 NODE: stepI:p1:ea-avg#gradient-route
 KIND: route
 TITLE: Averages via gradient identity
-STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L299-L301
-PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L299-L301
+STATEMENT_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L317-L319
+PROOF_SOURCE: blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L317-L319
 CONTRACT_ID: stepI:p1:ea-avg#gradient-route
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: setting; det G_K != 0 where eta^N is used
@@ -2676,12 +2916,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p1:setting, stepI:p1:ea-chain, K:bp:p2:averages, K:bp:p2:exactness, bpI:p1:setting#k-bridge, stepI:p1:ea-gradient
 ROUTES: -
 ROUTE_FOR: stepI:p1:ea-avg
-EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L299-L299 | standing H, K and omega
-EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L299-L299 | H o K holomorphic and periodic
-EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L300-L300 | zero average of derivatives
-EDGE: K:bp:p2:exactness | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L300-L300 | zero averaged Omega_K
-EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L300-L300 | K data for exactness
-EDGE: stepI:p1:ea-gradient | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L301-L301 | average the identity (c) to deduce avg eta^N = 0
+EDGE: bpI:p1:setting | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L317-L317 | standing H, K and omega
+EDGE: stepI:p1:ea-chain | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L317-L317 | H o K holomorphic and periodic
+EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L318-L318 | zero average of derivatives
+EDGE: K:bp:p2:exactness | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L318-L318 | zero averaged Omega_K
+EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L318-L318 | K data for exactness
+EDGE: stepI:p1:ea-gradient | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:ea-avg#gradient-route@L319-L319 | average the identity (c) to deduce avg eta^N = 0
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-I-p1
 REVIEWER: sol-delta-I-a
@@ -9171,13 +9411,13 @@ NOTE: -
 NODE: bpI:p7:symplectic
 KIND: proposition
 TITLE: The Delaunay map is symplectic
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L205-L215
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L216-L238
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L205-L217
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L218-L240
 CONTRACT_ID: bpI:p7:symplectic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (ell,g,L,G) in D_R (open in R^4); F = 2 L e sin u; for the consequence, H a C^1 function on an open subset of R^4 on which Q is defined
-SOURCE_QUANTIFIERS: w in D_R; H
-SOURCE_CONCLUSION: Q^*(sum p_i dq_i) = L dell + G dg + dF; D Q^T J D Q = J = D Q J D Q^T; Q^*(sum dq_i wedge dp_i) = dell wedge dL + dg wedge dG; D Q(w) invertible; D Q X_{H o Q} = X_H o Q, i.e. w' = X_{H o Q}(w) iff d/dt Q(w) = X_H(Q(w)) for C^1 curves w
+SOURCE_HYPOTHESES: (ell,g,L,G) in D_R (open in R^4); F = 2 L e sin u; for the consequence, U subset R^4 open (target, coordinates (q,p)), H: U -> R of class C^1, W := {w in D_R : Q(w) in U} (open in R^4 since Q is continuous on the open set D_R)
+SOURCE_QUANTIFIERS: w in D_R; U open; H: U -> R, C^1; then w in W
+SOURCE_CONCLUSION: Q^*(sum p_i dq_i) = L dell + G dg + dF; D Q^T J D Q = J = D Q J D Q^T; Q^*(sum dq_i wedge dp_i) = dell wedge dL + dg wedge dG; D Q(w) invertible; on W: D Q X_{H o Q} = X_H o Q, i.e. w' = X_{H o Q}(w) iff d/dt Q(w) = X_H(Q(w)) for C^1 curves w in W
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -9187,14 +9427,14 @@ DEPS: bpI:p7:orbit-maps, stepI:p7:sy-g, stepI:p7:sy-coord, stepI:p7:sy-compare, 
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L206-L206 | the map Q on D_R
-EDGE: stepI:p7:sy-g | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L217-L217 | proof step
-EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L220-L220 | proof step
-EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L232-L232 | proof step
-EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L234-L234 | proof step
-EDGE: stepI:p7:sy-field | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L237-L237 | proof step
+EDGE: stepI:p7:sy-g | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L219-L219 | proof step
+EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L222-L222 | proof step
+EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L234-L234 | proof step
+EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L236-L236 | proof step
+EDGE: stepI:p7:sy-field | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L239-L239 | proof step
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p67a
-REVIEWER: sol-review-I-p67
+EXTRACTOR: sonnet-extract-I-p67a+sonnet-amend-I-p1
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -9203,8 +9443,8 @@ NOTE: -
 NODE: stepI:p7:sy-g
 KIND: step
 TITLE: Reduction of the angle $g$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L217-L218
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L217-L218
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L219-L220
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L219-L220
 CONTRACT_ID: stepI:p7:sy-g
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: q = R(g) xi, xi = (X,Y), pi = (P_X,P_Y), p = R(g) pi
@@ -9218,8 +9458,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-maps, bpI:p7:orbit-identities
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L217-L217 | xi, pi and the rotation form of q, p
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L218-L218 | (b): Gamma = X P_Y - Y P_X = G
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L219-L219 | xi, pi and the rotation form of q, p
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-g@L220-L220 | (b): Gamma = X P_Y - Y P_X = G
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -9231,8 +9471,8 @@ NOTE: -
 NODE: stepI:p7:sy-coord
 KIND: step
 TITLE: Coordinates $(u,L,e)$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L230
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L230
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L232
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L232
 CONTRACT_ID: stepI:p7:sy-coord
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: on D_R use (u, L, e) in place of (ell, L, G); X = L^2(c-e), Y = L^2 k s
@@ -9246,8 +9486,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-maps, bpI:p7:kepler-eq
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L220 | X, Y, P_X, P_Y
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L220-L220 | d_ell u > 0 and u = u_R: (ell,L,G) -> (u,L,e) is a diffeomorphism
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L222 | X, Y, P_X, P_Y
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-coord@L222-L222 | d_ell u > 0 and u = u_R: (ell,L,G) -> (u,L,e) is a diffeomorphism
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -9259,8 +9499,8 @@ NOTE: -
 NODE: stepI:p7:sy-compare
 KIND: step
 TITLE: Comparison with $L\,d\ell$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234
 CONTRACT_ID: stepI:p7:sy-compare
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (ell,g,L,G) in D_R=R^2 x C_0 with 0<G<L; e=e(L,G), k=G/L, (q,p)=Q(ell,g,L,G), u,c,s,D as in the orbit-map definitions; the one-form calculation is on D_R, F=2Le sin u
@@ -9274,10 +9514,10 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:sy-g, stepI:p7:sy-coord, bpI:p7:kepler-eq, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:sy-g | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | p.dq = pi.dxi + G dg
-EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | pi.dxi
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | ell = u - e sin u relates dell to du, de
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L232-L232 | the calculation uses the Delaunay orbit map or its element formulas
+EDGE: stepI:p7:sy-g | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234 | p.dq = pi.dxi + G dg
+EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234 | pi.dxi
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234 | ell = u - e sin u relates dell to du, de
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-compare@L234-L234 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -9289,8 +9529,8 @@ NOTE: -
 NODE: stepI:p7:sy-ext
 KIND: step
 TITLE: Exterior derivative
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L237
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L237
 CONTRACT_ID: stepI:p7:sy-ext
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Q is the Delaunay map on D_R as fixed in the symplectic proposition; F=2Le sin u; no one-form identity or invertibility is assumed as a source premise
@@ -9304,9 +9544,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:sy-compare, bpI:p7:x-forms, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L234 | Q^*(sum p_i dq_i) = L dell + G dg + dF
-EDGE: bpI:p7:x-forms | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L234 | d^2 = 0, pull-back commutes with d, form determined by values on vectors
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L234-L235 | the calculation uses the Delaunay orbit map or its element formulas
+EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L236 | Q^*(sum p_i dq_i) = L dell + G dg + dF
+EDGE: bpI:p7:x-forms | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L236 | d^2 = 0, pull-back commutes with d, form determined by values on vectors
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-ext@L236-L237 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -9318,13 +9558,13 @@ NOTE: -
 NODE: stepI:p7:sy-field
 KIND: step
 TITLE: Hamiltonian fields
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
 CONTRACT_ID: stepI:p7:sy-field
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Q is the Delaunay map on D_R; H is C^1 on the stated open domain for composition with Q; the curve assertion concerns C^1 curves w with values in D_R
-SOURCE_QUANTIFIERS: For every C^1 H on the stated open domain and every point of D_R; then for every C^1 curve w in that domain
-SOURCE_CONCLUSION: D Q X_{H o Q} = X_H o Q; for C^1 curves w' = X_{H o Q}(w) iff d/dt Q(w) = X_H(Q(w))
+SOURCE_HYPOTHESES: Q is the Delaunay map on D_R; U subset R^4 open, H: U -> R of class C^1; W = {w in D_R : Q(w) in U} open; Q(w) lies in the open domain U of H for every w in W, so the chain rule applies at every point of W
+SOURCE_QUANTIFIERS: for every open U and C^1 H: U -> R, every w in W; then for every C^1 curve w in W
+SOURCE_CONCLUSION: on W: D Q X_{H o Q} = X_H o Q; for C^1 curves w in W: w' = X_{H o Q}(w) iff d/dt Q(w) = X_H(Q(w))
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -9333,11 +9573,11 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:sy-ext, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237 | D Q J D Q^T = J
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L237-L237 | the calculation uses the Delaunay orbit map or its element formulas
+EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | D Q J D Q^T = J
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
-REVIEWER: sol-delta-I-g
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -9346,8 +9586,8 @@ NOTE: -
 NODE: bpI:p7:chart
 KIND: theorem
 TITLE: Delaunay chart
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L240-L244
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L245-L259
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L242-L246
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L247-L261
 CONTRACT_ID: bpI:p7:chart
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: none beyond the definitions of Q, C_0, C, D_R
@@ -9361,16 +9601,16 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-maps, bpI:p7:elements, bpI:p7:symplectic, bpI:p7:orbit-identities, stepI:p7:ch-reg, stepI:p7:ch-inj, stepI:p7:ch-surj1, stepI:p7:ch-surj2, stepI:p7:ch-surj3, stepI:p7:ch-diffeo
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L241-L241 | the map Q and D_R
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L241-L241 | the region C and the elements
-EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L241-L241 | symplectic quotient map
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L242-L242 | E o Q and Gamma o Q
-EDGE: stepI:p7:ch-reg | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L246-L246 | proof step
-EDGE: stepI:p7:ch-inj | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L248-L248 | proof step
-EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L250-L250 | proof step
-EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L254-L254 | proof step
-EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L256-L256 | proof step
-EDGE: stepI:p7:ch-diffeo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L258-L258 | proof step
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L243-L243 | the map Q and D_R
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L243-L243 | the region C and the elements
+EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L243-L243 | symplectic quotient map
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L244-L244 | E o Q and Gamma o Q
+EDGE: stepI:p7:ch-reg | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L248-L248 | proof step
+EDGE: stepI:p7:ch-inj | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L250-L250 | proof step
+EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L252-L252 | proof step
+EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L256-L256 | proof step
+EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L258-L258 | proof step
+EDGE: stepI:p7:ch-diffeo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:chart@L260-L260 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -9382,8 +9622,8 @@ NOTE: -
 NODE: stepI:p7:ch-reg
 KIND: step
 TITLE: Regularity
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248
 CONTRACT_ID: stepI:p7:ch-reg
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (ell,g,L,G) in D_R, so 0 < G < L and 1-G^2/L^2 > 0; e(L,G) = sqrt(1-G^2/L^2)
@@ -9397,12 +9637,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:kepler-eq, bpI:p7:orbit-maps, bpI:p7:symplectic, bpI:p7:orbit-identities, bpI:p7:x-hol, K:bp:p1:holomorphic-analytic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | (c): u_R real-analytic
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | Q built from u_R, e(L,G), R(g)
-EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | invertibility of D Q
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | (c): Q(D_R) subset C
-EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | the positive square-root formula for e extends holomorphically locally on C_0
-EDGE: K:bp:p1:holomorphic-analytic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L246-L246 | restrict the local holomorphic square-root formula to real actions to justify real analyticity of e
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | (c): u_R real-analytic
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | Q built from u_R, e(L,G), R(g)
+EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | invertibility of D Q
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | (c): Q(D_R) subset C
+EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | the positive square-root formula for e extends holomorphically locally on C_0
+EDGE: K:bp:p1:holomorphic-analytic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-reg@L248-L248 | restrict the local holomorphic square-root formula to real actions to justify real analyticity of e
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -9414,8 +9654,8 @@ NOTE: -
 NODE: stepI:p7:ch-inj
 KIND: step
 TITLE: Injectivity modulo $2\pi$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250
 CONTRACT_ID: stepI:p7:ch-inj
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Q(ell,g,L,G) = (q,p)
@@ -9429,9 +9669,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-identities, bpI:p7:elements, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248 | L = 1/sqrt(-2E), G = Gamma, cos u = (1 - r/L^2)/e, sin u = q.p/(L e)
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248 | elements of (q,p)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L248-L248 | X, Y and q = R(g)(X,Y)
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250 | L = 1/sqrt(-2E), G = Gamma, cos u = (1 - r/L^2)/e, sin u = q.p/(L e)
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250 | elements of (q,p)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250-L250 | X, Y and q = R(g)(X,Y)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -9443,8 +9683,8 @@ NOTE: -
 NODE: stepI:p7:ch-surj1
 KIND: step
 TITLE: Surjectivity: the elements
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L250-L253
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L250-L253
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L252-L255
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L252-L255
 CONTRACT_ID: stepI:p7:ch-surj1
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (q,p) in C
@@ -9458,7 +9698,7 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:elements
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L250-L250 | definition of L, G, e on C
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L252-L252 | definition of L, G, e on C
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -9470,8 +9710,8 @@ NOTE: -
 NODE: stepI:p7:ch-surj2
 KIND: step
 TITLE: Surjectivity: the anomaly
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256
 CONTRACT_ID: stepI:p7:ch-surj2
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: step ch-surj1
@@ -9485,9 +9725,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:ch-surj1, bpI:p7:kepler-eq, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254 | relation (*)
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254 | (c): u = u_R(ell,e) by uniqueness
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L254-L254 | X, Y, D
+EDGE: stepI:p7:ch-surj1 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256 | relation (*)
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256 | (c): u = u_R(ell,e) by uniqueness
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L256-L256 | X, Y, D
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -9499,8 +9739,8 @@ NOTE: -
 NODE: stepI:p7:ch-surj3
 KIND: step
 TITLE: Surjectivity: the momentum
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258
 CONTRACT_ID: stepI:p7:ch-surj3
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: steps ch-surj2; (q,p') = Q(ell,g,L,G)
@@ -9514,9 +9754,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-identities, stepI:p7:ch-surj2, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256 | (b),(c): E, Gamma and q.p of Q
-EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256 | the chosen (ell,g,L,G)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L256-L256 | Q
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258 | (b),(c): E, Gamma and q.p of Q
+EDGE: stepI:p7:ch-surj2 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258 | the chosen (ell,g,L,G)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L258-L258 | Q
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
@@ -9528,8 +9768,8 @@ NOTE: -
 NODE: stepI:p7:ch-diffeo
 KIND: step
 TITLE: Quotient diffeomorphism
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260
 CONTRACT_ID: stepI:p7:ch-diffeo
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Q is the Delaunay map D_R -> C defined from the orbit formulas; no regularity, injectivity, surjectivity or periodicity conclusion is an added premise
@@ -9543,12 +9783,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:kepler-eq, stepI:p7:ch-reg, stepI:p7:ch-inj, stepI:p7:ch-surj3, bpI:p7:x-ift, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | (b): periodicity of u
-EDGE: stepI:p7:ch-reg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | local diffeomorphism
-EDGE: stepI:p7:ch-inj | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | injectivity modulo 2pi
-EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | surjectivity
-EDGE: bpI:p7:x-ift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | bijective local real-analytic diffeomorphism is a diffeomorphism
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L258-L258 | the calculation uses the Delaunay orbit map or its element formulas
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | (b): periodicity of u
+EDGE: stepI:p7:ch-reg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | local diffeomorphism
+EDGE: stepI:p7:ch-inj | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | injectivity modulo 2pi
+EDGE: stepI:p7:ch-surj3 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | surjectivity
+EDGE: bpI:p7:x-ift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | bijective local real-analytic diffeomorphism is a diffeomorphism
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L260-L260 | the calculation uses the Delaunay orbit map or its element formulas
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -9592,8 +9832,8 @@ NOTE: section data node (SPEC): openness of W_mu is consumed by the ODE layer
 NODE: bpI:p7:near-circular
 KIND: lemma
 TITLE: The preimage of the near-circular region
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L261-L270
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L271-L277
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L263-L272
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L273-L279
 CONTRACT_ID: bpI:p7:near-circular
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: a_-, a_+, e_-, e_+ in R; N = N(a_-,a_+,e_-,e_+) of Definition nearcircular
@@ -9607,12 +9847,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:nearcircular#NearCircular, bpI:p7:elements, bpI:p7:orbit-maps, stepI:p7:nc-sub, stepI:p7:nc-sup, stepI:p7:nc-image
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L262-L262 | the frozen set N
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L264-L264 | C, a(q,p), e(q,p)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L265-L265 | Q and D_R
-EDGE: stepI:p7:nc-sub | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L272-L272 | proof step
-EDGE: stepI:p7:nc-sup | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L274-L274 | proof step
-EDGE: stepI:p7:nc-image | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L276-L276 | proof step
+EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L264-L264 | the frozen set N
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L266-L266 | C, a(q,p), e(q,p)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L267-L267 | Q and D_R
+EDGE: stepI:p7:nc-sub | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L274-L274 | proof step
+EDGE: stepI:p7:nc-sup | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L276-L276 | proof step
+EDGE: stepI:p7:nc-image | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular@L278-L278 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9624,8 +9864,8 @@ NOTE: -
 NODE: stepI:p7:nc-sub
 KIND: step
 TITLE: $\subseteq$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L272-L272
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L272-L272
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L274-L274
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L274-L274
 CONTRACT_ID: stepI:p7:nc-sub
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (q,p) in N with witnesses r, a, e
@@ -9639,8 +9879,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:nearcircular#NearCircular, bpI:p7:elements
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L272-L272 | defining equations E = -1/(2a), Gamma^2 = a(1-e^2), 0 < ... bounds
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L272-L272 | C, a(q,p), e(q,p)
+EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L274-L274 | defining equations E = -1/(2a), Gamma^2 = a(1-e^2), 0 < ... bounds
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L274-L274 | C, a(q,p), e(q,p)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9652,8 +9892,8 @@ NOTE: -
 NODE: stepI:p7:nc-sup
 KIND: step
 TITLE: $\supseteq$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L274-L274
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L274-L274
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L276-L276
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L276-L276
 CONTRACT_ID: stepI:p7:nc-sup
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: (q,p) in C with a_- < a < a_+, e_- < e < e_+
@@ -9667,8 +9907,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:elements, bpI:p0:nearcircular#NearCircular
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L274-L274 | E = -1/(2a), Gamma^2 = a(1 - e^2) are the definitions
-EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L274-L274 | equations to be verified
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L276-L276 | E = -1/(2a), Gamma^2 = a(1 - e^2) are the definitions
+EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sup@L276-L276 | equations to be verified
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9680,8 +9920,8 @@ NOTE: -
 NODE: stepI:p7:nc-image
 KIND: step
 TITLE: Image of the chart
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278-L278
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278-L278
 CONTRACT_ID: stepI:p7:nc-image
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: steps nc-sub, nc-sup; Theorem chart; Proposition orbit-identities (c)
@@ -9695,12 +9935,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:chart, bpI:p7:orbit-identities, bpI:p7:orbit-maps, stepI:p7:nc-sub, stepI:p7:nc-sup, bpI:p7:elements
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:chart | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276 | Q maps onto C
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276 | (c): elements of Q(ell,g,L,G)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276 | Q
-EDGE: stepI:p7:nc-sub | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276 | first description of N
-EDGE: stepI:p7:nc-sup | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276 | first description of N
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L276-L276 | a(.), e(.) continuous on the open set C
+EDGE: bpI:p7:chart | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278-L278 | Q maps onto C
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278-L278 | (c): elements of Q(ell,g,L,G)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278-L278 | Q
+EDGE: stepI:p7:nc-sub | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278-L278 | first description of N
+EDGE: stepI:p7:nc-sup | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278-L278 | first description of N
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278-L278 | a(.), e(.) continuous on the open set C
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9712,8 +9952,8 @@ NOTE: -
 NODE: bpI:p7:h0
 KIND: lemma
 TITLE: Unperturbed Hamiltonian in Delaunay variables
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L279-L283
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L284-L286
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L281-L285
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L286-L288
 CONTRACT_ID: bpI:p7:h0
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: H^K(q,p) = E(q,p) - Gamma(q,p) for q != 0
@@ -9727,10 +9967,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-maps, bpI:p0:restricted#restrictedHamiltonian, stepI:p7:h0-formula, bpI:p7:elements
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L280-L280 | Q on D_R
-EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L281-L281 | H^R3_0
-EDGE: stepI:p7:h0-formula | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L285-L285 | proof step
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L280-L281 | H^K is defined as E(q,p) - Gamma(q,p)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L282-L282 | Q on D_R
+EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L283-L283 | H^R3_0
+EDGE: stepI:p7:h0-formula | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L287-L287 | proof step
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#bpI:p7:h0@L282-L283 | H^K is defined as E(q,p) - Gamma(q,p)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
@@ -9742,8 +9982,8 @@ NOTE: -
 NODE: stepI:p7:h0-formula
 KIND: step
 TITLE: Formula
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L287-L287
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L287-L287
 CONTRACT_ID: stepI:p7:h0-formula
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: H^K is defined on q!=0 by E(q,p)-Gamma(q,p); for the first claim (ell,g,L,G) in D_R; for the second z is collision-free at mu=0
@@ -9757,10 +9997,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-identities, bpI:p0:restricted#restrictedHamiltonian, bpI:p7:elements, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285 | (b),(c): Gamma = G, E = -1/(2L^2)
-EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285 | H^R3_0
-EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285 | H^K is defined as E(q,p) - Gamma(q,p)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L285-L285 | Q,D_R and its action parameters occur directly in the formula
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L287-L287 | (b),(c): Gamma = G, E = -1/(2L^2)
+EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L287-L287 | H^R3_0
+EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L287-L287 | H^K is defined as E(q,p) - Gamma(q,p)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:h0-formula@L287-L287 | Q,D_R and its action parameters occur directly in the formula
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -9772,8 +10012,8 @@ NOTE: -
 NODE: bpI:p7:complex-domain
 KIND: lemma
 TITLE: Eccentricity on a complex neighbourhood
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L337-L343
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L344-L349
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L339-L345
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L346-L351
 CONTRACT_ID: bpI:p7:complex-domain
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K as in section data; delta_E of Proposition kepler-eq; tau := min{e_-^2/2, e_- delta_E}
@@ -9787,12 +10027,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:sec-complex#data, bpI:p7:kepler-eq, bpI:p7:orbit-maps-e, bpI:p7:orbit-maps, stepI:p7:cd-uc, stepI:p7:cd-branch
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L338-L338 | K, K_delta, m_L, m_G, e_-, e_1, e_2, delta_K, U(delta)
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L339-L339 | delta_E, P(e_1), delta_K
-EDGE: bpI:p7:orbit-maps-e | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L341-L341 | holomorphy, periodicity and reality of Q_el on P(e_1)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L341-L341 | Q = Q_el(ell,g,L,e(L,G),G/L) and the real orbit map
-EDGE: stepI:p7:cd-uc | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L345-L345 | proof step
-EDGE: stepI:p7:cd-branch | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L347-L347 | proof step
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L340-L340 | K, K_delta, m_L, m_G, e_-, e_1, e_2, delta_K, U(delta)
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L341-L341 | delta_E, P(e_1), delta_K
+EDGE: bpI:p7:orbit-maps-e | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L343-L343 | holomorphy, periodicity and reality of Q_el on P(e_1)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L343-L343 | Q = Q_el(ell,g,L,e(L,G),G/L) and the real orbit map
+EDGE: stepI:p7:cd-uc | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L347-L347 | proof step
+EDGE: stepI:p7:cd-branch | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-domain@L349-L349 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9804,8 +10044,8 @@ NOTE: -
 NODE: stepI:p7:cd-uc
 KIND: step
 TITLE: Uniform continuity
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L345-L345
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L345-L345
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L347-L347
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L347-L347
 CONTRACT_ID: stepI:p7:cd-uc
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K as in section data
@@ -9819,9 +10059,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:sec-complex#data, bpI:p7:kepler-eq, bpI:p8:x-topo
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L345-L345 | K, m_L, m_G, delta_K
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L345-L345 | delta_K
-EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L345-L345 | the closed bounded neighbourhood of compact K is compact in the finite-dimensional real carrier
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L347-L347 | K, m_L, m_G, delta_K
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L347-L347 | delta_K
+EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L347-L347 | the closed bounded neighbourhood of compact K is compact in the finite-dimensional real carrier
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -9833,8 +10073,8 @@ NOTE: SOURCE_GAP: the passage from continuity on the compact complex action neig
 NODE: stepI:p7:cd-branch
 KIND: step
 TITLE: Branches
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L347-L348
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L347-L348
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L349-L350
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L349-L350
 CONTRACT_ID: stepI:p7:cd-branch
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: step cd-uc; w = 1 - G^2/L^2, w' = e'^2 with e' = e(L',G') in [e_-, e_1]
@@ -9848,11 +10088,11 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:cd-uc, bpI:p7:sec-complex#data, bpI:p7:kepler-eq, bpI:p7:x-hol, bpI:p7:orbit-maps-e
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:cd-uc | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L347-L347 | ¦w - w'¦ < tau
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L347-L347 | e_-, e_1
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L347-L347 | delta_E; u = u_R on real points
-EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L347-L347 | principal square root holomorphic on Re z > 0
-EDGE: bpI:p7:orbit-maps-e | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L348-L348 | remaining statements follow from the holomorphy of Q_el on P(e_1)
+EDGE: stepI:p7:cd-uc | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L349-L349 | ¦w - w'¦ < tau
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L349-L349 | e_-, e_1
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L349-L349 | delta_E; u = u_R on real points
+EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L349-L349 | principal square root holomorphic on Re z > 0
+EDGE: bpI:p7:orbit-maps-e | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch@L350-L350 | remaining statements follow from the holomorphy of Q_el on P(e_1)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9864,7 +10104,7 @@ NOTE: -
 NODE: bpI:p7:shift-def
 KIND: definition
 TITLE: Potential of the shift
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L354-L360
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L356-L362
 PROOF_SOURCE: -
 CONTRACT_ID: bpI:p7:shift-def
 CONTRACT_VERSION: 1
@@ -9879,11 +10119,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:x-hol, bpI:p0:primaries#CollisionFree, bpI:p0:primaries#radius, bpI:p0:primaries#primary1, bpI:p0:primaries#primary2
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L358-L358 | holomorphy of the quotient and the principal power on Re z > 0
-EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L359-L359 | collision freedom for mu in the real characterization of Xi
-EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L359-L359 | rad in w(q) and Psi
-EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L359-L359 | a_1(mu) = -mu e
-EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L359-L359 | a_2(mu) = (1-mu) e
+EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L360-L360 | holomorphy of the quotient and the principal power on Re z > 0
+EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L361-L361 | collision freedom for mu in the real characterization of Xi
+EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L361-L361 | rad in w(q) and Psi
+EDGE: bpI:p0:primaries#primary1 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L361-L361 | a_1(mu) = -mu e
+EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift-def@L361-L361 | a_2(mu) = (1-mu) e
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9895,8 +10135,8 @@ NOTE: standing definition package of Parts 7-8 (SPEC)
 NODE: bpI:p7:shift
 KIND: lemma
 TITLE: The shift potential is analytic with the factor $\mu$ removed
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L362-L376
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L377-L391
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L364-L378
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L379-L393
 CONTRACT_ID: bpI:p7:shift
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0 < r_min <= rho_max < 1; eps_0 > 0 with eps_0(eps_0 + 2 rho_max) < r_min^2 and eps_0(eps_0 + 4) < (1 - rho_max)^2; mu_2 = eps_0/2, c_* = min{r_min^2 - eps_0(eps_0 + 2 rho_max), (1 - rho_max)^2 - eps_0(eps_0 + 4)}, O = {q in C^2 : exists q' in R^2, r_min <= |q'|_2 <= rho_max, |q - q'|_2 < eps_0/2}
@@ -9910,13 +10150,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:shift-def, bpI:p0:primaries#CollisionFree, stepI:p7:sh-pos, stepI:p7:sh-bound, stepI:p7:sh-div, stepI:p7:sh-zero, stepI:p7:sh-real
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L363-L363 | Xi, w, Psi
-EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L374-L374 | collision freedom for real q in O and real mu
-EDGE: stepI:p7:sh-pos | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L378-L378 | proof step
-EDGE: stepI:p7:sh-bound | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L384-L384 | proof step
-EDGE: stepI:p7:sh-div | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L386-L386 | proof step
-EDGE: stepI:p7:sh-zero | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L388-L388 | proof step
-EDGE: stepI:p7:sh-real | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L390-L390 | proof step
+EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L365-L365 | Xi, w, Psi
+EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L376-L376 | collision freedom for real q in O and real mu
+EDGE: stepI:p7:sh-pos | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L380-L380 | proof step
+EDGE: stepI:p7:sh-bound | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L386-L386 | proof step
+EDGE: stepI:p7:sh-div | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L388-L388 | proof step
+EDGE: stepI:p7:sh-zero | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L390-L390 | proof step
+EDGE: stepI:p7:sh-real | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L392-L392 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9928,8 +10168,8 @@ NOTE: -
 NODE: stepI:p7:sh-pos
 KIND: step
 TITLE: Positivity of the radicands
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L378-L382
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L378-L382
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L380-L384
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L380-L384
 CONTRACT_ID: stepI:p7:sh-pos
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: q in O with q' as in the definition; |mu| <= mu_2
@@ -9943,8 +10183,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:shift-def, bpI:p7:x-hol
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L378-L378 | Xi and the radicands of w, Psi
-EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L382-L382 | bound ¦z^{-1/2}¦ <= (Re z)^{-1/2}
+EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L380-L380 | Xi and the radicands of w, Psi
+EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L384-L384 | bound ¦z^{-1/2}¦ <= (Re z)^{-1/2}
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9956,8 +10196,8 @@ NOTE: -
 NODE: stepI:p7:sh-bound
 KIND: step
 TITLE: Bound of the numerator
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L384-L384
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L384-L384
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L386-L386
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L386-L386
 CONTRACT_ID: stepI:p7:sh-bound
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: step sh-pos
@@ -9971,8 +10211,8 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:sh-pos, bpI:p7:shift-def
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:sh-pos | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L384-L384 | bounds on the radicands
-EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L384-L384 | Psi(q,0) = w(q) and the definition of Psi
+EDGE: stepI:p7:sh-pos | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L386-L386 | bounds on the radicands
+EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L386-L386 | Psi(q,0) = w(q) and the definition of Psi
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -9984,8 +10224,8 @@ NOTE: -
 NODE: stepI:p7:sh-div
 KIND: step
 TITLE: Division by $\mu$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L388-L388
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L388-L388
 CONTRACT_ID: stepI:p7:sh-div
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: 0<r_min<=rho_max<1; choose epsilon_0>0 satisfying the two inequalities in L363, then mu_2=epsilon_0/2, c_* and O as in L365-368; Psi,w,Xi are the shift potential definitions
@@ -9999,12 +10239,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:shift-def, stepI:p7:sh-pos, stepI:p7:sh-bound, bpI:p7:x-param, bpI:p7:x-schwarz, K:bp:p1:ext-integral
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | Psi
-EDGE: stepI:p7:sh-pos | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | {q} x closed disc subset Xi
-EDGE: stepI:p7:sh-bound | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | ¦g_q¦ <= 3 c_*^{-1/2}, g_q(0) = 0
-EDGE: bpI:p7:x-param | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | holomorphy of the parameter integral
-EDGE: bpI:p7:x-schwarz | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | Schwarz lemma bound
-EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L386-L386 | the existing FTC clause applied to t -> Psi(q,t mu) gives mu f(q,mu)=w(q)-Psi(q,mu)
+EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L388-L388 | Psi
+EDGE: stepI:p7:sh-pos | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L388-L388 | {q} x closed disc subset Xi
+EDGE: stepI:p7:sh-bound | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L388-L388 | ¦g_q¦ <= 3 c_*^{-1/2}, g_q(0) = 0
+EDGE: bpI:p7:x-param | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L388-L388 | holomorphy of the parameter integral
+EDGE: bpI:p7:x-schwarz | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L388-L388 | Schwarz lemma bound
+EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L388-L388 | the existing FTC clause applied to t -> Psi(q,t mu) gives mu f(q,mu)=w(q)-Psi(q,mu)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10016,8 +10256,8 @@ NOTE: The fundamental theorem of calculus invoked at L386 is the clause int_a^b 
 NODE: stepI:p7:sh-zero
 KIND: step
 TITLE: Value at $\mu=0$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L388-L388
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L388-L388
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L390-L390
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L390-L390
 CONTRACT_ID: stepI:p7:sh-zero
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: step sh-div
@@ -10031,8 +10271,8 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:sh-div, bpI:p7:shift-def
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:sh-div | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L388-L388 | definition of f
-EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L388-L388 | Psi and w
+EDGE: stepI:p7:sh-div | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L390-L390 | definition of f
+EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L390-L390 | Psi and w
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -10044,8 +10284,8 @@ NOTE: -
 NODE: stepI:p7:sh-real
 KIND: step
 TITLE: Reality
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L390-L390
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L390-L390
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L392-L392
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L392-L392
 CONTRACT_ID: stepI:p7:sh-real
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: steps sh-pos, sh-div, sh-zero; real (q,mu)
@@ -10059,10 +10299,10 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:sh-pos, stepI:p7:sh-div, stepI:p7:sh-zero, bpI:p7:shift-def
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:sh-pos | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L390-L390 | radicands real positive
-EDGE: stepI:p7:sh-div | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L390-L390 | mu f = w - Psi
-EDGE: stepI:p7:sh-zero | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L390-L390 | value at mu = 0
-EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L390-L390 | real characterization of Xi, w, Psi
+EDGE: stepI:p7:sh-pos | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L392-L392 | radicands real positive
+EDGE: stepI:p7:sh-div | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L392-L392 | mu f = w - Psi
+EDGE: stepI:p7:sh-zero | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L392-L392 | value at mu = 0
+EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L392-L392 | real characterization of Xi, w, Psi
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -10074,8 +10314,8 @@ NOTE: -
 NODE: bpI:p7:exact-ham
 KIND: proposition
 TITLE: Exact restricted Hamiltonian in Delaunay variables
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L393-L411
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L412-L423
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L395-L413
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L414-L425
 CONTRACT_ID: bpI:p7:exact-ham
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K subset C_0 nonempty compact with rho_max = max_K L^2(1+e) < 1; r_min, eps_0, mu_2, c_*, C_sh as in Lemma shift for (r_min, rho_max)
@@ -10089,16 +10329,16 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:shift, bpI:p7:sec-complex#data, bpI:p7:complex-domain, bpI:p7:orbit-maps, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:primaries#CollisionFree, stepI:p7:eh-shell, stepI:p7:eh-delta, stepI:p7:eh-hol, stepI:p7:eh-exact
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:shift | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L394-L394 | Lemma shift for (r_min, rho_max); f, O, C_sh
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L394-L394 | K, r_min, rho_max, U(delta)
-EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L394-L394 | delta_1 and holomorphy of Q on U(delta_1)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L396-L396 | Q and its position part q(w)
-EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L402-L402 | frozen H^R3_mu in (iii)
-EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L402-L402 | collision-freeness in (iii)
-EDGE: stepI:p7:eh-shell | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L413-L413 | proof step
-EDGE: stepI:p7:eh-delta | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L415-L415 | proof step
-EDGE: stepI:p7:eh-hol | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L418-L418 | proof step
-EDGE: stepI:p7:eh-exact | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L420-L420 | proof step
+EDGE: bpI:p7:shift | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L396-L396 | Lemma shift for (r_min, rho_max); f, O, C_sh
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L396-L396 | K, r_min, rho_max, U(delta)
+EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L396-L396 | delta_1 and holomorphy of Q on U(delta_1)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L398-L398 | Q and its position part q(w)
+EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L404-L404 | frozen H^R3_mu in (iii)
+EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L404-L404 | collision-freeness in (iii)
+EDGE: stepI:p7:eh-shell | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L415-L415 | proof step
+EDGE: stepI:p7:eh-delta | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L417-L417 | proof step
+EDGE: stepI:p7:eh-hol | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L420-L420 | proof step
+EDGE: stepI:p7:eh-exact | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L422-L422 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -10110,8 +10350,8 @@ NOTE: [pre-extract: dropped reference to bpI:p0:r3bp, which part p7 proves or se
 NODE: stepI:p7:eh-shell
 KIND: step
 TITLE: The real shell
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L413-L413
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L413-L413
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L415-L415
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L415-L415
 CONTRACT_ID: stepI:p7:eh-shell
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: real w with (L',G') in K
@@ -10125,9 +10365,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:orbit-identities, bpI:p7:sec-complex#data, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L413-L413 | (a): L^2(1-e) <= r <= L^2(1+e)
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L413-L413 | r_min and rho_max
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L413-L413 | Q or its position component is used directly in this step
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L415-L415 | (a): L^2(1-e) <= r <= L^2(1+e)
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L415-L415 | r_min and rho_max
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L415-L415 | Q or its position component is used directly in this step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
@@ -10139,8 +10379,8 @@ NOTE: -
 NODE: stepI:p7:eh-delta
 KIND: step
 TITLE: Choice of $\delta_2$
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L416
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L416
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L417-L418
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L417-L418
 CONTRACT_ID: stepI:p7:eh-delta
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K is a nonempty compact subset of C_0, rho_max<1; the section data and shift constants r_min,epsilon_0,mu_2,c_*,C_sh are selected as in exact-ham L394; delta_1 is the complex-domain radius; delta_*=delta_1/2
@@ -10154,12 +10394,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:complex-domain, stepI:p7:eh-shell, bpI:p7:shift, bpI:p7:sec-complex#data, bpI:p8:x-topo, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L415 | Q holomorphic on U(delta_1), real on real points, periodic
-EDGE: stepI:p7:eh-shell | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L415 | q' = q(w') has r_min <= ¦q'¦ <= rho_max
-EDGE: bpI:p7:shift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L415 | eps_0 and the set O
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L415 | U(delta), K
-EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L415 | the closure of the bounded fundamental-domain tube is compact
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L415-L415 | Q and its position component q(w)
+EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L417-L417 | Q holomorphic on U(delta_1), real on real points, periodic
+EDGE: stepI:p7:eh-shell | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L417-L417 | q' = q(w') has r_min <= ¦q'¦ <= rho_max
+EDGE: bpI:p7:shift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L417-L417 | eps_0 and the set O
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L417-L417 | U(delta), K
+EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L417-L417 | the closure of the bounded fundamental-domain tube is compact
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L417-L417 | Q and its position component q(w)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10171,8 +10411,8 @@ NOTE: SOURCE_GAP: uniform continuity of the position component of Q on the compa
 NODE: stepI:p7:eh-hol
 KIND: step
 TITLE: Holomorphy and bound
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420
 CONTRACT_ID: stepI:p7:eh-hol
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K is a nonempty compact subset of C_0, rho_max<1; the section data and shift constants r_min,epsilon_0,mu_2,c_*,C_sh are selected as in exact-ham L394; delta_1 is the complex-domain radius; delta_2 is the radius selected at L415-416; F_mu(w) is defined by f(q(w),mu)
@@ -10186,12 +10426,12 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:eh-delta, bpI:p7:shift, bpI:p7:complex-domain, bpI:p7:orbit-maps, bpI:p7:sec-complex#data, bpI:p7:x-hol
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:eh-delta | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | q(w) in O
-EDGE: bpI:p7:shift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | holomorphy, bound C_sh and reality of f
-EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | holomorphy and periodicity of Q on U(delta_1)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | reality of Q on real points
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | U(delta_2) and K subset K_delta2 are the section-defined sets
-EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L418-L418 | compose the holomorphic f and the position component of Q
+EDGE: stepI:p7:eh-delta | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420 | q(w) in O
+EDGE: bpI:p7:shift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420 | holomorphy, bound C_sh and reality of f
+EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420 | holomorphy and periodicity of Q on U(delta_1)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420 | reality of Q on real points
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420 | U(delta_2) and K subset K_delta2 are the section-defined sets
+EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420 | compose the holomorphic f and the position component of Q
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10203,8 +10443,8 @@ NOTE: -
 NODE: stepI:p7:eh-exact
 KIND: step
 TITLE: Exactness
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L422
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L422
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L424
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L424
 CONTRACT_ID: stepI:p7:eh-exact
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K is a nonempty compact subset of C_0, rho_max<1; the section data and shift constants r_min,epsilon_0,mu_2,c_*,C_sh are selected as in exact-ham L394; delta_1 is the complex-domain radius; delta_2 is selected at L415-416; w is real in U(delta_2), mu real with |mu|<mu_2
@@ -10218,17 +10458,17 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:complex-domain, stepI:p7:eh-delta, bpI:p7:shift, bpI:p7:shift-def, bpI:p7:h0, bpI:p0:restricted#restrictedHamiltonian, bpI:p0:primaries#CollisionFree, bpI:p0:primaries#radius, bpI:p0:primaries#radiusSq, bpI:p7:orbit-maps, bpI:p7:sec-complex#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | (L,G) in C_0 for real w in U(delta_1)
-EDGE: stepI:p7:eh-delta | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | q(w) is a real point of O
-EDGE: bpI:p7:shift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | (q,mu) in Xi with real positive radicands; mu f = w - Psi
-EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | Xi, Psi, rad(q - a_j) = sqrt(vartheta(...))
-EDGE: bpI:p7:h0 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L422 | H^R3_0 = ... - w(q) and H^K o Q = -1/(2L^2) - G
-EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L421-L421 | H^R3_mu formula
-EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | collision freedom
-EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | rad(q - a_j(mu))
-EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | radiusSq
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L422 | Q or its position component is used directly in this step
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L420-L420 | w in U(delta_2), its action carrier and complex-domain radii are the section data
+EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L422 | (L,G) in C_0 for real w in U(delta_1)
+EDGE: stepI:p7:eh-delta | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L422 | q(w) is a real point of O
+EDGE: bpI:p7:shift | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L422 | (q,mu) in Xi with real positive radicands; mu f = w - Psi
+EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L422 | Xi, Psi, rad(q - a_j) = sqrt(vartheta(...))
+EDGE: bpI:p7:h0 | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L424-L424 | H^R3_0 = ... - w(q) and H^K o Q = -1/(2L^2) - G
+EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L423-L423 | H^R3_mu formula
+EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L422 | collision freedom
+EDGE: bpI:p0:primaries#radius | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L422 | rad(q - a_j(mu))
+EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L422 | radiusSq
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L424 | Q or its position component is used directly in this step
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-exact@L422-L422 | w in U(delta_2), its action carrier and complex-domain radii are the section data
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10240,8 +10480,8 @@ NOTE: -
 NODE: bpI:p7:period-one
 KIND: corollary
 TITLE: Period-one form: the data of I-HEAD
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L425-L439
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L440-L446
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L427-L441
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L442-L448
 CONTRACT_ID: bpI:p7:period-one
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K, delta_2, mu_2, C_F, F as in Proposition exact-ham; s_0 = delta_2/(2 pi), r_0 = 2 pi delta_2; B subset 2 pi K arbitrary; S the conversion; h~ = h_{(2pi)^2, 1/(2pi)}; real mu with |mu| < mu_2; f~_mu(theta,I) = mu F_mu(S(theta,I)) on T_{s_0} x B_{r_0}
@@ -10255,16 +10495,16 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:exact-ham, bpI:p6:conversion-map, bpI:p6:kep-ham, bpI:p0:realham#realHamiltonian, bpI:p0:domains#complexStrip, bpI:p0:domains#actionNbhd, bpI:p7:sec-complex#data, stepI:p7:po-dom, stepI:p7:po-prop, stepI:p7:po-exact
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L426-L426 | delta_2, mu_2, C_F, F
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L426-L426 | the conversion S
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L426-L426 | h~ = h_{(2pi)^2,1/(2pi)}
-EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L433-L433 | frozen realHamiltonian
-EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L428-L428 | T_{s_0} is the frozen complex strip
-EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L428-L428 | B_{r_0} is the frozen action neighbourhood
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L426-L426 | K and 2 pi K
-EDGE: stepI:p7:po-dom | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L441-L441 | proof step
-EDGE: stepI:p7:po-prop | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L443-L443 | proof step
-EDGE: stepI:p7:po-exact | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L445-L445 | proof step
+EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L428-L428 | delta_2, mu_2, C_F, F
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L428-L428 | the conversion S
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L428-L428 | h~ = h_{(2pi)^2,1/(2pi)}
+EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L435-L435 | frozen realHamiltonian
+EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L430-L430 | T_{s_0} is the frozen complex strip
+EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L430-L430 | B_{r_0} is the frozen action neighbourhood
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L428-L428 | K and 2 pi K
+EDGE: stepI:p7:po-dom | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L443-L443 | proof step
+EDGE: stepI:p7:po-prop | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L445-L445 | proof step
+EDGE: stepI:p7:po-exact | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L447-L447 | proof step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
@@ -10276,8 +10516,8 @@ NOTE: -
 NODE: stepI:p7:po-dom
 KIND: step
 TITLE: Domains
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L443-L443
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L443-L443
 CONTRACT_ID: stepI:p7:po-dom
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: theta in T_{s_0}; I in B_{r_0}
@@ -10291,12 +10531,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p0:domains#complexStrip, bpI:p0:domains#actionNbhd, bpI:p6:conversion-map, bpI:p7:exact-ham, bpI:p7:sec-complex#data, bpI:p7:complex-domain
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441 | theta in T_{s_0}
-EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441 | I in B_{r_0}: within r_0 of some J in B
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441 | S, I/(2 pi)
-EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441 | delta_2 and U(delta_2)
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441 | K_{delta}, U(delta), m_L
-EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L441-L441 | Re L > m_L/2 on K_{delta_1}
+EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L443-L443 | theta in T_{s_0}
+EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L443-L443 | I in B_{r_0}: within r_0 of some J in B
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L443-L443 | S, I/(2 pi)
+EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L443-L443 | delta_2 and U(delta_2)
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L443-L443 | K_{delta}, U(delta), m_L
+EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@L443-L443 | Re L > m_L/2 on K_{delta_1}
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
@@ -10308,8 +10548,8 @@ NOTE: -
 NODE: stepI:p7:po-prop
 KIND: step
 TITLE: Properties
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445
 CONTRACT_ID: stepI:p7:po-prop
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain
@@ -10323,14 +10563,14 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p6:conversion, stepI:p7:po-dom, bpI:p7:exact-ham, bpI:p6:conversion-map, bpI:p6:kep-ham, bpI:p7:sec-complex#data, bpI:p6:nondeg, bpI:p7:x-hol
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | (b): h~ = h_{(2pi)^2, 1/(2pi)} holomorphic where I_1 != 0, real at real I
-EDGE: stepI:p7:po-dom | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | S maps the domain into U(delta_2)
-EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | (i),(ii): bound, periodicity, reality of F
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | periodicity: theta -> theta + k becomes (ell,g) -> (ell,g) + 2 pi k
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | m_L is the section-defined positive minimum used in Re I_1>pi m_L
-EDGE: bpI:p6:nondeg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | the explicitly cited domain proof argument is reused with nonvanishing already supplied by po-dom; this is not application of the full conditional corollary
-EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L443-L443 | composition of the holomorphic F_mu with linear S, and multiplication by the fixed scalar mu
+EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445 | (b): h~ = h_{(2pi)^2, 1/(2pi)} holomorphic where I_1 != 0, real at real I
+EDGE: stepI:p7:po-dom | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445 | S maps the domain into U(delta_2)
+EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445 | (i),(ii): bound, periodicity, reality of F
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445 | periodicity: theta -> theta + k becomes (ell,g) -> (ell,g) + 2 pi k
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445 | m_L is the section-defined positive minimum used in Re I_1>pi m_L
+EDGE: bpI:p6:nondeg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445 | the explicitly cited domain proof argument is reused with nonvanishing already supplied by po-dom; this is not application of the full conditional corollary
+EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L445 | composition of the holomorphic F_mu with linear S, and multiplication by the fixed scalar mu
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-g
 REVIEWER: sol-delta-I-h
@@ -10342,8 +10582,8 @@ NOTE: L443 recalls the domain proof argument of Part 6; L441 already supplied Re
 NODE: stepI:p7:po-exact
 KIND: step
 TITLE: Exactness
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447
 CONTRACT_ID: stepI:p7:po-exact
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; theta real and I real in B_{r_0} for the exact Hamiltonian identity
@@ -10357,14 +10597,14 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:exact-ham, bpI:p6:conversion, bpI:p6:kep-ham, bpI:p0:realham#realHamiltonian, stepI:p7:po-dom, bpI:p7:symplectic, bpI:p6:conversion-map, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | (iii) at w = S(theta,I)
-EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | (b) h_{1,1}(L,G) = h~(I); (a) symplectic S
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | h_{1,1}(L,G) = -1/(2L^2) - G
-EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | realHamiltonian is the real part of the same real number
-EDGE: stepI:p7:po-dom | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | S(theta,I) in U(delta_2)
-EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | Q symplectic
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | S
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L445-L445 | Q or its position component is used directly in this step
+EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447 | (iii) at w = S(theta,I)
+EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447 | (b) h_{1,1}(L,G) = h~(I); (a) symplectic S
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447 | h_{1,1}(L,G) = -1/(2L^2) - G
+EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447 | realHamiltonian is the real part of the same real number
+EDGE: stepI:p7:po-dom | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447 | S(theta,I) in U(delta_2)
+EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447 | Q symplectic
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447 | S
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L447-L447 | Q or its position component is used directly in this step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10376,8 +10616,8 @@ NOTE: -
 NODE: bpI:p7:transfer
 KIND: proposition
 TITLE: Transfer of Delaunay solutions to the physical problem
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L448-L453
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L454-L460
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L450-L455
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L456-L462
 CONTRACT_ID: bpI:p7:transfer
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the setting of Corollary period-one; mu in R with |mu| < mu_2; J subset R; z~ : R -> R^2 x R^2 with Sol(realHamiltonian h~ f~_mu, B, J, z~) (Definition hamsol)
@@ -10391,17 +10631,17 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:period-one, bpI:p0:hamsol#IsHamiltonianSolutionOn, bpI:p0:restricted#IsRestrictedSolutionOn, bpI:p0:realham#realHamiltonian, bpI:p6:conversion-map, bpI:p7:orbit-maps, stepI:p7:tr-cf, stepI:p7:tr-open, stepI:p7:tr-chain, bpI:p6:kep-ham, bpI:p7:sec-complex#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L449 | setting of Corollary period-one
-EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L449 | Sol predicate
-EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L449 | RSol_mu
-EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L449 | realHamiltonian
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L449 | S
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L449 | Q
-EDGE: stepI:p7:tr-cf | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L455-L455 | proof step
-EDGE: stepI:p7:tr-open | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L457-L457 | proof step
-EDGE: stepI:p7:tr-chain | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L459-L459 | proof step
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L450 | the Hamiltonian is expressed using the converted Kepler h~
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L449-L450 | the setting uses K or the common complex-domain data fixed in the section
+EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L451-L451 | setting of Corollary period-one
+EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L451-L451 | Sol predicate
+EDGE: bpI:p0:restricted#IsRestrictedSolutionOn | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L451-L451 | RSol_mu
+EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L451-L451 | realHamiltonian
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L451-L451 | S
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L451-L451 | Q
+EDGE: stepI:p7:tr-cf | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L457-L457 | proof step
+EDGE: stepI:p7:tr-open | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L459-L459 | proof step
+EDGE: stepI:p7:tr-chain | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L461-L461 | proof step
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L451-L452 | the Hamiltonian is expressed using the converted Kepler h~
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfer@L451-L452 | the setting uses K or the common complex-domain data fixed in the section
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
@@ -10413,8 +10653,8 @@ NOTE: -
 NODE: stepI:p7:tr-cf
 KIND: step
 TITLE: Collision freedom and real-analyticity
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L457-L457
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L457-L457
 CONTRACT_ID: stepI:p7:tr-cf
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; J subset R and z_tilde:R->R^2 x R^2 satisfies Sol(realHamiltonian h_tilde f_tilde_mu,B,J,z_tilde); z=Q o S o z_tilde; t in J
@@ -10428,12 +10668,12 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:exact-ham, bpI:p7:sec-ham#data, bpI:p6:conversion-map, bpI:p7:sec-complex#data, bpI:p7:orbit-maps, bpI:p0:hamsol#IsHamiltonianSolutionOn
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | (iv) and (iii): U(delta_2) contains the real points over K, collision freedom
-EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | W_mu
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | S
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | the setting uses K or the common complex-domain data fixed in the section
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | Q or its position component is used directly in this step
-EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L455-L455 | the Sol premise supplies I=z_tilde(t)_2 in B for t in J
+EDGE: bpI:p7:exact-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L457-L457 | (iv) and (iii): U(delta_2) contains the real points over K, collision freedom
+EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L457-L457 | W_mu
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L457-L457 | S
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L457-L457 | the setting uses K or the common complex-domain data fixed in the section
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L457-L457 | Q or its position component is used directly in this step
+EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-cf@L457-L457 | the Sol premise supplies I=z_tilde(t)_2 in B for t in J
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10445,8 +10685,8 @@ NOTE: -
 NODE: stepI:p7:tr-open
 KIND: step
 TITLE: Agreement of Hamiltonians on an open set
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459
 CONTRACT_ID: stepI:p7:tr-open
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; J subset R and z_tilde:R->R^2 x R^2 satisfies Sol(realHamiltonian h_tilde f_tilde_mu,B,J,z_tilde); z=Q o S o z_tilde; t in J; V is defined to be the real r_0-neighbourhood cylinder of B
@@ -10460,14 +10700,14 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:period-one, bpI:p0:realham#realHamiltonian, bpI:p0:restricted#restrictedHamiltonian, bpI:p7:chart, bpI:p6:kep-ham, bpI:p6:conversion-map, bpI:p7:sec-complex#data, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | (d) exactness on B_{r_0}
-EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | realHamiltonian
-EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | H^R3_mu
-EDGE: bpI:p7:chart | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | Q real-analytic
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | the Hamiltonian is expressed using the converted Kepler h~
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | S converts the curve or the Hamiltonian to conventional variables
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | the setting uses K or the common complex-domain data fixed in the section
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L457-L457 | Q or its position component is used directly in this step
+EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459 | (d) exactness on B_{r_0}
+EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459 | realHamiltonian
+EDGE: bpI:p0:restricted#restrictedHamiltonian | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459 | H^R3_mu
+EDGE: bpI:p7:chart | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459 | Q real-analytic
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459 | the Hamiltonian is expressed using the converted Kepler h~
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459 | S converts the curve or the Hamiltonian to conventional variables
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459 | the setting uses K or the common complex-domain data fixed in the section
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L459-L459 | Q or its position component is used directly in this step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10479,8 +10719,8 @@ NOTE: -
 NODE: stepI:p7:tr-chain
 KIND: step
 TITLE: Chain rule
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461
 CONTRACT_ID: stepI:p7:tr-chain
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; J subset R and z_tilde:R->R^2 x R^2 satisfies Sol(realHamiltonian h_tilde f_tilde_mu,B,J,z_tilde); z=Q o S o z_tilde; t in J
@@ -10494,18 +10734,18 @@ FROZEN_ABI_SHA256: -
 DEPS: stepI:p7:tr-open, bpI:p0:hamsol#IsHamiltonianSolutionOn, bpI:p7:symplectic, bpI:p6:conversion, bpI:p7:ham-eq, bpI:p7:orbit-identities, bpI:p7:period-one, stepI:p7:tr-cf, bpI:p6:kep-ham, bpI:p6:conversion-map, bpI:p7:sec-complex#data, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepI:p7:tr-open | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | agreement of the Hamiltonians and fields
-EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | Sol gives z~'(t) = X(z~(t))
-EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | D Q symplectic, chain rule for Q
-EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | (a) symplectic S
-EDGE: bpI:p7:ham-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | X_{H^R3_mu} = V_mu and RSol_mu
-EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | (a) rad(q)
-EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | (d) energy
-EDGE: stepI:p7:tr-cf | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | z(t) in W_mu
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | the Hamiltonian is expressed using the converted Kepler h~
-EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | S converts the curve or the Hamiltonian to conventional variables
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | the setting uses K or the common complex-domain data fixed in the section
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L459-L459 | Q or its position component is used directly in this step
+EDGE: stepI:p7:tr-open | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | agreement of the Hamiltonians and fields
+EDGE: bpI:p0:hamsol#IsHamiltonianSolutionOn | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | Sol gives z~'(t) = X(z~(t))
+EDGE: bpI:p7:symplectic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | D Q symplectic, chain rule for Q
+EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | (a) symplectic S
+EDGE: bpI:p7:ham-eq | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | X_{H^R3_mu} = V_mu and RSol_mu
+EDGE: bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | (a) rad(q)
+EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | (d) energy
+EDGE: stepI:p7:tr-cf | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | z(t) in W_mu
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | the Hamiltonian is expressed using the converted Kepler h~
+EDGE: bpI:p6:conversion-map | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | S converts the curve or the Hamiltonian to conventional variables
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | the setting uses K or the common complex-domain data fixed in the section
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-chain@L461-L461 | Q or its position component is used directly in this step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10517,8 +10757,8 @@ NOTE: -
 NODE: bpI:p7:nondeg
 KIND: proposition
 TITLE: Isoenergetic nondegeneracy of the Delaunay Hamiltonian
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L465-L469
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L470-L473
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L467-L471
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L472-L475
 CONTRACT_ID: bpI:p7:nondeg
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain
@@ -10532,13 +10772,13 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:period-one, bpI:p0:bordered#borderedHessian, bpI:p0:keplerborder#keplerBorder, stepI:p7:nd-dom, stepI:p7:nd-det, bpI:p6:kep-ham, bpI:p7:sec-complex#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L466-L466 | the setting: h~, B_{r_0}
-EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L466-L466 | borderedHessian
-EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L466-L466 | K_{1,1}(L)
-EDGE: stepI:p7:nd-dom | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L471-L471 | proof step
-EDGE: stepI:p7:nd-det | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L472-L472 | proof step
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L466-L467 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L466-L467 | the setting uses K or the common complex-domain data fixed in the section
+EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L468-L468 | the setting: h~, B_{r_0}
+EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L468-L468 | borderedHessian
+EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L468-L468 | K_{1,1}(L)
+EDGE: stepI:p7:nd-dom | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L473-L473 | proof step
+EDGE: stepI:p7:nd-det | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L474-L474 | proof step
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L468-L469 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@L468-L469 | the setting uses K or the common complex-domain data fixed in the section
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10550,8 +10790,8 @@ NOTE: -
 NODE: stepI:p7:nd-dom
 KIND: step
 TITLE: Reality of the domain
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L473-L473
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L473-L473
 CONTRACT_ID: stepI:p7:nd-dom
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; I is real and lies in B_{r_0}
@@ -10565,8 +10805,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p7:period-one, bpI:p7:sec-complex#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471 | (b): Re I_1 > pi m_L on B_{r_0}
-EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L471-L471 | the setting uses K or the common complex-domain data fixed in the section
+EDGE: bpI:p7:period-one | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L473-L473 | (b): Re I_1 > pi m_L on B_{r_0}
+EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-dom@L473-L473 | the setting uses K or the common complex-domain data fixed in the section
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10578,8 +10818,8 @@ NOTE: -
 NODE: stepI:p7:nd-det
 KIND: step
 TITLE: Determinant
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472
-PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L474-L474
+PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L474-L474
 CONTRACT_ID: stepI:p7:nd-det
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: K,delta_2,mu_2,C_F,F are as in exact-ham; s_0=delta_2/(2 pi), r_0=2 pi delta_2; B is an arbitrary subset of 2 pi K; S(theta,I)=(2 pi theta,I/(2 pi)); h_tilde=h_{(2 pi)^2,1/(2 pi)}; real |mu|<mu_2 and f_tilde_mu=mu F_mu o S on the analytic domain; kappa=Omega=1; I real with I_1>0 for the general determinant formula, specializing to real I in B_{r_0}
@@ -10593,10 +10833,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p6:kep-border, bpI:p6:conversion, stepI:p7:nd-dom, bpI:p6:kep-ham
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p6:kep-border | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472 | determinant of the bordered Hessian of h_{1,1}
-EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472 | (d) conversion of the bordered Hessian determinant
-EDGE: stepI:p7:nd-dom | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472 | I_1 > 0 on real I in B_{r_0}
-EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L472-L472 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
+EDGE: bpI:p6:kep-border | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L474-L474 | determinant of the bordered Hessian of h_{1,1}
+EDGE: bpI:p6:conversion | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L474-L474 | (d) conversion of the bordered Hessian determinant
+EDGE: stepI:p7:nd-dom | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L474-L474 | I_1 > 0 on real I in B_{r_0}
+EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L474-L474 | h~ = h_{(2pi)^2,1/(2pi)} is fixed by the Kepler Hamiltonian package
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
@@ -10608,7 +10848,7 @@ NOTE: -
 NODE: bpI:p7:sec-complex#data
 KIND: definition
 TITLE: Data of section A common complex neighbourhood: K, e_pm, m_L, m_G, r_min, rho_max, K_delta, U(delta)
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex@L325-L335
+STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex@L327-L337
 PROOF_SOURCE: -
 CONTRACT_ID: bpI:p7:sec-complex#data
 CONTRACT_VERSION: 1
@@ -10623,9 +10863,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpI:p8:x-topo, bpI:p7:kepler-eq, bpI:p7:orbit-maps
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex#data@L327-L327 | minima and maxima of continuous functions on the nonempty compact K exist and are attained, so e_- > 0, e_1 < 1, m_L, m_G, r_min > 0
-EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex#data@L332-L332 | delta_K(e_1) and P(e_1)
-EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex@L325-L332 | e(L,G) = sqrt(1-G^2/L^2) on the cone C_0 supplies the continuous functions whose extrema define the data
+EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex#data@L329-L329 | minima and maxima of continuous functions on the nonempty compact K exist and are attained, so e_- > 0, e_1 < 1, m_L, m_G, r_min > 0
+EDGE: bpI:p7:kepler-eq | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex#data@L334-L334 | delta_K(e_1) and P(e_1)
+EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#bpI:p7:sec-complex@L327-L334 | e(L,G) = sqrt(1-G^2/L^2) on the cone C_0 supplies the continuous functions whose extrema define the data
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
@@ -12805,84 +13045,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p4:h1; shared Lean provider. There: KIND lemma, contract bp:p4:h1 v1. Cited as \Kref{bp:p4:h1}.
 
-NODE: K:step:p2:fb-holo
-KIND: external
-TITLE: [K] Holomorphy
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:fb-holo@L401-L406
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:fb-holo
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing data of Part 2; r>0, beta>0; K holomorphic on T_r satisfying (A2)-(A4) of bp:p2:admissible, as in bp:p2:frame-basic; primary and real are not required
-SOURCE_QUANTIFIERS: standing data fixed first; then r>0,beta>0,K as stated; conclusions on T_r and R^n respectively
-SOURCE_CONCLUSION: L,G,E,A,Omega_K,B,N,P,X_N,T,E_sym,Q,eta are holomorphic on T_r (also d_omega N is holomorphic there); B is symmetric; T is continuous on R^n, so avg T is defined
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP+sol-review-I-imports
-REVIEWER: sol-delta-I-e
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:fb-holo; shared Lean provider. There: KIND step, contract step:p2:fb-holo v1. Cited as \Kref{step:p2:fb-holo}. Source premises also include parent blueprint/parts/p2-aposteriori.tex@L382-L398.
-
-NODE: K:step:p2:geo-domegak
-KIND: external
-TITLE: [K] Bound on $\partial_\omega\Omega_K$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-domegak@L571-L574
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:geo-domegak
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing data and constants of Part 2; K is (r,beta,epsilon)-admissible in the sense of bp:p2:admissible (including A1-A6, 0<=epsilon<=1); 0<delta<=1 and 2delta<r
-SOURCE_QUANTIFIERS: standing data and their constants fixed first; then r>0,beta>0,0<=epsilon<=1,K,delta satisfying the parent geometry lemma; for every theta in T_{r-delta}
-SOURCE_CONCLUSION: |d_omega Omega_K|<=2n(n+1) m epsilon/delta
-CONSTANT_SCOPE: m=max{1,M,sigma_K,sigma_B,sigma_T}; C_red=2n(n+1)m^2; these depend only on (n,tau,M,sigma_K,sigma_B,sigma_T)
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP+sol-review-I-imports
-REVIEWER: sol-delta-I-e
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:geo-domegak; shared Lean provider. There: KIND step, contract step:p2:geo-domegak v1. Cited as \Kref{step:p2:geo-domegak}. Source premises also include parent blueprint/parts/p2-aposteriori.tex@L549-L563.
-
-NODE: K:step:p2:geo-ered
-KIND: external
-TITLE: [K] Bound on $E_{\mathrm{red}}$
-STATEMENT_SOURCE: blueprint/parts/p2-aposteriori.tex#step:p2:geo-ered@L576-L580
-PROOF_SOURCE: -
-CONTRACT_ID: K:step:p2:geo-ered
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the standing data and constants of Part 2; K is (r,beta,epsilon)-admissible in the sense of bp:p2:admissible (including A1-A6, 0<=epsilon<=1); 0<delta<=1 and 2delta<r
-SOURCE_QUANTIFIERS: standing data and their constants fixed first; then r>0,beta>0,0<=epsilon<=1,K,delta satisfying the parent geometry lemma; for every theta in T_{r-delta}
-SOURCE_CONCLUSION: |E_red|<=C_red epsilon/delta
-CONSTANT_SCOPE: m=max{1,M,sigma_K,sigma_B,sigma_T}; C_red=2n(n+1)m^2; these depend only on (n,tau,M,sigma_K,sigma_B,sigma_T)
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP+sol-review-I-imports
-REVIEWER: sol-delta-I-e
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node step:p2:geo-ered; shared Lean provider. There: KIND step, contract step:p2:geo-ered v1. Cited as \Kref{step:p2:geo-ered}. Source premises also include parent blueprint/parts/p2-aposteriori.tex@L549-L563.
-
 NODE: K:step:p2:ham-real
 KIND: external
 TITLE: [K] Realness
@@ -13511,4 +13673,220 @@ LEAN_NOTE: -
 NOTE: L453 identifies the first block with domain membership before bundling the derivative blocks. Its final sentence omits the membership conjunct in words; retain that conjunct as required by the first block and IsSolIn. This is a reported source wording defect, not a new smoothness premise.
 
 <!-- BEGIN PROOF DEPGRAPH GENERATED -->
+Regenerated by `proof_depgraph.py`; do not hand-edit.
+
+### Dashboard
+
+* Total nodes: **450**
+* Frozen anchors: **34**
+* Versioned statement contracts: **450**
+* Total edges: **1956**
+* Root-closure nodes: **450**
+* Dependency leaves in root closure: **92**
+* Assumption boundary leaves: **0**
+* External boundary leaves: **72**
+* Alternative routes: **4**
+* Topology review queue: **0**
+* Explicit source gaps: **4**
+* Coverage items: **672**; excluded: **194**
+
+### Roots
+
+* `bpI:p0:g1` [REVIEWED; frozen] — contract `iso.isoenergetic_kam@1`
+* `bpI:p0:head` [REVIEWED; frozen] — contract `iso.all_time_confinement@1`
+* `bpI:p0:kepler` [REVIEWED; frozen] — contract `iso.kepler_bordered_det@1`
+* `bpI:p0:r3bp` [REVIEWED; frozen] — contract `iso.restricted_near_circular@1`
+
+### Topology review queue
+
+* _(none)_
+
+### Dependency leaves in root closure
+
+* `K:bp:p0:g3` [REVIEWED] — [K] G3: measure of the non-Diophantine set
+* `K:bp:p1:cauchy-corollaries` [REVIEWED] — [K] Cauchy corollaries
+* `K:bp:p1:cauchy-open` [REVIEWED] — [K] Cauchy estimate on open sets
+* `K:bp:p1:cauchy-strip` [REVIEWED] — [K] Cauchy estimate on strips
+* `K:bp:p1:cohomological` [REVIEWED] — [K] Cohomological equation on strips
+* `K:bp:p1:ext-banach` [REVIEWED] — [K] Banach's fixed point theorem
+* `K:bp:p1:ext-cramer` [REVIEWED] — [K] Cramer's rule
+* `K:bp:p1:ext-integral` [REVIEWED] — [K] Integrals
+* `K:bp:p1:ext-mvt` [REVIEWED] — [K] Mean value inequality
+* `K:bp:p1:hamiltonian-real` [REVIEWED] — [K] Real and complex Hamiltonian fields
+* `K:bp:p1:holomorphic-analytic` [REVIEWED] — [K] Holomorphic maps are analytic
+* `K:bp:p1:holomorphic-inverse` [REVIEWED] — [K] Holomorphic inverse
+* `K:bp:p1:holomorphic-regularity` [REVIEWED] — [K] Derivatives of holomorphic maps
+* `K:bp:p1:increments-open` [REVIEWED] — [K] Increments on open sets
+* `K:bp:p1:iteration` [REVIEWED] — [K] Quadratic iteration on nested strips
+* `K:bp:p1:matrix-norms` [REVIEWED] — [K] Max-norm matrix facts
+* `K:bp:p1:neumann` [REVIEWED] — [K] Neumann series
+* `K:bp:p1:real-inverse` [REVIEWED] — [K] Real inverses
+* `K:bp:p1:real-restriction` [REVIEWED] — [K] Real restriction
+* `K:bp:p1:taylor` [REVIEWED] — [K] Second-order Taylor bound
+* `K:bp:p1:uniform-limits` [REVIEWED] — [K] Uniform limits
+* `K:bp:p2:admissible` [REVIEWED] — [K] Admissible parameterization
+* `K:bp:p2:averages` [REVIEWED] — [K] Averages
+* `K:bp:p2:cohomological` [REVIEWED] — [K] Cohomological equation in operator norms
+* `K:bp:p2:constants` [REVIEWED] — [K] Exponents and constants
+* `K:bp:p2:exactness` [REVIEWED] — [K] Exactness: two vanishing averages
+* `K:bp:p2:frame-basic` [REVIEWED] — [K] Regularity and bounds of the frame
+* `K:bp:p2:frame-identities` [REVIEWED] — [K] Frame identities
+* `K:bp:p2:frequency` [REVIEWED] — [K] Frequency bound
+* `K:bp:p2:frozen-agreement` [REVIEWED] — [K] Agreement with the frozen definitions
+* `K:bp:p2:hamiltonian` [REVIEWED] — [K] The Hamiltonian vector field
+* `K:bp:p2:matrix` [REVIEWED] — [K] Matrix norms
+* `K:bp:p2:objects` [REVIEWED] — [K] Objects attached to a parameterization
+* `K:bp:p2:periodicity` [REVIEWED] — [K] Periodicity and realness of the attached objects
+* `K:bp:p2:standing` [REVIEWED] — [K] Standing data of Part~\ref{bp:p2}
+* `K:bp:p4:data` [REVIEWED] — [K] Shrunken domains and basic constants
+* `K:bp:p4:derivative-bounds` [REVIEWED] — [K] Derivative bounds
+* `K:bp:p4:freq-map` [REVIEWED] — [K] The frequency map
+* `K:bp:p4:h-bounded` [REVIEWED] — [K] $h$ is bounded on a shrunken neighbourhood
+* `K:bp:p4:h1` [REVIEWED] — [K] The Hamiltonian hypothesis H1
+* `K:step:p2:ham-real` [REVIEWED] — [K] Realness
+* `K:step:p2:pt-small` [REVIEWED] — [K] Consequences of the smallness
+* `K:step:p4:db-cauchy` [REVIEWED] — [K] Cauchy estimates
+* `K:step:p4:h1-holo` [REVIEWED] — [K] Holomorphy, periodicity, reality
+* `K:step:p4:h1-open` [REVIEWED] — [K] Openness and invariance
+* `N:bpN:p3:gen-continuation-periodic` [REVIEWED] — [N] Closed sets, periodic fields
+* `N:bpN:p3:gen-exit` [REVIEWED] — [N] First exit
+* `N:bpN:p3:gen-maximal` [REVIEWED] — [N] Maximal solution
+* `N:bpN:p3:gen-sol` [REVIEWED] — [N] Solutions in $W$
+* `N:bpN:p3:gen-symmetry` [REVIEWED] — [N] Symmetries
+* `N:bpN:p3:gen-uniqueness` [REVIEWED] — [N] Uniqueness on arbitrary intervals
+* `N:bpN:p3:ham-energy` [REVIEWED] — [N] Energy conservation
+* `N:bpN:p3:ham-periodic` [REVIEWED] — [N] Periodicity in the angles passes to solutions
+* `N:bpN:p3:ham-reduction` [REVIEWED] — [N] Track N and track I Hamiltonian predicates
+* `P:bpP:p0:fixedsol#IsFixedSolution` [REVIEWED] — [P] Fixed-Sun solutions: KAM.Planetary.IsFixedSolution
+* `P:bpP:p0:newton#IsNewtonSolution` [REVIEWED] — [P] Newton solutions: KAM.Planetary.IsNewtonSolution
+* `bpI:p0:diophantine#IsDiophantine` [REVIEWED] — Diophantine vectors: KAM.IsDiophantine
+* `bpI:p0:domains#actionNbhd` [REVIEWED] — Strip, action neighbourhood: KAM.actionNbhd
+* `bpI:p0:domains#complexStrip` [REVIEWED] — Strip, action neighbourhood: KAM.complexStrip
+* `bpI:p0:extended#energyAverage` [REVIEWED] — Energy average and extended torsion: KAM.Iso.energyAverage
+* `bpI:p0:hamiltonian#hamiltonianVectorField` [REVIEWED] — Hamiltonian vector fields: KAM.hamiltonianVectorField
+* `bpI:p0:hamiltonian#hamiltonianVectorFieldC` [REVIEWED] — Hamiltonian vector fields: KAM.hamiltonianVectorFieldℂ
+* `bpI:p0:keplerborder#keplerBorder` [REVIEWED] — The Kepler bordered matrix: KAM.Iso.keplerBorder
+* `bpI:p0:primaries#primary1` [REVIEWED] — Planar Euclidean length, the primaries, collisions: KAM.Iso.primary₁
+* `bpI:p0:primaries#primary2` [REVIEWED] — Planar Euclidean length, the primaries, collisions: KAM.Iso.primary₂
+* `bpI:p0:primaries#radiusSq` [REVIEWED] — Planar Euclidean length, the primaries, collisions: KAM.Iso.radiusSq
+* `bpI:p0:realham#frequencyMap` [REVIEWED] — Real Hamiltonian, frequency map: KAM.frequencyMap
+* `bpI:p0:realham#realHamiltonian` [REVIEWED] — Real Hamiltonian, frequency map: KAM.realHamiltonian
+* `bpI:p0:stripdata#IsRealOnReals` [REVIEWED] — Torus data on strips: KAM.IsRealOnReals
+* `bpI:p0:stripdata#dotC` [REVIEWED] — Torus data on strips: KAM.dotℂ
+* `bpI:p0:stripdata#omegaZero` [REVIEWED] — Torus data on strips: KAM.omegaZero
+* `bpI:p1:ext-chain` [REVIEWED] — Chain and product rules
+* `bpI:p1:ext-neumann` [REVIEWED] — Neumann criterion of radius one
+* `bpI:p1:ext-real-direction` [REVIEWED] — Complex derivative in a real direction
+* `bpI:p3:ext-compact` [REVIEWED] — Compactness
+* `bpI:p3:ext-ift` [REVIEWED] — Inverse function theorem
+* `bpI:p3:ext-lebesgue` [REVIEWED] — Lebesgue measure on $\R^2$
+* `bpI:p5:ext-top` [REVIEWED] — Topology
+* `bpI:p6:conversion-map` [REVIEWED] — Period-one conversion map
+* `bpI:p6:kep-ham` [REVIEWED] — The Kepler--rotation Hamiltonian
+* `bpI:p7:elements` [REVIEWED] — Kepler region and elements
+* `bpI:p7:x-forms` [REVIEWED] — Exterior calculus on open subsets of $\R^m$
+* `bpI:p7:x-hol` [REVIEWED] — Holomorphic functions of several variables
+* `bpI:p7:x-ift` [REVIEWED] — Inverse function theorem (real-analytic)
+* `bpI:p7:x-param` [REVIEWED] — Parameter integrals
+* `bpI:p7:x-schwarz` [REVIEWED] — Schwarz lemma (maximum modulus)
+* `bpI:p7:x-weier` [REVIEWED] — Weierstrass
+* `bpI:p8:x-cont` [REVIEWED] — Monotone functions
+* `bpI:p8:x-norm` [REVIEWED] — Triangle inequality
+* `bpI:p8:x-topo` [REVIEWED] — Topology of R^k
+* `stepI:p7:ke-const` [REVIEWED] — Constants
+* `stepI:p7:ke-trig` [REVIEWED] — Trigonometric bounds
+
+### Assumption boundary leaves
+
+* _(none)_
+
+### External boundary leaves
+
+* `K:bp:p0:g3` [REVIEWED] — [K] G3: measure of the non-Diophantine set
+* `K:bp:p1:cauchy-corollaries` [REVIEWED] — [K] Cauchy corollaries
+* `K:bp:p1:cauchy-open` [REVIEWED] — [K] Cauchy estimate on open sets
+* `K:bp:p1:cauchy-strip` [REVIEWED] — [K] Cauchy estimate on strips
+* `K:bp:p1:cohomological` [REVIEWED] — [K] Cohomological equation on strips
+* `K:bp:p1:ext-banach` [REVIEWED] — [K] Banach's fixed point theorem
+* `K:bp:p1:ext-cramer` [REVIEWED] — [K] Cramer's rule
+* `K:bp:p1:ext-integral` [REVIEWED] — [K] Integrals
+* `K:bp:p1:ext-mvt` [REVIEWED] — [K] Mean value inequality
+* `K:bp:p1:hamiltonian-real` [REVIEWED] — [K] Real and complex Hamiltonian fields
+* `K:bp:p1:holomorphic-analytic` [REVIEWED] — [K] Holomorphic maps are analytic
+* `K:bp:p1:holomorphic-inverse` [REVIEWED] — [K] Holomorphic inverse
+* `K:bp:p1:holomorphic-regularity` [REVIEWED] — [K] Derivatives of holomorphic maps
+* `K:bp:p1:increments-open` [REVIEWED] — [K] Increments on open sets
+* `K:bp:p1:iteration` [REVIEWED] — [K] Quadratic iteration on nested strips
+* `K:bp:p1:matrix-norms` [REVIEWED] — [K] Max-norm matrix facts
+* `K:bp:p1:neumann` [REVIEWED] — [K] Neumann series
+* `K:bp:p1:real-inverse` [REVIEWED] — [K] Real inverses
+* `K:bp:p1:real-restriction` [REVIEWED] — [K] Real restriction
+* `K:bp:p1:taylor` [REVIEWED] — [K] Second-order Taylor bound
+* `K:bp:p1:uniform-limits` [REVIEWED] — [K] Uniform limits
+* `K:bp:p2:admissible` [REVIEWED] — [K] Admissible parameterization
+* `K:bp:p2:averages` [REVIEWED] — [K] Averages
+* `K:bp:p2:cohomological` [REVIEWED] — [K] Cohomological equation in operator norms
+* `K:bp:p2:constants` [REVIEWED] — [K] Exponents and constants
+* `K:bp:p2:exactness` [REVIEWED] — [K] Exactness: two vanishing averages
+* `K:bp:p2:frame-basic` [REVIEWED] — [K] Regularity and bounds of the frame
+* `K:bp:p2:frame-identities` [REVIEWED] — [K] Frame identities
+* `K:bp:p2:frequency` [REVIEWED] — [K] Frequency bound
+* `K:bp:p2:frozen-agreement` [REVIEWED] — [K] Agreement with the frozen definitions
+* `K:bp:p2:hamiltonian` [REVIEWED] — [K] The Hamiltonian vector field
+* `K:bp:p2:matrix` [REVIEWED] — [K] Matrix norms
+* `K:bp:p2:objects` [REVIEWED] — [K] Objects attached to a parameterization
+* `K:bp:p2:periodicity` [REVIEWED] — [K] Periodicity and realness of the attached objects
+* `K:bp:p2:standing` [REVIEWED] — [K] Standing data of Part~\ref{bp:p2}
+* `K:bp:p4:data` [REVIEWED] — [K] Shrunken domains and basic constants
+* `K:bp:p4:derivative-bounds` [REVIEWED] — [K] Derivative bounds
+* `K:bp:p4:freq-map` [REVIEWED] — [K] The frequency map
+* `K:bp:p4:h-bounded` [REVIEWED] — [K] $h$ is bounded on a shrunken neighbourhood
+* `K:bp:p4:h1` [REVIEWED] — [K] The Hamiltonian hypothesis H1
+* `K:step:p2:ham-real` [REVIEWED] — [K] Realness
+* `K:step:p2:pt-small` [REVIEWED] — [K] Consequences of the smallness
+* `K:step:p4:db-cauchy` [REVIEWED] — [K] Cauchy estimates
+* `K:step:p4:h1-holo` [REVIEWED] — [K] Holomorphy, periodicity, reality
+* `K:step:p4:h1-open` [REVIEWED] — [K] Openness and invariance
+* `N:bpN:p3:gen-continuation-periodic` [REVIEWED] — [N] Closed sets, periodic fields
+* `N:bpN:p3:gen-exit` [REVIEWED] — [N] First exit
+* `N:bpN:p3:gen-maximal` [REVIEWED] — [N] Maximal solution
+* `N:bpN:p3:gen-sol` [REVIEWED] — [N] Solutions in $W$
+* `N:bpN:p3:gen-symmetry` [REVIEWED] — [N] Symmetries
+* `N:bpN:p3:gen-uniqueness` [REVIEWED] — [N] Uniqueness on arbitrary intervals
+* `N:bpN:p3:ham-energy` [REVIEWED] — [N] Energy conservation
+* `N:bpN:p3:ham-periodic` [REVIEWED] — [N] Periodicity in the angles passes to solutions
+* `N:bpN:p3:ham-reduction` [REVIEWED] — [N] Track N and track I Hamiltonian predicates
+* `P:bpP:p0:fixedsol#IsFixedSolution` [REVIEWED] — [P] Fixed-Sun solutions: KAM.Planetary.IsFixedSolution
+* `P:bpP:p0:newton#IsNewtonSolution` [REVIEWED] — [P] Newton solutions: KAM.Planetary.IsNewtonSolution
+* `bpI:p1:ext-chain` [REVIEWED] — Chain and product rules
+* `bpI:p1:ext-neumann` [REVIEWED] — Neumann criterion of radius one
+* `bpI:p1:ext-real-direction` [REVIEWED] — Complex derivative in a real direction
+* `bpI:p3:ext-compact` [REVIEWED] — Compactness
+* `bpI:p3:ext-ift` [REVIEWED] — Inverse function theorem
+* `bpI:p3:ext-lebesgue` [REVIEWED] — Lebesgue measure on $\R^2$
+* `bpI:p5:ext-top` [REVIEWED] — Topology
+* `bpI:p7:x-forms` [REVIEWED] — Exterior calculus on open subsets of $\R^m$
+* `bpI:p7:x-hol` [REVIEWED] — Holomorphic functions of several variables
+* `bpI:p7:x-ift` [REVIEWED] — Inverse function theorem (real-analytic)
+* `bpI:p7:x-param` [REVIEWED] — Parameter integrals
+* `bpI:p7:x-schwarz` [REVIEWED] — Schwarz lemma (maximum modulus)
+* `bpI:p7:x-weier` [REVIEWED] — Weierstrass
+* `bpI:p8:x-cont` [REVIEWED] — Monotone functions
+* `bpI:p8:x-norm` [REVIEWED] — Triangle inequality
+* `bpI:p8:x-topo` [REVIEWED] — Topology of R^k
+
+### Uncovered graph nodes
+
+* _(none)_
+
+### Nodes outside every root closure
+
+* _(none)_
+
+### Explicit source gaps
+
+* `stepI:p2:to-frame` [REVIEWED] — Frame
+* `stepI:p3:to-torsion#p1-setting` [REVIEWED] — Unproved full Part 1 setting required by the cited shortcut
+* `stepI:p7:cd-uc` [REVIEWED] — Uniform continuity
+* `stepI:p7:eh-delta` [REVIEWED] — Choice of $\delta_2$
 <!-- END PROOF DEPGRAPH GENERATED -->

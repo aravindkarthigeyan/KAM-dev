@@ -1,15 +1,10 @@
 {
- "replaced": [],
+ "replaced": [
+  "bpN:p1:norm-convert#summation-route",
+  "bpN:p1:norm-convert#converse"
+ ],
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": [
-  "stepN:p1:qc-reg",
-  "stepN:p1:pc-scalar",
-  "stepN:p1:nc-decay",
-  "stepN:p1:co-qc",
-  "stepN:p1:co-time",
-  "bpN:p1:norm-convert#summation-route",
-  "bpN:p1:norm-convert#converse"
- ]
+ "passes": []
 }

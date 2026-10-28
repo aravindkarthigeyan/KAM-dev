@@ -4,8 +4,12 @@
  "items": [],
  "unresolved": {},
  "passes": [
+  "stepI:p1:eb-holo-frame",
+  "stepI:p1:eb-holo-inverse",
+  "stepI:p1:eb-holo-torsion",
+  "stepI:p1:eb-holo-conclude",
   "stepI:p1:geo-red",
-  "stepI:p1:eb-holo",
-  "stepI:p1:rd-consequence"
+  "stepI:p1:geo-red-domega",
+  "stepI:p1:geo-red-ered"
  ]
 }

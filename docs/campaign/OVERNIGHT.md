@@ -176,3 +176,29 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **21:30. Next proof package: a Lean design with exact signatures for the shared ODE layer (blueprint-N Part 3),
   audited by Sol before any prover starts** (K lesson). Alternatives: start provers directly from the blueprint.
   Reversal: none needed.
+- **22:10. Graph I global finding G05 (two track-P imports not authorized by the SPEC): authorized by a SPEC revision**
+  (`P:bpP:p0:fixedsol#IsFixedSolution`, `P:bpP:p0:newton#IsNewtonSolution`, P ownership pending until the P graph
+  exists). Alternative: narrow the I-owned Newtonian bookkeeping to its restricted branch and prune the P boundary.
+  Reason: the reviewer's preferred option; no mathematics changes. Reversal: prune the two imports in an AMEND.
+- **22:40. Graph I gaps G01–G03 (Part 1 used K results whose hypotheses it did not have) were closed in the blueprint**
+  (explicit A5-free geometry steps, direct holomorphy argument, a `|X| < 1` Neumann external) and the graph records
+  updated before publication, rather than publishing with three SOURCE_GAP nodes. Reversal: none needed.
+- **22:45. Plane-length helpers live in the shared Kepler layer (`KAM/Kepler/Plane`)**, which the ODE design's Newton
+  package N3-8 imports; N3-8 therefore waits for the audited Kepler design. Alternative: keep them in
+  `KAM/ODE/NewtonDefs` and have the Kepler layer import the ODE layer. Reason: the Kepler layer is independent of the
+  ODE layer by design. Reversal: move the helpers; only imports change.
+- **22:50. When no audited design has a ready package, free subagent slots go to Lean designs** (N Parts 1/4/5,
+  I Parts 5/8) rather than to provers working from the blueprint alone (K lesson: a Sol signature audit before provers).
+- **23:05. The shared ODE layer `KAM/ODE/*` (blueprint-N Part 3 general core, 7 packages) is proved, audited and
+  landed (4e449e5).** Packages were merged into `inp` before their audits so that the next wave could branch from
+  them; nothing was landed on `main` until every audit passed.
+- **00:05. Graph P roots: P-G, P-PLANAR, AMD, EXP-SAFE, SECULAR-BOX (two); P-FIXED joins by a SPEC revision once
+  Part 11a-5 passes review** (its blueprint chain Parts 11, 11a-1..5, 13 is now complete). Its frozen definitions stay in
+  the corpus meanwhile. Before extracting a P slice whose last review said REVISE, an independent closure check confirms
+  the fixes landed (Parts 1–4, 7–11b), and Part 14a gets its first review. Extraction starts on the accepted Parts 12
+  and 14b. Reversal: none needed.
+- **23:50. Graph I published** (d00e232; 450 nodes; global review PASS in round 3).
+- **00:30. Offload to the main orchestrator (track K complete):** the dependency-ready Kepler-layer packages KEP-3, I-1,
+  I-3, I-5, P6-1, P6-2, the I Part 5/8 wave-1 packages P5-0, P8-1, and a Lean design for I Parts 1–3 (I-G1). They come
+  back as audited branches; the sub-orchestrator merges them into `inp`, regenerates `KAM.lean` and lands, so the
+  generated root file has one writer. Reversal: none needed.

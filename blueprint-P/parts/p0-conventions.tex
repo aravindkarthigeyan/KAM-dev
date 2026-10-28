@@ -5,8 +5,8 @@ This part fixes notation and restates, in mathematical form, the three frozen th
 \texttt{KAM/Frozen/Planetary/Defs/} and the three track-K definitions \Lean{KAM.IsDiophantine},
 \Lean{KAM.hamiltonianVectorField}, \Lean{KAM.symplecticForm}. The Lean text is authoritative and the statements
 below transcribe it, with the same quantifier order and the same order in which constants are chosen. The D22
-additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX) are not frozen and are deliberately absent; a later part is
-reserved for them (\texttt{PLAN.md}, Part~14).
+additions (P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX) were frozen by D25; they are not transcribed in this part but
+in the later part reserved for them (\texttt{PLAN.md}, Part~14).
 
 \subsection{Conventions}\label{bpP:p0:conventions}
 
@@ -39,7 +39,7 @@ reserved for them (\texttt{PLAN.md}, Part~14).
 
 \subsection{Track-K definitions used by track P}\label{bpP:p0:kdefs}
 
-The three frozen track-P theorems import exactly these frozen track-K definitions; no definition of track I or N is used.
+The three frozen track-P theorems import exactly these frozen track-K definitions; track~I's \texttt{IsHamiltonianSolutionOn} is transcribed in D25 and its exponents are compared with N's.
 
 \begin{definition}[Diophantine vectors]\label{bpP:p0:diophantine}
 For $\gamma,\tau\in\R$ and $\omega\in\R^d$, $\omega$ is \emph{$(\gamma,\tau)$-Diophantine} if
@@ -373,8 +373,7 @@ The order is: data $(G,m_0,m,a,\eta)$, then $(\mu_0,d,D)$, then $\mu$, then $S$.
 \frozen{KAM.Planetary.planarTwoPlanetKAM}
 \source{CP09 Thm.~4, p.~8 with Fej04r Prop.~77, pp.~56--58, using the recorded source-proof repairs (\texttt{statement.md}, P5--P7); Fej07e p.~3--4 supplies
   the smooth counterpart. No threshold from CP11 \S8.1 (audit P4).}
-\sourcegap{The route is not signed off as proved: the analytic weak-nondegeneracy gate (CP09 Thm.~4 resting on R\"ussmann's theorem, CP09 Thm.~3, whose source is not pinned),
-  the continuation of eigenvalue branches (Fej04r Lemma~76 is false as printed) and the closeness of the tori to the circular torus (CP09 Thm.~4 says only ``close to''); see \texttt{PLAN.md}.}
+\sourcegap{Part~12 proves this theorem from the frozen gate P-G (Theorem~\ref{bpP:p0:pg}). The source-level issues of the route remain recorded: the analytic weak-nondegeneracy gate (CP09 Thm.~4 resting on R\"ussmann's theorem, CP09 Thm.~3, whose source is not pinned), the continuation of eigenvalue branches (Fej04r Lemma~76 is false as printed) and the closeness of the tori to the circular torus (CP09 Thm.~4 says only ``close to''); they are handled by the repairs of Parts~11b--12 and by P-G itself; see \texttt{PLAN.md}.}
 \end{theorem}
 
 \begin{theorem}[P-FIXED: $n$ planar planets around a fixed Sun]\label{bpP:p0:fixed}
@@ -476,7 +475,7 @@ $\operatorname{IsMovSolOn}(m,\mu,U,w)$: $w(t)=z(t)$ for all $t\in U\cap J$. (No 
 \end{definition}
 
 \begin{definition}[Stopped action bound]\label{bpP:p0:d25-stopped}
-For a box $\mathcal B$, $\mu,T,\delta\in\R$ and $z_0\in\Ph{2n}$, $\operatorname{StoppedBound}(\mathcal B,\mu,T,\delta,z_0)$ holds iff for all $l,r\in\R$ and $z:\R\to\Ph{2n}$ with $l\le0\le r$, $l<r$, $z(0)=z_0$,
+For a box $\mathcal B$, $\mu,T,\delta\in\R$ and $z_0\in\Ph{2n}$, $\operatorname{StoppedActionBound}(\mathcal B,\mu,T,\delta,z_0)$ holds iff for all $l,r\in\R$ and $z:\R\to\Ph{2n}$ with $l\le0\le r$, $l<r$, $z(0)=z_0$,
 $\operatorname{IsMovSolOn}(m,\mu,[l,r],z)$ and $z(t)\in\operatorname{LowAMD}(m,\ell,u,A_1)$ for all $t\in[l,r]$ (the outer region), one has
 \[\bigl\lvert\Lambda_i(z(t))-\Lambda_i(z_0)\bigr\rvert\le\delta\qquad\text{for all }t\in[l,r]\cap[-T,T]\text{ and all }i.\]
 Both one-sided intervals are allowed; $T,\delta$ are arbitrary reals here.
@@ -499,7 +498,7 @@ The exponents $\mu^{-\alpha_n}$, $\mu^{\beta_n}$ are real powers of $\mu>0$; $6n
 
 \begin{theorem}[P-AMD-CONFINEMENT: deterministic stopped-input helper]\label{bpP:p0:amd}
 Let $n\ge2$, $\mathcal B$ an admissible box, $\mu,T,\delta>0$ with
-$\ell_i+2\delta<\ell^0_i$ and $u^0_i+2\delta<u_i$ for all $i$, and $A_0+2n\delta<A_1$. Let $z_0\in\operatorname{LowAMD}(m,\ell^0,u^0,A_0)$ with $\operatorname{StoppedBound}(\mathcal B,\mu,T,\delta,z_0)$. Then there is $z:\R\to\Ph{2n}$ with $z(0)=z_0$ and
+$\ell_i+2\delta<\ell^0_i$ and $u^0_i+2\delta<u_i$ for all $i$, and $A_0+2n\delta<A_1$. Let $z_0\in\operatorname{LowAMD}(m,\ell^0,u^0,A_0)$ with $\operatorname{StoppedActionBound}(\mathcal B,\mu,T,\delta,z_0)$. Then there is $z:\R\to\Ph{2n}$ with $z(0)=z_0$ and
 \begin{enumerate}[label=(\alph*)]
 \item $\operatorname{IsMovSolOn}(m,\mu,[-T,T],z)$ and $\operatorname{MovUniqueOn}(m,\mu,[-T,T],z)$;
 \item $\operatorname{IsNewtonOn}(\operatorname{mass}_\mu,[-T,T],\,t\mapsto x(z(t)_1),\,t\mapsto v(z(t)_2))$ with the barycentric reconstructions of Definition~\ref{bpP:p0:barycentric} for $G=m_0=1$;

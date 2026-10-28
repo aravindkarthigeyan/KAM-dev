@@ -723,7 +723,7 @@ NODE: bpN:p11:energy-free
 KIND: lemma
 TITLE: Energy confinement near a resonance, convex case, no bound on $\omega$
 STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L78-L84
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L98
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L109
 CONTRACT_ID: bpN:p11:energy-free
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: r-tilde,s-tilde>0; I_c in R^n; Lambda subset Z^n, Pi=Pi_Lambda Euclidean projection; h holomorphic on V_{r-tilde}(I_c), real on real points, with m¦xi¦_2^2<=Q(I)[xi,xi], ¦Q(I)¦_{2->2}<=M on U={¦I-I_c¦<r-tilde} (0<m<=M); g,f_* in O(r-tilde,s-tilde)^{e,R} finite norms, P_Lambda g=g, zeta_g=¦g¦, eta=¦f_*¦, eps,eta-bar>0 with zeta_g<=(5/4)eps, eta<=eta-bar<=eps/e, eps<=m r-tilde^2/2^12, 16 k c s-tilde<=r-tilde; delta in (0,m r-tilde/16] with ¦Pi omega(I_c)¦_2<=delta, rho'=delta/(4M) (<=r-tilde/64), H-tilde=h+g+f_*, T_*=s-tilde m r-tilde/(20 M eta-bar)
@@ -735,18 +735,18 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:ef-tube, stepN:p11:ef-adm, stepN:p11:ef-en, stepN:p11:ef-id, stepN:p11:ef-C, stepN:p11:ef-contra, bpN:p7:exit-ball, bpN:p7:setting, bpN:p7:resonance-data, bpN:p11:ext-class, bpN:p11:s-real#data, bpN:p11:s-ext-class#data, bpN:p4:norm, bpN:p4:domains, bpN:p11:wfield, bpN:p3:gen-sol
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L98 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L98 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L98 | direct use of bpN:p11:wfield in the statement or proof at this span
-EDGE: bpN:p3:gen-sol | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L98 | direct use of bpN:p3:gen-sol in the statement or proof at this span
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L109 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L109 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L109 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L85-L109 | direct use of bpN:p3:gen-sol in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:ef-tube | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L87-L87 | proof step (orbit stretch lies in the small tube)
 EDGE: stepN:p11:ef-adm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L88-L88 | proof step (admissibility)
-EDGE: stepN:p11:ef-en | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L89-L89 | proof step (energy inequality)
-EDGE: stepN:p11:ef-id | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L90-L91 | proof step (the identity)
-EDGE: stepN:p11:ef-C | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L92-L96 | proof step (estimate of C)
-EDGE: stepN:p11:ef-contra | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L97-L97 | proof step (contradiction)
+EDGE: stepN:p11:ef-en | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L89-L100 | proof step (energy inequality)
+EDGE: stepN:p11:ef-id | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L101-L102 | proof step (the identity)
+EDGE: stepN:p11:ef-C | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L103-L107 | proof step (estimate of C)
+EDGE: stepN:p11:ef-contra | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L108-L108 | proof step (contradiction)
 EDGE: bpN:p7:exit-ball | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L86-L86 | exit-ball lemma gives t* with ¦I-tilde(t*)-I-tilde(0)¦_2=r-tilde/4
 EDGE: bpN:p7:setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L78-L79 | Q(I)=D^2 h_R(I), omega=d_I h, U, h_R
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:energy-free@L79-L79 | m-convexity of h on U and Pi_Lambda, Pi omega closeness
@@ -826,7 +826,7 @@ NODE: stepN:p11:ef-en
 KIND: step
 TITLE: Energy inequality
 STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100
 CONTRACT_ID: stepN:p11:ef-en
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; prior proof steps are derived through DEPS, not extra assumptions
@@ -837,29 +837,126 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p7:energy-core, bpN:p11:real-system, stepN:p11:ef-adm, stepN:p11:ef-tube, bpN:p7:setting, bpN:p7:resonance-data, bpN:p4:norm
-EDGE: bpN:p7:setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | direct package or input used by this proof step
-EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | direct package or input used by this proof step
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | direct package or input used by this proof step
+DEPS: stepN:p11:ef-en-energy, stepN:p11:ef-en-taylor, stepN:p11:ef-en-split, bpN:p1:ext-restrict, bpN:p7:resonance-data, bpN:p4:norm, bpN:p11:ext-class, bpN:p11:s-real#data, bpN:p11:wfield, K:bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p7:energy-core | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | Lemma energy-core(a),(c),(d)
-EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | energy conservation G^R o y constant (Lemma real-system(b))
-EDGE: stepN:p11:ef-adm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | ¦Pi omega_0¦<=(5/4)delta
-EDGE: stepN:p11:ef-tube | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | the segment [I-tilde(0),I-tilde(t*)] lies in U (Taylor along I_s)
+EDGE: stepN:p11:ef-en-energy | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L91-L93 | substep: energy identity and bound A
+EDGE: stepN:p11:ef-en-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L95-L95 | substep: Lagrange Taylor along the fast segment
+EDGE: stepN:p11:ef-en-split | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L97-L100 | substep: projection split and the 5/16 bound
+EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | h_R=h¦_U is C^infty on U by restriction of scalars (holomorphic on V_r-tilde(I_c), real on real points)
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | U, m, Q=D^2 h_R, omega, the projection Pi and delta of the resonance data
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended-class norm of g and f_* (zeta_g, eta) in the data of the lemma
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended phase space W^e_r-tilde and class O^e
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended real Hamiltonian H-tilde^R and orbit carrier
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | X^c_{H-tilde^R}, the orbit of the extended field
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | the repeated local argument uses smoothness of holomorphic h on the arbitrary open action tube before restriction of scalars; fb-real(i),(ii) is the proof template, not an applicable centred-ball statement
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
-REVIEWER: sol-delta-N-g
+EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-amend
+REVIEWER: sol-delta2-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: Parent of ef-en-energy, ef-en-taylor, ef-en-split (G3). The inequality is proved directly in the extended phase space; Lemma bpN:p7:energy-core is NOT applied (it concerns canonical orbits of h_R(I)+g+f in R^n x R^n with g,f independent of the slow pair), so there is no edge to it, and only its argument is repeated along the fast action segment. The direct proof also uses projection algebra (self-adjointness, Pi+Pi^perp=1: bpN:p7:ext-linalg) and Euclidean Cauchy-Schwarz (bpN:p1:ext-norms); these uses are recorded at the substep ef-en-split, resolving the GLOBAL-delta FAIL.
+
+NODE: stepN:p11:ef-en-energy
+KIND: step
+TITLE: Energy
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L93
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L93
+CONTRACT_ID: stepN:p11:ef-en-energy
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; y-tilde an H-tilde-orbit in W^e_r-tilde on an interval containing 0 and t*
+SOURCE_QUANTIFIERS: t*
+SOURCE_CONCLUSION: H-tilde^R∘y-tilde is constant, h_R(I-tilde(t*))-h_R(I-tilde(0))=-[(g+f_*)(y-tilde(t*))-(g+f_*)(y-tilde(0))], whose modulus is A<=2(zeta_g+eta) since ¦u(y)¦<=¦u¦_{r-tilde,s-tilde} at real y in W^e_r-tilde
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpN:p11:real-system, bpN:p11:s-real#data, bpN:p11:ext-class, bpN:p11:wfield, bpN:p4:norm
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L93 | (b) energy conservation along the orbit; (c) real-point bound ¦u(y)¦<=norm
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L91 | H-tilde^R=h_R(I)+(g+f_*)^R on W^e_r-tilde and the orbit carrier
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L93-L93 | g, f_* in the extended class on W^e_r-tilde
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L91 | H-tilde-orbit of the weighted field X^c
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L93-L93 | ¦u¦_{r-tilde,s-tilde} bounds g+f_* at real points
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta-N-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Substep of ef-en (G3): extended energy conservation, real-system (b),(c).
+
+NODE: stepN:p11:ef-en-taylor
+KIND: step
+TITLE: Taylor along the fast segment
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95
+CONTRACT_ID: stepN:p11:ef-en-taylor
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; Q>=m on U; prior proof steps are derived through DEPS, not extra assumptions
+SOURCE_QUANTIFIERS: sigma in [0,1]
+SOURCE_CONCLUSION: phi(sigma)=h_R(I_sigma) is C^2 with phi'(0)=<omega_0,Delta I>, phi''(sigma)=Q(I_sigma)[Delta I,Delta I]>=m Delta^2; Lagrange Taylor gives phi(1)-phi(0)-phi'(0)=(1/2)phi''(xi)>=(m/2)Delta^2, and with phi(1)-phi(0)<=A: (m/2)Delta^2<=A-<omega_0,Delta I>
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepN:p11:ef-tube, stepN:p11:ef-en-energy, bpN:p7:ext-taylor, bpN:p1:ext-restrict, bpN:p7:resonance-data, K:bp:p1:holomorphic-regularity
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepN:p11:ef-tube | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | I_sigma in U for sigma in [0,1]
+EDGE: stepN:p11:ef-en-energy | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | the energy identity gives phi(1)-phi(0)<=A
+EDGE: bpN:p7:ext-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | Lagrange form of Taylor along the segment
+EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | phi is C^2 as h_R is C^infty on U
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | Q>=m on U (hypothesis on U)
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | holomorphic h on the open fast-action tube is C^infty; restriction of scalars then supplies the C^2 real function along I_sigma
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
+REVIEWER: sol-delta2-N-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Substep of ef-en (G3): one-variable Lagrange Taylor along the fast action segment.
+
+NODE: stepN:p11:ef-en-split
+KIND: step
+TITLE: Splitting
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100
+CONTRACT_ID: stepN:p11:ef-en-split
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; prior proof steps are derived through DEPS, not extra assumptions
+SOURCE_QUANTIFIERS: Delta
+SOURCE_CONCLUSION: <omega_0,Delta I>=<Pi omega_0,Delta I>+<omega_0,Pi^perp Delta I>, so (m/2)Delta^2<=A+¦<Pi omega_0,Delta I>¦+C, C=¦<omega_0,Pi^perp Delta I>¦; ¦<Pi omega_0,Delta I>¦<=(5/4)delta Delta<=(5/64)m r-tilde Delta=(5/16)m Delta^2 (r-tilde=4 Delta); hence (3/16)m Delta^2<=A+C and (3/16)m Delta^2=3 m r-tilde^2/256>0.0117 m r-tilde^2
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepN:p11:ef-en-taylor, stepN:p11:ef-adm, bpN:p7:ext-linalg, bpN:p1:ext-norms, bpN:p7:resonance-data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepN:p11:ef-en-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L98 | the inequality (m/2)Delta^2<=A-<omega_0,Delta I> being split
+EDGE: stepN:p11:ef-adm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L100-L100 | ¦Pi omega_0¦_2<=(5/4)delta
+EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L97 | self-adjointness of Pi and Pi^perp=1-Pi split the linear term
+EDGE: bpN:p1:ext-norms | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L100-L100 | Euclidean Cauchy-Schwarz ¦<Pi omega_0,Delta I>¦<=¦Pi omega_0¦_2 Delta
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100 | Pi, delta, m of the resonance data (delta<=m r-tilde/16)
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
+REVIEWER: sol-delta2-N-amend
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Substep of ef-en (G3): projection algebra (ext-linalg) and Euclidean Cauchy-Schwarz (ext-norms); resolves the GLOBAL-delta FAIL on ef-en.
 
 NODE: stepN:p11:ef-id
 KIND: step
 TITLE: The identity
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L91
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L91
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L102
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L102
 CONTRACT_ID: stepN:p11:ef-id
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; prior proof steps are derived through DEPS, not extra assumptions
@@ -871,14 +968,14 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:wfield, bpN:p11:ext-chain, bpN:p11:real-system, bpN:p11:s-ext-class#data, bpN:p11:s-real#data, bpN:p7:setting
-EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L91 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
-EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L91 | direct use of bpN:p11:s-real#data in the statement or proof at this span
-EDGE: bpN:p7:setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L91 | direct package or input used by this proof step
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L102 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L102 | direct use of bpN:p11:s-real#data in the statement or proof at this span
+EDGE: bpN:p7:setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L102 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L91 | {u,v}_c=Du.X^c_v, antisymmetry
-EDGE: bpN:p11:ext-chain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L90 | chain rule along the curve
-EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L90 | X^c_{H-tilde^R} on W^e (Lemma real-system(a))
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L102 | {u,v}_c=Du.X^c_v, antisymmetry
+EDGE: bpN:p11:ext-chain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L101 | chain rule along the curve
+EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L101 | X^c_{H-tilde^R} on W^e (Lemma real-system(a))
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -890,8 +987,8 @@ NOTE: -
 NODE: stepN:p11:ef-C
 KIND: step
 TITLE: Estimate of $C$
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107
 CONTRACT_ID: stepN:p11:ef-C
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the same first-exit contradiction branch; prior proof steps are derived through DEPS, not extra assumptions
@@ -903,24 +1000,24 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:real-system, stepN:p11:ef-id, bpN:p11:bracket, stepN:p11:ef-tube, stepN:p11:ef-adm, stepN:p11:ef-en, bpN:p11:ext-class, bpN:p11:ext-num, bpN:p4:norm, bpN:p4:domains, bpN:p11:wfield, K:bp:p1:ext-integral, K:bp:p1:ext-mvt, bpN:p7:setting, bpN:p7:resonance-data, bpN:p1:ext-norms
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96 | direct use of bpN:p11:wfield in the statement or proof at this span
-EDGE: K:bp:p1:ext-integral | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96 | direct use of K:bp:p1:ext-integral in the statement or proof at this span
-EDGE: K:bp:p1:ext-mvt | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96 | direct use of K:bp:p1:ext-mvt in the statement or proof at this span
-EDGE: bpN:p7:setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96 | direct package or input used by this proof step
-EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96 | direct package or input used by this proof step
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: K:bp:p1:ext-integral | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107 | direct use of K:bp:p1:ext-integral in the statement or proof at this span
+EDGE: K:bp:p1:ext-mvt | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107 | direct use of K:bp:p1:ext-mvt in the statement or proof at this span
+EDGE: bpN:p7:setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107 | direct package or input used by this proof step
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L94 | Lemma real-system(c),(d): ¦d_theta f_*¦_2<=eta/(e s-tilde) and Pi^perp d_theta g=0
-EDGE: stepN:p11:ef-id | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L93 | identity (eq:lie)
-EDGE: bpN:p11:bracket | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L94-L94 | Lemma bracket with (u,v)=(f_*,g), R_0=R=r-tilde, losses (r-tilde/2,s-tilde/2)
-EDGE: stepN:p11:ef-tube | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L94-L94 | the points y-tilde(tau) lie in D^e_{r-tilde/2,s-tilde/2}
-EDGE: stepN:p11:ef-adm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L94 | (5/4)delta bound for ¦Pi omega_0¦
-EDGE: stepN:p11:ef-en | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L92 | definition of C
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L94-L94 | (SL)_{rho,sigma} for the losses (r-tilde/2,s-tilde/2) is 16 k c s-tilde<=r-tilde
-EDGE: bpN:p11:ext-num | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L94-L95 | the listed 1/e<0.368 suffices for 5/4096+(5/64+1/4)/e<0.1220; the stronger printed decimal 0.3679 is not asserted by that external
-EDGE: bpN:p1:ext-norms | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L94-L94 | Euclidean norm of d_theta f_* is at most the sum of the component moduli bounded by real-system(c)
+EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L105 | Lemma real-system(c),(d): ¦d_theta f_*¦_2<=eta/(e s-tilde) and Pi^perp d_theta g=0
+EDGE: stepN:p11:ef-id | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L104 | identity (eq:lie)
+EDGE: bpN:p11:bracket | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L105-L105 | Lemma bracket with (u,v)=(f_*,g), R_0=R=r-tilde, losses (r-tilde/2,s-tilde/2)
+EDGE: stepN:p11:ef-tube | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L105-L105 | the points y-tilde(tau) lie in D^e_{r-tilde/2,s-tilde/2}
+EDGE: stepN:p11:ef-adm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L105 | (5/4)delta bound for ¦Pi omega_0¦
+EDGE: stepN:p11:ef-en | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L103 | definition of C
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L105-L105 | (SL)_{rho,sigma} for the losses (r-tilde/2,s-tilde/2) is 16 k c s-tilde<=r-tilde
+EDGE: bpN:p11:ext-num | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L105-L106 | the listed 1/e<0.368 suffices for 5/4096+(5/64+1/4)/e<0.1220; the stronger printed decimal 0.3679 is not asserted by that external
+EDGE: bpN:p1:ext-norms | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L105-L105 | Euclidean norm of d_theta f_* is at most the sum of the component moduli bounded by real-system(c)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -932,8 +1029,8 @@ NOTE: -
 NODE: stepN:p11:ef-contra
 KIND: step
 TITLE: Contradiction
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L97-L97
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L97-L97
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L108-L108
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L108-L108
 CONTRACT_ID: stepN:p11:ef-contra
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the same first-exit contradiction branch; prior proof steps are derived through DEPS, not extra assumptions
@@ -947,9 +1044,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:ef-en, stepN:p11:ef-C, bpN:p11:ext-num
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:ef-en | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L97-L97 | (3/16)m Delta^2<=A+C and the numerical lower bound
-EDGE: stepN:p11:ef-C | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L97-L97 | C<=2 eta-bar+0.0061 m r-tilde^2
-EDGE: bpN:p11:ext-num | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L97-L97 | 1/e<0.368 for A<3.24 eps
+EDGE: stepN:p11:ef-en | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L108-L108 | (3/16)m Delta^2<=A+C and the numerical lower bound
+EDGE: stepN:p11:ef-C | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L108-L108 | C<=2 eta-bar+0.0061 m r-tilde^2
+EDGE: bpN:p11:ext-num | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L108-L108 | 1/e<0.368 for A<3.24 eps
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -961,8 +1058,8 @@ NOTE: -
 NODE: bpN:p11:resonant
 KIND: proposition
 TITLE: Resonant stability in the extended phase space, convex case
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L100-L103
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L104-L110
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L111-L114
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L115-L121
 CONTRACT_ID: bpN:p11:resonant
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: r=r_B; s,K_a,alpha,delta>0; p=9/8, q=9, kappa=2 pi K_a s>=6; Lambda subset Z^n a subgroup; 0<m<=M; h holomorphic on V_r(I_c), real on real points, ¦d_I^2 h¦_{2->2}<=M on V_r(I_c), m-convex on U_r(I_c); ¦k.omega(I_c)¦>=alpha for k in Z_{K_a}\Lambda; cond-L with L=sqrt(n)M, K_a L r<=alpha/p; ¦Pi_Lambda omega(I_c)¦_2<=m r/32 (delta:=m r/32); (SL); f in O(r,s)^{e,R}, ¦f¦<=eps, eps>0, eps<=m r^2/2^14; H=h+f; T_Lambda=(s m r/(240 M eps))e^{kappa/6}
@@ -974,24 +1071,24 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:rs-red, stepN:p11:rs-nf, stepN:p11:rs-t12, stepN:p11:rs-t3, stepN:p11:rs-concl, bpN:p6:setting, bpN:p7:resonance-data, bpN:p11:s-nf#data, bpN:p11:ext-class, bpN:p11:s-real#data, bpN:p11:s-ext-class#data, bpN:p4:norm, bpN:p4:domains, bpN:p11:wfield, bpN:p3:gen-sol, bpN:p6#data
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L104-L110 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L104-L110 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L104-L110 | direct use of bpN:p11:wfield in the statement or proof at this span
-EDGE: bpN:p3:gen-sol | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L104-L110 | direct use of bpN:p3:gen-sol in the statement or proof at this span
-EDGE: bpN:p6#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L104-L110 | direct use of bpN:p6#data in the statement or proof at this span
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L115-L121 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L115-L121 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L115-L121 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L115-L121 | direct use of bpN:p3:gen-sol in the statement or proof at this span
+EDGE: bpN:p6#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L115-L121 | direct use of bpN:p6#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:rs-red | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L105-L105 | proof step (reductions)
-EDGE: stepN:p11:rs-nf | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L106-L106 | proof step (normal form)
-EDGE: stepN:p11:rs-t12 | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L107-L107 | proof step ((T1),(T2))
-EDGE: stepN:p11:rs-t3 | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L108-L108 | proof step ((T3))
-EDGE: stepN:p11:rs-concl | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L109-L109 | proof step (conclusion)
-EDGE: bpN:p6:setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L101-L101 | cond-L, the nonresonance hypothesis modulo Lambda
-EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L101-L102 | m-convexity and Pi_Lambda omega closeness to exact resonances
-EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L100-L102 | dictionary h on V_r(I_c), omega, K_a
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L101-L101 | O^{e,R}, (SL)
-EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L101-L101 | W^e_r, S-tilde, orbits
-EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L101-L101 | r=r_B, c, lambda
+EDGE: stepN:p11:rs-red | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L116-L116 | proof step (reductions)
+EDGE: stepN:p11:rs-nf | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L117-L117 | proof step (normal form)
+EDGE: stepN:p11:rs-t12 | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L118-L118 | proof step ((T1),(T2))
+EDGE: stepN:p11:rs-t3 | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L119-L119 | proof step ((T3))
+EDGE: stepN:p11:rs-concl | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L120-L120 | proof step (conclusion)
+EDGE: bpN:p6:setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L112-L112 | cond-L, the nonresonance hypothesis modulo Lambda
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L112-L113 | m-convexity and Pi_Lambda omega closeness to exact resonances
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L111-L113 | dictionary h on V_r(I_c), omega, K_a
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L112-L112 | O^{e,R}, (SL)
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L112-L112 | W^e_r, S-tilde, orbits
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L112-L112 | r=r_B, c, lambda
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1003,8 +1100,8 @@ NOTE: dropped nothing material; the source (Pos93 Proposition 2) is provenance
 NODE: stepN:p11:rs-red
 KIND: step
 TITLE: Reductions
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L105-L105
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L105-L105
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L116-L116
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L116-L116
 CONTRACT_ID: stepN:p11:rs-red
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:resonant, in particular 0<eps<=m r^2/2^14; K_a L r<=alpha/p, L=sqrt(n)M, m<=M, q/p=8
@@ -1016,7 +1113,7 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:s-nf#data
-EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L105-L105 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L116-L116 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
@@ -1030,8 +1127,8 @@ NOTE: -
 NODE: stepN:p11:rs-nf
 KIND: step
 TITLE: Normal form
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117
 CONTRACT_ID: stepN:p11:rs-nf
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:resonant; prior proof steps are derived through DEPS, not extra assumptions
@@ -1043,17 +1140,17 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:nf, stepN:p11:rs-red, bpN:p11:ext-class, bpN:p4:norm, bpN:p4:domains, bpN:p11:s-nf#data, bpN:p4:projections, bpN:p11:ext-part4, bpN:p4:norm#monotone
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | Theorem nf conclusions (a),(b)
-EDGE: stepN:p11:rs-red | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | hypotheses of Theorem nf
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | (SL) gives 16 k c s-tilde<=r/12<r-tilde
-EDGE: bpN:p4:projections | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | g_0=P_Lambda T_{K_a}f has weighted norm at most the perturbation norm eps
-EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | the projection estimate is used for the extended Fourier class
-EDGE: bpN:p4:norm#monotone | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106 | the g_0 projection bound is restricted from the initial domain to D^e_{r/2,s/6}
+EDGE: bpN:p11:nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117 | Theorem nf conclusions (a),(b)
+EDGE: stepN:p11:rs-red | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117 | hypotheses of Theorem nf
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117 | (SL) gives 16 k c s-tilde<=r/12<r-tilde
+EDGE: bpN:p4:projections | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117 | g_0=P_Lambda T_{K_a}f has weighted norm at most the perturbation norm eps
+EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117 | the projection estimate is used for the extended Fourier class
+EDGE: bpN:p4:norm#monotone | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117 | the g_0 projection bound is restricted from the initial domain to D^e_{r/2,s/6}
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1065,8 +1162,8 @@ NOTE: -
 NODE: stepN:p11:rs-t12
 KIND: step
 TITLE: (T1), (T2) in $\abs\cdot_*=\norm\cdot_2$
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118
 CONTRACT_ID: stepN:p11:rs-t12
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:resonant; prior proof steps are derived through DEPS, not extra assumptions
@@ -1078,14 +1175,14 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:preimage, stepN:p11:nr-t12, bpN:p11:nf, stepN:p11:rs-nf, bpN:p11:s-nf#data, bpN:p1:norm-compare
-EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:preimage | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107 | (T2) via Lemma preimage
-EDGE: stepN:p11:nr-t12 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107 | as in Step nr-t12
-EDGE: bpN:p11:nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107 | displacement bounds of Theorem nf(c)
-EDGE: stepN:p11:rs-nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107 | r-tilde,s-tilde,rho'
-EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107 | Euclidean displacement is at most sqrt(n) times the max displacement in nf(c)
+EDGE: bpN:p11:preimage | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118 | (T2) via Lemma preimage
+EDGE: stepN:p11:nr-t12 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118 | as in Step nr-t12
+EDGE: bpN:p11:nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118 | displacement bounds of Theorem nf(c)
+EDGE: stepN:p11:rs-nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118 | r-tilde,s-tilde,rho'
+EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118 | Euclidean displacement is at most sqrt(n) times the max displacement in nf(c)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1097,8 +1194,8 @@ NOTE: -
 NODE: stepN:p11:rs-t3
 KIND: step
 TITLE: (T3)
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119
 CONTRACT_ID: stepN:p11:rs-t3
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:resonant; prior proof steps are derived through DEPS, not extra assumptions
@@ -1110,16 +1207,16 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:energy-free, stepN:p11:rs-nf, stepN:p11:rs-t12, bpN:p11:ext-class, bpN:p11:s-ext-class#data, bpN:p11:s-real#data, bpN:p3:gen-sol, bpN:p11:s-nf#data
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108 | direct use of bpN:p11:ext-class in the statement or proof at this span
-EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
-EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108 | direct use of bpN:p11:s-real#data in the statement or proof at this span
-EDGE: bpN:p3:gen-sol | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108 | direct use of bpN:p3:gen-sol in the statement or proof at this span
-EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119 | direct use of bpN:p11:s-real#data in the statement or proof at this span
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119 | direct use of bpN:p3:gen-sol in the statement or proof at this span
+EDGE: bpN:p11:s-nf#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119 | direct use of bpN:p11:s-nf#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:energy-free | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108 | Lemma energy-free applies to such orbits
-EDGE: stepN:p11:rs-nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108 | eta-bar, r-tilde, s-tilde, rho' and the identity T-tilde_*=T_Lambda
-EDGE: stepN:p11:rs-t12 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108 | d_*<rho' and d_x
+EDGE: bpN:p11:energy-free | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119 | Lemma energy-free applies to such orbits
+EDGE: stepN:p11:rs-nf | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119 | eta-bar, r-tilde, s-tilde, rho' and the identity T-tilde_*=T_Lambda
+EDGE: stepN:p11:rs-t12 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119 | d_*<rho' and d_x
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1131,8 +1228,8 @@ NOTE: -
 NODE: stepN:p11:rs-concl
 KIND: step
 TITLE: Conclusion
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L109-L109
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L109-L109
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L120-L120
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L120-L120
 CONTRACT_ID: stepN:p11:rs-concl
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:resonant; prior proof steps are derived through DEPS, not extra assumptions
@@ -1146,9 +1243,9 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:transfer, stepN:p11:rs-t12, stepN:p11:rs-t3
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:transfer | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L109-L109 | Lemma transfer
-EDGE: stepN:p11:rs-t12 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L109-L109 | (T1),(T2)
-EDGE: stepN:p11:rs-t3 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L109-L109 | (T3)
+EDGE: bpN:p11:transfer | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L120-L120 | Lemma transfer
+EDGE: stepN:p11:rs-t12 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L120-L120 | (T1),(T2)
+EDGE: stepN:p11:rs-t3 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L120-L120 | (T3)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1160,8 +1257,8 @@ NOTE: -
 NODE: bpN:p11:hessian
 KIND: lemma
 TITLE: Hessian and sizes (nonempty $G$)
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L114-L116
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L117-L119
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L125-L127
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L128-L130
 CONTRACT_ID: bpN:p11:hessian
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: h as in Theorem bpN:p0:partial (complex differentiable and complex C^2 on G'_rho, real on real points of G'_rho, ¦D^2 h(z)¦<=M_C on G'_rho, HasDefiniteFastPart G' rho g m h with sign sigma); G nonempty
@@ -1173,13 +1270,13 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:hs-op, bpN:p0:partial-definite#HasDefiniteFastPart, bpN:p0:actionnbhd#actionNbhd, bpN:p11:constants, bpN:p11:hessian#real-hessian
-EDGE: bpN:p11:hessian#real-hessian | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L117-L119 | direct use of bpN:p11:hessian#real-hessian in the statement or proof at this span
+EDGE: bpN:p11:hessian#real-hessian | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L128-L130 | direct use of bpN:p11:hessian#real-hessian in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:hs-op | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L118-L118 | proof step (operator norm)
-EDGE: bpN:p0:partial-definite#HasDefiniteFastPart | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L114-L115 | sigma and the definite fast part: ¦omega¦_inf>=g, m¦xi¦^2<=sigma Q[xi,xi]
-EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115 | G'_rho and its real slice U
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115 | m_1,M_1,g_1
+EDGE: stepN:p11:hs-op | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L129-L129 | proof step (operator norm)
+EDGE: bpN:p0:partial-definite#HasDefiniteFastPart | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L125-L126 | sigma and the definite fast part: ¦omega¦_inf>=g, m¦xi¦^2<=sigma Q[xi,xi]
+EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L126-L126 | G'_rho and its real slice U
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L126-L126 | m_1,M_1,g_1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1191,8 +1288,8 @@ NOTE: The real-Hessian identification is exposed by hessian#real-hessian; the Pa
 NODE: stepN:p11:hs-op
 KIND: step
 TITLE: Operator norm
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L129-L129
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L129-L129
 CONTRACT_ID: stepN:p11:hs-op
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:hessian (in particular the frozen max-norm bilinear operator bound on D(Dh), not an entrywise bound); prior proof steps are derived through DEPS, not extra assumptions
@@ -1204,12 +1301,12 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p0:partial-definite#HasDefiniteFastPart, bpN:p0:actionnbhd#actionNbhd, bpN:p11:hessian#real-hessian, bpN:p1:norm-compare
-EDGE: bpN:p11:hessian#real-hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118 | direct use of bpN:p11:hessian#real-hessian in the statement or proof at this span
+EDGE: bpN:p11:hessian#real-hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L129-L129 | direct use of bpN:p11:hessian#real-hessian in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p0:partial-definite#HasDefiniteFastPart | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118 | the definition of HasDefiniteFastPart (m¦xi¦^2<=sigma D^2 h_R[xi,xi], ¦omega¦_inf>=g)
-EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118 | G'_rho and I in bar B(I,rho) subset G'
-EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118 | max norms of the real or complex vectors are bounded by their Euclidean norms in the bilinear estimate
+EDGE: bpN:p0:partial-definite#HasDefiniteFastPart | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L129-L129 | the definition of HasDefiniteFastPart (m¦xi¦^2<=sigma D^2 h_R[xi,xi], ¦omega¦_inf>=g)
+EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L129-L129 | G'_rho and I in bar B(I,rho) subset G'
+EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L129-L129 | max norms of the real or complex vectors are bounded by their Euclidean norms in the bilinear estimate
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1221,7 +1318,7 @@ NOTE: -
 NODE: bpN:p11:block-setting
 KIND: definition
 TITLE: Sets and the extended system for the block theorem
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L121-L123
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L132-L134
 PROOF_SOURCE: -
 CONTRACT_ID: bpN:p11:block-setting
 CONTRACT_VERSION: 1
@@ -1234,14 +1331,14 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:constants, bpN:p0:partial-core#innerCore, bpN:p0:partial-pert#IsPartialPerturbation, bpN:p11:s-ext-class#data, bpN:p11:s-real#data, bpN:p11:ext-class
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L121-L123 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L132-L134 | direct use of bpN:p11:ext-class in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L121-L122 | data and constants of Definition constants (eps_0, eps(mu), d, w, sigma, h_1)
-EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L122-L122 | S=core(D,3d/4)
-EDGE: bpN:p0:partial-pert#IsPartialPerturbation | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L122-L122 | P of the perturbation pair is the IsPartialPerturbation function of the theorem
-EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L122-L123 | lambda=w/r_B, c=2 pi/lambda^2, x-tilde and the block data
-EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L122-L122 | W^e_varrho as in Section s-real
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L132-L133 | data and constants of Definition constants (eps_0, eps(mu), d, w, sigma, h_1)
+EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L133-L133 | S=core(D,3d/4)
+EDGE: bpN:p0:partial-pert#IsPartialPerturbation | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L133-L133 | P of the perturbation pair is the IsPartialPerturbation function of the theorem
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L133-L134 | lambda=w/r_B, c=2 pi/lambda^2, x-tilde and the block data
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L133-L133 | W^e_varrho as in Section s-real
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1253,8 +1350,8 @@ NOTE: package bpN:p11:block-setting (SPEC)
 NODE: bpN:p11:domain
 KIND: lemma
 TITLE: Analyticity, norm and field on the block domain
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L125-L127
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L128-L132
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L136-L138
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L139-L143
 CONTRACT_ID: bpN:p11:domain
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Definition block-setting; I_c in G; 0<r_B<=r_0
@@ -1266,20 +1363,20 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:dm-pts, stepN:p11:dm-norm, stepN:p11:dm-field, bpN:p11:block-setting, bpN:p11:ext-class, bpN:p11:s-real#data, bpN:p11:orbit, bpN:p4:norm, bpN:p4:domains, bpN:p11:wfield, bpN:p11:s-ext-class#data, bpN:p11:constants
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L128-L132 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L128-L132 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L128-L132 | direct use of bpN:p11:wfield in the statement or proof at this span
-EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L128-L132 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L128-L132 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L139-L143 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L139-L143 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L139-L143 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L139-L143 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L139-L143 | direct use of bpN:p11:constants in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:dm-pts | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L129-L129 | proof step (complex points)
-EDGE: stepN:p11:dm-norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L130-L130 | proof step (norm)
-EDGE: stepN:p11:dm-field | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L131-L131 | proof step (field)
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L126-L126 | Definition block-setting
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L126-L126 | O^{e,R}, W^e
-EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L126-L126 | W^e_{r_B}
-EDGE: bpN:p11:orbit | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L126-L126 | H-hat_mu=(1/(2 pi))H_mu o Theta^{-1}
+EDGE: stepN:p11:dm-pts | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L140-L140 | proof step (complex points)
+EDGE: stepN:p11:dm-norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L141-L141 | proof step (norm)
+EDGE: stepN:p11:dm-field | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L142-L142 | proof step (field)
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L137-L137 | Definition block-setting
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L137-L137 | O^{e,R}, W^e
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L137-L137 | W^e_{r_B}
+EDGE: bpN:p11:orbit | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L137-L137 | H-hat_mu=(1/(2 pi))H_mu o Theta^{-1}
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1291,8 +1388,8 @@ NOTE: -
 NODE: stepN:p11:dm-pts
 KIND: step
 TITLE: Complex points
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140
 CONTRACT_ID: stepN:p11:dm-pts
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: complex (theta,I,x) with ¦Im theta¦<2s=rho/(2 pi), ¦I-I_c¦<r_B<=rho/2, dist_inf(x,S)<w
@@ -1304,17 +1401,17 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p0:partial-domain#partialComplexDomain, bpN:p0:partial-pert#IsPartialPerturbation, bpN:p0:partial-core#innerCore, bpN:p0:actionnbhd#actionNbhd, bpN:p0:strip#complexStrip, bpN:p11:hessian, bpN:p11:constants, bpN:p11:block-setting, bpN:p4:domains
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140 | direct use of bpN:p4:domains in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p0:partial-domain#partialComplexDomain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129 | membership in F(G',D,rho)
-EDGE: bpN:p0:partial-pert#IsPartialPerturbation | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129 | (P1)-(P4) of P on F(G',D,rho)
-EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129 | x_0 in S=core(D,3d/4) gives bar B(x_0,d/4) subset D
-EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129 | Re I within rho/2 of I_c lies in G' (collar), V subset G'_rho
-EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129 | ¦Im 2 pi theta_i¦<rho, ¦Im I_i¦<rho/2: membership in the complex strips
-EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129 | (a) follows from Lemma hessian
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129 | s=rho/(4 pi), r_0<=rho/2, w=d/4
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129 | S, w, f_1 of block-setting
+EDGE: bpN:p0:partial-domain#partialComplexDomain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140 | membership in F(G',D,rho)
+EDGE: bpN:p0:partial-pert#IsPartialPerturbation | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140 | (P1)-(P4) of P on F(G',D,rho)
+EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140 | x_0 in S=core(D,3d/4) gives bar B(x_0,d/4) subset D
+EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140 | Re I within rho/2 of I_c lies in G' (collar), V subset G'_rho
+EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140 | ¦Im 2 pi theta_i¦<rho, ¦Im I_i¦<rho/2: membership in the complex strips
+EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140 | (a) follows from Lemma hessian
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140 | s=rho/(4 pi), r_0<=rho/2, w=d/4
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140 | S, w, f_1 of block-setting
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1326,8 +1423,8 @@ NOTE: -
 NODE: stepN:p11:dm-norm
 KIND: step
 TITLE: Norm
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141
 CONTRACT_ID: stepN:p11:dm-norm
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:domain; prior proof steps are derived through DEPS, not extra assumptions
@@ -1339,15 +1436,15 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:ext-part4, bpN:p4:sup-weighted, stepN:p11:dm-pts, bpN:p11:constants, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141 | direct use of bpN:p11:ext-class in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130 | B.1(b) for the extended class
-EDGE: bpN:p4:sup-weighted | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130 | B.1(b) with sigma=s
-EDGE: stepN:p11:dm-pts | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130 | holomorphy, periodicity and ¦f_1¦<=mu/(2 pi) on D^e_{r_B,2s}
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130 | kappa_C=coth(pi s)^n, eps(mu)
+EDGE: bpN:p11:ext-part4 | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141 | B.1(b) for the extended class
+EDGE: bpN:p4:sup-weighted | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141 | B.1(b) with sigma=s
+EDGE: stepN:p11:dm-pts | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141 | holomorphy, periodicity and ¦f_1¦<=mu/(2 pi) on D^e_{r_B,2s}
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141 | kappa_C=coth(pi s)^n, eps(mu)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1359,8 +1456,8 @@ NOTE: -
 NODE: stepN:p11:dm-field
 KIND: step
 TITLE: Field
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142
 CONTRACT_ID: stepN:p11:dm-field
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:domain; prior proof steps are derived through DEPS, not extra assumptions
@@ -1372,19 +1469,19 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:real-system, bpN:p11:ext-class, bpN:p11:orbit, bpN:p0:partial-sec#degenerateHamiltonian, bpN:p0:partial-complexify#complexifyPhase, bpN:p0:realpart#realPart, stepN:p11:dm-pts, bpN:p11:wfield, bpN:p11:s-ext-class#data, bpN:p11:constants, bpN:p11:block-setting
-EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | direct use of bpN:p11:constants in the statement or proof at this span
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | direct use of bpN:p11:block-setting in the statement or proof at this span
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | direct use of bpN:p11:block-setting in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | Lemma real-system(a)
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | rescaling x=lambda x-tilde, weight c (Definition ext-class)
-EDGE: bpN:p11:orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | H-hat_mu and its field X^{2pi}
-EDGE: bpN:p0:partial-sec#degenerateHamiltonian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | H_mu=Re h+mu Re(P o cx) on real points
-EDGE: bpN:p0:partial-complexify#complexifyPhase | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | cx z in F
-EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | Re h
-EDGE: stepN:p11:dm-pts | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | holomorphy of f_1, periodicity, and the points in F
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131 | X^{2pi}, X^c
+EDGE: bpN:p11:real-system | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | Lemma real-system(a)
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | rescaling x=lambda x-tilde, weight c (Definition ext-class)
+EDGE: bpN:p11:orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | H-hat_mu and its field X^{2pi}
+EDGE: bpN:p0:partial-sec#degenerateHamiltonian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | H_mu=Re h+mu Re(P o cx) on real points
+EDGE: bpN:p0:partial-complexify#complexifyPhase | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | cx z in F
+EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | Re h
+EDGE: stepN:p11:dm-pts | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | holomorphy of f_1, periodicity, and the points in F
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142 | X^{2pi}, X^c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1396,8 +1493,8 @@ NOTE: -
 NODE: bpN:p11:block-data
 KIND: lemma
 TITLE: Block data from the covering lemma
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L134-L137
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L138-L142
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L145-L148
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L149-L153
 CONTRACT_ID: bpN:p11:block-data
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Definition block-setting; kappa=2 pi K_a s>=6 (K_a=K/sqrt n, K=(eps_0/eps)^{1/(2n)}>=1); I_0 in G; p=9/8, q=9, b_c=1/32; Lemma covering applied with (P,omega)=({I_0},omega_{h_1}) and parameters (p,b_c,r_0,M_1,m_1,K,A) (A=40M_1/m_1>=36 M_1/m_1+sqrt 2)
@@ -1409,20 +1506,20 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:bd-cover, stepN:p11:bd-24, stepN:p11:bd-5, bpN:p11:block-setting, bpN:p8:covering, bpN:p8:klattice, bpN:p8:blocks, bpN:p6:setting, bpN:p11:constants, bpN:p4:domains, bpN:p7:resonance-data, bpN:p6#data
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L138-L142 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L138-L142 | direct use of bpN:p7:resonance-data in the statement or proof at this span
-EDGE: bpN:p6#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L138-L142 | direct use of bpN:p6#data in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L149-L153 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L149-L153 | direct use of bpN:p7:resonance-data in the statement or proof at this span
+EDGE: bpN:p6#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L149-L153 | direct use of bpN:p6#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:bd-cover | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L139-L139 | proof step (covering)
-EDGE: stepN:p11:bd-24 | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L140-L140 | proof step ((2)-(4))
-EDGE: stepN:p11:bd-5 | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L141-L141 | proof step ((5))
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L134-L135 | Definition block-setting
-EDGE: bpN:p8:covering | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L135-L135 | Lemma covering applied
-EDGE: bpN:p8:klattice | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L135-L135 | M_K, the maximal K-lattices
-EDGE: bpN:p8:blocks | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L136-L136 | D_Lambda, r_Lambda, alpha_Lambda, delta_Lambda, Theta
-EDGE: bpN:p6:setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L136-L136 | cond-L
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L134-L135 | K, K_a, kappa, eps_0, A, R_0, r_0, b_c
+EDGE: stepN:p11:bd-cover | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L150-L150 | proof step (covering)
+EDGE: stepN:p11:bd-24 | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L151-L151 | proof step ((2)-(4))
+EDGE: stepN:p11:bd-5 | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L152-L152 | proof step ((5))
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L145-L146 | Definition block-setting
+EDGE: bpN:p8:covering | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L146-L146 | Lemma covering applied
+EDGE: bpN:p8:klattice | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L146-L146 | M_K, the maximal K-lattices
+EDGE: bpN:p8:blocks | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L147-L147 | D_Lambda, r_Lambda, alpha_Lambda, delta_Lambda, Theta
+EDGE: bpN:p6:setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L147-L147 | cond-L
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L145-L146 | K, K_a, kappa, eps_0, A, R_0, r_0, b_c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1434,8 +1531,8 @@ NOTE: dropped candidate edge bpN:p11:hom (appears only as the check that omega i
 NODE: stepN:p11:bd-cover
 KIND: step
 TITLE: Covering
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150
 CONTRACT_ID: stepN:p11:bd-cover
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:block-data; prior proof steps are derived through DEPS, not extra assumptions
@@ -1447,16 +1544,16 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p8:covering, bpN:p11:hessian, bpN:p11:constants, bpN:p11:block-setting, bpN:p7:resonance-data, bpN:p8:klattice, bpN:p8:blocks, bpN:p1:norm-compare
-EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | direct use of bpN:p7:resonance-data in the statement or proof at this span
-EDGE: bpN:p8:klattice | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | direct use of bpN:p8:klattice in the statement or proof at this span
-EDGE: bpN:p8:blocks | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | direct package or input used by this proof step
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150 | direct use of bpN:p7:resonance-data in the statement or proof at this span
+EDGE: bpN:p8:klattice | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150 | direct use of bpN:p8:klattice in the statement or proof at this span
+EDGE: bpN:p8:blocks | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p8:covering | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | Lemma covering(a),(d), and (c) for the case Lambda=Z^n
-EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | ¦omega(I_0)¦_inf>=g_1 (Lemma hessian)
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | r_0<=32 g/m so m_1 r_0/32<=g_1; R_0=r_0/A
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | omega_{h_1}
-EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139 | the Euclidean frequency norm is at least its max norm in the full-rank exclusion
+EDGE: bpN:p8:covering | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150 | Lemma covering(a),(d), and (c) for the case Lambda=Z^n
+EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150 | ¦omega(I_0)¦_inf>=g_1 (Lemma hessian)
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150 | r_0<=32 g/m so m_1 r_0/32<=g_1; R_0=r_0/A
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150 | omega_{h_1}
+EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150 | the Euclidean frequency norm is at least its max norm in the full-rank exclusion
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1468,8 +1565,8 @@ NOTE: -
 NODE: stepN:p11:bd-24
 KIND: step
 TITLE: (2)--(4)
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151
 CONTRACT_ID: stepN:p11:bd-24
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:block-data; prior proof steps are derived through DEPS, not extra assumptions
@@ -1481,17 +1578,17 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p8:cutoffs, bpN:p6:lipschitz, bpN:p11:domain, stepN:p11:bd-cover, bpN:p11:hessian, bpN:p11:constants, bpN:p7:resonance-data, bpN:p6:setting, bpN:p1:norm-compare
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | direct use of bpN:p11:constants in the statement or proof at this span
-EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | direct use of bpN:p7:resonance-data in the statement or proof at this span
-EDGE: bpN:p6:setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | direct package or input used by this proof step
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151 | direct use of bpN:p7:resonance-data in the statement or proof at this span
+EDGE: bpN:p6:setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p8:cutoffs | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | Corollary cutoffs(b),(c) with K_g=K, K_a=K/sqrt n
-EDGE: bpN:p6:lipschitz | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | operator-norm Hessian bound gives cond-L (Lemma lipschitz-type)
-EDGE: bpN:p11:domain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | omega_{sigma h_1} real on the real slice; ¦d_I^2 h-breve¦_{2->2}<=M_1
-EDGE: stepN:p11:bd-cover | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | Lambda, r=r_Lambda, alpha=alpha_Lambda
-EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | Euclidean Hessian bound M_1 for h_1
-EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140 | max<=Euclidean<=sqrt(n) max converts the Euclidean Hessian bound to the max-norm frequency Lipschitz constant
+EDGE: bpN:p8:cutoffs | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151 | Corollary cutoffs(b),(c) with K_g=K, K_a=K/sqrt n
+EDGE: bpN:p6:lipschitz | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151 | operator-norm Hessian bound gives cond-L (Lemma lipschitz-type)
+EDGE: bpN:p11:domain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151 | omega_{sigma h_1} real on the real slice; ¦d_I^2 h-breve¦_{2->2}<=M_1
+EDGE: stepN:p11:bd-cover | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151 | Lambda, r=r_Lambda, alpha=alpha_Lambda
+EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151 | Euclidean Hessian bound M_1 for h_1
+EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151 | max<=Euclidean<=sqrt(n) max converts the Euclidean Hessian bound to the max-norm frequency Lipschitz constant
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1503,8 +1600,8 @@ NOTE: -
 NODE: stepN:p11:bd-5
 KIND: step
 TITLE: (5)
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L141-L141
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L141-L141
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L152-L152
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L152-L152
 CONTRACT_ID: stepN:p11:bd-5
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:block-data; prior proof steps are derived through DEPS, not extra assumptions
@@ -1516,11 +1613,11 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:constants, stepN:p11:bd-cover, bpN:p11:hessian
-EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L141-L141 | direct package or input used by this proof step
+EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L152-L152 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L141-L141 | eps_0, eps(mu), K=(eps_0/eps)^{1/(2n)}, r_Theta
-EDGE: stepN:p11:bd-cover | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L141-L141 | r>=r_Theta
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L152-L152 | eps_0, eps(mu), K=(eps_0/eps)^{1/(2n)}, r_Theta
+EDGE: stepN:p11:bd-cover | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L152-L152 | r>=r_Theta
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1532,8 +1629,8 @@ NOTE: -
 NODE: bpN:p11:block
 KIND: theorem
 TITLE: Stopped block stability (Pos93 Theorem 1 with slow parameters)
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L144-L147
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L148-L155
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L155-L158
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L159-L166
 CONTRACT_ID: bpN:p11:block
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Definition block-setting; (B1) kappa=2 pi K_a s>=6; (B2) K>=256 k rho R_0/d^2; r_Theta=r_0/(AK)^n, T_P=s m_1 r_Theta e^{kappa/6}/(240 M_1 eps); I_0 in G; F: R^{2n+2k}->R^{2n+2k} any function with F=X^{2pi}_{(h-breve+f-breve)^R} on W(I_0,r_0); J containing 0 an interval; y=(theta,I;x) differentiable on J with y'=F(y) there, I(0)=I_0, x(0) in S; t_1 in J with ¦t_1¦<=T_P and x(u) in core(D,d) for all u between 0 and t_1
@@ -1545,23 +1642,23 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:bl-block, stepN:p11:bl-sl, stepN:p11:bl-ext, stepN:p11:bl-theta, stepN:p11:bl-res, bpN:p11:block-setting, bpN:p11:constants, bpN:p0:partial-core#innerCore, bpN:p4:norm, bpN:p4:domains, bpN:p11:ext-class, bpN:p11:wfield, bpN:p11:s-ext-class#data, bpN:p11:s-real#data, bpN:p1:norm-compare
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L148-L155 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L148-L155 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L148-L155 | direct use of bpN:p11:ext-class in the statement or proof at this span
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L148-L155 | direct use of bpN:p11:wfield in the statement or proof at this span
-EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L148-L155 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
-EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L148-L155 | direct use of bpN:p11:s-real#data in the statement or proof at this span
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L159-L166 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L159-L166 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L159-L166 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L159-L166 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L159-L166 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L159-L166 | direct use of bpN:p11:s-real#data in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L150-L150 | proof step (block)
-EDGE: stepN:p11:bl-sl | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L151-L151 | proof step ((SL))
-EDGE: stepN:p11:bl-ext | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L152-L152 | proof step (extended system)
-EDGE: stepN:p11:bl-theta | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L153-L153 | proof step (case Lambda=Theta)
-EDGE: stepN:p11:bl-res | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L154-L154 | proof step (case Lambda not Theta, Z^n)
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L144-L145 | Definition block-setting
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L145-L146 | K, K_a, kappa, A, R_0, r_0, eps, d, s, m_1, M_1
-EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L145-L145 | x(u) in core(D,d)
-EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L154-L154 | the resonant branch gives a Euclidean action bound, which implies the max-norm conclusion of the block theorem
+EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L161-L161 | proof step (block)
+EDGE: stepN:p11:bl-sl | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L162-L162 | proof step ((SL))
+EDGE: stepN:p11:bl-ext | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L163-L163 | proof step (extended system)
+EDGE: stepN:p11:bl-theta | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L164-L164 | proof step (case Lambda=Theta)
+EDGE: stepN:p11:bl-res | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L165-L165 | proof step (case Lambda not Theta, Z^n)
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L155-L156 | Definition block-setting
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L156-L157 | K, K_a, kappa, A, R_0, r_0, eps, d, s, m_1, M_1
+EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L156-L156 | x(u) in core(D,d)
+EDGE: bpN:p1:norm-compare | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L165-L165 | the resonant branch gives a Euclidean action bound, which implies the max-norm conclusion of the block theorem
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1573,8 +1670,8 @@ NOTE: dropped candidate edge bpN:p11:b-change (explanatory remark: the covering 
 NODE: stepN:p11:bl-block
 KIND: step
 TITLE: Block
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161
 CONTRACT_ID: stepN:p11:bl-block
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:block; prior proof steps are derived through DEPS, not extra assumptions
@@ -1586,14 +1683,14 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:block-data, bpN:p11:s-ext-class#data, bpN:p11:constants, bpN:p11:block-setting, bpN:p8:klattice, bpN:p8:blocks
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150 | direct use of bpN:p11:constants in the statement or proof at this span
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150 | direct use of bpN:p11:block-setting in the statement or proof at this span
-EDGE: bpN:p8:klattice | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150 | direct package or input used by this proof step
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161 | direct use of bpN:p11:block-setting in the statement or proof at this span
+EDGE: bpN:p8:klattice | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:block-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150 | Lemma block-data gives Lambda, r_Lambda, alpha
-EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150 | lambda=w/r_B, c=2 pi r_B^2/w^2
-EDGE: bpN:p8:blocks | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150 | the chosen lattice radius r_Lambda and alpha are block data used directly
+EDGE: bpN:p11:block-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161 | Lemma block-data gives Lambda, r_Lambda, alpha
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161 | lambda=w/r_B, c=2 pi r_B^2/w^2
+EDGE: bpN:p8:blocks | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161 | the chosen lattice radius r_Lambda and alpha are block data used directly
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1605,8 +1702,8 @@ NOTE: -
 NODE: stepN:p11:bl-sl
 KIND: step
 TITLE: (SL)
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L151-L151
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L151-L151
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L162-L162
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L162-L162
 CONTRACT_ID: stepN:p11:bl-sl
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:block; prior proof steps are derived through DEPS, not extra assumptions
@@ -1620,9 +1717,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:bl-block, bpN:p11:constants, bpN:p11:ext-class
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L151-L151 | r=r_Lambda<=R_0/K
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L151-L151 | s=rho/(4 pi), w=d/4
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L151-L151 | (SL) as 64 pi k s r_B<=w^2
+EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L162-L162 | r=r_Lambda<=R_0/K
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L162-L162 | s=rho/(4 pi), w=d/4
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L162-L162 | (SL) as 64 pi k s r_B<=w^2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1634,8 +1731,8 @@ NOTE: -
 NODE: stepN:p11:bl-ext
 KIND: step
 TITLE: Extended system
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163
 CONTRACT_ID: stepN:p11:bl-ext
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:block; prior proof steps are derived through DEPS, not extra assumptions
@@ -1647,19 +1744,19 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:domain, bpN:p11:ext-class, bpN:p11:s-real#data, stepN:p11:bl-block, bpN:p0:partial-core#innerCore, bpN:p4:norm, bpN:p4:domains, bpN:p11:wfield, bpN:p11:s-ext-class#data, bpN:p11:constants, bpN:p11:block-setting
-EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | direct use of bpN:p4:norm in the statement or proof at this span
-EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | direct use of bpN:p4:domains in the statement or proof at this span
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | direct use of bpN:p11:wfield in the statement or proof at this span
-EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | direct use of bpN:p11:constants in the statement or proof at this span
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | direct use of bpN:p11:block-setting in the statement or proof at this span
+EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | direct use of bpN:p4:norm in the statement or proof at this span
+EDGE: bpN:p4:domains | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | direct use of bpN:p4:domains in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p11:s-ext-class#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | direct use of bpN:p11:s-ext-class#data in the statement or proof at this span
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | direct use of bpN:p11:block-setting in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:domain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | Lemma domain (a),(b),(c)
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | O^{e,R}, W^e_r, S-tilde
-EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | W^e_r and orbits
-EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | r_B=r, lambda, c
-EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152 | core(D,d) subset S=core(D,3d/4)
+EDGE: bpN:p11:domain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | Lemma domain (a),(b),(c)
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | O^{e,R}, W^e_r, S-tilde
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | W^e_r and orbits
+EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | r_B=r, lambda, c
+EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163 | core(D,d) subset S=core(D,3d/4)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1671,8 +1768,8 @@ NOTE: -
 NODE: stepN:p11:bl-theta
 KIND: step
 TITLE: Case $\Lambda=\Theta$
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164
 CONTRACT_ID: stepN:p11:bl-theta
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:block; branch Lambda=Theta; prior proof steps are derived through DEPS, not extra assumptions
@@ -1684,17 +1781,17 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:nonresonant, bpN:p11:block-data, stepN:p11:bl-block, stepN:p11:bl-sl, stepN:p11:bl-ext, bpN:p11:hessian, bpN:p11:ext-class, bpN:p11:constants, bpN:p11:block-setting
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153 | direct use of bpN:p11:ext-class in the statement or proof at this span
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153 | direct use of bpN:p11:constants in the statement or proof at this span
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153 | direct package or input used by this proof step
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:nonresonant | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153 | Proposition nonresonant
-EDGE: bpN:p11:block-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153 | block-data (2),(4),(5)
-EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153 | r, alpha, K_a
-EDGE: stepN:p11:bl-sl | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153 | (SL)
-EDGE: stepN:p11:bl-ext | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153 | h-breve, f-breve and the extended system
-EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153 | m_1/M_1<=1 (m<=M_C)
+EDGE: bpN:p11:nonresonant | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164 | Proposition nonresonant
+EDGE: bpN:p11:block-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164 | block-data (2),(4),(5)
+EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164 | r, alpha, K_a
+EDGE: stepN:p11:bl-sl | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164 | (SL)
+EDGE: stepN:p11:bl-ext | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164 | h-breve, f-breve and the extended system
+EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164 | m_1/M_1<=1 (m<=M_C)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1706,8 +1803,8 @@ NOTE: -
 NODE: stepN:p11:bl-res
 KIND: step
 TITLE: Case $\Lambda\ne\Theta,\Z^n$
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165
 CONTRACT_ID: stepN:p11:bl-res
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:block; branch Lambda distinct from Theta and Z^n; prior proof steps are derived through DEPS, not extra assumptions
@@ -1719,17 +1816,17 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:resonant, bpN:p11:block-data, stepN:p11:bl-block, stepN:p11:bl-sl, stepN:p11:bl-ext, bpN:p11:domain, bpN:p11:ext-class, bpN:p11:constants, bpN:p11:block-setting
-EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | direct use of bpN:p11:ext-class in the statement or proof at this span
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | direct use of bpN:p11:constants in the statement or proof at this span
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | direct package or input used by this proof step
+EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165 | direct use of bpN:p11:ext-class in the statement or proof at this span
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:resonant | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | Proposition resonant
-EDGE: bpN:p11:block-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | block-data (1)-(5)
-EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | r_Lambda, alpha_Lambda
-EDGE: stepN:p11:bl-sl | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | (SL)
-EDGE: stepN:p11:bl-ext | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | h-breve, f-breve and the extended system
-EDGE: bpN:p11:domain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154 | m_1-convexity (Lemma domain(a))
+EDGE: bpN:p11:resonant | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165 | Proposition resonant
+EDGE: bpN:p11:block-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165 | block-data (1)-(5)
+EDGE: stepN:p11:bl-block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165 | r_Lambda, alpha_Lambda
+EDGE: stepN:p11:bl-sl | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165 | (SL)
+EDGE: stepN:p11:bl-ext | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165 | h-breve, f-breve and the extended system
+EDGE: bpN:p11:domain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165 | m_1-convexity (Lemma domain(a))
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1741,8 +1838,8 @@ NOTE: -
 NODE: stepN:p11:final-empty
 KIND: step
 TITLE: Empty $G$
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L160-L160
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L160-L160
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L171-L171
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L171-L171
 CONTRACT_ID: stepN:p11:final-empty
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: G=empty or nonempty
@@ -1756,8 +1853,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p0:partial-core#innerCore, bpN:p11:hessian
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L160-L160 | core(G,mu^{b_n})=empty when G=empty
-EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L160-L160 | Lemma hessian (m<=M_C) for G nonempty
+EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L171-L171 | core(G,mu^{b_n})=empty when G=empty
+EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L171-L171 | Lemma hessian (m<=M_C) for G nonempty
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
 REVIEWER: sol-review-N-f
@@ -1769,8 +1866,8 @@ NOTE: -
 NODE: stepN:p11:final-data
 KIND: step
 TITLE: Data and constants
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L161-L161
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L161-L161
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L172-L172
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L172-L172
 CONTRACT_ID: stepN:p11:final-data
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: G nonempty
@@ -1784,8 +1881,8 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:constants, bpN:p11:hessian
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L161-L161 | Definition constants
-EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L161-L161 | A=40 M_C/m>=11 uses m<=M_C
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L172-L172 | Definition constants
+EDGE: bpN:p11:hessian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L172-L172 | A=40 M_C/m>=11 uses m<=M_C
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c
 REVIEWER: sol-review-N-f
@@ -1797,8 +1894,8 @@ NOTE: A>=11 is true but weaker than the A>=40 that m<=M_C gives; the later use (
 NODE: stepN:p11:final-mu
 KIND: step
 TITLE: The threshold
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L173-L173
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L173-L173
 CONTRACT_ID: stepN:p11:final-mu
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: G nonempty; gamma_1,gamma_2 of Lemma exponents; the constants
@@ -1812,11 +1909,11 @@ FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:exponents, stepN:p11:final-time, stepN:p11:final-data, bpN:p11:constants, bpN:p11:ext-rpow
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:exponents | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | gamma_1,gamma_2>0 (Lemma exponents)
-EDGE: stepN:p11:final-time | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | mu_f from step final-time
-EDGE: stepN:p11:final-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | eps_0, R_0, c_K
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | kappa_C, s, K(mu), kappa(mu), d
-EDGE: bpN:p11:ext-rpow | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162 | power rules and monotonicity of mu->mu^gamma
+EDGE: bpN:p11:exponents | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L173-L173 | gamma_1,gamma_2>0 (Lemma exponents)
+EDGE: stepN:p11:final-time | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L173-L173 | mu_f from step final-time
+EDGE: stepN:p11:final-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L173-L173 | eps_0, R_0, c_K
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L173-L173 | kappa_C, s, K(mu), kappa(mu), d
+EDGE: bpN:p11:ext-rpow | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L173-L173 | power rules and monotonicity of mu->mu^gamma
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1828,8 +1925,8 @@ NOTE: -
 NODE: stepN:p11:final-time
 KIND: step
 TITLE: Time
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L174-L174
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L174-L174
 CONTRACT_ID: stepN:p11:final-time
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p0:partial; branch G nonempty; prior proof steps are derived through DEPS, not extra assumptions
@@ -1841,13 +1938,13 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:block, bpN:p11:constants, bpN:p11:exponents, bpN:p11:ext-rpow, bpN:p0:partial-exponents#partialTimeExponent
-EDGE: bpN:p0:partial-exponents#partialTimeExponent | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163 | direct use of bpN:p0:partial-exponents#partialTimeExponent in the statement or proof at this span
+EDGE: bpN:p0:partial-exponents#partialTimeExponent | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L174-L174 | direct use of bpN:p0:partial-exponents#partialTimeExponent in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163 | T_P=s m_1 r_Theta e^{kappa/6}/(240 M_1 eps) of Theorem block
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163 | r_Theta, eps, K, kappa in terms of mu; m_1/M_1=m/M_C
-EDGE: bpN:p11:exponents | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163 | a_n<1/(2n)
-EDGE: bpN:p11:ext-rpow | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163 | exp(y)/y^N->infinity and power rules
+EDGE: bpN:p11:block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L174-L174 | T_P=s m_1 r_Theta e^{kappa/6}/(240 M_1 eps) of Theorem block
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L174-L174 | r_Theta, eps, K, kappa in terms of mu; m_1/M_1=m/M_C
+EDGE: bpN:p11:exponents | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L174-L174 | a_n<1/(2n)
+EDGE: bpN:p11:ext-rpow | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L174-L174 | exp(y)/y^N->infinity and power rules
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1859,8 +1956,8 @@ NOTE: -
 NODE: stepN:p11:final-given
 KIND: step
 TITLE: Given $\mu,P,C,z,t$
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L175-L175
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L175-L175
 CONTRACT_ID: stepN:p11:final-given
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: mu<mu_0; mu, P, C, z, t given with t in [0,min(C,mu^{-1}exp(mu^{-a_n}))]
@@ -1872,13 +1969,13 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:final-time, stepN:p11:final-mu, bpN:p11:constants, bpN:p0:partial-exponents#partialTimeExponent, bpN:p0:partial-exponents#partialDriftExponent
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164 | direct use of bpN:p11:constants in the statement or proof at this span
-EDGE: bpN:p0:partial-exponents#partialTimeExponent | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164 | direct package or input used by this proof step
-EDGE: bpN:p0:partial-exponents#partialDriftExponent | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164 | direct package or input used by this proof step
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L175-L175 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p0:partial-exponents#partialTimeExponent | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L175-L175 | direct package or input used by this proof step
+EDGE: bpN:p0:partial-exponents#partialDriftExponent | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L175-L175 | direct package or input used by this proof step
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:final-time | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164 | mu T_P e^{-mu^{-a_n}}>=1 for mu<mu_f gives t<=T_P
-EDGE: stepN:p11:final-mu | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164 | mu<mu_0<=mu_f
+EDGE: stepN:p11:final-time | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L175-L175 | mu T_P e^{-mu^{-a_n}}>=1 for mu<mu_f gives t<=T_P
+EDGE: stepN:p11:final-mu | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L175-L175 | mu<mu_0<=mu_f
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1890,8 +1987,8 @@ NOTE: -
 NODE: stepN:p11:final-orbit
 KIND: step
 TITLE: The orbit
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176
 CONTRACT_ID: stepN:p11:final-orbit
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p0:partial; branch G nonempty and t>0; prior proof steps are derived through DEPS, not extra assumptions
@@ -1903,21 +2000,21 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:orbit, bpN:p11:domain, bpN:p11:block-setting, bpN:p0:sol#IsSolutionOn, bpN:p0:partial-sec#degenerateHamiltonian, bpN:p0:partial-core#innerCore, bpN:p0:partial-sec#fast, bpN:p0:partial-sec#slow, stepN:p11:final-mu, bpN:p11:wfield, bpN:p11:s-real#data, bpN:p3:gen-sol, bpN:p11:constants
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | direct use of bpN:p11:wfield in the statement or proof at this span
-EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | direct use of bpN:p11:s-real#data in the statement or proof at this span
-EDGE: bpN:p3:gen-sol | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | direct use of bpN:p3:gen-sol in the statement or proof at this span
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | direct use of bpN:p11:s-real#data in the statement or proof at this span
+EDGE: bpN:p3:gen-sol | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | direct use of bpN:p3:gen-sol in the statement or proof at this span
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | direct use of bpN:p11:constants in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | Lemma orbit: y=Theta o z has y'=X^{2pi}_{H-hat}(y)
-EDGE: bpN:p11:domain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | Lemma domain(c) on W(I_0,r_0)
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | block-setting (mu<mu_0 secures eps<=eps_0, d<=rho)
-EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | (Z1) IsSolutionOn: two-sided derivative on [0,C]
-EDGE: bpN:p0:partial-sec#degenerateHamiltonian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | H_mu of (Z1)
-EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | I_0=fast(z(0)_2) in core(G,mu^{b_n}) subset G; slow in core(D,mu^{b_n})
-EDGE: bpN:p0:partial-sec#fast | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | fast(z(0)_2)
-EDGE: bpN:p0:partial-sec#slow | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | slow variables of y
-EDGE: stepN:p11:final-mu | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165 | mu<mu_0
+EDGE: bpN:p11:orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | Lemma orbit: y=Theta o z has y'=X^{2pi}_{H-hat}(y)
+EDGE: bpN:p11:domain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | Lemma domain(c) on W(I_0,r_0)
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | block-setting (mu<mu_0 secures eps<=eps_0, d<=rho)
+EDGE: bpN:p0:sol#IsSolutionOn | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | (Z1) IsSolutionOn: two-sided derivative on [0,C]
+EDGE: bpN:p0:partial-sec#degenerateHamiltonian | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | H_mu of (Z1)
+EDGE: bpN:p0:partial-core#innerCore | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | I_0=fast(z(0)_2) in core(G,mu^{b_n}) subset G; slow in core(D,mu^{b_n})
+EDGE: bpN:p0:partial-sec#fast | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | fast(z(0)_2)
+EDGE: bpN:p0:partial-sec#slow | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | slow variables of y
+EDGE: stepN:p11:final-mu | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176 | mu<mu_0
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1929,8 +2026,8 @@ NOTE: -
 NODE: stepN:p11:final-sign
 KIND: step
 TITLE: Sign
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177
 CONTRACT_ID: stepN:p11:final-sign
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p0:partial; branch G nonempty and t>0; prior proof steps are derived through DEPS, not extra assumptions
@@ -1942,15 +2039,15 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p11:block, stepN:p11:final-orbit, stepN:p11:final-given, bpN:p11:ext-chain, bpN:p11:wfield, bpN:p11:block-setting, bpN:p11:constants
-EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | direct use of bpN:p11:wfield in the statement or proof at this span
-EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | direct use of bpN:p11:block-setting in the statement or proof at this span
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177 | direct use of bpN:p11:wfield in the statement or proof at this span
+EDGE: bpN:p11:block-setting | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177 | direct use of bpN:p11:block-setting in the statement or proof at this span
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177 | direct use of bpN:p11:constants in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpN:p11:block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | Theorem block
-EDGE: stepN:p11:final-orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | y, F_0 and the identification on W(I_0,r_0)
-EDGE: stepN:p11:final-given | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | t<=T_P, [0,t] subset [0,C]
-EDGE: bpN:p11:ext-chain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166 | chain rule for the time-reversed curve y(-u)
+EDGE: bpN:p11:block | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177 | Theorem block
+EDGE: stepN:p11:final-orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177 | y, F_0 and the identification on W(I_0,r_0)
+EDGE: stepN:p11:final-given | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177 | t<=T_P, [0,t] subset [0,C]
+EDGE: bpN:p11:ext-chain | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177 | chain rule for the time-reversed curve y(-u)
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-g
 REVIEWER: sol-delta2-N-g
@@ -1962,8 +2059,8 @@ NOTE: -
 NODE: stepN:p11:final-drift
 KIND: step
 TITLE: Drift
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178
 CONTRACT_ID: stepN:p11:final-drift
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p0:partial; branch G nonempty and t>0; prior proof steps are derived through DEPS, not extra assumptions
@@ -1975,14 +2072,14 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:final-sign, stepN:p11:final-mu, bpN:p11:orbit, bpN:p11:constants, bpN:p0:partial-sec#fast, bpN:p0:partial-exponents#partialDriftExponent
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167 | direct use of bpN:p11:constants in the statement or proof at this span
-EDGE: bpN:p0:partial-sec#fast | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167 | direct use of bpN:p0:partial-sec#fast in the statement or proof at this span
-EDGE: bpN:p0:partial-exponents#partialDriftExponent | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167 | direct use of bpN:p0:partial-exponents#partialDriftExponent in the statement or proof at this span
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178 | direct use of bpN:p11:constants in the statement or proof at this span
+EDGE: bpN:p0:partial-sec#fast | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178 | direct use of bpN:p0:partial-sec#fast in the statement or proof at this span
+EDGE: bpN:p0:partial-exponents#partialDriftExponent | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178 | direct use of bpN:p0:partial-exponents#partialDriftExponent in the statement or proof at this span
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:final-sign | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167 | Theorem block gives ¦I(t)-I_0¦_inf<=R_0/(2K)
-EDGE: stepN:p11:final-mu | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167 | R_0/(2K)<=mu^{b_n}/2 for mu<mu_0
-EDGE: bpN:p11:orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167 | fast actions unchanged by Theta, so I(t)-I_0=fast z(t)_2-fast z(0)_2
+EDGE: stepN:p11:final-sign | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178 | Theorem block gives ¦I(t)-I_0¦_inf<=R_0/(2K)
+EDGE: stepN:p11:final-mu | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178 | R_0/(2K)<=mu^{b_n}/2 for mu<mu_0
+EDGE: bpN:p11:orbit | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178 | fast actions unchanged by Theta, so I(t)-I_0=fast z(t)_2-fast z(0)_2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -1994,8 +2091,8 @@ NOTE: -
 NODE: stepN:p11:final-order
 KIND: step
 TITLE: Quantifier order
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L179-L179
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L179-L179
 CONTRACT_ID: stepN:p11:final-order
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the thresholds mu_a..mu_f
@@ -2009,9 +2106,9 @@ FROZEN_ABI_SHA256: -
 DEPS: stepN:p11:final-mu, bpN:p11:constants, stepN:p11:final-time
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepN:p11:final-mu | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168 | mu_0=min{mu_a..mu_f}, each a function of the constants
-EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168 | all constants depend only on the data
-EDGE: stepN:p11:final-time | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168 | mu_f depends only on the constants
+EDGE: stepN:p11:final-mu | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L179-L179 | mu_0=min{mu_a..mu_f}, each a function of the constants
+EDGE: bpN:p11:constants | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L179-L179 | all constants depend only on the data
+EDGE: stepN:p11:final-time | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L179-L179 | mu_f depends only on the constants
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-review-N-f
 REVIEWER: sol-delta-N-g
@@ -2055,8 +2152,8 @@ NOTE: section-data node for coverage item p11c:prose-L4-L5 (SPEC table); the fro
 NODE: bpN:p11:hessian#real-hessian
 KIND: step
 TITLE: Real and complex Hessians on the partial-theorem tube
-STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115
-PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118
+STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L126-L126
+PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L129-L129
 CONTRACT_ID: bpN:p11:hessian#real-hessian
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the fixed data and hypotheses of bpN:p0:partial; h holomorphic and complex C^2 on the open G-prime_rho, real on its real slice; no centred-ball IsAnalyticIntegrable premise
@@ -2068,14 +2165,14 @@ FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
 DEPS: bpN:p0:actionnbhd#actionNbhd, bpN:p0:realpart#realPart, bpN:p0:freq#frequencyMap
-EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115 | real slice, real restriction and frequency used in this bridge
-EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115 | real slice, real restriction and frequency used in this bridge
-EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115 | real slice, real restriction and frequency used in this bridge
+EDGE: bpN:p0:actionnbhd#actionNbhd | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L126-L126 | real slice, real restriction and frequency used in this bridge
+EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L126-L126 | real slice, real restriction and frequency used in this bridge
+EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L126-L126 | real slice, real restriction and frequency used in this bridge
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-N-f
-REVIEWER: sol-delta-N-g
+REVIEWER: sol-delta4-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

@@ -203,9 +203,9 @@ Conversely $\norm u_{\rho}\le\sum_k\abs{\hat u_k}e^{2\pi\abs k_1\rho}$. For $I$-
 \source{Pos93 p.~190 (the displayed relation between the weighted and sup norms); frozen-convention statement: \Kref{bp:p1:summation}, \Kref{bp:p1:decay}, \Kref{bp:p1:exp-sums}(b).}
 \end{lemma}
 \begin{proof}
-\proofstep{Decay}\label{stepN:p1:nc-decay} For $\rho'\in(\rho-\delta,\rho)$, \Kref{bp:p1:decay} gives $\abs{\hat u_k}\le e^{-2\pi\abs k_1\rho'}\norm u_\rho$; hence $\abs{\hat u_k}e^{2\pi\abs k_1(\rho-\delta)}\le e^{-2\pi\abs k_1(\rho'-\rho+\delta)}\norm u_\rho$, and letting $\rho'\uparrow\rho$ (termwise, then summing, or directly \Kref{bp:p1:summation}, converse part) the bound is $e^{-2\pi\delta\abs k_1}\norm u_\rho$ per $k$.
+\proofstep{Decay}\label{stepN:p1:nc-decay} \emph{Case $n=0$} (no strip; Remark~\ref{bpN:p4:n-zero}): $T_\rho=\C^0$ is a point, $\Z^0=\{0\}$, $\hat u_0=u$ and $\norm u_\rho=\abs u$, so the bound to be shown reads $\abs u\le\coth(\pi\delta)^0\abs u$ and the converse $\abs u\le\abs u$; the steps below are not needed. \emph{Case $n\ge1$} (the standing convention of K Part~1 holds, so the K results apply): for $\rho'\in(\rho-\delta,\rho)$, \Kref{bp:p1:decay} gives $\abs{\hat u_k}\le e^{-2\pi\abs k_1\rho'}\norm u_\rho$; hence $\abs{\hat u_k}e^{2\pi\abs k_1(\rho-\delta)}\le e^{-2\pi\abs k_1(\rho'-\rho+\delta)}\norm u_\rho$, and letting $\rho'\uparrow\rho$ (termwise, then summing, or directly \Kref{bp:p1:summation}, converse part) the bound is $e^{-2\pi\delta\abs k_1}\norm u_\rho$ per $k$.
 
-\proofstep{Sum}\label{stepN:p1:nc-sum} $\sum_{k\in\Z^n}e^{-2\pi\delta\abs k_1}=\coth(\pi\delta)^n$ (\Kref{bp:p1:exp-sums}(b) with $x=2\pi\delta$). The case with parameters is pointwise in $I$.
+\proofstep{Sum}\label{stepN:p1:nc-sum} For $n\ge1$, $\sum_{k\in\Z^n}e^{-2\pi\delta\abs k_1}=\coth(\pi\delta)^n$ (\Kref{bp:p1:exp-sums}(b) with $x=2\pi\delta$); for $n=0$ the sum is the single term $k=0$, equal to $1=\coth(\pi\delta)^0$. The case with parameters is pointwise in $I$.
 \end{proof}
 
 \subsection{The dictionary of constants}\label{bpN:p1:s-const}

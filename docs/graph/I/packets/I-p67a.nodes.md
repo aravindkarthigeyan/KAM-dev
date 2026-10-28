@@ -1436,9 +1436,9 @@ EDGE: stepI:p7:sy-coord | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L2
 EDGE: stepI:p7:sy-compare | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L234-L234 | proof step
 EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L236-L236 | proof step
 EDGE: stepI:p7:sy-field | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L239-L239 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sonnet-amend-I-p1
-REVIEWER: -
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1566,7 +1566,7 @@ STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
 PROOF_SOURCE: blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239
 CONTRACT_ID: stepI:p7:sy-field
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Q is the Delaunay map on D_R; U subset R^4 open, H: U -> R of class C^1; W = {w in D_R : Q(w) in U} open; Q(w) lies in the open domain U of H for every w in W, so the chain rule applies at every point of W; D Q J D Q^T = J
+SOURCE_HYPOTHESES: Q is the Delaunay map on D_R; U subset R^4 open, H: U -> R of class C^1; W = {w in D_R : Q(w) in U} open; Q(w) lies in the open domain U of H for every w in W, so the chain rule applies at every point of W
 SOURCE_QUANTIFIERS: for every open U and C^1 H: U -> R, every w in W; then for every C^1 curve w in W
 SOURCE_CONCLUSION: on W: D Q X_{H o Q} = X_H o Q; for C^1 curves w in W: w' = X_{H o Q}(w) iff d/dt Q(w) = X_H(Q(w))
 CONSTANT_SCOPE: none
@@ -1579,9 +1579,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepI:p7:sy-ext | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | D Q J D Q^T = J
 EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sy-field@L239-L239 | the calculation uses the Delaunay orbit map or its element formulas
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c+sonnet-amend-I-p1
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-amend
+REVIEWER: sol-delta2-I-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

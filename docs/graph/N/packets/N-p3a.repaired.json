@@ -3,9 +3,5 @@
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": [
-  "stepN:p3:lip-contra",
-  "stepN:p3:short-boot",
-  "stepN:p3:ext-right"
- ]
+ "passes": []
 }

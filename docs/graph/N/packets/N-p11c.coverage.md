@@ -225,16 +225,43 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-en
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100
 DISPOSITION: NODE stepN:p11:ef-en
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+EXTRACTOR: sonnet-extract-N-p11c+sonnet-amend-N
+REVIEWER: sol-delta2-N-amend
+
+ITEM: stepN:p11:ef-en-energy
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L93
+DISPOSITION: NODE stepN:p11:ef-en-energy
+REASON: labelled substep of ef-en (G3)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta-N-amend
+
+ITEM: stepN:p11:ef-en-taylor
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95
+DISPOSITION: NODE stepN:p11:ef-en-taylor
+REASON: labelled substep of ef-en (G3)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta2-N-amend
+
+ITEM: stepN:p11:ef-en-split
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100
+DISPOSITION: NODE stepN:p11:ef-en-split
+REASON: labelled substep of ef-en (G3)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta2-N-amend
 
 ITEM: stepN:p11:ef-id
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L91
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L102
 DISPOSITION: NODE stepN:p11:ef-id
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -243,7 +270,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-C
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107
 DISPOSITION: NODE stepN:p11:ef-C
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -252,7 +279,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-contra
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L97-L97
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L108-L108
 DISPOSITION: NODE stepN:p11:ef-contra
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -261,7 +288,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:resonant
 KIND: proposition
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L100-L103
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L111-L114
 DISPOSITION: NODE bpN:p11:resonant
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -270,7 +297,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:rs-red
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L105-L105
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L116-L116
 DISPOSITION: NODE stepN:p11:rs-red
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -279,7 +306,7 @@ REVIEWER: sol-delta3-N-c
 
 ITEM: stepN:p11:rs-nf
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117
 DISPOSITION: NODE stepN:p11:rs-nf
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -288,7 +315,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:rs-t12
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118
 DISPOSITION: NODE stepN:p11:rs-t12
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -297,7 +324,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:rs-t3
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119
 DISPOSITION: NODE stepN:p11:rs-t3
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -306,7 +333,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:rs-concl
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L109-L109
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L120-L120
 DISPOSITION: NODE stepN:p11:rs-concl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -315,7 +342,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:hessian
 KIND: lemma
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L114-L116
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L125-L127
 DISPOSITION: NODE bpN:p11:hessian
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -324,7 +351,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:hs-op
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L129-L129
 DISPOSITION: NODE stepN:p11:hs-op
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -333,7 +360,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: bpN:p11:block-setting
 KIND: definition
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L121-L123
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L132-L134
 DISPOSITION: NODE bpN:p11:block-setting
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -342,7 +369,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: bpN:p11:domain
 KIND: lemma
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L125-L127
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L136-L138
 DISPOSITION: NODE bpN:p11:domain
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -351,7 +378,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:dm-pts
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140
 DISPOSITION: NODE stepN:p11:dm-pts
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -360,7 +387,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:dm-norm
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141
 DISPOSITION: NODE stepN:p11:dm-norm
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -369,7 +396,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:dm-field
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142
 DISPOSITION: NODE stepN:p11:dm-field
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -378,7 +405,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:block-data
 KIND: lemma
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L134-L137
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L145-L148
 DISPOSITION: NODE bpN:p11:block-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -387,7 +414,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bd-cover
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150
 DISPOSITION: NODE stepN:p11:bd-cover
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -396,7 +423,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bd-24
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151
 DISPOSITION: NODE stepN:p11:bd-24
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -405,7 +432,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bd-5
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L141-L141
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L152-L152
 DISPOSITION: NODE stepN:p11:bd-5
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -414,7 +441,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:block
 KIND: theorem
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L144-L147
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L155-L158
 DISPOSITION: NODE bpN:p11:block
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -423,7 +450,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bl-block
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161
 DISPOSITION: NODE stepN:p11:bl-block
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -432,7 +459,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bl-sl
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L151-L151
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L162-L162
 DISPOSITION: NODE stepN:p11:bl-sl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -441,7 +468,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:bl-ext
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163
 DISPOSITION: NODE stepN:p11:bl-ext
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -450,7 +477,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:bl-theta
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164
 DISPOSITION: NODE stepN:p11:bl-theta
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -459,7 +486,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:bl-res
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165
 DISPOSITION: NODE stepN:p11:bl-res
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -468,7 +495,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-empty
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L160-L160
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L171-L171
 DISPOSITION: NODE stepN:p11:final-empty
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -477,7 +504,7 @@ REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:final-data
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L161-L161
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L172-L172
 DISPOSITION: NODE stepN:p11:final-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -486,7 +513,7 @@ REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:final-mu
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L173-L173
 DISPOSITION: NODE stepN:p11:final-mu
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -495,7 +522,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:final-time
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L174-L174
 DISPOSITION: NODE stepN:p11:final-time
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -504,7 +531,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-given
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L175-L175
 DISPOSITION: NODE stepN:p11:final-given
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -513,7 +540,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-orbit
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176
 DISPOSITION: NODE stepN:p11:final-orbit
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -522,7 +549,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-sign
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177
 DISPOSITION: NODE stepN:p11:final-sign
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -531,7 +558,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:final-drift
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178
 DISPOSITION: NODE stepN:p11:final-drift
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -540,7 +567,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-order
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L179-L179
 DISPOSITION: NODE stepN:p11:final-order
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -549,7 +576,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:b-change
 KIND: claim
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:b-change@L173-L175
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:b-change@L184-L186
 DISPOSITION: EXCLUDED
 REASON: remark on the change of the covering parameter b=1/8 to b_c=1/32: explanation/deviation (administrative per SPEC, candidate for exclusion); checked: the values p, q, b_c are fixed in bpN:p11:constants, Lemma block-data re-derives the block hypotheses and no proof relies on the remark's text (\ref only in the constants definition, block theorem \source and deviations)
 COVERAGE_STATUS: REVIEWED
@@ -558,7 +585,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:deviations
 KIND: claim
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:deviations@L177-L182
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:deviations@L188-L193
 DISPOSITION: EXCLUDED
 REASON: remark listing what is proved, the exponents by-product and deviations: administrative summary; checked: no proof references it; the facts it lists are the content of Steps final-time, final-drift, nf-case, nf-induct, which are nodes
 COVERAGE_STATUS: REVIEWED
@@ -567,7 +594,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:errata
 KIND: claim
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:errata@L184-L186
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:errata@L195-L197
 DISPOSITION: EXCLUDED
 REASON: remark on suspected defects in the pinned sources and doubts: errata ledger; no proof consumes it
 COVERAGE_STATUS: REVIEWED
@@ -576,7 +603,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:status
 KIND: claim
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:status@L188-L190
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:status@L199-L201
 DISPOSITION: EXCLUDED
 REASON: status and remaining-obligations remark (audit status, Lean obligations): administrative; no proof consumes it
 COVERAGE_STATUS: REVIEWED
@@ -612,7 +639,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: heading:bpN:p11:s-block
 KIND: heading
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-block@L112-L112
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-block@L123-L123
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -621,7 +648,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: heading:bpN:p11:s-final
 KIND: heading
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-final@L157-L157
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-final@L168-L168
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -630,7 +657,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: heading:bpN:p11:s-dev
 KIND: heading
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-dev@L171-L171
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-dev@L182-L182
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -666,7 +693,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: p11c:source-L102
 KIND: citation
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#source@L102-L102
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#source@L113-L113
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -675,7 +702,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: p11c:source-L146
 KIND: citation
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#source@L146-L146
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#source@L157-L157
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -693,7 +720,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:eq:lie
 KIND: display
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:eq:lie@L91-L91
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:eq:lie@L102-L102
 DISPOSITION: NODE stepN:p11:ef-id
 REASON: the labelled Lie identity is the conclusion of step ef-id, already represented by that node; no separate mathematical claim is added
 COVERAGE_STATUS: REVIEWED
@@ -702,9 +729,9 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:hessian#real-hessian
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L126-L126
 DISPOSITION: NODE bpN:p11:hessian#real-hessian
 REASON: writer: coverage item for the step node added by the slice review sol-review-N-f (real and complex Hessians on the partial-theorem tube)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta4-N-a
