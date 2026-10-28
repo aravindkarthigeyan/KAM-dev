@@ -147,6 +147,26 @@ theorem det_eq_one_or_neg_one (Y : ((Fin n → ℂ) × (Fin n → ℂ)) →ₗ[�
     exact mul_left_cancel₀ hdet h2
   exact mul_self_eq_one_iff.1 this
 
+/-- A `symplFormC`-preserving map intertwines `J (η ∘ Y)` and `J η`: `Y J (η ∘ Y) = J η`. -/
+theorem map_hamiltonianJ_comp (Y : ((Fin n → ℂ) × (Fin n → ℂ)) →L[ℂ] ((Fin n → ℂ) × (Fin n → ℂ)))
+    (hY : ∀ v w, symplFormC (Y v) (Y w) = symplFormC v w)
+    (η : ((Fin n → ℂ) × (Fin n → ℂ)) →L[ℂ] ℂ) :
+    Y (KAM.hamiltonianJ (η.comp Y)) = KAM.hamiltonianJ η := by
+  have hinj : Function.Injective ((Y : ((Fin n → ℂ) × (Fin n → ℂ)) →L[ℂ] ((Fin n → ℂ) × (Fin n → ℂ))) :
+      ((Fin n → ℂ) × (Fin n → ℂ)) →ₗ[ℂ] ((Fin n → ℂ) × (Fin n → ℂ))) := by
+    intro a b hab
+    refine symplFormC_eq_of_left fun w => ?_
+    rw [← hY a w, ← hY b w]
+    have : Y a = Y b := hab
+    rw [this]
+  obtain ⟨w', hw'⟩ := LinearMap.surjective_of_injective hinj (KAM.hamiltonianJ η)
+  have hw'' : Y w' = KAM.hamiltonianJ η := hw'
+  have : KAM.hamiltonianJ (η.comp Y) = w' := by
+    refine symplFormC_eq_of_left fun w => ?_
+    rw [symplFormC_hamiltonianJ, ← hY w' w, hw'', symplFormC_hamiltonianJ]
+    simp
+  rw [this, hw'']
+
 /-! ### The Hessian identity -/
 
 /-- The product rule for `symplFormC` along curves. -/
