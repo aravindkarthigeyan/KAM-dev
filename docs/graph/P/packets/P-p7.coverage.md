@@ -437,7 +437,7 @@ DISPOSITION: NODE bpP:p7:lattice
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Consumer: stepP:p11:tc-polar (Part 11 L90, Lemma bpP:p7:lattice (a),(b),(c)).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-review-P-w
+REVIEWER: sol-delta-P-bc
 
 ITEM: stepP:p7:la-polar
 KIND: proof-region
@@ -455,7 +455,7 @@ DISPOSITION: NODE stepP:p7:la-inv
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-review-P-w
+REVIEWER: sol-delta-P-bc
 
 ITEM: stepP:p7:la-per
 KIND: proof-region
@@ -473,7 +473,7 @@ DISPOSITION: NODE stepP:p7:la-ham
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-review-P-w
+REVIEWER: sol-delta-P-bc
 
 ITEM: bpP:p7:d25
 KIND: proposition

@@ -1,15 +1,11 @@
 {
- "replaced": [
-  "bpP:p7:lattice",
-  "stepP:p7:la-inv",
-  "stepP:p7:la-ham"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "stepP:p7:la-polar",
-  "stepP:p7:la-per",
-  "bpP:p7:conv#data"
+  "bpP:p7:lattice",
+  "stepP:p7:la-inv",
+  "stepP:p7:la-ham"
  ]
 }
