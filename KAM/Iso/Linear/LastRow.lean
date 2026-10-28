@@ -49,8 +49,8 @@ theorem energyRow_eq_sub_etaL (hG : IsUnit (gramMatrix K θ).det) :
       tangentMat K θ *ᵥ (fun l => (ω l : ℂ)) + sumVec n (invarianceError H K ω θ) := by
     rw [sumVec_invarianceError, add_sub_cancel]
   rw [energyRow_eq_mulVec, hx, Matrix.mulVec_add, Matrix.mulVec_add, Matrix.mulVec_mulVec,
-    Matrix.mulVec_mulVec, Matrix.mulVec_mulVec, ← Matrix.mul_assoc, fi_NtOL K hG,
-    Matrix.one_mulVec, etaL, sub_neg_eq_add]
+    Matrix.mulVec_mulVec, Matrix.mulVec_mulVec, Identities.fi_NtOL K hG, Matrix.one_mulVec, etaL,
+    sub_neg_eq_add]
 
 /-- Step `lr-insert`: `∑_b |Y_b - ω_b| ≤ n |ηᴸ|`. -/
 theorem sum_norm_energyRow_sub_le (hG : IsUnit (gramMatrix K θ).det) :
