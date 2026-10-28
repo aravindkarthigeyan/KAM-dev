@@ -16,7 +16,8 @@ public import KAM.Kepler.DelaunayJacobian
 /-!
 # Symplecticity of the Delaunay map
 
-`delaunay_symplectic` (`𝖰^*(Σ dq ∧ dp) = dℓ ∧ dL + dg ∧ dG`, i.e. `IsSymplecticOn 1 delaunay deDom`),
+`delaunay_symplectic` (`𝖰^*(Σ dq ∧ dp) = dℓ ∧ dL + dg ∧ dG`,
+    i.e. `IsSymplecticOn 1 delaunay deDom`),
 invertibility of `D𝖰`, the Liouville primitive `𝖰^*(Σ p dq) = L dℓ + G dg + dF` with
 `F = 2 L e sin u` (`delaunayGen`), and the Hamiltonian-field consequence
 (`bpI:p7:symplectic`, KEP-6).
@@ -46,27 +47,29 @@ open KAM KAM.Planetary
 
 section PureAlgebra
 
-private theorem br01 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : L ≠ 0)
+private theorem br01 (L e c s k D : ℝ) (hD0 : D ≠ 0) (_hk0 : k ≠ 0) (_hL0 : L ≠ 0)
     (hs : s ^ 2 + c ^ 2 = 1) (hk : k ^ 2 = 1 - e ^ 2) (hD : D = 1 - e * c) :
     (((1/D)*(-(c - e)/(L*D^2)))*(-(L^2*k*s)) + ((1/D)*(-k*s/(L*D^2)))*((L^2*(c - e)))) -
         (((1/D)*(-L^2*s))*(-(k*c/(L*D))) + ((1/D)*(L^2*k*c))*((-s/(L*D)))) = 0 := by
   have key : (((1/D)*(-(c - e)/(L*D^2)))*(-(L^2*k*s)) + ((1/D)*(-k*s/(L*D^2)))*((L^2*(c - e)))) -
       (((1/D)*(-L^2*s))*(-(k*c/(L*D))) + ((1/D)*(L^2*k*c))*((-s/(L*D)))) = (0) / (1 : ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
+    ring
   have hden : (1 : ℝ) ≠ 0 := by norm_num
   rw [key]
   rw [div_eq_iff hden]
   linear_combination (0) * hs + (0) * hk + (0) * hD
 
-private theorem br02 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : L ≠ 0)
+private theorem br02 (L e c s k D : ℝ) (hD0 : D ≠ 0) (_hk0 : k ≠ 0) (hL0 : L ≠ 0)
     (hs : s ^ 2 + c ^ 2 = 1) (hk : k ^ 2 = 1 - e ^ 2) (hD : D = 1 - e * c) :
     (((1/D)*(-(c - e)/(L*D^2)))*(2*L*(c - e)) + ((1/D)*(-k*s/(L*D^2)))*(2*L*k*s)) -
         (((1/D)*(-L^2*s))*(s/(L^2*D)) + ((1/D)*(L^2*k*c))*(-k*c/(L^2*D))) = -1 := by
   have key : (((1/D)*(-(c - e)/(L*D^2)))*(2*L*(c - e)) + ((1/D)*(-k*s/(L*D^2)))*(2*L*k*s)) -
       (((1/D)*(-L^2*s))*(s/(L^2*D)) + ((1/D)*(L^2*k*c))*(-k*c/(L^2*D))) = (D*c^2*k^2 + D*s^2 -
       2*c^2 + 4*c*e - 2*e^2 - 2*k^2*s^2) / (D^3 : ℝ) := by
-    first | (field_simp; ring) | field_simp
-  have hden : (D^3 : ℝ) ≠ 0 := by simp [hD0, hk0]
+    field_simp
+    ring
+  have hden : (D^3 : ℝ) ≠ 0 := by simp [hD0]
   rw [key]
   rw [div_eq_iff hden]
   linear_combination (D - 2*k^2) * hs + (D*c^2 + 2*c^2 - 2) * hk + (D^2 - D*c*e + D - 2*c*e + 2) *
@@ -82,8 +85,9 @@ private theorem br03 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : 
       + (s/D)*(-(c - e)/(L*D^2))) + ((1/D)*(L^2*k*c))*((c*(c - e)/(L*D^2*k)) +
       (s/D)*(-k*s/(L*D^2)))) = (-D*L*c^3 + D*L*c^2*e - D*L*c*s^2 + D*L*c + D*L*e*s^2 - D*L*e) /
       (D^4 : ℝ) := by
-    first | (field_simp; ring) | field_simp
-  have hden : (D^4 : ℝ) ≠ 0 := by simp [hD0, hk0]
+    field_simp
+    ring
+  have hden : (D^4 : ℝ) ≠ 0 := by simp [hD0]
   rw [key]
   rw [div_eq_iff hden]
   linear_combination (-D*L*c + D*L*e) * hs + (0) * hk + (0) * hD
@@ -94,8 +98,9 @@ private theorem br12 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : 
         - e)))*(-k*c/(L^2*D))) = -k := by
   have key : ((-(k*c/(L*D)))*(2*L*(c - e)) + ((-s/(L*D)))*(2*L*k*s)) - ((-(L^2*k*s))*(s/(L^2*D)) +
       ((L^2*(c - e)))*(-k*c/(L^2*D))) = (-c^2*k + c*e*k - k*s^2) / (D : ℝ) := by
-    first | (field_simp; ring) | field_simp
-  have hden : (D : ℝ) ≠ 0 := by simp [hD0, hk0]
+    field_simp
+    ring
+  have hden : (D : ℝ) ≠ 0 := by simp [hD0]
   rw [key]
   rw [div_eq_iff hden]
   linear_combination (-k) * hs + (0) * hk + (k) * hD
@@ -109,7 +114,8 @@ private theorem br13 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : 
       (s/D)*(L^2*k*c))) - ((-(L^2*k*s))*((-s*c/(L*D^2)) + (s/D)*(-(c - e)/(L*D^2))) + ((L^2*(c -
       e)))*((c*(c - e)/(L*D^2*k)) + (s/D)*(-k*s/(L*D^2)))) = (D^2*L*c*k^2 + D^2*L*e*s^2 - D*L*c^3 +
       2*D*L*c^2*e - D*L*c*e^2 - D*L*c*k^2*s^2) / (D^3*k : ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
+    ring
   have hden : (D^3*k : ℝ) ≠ 0 := by simp [hD0, hk0]
   rw [key]
   rw [div_eq_div_iff hden hk0]
@@ -125,49 +131,53 @@ private theorem br23 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : 
       (s/D)*(L^2*k*c))) - ((2*L*(c - e))*((-s*c/(L*D^2)) + (s/D)*(-(c - e)/(L*D^2))) +
       (2*L*k*s)*((c*(c - e)/(L*D^2*k)) + (s/D)*(-k*s/(L*D^2)))) = (D^2*c*e*s - D^2*s - D*c^2*k^2*s
       - D*s^3 + 2*c^2*s - 4*c*e*s + 2*e^2*s + 2*k^2*s^3) / (D^3 : ℝ) := by
-    first | (field_simp; ring) | field_simp
-  have hden : (D^3 : ℝ) ≠ 0 := by simp [hD0, hk0]
+    field_simp
+    ring
+  have hden : (D^3 : ℝ) ≠ 0 := by simp [hD0]
   rw [key]
   rw [div_eq_iff hden]
   linear_combination (-D*s + 2*k^2*s) * hs + (-D*c^2*s - 2*c^2*s + 2*s) * hk + (D*c*e*s - D*s +
       2*c*e*s - 2*s) * hD
 
-private theorem lv0 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : L ≠ 0)
+private theorem lv0 (L e c s k D : ℝ) (hD0 : D ≠ 0) (_hk0 : k ≠ 0) (hL0 : L ≠ 0)
     (hs : s ^ 2 + c ^ 2 = 1) (hk : k ^ 2 = 1 - e ^ 2) (hD : D = 1 - e * c) :
     (-s/(L*D))*((1/D)*(-L^2*s)) + (k*c/(L*D))*((1/D)*(L^2*k*c)) = L + 2*L*e*c/D := by
-  have hd : (D^2 : ℝ) ≠ 0 := by simp [hD0, hk0]
-  have htd : (D : ℝ) ≠ 0 := by simp [hD0, hk0]
+  have hd : (D^2 : ℝ) ≠ 0 := by simp [hD0]
+  have htd : (D : ℝ) ≠ 0 := by simp [hD0]
   have key : (-s/(L*D))*((1/D)*(-L^2*s)) + (k*c/(L*D))*((1/D)*(L^2*k*c)) = (L*c^2*k^2 + L*s^2) /
       (D^2 : ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
+    ring
   have key2 : L + 2*L*e*c/D = (D*L + 2*L*c*e) / (D : ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
   rw [key, key2, div_eq_div_iff hd htd]
   linear_combination (D*L) * hs + (D*L*c^2) * hk + (-D^2*L - D*L*c*e - D*L) * hD
 
 private theorem lv1 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : L ≠ 0)
     (hs : s ^ 2 + c ^ 2 = 1) (hk : k ^ 2 = 1 - e ^ 2) (hD : D = 1 - e * c) :
     (-s/(L*D))*(-(L^2*k*s)) + (k*c/(L*D))*((L^2*(c - e))) = L*k := by
-  have hd : (D : ℝ) ≠ 0 := by simp [hD0, hk0]
+  have hd : (D : ℝ) ≠ 0 := by simp [hD0]
   have htd : (1 : ℝ) ≠ 0 := by norm_num
   have key : (-s/(L*D))*(-(L^2*k*s)) + (k*c/(L*D))*((L^2*(c - e))) = (L*c^2*k - L*c*e*k + L*k*s^2)
       / (D : ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
+    ring
   have key2 : L*k = (L*k) / (1 : ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
   rw [key, key2, div_eq_div_iff hd htd]
   linear_combination (L*k) * hs + (0) * hk + (-L*k) * hD
 
-private theorem lv2 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : L ≠ 0)
+private theorem lv2 (L e c s k D : ℝ) (hD0 : D ≠ 0) (_hk0 : k ≠ 0) (hL0 : L ≠ 0)
     (hs : s ^ 2 + c ^ 2 = 1) (hk : k ^ 2 = 1 - e ^ 2) (hD : D = 1 - e * c) :
     (-s/(L*D))*(2*L*(c - e)) + (k*c/(L*D))*(2*L*k*s) = 2*e*s := by
-  have hd : (D : ℝ) ≠ 0 := by simp [hD0, hk0]
+  have hd : (D : ℝ) ≠ 0 := by simp [hD0]
   have htd : (1 : ℝ) ≠ 0 := by norm_num
   have key : (-s/(L*D))*(2*L*(c - e)) + (k*c/(L*D))*(2*L*k*s) = (2*c*k^2*s - 2*c*s + 2*e*s) / (D :
       ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
+    ring
   have key2 : 2*e*s = (2*e*s) / (1 : ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
   rw [key, key2, div_eq_div_iff hd htd]
   linear_combination (0) * hs + (2*c*s) * hk + (-2*e*s) * hD
 
@@ -175,13 +185,14 @@ private theorem lv3 (L e c s k D : ℝ) (hD0 : D ≠ 0) (hk0 : k ≠ 0) (hL0 : L
     (hs : s ^ 2 + c ^ 2 = 1) (hk : k ^ 2 = 1 - e ^ 2) (hD : D = 1 - e * c) :
     (-s/(L*D))*((-L^2) + (s/D)*(-L^2*s)) + (k*c/(L*D))*((-L^2*e*s/k) + (s/D)*(L^2*k*c)) = 2*L*s +
         2*L*e*c*s/D := by
-  have hd : (D^2 : ℝ) ≠ 0 := by simp [hD0, hk0]
-  have htd : (D : ℝ) ≠ 0 := by simp [hD0, hk0]
+  have hd : (D^2 : ℝ) ≠ 0 := by simp [hD0]
+  have htd : (D : ℝ) ≠ 0 := by simp [hD0]
   have key : (-s/(L*D))*((-L^2) + (s/D)*(-L^2*s)) + (k*c/(L*D))*((-L^2*e*s/k) + (s/D)*(L^2*k*c)) =
       (-D*L*c*e*s + D*L*s + L*c^2*k^2*s + L*s^3) / (D^2 : ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
+    ring
   have key2 : 2*L*s + 2*L*e*c*s/D = (2*D*L*s + 2*L*c*e*s) / (D : ℝ) := by
-    first | (field_simp; ring) | field_simp
+    field_simp
   rw [key, key2, div_eq_div_iff hd htd]
   linear_combination (D*L*s) * hs + (D*L*c^2*s) * hk + (-2*D^2*L*s - D*L*c*e*s - D*L*s) * hD
 
@@ -341,48 +352,47 @@ private theorem col_br01 (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e < 1) :
     symplecticForm (orbitMapColumn ℓ g L e 0) (orbitMapColumn ℓ g L e 1) = 0 := by
   obtain ⟨hD, hk0, hs, hk⟩ := col_hyps (eccAnom ℓ e) he0 he1
   rw [orbitMapColumn_eq0, orbitMapColumn_eq1, sf_rot, sf_eq]
-  simp only [colF0, colF1, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one,
-    Pi.smul_apply, Pi.add_apply, smul_eq_mul]
+  simp only [colF0, colF1, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.smul_apply,
+    smul_eq_mul]
   linear_combination br01 L e _ _ _ _ hD hk0 hL.ne' hs hk rfl
 
 private theorem col_br02 (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e < 1) :
     symplecticForm (orbitMapColumn ℓ g L e 0) (orbitMapColumn ℓ g L e 2) = -1 := by
   obtain ⟨hD, hk0, hs, hk⟩ := col_hyps (eccAnom ℓ e) he0 he1
   rw [orbitMapColumn_eq0, orbitMapColumn_eq2, sf_rot, sf_eq]
-  simp only [colF0, colF2, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one,
-    Pi.smul_apply, Pi.add_apply, smul_eq_mul]
+  simp only [colF0, colF2, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.smul_apply, smul_eq_mul]
   linear_combination br02 L e _ _ _ _ hD hk0 hL.ne' hs hk rfl
 
 private theorem col_br03 (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e < 1) :
     symplecticForm (orbitMapColumn ℓ g L e 0) (orbitMapColumn ℓ g L e 3) = 0 := by
   obtain ⟨hD, hk0, hs, hk⟩ := col_hyps (eccAnom ℓ e) he0 he1
   rw [orbitMapColumn_eq0, orbitMapColumn_eq3, sf_rot, sf_eq]
-  simp only [colF0, colF3, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one,
-    Pi.smul_apply, Pi.add_apply, smul_eq_mul]
+  simp only [colF0, colF3, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.smul_apply,
+    Pi.add_apply, smul_eq_mul]
   linear_combination br03 L e _ _ _ _ hD hk0 hL.ne' hs hk rfl
 
 private theorem col_br12 (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e < 1) :
     symplecticForm (orbitMapColumn ℓ g L e 1) (orbitMapColumn ℓ g L e 2) = -√(1 - e ^ 2) := by
   obtain ⟨hD, hk0, hs, hk⟩ := col_hyps (eccAnom ℓ e) he0 he1
   rw [orbitMapColumn_eq1, orbitMapColumn_eq2, sf_rot, sf_eq]
-  simp only [colF1, colF2, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one,
-    Pi.smul_apply, Pi.add_apply, smul_eq_mul]
+  simp only [colF1, colF2, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one]
   linear_combination br12 L e _ _ _ _ hD hk0 hL.ne' hs hk rfl
 
 private theorem col_br13 (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e < 1) :
-    symplecticForm (orbitMapColumn ℓ g L e 1) (orbitMapColumn ℓ g L e 3) = L * e / √(1 - e ^ 2) := by
+    symplecticForm (orbitMapColumn ℓ g L e 1) (orbitMapColumn ℓ g L e 3) = L * e / √(1 - e ^ 2)
+        := by
   obtain ⟨hD, hk0, hs, hk⟩ := col_hyps (eccAnom ℓ e) he0 he1
   rw [orbitMapColumn_eq1, orbitMapColumn_eq3, sf_rot, sf_eq]
-  simp only [colF1, colF3, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one,
-    Pi.smul_apply, Pi.add_apply, smul_eq_mul]
+  simp only [colF1, colF3, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.smul_apply,
+    Pi.add_apply, smul_eq_mul]
   linear_combination br13 L e _ _ _ _ hD hk0 hL.ne' hs hk rfl
 
 private theorem col_br23 (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e < 1) :
     symplecticForm (orbitMapColumn ℓ g L e 2) (orbitMapColumn ℓ g L e 3) = 0 := by
   obtain ⟨hD, hk0, hs, hk⟩ := col_hyps (eccAnom ℓ e) he0 he1
   rw [orbitMapColumn_eq2, orbitMapColumn_eq3, sf_rot, sf_eq]
-  simp only [colF2, colF3, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one,
-    Pi.smul_apply, Pi.add_apply, smul_eq_mul]
+  simp only [colF2, colF3, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.smul_apply,
+    Pi.add_apply, smul_eq_mul]
   linear_combination br23 L e _ _ _ _ hD hk0 hL.ne' hs hk rfl
 
 end Brackets
@@ -432,6 +442,8 @@ private theorem delaunay_brackets {ℓ g L G e : ℝ} (hL : 0 < L) (he0 : 0 < e)
   · rw [sf_smul_right, c13]; field_simp
   · rw [sf_smul_right, sf_add_left, sf_smul_left, c23, c33]; ring
 
+/-- `bpI:p7:symplectic`: `𝖰^*(Σ dq∧dp) = dℓ∧dL + dg∧dG`, i.e. factor one for the frozen form
+(positions `(ℓ, g)`, momenta `(L, G)`), and `D𝖰` is invertible. -/
 theorem delaunay_symplectic : IsSymplecticOn 1 delaunay deDom := by
   intro w hw u v
   rw [one_mul]
@@ -468,7 +480,8 @@ end DelaunayLevel
 
 section Liouville
 
-/-- F-audit C6 (`bpI:p7:symplectic`, Liouville primitive): `𝖰^*(Σ p dq) = L dℓ + G dg + dF`, `F = 2 L e sin u`. -/
+/-- F-audit C6 (`bpI:p7:symplectic`, Liouville primitive): `𝖰^*(Σ p dq) = L dℓ + G dg + dF`,
+    `F = 2 L e sin u`. -/
 def delaunayGen (w : Phase 2) : ℝ :=
   2 * w.2 0 * eccOf (w.2 0) (w.2 1) * Real.sin (eccAnom (w.1 0) (eccOf (w.2 0) (w.2 1)))
 
@@ -502,7 +515,7 @@ private theorem hasDerivAt_gen_curve {ℓ L e : ℝ → ℝ} {ℓ' L' e' t : ℝ
   field_simp
   ring
 
-private theorem hasDerivAt_gen_line {w : Phase 2} (hw : w ∈ deDom) (a b c d E : ℝ)
+private theorem hasDerivAt_gen_line {w : Phase 2} (hw : w ∈ deDom) (a _b c d E : ℝ)
     (hE : E = (w.2 1 ^ 2 * c / w.2 0 ^ 3 - w.2 1 * d / w.2 0 ^ 2) / eccOf (w.2 0) (w.2 1)) :
     HasDerivAt (fun t : ℝ => 2 * (w.2 0 + t * c) * eccOf (w.2 0 + t * c) (w.2 1 + t * d) *
         Real.sin (eccAnom (w.1 0 + t * a) (eccOf (w.2 0 + t * c) (w.2 1 + t * d))))
@@ -540,7 +553,8 @@ private theorem differentiableAt_delaunayGen {w : Phase 2} (hw : w ∈ deDom) :
     AnalyticAt.comp (g := fun p : ℝ × ℝ => eccAnom p.1 p.2)
       (f := fun w : Phase 2 => ((w.1 0, eccOf (w.2 0) (w.2 1)) : ℝ × ℝ))
       (analyticOnNhd_eccAnom ((w.1 0, eccOf (w.2 0) (w.2 1)) : ℝ × ℝ) hx) ((p1 0).prod hecc)
-  exact (((analyticAt_const.mul (p2 0)).mul hecc).mul (Real.analyticAt_sin.comp hu)).differentiableAt
+  exact (((analyticAt_const.mul (p2 0)).mul hecc).mul (Real.analyticAt_sin.comp
+      hu)).differentiableAt
 
 private theorem fderiv_delaunayGen_basis {w : Phase 2} (hw : w ∈ deDom) :
     fderiv ℝ delaunayGen w b0 = genDℓ (w.1 0) (w.2 0) (eccOf (w.2 0) (w.2 1)) ∧
@@ -583,13 +597,13 @@ private theorem lv_col {ℓ g L e : ℝ} (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e <
     show planeDot (orbitMapR ℓ g L e).2 (rot g _) = _
     rw [hP]
     simp only [orbitFrame, colF1, quarterTurn, planeDot, Fin.sum_univ_two, Matrix.cons_val_zero,
-      Matrix.cons_val_one, Pi.smul_apply, smul_eq_mul]
+      Matrix.cons_val_one]
     linear_combination lv1 L e _ _ _ _ hD hk0 hL.ne' hs hk rfl
   · rw [orbitMapColumn_eq2]
     show planeDot (orbitMapR ℓ g L e).2 (rot g _) = _
     rw [hP]
     simp only [orbitFrame, colF2, genDL, planeDot, Fin.sum_univ_two, Matrix.cons_val_zero,
-      Matrix.cons_val_one, Pi.smul_apply, smul_eq_mul]
+      Matrix.cons_val_one]
     linear_combination lv2 L e _ _ _ _ hD hk0 hL.ne' hs hk rfl
   · rw [orbitMapColumn_eq3]
     show planeDot (orbitMapR ℓ g L e).2 (rot g _) = _
@@ -598,6 +612,7 @@ private theorem lv_col {ℓ g L e : ℝ} (hL : 0 < L) (he0 : 0 ≤ e) (he1 : e <
       Matrix.cons_val_one, Pi.smul_apply, Pi.add_apply, smul_eq_mul]
     linear_combination lv3 L e _ _ _ _ hD hk0 hL.ne' hs hk rfl
 
+/-- Liouville primitive: `p · dq = L dℓ + G dg + dF` for `F = delaunayGen`. -/
 theorem delaunay_liouville {w : Phase 2} (hw : w ∈ deDom) (u : Phase 2) :
     planeDot (delaunay w).2 (fderiv ℝ delaunay w u).1 =
       w.2 0 * u.1 0 + w.2 1 * u.1 1 + fderiv ℝ delaunayGen w u := by
@@ -638,10 +653,14 @@ end Liouville
 
 section Invertibility
 
+/-- Explicit Jacobian columns, in the intermediate variables (helper for the proof; the symplectic
+identity is then six rational identities, see the design document). -/
 theorem delaunay_hasFDerivAt {w : Phase 2} (hw : w ∈ deDom) :
     HasFDerivAt delaunay (fderiv ℝ delaunay w) w :=
   (analyticOnNhd_delaunay w hw).differentiableAt.hasFDerivAt
 
+/-- `D𝖰` is invertible on `deDom`: a symplectic endomorphism of the finite-dimensional space
+`Phase 2` is injective (the symplectic form is nondegenerate), hence bijective. -/
 theorem delaunay_fderiv_equiv {w : Phase 2} (hw : w ∈ deDom) :
     ∃ A : Phase 2 ≃L[ℝ] Phase 2, (A : Phase 2 →L[ℝ] Phase 2) = fderiv ℝ delaunay w := by
   have hs := delaunay_symplectic w hw
