@@ -446,7 +446,7 @@ DISPOSITION: NODE stepP:p7:la-polar
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-review-P-w
+REVIEWER: sol-delta-P-ah
 
 ITEM: stepP:p7:la-inv
 KIND: proof-region
@@ -464,7 +464,7 @@ DISPOSITION: NODE stepP:p7:la-per
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-review-P-w
+REVIEWER: sol-delta-P-ah
 
 ITEM: stepP:p7:la-ham
 KIND: proof-region

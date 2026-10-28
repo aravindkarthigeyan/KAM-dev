@@ -149,9 +149,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.IsSolutionIn (KAM/ODE/Basic.lean)
+LEAN_NOTE: definition formalized; audit N3-1 PASS
 NOTE: package for the general layer; the conventions paragraph prose-L15-L26 is recorded in the source fields (E, two-sided derivative); suggested Lean name KAM.ODE.IsSolutionIn (not a frozen declaration)
 
 NODE: bpN:p3:gen-sol#consequences
@@ -177,9 +177,9 @@ EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol#
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.IsSolutionIn.mono, KAM.ODE.IsSolutionIn.continuousOn, KAM.ODE.isSolutionIn_congr_of_isOpen (KAM/ODE/Basic.lean)
+LEAN_NOTE: (i)-(iii); audit N3-1 PASS
 NOTE: section-data claim for coverage item p3:prose-L95-L99; statement and proof are the same unlabelled paragraph; consumers: short-boot, short-ext, uq-compact, ext-right, max-glue, cont-glue, exit-closed, exit-bdry
 
 NODE: bpN:p3:gen-symmetry
@@ -205,9 +205,9 @@ EDGE: stepN:p3:sym | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetr
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_symmetry, KAM.ODE.gen_symmetry_shift, KAM.ODE.gen_symmetry_neg, KAM.ODE.gen_symmetry_neg_contDiffOn, KAM.ODE.gen_symmetry_translate (KAM/ODE/Basic.lean)
+LEAN_NOTE: (a)(b)(c); audit N3-1 PASS
 NOTE: -
 
 NODE: stepN:p3:sym
@@ -233,9 +233,9 @@ EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sym@L11
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_symmetry (KAM/ODE/Basic.lean)
+LEAN_NOTE: proved inside parent gen_symmetry (chain rule); audit N3-1 PASS
 NOTE: -
 
 NODE: bpN:p3:gen-lip
@@ -262,9 +262,9 @@ EDGE: stepN:p3:lip-explicit | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ge
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_lip (KAM/ODE/Lipschitz.lean)
+LEAN_NOTE: audit N3-1 PASS
 NOTE: 'Alternatively' at L122 makes the Mathlib route and the explanatory proof two alternative routes for the Lipschitz clause; the bound is shared
 
 NODE: stepN:p3:lip-mathlib
@@ -426,9 +426,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.UniformData (KAM/ODE/Lipschitz.lean)
+LEAN_NOTE: definition formalized; audit N3-1 PASS
 NOTE: package for continuation results, Part 7 transfer and Part 11c; the parenthetical via ext-mvt (gradient bound gives Lipschitz clause) is an aside, not used
 
 NODE: bpN:p3:gen-uniform-compact
@@ -455,9 +455,9 @@ EDGE: stepN:p3:uc-data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uni
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_uniform_compact, KAM.ODE.closedThickening (KAM/ODE/Lipschitz.lean)
+LEAN_NOTE: audit N3-1 PASS
 NOTE: -
 
 NODE: stepN:p3:uc-delta
@@ -540,9 +540,9 @@ EDGE: stepN:p3:up-translate | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ge
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_uniform_periodic (KAM/ODE/UniformPeriodic.lean)
+LEAN_NOTE: audit N3-63 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:up-cell
@@ -626,9 +626,9 @@ EDGE: stepN:p3:short-ext | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-s
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_short, KAM.ODE.gen_short_forward (KAM/ODE/Existence.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:short-boot
@@ -713,9 +713,9 @@ EDGE: stepN:p3:ue-stay | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uni
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_uniform_exist (KAM/ODE/Existence.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: parent depends on the package gen-uniform (statement) and gen-sol (conclusion predicate)
 
 NODE: stepN:p3:ue-pl
@@ -799,9 +799,9 @@ EDGE: stepN:p3:loc-red | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-loc
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_local (KAM/ODE/Existence.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:loc-red
@@ -859,9 +859,9 @@ EDGE: stepN:p3:uq-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-un
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_uniqueness, KAM.ODE.gen_uniqueness_inter (KAM/ODE/Uniqueness.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:uq-compact
@@ -977,9 +977,9 @@ EDGE: stepN:p3:ext-left | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-ex
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_extend (KAM/ODE/Maximal.lean)
+LEAN_NOTE: audit N3-63 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:ext-right
@@ -1067,9 +1067,9 @@ EDGE: stepN:p3:max-max | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-max
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_maximal, KAM.ODE.IsMaximalSolution (KAM/ODE/Maximal.lean)
+LEAN_NOTE: audit N3-63 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:max-union
@@ -1187,9 +1187,9 @@ EDGE: stepN:p3:cont-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_continuation (KAM/ODE/Continuation.lean)
+LEAN_NOTE: audit N3-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:cont-setup
@@ -1309,9 +1309,9 @@ EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_continuation_compact (KAM/ODE/Continuation.lean)
+LEAN_NOTE: audit N3-7 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:gen-continuation-periodic
@@ -1339,9 +1339,9 @@ EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_continuation_periodic (KAM/ODE/Continuation.lean)
+LEAN_NOTE: audit N3-7 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:gen-confinement
@@ -1370,9 +1370,9 @@ EDGE: stepN:p3:conf-concl | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_confinement (KAM/ODE/Continuation.lean)
+LEAN_NOTE: audit N3-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:conf-noexit

@@ -1,15 +1,15 @@
 {
  "replaced": [
   "bpP:p7:lattice",
-  "stepP:p7:la-polar",
   "stepP:p7:la-inv",
-  "stepP:p7:la-per",
   "stepP:p7:la-ham"
  ],
  "added": [],
  "items": [],
- "unresolved": {
-  "bpP:p10:scaling": "P-p10: `blueprint-P/parts/p10-nondegeneracy.tex#bpP:p10:scaling@L191-L193` | The index-def EDGE points to L193, which is only the end of the remark. The assertion about index and amount occurs at L192"
- },
- "passes": []
+ "unresolved": {},
+ "passes": [
+  "stepP:p7:la-polar",
+  "stepP:p7:la-per",
+  "bpP:p7:conv#data"
+ ]
 }

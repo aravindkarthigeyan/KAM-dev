@@ -23,9 +23,9 @@ EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p3-iso-local-charts.tex#bpI:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: HeadData, BaseData, PerturbData, realAct, toC, totalH, realPart, rhoInf, fractD (KAM/Iso/Confinement/Setting.lean)
+LEAN_NOTE: definition formalized; audit P5-0 PASS WITH NOTES (data of I-HEAD; no theorem needed)
 NOTE: No edge to bpI:p0:head: the data are those of the I-HEAD statement (naming the hypotheses, not consuming the conclusion). No bridge edge: the K Part 4 bridge itself depends on this package.
 
 NODE: bpI:p3:setting#k-bridge
@@ -51,9 +51,9 @@ EDGE: K:bp:p4:data | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:setting#k-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.fractD_eq_domainD, KAM.Iso.Charts.totalH_eq_hbold (KAM/Iso/Charts/Defs.lean)
+LEAN_NOTE: elementary bridge theorems; audit I-D0-1 PASS, I-D0-2 PASS
 NOTE: This is a restriction to the common analytic/domain core, as the source explicitly says at L48-L50; it does not establish the full stronger K:bp:p4:data package. K h-bounded L173-L180, derivative-bounds L198-L222, freq-map L240-L273, and h1-open/holo L316-L327 use no L_h or C_B. No blanket discharge of every K hypothesis is claimed.
 
 NODE: bpI:p3:constants
@@ -84,9 +84,9 @@ EDGE: bpI:p0:bordered#borderedHessian | blueprint-I/parts/p3-iso-local-charts.te
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.rhoIso, dB, eta1, sSet, mhConst, MgConst, ShConst, nuConst, sigmaOmegaConst, sigmaKConst, sigmaTConst, epsT (KAM/Iso/Charts/Defs.lean)
+LEAN_NOTE: definitions landed, literal formulas; audit I-D0-1 PASS, I-D0-2 PASS
 NOTE: SOURCE_SCOPE_INCONSISTENCY: e := F_1 epsilon at L76 conflicts with the blanket epsilon-independence sentence at L78 if e is included. No estimate or constant choice here uses independence of e.
 
 NODE: bpI:p3:compact
@@ -115,9 +115,9 @@ EDGE: stepI:p3:cp-inverse | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:com
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: sol-review-I-p3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.compact, continuousOn_norm_inv, continuousOn_borderedHessian, frequencyMap_ne_zero_of_det_ne_zero (KAM/Iso/Charts/Constants.lean)
+LEAN_NOTE: audit I3-1 PASS WITH NOTES; I3-2 PASS (compact exact design type)
 NOTE: -
 
 NODE: stepI:p3:cp-compact
@@ -144,9 +144,9 @@ EDGE: bpI:p3:ext-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cp
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: sol-review-I-p3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.compact, continuousOn_norm_inv, continuousOn_borderedHessian, frequencyMap_ne_zero_of_det_ne_zero (KAM/Iso/Charts/Constants.lean)
+LEAN_NOTE: step inside KAM.Iso.Charts.compact; audit I3-1 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:cp-grad
@@ -177,9 +177,9 @@ EDGE: stepI:p3:cp-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.compact, continuousOn_norm_inv, continuousOn_borderedHessian, frequencyMap_ne_zero_of_det_ne_zero (KAM/Iso/Charts/Constants.lean)
+LEAN_NOTE: step inside KAM.Iso.Charts.compact; audit I3-1 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:cp-inverse
@@ -213,9 +213,9 @@ EDGE: stepI:p3:cp-compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.compact, continuousOn_norm_inv, continuousOn_borderedHessian, frequencyMap_ne_zero_of_det_ne_zero (KAM/Iso/Charts/Constants.lean)
+LEAN_NOTE: step inside KAM.Iso.Charts.compact; audit I3-1 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p3:ext-ift
@@ -323,9 +323,9 @@ EDGE: stepI:p3:di-conseq | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:det-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: sol-review-I-p3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.det_identity, borderedHessian_det_eq, hessR_transpose (KAM/Iso/Charts/Coordinates.lean); KAM.Iso.Charts.frequencyMap_ne_zero_of_det_ne_zero (KAM/Iso/Charts/Constants.lean)
+LEAN_NOTE: parts (a),(b) covered; audit I3-1 PASS WITH NOTES, I3-2 PASS
 NOTE: -
 
 NODE: stepI:p3:di-expand
@@ -353,9 +353,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-exp
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.det_identity, borderedHessian_det_eq, hessR_transpose (KAM/Iso/Charts/Coordinates.lean); KAM.Iso.Charts.frequencyMap_ne_zero_of_det_ne_zero (KAM/Iso/Charts/Constants.lean)
+LEAN_NOTE: borderedHessian_det_eq; audit I3-1 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:di-conseq
@@ -381,9 +381,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:di-con
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.det_identity, borderedHessian_det_eq, hessR_transpose (KAM/Iso/Charts/Coordinates.lean); KAM.Iso.Charts.frequencyMap_ne_zero_of_det_ne_zero (KAM/Iso/Charts/Constants.lean)
+LEAN_NOTE: det_identity last equality gives equivalence; audit I3-1 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p3:coordinates
@@ -412,9 +412,9 @@ EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p3-iso-local-charts.tex
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.perp, det2, aCoord, bCoord, slope, hessR, chartDom, chartM, chartPhi, jac2 (KAM/Iso/Charts/Defs.lean); KAM.Iso.Charts.coordinates (KAM/Iso/Charts/Coordinates.lean)
+LEAN_NOTE: defs audit I-D0-1/2 PASS; C1 chart/openness theorem audit I3-1 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p3:slope-ray
@@ -440,9 +440,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:slope-ra
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.slope_ray (KAM/Iso/Charts/Coordinates.lean)
+LEAN_NOTE: audit I3-1 PASS WITH NOTES, I3-2 PASS
 NOTE: Remark node kept: consumed by stepI:p3:pt-parallel (it supplies grad h(I_pm) = s omega*_pm).
 
 NODE: bpI:p3:chart
@@ -471,9 +471,9 @@ EDGE: stepI:p3:ch-ift | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:chart@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.chart, fderiv_chartM_apply, jac2_chartPhi, bijective_of_jac_ne_zero (KAM/Iso/Charts/Chart.lean)
+LEAN_NOTE: exact design type; audit I3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:ch-deriv
@@ -502,9 +502,9 @@ EDGE: bpI:p1:ext-chain | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-d
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.chart, fderiv_chartM_apply, jac2_chartPhi, bijective_of_jac_ne_zero (KAM/Iso/Charts/Chart.lean)
+LEAN_NOTE: fderiv_chartM_apply; audit I3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:ch-det
@@ -532,9 +532,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.chart, fderiv_chartM_apply, jac2_chartPhi, bijective_of_jac_ne_zero (KAM/Iso/Charts/Chart.lean)
+LEAN_NOTE: jac2_chartPhi; audit I3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:ch-ift
@@ -562,9 +562,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ch-ift
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.chart, fderiv_chartM_apply, jac2_chartPhi, bijective_of_jac_ne_zero (KAM/Iso/Charts/Chart.lean)
+LEAN_NOTE: bijective_of_jac_ne_zero + chart; audit I3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p3:patch
@@ -592,9 +592,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: sol-review-I-p3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.IsPatch, IsPatch.toEnergyPatch (KAM/Iso/Charts/Defs.lean); KAM.Iso.Charts.exists_isPatch (KAM/Iso/Charts/Chart.lean)
+LEAN_NOTE: patch certificate defined (audit I-D0-1 PASS); existence by exists_isPatch (audit I3-2)
 NOTE: -
 
 NODE: bpI:p3:cover
@@ -623,9 +623,9 @@ EDGE: stepI:p3:cv-compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:cov
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: sol-review-I-p3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.cover, exists_isPatch, exists_window (KAM/Iso/Charts/Chart.lean)
+LEAN_NOTE: exact design type; audit I3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:cv-local
@@ -654,9 +654,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-loc
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.cover, exists_isPatch, exists_window (KAM/Iso/Charts/Chart.lean)
+LEAN_NOTE: exists_isPatch/exists_window; audit I3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:cv-compact
@@ -684,9 +684,9 @@ EDGE: bpI:p3:patch | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:cv-compa
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.cover, exists_isPatch, exists_window (KAM/Iso/Charts/Chart.lean)
+LEAN_NOTE: inside cover; audit I3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p3:dio-open
@@ -714,9 +714,9 @@ EDGE: stepI:p3:do-choice | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:dio-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: sol-review-I-p3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.dio_open (KAM/Iso/Charts/Rays.lean)
+LEAN_NOTE: uses verbatim G3 premise (ruled); audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:do-positive
@@ -743,9 +743,9 @@ EDGE: bpI:p0:diophantine#IsDiophantine | blueprint-I/parts/p3-iso-local-charts.t
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: sol-review-I-p3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.dio_open (KAM/Iso/Charts/Rays.lean)
+LEAN_NOTE: measure argument inside dio_open; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:do-choice
@@ -772,9 +772,9 @@ EDGE: bpI:p0:diophantine#IsDiophantine | blueprint-I/parts/p3-iso-local-charts.t
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.dio_open (KAM/Iso/Charts/Rays.lean)
+LEAN_NOTE: inside dio_open; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p3:rays
@@ -804,9 +804,9 @@ EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:rays@L22
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-delta-I-b
 REVIEWER: sol-delta-I-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.rays, aCoord_slope_dir, isOpen_sector, frequencyMap_ne_zero_of_mem_closure (KAM/Iso/Charts/Rays.lean)
+LEAN_NOTE: exact design signature; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:ry-open
@@ -834,9 +834,9 @@ EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-ope
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.rays, aCoord_slope_dir, isOpen_sector, frequencyMap_ne_zero_of_mem_closure (KAM/Iso/Charts/Rays.lean)
+LEAN_NOTE: aCoord_slope_dir, isOpen_sector; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:ry-dio
@@ -863,9 +863,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:ry-dio
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.rays, aCoord_slope_dir, isOpen_sector, frequencyMap_ne_zero_of_mem_closure (KAM/Iso/Charts/Rays.lean)
+LEAN_NOTE: inside rays via dio_open; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p3:patch-rays
@@ -895,9 +895,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:patch-ra
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3
 REVIEWER: sol-review-I-p3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.IsRay (KAM/Iso/Charts/Defs.lean); KAM.Iso.Charts.patch_rays (KAM/Iso/Charts/Rays.lean)
+LEAN_NOTE: exact existence form, both signed rays at same patch; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p3:points
@@ -930,9 +930,9 @@ EDGE: stepI:p3:pt-segment | blueprint-I/parts/p3-iso-local-charts.tex#bpI:p3:poi
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.points, bijOn_energySegment (KAM/Iso/Charts/Points.lean)
+LEAN_NOTE: one-ray lemma, both signs are instances; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:pt-exist
@@ -959,9 +959,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-exi
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.points, bijOn_energySegment (KAM/Iso/Charts/Points.lean)
+LEAN_NOTE: inside KAM.Iso.Charts.points; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:pt-parallel
@@ -993,9 +993,9 @@ EDGE: bpI:p3:compact | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-par
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.points, bijOn_energySegment (KAM/Iso/Charts/Points.lean)
+LEAN_NOTE: inside KAM.Iso.Charts.points; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:pt-position
@@ -1025,9 +1025,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.points, bijOn_energySegment (KAM/Iso/Charts/Points.lean)
+LEAN_NOTE: inside KAM.Iso.Charts.points; audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p3:pt-segment
@@ -1054,9 +1054,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p3-iso-local-charts.tex#stepI:p3:pt-seg
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p3+sol-review-I-p3
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Charts.points, bijOn_energySegment (KAM/Iso/Charts/Points.lean)
+LEAN_NOTE: bijOn_energySegment named in audit I3-3 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p3:hypothesis-d

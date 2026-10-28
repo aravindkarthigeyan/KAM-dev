@@ -93,9 +93,9 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-open@L474-L479
 DISPOSITION: NODE K:bp:p1:cauchy-open
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:decay
 KIND: external
@@ -111,81 +111,81 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-banach@L95-L96
 DISPOSITION: NODE K:bp:p1:ext-banach
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:ext-cramer
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cramer@L97-L99
 DISPOSITION: NODE K:bp:p1:ext-cramer
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:ext-fourier
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-fourier@L87-L91
 DISPOSITION: NODE K:bp:p1:ext-fourier
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:ext-lebesgue
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-lebesgue@L92-L94
 DISPOSITION: NODE K:bp:p1:ext-lebesgue
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:ext-mvt
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-mvt@L75-L78
 DISPOSITION: NODE K:bp:p1:ext-mvt
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:ext-rectangle
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-rectangle@L67-L70
 DISPOSITION: NODE K:bp:p1:ext-rectangle
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:holomorphic-analytic
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:holomorphic-analytic@L296-L312
 DISPOSITION: NODE K:bp:p1:holomorphic-analytic
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:lip-image
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lip-image@L1124-L1129
 DISPOSITION: NODE K:bp:p1:lip-image
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:mcshane
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:mcshane@L1168-L1171
 DISPOSITION: NODE K:bp:p1:mcshane
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:real-restriction
 KIND: external
@@ -201,18 +201,18 @@ KIND: external
 SOURCE: blueprint/parts/p4-measure.tex#bp:p4:lattice-count@L53-L55
 DISPOSITION: NODE K:bp:p4:lattice-count
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p4:lattice-sum
 KIND: external
 SOURCE: blueprint/parts/p4-measure.tex#bp:p4:lattice-sum@L66-L71
 DISPOSITION: NODE K:bp:p4:lattice-sum
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: N:bpN:p0:partial
 KIND: external
@@ -316,8 +316,8 @@ REVIEWER: -
 ITEM: N:bpN:p3:ham-periodic
 KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L402-L407
-DISPOSITION: NODE N:bpN:p3:ham-periodic
-REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
+DISPOSITION: EXCLUDED
+REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/N/DEPGRAPH.md node bpN:p3:ham-periodic
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
@@ -561,60 +561,60 @@ KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:actionnbhd@L36-L41
 DISPOSITION: NODE N:bpN:p0:actionnbhd#actionNbhd
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: N:bpN:p0:partial-complexify#complexifyPhase
 KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-complexify@L271-L275
 DISPOSITION: NODE N:bpN:p0:partial-complexify#complexifyPhase
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: N:bpN:p0:partial-core#innerCore
 KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-core@L277-L282
 DISPOSITION: NODE N:bpN:p0:partial-core#innerCore
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: N:bpN:p0:partial-definite#HasDefiniteFastPart
 KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-definite@L292-L299
 DISPOSITION: NODE N:bpN:p0:partial-definite#HasDefiniteFastPart
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: N:bpN:p0:partial-domain#partialComplexDomain
 KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-domain@L284-L290
 DISPOSITION: NODE N:bpN:p0:partial-domain#partialComplexDomain
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: N:bpN:p0:partial-pert#IsPartialPerturbation
 KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-pert@L301-L311
 DISPOSITION: NODE N:bpN:p0:partial-pert#IsPartialPerturbation
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: N:bpN:p0:partial-sec#degenerateHamiltonian
 KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L324-L324
-DISPOSITION: NODE N:bpN:p0:partial-sec#degenerateHamiltonian
-REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
+DISPOSITION: EXCLUDED
+REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/N/DEPGRAPH.md node bpN:p0:partial-sec#degenerateHamiltonian
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
@@ -622,8 +622,8 @@ REVIEWER: -
 ITEM: N:bpN:p0:partial-sec#fast
 KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L265-L266
-DISPOSITION: NODE N:bpN:p0:partial-sec#fast
-REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
+DISPOSITION: EXCLUDED
+REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/N/DEPGRAPH.md node bpN:p0:partial-sec#fast
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
@@ -633,24 +633,24 @@ KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:sol@L165-L172
 DISPOSITION: NODE N:bpN:p0:sol#IsSolutionOn
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: N:bpN:p3:gen-uniform
 KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uniform@L136-L141
 DISPOSITION: NODE N:bpN:p3:gen-uniform
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p0:domains#actionNbhd
 KIND: external
 SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
-DISPOSITION: NODE K:bp:p0:domains#actionNbhd
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+DISPOSITION: EXCLUDED
+REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/K/DEPGRAPH.md node bp:p0:domains#actionNbhd
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
@@ -660,15 +660,15 @@ KIND: external
 SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:conventions@L19-L20
 DISPOSITION: NODE K:bp:p0:domains#complexStrip
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p0:domains#fundamentalDomain
 KIND: external
 SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
-DISPOSITION: NODE K:bp:p0:domains#fundamentalDomain
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+DISPOSITION: EXCLUDED
+REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/K/DEPGRAPH.md node bp:p0:domains#fundamentalDomain
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
@@ -687,27 +687,27 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:exp-sums@L727-L734
 DISPOSITION: NODE K:bp:p1:exp-sums
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:ext-cauchy
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cauchy@L56-L66
 DISPOSITION: NODE K:bp:p1:ext-cauchy
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:ext-measure
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L100-L109
 DISPOSITION: NODE K:bp:p1:ext-measure
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:fourier-basic
 KIND: external
@@ -721,8 +721,8 @@ REVIEWER: -
 ITEM: K:bp:p1:iteration
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1009-L1014
-DISPOSITION: NODE K:bp:p1:iteration
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+DISPOSITION: EXCLUDED
+REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/K/DEPGRAPH.md node bp:p1:iteration
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
@@ -732,9 +732,9 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1203-L1207
 DISPOSITION: NODE K:bp:p1:lipeo
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:summation
 KIND: external
@@ -757,8 +757,8 @@ REVIEWER: -
 ITEM: N:bpN:p4:bracket
 KIND: external
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L149-L153
-DISPOSITION: NODE N:bpN:p4:bracket
-REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
+DISPOSITION: EXCLUDED
+REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/N/DEPGRAPH.md node bpN:p4:bracket
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
@@ -768,24 +768,24 @@ KIND: external
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:ext-param@L23-L25
 DISPOSITION: NODE N:bpN:p4:ext-param
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: N:bpN:p4:general-cauchy
 KIND: external
 SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:general-cauchy@L171-L174
 DISPOSITION: NODE N:bpN:p4:general-cauchy
 REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports
 
 ITEM: K:bp:p1:ext-integral
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L82-L86
 DISPOSITION: NODE K:bp:p1:ext-integral
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-review-P-imports

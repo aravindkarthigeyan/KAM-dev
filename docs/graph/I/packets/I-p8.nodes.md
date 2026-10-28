@@ -335,9 +335,9 @@ EDGE: stepI:p8:ce-compact | blueprint-I/parts/p8-r3bp.tex#bpI:p8:collision-exclu
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: exclusionMu, exclusionMu_pos, collision_exclusion_quant, collision_exclusion_compact_attained (KAM/Iso/Collision.lean)
+LEAN_NOTE: audit P8-1 audit-1 + audit-2 PASS (P81-01 closed by attained-minimum theorem); generalized length carrier
 NOTE: Used by shell-exclusion (hence by pf-dist); also cited by track P (not a reason for inclusion here).
 
 NODE: stepI:p8:ce-quant
@@ -362,9 +362,9 @@ EDGE: bpI:p8:x-norm | blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-quant@L100-L100 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: collision_exclusion_quant (KAM/Iso/Collision.lean)
+LEAN_NOTE: audit P8-1 audit-1 PASS WITH NOTES; named ce-quant
 NOTE: -
 
 NODE: stepI:p8:ce-compact
@@ -390,9 +390,9 @@ EDGE: stepI:p8:ce-quant | blueprint-I/parts/p8-r3bp.tex#stepI:p8:ce-compact@L102
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: collision_exclusion_compact_attained, collision_exclusion_compact (KAM/Iso/Collision.lean)
+LEAN_NOTE: audit P8-1 audit-2 PASS closes audit-1 P81-01; named ce-compact
 NOTE: -
 
 NODE: bpI:p8:shell-exclusion
@@ -421,9 +421,9 @@ EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p8-r3bp.tex#bpI:p8:shel
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: shell_exclusion, shell_collisionFree (KAM/Iso/Collision.lean)
+LEAN_NOTE: audit P8-1 audit-1 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p8:se-inst
@@ -453,9 +453,9 @@ EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p8-r3bp.tex#stepI:p8:se
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: shell_exclusion (KAM/Iso/Collision.lean)
+LEAN_NOTE: audit P8-1 audit-1 PASS WITH NOTES; named se-inst
 NOTE: -
 
 NODE: bpI:p8:safe
@@ -1124,7 +1124,7 @@ EDGE: bpI:p7:sec-ham#data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:pf-uniq@L229-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.R3bp.restricted_unique (KAM/Iso/R3bp/Uniqueness.lean)
+LEAN_NOTE: audit P8-6 PASS; exact design signature
 NOTE: -

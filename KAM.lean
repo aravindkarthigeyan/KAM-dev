@@ -206,8 +206,14 @@ public import KAM.Iso.Apost.Constants
 public import KAM.Iso.Apost.ConstantsArith
 public import KAM.Iso.Apost.Correction
 public import KAM.Iso.Apost.Defs
+public import KAM.Iso.Apost.Iteration
+public import KAM.Iso.Apost.Limit
+public import KAM.Iso.Apost.NewtonError
 public import KAM.Iso.Apost.Schedule
 public import KAM.Iso.Apost.Standing
+public import KAM.Iso.Apost.Step
+public import KAM.Iso.Apost.Torsion
+public import KAM.Iso.Apost.TorsionDiff
 public import KAM.Iso.Charts.Chart
 public import KAM.Iso.Charts.Constants
 public import KAM.Iso.Charts.Coordinates
@@ -228,6 +234,7 @@ public import KAM.Iso.Confinement.RealHam
 public import KAM.Iso.Confinement.Separation
 public import KAM.Iso.Confinement.Setting
 public import KAM.Iso.Conversion
+public import KAM.Iso.ExactHamiltonian
 public import KAM.Iso.Kepler
 public import KAM.Iso.KeplerHamiltonian
 public import KAM.Iso.Linear.BorderSolve
@@ -253,6 +260,7 @@ public import KAM.Kepler.Energy
 public import KAM.Kepler.Equation
 public import KAM.Kepler.EquationComplex
 public import KAM.Kepler.KeplerTube
+public import KAM.Kepler.Mass
 public import KAM.Kepler.Means
 public import KAM.Kepler.Orbit
 public import KAM.Kepler.OrbitComplex

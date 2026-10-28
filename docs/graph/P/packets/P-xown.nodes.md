@@ -283,9 +283,9 @@ ROUTE_FOR: -
 EDGE: stepI:p7:sc-alg | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-flow@L321-L321 | energy rescaling and the symplectic matrix identity supply the local field calculation
 EDGE: bpI:p7:means | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-flow@L321-L321 | unit-strength mean values give the scaled averages
 EDGE: I:bpI:p7:orbit-identities | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sc-flow@L321-L321 | part (c) supplies E_1=-1/(2a), a=L^2, used in the final scaled-energy identity
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-delta-P-p
-REVIEWER: -
+REVIEWER: sol-delta-P-ah
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

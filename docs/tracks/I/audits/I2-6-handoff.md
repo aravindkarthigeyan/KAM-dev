@@ -1,0 +1,4 @@
+# I2-6 prover handoff (branch inp-i26, 11adb28; contains inp-i24 and inp-i25 (in audit / queued); offloaded package run by the main orchestrator)
+
+File KAM/Iso/Apost/Step.lean (103 lines). Node bpI:p2:step = KAM.Iso.Apost.step (verbatim). Pure assembly (as K's KAM.Apost.step): hK.freq hS; Arith.iso_step_small (I2-2) → hsym, d ≤ β/2, 2𝔪C_{Δ𝖳}d/δ² ≤ 1; correction (I2-3); newton_error (I2-4); torsion_step (I2-5); TorsionAux.isoNewtonMap_of_mem.
+AUDIT FOCUS (design docs/tracks/I/design/PART123-LEAN-DESIGN.md v2 §7 row I2-6; audits PART123-design-audit-{1,2}.md; blueprint-I p2 step): (1) step = blueprint (all items, constants, strips, the moving frequency s̄); (2) each input lemma's premises are discharged from the step hypotheses (no circularity); (3) hygiene. Audit only Step.lean (the inputs are audited separately: git diff inp-i24...HEAD restricted to KAM/Iso/Apost/Step.lean).

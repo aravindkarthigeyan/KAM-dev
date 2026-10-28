@@ -1319,8 +1319,8 @@ PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L234-L239
 CONTRACT_ID: bpP:p7:lattice
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the physical product-chart data of Part 7 (n>=1, G,m0>0, positive m, kappa=G m0); Psi^(n) and O_n of product-def; Theta_n((phi,psi),(I,R))=((phi,sqrt(2R) sin psi),(I,sqrt(2R) cos psi)) on O_0={I_i>0,0<R_i<I_i}, Phi_n:=Psi^(n) o Theta_n; S_2pi denotes the linear position-scaling map used in (c)
-SOURCE_QUANTIFIERS: n >= 1; (a)-(d) for z, z prime in O_0, k in Z^2n
-SOURCE_CONCLUSION: (a) Theta_n and Phi_n are 1-charts on O_0 and O_0 + iota prime_k = O_0 for iota prime_k = ((2 pi k, 0), 0); (b) Phi_n(z + iota prime_k) = Phi_n(z) and Phi_n(z prime) = Phi_n(z) implies z prime = z + iota prime_k: (Q1) with sigma_k = 0 and (Q2) of bpP:p1:torus-transport in the radian convention; (c) Phi_n^(1) = Phi_n o S_2pi is a 2 pi-chart on S_2pi^{-1}(O_0) with (Q1), (Q2) for iota_k = (k, 0), so Corollary phys-pipeline applies to Phi_n and torus-transport (b) to Phi_n^(1); (d) H^{Phi_n} = H o Psi^(n) o Theta_n = h(I) + mu f^ o Theta_n, the unperturbed part independent of psi, R
+SOURCE_QUANTIFIERS: n >= 1 and the fixed physical product-chart data; lattice invariance for every z in O_0 and k in Z^2n; injectivity modulo the lattice for every z,z prime in O_0 with equal images, then existence of a lattice shift m in Z^2n; (c),(d) on the stated chart domains
+SOURCE_CONCLUSION: (a) Theta_n and Phi_n are 1-charts on O_0 and O_0 + iota prime_k = O_0 for iota prime_k = ((2 pi k, 0), 0); (b) Phi_n(z + iota prime_k) = Phi_n(z) and Phi_n(z prime) = Phi_n(z) implies z prime = z + iota prime_m for some m in Z^2n: (Q1) with sigma_k = 0 and (Q2) of bpP:p1:torus-transport in the radian convention; (c) Phi_n^(1) = Phi_n o S_2pi is a 2 pi-chart on S_2pi^{-1}(O_0) with (Q1), (Q2) for iota_k = (k, 0), so Corollary phys-pipeline applies to Phi_n and torus-transport (b) to Phi_n^(1); (d) H^{Phi_n} = H o Psi^(n) o Theta_n = h(I) + mu f^ o Theta_n, the unperturbed part independent of psi, R
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1333,15 +1333,15 @@ EDGE: stepP:p7:la-polar | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattic
 EDGE: stepP:p7:la-inv | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L236-L236 | proof step (b)
 EDGE: stepP:p7:la-per | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L237-L237 | proof step (c)
 EDGE: stepP:p7:la-ham | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L238-L238 | proof step (d)
-EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L223-L223 | Psi^(n), O_n
-EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L223-L223 | the chart Psi^(n) and the set O_n
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L235-L235 | Psi^(n), O_n
+EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L224-L226 | the chart Psi^(n) and the set O_n
 EDGE: bpP:p1:typical | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L226-L226 | Remark typical (1): the polar chart formula
 EDGE: bpP:p1:torus-transport | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L229-L229 | (Q1)-(Q2) and torus transport (b)
 EDGE: bpP:p1:period-convert | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L230-L230 | S_2pi and the period-one convention
 EDGE: bpP:p1:phys-pipeline | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L230-L230 | Corollary phys-pipeline applies to Phi_n
-EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L232-L232 | the pulled-back Hamiltonian H^Phi
+EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L231-L231 | the pulled-back Hamiltonian H^Phi
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: writer-pfixed-revision+sol-review-P-w
+EXTRACTOR: writer-pfixed-revision+sol-delta-P-ah
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1370,9 +1370,9 @@ EDGE: bpP:p1:typical | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-pola
 EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235 | definition of a 1-chart
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235 | O_n = {Gamma < Lambda}
 EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235 | Product-chart(a) supplies that Psi^(n) is a 1-chart on O_n, needed in the composition with Theta_n.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision+sol-review-P-w
-REVIEWER: -
+REVIEWER: sol-delta-P-ah
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1386,19 +1386,20 @@ PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236
 CONTRACT_ID: stepP:p7:la-inv
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the original lattice setting: the physical product-chart data, Psi^(n), O_n, Theta_n and O_0 as explicitly defined in L223-L226; take z in O_0 and k=(k_phi,k_psi) in Z^2n; for the injectivity implication take z prime in O_0 with Phi_n(z prime)=Phi_n(z); periodicity and the product-chart invariance/injectivity conclusions are supplied by the computation and DEPS
-SOURCE_QUANTIFIERS: z, z prime in O_0, k = (k_phi, k_psi) in Z^2n
-SOURCE_CONCLUSION: Theta_n(z + iota prime_k) = Theta_n(z) + ((2 pi k_phi, 0), 0); if Phi_n(z prime) = Phi_n(z) then Theta_n(z prime) = Theta_n(z) + ((2 pi k_phi, 0), 0), so phi prime = phi + 2 pi k_phi, I prime = I and, as R, R prime > 0, R prime = R and psi prime - psi in 2 pi Z^n
+SOURCE_QUANTIFIERS: for the shift identity, z in O_0 and k=(k_phi,k_psi) in Z^2n; for injectivity, z,z prime in O_0 with equal Phi_n images, then existence of m_phi,m_psi in Z^n
+SOURCE_CONCLUSION: Theta_n(z + iota prime_k) = Theta_n(z) + ((2 pi k_phi, 0), 0); if Phi_n(z prime) = Phi_n(z) then for some m_phi in Z^n, Theta_n(z prime) = Theta_n(z) + ((2 pi m_phi, 0), 0), so phi prime = phi + 2 pi m_phi, I prime = I and, as R, R prime > 0, R prime = R and psi prime - psi = 2 pi m_psi for some m_psi in Z^n
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:product-chart
+DEPS: bpP:p7:product-chart, bpP:p7:product-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236 | invariance of Psi^(n) under 2 pi Z^n-shifts of lambda and injectivity modulo them (a)
+EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236 | defines Psi^(n) and O_n used by the invariance and equal-image argument
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: writer-pfixed-revision+sol-review-P-w
+EXTRACTOR: writer-pfixed-revision+sol-delta-P-ah
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1427,9 +1428,9 @@ EDGE: bpP:p1:period-convert | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:
 EDGE: bpP:p1:typical | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237 | Remark typical (3): composition of charts
 EDGE: stepP:p7:la-polar | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237 | Phi_n is a 1-chart (a)
 EDGE: stepP:p7:la-inv | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237 | invariance and injectivity modulo shifts (b)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision+sol-review-P-w
-REVIEWER: -
+REVIEWER: sol-delta-P-ah
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1450,13 +1451,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:product-chart, bpP:p1:chart
+DEPS: bpP:p7:product-chart, bpP:p1:chart, bpP:p7:product-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238 | (b),(c): H o Psi^(n) = h(Lambda) + mu f^
 EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238 | 1-chart (c = 1): the pulled-back Hamiltonian is H o Phi_n
+EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238 | defines the product map Psi^(n) and integrable Hamiltonian h used in the pulled-back expression
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: writer-pfixed-revision+sol-review-P-w
+EXTRACTOR: writer-pfixed-revision+sol-delta-P-ah
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1677,9 +1679,9 @@ EDGE: I:bpI:p7:orbit-maps | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv
 EDGE: I:bpI:p7:symplectic | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L33-L33 | (Q^I)^*(sum dq^dp)=dell^dL+dg^dG
 EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L30-L30 | Gamma=R(eta,xi) explicitly identifies the oscillator action
 EDGE: bpP:p14:sb-conv#quarterTurn | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L32-L32 | J_0 v=(-v_1,v_0) explicitly identifies quarterTurn
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-q
-REVIEWER: -
+REVIEWER: sol-delta-P-ah
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

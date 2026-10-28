@@ -22,9 +22,9 @@ EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p6-kepler.tex#bpI:p6:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.keplerBorder_det (KAM/Iso/Kepler.lean)
+LEAN_NOTE: audit W1-seal-1 PASS: all real kappa, Omega, positive L, exact rational determinant
 NOTE: -
 
 NODE: stepI:p6:expand
@@ -105,9 +105,9 @@ EDGE: bpI:p0:keplerborder#keplerBorder | blueprint-I/parts/p6-kepler.tex#bpI:p6:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.kepler_bordered_det (KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean); KAM.Iso.keplerBorder_det_pos (KAM/Iso/Kepler.lean)
+LEAN_NOTE: I-KEPLER anchor SEALED (manifest); audit W1-seal-1 PASS WITH NOTES
 NOTE: Proof of the frozen anchor bpI:p0:kepler (see its EDGE there); statement reference to the anchor dropped by SPEC (proved-in)
 
 NODE: stepI:p6:k-value
@@ -185,9 +185,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerRotH, differentiableOn_keplerRotH, keplerRotH_real (KAM/Iso/KeplerHamiltonian.lean)
+LEAN_NOTE: audit I-1 PASS WITH NOTES; definition + holomorphy off I_1=0 + reality
 NOTE: standing definition package of Parts 6-8 (SPEC)
 
 NODE: bpI:p6:kep-border
@@ -220,9 +220,9 @@ EDGE: stepI:p6:kb-det | blueprint-I/parts/p6-kepler.tex#bpI:p6:kep-border@L106-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: frequencyMap_keplerRotH, fderiv_frequencyMap_keplerRotH, borderedHessian_keplerRotH, det_borderedHessian_keplerRotH, finThreeEquivSumUnit (KAM/Iso/KeplerHamiltonian.lean)
+LEAN_NOTE: audit I-1 PASS WITH NOTES; all four clauses of the lemma
 NOTE: -
 
 NODE: stepI:p6:kb-real
@@ -247,9 +247,9 @@ EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-real@L90-L90 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: re_keplerRotH_real, keplerRotH_real (KAM/Iso/KeplerHamiltonian.lean)
+LEAN_NOTE: audit I-1 PASS WITH NOTES; named step kb-real (private helper re_keplerRotH_real)
 NOTE: -
 
 NODE: stepI:p6:kb-grad
@@ -276,9 +276,9 @@ EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-grad@L95-L95 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: frequencyMap_keplerRotH, hasFDerivAt_keplerRotH_real (KAM/Iso/KeplerHamiltonian.lean)
+LEAN_NOTE: audit I-1 PASS WITH NOTES; named step kb-grad
 NOTE: -
 
 NODE: stepI:p6:kb-hess
@@ -305,9 +305,9 @@ EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-hess@L98-L99 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: fderiv_frequencyMap_keplerRotH, hasFDerivAt_frequencyMap_keplerRotH (KAM/Iso/KeplerHamiltonian.lean)
+LEAN_NOTE: audit I-1 PASS WITH NOTES; named step kb-hess
 NOTE: -
 
 NODE: stepI:p6:kb-entries
@@ -336,9 +336,9 @@ EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-entries@L101-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: borderedHessian_keplerRotH (KAM/Iso/KeplerHamiltonian.lean)
+LEAN_NOTE: audit I-1 PASS WITH NOTES; named step kb-entries
 NOTE: -
 
 NODE: stepI:p6:kb-det
@@ -366,9 +366,9 @@ EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:kb-det@L106-L107
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: det_borderedHessian_keplerRotH (KAM/Iso/KeplerHamiltonian.lean)
+LEAN_NOTE: audit I-1 PASS WITH NOTES; named step kb-det (uses I-0 keplerBorder_det)
 NOTE: -
 
 NODE: bpI:p6:conversion-map
@@ -392,9 +392,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: periodOneMap, periodOneMapC, periodOneCLM, periodOneInvCLM (KAM/Iso/Conversion.lean)
+LEAN_NOTE: audit I-2 PASS WITH NOTES; definition landed
 NOTE: 2 pi conversion package of Parts 6-8 (SPEC); the K reference in its \source is provenance
 
 NODE: bpI:p6:conversion
@@ -425,9 +425,9 @@ EDGE: stepI:p6:cv-border | blueprint-I/parts/p6-kepler.tex#bpI:p6:conversion@L15
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-review-I-p67
 REVIEWER: sol-delta-I-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: periodOneMap_symplectic, periodOneMap_hamiltonianVectorField, periodOneMap_hasDerivAt_iff, keplerRotH_comp_div, frequencyMap_comp_div, keplerBorder_conversion, borderedHessian_conversion (KAM/Iso/Conversion.lean)
+LEAN_NOTE: audit I-2 PASS WITH NOTES; parts (a)-(d); (b) proved in stronger total-division form
 NOTE: -
 
 NODE: stepI:p6:cv-sympl
@@ -452,9 +452,9 @@ EDGE: bpI:p6:conversion-map | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-sympl@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: periodOneMap_symplectic, periodOneMap_hamiltonianVectorField, periodOneMap_hasDerivAt_iff (KAM/Iso/Conversion.lean)
+LEAN_NOTE: audit I-2 PASS WITH NOTES; named step cv-sympl
 NOTE: -
 
 NODE: stepI:p6:cv-ham
@@ -480,9 +480,9 @@ EDGE: bpI:p6:conversion-map | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-ham@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerRotH_comp_div (KAM/Iso/Conversion.lean)
+LEAN_NOTE: audit I-2 PASS WITH NOTES; named step cv-ham
 NOTE: -
 
 NODE: stepI:p6:cv-border
@@ -512,9 +512,9 @@ EDGE: bpI:p6:det-formula | blueprint-I/parts/p6-kepler.tex#stepI:p6:cv-border@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: frequencyMap_comp_div, keplerBorder_conversion, borderedHessian_conversion (KAM/Iso/Conversion.lean)
+LEAN_NOTE: audit I-2 PASS WITH NOTES; named step cv-border
 NOTE: -
 
 NODE: bpI:p6:nondeg
@@ -545,9 +545,9 @@ EDGE: stepI:p6:nd-concl | blueprint-I/parts/p6-kepler.tex#bpI:p6:nondeg@L162-L16
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nondeg_period_one (KAM/Iso/Conversion.lean); differentiableOn_keplerRotH, keplerRotH_real, det_borderedHessian_keplerRotH (KAM/Iso/KeplerHamiltonian.lean)
+LEAN_NOTE: audit I-2 PASS WITH NOTES; nondeg_period_one plus imported I-1 API cover all clauses (I-2 audit says so)
 NOTE: -
 
 NODE: stepI:p6:nd-domain
@@ -572,9 +572,9 @@ EDGE: bpI:p0:domains#actionNbhd | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-do
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nondeg_period_one (KAM/Iso/Conversion.lean)
+LEAN_NOTE: audit I-2 PASS WITH NOTES; named step nd-domain
 NOTE: -
 
 NODE: stepI:p6:nd-concl
@@ -602,9 +602,9 @@ EDGE: bpI:p6:kep-ham | blueprint-I/parts/p6-kepler.tex#stepI:p6:nd-concl@L162-L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nondeg_period_one (KAM/Iso/Conversion.lean); det_borderedHessian_keplerRotH (KAM/Iso/KeplerHamiltonian.lean)
+LEAN_NOTE: audit I-2 PASS WITH NOTES; named step nd-concl
 NOTE: -
 
 NODE: bpI:p7:x-hol
@@ -793,9 +793,9 @@ EDGE: stepI:p7:he-sol | blueprint-I/parts/p7-delaunay.tex#bpI:p7:ham-eq@L69-L69 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: analyticOnNhd_restrictedHamTotal, restrictedVectorField_eq_hamiltonian, isRestrictedSolutionOn_iff, restrictedHamiltonian_eq (KAM/Iso/RestrictedHam.lean)
+LEAN_NOTE: audit I-3 PASS WITH NOTES (p7:ham-eq rows); steps he-* not named in audit, left
 NOTE: -
 
 NODE: stepI:p7:he-smooth
@@ -920,9 +920,9 @@ EDGE: stepI:p7:ke-c | blueprint-I/parts/p7-delaunay.tex#bpI:p7:kepler-eq@L133-L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerEq_tube, keplerTube_real_points, eccAnomC_periodic, eccAnomC_zero_ecc, hasDerivAt_eccAnomC_ell, hasDerivAt_eccAnomC_ecc, isOpen_keplerTube (KAM/Kepler/KeplerTube.lean); eccAnom_eq, analyticOnNhd_eccAnom, strictMono_eccAnom (KAM/Kepler/Equation.lean)
+LEAN_NOTE: audit KEP-4 PASS WITH NOTES (complex tube) + KEP-2 PASS (real part c); full real slice by KEP-4 N1 composition
 NOTE: Part 7 L113 sourcegap: Chi05 gives no domain; the blueprint supplies the full argument in this node and its steps
 
 NODE: stepI:p7:ke-const
@@ -946,9 +946,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerConstants_pos, tube_bounds (KAM/Kepler/KeplerTube.lean)
+LEAN_NOTE: audit KEP-4 PASS WITH NOTES; scalar constants/tube helpers (KAM.Kepler.Tube.*); parent keplerEq_tube covers
 NOTE: -
 
 NODE: stepI:p7:ke-trig
@@ -972,9 +972,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: norm_sin_le, abs_re_sin_le, abs_im_sin_le (KAM/Kepler/EquationComplex.lean)
+LEAN_NOTE: audit KEP-3 PASS WITH NOTES; named I ke-trig (namespace KAM.Kepler.EqC)
 NOTE: -
 
 NODE: stepI:p7:ke-contr
@@ -1002,9 +1002,9 @@ EDGE: K:bp:p1:ext-banach | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-contr@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: existsUnique_keplerOp (KAM/Kepler/EquationComplex.lean); keplerData_tube (KAM/Kepler/KeplerTube.lean)
+LEAN_NOTE: audit KEP-3/KEP-4 PASS WITH NOTES; named I ke-contr; instantiated on tube (Tube.keplerData_tube)
 NOTE: -
 
 NODE: stepI:p7:ke-hol
@@ -1033,9 +1033,9 @@ EDGE: bpI:p7:x-weier | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-hol@L127-L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerSol_analyticOnNhd (KAM/Kepler/EquationComplex.lean); eccAnomC_analyticOnNhd (KAM/Kepler/KeplerTube.lean)
+LEAN_NOTE: audit KEP-3/KEP-4 PASS WITH NOTES; named I ke-hol (analytic IFT route instead of uniform limit)
 NOTE: -
 
 NODE: stepI:p7:ke-a
@@ -1062,9 +1062,9 @@ EDGE: stepI:p7:ke-const | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-a@L129-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerEq_tube, tube_bounds (KAM/Kepler/KeplerTube.lean)
+LEAN_NOTE: audit KEP-4 PASS WITH NOTES; keplerEq_tube gives all four analytic bounds
 NOTE: -
 
 NODE: stepI:p7:ke-b
@@ -1091,9 +1091,9 @@ EDGE: stepI:p7:ke-contr | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-b@L131-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerSol_fderiv, keplerSol_shift (KAM/Kepler/EquationComplex.lean); hasDerivAt_eccAnomC_ell, hasDerivAt_eccAnomC_ecc, eccAnomC_periodic, eccAnomC_zero_ecc (KAM/Kepler/KeplerTube.lean)
+LEAN_NOTE: audit KEP-3/KEP-4 PASS WITH NOTES; named I ke-b
 NOTE: -
 
 NODE: stepI:p7:ke-c
@@ -1123,9 +1123,9 @@ EDGE: K:bp:p1:ext-mvt | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ke-c@L133-L13
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerSol_real (KAM/Kepler/EquationComplex.lean); keplerTube_real_points (KAM/Kepler/KeplerTube.lean); eccAnom_eq, strictMono_eccAnom, analyticOnNhd_eccAnom (KAM/Kepler/Equation.lean)
+LEAN_NOTE: audit KEP-3/KEP-4/KEP-2 PASS (WITH NOTES); named I ke-c; real slice KEP-4 N1
 NOTE: -
 
 NODE: bpI:p7:elements
@@ -1206,9 +1206,9 @@ EDGE: stepI:p7:om-per | blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps-e@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: orbitMapC_differentiableOn, orbitMapC_periodic, orbitMapC_real, orbitMapC_ofReal, orbitDomC_mem_ofReal (KAM/Kepler/OrbitComplex.lean)
+LEAN_NOTE: audit KEP-9 PASS WITH NOTES; steps om-hol/om-per not named, left
 NOTE: -
 
 NODE: stepI:p7:om-hol
@@ -1439,9 +1439,9 @@ EDGE: stepI:p7:sy-field | blueprint-I/parts/p7-delaunay.tex#bpI:p7:symplectic@L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sonnet-amend-I-p1
 REVIEWER: sol-delta2-I-amend
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: delaunay_symplectic, delaunay_liouville, delaunay_hasFDerivAt, delaunay_fderiv_equiv, delaunay_hamiltonianVectorField (KAM/Kepler/DelaunaySymplectic.lean)
+LEAN_NOTE: audit KEP-6 PASS WITH NOTES; curve iff of Hamiltonian transport not a separate decl (follows from invertibility); steps sy-* left
 NOTE: -
 
 NODE: stepI:p7:sy-g
@@ -1620,7 +1620,7 @@ EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: audit KEP-7 PASS WITH NOTES covers periodicity/injectivity/image/local charts via delaunay_*; E,Gamma o Q and symplectic clauses rest on KEP-5/KEP-6 imports (KEP-5 has no passing audit)
 NOTE: -
 
 NODE: stepI:p7:ch-reg
@@ -1650,9 +1650,9 @@ EDGE: K:bp:p1:holomorphic-analytic | blueprint-I/parts/p7-delaunay.tex#stepI:p7:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: delaunay_localDiffeo (KAM/Kepler/DelaunayChart.lean)
+LEAN_NOTE: audit KEP-7 PASS WITH NOTES; named step (ch-reg)
 NOTE: -
 
 NODE: stepI:p7:ch-inj
@@ -1679,9 +1679,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-inj@L250
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: delaunay_eq_iff (KAM/Kepler/DelaunayChart.lean)
+LEAN_NOTE: audit KEP-7 PASS WITH NOTES; named step (ch-inj)
 NOTE: -
 
 NODE: stepI:p7:ch-surj1
@@ -1706,9 +1706,9 @@ EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj1@L252
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerRegion_subset_image (KAM/Kepler/DelaunayChart.lean)
+LEAN_NOTE: audit KEP-7 PASS WITH NOTES; named step (ch-surj1..3)
 NOTE: -
 
 NODE: stepI:p7:ch-surj2
@@ -1735,9 +1735,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj2@L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerRegion_subset_image (KAM/Kepler/DelaunayChart.lean)
+LEAN_NOTE: audit KEP-7 PASS WITH NOTES; named step (ch-surj1..3)
 NOTE: -
 
 NODE: stepI:p7:ch-surj3
@@ -1764,9 +1764,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-surj3@L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: keplerRegion_subset_image (KAM/Kepler/DelaunayChart.lean)
+LEAN_NOTE: audit KEP-7 PASS WITH NOTES; named step (ch-surj1..3)
 NOTE: -
 
 NODE: stepI:p7:ch-diffeo
@@ -1796,9 +1796,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:ch-diffeo@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p67a+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: delaunay_localDiffeo, delaunay_periodic (KAM/Kepler/DelaunayChart.lean)
+LEAN_NOTE: audit KEP-7 PASS WITH NOTES; named step (ch-reg, ch-diffeo)
 NOTE: -
 
 NODE: bpI:p7:sec-ham#data

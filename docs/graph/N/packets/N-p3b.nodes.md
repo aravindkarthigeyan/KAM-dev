@@ -25,9 +25,9 @@ EDGE: stepN:p3:exit-sup | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-ex
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_exit, KAM.ODE.exitSet (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:exit-closed
@@ -168,9 +168,9 @@ EDGE: stepN:p3:hs-comp | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smo
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_smooth, KAM.ODE.ham_smooth_c1 (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: audit N3-2 PASS WITH NOTES
 NOTE: prose-L372-L375 (phase space P, X_H, partials) is recorded here and in ham-energy, ham-periodic, ham-reduction
 
 NODE: stepN:p3:hs-deriv
@@ -253,9 +253,9 @@ EDGE: stepN:p3:en-const | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-en
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_energy (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:en-chain
@@ -281,9 +281,9 @@ EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.te
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_energy (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: chain rule inside ham_energy; audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:en-cancel
@@ -308,9 +308,9 @@ EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.te
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.clm_ham_zero (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: private helper (with clm_fst_eq, clm_snd_eq); audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:en-const
@@ -337,9 +337,9 @@ EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-con
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_energy (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: segment constancy inside ham_energy; audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:ham-periodic
@@ -367,9 +367,9 @@ EDGE: stepN:p3:per-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-per
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_periodic (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: audit N3-2 PASS WITH NOTES; H-identity stated only for t in J (design correction)
 NOTE: -
 
 NODE: stepN:p3:per-field
@@ -456,9 +456,9 @@ EDGE: stepN:p3:red-diff | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-re
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_reduction (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: audit N3-2 PASS WITH NOTES; stronger (U need not be open)
 NOTE: kept as one node (SPEC ruling); \frozen tags name IsSolutionOn and IsHamiltonianSolutionOn; the two predicates have the same formula up to naming of the action set
 
 NODE: stepN:p3:red-mem
@@ -514,9 +514,9 @@ EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.te
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.diff_of_mem (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: private helper; audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:s-N#data
@@ -573,9 +573,9 @@ EDGE: stepN:p3:hi-cite | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-in
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.holo_input (KAM/Nekhoroshev/Interfaces/HoloReal.lean)
+LEAN_NOTE: audit P1-2 PASS WITH NOTES; smoothness, field identity, periodicity
 NOTE: hi-reg and hi-per ('for orientation', repeating the argument of bpN:p1:holo-real) are not nodes; forward pointer: bpN:p1:holo-real(b)-(d) is the proof, cited at hi-cite
 
 NODE: stepN:p3:hi-cite
@@ -631,9 +631,9 @@ EDGE: stepN:p3:le-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-delta-N-c
 REVIEWER: sol-delta2-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.ODE.local_exist (KAM/Nekhoroshev/ODE/Specialization.lean)
+LEAN_NOTE: audit N3-10b PASS
 NOTE: -
 
 NODE: stepN:p3:le-red
@@ -723,9 +723,9 @@ EDGE: stepN:p3:uc-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:unique
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.ODE.uniqueness_closed (KAM/Nekhoroshev/ODE/Specialization.lean)
+LEAN_NOTE: audit N3-10b PASS
 NOTE: -
 
 NODE: stepN:p3:uc-apply
@@ -782,9 +782,9 @@ EDGE: stepN:p3:cg-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confine
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.ODE.confinement_glue (KAM/Nekhoroshev/ODE/Specialization.lean)
+LEAN_NOTE: audit N3-10b PASS
 NOTE: constants: ρ = Cε^{1/(2n)} when used in Part 10; the proof does not cite local-exist/continuation (SPEC check)
 
 NODE: stepN:p3:cg-set

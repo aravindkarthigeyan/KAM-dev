@@ -21,9 +21,9 @@ EDGE: bpI:p0:hamiltonian#hamiltonianVectorFieldC | blueprint-I/parts/p2-iso-iter
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: sol-review-I-p2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.IsoStanding (KAM/Iso/Apost/Defs.lean)
+LEAN_NOTE: Definition formalized (structure); audit I-D0-2 PASS (I-D0-1 table), nothing to prove
 NOTE: -
 
 NODE: bpI:p2:standing#k-bridge
@@ -53,9 +53,9 @@ EDGE: K:bp:p2:objects | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:standing#k
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.IsoStanding.setting (KAM/Iso/Apost/Standing.lean)
+LEAN_NOTE: audit I2-1 PASS WITH NOTES: Part-1 Setting and K-standing at s*omega
 NOTE: No SOURCE_GAP for the common-data transfer: n>=2,tau>=n-1 and all K Hamiltonian bounds are present, and the ray lemma pays Diophantinity. The sentence about Part 1 is read in its local r,K context; B1,B2,B4 supply its remaining premises wherever the frame is used. This bridge does not imply A5 or every K theorem hypothesis.
 
 NODE: bpI:p2:ray
@@ -83,9 +83,9 @@ EDGE: stepI:p2:ray-margin | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:ray@L6
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: sol-review-I-p2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.ray (KAM/Iso/Apost/Standing.lean); KAM.Iso.Apost.rayMargin (KAM/Iso/Apost/Defs.lean)
+LEAN_NOTE: audit I2-1 PASS WITH NOTES: all six conjuncts
 NOTE: -
 
 NODE: stepI:p2:ray-dio
@@ -168,9 +168,9 @@ EDGE: bpI:p2:standing#k-bridge | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.iso_constants_spec (KAM/Iso/Apost/Constants.lean); KAM.Iso.Apost.hatCS (KAM/Iso/Apost/Defs.lean)
+LEAN_NOTE: audit I2-2 PASS WITH NOTES (defs by I-D0-2); iso_constants_spec = Appendix A conjunction
 NOTE: -
 
 NODE: bpI:p2:admissible
@@ -208,9 +208,9 @@ EDGE: bpI:p2:ray | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:admissible@L106
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.IsoAdmissible (KAM/Iso/Apost/Defs.lean); KAM.Iso.Apost.IsoAdmissible.freq (KAM/Iso/Apost/Standing.lean)
+LEAN_NOTE: Definition formalized (I-D0-2 PASS); freq display proved in audit I2-1 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p2:correction
@@ -245,9 +245,9 @@ EDGE: stepI:p2:co-reg | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:correction
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.correction (KAM/Iso/Apost/Correction.lean)
+LEAN_NOTE: audit I2-3 PASS WITH NOTES: complete correction bounds and regularity
 NOTE: -
 
 NODE: stepI:p2:co-data
@@ -481,9 +481,9 @@ EDGE: stepI:p2:ne-energy | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:newton-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.newton_error (KAM/Iso/Apost/NewtonError.lean)
+LEAN_NOTE: audit I2-4 PASS WITH NOTES: all six conclusions
 NOTE: -
 
 NODE: stepI:p2:ne-invert
@@ -689,9 +689,9 @@ EDGE: stepI:p2:to-inv | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:torsion@L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.torsion_step (KAM/Iso/Apost/Torsion.lean)
+LEAN_NOTE: audit I2-5 PASS WITH NOTES: exact design-v2 statement
 NOTE: Preextract candidate edge to bpI:p2:iteration (parenthetical forward pointer to (iii),(iv)) dropped: forward pointer, would create a cycle.
 
 NODE: stepI:p2:to-frame
@@ -723,9 +723,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-frame
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.torsion_step, KAM.Iso.Apost.TorsionAux.isoNewtonMap_differentiableOn (KAM/Iso/Apost/Torsion.lean)
+LEAN_NOTE: audit I2-5 PASS WITH NOTES: to-frame mapped to torsion_step assembly and aux lemmas
 NOTE: SOURCE_GAP: scoped to the final parenthetical application of bpI:p1:extended-basic at L216 with Kbar and omegabar. That lemma assumes bpI:p1:setting, including a positive Diophantine constant for this same frequency. The torsion lemma explicitly uses no Diophantine property of omegabar, and none is supplied here; the k-bridge concerns the old omega=s omega*. The frame perturbation application at the old omega is paid by the stated local data. The printed holomorphy/continuity discussion suggests a direct finite-frequency proof, but this record does not silently strengthen the cited Part 1 contract or add Diophantinity as a source hypothesis.
 
 NODE: stepI:p2:to-omega
@@ -756,9 +756,9 @@ EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-ome
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.TorsionDiff.torsion_sub_freq, KAM.Iso.Apost.TorsionDiff.norm_torsion_sub_freq_le (KAM/Iso/Apost/TorsionDiff.lean)
+LEAN_NOTE: audit I2-5 PASS WITH NOTES: to-omega affine identity and Cauchy bound
 NOTE: -
 
 NODE: stepI:p2:to-row
@@ -789,9 +789,9 @@ EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-row
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.TorsionDiff.energyRow_sub, KAM.Iso.Apost.TorsionDiff.sum_norm_energyRow_sub_le (KAM/Iso/Apost/TorsionDiff.lean)
+LEAN_NOTE: audit I2-5 PASS WITH NOTES: to-row exact splitting and row estimate
 NOTE: -
 
 NODE: stepI:p2:to-avg
@@ -826,9 +826,9 @@ EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-avg
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.TorsionDiff.norm_extendedTorsionAverage_sub_le, KAM.Iso.Apost.TorsionDiff.torsion_diff_arith (KAM/Iso/Apost/TorsionDiff.lean)
+LEAN_NOTE: audit I2-5 PASS WITH NOTES: to-avg block difference, integral norm, domination
 NOTE: -
 
 NODE: stepI:p2:to-inv
@@ -857,9 +857,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:to-inv@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.torsion_step (KAM/Iso/Apost/Torsion.lean)
+LEAN_NOTE: audit I2-5 PASS WITH NOTES: to-inv assembly via neumann_fintype in torsion_step
 NOTE: -
 
 NODE: bpI:p2:step
@@ -891,9 +891,9 @@ EDGE: stepI:p2:st-frame | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:step@L24
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-global-I
 REVIEWER: sol-delta-I-global
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.step (KAM/Iso/Apost/Step.lean)
+LEAN_NOTE: audit I2-6 PASS WITH NOTES: all conclusions (a)-(e)
 NOTE: -
 
 NODE: stepI:p2:st-small
@@ -920,9 +920,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:st-small
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.Arith.iso_step_small (KAM/Iso/Apost/ConstantsArith.lean)
+LEAN_NOTE: audit I2-2 PASS WITH NOTES: exactly the three scalar conclusions of st-small
 NOTE: -
 
 NODE: stepI:p2:st-error
@@ -1013,9 +1013,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:schedule@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: sol-review-I-p2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Apost.schedule (KAM/Apost/Schedule.lean); KAM.Iso.Apost.isoEpsSeq, KAM.Iso.Apost.isoDSeq (KAM/Iso/Apost/Defs.lean)
+LEAN_NOTE: audit I2-7 PASS WITH NOTES: schedule reused; sequences are definitions (I-D0-2)
 NOTE: Candidate edge to K:bp:p2:schedule dropped: '(as K:bp:p2:schedule)' is a comparison; the facts r_{s+1}=r_s-4 delta_s, delta_s<=1, 4 delta_s < r_s are routine algebra of the stated formulas.
 
 NODE: bpI:p2:error-decay
@@ -1043,9 +1043,9 @@ EDGE: K:bp:p1:iteration | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:error-de
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.iso_error_decay (KAM/Iso/Apost/Schedule.lean)
+LEAN_NOTE: audit I2-7 PASS WITH NOTES: full decay contract, exact design type
 NOTE: L265 explicitly supplies the scalar recurrence with Qprime=hatC_E/(gamma^4 delta_0^{2a}) and invokes K:bp:p1:iteration with p=2a; the remaining sums are geometric. The reference to K decay compares the proof and does not import its fixed C_E as an extra theorem hypothesis.
 
 NODE: bpI:p2:iteration
@@ -1077,9 +1077,9 @@ EDGE: stepI:p2:it-step | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:iteration
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.iteration (KAM/Iso/Apost/Iteration.lean)
+LEAN_NOTE: audit I2-8 PASS: all six conclusions
 NOTE: -
 
 NODE: stepI:p2:it-sums
@@ -1108,9 +1108,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-sums@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-b
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.iso_sums_le (KAM/Iso/Apost/Iteration.lean)
+LEAN_NOTE: audit I2-8 PASS: it-sums sums and five bounds (scalar helper iso_iteration_sums in I2-2)
 NOTE: -
 
 NODE: stepI:p2:it-stepsmall
@@ -1139,9 +1139,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-steps
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.iso_stepsmall_seq (KAM/Iso/Apost/Iteration.lean)
+LEAN_NOTE: audit I2-8 PASS: every-stage step-smallness bound
 NOTE: -
 
 NODE: stepI:p2:it-step
@@ -1173,9 +1173,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:it-step@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Apost.iso_stage_succ, KAM.Iso.Apost.iso_ray_step (KAM/Iso/Apost/Iteration.lean)
+LEAN_NOTE: audit I2-8 PASS: induction step and ray step
 NOTE: -
 
 NODE: bpI:p2:limit

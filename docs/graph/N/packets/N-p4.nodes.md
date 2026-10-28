@@ -47,9 +47,9 @@ EDGE: K:bp:p1:uniform-limits | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:ex
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.uniform_limit_holomorphic (KAM/Weighted/Parametric.lean)
+LEAN_NOTE: Holomorphy and uniform derivative convergence on closed-ball loci; audit W4-2 PASS WITH NOTES
 NOTE: Modelled as a claim, not a pure external, per SPEC ruling: 'Exists in this form modulo that lemma' (L27) and L177 'This also gives ext-weier's derivative statement: apply it to K_j−K_l on the ball of radius η' (coverage item p4:prose-L177 is mapped here); PROOF_SOURCE spans the inline proof at L26–27 and the derivative argument at L177; the intervening results are not additional proof ingredients
 
 NODE: bpN:p4:ext-series
@@ -102,9 +102,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.polyNbhd, Dom, polydisc, isOpen_polyNbhd, isOpen_Dom, polyNbhd_mono, Dom_mono, polydisc_subset_Dom, actionNbhd_eq_polyNbhd (KAM/Weighted/Domains.lean)
+LEAN_NOTE: Definitions plus clauses (a),(b); audit W4-1 PASS WITH NOTES
 NOTE: Max norms throughout (Part 4 convention paragraph L10, Normalisation L12-L17: period 1, geometric strip width s); this definition is the package bpN:p4:domains (SPEC)
 
 NODE: stepN:p4:dom-open
@@ -183,9 +183,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:norm@L47-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.InClass, coeff, modeWeight, wsum, WSummable, WBound, HasFiniteWNorm, wnorm, wbound_iff (KAM/Weighted/Norm.lean)
+LEAN_NOTE: Definition formalized; norm encoded on finite locus (WBound/HasFiniteWNorm, N1/N2 notes); audit W4-1 PASS WITH NOTES
 NOTE: This definition is the package bpN:p4:norm (SPEC): 𝒪(r,s), û_k(I), ¦u¦_{I,s}, ¦u¦_{r,s}, finite norm; convention paragraph L12-L17 (max norms, geometric width s, weight e^{2π¦k¦₁s}) recorded here
 
 NODE: bpN:p4:norm#monotone
@@ -211,9 +211,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:norm#monot
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.modeWeight_mono, WBound.mono, coeff_apply_pi, wbound_pi_apply, wbound_pi_of_components (KAM/Weighted/Norm.lean)
+LEAN_NOTE: Stated in WBound (finite-bound) form; audit W4-1 PASS WITH NOTES
 NOTE: section-data claim created from coverage item p4:prose-L55-L55 (SPEC); consumed by stepN:p4:b4-four, stepN:p4:b4-prod, stepN:p5:vf-deriv, bpN:p4:bracket (proof preamble L152) and later parts
 
 NODE: bpN:p4:n-zero
@@ -852,9 +852,9 @@ EDGE: stepN:p4:c1-cauchy | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:genera
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.general_cauchy (KAM/Weighted/Parametric.lean)
+LEAN_NOTE: Operator-norm bound M/R on open ball; audit W4-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p4:c1-line

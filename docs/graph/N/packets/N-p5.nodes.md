@@ -22,9 +22,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:setting@L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Canonical.poissonBracket, adPow, scaledNorm, scaleCLE, norm_scaleCLE, symplFormC, poissonBracket_eq_fderiv_field, poissonBracket_antisymm, differentiableOn_poissonBracket, differentiableOn_adPow, poissonBracket_eq_zero_of_snd, RealOn (KAM/Canonical/Setting.lean)
+LEAN_NOTE: Definition formalized plus bracket identities; audit C5-1 PASS WITH NOTES
 NOTE: Package bpN:p5:setting (SPEC): X_u, {u,v} and its sign, ν_{ρ,σ}, ad^j. Candidate edge to bpN:p5:lie-derivative dropped: the normalisation 'd/dt u(X_φ^t)={u,φ}' is a forward pointer to the result that consumes this definition. The \sourcegap at L25 (printed sign of the bracket not located in Pos93) is a gap in the paper filled by this definition (coverage p5:sourcegap-L25)
 
 NODE: bpN:p5:vf-bound
@@ -149,7 +149,7 @@ EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only parts (a) and (d) proved (KAM.Canonical.flow_a, flow_d in KAM/Canonical/Flow.lean); (b),(c),(e) open; audit C5-2 PASS WITH NOTES
 NOTE: Part 11b re-uses this lemma verbatim for N = 2n+2k (not an edge here)
 
 NODE: stepN:p5:fl-max
