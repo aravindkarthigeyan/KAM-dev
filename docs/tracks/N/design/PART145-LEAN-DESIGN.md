@@ -6,7 +6,7 @@ and track K's `PART23-LEAN-DESIGN.md`.
 
 **The signatures.** Every result node of Parts 1, 4, 5 has its exact Lean statement in
 `.drafts/design/NPart145Signatures.lean` (untracked; copied verbatim in Appendix A).
-- 1270 lines, sha256 `87adf1f6ceecb412d7a0cfc521fe9d09aa6a40664ff0b8662044dc3315599afd`. `cd /root/code/KAM-inp-design-n145 && nice -n 5 lake env lean .drafts/design/NPart145Signatures.lean`
+- 1279 lines, sha256 `1db3ad2b05ea000a814403bb7c3f60a8aa300db91e612d94184ef3245991ee53`. `cd /root/code/KAM-inp-design-n145 && nice -n 5 lake env lean .drafts/design/NPart145Signatures.lean`
   exits 0 in about 15 s with 115 diagnostics, all `declaration uses 'sorry'`; no `set_option`, no `maxHeartbeats`.
 - Proved in the file (no `sorry`): `scaleCLE` (a definition), `norm_convert` (= K's `KAM.summableWeighted_torusCoeff`),
   `norm_convert_converse` (K's `eq_fourierSum_torusCoeff` + `norm_fourierSum_le`). All other `theorem ... := sorry` are
@@ -23,7 +23,7 @@ and track K's `PART23-LEAN-DESIGN.md`.
 2. **Carriers.** Ambient types as in the frozen defs: `(Fin n → ℂ)`, `(Fin n → ℝ)`, indices `Fin n → ℤ`, phase space
    `(Fin n → ℂ) × (Fin n → ℂ)` (angles first). Functions of `(θ, I)` are *total* functions
    `u : (Fin n → ℂ) × (Fin m → ℂ) → W` (`m` independent of `n`, `D : Set (Fin m → ℂ)` arbitrary, as Part 4 requires; `m = n` only for the
-   bracket). `W` is `ℂ`, or a finite-dimensional complex space (`Fin d → ℂ`, matrices) for the coefficient-level results, with K's
+   bracket). `W` is `ℂ`, or a finite-dimensional complex space (`[FiniteDimensional ℂ W]` in the signatures, audit F6) (`Fin d → ℂ`, matrices) for the coefficient-level results, with K's
    instance block `[NormedSpace ℂ W] [NormedSpace ℝ W] [IsScalarTower ℝ ℂ W] [CompleteSpace W]`. No `EuclideanSpace`: `euclid x = √(∑ ‖xᵢ‖²)`.
 3. **The weighted norm is a bound predicate.** `WBound D r s u M` ("`|u|_{r,s} ≤ M`") = for every `I ∈ V_r D` the coefficient series
    `∑ₖ ‖û_k(I)‖ e^{2π s|k|₁}` is summable with sum `≤ M`. Every Part 4/5 inequality is `WBound → WBound`, so no `sSup`/junk `tsum`
@@ -112,8 +112,8 @@ holomorphic dependence on initial data; integral Taylor remainder; Schwarz for `
 | (Part 3 `holo-input`) | `holo_input` | `HoloReal` |
 | `partials` | `partials` | `Hessian` |
 | `hessian-convert` | `hessian_convert` | `Hessian` |
-| `conic-coercive` | `conic_coercive` | `QuasiConvex` |
-| `qc-convert` | `qcQ qcB qcMu qcEll`, `qc_convert` (`QuasiConvex`); scaling sentence: `qc_convert_tilde` (`Period`) | |
+| `conic-coercive` | `conic_coercive` | `ConicCoercive` |
+| `qc-convert` | `qcQ qcB qcMu qcEll` (`Setting`), `qc_convert` (`QuasiConvex`); scaling sentence: `qc_convert_tilde` (`Period`) | |
 | `period-convert` (a)-(e) | `periodLift tildeH tildeh tildef`, `realHamiltonian_tilde`, `isSolutionOn_tilde_iff`, `frequencyMap_tildeh`, `fderiv_fderiv_realPart_tildeh`, `tilde_hypotheses`, `tildef_domain`, `tildef_periodic`, `tildef_fourier` | `Period` |
 | `norm-convert` (+`#converse`, route nodes) | `norm_convert`, `norm_convert_converse` (proved from K) | `ConstantsAnalytic` |
 | `constants`, `constants#data` (a)-(h) | `HeadParams`, `HeadHyp`, `centralSet`, defs, `const_pos`, `const_eps0`, `const_size`, `const_tubes`, `const_hyp`, `const_perturbation`, `const_exceptional`, `const_time`, `const_conclusion` | `Constants` (numerics: pos, eps0, size, conclusion, arithmetic half of time), `ConstantsAnalytic` (tubes, hyp, perturbation, exceptional, analytic half of time) |
@@ -130,7 +130,7 @@ holomorphic dependence on initial data; integral Taylor remainder; Schwarz for `
 | `ext-weier` | `uniform_limit_holomorphic` | `Parametric` |
 | `ext-series` | none (Tonelli: `Summable.tsum_prod`; Cauchy product: K's `convolution`) | — |
 | `coefficients` (a)-(d) | `dtheta`, `dI`, `fourierSeries`, `coeff_differentiableOn`, `coefficients_deriv`, `coefficients_series`, `coefficients_repr` | `Coefficients` |
-| `sup-weighted` | `coth`, `sup_le_wbound`, `wbound_of_sup_bound` | `SupWeighted` |
+| `sup-weighted` | `coth` (`Norm`), `sup_le_wbound`, `wbound_of_sup_bound` | `SupWeighted` |
 | `algebra` | `coeff_mul`, `wbound_mul`, `wbound_pow` | `Algebra` |
 | `cauchy` | `cauchy_theta`, `cauchy_action`, `cauchy_loss` | `Cauchy` |
 | `s-b4#data`, `bracket` | `wbound_bracket` (bracket defined in `Canonical/Setting`) | `Bracket` |
@@ -160,7 +160,7 @@ holomorphic dependence on initial data; integral Taylor remainder; Schwarz for `
 
 - Lean module system: copyright, `module`, `public import` of everything the statements use, docstring, `@[expose] public noncomputable section`
   (defs `polyNbhd`, `Dom`, `coeff`, `WBound`, `flow`, `gaugeInterior`, `poissonBracket`, `adPow`, the `HeadParams` constants must unfold: exposed).
-- Side conditions are binders. Widths: every Part 4/5 statement that reads coefficients carries `0 < s` (D27); `0 < r` is not needed (`V_r D = ∅` for `r ≤ 0`).
+- Side conditions are binders. Widths: every Part 4/5 statement that reads coefficients carries `0 < s` (D27), except `sup_le_wbound` and `sharp_sup_le`, whose conclusion is vacuous for `n>0, s≤0` and a one-term identity for `n=0` (audit B2 note); for `n = 0` the hypothesis is harmless, the singleton branch of `bpN:p4:n-zero` applies; `0 < r` is not needed (`V_r D = ∅` for `r ≤ 0`).
 - `ContDiffOn ℝ ∞` with `open scoped ContDiff` (not `⊤` = `ω`). `n ≥ 1` only where a constant divides by `n` (`conic_coercive`, `qc_convert`, `const_*`).
 - Derivatives are two-sided `HasDerivAt` (as `IsSolutionIn`), also at the ends of `[-1,1]`; hence Ω-interior slack: `Ω^{1/2}` solutions exist on `[-1-η', 1+η']` (Section 7, C5-2).
 - Prover may drop a hypothesis found unused (strictly stronger statement) only through the orchestrator; may not add one.
@@ -172,7 +172,7 @@ holomorphic dependence on initial data; integral Taylor remainder; Schwarz for `
 |---|---|---|---|
 | D1 | Part 4 norm | `WBound` bound predicate (+ `wnorm`, `wbound_iff`) | no junk sup/tsum values |
 | D2 | `sup-weighted` (b) | hypothesis `InClass D r (s+σ) u` | blueprint issue B1 below |
-| D3 | all coefficient statements | `0 < s` explicit | D27; false for `s ≤ 0, n ≥ 1` (class vacuous, coefficients unconstrained) |
+| D3 | coefficient statements (not `sup_le_wbound`, `sharp_sup_le`) | `0 < s` explicit | D27; false for `s ≤ 0, n ≥ 1` (class vacuous, coefficients unconstrained) |
 | D4 | Part 4 | vector/matrix `W` only where the blueprint needs it and the proof is per-`k` (norm, coefficients, B.1, B.3); algebra, bracket, projections, series scalar | products and brackets are scalar in every consumer |
 | D5 | `ComposeData`, `CanonData` | field `0 ≤ Φ` | "finite norm" is a value `≥ 0`; for `D = ∅` the bound predicate is vacuous and `SmallField` needs `ε ≥ 0` |
 | D6 | `bpN:p5:flow` | canonical total `flow` + `SmallField`; `Ω^{1/2}` closed `ν`-balls | statements about "the" flow without `∃ X` |
@@ -204,6 +204,8 @@ None is a mathematical defect of a theorem; B1-B3 are mis-quantifications, B4-B5
 
 Checked and found correct (no defect): B.2 `|u^j| ≤ |u|^j`; B.3(a) sum over `j` inside the `sup` (the repair already in the blueprint); B.4 constants and the `κ = ρ/h` induction in `adjoint` (`r'-r_{i-1}+κ ≥ (h+i)κ`); `composition` bound `(1-eη/4)^{-1} ≤ (1-η)^{-1}` for `η ≤ 1/2`; `canonical-map` domain chain `Dom(r-2ρ) ⊆ Ω¹`, `Dom(r-3ρ/2) ⊆ Ω^{1/2}` (needs `ρ < r/2`, `r-3ρ/2 > 0`); `hessian-convert` operator norm `≤ nM_ℂ`; constants (b),(f),(g),(h) arithmetic (`2T = A²s₀/(2πnM)`); `det Y = 1` (blueprint `±1` is weaker, fine).
 
+**Blueprint sync (n = 0).** Blueprint-N Parts 1/4 now contain `bpN:p4:n-zero` and `n = 0` / `n ≥ 1` cases in the steps `co-series`, `co-repr`, `b1-a`, `b1-b`, `nc-decay`, `nc-sum`. All signatures are already stated for every `n ≥ 0` (`Fin 0 → ℤ` singleton; `coth(πσ)^0 = 1`; `norm_convert` is K's lemma, which holds for all `n`, and elaborates). Plans W4-3, W4-4, W4-5, W4-8, P1-6 branch on `n = 0` (singleton index set: `coeff u I 0 = u(0,I)`, `wsum = ‖u(0,I)‖`, no K strip result needed) and on `n ≥ 1` (K lemmas).
+
 ## 7. Modules, import DAG, packages
 
 Sizes are estimates (cap 1500, target ≤ 800).
@@ -211,10 +213,10 @@ Sizes are estimates (cap 1500, target ≤ 800).
 | Module | Content | Lines |
 |---|---|---|
 | `Weighted/Domains` | `polyNbhd`, `Dom`, `polydisc`, openness, mono, `actionNbhd_eq_polyNbhd` | 150 |
-| `Weighted/Norm` | `InClass`, `coeff`, `WBound`, `wnorm`, `wbound_iff`, mono, `Pi` comparison | 300 |
+| `Weighted/Norm` | `InClass`, `coeff`, `WBound`, `wnorm`, `wbound_iff`, mono, `Pi` comparison, `coth` (audit F5) | 320 |
 | `Weighted/Parametric` | `holomorphic_parametric_integral`, `general_cauchy`, `uniform_limit_holomorphic` | 450 |
 | `Weighted/Coefficients` | `coeff_differentiableOn`, `_deriv`, `_series`, `_repr` | 600 |
-| `Weighted/SupWeighted` | B.1 | 300 |
+| `Weighted/SupWeighted` | B.1 (uses `coth` from `Norm`) | 300 |
 | `Weighted/Algebra` | B.2 | 450 |
 | `Weighted/Cauchy` | B.3 | 450 |
 | `Weighted/Projections` | `projMode`, `truncate`, `modeAverage` | 300 |
@@ -233,12 +235,13 @@ Sizes are estimates (cap 1500, target ≤ 800).
 | `Canonical/Transform` | `transform` | 400 |
 | `Canonical/CanonicalMap` | `canonical_map_a..e` | 550 |
 | `Interfaces/Norms` | `euclid`, comparisons | 200 |
-| `Interfaces/Setting`, `Domains` | `Data`, `Wdom`; `realdomain` | 80, 250 |
+| `Interfaces/Setting`, `Domains` | `Data`, `Wdom`, `qcQ qcB qcMu qcEll` (audit F5); `realdomain` | 110, 250 |
+| `Interfaces/ConicCoercive` | `conic_coercive` (independent linear algebra) | 250 |
 | `Interfaces/HoloReal` | `holo_real_a..e`, `holo_input` | 600 |
 | `Interfaces/Hessian` | `partials`, `hessian_convert` | 400 |
-| `Interfaces/QuasiConvex` | `conic_coercive`, `qc_convert` | 400 |
+| `Interfaces/QuasiConvex` | `qc_convert` (imports `Hessian`, `ConicCoercive`) | 200 |
 | `Interfaces/Period` | tilde defs, `period-convert`, `qc_convert_tilde` | 550 |
-| `Interfaces/Constants` | `HeadParams`, defs, numerics | 450 |
+| `Interfaces/Constants` | `HeadParams`, `HeadHyp`, defs (imports `Weighted/Norm` for `coth`, `Setting` for `qc*`), numerics | 450 |
 | `Interfaces/ConstantsAnalytic` | `const_tubes/hyp/perturbation/exceptional/time`, `norm_convert(_converse)` | 550 |
 
 **Import DAG** (`A ← B`: B imports A): `K (Strip, Fourier) ← Weighted.*, Interfaces.HoloReal`; `KAM.ODE.* ← Canonical.Flow*`;
@@ -246,7 +249,7 @@ Sizes are estimates (cap 1500, target ≤ 800).
 `Canonical.Setting ← Weighted.Bracket, Canonical.*`; `{Algebra, Cauchy, Canonical.Setting} ← Bracket ← Adjoint`; `{Cauchy, SupWeighted} ← VectorField`;
 `Flow ← FlowRegular ← FlowInverse`; `{FlowRegular, Setting} ← {Symplectic, Lie}`; `{VectorField, Symplectic, FlowInverse} ← CanonicalMap`;
 `{Adjoint, VectorField, Lie, FlowRegular, SupWeighted} ← Composition ← CompositionIntegral, Transform`;
-`Interfaces.{Norms, Setting, Domains} ← HoloReal ← Hessian ← QuasiConvex ← Period(qc_convert_tilde) ← ConstantsAnalytic`; `Weighted.{Domains, SupWeighted} ← ConstantsAnalytic`.
+`Interfaces.{Norms, Setting, Domains} ← HoloReal ← Hessian ← QuasiConvex ← Period(qc_convert_tilde) ← ConstantsAnalytic`; `Interfaces.ConicCoercive ← QuasiConvex`; `{Weighted.Norm, Interfaces.Setting} ← Constants ← ConstantsAnalytic`; `Weighted.{Domains, SupWeighted} ← ConstantsAnalytic`.
 No module imports a provider or a frozen theorem; only frozen `Defs`. `Nekhoroshev/ODE/Specialization` (Part 3) imports `Interfaces/Setting` and `HoloReal`.
 
 Every package proves its nodes exactly as in Appendix A; a signature changes only through the orchestrator after a statement audit. Hard rules (Section 0.8) go into every brief.
@@ -257,8 +260,8 @@ Every package proves its nodes exactly as in Appendix A; a signature changes onl
 | W4-2 | ext-param, general-cauchy, ext-weier | `Parametric` | 450 | — | 1 |
 | C5-1 | setting | `Canonical/Setting` | 250 | — | 1 |
 | P1-1 | norm-compare, `Data`/`Wdom`, realdomain | `Norms`, `Setting`, `Domains` | 530 | — | 1 |
-| P1-3a | conic-coercive | `QuasiConvex` (part) | 250 | — | 1 |
-| P1-5 | constants (numerics) | `Constants` | 450 | — | 1 |
+| P1-3a | conic-coercive | `ConicCoercive` | 250 | — | 1 |
+| P1-5 | constants (numerics) | `Constants` | 450 | W4-1 (`coth`), P1-1 (`qc*`) | 2 |
 | W4-3 | coefficients | `Coefficients` | 600 | W4-1, W4-2 | 2 |
 | C5-2 | flow (a),(d), gauge, `flow` | `Flow` | 700 | C5-1; Part 3 (`KAM.ODE`) | 2 |
 | P1-2 | holo-real, holo-input | `HoloReal` | 600 | P1-1 | 2 |
@@ -268,7 +271,7 @@ Every package proves its nodes exactly as in Appendix A; a signature changes onl
 | W4-6 | cauchy | `Cauchy` | 450 | W4-3 | 3 |
 | W4-7 | projections | `Projections` | 300 | W4-3 | 3 |
 | C5-3 | flow (b) | `FlowRegular` | 600 | C5-2, W4-2 | 3 |
-| P1-3b | partials, hessian-convert, qc-convert; then `qc_convert_tilde` | `Hessian`, `QuasiConvex`, `Period` | 800 | P1-2, P1-3a, P1-4 | 3 |
+| P1-3b | partials, hessian-convert, qc-convert; then `qc_convert_tilde` | `Hessian`, `QuasiConvex`, `Period` (adds `qc_convert_tilde`) | 650 | P1-2, P1-3a (imports the finished `ConicCoercive`), P1-4 | 3 |
 | W4-8 | bracket | `Bracket` | 400 | W4-5, W4-6, C5-1 | 4 |
 | C5-4 | vf-bound | `VectorField` | 250 | W4-4, W4-6 | 4 |
 | C5-5 | symplectic, canonical, flow (c),(e) | `FlowInverse`, `Symplectic` | 1000 (two sessions) | C5-3, C5-1 | 4 |
@@ -346,6 +349,17 @@ Critical path: W4-1 → W4-3 → W4-6 → W4-8 → C5-7 → C5-8 → C5-9 (7 wav
 | P Part 1 (`vs-N`) | `symplectic`, `canonical_field`, `canonical_orbit` (P re-proves its own real chart version) |
 | I (all parts) | none (no citation of `bpN:p[145]:` in `blueprint-I`) |
 
+## Audit fixes (design audit 1, `docs/tracks/N/design/PART145-design-audit-1.md`, verdict FAIL)
+
+- **F1 (HIGH, `SBound` admits a negative bound on `V_r D = ∅`).** `SBound D r s u M` now requires `0 ≤ M` and nonnegative majorants `c k ≥ 0`. `sharp_of_sup_bound` gains `hM0 : 0 ≤ M`. The remaining sharp statements keep their form (their conclusions are nonnegative by construction). Characterization against the literal sum of coefficient suprema: a named target to be added only if a sharp consumer is ever admitted; the whole sharp branch stays optional (W4-9, deferred; no consumer cites it).
+- **F2 (HIGH, `sharp_cauchy_theta` false for `n=0, D=∅, M=-1`).** Fixed by F1 (`M ≥ 0` is part of `SBound`); statement unchanged.
+- **F3 (`coefficients_deriv` coupled `j : Fin n` and `i : Fin m`).** Split: `(∀ j : Fin n, …) ∧ (∀ i : Fin m, …)`.
+- **F4 (`transform` lacked norm convergence).** Added the norm-convergence conjunct (as `composition_series`) and the pointwise `HasSum` of the remainder series on `Dom (r-ρ)(s-σ)`.
+- **F5 (package waves vs imports).** `coth` lives in `Weighted/Norm` (W4-1); `qcQ qcB qcMu qcEll` in `Interfaces/Setting` (P1-1); `conic_coercive` in its own module `Interfaces/ConicCoercive` (P1-3a); `QuasiConvex` holds only `qc_convert` and is imported by P1-3b after the finished `ConicCoercive`; P1-5 moved to wave 2 after W4-1 and P1-1.
+- **F6 (note: `W` finite-dimensional).** The signatures now carry `[FiniteDimensional ℂ W]` (K's `holomorphic_regularity_of_finiteDimensional` needs a finite-dimensional codomain; Banach-valued scope dropped).
+- **Errata recorded:** `blueprint-N/parts/p5-canonical-maps.tex` L59 "symmetrically `T_- > -1`" should read `T_- < -1` (the Lean `flow_a` is correct); `p4-weighted-norms.tex` L196 attributes `∑ₖ sup_I` to track P's averaging, which now uses `sup_I ∑ₖ` (the comparison itself is correct; attribution stale).
+- **Statement of B2:** the claim "every statement carries `0<s`" was too literal; see Section 4.
+
 ## 9. Risks
 
 ### 9.1 Elaboration and design
@@ -363,7 +377,7 @@ Critical path: W4-1 → W4-3 → W4-6 → W4-8 → C5-7 → C5-8 → C5-9 (7 wav
 
 ### 9.3 Dependencies outside this design
 - C5-2 and C5-3 need Part 3 (`KAM.ODE.Existence`, `Uniqueness`, `Maximal`, `Continuation`: proved on `inp`); the build snapshot of this worktree lacks `KAM.ODE.*` oleans except `Basic` (built here for the draft).
-- P1-2 absorbs N3-10a; N3-10b must wait for P1-1 (`Data`, `Wdom`) and P1-2.
+- (Section 9.4 additionally carries the two audit errata.) P1-2 absorbs N3-10a; N3-10b must wait for P1-1 (`Data`, `Wdom`) and P1-2.
 - Part 9 `bpN:p9:setting` is not referenced: constants (d)-(g) are stated in plain numbers so Part 1 has no forward dependency.
 
 ### 9.4 Errata candidates (reported here, not edited)
@@ -373,7 +387,7 @@ Critical path: W4-1 → W4-3 → W4-6 → W4-8 → C5-7 → C5-8 → C5-9 (7 wav
 
 ## Appendix A. The signatures
 
-Verbatim copy of `.drafts/design/NPart145Signatures.lean` (sha256 `87adf1f6ceecb412d7a0cfc521fe9d09aa6a40664ff0b8662044dc3315599afd`).
+Verbatim copy of `.drafts/design/NPart145Signatures.lean` (sha256 `1db3ad2b05ea000a814403bb7c3f60a8aa300db91e612d94184ef3245991ee53`).
 
 ```lean
 /-
@@ -512,7 +526,7 @@ namespace KAM.Weighted
 open MeasureTheory
 
 variable {n m : ℕ} {W : Type*} [NormedAddCommGroup W] [NormedSpace ℂ W] [NormedSpace ℝ W]
-  [IsScalarTower ℝ ℂ W] [CompleteSpace W]
+  [IsScalarTower ℝ ℂ W] [CompleteSpace W] [FiniteDimensional ℂ W]
 
 /-! ### B.0 Domains (`bpN:p4:domains`; module `Weighted/Domains.lean`) -/
 
@@ -644,12 +658,11 @@ theorem coeff_differentiableOn {D : Set (Fin m → ℂ)} {r s : ℝ}
 
 /-- (b) derivatives stay in the class and act on coefficients as `2πi kⱼ` resp. `∂_{Iᵢ}`. -/
 theorem coefficients_deriv {D : Set (Fin m → ℂ)} {r s : ℝ} {u : (Fin n → ℂ) × (Fin m → ℂ) → W}
-    (hs : 0 < s) (hu : InClass D r s u) (j : Fin n) (i : Fin m) :
-    InClass D r s (dtheta j u) ∧ InClass D r s (dI i u) ∧
-      (∀ I ∈ polyNbhd D r, ∀ k, coeff (dtheta j u) I k =
-        (2 * (Real.pi : ℂ) * Complex.I * (k j : ℂ)) • coeff u I k) ∧
-      (∀ I ∈ polyNbhd D r, ∀ k,
-        coeff (dI i u) I k = fderiv ℂ (fun I' => coeff u I' k) I (Pi.single i 1)) := sorry
+    (hs : 0 < s) (hu : InClass D r s u) :
+    (∀ j : Fin n, InClass D r s (dtheta j u) ∧ ∀ I ∈ polyNbhd D r, ∀ k,
+      coeff (dtheta j u) I k = (2 * (Real.pi : ℂ) * Complex.I * (k j : ℂ)) • coeff u I k) ∧
+    (∀ i : Fin m, InClass D r s (dI i u) ∧ ∀ I ∈ polyNbhd D r, ∀ k,
+      coeff (dI i u) I k = fderiv ℂ (fun I' => coeff u I' k) I (Pi.single i 1)) := sorry
 
 /-- (c) series with holomorphic coefficients of finite weighted sum. -/
 theorem coefficients_series {D : Set (Fin m → ℂ)} {r s S : ℝ} {a : (Fin n → ℤ) → (Fin m → ℂ) → ℂ}
@@ -768,9 +781,10 @@ theorem truncation_tail {D : Set (Fin m → ℂ)} {r s σ K M : ℝ} {u : (Fin n
 
 /-! ### B.9 The norm `♯` (OPTIONAL, deferred; `bpN:p4:sharp`; `Weighted/Sharp.lean`): no consumer cites it -/
 
-/-- `|u|♯_{r,s} ≤ M`: coefficientwise suprema `cₖ ≥ sup_I |û_k(I)|` with `∑ cₖ e^{2π s|k|₁} ≤ M`. -/
+/-- `|u|♯_{r,s} ≤ M` for a *nonnegative* norm: `0 ≤ M` and nonnegative majorants `cₖ ≥ sup_I |û_k(I)|`
+with `∑ cₖ e^{2π s|k|₁} ≤ M` (audit F1: a negative `M` must not be admissible on `V_r D = ∅`). -/
 def SBound (D : Set (Fin m → ℂ)) (r s : ℝ) (u : (Fin n → ℂ) × (Fin m → ℂ) → W) (M : ℝ) : Prop :=
-  ∃ c : (Fin n → ℤ) → ℝ, (∀ I ∈ polyNbhd D r, ∀ k, ‖coeff u I k‖ ≤ c k) ∧
+  0 ≤ M ∧ ∃ c : (Fin n → ℤ) → ℝ, (∀ k, 0 ≤ c k) ∧ (∀ I ∈ polyNbhd D r, ∀ k, ‖coeff u I k‖ ≤ c k) ∧
     Summable (fun k => c k * modeWeight s k) ∧ ∑' k, c k * modeWeight s k ≤ M
 
 theorem wbound_of_sbound {D : Set (Fin m → ℂ)} {r s M : ℝ} {u : (Fin n → ℂ) × (Fin m → ℂ) → W}
@@ -780,7 +794,8 @@ theorem sharp_sup_le {D : Set (Fin m → ℂ)} {r s M : ℝ} {u : (Fin n → ℂ
     (hu : InClass D r s u) (hb : SBound D r s u M) : ∀ z ∈ Dom n D r s, ‖u z‖ ≤ M := sorry
 
 theorem sharp_of_sup_bound {D : Set (Fin m → ℂ)} {r s σ M : ℝ} {u : (Fin n → ℂ) × (Fin m → ℂ) → W}
-    (hs : 0 < s) (hσ : 0 < σ) (hu : InClass D r (s + σ) u) (hM : ∀ z ∈ Dom n D r (s + σ), ‖u z‖ ≤ M) :
+    (hs : 0 < s) (hσ : 0 < σ) (hM0 : 0 ≤ M) (hu : InClass D r (s + σ) u)
+    (hM : ∀ z ∈ Dom n D r (s + σ), ‖u z‖ ≤ M) :
     SBound D r s u (coth (Real.pi * σ) ^ n * M) := sorry
 
 theorem sharp_mul {D : Set (Fin m → ℂ)} {r s Mu Mv : ℝ} {u v : (Fin n → ℂ) × (Fin m → ℂ) → ℂ}
@@ -1139,11 +1154,19 @@ theorem transform {D : Set (Fin n → ℂ)} {r s r' s' ρ σ Φ Mw F₀ : ℝ}
       ∫ t in (0 : ℝ)..1, poissonBracket
         (fun w => ((1 - t : ℝ) : ℂ) * poissonBracket h φ w + f₀ w) φ
         (flow (KAM.hamiltonianVectorFieldℂ φ) hd.omega t z)) ∧
+    (∀ z ∈ Dom n D (r - ρ) (s - σ), HasSum (fun i : ℕ =>
+      (((i + 2).factorial : ℂ)⁻¹) * adPow φ (i + 1) (poissonBracket h φ) z +
+        (((i + 1).factorial : ℂ)⁻¹) * adPow φ (i + 1) f₀ z) (liftRemainder φ h f₀ z)) ∧
     InClass D (r - ρ) (s - σ) (liftRemainder φ h f₀) ∧
     WBound D (r - ρ) (s - σ) (liftRemainder φ h f₀)
       (∑' i : ℕ, (Real.exp 1 * (2 * Φ / (ρ * σ)) / 4) ^ (i + 1) * (Mw / ((i : ℝ) + 2) + F₀)) ∧
     WBound D (r - ρ) (s - σ) (liftRemainder φ h f₀)
-      ((2 * Φ / (ρ * σ)) / (1 - 2 * Φ / (ρ * σ)) * (Mw / 2 + F₀)) := sorry
+      ((2 * Φ / (ρ * σ)) / (1 - 2 * Φ / (ρ * σ)) * (Mw / 2 + F₀)) ∧
+    (∀ ε : ℝ, 0 < ε → ∃ N : ℕ, ∀ N' ≥ N,
+      WBound D (r - ρ) (s - σ)
+        (fun z => liftRemainder φ h f₀ z - ∑ i ∈ Finset.range N',
+          ((((i + 2).factorial : ℂ)⁻¹) * adPow φ (i + 1) (poissonBracket h φ) z +
+            (((i + 1).factorial : ℂ)⁻¹) * adPow φ (i + 1) f₀ z)) ε) := sorry
 
 /-! ### C.6 The canonical map `Φ = X¹_φ` on weighted domains (`bpN:p5:canonical-map`;
 `Canonical/CanonicalMap.lean`) -/
