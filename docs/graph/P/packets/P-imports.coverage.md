@@ -7,15 +7,6 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: I:bpI:p7:circular
-KIND: external
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:circular@L303-L306
-DISPOSITION: NODE I:bpI:p7:circular
-REASON: imported node (track I): its statement is proved, or is an external input, in the track-I graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
 ITEM: I:bpI:p7:elements
 KIND: external
 SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:elements@L144-L156
@@ -34,15 +25,6 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
 
-ITEM: I:bpI:p7:means
-KIND: external
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:means@L290-L296
-DISPOSITION: NODE I:bpI:p7:means
-REASON: imported node (track I): its statement is proved, or is an external input, in the track-I graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
 ITEM: I:bpI:p7:orbit-identities
 KIND: external
 SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-identities@L181-L190
@@ -56,15 +38,6 @@ ITEM: I:bpI:p7:orbit-maps
 KIND: external
 SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:orbit-maps@L158-L168
 DISPOSITION: NODE I:bpI:p7:orbit-maps
-REASON: imported node (track I): its statement is proved, or is an external input, in the track-I graph; not extracted here
-COVERAGE_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-
-ITEM: I:bpI:p7:scaling
-KIND: external
-SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:scaling@L311-L318
-DISPOSITION: NODE I:bpI:p7:scaling
 REASON: imported node (track I): its statement is proved, or is an external input, in the track-I graph; not extracted here
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP

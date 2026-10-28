@@ -24,32 +24,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:chart; shared Lean provider. There: KIND theorem, contract bpI:p7:chart v1. Cited as \Iref{bpI:p7:chart}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
 
-NODE: I:bpI:p7:circular
-KIND: external
-TITLE: [I] Circular endpoint
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:circular@L303-L306
-PROOF_SOURCE: -
-CONTRACT_ID: I:bpI:p7:circular
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:circular; shared Lean provider. Cited as \Iref{bpI:p7:circular}. WARNING: EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg). Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
-
 NODE: I:bpI:p7:elements
 KIND: external
 TITLE: [I] Kepler region and elements
@@ -102,32 +76,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:kepler-eq; shared Lean provider. There: KIND proposition, contract bpI:p7:kepler-eq v1. Cited as \Iref{bpI:p7:kepler-eq}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
 
-NODE: I:bpI:p7:means
-KIND: external
-TITLE: [I] Mean values
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:means@L290-L296
-PROOF_SOURCE: -
-CONTRACT_ID: I:bpI:p7:means
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:means; shared Lean provider. Cited as \Iref{bpI:p7:means}. WARNING: EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg). Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
-
 NODE: I:bpI:p7:orbit-identities
 KIND: external
 TITLE: [I] Identities for the orbit maps
@@ -179,32 +127,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:orbit-maps; shared Lean provider. There: KIND definition, contract bpI:p7:orbit-maps v1. Cited as \Iref{bpI:p7:orbit-maps}. Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
-
-NODE: I:bpI:p7:scaling
-KIND: external
-TITLE: [I] Scaling to a general Kepler strength
-STATEMENT_SOURCE: blueprint-I/parts/p7-delaunay.tex#bpI:p7:scaling@L311-L318
-PROOF_SOURCE: -
-CONTRACT_ID: I:bpI:p7:scaling
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: -
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-I graph, node bpI:p7:scaling; shared Lean provider. Cited as \Iref{bpI:p7:scaling}. WARNING: EXCLUDED in the I graph: outside every root closure; cited by track P (Part 7 L10, L480): no root-feeding proof consumes it (checked: no reference from Parts 0-3, 5, 8, and none from the nodes of Part 7 that feed I-R3BP: complex-domain, exact-ham, period-one, transfer, nondeg). Ownership pending publication of the track-I graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/I/DEPGRAPH.md is published.
 
 NODE: I:bpI:p7:symplectic
 KIND: external

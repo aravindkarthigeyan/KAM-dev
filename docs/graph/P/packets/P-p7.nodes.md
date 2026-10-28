@@ -149,10 +149,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: I:bpI:p7:scaling, bpP:p7:kepler-data, bpP:p7:conv#data
+DEPS: bpI:p7:scaling, bpP:p7:kepler-data, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: I:bpI:p7:scaling | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-scale@L64-L64 | dictionary E_kappa o S_kappa=kappa^2 E_1 and E_{m,kappa}=m E_kappa(q,p/m)
+EDGE: bpI:p7:scaling | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-scale@L64-L64 | dictionary E_kappa o S_kappa=kappa^2 E_1 and E_{m,kappa}=m E_kappa(q,p/m)
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-scale@L64-L64 | E_{m,kappa}, S_{m,kappa}, Lambda
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-scale@L64-L64 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
@@ -206,7 +206,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:ke-chart, stepP:p7:ke-form, stepP:p7:ke-b, stepP:p7:ke-c, stepP:p7:ke-d, bpP:p7:kepler-data, I:bpI:p7:kepler-eq, I:bpI:p7:circular, I:bpI:p7:orbit-maps, bpP:p7:conv#data
+DEPS: stepP:p7:ke-chart, stepP:p7:ke-form, stepP:p7:ke-b, stepP:p7:ke-c, stepP:p7:ke-d, bpP:p7:kepler-data, I:bpI:p7:kepler-eq, bpI:p7:circular, I:bpI:p7:orbit-maps, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:ke-chart | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L85-L85 | proof step (a) Chart
@@ -216,7 +216,7 @@ EDGE: stepP:p7:ke-c | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L88
 EDGE: stepP:p7:ke-d | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L89-L89 | proof step (d)
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L70-L70 | D^m, Q_{m,kappa}, K, elements
 EDGE: I:bpI:p7:kepler-eq | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L74-L74 | u=u_R(ell,e) of Kepler equation
-EDGE: I:bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L76-L76 | extension to the circular case C=Lambda
+EDGE: bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L76-L76 | extension to the circular case C=Lambda
 EDGE: I:bpI:p7:orbit-maps | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L83-L83 | (L,G) in C_0 of the Delaunay orbit map
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L70-L70 | m, kappa
 TOPOLOGY_STATUS: REVIEWED
@@ -334,11 +334,11 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: I:bpI:p7:means, I:bpI:p7:circular, stepP:p7:ke-b, bpP:p7:conv#data
+DEPS: bpI:p7:means, bpI:p7:circular, stepP:p7:ke-b, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: I:bpI:p7:means | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | mean values for strength one
-EDGE: I:bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | circular case C=Lambda
+EDGE: bpI:p7:means | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | mean values for strength one
+EDGE: bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | circular case C=Lambda
 EDGE: stepP:p7:ke-b | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | a=L^2/kappa and the scaling of step (b)
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
@@ -1593,10 +1593,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: I:bpI:p7:circular, bpP:p7:kepler-data, bpP:p7:poincare-def, bpP:p7:regular-kepler, bpP:p7:conv#data
+DEPS: bpI:p7:circular, bpP:p7:kepler-data, bpP:p7:poincare-def, bpP:p7:regular-kepler, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: stepP:p7:po-el#circular
-EDGE: I:bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | e=0 scalar endpoint identities
+EDGE: bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | e=0 scalar endpoint identities
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | the defining scale S_m,kappa and E,C,a,action formulas transport the circular endpoint by direct algebra
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | chart formulas at the circular point
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | F(lambda,0)=lambda
