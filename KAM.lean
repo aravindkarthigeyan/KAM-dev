@@ -263,6 +263,7 @@ public import KAM.Iso.Linear.Tools
 public import KAM.Iso.Linear.Trivial
 public import KAM.Iso.NearCircular
 public import KAM.Iso.PeriodOne
+public import KAM.Iso.R3bp.Constants
 public import KAM.Iso.R3bp.HeadData
 public import KAM.Iso.R3bp.Region
 public import KAM.Iso.R3bp.Safe
