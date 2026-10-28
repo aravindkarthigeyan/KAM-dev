@@ -144,7 +144,8 @@ theorem g1_explicit {n : ℕ} (hn : 2 ≤ n) {τ : ℝ} (hτ : (n : ℝ) - 1 ≤
       margin := margin_of_le hν1 hν2
       error_le := hE
       energy_le := hEn }
-  obtain ⟨⟨-, -, -, hholoK, hprim, hrealK⟩, ⟨hclose, hsclose, -, -⟩, ⟨hs1', hsσ', -⟩, hmarg, hinv⟩ :=
+  obtain ⟨⟨-, -, -, hholoK, hprim, hrealK⟩, ⟨hclose, hsclose, -, -⟩, ⟨hs1', hsσ', -⟩, hmarg,
+      hinv⟩ :=
     limit hS hρinf hρinfρ hμ hIter he1.le hsm.le
   -- step `g1-check`: the energy clause (O3), pointwise, by invariance and nonresonance
   have hEnergy := (energy_limit hS hρinf hρinfρ hμ hIter he1.le hsm.le).1
