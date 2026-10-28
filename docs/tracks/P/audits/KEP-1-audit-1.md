@@ -229,3 +229,11 @@ No new suspected pinned-source or blueprint defect was found in this package. Th
 
 The remaining validation obligation is a successful kernel replay. This audit does not authorize or claim a rerun beyond the single requested invocation. Scratch probe and captured logs were deleted after their receipts were copied into this report. Only this report was persistently written; no source, frozen definition, manifest, generated root, package commit or git state was changed.
 
+
+## Orchestrator addendum: kernel replay (2026-10-28)
+
+The auditor's single replay was killed (exit 143, SIGTERM from the machine's memory guard, not a kernel verdict).
+The sub-orchestrator re-ran it one module at a time with `LEAN_NUM_THREADS=1 nice -n 5 lake env leanchecker --verbose`
+in `/root/code/KAM-inp-kep1` (commit 852073f): `KAM.Kepler.Plane` exit 0 (max RSS 5.9 GB), `KAM.Kepler.Energy` exit 0
+(6.1 GB); `KAM.Kepler.Basic` was killed once more by the guard and then passed on retry (exit 0). With the auditor's
+finding "no source-fidelity, hypothesis, carrier, definition, or proof defect", the package verdict is **PASS**.
