@@ -21,6 +21,7 @@ public import KAM.Frozen.Nekhoroshev.Defs.IsSolutionOn
 public import KAM.Frozen.Nekhoroshev.Defs.IsStrictlyQuasiConvex
 public import KAM.Frozen.Nekhoroshev.Defs.RealPart
 public import KAM.Nekhoroshev.Interfaces.Norms
+public import KAM.Nekhoroshev.Interfaces.QuasiConvex
 public import KAM.Strip.Fourier
 
 /-!
@@ -37,8 +38,8 @@ The passage from the period-one angles `θ` of the standing Hamiltonian `H = h +
 * `tildef_domain` (c), `tildef_periodic` (d), `tildef_fourier` (e): domain, bound,
   `2π`-periodicity and the Fourier series of `f̃`.
 
-The last sentence of `bpN:p1:qc-convert` (`qc_convert_tilde`) is added to this module by the
-package that owns `qc_convert`.
+* `qc_convert_tilde`: the last sentence of `bpN:p1:qc-convert`, the cone estimate (b) for `h̃`
+  with `(2πℓ, 2πμ)`.
 -/
 
 @[expose] public noncomputable section
@@ -308,6 +309,28 @@ theorem tilde_hypotheses {R s m M Mc wmin : ℝ} {U : Set (Fin n → ℝ)} {h : 
       refine Finset.sum_congr rfl fun i _ => ?_
       simp only [Pi.smul_apply, smul_eq_mul, norm_mul, Real.norm_of_nonneg two_pi_pos.le, mul_pow]
     rw [h1, Real.sqrt_mul (sq_nonneg _), Real.sqrt_sq two_pi_pos.le]
+
+/-- `bpN:p1:qc-convert`, last sentence: the conclusions (b) for `h̃` with `(2πℓ, 2πμ)`. -/
+theorem qc_convert_tilde (hn : 1 ≤ n) {R s m Mc wmin : ℝ} {h : (Fin n → ℂ) → ℂ} (hR : 0 < R)
+    (hs : 0 < s) (hm : 0 < m) (hMc : 0 < Mc) (hω : 0 < wmin) (hh : IsAnalyticIntegrable R s h)
+    (hH : HasComplexHessianBound R s h Mc)
+    (hQC : IsStrictlyQuasiConvex (realActionDomain n R s) h m)
+    (hmin : ∀ I ∈ actionBall n R, wmin ≤ ‖KAM.frequencyMap h I‖) :
+    ∀ I ∈ actionBall n R, ∀ ξ,
+      |∑ i, KAM.frequencyMap (tildeh h) I i * ξ i| ≤ 2 * Real.pi * qcEll n m Mc wmin * euclid ξ →
+        2 * Real.pi * qcMu n m * euclid ξ ^ 2 ≤
+          fderiv ℝ (fderiv ℝ (realPart (tildeh h))) I ξ ξ := by
+  intro I hI ξ hξ
+  have hsum : ∑ i, KAM.frequencyMap (tildeh h) I i * ξ i =
+      2 * Real.pi * ∑ i, KAM.frequencyMap h I i * ξ i := by
+    rw [frequencyMap_tildeh, Finset.mul_sum]
+    exact Finset.sum_congr rfl fun i _ => by
+      simp only [Pi.smul_apply, smul_eq_mul, mul_assoc]
+  rw [hsum, abs_mul, abs_of_pos two_pi_pos] at hξ
+  have h1 := (qc_convert hn hR hs hm hMc hω hh hH hQC hmin I hI).2.1 ξ
+    (le_of_mul_le_mul_left (by rwa [← mul_assoc]) two_pi_pos)
+  rw [fderiv_fderiv_realPart_tildeh, smul_apply, smul_apply, smul_eq_mul, mul_assoc]
+  exact mul_le_mul_of_nonneg_left h1 two_pi_pos.le
 
 /-! ### (c)-(e) The perturbation `f̃` -/
 

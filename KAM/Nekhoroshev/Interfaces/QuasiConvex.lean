@@ -32,7 +32,8 @@ variable {n : ℕ}
 /-- `bpN:p1:qc-convert` (a)-(c): Pöschel's quantified quasi-convexity on `B(0,R)`. -/
 theorem qc_convert (hn : 1 ≤ n) {R s m Mc wmin : ℝ} {h : (Fin n → ℂ) → ℂ} (hR : 0 < R) (hs : 0 < s)
     (hm : 0 < m) (hMc : 0 < Mc) (hω : 0 < wmin) (hh : IsAnalyticIntegrable R s h)
-    (hH : HasComplexHessianBound R s h Mc) (hQC : IsStrictlyQuasiConvex (realActionDomain n R s) h m)
+    (hH : HasComplexHessianBound R s h Mc)
+    (hQC : IsStrictlyQuasiConvex (realActionDomain n R s) h m)
     (hmin : ∀ I ∈ actionBall n R, wmin ≤ ‖KAM.frequencyMap h I‖) :
     ∀ I ∈ actionBall n R,
       ((∀ x y, |fderiv ℝ (fderiv ℝ (realPart h)) I x y| ≤ qcB n m Mc * euclid x * euclid y) ∧

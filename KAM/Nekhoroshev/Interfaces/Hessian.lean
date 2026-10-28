@@ -55,7 +55,8 @@ private theorem iter3_eq {f : E → ℝ} {x : E} (a b c : E) :
 private theorem iter3_swap_01 {f : E → ℝ} {x : E} (hf : ContDiffAt ℝ 3 f x) (a b c : E) :
     iteratedFDeriv ℝ 3 f x ![a, b, c] = iteratedFDeriv ℝ 3 f x ![b, a, c] := by
   have h2 : ContDiffAt ℝ 2 (fderiv ℝ f) x := hf.fderiv_right (m := 2) (by norm_num)
-  have hs := (h2.isSymmSndFDerivAt (n := 2) (minSmoothness_two le_rfl)).iteratedFDeriv_cons (v := a) (w := b)
+  have hs := (h2.isSymmSndFDerivAt (n := 2) (minSmoothness_two le_rfl)).iteratedFDeriv_cons
+    (v := a) (w := b)
   rw [iter3_eq, iter3_eq, hs]
 
 /-- The last two arguments of `D³f` can be swapped (Schwarz for `f`, differentiated once). -/
@@ -244,8 +245,8 @@ private theorem bilinear_expand (B : (Fin n → ℝ) →L[ℝ] (Fin n → ℝ) �
 private theorem euclid_ofReal (x : Fin n → ℝ) : euclid (fun i => (x i : ℂ)) = euclid x := by
   simp [euclid]
 
-/-- `bpN:p1:hessian-convert`: entries `≤ M_ℂ`, Euclidean bilinear and operator bounds `n M_ℂ`, and the
-real Hessian of `h_ℝ` on `ℬ_s(R)`. -/
+/-- `bpN:p1:hessian-convert`: entries `≤ M_ℂ`, Euclidean bilinear and operator bounds `n M_ℂ`,
+and the real Hessian of `h_ℝ` on `ℬ_s(R)`. -/
 theorem hessian_convert {R s Mc : ℝ} {h : (Fin n → ℂ) → ℂ} (hR : 0 < R) (hs : 0 < s)
     (hh : IsAnalyticIntegrable R s h) (hH : HasComplexHessianBound R s h Mc) :
     (∀ I ∈ KAM.actionNbhd (actionBall n R) s, (∀ i j, ‖complexHessian h I i j‖ ≤ Mc) ∧
