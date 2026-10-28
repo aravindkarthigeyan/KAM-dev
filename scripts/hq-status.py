@@ -30,7 +30,30 @@ xp = root / 'docs/campaign/progress-INP.json'
 if xp.exists():
     ids = {it['id'] for it in progress['items']}
     progress['items'] = progress['items'] + [it for it in json.loads(xp.read_text())['items'] if it['id'] not in ids]
-NOW = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+
+
+def graph_resolved(graph, parts):
+    """Resolved fraction (PROVED, BYPASSED or EXTERNAL) of the graph nodes whose statement source names a part."""
+    path = root / 'docs/graph' / graph / 'DEPGRAPH.md'
+    if not path.exists():
+        return None
+    done = total = 0
+    for rec in re.split(r'\n(?=NODE: )', path.read_text()):
+        st = re.search(r'^LEAN_STATUS: (\S+)', rec, re.M)
+        src = re.search(r'^STATEMENT_SOURCE: (\S+)', rec, re.M)
+        if st and src and any(p in src.group(1) for p in parts):
+            total += 1
+            done += st.group(1) in ('PROVED', 'BYPASSED', 'EXTERNAL')
+    return done / total if total else None
+
+
+# Items with an "auto" field take their done fraction from the proof graph, so they never go stale.
+for it in progress['items']:
+    if 'auto' in it:
+        f = graph_resolved(it['auto']['graph'], it['auto']['parts'])
+        if f is not None:
+            it['done'] = f
+NOW =datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
 LIB = [root / 'KAM']
 
 
