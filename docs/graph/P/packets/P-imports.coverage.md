@@ -645,3 +645,138 @@ REASON: imported node (track N): its statement is proved, or is an external inpu
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
+
+ITEM: K:bp:p0:domains#actionNbhd
+KIND: external
+SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
+DISPOSITION: NODE K:bp:p0:domains#actionNbhd
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p0:domains#complexStrip
+KIND: external
+SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:conventions@L19-L20
+DISPOSITION: NODE K:bp:p0:domains#complexStrip
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p0:domains#fundamentalDomain
+KIND: external
+SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
+DISPOSITION: NODE K:bp:p0:domains#fundamentalDomain
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:cauchy-strip
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:cauchy-strip@L568-L574
+DISPOSITION: NODE K:bp:p1:cauchy-strip
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:exp-sums
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:exp-sums@L727-L734
+DISPOSITION: NODE K:bp:p1:exp-sums
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:ext-cauchy
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-cauchy@L56-L66
+DISPOSITION: NODE K:bp:p1:ext-cauchy
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:ext-measure
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-measure@L100-L109
+DISPOSITION: NODE K:bp:p1:ext-measure
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:fourier-basic
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:fourier-basic@L757-L768
+DISPOSITION: NODE K:bp:p1:fourier-basic
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:iteration
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1009-L1014
+DISPOSITION: NODE K:bp:p1:iteration
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:lipeo
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1203-L1207
+DISPOSITION: NODE K:bp:p1:lipeo
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:summation
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:summation@L824-L831
+DISPOSITION: NODE K:bp:p1:summation
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: K:bp:p1:uniform-limits
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L364-L368
+DISPOSITION: NODE K:bp:p1:uniform-limits
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: N:bpN:p4:bracket
+KIND: external
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L149-L153
+DISPOSITION: NODE N:bpN:p4:bracket
+REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: N:bpN:p4:ext-param
+KIND: external
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:ext-param@L23-L25
+DISPOSITION: NODE N:bpN:p4:ext-param
+REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+
+ITEM: N:bpN:p4:general-cauchy
+KIND: external
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:general-cauchy@L171-L174
+DISPOSITION: NODE N:bpN:p4:general-cauchy
+REASON: imported node (track N): its statement is proved, or is an external input, in the track-N graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -

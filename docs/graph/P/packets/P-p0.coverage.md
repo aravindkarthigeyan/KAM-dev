@@ -352,11 +352,11 @@ REVIEWER: sol-delta-P-b
 ITEM: bpP:p0:fixed
 KIND: theorem
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L379-L388
-DISPOSITION: EXCLUDED
-REASON: P-FIXED (fixedSunPlanetaryKAM) is not a root of this graph version: its general-n proof needs Parts 11a-4/11a-5 (being written); a later SPEC revision adds the root, Parts 11, 11a-*, 13 and restores the parked block draft/deferred-p0-fixed.md
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-b
+DISPOSITION: NODE bpP:p0:fixed
+REASON: root anchor P-FIXED (KAM.Planetary.fixedSunPlanetaryKAM), restored by the P-FIXED revision (2026-10-28): Parts 11, 11a-1..11a-5 and 13 are now in the corpus
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
 
 ITEM: bpP:p0:scope
 KIND: claim
@@ -649,11 +649,11 @@ REVIEWER: sol-delta-P-b
 ITEM: p0:sourcegap-L387
 KIND: proof-region
 SOURCE: blueprint-P/parts/p0-conventions.tex#sourcegap@L386-L386
-DISPOSITION: EXCLUDED
-REASON: \sourcegap of Theorem bpP:p0:fixed (P-FIXED), deferred with that theorem (not a root of this graph version; see bpP:p0:fixed)
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-b
+DISPOSITION: NODE bpP:p13:fixed-hamiltonian-form, bpP:p8:identification, bpP:p10:good-point, bpP:p10:F-nonzero
+REASON: sourcegap of P-FIXED (P-FIXED revision 2026-10-28): the fixed-Sun secular identification is supplied by bpP:p13:fixed-hamiltonian-form (with Theorem bpP:p8:identification); the general-n induction of Fej04r Prop. 77 is Part 10's peeling induction, Theorems bpP:p10:good-point and bpP:p10:F-nonzero (Remark bpP:p13:consumed). Extractor/reviewer to confirm
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
 
 ITEM: p0:source-L49
 KIND: citation

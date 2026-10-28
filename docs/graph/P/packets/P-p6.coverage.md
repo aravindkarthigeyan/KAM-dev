@@ -568,11 +568,11 @@ REVIEWER: sol-delta-P-h
 ITEM: bpP:p6:fixkol-assembly
 KIND: proposition
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L281-L283
-DISPOSITION: EXCLUDED
-REASON: outside every root closure of this graph version; consumed by P-FIXED (deferred). Check: cited only by Part 13 (p13-fixed-assembly.tex, outside the corpus) and Part 11 L240 (outside the corpus); no corpus part in scope cites it
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: sol-delta-P-h
+DISPOSITION: NODE bpP:p6:fixkol-assembly
+REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Consumers: Part 13 (stepP:p13:n2-phys, stepP:p13:ng-phys) and Part 11 L240.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
 
 ITEM: heading:bpP:p6
 KIND: heading

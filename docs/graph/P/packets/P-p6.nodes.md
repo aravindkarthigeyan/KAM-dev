@@ -1820,3 +1820,32 @@ LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: SOURCE_GAP: L184 explicitly permits eps in R, but hamilton-eqs at L82-L92 inherits eps>=0 from L20 and does not state the negative-eps case. L191 applies that result without providing the extension. The algebra suggests an extension, but this review does not supply it. Preserve the arbitrary-real-eps source contract.
+
+NODE: bpP:p6:fixkol-assembly
+KIND: proposition
+TITLE: Physical clauses of $\operatorname{FixKol}$
+STATEMENT_SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L281-L283
+PROOF_SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282
+CONTRACT_ID: bpP:p6:fixkol-assembly
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: TODO
+SOURCE_QUANTIFIERS: TODO
+SOURCE_CONCLUSION: TODO
+CONSTANT_SCOPE: TODO
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p6:movkol-assembly, bpP:p6:orbit-transfer, bpP:p6:tube-geometry
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p6:movkol-assembly | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | cited at this line (statement; \ref{bpP:p6:movkol-assembly})
+EDGE: bpP:p6:orbit-transfer | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | cited at this line (statement; \ref{bpP:p6:orbit-transfer})
+EDGE: bpP:p6:tube-geometry | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | cited at this line (statement; \ref{bpP:p6:tube-geometry})
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: restored by the P-FIXED revision (was EXCLUDED as P-FIXED-only); consumers stepP:p13:n2-phys, stepP:p13:ng-phys, Part 11 L240; proof inline (L282); source fields TODO for the extractor

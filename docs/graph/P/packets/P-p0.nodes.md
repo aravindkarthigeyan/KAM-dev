@@ -1112,6 +1112,35 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: root anchor. Proof: Theorem bpP:p12:planar (Part 12), which carries the \frozen tag; Part 12 applies the frozen P-G (edges owned by P-p12). The stale sourcegap sentence of L376 was fixed in Part 0 (it now names Part 12 as the proof).
 
+NODE: bpP:p0:fixed
+KIND: theorem
+TITLE: P-FIXED: $n$ planar planets around a fixed Sun
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L379-L388
+PROOF_SOURCE: blueprint-P/parts/p13-fixed-assembly.tex#bpP:p13:fixed@L153-L161
+CONTRACT_ID: planetary.fixedSunPlanetaryKAM
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: n >= 2; G, m_0 > 0; m, a: Fin n -> R with m_i > 0 and a_i > 0 for all i, and a_i < a_j whenever i < j (strictly ordered axes, no numerical separation); eta > 0
+SOURCE_QUANTIFIERS: forall n, G, m_0, m, a, eta (data fixed first); exists eps_0, d, D; forall eps with 0 < eps < eps_0; exists S
+SOURCE_CONCLUSION: there exist eps_0, d, D with 0 < eps_0 and 0 < d < D such that for every eps with 0 < eps < eps_0 there is S subset Ph_{n.2} with 0 < meas S < infinity and FixKol(G,m_0,m,a,eps,eta,d,D,S)
+CONSTANT_SCOPE: eps_0, d, D depend on (n, G, m_0, m, a, eta) and not on eps; S depends on eps
+FROZEN_FILE: KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean
+FROZEN_DECL: KAM.Planetary.fixedSunPlanetaryKAM
+FROZEN_ANCHOR_ID: planetary.fixedSunPlanetaryKAM.v1
+FROZEN_ABI_SHA256: a710d06469f0efa43a0eede7aa23e7e13216737ac0895ff11757e256903b2eec
+DEPS: bpP:p0:phase#Phase, bpP:p0:fixkol#FixedKolmogorovSet, bpP:p13:fixed
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L381-L381 | S subset Ph_{n.2}
+EDGE: bpP:p0:fixkol#FixedKolmogorovSet | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L382-L382 | FixKol(G,m_0,m,a,eps,eta,d,D,S)
+EDGE: bpP:p13:fixed | blueprint-P/parts/p13-fixed-assembly.tex#bpP:p13:fixed@L153-L153 | this result carries \frozen{KAM.Planetary.fixedSunPlanetaryKAM}: it proves the anchor
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: root anchor (P-FIXED revision 2026-10-28; block restored from draft/deferred-p0-fixed.md, identity fields re-checked against the manifest). Proof: Theorem bpP:p13:fixed (Part 13), which carries the \frozen tag and splits n = 2 (bpP:p13:n2, route (c) through the frozen P-G) from n >= 3 (bpP:p13:n-general, Part 11's wrapper); bpP:p13:n2 and bpP:p13:n-general also carry the tag (edges owned by P-p13). The \sourcegap (L386-L387) is mapped in the coverage.
+
 NODE: bpP:p0:d25-cross#planeCross
 KIND: definition
 TITLE: Planar cross product: KAM.Planetary.planeCross

@@ -1299,6 +1299,149 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
 
+NODE: bpP:p7:lattice
+KIND: lemma
+TITLE: Lattice compatibility for Part~1
+STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L223-L233
+PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L234-L239
+CONTRACT_ID: bpP:p7:lattice
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: TODO
+SOURCE_QUANTIFIERS: TODO
+SOURCE_CONCLUSION: TODO
+CONSTANT_SCOPE: TODO
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p7:la-polar, stepP:p7:la-inv, stepP:p7:la-per, stepP:p7:la-ham, bpP:p1:typical, bpP:p1:torus-transport, bpP:p1:period-convert, bpP:p1:phys-pipeline
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p7:la-polar | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L235-L235 | proof step of this result
+EDGE: stepP:p7:la-inv | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L236-L236 | proof step of this result
+EDGE: stepP:p7:la-per | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L237-L237 | proof step of this result
+EDGE: stepP:p7:la-ham | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L238-L238 | proof step of this result
+EDGE: bpP:p1:typical | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L226-L226 | cited at this line (statement; \ref{bpP:p1:typical})
+EDGE: bpP:p1:torus-transport | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L229-L229 | cited at this line (statement; \ref{bpP:p1:torus-transport})
+EDGE: bpP:p1:period-convert | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L230-L230 | cited at this line (statement; \ref{bpP:p1:period-convert})
+EDGE: bpP:p1:phys-pipeline | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L230-L230 | cited at this line (statement; \ref{bpP:p1:phys-pipeline})
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: restored by the P-FIXED revision (was EXCLUDED as P-FIXED-only, writer ruling 2026-10-28); consumer stepP:p11:tc-polar (Part 11 L90); source fields TODO for the extractor
+
+NODE: stepP:p7:la-polar
+KIND: step
+TITLE: (a) Polar chart
+STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235
+PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235
+CONTRACT_ID: stepP:p7:la-polar
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: TODO
+SOURCE_QUANTIFIERS: TODO
+SOURCE_CONCLUSION: TODO
+CONSTANT_SCOPE: TODO
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p1:typical
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p1:typical | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235 | cited at this line (step; \ref{bpP:p1:typical})
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: restored by the P-FIXED revision (was EXCLUDED as P-FIXED-only, writer ruling 2026-10-28); consumer stepP:p11:tc-polar (Part 11 L90); source fields TODO for the extractor
+
+NODE: stepP:p7:la-inv
+KIND: step
+TITLE: (b) Invariance
+STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236
+PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236
+CONTRACT_ID: stepP:p7:la-inv
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: TODO
+SOURCE_QUANTIFIERS: TODO
+SOURCE_CONCLUSION: TODO
+CONSTANT_SCOPE: TODO
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p7:product-chart
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236 | cited at this line (step; \ref{bpP:p7:product-chart})
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: restored by the P-FIXED revision (was EXCLUDED as P-FIXED-only, writer ruling 2026-10-28); consumer stepP:p11:tc-polar (Part 11 L90); source fields TODO for the extractor
+
+NODE: stepP:p7:la-per
+KIND: step
+TITLE: (c) Period one
+STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237
+PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237
+CONTRACT_ID: stepP:p7:la-per
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: TODO
+SOURCE_QUANTIFIERS: TODO
+SOURCE_CONCLUSION: TODO
+CONSTANT_SCOPE: TODO
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p1:period-convert, bpP:p1:typical
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p1:period-convert | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237 | cited at this line (step; \ref{bpP:p1:period-convert})
+EDGE: bpP:p1:typical | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237 | cited at this line (step; \ref{bpP:p1:typical})
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: restored by the P-FIXED revision (was EXCLUDED as P-FIXED-only, writer ruling 2026-10-28); consumer stepP:p11:tc-polar (Part 11 L90); source fields TODO for the extractor
+
+NODE: stepP:p7:la-ham
+KIND: step
+TITLE: (d)
+STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238
+PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238
+CONTRACT_ID: stepP:p7:la-ham
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: TODO
+SOURCE_QUANTIFIERS: TODO
+SOURCE_CONCLUSION: TODO
+CONSTANT_SCOPE: TODO
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p7:product-chart
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238 | cited at this line (step; \ref{bpP:p7:product-chart})
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: restored by the P-FIXED revision (was EXCLUDED as P-FIXED-only, writer ruling 2026-10-28); consumer stepP:p11:tc-polar (Part 11 L90); source fields TODO for the extractor
+
 NODE: bpP:p7:d25
 KIND: proposition
 TITLE: D25 definitions = the chart in the eccentric longitude

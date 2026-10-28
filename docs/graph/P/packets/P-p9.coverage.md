@@ -388,10 +388,10 @@ REVIEWER: -
 ITEM: bpP:p9:dict
 KIND: claim
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L155-L160
-DISPOSITION: EXCLUDED
-REASON: outside every root closure of track P. Check: no incoming DEPS/ROUTES edge in the current packets; the sole other in-corpus reference is Part 10 L192 in the excluded scaling remark, not a proof use. Part 11 L44 is outside this graph version with P-FIXED deferred. Omega=2 sigma is supplied to actual consumers by diagonalize/n2, not by this restatement.
+DISPOSITION: NODE bpP:p9:dict
+REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Consumers: Part 11 L44 (Omega_j = 2 sigma_j in the data of section bpP:p11:sec-A; the P-p11 extractor links it) and bpP:p10:scaling (L192, restored). The node block was already in the packet.
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p9
+EXTRACTOR: writer-pfixed-revision
 REVIEWER: -
 
 ITEM: bpP:p9:good

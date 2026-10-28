@@ -433,46 +433,46 @@ REVIEWER: -
 ITEM: bpP:p7:lattice
 KIND: lemma
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L223-L233
-DISPOSITION: EXCLUDED
-REASON: outside every root closure of this graph version; consumed by P-FIXED (deferred) via Part 11 (not in the corpus). Check: bpP:p7:lattice is cited only by p11-cp09-preparation.tex (outside the corpus), by p1 L209 and p12 L205 (comparison paragraphs saying the statements do not apply to the P-G cylinder tori); no proof of Parts 1-14b uses it
+DISPOSITION: NODE bpP:p7:lattice
+REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Consumer: stepP:p11:tc-polar (Part 11 L90, Lemma bpP:p7:lattice (a),(b),(c)).
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: writer-pfixed-revision
 REVIEWER: -
 
 ITEM: stepP:p7:la-polar
 KIND: proof-region
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235
-DISPOSITION: EXCLUDED
-REASON: proof step of bpP:p7:lattice (excluded: consumed by P-FIXED, deferred)
+DISPOSITION: NODE stepP:p7:la-polar
+REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: writer-pfixed-revision
 REVIEWER: -
 
 ITEM: stepP:p7:la-inv
 KIND: proof-region
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236
-DISPOSITION: EXCLUDED
-REASON: proof step of bpP:p7:lattice (excluded: consumed by P-FIXED, deferred)
+DISPOSITION: NODE stepP:p7:la-inv
+REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: writer-pfixed-revision
 REVIEWER: -
 
 ITEM: stepP:p7:la-per
 KIND: proof-region
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237
-DISPOSITION: EXCLUDED
-REASON: proof step of bpP:p7:lattice (excluded: consumed by P-FIXED, deferred)
+DISPOSITION: NODE stepP:p7:la-per
+REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: writer-pfixed-revision
 REVIEWER: -
 
 ITEM: stepP:p7:la-ham
 KIND: proof-region
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238
-DISPOSITION: EXCLUDED
-REASON: proof step of bpP:p7:lattice (excluded: consumed by P-FIXED, deferred)
+DISPOSITION: NODE stepP:p7:la-ham
+REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: writer-pfixed-revision
 REVIEWER: -
 
 ITEM: bpP:p7:d25
