@@ -197,6 +197,7 @@ public import KAM.ODE.Lipschitz
 public import KAM.ODE.Maximal
 public import KAM.ODE.NewtonDefs
 public import KAM.ODE.NewtonReduction
+public import KAM.ODE.NewtonUniform
 public import KAM.ODE.UniformPeriodic
 public import KAM.ODE.Uniqueness
 public import KAM.Provider.Iso.KeplerBorderedDet
