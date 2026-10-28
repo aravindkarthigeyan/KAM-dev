@@ -203,6 +203,7 @@ public import KAM.Head.TorsionRegularGeneral
 public import KAM.Head.Unperturbed
 public import KAM.Head.UnperturbedFrame
 public import KAM.Iso.Apost.Defs
+public import KAM.Iso.Apost.Standing
 public import KAM.Iso.Charts.Defs
 public import KAM.Iso.Charts.Inputs
 public import KAM.Iso.Collision
