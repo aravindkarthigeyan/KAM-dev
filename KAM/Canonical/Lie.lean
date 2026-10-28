@@ -127,7 +127,8 @@ theorem hasDerivAt_adPow_flow {W : ((Fin n → ℂ) × (Fin n → ℂ)) ≃L[ℂ
         (adPow φ (j + 1) u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z)) t := fun t ht =>
   hasDerivAt_comp_flow h hΩ₁ (differentiableOn_adPow hΩ₁ (hφ.mono hΩ₁Ω) hu j) hz ht (htraj t ht)
 
-/-- `bpN:p5:lie-derivative`: `g(t) = u(X^t z)` is `C^∞` on `[-1, 1]`, `g⁽ʲ⁾(t) = (ad_φ^j u)(X^t z)`. -/
+/-- `bpN:p5:lie-derivative`: `g(t) = u(X^t z)` is `C^∞` on `[-1, 1]`,
+`g⁽ʲ⁾(t) = (ad_φ^j u)(X^t z)`. -/
 theorem lie_derivative {W : ((Fin n → ℂ) × (Fin n → ℂ)) ≃L[ℂ] ((Fin n → ℂ) × (Fin n → ℂ))}
     {Ω Ω₁ : Set ((Fin n → ℂ) × (Fin n → ℂ))} {φ u : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ε : ℝ}
     (hφ : DifferentiableOn ℂ φ Ω) (h : SmallField W Ω (KAM.hamiltonianVectorFieldℂ φ) ε)
@@ -137,7 +138,8 @@ theorem lie_derivative {W : ((Fin n → ℂ) × (Fin n → ℂ)) ≃L[ℂ] ((Fin
     (∀ j, DifferentiableOn ℂ (adPow φ j u) Ω₁) ∧
     ContDiffOn ℝ ∞ (fun t => u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z)) (Icc (-1) 1) ∧
     ∀ j, ∀ t ∈ Icc (-1 : ℝ) 1,
-      iteratedDerivWithin j (fun t => u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z)) (Icc (-1) 1) t =
+      iteratedDerivWithin j (fun t => u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z))
+        (Icc (-1) 1) t =
         adPow φ j u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z) := by
   set G : ℕ → ℝ → ℂ := fun j s => adPow φ j u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω s z) with hG
   have hder : ∀ j, ∀ t ∈ Icc (-1 : ℝ) 1, HasDerivAt (G j) (G (j + 1) t) t :=
@@ -170,6 +172,119 @@ theorem lie_derivative {W : ((Fin n → ℂ) × (Fin n → ℂ)) ≃L[ℂ] ((Fin
     have e := derivWithin_congr (f₁ := iteratedDerivWithin j (G 0) (Icc (-1) 1)) (f := G j)
       (s := Icc (-1) 1) (x := t) (fun s hs => ih s hs) (ih t ht)
     exact e.trans (hdw j t ht)
+
+/-- `bpN:p5:taylor`: Taylor with integral remainder along the flow, order `N ≥ 1`
+(hypotheses of `lie_derivative`). -/
+theorem taylor_lie {W : ((Fin n → ℂ) × (Fin n → ℂ)) ≃L[ℂ] ((Fin n → ℂ) × (Fin n → ℂ))}
+    {Ω Ω₁ : Set ((Fin n → ℂ) × (Fin n → ℂ))} {φ u : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ε : ℝ}
+    (hφ : DifferentiableOn ℂ φ Ω) (h : SmallField W Ω (KAM.hamiltonianVectorFieldℂ φ) ε)
+    (hΩ₁ : IsOpen Ω₁) (hΩ₁Ω : Ω₁ ⊆ Ω) (hu : DifferentiableOn ℂ u Ω₁)
+    {z : (Fin n → ℂ) × (Fin n → ℂ)} (hz : z ∈ gaugeInterior W Ω (1 / 2))
+    (htraj : ∀ t ∈ Icc (-1 : ℝ) 1, flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z ∈ Ω₁)
+    {N : ℕ} (hN : 1 ≤ N) :
+    u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω 1 z) =
+        ∑ j ∈ Finset.range N, ((j.factorial : ℂ)⁻¹) * adPow φ j u z +
+          ∫ t in (0 : ℝ)..1, ((((1 - t) ^ (N - 1) / ((N - 1).factorial : ℝ) : ℝ) : ℂ)) *
+            adPow φ N u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z) ∧
+    ∀ B : ℝ, (∀ t ∈ Icc (0 : ℝ) 1, ‖adPow φ N u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z)‖ ≤ B) →
+      ‖∫ t in (0 : ℝ)..1, ((((1 - t) ^ (N - 1) / ((N - 1).factorial : ℝ) : ℝ) : ℂ)) *
+            adPow φ N u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z)‖ ≤ B / (N.factorial : ℝ) := by
+  obtain ⟨M, rfl⟩ : ∃ M, N = M + 1 := ⟨N - 1, by omega⟩
+  simp only [Nat.add_sub_cancel]
+  set G : ℕ → ℝ → ℂ := fun j s => adPow φ j u (flow (KAM.hamiltonianVectorFieldℂ φ) Ω s z) with hG
+  have hder : ∀ j, ∀ t ∈ Icc (0 : ℝ) 1, HasDerivAt (G j) (G (j + 1) t) t := fun j t ht =>
+    hasDerivAt_adPow_flow hφ h hΩ₁ hΩ₁Ω hu hz htraj j t ⟨by linarith [ht.1], ht.2⟩
+  have h0 : flow (KAM.hamiltonianVectorFieldℂ φ) Ω 0 z = z := (flow_a h hz).1
+  have hmain := taylor_integral_aux hder M
+  have hsum : ∑ j ∈ Finset.range (M + 1), ((j.factorial : ℂ)⁻¹) * G j 0 =
+      ∑ j ∈ Finset.range (M + 1), ((j.factorial : ℂ)⁻¹) * adPow φ j u z := by
+    refine Finset.sum_congr rfl fun j _ => ?_
+    simp only [hG, h0]
+  refine ⟨?_, fun B hB => ?_⟩
+  · rw [← hsum]
+    exact hmain
+  · have hcont : Continuous fun t : ℝ => ((((1 - t) ^ M / (M.factorial : ℝ) : ℝ) : ℂ)) := by
+      fun_prop
+    have hwint : IntervalIntegrable (fun t : ℝ => (1 - t) ^ M / (M.factorial : ℝ))
+        MeasureTheory.volume 0 1 := by
+      apply Continuous.intervalIntegrable; fun_prop
+    have hI : ∫ t in (0 : ℝ)..1, (1 - t) ^ M / (M.factorial : ℝ) = 1 / ((M + 1).factorial : ℝ) := by
+      rw [intervalIntegral.integral_eq_sub_of_hasDerivAt (fun t _ => hasDerivAt_taylorWeight M t)
+        hwint]
+      simp
+    calc ‖∫ t in (0 : ℝ)..1, ((((1 - t) ^ M / (M.factorial : ℝ) : ℝ) : ℂ)) * G (M + 1) t‖
+        ≤ ∫ t in (0 : ℝ)..1, (1 - t) ^ M / (M.factorial : ℝ) * B := by
+          refine intervalIntegral.norm_integral_le_of_norm_le zero_le_one
+            (Filter.Eventually.of_forall fun t ht => ?_) (hwint.mul_const B)
+          have hw : 0 ≤ (1 - t) ^ M / (M.factorial : ℝ) := by
+            have : 0 ≤ 1 - t := by linarith [ht.2]
+            positivity
+          rw [norm_mul, Complex.norm_real, Real.norm_of_nonneg hw]
+          exact mul_le_mul_of_nonneg_left (hB t ⟨ht.1.le, ht.2⟩) hw
+      _ = B / ((M + 1).factorial : ℝ) := by
+          rw [intervalIntegral.integral_mul_const, hI]; ring
+
+/-- Linearity of the bracket in the first slot, at a point of differentiability. -/
+theorem poissonBracket_const_mul_add {a b φ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {c : ℂ}
+    {z : (Fin n → ℂ) × (Fin n → ℂ)} (ha : DifferentiableAt ℂ a z) (hb : DifferentiableAt ℂ b z) :
+    poissonBracket (fun w => c * a w + b w) φ z =
+      c * poissonBracket a φ z + poissonBracket b φ z := by
+  simp only [poissonBracket_eq_fderiv_field]
+  rw [fderiv_fun_add (ha.const_mul c) hb, fderiv_const_mul ha]
+  simp
+
+/-- `bpN:p5:taylor`, displayed formula (`bpN:p5:eq:poschel`): `N = 2` for `h`, `N = 1` for `f₀`. -/
+theorem taylor_poschel {W : ((Fin n → ℂ) × (Fin n → ℂ)) ≃L[ℂ] ((Fin n → ℂ) × (Fin n → ℂ))}
+    {Ω Ω₁ : Set ((Fin n → ℂ) × (Fin n → ℂ))} {φ h f₀ : (Fin n → ℂ) × (Fin n → ℂ) → ℂ} {ε : ℝ}
+    (hφ : DifferentiableOn ℂ φ Ω) (hs : SmallField W Ω (KAM.hamiltonianVectorFieldℂ φ) ε)
+    (hΩ₁ : IsOpen Ω₁) (hΩ₁Ω : Ω₁ ⊆ Ω) (hh : DifferentiableOn ℂ h Ω₁)
+    (hf : DifferentiableOn ℂ f₀ Ω₁) {z : (Fin n → ℂ) × (Fin n → ℂ)}
+    (hz : z ∈ gaugeInterior W Ω (1 / 2))
+    (htraj : ∀ t ∈ Icc (-1 : ℝ) 1, flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z ∈ Ω₁) :
+    h (flow (KAM.hamiltonianVectorFieldℂ φ) Ω 1 z) +
+        f₀ (flow (KAM.hamiltonianVectorFieldℂ φ) Ω 1 z) =
+      h z + poissonBracket h φ z + f₀ z +
+        ∫ t in (0 : ℝ)..1, poissonBracket
+          (fun w => ((1 - t : ℝ) : ℂ) * poissonBracket h φ w + f₀ w) φ
+          (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z) := by
+  have T1 := (taylor_lie hφ hs hΩ₁ hΩ₁Ω hh hz htraj (N := 2) (by norm_num)).1
+  have T2 := (taylor_lie hφ hs hΩ₁ hΩ₁Ω hf hz htraj (N := 1) (by norm_num)).1
+  simp only [Finset.sum_range_succ, Finset.sum_range_zero, zero_add, Nat.factorial_zero,
+    Nat.factorial_one, Nat.cast_one, inv_one, one_mul, adPow] at T1 T2
+  have hcont : ∀ (v : (Fin n → ℂ) × (Fin n → ℂ) → ℂ), DifferentiableOn ℂ v Ω₁ → ∀ j,
+      ContinuousOn (fun t : ℝ => adPow φ j v (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z))
+        (Icc 0 1) := fun v hv j t ht =>
+    (hasDerivAt_adPow_flow hφ hs hΩ₁ hΩ₁Ω hv hz htraj j t
+      ⟨by linarith [ht.1], ht.2⟩).continuousAt.continuousWithinAt
+  simp only [show (2 : ℕ) - 1 = 1 from rfl, show (1 : ℕ) - 1 = 0 from rfl, Nat.factorial_one,
+    Nat.factorial_zero, Nat.cast_one, pow_one, pow_zero, div_one, Complex.ofReal_one,
+    one_mul] at T1 T2
+  have hc2 := hcont h hh 2
+  have hc1 := hcont f₀ hf 1
+  have hcw : Continuous fun t : ℝ => ((1 - t : ℝ) : ℂ) := by fun_prop
+  have hI1 : IntervalIntegrable (fun t : ℝ => ((1 - t : ℝ) : ℂ) *
+      poissonBracket (poissonBracket h φ) φ (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z))
+      MeasureTheory.volume 0 1 :=
+    (hcw.continuousOn.mul hc2).intervalIntegrable_of_Icc zero_le_one
+  have hI2 : IntervalIntegrable (fun t : ℝ =>
+      poissonBracket f₀ φ (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z))
+      MeasureTheory.volume 0 1 := hc1.intervalIntegrable_of_Icc zero_le_one
+  have hdb : DifferentiableOn ℂ (poissonBracket h φ) Ω₁ :=
+    differentiableOn_adPow hΩ₁ (hφ.mono hΩ₁Ω) hh 1
+  have hsplit : ∫ t in (0 : ℝ)..1, poissonBracket
+        (fun w => ((1 - t : ℝ) : ℂ) * poissonBracket h φ w + f₀ w) φ
+        (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z) =
+      (∫ t in (0 : ℝ)..1, ((1 - t : ℝ) : ℂ) *
+        poissonBracket (poissonBracket h φ) φ (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z)) +
+      ∫ t in (0 : ℝ)..1, poissonBracket f₀ φ (flow (KAM.hamiltonianVectorFieldℂ φ) Ω t z) := by
+    rw [← intervalIntegral.integral_add hI1 hI2]
+    refine intervalIntegral.integral_congr fun t ht => ?_
+    rw [uIcc_of_le zero_le_one] at ht
+    have hm := htraj t ⟨by linarith [ht.1], ht.2⟩
+    exact poissonBracket_const_mul_add (hdb.differentiableAt (hΩ₁.mem_nhds hm))
+      (hf.differentiableAt (hΩ₁.mem_nhds hm))
+  rw [hsplit, T1, T2]
+  ring
 
 end Lie
 
