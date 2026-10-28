@@ -203,6 +203,8 @@ public import KAM.ODE.NewtonReduction
 public import KAM.ODE.NewtonUniform
 public import KAM.ODE.UniformPeriodic
 public import KAM.ODE.Uniqueness
+public import KAM.Planetary.Newtonian.Barycentric
+public import KAM.Planetary.Poincare.Chart
 public import KAM.Provider.Iso.KeplerBorderedDet
 public import KAM.Provider.Nekhoroshev.QuasiConvexIsoenergeticDerivative
 public import KAM.Provider.Nekhoroshev.ZeroPerturbation
