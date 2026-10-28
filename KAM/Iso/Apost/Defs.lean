@@ -23,17 +23,17 @@ from the audited signatures; there is no theorem in this module).
 * The explicit correction of `bpI:p2:correction`: `isoBordData`, `isoXi`, `isoXiOmega`,
   `isoCorrection`, `isoNewS`; the Newton map and its quadratic remainders of
   `bpI:p2:newton-error`: `isoNewtonMap`, `isoQuadX`, `isoQuadH`.
-* The schedule `isoEpsSeq`, `isoDSeq`; the iteration `isoSeq` and its limits `isoLimit`,
-  `isoSLimit`. `δ_s`, `r_s` are track K's `deltaSeq`, `rSeq`.
+* The schedule `isoEpsSeq`, `isoDSeq` and the iteration `isoSeq`. `δ_s`, `r_s` are track K's
+  `deltaSeq`, `rSeq`. The limits `isoLimit`, `isoSLimit` land with `limit` (package I2-9).
 
-Rule 6: the iteration, correction and limit are total definitions, so that `iteration` and `limit`
-assume exactly the hypotheses `IterHyp`. The frequency is always the term `s • ωstar`.
+Rule 6: the iteration and the correction are total definitions, so that `iteration` assumes exactly
+the hypotheses `IterHyp`. The frequency is always the term `s • ωstar`.
 -/
 
 @[expose] public noncomputable section
 
 open scoped Matrix.Norms.Operator
-open Matrix Filter
+open Matrix
 
 namespace KAM.Iso.Apost
 
@@ -199,17 +199,10 @@ structure IterHyp (σK σB σT σω ν : ℝ) (D : Set ((Fin n → ℂ) × (Fin 
   error_le : ∀ θ ∈ complexStrip n ρ, ‖invarianceError H K (s₀ • ωstar) θ‖ ≤ e
   energy_le : ‖KAM.Iso.energyAverage H K - (E₀ : ℂ)‖ ≤ e
 
-open Classical in
-/-- `K_∞ = lim K_j` on `T_{ρ∞}`, `K` elsewhere. -/
-def isoLimit (H : (Fin n → ℂ) × (Fin n → ℂ) → ℂ) (K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ))
-    (ωstar : Fin n → ℝ) (E₀ s₀ ρ ρinf : ℝ) : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ) :=
-  fun θ => if θ ∈ complexStrip n ρinf then
-    limUnder atTop (fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).1 θ) else K θ
-
-/-- `s_∞ = lim s_j`. -/
-def isoSLimit (H : (Fin n → ℂ) × (Fin n → ℂ) → ℂ) (K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ))
-    (ωstar : Fin n → ℝ) (E₀ s₀ ρ ρinf : ℝ) : ℝ :=
-  limUnder atTop (fun j => (isoSeq H K ωstar E₀ s₀ ρ ρinf j).2)
+-- `isoLimit` (`K_∞ = lim K_j` on `T_{ρ∞}`) and `isoSLimit` (`s_∞ = lim s_j`) are not defined here:
+-- they are `limUnder` selectors, admitted only together with the theorems that prove convergence
+-- and characterize them. They land in package I2-9 (`Apost/Limit`) with `limit` and
+-- `energy_limit`, as `kamLimit` landed with `limit` in track K (`KAM/Apost/Limit.lean`).
 
 /-- `C₁ = ρ^{4τ} max {γ̄⁴, ĉ_* δ₀^{-2a}}`. -/
 def isoC1 (n : ℕ) (τ ρ ρinf M σK σB σT μ ν γbar : ℝ) : ℝ :=
