@@ -1646,7 +1646,7 @@
     "module": "KAM.Provider.Iso.IsoenergeticKam",
     "export": "KAM.Provider.Iso.isoenergetic_kam"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "6384a55879e1e8e6d4e6bda3b3b52886c76dc7e8b31036a287e6276ca59b817d",
    "suffix_sha256": "58564e44d45d3a56e328417645fb48a301bc876fbe465448299d676f30e18145",
    "draft_allowlist": {
