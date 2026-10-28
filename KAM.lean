@@ -202,6 +202,9 @@ public import KAM.Head.TorsionRegular
 public import KAM.Head.TorsionRegularGeneral
 public import KAM.Head.Unperturbed
 public import KAM.Head.UnperturbedFrame
+public import KAM.Iso.Apost.Defs
+public import KAM.Iso.Charts.Defs
+public import KAM.Iso.Charts.Inputs
 public import KAM.Iso.Collision
 public import KAM.Iso.Confinement.Confinement
 public import KAM.Iso.Confinement.EnergyCoordinate
@@ -216,6 +219,8 @@ public import KAM.Iso.Confinement.Setting
 public import KAM.Iso.Conversion
 public import KAM.Iso.Kepler
 public import KAM.Iso.KeplerHamiltonian
+public import KAM.Iso.Linear.Defs
+public import KAM.Iso.Linear.NoTwist
 public import KAM.Iso.R3bp.Uniqueness
 public import KAM.Iso.RestrictedHam
 public import KAM.Iso.ShiftPotential
