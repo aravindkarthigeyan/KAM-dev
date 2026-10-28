@@ -1,0 +1,4 @@
+# I2-1 prover handoff (branch inp-i21, 48f04d2; contains inp-i11 and inp-id0 (fixed); offloaded package run by the main orchestrator)
+
+File KAM/Iso/Apost/Standing.lean (132 lines; imports Apost/Defs, Linear/Tools, KAM.Apost.Frame). Nodes: p2:standing#k-bridge = IsoStanding.setting (Setting from IsoStanding fields; dio via isDiophantine_smul); p2:ray = ray (six conjuncts; no ωstar ≠ 0 needed); p2:admissible claim = IsoAdmissible.freq (K's KAM.Apost.frequency on (hS.setting …).toStanding). Statements identical to IPart123Signatures.lean.
+AUDIT FOCUS (design docs/tracks/I/design/PART123-LEAN-DESIGN.md v2 §7 row I2-1; audits PART123-design-audit-{1,2}.md; blueprint-I p2 standing, ray, admissible): (1) statements = blueprint (ray margins and Lipschitz bound, the admissible frequency claim γ ≤ ‖sω*‖ ≤ Θ); (2) the K bridge uses only IsoStanding data (no proof step smuggled through the structure); (3) hygiene. Audit git diff inp-i11...HEAD.
