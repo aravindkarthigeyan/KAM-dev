@@ -28,7 +28,7 @@ the blueprint produces.
 * `to-omega`, `to-row`, `to-avg`, `to-inv` (`to_omega_arith`, `to_row_arith`, `to_avg_arith`,
   `to_inv_arith`, `C_DT_small_of_CDTbord`);
 * `st-small` (`iso_step_small`), `it-sums` and `it-stepsmall` (`iso_error_decay_hyp`,
-  `iso_c_sum_small`, `iso_step_small_seq`, `sum_coef_le_gen`, `iso_iteration_sums`,
+  `iso_c_sum_small`, `iso_iteration_step_small`, `sum_coef_le_gen`, `iso_iteration_sums`,
   `iso_closeness_le`);
 * `g1-e`, `g1-o` (`isoC1_pos`, `isoC2_pos`, `iso_g1_error_small`, `iso_g1_closeness_eq`).
 
