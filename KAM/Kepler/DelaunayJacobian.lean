@@ -48,10 +48,12 @@ private theorem hasDerivAt_rot_curve {g a b : ℝ → ℝ} {g' a' b' t : ℝ} (h
     HasDerivAt (fun s => rot (g s) ![a s, b s])
       (g' • quarterTurn (rot (g t) ![a t, b t]) + rot (g t) ![a', b']) t := by
   have h0 : HasDerivAt (fun s => Real.cos (g s) * a s - Real.sin (g s) * b s)
-      (-Real.sin (g t) * g' * a t + Real.cos (g t) * a' - (Real.cos (g t) * g' * b t + Real.sin (g t) * b')) t :=
+      (-Real.sin (g t) * g' * a t + Real.cos (g t) * a' - (Real.cos (g t) * g' * b t + Real.sin (g
+          t) * b')) t :=
     ((hg.cos.mul ha).sub (hg.sin.mul hb))
   have h1 : HasDerivAt (fun s => Real.sin (g s) * a s + Real.cos (g s) * b s)
-      (Real.cos (g t) * g' * a t + Real.sin (g t) * a' + (-Real.sin (g t) * g' * b t + Real.cos (g t) * b')) t :=
+      (Real.cos (g t) * g' * a t + Real.sin (g t) * a' + (-Real.sin (g t) * g' * b t + Real.cos (g
+          t) * b')) t :=
     ((hg.sin.mul ha).add (hg.cos.mul hb))
   have := hasDerivAt_mk2 h0 h1
   refine this.congr_deriv ?_
@@ -99,7 +101,8 @@ private theorem one_sub_mul_cos_pos' {e c : ℝ} (he0 : 0 ≤ e) (he1 : e < 1) (
 private theorem hasDerivAt_frameDen (hL : HasDerivAt L L' t) (he : HasDerivAt e e' t)
     (hu : HasDerivAt u u' t) :
     HasDerivAt (fun s => L s * (1 - e s * Real.cos (u s)))
-      (L' * (1 - e t * Real.cos (u t)) + L t * (-(e' * Real.cos (u t) + e t * (-Real.sin (u t) * u')))) t := by
+      (L' * (1 - e t * Real.cos (u t)) + L t * (-(e' * Real.cos (u t) + e t * (-Real.sin (u t) *
+          u')))) t := by
   refine (hL.mul ((hasDerivAt_const t (1:ℝ)).sub (he.mul hu.cos))).congr_deriv ?_
   simp
 
@@ -147,18 +150,21 @@ end Frame
 theorem hasDerivAt_eccAnom_curve {ℓ e : ℝ → ℝ} {ℓ' e' t : ℝ} (hℓ : HasDerivAt ℓ ℓ' t)
     (he : HasDerivAt e e' t) (h : |e t| < 1) :
     HasDerivAt (fun s => eccAnom (ℓ s) (e s))
-      ((ℓ' + Real.sin (eccAnom (ℓ t) (e t)) * e') / (1 - e t * Real.cos (eccAnom (ℓ t) (e t)))) t := by
+      ((ℓ' + Real.sin (eccAnom (ℓ t) (e t)) * e') / (1 - e t * Real.cos (eccAnom (ℓ t) (e t)))) t
+          := by
   have hdiff : DifferentiableAt ℝ (fun x : ℝ × ℝ => eccAnom x.1 x.2) (ℓ t, e t) :=
     (analyticOnNhd_eccAnom (ℓ t, e t) h).differentiableAt
   have hcurve : DifferentiableAt ℝ (fun s => ((ℓ s, e s) : ℝ × ℝ)) t :=
     hℓ.differentiableAt.prodMk he.differentiableAt
   have hu : DifferentiableAt ℝ (fun s => eccAnom (ℓ s) (e s)) t :=
-    (hdiff.comp t hcurve : DifferentiableAt ℝ ((fun x : ℝ × ℝ => eccAnom x.1 x.2) ∘ fun s => (ℓ s, e s)) t)
+    (hdiff.comp t hcurve : DifferentiableAt ℝ ((fun x : ℝ × ℝ => eccAnom x.1 x.2) ∘ fun s => (ℓ s,
+        e s)) t)
   have hu' := hu.hasDerivAt
   set u' := deriv (fun s => eccAnom (ℓ s) (e s)) t with hu'def
   have hev : ∀ᶠ s in 𝓝 t, |e s| < 1 :=
     (continuous_abs.continuousAt.comp he.continuousAt).eventually (Iio_mem_nhds h)
-  have hconst : HasDerivAt (fun s => eccAnom (ℓ s) (e s) - e s * Real.sin (eccAnom (ℓ s) (e s))) ℓ' t := by
+  have hconst : HasDerivAt (fun s => eccAnom (ℓ s) (e s) - e s * Real.sin (eccAnom (ℓ s) (e s))) ℓ'
+      t := by
     refine hℓ.congr_of_eventuallyEq ?_
     filter_upwards [hev] with s hs
     exact eccAnom_eq (ℓ s) hs
@@ -173,7 +179,8 @@ theorem hasDerivAt_eccAnom_curve {ℓ e : ℝ → ℝ} {ℓ' e' t : ℝ} (hℓ :
   field_simp
   linear_combination heq
 
-/-- EXPLICIT Jacobian columns (audit: the decomposition promised for KEP-6 is designed here, not only asserted).
+/-- EXPLICIT Jacobian columns (audit: the decomposition promised for KEP-6 is designed here, not
+    only asserted).
 Frame derivatives, with `u = eccAnom ℓ e`, `c = cos u`, `s = sin u`, `k = √(1-e²)`, `D = 1 - e c`:
 `∂_u (X, Y, P_X, P_Y) = (-L² s, L² k c, -(c-e)/(L D²), -k s/(L D²))`,
 `∂_e (at fixed u) = (-L², -L² e s/k, -s c/(L D²), c (c-e)/(L D² k))`,
@@ -184,8 +191,10 @@ def orbitMapColumn (ℓ g L e : ℝ) : Fin 4 → Phase 2 :=
   let s := Real.sin u
   let k := √(1 - e ^ 2)
   let D := 1 - e * c
-  let fu : Phase 2 := (![-L ^ 2 * s, L ^ 2 * k * c], ![-(c - e) / (L * D ^ 2), -k * s / (L * D ^ 2)])
-  let fe : Phase 2 := (![-L ^ 2, -L ^ 2 * e * s / k], ![-s * c / (L * D ^ 2), c * (c - e) / (L * D ^ 2 * k)])
+  let fu : Phase 2 := (![-L ^ 2 * s, L ^ 2 * k * c], ![-(c - e) / (L * D ^ 2), -k * s / (L * D ^
+      2)])
+  let fe : Phase 2 := (![-L ^ 2, -L ^ 2 * e * s / k], ![-s * c / (L * D ^ 2), c * (c - e) / (L * D
+      ^ 2 * k)])
   let fL : Phase 2 := (![2 * L * (c - e), 2 * L * k * s], ![s / (L ^ 2 * D), -k * c / (L ^ 2 * D)])
   let q := (orbitMapR ℓ g L e)
   ![(rot g ((1 / D) • fu.1), rot g ((1 / D) • fu.2)),
@@ -224,7 +233,8 @@ theorem hasDerivAt_orbitMapR_curve {ℓ g L e : ℝ → ℝ} {ℓ' g' L' e' t : 
     · simp [orbitMapColumn, rot, quarterTurn, orbitMapR, orbitFrame]
       ring
 
-private theorem fderiv_apply_eq_of_hasDerivAt_line {E F : Type*} [NormedAddCommGroup E]
+/-- `fderiv` in the direction `v` is the derivative along the line `t ↦ x + t • v`. -/
+theorem fderiv_apply_eq_of_hasDerivAt_line {E F : Type*} [NormedAddCommGroup E]
     [NormedSpace ℝ E] [NormedAddCommGroup F] [NormedSpace ℝ F] {f : E → F} {x v : E} {d : F}
     (hf : DifferentiableAt ℝ f x) (h : HasDerivAt (fun t : ℝ => f (x + t • v)) d 0) :
     fderiv ℝ f x v = d := by
@@ -245,10 +255,13 @@ theorem hasDerivAt_orbitMapR_line (ℓ g L e a b c d : ℝ) (hL : 0 < L) (he0 : 
 
 /-- The column of the Jacobian of `(ℓ, g, L, e) ↦ orbitMapR ℓ g L e` in the direction `i`. -/
 theorem fderiv_orbitMapR_basis {ℓ g L e : ℝ} (hL : 0 < L) (he0 : 0 < e) (he1 : e < 1) (i : Fin 4) :
-    fderiv ℝ (fun x : Fin 4 → ℝ => orbitMapR (x 0) (x 1) (x 2) (x 3)) ![ℓ, g, L, e] (Pi.single i 1) =
+    fderiv ℝ (fun x : Fin 4 → ℝ => orbitMapR (x 0) (x 1) (x 2) (x 3)) ![ℓ, g, L, e] (Pi.single i 1)
+        =
       orbitMapColumn ℓ g L e i := by
-  have hd : DifferentiableAt ℝ (fun x : Fin 4 → ℝ => orbitMapR (x 0) (x 1) (x 2) (x 3)) ![ℓ, g, L, e] :=
-    (analyticOnNhd_orbitMapR _ ⟨by simpa using hL, by simpa using he0.le, by simpa using he1⟩).differentiableAt
+  have hd : DifferentiableAt ℝ (fun x : Fin 4 → ℝ => orbitMapR (x 0) (x 1) (x 2) (x 3)) ![ℓ, g, L,
+      e] :=
+    (analyticOnNhd_orbitMapR _ ⟨by simpa using hL, by simpa using he0.le, by simpa using
+        he1⟩).differentiableAt
   refine fderiv_apply_eq_of_hasDerivAt_line hd ?_
   fin_cases i
   · simpa using hasDerivAt_orbitMapR_line ℓ g L e 1 0 0 0 hL he0.le he1
@@ -256,7 +269,7 @@ theorem fderiv_orbitMapR_basis {ℓ g L e : ℝ} (hL : 0 < L) (he0 : 0 < e) (he1
   · simpa using hasDerivAt_orbitMapR_line ℓ g L e 0 0 1 0 hL he0.le he1
   · simpa using hasDerivAt_orbitMapR_line ℓ g L e 0 0 0 1 hL he0.le he1
 
-private theorem eccOf_data {L G : ℝ} (hG : 0 < G) (hGL : G < L) :
+theorem eccOf_data {L G : ℝ} (hG : 0 < G) (hGL : G < L) :
     0 < eccOf L G ∧ eccOf L G < 1 ∧ 0 < 1 - G ^ 2 / L ^ 2 := by
   have hm := eccOf_mem_Ioo (L := L) (G := G) (by simpa using hGL) hG
   have hL : 0 < L := hG.trans hGL
@@ -311,8 +324,10 @@ private theorem hasDerivAt_delaunay_line {w : Phase 2} (hw : w ∈ deDom) (a b c
 
 /-- Chain rule through `e(L, G)`: `∂_L e = G²/(L³ e)`, `∂_G e = -G/(L² e)`. -/
 theorem fderiv_delaunay_basis {w : Phase 2} (hw : w ∈ deDom) :
-    fderiv ℝ delaunay w (Pi.single 0 1, 0) = orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1)) 0 ∧
-    fderiv ℝ delaunay w (Pi.single 1 1, 0) = orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1)) 1 ∧
+    fderiv ℝ delaunay w (Pi.single 0 1, 0) = orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0)
+        (w.2 1)) 0 ∧
+    fderiv ℝ delaunay w (Pi.single 1 1, 0) = orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0)
+        (w.2 1)) 1 ∧
     fderiv ℝ delaunay w (0, Pi.single 0 1) =
       orbitMapColumn (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1)) 2 +
         (w.2 1 ^ 2 / (w.2 0 ^ 3 * eccOf (w.2 0) (w.2 1))) •
@@ -327,10 +342,12 @@ theorem fderiv_delaunay_basis {w : Phase 2} (hw : w ∈ deDom) :
   · refine fderiv_apply_eq_of_hasDerivAt_line hd ?_
     simpa [delaunay] using hasDerivAt_delaunay_line hw 0 1 0 0 0 (by simp)
   · refine fderiv_apply_eq_of_hasDerivAt_line hd ?_
-    simpa [delaunay] using hasDerivAt_delaunay_line hw 0 0 1 0 (w.2 1 ^ 2 / (w.2 0 ^ 3 * eccOf (w.2 0) (w.2 1)))
+    simpa [delaunay] using hasDerivAt_delaunay_line hw 0 0 1 0 (w.2 1 ^ 2 / (w.2 0 ^ 3 * eccOf (w.2
+        0) (w.2 1)))
       (by ring)
   · refine fderiv_apply_eq_of_hasDerivAt_line hd ?_
-    simpa [delaunay] using hasDerivAt_delaunay_line hw 0 0 0 1 (-w.2 1 / (w.2 0 ^ 2 * eccOf (w.2 0) (w.2 1)))
+    simpa [delaunay] using hasDerivAt_delaunay_line hw 0 0 0 1 (-w.2 1 / (w.2 0 ^ 2 * eccOf (w.2 0)
+        (w.2 1)))
       (by ring)
 
 end KAM.Kepler
