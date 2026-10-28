@@ -1,0 +1,4 @@
+# I2-7 prover handoff (branch inp-i27, d75c0fe; contains inp-i22 (I2-2, delivered); offloaded package run by the main orchestrator)
+
+File KAM/Iso/Apost/Schedule.lean (276 lines). Node schedule: reuse of K's deltaSeq, rSeq, KAM.Apost.schedule (no new defs; isoEpsSeq/isoDSeq from I-D0). Node error-decay: iso_error_decay (verbatim; K's error_decay proof with hatCE, using one_le_hatCE). Extra helpers for I2-8: isoEpsSeq_*, iso_q_nonneg, iso_error_decay_eps/weighted/sum, isoEps_*, isoDSeq_eq. hρinf unused (as in K).
+AUDIT FOCUS (design docs/tracks/I/design/PART123-LEAN-DESIGN.md v2 §7 row I2-7, reuse map; audits PART123-design-audit-{1,2}.md; blueprint-I p2 schedule, error-decay): (1) statement = blueprint with hatCE; the K schedule reuse genuinely covers the iso schedule node; (2) helpers sound; (3) hygiene. Audit git diff inp-i22...HEAD.
