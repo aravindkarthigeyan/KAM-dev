@@ -25,6 +25,7 @@ public import KAM.Apost.Standing
 public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
+public import KAM.Canonical.Adjoint
 public import KAM.Canonical.Flow
 public import KAM.Canonical.FlowPicard
 public import KAM.Canonical.FlowPicardConverge
