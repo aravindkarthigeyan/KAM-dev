@@ -777,9 +777,9 @@ EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:ad-step | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72 | the recursive bound being iterated
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-review-N-f+sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -881,9 +881,9 @@ EDGE: bpN:p4:ext-weier | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-seri
 EDGE: bpN:p4:ext-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | termwise integration of the Fourier coefficients
 EDGE: bpN:p4:norm | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | Fourier coefficients and norm of the limit
 EDGE: bpN:p11:ext-e-upper | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96 | e<2.72 gives e^2<7.4 and e^2/8<0.925<0.93 for the geometric series
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-delta-N-f+sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -918,9 +918,9 @@ EDGE: stepN:p11:co-series | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-r
 EDGE: bpN:p11:ext-taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | Taylor formula with integral remainder along the extended flow (Omega=D^e_{R,s}, gamma(t)=X^t(z)); Part 5 Taylor is not used
 EDGE: bpN:p11:ext-e-upper | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | e<2.72 gives e^2<7.4 and e^2/9<0.823<0.83
 EDGE: bpN:p11:ext-num | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97 | the upper bound e^2/9<0.83 is used together with the lower bounds of ext-num
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-global-N+sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -948,9 +948,9 @@ EDGE: stepN:p11:et-one | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylo
 EDGE: stepN:p11:et-ind | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L84-L84 | proof step (induction)
 EDGE: stepN:p11:et-taylor | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L85-L85 | proof step (Taylor with integral remainder)
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L76-L76 | ad^j_phi, the bracket {,}_c and the field X^c_phi
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -971,13 +971,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p1:ext-restrict, bpN:p11:wfield
+DEPS: bpN:p1:ext-restrict, bpN:p11:wfield, K:bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83 | holomorphic v is real-differentiable with derivative Dv (chain rule along the C^1 curve)
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83 | {v,phi}_c=Dv·X^c_phi (Definition wfield)
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83 | holomorphic v and phi have continuous holomorphic first derivatives, so Dv(gamma) times X^c_phi(gamma) is continuous
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-N
+EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1005,9 +1006,9 @@ ROUTE_FOR: -
 EDGE: stepN:p11:et-one | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84 | previous step applied to v=ad^j_phi u
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84 | a bracket of holomorphic functions consists of products of first derivatives, hence holomorphic
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84 | definition of the bracket {,}_c and ad^j_phi
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1020,7 +1021,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-
 PROOF_SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85
 CONTRACT_ID: stepN:p11:et-taylor
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:ext-taylor; g in C^infty with g^(j)=(ad^j_phi u)∘gamma
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:ext-taylor; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: N>=1
 SOURCE_CONCLUSION: the two displays: Taylor with integral remainder for real and imaginary parts of g at 0 evaluated at 1 and int_0^1 (1-t)^{N-1}/(N-1)! dt=1/N!; the second display is N=2 for h plus N=1 for f_0 with ad^2_phi h={{h,phi}_c,phi}_c
 CONSTANT_SCOPE: none
@@ -1028,13 +1029,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p11:et-ind, K:bp:p1:ext-integral
+DEPS: stepN:p11:et-ind, K:bp:p1:ext-integral, bpN:p11:wfield
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:et-ind | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85 | g^(j)=(ad^j_phi u)∘gamma and smoothness
 EDGE: K:bp:p1:ext-integral | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85 | integration by parts / integral form of the remainder, one integration by parts per order
+EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85 | ad^2_phi h={{h,phi}_c,phi}_c and the weighted bracket in the second Taylor display
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-N
+EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1059,9 +1061,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1128,9 +1130,9 @@ EDGE: bpN:p11:composition | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-t
 EDGE: bpN:p11:adjoint | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | bounds (e^2 hat-eta/8)^{N-1} for ad^{N-1}_phi w and the series terms
 EDGE: stepN:p11:co-remainder | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | the hatted-loss Taylor remainder estimate and its decay are reused from the composition remainder argument
 EDGE: bpN:p11:ext-taylor | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104 | second display of the extended Taylor lemma (N=2 for h, N=1 for f_0; Omega=D^e_{R,s}, gamma(t)=X^t(z))
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11ab+sol-global-N+sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

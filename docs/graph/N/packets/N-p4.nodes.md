@@ -236,9 +236,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:n-zero@L56-L57 | û_0, ¦u¦_{I,s}, ¦u¦_{r,s} evaluated for n=0
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:n-zero@L56-L56 | V_rD, T_s=ℂ⁰ and 𝒟_{r,s} for n=0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -363,9 +363,9 @@ EDGE: K:bp:p1:summation | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-se
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L80-L80 | norm identity is the definition
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L79-L79 | 𝒟_{r,s'} ⊂ 𝒟_{r,s}; holomorphy on 𝒟_{r,s} as s' arbitrary
 EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L79-L79 | n=0: index set Z^0={0}, the series is the single term a_0 (no K strip/series result needed)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -394,9 +394,9 @@ EDGE: K:bp:p1:fourier-basic | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:c
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L82-L82 | single term of ¦u¦_{I,s} ≤ ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L82-L82 | Uses the action neighbourhood or the domain of the function class directly
 EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L82-L82 | case n=0: u(·,I)=û_0(I)χ_0 is the number u(I); representation trivial
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -455,9 +455,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#stepN:
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-L98 | ¦û_k(I)¦e^{2π¦k¦₁s} sum is ¦u¦_{I,s} ≤ ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-L98 | (θ,I) ∈ 𝒟_{r,s}
 EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-L98 | n=0: ¦u¦_{I,s}=¦u(I)¦ and the display is the single term k=0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b+sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -486,9 +486,9 @@ EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101-L101 | û_k(I), ¦u¦_{I,s}, ¦u¦_{r,s}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101-L101 | T_{s+σ}, V_rD
 EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101-L101 | case n=0: ¦u¦_{I,s}=¦u(I)¦ ≤ M=coth(πσ)^0 M
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

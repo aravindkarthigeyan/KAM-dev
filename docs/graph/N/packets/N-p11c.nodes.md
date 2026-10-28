@@ -837,21 +837,21 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p11:ef-en-energy, stepN:p11:ef-en-taylor, stepN:p11:ef-en-split, bpN:p1:ext-restrict, stepN:p12:fb-real, bpN:p7:resonance-data, bpN:p4:norm, bpN:p11:ext-class, bpN:p11:s-real#data, bpN:p11:wfield
+DEPS: stepN:p11:ef-en-energy, stepN:p11:ef-en-taylor, stepN:p11:ef-en-split, bpN:p1:ext-restrict, bpN:p7:resonance-data, bpN:p4:norm, bpN:p11:ext-class, bpN:p11:s-real#data, bpN:p11:wfield, K:bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:ef-en-energy | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L91-L93 | substep: energy identity and bound A
 EDGE: stepN:p11:ef-en-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L95-L95 | substep: Lagrange Taylor along the fast segment
 EDGE: stepN:p11:ef-en-split | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L97-L100 | substep: projection split and the 5/16 bound
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | h_R=h¦_U is C^infty on U by restriction of scalars (holomorphic on V_r-tilde(I_c), real on real points)
-EDGE: stepN:p12:fb-real | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | the smoothness and reality of h_R are obtained exactly as in Step fb-real (i),(ii)
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | U, m, Q=D^2 h_R, omega, the projection Pi and delta of the resonance data
 EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended-class norm of g and f_* (zeta_g, eta) in the data of the lemma
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended phase space W^e_r-tilde and class O^e
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended real Hamiltonian H-tilde^R and orbit carrier
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | X^c_{H-tilde^R}, the orbit of the extended field
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | the repeated local argument uses smoothness of holomorphic h on the arbitrary open action tube before restriction of scalars; fb-real(i),(ii) is the proof template, not an applicable centred-ball statement
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-global+sonnet-amend-N
+EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -881,9 +881,9 @@ EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p
 EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L93-L93 | g, f_* in the extended class on W^e_r-tilde
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L91 | H-tilde-orbit of the weighted field X^c
 EDGE: bpN:p4:norm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L93-L93 | ¦u¦_{r-tilde,s-tilde} bounds g+f_* at real points
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -896,7 +896,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-t
 PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95
 CONTRACT_ID: stepN:p11:ef-en-taylor
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; I_sigma in U for sigma in [0,1]; Q>=m on U; the energy identity of ef-en-energy
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; Q>=m on U; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: sigma in [0,1]
 SOURCE_CONCLUSION: phi(sigma)=h_R(I_sigma) is C^2 with phi'(0)=<omega_0,Delta I>, phi''(sigma)=Q(I_sigma)[Delta I,Delta I]>=m Delta^2; Lagrange Taylor gives phi(1)-phi(0)-phi'(0)=(1/2)phi''(xi)>=(m/2)Delta^2, and with phi(1)-phi(0)<=A: (m/2)Delta^2<=A-<omega_0,Delta I>
 CONSTANT_SCOPE: none
@@ -904,7 +904,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepN:p11:ef-tube, stepN:p11:ef-en-energy, bpN:p7:ext-taylor, bpN:p1:ext-restrict, bpN:p7:resonance-data
+DEPS: stepN:p11:ef-tube, stepN:p11:ef-en-energy, bpN:p7:ext-taylor, bpN:p1:ext-restrict, bpN:p7:resonance-data, K:bp:p1:holomorphic-regularity
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepN:p11:ef-tube | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | I_sigma in U for sigma in [0,1]
@@ -912,8 +912,9 @@ EDGE: stepN:p11:ef-en-energy | blueprint-N/parts/p11c-partial-stability.tex#step
 EDGE: bpN:p7:ext-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | Lagrange form of Taylor along the segment
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | phi is C^2 as h_R is C^infty on U
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | Q>=m on U (hypothesis on U)
+EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | holomorphic h on the open fast-action tube is C^infty; restriction of scalars then supplies the C^2 real function along I_sigma
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-N
+EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -927,7 +928,7 @@ STATEMENT_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-s
 PROOF_SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100
 CONTRACT_ID: stepN:p11:ef-en-split
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; the inequality of ef-en-taylor; ¦Pi omega_0¦_2<=(5/4)delta; Pi self-adjoint, Pi+Pi^perp=1
+SOURCE_HYPOTHESES: the fixed source data and hypotheses of bpN:p11:energy-free; in the contradiction branch with the constructed first-exit time t*; Delta=¦Delta I¦_2=r-tilde/4, I_sigma=I-tilde(0)+sigma Delta I, omega_0=omega(I-tilde(0)), Q=D^2 h_R; prior proof steps are derived through DEPS, not extra assumptions
 SOURCE_QUANTIFIERS: Delta
 SOURCE_CONCLUSION: <omega_0,Delta I>=<Pi omega_0,Delta I>+<omega_0,Pi^perp Delta I>, so (m/2)Delta^2<=A+¦<Pi omega_0,Delta I>¦+C, C=¦<omega_0,Pi^perp Delta I>¦; ¦<Pi omega_0,Delta I>¦<=(5/4)delta Delta<=(5/64)m r-tilde Delta=(5/16)m Delta^2 (r-tilde=4 Delta); hence (3/16)m Delta^2<=A+C and (3/16)m Delta^2=3 m r-tilde^2/256>0.0117 m r-tilde^2
 CONSTANT_SCOPE: none
@@ -944,7 +945,7 @@ EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11
 EDGE: bpN:p1:ext-norms | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L100-L100 | Euclidean Cauchy-Schwarz ¦<Pi omega_0,Delta I>¦<=¦Pi omega_0¦_2 Delta
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100 | Pi, delta, m of the resonance data (delta<=m r-tilde/16)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-amend-N
+EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

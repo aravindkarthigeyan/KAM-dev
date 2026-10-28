@@ -3,10 +3,14 @@
  "added": [],
  "items": [],
  "unresolved": {
-  "K:bp:p1:real-restriction": "K Part 1 L37–39, L1047–1055; N Part 12 L18–30; all packet DEPS/ROUTES and six-root closure | The n>=1 contract repair is faithful, but G2 removes its last packet consumer. The node is now outside all ",
-  "stepN:p11:ef-en": "N Part 11c L4–17, L78–89; N Part 7 L18–20, L155–170; N Part 1 L22–23; N Part 4 L47–54 | G3 removes the inapplicable canonical orbit theorem correctly, but the resulting direct proof also uses projecti"
+  "stepN:p11:et-one": "p11b L83–83 | L83 also asserts continuity of the derivative. ext-restrict only preserves differentiability/C^k once supplied; it does not prove continuity of derivatives from holomorphy. Add the exist",
+  "stepN:p11:et-taylor": "p11b L85–85 | SOURCE_HYPOTHESES assumes the smoothness and derivative identity proved by et-ind; retain only the enclosing source assumptions and obtain them through the existing dependency. The final",
+  "stepN:p11:ef-en": "p11c L89–89; p11c L89–100; p11c L91–93; p11c L95–95; p11c L97–100 | the fb-real citation at L89 repeats only its local argument (i),(ii). The fb-real statement itself has the Part 12 centred-ball/pert",
+  "stepN:p11:ef-en-taylor": "p11c L95–95 | SOURCE_HYPOTHESES assumes the segment inclusion proved by ef-tube and the energy identity proved by ef-en-energy; those belong only in DEPS. The local C² claim also needs holomorphic-reg",
+  "stepN:p11:ef-en-split": "p11c L97–100; p11c L97–98; p11c L100–100; p11c L97–97 | SOURCE_HYPOTHESES adds the preceding Taylor inequality, ef-adm bound and external projection identities as assumptions. They are proof ingredien"
  },
  "passes": [
+  "stepN:p12:fb-real",
   "stepN:p12:fb-real"
  ]
 }

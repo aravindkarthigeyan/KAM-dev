@@ -93,9 +93,9 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L1051
 DISPOSITION: EXCLUDED
 REASON: outside every root closure of track N after the G2 fb-real repair; checked DEPS and ROUTES in every packet and reachability from all six frozen roots: no remaining consumer. The owning K statement is retained in its own graph; its source citation at fb-real has an incompatible entire-strip carrier.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta-N-amend
 
 ITEM: K:bp:p1:summation
 KIND: external
