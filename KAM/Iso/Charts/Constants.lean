@@ -37,24 +37,30 @@ open KAM KAM.Torus KAM.Iso.Confinement
 
 variable {B : Set (Fin 2 → ℝ)} {s₀ r₀ : ℝ} {h : (Fin 2 → ℂ) → ℂ} {B' : Set (Fin 2 → ℝ)} {η : ℝ}
 
+/-- The real slice `realAct B r₀` (the blueprint's `U`) is open. -/
 theorem isOpen_realAct_charts (B : Set (Fin 2 → ℝ)) (r₀ : ℝ) : IsOpen (realAct B r₀) :=
   (KAM.Head.isOpen_actionNbhd B r₀).preimage
     (continuous_pi fun i => Complex.continuous_ofReal.comp (continuous_apply i))
 
+/-- `B ⊆ U` for `r₀ > 0`. -/
 theorem subset_realAct_charts (hr : 0 < r₀) : B ⊆ realAct B r₀ := fun I hI =>
   ⟨I, hI, by simpa using hr⟩
 
+/-- `∇h` is `C¹` on `U` (`bp:p4:freq-map` (iii), restated as `freq_map_contDiff`). -/
 theorem contDiffOn_frequencyMap (hd : HeadData B s₀ r₀ h B' η) :
     ContDiffOn ℝ 1 (frequencyMap h) (realAct B r₀) :=
   (KAM.Iso.Linear.freq_map_contDiff (KAM.Head.isOpen_actionNbhd B r₀) hd.holo hd.real).2.1
 
+/-- The Hessian `D(∇h)` is continuous on `U`. -/
 theorem continuousOn_fderiv_frequencyMap (hd : HeadData B s₀ r₀ h B' η) :
     ContinuousOn (fderiv ℝ (frequencyMap h)) (realAct B r₀) :=
   (contDiffOn_frequencyMap hd).continuousOn_fderiv_of_isOpen (isOpen_realAct_charts B r₀) le_rfl
 
+/-- The entries of `𝖡_h(I)` are continuous on `U`. -/
 theorem continuousOn_borderedHessian (hd : HeadData B s₀ r₀ h B' η) :
     ContinuousOn (KAM.Iso.borderedHessian h) (realAct B r₀) := by
-  have hf : ContinuousOn (frequencyMap h) (realAct B r₀) := (contDiffOn_frequencyMap hd).continuousOn
+  have hf : ContinuousOn (frequencyMap h) (realAct B r₀) :=
+    (contDiffOn_frequencyMap hd).continuousOn
   have hf' := continuousOn_fderiv_frequencyMap hd
   refine continuousOn_pi.2 fun i => continuousOn_pi.2 fun j => ?_
   rcases i with a | _ <;> rcases j with b | _
@@ -63,6 +69,7 @@ theorem continuousOn_borderedHessian (hd : HeadData B s₀ r₀ h B' η) :
   · exact (continuous_apply b).comp_continuousOn hf
   · exact continuousOn_const
 
+/-- Cramer's rule: `A⁻¹ = (det A)⁻¹ adj A` is continuous where `det A ≠ 0`. -/
 theorem continuousOn_inv_of_det_ne_zero {ι X : Type*} [Fintype ι] [DecidableEq ι]
     [TopologicalSpace X] {A : X → Matrix ι ι ℝ} {S : Set X} (hA : ContinuousOn A S)
     (hdet : ∀ x ∈ S, (A x).det ≠ 0) : ContinuousOn (fun x => (A x)⁻¹) S := by
@@ -74,11 +81,14 @@ theorem continuousOn_inv_of_det_ne_zero {ι X : Type*} [Fintype ι] [DecidableEq
   rw [this]
   exact (hA.matrix_det.inv₀ fun x => hdet x x.2).smul hA.matrix_adjugate
 
+/-- `I ↦ ‖𝖡_h(I)⁻¹‖` is continuous on `U` (`det 𝖡_h ≠ 0` there). -/
 theorem continuousOn_norm_inv (hd : HeadData B s₀ r₀ h B' η) :
     ContinuousOn (fun I => ‖(KAM.Iso.borderedHessian h I)⁻¹‖) (realAct B r₀) :=
   continuous_norm.comp_continuousOn
     (continuousOn_inv_of_det_ne_zero (continuousOn_borderedHessian hd) fun I hI => hd.iso I hI)
 
+/-- `bpI:p3:det-identity` (a): `det 𝖡_h(I) ≠ 0` forces `∇h(I) ≠ 0` (a zero gradient gives a
+zero last row). -/
 theorem frequencyMap_ne_zero_of_det_ne_zero {I : Fin 2 → ℝ}
     (hdet : (KAM.Iso.borderedHessian h I).det ≠ 0) : frequencyMap h I ≠ 0 := by
   intro hg
@@ -89,6 +99,7 @@ theorem frequencyMap_ne_zero_of_det_ne_zero {I : Fin 2 → ℝ}
   · simp [KAM.Iso.borderedHessian, hg]
   · simp [KAM.Iso.borderedHessian]
 
+/-- The inverse of a matrix with nonzero determinant is nonzero (index set nonempty). -/
 theorem inv_ne_zero_of_det_ne_zero {A : Matrix (Fin 2 ⊕ Unit) (Fin 2 ⊕ Unit) ℝ}
     (hdet : A.det ≠ 0) : A⁻¹ ≠ 0 := by
   intro h0
@@ -118,7 +129,8 @@ theorem compact (hd : HeadData B s₀ r₀ h B' η) (hne : B'.Nonempty) :
     rw [not_le] at hlt
     apply hy
     apply hδsub
-    exact Metric.mem_cthickening_of_dist_le y x δ _ hx (by rw [dist_comm, dist_eq_norm]; exact hlt.le)
+    exact Metric.mem_cthickening_of_dist_le y x δ _ hx
+      (by rw [dist_comm, dist_eq_norm]; exact hlt.le)
   have hpne : (closure B' ×ˢ Bᶜ).Nonempty := hclne.prod hBc
   have hdB_ge : δ ≤ dB B B' :=
     le_csInf (hpne.image _) (by rintro _ ⟨p, hp, rfl⟩; exact hlow p hp)
