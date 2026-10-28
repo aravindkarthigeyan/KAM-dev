@@ -291,6 +291,8 @@ public import KAM.Uniq.G2
 public import KAM.Uniq.Phase
 public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
+public import KAM.Weighted.Domains
+public import KAM.Weighted.Norm
 
 /-!
 # KAM

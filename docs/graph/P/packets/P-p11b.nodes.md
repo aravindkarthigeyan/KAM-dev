@@ -1890,7 +1890,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p11b:torsion, bpP:p11b:birkhoff-form, bpP:p11b:beta-def, bpP:p9:good, bpP:p11b:sec-set#data, bpP:p10:interface, bpP:p10:interface
+DEPS: bpP:p11b:torsion, bpP:p11b:birkhoff-form, bpP:p11b:beta-def, bpP:p9:good, bpP:p11b:sec-set#data, bpP:p10:interface
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:torsion | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L264-L264 | {Phi_4 det beta-hat!=0} open and dense
@@ -1899,7 +1899,6 @@ EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:pat
 EDGE: bpP:p9:good | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L261-L261 | {Phi_4!=0}
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L260-L260 | A_2
 EDGE: bpP:p10:interface | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L260-L262 | The last sentence takes the Part 10 frequency data on this same patch, using the extra analytic nonvanishing condition det beta-hat != 0.
-EDGE: bpP:p10:interface | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L261-L261 | the Moreover clause takes the Part 10 frequency data on the same patch using the final sentence of interface
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-l
 REVIEWER: -
