@@ -5,10 +5,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:e-spec@L20-L2
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p9:e-spec
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: M real symmetric n x n matrix
+SOURCE_QUANTIFIERS: n, M
+SOURCE_CONCLUSION: M=varrho diag(lambda) varrho^T with varrho in O(n) (orthonormal eigenbasis) and det(sI-M)=prod_j (s-lambda_j); (Mathlib spectral theorem, charpoly); eigenvalue enumeration of Mathlib is arbitrary and not analytic in parameters
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -17,7 +17,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -31,10 +31,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:e-ift@L21-L21
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p9:e-ift
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: p(w,s) real analytic near (w0,s0) in R^m x R; p(w0,s0)=0; d_s p(w0,s0)!=0
+SOURCE_QUANTIFIERS: m, p, (w0,s0)
+SOURCE_CONCLUSION: exists real analytic s(w) near w0 with s(w0)=s0 and p(w,s(w))=0, and it is the only continuous solution near (w0,s0) (analytic implicit function theorem, scalar condition)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -43,12 +43,12 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: external; adds the analytic (omega-level) and uniqueness content to the C^1 inverse function theorem bpP:p1:ext-ift, so not an alias
 
 NODE: bpP:p9:e-fts
 KIND: external
@@ -57,10 +57,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:e-fts@L22-L22
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p9:e-fts
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: symmetric polynomial in sigma_1..sigma_n with real coefficients (also over a commutative coefficient ring)
+SOURCE_QUANTIFIERS: n, polynomial
+SOURCE_CONCLUSION: it is a polynomial in the elementary symmetric polynomials, which are up to sign the coefficients of det(sI-M)=prod(s-sigma_j)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -69,7 +69,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -83,10 +83,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:e-id@L23-L23
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p9:e-id
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: real analytic function on a connected open set A in R^m, vanishing on a nonempty open subset (clause 1); not identically zero (clause 2)
+SOURCE_QUANTIFIERS: m, A, function
+SOURCE_CONCLUSION: it vanishes identically; if not identically zero its zero set is closed, has empty interior and Lebesgue measure zero
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -95,7 +95,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -109,10 +109,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:e-ibp@L24-L24
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p9:e-ibp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: integration by parts on an interval; continuous nonnegative function positive somewhere
+SOURCE_QUANTIFIERS: interval, function
+SOURCE_CONCLUSION: integration by parts formula; the integral of a continuous nonnegative function positive somewhere is positive
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -121,366 +121,40 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
 
-NODE: bpP:p9:lemma70
-KIND: lemma
-TITLE: Fej04r Lemma 70
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma70@L29-L32
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma70@L33-L35
-CONTRACT_ID: bpP:p9:lemma70
+NODE: bpP:p9:conv#data
+KIND: definition
+TITLE: Conventions of Part 9 (norms, Sym_n, increasing labelling, comparison with max norms)
+STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:conv#data@L15-L16
+PROOF_SOURCE: -
+CONTRACT_ID: bpP:p9:conv#data
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: n>=1; G,m0,m,kappa and increasing axes a_1<...<a_n as in Part 8; Lambda_i=m_i sqrt(kappa a_i); frakt a_ij, frakt b_ij, hat q, Q_h=Delta^-1 hat q Delta^-1 of Definition coeffs; ambient spaces Fin n -> R and Fin n -> C with max norm
+SOURCE_QUANTIFIERS: n,G,m0,m,a; then x in R^n or C^n, M in Sym_n
+SOURCE_CONCLUSION: defines the Euclidean norm of x, the induced operator norm of M and the Frobenius norm (operator norm <= Frobenius norm; entries and columns bounded by the operator norm), e_j, Sym_n; states the comparison with the max norms ¦x¦_inf<=¦x¦<=sqrt n ¦x¦_inf and operator norm comparison with factor sqrt n; Q_h=Q_h(a) real analytic in a on {a_1<...<a_n}; eigenvalues sigma_1<...<sigma_n labelled increasingly where simple, independent of the planet order
+CONSTANT_SCOPE: constants of Part 9 are stated in Euclidean norms; no constant is chosen here
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:l70
+DEPS: bpP:p8:coeffs, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p9:l70 | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma70@L34-L34 | proof step of this result
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:conv#data@L15-L15 | frakt a, frakt b, hat q, Q_h, Delta of Definition coeffs and real analyticity of Q_h(a)
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:conv#data@L15-L15 | data of Part 8 (n, G, m0, m, kappa, axes)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:l70
-KIND: step
-TITLE: Eigenvector
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l70@L34-L34
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l70@L34-L34
-CONTRACT_ID: stepP:p9:l70
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bpP:p9:lemma71
-KIND: lemma
-TITLE: Fej04r Lemma 71, sharpened: second-order perturbation with eigenvectors
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma71@L37-L45
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma71@L46-L54
-CONTRACT_ID: bpP:p9:lemma71
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:l71-loc, stepP:p9:l71-eig, stepP:p9:l71-ab, stepP:p9:l71-bij, stepP:p9:l71-c, stepP:p9:l71-so
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepP:p9:l71-loc | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma71@L48-L48 | proof step of this result
-EDGE: stepP:p9:l71-eig | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma71@L49-L49 | proof step of this result
-EDGE: stepP:p9:l71-ab | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma71@L50-L50 | proof step of this result
-EDGE: stepP:p9:l71-bij | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma71@L51-L51 | proof step of this result
-EDGE: stepP:p9:l71-c | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma71@L52-L52 | proof step of this result
-EDGE: stepP:p9:l71-so | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lemma71@L53-L53 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:l71-loc
-KIND: step
-TITLE: Localisation
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-loc@L48-L48
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-loc@L48-L48
-CONTRACT_ID: stepP:p9:l71-loc
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:lemma70
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpP:p9:lemma70 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-loc@L48-L48 | cited at this line (step; \ref{bpP:p9:lemma70})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:l71-eig
-KIND: step
-TITLE: Eigenvector equations
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-eig@L49-L49
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-eig@L49-L49
-CONTRACT_ID: stepP:p9:l71-eig
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:l71-loc
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepP:p9:l71-loc | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-eig@L49-L49 | cited at this line (step; \ref{stepP:p9:l71-loc})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:l71-ab
-KIND: step
-TITLE: Estimates (a), (b)
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-ab@L50-L50
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-ab@L50-L50
-CONTRACT_ID: stepP:p9:l71-ab
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:l71-bij
-KIND: step
-TITLE: The map $\lambda\mapsto j(\lambda)$ is a bijection
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-bij@L51-L51
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-bij@L51-L51
-CONTRACT_ID: stepP:p9:l71-bij
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:e-spec, stepP:p9:l71-loc
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-bij@L51-L51 | cited at this line (step; \ref{bpP:p9:e-spec})
-EDGE: stepP:p9:l71-loc | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-bij@L51-L51 | cited at this line (step; \ref{stepP:p9:l71-loc})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:l71-c
-KIND: step
-TITLE: (c)
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-c@L52-L52
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-c@L52-L52
-CONTRACT_ID: stepP:p9:l71-c
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:l71-so
-KIND: step
-TITLE: $\varrho\in SO(n)$
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-so@L53-L53
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l71-so@L53-L53
-CONTRACT_ID: stepP:p9:l71-so
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bpP:p9:cor72
-KIND: corollary
-TITLE: Fej04r Corollary 72, quantitative
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:cor72@L56-L61
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:cor72@L62-L66
-CONTRACT_ID: bpP:p9:cor72
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:c72-rot, stepP:p9:c72-split, stepP:p9:c72-apply
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepP:p9:c72-rot | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:cor72@L63-L63 | proof step of this result
-EDGE: stepP:p9:c72-split | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:cor72@L64-L64 | proof step of this result
-EDGE: stepP:p9:c72-apply | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:cor72@L65-L65 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:c72-rot
-KIND: step
-TITLE: Diagonalise $\hat D$
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:c72-rot@L63-L63
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:c72-rot@L63-L63
-CONTRACT_ID: stepP:p9:c72-rot
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:e-spec
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:c72-rot@L63-L63 | cited at this line (step; \ref{bpP:p9:e-spec})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:c72-split
-KIND: step
-TITLE: Split off the diagonal
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:c72-split@L64-L64
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:c72-split@L64-L64
-CONTRACT_ID: stepP:p9:c72-split
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:c72-apply
-KIND: step
-TITLE: Apply Lemma~\ref{bpP:p9:lemma71}
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:c72-apply@L65-L65
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:c72-apply@L65-L65
-CONTRACT_ID: stepP:p9:c72-apply
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:lemma71
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpP:p9:lemma71 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:c72-apply@L65-L65 | cited at this line (step; \ref{bpP:p9:lemma71})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
+NOTE: created from p9:prose-L15-L16 (SPEC section data); includes the inline label bpP:p9:norm-compare; consumers: definite, local-analytic, diagonalize (step d-c), good, n2
 
 NODE: bpP:p9:l75
 KIND: lemma
@@ -489,20 +163,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l75@L70-L75
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l75@L76-L78
 CONTRACT_ID: bpP:p9:l75
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Q in Sym_n with q_jk>=0 for j!=k; delta q_j:=-q_jj-sum_{l!=j} q_jl
+SOURCE_QUANTIFIERS: n, Q, x in R^n
+SOURCE_CONCLUSION: x^T Q x=-sum_j delta q_j x_j^2-sum_{j<k} q_jk (x_j-x_k)^2; if all delta q_j>=0 then Q<=0; if c=min delta q_j>0 then x^T Q x<=-c ¦x¦^2
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:l75
+DEPS: stepP:p9:l75, bpP:p9:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p9:l75 | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l75@L77-L77 | proof step of this result
+EDGE: stepP:p9:l75 | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l75@L77-L77 | proof step Expansion
+EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l75@L71-L71 | Sym_n and Euclidean norm
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -516,10 +191,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l75@L77-L77
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l75@L77-L77
 CONTRACT_ID: stepP:p9:l75
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: expansion of the two sums
+SOURCE_QUANTIFIERS: x in R^n
+SOURCE_CONCLUSION: sum of the two displayed terms equals sum q_jj x_j^2+2 sum_{j<k} q_jk x_j x_k=x^T Q x
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -528,7 +203,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -542,22 +217,23 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L80-L85
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L86-L89
 CONTRACT_ID: bpP:p9:l74
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: s>0, alpha in (0,1), A(t)=1+alpha^2-2 alpha cos t, b_s^(k) of Definition laplace-def
+SOURCE_QUANTIFIERS: s, alpha
+SOURCE_CONCLUSION: b_s^(1)(alpha)-b_s^(2)(alpha)=(2 s alpha/pi) int_0^pi sin^2 t (1-cos t) A(t)^(-s-1) dt>0; in particular b_{3/2}^(1)>b_{3/2}^(2)>0
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:l74-red, stepP:p9:l74-ibp, bpP:p8:laplace-def
+DEPS: stepP:p9:l74-red, stepP:p9:l74-ibp, bpP:p8:laplace-def, bpP:p8:laplace
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p9:l74-red | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L87-L87 | proof step of this result
-EDGE: stepP:p9:l74-ibp | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L88-L88 | proof step of this result
-EDGE: bpP:p8:laplace-def | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L81-L81 | cited at this line (statement; \ref{bpP:p8:laplace-def})
+EDGE: stepP:p9:l74-red | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L87-L87 | proof step Reduction to [0,pi]
+EDGE: stepP:p9:l74-ibp | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L88-L88 | proof step Integration by parts
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L81-L81 | b_s^(k) and A(t)
+EDGE: bpP:p8:laplace | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L83-L83 | positivity b_{3/2}^(2)>0 from the series
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -571,19 +247,20 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-red@L87
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-red@L87-L87
 CONTRACT_ID: stepP:p9:l74-red
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: w(t)=A(t)^(-s) even and 2pi-periodic
+SOURCE_QUANTIFIERS: k in {1,2}
+SOURCE_CONCLUSION: b_s^(k)=pi^-1 int_0^pi cos(kt) w(t) dt
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-red@L87-L87 | definition of b_s^(k) as a period integral
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -597,21 +274,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88-L88
 CONTRACT_ID: stepP:p9:l74-ibp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: H(t)=sin t (1-cos t), H(0)=H(pi)=0, H>0 on (0,pi), H prime=cos t-cos 2t; -w prime=2 s alpha sin t A^(-s-1)>=0
+SOURCE_QUANTIFIERS: s>0, alpha in (0,1)
+SOURCE_CONCLUSION: b_s^(1)-b_s^(2)=-pi^-1 int_0^pi H w prime dt=(2 s alpha/pi) int sin^2 t (1-cos t) A^(-s-1) dt>0; b_{3/2}^(2)>0 by positivity of the series
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:e-ibp, bpP:p8:laplace
+DEPS: bpP:p9:e-ibp, stepP:p9:l74-red, bpP:p8:laplace
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:e-ibp | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88-L88 | cited at this line (step; \ref{bpP:p9:e-ibp})
-EDGE: bpP:p8:laplace | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88-L88 | cited at this line (step; \ref{bpP:p8:laplace})
+EDGE: bpP:p9:e-ibp | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88-L88 | integration by parts and positivity of the integral
+EDGE: stepP:p9:l74-red | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88-L88 | reduction to [0,pi]
+EDGE: bpP:p8:laplace | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88-L88 | positivity of b_s^(k) from the series
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -625,23 +303,24 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L91-
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L99-L103
 CONTRACT_ID: bpP:p9:definite
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: n>=2; a_1<...<a_n; all masses positive; frakt a_ij, frakt b_ij of Definition coeffs; c_hat q(a):=min_j sum_{k!=j}(frakt a_jk-frakt b_jk)
+SOURCE_QUANTIFIERS: n,G,m,a; then x in R^n
+SOURCE_CONCLUSION: c_hat q(a)>0; x^T hat q x<=-sum_j(sum_{k!=j}(a_jk-b_jk)) x_j^2<=-c ¦x¦^2; x^T Q_h x<=-c_hat q(a)/max_i Lambda_i ¦x¦^2; hat q, Q_h negative definite, all eigenvalues sigma_j<=-c/max Lambda<0, Omega_j=2 sigma_j<0; the bound is continuous hence locally uniformly positive on {a_1<...<a_n}
+CONSTANT_SCOPE: c_hat q depends on (G,m,a) only
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:p73-dom, stepP:p9:p73-had, stepP:p9:p73-cong, bpP:p8:coeffs
+DEPS: stepP:p9:p73-dom, stepP:p9:p73-had, stepP:p9:p73-cong, bpP:p8:coeffs, bpP:p9:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p9:p73-dom | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L100-L100 | proof step of this result
-EDGE: stepP:p9:p73-had | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L101-L101 | proof step of this result
-EDGE: stepP:p9:p73-cong | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L102-L102 | proof step of this result
-EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L92-L92 | cited at this line (statement; \ref{bpP:p8:coeffs})
+EDGE: stepP:p9:p73-dom | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L100-L100 | proof step Strong diagonal dominance
+EDGE: stepP:p9:p73-had | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L101-L101 | proof step Hadamard
+EDGE: stepP:p9:p73-cong | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L102-L102 | proof step Congruence
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L92-L92 | frakt a, frakt b, hat q, Q_h
+EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L92-L92 | Euclidean norm, Sym_n
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -655,10 +334,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-dom@L10
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-dom@L100-L100
 CONTRACT_ID: stepP:p9:p73-dom
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: hat q_jk=frakt b_jk>0, hat q_jj=-sum frakt a_jk; frakt a_jk-frakt b_jk=(G m_j m_k a_j/(4 a_k^2))(b_{3/2}^(1)-b_{3/2}^(2))(alpha_jk)
+SOURCE_QUANTIFIERS: n>=2; j
+SOURCE_CONCLUSION: delta hat q_j=sum_{k!=j}(a_jk-b_jk)>0 for every j
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -666,10 +345,10 @@ FROZEN_ABI_SHA256: -
 DEPS: bpP:p8:coeffs, bpP:p9:l74
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-dom@L100-L100 | cited at this line (step; \ref{bpP:p8:coeffs})
-EDGE: bpP:p9:l74 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-dom@L100-L100 | cited at this line (step; \ref{bpP:p9:l74})
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-dom@L100-L100 | definitions of hat q, frakt a, frakt b and symmetry
+EDGE: bpP:p9:l74 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-dom@L100-L100 | b_{3/2}^(1)>b_{3/2}^(2)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -683,20 +362,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-had@L10
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-had@L101-L101
 CONTRACT_ID: stepP:p9:p73-had
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Lemma l75 applied to hat q with delta hat q_j>0
+SOURCE_QUANTIFIERS: x in R^n
+SOURCE_CONCLUSION: x^T hat q x<=-sum_j delta hat q_j x_j^2<=-c_hat q ¦x¦^2
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:l75
+DEPS: bpP:p9:l75, stepP:p9:p73-dom
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:l75 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-had@L101-L101 | cited at this line (step; \ref{bpP:p9:l75})
+EDGE: bpP:p9:l75 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-had@L101-L101 | Hadamard identity and the two inequalities
+EDGE: stepP:p9:p73-dom | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-had@L101-L101 | delta hat q_j>0 and hat q_jk>0 for j!=k
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -710,20 +390,23 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L1
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L102-L102
 CONTRACT_ID: stepP:p9:p73-cong
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Delta^-1=diag(Lambda_i^(-1/2)); step Hadamard; unit eigenvector
+SOURCE_QUANTIFIERS: x in R^n
+SOURCE_CONCLUSION: x^T Q_h x<=-c ¦x¦^2/max Lambda; every eigenvalue satisfies sigma_j<=-c/max Lambda; the bound is continuous in a
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:laplace
+DEPS: stepP:p9:p73-had, bpP:p8:coeffs, bpP:p8:laplace, bpP:p9:e-spec
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:laplace | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L102-L102 | cited at this line (step; \ref{bpP:p8:laplace})
+EDGE: stepP:p9:p73-had | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L102-L102 | x^T hat q x<=-c ¦x¦^2 applied to Delta^-1 x
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L102-L102 | Q_h=Delta^-1 hat q Delta^-1, Lambda_i
+EDGE: bpP:p8:laplace | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L102-L102 | continuity of frakt a, frakt b in a
+EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L102-L102 | an eigenvalue is x^T Q_h x for a unit eigenvector
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -737,23 +420,24 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analyti
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L110-L115
 CONTRACT_ID: bpP:p9:local-analytic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: W subset R^m open; M:W->Sym_n real analytic; w0 in W with M(w0) having n distinct eigenvalues (discr!=0)
+SOURCE_QUANTIFIERS: m,n,M,w0; then ball W prime
+SOURCE_CONCLUSION: exists open ball W prime around w0 and real analytic sigma_j:W prime->R, varrho:W prime->SO(n) with sigma_1<...<sigma_n, M=varrho diag(sigma) varrho^T, sigma_j(w0)=sigma_j^0; spectrum simple on W prime; on a connected open set sigma_j is unique and varrho unique up to column signs (det 1)
+CONSTANT_SCOPE: the ball depends on M and w0
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:la-ev, stepP:p9:la-adj, stepP:p9:la-vec, stepP:p9:la-so
+DEPS: stepP:p9:la-ev, stepP:p9:la-adj, stepP:p9:la-vec, stepP:p9:la-so, bpP:p9:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p9:la-ev | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L111-L111 | proof step of this result
-EDGE: stepP:p9:la-adj | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L112-L112 | proof step of this result
-EDGE: stepP:p9:la-vec | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L113-L113 | proof step of this result
-EDGE: stepP:p9:la-so | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L114-L114 | proof step of this result
+EDGE: stepP:p9:la-ev | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L111-L111 | proof step Eigenvalues
+EDGE: stepP:p9:la-adj | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L112-L112 | proof step Eigenprojections
+EDGE: stepP:p9:la-vec | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L113-L113 | proof step Eigenvectors
+EDGE: stepP:p9:la-so | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L114-L114 | proof step SO(n) and uniqueness
+EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L108-L108 | Sym_n
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -767,20 +451,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L111-
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L111-L111
 CONTRACT_ID: stepP:p9:la-ev
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: p(w,s)=det(sI-M(w)) real analytic; d_s p(w0,sigma_j^0)=prod_{k!=j}(sigma_j^0-sigma_k^0)!=0
+SOURCE_QUANTIFIERS: j=1..n; w near w0
+SOURCE_CONCLUSION: analytic sigma_j(w) with p(w,sigma_j(w))=0, sigma_j(w0)=sigma_j^0; on a ball they are n distinct real roots, hence all eigenvalues of M(w), sigma_1<...<sigma_n, simple spectrum
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:e-ift
+DEPS: bpP:p9:e-ift, bpP:p9:e-spec, bpP:p8:e-taylor
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:e-ift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L111-L111 | cited at this line (step; \ref{bpP:p9:e-ift})
+EDGE: bpP:p9:e-ift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L111-L111 | analytic implicit function theorem
+EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L111-L111 | det(sI-M)=prod(s-lambda_j)
+EDGE: bpP:p8:e-taylor | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L111-L111 | characteristic polynomial composed with analytic M is analytic
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -794,19 +480,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-adj@L112
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-adj@L112-L112
 CONTRACT_ID: stepP:p9:la-adj
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: orthonormal eigenbasis v_k of M(w); adj(sigma_j I-M)=p_s(sigma_j) v_j v_j^T
+SOURCE_QUANTIFIERS: w in the ball
+SOURCE_CONCLUSION: Pi_j(w)=adj(sigma_j I-M)/d_s p(w,sigma_j) equals v_j v_j^T, the orthogonal projection on the sigma_j-eigenspace, real analytic in w
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p9:e-spec, stepP:p9:la-ev, bpP:p8:e-taylor
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-adj@L112-L112 | orthonormal eigenbasis
+EDGE: stepP:p9:la-ev | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-adj@L112-L112 | analytic simple eigenvalues sigma_j(w), d_s p!=0
+EDGE: bpP:p8:e-taylor | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-adj@L112-L112 | analytic composition: adjugate polynomial in analytic entries
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -820,19 +509,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-vec@L113
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-vec@L113-L113
 CONTRACT_ID: stepP:p9:la-vec
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: tr Pi_j(w0)=1; Pi_j(w) analytic projections
+SOURCE_QUANTIFIERS: j
+SOURCE_CONCLUSION: analytic orthonormal eigenvectors v_j(w)=Pi_j e_k/sqrt(Pi_j,kk) near w0 for sigma_j(w)
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepP:p9:la-adj, stepP:p9:la-ev
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepP:p9:la-adj | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-vec@L113-L113 | Pi_j analytic rank-one projection
+EDGE: stepP:p9:la-ev | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-vec@L113-L113 | distinct eigenvalues give orthogonality
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -846,20 +537,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so@L114-
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so@L114-L114
 CONTRACT_ID: stepP:p9:la-so
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: det[v_1..v_n] continuous with values +-1; eigenvalue branch continuous root of p
+SOURCE_QUANTIFIERS: ball connected
+SOURCE_CONCLUSION: varrho in SO(n) after flipping v_1 if needed; uniqueness of sigma_j (continuous root, ordering) and of varrho up to signs
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:e-ift
+DEPS: stepP:p9:la-vec, bpP:p9:e-ift, stepP:p9:la-ev
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:e-ift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so@L114-L114 | cited at this line (step; \ref{bpP:p9:e-ift})
+EDGE: stepP:p9:la-vec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so@L114-L114 | orthonormal frame v_j
+EDGE: bpP:p9:e-ift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so@L114-L114 | uniqueness of the continuous root
+EDGE: stepP:p9:la-ev | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so@L114-L114 | ordering and simplicity
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -873,31 +566,30 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L117-L12
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L123-L132
 CONTRACT_ID: bpP:p9:lift
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: W subset R^n open (actions); varrho:W->SO(n) real analytic; chart form Omega_chart=dLambda^dlambda+deta^dxi; Phi_varrho(lambda,Lambda,xi,eta)=(lambda tilde,Lambda,varrho^T xi,varrho^T eta), lambda tilde_l=lambda_l-eta^T(d_l varrho)varrho^T xi
+SOURCE_QUANTIFIERS: n, W, varrho; then points (lambda,Lambda,xi,eta); c in R^n
+SOURCE_CONCLUSION: Phi_varrho is a real analytic diffeomorphism of R^n x W x R^n x R^n onto itself with the explicit inverse, symplectic Phi^*Omega_chart=Omega_chart (a 1-chart in the sense of Definition chart), Phi(lambda+c,...)=Phi+(c,0,0,0), preserves Lambda and the Euclidean norms of xi, eta
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:lift-bij, stepP:p9:lift-anti, stepP:p9:lift-form, stepP:p9:lift-mc, stepP:p9:lift-concl, bpP:p7:product-chart, bpP:p1:chart
+DEPS: stepP:p9:lift-bij, stepP:p9:lift-anti, stepP:p9:lift-form, stepP:p9:lift-mc, stepP:p9:lift-concl, bpP:p1:chart
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p9:lift-bij | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L124-L124 | proof step of this result
-EDGE: stepP:p9:lift-anti | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L125-L125 | proof step of this result
-EDGE: stepP:p9:lift-form | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L126-L126 | proof step of this result
-EDGE: stepP:p9:lift-mc | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L130-L130 | proof step of this result
-EDGE: stepP:p9:lift-concl | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L131-L131 | proof step of this result
-EDGE: bpP:p7:product-chart | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L118-L118 | cited at this line (statement; \ref{bpP:p7:product-chart})
-EDGE: bpP:p1:chart | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L120-L120 | cited at this line (statement; \ref{bpP:p1:chart})
+EDGE: stepP:p9:lift-bij | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L124-L124 | proof step Bijectivity
+EDGE: stepP:p9:lift-anti | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L125-L125 | proof step Antisymmetry
+EDGE: stepP:p9:lift-form | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L126-L126 | proof step Pull-back computation
+EDGE: stepP:p9:lift-mc | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L130-L130 | proof step Maurer-Cartan
+EDGE: stepP:p9:lift-concl | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L131-L131 | proof step Conclusion
+EDGE: bpP:p1:chart | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L120-L120 | 1-chart in the sense of Definition chart
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: edge to bpP:p7:product-chart deleted: the statement only names the form Omega_chart, which it writes out; the lift does not use the chart theorem
 
 NODE: stepP:p9:lift-bij
 KIND: step
@@ -906,10 +598,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-bij@L1
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-bij@L124-L124
 CONTRACT_ID: stepP:p9:lift-bij
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: varrho(Lambda) orthogonal; H_l=eta tilde^T Omega_l xi tilde, Omega_l=varrho^T d_l varrho
+SOURCE_QUANTIFIERS: (lambda,Lambda,xi,eta)
+SOURCE_CONCLUSION: inverse xi=varrho xi tilde, eta=varrho eta tilde, lambda_l=lambda tilde_l+H_l; all maps analytic; commutes with angle translations since lambda tilde-lambda is independent of lambda
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -918,7 +610,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -932,10 +624,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-anti@L
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-anti@L125-L125
 CONTRACT_ID: stepP:p9:lift-anti
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: varrho^T varrho=I
+SOURCE_QUANTIFIERS: l
+SOURCE_CONCLUSION: Omega_l^T=-Omega_l; d varrho=varrho sum Omega_l dLambda_l, d varrho^T=-sum Omega_l varrho^T dLambda_l
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
@@ -944,7 +636,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -958,19 +650,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-form@L
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-form@L126-L129
 CONTRACT_ID: stepP:p9:lift-form
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: inverse of the lift; antisymmetry of Omega_l
+SOURCE_QUANTIFIERS: symplectic form on the chart
+SOURCE_CONCLUSION: d eta^T^d xi=d eta tilde^T^d xi tilde+sum_l(d eta tilde^T Omega_l xi tilde+eta tilde^T Omega_l d xi tilde)^dLambda_l-sum eta tilde^T Omega_l Omega_m xi tilde dLambda_l^dLambda_m; equals d eta tilde^d xi tilde+sum dH_l^dLambda_l-sum eta tilde^T(d_m Omega_l+Omega_m Omega_l) xi tilde dLambda_m^dLambda_l
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepP:p9:lift-bij, stepP:p9:lift-anti
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepP:p9:lift-bij | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-form@L126-L126 | substitution xi=varrho xi tilde, eta=varrho eta tilde and H_l
+EDGE: stepP:p9:lift-anti | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-form@L128-L128 | varrho^T d varrho=sum Omega_l dLambda_l, d varrho^T varrho=-sum Omega_l dLambda_l
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -984,19 +678,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L13
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L130-L130
 CONTRACT_ID: stepP:p9:lift-mc
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: d_m Omega_l=d_m varrho^T d_l varrho+varrho^T d_m d_l varrho; d_m varrho^T=-Omega_m varrho^T
+SOURCE_QUANTIFIERS: l,m
+SOURCE_CONCLUSION: d_m Omega_l+Omega_m Omega_l=varrho^T d_m d_l varrho is symmetric in (m,l), so the last sum vanishes against dLambda_m^dLambda_l
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepP:p9:lift-anti, stepP:p9:lift-form
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepP:p9:lift-anti | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L130-L130 | d_m varrho^T=-Omega_m varrho^T
+EDGE: stepP:p9:lift-form | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L130-L130 | the remaining sum to be killed
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1010,19 +706,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-concl@
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-concl@L131-L131
 CONTRACT_ID: stepP:p9:lift-concl
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: pull-back formulas of steps Pull-back computation and Maurer-Cartan
+SOURCE_QUANTIFIERS: chart form
+SOURCE_CONCLUSION: d eta^T^d xi=d eta tilde^T^d xi tilde-sum dLambda_l^dH_l, hence Phi^*Omega_chart=Omega_chart; Euclidean norms preserved since varrho orthogonal
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: stepP:p9:lift-form, stepP:p9:lift-mc, stepP:p9:lift-bij
 ROUTES: -
 ROUTE_FOR: -
+EDGE: stepP:p9:lift-form | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-concl@L131-L131 | pull-back of d eta^d xi
+EDGE: stepP:p9:lift-mc | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-concl@L131-L131 | vanishing of the dLambda^dLambda terms
+EDGE: stepP:p9:lift-bij | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-concl@L131-L131 | definition lambda tilde=lambda-H and norm preservation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1036,38 +735,38 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L148-L153
 CONTRACT_ID: bpP:p9:diagonalize
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: the situation of bpP:p8:perturbation-analytic and bpP:p8:quadratic-form with n>=2; W subset {Lambda: a(Lambda) increasing} open; Q_h(Lambda) has simple spectrum on W; sigma_j, varrho the analytic functions of bpP:p9:local-analytic on W (global labelling if W is connected)
+SOURCE_QUANTIFIERS: data of conv#data (Part 8); W; then (xi tilde,eta tilde) with (xi,Lambda,eta)=(varrho xi tilde,Lambda,varrho eta tilde); mu>0
+SOURCE_CONCLUSION: (a) xi^T Q_h xi+eta^T Q_h eta=sum sigma_j(xi tilde_j^2+eta tilde_j^2)=sum Omega_j R tilde_j with Omega_j=2 sigma_j<0, R tilde_j=(eta tilde_j^2+xi tilde_j^2)/2; (b) for the matched pairs (S,hat f) the average of hat f o Phi^-1 equals S(Lambda,varrho xi tilde,varrho eta tilde)=C_0+[delta]+sum Omega_j R tilde_j+O(¦(xi tilde,eta tilde)¦^4) locally uniformly in Lambda, [delta]=0 (fix) or delta(Lambda) (mov); H^Psi transformed by Phi^-1 is h(Lambda)+mu hat f o Phi^-1; (c) with (I,p,q)=(Lambda,eta tilde,xi tilde), P_0=C_0(+delta), Omega_j(mu,I)=2 sigma_j(a(I)), R_j=(p_j^2+q_j^2)/2 the zeroth and first order terms of HasBirkhoff for P=hat f o Phi^-1 are those of (b); beta and clause (i) not treated; domain condition sqrt n delta_0<=rho_* and ¦Lambda-Lambda*¦_inf<rho_*; (d) Psi o Phi^-1 is a symplectic chart of Part 1 satisfying (Q1)-(Q2) of the torus transport theorem whenever Psi does
+CONSTANT_SCOPE: rho_*, a, Q_h as in Part 8; sigma_j, varrho depend on Lambda only (not on mu)
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:d-a, stepP:p9:d-b, stepP:p9:d-c, stepP:p9:d-d, bpP:p8:perturbation-analytic, bpP:p8:quadratic-form, bpP:p9:local-analytic, bpP:p9:lift, bpP:p8:identification, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p8:same-jets, bpP:p1:chart, bpP:p1:torus-transport, bpP:p8:factor-half
+DEPS: stepP:p9:d-a, stepP:p9:d-b, stepP:p9:d-c, stepP:p9:d-d, bpP:p8:perturbation-analytic, bpP:p8:quadratic-form, bpP:p9:local-analytic, bpP:p9:lift, bpP:p8:identification, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p8:conv#data, bpP:p1:chart, bpP:p1:torus-transport, bpP:p9:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p9:d-a | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L149-L149 | proof step of this result
-EDGE: stepP:p9:d-b | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L150-L150 | proof step of this result
-EDGE: stepP:p9:d-c | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L151-L151 | proof step of this result
-EDGE: stepP:p9:d-d | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L152-L152 | proof step of this result
-EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | cited at this line (statement; \ref{bpP:p8:perturbation-analytic})
-EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | cited at this line (statement; \ref{bpP:p8:quadratic-form})
-EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | cited at this line (statement; \ref{bpP:p9:local-analytic})
-EDGE: bpP:p9:lift | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L137-L137 | cited at this line (statement; \ref{bpP:p9:lift})
-EDGE: bpP:p8:identification | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L141-L141 | cited at this line (statement; \ref{bpP:p8:identification})
-EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L142-L142 | cited at this line (statement; \ref{bpP:p0:birkhoff})
-EDGE: bpP:p8:same-jets | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L142-L142 | cited at this line (statement; \ref{bpP:p8:same-jets})
-EDGE: bpP:p1:chart | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L143-L143 | cited at this line (statement; \ref{bpP:p1:chart})
-EDGE: bpP:p1:torus-transport | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L143-L143 | cited at this line (statement; \ref{bpP:p1:torus-transport})
-EDGE: bpP:p8:factor-half | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L145-L145 | cited at this line (statement; \ref{bpP:p8:factor-half}; in \source: provenance unless consumed)
+EDGE: stepP:p9:d-a | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L149-L149 | proof step (a)
+EDGE: stepP:p9:d-b | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L150-L150 | proof step (b)
+EDGE: stepP:p9:d-c | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L151-L151 | proof step (c)
+EDGE: stepP:p9:d-d | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L152-L152 | proof step (d)
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | situation, rho_*, matched pairs (S,hat f)
+EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | situation; Q_h and the expansion of S_fix
+EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | sigma_j, varrho analytic functions
+EDGE: bpP:p9:lift | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L137-L137 | the rotation lift Phi_varrho and (xi tilde,eta tilde)
+EDGE: bpP:p8:identification | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L141-L141 | [delta]=delta(Lambda) for mov
+EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L142-L142 | frozen Omega_j, R_j, P_0 of HasBirkhoff
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L142-L142 | dictionary (I,p,q)=(Lambda,eta,xi) and N_R(rho_*)
+EDGE: bpP:p1:chart | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L143-L143 | symplectic chart of Part 1
+EDGE: bpP:p1:torus-transport | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L143-L143 | lattice compatibility (Q1)-(Q2) and applicability of torus transport
+EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | conventions of Part 9
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: edges deleted: bpP:p8:same-jets (pointer: beta and clause (i) are treated in Part 11b), bpP:p8:factor-half (remark, source provenance). The sourcegap at L146 (angle correction of the rotation) is bridged by bpP:p9:lift and step d-b
 
 NODE: stepP:p9:d-a
 KIND: step
@@ -1076,20 +775,23 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L1
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L149
 CONTRACT_ID: stepP:p9:d-a
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Q_h=varrho diag(sigma) varrho^T; (xi tilde,eta tilde)=varrho^T(xi,eta); Q_h negative definite
+SOURCE_QUANTIFIERS: xi,eta in R^n
+SOURCE_CONCLUSION: xi^T Q_h xi=sum sigma_j xi tilde_j^2, similarly eta; sigma_j(xi tilde_j^2+eta tilde_j^2)=2 sigma_j R tilde_j; Omega_j=2 sigma_j<0
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:definite
+DEPS: bpP:p9:definite, bpP:p9:local-analytic, bpP:p9:lift, bpP:p8:coeffs
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L149 | cited at this line (step; \ref{bpP:p9:definite})
+EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L149 | negativity of sigma_j
+EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L149 | Q_h=varrho diag(sigma) varrho^T
+EDGE: bpP:p9:lift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L149 | xi tilde=varrho^T xi, eta tilde=varrho^T eta
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L149 | Q_h
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1103,24 +805,26 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L1
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150
 CONTRACT_ID: stepP:p9:d-b
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Phi^-1(lambda tilde,Lambda,xi tilde,eta tilde)=(lambda tilde+H,Lambda,varrho xi tilde,varrho eta tilde), H independent of lambda tilde; hat f continuous and 2pi-periodic
+SOURCE_QUANTIFIERS: (S,hat f) matched pair; (xi,Lambda,eta) in N_R(rho_*)
+SOURCE_CONCLUSION: average over lambda tilde of hat f o Phi^-1 equals S(Lambda,varrho xi tilde,varrho eta tilde)=C_0+[delta]+sum Omega_j R tilde_j+O(¦(xi tilde,eta tilde)¦^4); H^Psi o Phi^-1=h(Lambda)+mu hat f o Phi^-1
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:perturbation-analytic, bpP:p8:e-diff, bpP:p8:quadratic-form, bpP:p8:identification, bpP:p7:product-chart
+DEPS: bpP:p9:lift, bpP:p8:perturbation-analytic, bpP:p8:e-diff, bpP:p8:quadratic-form, bpP:p8:identification, stepP:p9:d-a, bpP:p7:product-chart
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | cited at this line (step; \ref{bpP:p8:perturbation-analytic})
-EDGE: bpP:p8:e-diff | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | cited at this line (step; \ref{bpP:p8:e-diff})
-EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | cited at this line (step; \ref{bpP:p8:quadratic-form})
-EDGE: bpP:p8:identification | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | cited at this line (step; \ref{bpP:p8:identification})
-EDGE: bpP:p7:product-chart | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | cited at this line (step; \ref{bpP:p7:product-chart})
+EDGE: bpP:p9:lift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | explicit inverse with H independent of lambda tilde; Phi preserves Lambda and norms
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | (b): hat f continuous and 2pi-periodic
+EDGE: bpP:p8:e-diff | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | translation invariance of the average of a periodic function
+EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | S_fix=C_0+quadratic form+O(4)
+EDGE: bpP:p8:identification | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | S_mov=S_fix+delta
+EDGE: stepP:p9:d-a | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | quadratic part in the rotated variables
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | (b),(c): H^Psi=h+mu f o Psi, h depends on Lambda only
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1134,20 +838,24 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L1
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151
 CONTRACT_ID: stepP:p9:d-c
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: statements (a), (b); Definition birkhoff (zeroth and first order terms); ¦xi¦_inf<=¦xi¦=¦xi tilde¦<=sqrt n max_j ¦xi tilde_j¦
+SOURCE_QUANTIFIERS: delta_0>0 with xi tilde_j^2+eta tilde_j^2<delta_0^2
+SOURCE_CONCLUSION: the zeroth and first order terms of HasBirkhoff for P=hat f o Phi^-1 are P_0=C_0(+delta) and Omega_j R_j; (xi,Lambda,eta) in N_R(rho_*) if sqrt n delta_0<=rho_* and ¦Lambda-Lambda*¦_inf<rho_*
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p0:birkhoff#HasSecularBirkhoffForm
+DEPS: stepP:p9:d-a, stepP:p9:d-b, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p9:conv#data, bpP:p8:perturbation-analytic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | cited at this line (step; \ref{bpP:p0:birkhoff})
+EDGE: stepP:p9:d-a | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | quadratic part
+EDGE: stepP:p9:d-b | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | average and expansion
+EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | terms of HasBirkhoff read off
+EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | norm comparison
+EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | rho_*, N_R(rho_*)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1161,21 +869,23 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L1
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152
 CONTRACT_ID: stepP:p9:d-d
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Phi^-1 commutes with 2pi-shifts and is injective; Psi has the lattice properties (Q1),(Q2)
+SOURCE_QUANTIFIERS: Psi o Phi^-1 on the preimage of O_n
+SOURCE_CONCLUSION: Psi o Phi^-1 is a symplectic chart (pull-back of Omega_cart is Omega_chart), satisfies (Q1) and (Q2) whenever Psi does, so torus transport applies
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:lift, bpP:p7:product-chart
+DEPS: bpP:p9:lift, bpP:p7:product-chart, bpP:p1:chart, bpP:p1:torus-transport
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:lift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152 | cited at this line (step; \ref{bpP:p9:lift})
-EDGE: bpP:p7:product-chart | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152 | cited at this line (step; \ref{bpP:p7:product-chart})
+EDGE: bpP:p9:lift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152 | Phi^*Omega_chart=Omega_chart; shift compatibility; injectivity
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152 | (a): Psi chart with lattice property
+EDGE: bpP:p1:chart | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152 | compositions of charts are charts
+EDGE: bpP:p1:torus-transport | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152 | (Q1)-(Q2)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1189,28 +899,28 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L155-L16
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L155-L160
 CONTRACT_ID: bpP:p9:dict
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: frozen Omega_j multiplies R_j=(p_j^2+q_j^2)/2 (Definition birkhoff); S=C_0+sum sigma_j(xi tilde_j^2+eta tilde_j^2); sigma_j eigenvalues of the halved Q_h
+SOURCE_QUANTIFIERS: n>=2 (item 4: n=1); j
+SOURCE_CONCLUSION: Omega_j=2 sigma_j with sigma_j the eigenvalues of the halved Q_h; Omega is the eigenvalue list of 2 Q_h; all negative; CP10 (8) is insensitive to the overall sign; index and labelling conventions; n=1: Q_h=0, Omega_1=0
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p8:coeffs, bpP:p8:factor-half, bpP:p9:definite
+DEPS: bpP:p9:diagonalize, bpP:p9:definite, bpP:p8:coeffs, bpP:p0:birkhoff#HasSecularBirkhoffForm
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | cited at this line (statement; \ref{bpP:p0:birkhoff})
-EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | cited at this line (statement; \ref{bpP:p8:coeffs})
-EDGE: bpP:p8:factor-half | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | cited at this line (statement; \ref{bpP:p8:factor-half})
-EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | cited at this line (statement; \ref{bpP:p9:definite})
+EDGE: bpP:p9:diagonalize | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | S=C_0+sum sigma_j(...)=C_0+sum 2 sigma_j R tilde_j
+EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | all eigenvalues negative
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | the halved Q_h of Definition coeffs
+EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | frozen Omega_j, R_j
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: remark: its justification is inline (confirm, or exclude if not a mathematical claim)
+NOTE: kept as claim: Part 10 L192 cites it for the dictionary Omega_j=2 sigma_j; if the P-p10 extractor finds no consumer, exclude it. Edge to bpP:p8:factor-half deleted (provenance/erratum remark)
 
 NODE: bpP:p9:good
 KIND: definition
@@ -1219,19 +929,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good@L164-L17
 PROOF_SOURCE: -
 CONTRACT_ID: bpP:p9:good
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: K_4={k in Z^n: 0<¦k¦_1<=4}; sigma in R^n; a in {a_1<...<a_n}
+SOURCE_QUANTIFIERS: n; sigma; a
+SOURCE_CONCLUSION: defines NR_4(sigma): sigma_j pairwise distinct and k.sigma!=0 for all k in K_4; R_k(sigma)=prod_{pi in S_n} sum_j k_j sigma_pi(j); D(sigma)=prod_{j<l}(sigma_j-sigma_l)^2; Phi_4(sigma)=D(sigma) prod_{k in K_4} R_k(sigma); Phi_4(a):=Phi_4(sigma(a)) for the eigenvalues of Q_h(a) in any order
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p8:coeffs, bpP:p9:e-spec
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good@L169-L169 | Q_h(a)
+EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good@L169-L169 | eigenvalues sigma(a) of the symmetric matrix Q_h(a)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1245,24 +957,25 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L173
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L180-L184
 CONTRACT_ID: bpP:p9:good-set
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Phi_4 of Definition good; (c) A subset {a_1<...<a_n} open and connected
+SOURCE_QUANTIFIERS: n; a; (c) A
+SOURCE_CONCLUSION: (a) Phi_4 symmetric polynomial in sigma, a->Phi_4(a) polynomial in the coefficients of det(sI-Q_h(a)), real analytic on {a_1<...<a_n}, independent of labelling; (b) Phi_4(a)!=0 iff NR_4(sigma(a)), then simple spectrum, Omega_j=2 sigma_j!=0 and local-analytic, diagonalize apply on a ball around a; (c) either Phi_4=0 on A or G={Phi_4!=0} is open, dense and of full measure in A; one good point gives open dense full-measure set with analytic distinct eigenvalues and non-resonance, uniform on compacts of G
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:gs-a, stepP:p9:gs-b, stepP:p9:gs-c, bpP:p9:local-analytic, bpP:p9:diagonalize
+DEPS: stepP:p9:gs-a, stepP:p9:gs-b, stepP:p9:gs-c, bpP:p9:good, bpP:p9:local-analytic, bpP:p9:diagonalize
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p9:gs-a | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L181-L181 | proof step of this result
-EDGE: stepP:p9:gs-b | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L182-L182 | proof step of this result
-EDGE: stepP:p9:gs-c | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L183-L183 | proof step of this result
-EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L176-L176 | cited at this line (statement; \ref{bpP:p9:local-analytic})
-EDGE: bpP:p9:diagonalize | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L176-L176 | cited at this line (statement; \ref{bpP:p9:diagonalize})
+EDGE: stepP:p9:gs-a | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L181-L181 | proof step (a)
+EDGE: stepP:p9:gs-b | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L182-L182 | proof step (b)
+EDGE: stepP:p9:gs-c | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L183-L183 | proof step (c)
+EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L175-L175 | Phi_4, NR_4
+EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L176-L176 | Proposition local-analytic applies on a ball
+EDGE: bpP:p9:diagonalize | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L176-L176 | Theorem diagonalize applies on a ball
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1276,22 +989,23 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181
 CONTRACT_ID: stepP:p9:gs-a
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: D symmetric (squares); R_k invariant under permutations (product over S_n)
+SOURCE_QUANTIFIERS: a in {a_1<...<a_n}
+SOURCE_CONCLUSION: Phi_4 is a symmetric polynomial hence a polynomial in the elementary symmetric polynomials of sigma, i.e. in the coefficients of det(sI-Q_h(a)), which are polynomials in the real analytic entries of Q_h(a): Phi_4(a) real analytic
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:e-fts, bpP:p9:e-spec, bpP:p8:coeffs
+DEPS: bpP:p9:e-fts, bpP:p9:e-spec, bpP:p8:coeffs, bpP:p9:good
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:e-fts | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | cited at this line (step; \ref{bpP:p9:e-fts})
-EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | cited at this line (step; \ref{bpP:p9:e-spec})
-EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | cited at this line (step; \ref{bpP:p8:coeffs})
+EDGE: bpP:p9:e-fts | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | symmetric polynomial is a polynomial in the elementary ones
+EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | charpoly coefficients up to sign are the elementary symmetric polynomials
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | Q_h(a) real analytic
+EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | Phi_4, D, R_k
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1305,20 +1019,21 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-b@L182-L
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-b@L182-L182
 CONTRACT_ID: stepP:p9:gs-b
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: D!=0 iff sigma distinct; R_k!=0 iff k prime.sigma!=0 for all rearrangements; K_4 invariant under rearrangement
+SOURCE_QUANTIFIERS: a
+SOURCE_CONCLUSION: Phi_4(a)!=0 iff NR_4(sigma(a)); simple spectrum (discr=D!=0) by Proposition local-analytic
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:local-analytic
+DEPS: bpP:p9:good, bpP:p9:local-analytic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-b@L182-L182 | cited at this line (step; \ref{bpP:p9:local-analytic})
+EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-b@L182-L182 | D, R_k, NR_4, K_4
+EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-b@L182-L182 | simple spectrum from discr!=0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1332,75 +1047,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183
 CONTRACT_ID: stepP:p9:gs-c
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: Phi_4 analytic on connected A; identity theorem
+SOURCE_QUANTIFIERS: A open connected
+SOURCE_CONCLUSION: if Phi_4 not identically 0, its zero set is closed, nowhere dense and null; uniformity on compacts of G by continuity of a->sigma(a) and finiteness of K_4
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:e-id, bpP:p9:local-analytic
+DEPS: bpP:p9:e-id, stepP:p9:gs-a, bpP:p9:local-analytic
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:e-id | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | cited at this line (step; \ref{bpP:p9:e-id})
-EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | cited at this line (step; \ref{bpP:p9:local-analytic})
+EDGE: bpP:p9:e-id | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | identity theorem and null zero set
+EDGE: stepP:p9:gs-a | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | Phi_4 real analytic
+EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | continuity (analyticity) of the eigenvalues locally
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: bpP:p9:top-simple
-KIND: lemma
-TITLE: The top eigenvalue is always simple
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:top-simple@L186-L188
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:top-simple@L189-L191
-CONTRACT_ID: bpP:p9:top-simple
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:ts-pos
-ROUTES: -
-ROUTE_FOR: -
-EDGE: stepP:p9:ts-pos | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:top-simple@L190-L190 | proof step of this result
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
-REVIEWER: -
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
-NODE: stepP:p9:ts-pos
-KIND: step
-TITLE: Positivity
-STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:ts-pos@L190-L190
-PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:ts-pos@L190-L190
-CONTRACT_ID: stepP:p9:ts-pos
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:coeffs
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:ts-pos@L190-L190 | cited at this line (step; \ref{bpP:p8:coeffs})
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1414,21 +1076,23 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L193-L200
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L201-L204
 CONTRACT_ID: bpP:p9:n2
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: n=2; alpha=a_1/a_2; frakt a=frakt a_12, frakt b=frakt b_12 of Definition coeffs
+SOURCE_QUANTIFIERS: a_1<a_2
+SOURCE_CONCLUSION: Q_h explicit 2x2 matrix, tr Q_h=-a(1/Lambda_1+1/Lambda_2), det Q_h=(a^2-b^2)/(Lambda_1 Lambda_2)>0, tr^2-4 det>0; eigenvalues sigma_1<sigma_2<0 distinct and real analytic with a global analytic rotation varrho in SO(2) on {a_1<a_2}; NR_4(sigma) iff t=sigma_1/sigma_2 not in {2,3} iff (2 tr^2-9 det)(3 tr^2-16 det)!=0; Phi_4 and R=(2 tr^2-9 det)(3 tr^2-16 det) have the same zero set on {a_1<a_2}
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:n2-mat, stepP:p9:n2-res
+DEPS: stepP:p9:n2-mat, stepP:p9:n2-res, bpP:p8:coeffs, bpP:p9:good
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p9:n2-mat | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L202-L202 | proof step of this result
-EDGE: stepP:p9:n2-res | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L203-L203 | proof step of this result
+EDGE: stepP:p9:n2-mat | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L202-L202 | proof step Matrix
+EDGE: stepP:p9:n2-res | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L203-L203 | proof step Resonances
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L194-L194 | frakt a_12, frakt b_12, Q_h for n=2
+EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L198-L198 | NR_4 and Phi_4
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1442,21 +1106,22 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202-L202
 CONTRACT_ID: stepP:p9:n2-mat
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: hat q_11=hat q_22=-a, hat q_12=b (Definition coeffs, n=2); Q_h=Delta^-1 hat q Delta^-1; discriminant (q_11-q_22)^2+4 q_12^2
+SOURCE_QUANTIFIERS: a_1<a_2
+SOURCE_CONCLUSION: Q_h explicit, det=(a^2-b^2)/(Lambda_1 Lambda_2)>0 by Lemma l74, tr^2-4 det>0, global analytic frame varrho=(v1 v2) with v1=w/¦w¦, w=(q_12,sigma_1-q_11), v2=J v1
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:coeffs, bpP:p9:l74
+DEPS: bpP:p8:coeffs, bpP:p9:l74, bpP:p9:e-spec
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202-L202 | cited at this line (step; \ref{bpP:p8:coeffs})
-EDGE: bpP:p9:l74 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202-L202 | cited at this line (step; \ref{bpP:p9:l74})
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202-L202 | hat q, Q_h for n=2 and symmetry a_21=a_12
+EDGE: bpP:p9:l74 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202-L202 | a>b (b_{3/2}^(1)>b_{3/2}^(2)) gives det>0
+EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202-L202 | eigenvector of the other eigenvalue by symmetry and simple spectrum
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1470,22 +1135,25 @@ STATEMENT_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-res@L203
 PROOF_SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-res@L203-L203
 CONTRACT_ID: stepP:p9:n2-res
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: sigma_j<0; k.sigma=0 iff sigma_1/sigma_2=-k_2/k_1 in {1,2,1/2,3,1/3} for k_1 k_2<0; tr^2/det=t+1/t+2
+SOURCE_QUANTIFIERS: k in K_4
+SOURCE_CONCLUSION: NR_4(sigma) iff t not in {2,3} iff (2 tr^2-9 det)(3 tr^2-16 det)!=0 (tr^2/det=9/2 at t=2, 16/3 at t=3, t+1/t injective on (1,inf))
+CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:definite
+DEPS: bpP:p9:definite, stepP:p9:n2-mat, bpP:p9:good
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-res@L203-L203 | cited at this line (step; \ref{bpP:p9:definite})
+EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-res@L203-L203 | sigma_j<0
+EDGE: stepP:p9:n2-mat | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-res@L203-L203 | sigma_1<sigma_2, tr, det
+EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-res@L203-L203 | NR_4, K_4
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
+
