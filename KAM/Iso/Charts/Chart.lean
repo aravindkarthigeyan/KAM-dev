@@ -211,4 +211,94 @@ theorem chart (hd : HeadData B s₀ r₀ h B' η) {c : Fin 2 → ℝ} (hc : c �
   · rintro v ⟨x, hx, rfl⟩
     rw [hleft x hx]
 
+/-! ### Patches and the cover -/
+
+/-- The first chart coordinate `Re h` is `C¹` on the real slice. -/
+theorem contDiffOn_realPart (hd : HeadData B s₀ r₀ h B' η) :
+    ContDiffOn ℝ 1 (realPart h) (realAct B r₀) :=
+  (KAM.Iso.Linear.freq_map_contDiff (KAM.Head.isOpen_actionNbhd B r₀) hd.holo hd.real).1
+
+/-- A window `Q = [h(c) ± δ_E] × [-δ_m, δ_m]` inside an open set containing `(h(c), 0)`. -/
+theorem exists_window {V : Set (ℝ × ℝ)} (hV : IsOpen V) {e : ℝ} (he : (e, (0 : ℝ)) ∈ V) :
+    ∃ δE δm : ℝ, 0 < δE ∧ 0 < δm ∧ Icc (e - δE) (e + δE) ×ˢ Icc (-δm) δm ⊆ V := by
+  obtain ⟨ε, hε, hball⟩ := Metric.isOpen_iff.1 hV _ he
+  refine ⟨ε / 2, ε / 2, half_pos hε, half_pos hε, ?_⟩
+  rintro ⟨x, y⟩ ⟨⟨hx1, hx2⟩, hy1, hy2⟩
+  apply hball
+  rw [Metric.mem_ball, Prod.dist_eq, Real.dist_eq, Real.dist_eq, max_lt_iff]
+  constructor
+  · rw [abs_lt]; constructor <;> linarith
+  · rw [abs_lt]; constructor <;> linarith
+
+/-- Every centre `c ∈ closure B'` carries a patch of radius `η₁ = eta1 η B B'`. -/
+theorem exists_isPatch (hd : HeadData B s₀ r₀ h B' η) (hne : B'.Nonempty) {c : Fin 2 → ℝ}
+    (hc : c ∈ closure B') :
+    ∃ (W : Set (Fin 2 → ℝ)) (Ψ : ℝ × ℝ → Fin 2 → ℝ) (δE δm ρc : ℝ),
+      IsPatch h B r₀ B' (eta1 η B B') c W Ψ δE δm ρc := by
+  obtain ⟨hdB, -, -, hSB, -⟩ := compact hd hne
+  have hη₁ : 0 < eta1 η B B' := lt_min hd.hη (half_pos hdB)
+  have hη₁le : eta1 η B B' ≤ dB B B' / 2 := min_le_right _ _
+  have hcU : c ∈ realAct B r₀ := subset_realAct_charts hd.hr (hd.inside hc)
+  -- the ball around `c` lies in `B`
+  have hballB : ball c (eta1 η B B' / 4) ⊆ B := by
+    intro y hy
+    apply hSB
+    exact Metric.mem_cthickening_of_dist_le y c _ _ hc (by
+      have := mem_ball.1 hy
+      linarith)
+  obtain ⟨-, hdomopen, hcdom, hcd, hΦc⟩ := coordinates hd hcU
+  obtain ⟨-, -, hch⟩ := chart hd hc
+  obtain ⟨W, Ψ, hWopen, hcW, hWsub, hV, hΨ, hΨmem, hΨleft, hΨright⟩ :=
+    hch (ball c (eta1 η B B' / 4)) isOpen_ball (mem_ball_self (by positivity))
+  have hWdom : W ⊆ chartDom h B r₀ c := fun x hx => (hWsub hx).2
+  have hWball : W ⊆ ball c (eta1 η B B' / 4) := fun x hx => (hWsub hx).1
+  have hRe : ContDiffOn ℝ 1 (realPart h) W :=
+    (contDiffOn_realPart hd).mono fun x hx => (hWdom hx).1
+  have hmW : ContDiffOn ℝ 1 (chartM h c) W :=
+    contDiff_snd.comp_contDiffOn (hcd.mono hWdom)
+  -- the window
+  have hΦcV : (realPart h c, (0 : ℝ)) ∈ chartPhi h c '' W := ⟨c, hcW, hΦc⟩
+  obtain ⟨δE, δm, hδE, hδm, hQ⟩ := exists_window hV hΦcV
+  -- the radius
+  have hRec : ContinuousAt (realPart h) c := hRe.continuousOn.continuousAt (hWopen.mem_nhds hcW)
+  have hmc : ContinuousAt (chartM h c) c := hmW.continuousOn.continuousAt (hWopen.mem_nhds hcW)
+  have hm0 : chartM h c c = 0 := by
+    have := congrArg Prod.snd hΦc
+    exact this
+  obtain ⟨ρ₁, hρ₁, h₁⟩ := Metric.isOpen_iff.1 hWopen c hcW
+  obtain ⟨ρ₂, hρ₂, h₂⟩ := Metric.continuousAt_iff.1 hRec (δE / 2) (half_pos hδE)
+  obtain ⟨ρ₃, hρ₃, h₃⟩ := Metric.continuousAt_iff.1 hmc (δm / 4) (by positivity)
+  have hρ : 0 < min (min ρ₁ ρ₂) (min ρ₃ (eta1 η B B' / 4)) :=
+    lt_min (lt_min hρ₁ hρ₂) (lt_min hρ₃ (by positivity))
+  refine ⟨W, Ψ, δE, δm, min (min ρ₁ ρ₂) (min ρ₃ (eta1 η B B' / 4)), ?_⟩
+  have hρ₁' : min (min ρ₁ ρ₂) (min ρ₃ (eta1 η B B' / 4)) ≤ ρ₁ :=
+    (min_le_left _ _).trans (min_le_left _ _)
+  have hρ₂' : min (min ρ₁ ρ₂) (min ρ₃ (eta1 η B B' / 4)) ≤ ρ₂ :=
+    (min_le_left _ _).trans (min_le_right _ _)
+  have hρ₃' : min (min ρ₁ ρ₂) (min ρ₃ (eta1 η B B' / 4)) ≤ ρ₃ :=
+    (min_le_right _ _).trans (min_le_left _ _)
+  have hρ₄' : min (min ρ₁ ρ₂) (min ρ₃ (eta1 η B B' / 4)) ≤ eta1 η B B' / 4 :=
+    (min_le_right _ _).trans (min_le_right _ _)
+  refine ⟨hc, hWopen, hWdom, fun x hx => hballB (hWball hx), hWball, hRe, hmW, hV, hΨ, hΨmem,
+    hΨleft, hΨright, hδE, hδm, hρ, hQ, hρ₄', ?_, ?_, ?_⟩
+  · intro x hx
+    exact h₁ (mem_ball.2 ((mem_ball.1 hx).trans_le hρ₁'))
+  · intro x hx
+    have := h₂ ((mem_ball.1 hx).trans_le hρ₂')
+    rwa [Real.dist_eq] at this
+  · intro x hx
+    have := h₃ ((mem_ball.1 hx).trans_le hρ₃')
+    rwa [Real.dist_eq, hm0, sub_zero] at this
+
+/-- `bpI:p3:cover`: finitely many patches `(c, W_c, Ψ_c, δ_E, δ_m, ρ_c)` cover `closure B'`. -/
+theorem cover (hd : HeadData B s₀ r₀ h B' η) (hne : B'.Nonempty) :
+    ∃ (P : Finset (Fin 2 → ℝ)) (W : (Fin 2 → ℝ) → Set (Fin 2 → ℝ))
+      (Ψ : (Fin 2 → ℝ) → ℝ × ℝ → Fin 2 → ℝ) (δE δm ρc : (Fin 2 → ℝ) → ℝ),
+      (∀ c ∈ P, IsPatch h B r₀ B' (eta1 η B B') c (W c) (Ψ c) (δE c) (δm c) (ρc c)) ∧
+      closure B' ⊆ ⋃ c ∈ P, ball c (ρc c) := by
+  choose! W Ψ δE δm ρc hP using fun c (hc : c ∈ closure B') => exists_isPatch hd hne hc
+  obtain ⟨P, hPsub, hPcov⟩ := hd.compact.elim_nhds_subcover (fun c => ball c (ρc c))
+    fun c hc => ball_mem_nhds c (hP c hc).ρc_pos
+  exact ⟨P, W, Ψ, δE, δm, ρc, fun c hc => hP c (hPsub c hc), hPcov⟩
+
 end KAM.Iso.Charts
