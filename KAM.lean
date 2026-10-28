@@ -25,6 +25,7 @@ public import KAM.Apost.Standing
 public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
+public import KAM.Canonical.Setting
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
 public import KAM.Diophantine.FrequencyDependence
