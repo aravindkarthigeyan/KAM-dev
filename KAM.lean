@@ -211,6 +211,7 @@ public import KAM.Iso.Confinement.Setting
 public import KAM.Iso.Conversion
 public import KAM.Iso.Kepler
 public import KAM.Iso.KeplerHamiltonian
+public import KAM.Iso.R3bp.Uniqueness
 public import KAM.Iso.RestrictedHam
 public import KAM.Iso.ShiftPotential
 public import KAM.Kepler.Basic
@@ -240,6 +241,7 @@ public import KAM.ODE.Exit
 public import KAM.ODE.Hamiltonian
 public import KAM.ODE.Lipschitz
 public import KAM.ODE.Maximal
+public import KAM.ODE.NewtonContinuation
 public import KAM.ODE.NewtonDefs
 public import KAM.ODE.NewtonReduction
 public import KAM.ODE.NewtonUniform
