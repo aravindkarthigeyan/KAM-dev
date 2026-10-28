@@ -686,7 +686,8 @@ theorem to_avg_arith (hP : Params n τ M σK σB σT) (hδ : 0 < δ) (hδ1 : δ 
 theorem to_inv_arith (hP : Params n τ M σK σB σT) {Δn : ℝ} (hΔ0 : 0 ≤ Δn)
     (hΔ : Δn ≤ CDTbord n M σK σB σT * d / δ ^ 2)
     (hsmall : 2 * mSize M σK σB σT * CDTbord n M σK σB σT * d / δ ^ 2 ≤ 1) :
-    σT * Δn ≤ 1 / 2 ∧ 2 * σT ^ 2 * Δn ≤ 2 * mSize M σK σB σT ^ 2 * CDTbord n M σK σB σT * d / δ ^ 2 := by
+    σT * Δn ≤ 1 / 2 ∧
+      2 * σT ^ 2 * Δn ≤ 2 * mSize M σK σB σT ^ 2 * CDTbord n M σK σB σT * d / δ ^ 2 := by
   have hm : (1 : ℝ) ≤ mSize M σK σB σT := one_le_mSize
   have hσ0 := hP.σT_pos.le
   have hσ : σT ≤ mSize M σK σB σT := σT_le_mSize
@@ -788,7 +789,8 @@ theorem iso_step_small (hP : Params n τ M σK σB σT) (hγ : 0 < γ)
       hatcStep n τ M σK σB σT * ε / (γ ^ 4 * δ ^ (2 * aExp n τ)) / 2 := by ring
   refine ⟨?_, ?_, ?_⟩
   · have h := absorb_mul_le (i := 1) (k := 4) (j := kappa n τ + 1) (J := 2 * aExp n τ)
-      (c := hatcStep n τ M σK σB σT / 2) hγ hγΘ hδ hδ1 (by norm_num) (by linarith [aExp_eq (n := n) (τ := τ), one_le_kappa hP]) hε
+      (c := hatcStep n τ M σK σB σT / 2) hγ hγΘ hδ hδ1 (by norm_num)
+      (by linarith [aExp_eq (n := n) (τ := τ), one_le_kappa hP]) hε
       (zero_le_one.trans (one_le_C_sym hP))
       (by have := two_Theta_cube_mul_C_sym_le_hatcStep hP; norm_num; linarith)
     rw [hhalf, pow_one] at h
