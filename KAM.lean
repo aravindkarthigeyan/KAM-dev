@@ -229,6 +229,7 @@ public import KAM.Kepler.EquationComplex
 public import KAM.Kepler.KeplerTube
 public import KAM.Kepler.Means
 public import KAM.Kepler.Orbit
+public import KAM.Kepler.OrbitComplex
 public import KAM.Kepler.Plane
 public import KAM.Matrix.Bridges
 public import KAM.Matrix.Calculus
