@@ -82,7 +82,6 @@ theorem const_hyp (hn : 1 ≤ n) (p : HeadParams n) (hp : p.Pos) {h : (Fin n →
       refine Finset.sum_congr rfl fun i _ => ?_
       rw [Finset.mul_sum]
       refine Finset.sum_congr rfl fun j _ => ?_
-      push_cast
       ring
     rw [heq, norm_mul]
     have hn2 : ‖(2 * Real.pi : ℂ)‖ = 2 * Real.pi := by
@@ -93,6 +92,8 @@ theorem const_hyp (hn : 1 ≤ n) (p : HeadParams n) (hp : p.Pos) {h : (Fin n →
     calc 2 * Real.pi * ‖∑ i, ∑ j, x i * complexHessian h I i j * y j‖
         ≤ 2 * Real.pi * (n * p.Mc * euclid x * euclid y) := by gcongr
       _ ≤ 2 * Real.pi * (p.B * euclid x * euclid y) := by
+          have hx : 0 ≤ euclid x := Real.sqrt_nonneg _
+          have hy : 0 ≤ euclid y := Real.sqrt_nonneg _
           gcongr
       _ = 2 * Real.pi * p.B * euclid x * euclid y := by ring
 
