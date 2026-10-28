@@ -32,6 +32,7 @@ public import KAM.Canonical.FlowRegular
 public import KAM.Canonical.FlowRegularIntegral
 public import KAM.Canonical.Lie
 public import KAM.Canonical.Setting
+public import KAM.Canonical.VectorField
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
 public import KAM.Diophantine.FrequencyDependence
@@ -262,6 +263,7 @@ public import KAM.Iso.Linear.Tools
 public import KAM.Iso.Linear.Trivial
 public import KAM.Iso.NearCircular
 public import KAM.Iso.PeriodOne
+public import KAM.Iso.R3bp.HeadData
 public import KAM.Iso.R3bp.Region
 public import KAM.Iso.R3bp.Safe
 public import KAM.Iso.R3bp.Uniqueness
@@ -317,7 +319,9 @@ public import KAM.Planetary.Newtonian.Barycentric
 public import KAM.Planetary.Newtonian.Models
 public import KAM.Planetary.Newtonian.Reconstruction
 public import KAM.Planetary.Newtonian.Tube
+public import KAM.Planetary.Poincare.Bijective
 public import KAM.Planetary.Poincare.Chart
+public import KAM.Planetary.Poincare.Symplectic
 public import KAM.Provider.AposterioriKam
 public import KAM.Provider.Iso.AllTimeConfinement
 public import KAM.Provider.Iso.IsoenergeticKam
@@ -360,6 +364,8 @@ public import KAM.Uniq.G2
 public import KAM.Uniq.Phase
 public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
+public import KAM.Weighted.Algebra
+public import KAM.Weighted.Bracket
 public import KAM.Weighted.Cauchy
 public import KAM.Weighted.Coefficients
 public import KAM.Weighted.Domains
