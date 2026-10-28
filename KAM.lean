@@ -207,6 +207,7 @@ public import KAM.Iso.Apost.ConstantsArith
 public import KAM.Iso.Apost.Defs
 public import KAM.Iso.Apost.Schedule
 public import KAM.Iso.Apost.Standing
+public import KAM.Iso.Charts.Chart
 public import KAM.Iso.Charts.Constants
 public import KAM.Iso.Charts.Coordinates
 public import KAM.Iso.Charts.Defs
