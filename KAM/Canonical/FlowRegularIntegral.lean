@@ -13,15 +13,16 @@ public import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 # Parametric interval integrals over `[0, t]` with holomorphic dependence
 
 Helper module of `KAM.Canonical.FlowRegular` (blueprint-N Part 5, node `bpN:p5:flow` (b),
-design package C5-3). For a family `g : ℝ → E → G` on `[-1, 1] × U` (`U` open in a finite-dimensional
-complex space `E`) that is jointly continuous, holomorphic in the second variable, and has jointly
-continuous derivative, the map `(t, z) ↦ ∫ τ in 0..t, g τ z` is again of this kind, and its
+design package C5-3). For a family `g : ℝ → E → G` on `[-1, 1] × U` (`U` open in a
+finite-dimensional complex space `E`) that is jointly continuous, holomorphic in the second
+variable, and has jointly continuous derivative, the map `(t, z) ↦ ∫ τ in 0..t, g τ z` is again of this kind, and its
 `z`-derivative is the integral of the `z`-derivatives (differentiation under the integral sign).
 
 The integral over `[0, t]` is reduced to the fixed interval `[0, 1]` by `τ = t σ`.
 
 * `KAM.Canonical.ParamHyp`: the three regularity conditions on `[-1, 1] × U`;
-* `KAM.Canonical.ParamHyp.intervalIntegral`: stability under `∫ τ in 0..t`, with the derivative formula;
+* `KAM.Canonical.ParamHyp.intervalIntegral`: stability under `∫ τ in 0..t`, with the derivative
+  formula;
 * `KAM.Canonical.ParamHyp.id_add`: the same for the Picard map `z + ∫ τ in 0..t, g τ z`.
 -/
 
@@ -146,11 +147,13 @@ theorem hasFDerivAt_integral_mul {U : Set E} (hU : IsOpen U) {g : ℝ → E → 
       exact ((hcontx z (hsU hz)).mono Ioc_subset_Icc_self).aestronglyMeasurable measurableSet_Ioc
     · exact (hcontx z₀ hz₀).integrableOn_Icc.mono_set Ioc_subset_Icc_self
     · exact ((hcontD z₀ hz₀).mono Ioc_subset_Icc_self).aestronglyMeasurable measurableSet_Ioc
-    · refine (ae_restrict_iff' measurableSet_Ioc).2 (Filter.Eventually.of_forall fun σ hσ z hz => ?_)
+    · refine (ae_restrict_iff' measurableSet_Ioc).2
+        (Filter.Eventually.of_forall fun σ hσ z hz => ?_)
       exact hC (t * σ, z) ⟨mul_mem_Icc_neg_one_one ht (Ioc_subset_Icc_self hσ),
         ball_subset_closedBall hz⟩
     · exact integrable_const C
-    · refine (ae_restrict_iff' measurableSet_Ioc).2 (Filter.Eventually.of_forall fun σ hσ z hz => ?_)
+    · refine (ae_restrict_iff' measurableSet_Ioc).2
+        (Filter.Eventually.of_forall fun σ hσ z hz => ?_)
       exact ((hgd _ (mul_mem_Icc_neg_one_one ht (Ioc_subset_Icc_self hσ))).differentiableAt
         (hU.mem_nhds (hsU hz))).hasFDerivAt
   simpa only [intervalIntegral.integral_of_le zero_le_one] using key

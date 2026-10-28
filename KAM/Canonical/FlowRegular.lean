@@ -11,8 +11,8 @@ public import KAM.Weighted.Parametric
 /-!
 # The canonical flow: regularity and the variational equation
 
-Blueprint-N Part 5, node `bpN:p5:flow`, part (b) (design `docs/tracks/N/design/PART145-LEAN-DESIGN.md`,
-package C5-3).
+Blueprint-N Part 5, node `bpN:p5:flow`, part (b) (design
+`docs/tracks/N/design/PART145-LEAN-DESIGN.md`, package C5-3).
 
 * `KAM.Canonical.flow_b`: the flow is jointly continuous on `[-1, 1] × Ω^{1/2}`, holomorphic in the
   initial point, stays in `Ω`, has jointly continuous derivative, and satisfies the variational
@@ -60,7 +60,8 @@ omit [FiniteDimensional ℂ E] in
 /-- The elementary bound turning the factorial estimate into a null sequence. -/
 theorem picard_bound_le {ε Λ t : ℝ} (hε : 0 ≤ ε) (hΛ : 0 ≤ Λ) (ht : t ∈ Icc (-1 : ℝ) 1)
     (k : ℕ) :
-    ε * Λ ^ k * |t| ^ (k + 1) / (((k + 1).factorial : ℕ) : ℝ) ≤ ε * (Λ ^ k / (k.factorial : ℝ)) := by
+    ε * Λ ^ k * |t| ^ (k + 1) / (((k + 1).factorial : ℕ) : ℝ) ≤
+      ε * (Λ ^ k / (k.factorial : ℝ)) := by
   have h1 : |t| ^ (k + 1) ≤ 1 := pow_le_one₀ (abs_nonneg t) (abs_le.2 ⟨ht.1, ht.2⟩)
   have h2 : (k.factorial : ℝ) ≤ (((k + 1).factorial : ℕ) : ℝ) := by
     exact_mod_cast Nat.factorial_le (Nat.le_succ k)
