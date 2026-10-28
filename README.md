@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-28 04:50 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 75.7 %** · frozen statements proved: 11 / 22 · **70,227 lines of Lean** of an estimated ≈ 107,000
+> **Last updated: 2026-10-28 04:51 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 75.7 %** · frozen statements proved: 11 / 22 · **70,227 lines of Lean** of an estimated ≈ 107,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -135,7 +135,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-28 04:50 UTC from `main` at `e5c61ff` by `scripts/hq-status.py`.*
+*Generated 2026-10-28 04:51 UTC from `main` at `675b03c` by `scripts/hq-status.py`.*
 
 **Current phase:** Tracks K and I complete (all 9 of their frozen theorems sealed). Tracks N and P: proof campaigns running; next Lean designs (P Part 1, N Parts 6–7) in audit. Overnight mode D29.
 
@@ -304,6 +304,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-28 04:51 | `675b03c` | HQ: a track with all frozen theorems sealed counts as complete (track I 100 %); OVERNIGHT 04:55 entry |
 | 2026-10-28 04:33 | `e6c0b8c` | Land inp into main |
 | 2026-10-28 04:16 | `5e3a89a` | Land inp into main |
 | 2026-10-28 04:02 | `a777e31` | Land inp into main |
@@ -315,7 +316,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-28 03:01 | `9cf480b` | Sources: register AS26 (Alazard-Shao, KAM via standard fixed point theorems), context tier |
 | 2026-10-28 02:50 | `6dbf1a6` | Land inp into main |
 | 2026-10-28 00:49 | `6bf586c` | Land inp into main |
-| 2026-10-28 00:13 | `5f6b154` | Seal HEAD-Q: KAM.kam_positive_measure_qualitative is proved; all five track-K frozen theorems are sealed |
 <!-- /AUTO:landed -->
 
 ## Decisions
