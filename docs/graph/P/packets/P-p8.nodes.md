@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -180,9 +180,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:rho@L34-L34 | Lambda_i*, N(rho) and the data n, m, kappa, a*
 EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:rho@L34-L34 | the holomorphic chart domain in which N(rho) is asserted to lie
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -306,9 +306,9 @@ EDGE: stepP:p8:pa-unif | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L
 EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | formula equals f_fix o Psi; f_mov-f_fix=¦P¦^2/(2 m0)
 EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | p^(i) holomorphic, Psi real at real points
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | hat f_fix, hat f_mov, and N(rho_*)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -371,9 +371,9 @@ EDGE: stepP:p8:sy-f | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L7
 EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L65-L65 | f_fix, f_mov of Lemma split
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L59-L59 | Psi^(n), O_n
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L59-L59 | the standing product chart Psi and physical data; R_theta and sigma are local notation from L56
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -482,9 +482,9 @@ DEPS: bpP:p6:split
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-f@L72-L72 | f_fix depends on ¦q_i-q_j¦ and f_mov-f_fix=¦P¦^2/(2 m0)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -572,9 +572,9 @@ EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP
 EDGE: stepP:p8:ev-inv | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | evenness and invariance
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | Taylor coefficients, expansion
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | the secular function S and its Taylor expansion in the slow coordinates
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -601,9 +601,9 @@ ROUTE_FOR: -
 EDGE: stepP:p8:ev-inv | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84 | evenness in eta alone and the rotation theta=pi/2
 EDGE: stepP:p8:ev-tay | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84 | degree-two part of the Taylor expansion
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84 | the slow coordinates xi, eta of the secular quadratic part
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -723,9 +723,9 @@ EDGE: stepP:p8:l64-b | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | p^(j) depends only on lambda_j
 EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | (a): continuity
 EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | Fubini on the product angle intervals to reduce or separate the torus average
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -754,9 +754,9 @@ EDGE: bpP:p7:kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | a_i=Lambda_i^2/(m_i^2 kappa)
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | planetwise independence reduces the full torus integral to the single lambda_i integral
 EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | Fubini on the product angle intervals to reduce or separate the torus average
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -895,9 +895,9 @@ ROUTE_FOR: -
 EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L123 | (s)_p/p!=O(p^(s-1)), positivity of the Pochhammer symbols
 EDGE: stepP:p8:la-exp | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L123 | the series coefficients
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L123 | the Laplace coefficients b_s^(k) used in the statement or computation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -925,9 +925,9 @@ EDGE: stepP:p8:id-1 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L1
 EDGE: stepP:p8:id-2 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L139-L139 | proof step (I2)
 EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L137-L137 | series of Lemma laplace compared coefficientwise
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L130-L130 | the Laplace coefficients b_s^(k) used in the statement or computation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -954,9 +954,9 @@ ROUTE_FOR: -
 EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L138-L138 | series of b_{1/2}^(0) and b_{3/2}^(1)
 EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L138-L138 | the Pochhammer relations used in the coefficient comparison (introduced at L137)
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L138-L138 | the Laplace coefficients b_s^(k) used in the statement or computation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -983,9 +983,9 @@ ROUTE_FOR: -
 EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L139-L139 | series of b_{1/2}^(1) and b_{3/2}^(2)
 EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L139-L139 | the Pochhammer relations used in the coefficient comparison (introduced at L137)
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L139-L139 | the Laplace coefficients b_s^(k) used in the statement or computation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1082,9 +1082,9 @@ EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | S_fix and averages
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | each planet position depends only on its own fast angle and slow block
 EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | Fubini on the product angle intervals to reduce or separate the torus average
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1141,9 +1141,9 @@ EDGE: stepP:p8:qf-scale | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | S_ij=<V_ij>
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | u_i, the axes a_i=a_i(Lambda_i), and the circular value of the secular pair average
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | the Laplace coefficients b_s^(k) used in the statement or computation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1180,9 +1180,9 @@ EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-di
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | u_i=(xi_i,eta_i), Gamma_i, a_i(Lambda_i), and the normalized angle averages
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | the Laplace coefficients b_s^(k) used in the statement or computation
 EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | Fubini on the product angle intervals to reduce or separate the torus average
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1214,9 +1214,9 @@ EDGE: bpP:p8:identities | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cros
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | V_ij, S_ij=<V_ij>
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L168-L168 | identification with fraktur b_ij
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | u_i, Gamma_i and the normalized averages in the slow chart coordinates
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1249,9 +1249,9 @@ EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assemb
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | Q_h, C_0 definitions
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | analyticity on N_R(rho_*)
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | S_fix, u_i, and N_R(rho_*) with a=a(Lambda)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1279,9 +1279,9 @@ EDGE: stepP:p8:qf-assembly | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-d
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | Q_h
 EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | symplectic for the frozen form
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | the slow-coordinate order and Gamma_j=(xi_j^2+eta_j^2)/2
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1341,9 +1341,9 @@ EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191
 EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | (a): p^(i) real analytic hence continuous
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | p^(i) depends on lambda_i only
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | hat f_mov=f_mov o Psi and hat f_fix=f_fix o Psi
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1399,9 +1399,9 @@ ROUTE_FOR: -
 EDGE: stepP:p8:id-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193 | continuity of the difference
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193 | (a): hat f continuous on the torus for w' in N_R(rho_*)
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193 | the Bochner averages S_fix, S_mov and the domain N_R(rho_*)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1445,7 +1445,7 @@ CONTRACT_ID: bpP:p8:same-jets#jets
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: delta does not depend on (xi,eta); Thm identification; Thm quadratic-form; Thm product-chart (d)
 SOURCE_QUANTIFIERS: alpha!=0; (xi,Lambda,eta) in N_R(rho_*)
-SOURCE_CONCLUSION: all (xi,eta)-derivatives of order >=1 of S_mov-S_fix vanish; (a) same quadratic form Q_h and constant C_0+delta; (b) same secular equations, frequencies differ by mu d_Lambda delta
+SOURCE_CONCLUSION: all (xi,eta)-derivatives of order >=1 of S_mov-S_fix vanish; (a) same quadratic form Q_h and constant C_0+delta; (b) for mu=eps, same secular equations, frequencies differ by mu d_Lambda delta
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1461,7 +1461,7 @@ EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | S_fix, S_mov, the slow variables and N_R(rho_*)
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | C_0 and Q_h in the common quadratic form
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
+EXTRACTOR: sonnet-extract-P-p8+sol-delta-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1477,7 +1477,7 @@ CONTRACT_ID: bpP:p8:same-jets#transfer
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: data of conv#data; P_mov=hat f_mov and P_fix=hat f_fix with no mu dependence, assembled by (I,p,q)=(Lambda,eta,xi); HasBirkhoff(P_mov,V,r_0,mu_0,P_0,Omega,beta); for every I in V and p,q with p_j^2+q_j^2<r_0^2 for all j, (I,p,q) lies in N_R(rho_*); for the composition clause chi(Lambda;.) is a slow-variable symplectic change acting only on (xi,eta)
 SOURCE_QUANTIFIERS: V, r_0, mu_0, P_0, Omega, beta
-SOURCE_CONCLUSION: HasBirkhoff(P_fix,V,r_0,mu_0,P_0-delta,Omega,beta) and conversely: integrability clause (i) transfers and the expansion clause (ii) with P_0->P_0-delta; Omega, beta unchanged
+SOURCE_CONCLUSION: HasBirkhoff(P_fix,V,r_0,mu_0,P_0-delta,Omega,beta) and conversely: integrability clause (i) transfers and the expansion clause (ii) with P_0->P_0-delta; Omega, beta unchanged; for the composition clause, S_mov o chi-S_fix o chi=delta(Lambda)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1491,7 +1491,7 @@ EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p8-secular-form
 EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | frozen average, I=Lambda
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | dictionary (I,p,q)=(Lambda,eta,xi)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
+EXTRACTOR: sonnet-extract-P-p8+sol-delta-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1523,9 +1523,9 @@ EDGE: stepP:p8:q4-c | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L234-
 EDGE: bpP:p8:same-jets | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L217-L217 | S_mov has the same degree-four part
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L221-L221 | v of Definition poincare-def
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L217-L217 | data, N_R(rho_*), S_fix
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1555,9 +1555,9 @@ EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L
 EDGE: bpP:p8:e-weyl | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | invariants are polynomials in dot products
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | Taylor coefficients of a jointly analytic function
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | S_fix, u_i and N_R(rho_*) for the quartic Taylor part
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1587,9 +1587,9 @@ EDGE: stepP:p8:pa-circ | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L23
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | Taylor expansion of (1-t)^(1/2), t=¦u¦^2/(4 Lambda)
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | V_ij, S_ij
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | the secular slow variables u_i=(xi_i,eta_i) and their actions Lambda_i in the conversion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1616,9 +1616,9 @@ ROUTE_FOR: -
 EDGE: stepP:p8:qf-diag | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233 | S_ij at u_j=0 as sum over E^l h^(2l)(0) binomial moments
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233 | Taylor expansion of h and E in ¦u¦
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233 | u_i=(xi_i,eta_i) and Gamma_i=¦u_i¦^2/2 in the exact expression for E
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
-REVIEWER: -
+REVIEWER: sol-delta-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

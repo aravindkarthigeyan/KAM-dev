@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -203,9 +203,9 @@ DEPS: bpP:p9:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l75@L77-L77 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -260,9 +260,9 @@ DEPS: bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-red@L87-L87 | definition of b_s^(k) as a period integral
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -290,9 +290,9 @@ EDGE: bpP:p9:e-ibp | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@
 EDGE: stepP:p9:l74-red | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88-L88 | reduction to [0,pi]
 EDGE: bpP:p8:laplace | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88-L88 | positivity of b_s^(k) from the series
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:l74-ibp@L88-L88 | The Laplace coefficient integral and its normalization are used in the integration-by-parts identity.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -349,9 +349,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-dom@L100-L100 | definitions of hat q, frakt a, frakt b and symmetry
 EDGE: bpP:p9:l74 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-dom@L100-L100 | b_{3/2}^(1)>b_{3/2}^(2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -379,9 +379,9 @@ EDGE: bpP:p9:l75 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-had@L1
 EDGE: stepP:p9:p73-dom | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-had@L101-L101 | delta hat q_j>0 and hat q_jk>0 for j!=k
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-had@L101-L101 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-had@L101-L101 | The matrix hat q to which l75 is applied is the secular coefficient matrix.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -410,9 +410,9 @@ EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-con
 EDGE: bpP:p8:laplace | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L102-L102 | continuity of frakt a, frakt b in a
 EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L102-L102 | an eigenvalue is x^T Q_h x for a unit eigenvector
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:p73-cong@L102-L102 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -471,9 +471,9 @@ EDGE: bpP:p9:e-ift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L1
 EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L111-L111 | det(sI-M)=prod(s-lambda_j)
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L111-L111 | characteristic polynomial composed with analytic M is analytic
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-ev@L111-L111 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -501,9 +501,9 @@ EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-adj@
 EDGE: stepP:p9:la-ev | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-adj@L112-L112 | analytic simple eigenvalues sigma_j(w), d_s p!=0
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-adj@L112-L112 | analytic composition: adjugate polynomial in analytic entries
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-adj@L112-L112 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -530,9 +530,9 @@ ROUTE_FOR: -
 EDGE: stepP:p9:la-adj | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-vec@L113-L113 | Pi_j analytic rank-one projection
 EDGE: stepP:p9:la-ev | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-vec@L113-L113 | distinct eigenvalues give orthogonality
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-vec@L113-L113 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -560,9 +560,9 @@ EDGE: stepP:p9:la-vec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so
 EDGE: bpP:p9:e-ift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so@L114-L114 | uniqueness of the continuous root
 EDGE: stepP:p9:la-ev | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so@L114-L114 | ordering and simplicity
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:la-so@L114-L114 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -593,9 +593,9 @@ EDGE: stepP:p9:lift-mc | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L
 EDGE: stepP:p9:lift-concl | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L131-L131 | proof step Conclusion
 EDGE: bpP:p1:chart | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L120-L120 | 1-chart in the sense of Definition chart
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:lift@L120-L120 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -619,9 +619,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -646,9 +646,9 @@ DEPS: stepP:p9:lift-bij
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p9:lift-bij | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-anti@L125-L125 | Omega_l:=varrho^T d_l varrho is the local definition made at L124.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -674,9 +674,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p9:lift-bij | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-form@L126-L126 | substitution xi=varrho xi tilde, eta=varrho eta tilde and H_l
 EDGE: stepP:p9:lift-anti | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-form@L128-L128 | varrho^T d varrho=sum Omega_l dLambda_l, d varrho^T varrho=-sum Omega_l dLambda_l
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -697,13 +697,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:lift-anti, stepP:p9:lift-form
+DEPS: stepP:p9:lift-anti, stepP:p9:lift-form, stepP:p9:lift-bij
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p9:lift-anti | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L130-L130 | d_m varrho^T=-Omega_m varrho^T
 EDGE: stepP:p9:lift-form | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L130-L130 | the remaining sum to be killed
+EDGE: stepP:p9:lift-bij | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L130-L130 | The differentiation of Omega_l uses its defining formula Omega_l=varrho^T partial_l varrho, introduced at L124
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
+EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -732,9 +733,9 @@ EDGE: stepP:p9:lift-form | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:li
 EDGE: stepP:p9:lift-mc | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-concl@L131-L131 | vanishing of the dLambda^dLambda terms
 EDGE: stepP:p9:lift-bij | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-concl@L131-L131 | definition lambda tilde=lambda-H and norm preservation
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-concl@L131-L131 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -749,7 +750,7 @@ CONTRACT_ID: bpP:p9:diagonalize
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the situation of bpP:p8:perturbation-analytic and bpP:p8:quadratic-form with n>=2; W subset {Lambda: a(Lambda) increasing} open; Q_h(Lambda) has simple spectrum on W; sigma_j, varrho the analytic functions of bpP:p9:local-analytic on W (global labelling if W is connected)
 SOURCE_QUANTIFIERS: data of conv#data (Part 8); W; then (xi tilde,eta tilde) with (xi,Lambda,eta)=(varrho xi tilde,Lambda,varrho eta tilde); mu>0
-SOURCE_CONCLUSION: (a) xi^T Q_h xi+eta^T Q_h eta=sum sigma_j(xi tilde_j^2+eta tilde_j^2)=sum Omega_j R tilde_j with Omega_j=2 sigma_j<0, R tilde_j=(eta tilde_j^2+xi tilde_j^2)/2; (b) for the matched pairs (S,hat f) the average of hat f o Phi^-1 equals S(Lambda,varrho xi tilde,varrho eta tilde)=C_0+[delta]+sum Omega_j R tilde_j+O(¦(xi tilde,eta tilde)¦^4) locally uniformly in Lambda, [delta]=0 (fix) or delta(Lambda) (mov); H^Psi transformed by Phi^-1 is h(Lambda)+mu hat f o Phi^-1; (c) with (I,p,q)=(Lambda,eta tilde,xi tilde), P_0=C_0(+delta), Omega_j(mu,I)=2 sigma_j(a(I)), R_j=(p_j^2+q_j^2)/2 the zeroth and first order terms of HasBirkhoff for P=hat f o Phi^-1 are those of (b); beta and clause (i) not treated; domain condition sqrt n delta_0<=rho_* and ¦Lambda-Lambda*¦_inf<rho_*; (d) Psi o Phi^-1 is a symplectic chart of Part 1 satisfying (Q1)-(Q2) of the torus transport theorem whenever Psi does
+SOURCE_CONCLUSION: (a) xi^T Q_h xi+eta^T Q_h eta=sum sigma_j(xi tilde_j^2+eta tilde_j^2)=sum Omega_j R tilde_j with Omega_j=2 sigma_j<0, R tilde_j=(eta tilde_j^2+xi tilde_j^2)/2; (b) for the matched pairs (S,hat f) the average of hat f o Phi^-1 equals S(Lambda,varrho xi tilde,varrho eta tilde)=C_0+[delta]+sum Omega_j R tilde_j+O(¦(xi tilde,eta tilde)¦^4) locally uniformly in Lambda in W, on the set where (xi,Lambda,eta)=(varrho xi tilde,Lambda,varrho eta tilde) belongs to N_R(rho_*), [delta]=0 (fix) or delta(Lambda) (mov); H^Psi transformed by Phi^-1 is h(Lambda)+mu hat f o Phi^-1; (c) with (I,p,q)=(Lambda,eta tilde,xi tilde), P_0=C_0(+delta), Omega_j(mu,I)=2 sigma_j(a(I)), R_j=(p_j^2+q_j^2)/2 the zeroth and first order terms of HasBirkhoff for P=hat f o Phi^-1 are those of (b); beta and clause (i) not treated; domain condition sqrt n delta_0<=rho_* and ¦Lambda-Lambda*¦_inf<rho_*; (d) Psi o Phi^-1 is a symplectic chart of Part 1 satisfying (Q1)-(Q2) of the torus transport theorem whenever Psi does
 CONSTANT_SCOPE: rho_*, a, Q_h as in Part 8; sigma_j, varrho depend on Lambda only (not on mu)
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -775,7 +776,7 @@ EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagon
 EDGE: bpP:p8:rho | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L141-L141 | The named secular polydisc constants and rho_* enter the asserted domain.
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | Q_h(a) and its real analytic dependence are the secular coefficients defined here.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
+EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -804,9 +805,9 @@ EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L
 EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L149 | Q_h=varrho diag(sigma) varrho^T
 EDGE: bpP:p9:lift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L149 | xi tilde=varrho^T xi, eta tilde=varrho^T eta
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-a@L149-L149 | Q_h
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -827,7 +828,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:lift, bpP:p8:perturbation-analytic, bpP:p8:e-diff, bpP:p8:quadratic-form, bpP:p8:identification, stepP:p9:d-a, bpP:p7:product-chart, bpP:p9:conv#data, bpP:p8:rho, bpP:p8:conv#data
+DEPS: bpP:p9:lift, bpP:p8:perturbation-analytic, bpP:p8:e-diff, bpP:p8:quadratic-form, bpP:p8:identification, stepP:p9:d-a, bpP:p7:product-chart, bpP:p9:conv#data, bpP:p8:rho, bpP:p8:conv#data, bpP:p8:coeffs
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p9:lift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | explicit inverse with H independent of lambda tilde; Phi preserves Lambda and norms
@@ -840,8 +841,9 @@ EDGE: bpP:p7:product-chart | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
 EDGE: bpP:p8:rho | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | The named secular polydisc constants and rho_* enter the asserted domain.
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | The normalized secular average, chart order and dictionary (I,p,q)=(Lambda,eta,xi) are used here.
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | The displayed expansion uses C_0, defined by the secular coefficient package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
+EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -863,7 +865,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p9:d-a, stepP:p9:d-b, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p9:conv#data, bpP:p8:perturbation-analytic, bpP:p8:rho, bpP:p8:conv#data
+DEPS: stepP:p9:d-a, stepP:p9:d-b, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p9:conv#data, bpP:p8:perturbation-analytic, bpP:p8:rho, bpP:p8:conv#data, bpP:p8:coeffs
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p9:d-a | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | quadratic part
@@ -873,8 +875,9 @@ EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | rho_*, N_R(rho_*)
 EDGE: bpP:p8:rho | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | The named secular polydisc constants and rho_* enter the asserted domain.
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | The normalized secular average, chart order and dictionary (I,p,q)=(Lambda,eta,xi) are used here.
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | The frozen dictionary identifies P_0=C_0(+delta), using C_0 from the secular coefficient package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
+EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -903,9 +906,9 @@ EDGE: bpP:p9:lift | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-
 EDGE: bpP:p7:product-chart | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152 | (a): Psi chart with lattice property
 EDGE: bpP:p1:chart | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152 | The displayed pull-back identity identifies the composition as a 1-chart under this definition.
 EDGE: bpP:p1:torus-transport | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-d@L152-L152 | (Q1)-(Q2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -934,7 +937,7 @@ EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L1
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | the halved Q_h of Definition coeffs
 EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | frozen Omega_j, R_j
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p9
+EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -961,9 +964,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good@L169-L169 | Q_h(a)
 EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good@L169-L169 | eigenvalues sigma(a) of the symmetric matrix Q_h(a)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -996,9 +999,9 @@ EDGE: bpP:p9:diagonalize | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L175-L175 | Q_h(a) and its real analytic dependence are the secular coefficients defined here.
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L176-L176 | These supply the physical perturbation and expansion premises required when diagonalize is invoked on the good patch.
 EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:good-set@L176-L176 | These supply the physical perturbation and expansion premises required when diagonalize is invoked on the good patch.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1026,9 +1029,9 @@ EDGE: bpP:p9:e-fts | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L18
 EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | charpoly coefficients up to sign are the elementary symmetric polynomials
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | Q_h(a) real analytic
 EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-a@L181-L181 | Phi_4, D, R_k
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1055,9 +1058,9 @@ ROUTE_FOR: -
 EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-b@L182-L182 | D, R_k, NR_4, K_4
 EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-b@L182-L182 | simple spectrum from discr!=0
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-b@L182-L182 | Q_h(a) and its real analytic dependence are the secular coefficients defined here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1086,9 +1089,9 @@ EDGE: stepP:p9:gs-a | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L1
 EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | Phi_4, K_4, the good locus and finiteness of K_4 are used for the compact quantitative bound.
 EDGE: stepP:p9:gs-c#roots-route | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | Alternative continuity argument: continuity of roots.
 EDGE: stepP:p9:gs-c#analytic-route | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | Alternative continuity argument: locally apply local-analytic.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1117,9 +1120,9 @@ EDGE: stepP:p9:n2-res | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L203
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L194-L194 | frakt a_12, frakt b_12, Q_h for n=2
 EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L198-L198 | NR_4 and Phi_4
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:n2@L197-L197 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1147,9 +1150,9 @@ EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@
 EDGE: bpP:p9:l74 | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202-L202 | a>b (b_{3/2}^(1)>b_{3/2}^(2)) gives det>0
 EDGE: bpP:p9:e-spec | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202-L202 | eigenvector of the other eigenvalue by symmetry and simple spectrum
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-mat@L202-L202 | The Euclidean norm, orthonormal/orthogonal matrix convention or Sym_n typing used in this source unit is fixed here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1176,9 +1179,9 @@ ROUTE_FOR: -
 EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-res@L203-L203 | sigma_j<0
 EDGE: stepP:p9:n2-mat | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-res@L203-L203 | sigma_1<sigma_2, tr, det
 EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:n2-res@L203-L203 | NR_4, K_4
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1204,9 +1207,9 @@ ROUTES: -
 ROUTE_FOR: stepP:p9:gs-c
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | Q_h(a) is the real analytic matrix family to which the continuity argument is applied.
 EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | NR_4 excludes zero combinations and K_4 is finite.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1233,9 +1236,9 @@ ROUTE_FOR: stepP:p9:gs-c
 EDGE: bpP:p9:local-analytic | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | Local analytic branches imply continuity on the simple-spectrum patch.
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | Q_h(a) is the real analytic matrix family to which the continuity argument is applied.
 EDGE: bpP:p9:good | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183 | NR_4 excludes zero combinations and K_4 is finite.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-k
-REVIEWER: -
+REVIEWER: sol-delta-P-k
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
