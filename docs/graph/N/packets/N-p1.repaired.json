@@ -1,10 +1,10 @@
 {
- "replaced": [
-  "bpN:p1:norm-convert#summation-route",
-  "bpN:p1:norm-convert#converse"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": []
+ "passes": [
+  "bpN:p1:norm-convert#summation-route",
+  "bpN:p1:norm-convert#converse"
+ ]
 }

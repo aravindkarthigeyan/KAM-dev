@@ -1,0 +1,4 @@
+# P5-9 prover handoff (branch inp-p59, 068dbfa; contains inp-p58 (delivered); offloaded package run by the main orchestrator)
+
+File KAM/Iso/Confinement/Main.lean (173 lines; imports Setting, PatchConst, RealHam, Graph, Confinement). Node(s) bpI:p5:hd-eps, hd-fix, hd-sol, hd-uniq = KAM.Iso.Confinement.confinement_main_of_tori (verbatim). Private ray_base, energy_window, main_step_graph, main_step_solution (gen_maximal + confinement_prop + realHam_solution_iff + realHam_unique). hne unused (design note B7).
+AUDIT FOCUS (design docs/tracks/I/design/PART58-LEAN-DESIGN.md §8.1 row P5-9 + audits; blueprint-I p5 hd-* steps): (1) statement = signature file/blueprint (ε₀ from exists_eps0 before f; global solution, confinement within η, uniqueness); quantifier order of ε₀ vs f, ε, z₀; Part 3 tori enter only via the stated premise (htor) — no frozen theorem imported; (2) steps sound; (3) hygiene. Audit git diff inp-p58...HEAD.

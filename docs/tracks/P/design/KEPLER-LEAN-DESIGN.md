@@ -499,7 +499,7 @@ Analyticity: composition of `analyticOnNhd_eccAnom`, `Real.analyticAt_sin/cos`, 
 coordinates `(ell, g, L, e)` the frame derivatives are `d_u(X,Y,P_X,P_Y) = (-L^2 s, L^2 k c, -(c-e)/(L D^2), -k s/(L D^2))`, `d_e = (-L^2, -L^2 e s/k, -s c/(L D^2), c(c-e)/(L D^2 k))`,
 `d_L = (2L(c-e), 2Lks, s/(L^2 D), -kc/(L^2 D))`, with `d_ell u = 1/D`, `d_e u = s/D` (`hasDerivAt_eccAnom`, `fderiv_keplerLong_vec`), `d g` acts by `quarterTurn`, and the chain rule through
 `e(L,G)` adds `d_L e = G^2/(L^3 e)`, `d_G e = -G/(L^2 e)`. Step 1: prove `fderiv_orbitMapR_basis` coordinatewise (`HasDerivAt` of each frame entry; `field_simp`). Step 2: `delaunay_symplectic` is the six
-Lagrange brackets `sum_i (d p_i/d a)(d q_i/d b) - (d q_i/d a)(d p_i/d b) = delta_{ab}` (rotation-invariant, so `rot g` drops out: `planeDot_rot`, `planeCross_rot`), each by `field_simp` +
+Lagrange brackets `sum_i (d p_i/d a)(d q_i/d b) - (d q_i/d a)(d p_i/d b) = symplecticForm e_a e_b` (erratum, KEP-6 audit: a skew form cannot equal the Kronecker delta) (rotation-invariant, so `rot g` drops out: `planeDot_rot`, `planeCross_rot`), each by `field_simp` +
 `nlinarith [sin_sq_add_cos_sq u, sq_sqrt (1 - e^2)]` or `ring_nf` after `k^2 = 1 - e^2`; the brackets with `g` use only `planeCross` of the frame `= G` (`orbitMapR_cross`). Step 3: `delaunay_liouville`
 (`p . dq = pi . d xi + G dg`, `pi . d xi - L d ell = 2 d(L e s)`, exactly `stepI:p7:sy-g..compare`). Step 4: invertibility: a map with `Omega(Au, Av) = Omega(u, v)` is injective
 (`Omega` is nondegenerate: pair with the basis), hence bijective in finite dimension (`LinearMap.injective_iff_surjective`); `delaunay_hamiltonianVectorField` is `Lemma p1:omega-algebra (b)`
@@ -1391,7 +1391,7 @@ theorem periodOneMap_hasDerivAt_iff {n : ℕ} {H : Phase n → ℝ} {w : ℝ →
     HasDerivAt w (hamiltonianVectorField (H ∘ periodOneMap) (w t)) t ↔
       HasDerivAt (fun s => periodOneMap (w s)) (hamiltonianVectorField H (periodOneMap (w t))) t := sorry
 
-/-- `bpI:p6:conversion` (b): holds for every `I` by Lean totality (both sides vanish together at `I₀ = 0`). -/
+/-- `bpI:p6:conversion` (b): holds for every `I` by Lean totality (at `I₀ = 0` both sides equal `-(Ω/(2π))·I₁`; erratum noted by the I-2 audit). -/
 theorem keplerRotH_comp_div (κ Ω : ℝ) (I : Fin 2 → ℂ) :
     keplerRotH κ Ω (fun i => I i / ((2 * π : ℝ) : ℂ)) = keplerRotH (κ * (2 * π) ^ 2) (Ω / (2 * π)) I := sorry
 /-- (c). -/
@@ -2407,3 +2407,12 @@ end D25
 end KAM.Planetary
 
 ```
+
+### Amendment K-A1 (2026-10-28, overnight ruling D29; I-6 audit)
+
+`ComplexDomainData` (L1577–1597) gains the blueprint's quantitative conclusion at the chosen radius
+(blueprint-I `p7-delaunay.tex` L341) as additional fields: `|G²/L² − G'²/L'²| < τ` with `τ = min{e₋²/2, e₋ δ_E}`, and
+radicand-disk membership. Existing fields are unchanged, so the predicate only strengthens and consumers using the old
+fields (I-7, I-8) are unaffected; `complex_domain_spec` returns the strengthened predicate. The 2π-periodicity of
+`delaunayC` is exported as a corollary. (I-6 audit N2: the local real-tube extension needed because KEP-9's
+`orbitMapC_ofReal` requires `|e| ≤ e₁` is sound.)

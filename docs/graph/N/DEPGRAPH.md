@@ -7,10 +7,10 @@ CONVENTIONS: docs/graph/N/SPEC.md "Conventions to watch": frozen period 1 (chara
 STANDING_ASSUMPTIONS: -
 EXTERNAL_POLICY: track-N external inputs are the labelled items of the parts' external-fact lists (bpN:p1:ext-*, p3:ext-*, p4:ext-*, p6:ext-*, p7:ext-*, p8:ext-*, p9:ext-*, p10:ext-*, p11:ext-*; an item that only restates another external or a proved result is excluded as an alias); every result of another track's blueprint used by a proof (\Kref; frozen definitions of other tracks named by \frozen) is an IMPORTED node K:<node>, I:<node> or P:<node> (KIND external, LEAN_STATUS EXTERNAL, STATEMENT_SOURCE in the owning blueprint, NOTE IMPORTED ...; source fields copied from docs/graph/K/DEPGRAPH.md for K, written by the writer from the owning blueprint for I and P), K's Mathlib-level externals included (K:bp:p1:ext-*); any other unproved fact is a step node with NOTE SOURCE_GAP
 FROZEN_ANCHORS: bpN:p0:actionnbhd#actionNbhd, bpN:p0:freq#frequencyMap, bpN:p0:vf#hamiltonianVectorField, bpN:p0:realH#realHamiltonian, bpN:p0:strip#complexStrip, bpN:p0:ball#actionBall, bpN:p0:cdomain#complexDomain, bpN:p0:rdomain#realActionDomain, bpN:p0:realpart#realPart, bpN:p0:integrable#IsAnalyticIntegrable, bpN:p0:pert#IsAnalyticPerturbation, bpN:p0:bm#HasDerivativeBounds, bpN:p0:qc#IsStrictlyQuasiConvex, bpN:p0:hess#HasComplexHessianBound, bpN:p0:sol#IsSolutionOn, bpN:p0:orbit#integrableOrbit, bpN:p0:partial-sec#Phase, bpN:p0:partial-sec#fast, bpN:p0:partial-sec#slow, bpN:p0:partial-sec#fastShift, bpN:p0:partial-complexify#complexifyPhase, bpN:p0:partial-core#innerCore, bpN:p0:partial-domain#partialComplexDomain, bpN:p0:partial-definite#HasDefiniteFastPart, bpN:p0:partial-pert#IsPartialPerturbation, bpN:p0:partial-exponents#partialTimeExponent, bpN:p0:partial-exponents#partialDriftExponent, bpN:p0:partial-sec#degenerateHamiltonian, bpN:p0:head, bpN:p0:zero, bpN:p0:qcthm, bpN:p0:partial, bpN:p0:avg-rank#HasAveragingFrequencyRank, bpN:p0:avg-error#averagingError, bpN:p0:avg-mean, bpN:p0:avg-most
-FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:96109bf3ff71b0a0ce6e52c842cb291f8a169e699f29f63280fde14f79221234
+FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:a7d55a9a566d7d8408d455b1bfb2cc71bb9229baae5d1c547c96d9147159f8f3
 WRITER: claude-suborch-INP
-GLOBAL_REVIEWER: -
-GLOBAL_REVIEW_REF: -
+GLOBAL_REVIEWER: sol-global-N
+GLOBAL_REVIEW_REF: docs/graph/N/reviews/GLOBAL-review-3.md
 
 The dependency direction is `NODE -> prerequisite`. Node blocks are assembled from `docs/graph/N/packets/<slice>.nodes.md`; edit those, then re-run `inp_depgraph_assemble.py` (orchestrator-tools).
 
@@ -3343,23 +3343,24 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:summation
+DEPS: K:bp:p1:summation, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: bpN:p1:norm-convert
 EDGE: K:bp:p1:summation | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | the explicitly offered direct alternative; all bounded holomorphic periodic premises and 0<δ<ρ are supplied
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | the explicit n=0 singleton branch precedes the positive-dimension K summation alternative
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: new+sol-delta-N-a
-REVIEWER: sol-delta2-N-a
+EXTRACTOR: new+sol-global-N
+REVIEWER: sol-delta-N-global2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: K Part 1 L37–39 imposes n≥1 wherever a strip occurs. This node has no n≥1 source restriction and applies a K strip theorem at N Part 1 L206. The n=0 case is not attached by the cited theorem or by a separate branch in this record. Preserve the source’s unrestricted n and expose this application obligation; do not add n≥1 to the source statement.
+NOTE: For n=0 use the explicit singleton case at p1 L206 and bpN:p4:n-zero; for n≥1 use the imported K summation converse. The source supplies both cases, so the earlier missing-dimension SOURCE_GAP is resolved.
 
 NODE: bpN:p1:norm-convert#converse
 KIND: step
 TITLE: Converse comparison from Fourier reconstruction
 STATEMENT_SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L202
-PROOF_SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L202
+PROOF_SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L206
 CONTRACT_ID: bpN:p1:norm-convert#converse
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: u : T_ρ → ℂ holomorphic, bounded and 1-periodic; ¦u¦_ρ = sup_{T_ρ}¦u¦; 0 < δ < ρ; for I-dependent u(θ,I), fixed I
@@ -3370,17 +3371,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:summation
+DEPS: K:bp:p1:summation, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:summation | blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L203 | Fourier reconstruction and the forward sup bound when the full weighted sum is finite; otherwise the extended upper bound is immediate
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | the n=0 branch explicitly proves the converse as the identity abs(u)<=abs(u)
 TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: new+sol-delta-N-a
-REVIEWER: sol-delta2-N-a
+EXTRACTOR: new+sol-global-N
+REVIEWER: sol-delta-N-global2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: K Part 1 L37–39 imposes n≥1 wherever a strip occurs. This node has no n≥1 source restriction and applies a K strip theorem at N Part 1 L202. The n=0 case is not attached by the cited theorem or by a separate branch in this record. Preserve the source’s unrestricted n and expose this application obligation; do not add n≥1 to the source statement. The source states this converse at L202; imported summation supplies Fourier reconstruction for the bounded holomorphic periodic u. This is common to both forward routes.
+NOTE: For n=0 the proof at p1 L206 explicitly reduces the converse to abs(u)<=abs(u), using the singleton Fourier coefficient. For n≥1 use K summation/Fourier reconstruction, with the infinite full weighted-sum case immediate. This is common to both forward routes; the earlier missing-dimension SOURCE_GAP is resolved.
 
 NODE: bpN:p1:constants#data
 KIND: definition
@@ -6360,20 +6362,21 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p4:coefficients, K:bp:p1:exp-sums, bpN:p4:norm, bpN:p4:domains
+DEPS: bpN:p4:coefficients, K:bp:p1:exp-sums, bpN:p4:norm, bpN:p4:domains, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135-L135 | (b): (∂_{θ_j}u)^_k = 2πik_jû_k
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L136-L136 | (a) with τ = 1, a = 2π(s_0−s): x e^{−ax} ≤ 1/(ea)
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135-L136 | ¦·¦_{I,s}, ¦·¦_{r_0,s_0}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135-L135 | Uses the action neighbourhood or the domain of the function class directly
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135-L136 | the no-angle branch has an empty angular sum, equal to zero; no n>=1 K estimate is used in this branch
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N
-REVIEWER: sol-delta-N-global
+REVIEWER: sol-delta-N-global2
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: The angular-sum contract permits n=0, while the cited K exp-sums(a) is stated for n≥1. An actual angular coordinate implies n≥1, but the unrestricted sum also needs the n=0 empty-sum branch. Preserve the source contract and record this branch rather than adding a dimension hypothesis.
+NOTE: For n=0 the no-angle convention and singleton branch of bpN:p4:n-zero give an empty angular sum, hence zero, and no K exp-sums application is needed. For n≥1 the coefficient computation uses K exp-sums(a) as cited. The native all-n contract is unchanged; the earlier missing-empty-sum SOURCE_GAP is resolved.
 
 NODE: stepN:p4:b3-b
 KIND: step
@@ -22313,4 +22316,193 @@ LEAN_NOTE: -
 NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-measure (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bp:p1:ext-measure v1. Cited as \Kref{bp:p1:ext-measure}.
 
 <!-- BEGIN PROOF DEPGRAPH GENERATED -->
+Regenerated by `proof_depgraph.py`; do not hand-edit.
+
+### Dashboard
+
+* Total nodes: **728**
+* Frozen anchors: **36**
+* Versioned statement contracts: **728**
+* Total edges: **3371**
+* Root-closure nodes: **728**
+* Dependency leaves in root closure: **78**
+* Assumption boundary leaves: **0**
+* External boundary leaves: **48**
+* Alternative routes: **4**
+* Topology review queue: **0**
+* Explicit source gaps: **13**
+* Coverage items: **1107**; excluded: **370**
+
+### Roots
+
+* `bpN:p0:head` [REVIEWED; frozen] — contract `nekhoroshev.quasiConvex_nekhoroshev_complexBound@1`
+* `bpN:p0:zero` [REVIEWED; frozen] — contract `nekhoroshev.zero_perturbation@1`
+* `bpN:p0:qcthm` [REVIEWED; frozen] — contract `nekhoroshev.quasiConvex_isoenergetic_derivative@1`
+* `bpN:p0:partial` [REVIEWED; frozen] — contract `nekhoroshev.d25.partialConvex_nekhoroshev@1`
+* `bpN:p0:avg-mean` [REVIEWED; frozen] — contract `nekhoroshev.d28.averaging_mean@1`
+* `bpN:p0:avg-most` [REVIEWED; frozen] — contract `nekhoroshev.d28.averaging_most@1`
+
+### Topology review queue
+
+* _(none)_
+
+### Dependency leaves in root closure
+
+* `I:bpI:p0:hamsol#IsHamiltonianSolutionOn` [REVIEWED] — [I] Hamiltonian solutions with action in $B$: KAM.Iso.IsHamiltonianSolutionOn
+* `K:bp:p1:averages` [REVIEWED] — [K] Averages
+* `K:bp:p1:cauchy-open` [REVIEWED] — [K] Cauchy estimate on open sets
+* `K:bp:p1:decay` [REVIEWED] — [K] Coefficient decay
+* `K:bp:p1:exp-sums` [REVIEWED] — [K] Exponential sums over $\Z^n$
+* `K:bp:p1:ext-cauchy` [REVIEWED] — [K] Cauchy's formulas in one variable
+* `K:bp:p1:ext-integral` [REVIEWED] — [K] Integrals
+* `K:bp:p1:ext-measure` [REVIEWED] — [K] (E11) Lebesgue measure on products and boxes
+* `K:bp:p1:ext-mvt` [REVIEWED] — [K] Mean value inequality
+* `K:bp:p1:ext-schwarz` [REVIEWED] — [K] Symmetry of second derivatives
+* `K:bp:p1:fourier-basic` [REVIEWED] — [K] Fourier coefficients of periodic functions
+* `K:bp:p1:hamiltonian-real` [REVIEWED] — [K] Real and complex Hamiltonian fields
+* `K:bp:p1:holomorphic-regularity` [REVIEWED] — [K] Derivatives of holomorphic maps
+* `K:bp:p1:summation` [REVIEWED] — [K] Summation
+* `K:bp:p1:uniform-limits` [REVIEWED] — [K] Uniform limits
+* `bpN:p0:actionnbhd#actionNbhd` [REVIEWED] — Complex action neighbourhood: KAM.actionNbhd
+* `bpN:p0:avg-error#averagingError` [REVIEWED] — \Lean{averagingError}: KAM.Nekhoroshev.averagingError
+* `bpN:p0:ball#actionBall` [REVIEWED] — Action ball: KAM.Nekhoroshev.actionBall
+* `bpN:p0:freq#frequencyMap` [REVIEWED] — Frequency map: KAM.frequencyMap
+* `bpN:p0:partial-core#innerCore` [REVIEWED] — \Lean{innerCore}: closed max-norm erosion: KAM.Nekhoroshev.innerCore
+* `bpN:p0:partial-exponents#partialDriftExponent` [REVIEWED] — \Lean{partialTimeExponent}, \Lean{partialDriftExponent}: KAM.Nekhoroshev.partialDriftExponent
+* `bpN:p0:partial-exponents#partialTimeExponent` [REVIEWED] — \Lean{partialTimeExponent}, \Lean{partialDriftExponent}: KAM.Nekhoroshev.partialTimeExponent
+* `bpN:p0:partial-sec#Phase` [REVIEWED] — prose transcription: KAM.Planetary.Phase
+* `bpN:p0:partial-sec#fast` [REVIEWED] — prose transcription: KAM.Planetary.fast
+* `bpN:p0:partial-sec#slow` [REVIEWED] — prose transcription: KAM.Planetary.slow
+* `bpN:p0:realH#realHamiltonian` [REVIEWED] — Real Hamiltonian: KAM.realHamiltonian
+* `bpN:p0:realpart#realPart` [REVIEWED] — Real part of the integrable part: KAM.Nekhoroshev.realPart
+* `bpN:p0:strip#complexStrip` [REVIEWED] — Strip and neighbourhood notation: KAM.complexStrip
+* `bpN:p0:vf#hamiltonianVectorField` [REVIEWED] — Hamiltonian vector field: KAM.hamiltonianVectorField
+* `bpN:p10:ext-rpow` [REVIEWED] — Real powers
+* `bpN:p11:ext-chain` [REVIEWED] — Chain rule for a linear change of variables and for differentiable curves
+* `bpN:p11:ext-e-upper` [REVIEWED] — Upper bound for e (inline Mathlib citation)
+* `bpN:p11:ext-num` [REVIEWED] — Numerics
+* `bpN:p11:ext-rpow` [REVIEWED] — Powers
+* `bpN:p11:s-ext-class#data` [REVIEWED] — Data of the extended class: I_c, S, r_B, w, lambda, c, x-tilde
+* `bpN:p11:wfield` [REVIEWED] — Weighted Hamiltonian field
+* `bpN:p12:ext-cov` [REVIEWED] — Change of variables
+* `bpN:p12:ext-dep#complete-contraction` [REVIEWED] — Complete-metric contraction at the family-space carrier
+* `bpN:p12:ext-dep#derivative-limit` [REVIEWED] — Uniform derivative limit on an open real ball
+* `bpN:p12:ext-dep#parameter-integral` [REVIEWED] — Differentiate the real parameter integral of a continuous C1 family
+* `bpN:p12:ext-markov` [REVIEWED] — Markov, Tonelli, monotone convergence
+* `bpN:p12:ext-tsum` [REVIEWED] — Termwise differentiation
+* `bpN:p1:constants#data` [REVIEWED] — Local constants and Pöschel parameter dictionary
+* `bpN:p1:ext-linalg` [REVIEWED] — Finite-dimensional linear algebra
+* `bpN:p1:ext-norms` [REVIEWED] — Norm comparison and Cauchy--Schwarz
+* `bpN:p1:ext-prod` [REVIEWED] — Product rule
+* `bpN:p1:ext-restrict` [REVIEWED] — Restriction of scalars and chain rule
+* `bpN:p3:ext-calc` [REVIEWED] — Calculus
+* `bpN:p3:ext-compact` [REVIEWED] — Topology
+* `bpN:p3:ext-lip-local` [REVIEWED] — $C^1$ implies locally Lipschitz
+* `bpN:p3:ext-pl` [REVIEWED] — Picard--Lindel\"of, quantitative form
+* `bpN:p3:ext-unique` [REVIEWED] — Uniqueness with a Lipschitz constant on a set
+* `bpN:p3:gen-sol` [REVIEWED] — Solutions in $W$
+* `bpN:p3:gen-uniform` [REVIEWED] — Uniform data
+* `bpN:p4:ext-param` [REVIEWED] — Holomorphic dependence on a parameter
+* `bpN:p4:ext-series` [REVIEWED] — Series and integrals
+* `bpN:p6#data` [REVIEWED] — Notation of Part 6 (Z_K, q, abar, kappa)
+* `bpN:p6:ext-chain` [REVIEWED] — Chain rule for holomorphic maps
+* `bpN:p6:ext-numerics` [REVIEWED] — Numerics
+* `bpN:p7:ext-banach` [REVIEWED] — Banach fixed point theorem
+* `bpN:p7:ext-linalg` [REVIEWED] — Orthogonal projections
+* `bpN:p7:ext-num` [REVIEWED] — Numerics
+* `bpN:p7:ext-taylor` [REVIEWED] — Taylor, Lagrange form, order one
+* `bpN:p8:ext-basic` [REVIEWED] — Elementary facts
+* `bpN:p8:ext-free` [REVIEWED] — Subgroups of $\Z^n$
+* `bpN:p8:ext-gram` [REVIEWED] — Gram matrices
+* `bpN:p8:ext-indep` [REVIEWED] — Independence over $\Q$ and $\R$
+* `bpN:p8:ext-schur` [REVIEWED] — Schur complement
+* `bpN:p8:ext-units` [REVIEWED] — Unimodular matrices
+* `bpN:p8:lattice` [REVIEWED] — Lattices
+* `bpN:p8:sqrt` [REVIEWED] — A numerical inequality
+* `bpN:p9:ext-compact` [REVIEWED] — Maximum on a compact set
+* `bpN:p9:ext-num` [REVIEWED] — Numerics
+* `stepN:p1:cc-unit` [REVIEWED] — Reduction to unit vectors
+* `stepN:p1:pc-chain` [REVIEWED] — Chain rule
+* `stepN:p2:qk-eqs` [REVIEWED] — Kernel equations
+* `stepN:p3:red-mem` [REVIEWED] — Membership
+* `stepN:p4:c1-line` [REVIEWED] — Reduction to one variable
+
+### Assumption boundary leaves
+
+* _(none)_
+
+### External boundary leaves
+
+* `I:bpI:p0:hamsol#IsHamiltonianSolutionOn` [REVIEWED] — [I] Hamiltonian solutions with action in $B$: KAM.Iso.IsHamiltonianSolutionOn
+* `K:bp:p1:averages` [REVIEWED] — [K] Averages
+* `K:bp:p1:cauchy-open` [REVIEWED] — [K] Cauchy estimate on open sets
+* `K:bp:p1:decay` [REVIEWED] — [K] Coefficient decay
+* `K:bp:p1:exp-sums` [REVIEWED] — [K] Exponential sums over $\Z^n$
+* `K:bp:p1:ext-cauchy` [REVIEWED] — [K] Cauchy's formulas in one variable
+* `K:bp:p1:ext-integral` [REVIEWED] — [K] Integrals
+* `K:bp:p1:ext-measure` [REVIEWED] — [K] (E11) Lebesgue measure on products and boxes
+* `K:bp:p1:ext-mvt` [REVIEWED] — [K] Mean value inequality
+* `K:bp:p1:ext-schwarz` [REVIEWED] — [K] Symmetry of second derivatives
+* `K:bp:p1:fourier-basic` [REVIEWED] — [K] Fourier coefficients of periodic functions
+* `K:bp:p1:hamiltonian-real` [REVIEWED] — [K] Real and complex Hamiltonian fields
+* `K:bp:p1:holomorphic-regularity` [REVIEWED] — [K] Derivatives of holomorphic maps
+* `K:bp:p1:summation` [REVIEWED] — [K] Summation
+* `K:bp:p1:uniform-limits` [REVIEWED] — [K] Uniform limits
+* `bpN:p10:ext-rpow` [REVIEWED] — Real powers
+* `bpN:p11:ext-chain` [REVIEWED] — Chain rule for a linear change of variables and for differentiable curves
+* `bpN:p11:ext-e-upper` [REVIEWED] — Upper bound for e (inline Mathlib citation)
+* `bpN:p11:ext-num` [REVIEWED] — Numerics
+* `bpN:p11:ext-rpow` [REVIEWED] — Powers
+* `bpN:p12:ext-cov` [REVIEWED] — Change of variables
+* `bpN:p12:ext-markov` [REVIEWED] — Markov, Tonelli, monotone convergence
+* `bpN:p12:ext-tsum` [REVIEWED] — Termwise differentiation
+* `bpN:p1:ext-linalg` [REVIEWED] — Finite-dimensional linear algebra
+* `bpN:p1:ext-norms` [REVIEWED] — Norm comparison and Cauchy--Schwarz
+* `bpN:p1:ext-prod` [REVIEWED] — Product rule
+* `bpN:p1:ext-restrict` [REVIEWED] — Restriction of scalars and chain rule
+* `bpN:p3:ext-calc` [REVIEWED] — Calculus
+* `bpN:p3:ext-compact` [REVIEWED] — Topology
+* `bpN:p3:ext-lip-local` [REVIEWED] — $C^1$ implies locally Lipschitz
+* `bpN:p3:ext-pl` [REVIEWED] — Picard--Lindel\"of, quantitative form
+* `bpN:p3:ext-unique` [REVIEWED] — Uniqueness with a Lipschitz constant on a set
+* `bpN:p4:ext-param` [REVIEWED] — Holomorphic dependence on a parameter
+* `bpN:p4:ext-series` [REVIEWED] — Series and integrals
+* `bpN:p6:ext-chain` [REVIEWED] — Chain rule for holomorphic maps
+* `bpN:p6:ext-numerics` [REVIEWED] — Numerics
+* `bpN:p7:ext-banach` [REVIEWED] — Banach fixed point theorem
+* `bpN:p7:ext-linalg` [REVIEWED] — Orthogonal projections
+* `bpN:p7:ext-num` [REVIEWED] — Numerics
+* `bpN:p7:ext-taylor` [REVIEWED] — Taylor, Lagrange form, order one
+* `bpN:p8:ext-basic` [REVIEWED] — Elementary facts
+* `bpN:p8:ext-free` [REVIEWED] — Subgroups of $\Z^n$
+* `bpN:p8:ext-gram` [REVIEWED] — Gram matrices
+* `bpN:p8:ext-indep` [REVIEWED] — Independence over $\Q$ and $\R$
+* `bpN:p8:ext-schur` [REVIEWED] — Schur complement
+* `bpN:p8:ext-units` [REVIEWED] — Unimodular matrices
+* `bpN:p9:ext-compact` [REVIEWED] — Maximum on a compact set
+* `bpN:p9:ext-num` [REVIEWED] — Numerics
+
+### Uncovered graph nodes
+
+* _(none)_
+
+### Nodes outside every root closure
+
+* _(none)_
+
+### Explicit source gaps
+
+* `bpN:p11:hessian#real-hessian` [REVIEWED] — Real and complex Hessians on the partial-theorem tube
+* `bpN:p12:ext-dep#complete-contraction` [REVIEWED] — Complete-metric contraction at the family-space carrier
+* `bpN:p12:ext-dep#derivative-limit` [REVIEWED] — Uniform derivative limit on an open real ball
+* `bpN:p12:ext-dep#parameter-integral` [REVIEWED] — Differentiate the real parameter integral of a continuous C1 family
+* `bpN:p1:constants` [REVIEWED] — Constants dictionary for N-HEAD-C
+* `stepN:p11:nf-concl` [REVIEWED] — Conclusion
+* `stepN:p11:nf-disp` [REVIEWED] — Displacement
+* `stepN:p1:co-exc` [REVIEWED] — Exceptional branch
+* `stepN:p1:co-qc` [REVIEWED] — Quasi-convexity and Hessian
+* `stepN:p1:co-time` [REVIEWED] — Time
+* `stepN:p1:qc-reg` [REVIEWED] — Regularity and Hessian
+* `stepN:p5:fl-max` [REVIEWED] — (a) The maximal solution stays in a compact set
+* `stepN:p5:fl-symmetry#real-restriction` [REVIEWED] — Real restriction on the general open domain Ω
 <!-- END PROOF DEPGRAPH GENERATED -->

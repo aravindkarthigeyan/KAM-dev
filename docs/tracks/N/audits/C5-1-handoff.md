@@ -1,0 +1,4 @@
+# C5-1 prover handoff (branch inp-c51, 3fa041d; offloaded package run by the main orchestrator)
+
+File KAM/Canonical/Setting.lean (150 lines). Node bpN:p5:setting: defs poissonBracket, adPow, scaledNorm, scaleCLE, symplFormC, RealOn (verbatim); theorems norm_scaleCLE, poissonBracket_eq_fderiv_field, poissonBracket_antisymm, differentiableOn_poissonBracket, differentiableOn_adPow, poissonBracket_eq_zero_of_snd. Private clm_apply_prod, fderiv_fst_eq_zero_of_snd (case split on DifferentiableAt).
+AUDIT FOCUS (design docs/tracks/N/design/PART145-LEAN-DESIGN.md incl. binding audit-2 notes; audits PART145-design-audit-{1,2}.md; blueprint-N p5 setting): (1) defs are the blueprint's Poisson bracket / ad-powers / scaled norm / symplectic form on whole carriers; poissonBracket_eq_zero_of_snd's non-differentiable branch (fderiv = 0) is a legitimate use, not a junk-value dependence that changes meaning; (2) statements = blueprint; (3) hygiene.

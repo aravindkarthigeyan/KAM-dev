@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -123,9 +123,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L26-L26 | Gamma_i is the frozen oscillator action
 EDGE: bpP:p0:blocks#slow | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L25-L25 | xi=slow w_1, eta=slow w_2
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L25-L25 | w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -151,9 +151,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L26-L26 | Gamma_i
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L25-L25 | w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -180,9 +180,9 @@ ROUTE_FOR: -
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L26-L26 | Gamma_i
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L25-L25 | Lambda_i=fast w_2 i
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L25-L25 | w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -210,9 +210,9 @@ EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#bpP:
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L25-L25 | Lambda_i
 EDGE: bpP:p0:blocks#slow | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L25-L25 | u_i=(xi_i,eta_i)
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L25-L25 | w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -238,9 +238,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L27-L27 | Lambda_i=fast w_2 i
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-conv@L27-L27 | w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -264,9 +264,9 @@ FROZEN_ABI_SHA256: 9c15c40a5451e900d32d005a82e70278478d00949b4d98571f64069d21277
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -290,9 +290,9 @@ FROZEN_ABI_SHA256: eb99e04660c4d46e766102e734f89eae7e0c55b64767ff2bec12b83d3d817
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -322,9 +322,9 @@ EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L50-L50 | F=fast w_1
 EDGE: bpP:p0:blocks#assemble | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L50-L50 | assemble Lambda F eta xi
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs#secularIntegrand@L48-L48 | the frozen declaration has an argument w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -353,9 +353,9 @@ EDGE: bpP:p14:sb-defs#secularIntegrand | blueprint-P/parts/p14b-secular-box.tex#
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L51-L51 | fast w_2=Lambda
 EDGE: bpP:p0:blocks#slow | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L51-L51 | slow w_1=xi, slow w_2=eta
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs#exactSecularHamiltonian@L48-L48 | the frozen declaration has an argument w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -382,9 +382,9 @@ ROUTE_FOR: -
 EDGE: bpP:p14:sb-defs#ellipsePosition | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L48-L48 | q_i(w;F_i)
 EDGE: bpP:p14:sb-defs#ellipseMomentum | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L48-L48 | p_i(w;F_i)
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L48-L48 | values in Phase(2*2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -414,9 +414,9 @@ EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p14b-secular-box.tex#bpP:p
 EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L29-L29 | k_i
 EDGE: bpP:p0:plane#planeDot | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L29-L29 | x_i=v_i.c(F)
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs#ellipsePosition@L25-L25 | the frozen declaration has an argument w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -448,9 +448,9 @@ EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex
 EDGE: bpP:p0:plane#planeDot | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L29-L29 | x_i
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L29-L29 | Lambda_i
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs#ellipseMomentum@L25-L25 | the frozen declaration has an argument w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -478,9 +478,9 @@ EDGE: bpP:p14:sb-conv#secularEccVector | blueprint-P/parts/p14b-secular-box.tex#
 EDGE: bpP:p14:sb-conv#orbitalUnit | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L28-L28 | c(F)
 EDGE: bpP:p0:plane#planeDot | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L28-L28 | x_i=v_i.c(F) is the plane dot product
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-defs@L28-L28 | w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -511,9 +511,9 @@ EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:
 EDGE: bpP:p14:sb-box#jupiterSaturnWeights | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-box@L59-L59 | weights m=(1,sigma)
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-box@L60-L60 | Lambda_i
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-box@L59-L59 | w in Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -537,9 +537,9 @@ FROZEN_ABI_SHA256: edad403adb04728f271bd99cc355550997a77cf9830c4d6ed7eebad8b2b92
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -573,9 +573,9 @@ EDGE: bpP:p14:sb-defs#exactSecularHamiltonian | blueprint-P/parts/p14b-secular-b
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-regular@L67-L67 | Lambda_i
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-regular#SecularRegular@L67-L67 | w has the Phase(2+2) carrier in the frozen predicate
 EDGE: bpP:p0:blocks#slow | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-regular#SecularRegular@L68-L68 | the integral evaluates assemble using slow w_2 and slow w_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -624,9 +624,9 @@ EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:
 EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-safety@L81-L81 | barycentricPositions
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-safety@L77-L77 | Lambda(w(t))=Lambda(w0)
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-safety@L73-L73 | Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -666,9 +666,9 @@ EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:
 EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-cited@L89-L89 | barycentricPositions
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-cited@L89-L89 | Lambda
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-cited@L89-L89 | Phase(2+2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -693,9 +693,9 @@ DEPS: bpP:p14:sb-x-alg
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-numerics@L135-L135 | exact rational arithmetic, norm_num
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -730,9 +730,9 @@ EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p14b-secular-box.tex#bpP:p
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-chart@L148-L148 | J_i
 EDGE: bpP:p14:sb-defs#ellipsePosition | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-chart@L149-L149 | q_i
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-chart@L149-L149 | ¦.¦ is planeLength
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -760,9 +760,9 @@ EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#stepP
 EDGE: bpP:p14:sb-conv#secularEccVector | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-a@L154-L154 | v_i=rho_i u_i, rho_i^2
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-a@L154-L154 | ¦u_i¦^2=2Gamma_i
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-a@L155-L155 | sqrt(y)^2=y, sqrt increasing
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -790,9 +790,9 @@ EDGE: stepP:p14:sb-ch-a | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-b@L156-L156 | J_i=1-x_i
 EDGE: bpP:p14:sb-conv#orbitalUnit | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-b@L156-L156 | ¦c(F)¦=1
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-b@L156-L156 | ¦c(F)¦=1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -824,9 +824,9 @@ EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#stepP
 EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-c@L157-L157 | a
 EDGE: bpP:p14:sb-conv#orbitalUnit | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-c@L158-L158 | ¦c¦=1
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-c@L158-L158 | polynomial identity by linear_combination, ¦c¦=1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -855,9 +855,9 @@ EDGE: stepP:p14:sb-ch-a | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch
 EDGE: stepP:p14:sb-ch-b | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-d@L161-L161 | Cauchy-Schwarz bound for x
 EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-d@L161-L161 | a=(Lambda_i/m_i)^2 is positive under the elliptic source premises
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ch-d@L161-L161 | the lower Cauchy bound and positivity are elementary real planar algebra, not an additional hypothesis
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -891,9 +891,9 @@ EDGE: bpP:p14:sb-conv#secularEccVector | blueprint-P/parts/p14b-secular-box.tex#
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-cov@L166-L166 | J_i
 EDGE: bpP:p14:sb-defs#ellipsePosition | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-cov@L166-L166 | q_i
 EDGE: bpP:p14:sb-defs#ellipseMomentum | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-cov@L166-L166 | p_i
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -922,9 +922,9 @@ EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#stepP
 EDGE: bpP:p14:sb-conv#secularEccVector | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv-1@L170-L170 | rho_i, v_i
 EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv-1@L170-L170 | a_i
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv-1@L170-L170 | rotations preserve the norm
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -952,9 +952,9 @@ EDGE: stepP:p14:sb-cv-1 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv-2@L171-L171 | R_theta c(F)=c(F+theta), rotations preserve the dot product
 EDGE: bpP:p14:sb-conv#orbitalUnit | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv-2@L171-L171 | c(F)
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv-2@L171-L171 | J_i
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -984,9 +984,9 @@ EDGE: bpP:p14:sb-defs#ellipsePosition | blueprint-P/parts/p14b-secular-box.tex#s
 EDGE: bpP:p14:sb-defs#ellipseMomentum | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv-3@L172-L172 | formula for p
 EDGE: bpP:p14:sb-conv#quarterTurn | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv-3@L172-L172 | J_0 commutes with R_theta
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-cv-3@L172-L172 | rotation algebra
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1011,9 +1011,9 @@ DEPS: bpP:p14:sb-box#jupiterSaturnWeights
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p14:sb-box#jupiterSaturnWeights | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-smooth#data@L177-L177 | m=(1,sigma)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1043,9 +1043,9 @@ EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p14b-secular-box.tex#bpP:p
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-Sdef@L180-L180 | Lambda_i
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-Sdef@L180-L180 | w in Phase(2+2)
 EDGE: bpP:p14:sb-x-top | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-Sdef@L181-L181 | openness: finite intersection of strict inequalities of continuous functions
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1082,9 +1082,9 @@ EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#bpP:p
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-S@L186-L186 | J_i
 EDGE: bpP:p14:sb-defs#ellipsePosition | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-S@L186-L186 | q_i
 EDGE: bpP:p14:sb-smooth#data | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-S@L186-L186 | Reg(i) includes positivity of the fixed weights m=(1,sigma), supplied by the section data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1111,9 +1111,9 @@ ROUTE_FOR: -
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-1@L190-L190 | 50 Gamma_i<Lambda_i and Gamma_i>=0
 EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-1@L190-L190 | k_i
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-1@L190-L190 | Gamma_i
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1141,9 +1141,9 @@ EDGE: stepP:p14:sb-S-1 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-2
 EDGE: bpP:p14:sb-chart | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-2@L191-L191 | (a) e_i^2=1-k_i^2 and (b) J_i>=1-e_i
 EDGE: bpP:p14:sb-numerics | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-2@L191-L191 | N6c: 1-(49/50)^2=99/2500<(1/5)^2
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-2@L191-L191 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1173,9 +1173,9 @@ EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-3@
 EDGE: bpP:p14:sb-numerics | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-3@L192-L192 | N6d: 53/10*6/5<47/5*4/5
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-3@L192-L192 | reverse triangle inequality for planeLength
 EDGE: bpP:p6:ext-tri | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-S-3@L192-L192 | the proof applies the reverse triangle inequality to the physical planar lengths
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1210,9 +1210,9 @@ EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p14b-secular-box.tex#b
 EDGE: bpP:p14:sb-defs#ellipsePhase | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-smooth-prop@L196-L196 | z(w;F)
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-smooth-prop@L196-L196 | J_i
 EDGE: bpP:p14:sb-regular#SecularRegular | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-smooth-prop@L197-L197 | Reg (iii),(iv)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1248,9 +1248,9 @@ EDGE: bpP:p14:sb-conv#secularEccVector | blueprint-P/parts/p14b-secular-box.tex#
 EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-1@L201-L201 | k_i
 EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-1@L201-L201 | a_i
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-1@L201-L201 | J_i
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1286,9 +1286,9 @@ EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#stepP
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-2@L202-L202 | J_i
 EDGE: bpP:p14:sb-conv#orbitalUnit | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-2@L202-L202 | F_i enters only through c(F_i)
 EDGE: bpP:p6:ext-sqrt | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-2@L202-L202 | smoothness of sqrt on positive arguments and reciprocal away from zero is used for rho_i and the reciprocal radii
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1317,9 +1317,9 @@ EDGE: bpP:p14:sb-x-top | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-
 EDGE: stepP:p14:sb-sm-2 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-3@L203-L203 | Ihat is C^infty
 EDGE: stepP:p14:sb-sm-1 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-3@L203-L203 | H_sec=int Ihat dF on S
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-3@L203-L203 | S open
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1349,9 +1349,9 @@ EDGE: stepP:p14:sb-sm-1 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm
 EDGE: stepP:p14:sb-sm-3 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-4@L204-L204 | H_sec is C^infty on the open set S
 EDGE: bpP:p14:sb-regular#SecularRegular | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-4@L204-L204 | clauses (iii),(iv)
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sm-4@L204-L204 | S open
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1383,9 +1383,9 @@ EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-rot@L2
 EDGE: bpP:p14:sb-defs#exactSecularHamiltonian | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-rot@L208-L208 | H_sec
 EDGE: bpP:p14:sb-cov | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-rot@L208-L208 | the point w^theta
 EDGE: bpP:p14:sb-smooth#data | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-rot@L208-L208 | sigma, mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1411,9 +1411,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p14:sb-cov | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-1@L212-L212 | Gamma_i,Lambda_i,a_i unchanged under w -> w^theta
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-1@L212-L212 | membership conditions of S
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1442,9 +1442,9 @@ EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p14b-secular-box.tex#s
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-2@L213-L213 | ¦R_theta a-R_theta b¦=¦a-b¦
 EDGE: bpP:p0:plane#planeDot | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-2@L213-L213 | R_theta a.R_theta b=a.b
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-2@L213-L213 | rotations preserve dot product and norm
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1474,9 +1474,9 @@ EDGE: bpP:p14:sb-smooth-prop | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:
 EDGE: bpP:p14:sb-defs#ellipsePhase | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-3@L214-L214 | z(w;F)
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-3@L214-L214 | J_i
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-3@L214-L214 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1506,9 +1506,9 @@ EDGE: stepP:p14:sb-rot-3 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-r
 EDGE: stepP:p14:sb-rot-1 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-4@L215-L215 | w^theta in S so (a) applies
 EDGE: bpP:p14:sb-defs#exactSecularHamiltonian | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-4@L215-L215 | H_sec
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-rot-4@L215-L215 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1540,9 +1540,9 @@ EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p14b-secular-box
 EDGE: bpP:p14:sb-defs#exactSecularHamiltonian | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-pred@L227-L227 | H=H_sec
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-pred@L227-L227 | S
 EDGE: bpP:p14:sb-smooth#data | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-pred@L227-L227 | sigma, mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1569,9 +1569,9 @@ ROUTE_FOR: -
 EDGE: N:bpN:p3:ham-smooth | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-pr-1@L232-L232 | ham-smooth with n=4 and k=1
 EDGE: bpP:p14:sb-smooth-prop | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-pr-1@L232-L232 | (c) H_sec is C^infty on S
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-pr-1@L232-L232 | S open
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1600,9 +1600,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-pr-
 EDGE: bpP:p14:sb-smooth-prop | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-pr-2@L233-L233 | differentiability of H at z(t) in S
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-pr-2@L233-L233 | the derivative clause is the same with X_H
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-pr-2@L233-L233 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1635,9 +1635,9 @@ EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-field@
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-field@L238-L238 | A(y)=Gamma_0+Gamma_1
 EDGE: bpP:p14:sb-smooth#data | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-field@L237-L237 | sigma, mu
 EDGE: bpP:p14:sb-flow#omega | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-field@L237-L237 | the displayed lambda component omega(w) is the partial gradient defined at L224
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1665,9 +1665,9 @@ EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p14b-secular-box
 EDGE: bpP:p14:sb-smooth-prop | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-fd-1@L242-L242 | (a) lambda-independence and differentiability of H
 EDGE: bpP:p14:sb-x-calc | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-fd-1@L242-L242 | constant along a line gives zero derivative; chain rule for the affine map
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-fd-1@L242-L242 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1696,9 +1696,9 @@ EDGE: bpP:p14:sb-cov | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-fd-2@
 EDGE: bpP:p14:sb-smooth-prop | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-fd-2@L243-L243 | H differentiable at w
 EDGE: bpP:p14:sb-x-calc | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-fd-2@L243-L243 | chain rule
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-fd-2@L243-L243 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1726,9 +1726,9 @@ EDGE: bpP:p14:sb-smooth-prop | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb
 EDGE: bpP:p14:sb-defs#exactSecularHamiltonian | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-flow#omega@L224-L224 | H_sec
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-flow#omega@L224-L224 | S
 EDGE: bpP:p14:sb-smooth#data | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-flow#omega@L224-L224 | H_sec uses the fixed weights m=(1,sigma) and parameter mu of the section
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1762,9 +1762,9 @@ EDGE: bpP:p14:sb-conv#secularAMD | blueprint-P/parts/p14b-secular-box.tex#bpP:p1
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-slow@L247-L247 | A(y)=Gamma_0+Gamma_1
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-slow@L247-L247 | Lambda_i, Lambda^0
 EDGE: bpP:p14:sb-smooth#data | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-slow@L247-L247 | sigma, mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1792,9 +1792,9 @@ EDGE: bpP:p14:sb-smooth-prop | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:
 EDGE: bpP:p14:sb-x-calc | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-1@L251-L251 | a C^k function composed with an affine map is C^k
 EDGE: N:bpN:p3:ham-smooth | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-1@L251-L251 | ham-smooth with phase space R^2 x R^2
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-1@L251-L251 | S' open and w_0 in S
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1821,9 +1821,9 @@ ROUTE_FOR: -
 EDGE: N:bpN:p3:gen-maximal | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-2@L252-L252 | existence of the maximal solution
 EDGE: stepP:p14:sb-sl-1 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-2@L252-L252 | C^1 field on the open set S'
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-2@L252-L252 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1852,9 +1852,9 @@ EDGE: bpP:p14:sb-x-calc | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl
 EDGE: stepP:p14:sb-sl-2 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-3@L253-L253 | the solution y
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-3@L253-L253 | (0,xi;Lambda^0,eta) in S
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-3@L253-L253 | A=Gamma_0+Gamma_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1884,9 +1884,9 @@ EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-4
 EDGE: stepP:p14:sb-sl-3 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-4@L254-L254 | y(t) lies in K since A is conserved
 EDGE: stepP:p14:sb-sl-2 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-4@L254-L254 | y(t) in S' on (T_-,T_+)
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-4@L254-L254 | Gamma_i
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1915,9 +1915,9 @@ EDGE: stepP:p14:sb-sl-2 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl
 EDGE: stepP:p14:sb-sl-4 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-5@L255-L255 | y(t) in the compact K inside S'
 EDGE: stepP:p14:sb-sl-1 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-5@L255-L255 | X_h C^1 on the open set S'
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-sl-5@L255-L255 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1950,9 +1950,9 @@ EDGE: bpP:p0:d25-movsol#IsHamiltonianSolutionOn | blueprint-P/parts/p14b-secular
 EDGE: bpP:p14:sb-conv#secularAMD | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-global@L259-L259 | AMD(w(t))
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-global@L259-L259 | w(t) in S
 EDGE: bpP:p14:sb-smooth#data | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-global@L259-L259 | sigma, mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1980,9 +1980,9 @@ EDGE: bpP:p14:sb-flow#omega | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:s
 EDGE: bpP:p14:sb-slow | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl-1@L263-L263 | y continuous with values in S'
 EDGE: bpP:p14:sb-x-int | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl-1@L263-L263 | fundamental theorem of calculus
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl-1@L263-L263 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2013,9 +2013,9 @@ EDGE: bpP:p14:sb-conv#secularAMD | blueprint-P/parts/p14b-secular-box.tex#stepP:
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl-2@L264-L264 | a point is determined by fast and slow of each block
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl-2@L264-L264 | fast of the blocks
 EDGE: bpP:p0:blocks#slow | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl-2@L264-L264 | slow of the blocks
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2048,9 +2048,9 @@ EDGE: bpP:p14:sb-x-calc | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl
 EDGE: bpP:p14:sb-pred | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl-3@L265-L265 | H differentiable at w(t) and the predicate
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl-3@L265-L265 | X_H
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-gl-3@L265-L265 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2081,9 +2081,9 @@ EDGE: bpP:p14:sb-global | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-uniq
 EDGE: bpP:p14:sb-defs#exactSecularHamiltonian | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-unique@L269-L269 | H_sec
 EDGE: bpP:p0:d25-movsol#IsHamiltonianSolutionOn | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-unique@L269-L269 | IsHamiltonianSolutionOn
 EDGE: bpP:p14:sb-smooth#data | blueprint-P/parts/p14b-secular-box.tex#bpP:p14:sb-unique@L269-L269 | sigma, mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2109,9 +2109,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:d25-movsol#IsHamiltonianSolutionOn | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-un-1@L273-L273 | the predicate gives differentiability, hence continuity of v and w
 EDGE: bpP:p14:sb-global | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-un-1@L273-L273 | w(0)=w_0 and w continuous
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2140,9 +2140,9 @@ EDGE: N:bpN:p3:gen-uniqueness | blueprint-P/parts/p14b-secular-box.tex#stepP:p14
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-un-2@L274-L274 | S open
 EDGE: bpP:p14:sb-global | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-un-2@L274-L274 | w(t_0) in S
 EDGE: stepP:p14:sb-un-1 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-un-2@L274-L274 | t_0 in D and continuity of v
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2169,9 +2169,9 @@ ROUTE_FOR: -
 EDGE: bpP:p14:sb-x-top | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-un-3@L275-L275 | connectedness of an interval
 EDGE: stepP:p14:sb-un-1 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-un-3@L275-L275 | D nonempty and closed in U
 EDGE: stepP:p14:sb-un-2 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-un-3@L275-L275 | D open
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2200,9 +2200,9 @@ EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p14b-secular-box.tex#stepP
 EDGE: bpP:p14:sb-box#jupiterSaturnWeights | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-1@L283-L283 | m=(1,sigma)
 EDGE: bpP:p14:sb-numerics | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-1@L283-L283 | N2 and N3
 EDGE: bpP:p14:sb-x-alg | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-1@L283-L283 | sqrt increasing
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2234,9 +2234,9 @@ EDGE: bpP:p14:sb-conv#secularAMD | blueprint-P/parts/p14b-secular-box.tex#stepP:
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-2@L285-L285 | Gamma_i
 EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-2@L285-L285 | k_i
 EDGE: bpP:p14:sb-conv#secularEccVector | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-2@L285-L285 | e_i=¦v_i¦
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2267,9 +2267,9 @@ EDGE: bpP:p14:sb-box#SecularInputBox | blueprint-P/parts/p14b-secular-box.tex#st
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-3@L288-L288 | membership conditions of S
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-3@L288-L288 | Gamma_i
 EDGE: bpP:p14:sb-conv#secularAMD | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-3@L288-L288 | AMD
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2301,9 +2301,9 @@ EDGE: bpP:p0:d25-movsol#IsHamiltonianSolutionOn | blueprint-P/parts/p14b-secular
 EDGE: bpP:p14:sb-conv#secularAMD | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-4@L290-L290 | secularAMD
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-4@L290-L290 | fast(w(t))_2=fast(w_0)_2
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-4@L290-L290 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2330,9 +2330,9 @@ ROUTE_FOR: -
 EDGE: bpP:p14:sb-unique | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-5@L292-L292 | uniqueness among IsHamiltonianSolutionOn solutions on U
 EDGE: stepP:p14:sb-th-4 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-5@L292-L292 | w is the solution of Proposition global
 EDGE: bpP:p0:d25-movsol#IsHamiltonianSolutionOn | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-5@L292-L292 | IsHamiltonianSolutionOn
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2363,9 +2363,9 @@ EDGE: bpP:p14:sb-chart | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-
 EDGE: bpP:p14:sb-conv#secularRoot | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-6@L294-L294 | k_i
 EDGE: bpP:p14:sb-conv#secularGamma | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-6@L294-L294 | Gamma_i
 EDGE: bpP:p14:sb-conv#secularEccVector | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-6@L294-L294 | e_i=¦v_i¦
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2396,9 +2396,9 @@ EDGE: stepP:p14:sb-th-4 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th
 EDGE: bpP:p14:sb-regular#SecularRegular | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-7@L296-L296 | the predicate Reg
 EDGE: bpP:p0:nocoll#NoCollision | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-7@L296-L296 | NoColl
 EDGE: bpP:p14:sb-Sdef | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-7@L296-L296 | the statement or conditional application uses the region S or its affine slice S-prime
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2425,9 +2425,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-8@L298-L298 | bodyVector of the positions
 EDGE: bpP:p14:sb-defs#ellipsePhase | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-8@L298-L298 | coordinates of z(w;F)_1 via finProdFinEquiv.symm
 EDGE: bpP:p14:sb-defs#ellipsePosition | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-8@L298-L298 | q_i(w;F_i)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2458,9 +2458,9 @@ EDGE: bpP:p14:sb-box#SecularInputBox | blueprint-P/parts/p14b-secular-box.tex#st
 EDGE: stepP:p14:sb-th-4 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-9@L300-L300 | Lambda(w(t))=Lambda(w_0)
 EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-9@L300-L300 | a_i
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-9@L300-L300 | ¦q_i¦
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2481,17 +2481,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p14:sb-th-9, bpP:p14:sb-numerics, bpP:p14:sb-chart, stepP:p14:sb-th-6, bpP:p14:sb-box#SecularInputBox
+DEPS: stepP:p14:sb-th-9, bpP:p14:sb-numerics
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p14:sb-th-9 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-10@L302-L302 | the same radial bounds with the box axis ranges
 EDGE: bpP:p14:sb-numerics | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-10@L302-L302 | N7b
-EDGE: bpP:p14:sb-chart | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-10@L302-L302 | (c)
-EDGE: stepP:p14:sb-th-6 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-10@L302-L302 | e_i<3/20
-EDGE: bpP:p14:sb-box#SecularInputBox | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-10@L302-L302 | axis ranges
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p14b+sol-delta-P-a
+REVIEWER: sol-delta2-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2525,9 +2522,9 @@ EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-11@L304-L304 | triangle inequality for planeLength
 EDGE: bpP:p6:ext-tri | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-11@L304-L304 | the planet-pair lower bound uses the reverse triangle inequality
 EDGE: bpP:p6:plane | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-11@L304-L304 | physical planar length satisfies the triangle inequality and is invariant under sign reversal
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2554,9 +2551,9 @@ ROUTE_FOR: -
 EDGE: bpP:p14:sb-safety | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ci-1@L310-L310 | Theorem sb-safety instantiated
 EDGE: bpP:p14:sb-numerics | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ci-1@L310-L310 | N1: 29/100<=476/1591<=31/100 and mu>0
 EDGE: bpP:p14:sb-box#SecularInputBox | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-ci-1@L310-L310 | hypothesis Box_{476/1591}(w0)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-review-P-b
-REVIEWER: -
+REVIEWER: sol-delta-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

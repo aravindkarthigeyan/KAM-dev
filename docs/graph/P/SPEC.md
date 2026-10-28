@@ -5,13 +5,14 @@ and N (`docs/graph/{K,I,N}/SPEC.md`); this file states only what track P needs, 
 reviewers. Changes are recorded at the end with a date and reason.
 
 ## Roots and anchors
-- **Roots (this graph version):** the six frozen track-P theorem anchors whose blueprint proofs are complete
-  (sub-orchestrator scope ruling, 2026-10-27):
+- **Roots (this graph version):** the seven frozen track-P theorem anchors whose blueprint proofs are complete
+  (sub-orchestrator scope ruling, 2026-10-27; P-FIXED added by the P-FIXED revision of 2026-10-28, below):
 
   | Node | Lean export | Manifest anchor | Proved in |
   |---|---|---|---|
   | `bpP:p0:pg` | `KAM.Planetary.properlyDegenerateKAM` | `planetary.properlyDegenerateKAM.v1` | Parts 1–5; Theorem `bpP:p5:main` (Part 5 L317–320, carries the `\frozen` tag) |
   | `bpP:p0:planar` | `KAM.Planetary.planarTwoPlanetKAM` | `planetary.planarTwoPlanetKAM.v1` | Parts 6–10, 11b, 12; Theorem `bpP:p12:planar` (Part 12 L159–163, carries the tag) |
+  | `bpP:p0:fixed` | `KAM.Planetary.fixedSunPlanetaryKAM` | `planetary.fixedSunPlanetaryKAM.v1` | Part 13; Theorem `bpP:p13:fixed` (L153–161, carries the tag): n = 2 by `bpP:p13:n2` (route (c), frozen P-G), general n by `bpP:p13:n-general` (Part 11's wrapper `bpP:p11:wrapper`, resting on Parts 11a-1…11a-5) |
   | `bpP:p0:amd` | `KAM.Planetary.amdConfinement` | `planetary.d25.amdConfinement.v1` | Part 14a; `bpP:p14:amd` (L129–133, carries the tag) |
   | `bpP:p0:expsafe` | `KAM.Planetary.planetaryExponentialSafety` | `planetary.d25.planetaryExponentialSafety.v1` | Part 14a; `bpP:p14:expsafe` (L295–299, carries the tag) |
   | `bpP:p14:sb-safety` | `KAM.Planetary.secularBoxSafety` | `planetary.d25.secularBoxSafety.v1` | Part 14b (statement L72–86, proof L280–307, steps `stepP:p14:sb-th-*`) |
@@ -24,7 +25,7 @@ reviewers. Changes are recorded at the end with a date and reason.
 - **P-SECULAR-BOX anchors live in Part 14b**, not Part 0: Part 0 does not transcribe P-SECULAR-BOX (14b L6, "§sb-frozen
   does"). The pre-extraction binds anchors in its anchor part (`p0`) only, so the writer bound the 14b anchors after it
   (`draft/writer-bind-p14b.py`, identity copied from the manifest, same block format as the Part-0 anchors).
-- **P-FIXED is not a root of this graph version.** `bpP:p0:fixed` (`KAM.Planetary.fixedSunPlanetaryKAM`,
+- **P-FIXED (deferred in the initial version; superseded by the P-FIXED revision below).** `bpP:p0:fixed` (`KAM.Planetary.fixedSunPlanetaryKAM`,
   `planetary.fixedSunPlanetaryKAM.v1`) needs, for general n, Parts 11a-4/11a-5, which are being written. Its block is
   parked in `draft/deferred-p0-fixed.md`, its coverage items (`bpP:p0:fixed`, `p0:sourcegap-L387`) are EXCLUDED with the
   deferral reason, and Parts 11 (`p11-cp09-preparation`), 11a-1…11a-5 and 13 are outside the corpus. **A later SPEC
@@ -32,6 +33,39 @@ reviewers. Changes are recorded at the end with a date and reason.
   nothing else is re-extracted. Part 11b is in scope (P-PLANAR uses it). Check made: no label of Parts 11, 11a-*, 13 is
   referenced from any corpus part except the forward-reference paragraph of Part 6 (L297, `\Pref{bpP:p13:assembly}`,
   a pointer).
+- **P-FIXED revision (2026-10-28, GRAPH_VERSION 4 unchanged until publication).** P-FIXED is now a root:
+  `bpP:p0:fixed` is in the header's ROOTS and FROZEN_ANCHORS and is an anchor node of `P-p0` (block restored from
+  `draft/deferred-p0-fixed.md`; identity fields re-checked against the manifest entry `planetary.fixedSunPlanetaryKAM.v1`,
+  ABI `a710d064…`; TOPOLOGY_STATUS PROPOSED, EXTRACTOR `writer-pfixed-revision`; its coverage item and the `\sourcegap`
+  item `p0:sourcegap-L387` are NODE dispositions again). Its proof is Part 13: `bpP:p13:fixed` splits n = 2
+  (`bpP:p13:n2`, route (c): P-G applied to the fixed-Sun Birkhoff form, Parts 6–10, 11b, 12, no Part 11/11a) from
+  n ≥ 3 (`bpP:p13:n-general`: `bpP:p11:wrapper` of Part 11, whose KAM input `bpP:p11:kam-input` is Parts 11a-1…11a-5).
+  The corpus gains `p11-cp09-preparation`, `p11a1-weak-measure`, `p11a2-cutoff-step`, `p11a3-iteration-selection`,
+  `p11a4-limit-family`, `p11a5-quantitative-theorem`, `p13-fixed-assembly` (all reviewed and accepted:
+  `blueprint-P/reviews/p11-review-2.md`, `p11a{1,2,4,5}-review-1.md`, `p11a3-review-3.md`, `p13-review-1.md`), in the
+  five new slices `P-p11`, `P-p11a12`, `P-p11a3`, `P-p11a45`, `P-p13` (Slices). Nothing else is re-extracted. Restored
+  P-FIXED-only nodes of existing slices (NODE dispositions again, PROPOSED, EXTRACTOR `writer-pfixed-revision`; source
+  fields left TODO for a delta extraction of the owning slice): `bpP:p6:fixkol-assembly` (P-p6; consumers
+  `stepP:p13:n2-phys`, `stepP:p13:ng-phys`, Part 11 L240), `bpP:p7:lattice` with `stepP:p7:la-{polar,inv,per,ham}`
+  (P-p7; consumer `stepP:p11:tc-polar`, Part 11 L90), `bpP:p10:scaling` (P-p10; consumer `stepP:p11:nd`, Part 11 L50),
+  `bpP:p9:dict` (P-p9; its block was still in the packet; consumers Part 11 L44 and `bpP:p10:scaling`). Check made: every
+  EXCLUDED coverage item of the existing slices was grepped for a `\ref`/`\Pref` in the seven new files; the other hits
+  are `bpP:p12:f-comp` (an alias: `stepP:p13:pg-h1` was retargeted to `bpP:p1:ext-comp`) and the administrative remarks
+  (`bpP:p8:use11` stays EXCLUDED). P-p10's P-FIXED nodes were restored earlier by its reviewer. `bpP:p0:fixham#…`,
+  `fixedsol#…`, `fixkol#…` are now reachable through `bpP:p0:fixed` (the parking question below is moot).
+  - **Statement references dropped:** `--proved-in` adds `bpP:p0:fixed=p13+p11+p11a1+…+p11a5`; Parts 6–10, 11b, 12 keep
+    their (pointer) references to it. `bpP:p13:n2`, `n-general` and `fixed` all carry `\frozen{fixedSunPlanetaryKAM}`;
+    the anchor depends on `bpP:p13:fixed` only (as `bpP:p0:planar` on `bpP:p12:planar`); the two case theorems feed it
+    through steps `stepP:p13:fx-2`, `fx-n`.
+  - **Candidate cycles of the new parts (19, pre-extraction)** pass through interface definitions and use/consumer
+    remarks: `bpP:p11:kam-input ↔ bpP:p11a:weak-kam-quantitative`/`budget`/`evaluation-bilipschitz`/
+    `displacement-power` (the definition names the 11a results it is instantiated by: the edge is
+    `bpP:p11:… → bpP:p11a:…`, never back), `bpP:p11:wrapper ↔ kam-input`, `bpP:p11a:consumers` (a consumer remark),
+    `bpP:p11a:i3-corrected ↔ finite-divisor ↔ divisor-wide`, `bpP:p11a:power-law ↔ diophantine-measure ↔ limit-bridge`,
+    `bpP:p11a:schedule ↔ sel-data`, `bpP:p11a:homological-maximal ↔ real-lipschitz`, `bpP:p11a:weak-kam-quantitative ↔
+    zero-case`, `bpP:p11:holo-chart ↔ total-chart`. All must be gone after extraction.
+  - **Label prefixes.** All five 11a files use the prefix `bpP:p11a:`/`stepP:p11a:` (IDs are unique across them); the
+    slice of a node is fixed by its locator's file, not its prefix.
 - **Frozen definitions (70 anchors, `KIND: definition`)**, one node per declaration, ID `<label>#<LeanName>` (ASCII; the
   name after the last dot):
   - **Part 0, D20 (36):** the 33 `planetary.*` definitions of `KAM/Frozen/Planetary/Defs/` and the three track-K
@@ -308,6 +342,11 @@ pre-extraction (`--all-prose`) after the writer's binding step; "TODO" counts co
 | `P-p8` | Part 8 (secular form, symmetries, quartic interface) | 56 | 86 | 15 |
 | `P-p9` | Part 9 (secular spectrum) | 54 | 81 | 11 |
 | `P-p10` | Part 10 (nondegeneracy, good set) | 61 | 93 | 14 |
+| `P-p11` | Part 11 (CP09 preparation: working chart, KAM input `bpP:p11:kam-input`, wrapper `bpP:p11:wrapper`) — P-FIXED revision | 60 | 85 | 17 |
+| `P-p11a12` | Parts 11a-1 (weak measure) and 11a-2 (cutoff step) — P-FIXED revision | 102 | 169 | 31 |
+| `P-p11a3` | Part 11a-3 (iteration, parameter selection, admissible budget) — P-FIXED revision | 73 | 124 | 23 |
+| `P-p11a45` | Parts 11a-4 (limit torus, family, displacement) and 11a-5 (quantitative theorem) — P-FIXED revision | 70 | 131 | 37 |
+| `P-p13` | Part 13 (P-FIXED assembly, `bpP:p13:fixed`) — P-FIXED revision | 37 | 61 | 14 |
 | `P-p11b` | Part 11b (planar torsion, Birkhoff normalisation) | 61 | 87 | 14 |
 | `P-p12` | Part 12 (P-PLANAR assembly, `bpP:p12:planar`) | 51 | 72 | 10 |
 | `P-p14a1` | Part 14a L1–156 (conventions, elements, moving-Sun ODE, proof of P-AMD-CONFINEMENT) | 45 | 55 | 4 |
@@ -315,12 +354,18 @@ pre-extraction (`--all-prose`) after the writer's binding step; "TODO" counts co
 | `P-p14b` | Part 14b (18 anchors; P-SECULAR-BOX proof) | 84 | 122 | 13 |
 | `P-imports` | imported nodes `K:*` (20), `I:*` (18), `N:*` (55); writer-owned, not extracted | 93 | 93 | – |
 
-Total 1061 nodes (968 corpus, 93 imports), 1494 coverage items, 171 with DISPOSITION TODO.
+Total 1061 nodes (968 corpus, 93 imports), 1494 coverage items, 171 with DISPOSITION TODO (initial version). The
+P-FIXED revision adds 342 draft nodes and 570 coverage items (122 TODO) in the five new slices, the anchor
+`bpP:p0:fixed`, 7 restored node blocks (8 coverage items flipped, with `bpP:p9:dict`) and 15 imports (`P-imports` 72 → 87 after the earlier prunes).
 - A node belongs to the slice containing the first line of its STATEMENT_SOURCE; coverage items follow their SOURCE
   line. The Part-0 anchors belong to `P-p0`, the Part-14b anchors to `P-p14b`; a root's proof steps belong to the slice
   that contains them (`bpP:p5:main` and its steps: `P-p5`; `bpP:p12:planar`: `P-p12`; `bpP:p14:amd`: `P-p14a1`;
-  `bpP:p14:expsafe`: `P-p14a2`).
-- Dry run: `inp_depgraph_slice_check.py docs/graph/P/packets <slice> --structural` reports 0 problems for all 16 slices.
+  `bpP:p14:expsafe`: `P-p14a2`; `bpP:p13:fixed`: `P-p13`).
+- Dry run: `inp_depgraph_slice_check.py docs/graph/P/packets <slice> --structural` reports 0 problems for all 16 slices;
+  after the P-FIXED revision, 0 problems for all 22 slices (two writer fixes first: the locator of `stepP:p11a:il-map`,
+  L312-L311 → L312-L312, an inline `\end{proof}`; `stepP:p13:pg-h1`'s alias edge, above).
+- `P-p11a12` (102 draft nodes) follows the suggested pairing; it may be split into `P-p11a1` (44) and `P-p11a2` (58) at
+  the extractor launch if it is too large (the ranges are per file).
 
 ## Change log
 - 2026-10-27: initial specification (Phases 1–2: corpus pin, pre-extraction, writer binding, slice packets, dry run).
@@ -346,6 +391,20 @@ Total 1061 nodes (968 corpus, 93 imports), 1494 coverage items, 171 with DISPOSI
   (`\Nref{bpN:p4:s-ext}`, `\Nref{bpN:p6:s-ext}`, Part 2 L36), 26 unresolved citations (all to the ten cross-ownership
   candidates above), 23 unresolved `\frozen` names (all bound by the writer step), 34 candidate cycles.
 
+- 2026-10-28: P-FIXED revision (Roots and anchors). Corpus + the seven files of Parts 11, 11a-1…11a-5, 13 (hashes in
+  CORPUS.sha256; no earlier pin changed). The tools' part key `p\d+[a-z]?` maps `p11a1…p11a5` all to `p11a`, so the
+  pre-extraction and split were run from scratch copies with the key `p\d+[a-z]?\d*` (the orchestrator copies need the
+  same one-line fix before `slices.json`, whose ranges use the parts `p11a1…p11a5`, is split again). Pre-extraction of the
+  whole corpus into a scratch draft, the 2026-10-27 command with the seven files added to `--parts` and
+  `bpP:p0:fixed=p13+p11+p11a1+p11a2+p11a3+p11a4+p11a5` added to `--proved-in`; `writer-bind-p14b.py` re-run on it; split
+  with the five new slices into a scratch directory, and only the five new slice packets copied (no existing packet
+  overwritten). Then the restorations above (blocks copied from the scratch draft), the anchor block in `P-p0`, and
+  `inp_depgraph_imports.py docs/graph/P/packets --slice P-imports --self-track P --add` (I and N graphs published):
+  15 imports added (K: `bp:p0:domains#{actionNbhd,complexStrip,fundamentalDomain}` — the extractor keeps only those
+  `bpP:p11a:domain-def` uses —, `bp:p1:{cauchy-strip,exp-sums,ext-cauchy,ext-measure,fourier-basic,iteration,lipeo,
+  summation,uniform-limits}`; N: `bpN:p4:{bracket,ext-param,general-cauchy}`), no NOT-IN-OWNER case (no new
+  cross-ownership candidate), one pre-existing unreferenced import `N:bpN:p3:ham-periodic` (not pruned).
+
 ## Sub-orchestrator rulings (2026-10-27, before extraction)
 - Scope: roots P-G, P-PLANAR, P-AMD-CONFINEMENT, P-EXP-SAFE, P-SECULAR-BOX (two theorems); P-FIXED deferred to a later
   revision with Parts 11, 11a-*, 13. All Part 0 frozen definitions (D20, D25) are anchors.
@@ -356,4 +415,14 @@ Total 1061 nodes (968 corpus, 93 imports), 1494 coverage items, 171 with DISPOSI
 - 2026-10-28 (writer ruling, after the P-p7 extraction): `bpP:p7:average`, `stepP:p7:av-cov` and the external
   `bpP:p7:e-cov` are EXCLUDED as outside every root closure (Part 14b cites `average` only in consistency checks,
   provenance and comparisons; the earlier "keep e-cov" note is superseded). Restore all three together if a consumer
-  is found. `bpP:p7:lattice` and `stepP:p7:la-*` are deferred with P-FIXED (consumed only by Part 11).
+  is found. `bpP:p7:lattice` and `stepP:p7:la-*` are deferred with P-FIXED (consumed only by Part 11); restored by the P-FIXED
+  revision (2026-10-28).
+- 2026-10-28 (writer ruling, after the P-p11 extraction): Part 11's labelled external facts are graph externals:
+  `bpP:p11:e1` is an alias of `K:bp:p1:holomorphic-analytic`, `e2` of `N:bpN:p4:general-cauchy`, `e3` of
+  `bpP:p12:f-unif` (EXCLUDED as aliases); `bpP:p11:e4` (logarithmic asymptotics) and `bpP:p11:e5` (trigonometric
+  integrals) are track-P externals (`KIND: external`, `LEAN_STATUS: EXTERNAL`), to be added by the P-p11 slice review
+  with edges from their consumer steps (af-o2, as-nr, as-b2, pr-b, pr-d, wr-nu, wr-tube; pa-mono, pa-series).
+- 2026-10-28 (writer ruling, after the P-p11a3/P-p11a45 extraction): the labelled external items (Y1)–(Y4) of 11a-3 and
+  (Z1)–(Z3) of 11a-4 are track-P externals `bpP:p11a:y-{log,conv,down,geom}`, `bpP:p11a:z-{chain,compact,uniform}`
+  (the pre-extraction pattern missed their prefixes). `stepP:p11a:pi-c-uniq` stays a SOURCE_GAP step (Picard-Lindelöf
+  uniqueness cited by name; nearest imported supplier `N:bpN:p3:gen-uniqueness`).

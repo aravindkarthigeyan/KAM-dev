@@ -185,7 +185,7 @@ DISPOSITION: NODE stepN:p4:b3-a
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-delta-N-global
+REVIEWER: sol-delta-N-global2
 
 ITEM: stepN:p4:b3-b
 KIND: proof-region

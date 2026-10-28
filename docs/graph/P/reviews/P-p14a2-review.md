@@ -1,0 +1,1865 @@
+# P-p14a2 slice topology review
+
+Reviewer: sol-review-P-o. Marker: rev-P-o.
+
+**Verdict: FAIL.** Reviewed all 56 nodes and 72 coverage items of Part 14a L157-L350 under REVIEW-BRIEF.md and SPEC.md, including writer rulings. This is source topology, not a proof-status or Lean audit.
+
+## Highlighted decisions
+
+The exclusion of bpP:p14:constants PASSes. L313-L329 audits choices already made at L171-L177, L221-L234, L278-L280 and L301-L305; it chooses no further constant. The statement citation at L296 and introductory pointer at L15 do not apply another result. Dependence and choice order are already recorded in enlarge, h-data, perturbation, stopped and es-const. A backwards edge to the remark would reintroduce the cycle SPEC warns against.
+
+The general-n Ch2 claim has the componentwise argument explicitly prescribed at L168. Part 7 poincare(d),(e) gives the physical identities for one planet at arbitrary positive mass, and product-def identifies each body block. Summing action/cross identities gives the AMD formula. These finite component/sum identities do not require inventing a missing theorem. The n=2 D25 proposition is a recollection, not a conditional theorem applicable at arbitrary n; the replacement records the actual general-n suppliers.
+
+## Conditional application audit
+
+| N requirement | Supplying source |
+|---|---|
+| n>=2, k=n>=1, phase order and periods | sec-domain#data; st-thr L278-L280; N block definitions |
+| Open convex G,G-prime, open D, positive rho, closed action-ball collar | enlarge L171-L177; perturbation L229; h-data(i) L202 |
+| Complex differentiability/C2, reality, nested bilinear Hessian bound | h-data(ii)-(iv) L203-L204; M_C uses the sum, not the diagonal matrix maximum |
+| Definite fast part for both signs, positive g_h and varsigma_h | h-data(v) L205; sigma=-1 for h and +1 for -h |
+| Threshold before arbitrary normalized P and solutions | st-thr L278-L280; both universal thresholds instantiated with the already chosen perturbations |
+| IsPartialPerturbation for P and -P | L228-L234, P1-P4 only; the identity P=hat-f/B_0 is not sign-invariant |
+| Correct real N-Hamiltonian and coupling | sec-stopped#data, hnu L268-L269; nu=B_0 mu without time rescaling |
+| Z1 with full endpoint derivatives | lift L248-L255, hnu and st-sol L282; reversed curve solves the negative Hamiltonian |
+| Z2 initial erosion | st-core L283; nu^b<kappa from st-thr |
+| Slow erosion only over the tested segment | st-core L283 using epsilon_D and the Euclidean/max-norm conversion |
+| Positive C, tested time and horizon | st-fwd L284 with C=r in its positive branch; st-bwd L285 with C=-l in its negative branch |
+| Planet-count exponents and zero/positive/negative times | st-thr L280, st-seg and st-fwd/bwd/phys L281-L286 |
+
+The lift uses uniqueness on the interval intersection and uniform continuation near either endpoint. The compact-cell translation argument supplies uniform data despite free fast angles. The root applies the AMD helper only after es-stop supplies the stopped bound. No stopped bound or N stability conclusion is an extra premise of P-EXP-SAFE.
+
+## Node verdicts
+
+| ID | Verdict | Source spans re-read | Reason |
+|---|---|---|---|
+| bpP:p14:enlarge | PASS | p14a-amd-expsafe.tex#bpP:p14:enlarge@L170-L178; p14a-amd-expsafe.tex#bpP:p14:enlarge@L179-L182 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:en-lim | FAIL | p14a-amd-expsafe.tex#stepP:p14:en-lim@L180-L180; p14a-amd-expsafe.tex#stepP:p14:en-lim@L180-L180 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:en-choice | FAIL | p14a-amd-expsafe.tex#stepP:p14:en-choice@L181-L181; p14a-amd-expsafe.tex#stepP:p14:en-choice@L181-L181 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. L181 uses continuity and finiteness to retain strict inequalities on a neighbourhood. |
+| bpP:p14:real-domain | PASS | p14a-amd-expsafe.tex#bpP:p14:real-domain@L184-L187; p14a-amd-expsafe.tex#bpP:p14:real-domain@L188-L193 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:rd-o | FAIL | p14a-amd-expsafe.tex#stepP:p14:rd-o@L189-L189; p14a-amd-expsafe.tex#stepP:p14:rd-o@L189-L189 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:rd-ecc | FAIL | p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190; p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Ch2 is used through chart-facts at L190; the extra n=2 edge is transitive and its L195 locator is wrong. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| stepP:p14:rd-sep | FAIL | p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191; p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:rd-last | FAIL | p14a-amd-expsafe.tex#stepP:p14:rd-last@L192-L192; p14a-amd-expsafe.tex#stepP:p14:rd-last@L192-L192 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| bpP:p14:h-data | FAIL | p14a-amd-expsafe.tex#bpP:p14:h-data@L195-L200; p14a-amd-expsafe.tex#bpP:p14:h-data@L201-L206 | The N theorem is named for its hypotheses, norm or notation; its stability conclusion is not used here. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:hd-i | FAIL | p14a-amd-expsafe.tex#stepP:p14:hd-i@L202-L202; p14a-amd-expsafe.tex#stepP:p14:hd-i@L202-L202 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:hd-ii | FAIL | p14a-amd-expsafe.tex#stepP:p14:hd-ii@L203-L203; p14a-amd-expsafe.tex#stepP:p14:hd-ii@L203-L203 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. L203 uses the given G-prime and rho<=kappa, not the closed-ball conclusion of hd-i. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:hd-iv | FAIL | p14a-amd-expsafe.tex#stepP:p14:hd-iv@L204-L204; p14a-amd-expsafe.tex#stepP:p14:hd-iv@L204-L204 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. The N theorem is named for its hypotheses, norm or notation; its stability conclusion is not used here. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:hd-v | FAIL | p14a-amd-expsafe.tex#stepP:p14:hd-v@L205-L205; p14a-amd-expsafe.tex#stepP:p14:hd-v@L205-L205 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. L205 uses the real points of the complex action neighbourhood G-prime_rho. |
+| bpP:p14:tube | PASS | p14a-amd-expsafe.tex#bpP:p14:tube@L210-L212; p14a-amd-expsafe.tex#bpP:p14:tube@L213-L218 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:tb-local | FAIL | p14a-amd-expsafe.tex#stepP:p14:tb-local@L214-L214; p14a-amd-expsafe.tex#stepP:p14:tb-local@L214-L214 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:tb-leb | FAIL | p14a-amd-expsafe.tex#stepP:p14:tb-leb@L215-L215; p14a-amd-expsafe.tex#stepP:p14:tb-leb@L215-L215 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. L215 uses compactness to take a finite subcover, treating the empty case separately. |
+| stepP:p14:tb-glue | FAIL | p14a-amd-expsafe.tex#stepP:p14:tb-glue@L216-L216; p14a-amd-expsafe.tex#stepP:p14:tb-glue@L216-L216 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:tb-per | FAIL | p14a-amd-expsafe.tex#stepP:p14:tb-per@L217-L217; p14a-amd-expsafe.tex#stepP:p14:tb-per@L217-L217 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| bpP:p14:perturbation | PASS | p14a-amd-expsafe.tex#bpP:p14:perturbation@L220-L226; p14a-amd-expsafe.tex#bpP:p14:perturbation@L227-L235 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:pt-input | FAIL | p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228; p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. L228 uses closedness and boundedness of K_* to get compactness. |
+| stepP:p14:pt-rho | FAIL | p14a-amd-expsafe.tex#stepP:p14:pt-rho@L229-L229; p14a-amd-expsafe.tex#stepP:p14:pt-rho@L229-L229 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:pt-def | FAIL | p14a-amd-expsafe.tex#stepP:p14:pt-def@L230-L230; p14a-amd-expsafe.tex#stepP:p14:pt-def@L230-L230 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:pt-p12 | FAIL | p14a-amd-expsafe.tex#stepP:p14:pt-p12@L231-L231; p14a-amd-expsafe.tex#stepP:p14:pt-p12@L231-L231 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:pt-p3 | FAIL | p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232; p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| stepP:p14:pt-p4 | FAIL | p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233; p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| stepP:p14:pt-neg | FAIL | p14a-amd-expsafe.tex#stepP:p14:pt-neg@L234-L234; p14a-amd-expsafe.tex#stepP:p14:pt-neg@L234-L234 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Only P1-P4 are sign-invariant at L234; perturbation(ii) changes sign. |
+| bpP:p14:uniform-data | PASS | p14a-amd-expsafe.tex#bpP:p14:uniform-data@L239-L241; p14a-amd-expsafe.tex#bpP:p14:uniform-data@L242-L245 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:ud-cell | FAIL | p14a-amd-expsafe.tex#stepP:p14:ud-cell@L243-L243; p14a-amd-expsafe.tex#stepP:p14:ud-cell@L243-L243 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. L243 applies x-top, which already includes the neighbourhood form; its internal citation is not another direct application. |
+| stepP:p14:ud-transl | FAIL | p14a-amd-expsafe.tex#stepP:p14:ud-transl@L244-L244; p14a-amd-expsafe.tex#stepP:p14:ud-transl@L244-L244 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| bpP:p14:lift | PASS | p14a-amd-expsafe.tex#bpP:p14:lift@L247-L249; p14a-amd-expsafe.tex#bpP:p14:lift@L250-L256 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:li-init | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251; p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:li-max | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252; p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:li-proj | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253; p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:li-cont | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254; p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| stepP:p14:li-concl | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255; p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| bpP:p14:hnu | PASS | p14a-amd-expsafe.tex#bpP:p14:hnu@L264-L266; p14a-amd-expsafe.tex#bpP:p14:hnu@L267-L270 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:hn-eq | FAIL | p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268; p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| stepP:p14:hn-field | FAIL | p14a-amd-expsafe.tex#stepP:p14:hn-field@L269-L269; p14a-amd-expsafe.tex#stepP:p14:hn-field@L269-L269 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data. |
+| bpP:p14:stopped | PASS | p14a-amd-expsafe.tex#bpP:p14:stopped@L272-L276; p14a-amd-expsafe.tex#bpP:p14:stopped@L277-L287 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:st-thr | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L280; p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L280 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:st-seg | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281; p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:st-sol | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282; p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:st-core | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283; p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. L283 uses identities already supplied by st-seg; the repeated lift edge is transitive. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| stepP:p14:st-fwd | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284; p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data. Direct use of G,G-prime,D or the enlarged-domain constants. |
+| stepP:p14:st-bwd | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285; p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data. Direct use of G,G-prime,D or the enlarged-domain constants. |
+| stepP:p14:st-phys | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286; p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
+| bpP:p14:expsafe | PASS | p14a-amd-expsafe.tex#bpP:p14:expsafe@L295-L299; p14a-amd-expsafe.tex#bpP:p14:expsafe@L300-L311 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:es-const | PASS | p14a-amd-expsafe.tex#stepP:p14:es-const@L301-L304; p14a-amd-expsafe.tex#stepP:p14:es-const@L301-L304 | Source contract, direct dependencies and locators agree. |
+| stepP:p14:es-par | FAIL | p14a-amd-expsafe.tex#stepP:p14:es-par@L305-L305; p14a-amd-expsafe.tex#stepP:p14:es-par@L305-L305 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data. |
+| stepP:p14:es-stop | FAIL | p14a-amd-expsafe.tex#stepP:p14:es-stop@L306-L306; p14a-amd-expsafe.tex#stepP:p14:es-stop@L306-L306 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:es-amd | FAIL | p14a-amd-expsafe.tex#stepP:p14:es-amd@L307-L307; p14a-amd-expsafe.tex#stepP:p14:es-amd@L307-L307 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
+| stepP:p14:es-axis | FAIL | p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L309; p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L309 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data. |
+| stepP:p14:es-assemble | FAIL | p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310; p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| bpP:p14:sec-domain#data | FAIL | p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L159-L162 | The N theorem is named for its hypotheses, norm or notation; its stability conclusion is not used here. |
+| bpP:p14:sec-domain#chart-facts | FAIL | p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L168; p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L168 | The general-n Ch2 claim uses poincare blockwise at L168; d25 is the special n=2 recollection. Product-chart(c) already supplies the coupling-independent splitting recalled here; same-chart is explanatory provenance. The product definition identifies each physical body pair with its one-planet chart in the Ch2 application. The stated blockwise source argument supplies Ch2; correct the misleading n=2 supplier and pointer-only note. The one-planet definitions and o-facts supply v_i,k_i and their norm identity directly. |
+| bpP:p14:sec-stopped#data | FAIL | p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L260-L262 | The N theorem is named for its hypotheses, norm or notation; its stability conclusion is not used here. |
+
+## Coverage
+
+| Failing item | Verdict | Reason |
+|---|---|---|
+| p14a:prose-L339-L339 | FAIL | The rationale claims a direct same-chart edge that is only explanatory provenance and is removed above; retain EXCLUDED and correct REASON only. |
+
+all other coverage items PASS
+
+The other 71 coverage items pass. The constants, index and st-limits remarks restate already mapped choices and obligations; the source/forward-reference lists supply no further theorem application.
+
+## Replacement fragments
+
+Only failing fields change. Status, identity and extractor/reviewer metadata and all unrelated fields remain verbatim. A source-setting reference means its premises and data, not its proved conclusion.
+
+### P-p14a2 — stepP:p14:en-lim
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:en-lim
+KIND: step
+TITLE: Strict inequalities at the limit point
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:en-lim@L180-L180
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:en-lim@L180-L180
+CONTRACT_ID: stepP:p14:en-lim
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:enlarge: n>=2 and B admissible; E1-E3 denote the families in the source statement; evaluate at (0,e_*,A_1); previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed B; the limit point (kappa,e_1,A^+) = (0,e_*,A_1)
+SOURCE_CONCLUSION: at (0,e_*,A_1): (E1) holds strictly; (E2) holds strictly by (B2); (E3) holds in the stronger form r_i^- >= d and r_j^- - r_i^+ >= d by (B3), (B4)
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p0:d25-box#Admissible, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p0:d25-box#Admissible | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:en-lim@L180-L180 | (B2): A_1 < l_i(1 - sqrt(1-e_*^2)); (B3): d <= (l_i/m_i)^2(1-e_*); (B4): (u_i/m_i)^2(1+e_*) + d <= (l_j/m_j)^2(1-e_*)
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:en-lim@L180-L180 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:en-choice
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:en-choice
+KIND: step
+TITLE: Choice
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:en-choice@L181-L181
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:en-choice@L181-L181
+CONTRACT_ID: stepP:p14:en-choice
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:enlarge: n>=2 and B admissible; E1-E3 denote the families in the source statement; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed B
+SOURCE_CONCLUSION: a neighbourhood of (0,e_*,A_1) on which (E1)-(E3) hold; kappa > 0, e_1 > e_* (e_1 < 1), A^+ > A_1 chosen in it; epsilon_D > 0 because A^+ > A_1
+CONSTANT_SCOPE: kappa, e_1, A^+ chosen in a neighbourhood depending only on (n,B)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:en-lim, bpP:p14:conv#data, bpP:p14:x-top
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:en-lim | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:en-choice@L181-L181 | continuity: the inequalities hold strictly at the limit point, hence nearby
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:en-choice@L181-L181 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+EDGE: bpP:p14:x-top | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:en-choice@L181-L181 | L181 uses continuity and finiteness to retain strict inequalities on a neighbourhood.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:rd-o
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:rd-o
+KIND: step
+TITLE: Chart domain
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-o@L189-L189
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-o@L189-L189
+CONTRACT_ID: stepP:p14:rd-o
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:real-domain: B admissible and the choices of enlarge supplied through DEPS; calK is defined at L185; w in calK; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed w in calK; any i
+SOURCE_CONCLUSION: Lambda_i >= l_i - 2 kappa >= (3/4) l_i > 0 and Gamma_i < Lambda_i, so w in O_n and k_i := 1 - Gamma_i/Lambda_i > sqrt(1-e_1^2)
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:enlarge, bpP:p14:sec-domain#data, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-o@L189-L189 | (E1) kappa <= l_i/8 and (E2) A^+ < (l_i - 2 kappa)(1 - sqrt(1-e_1^2))
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-o@L189-L189 | O_n = {Lambda_i > 0, Gamma_i < Lambda_i}
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-o@L189-L189 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:rd-ecc
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:rd-ecc
+KIND: step
+TITLE: Eccentricity and radii
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190
+CONTRACT_ID: stepP:p14:rd-ecc
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:real-domain: B admissible and the choices of enlarge supplied through DEPS; calK is defined at L185; w in calK, z=Psi(w); previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed w in calK; any i
+SOURCE_CONCLUSION: e_i(z)^2 = 1 - k_i^2 < e_1^2, a_i = Lambda_i^2/m_i^2, z prograde elliptic, and r_i^- <= a_i(1-e_i) <= ¦q_i¦ <= a_i(1+e_i) <= r_i^+
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:elements, stepP:p14:rd-o, bpP:p14:sec-domain#chart-facts, bpP:p14:enlarge, bpP:p0:d25-prograde#ProgradeElliptic, bpP:p14:conv#data, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:elements | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190 | cited at this line (step; \ref{bpP:p14:elements})
+EDGE: stepP:p14:rd-o | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190 | k_i > sqrt(1-e_1^2)
+EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190 | (Ch2): e_i(z)^2 = 1 - k_i^2, a_i = Lambda_i^2/m_i^2; (Ch1): z is prograde elliptic
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190 | r_i^+- are defined from kappa and e_1 in enlarge
+EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190 | z is prograde elliptic, as elements requires
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-ecc@L190-L190 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2+sol-review-P-i
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:rd-sep
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:rd-sep
+KIND: step
+TITLE: Separation
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191
+CONTRACT_ID: stepP:p14:rd-sep
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:real-domain: B admissible and the choices of enlarge supplied through DEPS; calK is defined at L185; w in calK, i<j; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed w in calK; i<j
+SOURCE_CONCLUSION: ¦q_i¦ >= d/2 > 0; ¦q_j - q_i¦ >= ¦q_j¦ - ¦q_i¦ >= r_j^- - r_i^+ >= d/2; so NoColl(q), z in W, w in calW
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:rd-ecc, bpP:p14:enlarge, bpP:p6:ext-tri, bpP:p0:nocoll#NoCollision, bpP:p14:sec-domain#data, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:rd-ecc | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191 | the radial bounds r_i^- <= ¦q_i¦ <= r_i^+
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191 | (E3): r_i^- >= d/2 and r_j^- - r_i^+ >= d/2
+EDGE: bpP:p6:ext-tri | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191 | reverse triangle inequality
+EDGE: bpP:p0:nocoll#NoCollision | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191 | NoColl(q), z in W
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191 | calW = {w in O_n: Psi(w) in W}
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-sep@L191-L191 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:rd-last
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:rd-last
+KIND: step
+TITLE: Last assertion
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-last@L192-L192
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-last@L192-L192
+CONTRACT_ID: stepP:p14:rd-last
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:real-domain: B admissible and the choices of enlarge supplied through DEPS; calK is defined at L185; w with Lambda in prod [l_i,u_i] and Gamma(w)<=A_1; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: w in Ph_{2n} with Lambda in prod [l_i,u_i], Gamma(w) <= A_1
+SOURCE_CONCLUSION: [l_i,u_i] subset [l_i - 2 kappa, u_i + 2 kappa] and A_1 < A^+, so w in calK
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:enlarge, bpP:p14:conv#data, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-last@L192-L192 | kappa > 0 and A^+ > A_1
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-last@L192-L192 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:rd-last@L192-L192 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — bpP:p14:h-data
+
+Changed fields: DEPS, EDGE.
+
+```text
+NODE: bpP:p14:h-data
+KIND: lemma
+TITLE: Kepler Hamiltonian: data for N-PARTIAL-CONVEX
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L195-L200
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L201-L206
+CONTRACT_ID: bpP:p14:h-data
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: kappa, G, G' as in Lemma enlarge; rho in (0,kappa]; h: C^n -> C, h(Lambda) = -sum_i m_i^3/(2 Lambda_i^2) (total); u-bar_i = u_i + 3 kappa; g_h = min_i m_i^3/u-bar_i^3, varsigma_h = min_i 3 m_i^3/u-bar_i^4, M_C = sum_i 3 m_i^3/(5 l_i/8)^4 (all positive)
+SOURCE_QUANTIFIERS: n; B; the choices of enlarge; rho in (0,kappa]; then (i)-(v)
+SOURCE_CONCLUSION: (i) closed max-norm ball B(I,rho) subset G' for every I in G; (ii) h is complex differentiable and complex C^2 on G'_rho with Re Lambda_i >= l_i - 3 kappa >= (5/8) l_i > 0 there; (iii) Im h(I) = 0 for real I in G'_rho; (iv) ¦D^2 h(z)[v,w]¦ <= M_C ¦v¦_inf ¦w¦_inf for z in G'_rho, v,w in C^n, i.e. the norm of the curried bilinear form D(Dh)(z) is <= M_C (the quantity in the frozen hypothesis of N-PARTIAL-CONVEX); (v) HasDefiniteFastPart G' rho g_h varsigma_h h holds with sigma = -1 and HasDefiniteFastPart G' rho g_h varsigma_h (-h) with sigma = +1; (iv), (ii), (iii) hold for -h as well
+CONSTANT_SCOPE: g_h, varsigma_h, M_C depend on m, l, u, kappa only (not on mu, P, z_0); h depends on m
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:hd-i, stepP:p14:hd-ii, stepP:p14:hd-iv, stepP:p14:hd-v, bpP:p14:enlarge, N:bpN:p0:actionnbhd#actionNbhd, N:bpN:p0:partial-definite#HasDefiniteFastPart, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:hd-i | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L202-L202 | proof step of this result
+EDGE: stepP:p14:hd-ii | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L203-L203 | proof step of this result
+EDGE: stepP:p14:hd-iv | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L204-L204 | proof step of this result
+EDGE: stepP:p14:hd-v | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L205-L205 | proof step of this result
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L196-L196 | kappa, G, G' of Lemma enlarge
+EDGE: N:bpN:p0:actionnbhd#actionNbhd | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L198-L198 | G'_rho is the complex action neighbourhood
+EDGE: N:bpN:p0:partial-definite#HasDefiniteFastPart | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L199-L199 | (v) is HasDefiniteFastPart
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:h-data@L195-L195 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:hd-i
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:hd-i
+KIND: step
+TITLE: (i)
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-i@L202-L202
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-i@L202-L202
+CONTRACT_ID: stepP:p14:hd-i
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:h-data: B admissible, the choices of enlarge, rho in (0,kappa], and the explicit functions and constants at L196-L197; I in G and norm(v-I)<=rho; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed I in G
+SOURCE_CONCLUSION: v in G', i.e. closed ball B(I,rho) subset G'
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:enlarge, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-i@L202-L202 | G = prod (l_i - kappa,u_i + kappa) (open) and G' = prod (l_i - 2 kappa,u_i + 2 kappa)
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-i@L202-L202 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:hd-ii
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:hd-ii
+KIND: step
+TITLE: (ii),(iii)
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-ii@L203-L203
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-ii@L203-L203
+CONTRACT_ID: stepP:p14:hd-ii
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:h-data: B admissible, the choices of enlarge, rho in (0,kappa], and the explicit functions and constants at L196-L197; z in G-prime_rho; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed z in G'_rho
+SOURCE_CONCLUSION: Re z_i > l_i - 2 kappa - rho >= l_i - 3 kappa >= (5/8) l_i; z_i != 0, h is a finite sum of monomials z_i^{-2}, holomorphic and complex C^2 (h_i' = m_i^3 z_i^{-3}, h_ii'' = -3 m_i^3 z_i^{-4}); h real for real I
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: N:bpN:p0:actionnbhd#actionNbhd, bpP:p14:enlarge, bpP:p14:x-hol, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: N:bpN:p0:actionnbhd#actionNbhd | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-ii@L203-L203 | z in G'_rho means ¦z - J¦_inf < rho for some J in G'
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-ii@L203-L203 | (E1) kappa <= l_i/8
+EDGE: bpP:p14:x-hol | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-ii@L203-L203 | monomials z^{-2} are holomorphic, a finite sum is holomorphic; derivatives of z^{-k}
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-ii@L203-L203 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:hd-iv
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:hd-iv
+KIND: step
+TITLE: (iv)
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-iv@L204-L204
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-iv@L204-L204
+CONTRACT_ID: stepP:p14:hd-iv
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:h-data: B admissible, the choices of enlarge, rho in (0,kappa], and the explicit functions and constants at L196-L197; z in G-prime_rho and v,w in C^n; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed z in G'_rho; v,w in C^n
+SOURCE_CONCLUSION: D^2 h(z)[v,w] = -sum_i 3 m_i^3 z_i^{-4} v_i w_i, ¦D^2 h(z)[v,w]¦ <= sum_i 3 m_i^3 (5 l_i/8)^{-4} ¦v_i¦¦w_i¦ <= M_C ¦v¦_inf ¦w¦_inf, hence the nested derivative norm of D(Dh)(z) is <= M_C (the sum, not the maximum)
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:hd-ii, bpP:p14:x-hol, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:hd-ii | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-iv@L204-L204 | ¦z_i¦ >= Re z_i >= (5/8) l_i and the holomorphic derivative formulas
+EDGE: bpP:p14:x-hol | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-iv@L204-L204 | derivative of z^{-k}
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-iv@L204-L204 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:hd-v
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:hd-v
+KIND: step
+TITLE: (v)
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-v@L205-L205
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-v@L205-L205
+CONTRACT_ID: stepP:p14:hd-v
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:h-data: B admissible, the choices of enlarge, rho in (0,kappa], and the explicit functions and constants at L196-L197; I real in G-prime_rho and v in R^n; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed I real in G'_rho (the set U); v in R^n
+SOURCE_CONCLUSION: h_R = h restricted to R^n is C^infty on U; ¦omega_h(I)¦_inf >= g_h > 0; varsigma_h sum v_i^2 <= (-1) D^2 h_R(I)[v,v] (sigma = -1); for -h the frequency has the same modulus and sigma = +1
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:hd-ii, bpP:p14:enlarge, N:bpN:p0:partial-definite#HasDefiniteFastPart, bpP:p14:conv#data, N:bpN:p0:actionnbhd#actionNbhd
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:hd-ii | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-v@L205-L205 | Re I_i bounds: real points of G'_rho lie in prod [l_i - 3 kappa, u_i + 3 kappa] with I_i > 0
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-v@L205-L205 | G' = prod (l_i - 2 kappa,u_i + 2 kappa), kappa <= l_i/8
+EDGE: N:bpN:p0:partial-definite#HasDefiniteFastPart | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-v@L205-L205 | g_h > 0, varsigma_h > 0, C^3, ¦omega_h¦ >= g_h and the definite Hessian with sign sigma
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-v@L205-L205 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+EDGE: N:bpN:p0:actionnbhd#actionNbhd | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hd-v@L205-L205 | L205 uses the real points of the complex action neighbourhood G-prime_rho.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:tb-local
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:tb-local
+KIND: step
+TITLE: Local extensions
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-local@L214-L214
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-local@L214-L214
+CONTRACT_ID: stepP:p14:tb-local
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:tube: calW open and tau_k-invariant, f real analytic and periodic on calW, K_* subset calW compact, K_0 its union of translates; x in K_*; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed x in K_*
+SOURCE_CONCLUSION: r_x > 0 and g_x holomorphic on D(x,r_x) with g_x = f on D(x,r_x) cap R^{4n}, and D(x,r_x) cap R^{4n} subset calW
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:x-cx
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:x-cx | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-local@L214-L214 | complexification of f at x
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:tb-leb
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:tb-leb
+KIND: step
+TITLE: A Lebesgue number
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-leb@L215-L215
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-leb@L215-L215
+CONTRACT_ID: stepP:p14:tb-leb
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:tube: calW open and tau_k-invariant, f real analytic and periodic on calW, K_* subset calW compact, K_0 its union of translates; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed f, K_*
+SOURCE_CONCLUSION: if K_* = empty then T = empty and r_0 = 1 works; else finite x_1..x_s (s >= 1) with K_* subset union D(x_j,r_j/2), r_0 = min_j r_j/2 > 0, and D(x,r_0) subset D(x_j,r_j) for x in K_* cap D(x_j,r_j/2)
+CONSTANT_SCOPE: r_0 depends on K_* and the radii r_x
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:tb-local, bpP:p14:x-top
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:tb-local | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-leb@L215-L215 | the polydiscs D(x,r_x/2) cover K_*
+EDGE: bpP:p14:x-top | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-leb@L215-L215 | L215 uses compactness to take a finite subcover, treating the empty case separately.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:tb-glue
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:tb-glue
+KIND: step
+TITLE: Gluing
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-glue@L216-L216
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-glue@L216-L216
+CONTRACT_ID: stepP:p14:tb-glue
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:tube: calW open and tau_k-invariant, f real analytic and periodic on calW, K_* subset calW compact, K_0 its union of translates; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed x_1..x_s
+SOURCE_CONCLUSION: f_* = g_{x_j} on D(x_j,r_j) is well defined and holomorphic on U_* = union D(x_j,r_j) with f_* = f on U_* cap R^{4n}
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:tb-local, stepP:p14:tb-leb, bpP:p14:x-id
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:tb-local | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-glue@L216-L216 | the local extensions g_{x_j}
+EDGE: stepP:p14:tb-leb | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-glue@L216-L216 | the cover D(x_j,r_j) and U_*
+EDGE: bpP:p14:x-id | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-glue@L216-L216 | two holomorphic functions agreeing with f on a nonempty open set of real points coincide on the convex intersection
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:tb-per
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:tb-per
+KIND: step
+TITLE: Periodisation
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-per@L217-L217
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-per@L217-L217
+CONTRACT_ID: stepP:p14:tb-per
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:tube: calW open and tau_k-invariant, f real analytic and periodic on calW, K_* subset calW compact, K_0 its union of translates; z in T; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed z in T
+SOURCE_CONCLUSION: f^C(z) = f_*(tau_{-k} z) is well defined (independent of the representation), holomorphic, equals f on real points and satisfies f^C o tau_k = f^C
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:tb-leb, stepP:p14:tb-glue, bpP:p14:x-id, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:tb-leb | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-per@L217-L217 | tau_{-k} z in D(x_*,r_0) subset U_*
+EDGE: stepP:p14:tb-glue | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-per@L217-L217 | f_* on U_*
+EDGE: bpP:p14:x-id | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-per@L217-L217 | f_* o tau_{-k} and f_* o tau_{-k'} agree on a nonempty open real set, hence coincide
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:tb-per@L217-L217 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:pt-input
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:pt-input
+KIND: step
+TITLE: Analytic input
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228
+CONTRACT_ID: stepP:p14:pt-input
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:perturbation: B admissible and the choices kappa,e_1,A^+,G,G-prime,D of enlarge; calV is defined in the source statement; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed choices of enlarge
+SOURCE_CONCLUSION: K_* is compact, K_* subset calK subset calW, K_0 = {Lambda in closure of G', Gamma <= A^+}, and Lemma tube gives r_0 and f^C = f-hat^C on T
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:sec-domain#chart-facts, bpP:p14:real-domain, bpP:p14:tube, bpP:p14:enlarge, bpP:p14:sec-domain#data, bpP:p14:x-top
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228 | (Ch3): f-hat real analytic on calW and f-hat o tau_k = f-hat
+EDGE: bpP:p14:real-domain | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228 | K_* subset calK subset calW
+EDGE: bpP:p14:tube | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228 | r_0 and f^C on T
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228 | G' and A^+ define K_*
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228 | f-hat, calW, tau_k
+EDGE: bpP:p14:x-top | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-input@L228-L228 | L228 uses closedness and boundedness of K_* to get compactness.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:pt-rho
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:pt-rho
+KIND: step
+TITLE: Choice of $\rho,B_0$
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-rho@L229-L229
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-rho@L229-L229
+CONTRACT_ID: stepP:p14:pt-rho
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:perturbation: B admissible and the choices kappa,e_1,A^+,G,G-prime,D of enlarge; calV is defined in the source statement; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed choices of enlarge
+SOURCE_CONCLUSION: rho = min(kappa, r_0/2); F_rho subset T is open and tau_k-invariant; f^C is bounded by some B' on the compact rho-neighbourhood of K_*; B_0 = max(1,B') and ¦f^C¦ <= B_0 on F_rho
+CONSTANT_SCOPE: rho and B_0 depend on (n,B), kappa and r_0 (hence on K_*), not on mu
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:pt-input, bpP:p14:tube, N:bpN:p0:partial-domain#partialComplexDomain, bpP:p14:x-top, bpP:p14:enlarge
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:pt-input | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-rho@L229-L229 | r_0, K_*, K_0 and f^C
+EDGE: bpP:p14:tube | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-rho@L229-L229 | periodicity f^C(z) = f^C(tau_{-k} z) and f^C holomorphic, hence continuous, on T
+EDGE: N:bpN:p0:partial-domain#partialComplexDomain | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-rho@L229-L229 | F_rho = F(G',D,rho)
+EDGE: bpP:p14:x-top | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-rho@L229-L229 | a continuous function on a compact set is bounded
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-rho@L229-L229 | kappa
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:pt-def
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:pt-def
+KIND: step
+TITLE: Definition of $P$
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-def@L230-L230
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-def@L230-L230
+CONTRACT_ID: stepP:p14:pt-def
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:perturbation: B admissible and the choices kappa,e_1,A^+,G,G-prime,D of enlarge; calV is defined in the source statement; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed choices
+SOURCE_CONCLUSION: P = f^C/B_0 on T and P = 0 elsewhere
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:pt-input, stepP:p14:pt-rho
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:pt-input | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-def@L230-L230 | f^C on T
+EDGE: stepP:p14:pt-rho | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-def@L230-L230 | B_0
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:pt-p12
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:pt-p12
+KIND: step
+TITLE: (P1),(P2)
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p12@L231-L231
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p12@L231-L231
+CONTRACT_ID: stepP:p14:pt-p12
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:perturbation: B admissible and the choices kappa,e_1,A^+,G,G-prime,D of enlarge; calV is defined in the source statement; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed choices
+SOURCE_CONCLUSION: (P1) P is holomorphic, hence complex differentiable, on F_rho subset T; (P2) ¦P¦ <= 1 there
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:pt-def, stepP:p14:pt-rho, N:bpN:p0:partial-pert#IsPartialPerturbation
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:pt-def | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p12@L231-L231 | P = f^C/B_0 is holomorphic on T
+EDGE: stepP:p14:pt-rho | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p12@L231-L231 | F_rho subset T and ¦f^C¦ <= B_0 on F_rho
+EDGE: N:bpN:p0:partial-pert#IsPartialPerturbation | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p12@L231-L231 | (P1) and (P2) of IsPartialPerturbation
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:pt-p3
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:pt-p3
+KIND: step
+TITLE: (P3)
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232
+CONTRACT_ID: stepP:p14:pt-p3
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:perturbation: B admissible and the choices kappa,e_1,A^+,G,G-prime,D of enlarge; calV is defined in the source statement; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed choices; real w with cx(w) in F_rho; w in calV
+SOURCE_CONCLUSION: (P3) P(cx w) = f-hat(w)/B_0 in R for real w with cx(w) in F_rho; this also proves (ii) because calV subset R^n x G' x D and calV subset calK (open as a preimage of open sets under coordinate projections)
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:pt-def, stepP:p14:pt-rho, bpP:p14:tube, bpP:p14:real-domain, bpP:p14:enlarge, N:bpN:p0:partial-complexify#complexifyPhase, N:bpN:p0:partial-pert#IsPartialPerturbation, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:pt-def | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232 | P = f^C/B_0
+EDGE: stepP:p14:pt-rho | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232 | F_rho: w in R^n x G' x D subset K_0 subset T
+EDGE: bpP:p14:tube | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232 | f^C = f-hat on the real points of T
+EDGE: bpP:p14:real-domain | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232 | calV subset calK
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232 | G subset G' and Gamma < A^+ on D
+EDGE: N:bpN:p0:partial-complexify#complexifyPhase | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232 | cx(w)
+EDGE: N:bpN:p0:partial-pert#IsPartialPerturbation | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232 | (P3): Im P(cx z) = 0
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p3@L232-L232 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:pt-p4
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:pt-p4
+KIND: step
+TITLE: (P4)
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233
+CONTRACT_ID: stepP:p14:pt-p4
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:perturbation: B admissible and the choices kappa,e_1,A^+,G,G-prime,D of enlarge; calV is defined in the source statement; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed choices; z in F_rho; l in Z^n
+SOURCE_CONCLUSION: (P4) P(z + cx(fastShift l)) = P(tau_l z) = f^C(tau_l z)/B_0 = P(z)
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:pt-def, stepP:p14:pt-rho, bpP:p14:tube, bpP:p0:fastshift#fastShift, N:bpN:p0:partial-complexify#complexifyPhase, N:bpN:p0:partial-pert#IsPartialPerturbation, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:pt-def | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233 | P = f^C/B_0
+EDGE: stepP:p14:pt-rho | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233 | F_rho is tau_l-invariant
+EDGE: bpP:p14:tube | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233 | f^C o tau_l = f^C
+EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233 | cx(fastShift l) = tau_l on the fast angles
+EDGE: N:bpN:p0:partial-complexify#complexifyPhase | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233 | cx
+EDGE: N:bpN:p0:partial-pert#IsPartialPerturbation | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233 | (P4) periodicity
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-p4@L233-L233 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:pt-neg
+
+Changed fields: SOURCE_CONCLUSION, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:pt-neg
+KIND: step
+TITLE: $-P$
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-neg@L234-L234
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-neg@L234-L234
+CONTRACT_ID: stepP:p14:pt-neg
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:perturbation: B admissible and the choices kappa,e_1,A^+,G,G-prime,D of enlarge; calV is defined in the source statement; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed choices
+SOURCE_CONCLUSION: (P1)-(P4) are invariant under P -> -P, so IsPartialPerturbation G' D rho (-P)
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:pt-p12, stepP:p14:pt-p3, stepP:p14:pt-p4
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:pt-p12 | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-neg@L234-L234 | (P1),(P2) are invariant under a sign change
+EDGE: stepP:p14:pt-p3 | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-neg@L234-L234 | (P3) is invariant under a sign change
+EDGE: stepP:p14:pt-p4 | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:pt-neg@L234-L234 | (P4) is invariant under a sign change
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:ud-cell
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:ud-cell
+KIND: step
+TITLE: A compact cell
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:ud-cell@L243-L243
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:ud-cell@L243-L243
+CONTRACT_ID: stepP:p14:ud-cell
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:uniform-data: calW open and tau_k-invariant, F C^1 and periodic on calW, Q compact with R^n x Q subset calW; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed Q
+SOURCE_CONCLUSION: delta in (0,pi] with the closed delta-neighbourhood C of [-pi,3pi]^n x Q inside calW; C compact; M, L with ¦F¦ <= M and F L-Lipschitz on C
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:x-top, N:bpN:p3:gen-lip
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:x-top | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:ud-cell@L243-L243 | neighbourhood form: a compact set inside an open set has a closed delta-neighbourhood inside it; closed bounded sets are compact
+EDGE: N:bpN:p3:gen-lip | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:ud-cell@L243-L243 | bound and Lipschitz constant of a C^1 map on a compact subset of the open set
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:ud-transl
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:ud-transl
+KIND: step
+TITLE: Translation
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:ud-transl@L244-L244
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:ud-transl@L244-L244
+CONTRACT_ID: stepP:p14:ud-transl
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:uniform-data: calW open and tau_k-invariant, F C^1 and periodic on calW, Q compact with R^n x Q subset calW; x=(lambda,y) in R^n x Q; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed x = (lambda,y) in Phi
+SOURCE_CONCLUSION: with x' = tau_{-k} x, lambda - 2 pi k in [0,2pi)^n and delta <= pi: closed ball B(x',delta) subset C, so B(x,delta) = tau_k B(x',delta) subset calW, and the bounds M, L transfer by F o tau_k = F
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:ud-cell, N:bpN:p3:gen-uniform, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:ud-cell | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:ud-transl@L244-L244 | C, delta, M, L
+EDGE: N:bpN:p3:gen-uniform | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:ud-transl@L244-L244 | the three clauses of uniform data are verified at x
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:ud-transl@L244-L244 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:li-init
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:li-init
+KIND: step
+TITLE: Initial point
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251
+CONTRACT_ID: stepP:p14:li-init
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:lift: B admissible, mu real, l<=0<=r, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out for all s in [l,r]; for the conditional preimage claim, t in [l,r], w in O_n and Psi(w)=z(t); previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed z; any t in [l,r] and w in O_n with Psi(w) = z(t)
+SOURCE_CONCLUSION: z(0) = Psi(w_0) with w_0 in calW; for every w in O_n with Psi(w) = z(t): Lambda_i(w) = Lambda_i(z(t)) in (l_i,u_i) and Gamma(w) = A(z(t)) < A_1, so w in calK subset calW
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:sec-domain#chart-facts, bpP:p14:real-domain, bpP:p14:sec-domain#data, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251 | (Ch1): z(0) prograde elliptic is Psi(w_0); (Ch2): Lambda_i(w) = Lambda_i(z(t)), Gamma(w) = A(z(t))
+EDGE: bpP:p14:real-domain | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251 | last assertion: Lambda in prod [l,u], Gamma <= A_1 implies w in calK subset calW
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251 | calW, calK
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251 | R_out, W, A
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:li-max
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:li-max
+KIND: step
+TITLE: The maximal chart solution
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252
+CONTRACT_ID: stepP:p14:li-max
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:lift: B admissible, mu real, l<=0<=r, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out for all s in [l,r]; w_0 denotes the preimage constructed through li-init; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed w_0
+SOURCE_CONCLUSION: F = X_{H^Psi} is C^1 on the open calW and F o tau_k = F; y_max the maximal solution through w_0 with maximal interval (S_-,S_+) containing 0
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:sec-domain#chart-facts, N:bpN:p3:ham-smooth, stepP:p14:li-init, N:bpN:p3:gen-maximal, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | (Ch3): H^Psi is C^infty on calW and H^Psi o tau_k = H^Psi
+EDGE: N:bpN:p3:ham-smooth | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | X_H is C^1 on calW where H is C^infty
+EDGE: stepP:p14:li-init | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | w_0 in calW
+EDGE: N:bpN:p3:gen-maximal | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | maximal solution through w_0
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | tau_k, calW
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:li-proj
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:li-proj
+KIND: step
+TITLE: It projects to the physical solution
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253
+CONTRACT_ID: stepP:p14:li-proj
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:lift: B admissible, mu real, l<=0<=r, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out for all s in [l,r]; y_max denotes the curve constructed through li-max; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed y_max
+SOURCE_CONCLUSION: x = Psi o y_max has derivative X_{H_mov}(x(t)) on (S_-,S_+) with x(t) in W, i.e. IsSolIn X_{H_mov} W (S_-,S_+) x; x = z on (S_-,S_+) cap [l,r]
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p1:chart-orbit, bpP:p14:sec-domain#chart-facts, stepP:p14:li-max, bpP:p14:moving-ode, N:bpN:p3:gen-sol, N:bpN:p3:gen-uniqueness, bpP:p14:sec-domain#data, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p1:chart-orbit | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | orbit transfer through the chart
+EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | (Ch3) gives the hypothesis: H^Psi differentiable on calW
+EDGE: stepP:p14:li-max | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | y_max solves X_{H^Psi} on (S_-,S_+) subset calW
+EDGE: bpP:p14:moving-ode | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | z is an IsSolIn solution in W on [l,r]
+EDGE: N:bpN:p3:gen-sol | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | IsSolIn X_{H_mov} W (S_-,S_+) x
+EDGE: N:bpN:p3:gen-uniqueness | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | uniqueness on (S_-,S_+) cap [l,r]
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | Psi, calW
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:li-cont
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:li-cont
+KIND: step
+TITLE: The chart solution lives on all of $[l,r]$
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254
+CONTRACT_ID: stepP:p14:li-cont
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:lift: B admissible, mu real, l<=0<=r, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out for all s in [l,r]; y_max denotes the maximal curve; suppose S_+<=r (respectively S_->=l) within the contradiction; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed y_max; suppose S_+ <= r (resp. S_- >= l)
+SOURCE_CONCLUSION: S_+ > r and S_- < l: otherwise y_max stays in R^n x Q_0 with Q_0 = {Lambda_i in [l_i,u_i], Gamma <= A_1} compact and R^n x Q_0 subset calK subset calW, giving uniform data and S_+ = infinity, a contradiction
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:li-init, stepP:p14:li-proj, stepP:p14:li-max, bpP:p14:real-domain, bpP:p14:uniform-data, N:bpN:p3:gen-continuation, bpP:p14:x-top, bpP:p14:conv#data, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:li-init | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | y_max(t) in R^n x Q_0 for z(t) in R_out
+EDGE: stepP:p14:li-proj | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | z(t) = Psi(y_max(t)) on [0,S_+)
+EDGE: stepP:p14:li-max | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | the maximal solution y_max and S_+
+EDGE: bpP:p14:real-domain | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | R^n x Q_0 subset calK subset calW
+EDGE: bpP:p14:uniform-data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | uniform data for Phi = R^n x Q_0
+EDGE: N:bpN:p3:gen-continuation | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | uniform-form continuation criterion gives S_+ = infinity
+EDGE: bpP:p14:x-top | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | Q_0 is closed and bounded, hence compact
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | R_out
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:li-concl
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:li-concl
+KIND: step
+TITLE: Conclusion
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255
+CONTRACT_ID: stepP:p14:li-concl
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:lift: B admissible, mu real, l<=0<=r, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out for all s in [l,r]; take y=y_max; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed y = y_max
+SOURCE_CONCLUSION: y has all the properties on [l,r] subset (S_-,S_+); H^Psi is differentiable on calW
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:li-cont, stepP:p14:li-max, stepP:p14:li-proj, stepP:p14:li-init, bpP:p14:sec-domain#chart-facts, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:li-cont | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255 | [l,r] subset (S_-,S_+)
+EDGE: stepP:p14:li-max | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255 | y = y_max solves X_{H^Psi}
+EDGE: stepP:p14:li-proj | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255 | Psi(y(t)) = z(t) on [l,r]
+EDGE: stepP:p14:li-init | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255 | the last sentence: Lambda_i(y(t)) = Lambda_i(z(t)), Gamma(y(t)) = A(z(t)), y(t) in calK
+EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255 | (Ch3): H^Psi is differentiable on calW
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:hn-eq
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:hn-eq
+KIND: step
+TITLE: Equality
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268
+CONTRACT_ID: stepP:p14:hn-eq
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:hnu: the preceding fixed analytic data, mu>0, nu=B_0 mu; calV is the open set in the source statement; w in calV; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed mu > 0, nu = B_0 mu; w in calV
+SOURCE_CONCLUSION: cx(w) in F_rho; nu Re P(cx w) = mu f-hat(w); Re h(Lambda) = h(Lambda); H_nu^+(w) = h(Lambda) + mu f-hat(w) = H^Psi(w)
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: N:bpN:p0:partial-domain#partialComplexDomain, N:bpN:p0:partial-complexify#complexifyPhase, bpP:p14:perturbation, bpP:p14:sec-domain#chart-facts, bpP:p14:real-domain, bpP:p14:enlarge, bpP:p14:sec-stopped#data, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: N:bpN:p0:partial-domain#partialComplexDomain | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268 | cx(w) in F_rho = F(G',D,rho)
+EDGE: N:bpN:p0:partial-complexify#complexifyPhase | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268 | cx(w)
+EDGE: bpP:p14:perturbation | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268 | (ii): P(cx w) = f-hat(w)/B_0
+EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268 | (Ch3): H^Psi(w) = h(Lambda) + mu f-hat(w), and w in calV subset calK subset O_n
+EDGE: bpP:p14:real-domain | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268 | calV subset calK
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268 | G subset G'
+EDGE: bpP:p14:sec-stopped#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268 | H_nu^+ = Re h(fast I) + nu Re P(cx(phi,I))
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-eq@L268-L268 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:hn-field
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:hn-field
+KIND: step
+TITLE: Fields
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-field@L269-L269
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-field@L269-L269
+CONTRACT_ID: stepP:p14:hn-field
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:hnu: the preceding fixed analytic data, mu>0, nu=B_0 mu; calV is the open set in the source statement; w in calV; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed mu, nu; w in calV
+SOURCE_CONCLUSION: H_nu^+ is differentiable at w with X_{H_nu^+}(w) = X_{H^Psi}(w); X_{H_nu^-} = -X_{H_nu^+}
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:hn-eq, bpP:p14:sec-domain#chart-facts, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p14:sec-domain#data, bpP:p14:sec-stopped#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:hn-eq | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-field@L269-L269 | two functions equal on the open set calV have the same fderiv there
+EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-field@L269-L269 | (Ch3): H^Psi differentiable on calW
+EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-field@L269-L269 | X is linear in H
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-field@L269-L269 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+EDGE: bpP:p14:sec-stopped#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:hn-field@L269-L269 | Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:st-thr
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:st-thr
+KIND: step
+TITLE: The threshold
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L280
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L280
+CONTRACT_ID: stepP:p14:st-thr
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:stopped: n>=2, B admissible and the fixed data of sec-stopped#data; h and -h are the specified functions with required properties supplied by h-data through DEPS; nu_0 is being constructed; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed data (n,k,G,G',D,rho,g_h,varsigma_h,M_C,h); then mu_+, mu_-; then nu_0
+SOURCE_CONCLUSION: N-PARTIAL-CONVEX applied to h and to -h yields thresholds mu_+ > 0 and mu_- > 0 depending only on (n,k,G,G',D,rho,g_h,varsigma_h,M_C,h), not on P; nu_0 = min{1,mu_+,mu_-,kappa^{1/b},epsilon_D^{1/b}} > 0, and nu < nu_0 gives nu^b < min(kappa,epsilon_D); the exponents of N are alpha_n, beta_n
+CONSTANT_SCOPE: mu_+- depend on (n,k,G,G',D,rho,g_h,varsigma_h,M_C,h) only, chosen before P, mu, C, z (N's order of choice); nu_0 on mu_+-, kappa, epsilon_D, b
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: N:bpN:p0:partial, bpP:p14:h-data, bpP:p14:enlarge, N:bpN:p0:partial-exponents#partialTimeExponent, N:bpN:p0:partial-exponents#partialDriftExponent, bpP:p0:d25-exponents#planetaryTimeExponent, bpP:p0:d25-exponents#planetaryDriftExponent, bpP:p14:sec-stopped#data, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: N:bpN:p0:partial | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L278 | two applications of N-PARTIAL-CONVEX (to h and to -h) give mu_+ and mu_-
+EDGE: bpP:p14:h-data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L278 | its hypotheses are exactly h-data (i)-(v) with sigma = -1, resp. +1 for -h
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L279 | kappa, epsilon_D, G, G', D in the definition of nu_0
+EDGE: N:bpN:p0:partial-exponents#partialTimeExponent | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L280-L280 | the exponent a_n of N
+EDGE: N:bpN:p0:partial-exponents#partialDriftExponent | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L280-L280 | the exponent b_n of N
+EDGE: bpP:p0:d25-exponents#planetaryTimeExponent | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L280-L280 | alpha_n equals a_n for the same n
+EDGE: bpP:p0:d25-exponents#planetaryDriftExponent | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L280-L280 | beta_n equals b_n for the same n
+EDGE: bpP:p14:sec-stopped#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L278 | the fixed data
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L278 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:st-seg
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:st-seg
+KIND: step
+TITLE: The segment
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281
+CONTRACT_ID: stepP:p14:st-seg
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:stopped: n>=2, B admissible and the fixed analytic data; mu>0 with nu=B_0 mu<nu_0; T,delta>0 with T<=nu^{-1}exp(nu^{-a}) and delta>=nu^b/2; inside the stopped-predicate implication take l<=0<=r, l<r, z(0)=z_0, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out on [l,r]; y denotes the lifted curve constructed through DEPS; t in [l,r] cap [-T,T], i<n; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed mu, nu, l, r, z, t, i
+SOURCE_CONCLUSION: y(s) in calV for s in [l,r] (Lambda(y(s)) in prod (l_i,u_i) subset G and (xi,eta)(y(s)) in D since Gamma(y(s)) = A(z(s)) < A_1 < A^+), Lambda_i(y(s)) = Lambda_i(z(s)) = keplerAction; it remains to show ¦Lambda_i(y(t)) - Lambda_i(y(0))¦ <= delta, trivial for t = 0
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:lift, bpP:p0:d25-stopped#StoppedActionBound, bpP:p14:sec-domain#chart-facts, bpP:p14:enlarge, bpP:p0:d25-kepler#keplerAction, bpP:p14:sec-domain#data, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:lift | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281 | y with Psi(y(s)) = z(s), Lambda_i(y(s)) = Lambda_i(z(s)), Gamma(y(s)) = A(z(s)) < A_1
+EDGE: bpP:p0:d25-stopped#StoppedActionBound | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281 | the hypotheses l, r, z, t of the predicate to be established
+EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281 | (Ch2): Lambda_i(y(s)) = Lambda_i(z(s)) = keplerAction
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281 | G, D, A_1 < A^+
+EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281 | Lambda_i(z(s))
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281 | calV
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281 | R_out, A
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:st-sol
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:st-sol
+KIND: step
+TITLE: $y$ solves the N-system on $[0,r]$ and on the reversed segment
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282
+CONTRACT_ID: stepP:p14:st-sol
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:stopped: n>=2, B admissible and the fixed analytic data; mu>0 with nu=B_0 mu<nu_0; T,delta>0 with T<=nu^{-1}exp(nu^{-a}) and delta>=nu^b/2; inside the stopped-predicate implication take l<=0<=r, l<r, z(0)=z_0, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out on [l,r]; y denotes the lifted curve constructed through DEPS; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed y, l, r
+SOURCE_CONCLUSION: IsSolutionOn H_nu^+ {I: fast I in G} [0,r] y; for y~(s) = y(-s), s in [0,-l]: derivative -X_{H_nu^+}(y(-s)) = X_{H_nu^-}(y~(s)), H_nu^- differentiable there, IsSolutionOn H_nu^- {fast in G} [0,-l] y~
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:hnu, bpP:p14:lift, stepP:p14:st-seg, N:bpN:p0:sol#IsSolutionOn, bpP:p14:x-calc, bpP:p14:sec-stopped#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:hnu | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282 | y has derivative X_{H^Psi}(y(s)) = X_{H_nu^+}(y(s)) and H_nu^+ differentiable
+EDGE: bpP:p14:lift | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282 | y has derivative X_{H^Psi}(y(s)) on [l,r]
+EDGE: stepP:p14:st-seg | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282 | y(s) in calV and fast(y(s)_2) = Lambda(y(s)) in G
+EDGE: N:bpN:p0:sol#IsSolutionOn | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L283 | IsSolutionOn conclusions of (Z1)
+EDGE: bpP:p14:x-calc | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282 | derivative of the reversed curve s -> y(-s)
+EDGE: bpP:p14:sec-stopped#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282 | H_nu^+- and the set {fast in G}
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:st-core
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:st-core
+KIND: step
+TITLE: Erosions
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283
+CONTRACT_ID: stepP:p14:st-core
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:stopped: n>=2, B admissible and the fixed analytic data; mu>0 with nu=B_0 mu<nu_0; T,delta>0 with T<=nu^{-1}exp(nu^{-a}) and delta>=nu^b/2; inside the stopped-predicate implication take l<=0<=r, l<r, z(0)=z_0, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out on [l,r]; y denotes the lifted curve constructed through DEPS; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed y, nu; s in [l,r]
+SOURCE_CONCLUSION: (Z2) Lambda(y(0)) = Lambda(z_0) in core(G,nu^b) (as nu^b < kappa); for every s in [l,r], (xi,eta)(y(s)) in core(D,nu^b) (as ¦x¦_2^2 = 2 Gamma < 2 A_1 and nu^b < epsilon_D)
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:st-seg, N:bpN:p0:partial-core#innerCore, bpP:p14:enlarge, stepP:p14:st-thr, bpP:p14:conv#data, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:st-seg | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | y(s) in calV, Lambda(y(0)) = Lambda(z_0) in prod (l_i,u_i), Gamma(y(s)) = A(z(s)) < A_1
+EDGE: N:bpN:p0:partial-core#innerCore | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | core(G,nu^b), core(D,nu^b) of Definition partial-core
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | kappa, epsilon_D = (sqrt(2A^+) - sqrt(2A_1))/sqrt(2n), G, D
+EDGE: stepP:p14:st-thr | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | nu^b < min(kappa,epsilon_D) for nu < nu_0
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:st-fwd
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:st-fwd
+KIND: step
+TITLE: Positive times
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284
+CONTRACT_ID: stepP:p14:st-fwd
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:stopped: n>=2, B admissible and the fixed analytic data; mu>0 with nu=B_0 mu<nu_0; T,delta>0 with T<=nu^{-1}exp(nu^{-a}) and delta>=nu^b/2; inside the stopped-predicate implication take l<=0<=r, l<r, z(0)=z_0, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out on [l,r]; y denotes the lifted curve constructed through DEPS; t in (0,r] cap [0,T]; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed t; C := r
+SOURCE_CONCLUSION: ¦Lambda(y(t)) - Lambda(y(0))¦_inf <= (1/2) nu^b <= delta for t in (0,r] cap [0,T]
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:st-core, stepP:p14:st-sol, stepP:p14:st-seg, stepP:p14:st-thr, N:bpN:p0:partial, bpP:p14:perturbation, bpP:p14:conv#data, bpP:p14:sec-domain#data, bpP:p14:sec-stopped#data, bpP:p14:enlarge
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:st-core | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | slow erosion on [0,t] and the initial erosion
+EDGE: stepP:p14:st-sol | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | (Z1): y solves the N-system on [0,r]
+EDGE: stepP:p14:st-seg | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | (xi,eta)(y(u)) = slow components of y(u)
+EDGE: stepP:p14:st-thr | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | nu in (0,mu_+) and nu < nu_0
+EDGE: N:bpN:p0:partial | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | N-PARTIAL-CONVEX with mu := nu, perturbation P, C = r, solution y
+EDGE: bpP:p14:perturbation | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | IsPartialPerturbation G' D rho P (item (i))
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+EDGE: bpP:p14:sec-stopped#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data.
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | Direct use of G,G-prime,D or the enlarged-domain constants.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:st-bwd
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:st-bwd
+KIND: step
+TITLE: Negative times
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285
+CONTRACT_ID: stepP:p14:st-bwd
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:stopped: n>=2, B admissible and the fixed analytic data; mu>0 with nu=B_0 mu<nu_0; T,delta>0 with T<=nu^{-1}exp(nu^{-a}) and delta>=nu^b/2; inside the stopped-predicate implication take l<=0<=r, l<r, z(0)=z_0, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out on [l,r]; y denotes the lifted curve constructed through DEPS; t in [l,0) cap [-T,T], s_0=-t; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed t; C := -l; y~(s) = y(-s)
+SOURCE_CONCLUSION: ¦Lambda(y(t)) - Lambda(y(0))¦_inf <= (1/2) nu^b <= delta for t in [l,0) cap [-T,T]
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: N:bpN:p0:partial, stepP:p14:st-thr, stepP:p14:st-sol, stepP:p14:st-core, bpP:p14:perturbation, bpP:p14:h-data, bpP:p14:conv#data, bpP:p14:sec-domain#data, bpP:p14:sec-stopped#data, bpP:p14:enlarge
+ROUTES: -
+ROUTE_FOR: -
+EDGE: N:bpN:p0:partial | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | N-PARTIAL-CONVEX applied to (-h,-P) with threshold mu_-, C = -l and the solution y~
+EDGE: stepP:p14:st-thr | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | threshold mu_- and nu < nu_0
+EDGE: stepP:p14:st-sol | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | (Z1) for y~ and H_nu^-
+EDGE: stepP:p14:st-core | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | (Z2) and the slow erosion on [0,s_0] (the slow curve of y~ is that of y reversed)
+EDGE: bpP:p14:perturbation | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | IsPartialPerturbation G' D rho (-P)
+EDGE: bpP:p14:h-data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | -h satisfies the hypotheses with sigma = +1
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+EDGE: bpP:p14:sec-stopped#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data.
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | Direct use of G,G-prime,D or the enlarged-domain constants.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:st-phys
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:st-phys
+KIND: step
+TITLE: Translation to physical actions
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286
+CONTRACT_ID: stepP:p14:st-phys
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:stopped: n>=2, B admissible and the fixed analytic data; mu>0 with nu=B_0 mu<nu_0; T,delta>0 with T<=nu^{-1}exp(nu^{-a}) and delta>=nu^b/2; inside the stopped-predicate implication take l<=0<=r, l<r, z(0)=z_0, IsMovSolOn(m,mu,[l,r],z) and z(s) in R_out on [l,r]; y denotes the lifted curve constructed through DEPS; t in [l,r] cap [-T,T], i<n; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed t in [l,r] cap [-T,T]; i
+SOURCE_CONCLUSION: ¦Lambda_i(z(t)) - Lambda_i(z_0)¦ = ¦Lambda_i(y(t)) - Lambda_i(y(0))¦ <= delta in both cases
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:st-fwd, stepP:p14:st-bwd, stepP:p14:st-seg, bpP:p14:conv#data, bpP:p14:sec-domain#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:st-fwd | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286 | positive times
+EDGE: stepP:p14:st-bwd | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286 | negative times
+EDGE: stepP:p14:st-seg | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286 | Lambda_i(z(t)) = Lambda_i(y(t)) and Lambda_i(y(0)) = Lambda_i(z_0)
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:es-par
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:es-par
+KIND: step
+TITLE: Parameters
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-par@L305-L305
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-par@L305-L305
+CONTRACT_ID: stepP:p14:es-par
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:expsafe: n>=2 and B admissible; preceding choices are fixed before mu and z_0; 0<mu<mu_*, z_0 in R_in; nu,T,delta are defined at L305; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed mu in (0,mu_*), z_0 in R_in; nu = B_0 mu, T, delta
+SOURCE_CONCLUSION: with nu = B_0 mu, T = exp(c mu^{-a}), delta = (1/2) nu^b: nu < nu_0/2 < nu_0 <= 1, nu^b <= theta/2, T = exp(nu^{-a}) <= nu^{-1} exp(nu^{-a}), 2 delta < min_i(l0_i - l_i) and < min_i(u_i - u0_i), 2 n delta < A_1 - A_0
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:es-const, bpP:p0:d25-exponents#planetaryTimeExponent, bpP:p0:d25-exponents#planetaryDriftExponent, bpP:p14:conv#data, bpP:p14:sec-stopped#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:es-const | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-par@L305-L305 | mu_*, c, theta, B_0, nu_0
+EDGE: bpP:p0:d25-exponents#planetaryTimeExponent | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-par@L305-L305 | nu^{-a} = c mu^{-a}
+EDGE: bpP:p0:d25-exponents#planetaryDriftExponent | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-par@L305-L305 | nu^b
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-par@L305-L305 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+EDGE: bpP:p14:sec-stopped#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-par@L305-L305 | Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:es-stop
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:es-stop
+KIND: step
+TITLE: The stopped bound
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-stop@L306-L306
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-stop@L306-L306
+CONTRACT_ID: stepP:p14:es-stop
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:expsafe: n>=2 and B admissible; preceding choices are fixed before mu and z_0; 0<mu<mu_*, z_0 in R_in; nu,T,delta are defined at L305; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed mu, z_0
+SOURCE_CONCLUSION: StoppedActionBound(B,mu,T,delta,z_0) holds
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:es-par, bpP:p14:stopped, bpP:p0:d25-stopped#StoppedActionBound, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:es-par | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-stop@L306-L306 | nu < nu_0, T <= nu^{-1} exp(nu^{-a}), delta = (1/2) nu^b
+EDGE: bpP:p14:stopped | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-stop@L306-L306 | Proposition stopped applies
+EDGE: bpP:p0:d25-stopped#StoppedActionBound | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-stop@L306-L306 | conclusion StoppedActionBound(B,mu,T,delta,z_0)
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-stop@L306-L306 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:es-amd
+
+Changed fields: SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:es-amd
+KIND: step
+TITLE: The helper
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-amd@L307-L307
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-amd@L307-L307
+CONTRACT_ID: stepP:p14:es-amd
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:expsafe: n>=2 and B admissible; preceding choices are fixed before mu and z_0; 0<mu<mu_*, z_0 in R_in; nu,T,delta are defined at L305; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed mu, z_0
+SOURCE_CONCLUSION: the hypotheses of Theorem bpP:p14:amd hold (mu, T, delta > 0, the three margins, z_0 in R_in, the stopped bound), giving z with z(0) = z_0, clauses (a)-(d) (containing all clauses of P-EXP-SAFE (a)) and ¦Lambda_i(z(t)) - Lambda_i(z_0)¦ <= delta for ¦t¦ <= T
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:amd, stepP:p14:es-par, stepP:p14:es-stop, bpP:p0:d25-kepler#keplerAction, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:amd | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-amd@L307-L307 | the helper (proof of P-AMD-CONFINEMENT) gives z and the clauses
+EDGE: stepP:p14:es-par | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-amd@L307-L307 | margins l_i + 2 delta < l0_i, u0_i + 2 delta < u_i, A_0 + 2 n delta < A_1
+EDGE: stepP:p14:es-stop | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-amd@L307-L307 | the stopped bound
+EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-amd@L307-L307 | Lambda_i drift bound
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-amd@L307-L307 | R_in
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: [pre-extract: dropped reference to bpP:p0:expsafe, which part p14a proves or sets up]
+```
+
+### P-p14a2 — stepP:p14:es-axis
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:es-axis
+KIND: step
+TITLE: Axis drift
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L309
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L309
+CONTRACT_ID: stepP:p14:es-axis
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:expsafe: n>=2 and B admissible; preceding choices are fixed before mu and z_0; 0<mu<mu_*, z_0 in R_in, abs(t)<=T and i<n; z denotes the helper solution obtained through DEPS; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed mu, z_0; ¦t¦ <= T; i
+SOURCE_CONCLUSION: ¦a_i(z(t)) - a_i(z_0)¦ = ¦Lambda_i(z(t)) - Lambda_i(z_0)¦ (Lambda_i(z(t)) + Lambda_i(z_0))/m_i^2 <= 2 u_i delta/m_i^2 = (u_i/m_i^2) B_0^b mu^b <= C mu^b
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:es-amd, stepP:p14:es-const, bpP:p14:elements, bpP:p0:d25-kepler#keplerAxis, bpP:p0:d25-kepler#keplerAction, bpP:p0:d25-prograde#ProgradeElliptic, bpP:p14:conv#data, bpP:p14:sec-stopped#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:es-amd | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L308 | ¦Lambda_i(z(t)) - Lambda_i(z_0)¦ <= delta and z(t) in R_out, z_0 in R_in
+EDGE: stepP:p14:es-const | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L309-L309 | C = B_0^b max_i u_i/m_i^2
+EDGE: bpP:p14:elements | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L308 | a_i = Lambda_i^2/m_i^2 (Lemma elements (a))
+EDGE: bpP:p0:d25-kepler#keplerAxis | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L308 | a_i
+EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L308 | Lambda_i
+EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L308 | z(t), z_0 prograde elliptic (LowAMD membership)
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L308 | R_out, R_in
+EDGE: bpP:p14:sec-stopped#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L308 | Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: -
+```
+
+### P-p14a2 — stepP:p14:es-assemble
+
+Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+
+```text
+NODE: stepP:p14:es-assemble
+KIND: step
+TITLE: Assembly
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310
+CONTRACT_ID: stepP:p14:es-assemble
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the source setting of bpP:p14:expsafe: n>=2 and B admissible; preceding choices are fixed before mu and z_0; 0<mu<mu_*, z_0 in R_in; z denotes the helper solution obtained through DEPS; previous proof steps and cited conclusions are derived through DEPS, not independent hypotheses
+SOURCE_QUANTIFIERS: fixed mu, z_0
+SOURCE_CONCLUSION: z and the horizon T = exp(c mu^{-a}) are those demanded by P-EXP-SAFE; the clause groups (a)-(c) are those of P-AMD-CONFINEMENT and (b) is the axis drift
+CONSTANT_SCOPE: none (constants as fixed in the enclosing proof)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p14:es-amd, stepP:p14:es-axis, stepP:p14:es-const, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: stepP:p14:es-amd | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310 | z and the clauses (a)-(c) of the helper
+EDGE: stepP:p14:es-axis | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310 | the axis drift clause
+EDGE: stepP:p14:es-const | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310 | mu_*, c, C and T = exp(c mu^{-a})
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: [pre-extract: dropped references to bpP:p0:amd and bpP:p0:expsafe, which part p14a proves or sets up]
+```
+
+### P-p14a2 — bpP:p14:sec-domain#data
+
+Changed fields: DEPS, EDGE.
+
+```text
+NODE: bpP:p14:sec-domain#data
+KIND: definition
+TITLE: Chart notation of Part 14a (Psi, Gamma, O_n, tau_k, H^Psi, f-hat, calW)
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L159-L162
+PROOF_SOURCE: -
+CONTRACT_ID: bpP:p14:sec-domain#data
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: n >= 2; G = m_0 = kappa = 1; weights m; the data of bpP:p14:conv#data; Psi = Psi^(n) the product Poincare chart of Theorem bpP:p7:product-chart
+SOURCE_QUANTIFIERS: n; m; chart point w = ((lambda,xi),(Lambda,eta)) in Ph_{2n} with lambda,xi,Lambda,eta in R^n; k in Z^n
+SOURCE_CONCLUSION: defines the chart point w (fast block first), Gamma_i(w) = (xi_i^2 + eta_i^2)/2 and Gamma(w) = sum_i Gamma_i(w), O_n = {Lambda_i > 0, Gamma_i < Lambda_i}, tau_k(w) = w + ((2 pi k,0),0), H^Psi = H_mov o Psi, f-hat = f_mov o Psi with f_mov = (1/2)¦sum_i p_i¦^2 - sum_{i<j} m_i m_j/¦q_i - q_j¦ (Lemma bpP:p6:split, G = m_0 = 1), and calW = {w in O_n: Psi(w) in W}, open and tau_k-invariant
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p7:product-def, bpP:p7:product-chart, bpP:p0:phase#Phase, bpP:p0:blocks#assemble, bpP:p6:split, bpP:p0:movham#movingHamiltonian, bpP:p0:plane#planeLength, bpP:p6:domain, bpP:p0:nocoll#NoCollision, bpP:p14:conv#data
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p7:product-def | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L159-L161 | Psi = Psi^(n) and O_n are the product chart and its domain
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L159-L159 | Psi is the product Poincare chart of Theorem product-chart with kappa = 1
+EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L159-L159 | w in Ph_{2n}
+EDGE: bpP:p0:blocks#assemble | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L160-L160 | fast block first: the phase-space order (phi,I) of assemble
+EDGE: bpP:p6:split | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L161-L161 | f_mov = (1/2)¦sum p_i¦^2 - sum m_i m_j/¦q_i - q_j¦ and H_mov = H_Kep + mu f_mov
+EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L161-L161 | H^Psi = H_mov o Psi
+EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L161-L161 | physical lengths in f_mov
+EDGE: bpP:p6:domain | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L162-L162 | W is open, hence calW = {w in O_n: Psi(w) in W} is open
+EDGE: bpP:p0:nocoll#NoCollision | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L162-L162 | W = {z: NoColl(q)}
+EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L161-L162 | W, H_mov, G = m_0 = 1
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: created from p14a:prose-L159-L168 (first part, SPEC section data); consumers: Chart facts (Ch1)-(Ch3) and the lemmas of §sec-domain onward
+```
+
+### P-p14a2 — bpP:p14:sec-domain#chart-facts
+
+Changed fields: DEPS, EDGE, NOTE.
+
+```text
+NODE: bpP:p14:sec-domain#chart-facts
+KIND: claim
+TITLE: Recalled chart facts (Ch1)-(Ch3) of Part 14a
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L168
+PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L168
+CONTRACT_ID: bpP:p14:sec-domain#chart-facts
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: Psi = Psi^(n) with kappa = G m_0 = 1 and weights m (m_i > 0), the section data of bpP:p14:sec-domain#data; (Ch1), (Ch2): w in O_n, z = Psi(w); (Ch3): w in O_n and mu arbitrary
+SOURCE_QUANTIFIERS: n >= 2; m; then (Ch1); w in O_n and z = Psi(w) for (Ch2); mu and w in O_n for (Ch3)
+SOURCE_CONCLUSION: (Ch1) Psi is a real analytic 1-chart on O_n, Psi o tau_k = Psi, and Psi(O_n) = {z: ProgradeElliptic(m,z)} (onto); (Ch2) for z = Psi(w): Lambda_i(z) = Lambda_i, C_i(z) = Lambda_i - Gamma_i(w), A(z) = Gamma(w), a_i(z) = Lambda_i^2/m_i^2, E_i(z) = -m_i^3/(2 Lambda_i^2), e_i(z) = v_i with ¦v_i¦^2 = 1 - (1 - Gamma_i/Lambda_i)^2; (Ch3) for all w in O_n and mu: H^Psi(w) = h(Lambda) + mu f-hat(w) with h(Lambda) = -sum_i m_i^3/(2 Lambda_i^2); f-hat is real analytic on calW, f-hat o tau_k = f-hat, and H^Psi is C^infty on calW with D Psi X_{H^Psi} = X_{H_mov} o Psi there
+CONSTANT_SCOPE: none (h and f-hat do not depend on mu)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:sec-domain#data, bpP:p7:product-chart, bpP:p7:poincare, bpP:p6:split, bpP:p6:domain, bpP:p1:chart-field, bpP:p0:d25-prograde#ProgradeElliptic, bpP:p0:d25-kepler#keplerAction, bpP:p0:d25-kepler#keplerAxis, bpP:p0:d25-kepler#keplerEnergy, bpP:p0:d25-kepler#keplerEccVector, bpP:p0:d25-cross#planeCross, bpP:p0:d25-amd#physicalAMD, bpP:p7:product-def, bpP:p7:poincare-def, bpP:p7:o-facts
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L162 | Psi, O_n, tau_k, H^Psi, f-hat, calW are those of the section data
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L166 | (Ch1) is Theorem product-chart (a); (Ch3) is product-chart (c)
+EDGE: bpP:p7:poincare | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L168-L168 | (Ch2) for every n is the one-planet identity of Proposition poincare (d),(e) in each block
+EDGE: bpP:p6:split | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L166-L166 | H_mov = H_Kep + mu f_mov (splitting)
+EDGE: bpP:p6:domain | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L166-L166 | H_mov is C^infty on the collision-free set, so H^Psi is C^infty on calW
+EDGE: bpP:p1:chart-field | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L166-L166 | D Psi X_{H^Psi} = X_{H_mov} o Psi on calW
+EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L164-L164 | Psi(O_n) = {z: ProgradeElliptic(m,z)}
+EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L165 | Lambda_i(z) = Lambda_i
+EDGE: bpP:p0:d25-kepler#keplerAxis | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L165 | a_i(z) = Lambda_i^2/m_i^2
+EDGE: bpP:p0:d25-kepler#keplerEnergy | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L165 | E_i(z) = -m_i^3/(2 Lambda_i^2)
+EDGE: bpP:p0:d25-kepler#keplerEccVector | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L165 | e_i(z) = v_i
+EDGE: bpP:p0:d25-cross#planeCross | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L165 | C_i(z) = Lambda_i - Gamma_i(w)
+EDGE: bpP:p0:d25-amd#physicalAMD | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L165 | A(z) = Gamma(w)
+EDGE: bpP:p7:product-def | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L168-L168 | The product definition identifies each physical body pair with its one-planet chart in the Ch2 application.
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L168-L168 | the v_i,k_i definitions in the one-planet block identity
+EDGE: bpP:p7:o-facts | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L168 | the block identity norm(v_i)^2=1-(1-Gamma_i/Lambda_i)^2 included in Ch2
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: L168 explicitly prescribes poincare(d),(e) in each product block. Product-def identifies the body pair; poincare(d) gives the action, energy, axis, cross product and eccentricity vector. The one-planet definitions and o-facts give norm(v_i)^2=1-k_i^2. Finite summation of the action/cross identities gives physicalAMD=Gamma. This is the componentwise source argument, not an application of the n=2 d25 statement at arbitrary n. No new external or source premise is introduced.
+```
+
+### P-p14a2 — bpP:p14:sec-stopped#data
+
+Changed fields: DEPS, EDGE.
+
+```text
+NODE: bpP:p14:sec-stopped#data
+KIND: definition
+TITLE: Data and Hamiltonians H_nu^+- of §sec-stopped (N-system)
+STATEMENT_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L260-L262
+PROOF_SOURCE: -
+CONTRACT_ID: bpP:p14:sec-stopped#data
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: the data of Lemma enlarge (kappa, e_1, A^+, G, G', D, epsilon_D), Lemma h-data (rho, g_h, varsigma_h, M_C, h) and Proposition perturbation (B_0, P) fixed, with rho and B_0 of Proposition perturbation (so rho <= kappa); nu > 0; chart coordinates (phi,I) in Ph_{2n} (N's phase order)
+SOURCE_QUANTIFIERS: n; B; the choices of the preceding subsections fixed; nu > 0
+SOURCE_CONCLUSION: defines H_nu^+-(phi,I) = +-[Re h(fast(I)) + nu Re P(cx(phi,I))] and H_nu = H_nu^+; H_nu^+ is the Hamiltonian H_nu of N-PARTIAL-CONVEX for the data (h,P) and H_nu^- the one for (-h,-P) (both satisfy its hypotheses by Lemma h-data and Proposition perturbation); H_nu^- = -H_nu^+
+CONSTANT_SCOPE: none (all earlier constants fixed; nu free)
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p14:enlarge, bpP:p14:h-data, bpP:p14:perturbation, bpP:p14:sec-domain#data, N:bpN:p0:partial-sec#degenerateHamiltonian, N:bpN:p0:partial-complexify#complexifyPhase, N:bpN:p0:partial-sec#fast
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L260-L260 | kappa, e_1, A^+, G, G', D, epsilon_D are fixed from Lemma enlarge
+EDGE: bpP:p14:h-data | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L260-L260 | rho, g_h, varsigma_h, M_C, h are fixed from Lemma h-data
+EDGE: bpP:p14:perturbation | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L260-L260 | B_0 and P are fixed from Proposition perturbation (rho and B_0 of that proposition)
+EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L260-L261 | chart coordinates and phase order of the section data
+EDGE: N:bpN:p0:partial-sec#degenerateHamiltonian | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L261-L262 | H_nu = Re h(fast I) + nu Re P(cx(phi,I)) is degenerateHamiltonian (realPart h) (Re P o cx) nu
+EDGE: N:bpN:p0:partial-complexify#complexifyPhase | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L261-L261 | cx(phi,I) in the perturbation term
+EDGE: N:bpN:p0:partial-sec#fast | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L261-L261 | fast(I)
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: created from p14a:prose-L260-L262 (SPEC section data); consumers: hnu, stopped and its steps
+```
+
+### P-p14a2 — coverage p14a:prose-L339-L339
+
+Changed field: REASON.
+
+```text
+ITEM: p14a:prose-L339-L339
+KIND: proof-region
+SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#prose@L339-L339
+DISPOSITION: EXCLUDED
+REASON: deviations paragraph: administrative. The coupling-independent unscaled splitting is supplied by product-chart(c), product-def and the sec-domain data to chart-facts; same-chart is an explanatory comparison, not an additional theorem application at L166.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+```
+
+
+## for slice P-p7
+
+The existing coverage item bpP:p7:same-chart already says EXCLUDED: no substantive consumer, with the only foreign citation in P14a L339 (Deviations). Its node still exists in the P-p7 node packet. The chart-facts replacement removes its sole packet dependency, agreeing with that existing exclusion; the writer should finish the node pruning already implied by the P-p7 coverage disposition. No replacement to P-p7 coverage is requested, and this observation is separate from the 56 assigned node verdicts.
+
+## Suspected blueprint defects and limits
+
+No new defect in a pinned paper is asserted. The false sign-invariance of perturbation(ii) is in the packet, not the blueprint: L234 correctly states only P1-P4. No SOURCE_GAP is manufactured for the explicit blockwise Ch2 argument.
+
+L321 describes the N thresholds as independent of B_0 and P. The literal N contract excludes P and B_0 as parameters but includes rho and D, chosen in the analytic construction. The review verifies that literal parameter/choice order; it asserts no additional invariance under changing those prior domain choices.
+
+## Validation and scope
+
+Read-only structural check before replacement: P-p14a2: 56 nodes, 296 edges, 72 coverage items, 0 problems, 0 TODO records (not counted: --structural). Read the full assigned source range and every statement/proof/EDGE use, the owning N definitions, partial theorem and ODE statements, P Parts 0,1,6,7 and the preceding Part 14a lemmas. None of the 56 assigned nodes has frozen identity fields; the root anchor belongs to P-p0 and is not rewritten. Only manifest identity context was consulted. No Lean implementation/provider/proof bodies or proof-status fields were inspected. No Lean command or state-changing git command was run.
+
+Input node packet SHA256: b4082dd6d813bac0dd9c1989ded515709be952d4d19877f0a4d0da131827d0a2. Coverage packet SHA256: d8b53a988a29044543bde7d796c1fde0888a2727bbd1befc4c7f58c908c768d6. Raw Part 14a SHA256: a2735bd6fbc36dc765bafccac43af4e3742b101a7e0f2d97725e70ac37ff8452.
+
+Replacement validation: all 56 node verdicts have exactly the required replacement or PASS; 46 node replacements and 1 coverage-rationale replacement preserve unrelated fields and metadata. EDGE/DEPS correspondence, targets, source ranges and input hashes pass. No proposed prerequisite cycle involving this slice was found; all 56 slice nodes remain in a six-root closure.
+
+READY rev-P-o

@@ -1180,3 +1180,10 @@ example : ProperSpace ((Fin 2 → ℝ) × (Fin 2 → ℝ)) := inferInstance
 
 end
 ```
+
+### Coordination note (orchestrator, 2026-10-28)
+
+`Data` and `Wdom` (listed above as `KAM.Nekhoroshev.ODE.Data`/`Wdom` in `Nekhoroshev/ODE/Specialization`) are defined in
+`KAM.Nekhoroshev.Interfaces.Setting` (N Parts 1/4/5 design, package P1-1) as `KAM.Nekhoroshev.Data`/`Wdom`, and
+`holo_input` (N3-10a) is proved in `KAM.Nekhoroshev.Interfaces.HoloReal` (P1-2). `Specialization` imports both; N3-10b
+binds `(hd : Data n R s ε h f)` explicitly with `{n R s ε h f}` as section variables (same statements).

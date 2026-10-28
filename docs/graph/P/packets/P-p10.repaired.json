@@ -1,0 +1,15 @@
+{
+ "replaced": [
+  "bpP:p10:scaling"
+ ],
+ "added": [],
+ "items": [],
+ "unresolved": {
+  "bpP:p7:lattice": "P-p7: `blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L223-L233`; `blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L234-L239` | SOURCE_HYPOTHESES includes the period-convert lemma as ",
+  "stepP:p7:la-polar": "P-p7: `blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235` | The conclusion that Phi_n=Psi^(n) o Theta_n is a 1-chart directly uses symplecticity of Psi^(n), supplied by product-char",
+  "stepP:p7:la-inv": "P-p7: `blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236` | Replace derived periodicity/invariance premises by the original lattice data and the local injectivity implication. product",
+  "stepP:p7:la-per": "P-p7: `blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237` | The S_2pi chart theorem and steps (a),(b) are consumed proof results, not source hypotheses. Record the source data and exp",
+  "stepP:p7:la-ham": "P-p7: `blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238` | The current hypothesis field assumes product-chart(b),(c), the identities this step invokes to establish (d). Restore the o"
+ },
+ "passes": []
+}

@@ -1,9 +1,9 @@
 {
- "replaced": [
-  "stepN:p4:b3-a"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
- "passes": []
+ "passes": [
+  "stepN:p4:b3-a"
+ ]
 }

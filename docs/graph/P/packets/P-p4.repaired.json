@@ -1,0 +1,32 @@
+{
+ "replaced": [],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
+  "stepP:p4:lc-local",
+  "stepP:p4:li-cont",
+  "bpP:p4:lattice-tail",
+  "stepP:p4:lt-a",
+  "stepP:p4:lt-b",
+  "bpP:p4:two-scale-diophantine-measure",
+  "stepP:p4:dm-A",
+  "stepP:p4:dm-sum",
+  "stepP:p4:dc-prod",
+  "stepP:p4:dm-jac",
+  "stepP:p4:dm-cell",
+  "stepP:p4:dm-shell",
+  "stepP:p4:lc-local",
+  "stepP:p4:li-cont",
+  "bpP:p4:lattice-tail",
+  "stepP:p4:lt-a",
+  "stepP:p4:lt-b",
+  "bpP:p4:two-scale-diophantine-measure",
+  "stepP:p4:dm-A",
+  "stepP:p4:dm-sum",
+  "stepP:p4:dc-prod",
+  "stepP:p4:dm-jac",
+  "stepP:p4:dm-cell",
+  "stepP:p4:dm-shell"
+ ]
+}

@@ -1,0 +1,4 @@
+# KEP-9 prover handoff (branch inp-kep9, 5152a60; offloaded package run by the main orchestrator)
+
+File KAM/Kepler/OrbitComplex.lean (218 lines; imports KAM.Kepler.Basic, Orbit, KeplerTube). Node orbit-maps-e: orbitMapC, orbitDomC (verbatim), orbitMapC_differentiableOn, orbitMapC_periodic, orbitMapC_real, orbitMapC_ofReal, orbitDomC_mem_ofReal. Helpers in KAM.Kepler.OrbitC (denom_ne_zero, differentiableOn_u, differentiableOn_div, differentiableOn_vec2), private orbitMapK. hL unused in two theorems (kept).
+AUDIT FOCUS (design docs/tracks/P/design/KEPLER-LEAN-DESIGN.md §2.2, §7 row KEP-9, §7.1): (1) statements = blueprint (complex orbit map holomorphic on the complex domain built from KEP-4's tube; periodic; real on real points and equal to orbitMapR there); (2) orbitMapC/orbitDomC are the intended objects (denominator nonvanishing from 1 − θ ≤ ‖1 − e cos u‖); (3) hygiene.

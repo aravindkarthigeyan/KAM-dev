@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -120,9 +120,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -151,9 +151,9 @@ EDGE: stepP:p1:oa-b | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:omega-al
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:omega-algebra@L31-L31 | M_0, Omega, X_ell, X_H notation
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:omega-algebra@L31-L31 | X_H(z) in the last clause of (a)
 EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:omega-algebra@L31-L31 | Omega, the frozen form
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -178,9 +178,9 @@ DEPS: bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:oa-mat@L36-L36 | M_0, J_0, X_ell and Omega=v^T M_0 w
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -193,7 +193,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:oa-b@L37-L
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:oa-b@L37-L37
 CONTRACT_ID: stepP:p1:oa-b
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A^T M_0 A=c M_0 (from Omega(Au,Av)=c Omega(u,v)); ell linear; step (a) uniqueness of X_ell
+SOURCE_HYPOTHESES: A a real 2d x 2d matrix; c != 0; Omega(Au,Av)=c Omega(u,v) for all u,v; ell linear
 SOURCE_QUANTIFIERS: A, c != 0, ell
 SOURCE_CONCLUSION: (det A)^2=c^{2d}, so A invertible and ¦det A¦=¦c¦^d; Omega(w,c A^{-1}X_ell)=ell(A w) for all w, so c A^{-1}X_ell=X_{ell o A}; (c) is the displayed matrix identity
 CONSTANT_SCOPE: none
@@ -201,14 +201,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:ext-det, stepP:p1:oa-mat
+DEPS: bpP:p1:ext-det, stepP:p1:oa-mat, bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:ext-det | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:oa-b@L37-L37 | (det A)^2=c^{2d} from det(AB)=det A det B, det A^T = det A, det M_0=1
 EDGE: stepP:p1:oa-mat | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:oa-b@L37-L37 | Omega(w,X_ell)=ell(w) and the uniqueness of X_ell
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:oa-b@L37-L37 | M_0, Omega and X_ell
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -229,14 +230,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p0:hamsymp#hamiltonianVectorField, bpP:p0:hamsymp#symplecticForm
+DEPS: bpP:p0:hamsymp#hamiltonianVectorField, bpP:p0:hamsymp#symplecticForm, bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:order@L41-L41 | X_H of Part 0 is the target of the relabelled equations
 EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:order@L41-L41 | the form Omega of Part 0
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:order@L41-L41 | the coordinate order and the form Omega
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -262,9 +264,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart@L47-L47 | Ph_d and the form Omega
 EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart@L47-L47 | Omega in the chart condition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -292,9 +294,9 @@ EDGE: stepP:p1:cf-diff | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart
 EDGE: stepP:p1:cf-field | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart-field@L58-L58 | proof step: the field identity
 EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart-field@L52-L52 | c-chart and H^Psi
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart-field@L53-L53 | X_{H^Psi} and X_H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -322,9 +324,9 @@ EDGE: bpP:p1:ext-comp | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-d
 EDGE: bpP:p1:ext-ift | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-diff@L57-L57 | C^1 local inverse of Psi near Psi(z)
 EDGE: bpP:p1:omega-algebra | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-diff@L57-L57 | DPsi(z) is invertible by (b), needed for the inverse function theorem
 EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-diff@L57-L57 | Psi is real analytic hence C^1 at z in O
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -337,7 +339,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-field@L
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-field@L58-L58
 CONTRACT_ID: stepP:p1:cf-field
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: ell=DH(Psi z), A=DPsi(z); Lean totality when not differentiable
+SOURCE_HYPOTHESES: Psi a c-chart on O; H:Ph_d->R; z in O; locally put ell=DH(Psi z), A=DPsi(z); split according to differentiability
 SOURCE_QUANTIFIERS: z in O
 SOURCE_CONCLUSION: D(H^Psi)(z)=c^{-1} ell o A, X_{H^Psi}(z)=c^{-1}X_{ell o A}=A^{-1}X_ell, hence A X_{H^Psi}(z)=X_H(Psi z); in the non-differentiable case both derivatives are 0
 CONSTANT_SCOPE: none
@@ -345,16 +347,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:omega-algebra, bpP:p1:chart, bpP:p0:hamsymp#hamiltonianVectorField, stepP:p1:cf-diff
+DEPS: bpP:p1:omega-algebra, bpP:p1:chart, bpP:p0:hamsymp#hamiltonianVectorField, stepP:p1:cf-diff, bpP:p1:ext-comp, bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:omega-algebra | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-field@L58-L58 | part (b): X_{ell o A}=c A^{-1} X_ell
 EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-field@L58-L58 | the chart condition on A=DPsi(z) and H^Psi=c^{-1}H o Psi
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-field@L58-L58 | X_H(z)=X_{DH(z)} and the zero convention
 EDGE: stepP:p1:cf-diff | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-field@L58-L58 | differentiability equivalence to split the two cases
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:ext-comp | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-field@L58-L58 | differentiate c^{-1} H composed with Psi in the differentiable branch
+EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:cf-field@L58-L58 | X_ell and the matrix convention
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -382,9 +386,9 @@ EDGE: bpP:p1:ext-comp | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart-
 EDGE: bpP:p1:chart-field | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart-orbit@L65-L65 | D Psi X_{H^Psi}=X_H o Psi and differentiability transfer
 EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart-orbit@L62-L62 | Psi, H^Psi
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:chart-orbit@L62-L62 | X_{H^Psi}, X_H
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -405,17 +409,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:chart, bpP:p1:omega-algebra, K:bp:p1:real-restriction, K:bp:p1:holomorphic-analytic, bpP:p1:conv#data
+DEPS: bpP:p1:chart, bpP:p1:omega-algebra, K:bp:p1:holomorphic-analytic, bpP:p1:conv#data, stepP:p1:hc-real-derivative
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L76-L76 | the target notion of c-chart
 EDGE: bpP:p1:omega-algebra | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L76-L76 | (c): the matrix identity equals the chart condition
-EDGE: K:bp:p1:real-restriction | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L76-L76 | real restriction gives analyticity and the real derivative
 EDGE: K:bp:p1:holomorphic-analytic | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L76-L76 | holomorphic maps are analytic
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L73-L73 | M_0 and the identification of R^{2d} with Ph_d
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: stepP:p1:hc-real-derivative | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L76-L76 | identify the real derivative with the restriction of the complex derivative on arbitrary V
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -441,9 +445,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:lattice-torus@L82-L82 | iota_k, Omega and X_G
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:lattice-torus@L89-L89 | X_G in the flow clause (L6)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -464,7 +468,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p1:tt-an, stepP:p1:tt-lat, stepP:p1:tt-inj, stepP:p1:tt-lag, stepP:p1:tt-flow, stepP:p1:tt-dio, bpP:p1:chart, bpP:p1:lattice-torus, bpP:p0:fastshift#fastShift, bpP:p0:cyltorus#IsCylinderTorus, bpP:p0:phystorus#IsPhysicalTorus, bpP:p0:diophantine#IsDiophantine
+DEPS: stepP:p1:tt-an, stepP:p1:tt-lat, stepP:p1:tt-inj, stepP:p1:tt-lag, stepP:p1:tt-flow, stepP:p1:tt-dio, bpP:p1:chart, bpP:p1:lattice-torus, bpP:p0:fastshift#fastShift, bpP:p0:cyltorus#IsCylinderTorus, bpP:p0:phystorus#IsPhysicalTorus, bpP:p0:diophantine#IsDiophantine, bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p1:tt-an | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:torus-transport@L111-L111 | step (i)
@@ -479,9 +483,10 @@ EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p1-hamiltonian-tools.tex#bp
 EDGE: bpP:p0:cyltorus#IsCylinderTorus | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:torus-transport@L102-L102 | conclusion of (a)
 EDGE: bpP:p0:phystorus#IsPhysicalTorus | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:torus-transport@L103-L103 | conclusion of (b)
 EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:torus-transport@L103-L103 | Diophantine hypothesis of (b)
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:torus-transport@L97-L97 | iota_k in Q1 and Q2
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -509,9 +514,9 @@ EDGE: bpP:p1:ext-comp | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-a
 EDGE: bpP:p1:chart-field | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-an@L111-L111 | H differentiable at calK(theta) since G=H^Psi is differentiable at K(theta)
 EDGE: bpP:p1:lattice-torus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-an@L111-L111 | (L1): K analytic, in O, G differentiable
 EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-an@L111-L111 | Psi analytic on O
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -532,16 +537,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:lattice-torus, bpP:p0:cyltorus#IsCylinderTorus, bpP:p0:phystorus#IsPhysicalTorus, bpP:p0:fastshift#fastShift
+DEPS: bpP:p1:lattice-torus, bpP:p0:cyltorus#IsCylinderTorus, bpP:p0:phystorus#IsPhysicalTorus, bpP:p0:fastshift#fastShift, bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:lattice-torus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lat@L112-L112 | (L2)
 EDGE: bpP:p0:cyltorus#IsCylinderTorus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lat@L112-L112 | clause (iii) of IsCylinderTorus
 EDGE: bpP:p0:phystorus#IsPhysicalTorus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lat@L112-L112 | clause (iii) of IsPhysicalTorus
 EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lat@L112-L112 | shift of the fast coordinates
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lat@L112-L112 | iota_k in the lattice calculation
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -562,14 +568,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:lattice-torus, bpP:p0:fastshift#fastShift
+DEPS: bpP:p1:lattice-torus, bpP:p0:fastshift#fastShift, bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:lattice-torus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-inj@L113-L113 | (L2) and (L3)
 EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-inj@L113-L113 | shift(k) of the cylinder case
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-inj@L113-L113 | iota_k in the lattice calculation
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -582,7 +589,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lag@L11
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lag@L114-L114
 CONTRACT_ID: stepP:p1:tt-lag
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (L4), (L5); DPsi(K theta) invertible
+SOURCE_HYPOTHESES: c>0; O open; Psi a c-chart on O; H:Ph_d->R; G=H^Psi=c^{-1}H o Psi; w in R^d; K with LT(G,O,w,K); (Q1) O+iota_k=O and Psi(z+iota_k)=Psi(z)+sigma_k for z in O, k in Z^d; (Q2) z,z1 in O, k in Z^d, Psi(z1)=Psi(z)+sigma_k implies z1=z+iota_m for some m; (a) d=a+b, sigma_k=shift((k_i)_{i<a}), U contains Psi(K(R^d)); (b) sigma_k=0 and w (gamma,tau)-Diophantine for some gamma>0, tau>d-1; write calK=Psi composed with K
 SOURCE_QUANTIFIERS: theta, u, v
 SOURCE_CONCLUSION: D calK(theta)=DPsi(K theta)DK(theta) is injective and Omega(D calK u,D calK v)=c Omega(DK u,DK v)=0
 CONSTANT_SCOPE: none
@@ -590,15 +597,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:omega-algebra, bpP:p1:chart, bpP:p1:lattice-torus
+DEPS: bpP:p1:omega-algebra, bpP:p1:chart, bpP:p1:lattice-torus, bpP:p1:ext-comp, bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:omega-algebra | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lag@L114-L114 | (b): DPsi(K theta) is invertible
 EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lag@L114-L114 | Omega(DPsi u,DPsi v)=c Omega(u,v)
 EDGE: bpP:p1:lattice-torus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lag@L114-L114 | (L4) injectivity and (L5) Lagrangian property
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:ext-comp | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lag@L114-L114 | D calK=DPsi composed with DK by the chain rule
+EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-lag@L114-L114 | Omega in the Lagrangian calculation
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -619,14 +628,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:chart-orbit, bpP:p1:lattice-torus
+DEPS: bpP:p1:chart-orbit, bpP:p1:lattice-torus, bpP:p1:chart
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:chart-orbit | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-flow@L115-L115 | pointwise orbit transfer
 EDGE: bpP:p1:lattice-torus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-flow@L115-L115 | (L6)
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-flow@L115-L115 | G=H^Psi and the chart data used to apply chart-orbit
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -653,9 +663,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:phystorus#IsPhysicalTorus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-dio@L116-L116 | Diophantine clause of IsPhysicalTorus
 EDGE: bpP:p0:cyltorus#IsCylinderTorus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-dio@L116-L116 | IsCylinderTorus has no Diophantine clause
 EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tt-dio@L116-L116 | (gamma,tau)-Diophantine
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -683,9 +693,9 @@ EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:typical@L
 EDGE: bpP:p1:period-convert | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:typical@L120-L120 | (2): S_c is a c-chart (Lemma period-convert(a))
 EDGE: bpP:p1:ext-comp | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:typical@L120-L120 | (3): chain rule and analytic composition
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:typical@L120-L120 | Omega and the frozen order of coordinates
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -717,9 +727,9 @@ EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:period-co
 EDGE: bpP:p1:lattice-torus | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:period-convert@L132-L132 | the clauses (L1)-(L6) converted in (c)
 EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:period-convert@L133-L133 | frozen fast shift in (d)
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:period-convert@L131-L131 | X_{H~} and X_{H~^{S_c}}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -732,7 +742,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-a@L137-
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-a@L137-L137
 CONTRACT_ID: stepP:p1:pc-a
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: DS_c=diag(c 1,1)
+SOURCE_HYPOTHESES: c>0; S_c(z_1,z_2)=(c z_1,z_2)
 SOURCE_QUANTIFIERS: u, v, z, k
 SOURCE_CONCLUSION: Omega(S_c u,S_c v)=c Omega(u,v); det DS_c=c^d; S_c(z+iota_k)=S_c(z)+(c k,0) by linearity
 CONSTANT_SCOPE: none
@@ -745,9 +755,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-a@L137-L137 | Omega(DPsi u,DPsi v)=c Omega(u,v) is the chart condition; S_c is analytic
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-a@L137-L137 | Omega and S_c
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -760,7 +770,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-b@L138-
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-b@L138-L138
 CONTRACT_ID: stepP:p1:pc-b
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: S_c is a c-chart on Ph_d (step (a))
+SOURCE_HYPOTHESES: c>0; S_c(z_1,z_2)=(c z_1,z_2); H~:Ph_d->R
 SOURCE_QUANTIFIERS: z
 SOURCE_CONCLUSION: D S_c X_{H~^{S_c}}=X_{H~} o S_c; explicitly d_{z_2}H~^{S_c}=c^{-1}d_2 H~ and d_{z_1}H~^{S_c}=d_1 H~, which are Part 3 equations theta-dot=d_I H, I-dot=-d_theta H
 CONSTANT_SCOPE: none
@@ -768,15 +778,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:chart-field, stepP:p1:pc-a, bpP:p0:hamsymp#hamiltonianVectorField
+DEPS: bpP:p1:chart-field, stepP:p1:pc-a, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p1:chart, bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:chart-field | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-b@L138-L138 | D Psi X_{H^Psi}=X_H o Psi for Psi=S_c
 EDGE: stepP:p1:pc-a | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-b@L138-L138 | S_c is a c-chart
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-b@L138-L138 | X_{H~}
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-b@L138-L138 | the pulled-back Hamiltonian H~^{S_c}
+EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-b@L138-L138 | S_c and its derivative
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -797,14 +809,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p1:pc-a, bpP:p1:lattice-torus
+DEPS: stepP:p1:pc-a, bpP:p1:lattice-torus, bpP:p1:ext-comp
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p1:pc-a | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-c@L139-L139 | (d) is the lattice formula of (a)
 EDGE: bpP:p1:lattice-torus | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-c@L139-L139 | the clauses (L1)-(L6) that are transported
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:ext-comp | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:pc-c@L139-L139 | analyticity and derivative of composition with theta mapped to 2 pi theta
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -836,9 +849,9 @@ EDGE: bpP:p1:lattice-torus | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:c
 EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:cyl-pipeline@L143-L143 | shift(k_f) in the compatibility conditions
 EDGE: bpP:p0:cyltorus#IsCylinderTorus | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:cyl-pipeline@L143-L143 | conclusion IsCylinderTorus
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:cyl-pipeline@L143-L143 | S_{2 pi} and iota_k
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -870,9 +883,9 @@ EDGE: bpP:p1:lattice-torus | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:p
 EDGE: bpP:p0:phystorus#IsPhysicalTorus | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:phys-pipeline@L150-L150 | conclusion IsPhysicalTorus
 EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:phys-pipeline@L150-L150 | Diophantine hypothesis on omega~
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:phys-pipeline@L150-L150 | S_{2 pi}, iota_k
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -896,9 +909,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -911,7 +924,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:dio-basic@L1
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:dio-basic@L172-L174
 CONTRACT_ID: bpP:p1:dio-basic
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: omega in R^d, gamma,tau>0; the frozen definition gamma/¦k¦_1^tau <= ¦k.omega¦ for k != 0; (b) nu a positivity-guarded norm; (d) the set D_{gamma_1,gamma_2,tau}
+SOURCE_HYPOTHESES: omega in R^d, gamma,tau>0; the frozen definition gamma/¦k¦_1^tau <= ¦k.omega¦ for k != 0; (b) nu any function satisfying 0<nu(k)<=¦k¦_1 for every nonzero k; (d) the set D_{gamma_1,gamma_2,tau}
 SOURCE_QUANTIFIERS: omega, gamma, tau; (a) gamma, tau, gamma1, tau1; (b) nu; (c) s>0; (d) gamma_1, gamma_2, tau
 SOURCE_CONCLUSION: (a) (gamma,tau)-Diophantine implies (gamma1,tau1)-Diophantine for 0<gamma1<=gamma, tau1>=tau (so tau>d-1 and tau>a+b can be arranged); (b) if ¦k.omega¦>=gamma nu(k)^{-tau} for k != 0 with 0<nu(k)<=¦k¦_1 then (gamma,tau)-Diophantine; (c) omega is (gamma,tau)-Diophantine iff omega/s is (gamma/s,tau)-Diophantine; (d) D_{gamma_1,gamma_2,tau} is contained in the (min{gamma_1,gamma_2},tau)-Diophantine vectors
 CONSTANT_SCOPE: none
@@ -924,9 +937,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:dio-basic@L164-L164 | the frozen definition of Diophantine
 EDGE: bpP:p1:two-scale | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:dio-basic@L169-L169 | (d): the set D_{gamma_1,gamma_2,tau}
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -955,9 +968,9 @@ EDGE: bpP:p1:two-scale | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:dio-s
 EDGE: bpP:p0:cylkol#IsCylinderKolmogorovSet | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:dio-sources@L178-L178 | the Diophantine clause of IsCylinderKolmogorovSet
 EDGE: bpP:p0:phystorus#IsPhysicalTorus | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:dio-sources@L179-L179 | clause (vii) of IsPhysicalTorus
 EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:dio-sources@L179-L179 | (gamma,tau)-Diophantine
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -986,9 +999,9 @@ EDGE: stepP:p1:li-meas | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouv
 EDGE: stepP:p1:li-borel | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouville@L197-L197 | step: Borel sets
 EDGE: stepP:p1:li-vol | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouville@L198-L198 | step: measure
 EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouville@L192-L192 | c-chart
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1009,13 +1022,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:omega-algebra
+DEPS: bpP:p1:omega-algebra, bpP:p1:chart
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:omega-algebra | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-det@L195-L195 | (b): ¦det A¦=¦c¦^d
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-det@L195-L195 | the c-chart condition and analytic regularity of Psi
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1036,16 +1050,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:ext-ift, bpP:p1:omega-algebra, bpP:p1:ext-borel, K:bp:p1:lip-image
+DEPS: bpP:p1:ext-ift, bpP:p1:omega-algebra, bpP:p1:ext-borel, K:bp:p1:lip-image, bpP:p1:chart
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:ext-ift | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-meas@L196-L196 | local homeomorphisms with continuous inverse
 EDGE: bpP:p1:omega-algebra | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-meas@L196-L196 | DPsi invertible on O (needed for the inverse function theorem)
 EDGE: bpP:p1:ext-borel | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-meas@L196-L196 | A cap O_j = F_sigma u null; images of compact sets are compact
 EDGE: K:bp:p1:lip-image | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-meas@L196-L196 | locally Lipschitz images of null sets are null
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-meas@L196-L196 | the c-chart condition and analytic regularity of Psi
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1058,7 +1073,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-borel@L
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-borel@L197-L197
 CONTRACT_ID: stepP:p1:li-borel
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A Borel; the local inverses of step measurability
+SOURCE_HYPOTHESES: Psi a c-chart on O; A subset O Lebesgue measurable; for the Borel branch, A is Borel; obtain the local inverses from li-meas
 SOURCE_QUANTIFIERS: A
 SOURCE_CONCLUSION: Psi(A cap O_j)=(Psi_j^{-1})^{-1}(A cap O_j) is Borel, so Psi(A) is a countable union of Borel sets
 CONSTANT_SCOPE: none
@@ -1070,9 +1085,9 @@ DEPS: stepP:p1:li-meas
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p1:li-meas | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-borel@L197-L197 | the countable cover by local homeomorphisms and their continuous inverses
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1085,7 +1100,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-vol@L19
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-vol@L198-L198
 CONTRACT_ID: stepP:p1:li-vol
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Psi a c-chart on O; A Borel, or Lebesgue measurable A=B u N
+SOURCE_HYPOTHESES: Psi a c-chart on O; A subset O Lebesgue measurable; first the Borel case, then decompose a general measurable A using ext-borel
 SOURCE_QUANTIFIERS: A
 SOURCE_CONCLUSION: for Borel A: meas Psi(A)<=int_A ¦det D Psi¦=c^d meas A, equality if Psi is injective on A; for Lebesgue measurable A=B u N: meas Psi(A)<=meas Psi(B), equality under injectivity by the subscript-0 version
 CONSTANT_SCOPE: none
@@ -1093,16 +1108,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:ext-area, stepP:p1:li-det, stepP:p1:li-meas, bpP:p1:ext-borel
+DEPS: bpP:p1:ext-area, stepP:p1:li-det, stepP:p1:li-meas, bpP:p1:ext-borel, bpP:p1:chart
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:ext-area | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-vol@L198-L198 | area formula and its subscript-0 version
 EDGE: stepP:p1:li-det | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-vol@L198-L198 | ¦det D Psi¦=c^d
 EDGE: stepP:p1:li-meas | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-vol@L198-L198 | Psi(A) measurable
 EDGE: bpP:p1:ext-borel | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-vol@L198-L198 | A=B u N with B Borel, N null
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:li-vol@L198-L198 | the c-chart condition and analytic regularity of Psi
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1123,20 +1139,20 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:torus-transport, bpP:p1:liouville, bpP:p1:ext-borel, bpP:p1:conv#data
+DEPS: bpP:p1:liouville, bpP:p1:ext-borel, bpP:p1:conv#data, bpP:p1:chart
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p1:torus-transport | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouville-lattice@L202-L202 | the setting (Q1), (Q2) of the theorem (hypothesis package, no consumption of its conclusion)
 EDGE: bpP:p1:liouville | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouville-lattice@L205-L205 | meas Psi(A cap Q)=c^d meas(A cap Q) for Psi injective on A cap Q
 EDGE: bpP:p1:ext-borel | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouville-lattice@L205-L205 | injective continuous images of Borel sets are Borel
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouville-lattice@L202-L202 | iota_k
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:chart | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:liouville-lattice@L202-L202 | c-chart Psi on O
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: the hypotheses (Q1), (Q2) are defined only in the statement of torus-transport (no separate package node), hence the edge; reviewer to confirm
+NOTE: Q1 and Q2 are the explicitly stated lattice hypotheses at L202, not an application of the torus-transport theorem.
 
 NODE: bpP:p1:torus-union
 KIND: lemma
@@ -1162,9 +1178,9 @@ EDGE: stepP:p1:tu-borel | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:toru
 EDGE: stepP:p1:tu-bounds | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:torus-union@L219-L219 | step: bounds
 EDGE: bpP:p1:ext-borel | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:torus-union@L213-L213 | (B2) injective continuous images of Borel sets are Borel
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:torus-union@L213-L213 | iota_k
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1189,9 +1205,9 @@ DEPS: K:bp:p1:mcshane
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:mcshane | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-ext@L216-L216 | McShane extension
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1204,7 +1220,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-meas@L2
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-meas@L217-L217
 CONTRACT_ID: stepP:p1:tu-meas
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A measurable; calF^ from step extension
+SOURCE_HYPOTHESES: E subset R^d Lebesgue measurable; A=E x [0,1)^d; calF:A->R^{2d} with ¦calF(x)-calF(y)¦<=Lambda ¦x-y¦ (max norms); optionally ¦calF(x)-calF(y)¦>=lambda ¦x-y¦, lambda>0; (B1) E sigma-compact; (B2) E Borel and calF continuous and injective on A; last clause calF(omega,theta)=phi_omega(theta) with phi_omega(theta+k)=phi_omega(theta)+iota_k; use the extension constructed in tu-ext
 SOURCE_QUANTIFIERS: A
 SOURCE_CONCLUSION: A=B u N (F_sigma, null), calF^(B) sigma-compact, meas calF^(N)=0, so calF(A)=calF^(B) u calF^(N) is Lebesgue measurable (not Borel)
 CONSTANT_SCOPE: none
@@ -1218,9 +1234,9 @@ ROUTE_FOR: -
 EDGE: bpP:p1:ext-borel | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-meas@L217-L217 | F_sigma u null decomposition, sigma-compact images
 EDGE: K:bp:p1:lip-image | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-meas@L217-L217 | Lipschitz images of null sets are null
 EDGE: stepP:p1:tu-ext | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-meas@L217-L217 | the extension calF^
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1233,7 +1249,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-borel@L
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-borel@L218-L218
 CONTRACT_ID: stepP:p1:tu-borel
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (B1) E sigma-compact; (B2) E Borel, calF continuous injective on A
+SOURCE_HYPOTHESES: E subset R^d Lebesgue measurable; A=E x [0,1)^d; calF:A->R^{2d} with ¦calF(x)-calF(y)¦<=Lambda ¦x-y¦ (max norms); optionally ¦calF(x)-calF(y)¦>=lambda ¦x-y¦, lambda>0; (B1) E sigma-compact; (B2) E Borel and calF continuous and injective on A; last clause calF(omega,theta)=phi_omega(theta) with phi_omega(theta+k)=phi_omega(theta)+iota_k; treat B1 and B2 separately; the standing Lipschitz bound supplies continuity also in B1
 SOURCE_QUANTIFIERS: cases B1, B2
 SOURCE_CONCLUSION: (B1) E x [0,1)^d is a countable union of compact sets, images compact so calF(A) sigma-compact; (B2) calF(A) Borel by Lusin-Souslin
 CONSTANT_SCOPE: none
@@ -1245,9 +1261,9 @@ DEPS: bpP:p1:ext-borel
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:ext-borel | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-borel@L218-L218 | compact images and injective continuous images of Borel sets
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1260,7 +1276,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-bounds@
 PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-bounds@L219-L219
 CONTRACT_ID: stepP:p1:tu-bounds
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: calF Lambda-Lipschitz; optional lower bound lambda
+SOURCE_HYPOTHESES: E subset R^d Lebesgue measurable; A=E x [0,1)^d; calF:A->R^{2d} with ¦calF(x)-calF(y)¦<=Lambda ¦x-y¦ (max norms); optionally ¦calF(x)-calF(y)¦>=lambda ¦x-y¦, lambda>0; (B1) E sigma-compact; (B2) E Borel and calF continuous and injective on A; last clause calF(omega,theta)=phi_omega(theta) with phi_omega(theta+k)=phi_omega(theta)+iota_k; the optional lower bound has lambda>0
 SOURCE_QUANTIFIERS: calF, Lambda, lambda
 SOURCE_CONCLUSION: meas calF(A)<=Lambda^{2d} meas A=Lambda^{2d} meas E; under the lower bound calF is injective with lambda^{-1}-Lipschitz inverse so meas E<=lambda^{-2d} meas calF(A); the last claim from periodicity and countability of Z^d
 CONSTANT_SCOPE: none
@@ -1268,13 +1284,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:lip-image
+DEPS: K:bp:p1:lip-image, bpP:p1:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:lip-image | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-bounds@L219-L219 | Lipschitz images scale measure by at most the Lipschitz constant to the power 2d
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:conv#data | blueprint-P/parts/p1-hamiltonian-tools.tex#stepP:p1:tu-bounds@L219-L219 | iota_k in the final translated union
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1299,9 +1316,9 @@ DEPS: bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:setting@L41-L41 | V_r D, Z_K
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1322,22 +1339,23 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p2:dr-use, bpP:p2:setting, N:bpN:p6:homological, N:bpN:p6:iterative, N:bpN:p6:iterative-special, N:bpN:p6:setting
+DEPS: stepP:p2:dr-use, bpP:p2:setting, N:bpN:p6:homological, N:bpN:p6:iterative, bpN:p6:iterative-special, N:bpN:p6:setting, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p2:dr-use | blueprint-P/parts/p2-averaging.tex#bpP:p2:direct@L52-L52 | proof: where the hypotheses are used
 EDGE: bpP:p2:setting | blueprint-P/parts/p2-averaging.tex#bpP:p2:direct@L47-L47 | (Div_q)
 EDGE: N:bpN:p6:homological | blueprint-P/parts/p2-averaging.tex#bpP:p2:direct@L46-L46 | N homological solve
 EDGE: N:bpN:p6:iterative | blueprint-P/parts/p2-averaging.tex#bpP:p2:direct@L46-L46 | N iterative lemma
-EDGE: N:bpN:p6:iterative-special | blueprint-P/parts/p2-averaging.tex#bpP:p2:direct@L46-L46 | its Remark is extended to (Div_q)
+EDGE: bpN:p6:iterative-special | blueprint-P/parts/p2-averaging.tex#bpP:p2:direct@L46-L46 | its Remark is extended to (Div_q)
 EDGE: N:bpN:p6:setting | blueprint-P/parts/p2-averaging.tex#bpP:p2:direct@L47-L47 | the replaced hypotheses cond-nr, cond-L
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:direct@L46-L46 | the Fourier convention and alpha-bar in the inherited estimates
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: cross-ownership candidate bpN:p6:iterative-special (remark): the statement asserts that the remark also holds verbatim in direct form, so the remark content is consumed; the writer makes it a P-owned node if the reviewer agrees. source-gap L49 (variant of the written N statement) is bridged by the step dr-use
+NOTE: The special-case remark is consumed and owned by P in slice P-xown. The variant at source-gap L49 is supplied by dr-use; preserve the original N hypotheses except for the three explicitly replaced divisor assumptions.
 
 NODE: stepP:p2:dr-use
 KIND: step
@@ -1354,22 +1372,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p6:homological, N:bpN:p6:setting, N:bpN:p6:divisor, N:bpN:p6:iterative, N:bpN:p5:flow, N:bpN:p5:composition, N:bpN:p5:canonical-map, N:bpN:p5:transform, N:bpN:p4:bracket, bpP:p2:setting
+DEPS: N:bpN:p6:homological, N:bpN:p6:setting, N:bpN:p6:divisor, N:bpN:p6:iterative, bpP:p2:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p6:homological | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L52-L52 | N homological (steps hom-def and hom-norm, mapped to the result)
 EDGE: N:bpN:p6:setting | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L52-L52 | cond-nr, cond-L
 EDGE: N:bpN:p6:divisor | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L52-L52 | N divisor whose conclusion is (Div_q)
 EDGE: N:bpN:p6:iterative | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L54-L54 | N iterative uses the hypotheses only through homological
-EDGE: N:bpN:p5:flow | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L54-L54 | never mentions omega
-EDGE: N:bpN:p5:composition | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L54-L54 | never mentions omega
-EDGE: N:bpN:p5:canonical-map | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L54-L54 | never mentions omega
-EDGE: N:bpN:p5:transform | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L54-L54 | never mentions omega
-EDGE: N:bpN:p4:bracket | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L54-L54 | never mentions omega
 EDGE: bpP:p2:setting | blueprint-P/parts/p2-averaging.tex#stepP:p2:dr-use@L53-L53 | (Div_q) as the replaced hypothesis
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1390,7 +1403,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p2:sp-coef, stepP:p2:sp-field, stepP:p2:sp-int, bpP:p2:direct, bpP:p2:conv#data
+DEPS: stepP:p2:sp-coef, stepP:p2:sp-field, stepP:p2:sp-int, bpP:p2:direct, bpP:p2:conv#data, N:bpN:p5:setting
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p2:sp-coef | blueprint-P/parts/p2-averaging.tex#bpP:p2:split@L69-L69 | step: coefficients
@@ -1398,9 +1411,10 @@ EDGE: stepP:p2:sp-field | blueprint-P/parts/p2-averaging.tex#bpP:p2:split@L71-L7
 EDGE: stepP:p2:sp-int | blueprint-P/parts/p2-averaging.tex#bpP:p2:split@L73-L73 | step: integrate
 EDGE: bpP:p2:direct | blueprint-P/parts/p2-averaging.tex#bpP:p2:split@L60-L60 | phi, Phi=X^1_phi and the hypothesis u<=1/4 of Lemma direct
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:split@L58-L58 | norm, D_{r,s}, alpha-bar_j, Z_K
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: N:bpN:p5:setting | blueprint-P/parts/p2-averaging.tex#bpP:p2:split@L60-L60 | Phi=X_phi^1 and the Hamiltonian-field/flow notation
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1413,7 +1427,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-coef@L69-L70
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-coef@L69-L70
 CONTRACT_ID: stepP:p2:sp-coef
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: phi^_k=f^_k/(2 pi i k.omega) (N homological); (Div^{(2)}_q); alpha_1>=alpha_2
+SOURCE_HYPOTHESES: D subset C^n, r,s>0, 0<alpha_2<=alpha_1, q>=1, Lambda={0}, K>=0, (Div_q^{(2)}): ¦k.omega(I)¦>=alpha_1/q for k_1 != 0 and >=alpha_2/q for k_1=0, k != 0, I in V_r D, k in Z_K; f in O(r,s), delta=¦f¦_{r,s}; 0<rho<r/2, 0<sigma<s/2; u=q delta/(alpha-bar_2 rho sigma)<=1/4; phi and Phi=X^1_phi as in Lemma direct; phi^{(1)}=sum_{k_1 != 0} phi^_k chi_k, phi^{(2)}=phi-phi^{(1)}
 SOURCE_QUANTIFIERS: k in Z_K
 SOURCE_CONCLUSION: ¦phi^_k¦<=q ¦f^_k¦/alpha-bar_1 for k_1 != 0 and <=q ¦f^_k¦/alpha-bar_2 for every k != 0; summing gives (a) (independence since phi^{(2)} has only modes with k_1=0); phi^{(i)} lie in O(r,s) with finite norm
 CONSTANT_SCOPE: none
@@ -1421,14 +1435,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p6:homological, N:bpN:p4:coefficients
+DEPS: N:bpN:p6:homological, N:bpN:p4:coefficients, bpP:p2:direct, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p6:homological | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-coef@L69-L69 | the formula for phi
 EDGE: N:bpN:p4:coefficients | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-coef@L70-L70 | finite family of holomorphic coefficients in O(r,s) with finite norm
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:direct | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-coef@L69-L69 | the coefficient formula under Div_q, without the original Lipschitz/divisor premises of N
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-coef@L69-L69 | the split coordinates, alpha-bar and weighted norm conventions
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1441,7 +1457,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-field@L71-L72
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-field@L71-L72
 CONTRACT_ID: stepP:p2:sp-field
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: eps=¦phi¦/(rho sigma)<=u<=1/4; Omega=D_{r-rho,s-sigma}; step coef bounds on phi^{(1)}, phi
+SOURCE_HYPOTHESES: D subset C^n, r,s>0, 0<alpha_2<=alpha_1, q>=1, Lambda={0}, K>=0, (Div_q^{(2)}): ¦k.omega(I)¦>=alpha_1/q for k_1 != 0 and >=alpha_2/q for k_1=0, k != 0, I in V_r D, k in Z_K; f in O(r,s), delta=¦f¦_{r,s}; 0<rho<r/2, 0<sigma<s/2; u=q delta/(alpha-bar_2 rho sigma)<=1/4; phi and Phi=X^1_phi as in Lemma direct; phi^{(1)}=sum_{k_1 != 0} phi^_k chi_k, phi^{(2)}=phi-phi^{(1)}
 SOURCE_QUANTIFIERS: z in D_{r-3 rho/2,s-3 sigma/2}
 SOURCE_CONCLUSION: the trajectory X^t_phi(z), 0<=t<=1, stays in the closed ball B_nu(z,eps) inside Omega; first n_1 components of I-dot are -d_{theta_1}phi^{(1)} (since d_{theta_1}phi^{(2)}=0) bounded by q delta/(e alpha-bar_1 sigma); ¦d_{theta_2}phi¦<=q delta/(e alpha-bar_2 sigma), ¦d_I phi¦<=q delta/(alpha-bar_2 rho)
 CONSTANT_SCOPE: none
@@ -1449,7 +1465,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p5:setting, N:bpN:p5:flow, N:bpN:p5:canonical-map, N:bpN:p5:vf-bound, stepP:p2:sp-coef
+DEPS: N:bpN:p5:setting, N:bpN:p5:flow, N:bpN:p5:canonical-map, N:bpN:p5:vf-bound, stepP:p2:sp-coef, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p5:setting | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-field@L71-L71 | the scaled norm nu_{rho,sigma}
@@ -1457,9 +1473,10 @@ EDGE: N:bpN:p5:flow | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-field@L71-L
 EDGE: N:bpN:p5:canonical-map | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-field@L71-L71 | step cm-ab: trajectory stays in the domain
 EDGE: N:bpN:p5:vf-bound | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-field@L72-L72 | componentwise field bounds
 EDGE: stepP:p2:sp-coef | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-field@L72-L72 | norm bounds of phi^{(1)} and phi
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-field@L71-L71 | the split coordinates, alpha-bar and weighted norm conventions
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1472,7 +1489,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-int@L73-L73
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-int@L73-L73
 CONTRACT_ID: stepP:p2:sp-int
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: bounds on the components of X_phi along gamma on Omega (step field)
+SOURCE_HYPOTHESES: D subset C^n, r,s>0, 0<alpha_2<=alpha_1, q>=1, Lambda={0}, K>=0, (Div_q^{(2)}): ¦k.omega(I)¦>=alpha_1/q for k_1 != 0 and >=alpha_2/q for k_1=0, k != 0, I in V_r D, k in Z_K; f in O(r,s), delta=¦f¦_{r,s}; 0<rho<r/2, 0<sigma<s/2; u=q delta/(alpha-bar_2 rho sigma)<=1/4; phi and Phi=X^1_phi as in Lemma direct; phi^{(1)}=sum_{k_1 != 0} phi^_k chi_k, phi^{(2)}=phi-phi^{(1)}
 SOURCE_QUANTIFIERS: z
 SOURCE_CONCLUSION: the mean value inequality along gamma, 0<=t<=1, gives (b) with t=1
 CONSTANT_SCOPE: none
@@ -1480,14 +1497,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:ext-mvt, stepP:p2:sp-field
+DEPS: K:bp:p1:ext-mvt, stepP:p2:sp-field, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:ext-mvt | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-int@L73-L73 | mean value inequality
 EDGE: stepP:p2:sp-field | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-int@L73-L73 | component bounds of the field along the trajectory
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:sp-int@L73-L73 | the split coordinates, alpha-bar and weighted norm conventions
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1520,9 +1538,9 @@ EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:nfb@L79-L79 |
 EDGE: bpP:p2:setting | blueprint-P/parts/p2-averaging.tex#bpP:p2:nfb@L95-L95 | by (A1), (Div_1^{(2)}) holds with q=1 on V_r D
 EDGE: bpP:p2:direct | blueprint-P/parts/p2-averaging.tex#bpP:p2:nfb@L96-L96 | every step is Lemma direct on D_{r_i,S_i}
 EDGE: N:bpN:p6:setting | blueprint-P/parts/p2-averaging.tex#bpP:p2:nfb@L97-L97 | weights ¦g¦_* contain the widths only through differences
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1535,7 +1553,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-first@L99-L105
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-first@L99-L105
 CONTRACT_ID: stepP:p2:nfb-first
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: rho_0=r/8, sigma_0=s/6, g=0 in Lemma direct; y_0=eps/(alpha-bar rho_0 sigma_0)<=3/(8 kappa)<=1/16, eps=E
+SOURCE_HYPOTHESES: n=n_1+n_2; D subset R^n; r>0; s-bar>=0; s>0; K>0 with kappa=2 pi K s>=6; 0<alpha_2<=alpha_1; h holomorphic on V_r D, real on V_r D cap R^n, omega=d_I h; (A1) ¦k.omega(I)¦>=alpha_1 if k_1 != 0, >=alpha_2 if k_1=0, for all I in V_r D, k in Z_K minus {0}; (A2) f in O(r,s-bar+s) real on real points with E:=¦f¦_{r,s-bar+s}<=alpha_2 r/(128 K); put eps=E and use the Step 0 losses
 SOURCE_QUANTIFIERS: cases A (e^{-kappa/6}<=y_0) and B (e^{-kappa/6}>y_0)
 SOURCE_CONCLUSION: ¦f_1¦<=(1-2y_0)^{-1}(2y_0/e+e^{-kappa/6}) eps with (1-2y_0)^{-1}<=8/7; Case A: eps_1<=3 eps/(4 kappa)<=eps/8 (2.1); Case B (doubled losses): ¦f_1¦<=e^{-kappa/6} eps and the construction stops with Psi=Phi_0', g=f^_0, f_*=f_1, with displacements <3 eps/(alpha-bar_j s), <=4 eps/(alpha-bar r); from now on Case A
 CONSTANT_SCOPE: none
@@ -1543,14 +1561,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p2:direct, bpP:p2:split
+DEPS: bpP:p2:direct, bpP:p2:split, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:direct | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-first@L99-L99 | Lemma direct (d) with ¦g¦_*=0
 EDGE: bpP:p2:split | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-first@L104-L104 | Lemma split(b) for the displacements in Case B
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-first@L101-L101 | the weighted norm, widths, kappa and alpha-bar
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1563,23 +1582,25 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L111
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L111
 CONTRACT_ID: stepP:p2:nfb-N
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (2.1); kappa>=6; 12 ln 2>8
+SOURCE_HYPOTHESES: n=n_1+n_2; D subset R^n; r>0; s-bar>=0; s>0; K>0 with kappa=2 pi K s>=6; 0<alpha_2<=alpha_1; h holomorphic on V_r D, real on V_r D cap R^n, omega=d_I h; (A1) ¦k.omega(I)¦>=alpha_1 if k_1 != 0, >=alpha_2 if k_1=0, for all I in V_r D, k in Z_K minus {0}; (A2) f in O(r,s-bar+s) real on real points with E:=¦f¦_{r,s-bar+s}<=alpha_2 r/(128 K); Case A of nfb-first; N=floor(kappa/(12 ln 2)); split N=0 and N>=1
 SOURCE_QUANTIFIERS: N=floor(kappa/(12 ln 2))
-SOURCE_CONCLUSION: N<kappa/8; if N=0 then e^{-kappa/6}>1/4 so eps_1<=eps/8<=e^{-kappa/6} eps and Psi=Phi_0, g=f^_0, f_*=f_1 on D_{3r/4,s-bar+2s/3} with the displacement bounds; for N>=1 the schedule rho_i=r/(8N), sigma_i=s/(4N), r_i=3r/4-2(i-1)rho, s_i=2s/3-2(i-1)sigma, so r_{N+1}=r/2, s_{N+1}=s/6, e^{-2 pi K sigma}<=1/8, rho sigma=rs/(32N^2) and eps<=alpha-bar r s/(2^10 N), eps_1<3 alpha-bar rho sigma/2^8 (2.2)
+SOURCE_CONCLUSION: N<kappa/8; if N=0 then e^{-kappa/6}>1/4 so eps_1<=eps/8<=e^{-kappa/6} eps and Psi=Phi_0, g=f^_0, f_*=f_1 on D_{3r/4,s-bar+2s/3} with the displacement bounds; for N>=1 the schedule rho_i=r/(8N), sigma_i=s/(4N), r_i=3r/4-2(i-1)rho, s_i=2s/3-2(i-1)sigma, so r_{N+1}=r/2, s_{N+1}=s/6, e^{-2 pi K sigma}<=1/8, rho sigma=rs/(32N^2) and eps<=alpha-bar r s/(2^10 N), eps_1<alpha-bar rho sigma/2^8 (2.2)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p6:ext-numerics, stepP:p2:nfb-first, bpP:p2:direct
+DEPS: N:bpN:p6:ext-numerics, stepP:p2:nfb-first, bpP:p2:direct, bpP:p2:conv#data, bpP:p2:split
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p6:ext-numerics | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L107 | 12 ln 2>8
 EDGE: stepP:p2:nfb-first | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L107 | (2.1) and Step 0 bounds
 EDGE: bpP:p2:direct | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L107 | displacement bound of Lemma direct for N=0
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L107 | the weighted norm, widths, kappa and alpha-bar
+EDGE: bpP:p2:split | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L107 | two-scale displacement bound (b) with sigma_0=s/6 for both action blocks in the N=0 Case-A branch, including alpha_1
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-delta-P-d
+REVIEWER: sol-delta2-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1592,7 +1613,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-ind@L113-L117
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-ind@L113-L117
 CONTRACT_ID: stepP:p2:nfb-ind
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: schedule and (2.2); g_0=f^_0, g_i=g_{i-1}+(f_i)^_0, ¦g_i-g_{i-1}¦<=eps_i
+SOURCE_HYPOTHESES: n=n_1+n_2; D subset R^n; r>0; s-bar>=0; s>0; K>0 with kappa=2 pi K s>=6; 0<alpha_2<=alpha_1; h holomorphic on V_r D, real on V_r D cap R^n, omega=d_I h; (A1) ¦k.omega(I)¦>=alpha_1 if k_1 != 0, >=alpha_2 if k_1=0, for all I in V_r D, k in Z_K minus {0}; (A2) f in O(r,s-bar+s) real on real points with E:=¦f¦_{r,s-bar+s}<=alpha_2 r/(128 K); Case A and N>=1; use the inductive construction of g_i and f_i
 SOURCE_QUANTIFIERS: 1<=i<=N
 SOURCE_CONCLUSION: step i (Lemma direct on D_{r_i,S_i}, losses (rho,sigma)) is admissible and eps_{i+1}<=eps_i/4, hence eps_i<=4^{1-i} eps_1 for 1<=i<=N+1: u_i<=2^{-8}, ¦g_{i-1}¦_*<=alpha-bar rho sigma/2^4 (weights <=1/2 for j>=1, <=1/N for g_0), eps_{i+1}<=(128/127)(2/e(1/16+1/2^8)+1/8) eps_i<eps_i/4
 CONSTANT_SCOPE: none
@@ -1600,7 +1621,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p2:direct, N:bpN:p4:projections, N:bpN:p6:setting, stepP:p2:nfb-N, stepP:p2:nfb-first, N:bpN:p6:ext-numerics
+DEPS: bpP:p2:direct, N:bpN:p4:projections, N:bpN:p6:setting, stepP:p2:nfb-N, stepP:p2:nfb-first, N:bpN:p6:ext-numerics, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:direct | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-ind@L113-L113 | Lemma direct (d) with delta=eps_i
@@ -1609,9 +1630,10 @@ EDGE: N:bpN:p6:setting | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-ind@L11
 EDGE: stepP:p2:nfb-N | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-ind@L115-L115 | schedule and (2.2)
 EDGE: stepP:p2:nfb-first | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-ind@L116-L116 | eps_1 bound (2.1)
 EDGE: N:bpN:p6:ext-numerics | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-ind@L116-L116 | sum 4^{1-i}=4/3
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-ind@L113-L113 | the weighted norm, widths, kappa and alpha-bar
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1624,7 +1646,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L119-L12
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L119-L121
 CONTRACT_ID: stepP:p2:nfb-concl
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: eps_i<=4^{1-i} eps_1; schedule
+SOURCE_HYPOTHESES: n=n_1+n_2; D subset R^n; r>0; s-bar>=0; s>0; K>0 with kappa=2 pi K s>=6; 0<alpha_2<=alpha_1; h holomorphic on V_r D, real on V_r D cap R^n, omega=d_I h; (A1) ¦k.omega(I)¦>=alpha_1 if k_1 != 0, >=alpha_2 if k_1=0, for all I in V_r D, k in Z_K minus {0}; (A2) f in O(r,s-bar+s) real on real points with E:=¦f¦_{r,s-bar+s}<=alpha_2 r/(128 K); Case A and N>=1; compose the constructed maps
 SOURCE_QUANTIFIERS: Psi=Phi_0 o ... o Phi_N
 SOURCE_CONCLUSION: H o Psi=h+g+f_* with g=g_N=g(I1) (finite sum of theta-independent functions), f_*=f_{N+1}; (a) by the telescoping lemma (holomorphic, canonical, injective; periodicity and reality inherited from each Phi_i); (c) eps_{N+1}<=4^{-N} eps_1<=4^{-N-1} eps<=e^{-kappa/6} eps; (b) ¦g-g_0¦<=(4/3) eps_1<=eps/kappa<=eps/6 and the sup bound from sup<=weighted norm
 CONSTANT_SCOPE: none
@@ -1632,7 +1654,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p6:telescope, N:bpN:p6:iterative, N:bpN:p4:sup-weighted, stepP:p2:nfb-ind, stepP:p2:nfb-N, N:bpN:p6:ext-numerics
+DEPS: N:bpN:p6:telescope, N:bpN:p6:iterative, N:bpN:p4:sup-weighted, stepP:p2:nfb-ind, stepP:p2:nfb-N, N:bpN:p6:ext-numerics, bpP:p2:conv#data, stepP:p2:nfb-first
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p6:telescope | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L119-L119 | composition of the Phi_i with domains U_i=D_{r_i,S_i}
@@ -1641,9 +1663,11 @@ EDGE: N:bpN:p4:sup-weighted | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-co
 EDGE: stepP:p2:nfb-ind | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L120-L120 | eps_i<=4^{1-i} eps_1
 EDGE: stepP:p2:nfb-N | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L120-L120 | N+1>kappa/(12 ln 2)
 EDGE: N:bpN:p6:ext-numerics | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L121-L121 | sum 4^{1-i}=4/3
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L119-L119 | the weighted norm, widths, kappa and alpha-bar
+EDGE: stepP:p2:nfb-first | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L121-L121 | (2.1) gives eps_1<=3 eps/(4 kappa), hence (4/3) eps_1<=eps/kappa in the final average correction
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-delta-P-d
+REVIEWER: sol-delta2-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1656,7 +1680,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-disp@L123-L126
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-disp@L123-L126
 CONTRACT_ID: stepP:p2:nfb-disp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: telescoping seminorms; Lemma split(b) at each step; (2.1); N<kappa/8
+SOURCE_HYPOTHESES: n=n_1+n_2; D subset R^n; r>0; s-bar>=0; s>0; K>0 with kappa=2 pi K s>=6; 0<alpha_2<=alpha_1; h holomorphic on V_r D, real on V_r D cap R^n, omega=d_I h; (A1) ¦k.omega(I)¦>=alpha_1 if k_1 != 0, >=alpha_2 if k_1=0, for all I in V_r D, k in Z_K minus {0}; (A2) f in O(r,s-bar+s) real on real points with E:=¦f¦_{r,s-bar+s}<=alpha_2 r/(128 K); Case A and N>=1; use the constructed maps and schedule
 SOURCE_QUANTIFIERS: j=1,2
 SOURCE_CONCLUSION: ¦Delta I_j¦<=(1/(e alpha-bar_j s))(6 eps+4N(4/3)eps_1)<=3 eps/(alpha-bar_j s) (6.5/e<2.4<=3) and ¦Delta theta¦<=(1/(alpha-bar r))(8 eps+8N(4/3)eps_1)<=9 eps/(alpha-bar r)
 CONSTANT_SCOPE: none
@@ -1664,7 +1688,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p6:telescope, N:bpN:p6:iterative, bpP:p2:split, stepP:p2:nfb-ind, stepP:p2:nfb-first, stepP:p2:nfb-N
+DEPS: N:bpN:p6:telescope, N:bpN:p6:iterative, bpP:p2:split, stepP:p2:nfb-ind, stepP:p2:nfb-first, stepP:p2:nfb-N, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p6:telescope | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-disp@L123-L123 | seminorms of the composition
@@ -1673,9 +1697,10 @@ EDGE: bpP:p2:split | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-disp@L123-L
 EDGE: stepP:p2:nfb-ind | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-disp@L124-L124 | eps_i<=4^{1-i} eps_1
 EDGE: stepP:p2:nfb-first | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-disp@L124-L124 | step 0 displacement and (2.1)
 EDGE: stepP:p2:nfb-N | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-disp@L126-L126 | N<kappa/8
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-disp@L123-L123 | the weighted norm, widths, kappa and alpha-bar
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1702,9 +1727,9 @@ ROUTE_FOR: -
 EDGE: stepP:p2:av-dict | blueprint-P/parts/p2-averaging.tex#bpP:p2:avg@L148-L148 | step: dictionary
 EDGE: stepP:p2:av-hyp | blueprint-P/parts/p2-averaging.tex#bpP:p2:avg@L149-L149 | step: hypotheses
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:avg@L137-L137 | N-norm and the dictionary of widths
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1725,14 +1750,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p2:conv#data, bpP:p2:nfb
+DEPS: bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:av-dict@L148-L148 | dictionary of widths and kappa, alpha-bar
-EDGE: bpP:p2:nfb | blueprint-P/parts/p2-averaging.tex#stepP:p2:av-dict@L148-L148 | the notation E=¦f¦_{r,s-bar+s} of the proposition
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1745,7 +1769,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:av-hyp@L149-L149
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:av-hyp@L149-L149
 CONTRACT_ID: stepP:p2:av-hyp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: 64 e K E<alpha_2 r; 64 e>128
+SOURCE_HYPOTHESES: 0<alpha_2<=alpha_1; D subset R^n; r>0; s-bar,s>0; K>0 with K s>=6; h real analytic on D_r (holomorphic on V_r D, real), omega=d h; f holomorphic on D_r x T_{s-bar+s}, real analytic, 1-periodic in theta, with N-norm E:=sup_{I in D_r} sum_k ¦f^_k(I)¦ e^{(s-bar+s)¦k¦_1}<infinity; (A1) i.e. (N1) of Lemma p3:avg; 64 e K E<alpha_2 r
 SOURCE_QUANTIFIERS: as in avg
 SOURCE_CONCLUSION: E<=alpha_2 r/(128 K), the other hypotheses of the proposition are identical, so (a)-(d) of the proposition are the claims, with e^{-kappa/6}=e^{-K s/6}
 CONSTANT_SCOPE: none
@@ -1753,14 +1777,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p2:nfb, stepP:p2:av-dict
+DEPS: bpP:p2:nfb, stepP:p2:av-dict, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:nfb | blueprint-P/parts/p2-averaging.tex#stepP:p2:av-hyp@L149-L149 | hypotheses (A1), (A2) and conclusions (a)-(d)
 EDGE: stepP:p2:av-dict | blueprint-P/parts/p2-averaging.tex#stepP:p2:av-hyp@L149-L149 | dictionary to the proposition
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:av-hyp@L149-L149 | alpha-bar and geometric widths in the translated smallness condition
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1781,16 +1806,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p2:ob-der, stepP:p2:ob-prod, stepP:p2:ob-field, bpP:p2:s-osc#data
+DEPS: stepP:p2:ob-der, stepP:p2:ob-prod, stepP:p2:ob-field, bpP:p2:s-osc#data, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p2:ob-der | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-bracket@L177-L177 | step: derivative bounds
 EDGE: stepP:p2:ob-prod | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-bracket@L178-L178 | step: products
 EDGE: stepP:p2:ob-field | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-bracket@L180-L180 | step: field
 EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-bracket@L172-L172 | D_{v,S}, bracket, delta_nu, nu-norm, b
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-bracket@L172-L172 | the Fourier norm and alpha-bar/width conventions
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1803,7 +1829,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-der@L177-L177
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-der@L177-L177
 CONTRACT_ID: stepP:p2:ob-der
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: x=(I,p,q) the parameter; Cauchy estimates
+SOURCE_HYPOTHESES: u in O(v_0,S_0), w in O(v,S) with finite norms; 0<rho<r, 0<rho_p<r_p, 0<rho_q<r_q, 0<sigma<S; v-nu<v_0 componentwise; S-sigma<S_0; phi in O(v,S) for the field estimate
 SOURCE_QUANTIFIERS: each coordinate separately
 SOURCE_CONCLUSION: at fixed x: sum_i ¦d_{theta_i}u¦_{x,S}<=¦u¦_{x,S_0}/(e(S_0-S)) and individually globally; ¦d_{I_i}u¦<=¦u¦/(r_0-r+rho), ¦d_{p_j}u¦<=¦u¦/(r_{p0}-r_p+rho_p), ¦d_{q_j}u¦<=¦u¦/(r_{q0}-r_q+rho_q) (global norms, each coordinate separately), likewise for w with losses rho,rho_p,rho_q
 CONSTANT_SCOPE: none
@@ -1811,18 +1837,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p4:cauchy, bpP:p2:s-osc#data
+DEPS: N:bpN:p4:cauchy, bpP:p2:s-osc#data, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p4:cauchy | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-der@L177-L177 | Cauchy estimates (a) angular, (b) in each parameter coordinate
 EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-der@L177-L177 | x=(I,p,q) as parameter
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-der@L177-L177 | the Fourier norm and width conventions used in the derivative/product estimates
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L177 evaluates the angular Cauchy bound at width S with denominator e(S_0-S), but the hypotheses only give S-sigma<S_0, not S<S_0. L179 uses the shrunken-width denominator e(S_0-S+sigma). Keep the literal L177 claim exposed; do not add S<S_0 to the hypotheses.
 
 NODE: stepP:p2:ob-prod
 KIND: step
@@ -1831,7 +1858,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-prod@L178-L179
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-prod@L178-L179
 CONTRACT_ID: stepP:p2:ob-prod
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: derivative bounds of step der; N norm algebra at fixed x
+SOURCE_HYPOTHESES: u in O(v_0,S_0), w in O(v,S) with finite norms; 0<rho<r, 0<rho_p<r_p, 0<rho_q<r_q, 0<sigma<S; v-nu<v_0 componentwise; S-sigma<S_0; phi in O(v,S) for the field estimate
 SOURCE_QUANTIFIERS: fixed x then sup over x
 SOURCE_CONCLUSION: ¦{u,w}¦_{x,S-sigma} is bounded by the sum of the (theta,I) and (q,p) products, the last sum at most m times the product of the maxima; the (theta,I) part is (1/e)(1/((r_0-r+rho)sigma)+1/((S_0-S+sigma)rho)), the (q,p) part m(1/((r_{q0}-r_q+rho_q)rho_p)+1/((r_{p0}-r_p+rho_p)rho_q)); hence W/delta_nu with W<=2 b R
 CONSTANT_SCOPE: none
@@ -1839,15 +1866,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p4:algebra, stepP:p2:ob-der, bpP:p2:s-osc#data
+DEPS: N:bpN:p4:algebra, stepP:p2:ob-der, bpP:p2:s-osc#data, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p4:algebra | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-prod@L178-L178 | norm is an algebra at fixed x
 EDGE: stepP:p2:ob-der | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-prod@L179-L179 | inserted derivative bounds
 EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-prod@L178-L178 | bracket, delta_nu, b
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-prod@L178-L178 | the Fourier norm and width conventions used in the derivative/product estimates
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1860,7 +1888,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-field@L180-L180
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-field@L180-L180
 CONTRACT_ID: stepP:p2:ob-field
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: as in N vf-bound
+SOURCE_HYPOTHESES: u in O(v_0,S_0), w in O(v,S) with finite norms; 0<rho<r, 0<rho_p<r_p, 0<rho_q<r_q, 0<sigma<S; v-nu<v_0 componentwise; S-sigma<S_0; phi in O(v,S) for the field estimate
 SOURCE_QUANTIFIERS: phi in O(v,S)
 SOURCE_CONCLUSION: ¦d_I phi¦/sigma<=¦phi¦/(rho sigma), ¦d_theta phi¦/rho<=¦phi¦/(e sigma rho), ¦d_p phi¦/rho_q<=¦phi¦/(rho_p rho_q), ¦d_q phi¦/rho_p<=¦phi¦/(rho_q rho_p), i.e. nu(X_phi)<=¦phi¦/delta_nu
 CONSTANT_SCOPE: none
@@ -1868,14 +1896,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p5:vf-bound, bpP:p2:s-osc#data
+DEPS: bpP:p2:s-osc#data, N:bpN:p4:cauchy, N:bpN:p4:sup-weighted, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: N:bpN:p5:vf-bound | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-field@L180-L180 | the field bound of N for each component
 EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-field@L180-L180 | the scaled norm nu and the field X_phi
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: N:bpN:p4:cauchy | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-field@L180-L180 | coordinate Cauchy bounds with losses rho, sigma, rho_p and rho_q
+EDGE: N:bpN:p4:sup-weighted | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-field@L180-L180 | pointwise derivative sizes from the weighted norm
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ob-field@L180-L180 | the Fourier norm and width conventions used in the derivative/product estimates
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1888,15 +1918,15 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-iter@L183-L189
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-iter@L190-L195
 CONTRACT_ID: bpP:p2:osc-iter
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Lemma direct (q=1, Lambda={0}) on D_{v,S} with all losses nu; rho sigma replaced by delta_nu; the factor 2/e in the bracket estimate replaced by 2b (so ¦g¦_* becomes ¦g¦_R=sum_j R_j ¦g_j¦); Phi=X^1_phi symplectic for d theta^dI+dq^dp; (a) ¦f¦_{v,S}=delta<=alpha-bar delta_nu/(16 b)
+SOURCE_HYPOTHESES: the direct-divisor data of bpP:p2:setting with q=1, Lambda={0}, h independent of p,q; the remaining source hypotheses of N iterative, with the oscillator domains and all positive losses nu of s-osc#data, rho sigma replaced by delta_nu, and ¦g¦_R=sum_j R_j ¦g_j¦; ¦f¦_{v,S}=delta<=alpha-bar delta_nu/(16 b)
 SOURCE_QUANTIFIERS: n, m, v, S, nu, K, alpha-bar, f, g_j, R_j
-SOURCE_CONCLUSION: (a) ¦Phi_theta-theta¦<=delta/(alpha-bar rho), ¦Phi_I-I¦<=delta/(e alpha-bar sigma), ¦Phi_q-q¦<=delta/(alpha-bar rho_p), ¦Phi_p-p¦<=delta/(alpha-bar rho_q); (b) ¦f_+¦_{v-2nu,S-2 sigma}<=(1-2 e b delta/(alpha-bar delta_nu))^{-1}((2b/(alpha-bar delta_nu))(¦g¦_R+delta)+e^{-2 pi K sigma}) delta
+SOURCE_CONCLUSION: All conclusions of N iterative in direct form on the oscillator domains, including the holomorphic injective periodic map Phi=X_phi^1, reality under the inherited realness premises, symplectic for dtheta^dI+dq^dp, and the transformed normal form, with the replacements at L184; (a) ¦Phi_theta-theta¦<=delta/(alpha-bar rho), ¦Phi_I-I¦<=delta/(e alpha-bar sigma), ¦Phi_q-q¦<=delta/(alpha-bar rho_p), ¦Phi_p-p¦<=delta/(alpha-bar rho_q); (b) ¦f_+¦_{v-2nu,S-2 sigma}<=(1-2 e b delta/(alpha-bar delta_nu))^{-1}((2b/(alpha-bar delta_nu))(¦g¦_R+delta)+e^{-2 pi K sigma}) delta
 CONSTANT_SCOPE: constants as in N iterative with 2/e replaced by 2b
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p2:oi-transfer, stepP:p2:oi-ratio, stepP:p2:oi-range, stepP:p2:oi-disp, bpP:p2:direct, N:bpN:p6:iterative, bpP:p2:s-osc#data
+DEPS: stepP:p2:oi-transfer, stepP:p2:oi-ratio, stepP:p2:oi-range, stepP:p2:oi-disp, bpP:p2:direct, N:bpN:p6:iterative, bpP:p2:s-osc#data, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p2:oi-transfer | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-iter@L191-L191 | step: transfer
@@ -1906,9 +1936,10 @@ EDGE: stepP:p2:oi-disp | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-iter@L194
 EDGE: bpP:p2:direct | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-iter@L184-L184 | direct form of the iterative lemma
 EDGE: N:bpN:p6:iterative | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-iter@L184-L184 | the lemma extended
 EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-iter@L184-L184 | delta_nu, b, R_j, the oscillator domains
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-iter@L184-L184 | the Fourier norm and alpha-bar/width conventions
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1921,7 +1952,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191
 CONTRACT_ID: stepP:p2:oi-transfer
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: N Parts 5 and 6 and Lemma osc-bracket
+SOURCE_HYPOTHESES: the direct-divisor data of bpP:p2:setting with q=1, Lambda={0}, h independent of p,q; the remaining source hypotheses of N iterative, with the oscillator domains and all positive losses nu of s-osc#data, rho sigma replaced by delta_nu, and ¦g¦_R=sum_j R_j ¦g_j¦; ¦f¦_{v,S}=delta<=alpha-bar delta_nu/(16 b); transfer the homological solution, bracket and field constructions to the enlarged phase space
 SOURCE_QUANTIFIERS: each cited N statement
 SOURCE_CONCLUSION: N homological is unchanged (¦phi¦<=delta/alpha-bar); N flow holds for an arbitrary norm and open set; N symplectic uses only D F=J S with S symmetric and J^T=-J, true for the enlarged J, and N canonical follows; N adjoint, composition, transform, canonical-map use the geometry only through the bracket and field bounds: replace N bracket and vf-bound by Lemma osc-bracket and rho sigma by delta_nu
 CONSTANT_SCOPE: none
@@ -1929,7 +1960,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p2:osc-bracket, N:bpN:p6:homological, N:bpN:p5:flow, N:bpN:p5:symplectic, N:bpN:p5:canonical, N:bpN:p5:adjoint, N:bpN:p5:composition, N:bpN:p5:transform, N:bpN:p5:canonical-map, N:bpN:p4:bracket, N:bpN:p5:vf-bound, bpP:p2:s-osc#data
+DEPS: bpP:p2:osc-bracket, N:bpN:p6:homological, N:bpN:p5:flow, N:bpN:p5:symplectic, N:bpN:p5:canonical, N:bpN:p5:adjoint, N:bpN:p5:composition, N:bpN:p5:transform, N:bpN:p5:canonical-map, bpP:p2:s-osc#data, bpP:p2:direct, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:osc-bracket | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191 | replacement bracket and field bounds
@@ -1941,12 +1972,12 @@ EDGE: N:bpN:p5:adjoint | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer
 EDGE: N:bpN:p5:composition | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191 | transfer
 EDGE: N:bpN:p5:transform | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191 | transfer
 EDGE: N:bpN:p5:canonical-map | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191 | transfer
-EDGE: N:bpN:p4:bracket | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191 | replaced by osc-bracket
-EDGE: N:bpN:p5:vf-bound | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191 | replaced by osc-bracket
 EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191 | delta_nu, the enlarged J
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:direct | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191 | the homological equation under Div_1 rather than the original N hypotheses
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-transfer@L191-L191 | weighted norms, alpha-bar and Fourier widths
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1959,7 +1990,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-ratio@L192-L192
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-ratio@L192-L192
 CONTRACT_ID: stepP:p2:oi-ratio
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: N iterated bracket estimate ¦ad^h_phi u¦/h!<=(e eta/4)^h ¦u¦ with eta=2¦phi¦/(rho sigma); bracket constant 2b/delta'
+SOURCE_HYPOTHESES: the direct-divisor data of bpP:p2:setting with q=1, Lambda={0}, h independent of p,q; the remaining source hypotheses of N iterative, with the oscillator domains and all positive losses nu of s-osc#data, rho sigma replaced by delta_nu, and ¦g¦_R=sum_j R_j ¦g_j¦; ¦f¦_{v,S}=delta<=alpha-bar delta_nu/(16 b); use the generator constructed by oi-transfer
 SOURCE_QUANTIFIERS: h>=0
 SOURCE_CONCLUSION: each bracket costs a factor e b more, the ratio becomes e^2 b eta/4<=e b eta with eta:=2¦phi¦/delta_nu; theta_phi:=2 e b ¦phi¦/delta_nu; the Lie series converges with ¦ad^h_phi u¦/h!<=theta_phi^h ¦u¦ and ¦u o X^1_phi¦<=(1-theta_phi)^{-1}¦u¦, same for the integral remainders (the ratio b eta is not claimed since e^2/4>1)
 CONSTANT_SCOPE: none
@@ -1967,16 +1998,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p5:transform, N:bpN:p5:composition-integral, bpP:p2:osc-bracket, stepP:p2:oi-transfer
+DEPS: N:bpN:p5:transform, N:bpN:p5:composition-integral, bpP:p2:osc-bracket, stepP:p2:oi-transfer, N:bpN:p5:adjoint, bpP:p2:conv#data, bpP:p2:s-osc#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p5:transform | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-ratio@L192-L192 | Lie transform estimate
 EDGE: N:bpN:p5:composition-integral | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-ratio@L192-L192 | integral remainder
 EDGE: bpP:p2:osc-bracket | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-ratio@L192-L192 | bracket constant 2b/delta'
 EDGE: stepP:p2:oi-transfer | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-ratio@L192-L192 | transferred iterated-bracket estimate
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: N:bpN:p5:adjoint | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-ratio@L192-L192 | the iterated-bracket estimate with ratio e eta/4
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-ratio@L192-L192 | weighted norms, alpha-bar and Fourier widths
+EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-ratio@L192-L192 | oscillator field, losses, delta_nu and b
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1989,7 +2023,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-range@L193-L193
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-range@L193-L193
 CONTRACT_ID: stepP:p2:oi-range
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: delta<=alpha-bar delta_nu/(16 b) (assumed); eps_phi=¦phi¦/delta_nu<=1/4
+SOURCE_HYPOTHESES: the direct-divisor data of bpP:p2:setting with q=1, Lambda={0}, h independent of p,q; the remaining source hypotheses of N iterative, with the oscillator domains and all positive losses nu of s-osc#data, rho sigma replaced by delta_nu, and ¦g¦_R=sum_j R_j ¦g_j¦; ¦f¦_{v,S}=delta<=alpha-bar delta_nu/(16 b); use the source smallness delta<=alpha-bar delta_nu/(16 b)
 SOURCE_QUANTIFIERS: as in osc-iter
 SOURCE_CONCLUSION: theta_phi<=2 e b delta/(alpha-bar delta_nu)<=e/8<0.34 and (16/9) theta_phi<0.61<1, so the Lie series equals the composition at shrunken losses; (a) and (b) follow as in N iterative with 2/e->2b and 1-2 q delta/(alpha-bar rho sigma)->1-theta_phi
 CONSTANT_SCOPE: none
@@ -1997,15 +2031,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p5:composition, N:bpN:p6:iterative, stepP:p2:oi-ratio
+DEPS: N:bpN:p5:composition, N:bpN:p6:iterative, stepP:p2:oi-ratio, stepP:p2:oi-transfer, bpP:p2:conv#data, bpP:p2:s-osc#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p5:composition | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-range@L193-L193 | equality of the Lie series with the composition, remainder factor 16/9
 EDGE: N:bpN:p6:iterative | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-range@L193-L193 | (a) and (b) as in N iterative
 EDGE: stepP:p2:oi-ratio | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-range@L193-L193 | theta_phi
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: stepP:p2:oi-transfer | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-range@L193-L193 | the bound on phi needed to derive eps_phi<=1/4
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-range@L193-L193 | weighted norms, alpha-bar and Fourier widths
+EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-range@L193-L193 | oscillator field, losses, delta_nu and b
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2018,7 +2055,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-disp@L194-L194
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-disp@L194-L194
 CONTRACT_ID: stepP:p2:oi-disp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: components of X_phi
+SOURCE_HYPOTHESES: the direct-divisor data of bpP:p2:setting with q=1, Lambda={0}, h independent of p,q; the remaining source hypotheses of N iterative, with the oscillator domains and all positive losses nu of s-osc#data, rho sigma replaced by delta_nu, and ¦g¦_R=sum_j R_j ¦g_j¦; ¦f¦_{v,S}=delta<=alpha-bar delta_nu/(16 b); use the generator and flow constructed in oi-transfer and oi-range
 SOURCE_QUANTIFIERS: as in osc-iter
 SOURCE_CONCLUSION: ¦d_I phi¦<=¦phi¦/rho, ¦d_theta phi¦<=¦phi¦/(e sigma), ¦d_p phi¦<=¦phi¦/rho_p, ¦d_q phi¦<=¦phi¦/rho_q, giving the displacement bounds (a)
 CONSTANT_SCOPE: none
@@ -2026,13 +2063,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p2:osc-bracket
+DEPS: bpP:p2:osc-bracket, stepP:p2:sp-field, stepP:p2:oi-transfer, stepP:p2:oi-range, bpP:p2:conv#data, bpP:p2:s-osc#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:osc-bracket | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-disp@L194-L194 | field estimate
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: stepP:p2:sp-field | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-disp@L194-L194 | the componentwise trajectory argument explicitly reused here
+EDGE: stepP:p2:oi-transfer | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-disp@L194-L194 | the generator norm bound delta/alpha-bar
+EDGE: stepP:p2:oi-range | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-disp@L194-L194 | the established flow domain and smallness range
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-disp@L194-L194 | weighted norms, alpha-bar and Fourier widths
+EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oi-disp@L194-L194 | oscillator field, losses, delta_nu and b
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2061,9 +2103,9 @@ EDGE: stepP:p2:oa-iter | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-averaging
 EDGE: stepP:p2:oa-concl | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-averaging@L219-L219 | conclusion
 EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-averaging@L198-L198 | the setting, d, b
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:osc-averaging@L199-L199 | kappa, alpha-bar
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2076,7 +2118,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-first@L213-L215
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-first@L213-L215
 CONTRACT_ID: stepP:p2:oa-first
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: losses rho_0=r/8, rho_{p0}=r_p/8, rho_{q0}=r_q/8, sigma_0=s/6; delta_{nu_0}>=d/64; y_0=eps/(alpha-bar delta_{nu_0})<=1/(64 b kappa)<=1/16, eps=E
+SOURCE_HYPOTHESES: the setting of s-osc#data; h holomorphic on V_r D, real, omega=d h (h independent of p,q); alpha>0; K>0; kappa=2 pi K s>=6; (O1) ¦k.omega(I)¦>=alpha for I in V_r D, 0<¦k¦_1<=K; (O2) f in O(v,s-bar+s) real, E:=¦f¦_{v,s-bar+s} with 2^12 b K E s<=alpha d; eps=E; put rho_0=r/8, rho_p0=r_p/8, rho_q0=r_q/8, sigma_0=s/6
 SOURCE_QUANTIFIERS: cases A (e^{-kappa/6}<=2 b y_0), B
 SOURCE_CONCLUSION: eps_1<=(1-2 e b y_0)^{-1}(2 b y_0+e^{-kappa/6}) eps; Case A: eps_1<=0.08 eps/kappa and eps_1<=294 b eps^2/(alpha-bar d); Case B (doubled losses): ¦f_1¦<=e^{-kappa/6} eps, stop with g=f^_0, displacements <3 eps/(alpha-bar s), <=4 eps/(alpha-bar r), <=4 eps/(alpha-bar r_q), <=4 eps/(alpha-bar r_p)
 CONSTANT_SCOPE: none
@@ -2084,14 +2126,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p2:osc-iter, bpP:p2:s-osc#data
+DEPS: bpP:p2:osc-iter, bpP:p2:s-osc#data, bpP:p2:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:osc-iter | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-first@L213-L213 | (b) with ¦g¦_R=0
 EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-first@L213-L213 | delta_nu, b
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-first@L213-L213 | the norm, kappa and alpha-bar
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2104,7 +2147,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-iter@L216-L218
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-iter@L216-L218
 CONTRACT_ID: stepP:p2:oa-iter
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Case A; N=floor(kappa/(12 ln 2))<kappa/8; schedule of nfb-N
+SOURCE_HYPOTHESES: the setting of s-osc#data; h holomorphic on V_r D, real, omega=d h (h independent of p,q); alpha>0; K>0; kappa=2 pi K s>=6; (O1) ¦k.omega(I)¦>=alpha for I in V_r D, 0<¦k¦_1<=K; (O2) f in O(v,s-bar+s) real, E:=¦f¦_{v,s-bar+s} with 2^12 b K E s<=alpha d; Case A of oa-first; N=floor(kappa/(12 ln 2)); split N=0 and N>=1
 SOURCE_QUANTIFIERS: 1<=i<=N
 SOURCE_CONCLUSION: N=0: stop; N>=1: losses rho=r/8N, rho_p=r_p/8N, rho_q=r_q/8N, sigma=s/4N, delta_nu>=d/(64N^2), eps/N<=alpha-bar d/(2^15 b N^2) (2.3), eps_1<=0.08 eps/(8N); ¦g_{i-1}¦_R+eps_i<=1.02 eps/N, x<=0.004, 2 e b u_i<1.1e-4 and eps_{i+1}<=(128/127)(0.004+1/8) eps_i<eps_i/4, so eps_i<=4^{1-i} eps_1
 CONSTANT_SCOPE: none
@@ -2112,15 +2155,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p2:nfb-N, bpP:p2:osc-iter, stepP:p2:oa-first
+DEPS: stepP:p2:nfb-N, bpP:p2:osc-iter, stepP:p2:oa-first, bpP:p2:conv#data, bpP:p2:s-osc#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p2:nfb-N | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-iter@L216-L216 | the schedule of radii and budget
 EDGE: bpP:p2:osc-iter | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-iter@L218-L218 | (b) at each step
 EDGE: stepP:p2:oa-first | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-iter@L217-L217 | eps_1 bounds of Case A
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-iter@L216-L216 | the norm, kappa and alpha-bar
+EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-iter@L216-L216 | oscillator radii, b, d and delta_nu
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2133,7 +2178,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-concl@L219-L219
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-concl@L219-L219
 CONTRACT_ID: stepP:p2:oa-concl
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: eps_i<=4^{1-i} eps_1; Lemma osc-iter(a)
+SOURCE_HYPOTHESES: the setting of s-osc#data; h holomorphic on V_r D, real, omega=d h (h independent of p,q); alpha>0; K>0; kappa=2 pi K s>=6; (O1) ¦k.omega(I)¦>=alpha for I in V_r D, 0<¦k¦_1<=K; (O2) f in O(v,s-bar+s) real, E:=¦f¦_{v,s-bar+s} with 2^12 b K E s<=alpha d; Case A and N>=1; use the constructed finite sequence of maps
 SOURCE_QUANTIFIERS: as in osc-averaging
 SOURCE_CONCLUSION: ¦f_*¦<=4^{-(N+1)} eps<=e^{-kappa/6} eps; ¦g-f^_0¦<=(4/3) eps_1<=400 b eps^2/(alpha-bar d); displacements I: (1/(e alpha-bar s))(6 eps+4N(4/3)eps_1)<=2.3 eps/(alpha-bar s), theta: <=8.2 eps/(alpha-bar r) (N eps_1<=0.01 eps), same for p, q with r_q, r_p
 CONSTANT_SCOPE: none
@@ -2141,7 +2186,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p2:nfb-concl, bpP:p2:osc-iter, N:bpN:p6:telescope, stepP:p2:oa-iter, stepP:p2:oa-first
+DEPS: stepP:p2:nfb-concl, bpP:p2:osc-iter, N:bpN:p6:telescope, stepP:p2:oa-iter, stepP:p2:oa-first, bpP:p2:conv#data, bpP:p2:s-osc#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p2:nfb-concl | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-concl@L219-L219 | same conclusion argument as for the proposition
@@ -2149,9 +2194,11 @@ EDGE: bpP:p2:osc-iter | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-concl@L21
 EDGE: N:bpN:p6:telescope | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-concl@L219-L219 | telescoping displacements
 EDGE: stepP:p2:oa-iter | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-concl@L219-L219 | eps_i<=4^{1-i} eps_1
 EDGE: stepP:p2:oa-first | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-concl@L219-L219 | eps_1 bound
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-concl@L219-L219 | the norm, kappa and alpha-bar
+EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:oa-concl@L219-L219 | oscillator radii, b, d and delta_nu
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2180,9 +2227,9 @@ EDGE: stepP:p2:ar-collect | blueprint-P/parts/p2-averaging.tex#bpP:p2:averaged-r
 EDGE: bpP:p2:osc-averaging | blueprint-P/parts/p2-averaging.tex#bpP:p2:averaged-remainder@L229-L229 | the map phi-bar is that of the proposition
 EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:averaged-remainder@L223-L223 | D_{v_0,s_0}, norm, d, b=1+m
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:averaged-remainder@L224-L224 | kappa, alpha-bar
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2195,7 +2242,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:ar-apply@L236-L236
 PROOF_SOURCE: blueprint-P/parts/p2-averaging.tex#stepP:p2:ar-apply@L236-L236
 CONTRACT_ID: stepP:p2:ar-apply
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: f=mu P, E=mu, s-bar=0, s=s_0, r=rho-bar, r_p=r_q=eps_0, h=H_0; (R1)=(O1), (R2)=(O2)
+SOURCE_HYPOTHESES: n=n_1>=1, m=n_2>=1; D-bar subset R^n; rho-bar, eps_0>0; s_0>0 (geometric); 0<epsilon<e^{-1/5}; mu>0; v_0=(rho-bar,eps_0,eps_0); H=H_0(I)+mu P(theta,I,p,q), H_0 holomorphic on V_{rho-bar}D-bar and real, P in O(v_0,s_0) real with ¦P¦_{v_0,s_0}<=1; <P>:=int_{T^n}P d theta=P^_0; K chosen by e^{-2 pi K s_0/6}=epsilon^5 (K=(15/(pi s_0)) log(1/epsilon), kappa=30 log(1/epsilon)>=6); alpha-bar=2 pi alpha, d=min{rho-bar s_0,eps_0^2}; (R1) ¦k.dH_0(I)¦>=alpha for I in V_{rho-bar}D-bar, 0<¦k¦_1<=K; (R2) 2^12(1+m) K s_0 mu<=alpha d; specialize f=mu P, s-bar=0, s=s_0, r=rho-bar, r_p=r_q=eps_0, h=H_0; use mu as the upper bound for the actual E=¦mu P¦<=mu
 SOURCE_QUANTIFIERS: as in the proposition
 SOURCE_CONCLUSION: Proposition osc-averaging gives H o phi-bar=H_0+g+f_*, and f^_0=mu <P>
 CONSTANT_SCOPE: none
@@ -2203,13 +2250,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p2:osc-averaging
+DEPS: bpP:p2:osc-averaging, bpP:p2:conv#data, bpP:p2:s-osc#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:osc-averaging | blueprint-P/parts/p2-averaging.tex#stepP:p2:ar-apply@L236-L236 | applied with (O1), (O2) given by (R1), (R2)
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ar-apply@L236-L236 | the norm, kappa and alpha-bar
+EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ar-apply@L236-L236 | the oscillator radii, b and d
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2230,14 +2279,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p2:osc-averaging, stepP:p2:ar-apply
+DEPS: bpP:p2:osc-averaging, stepP:p2:ar-apply, bpP:p2:conv#data, bpP:p2:s-osc#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:osc-averaging | blueprint-P/parts/p2-averaging.tex#stepP:p2:ar-collect@L237-L237 | bounds on ¦g-f^_0¦ and ¦f_*¦
 EDGE: stepP:p2:ar-apply | blueprint-P/parts/p2-averaging.tex#stepP:p2:ar-collect@L237-L237 | H o phi-bar=H_0+g+f_* and f^_0=mu<P>
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ar-collect@L237-L237 | the norm, kappa and alpha-bar
+EDGE: bpP:p2:s-osc#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:ar-collect@L237-L237 | the oscillator radii, b and d
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2258,19 +2309,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:period-convert, bpP:p2:averaged-remainder, bpP:p2:conv#data
+DEPS: bpP:p2:averaged-remainder, bpP:p2:conv#data, bpP:p1:chart
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p1:period-convert | blueprint-P/parts/p2-averaging.tex#bpP:p2:use5@L243-L243 | the canonical chart as a c-chart with c=1
 EDGE: bpP:p2:averaged-remainder | blueprint-P/parts/p2-averaging.tex#bpP:p2:use5@L243-L243 | (R2), d and the displacement bounds being converted
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:use5@L243-L243 | norm and widths
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: bpP:p1:chart | blueprint-P/parts/p2-averaging.tex#bpP:p2:use5@L243-L243 | the displayed chart has conformal factor 1; L244 computes preservation of the angle/action form
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: kept as a node: Part 5 (steps av-dict, av-id) cites it for the conversion of the averaged-remainder statement to CP conventions; the SPEC lists it as an example of an administrative remark, reviewer to confirm. The remark (1) delegates the inequality mu/(alpha-bar d)<=C epsilon^5 to Part 5 and is not consumed here
+NOTE: Retain the mathematical dictionary (3): Part 5 steps av-dict and av-id consume it at L176 and L179. SPEC administrative exclusions have an explicit consumed-fact exception. The reference to period-convert with c=1 is a misleading pointer: the chart here rescales the angle and action reciprocally. Paragraph (1) delegates its estimate to Part 5 and creates no dependency on a Part 5 theorem.
 
 NODE: bpP:p1:conv#data
 KIND: definition
@@ -2280,7 +2331,7 @@ PROOF_SOURCE: -
 CONTRACT_ID: bpP:p1:conv#data
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: none (conventions; typing data: d, the frozen phase space, form and field of Part 0)
-SOURCE_QUANTIFIERS: d >= 1; z=(z_1,z_2) in Ph_d=R^d x R^d (positions, momenta), max norms, Lebesgue measure; k in Z^d; c>0
+SOURCE_QUANTIFIERS: d in N; z=(z_1,z_2) in Ph_d=R^d x R^d (positions, momenta), max norms, Lebesgue measure; k in Z^d; c>0
 SOURCE_CONCLUSION: defines M_0=((0,-1),(1,0)), J_0=-M_0; the frozen form Omega(v,w)=sum_i(v_{2,i}w_{1,i}-v_{1,i}w_{2,i})=v^T M_0 w; X_ell:=((ell(0,e_i))_i,(-ell(e_i,0))_i) for a linear form ell, so X_H(z)=X_{DH(z)} and X_H(z)=0 where H is not differentiable (Lean totality); iota_k:=((k_i)_i,0); S_c(z_1,z_2):=(c z_1,z_2)
 CONSTANT_SCOPE: M_0, J_0 absolute; X_ell depends on ell only; iota_k on k only; S_c on c>0 only
 FROZEN_FILE: -
@@ -2293,9 +2344,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:conv#data@L17-L17 | the phase space Ph_d and its max-norm and Lebesgue conventions
 EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:conv#data@L17-L17 | the frozen form Omega is restated as v^T M_0 w
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:conv#data@L17-L17 | X_H(z)=X_{DH(z)} and X_H=0 off differentiability points
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2316,14 +2367,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: N:bpN:p4:norm, N:bpN:p4:domains
+DEPS: N:bpN:p4:norm, N:bpN:p4:domains, N:bpN:p6:ext-numerics
 ROUTES: -
 ROUTE_FOR: -
 EDGE: N:bpN:p4:norm | blueprint-P/parts/p2-averaging.tex#bpP:p2:conv#data@L25-L25 | the norm ¦u¦_{r,s} is that of track N
 EDGE: N:bpN:p4:domains | blueprint-P/parts/p2-averaging.tex#bpP:p2:conv#data@L26-L26 | the domains T_s and V_r D
-TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+EDGE: N:bpN:p6:ext-numerics | blueprint-P/parts/p2-averaging.tex#bpP:p2:conv#data@L36-L36 | the explicitly inherited numerical facts 12 ln 2>8 and sum 4^{1-i}=4/3
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p1p2+sol-review-P-d
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2349,10 +2401,37 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#bpP:p2:s-osc#data@L167-L167 | the N norm, D_{r,s} and V_r D
 EDGE: N:bpN:p4:norm | blueprint-P/parts/p2-averaging.tex#bpP:p2:s-osc#data@L167-L167 | norm of N with the sup over (I,p,q)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: -
+REVIEWER: sol-review-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: section data of Part 2 (prose L167-L169)
+
+NODE: stepP:p1:hc-real-derivative
+KIND: step
+TITLE: Real derivative on the real slice of an arbitrary complex open set
+STATEMENT_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L73-L76
+PROOF_SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L76-L76
+CONTRACT_ID: stepP:p1:hc-real-derivative
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: c>0; V subset C^{2d} open; Psi:V->C^{2d} holomorphic, real at real points; D Psi(z)^T M_0 D Psi(z)=c M_0 (complex matrices) for z in V cap R^{2d}; O=V cap R^{2d}
+SOURCE_QUANTIFIERS: each real z in V
+SOURCE_CONCLUSION: D_R(Psi restricted to V cap R^{2d})(z) equals the restriction of D_C Psi(z), so the complex matrix identity restricts to the real chart identity
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: K:bp:p1:holomorphic-analytic
+ROUTES: -
+ROUTE_FOR: -
+EDGE: K:bp:p1:holomorphic-analytic | blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L76-L76 | part (b) supplies real analyticity on the real slice, but not the explicitly needed derivative identification
+TOPOLOGY_STATUS: REVIEWED
+EXTRACTOR: new+sol-review-P-d
+REVIEWER: sol-delta-P-d
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: SOURCE_GAP: The source invokes K real-restriction for arbitrary open V. Its statement at blueprint/parts/p1-analysis.tex L1047-L1051 only treats a whole strip T_rho. K holomorphic-analytic(b), L296-L312, supplies real analyticity on arbitrary open sets, but does not state the derivative identification used here. No general-domain derivative bridge is supplied by an allowed external or an applicable imported statement; retain this obligation without strengthening the hypotheses.
