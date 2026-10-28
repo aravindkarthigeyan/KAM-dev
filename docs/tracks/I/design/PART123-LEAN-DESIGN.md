@@ -1,21 +1,21 @@
 # Lean design for blueprint-I Parts 1–3 (I-G1, `KAM.Iso.isoenergetic_kam`)
 
-Design v1, 2026-10-28, branch `inp-design-i123` (brief `.drafts/briefs/offload-main/DESIGN-I123.md`). Planning
+Design v2 (revision after audit `PART123-design-audit-1.md`, see section 10), 2026-10-28, branch `inp-design-i123` (brief `.drafts/briefs/offload-main/DESIGN-I123.md`). Planning
 evidence, not approved Lean. Nothing here is frozen; no frozen file or manifest entry is touched. Modeled on track K's
 `PART23-LEAN-DESIGN.md` (audited PASS, executed: G1 and G2 sealed) and on `docs/tracks/I/design/PART58-LEAN-DESIGN.md`
 (the Part 5/8 design, whose Part 3 interface this design implements).
 
 **The signatures.** Every result node of `p1-iso-linear`, `p2-iso-iteration` and `p3-iso-local-charts` has its exact
 Lean statement in `.drafts/design/IPart123Signatures.lean` (untracked; copied verbatim in Appendix A).
-- 1494 lines (under the 1500 cap), sha256 `a81599cdd34ceac46f9268f50ad58fbd9bfa64fcc8c35ee0dd44c75379a8452f`.
+- 1483 lines (under the 1500 cap), sha256 `2b7c6e337d0fedcbb186e44e83597989f49502efe55fcde6605f9c29b69d8dbe`.
 - `cd /root/code/KAM && LEAN_NUM_THREADS=1 nice -n 5 lake env lean /root/code/KAM-inp-design-i123/.drafts/design/IPart123Signatures.lean`
-  exits 0 against `main`'s build snapshot (HEAD `7428a8f` at run time): 37–61 s wall, 3.1 GB RSS, one process. It prints
+  exits 0 against `main`'s build snapshot (HEAD `7428a8f` at run time): 30–61 s wall, 3.3 GB RSS, one process. It prints
   45 diagnostics, all `declaration uses 'sorry'`; no other warning, no `set_option`, no heartbeat override, no
   `EuclideanSpace`. It runs against `main`'s build because the worktree's base (`inp` at `6de19bf`) had neither the
   late K modules nor a build of them (section 4.3); the frozen Iso definitions are byte-identical on `main` and `inp`
   (`diff -rq`, checked).
 - 50 theorems (45 `sorry`, 5 proved: three `rfl`/`ext` bridges, `part3_tori_of`, and the provider `part3_tori`),
-  79 `def`/`abbrev` (6 of them copied from Part 5), 15 structures, 4 `example`s. Section U copies the Part 5
+  80 `def`/`abbrev` (6 of them copied from Part 5), 15 structures, 4 `example`s. Section U copies the Part 5
   interface verbatim from `IPart58Signatures.lean` (it lives in Part 5's `KAM/Iso/Confinement/Setting.lean`).
 - Not `sorry` (section P, scratch imports of the anchors): `example : type_of% @KAM.Iso.isoenergetic_kam := fun … =>
   ⟨_, _, _, KAM.Iso.Apost.g1_explicit …⟩` checks the provider body against the EXACT frozen type; two `example`s check
@@ -52,7 +52,8 @@ Lean statement in `.drafts/design/IPart123Signatures.lean` (untracked; copied ve
    `ShConst`, `sigmaOmegaConst`, …), on top of K Part 4's.
 5. **Quarantine.** No implementation module imports I-G1, a provider, or any frozen theorem (PROVER-COMMON, also for
    sealed anchors). Part 3 applies I-G1 and G3 through two premises, `IG1Statement` and `G3Statement`: verbatim copies of
-   the frozen types (checked by `example` against the anchors). This is the K Part 4 `GValid` precedent, in `∀` form
+   the frozen types (checked by `example` against the anchors); `IG1Body` is the frozen inner body, kept whole at the
+   chosen tuple by `apply` (audit F1) and used to state `g1_explicit`. This is the K Part 4 `GValid` precedent, in `∀` form
    because the rays (hence the I-G1 tuples) are chosen inside Part 3. The I-HEAD provider discharges them; so does,
    without any seal, `g1_explicit` (section 8).
 6. **One genuinely new analytic lemma.** `border_solve` (HL19 Lemma 6.1, supplied in full by the blueprint). Everything
@@ -133,8 +134,9 @@ never `IntegrableOn` at a `Matrix` codomain). Additions:
   (`dio_open`, `rays`, `patch_rays`, `tori`): the blueprint's "Apply Theorem `bpI:p0:g1`", "`\Kref{bp:p0:g3}` gives". They
   are the frozen types verbatim (§P checks), never a Part 3 conclusion. This is K Part 4's accepted `GValid` design in
   `∀` form; the risk of an auditor rejecting it is the same (section 9).
-- `part3_tori_of` (`tori` projected to Part 5's interface) carries the two premises and has a distinct name; Part 5's
-  `part3_tori` (premise-free, verbatim signature) is a provider-level corollary.
+- `part3_tori_of` (`tori` projected to Part 5's generic interface, forgetting the charts and rays) carries the two
+  premises and has a distinct name; Part 5's `part3_tori` (premise-free, verbatim signature) is a provider-level
+  corollary.
 
 ### 2.3 Constants
 
@@ -168,7 +170,7 @@ R = reuse of a K (or Part 5) declaration, W = thin wrapper / re-assembly of K he
 
 | Node | Lean | Module | Class / K reused |
 |---|---|---|---|
-| `setting` | `Setting` | `Linear/Defs` | W: extends `KAM.Apost.Standing` |
+| `setting` | `Setting` | `Linear/Defs` | W: extends `KAM.Apost.Standing`. **Specialization (N1):** K's `Params` force `n ≥ 2`, `τ ≥ n-1`, `σ`'s `> 0` where the source states `τ ≥ 0`; every Part 1 declaration is a specialized implementation of its `τ ≥ 0` statement (sufficient for I-G1, whose data have `τ ≥ n-1`), not a formalization of the full range |
 | `setting#k-bridge` | projection `Setting.toStanding`; `KAM.Torus.frozen_agreement` | — | R |
 | `ray` | `isDiophantine_smul` | `Linear/Tools` | N (5 lines) |
 | `ext-chain` | none (Mathlib `HasFDerivAt.comp`, `fderiv_add`, `fderiv_const`; `KAM.Matrix.Calculus`) | — | external |
@@ -227,10 +229,10 @@ R = reuse of a K (or Part 5) declaration, W = thin wrapper / re-assembly of K he
 | `points` | `points` | `Charts/Points` | N |
 | `hypothesis-d` | `hypothesis_d` | `Charts/Torus` | W: K `derivative_bounds_design`, `h1_domainD_add_intCast`, `h1_domainD_subset_domain`, `norm_iteratedFDeriv_hbold_le`, `cbar_mul_le_derivConstM`, `isOpen_domainD` (none takes `KAM.Head.Data`) |
 | `torus` | `flatRemainder`; `torus` | `Charts/Torus` | N on K `UnperturbedFrame`, `ball_unperturbedTorus_subset_domainD`, `unperturbed_actionHessian_apply`, `actionHessian`; `last_row` (a), `neumann_fintype` |
-| `apply` | `apply` (premise `IG1Statement`) | `Charts/Apply` | N |
-| `apply#constants` | the leading `∃ C₁ C₂ C₃` of `apply` (fixed per patch and ray, before `f, ε, E`) | `Charts/Apply` | — |
+| `apply` | `apply` (premise `IG1Statement`), last conjunct | `Charts/Apply` | N |
+| `apply#constants` | the leading `∃ C₁ C₂ C₃, 0 < C₁ ∧ 0 < C₂ ∧ 0 < C₃ ∧ IG1Body 2 2 … ωs C₁ C₂ C₃` of `apply`: the full frozen conditional body at the chosen tuple, fixed per patch and ray before `f, ε, E` (audit F1) | `Charts/Apply` | — |
 | `uniform` | `uniform` (finite min/max, existence) | `Charts/Tori` | N |
-| `tori` | `ToriSide`; `tori`; projection `part3_tori_of` | `Charts/Tori` | N |
+| `tori` | `ToriSide`; `tori` (outside `f, ε, I₀, E`: `p.c ∈ closure B'`, `p.W ⊆ 𝒰_c`, `p.m = chartM h p.c`, the two fixed rays `IsRay … (γp p) (ωsp p) p.mPlus` / `(γm p) (ωsm p) p.mMinus`; inside: output frequencies `sp • ωsp p`, `sm • ωsm p`; audit F2); separately named projection `part3_tori_of` to Part 5's generic interface | `Charts/Tori` | N |
 
 `bpI:p0:g1` (frozen anchor): provider `KAM.Provider.Iso.isoenergetic_kam` (section 8). Step nodes are proved inside
 their result node's package; the three bridge steps are mapped above.
@@ -257,6 +259,7 @@ their result node's package; the three bridge steps are mapped above.
 | D16 | `p3:cover`, `patch-rays`, `uniform` | existence forms (finite family of patch data indexed by a `Finset` of centres; rays and `ε₁, C_K` existential) | only bounds are used (PART58 D1) |
 | D17 | `p3:points` | one ray per statement (both signs are instances); the homeomorphism of the energy segment as `Set.BijOn` | symmetry; the restriction of the homeomorphism `Φ|W` |
 | D18 | `p3:apply`, `tori` | premises `IG1Statement`, `G3Statement` | quarantine (§2.2) |
+| D20 | `p2:g1`, `p3:apply` | the frozen inner body is the definition `IG1Body` (verbatim); `g1_explicit` states `0 < C₁ ∧ 0 < C₂ ∧ 0 < C₃ ∧ IG1Body …`, definitionally the frozen body (§P `type_of%` check unchanged) | one copy of the body; 1500-line cap |
 | D19 | `p3:tori` (T6) | `K(θ)₂ ∈ 𝒮` for real `θ` as `∃ J ∈ 𝒮, (K (toC x)).2 = toC J` | complex carrier (B8) |
 
 ## 4. Reuse map K → I and the merge state
@@ -375,7 +378,7 @@ Sizes are estimates; hard cap 1500 lines, target ≤ 800.
 | `Apost/Limit.lean` | `limit`, `energy_limit` | 550 |
 | `Apost/G1.lean` | `g1_explicit` | 300 |
 | `KAM/Provider/Iso/IsoenergeticKam.lean` | provider (exists, empty, quarantined) | 60 |
-| `KAM/Iso/Charts/Inputs.lean` | `IG1Statement`, `G3Statement` (imports frozen definitions and Mathlib only) | 70 |
+| `KAM/Iso/Charts/Inputs.lean` | `IG1Body`, `IG1Statement`, `G3Statement` (imports frozen definitions and Mathlib only) | 80 |
 | `Charts/Defs.lean` | bridges, Part 3 constants and coordinate defs, `IsPatch`, `toEnergyPatch`, `IsRay`, `flatRemainder`, `ToriSide` | 250 |
 | `Charts/Constants.lean` | `compact` | 300 |
 | `Charts/Coordinates.lean` | `det_identity`, `coordinates`, `slope_ray` | 450 |
@@ -407,6 +410,7 @@ Apost'.Correction, Linear.NoTwist, [Strip.Limits, Strip.Bridges]      ← Apost'
 Apost'.NewtonError, Apost'.Torsion                                    ← Apost'.Step
 Apost'.ConstantsArith, [Apost.Schedule, Analysis.Iteration]           ← Apost'.Schedule
 Apost'.Step, Apost'.Schedule                                          ← Apost'.Iteration ← Apost'.Limit [Apost.Limit] ← Apost'.G1 ← Provider.Iso.IsoenergeticKam
+Charts.Inputs                                                          ← Apost'.G1   (`IG1Body`)
 [Frozen.Iso.Defs.*, Frozen.Defs.*]                                     ← Charts.Inputs
 {P5}, Charts.Inputs, Linear.Defs, [Head.Data, Head.Defs, Head.Adapters] ← Charts.Defs
 Charts.Defs, Linear.FreqMap, [Head.HBounded]                           ← Charts.Constants ← Charts.Coordinates ← Charts.Chart
@@ -416,7 +420,7 @@ Charts.Points, Charts.Torus                                            ← Chart
 Charts.Tori, Confinement.Main, [sealed Frozen.Iso.Theorems.IsoenergeticKam, Frozen.Theorems.VolumeNotDiophantineLe] ← Provider.Iso.AllTimeConfinement
 ```
 No implementation module imports a provider or a frozen theorem; only frozen definitions (`KAM/Frozen/**/Defs`). Part 3
-does not import Part 2 (it uses I-G1 only through `IG1Statement`).
+does not import Part 2 (it uses I-G1 only through `IG1Statement`); Part 2 imports only the light `Charts/Inputs`.
 
 ## 7. Prover packages
 
@@ -489,8 +493,8 @@ recommended, with the Part 3 interface audited jointly with `PART58` section I.
 
 ### 8.1 I-G1
 
-`g1_explicit` has the frozen body verbatim with `C₁, C₂, C₃` replaced by `isoC1 …`, `isoC2 …`, `isoC2 …` and the frozen
-binders in the frozen order. The provider is one anonymous constructor (checked by `example : type_of%
+`g1_explicit` states `0 < isoC1 … ∧ 0 < isoC2 … ∧ 0 < isoC2 … ∧ IG1Body n τ … ωstar (isoC1 …) (isoC2 …) (isoC2 …)`,
+with `IG1Body` the frozen inner body verbatim (D20), and the frozen binders in the frozen order. The provider is one anonymous constructor (checked by `example : type_of%
 @KAM.Iso.isoenergetic_kam := …` in §P):
 ```lean
 -- KAM/Provider/Iso/IsoenergeticKam.lean   (public import KAM.Iso.Apost.G1)
@@ -507,9 +511,13 @@ of `K_∞` is used), and the `rpow` identity `2Ĉ_Δ e/(γ²δ₀^a) = isoC2 · 
 
 Part 5 (`PART58` §10.1) consumes `ChartCover` and `ToriExistence` through `part3_tori (hd) (hne)`. This design delivers:
 - `KAM.Iso.Charts.tori (hd) (hne) (hG1 : IG1Statement) (hG3 : G3Statement)`: the full (T1)–(T7) (`ToriSide`), over
-  patches built by `IsPatch.toEnergyPatch` (so `p.m = chartM h p.c`, `p.Ψ` is the chart inverse, slopes are ray
-  slopes), `η₁ = eta1 η B B'`, `F₁ = Fconst 2 s₀ r₀ 1` (as Part 5's `ChartCover.dbound` needs);
-- `part3_tori_of` (same premises): exactly Part 5's conclusion; proof written out (projection, checked).
+  patches built by `IsPatch.toEnergyPatch`, with `η₁ = eta1 η B B'`, `F₁ = Fconst 2 s₀ r₀ 1` (as Part 5's
+  `ChartCover.dbound` needs). Before the `f, ε, I₀, E` quantifiers it records, for every patch, `p.c ∈ closure B'`,
+  `p.W ⊆ 𝒰_c`, the chart identity `p.m = chartM h p.c` (so the T7 ordering is about the gradient-direction slope
+  `m_c`) and the two rays `ωsp p`, `ωsm p` with their Diophantine constants; the output frequencies are `sp • ωsp p`,
+  `sm • ωsm p` with `1 < sp, sm < σ_ω` (audit F2). No input premise was added;
+- `part3_tori_of` (same premises), a separately named projection that forgets the charts and rays: exactly Part 5's
+  generic conclusion; proof written out (checked).
 - `part3_tori` with Part 5's verbatim signature lives in the I-HEAD provider `KAM/Provider/Iso/AllTimeConfinement.lean`,
   body `KAM.Iso.Charts.part3_tori_of hd hne @KAM.Iso.isoenergetic_kam @KAM.volume_not_diophantine_le` (checked).
   It needs the I-G1 seal. **Seal-free alternative** (orchestrator's call): add to `Apost/G1.lean` (importing the light
@@ -525,7 +533,7 @@ are Part 5's; `TorusOutput.close` uses `(θ, toC I)`, which is `unperturbedTorus
 
 ### 9.1 Elaboration
 
-The signatures alone take 37–61 s wall and 3.1 GB with one thread (no statement is slow).
+The signatures alone take 30–61 s wall and 3.3 GB with one thread (no statement is slow).
 - **Large conjunctions** (`border_solve` 5 groups, `iteration` 6, `torus` 6, `correction` 5): one helper per item,
   assemble by anonymous constructor; never one tactic block for a whole conjunction.
 - **`Fin n ⊕ Unit` blocks**: work with `fromBlocks_multiply`, `fromBlocks_mulVec`, `replicateCol/replicateRow`
@@ -561,6 +569,18 @@ implicits: write `fun {_} hn {_} hτ …` (as in §P).
 
 B1, B2, B5, B6, B7, B8 above (blueprint-I wording), and B9 (Part 5 design text). No defect in HL19 beyond the
 blueprint's E1–E5; no doubt about the frozen I-G1, which is proved as stated.
+
+## 10. Audit fixes (audit 1, `PART123-design-audit-1.md`, verdict FAIL on F1, F2)
+
+| Finding | Resolution |
+|---|---|
+| F1 medium: `apply` did not keep the frozen conditional body at the chosen G1 tuple (`bpI:p3:apply#constants`) | Adopted the audit's replacement: new definition `IG1Body` (frozen inner body, verbatim; `Charts/Inputs`), and `apply` now concludes `∃ C₁ C₂ C₃, 0 < C₁ ∧ 0 < C₂ ∧ 0 < C₃ ∧ IG1Body 2 2 (rhoIso s₀) (rhoInf s₀) (Mconst …) (sigmaKConst …) (sigmaKConst …) (sigmaTConst …) (muParam …) γ (sigmaOmegaConst …) (nuConst …) ωs C₁ C₂ C₃ ∧ <local application>` (K `GValid` precedent). `IG1Statement` is restated through `IG1Body` (definitionally the same; the §P `example` against the anchor still checks), and so is `g1_explicit` (D20), which keeps the file under the cap. |
+| F2 medium: `tori` lost `p.m = chartM h p.c`, the centres' membership and the per-patch rays fixed before `f, ε, I₀, E` | Adopted the audit's `tori_corrected` as `tori`: functions `γp γm ωsp ωsm` on patches and, outside the perturbation quantifiers, `p.c ∈ closure B' ∧ p.W ⊆ chartDom h B r₀ p.c ∧ p.m = chartM h p.c ∧ IsRay … p.mPlus ∧ IsRay … p.mMinus`; inside, `ωp = sp • ωsp p`, `ωm = sm • ωsm p` with `1 < sp, sm < σ_ω`. No input premise added. `part3_tori_of` stays the separately named generic projection (proof updated to skip the new conjuncts); Part 5's `part3_tori` signature is unchanged and its provider body still checks. |
+| N1 low: Part 1 specialized to `τ ≥ n-1` | Recorded in the node table (`setting` row): Part 1 declarations are specialized implementations of the `τ ≥ 0` source statements. |
+| N2 low: draft is not a landable module | Acknowledged: the module split, `module`/`public section` wrappers, `@[expose]` and provider quarantine apply at landing (sections 6–7). |
+
+Re-elaborated: `cd /root/code/KAM && LEAN_NUM_THREADS=1 nice -n 5 lake env lean …/IPart123Signatures.lean`, exit 0, 45
+diagnostics, all `declaration uses 'sorry'`; the §P provider and premise checks pass.
 
 ## Appendix A. `.drafts/design/IPart123Signatures.lean` (verbatim)
 
@@ -715,6 +735,62 @@ structure ToriExistence (B : Set (Fin 2 → ℝ)) (s₀ r₀ : ℝ) (h : (Fin 2 
           TorusOutput h f ε C_K s₀ E Km Im ωm ∧ Im = p.Ψ (E, p.mMinus)
 
 end KAM.Iso.Confinement
+
+/-! ## C0. `KAM/Iso/Charts/Inputs.lean`: the frozen I-G1 and G3, verbatim (checked in §P); used by
+Part 3 as premises and by `Apost/G1` for the statement of `g1_explicit` -/
+
+namespace KAM.Iso.Charts
+
+open KAM
+
+/-- The body of the frozen I-G1 after `∃ C₁ C₂ C₃, 0 < C₁ ∧ 0 < C₂ ∧ 0 < C₃ ∧`, verbatim. -/
+def IG1Body (n : ℕ) (τ ρ ρinf M σK σB σT μ γbar σω ν : ℝ) (ωstar : Fin n → ℝ) (C₁ C₂ C₃ : ℝ) :
+    Prop :=
+  ∀ (D : Set ((Fin n → ℂ) × (Fin n → ℂ))) (H : (Fin n → ℂ) × (Fin n → ℂ) → ℂ)
+    (K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) (s γ e E₀ : ℝ),
+    IsOpen D → (∀ z ∈ D, ∀ k : Fin n → ℤ, (z.1 + (fun i => (k i : ℂ)), z.2) ∈ D) →
+    DifferentiableOn ℂ H D → (∀ z ∈ D, ∀ k : Fin n → ℤ, H (z.1 + (fun i => (k i : ℂ)), z.2) = H z) →
+    (∀ θ I : Fin n → ℝ, ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ))) ∈ D →
+      (H ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ)))).im = 0) →
+    (∀ z ∈ D, ‖fderiv ℂ H z‖ ≤ M ∧ ‖hamiltonianVectorFieldℂ H z‖ ≤ M ∧
+      ‖fderiv ℂ (hamiltonianVectorFieldℂ H) z‖ ≤ M ∧
+      ‖iteratedFDeriv ℂ 2 (hamiltonianVectorFieldℂ H) z‖ ≤ M ∧ ‖iteratedFDeriv ℂ 2 H z‖ ≤ M) →
+    DifferentiableOn ℂ K (complexStrip n ρ) → IsPrimaryOnStrip K ρ → IsRealOnReals K →
+    (∀ θ ∈ complexStrip n ρ, Metric.ball (K θ) μ ⊆ D) →
+    (∀ θ ∈ complexStrip n ρ, ‖fderiv ℂ K θ‖ ≤ σK - μ) →
+    (∀ θ ∈ complexStrip n ρ, IsUnit (gramMatrix K θ).det ∧
+      ∀ i, ∑ j, ‖(gramMatrix K θ)⁻¹ i j‖ ≤ σB - μ) →
+    IsUnit (KAM.Iso.extendedTorsionAverage H K (s • ωstar)).det →
+    (∀ i, ∑ j, ‖(KAM.Iso.extendedTorsionAverage H K (s • ωstar))⁻¹ i j‖ ≤ σT - μ) →
+    1 < s → s < σω → ν ≤ (s - 1) * ‖ωstar‖ → ν ≤ (σω - s) * ‖ωstar‖ →
+    0 < γ → γ ≤ γbar → IsDiophantine γ τ ωstar → 0 ≤ e →
+    (∀ θ ∈ complexStrip n ρ, ‖invarianceError H K (s • ωstar) θ‖ ≤ e) →
+    ‖KAM.Iso.energyAverage H K - (E₀ : ℂ)‖ ≤ e →
+    C₁ * e / (γ ^ 4 * ρ ^ (4 * τ)) < 1 →
+    ∃ (Kinf : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) (sinf : ℝ),
+      1 < sinf ∧ sinf < σω ∧ DifferentiableOn ℂ Kinf (complexStrip n ρinf) ∧
+      IsPrimaryOnStrip Kinf ρinf ∧ IsRealOnReals Kinf ∧
+      (∀ θ ∈ complexStrip n ρinf, invarianceError H Kinf (sinf • ωstar) θ = 0) ∧
+      (∀ θ ∈ complexStrip n ρinf, H (Kinf θ) = (E₀ : ℂ)) ∧
+      (∀ θ ∈ complexStrip n ρinf, Metric.ball (Kinf θ) (μ / 2) ⊆ D) ∧
+      (∀ θ ∈ complexStrip n ρinf, ‖fderiv ℂ Kinf θ‖ ≤ σK - μ / 2) ∧
+      (∀ θ ∈ complexStrip n ρinf, ‖Kinf θ - K θ‖ ≤ C₂ * e / (γ ^ 2 * ρ ^ (2 * τ))) ∧
+      ‖sinf • ωstar - s • ωstar‖ ≤ C₃ * e / (γ ^ 2 * ρ ^ (2 * τ))
+
+/-- The type of the frozen `KAM.Iso.isoenergetic_kam` (I-G1). -/
+def IG1Statement : Prop :=
+  ∀ {n : ℕ}, 2 ≤ n → ∀ {τ : ℝ}, (n : ℝ) - 1 ≤ τ → ∀ {ρ ρinf : ℝ}, 0 < ρinf → ρinf < ρ →
+    ∀ {M σK σB σT μ γbar σω ν : ℝ}, 0 < M → 0 < σK → 0 < σB → 0 < σT → 0 < μ → 0 < γbar →
+    1 < σω → 0 < ν → ∀ ωstar : Fin n → ℝ, ωstar ≠ 0 →
+    ∃ C₁ C₂ C₃ : ℝ, 0 < C₁ ∧ 0 < C₂ ∧ 0 < C₃ ∧
+      IG1Body n τ ρ ρinf M σK σB σT μ γbar σω ν ωstar C₁ C₂ C₃
+
+/-- The type of the frozen `KAM.volume_not_diophantine_le` (G3). -/
+def G3Statement : Prop :=
+  ∀ {n : ℕ} {τ : ℝ}, (n : ℝ) - 1 < τ → ∀ {Ω : Set (Fin n → ℝ)}, Bornology.IsBounded Ω →
+    ∃ C : ℝ, ∀ α : ℝ, 0 < α → volume {ω ∈ Ω | ¬ IsDiophantine α τ ω} ≤ ENNReal.ofReal (C * α)
+
+end KAM.Iso.Charts
 
 /-! ## A. Part 1, `KAM.Iso.Linear` (`KAM/Iso/Linear/*`) -/
 
@@ -1619,8 +1695,8 @@ def isoC1 (n : ℕ) (τ ρ ρinf M σK σB σT μ ν γbar : ℝ) : ℝ :=
 def isoC2 (n : ℕ) (τ ρ ρinf M σK σB σT : ℝ) : ℝ :=
   2 * hatCDelta n τ M σK σB σT * ρ ^ (2 * τ) * delta0 ρ ρinf ^ (-aExp n τ)
 
-/-- `bpI:p2:g1`: the frozen I-G1 body verbatim, with `C₁ = isoC1`, `C₂ = C₃ = isoC2`; frozen
-binders in the frozen order. -/
+/-- `bpI:p2:g1`: the frozen I-G1 body (`IG1Body`, verbatim) with `C₁ = isoC1`, `C₂ = C₃ = isoC2`;
+frozen binders in the frozen order. -/
 theorem g1_explicit {n : ℕ} (hn : 2 ≤ n) {τ : ℝ} (hτ : (n : ℝ) - 1 ≤ τ)
     {ρ ρinf : ℝ} (hρinf : 0 < ρinf) (hρinfρ : ρinf < ρ)
     {M σK σB σT μ γbar σω ν : ℝ}
@@ -1629,44 +1705,9 @@ theorem g1_explicit {n : ℕ} (hn : 2 ≤ n) {τ : ℝ} (hτ : (n : ℝ) - 1 ≤
     (ωstar : Fin n → ℝ) (hωstar : ωstar ≠ 0) :
     0 < isoC1 n τ ρ ρinf M σK σB σT μ ν γbar ∧ 0 < isoC2 n τ ρ ρinf M σK σB σT ∧
       0 < isoC2 n τ ρ ρinf M σK σB σT ∧
-      ∀ (D : Set ((Fin n → ℂ) × (Fin n → ℂ)))
-        (H : (Fin n → ℂ) × (Fin n → ℂ) → ℂ)
-        (K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) (s γ e E₀ : ℝ),
-        IsOpen D →
-        (∀ z ∈ D, ∀ k : Fin n → ℤ, (z.1 + (fun i => (k i : ℂ)), z.2) ∈ D) →
-        DifferentiableOn ℂ H D →
-        (∀ z ∈ D, ∀ k : Fin n → ℤ, H (z.1 + (fun i => (k i : ℂ)), z.2) = H z) →
-        (∀ θ I : Fin n → ℝ, ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ))) ∈ D →
-          (H ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ)))).im = 0) →
-        (∀ z ∈ D, ‖fderiv ℂ H z‖ ≤ M ∧ ‖hamiltonianVectorFieldℂ H z‖ ≤ M ∧
-          ‖fderiv ℂ (hamiltonianVectorFieldℂ H) z‖ ≤ M ∧
-          ‖iteratedFDeriv ℂ 2 (hamiltonianVectorFieldℂ H) z‖ ≤ M ∧
-          ‖iteratedFDeriv ℂ 2 H z‖ ≤ M) →
-        DifferentiableOn ℂ K (complexStrip n ρ) →
-        IsPrimaryOnStrip K ρ → IsRealOnReals K →
-        (∀ θ ∈ complexStrip n ρ, Metric.ball (K θ) μ ⊆ D) →
-        (∀ θ ∈ complexStrip n ρ, ‖fderiv ℂ K θ‖ ≤ σK - μ) →
-        (∀ θ ∈ complexStrip n ρ, IsUnit (gramMatrix K θ).det ∧
-          ∀ i, ∑ j, ‖(gramMatrix K θ)⁻¹ i j‖ ≤ σB - μ) →
-        IsUnit (KAM.Iso.extendedTorsionAverage H K (s • ωstar)).det →
-        (∀ i, ∑ j, ‖(KAM.Iso.extendedTorsionAverage H K (s • ωstar))⁻¹ i j‖ ≤ σT - μ) →
-        1 < s → s < σω → ν ≤ (s - 1) * ‖ωstar‖ → ν ≤ (σω - s) * ‖ωstar‖ →
-        0 < γ → γ ≤ γbar → IsDiophantine γ τ ωstar → 0 ≤ e →
-        (∀ θ ∈ complexStrip n ρ, ‖invarianceError H K (s • ωstar) θ‖ ≤ e) →
-        ‖KAM.Iso.energyAverage H K - (E₀ : ℂ)‖ ≤ e →
-        isoC1 n τ ρ ρinf M σK σB σT μ ν γbar * e / (γ ^ 4 * ρ ^ (4 * τ)) < 1 →
-        ∃ (Kinf : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) (sinf : ℝ),
-          1 < sinf ∧ sinf < σω ∧
-          DifferentiableOn ℂ Kinf (complexStrip n ρinf) ∧
-          IsPrimaryOnStrip Kinf ρinf ∧ IsRealOnReals Kinf ∧
-          (∀ θ ∈ complexStrip n ρinf, invarianceError H Kinf (sinf • ωstar) θ = 0) ∧
-          (∀ θ ∈ complexStrip n ρinf, H (Kinf θ) = (E₀ : ℂ)) ∧
-          (∀ θ ∈ complexStrip n ρinf, Metric.ball (Kinf θ) (μ / 2) ⊆ D) ∧
-          (∀ θ ∈ complexStrip n ρinf, ‖fderiv ℂ Kinf θ‖ ≤ σK - μ / 2) ∧
-          (∀ θ ∈ complexStrip n ρinf,
-            ‖Kinf θ - K θ‖ ≤ isoC2 n τ ρ ρinf M σK σB σT * e / (γ ^ 2 * ρ ^ (2 * τ))) ∧
-          ‖sinf • ωstar - s • ωstar‖ ≤
-            isoC2 n τ ρ ρinf M σK σB σT * e / (γ ^ 2 * ρ ^ (2 * τ)) := sorry
+      KAM.Iso.Charts.IG1Body n τ ρ ρinf M σK σB σT μ γbar σω ν ωstar
+        (isoC1 n τ ρ ρinf M σK σB σT μ ν γbar) (isoC2 n τ ρ ρinf M σK σB σT)
+        (isoC2 n τ ρ ρinf M σK σB σT) := sorry
 
 end KAM.Iso.Apost
 
@@ -1676,50 +1717,6 @@ namespace KAM.Iso.Charts
 
 open KAM KAM.Torus KAM.Iso.Confinement
 open KAM.Head (unperturbedTorus muParam Fconst Mconst actionHessian)
-
-/-! ### §C0 `Charts/Inputs.lean`: the frozen I-G1 and G3, verbatim, as premises (checked in §P) -/
-
-/-- The type of the frozen `KAM.Iso.isoenergetic_kam` (I-G1). -/
-def IG1Statement : Prop :=
-  ∀ {n : ℕ}, 2 ≤ n → ∀ {τ : ℝ}, (n : ℝ) - 1 ≤ τ → ∀ {ρ ρinf : ℝ}, 0 < ρinf → ρinf < ρ →
-    ∀ {M σK σB σT μ γbar σω ν : ℝ}, 0 < M → 0 < σK → 0 < σB → 0 < σT → 0 < μ → 0 < γbar →
-    1 < σω → 0 < ν → ∀ ωstar : Fin n → ℝ, ωstar ≠ 0 →
-    ∃ C₁ C₂ C₃ : ℝ, 0 < C₁ ∧ 0 < C₂ ∧ 0 < C₃ ∧
-      ∀ (D : Set ((Fin n → ℂ) × (Fin n → ℂ))) (H : (Fin n → ℂ) × (Fin n → ℂ) → ℂ)
-        (K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) (s γ e E₀ : ℝ),
-        IsOpen D → (∀ z ∈ D, ∀ k : Fin n → ℤ, (z.1 + (fun i => (k i : ℂ)), z.2) ∈ D) →
-        DifferentiableOn ℂ H D → (∀ z ∈ D, ∀ k : Fin n → ℤ, H (z.1 + (fun i => (k i : ℂ)), z.2) = H z) →
-        (∀ θ I : Fin n → ℝ, ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ))) ∈ D →
-          (H ((fun i => (θ i : ℂ)), (fun i => (I i : ℂ)))).im = 0) →
-        (∀ z ∈ D, ‖fderiv ℂ H z‖ ≤ M ∧ ‖hamiltonianVectorFieldℂ H z‖ ≤ M ∧
-          ‖fderiv ℂ (hamiltonianVectorFieldℂ H) z‖ ≤ M ∧
-          ‖iteratedFDeriv ℂ 2 (hamiltonianVectorFieldℂ H) z‖ ≤ M ∧ ‖iteratedFDeriv ℂ 2 H z‖ ≤ M) →
-        DifferentiableOn ℂ K (complexStrip n ρ) → IsPrimaryOnStrip K ρ → IsRealOnReals K →
-        (∀ θ ∈ complexStrip n ρ, Metric.ball (K θ) μ ⊆ D) →
-        (∀ θ ∈ complexStrip n ρ, ‖fderiv ℂ K θ‖ ≤ σK - μ) →
-        (∀ θ ∈ complexStrip n ρ, IsUnit (gramMatrix K θ).det ∧
-          ∀ i, ∑ j, ‖(gramMatrix K θ)⁻¹ i j‖ ≤ σB - μ) →
-        IsUnit (KAM.Iso.extendedTorsionAverage H K (s • ωstar)).det →
-        (∀ i, ∑ j, ‖(KAM.Iso.extendedTorsionAverage H K (s • ωstar))⁻¹ i j‖ ≤ σT - μ) →
-        1 < s → s < σω → ν ≤ (s - 1) * ‖ωstar‖ → ν ≤ (σω - s) * ‖ωstar‖ →
-        0 < γ → γ ≤ γbar → IsDiophantine γ τ ωstar → 0 ≤ e →
-        (∀ θ ∈ complexStrip n ρ, ‖invarianceError H K (s • ωstar) θ‖ ≤ e) →
-        ‖KAM.Iso.energyAverage H K - (E₀ : ℂ)‖ ≤ e →
-        C₁ * e / (γ ^ 4 * ρ ^ (4 * τ)) < 1 →
-        ∃ (Kinf : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)) (sinf : ℝ),
-          1 < sinf ∧ sinf < σω ∧ DifferentiableOn ℂ Kinf (complexStrip n ρinf) ∧
-          IsPrimaryOnStrip Kinf ρinf ∧ IsRealOnReals Kinf ∧
-          (∀ θ ∈ complexStrip n ρinf, invarianceError H Kinf (sinf • ωstar) θ = 0) ∧
-          (∀ θ ∈ complexStrip n ρinf, H (Kinf θ) = (E₀ : ℂ)) ∧
-          (∀ θ ∈ complexStrip n ρinf, Metric.ball (Kinf θ) (μ / 2) ⊆ D) ∧
-          (∀ θ ∈ complexStrip n ρinf, ‖fderiv ℂ Kinf θ‖ ≤ σK - μ / 2) ∧
-          (∀ θ ∈ complexStrip n ρinf, ‖Kinf θ - K θ‖ ≤ C₂ * e / (γ ^ 2 * ρ ^ (2 * τ))) ∧
-          ‖sinf • ωstar - s • ωstar‖ ≤ C₃ * e / (γ ^ 2 * ρ ^ (2 * τ))
-
-/-- The type of the frozen `KAM.volume_not_diophantine_le` (G3). -/
-def G3Statement : Prop :=
-  ∀ {n : ℕ} {τ : ℝ}, (n : ℝ) - 1 < τ → ∀ {Ω : Set (Fin n → ℝ)}, Bornology.IsBounded Ω →
-    ∃ C : ℝ, ∀ α : ℝ, 0 < α → volume {ω ∈ Ω | ¬ IsDiophantine α τ ω} ≤ ENNReal.ofReal (C * α)
 
 /-! ### §C1 `Charts/Constants.lean`: `bpI:p3:constants`, `#k-bridge`, `compact` -/
 
@@ -1956,13 +1953,17 @@ theorem torus (hd : HeadData B s₀ r₀ h B' η) {f : (Fin 2 → ℂ) × (Fin 2
 
 /-! ### §C7 `Charts/Apply.lean`: `bpI:p3:apply` (+ `#constants`); §C8 `Charts/Tori.lean` -/
 
-/-- `bpI:p3:apply`: the constants `C_i` (`#constants`: chosen per patch and ray, before `f, ε, E`)
-and (O1)–(O6) for `K = K⁰(I)`, `I = Ψ(E, m)`, `s = s° = |∇h(I)|/|ω*|`, `e = F₁ε`, `E₀ = E`. -/
+/-- `bpI:p3:apply` with `#constants` (audit F1): constants `C_i`, chosen per patch and ray before
+`f, ε, E`, together with the FULL frozen I-G1 body at that tuple (`IG1Body`, the `GValid`
+precedent), then (O1)–(O6) for `K = K⁰(I)`, `I = Ψ(E, m)`, `s = |∇h(I)|/|ω*|`, `e = F₁ε`, `E₀ = E`. -/
 theorem apply (hd : HeadData B s₀ r₀ h B' η) (hne : B'.Nonempty) (hG1 : IG1Statement)
     {δE δm ρc : ℝ} {c : Fin 2 → ℝ} {W : Set (Fin 2 → ℝ)} {Ψ : ℝ × ℝ → Fin 2 → ℝ}
     (hp : IsPatch h B r₀ B' (eta1 η B B') c W Ψ δE δm ρc) {γ m : ℝ} {ωs : Fin 2 → ℝ}
     (hray : IsRay h B B' c γ ωs m) (hm : |m| < δm) :
     ∃ C₁ C₂ C₃ : ℝ, 0 < C₁ ∧ 0 < C₂ ∧ 0 < C₃ ∧
+      IG1Body 2 2 (rhoIso s₀) (rhoInf s₀) (Mconst s₀ r₀ B h) (sigmaKConst s₀ r₀) (sigmaKConst s₀ r₀)
+        (sigmaTConst h B B' s₀ r₀) (muParam s₀ r₀) γ (sigmaOmegaConst h B B') (nuConst h B B')
+        ωs C₁ C₂ C₃ ∧
       ∀ (f : (Fin 2 → ℂ) × (Fin 2 → ℂ) → ℂ) (ε : ℝ), PerturbData B s₀ r₀ f ε → ε ≤ 1 →
         ε ≤ epsT h B B' s₀ r₀ → ε < γ ^ 4 * rhoIso s₀ ^ 8 / (C₁ * Fconst 2 s₀ r₀ 1) →
         ∀ E : ℝ, |E - realPart h c| ≤ δE →
@@ -2001,28 +2002,36 @@ structure ToriSide (B : Set (Fin 2 → ℝ)) (s₀ r₀ : ℝ) (h : (Fin 2 → �
   margins : ∀ θ ∈ complexStrip 2 (rhoInf s₀), Metric.ball (K θ) (muParam s₀ r₀ / 2) ⊆ fractD B s₀ r₀ ∧
     ‖fderiv ℂ K θ‖ ≤ sigmaKConst s₀ r₀ - muParam s₀ r₀ / 2
 
-/-- `bpI:p3:tori` (with `uniform`): the cover and, for `ε < ε₁`, the two tori (T1)–(T7). -/
+/-- `bpI:p3:tori` (with `uniform`; audit F2): the cover; OUTSIDE the `f, ε, I₀, E` quantifiers, for
+each patch its centre in `closure B'`, the chart identity `p.m = m_c`, and its two fixed rays; then,
+for `ε < ε₁`, the two tori (T1)–(T7), whose frequencies lie on exactly those rays. -/
 theorem tori (hd : HeadData B s₀ r₀ h B' η) (hne : B'.Nonempty) (hG1 : IG1Statement)
     (hG3 : G3Statement) :
-    ∃ (patches : Set (EnergyPatch (realPart h) B (eta1 η B B'))) (ε₁ C_K : ℝ),
+    ∃ (patches : Set (EnergyPatch (realPart h) B (eta1 η B B')))
+      (γp γm : EnergyPatch (realPart h) B (eta1 η B B') → ℝ)
+      (ωsp ωsm : EnergyPatch (realPart h) B (eta1 η B B') → Fin 2 → ℝ) (ε₁ C_K : ℝ),
       ChartCover B s₀ r₀ h B' η (eta1 η B B') (Fconst 2 s₀ r₀ 1) patches ∧
+      (∀ p ∈ patches, p.c ∈ closure B' ∧ p.W ⊆ chartDom h B r₀ p.c ∧ p.m = chartM h p.c ∧
+        IsRay h B B' p.c (γp p) (ωsp p) p.mPlus ∧ IsRay h B B' p.c (γm p) (ωsm p) p.mMinus) ∧
       0 < ε₁ ∧ ε₁ ≤ 1 ∧ 0 < C_K ∧
       ∀ (f : (Fin 2 → ℂ) × (Fin 2 → ℂ) → ℂ) (ε : ℝ), PerturbData B s₀ r₀ f ε → ε < ε₁ →
         ∀ I₀ ∈ closure B', ∀ E : ℝ, |E - realPart h I₀| ≤ ε →
           ∃ p ∈ patches, ‖I₀ - p.c‖ < p.ρc ∧ |p.m I₀| < p.δm / 4 ∧
             ∃ (Kp Km : (Fin 2 → ℂ) → (Fin 2 → ℂ) × (Fin 2 → ℂ)) (Ip Im ωp ωm : Fin 2 → ℝ),
+              (∃ sp sm : ℝ, 1 < sp ∧ sp < sigmaOmegaConst h B B' ∧ 1 < sm ∧
+                sm < sigmaOmegaConst h B B' ∧ ωp = sp • ωsp p ∧ ωm = sm • ωsm p) ∧
               ToriSide B s₀ r₀ h B' η (eta1 η B B') f ε C_K E I₀ p.Ψ p.mPlus Kp Ip ωp ∧
               ToriSide B s₀ r₀ h B' η (eta1 η B B') f ε C_K E I₀ p.Ψ p.mMinus Km Im ωm := sorry
 
-/-- The Part 5 interface (`part3_tori` of the Part 5 design) under the two premises: a projection
-of `tori`. Proof written out (checks the interface). -/
+/-- The generic Part 5 interface (`part3_tori` of the Part 5 design) under the two premises: a
+separately named projection of `tori` that forgets the charts and rays. Proof written out. -/
 theorem part3_tori_of (hd : HeadData B s₀ r₀ h B' η) (hne : B'.Nonempty) (hG1 : IG1Statement)
     (hG3 : G3Statement) :
     ∃ (η₁ F₁ : ℝ) (patches : Set (EnergyPatch (realPart h) B η₁)) (ε₁ C_K : ℝ),
       ChartCover B s₀ r₀ h B' η η₁ F₁ patches ∧ ToriExistence B s₀ r₀ h B' η₁ patches ε₁ C_K := by
-  obtain ⟨patches, ε₁, C_K, hcov, h1, h2, h3, H⟩ := tori hd hne hG1 hG3
+  obtain ⟨patches, _, _, _, _, ε₁, C_K, hcov, _, h1, h2, h3, H⟩ := tori hd hne hG1 hG3
   refine ⟨_, _, patches, ε₁, C_K, hcov, h1, h2, h3, fun f ε hf hε I₀ hI₀ E hE => ?_⟩
-  obtain ⟨p, hp, hc, -, Kp, Km, Ip, Im, ωp, ωm, hsp, hsm⟩ := H f ε hf hε I₀ hI₀ E hE
+  obtain ⟨p, hp, hc, -, Kp, Km, Ip, Im, ωp, ωm, _, hsp, hsm⟩ := H f ε hf hε I₀ hI₀ E hE
   exact ⟨p, hp, hc, Kp, Km, Ip, Im, ωp, ωm, hsp.toTorusOutput, hsp.base, hsm.toTorusOutput, hsm.base⟩
 
 end KAM.Iso.Charts
