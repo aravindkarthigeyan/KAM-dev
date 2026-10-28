@@ -2069,3 +2069,11 @@ theorem part3_tori {B : Set (Fin 2 → ℝ)} {s₀ r₀ : ℝ} {h : (Fin 2 → �
 
 end KAM.Provider.Iso
 ```
+
+### Amendment D21 (2026-10-28, overnight ruling D29; I1-3 audit)
+
+`energy_defect` (signature at L974–977): its two bound quantifiers over all real `x` are replaced by
+`x ∈ Set.pi Set.univ (fun _ => Set.Icc 0 1)` (suprema over the compact cube `[0,1]ⁿ`, as in blueprint-I Part 1
+L292–294 after review I1-03). The all-real version was weaker than the source: `ξL(z) = z_j e_j` is bounded on the cube
+but not on `ℝⁿ`. The amended theorem is strictly stronger; consumers supplying whole-real bounds still apply it (I2-3 is
+the consumer). The untracked signatures file in `/root/code/KAM-inp-design-i123` predates this amendment.
