@@ -29,9 +29,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#bpI:p5:real-ham@L3
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.realHam_eq, realHam_contDiffOn, realHam_periodic, realHam_field_eq, realHam_field_contDiffOn, realHam_field_periodic, realHam_solution_iff, realHam_fderiv_bound, realHam_sub_le (KAM/Iso/Confinement/RealHam.lean)
+LEAN_NOTE: (a)-(e) covered; (d) takes Part-3 derivative estimate hD as input; audit P5-2 PASS WITH NOTES
 NOTE: Section prose L29-31 (standing data) is mapped here and to rh-deriv; no separate #data node.
 
 NODE: stepI:p5:rh-values
@@ -57,9 +57,9 @@ EDGE: bpI:p0:realham#realHamiltonian | blueprint-I/parts/p5-confinement.tex#step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.realHam_eq, realHam_contDiffOn, realHam_periodic, realHam_field_eq, realHam_field_contDiffOn, realHam_field_periodic, realHam_solution_iff, realHam_fderiv_bound, realHam_sub_le (KAM/Iso/Confinement/RealHam.lean)
+LEAN_NOTE: realHam_eq, realHam_sub_le; audit P5-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:rh-smooth
@@ -86,9 +86,9 @@ EDGE: K:bp:p1:holomorphic-regularity | blueprint-I/parts/p5-confinement.tex#step
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.realHam_eq, realHam_contDiffOn, realHam_periodic, realHam_field_eq, realHam_field_contDiffOn, realHam_field_periodic, realHam_solution_iff, realHam_fderiv_bound, realHam_sub_le (KAM/Iso/Confinement/RealHam.lean)
+LEAN_NOTE: realHam_contDiffOn, realHam_periodic; audit P5-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:rh-field
@@ -120,9 +120,9 @@ EDGE: stepI:p5:rh-values | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-fiel
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.realHam_eq, realHam_contDiffOn, realHam_periodic, realHam_field_eq, realHam_field_contDiffOn, realHam_field_periodic, realHam_solution_iff, realHam_fderiv_bound, realHam_sub_le (KAM/Iso/Confinement/RealHam.lean)
+LEAN_NOTE: realHam_field_*, realHam_solution_iff; audit P5-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:rh-deriv
@@ -149,9 +149,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#stepI:p5:rh-deriv@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.realHam_eq, realHam_contDiffOn, realHam_periodic, realHam_field_eq, realHam_field_contDiffOn, realHam_field_periodic, realHam_solution_iff, realHam_fderiv_bound, realHam_sub_le (KAM/Iso/Confinement/RealHam.lean)
+LEAN_NOTE: realHam_fderiv_bound, from Part-3 hD (hypothesis-d dependency); audit P5-2 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p5:ext-top
@@ -207,9 +207,9 @@ EDGE: bpI:p3:patch-rays | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-patch#
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.EnergyPatch, EnergyPatch.Q, EnergyPatch.O, EnergyPatch.Omega, EnergyPatch.K (KAM/Iso/Confinement/Setting.lean)
+LEAN_NOTE: definitions; audit P5-0 PASS WITH NOTES; compactness/openness by P5-1
 NOTE: Section data paragraph L64-66 (SPEC section-data rule): states openness of Omega and the inclusions consumed by patch-const, ec-*, sp-*.
 
 NODE: bpI:p5:patch-const
@@ -241,9 +241,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#bpI:p5:patch-const
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.PatchConst (KAM/Iso/Confinement/Setting.lean); KAM.Iso.Confinement.patchConst_exists, EnergyPatch.isCompact_K (KAM/Iso/Confinement/PatchConst.lean)
+LEAN_NOTE: sufficient-bound certificate + existence, not literal extremum formulas (documented departure); audits P5-0, P5-1 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p5:eps0
@@ -272,9 +272,9 @@ EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#bpI:p5:eps0@L82-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.Smallness (KAM/Iso/Confinement/Setting.lean); KAM.Iso.Confinement.exists_eps0 (KAM/Iso/Confinement/PatchConst.lean)
+LEAN_NOTE: Smallness clauses + existence of threshold, not literal min; audits P5-0 PASS WITH NOTES, P5-1 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p5:sec-graph#data
@@ -303,9 +303,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-graph#d
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.TorusOutput, GraphData, graphSet, P2 (KAM/Iso/Confinement/Setting.lean)
+LEAN_NOTE: definitions; audit P5-0 PASS WITH NOTES
 NOTE: Section data paragraph L90 (SPEC): fixes the objects used by graph, invariance, mu, separation.
 
 NODE: bpI:p5:graph
@@ -340,9 +340,9 @@ EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#bpI:p5:graph@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.torus_phase_sub_lipschitz, torus_phase_bijective, torus_phase_inv, torus_graph, torus_graph_mem, torus_graph_energy_close (KAM/Iso/Confinement/Graph.lean)
+LEAN_NOTE: (a)-(c) covered; audit P5-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:gr-contr
@@ -374,9 +374,9 @@ EDGE: bpI:p3:uniform | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-contr@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.torus_phase_sub_lipschitz, torus_phase_bijective, torus_phase_inv, torus_graph, torus_graph_mem, torus_graph_energy_close (KAM/Iso/Confinement/Graph.lean)
+LEAN_NOTE: torus_phase_sub_lipschitz; audit P5-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:gr-bij
@@ -404,9 +404,9 @@ EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-b
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.torus_phase_sub_lipschitz, torus_phase_bijective, torus_phase_inv, torus_graph, torus_graph_mem, torus_graph_energy_close (KAM/Iso/Confinement/Graph.lean)
+LEAN_NOTE: torus_phase_bijective, torus_phase_inv; audit P5-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:gr-graph
@@ -435,9 +435,9 @@ EDGE: bpI:p3:uniform | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-graph@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.torus_phase_sub_lipschitz, torus_phase_bijective, torus_phase_inv, torus_graph, torus_graph_mem, torus_graph_energy_close (KAM/Iso/Confinement/Graph.lean)
+LEAN_NOTE: torus_graph; audit P5-3 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:gr-energy
@@ -472,9 +472,9 @@ EDGE: bpI:p5:sec-graph#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:gr-e
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.torus_phase_sub_lipschitz, torus_phase_bijective, torus_phase_inv, torus_graph, torus_graph_mem, torus_graph_energy_close (KAM/Iso/Confinement/Graph.lean)
+LEAN_NOTE: torus_graph, torus_graph_mem, torus_graph_energy_close; audit P5-3 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p5:invariance
@@ -506,9 +506,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#bpI:p5:invariance@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.torus_flow, torus_invariant (KAM/Iso/Confinement/Invariance.lean)
+LEAN_NOTE: per-torus invariance and inclusion; union via KAM.ODE.isInvariantSet_union; audit P5-4 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:inv-incl
@@ -538,9 +538,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-incl@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.torus_flow, torus_invariant (KAM/Iso/Confinement/Invariance.lean)
+LEAN_NOTE: torus_invariant; audit P5-4 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:inv-sol
@@ -572,9 +572,9 @@ EDGE: bpI:p3:constants | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-sol@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.torus_flow, torus_invariant (KAM/Iso/Confinement/Invariance.lean)
+LEAN_NOTE: torus_flow; audit P5-4 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:inv-uniq
@@ -605,9 +605,9 @@ EDGE: N:bpN:p3:gen-sol | blueprint-I/parts/p5-confinement.tex#stepI:p5:inv-uniq@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.torus_flow, torus_invariant (KAM/Iso/Confinement/Invariance.lean)
+LEAN_NOTE: torus_invariant; audit P5-4 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p5:energy-coordinate
@@ -639,9 +639,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#bpI:p5:energy-co
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.energy_coordinate (KAM/Iso/Confinement/EnergyCoordinate.lean)
+LEAN_NOTE: audit P5-5 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:ec-reduce
@@ -670,9 +670,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-reduce@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.energy_coordinate (KAM/Iso/Confinement/EnergyCoordinate.lean)
+LEAN_NOTE: inside energy_coordinate; audit P5-5 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:ec-lip
@@ -705,9 +705,9 @@ EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:ec-l
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.energy_coordinate (KAM/Iso/Confinement/EnergyCoordinate.lean)
+LEAN_NOTE: inside energy_coordinate; audit P5-5 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p5:sec-sep#data
@@ -738,9 +738,9 @@ EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#bpI:p5:sec-sep#d
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.SepSetting, levelSet, sepRegion (KAM/Iso/Confinement/Setting.lean)
+LEAN_NOTE: definitions; audit P5-0 PASS WITH NOTES
 NOTE: Section data paragraph L131-135 (SPEC): defines the objects of the separation proposition.
 
 NODE: bpI:p5:mu
@@ -775,9 +775,9 @@ EDGE: bpI:p3:patch-rays | blueprint-I/parts/p5-confinement.tex#bpI:p5:mu@L137-L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.slope_close, slope_window_plus, slope_window_minus, slope_continuous (KAM/Iso/Confinement/Position.lean)
+LEAN_NOTE: audit P5-6 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:mu-cont
@@ -807,9 +807,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-cont@L14
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.slope_close, slope_window_plus, slope_window_minus, slope_continuous (KAM/Iso/Confinement/Position.lean)
+LEAN_NOTE: slope_continuous; audit P5-6 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:mu-lip
@@ -846,9 +846,9 @@ EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-lip
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.slope_close, slope_window_plus, slope_window_minus, slope_continuous (KAM/Iso/Confinement/Position.lean)
+LEAN_NOTE: slope_close; audit P5-6 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:mu-order
@@ -879,9 +879,9 @@ EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:mu-ord
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.slope_close, slope_window_plus, slope_window_minus, slope_continuous (KAM/Iso/Confinement/Position.lean)
+LEAN_NOTE: slope_window_plus/minus; audit P5-6 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p5:separation
@@ -918,9 +918,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#bpI:p5:separation@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.separation_isOpen, separation_init, separation_closure, separation_window, separation_boundary, separation_confined (KAM/Iso/Confinement/Separation.lean)
+LEAN_NOTE: (a)-(c) covered; audit P5-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:sp-open
@@ -949,9 +949,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-open@L15
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.separation_isOpen, separation_init, separation_closure, separation_window, separation_boundary, separation_confined (KAM/Iso/Confinement/Separation.lean)
+LEAN_NOTE: separation_isOpen; audit P5-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:sp-init
@@ -983,9 +983,9 @@ EDGE: bpI:p3:coordinates | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-init
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.separation_isOpen, separation_init, separation_closure, separation_window, separation_boundary, separation_confined (KAM/Iso/Confinement/Separation.lean)
+LEAN_NOTE: separation_init; audit P5-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:sp-closure
@@ -1014,9 +1014,9 @@ EDGE: bpI:p5:sec-sep#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-clo
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.separation_isOpen, separation_init, separation_closure, separation_window, separation_boundary, separation_confined (KAM/Iso/Confinement/Separation.lean)
+LEAN_NOTE: separation_closure; audit P5-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:sp-window
@@ -1047,9 +1047,9 @@ EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-wind
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.separation_isOpen, separation_init, separation_closure, separation_window, separation_boundary, separation_confined (KAM/Iso/Confinement/Separation.lean)
+LEAN_NOTE: separation_window; audit P5-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:sp-bdry
@@ -1087,9 +1087,9 @@ EDGE: bpI:p5:eps0 | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-bdry@L159-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.separation_isOpen, separation_init, separation_closure, separation_window, separation_boundary, separation_confined (KAM/Iso/Confinement/Separation.lean)
+LEAN_NOTE: separation_boundary; audit P5-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:sp-barrier
@@ -1123,9 +1123,9 @@ EDGE: bpI:p3:setting | blueprint-I/parts/p5-confinement.tex#stepI:p5:sp-barrier@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.separation_isOpen, separation_init, separation_closure, separation_window, separation_boundary, separation_confined (KAM/Iso/Confinement/Separation.lean)
+LEAN_NOTE: separation_confined; audit P5-7 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p5:confinement
@@ -1158,9 +1158,9 @@ EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#bpI:p5:confineme
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.confinement_prop (KAM/Iso/Confinement/Confinement.lean)
+LEAN_NOTE: source-facing, derives barrier via separation_confined; audit P5-8 PASS
 NOTE: -
 
 NODE: stepI:p5:cf-conf
@@ -1192,9 +1192,9 @@ EDGE: bpI:p5:patch-const | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-conf
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.confinement_prop (KAM/Iso/Confinement/Confinement.lean)
+LEAN_NOTE: named in audit P5-8 PASS
 NOTE: -
 
 NODE: stepI:p5:cf-cont
@@ -1227,9 +1227,9 @@ EDGE: bpI:p5:sec-patch#data | blueprint-I/parts/p5-confinement.tex#stepI:p5:cf-c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p5+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Confinement.confinement_prop (KAM/Iso/Confinement/Confinement.lean)
+LEAN_NOTE: named in audit P5-8 PASS
 NOTE: -
 
 NODE: stepI:p5:hd-eps
@@ -1256,7 +1256,7 @@ EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: only conditional helper confinement_main_of_tori (KAM/Iso/Confinement/Main.lean) assuming Part-3 tori/cover outputs; audit P5-9 PASS WITH NOTES
 NOTE: The eps0 dependency is used only in the B' nonempty branch. All geometric data and constants in that branch are chosen before f, epsilon, z_0.
 
 NODE: stepI:p5:hd-fix
@@ -1286,7 +1286,7 @@ EXTRACTOR: sonnet-extract-I-p5
 REVIEWER: sol-review-I-p5p8
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: only conditional helper confinement_main_of_tori (KAM/Iso/Confinement/Main.lean) assuming Part-3 tori/cover outputs; audit P5-9 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:hd-sol
@@ -1318,7 +1318,7 @@ EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: only conditional helper confinement_main_of_tori (KAM/Iso/Confinement/Main.lean) assuming Part-3 tori/cover outputs; audit P5-9 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p5:hd-uniq
@@ -1350,5 +1350,5 @@ EXTRACTOR: sonnet-extract-I-p5+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: only conditional helper confinement_main_of_tori (KAM/Iso/Confinement/Main.lean) assuming Part-3 tori/cover outputs; audit P5-9 PASS WITH NOTES
 NOTE: -

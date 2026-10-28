@@ -28,7 +28,7 @@ EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: N1: only for Setting (tau>=n-1; source tau>=0). Linear.Setting landed (audit I-D0-2 PASS)
 NOTE: -
 
 NODE: bpI:p1:setting#k-bridge
@@ -87,9 +87,9 @@ EDGE: bpI:p0:diophantine#IsDiophantine | blueprint-I/parts/p1-iso-linear.tex#bpI
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.isDiophantine_smul (KAM/Iso/Linear/Tools.lean)
+LEAN_NOTE: audit I1-1 PASS WITH NOTES (also I1-5); holds for s>=1, stronger than s>1
 NOTE: -
 
 NODE: bpI:p1:ext-chain
@@ -202,7 +202,7 @@ EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: N1: only for Setting (tau>=n-1; source tau>=0). Linear.extended_basic (Linear/Extended) (audit I1-2 PWN)
 NOTE: -
 
 NODE: stepI:p1:eb-holo
@@ -516,9 +516,9 @@ EDGE: stepI:p1:tr-compare | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:trivial@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.trivial_torus (KAM/Iso/Linear/Trivial.lean)
+LEAN_NOTE: audit I1-4 PASS WITH NOTES; exact design type, no Setting/N1 dependence, all conclusions proved
 NOTE: -
 
 NODE: stepI:p1:tr-torus
@@ -546,9 +546,9 @@ EDGE: bpI:p0:stripdata#gramMatrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.trivial_torus (KAM/Iso/Linear/Trivial.lean)
+LEAN_NOTE: audit I1-4 PASS WITH NOTES; included in trivial_torus
 NOTE: -
 
 NODE: stepI:p1:tr-frame
@@ -575,9 +575,9 @@ EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.trivial_torus (KAM/Iso/Linear/Trivial.lean)
+LEAN_NOTE: audit I1-4 PASS WITH NOTES; included in trivial_torus
 NOTE: -
 
 NODE: stepI:p1:tr-field
@@ -606,9 +606,9 @@ EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p1-iso-linear.tex#stepI:p1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.trivial_torus (KAM/Iso/Linear/Trivial.lean)
+LEAN_NOTE: audit I1-4 PASS WITH NOTES; included in trivial_torus; private invarianceError_trivial
 NOTE: -
 
 NODE: stepI:p1:tr-torsion
@@ -638,9 +638,9 @@ EDGE: bpI:p0:stripdata#dotC | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-to
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.trivial_torus (KAM/Iso/Linear/Trivial.lean)
+LEAN_NOTE: audit I1-4 PASS WITH NOTES; included in trivial_torus; private torsion_trivial
 NOTE: -
 
 NODE: stepI:p1:tr-border
@@ -667,9 +667,9 @@ EDGE: stepI:p1:tr-frame | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-border
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.trivial_torus (KAM/Iso/Linear/Trivial.lean)
+LEAN_NOTE: audit I1-4 PASS WITH NOTES; included in trivial_torus; private extendedTorsion_trivial
 NOTE: -
 
 NODE: stepI:p1:tr-compare
@@ -701,9 +701,9 @@ EDGE: K:bp:p1:real-inverse | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:tr-com
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.trivial_torus (KAM/Iso/Linear/Trivial.lean)
+LEAN_NOTE: audit I1-4 PASS WITH NOTES; included in trivial_torus; private extendedTorsion_trivial
 NOTE: -
 
 NODE: bpI:p1:last-row
@@ -738,7 +738,7 @@ EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: N1: only for Setting (tau>=n-1; source tau>=0). Linear.last_row (Linear/LastRow) (audit I1-2 PWN)
 NOTE: -
 
 NODE: stepI:p1:lr-gradient
@@ -870,7 +870,7 @@ EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: N1: only for Setting (tau>=n-1; source tau>=0). Linear.energy_approx/energy_defect (Linear/Energy*) (audit I1-3-2 PWN)
 NOTE: -
 
 NODE: stepI:p1:ea-chain
@@ -1088,7 +1088,7 @@ EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: N1: only for Setting (tau>=n-1; source tau>=0). Linear.energy_conservation (Linear/Energy) (audit I1-3-2 PWN)
 NOTE: -
 
 NODE: stepI:p1:ec-derivative
@@ -1210,9 +1210,9 @@ EDGE: stepI:p1:bs-real | blueprint-I/parts/p1-iso-linear.tex#bpI:p1:border-solve
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.border_solve (KAM/Iso/Linear/BorderSolve.lean); KAM.Iso.Linear.border_unique (KAM/Iso/Linear/BorderUnique.lean)
+LEAN_NOTE: audit I1-5 PASS WITH NOTES; border_solve covers (a)-(e); no Setting/N1 dependence
 NOTE: -
 
 NODE: stepI:p1:bs-first
@@ -1238,9 +1238,9 @@ EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.border_solve (KAM/Iso/Linear/BorderSolve.lean)
+LEAN_NOTE: audit I1-5 PASS WITH NOTES; audit names step; included in border_solve
 NOTE: -
 
 NODE: stepI:p1:bs-averages
@@ -1266,9 +1266,9 @@ EDGE: K:bp:p2:averages | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-average
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.border_solve (KAM/Iso/Linear/BorderSolve.lean)
+LEAN_NOTE: audit I1-5 PASS WITH NOTES; audit names step; included in border_solve
 NOTE: -
 
 NODE: stepI:p1:bs-bordered
@@ -1294,9 +1294,9 @@ EDGE: K:bp:p2:matrix | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-bordered@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.border_solve (KAM/Iso/Linear/BorderSolve.lean)
+LEAN_NOTE: audit I1-5 PASS WITH NOTES; audit names step; included in border_solve
 NOTE: -
 
 NODE: stepI:p1:bs-energy
@@ -1322,9 +1322,9 @@ EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-ene
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.border_solve (KAM/Iso/Linear/BorderSolve.lean)
+LEAN_NOTE: audit I1-5 PASS WITH NOTES; audit names step; included in border_solve
 NOTE: -
 
 NODE: stepI:p1:bs-second
@@ -1353,9 +1353,9 @@ EDGE: bpI:p1:setting#k-bridge | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.border_solve (KAM/Iso/Linear/BorderSolve.lean)
+LEAN_NOTE: audit I1-5 PASS WITH NOTES; audit names step; included in border_solve
 NOTE: -
 
 NODE: stepI:p1:bs-unique
@@ -1383,9 +1383,9 @@ EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-uni
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.border_solve (KAM/Iso/Linear/BorderSolve.lean)
+LEAN_NOTE: audit I1-5 PASS WITH NOTES; audit names step; included in border_solve
 NOTE: -
 
 NODE: stepI:p1:bs-real
@@ -1414,9 +1414,9 @@ EDGE: stepI:p1:bs-bordered | blueprint-I/parts/p1-iso-linear.tex#stepI:p1:bs-rea
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p1+sol-review-I-p1
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.Linear.border_solve (KAM/Iso/Linear/BorderSolve.lean)
+LEAN_NOTE: audit I1-5 PASS WITH NOTES; audit names step; included in border_solve
 NOTE: -
 
 NODE: bpI:p1:reduced
@@ -1449,7 +1449,7 @@ EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: N1: only for Setting (tau>=n-1; source tau>=0). Linear.reduced (Linear/Reduced); omega Diophantine (audit I1-6 PWN)
 NOTE: -
 
 NODE: stepI:p1:rd-ql
@@ -1579,7 +1579,7 @@ EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: N1: only for Setting (tau>=n-1; source tau>=0). Linear.geometry_noA5 (Linear/NoTwist) (audit I1-7 PWN)
 NOTE: -
 
 NODE: stepI:p1:geo-de
@@ -1772,7 +1772,7 @@ EXTRACTOR: sonnet-extract-I-p1
 REVIEWER: sol-review-I-p1
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: N1: only for Setting (tau>=n-1; source tau>=0). Linear.perturbation_noA5 (Linear/NoTwist) (audit I1-7 PWN)
 NOTE: -
 
 NODE: stepI:p1:pt-small

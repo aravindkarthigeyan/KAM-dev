@@ -205,9 +205,9 @@ EDGE: stepI:p7:cd-branch | blueprint-I/parts/p7-delaunay.tex#bpI:p7:complex-doma
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: complex_domain_spec, complexDelta_ratio_bound, complexDelta_radicand_disk, complexDelta_ecc_sq, delaunayC_periodic, complexDelta, ComplexDomainData (KAM/Iso/ComplexDomain.lean)
+LEAN_NOTE: audit I-6 audit-2 PASS (closes audit-1 F1/N1)
 NOTE: -
 
 NODE: stepI:p7:cd-uc
@@ -234,9 +234,9 @@ EDGE: bpI:p8:x-topo | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-uc@L347-L347
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: exists_radius, GoodRadius, complexTau (KAM/Iso/ComplexDomain.lean)
+LEAN_NOTE: audit I-6 audit-1 PASS WITH NOTES + audit-2 PASS; named step cd-uc (KAM.Iso.ComplexDomainAux)
 NOTE: SOURCE_GAP: the passage from continuity on the compact complex action neighbourhood to uniform continuity (Heine-Cantor, identifying C^2 with R^4) is neither proved nor enumerated among the permitted external inputs. x-topo supplies closed-bounded compactness, but does not state Heine-Cantor. This records an input-policy gap, not a false estimate.
 
 NODE: stepI:p7:cd-branch
@@ -265,9 +265,9 @@ EDGE: bpI:p7:orbit-maps-e | blueprint-I/parts/p7-delaunay.tex#stepI:p7:cd-branch
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: sqrt_branch, cd_diff_ecc, cd_real (KAM/Iso/ComplexDomain.lean)
+LEAN_NOTE: audit I-6 audit-1 PASS WITH NOTES + audit-2 PASS; named step cd-branch (KAM.Iso.ComplexDomainAux)
 NOTE: -
 
 NODE: bpI:p7:shift-def
@@ -296,9 +296,9 @@ EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: vtheta, clen, e0, shiftW, shiftPsi, shiftXi (KAM/Iso/ShiftPotential.lean)
+LEAN_NOTE: audit I-5 PASS WITH NOTES; definitions landed
 NOTE: standing definition package of Parts 7-8 (SPEC)
 
 NODE: bpI:p7:shift
@@ -329,9 +329,9 @@ EDGE: stepI:p7:sh-real | blueprint-I/parts/p7-delaunay.tex#bpI:p7:shift@L392-L39
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: shift_domain, shift_value_zero, shift_mul_eq, shift_holomorphic, shiftF_eq_integral, shift_bound, shift_real, shiftF (KAM/Iso/ShiftPotential.lean)
+LEAN_NOTE: audit I-5 PASS WITH NOTES; |vtheta^-1/2|<=c*^-1/2 only in private norm_cpow_neg_half_le (N1)
 NOTE: -
 
 NODE: stepI:p7:sh-pos
@@ -357,9 +357,9 @@ EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-pos@L384-L384
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: shift_domain, norm_cpow_neg_half_le (KAM/Iso/ShiftPotential.lean)
+LEAN_NOTE: audit I-5 PASS WITH NOTES; named sh-pos; N1: |vtheta^-1/2| bound only via private lemma, not in public type
 NOTE: -
 
 NODE: stepI:p7:sh-bound
@@ -385,9 +385,9 @@ EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-bound@L38
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: shift_bound (KAM/Iso/ShiftPotential.lean)
+LEAN_NOTE: audit I-5 PASS WITH NOTES; named sh-bound
 NOTE: -
 
 NODE: stepI:p7:sh-div
@@ -417,9 +417,9 @@ EDGE: K:bp:p1:ext-integral | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-div@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: shift_mul_eq, shift_holomorphic, shiftF_eq_integral, shift_bound (KAM/Iso/ShiftPotential.lean)
+LEAN_NOTE: audit I-5 PASS WITH NOTES; named sh-div
 NOTE: The fundamental theorem of calculus invoked at L386 is the clause int_a^b phi_prime=phi(b)-phi(a) of the already imported K:bp:p1:ext-integral. On t in [0,1], (q,t mu) lies in Xi, where Psi is holomorphic; the curve is C^1 and its derivative is mu partial_mu Psi(q,t mu). This adds a direct use of an existing permitted input, not a new import or an invented proof.
 
 NODE: stepI:p7:sh-zero
@@ -445,9 +445,9 @@ EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-zero@L390
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: shift_value_zero (KAM/Iso/ShiftPotential.lean)
+LEAN_NOTE: audit I-5 PASS WITH NOTES; named sh-zero
 NOTE: -
 
 NODE: stepI:p7:sh-real
@@ -475,9 +475,9 @@ EDGE: bpI:p7:shift-def | blueprint-I/parts/p7-delaunay.tex#stepI:p7:sh-real@L392
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: shift_real (KAM/Iso/ShiftPotential.lean)
+LEAN_NOTE: audit I-5 PASS WITH NOTES; named sh-real
 NOTE: -
 
 NODE: bpI:p7:exact-ham
@@ -511,9 +511,9 @@ EDGE: stepI:p7:eh-exact | blueprint-I/parts/p7-delaunay.tex#bpI:p7:exact-ham@L42
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: exact_ham, exact_radius_spec, exact_positions_mem_shiftO, ExactHamData (KAM/Iso/ExactHamiltonian.lean)
+LEAN_NOTE: audit I-7 PASS WITH NOTES
 NOTE: [pre-extract: dropped reference to bpI:p0:r3bp, which part p7 proves or sets up]
 
 NODE: stepI:p7:eh-shell
@@ -540,9 +540,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-shell@L4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: real_pos_data (KAM/Iso/ExactHamiltonian.lean)
+LEAN_NOTE: audit I-7 PASS WITH NOTES; named eh-shell (KAM.Iso.ExactAux)
 NOTE: -
 
 NODE: stepI:p7:eh-delta
@@ -574,7 +574,7 @@ EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: audit I-7 PASS: Lean proves delta2<=delta1 (exactDelta, exact_radius_spec), weaker than step's delta1/2; parent exact-ham proved
 NOTE: SOURCE_GAP: uniform continuity of the position component of Q on the compact fundamental-domain closure is invoked but not proved or listed as an external. x-topo pays compactness only. The bound concerns position parts, as explicitly specified at L415; it does not assert a momentum bound.
 
 NODE: stepI:p7:eh-hol
@@ -604,9 +604,9 @@ EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-hol@L420-L420
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: exactRadiusData_of_positions, exact_ham (KAM/Iso/ExactHamiltonian.lean)
+LEAN_NOTE: audit I-7 PASS WITH NOTES; named eh-hol/eh-exact builder
 NOTE: -
 
 NODE: stepI:p7:eh-exact
@@ -641,9 +641,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-ex
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: exact_identity, exactRadiusData_of_positions (KAM/Iso/ExactHamiltonian.lean)
+LEAN_NOTE: audit I-7 PASS WITH NOTES; named eh-exact
 NOTE: -
 
 NODE: bpI:p7:period-one

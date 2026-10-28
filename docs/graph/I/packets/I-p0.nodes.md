@@ -19,9 +19,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.complexStrip (KAM/Frozen/Defs/ComplexStrip.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:domains#actionNbhd
@@ -45,9 +45,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.actionNbhd (KAM/Frozen/Defs/ActionNbhd.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:diophantine#IsDiophantine
@@ -71,9 +71,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.IsDiophantine (KAM/Frozen/Defs/IsDiophantine.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:hamiltonian#hamiltonianVectorField
@@ -97,9 +97,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.hamiltonianVectorField (KAM/Frozen/Defs/HamiltonianVectorField.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:hamiltonian#hamiltonianVectorFieldC
@@ -123,9 +123,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.hamiltonianVectorFieldℂ (KAM/Frozen/Defs/HamiltonianVectorFieldC.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:realham#realHamiltonian
@@ -149,9 +149,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.realHamiltonian (KAM/Frozen/Defs/RealHamiltonian.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:realham#frequencyMap
@@ -175,9 +175,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.frequencyMap (KAM/Frozen/Defs/FrequencyMap.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:stripdata#IsPrimaryOnStrip
@@ -202,9 +202,9 @@ EDGE: bpI:p0:domains#complexStrip | blueprint-I/parts/p0-conventions.tex#bpI:p0:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.IsPrimaryOnStrip (KAM/Frozen/Defs/IsPrimaryOnStrip.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:stripdata#IsRealOnReals
@@ -228,9 +228,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.IsRealOnReals (KAM/Frozen/Defs/IsRealOnReals.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:stripdata#dotC
@@ -254,9 +254,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.dotℂ (KAM/Frozen/Defs/DotC.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:stripdata#omegaZero
@@ -280,9 +280,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.omegaZero (KAM/Frozen/Defs/OmegaZero.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:stripdata#invarianceError
@@ -307,9 +307,9 @@ EDGE: bpI:p0:hamiltonian#hamiltonianVectorFieldC | blueprint-I/parts/p0-conventi
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.invarianceError (KAM/Frozen/Defs/InvarianceError.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:stripdata#gramMatrix
@@ -334,9 +334,9 @@ EDGE: bpI:p0:stripdata#dotC | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripd
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.gramMatrix (KAM/Frozen/Defs/GramMatrix.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:stripdata#normalFrame
@@ -362,9 +362,9 @@ EDGE: bpI:p0:stripdata#omegaZero | blueprint-I/parts/p0-conventions.tex#bpI:p0:s
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.normalFrame (KAM/Frozen/Defs/NormalFrame.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:stripdata#torsion
@@ -392,9 +392,9 @@ EDGE: bpI:p0:stripdata#dotC | blueprint-I/parts/p0-conventions.tex#bpI:p0:stripd
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.torsion (KAM/Frozen/Defs/Torsion.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:extended#energyAverage
@@ -418,9 +418,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.energyAverage (KAM/Frozen/Iso/Defs/EnergyAverage.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:extended#extendedTorsion
@@ -446,9 +446,9 @@ EDGE: bpI:p0:stripdata#normalFrame | blueprint-I/parts/p0-conventions.tex#bpI:p0
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.extendedTorsion (KAM/Frozen/Iso/Defs/ExtendedTorsion.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:extended#extendedTorsionAverage
@@ -473,9 +473,9 @@ EDGE: bpI:p0:extended#extendedTorsion | blueprint-I/parts/p0-conventions.tex#bpI
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.extendedTorsionAverage (KAM/Frozen/Iso/Defs/ExtendedTorsionAverage.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:bordered#borderedHessian
@@ -500,9 +500,9 @@ EDGE: bpI:p0:realham#frequencyMap | blueprint-I/parts/p0-conventions.tex#bpI:p0:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.borderedHessian (KAM/Frozen/Iso/Defs/BorderedHessian.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:hamsol#IsHamiltonianSolutionOn
@@ -527,9 +527,9 @@ EDGE: bpI:p0:hamiltonian#hamiltonianVectorField | blueprint-I/parts/p0-conventio
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.IsHamiltonianSolutionOn (KAM/Frozen/Iso/Defs/IsHamiltonianSolutionOn.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:primaries#radiusSq
@@ -553,9 +553,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.radiusSq (KAM/Frozen/Iso/Defs/RadiusSq.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:primaries#radius
@@ -580,9 +580,9 @@ EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p0-conventions.tex#bpI:p0:pr
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.radius (KAM/Frozen/Iso/Defs/Radius.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:primaries#primary1
@@ -606,9 +606,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.primary₁ (KAM/Frozen/Iso/Defs/Primary1.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:primaries#primary2
@@ -632,9 +632,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.primary₂ (KAM/Frozen/Iso/Defs/Primary2.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:primaries#CollisionFree
@@ -661,9 +661,9 @@ EDGE: bpI:p0:primaries#primary2 | blueprint-I/parts/p0-conventions.tex#bpI:p0:pr
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.CollisionFree (KAM/Frozen/Iso/Defs/CollisionFree.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:restricted#restrictedHamiltonian
@@ -692,9 +692,9 @@ EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p0-conventions.tex#bpI:p0:re
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.restrictedHamiltonian (KAM/Frozen/Iso/Defs/RestrictedHamiltonian.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:restricted#restrictedVectorField
@@ -722,9 +722,9 @@ EDGE: bpI:p0:primaries#CollisionFree | blueprint-I/parts/p0-conventions.tex#bpI:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.restrictedVectorField (KAM/Frozen/Iso/Defs/RestrictedVectorField.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:restricted#IsRestrictedSolutionOn
@@ -750,9 +750,9 @@ EDGE: bpI:p0:restricted#restrictedVectorField | blueprint-I/parts/p0-conventions
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.IsRestrictedSolutionOn (KAM/Frozen/Iso/Defs/IsRestrictedSolutionOn.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:nearcircular#NearCircular
@@ -777,9 +777,9 @@ EDGE: bpI:p0:primaries#radiusSq | blueprint-I/parts/p0-conventions.tex#bpI:p0:ne
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.NearCircular (KAM/Frozen/Iso/Defs/NearCircular.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:keplerborder#keplerBorder
@@ -803,9 +803,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.keplerBorder (KAM/Frozen/Iso/Defs/KeplerBorder.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpI:p0:g1
@@ -841,7 +841,7 @@ EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: sol-delta-I-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
 NOTE: -
 
 NODE: bpI:p0:head
@@ -876,7 +876,7 @@ EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
 NOTE: -
 
 NODE: bpI:p0:kepler
@@ -902,9 +902,9 @@ EDGE: bpI:p6:kepler | blueprint-I/parts/p6-kepler.tex#bpI:p6:kepler@L40-L40 | fr
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.kepler_bordered_det (KAM/Frozen/Iso/Theorems/KeplerBorderedDet.lean)
+LEAN_NOTE: sealed frozen theorem anchor (manifest SEALED)
 NOTE: -
 
 NODE: bpI:p0:r3bp
@@ -944,5 +944,5 @@ EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: sol-delta-I-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
 NOTE: -

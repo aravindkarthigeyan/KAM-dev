@@ -125,9 +125,9 @@ EDGE: stepN:p1:nc-mat | blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-compare@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.euclid, norm_le_euclid, modeSize_euclid_compare, lattice_ball_inclusions, bilinear_euclid_bound (KAM/Nekhoroshev/Interfaces/Norms.lean)
+LEAN_NOTE: audit P1-1 PASS WITH NOTES; clauses (a),(b),(c) all covered
 NOTE: forward pointers to Part 8 (bpN:p8:direction, bpN:p8:cutoffs) in the statement (L37) are not uses and are dropped; ext-norms is cited in \source and used at stepN:p1:nc-vec
 
 NODE: stepN:p1:nc-vec
@@ -213,9 +213,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p1-interfaces.tex#bpN:p1:rea
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.realActionDomain_eq, isOpen_realActionDomain, ball_subset_realActionDomain, isOpen_Wdom, realInclusion₂_preimage_complexDomain, isOpen_actionNbhd_ball, isOpen_complexDomain, realInclusion_preimage_actionNbhd, tube_subset, tube_real, complexStrip_mono, complexStrip_zero (KAM/Nekhoroshev/Interfaces/Domains.lean)
+LEAN_NOTE: audit P1-1 PASS WITH NOTES; (a)-(d) all covered
 NOTE: remark rdomain-eq (cited L49, L56) states the same identity as step rd-real, which proves it independently: no edge (rdomain-eq is a claim consumed by bpN:p3:s-N and stepN:p2:zd-diff); the "as in Definition bpN:p4:domains" of (c) (L52) restates the tube explicitly and is not a use: no edge
 
 NODE: stepN:p1:rd-real
@@ -332,9 +332,9 @@ EDGE: bpN:p0:realH#realHamiltonian | blueprint-N/parts/p1-interfaces.tex#bpN:p1:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.Data, Wdom (KAM/Nekhoroshev/Interfaces/Setting.lean)
+LEAN_NOTE: Definition formalized, nothing to prove; audit P1-1 PASS WITH NOTES
 NOTE: section data node for coverage item p1:prose-L68-L70 (unlabelled prose); consumers: bpN:p1:holo-real and its steps
 
 NODE: bpN:p1:holo-real
@@ -370,9 +370,9 @@ EDGE: bpN:p0:realH#realHamiltonian | blueprint-N/parts/p1-interfaces.tex#bpN:p1:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.holo_real_a, holo_real_b, complexHessian, holo_real_c, holo_real_d, holo_real_e (KAM/Nekhoroshev/Interfaces/HoloReal.lean)
+LEAN_NOTE: audit P1-2 PASS WITH NOTES; clauses (a)-(e) all covered
 NOTE: forward pointer (Part 3 uses this as bpN:p3:holo-input, L84) is not an edge; K:holomorphic-regularity and K:hamiltonian-real are cited in \source and used at steps hr-holo, hr-field
 
 NODE: stepN:p1:hr-holo
@@ -777,9 +777,9 @@ EDGE: stepN:p1:cc-num | blueprint-N/parts/p1-interfaces.tex#bpN:p1:conic-coerciv
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.conic_coercive (KAM/Nekhoroshev/Interfaces/ConicCoercive.lean)
+LEAN_NOTE: audit P1-3a PASS WITH NOTES; full 5/8 q conclusion on cone
 NOTE: pure linear algebra core (ours); no references
 
 NODE: stepN:p1:cc-unit
@@ -830,9 +830,9 @@ EDGE: stepN:p1:cc-unit | blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-decomp@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.conic_coercive (KAM/Nekhoroshev/Interfaces/ConicCoercive.lean)
+LEAN_NOTE: audit P1-3a PASS WITH NOTES; decomposition/orthogonality inside conic_coercive proof (lines 87-143)
 NOTE: -
 
 NODE: stepN:p1:cc-expand
@@ -857,9 +857,9 @@ EDGE: stepN:p1:cc-decomp | blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-expan
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.conic_coercive (KAM/Nekhoroshev/Interfaces/ConicCoercive.lean)
+LEAN_NOTE: audit P1-3a PASS WITH NOTES; both mixed terms, no symmetry assumed (lines 145-159)
 NOTE: -
 
 NODE: stepN:p1:cc-num
@@ -885,9 +885,9 @@ EDGE: stepN:p1:cc-decomp | blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-num@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.conic_coercive (KAM/Nekhoroshev/Interfaces/ConicCoercive.lean)
+LEAN_NOTE: audit P1-3a PASS WITH NOTES; numerics (conic_numerics private helper, lines 149-175)
 NOTE: -
 
 NODE: bpN:p1:qc-convert
@@ -1107,9 +1107,9 @@ EDGE: bpN:p0:cdomain#complexDomain | blueprint-N/parts/p1-interfaces.tex#bpN:p1:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.periodLift, tildeH, tildeh, tildef, realHamiltonian_tilde, isSolutionOn_tilde_iff, frequencyMap_tildeh, fderiv_fderiv_realPart_tildeh, tilde_hypotheses, tildef_domain, tildef_periodic, tildef_fourier (KAM/Nekhoroshev/Interfaces/Period.lean)
+LEAN_NOTE: audit P1-4 PASS WITH NOTES; clauses (a)-(e) all covered (e) under convergence input
 NOTE: the statement says the source is sources.md/Pos93 (provenance only); K:bp:p1:summation is cited in (e) and used at stepN:p1:pc-scalar. The \source in the statement is provenance
 
 NODE: stepN:p1:pc-chain
@@ -1334,7 +1334,7 @@ EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only numerical conjuncts proved (const_* in Constants.lean); analytic parts (c)-(g) open; audit P1-5
 NOTE: SOURCE_GAP: clauses (f),(g) and their proof steps use h-frequency and derivative bounds, but the lemma binds h with H1–H5 only inside clause (d). Preserve the raw conditional scope and expose the missing attachment at co-exc/co-time. No frozen anchor is changed.
 
 NODE: stepN:p1:co-pos
@@ -1359,9 +1359,9 @@ EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-po
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.const_pos, const_eps0 (KAM/Nekhoroshev/Interfaces/Constants.lean)
+LEAN_NOTE: audit P1-5 PASS WITH NOTES; clause (a) positivity and C eps0^a <= R/4, eps0 <= eps*/F
 NOTE: -
 
 NODE: stepN:p1:co-size
@@ -1387,9 +1387,9 @@ EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-si
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.const_size (KAM/Nekhoroshev/Interfaces/Constants.lean)
+LEAN_NOTE: audit P1-5 PASS WITH NOTES; clause (b) all five inequalities
 NOTE: -
 
 NODE: stepN:p1:co-tubes
@@ -1485,7 +1485,7 @@ EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only numerical conjunct proved (const_perturbation_arith, Constants.lean); Poschel-norm bound of f-tilde not proved; audit P1-5
 NOTE: -
 
 NODE: stepN:p1:co-exc
@@ -1514,7 +1514,7 @@ EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only numerical threshold comparisons proved (const_exceptional_arith, Constants.lean); frequency lower bound not; audit P1-5
 NOTE: SOURCE_GAP: the lemma explicitly assumes H1–H5 only in clause (d). This clause needs the corresponding hypotheses on h (H3 for the frequency lower bound; H5 also for the time upper bound). The cited conditional conversions do not supply those premises. No such premise is added to the source contract.
 
 NODE: stepN:p1:co-time
@@ -1547,7 +1547,7 @@ EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only numerical conjunct proved (const_time_arith, Constants.lean); Omega0 bounds not; audit P1-5
 NOTE: SOURCE_GAP: In addition to the already recorded missing h-bound scope, the current partials contract inherits IsAnalyticPerturbation R s ε f from §s-holo. This application does not bind or supply that datum. No source hypothesis is added here. SOURCE_GAP: the lemma explicitly assumes H1–H5 only in clause (d). This clause needs the corresponding hypotheses on h (H3 for the frequency lower bound; H5 also for the time upper bound). The cited conditional conversions do not supply those premises. No such premise is added to the source contract.
 
 NODE: stepN:p1:co-conc
@@ -1684,7 +1684,7 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.HeadParams, HeadParams.Pos, HeadParams.expo, q, B, mu, ell, r0, A, s0, sigma, F, epsStar, C, c, T, eps0, centralSet (KAM/Nekhoroshev/Interfaces/Constants.lean)
+LEAN_NOTE: Definition formalized, nothing to prove; audit P1-5 PASS WITH NOTES
 NOTE: Local definition portion split from the lemma package so its proof steps can consume the data without a parent cycle. Downstream users still consume bpN:p1:constants as required by SPEC.

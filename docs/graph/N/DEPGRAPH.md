@@ -37,9 +37,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.actionNbhd (KAM/Frozen/Defs/ActionNbhd.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:freq#frequencyMap
@@ -63,9 +63,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.frequencyMap (KAM/Frozen/Defs/FrequencyMap.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:vf#hamiltonianVectorField
@@ -89,9 +89,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.hamiltonianVectorField (KAM/Frozen/Defs/HamiltonianVectorField.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:realH#realHamiltonian
@@ -115,9 +115,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.realHamiltonian (KAM/Frozen/Defs/RealHamiltonian.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:strip#complexStrip
@@ -141,9 +141,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.complexStrip (KAM/Frozen/Defs/ComplexStrip.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: Part 0 transcribes it in Remark bpN:p0:strip (carries the \frozen tag) and in Convention (last item); frozen anchor of track K
 
 NODE: bpN:p0:ball#actionBall
@@ -167,9 +167,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.actionBall (KAM/Frozen/Nekhoroshev/Defs/ActionBall.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:cdomain#complexDomain
@@ -196,9 +196,9 @@ EDGE: bpN:p0:ball#actionBall | blueprint-N/parts/p0-conventions.tex#bpN:p0:cdoma
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.complexDomain (KAM/Frozen/Nekhoroshev/Defs/ComplexDomain.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:rdomain#realActionDomain
@@ -224,9 +224,9 @@ EDGE: bpN:p0:ball#actionBall | blueprint-N/parts/p0-conventions.tex#bpN:p0:rdoma
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.realActionDomain (KAM/Frozen/Nekhoroshev/Defs/RealActionDomain.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:rdomain-eq
@@ -280,9 +280,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.realPart (KAM/Frozen/Nekhoroshev/Defs/RealPart.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:integrable#IsAnalyticIntegrable
@@ -310,9 +310,9 @@ EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p0-conventions.tex#bpN:p0:int
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.IsAnalyticIntegrable (KAM/Frozen/Nekhoroshev/Defs/IsAnalyticIntegrable.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:pert#IsAnalyticPerturbation
@@ -338,9 +338,9 @@ EDGE: bpN:p0:rdomain#realActionDomain | blueprint-N/parts/p0-conventions.tex#bpN
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.IsAnalyticPerturbation (KAM/Frozen/Nekhoroshev/Defs/IsAnalyticPerturbation.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:bm#HasDerivativeBounds
@@ -365,9 +365,9 @@ EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p0-conventions.tex#bpN:p0:bm@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.HasDerivativeBounds (KAM/Frozen/Nekhoroshev/Defs/HasDerivativeBounds.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: the remark that symmetry (K:bp:p1:ext-schwarz) identifies ordered partials with multi-index partials (L141) is a comparison, not used by the definition: no edge
 
 NODE: bpN:p0:qc#IsStrictlyQuasiConvex
@@ -393,9 +393,9 @@ EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p0-conventions.tex#bpN:p0:qc@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.IsStrictlyQuasiConvex (KAM/Frozen/Nekhoroshev/Defs/IsStrictlyQuasiConvex.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:hess#HasComplexHessianBound
@@ -421,9 +421,9 @@ EDGE: bpN:p0:ball#actionBall | blueprint-N/parts/p0-conventions.tex#bpN:p0:hess@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.HasComplexHessianBound (KAM/Frozen/Nekhoroshev/Defs/HasComplexHessianBound.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:sol#IsSolutionOn
@@ -448,9 +448,9 @@ EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p0-conventions.tex#bp
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.IsSolutionOn (KAM/Frozen/Nekhoroshev/Defs/IsSolutionOn.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:orbit#integrableOrbit
@@ -475,9 +475,9 @@ EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p0-conventions.tex#bpN:p0:orb
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.integrableOrbit (KAM/Frozen/Nekhoroshev/Defs/IntegrableOrbit.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:head
@@ -514,7 +514,7 @@ EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
 NOTE: frozen root; proof is Part 10 (bpN:p10:head, steps stepN:p10:hd-*). The reference to Remark rdomain-eq (L230) explains the set in (H4)-(H5), it is not consumed by the statement: no edge. sourcegap L234 is filled by Part 10
 
 NODE: bpN:p0:zero
@@ -545,9 +545,9 @@ EDGE: bpN:p2:zero | blueprint-N/parts/p2-qc-zero.tex#bpN:p0:zero@L82-L82 | this 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.zero_perturbation (KAM/Frozen/Nekhoroshev/Theorems/ZeroPerturbation.lean)
+LEAN_NOTE: sealed frozen theorem anchor (manifest SEALED)
 NOTE: frozen root; proof is Part 2 (bpN:p2:zero)
 
 NODE: bpN:p0:qcthm
@@ -575,9 +575,9 @@ EDGE: bpN:p2:qc-bij | blueprint-N/parts/p2-qc-zero.tex#bpN:p0:qcthm@L48-L48 | th
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.quasiConvex_isoenergetic_derivative (KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexIsoenergeticDerivative.lean)
+LEAN_NOTE: sealed frozen theorem anchor (manifest SEALED)
 NOTE: frozen root; proof is Part 2 (bpN:p2:qc-bij)
 
 NODE: bpN:p0:partial-sec#Phase
@@ -601,9 +601,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Planetary.Phase (KAM/Frozen/Planetary/Defs/Phase.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: frozen definition transcribed in unlabelled Part-0 prose (no \frozen tag); anchor bound by the SPEC (track-P definition KAM.Planetary.Phase)
 
 NODE: bpN:p0:partial-sec#fast
@@ -627,9 +627,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Planetary.fast (KAM/Frozen/Planetary/Defs/Fast.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: frozen definition transcribed in unlabelled Part-0 prose; anchor bound by the SPEC (track-P definition KAM.Planetary.fast)
 
 NODE: bpN:p0:partial-sec#slow
@@ -653,9 +653,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Planetary.slow (KAM/Frozen/Planetary/Defs/Slow.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: frozen definition transcribed in unlabelled Part-0 prose; anchor bound by the SPEC (track-P definition KAM.Planetary.slow)
 
 NODE: bpN:p0:partial-sec#fastShift
@@ -680,9 +680,9 @@ EDGE: bpN:p0:partial-sec#Phase | blueprint-N/parts/p0-conventions.tex#bpN:p0:par
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Planetary.fastShift (KAM/Frozen/Planetary/Defs/FastShift.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: frozen definition transcribed in unlabelled Part-0 prose; anchor bound by the SPEC (track-P definition KAM.Planetary.fastShift)
 
 NODE: bpN:p0:partial-complexify#complexifyPhase
@@ -707,9 +707,9 @@ EDGE: bpN:p0:partial-sec#Phase | blueprint-N/parts/p0-conventions.tex#bpN:p0:par
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.complexifyPhase (KAM/Frozen/Nekhoroshev/Defs/ComplexifyPhase.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:partial-core#innerCore
@@ -733,9 +733,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.innerCore (KAM/Frozen/Nekhoroshev/Defs/InnerCore.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:partial-domain#partialComplexDomain
@@ -763,9 +763,9 @@ EDGE: bpN:p0:partial-sec#Phase | blueprint-N/parts/p0-conventions.tex#bpN:p0:par
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.partialComplexDomain (KAM/Frozen/Nekhoroshev/Defs/PartialComplexDomain.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:partial-definite#HasDefiniteFastPart
@@ -792,9 +792,9 @@ EDGE: bpN:p0:realpart#realPart | blueprint-N/parts/p0-conventions.tex#bpN:p0:par
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.HasDefiniteFastPart (KAM/Frozen/Nekhoroshev/Defs/HasDefiniteFastPart.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:partial-pert#IsPartialPerturbation
@@ -822,9 +822,9 @@ EDGE: bpN:p0:partial-sec#Phase | blueprint-N/parts/p0-conventions.tex#bpN:p0:par
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.IsPartialPerturbation (KAM/Frozen/Nekhoroshev/Defs/IsPartialPerturbation.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:partial-exponents#partialTimeExponent
@@ -848,9 +848,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.partialTimeExponent (KAM/Frozen/Nekhoroshev/Defs/PartialTimeExponent.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:partial-exponents#partialDriftExponent
@@ -874,9 +874,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.partialDriftExponent (KAM/Frozen/Nekhoroshev/Defs/PartialDriftExponent.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:partial
@@ -924,7 +924,7 @@ EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
 NOTE: frozen root; proof is Part 11c L159-169 (steps stepN:p11:final-*). SOURCE_GAP of the source paper (sourcegap L335) is filled by Part 11 (route of bpN:p11). The step edges are listed with locators in the proof environment of Part 11c
 
 NODE: bpN:p0:partial-sec#degenerateHamiltonian
@@ -950,9 +950,9 @@ EDGE: bpN:p0:partial-sec#fast | blueprint-N/parts/p0-conventions.tex#bpN:p0:part
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Planetary.degenerateHamiltonian (KAM/Frozen/Planetary/Defs/DegenerateHamiltonian.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: frozen definition transcribed in unlabelled Part-0 prose, item (Z1) of bpN:p0:partial (L325); anchor bound by the SPEC (track-P definition KAM.Planetary.degenerateHamiltonian)
 
 NODE: bpN:p2:qc-kernel
@@ -982,7 +982,7 @@ EXTRACTOR: sonnet-extract-N-p02
 REVIEWER: sol-review-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only specialized (lambda>0, m>0, C2 Hessian bound): isoenergetic_injective/bijective in KAM/Nekhoroshev/QuasiConvex.lean; audit W1-seal PASS WITH NOTES
 NOTE: the pointer to Remark n0 (L16) is a vacuity comment, not a use: no edge to bpN:p2:n0; ext-linalg is cited in \source (L17) and used at step qk-bij
 
 NODE: stepN:p2:qk-eqs
@@ -1151,7 +1151,7 @@ EXTRACTOR: sonnet-extract-N-p02+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Derivative formula exists (hasFDerivAt_isoenergetic) but Hessian symmetry (qd-sym) not exported/bypassed; audit W1-seal PASS WITH NOTES
 NOTE: ext-prod and K:ext-schwarz are cited in \source (L36) and used at the steps qd-prod and qd-sym: no parent edge
 
 NODE: stepN:p2:qd-first
@@ -1177,9 +1177,9 @@ EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p2-qc-zero.tex#stepN:p2:qd-fi
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.clm_apply_eq_sum, KAM.Nekhoroshev.hasFDerivAt_isoenergetic (KAM/Nekhoroshev/QuasiConvex.lean)
+LEAN_NOTE: audit W1-seal PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p2:qd-freq
@@ -1296,9 +1296,9 @@ EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p2-qc-zero.tex#bpN:p2:qc-bij@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.isoenergetic_bijective_of_qc (KAM/Nekhoroshev/QuasiConvex.lean)
+LEAN_NOTE: audit W1-seal PASS WITH NOTES; docstring mislabels it qc-deriv
 NOTE: proves the anchor bpN:p0:qcthm (carries the \frozen tag); [pre-extract: dropped reference to bpN:p0:qcthm, which part p2 proves]
 
 NODE: stepN:p2:qb-unpack
@@ -1448,7 +1448,7 @@ EXTRACTOR: sonnet-extract-N-p02
 REVIEWER: sol-review-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only restricted to B(0,R) (realHamiltonian_eq_realPart in KAM/Nekhoroshev/ZeroPerturbation.lean), not all of W_s; audit W1-seal PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p2:zd-zero
@@ -1478,7 +1478,7 @@ EXTRACTOR: sonnet-extract-N-p02+sol-review-N-a
 REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only restricted helper perturbation_zero_real (real theta, I in B(0,R)), not f=0 on all D_s(R); audit W1-seal PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p2:zd-diff
@@ -1572,9 +1572,9 @@ EDGE: bpN:p0:ball#actionBall | blueprint-N/parts/p2-qc-zero.tex#bpN:p2:zero@L83-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p02+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.zero_perturbation_core (KAM/Nekhoroshev/ZeroPerturbation.lean)
+LEAN_NOTE: all three conjuncts; audit W1-seal PASS WITH NOTES
 NOTE: proves the anchor bpN:p0:zero (carries the \frozen tag); [pre-extract: dropped reference to bpN:p0:zero]. Part 2 remark zero-scope (uniqueness for ε = 0 from Part 3) is not asserted: excluded
 
 NODE: stepN:p2:z-init
@@ -1846,9 +1846,9 @@ EDGE: stepN:p1:nc-mat | blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-compare@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.euclid, norm_le_euclid, modeSize_euclid_compare, lattice_ball_inclusions, bilinear_euclid_bound (KAM/Nekhoroshev/Interfaces/Norms.lean)
+LEAN_NOTE: audit P1-1 PASS WITH NOTES; clauses (a),(b),(c) all covered
 NOTE: forward pointers to Part 8 (bpN:p8:direction, bpN:p8:cutoffs) in the statement (L37) are not uses and are dropped; ext-norms is cited in \source and used at stepN:p1:nc-vec
 
 NODE: stepN:p1:nc-vec
@@ -1934,9 +1934,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p1-interfaces.tex#bpN:p1:rea
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.realActionDomain_eq, isOpen_realActionDomain, ball_subset_realActionDomain, isOpen_Wdom, realInclusion₂_preimage_complexDomain, isOpen_actionNbhd_ball, isOpen_complexDomain, realInclusion_preimage_actionNbhd, tube_subset, tube_real, complexStrip_mono, complexStrip_zero (KAM/Nekhoroshev/Interfaces/Domains.lean)
+LEAN_NOTE: audit P1-1 PASS WITH NOTES; (a)-(d) all covered
 NOTE: remark rdomain-eq (cited L49, L56) states the same identity as step rd-real, which proves it independently: no edge (rdomain-eq is a claim consumed by bpN:p3:s-N and stepN:p2:zd-diff); the "as in Definition bpN:p4:domains" of (c) (L52) restates the tube explicitly and is not a use: no edge
 
 NODE: stepN:p1:rd-real
@@ -2053,9 +2053,9 @@ EDGE: bpN:p0:realH#realHamiltonian | blueprint-N/parts/p1-interfaces.tex#bpN:p1:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.Data, Wdom (KAM/Nekhoroshev/Interfaces/Setting.lean)
+LEAN_NOTE: Definition formalized, nothing to prove; audit P1-1 PASS WITH NOTES
 NOTE: section data node for coverage item p1:prose-L68-L70 (unlabelled prose); consumers: bpN:p1:holo-real and its steps
 
 NODE: bpN:p1:holo-real
@@ -2091,9 +2091,9 @@ EDGE: bpN:p0:realH#realHamiltonian | blueprint-N/parts/p1-interfaces.tex#bpN:p1:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.holo_real_a, holo_real_b, complexHessian, holo_real_c, holo_real_d, holo_real_e (KAM/Nekhoroshev/Interfaces/HoloReal.lean)
+LEAN_NOTE: audit P1-2 PASS WITH NOTES; clauses (a)-(e) all covered
 NOTE: forward pointer (Part 3 uses this as bpN:p3:holo-input, L84) is not an edge; K:holomorphic-regularity and K:hamiltonian-real are cited in \source and used at steps hr-holo, hr-field
 
 NODE: stepN:p1:hr-holo
@@ -2498,9 +2498,9 @@ EDGE: stepN:p1:cc-num | blueprint-N/parts/p1-interfaces.tex#bpN:p1:conic-coerciv
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.conic_coercive (KAM/Nekhoroshev/Interfaces/ConicCoercive.lean)
+LEAN_NOTE: audit P1-3a PASS WITH NOTES; full 5/8 q conclusion on cone
 NOTE: pure linear algebra core (ours); no references
 
 NODE: stepN:p1:cc-unit
@@ -2551,9 +2551,9 @@ EDGE: stepN:p1:cc-unit | blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-decomp@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1
 REVIEWER: sol-review-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.conic_coercive (KAM/Nekhoroshev/Interfaces/ConicCoercive.lean)
+LEAN_NOTE: audit P1-3a PASS WITH NOTES; decomposition/orthogonality inside conic_coercive proof (lines 87-143)
 NOTE: -
 
 NODE: stepN:p1:cc-expand
@@ -2578,9 +2578,9 @@ EDGE: stepN:p1:cc-decomp | blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-expan
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.conic_coercive (KAM/Nekhoroshev/Interfaces/ConicCoercive.lean)
+LEAN_NOTE: audit P1-3a PASS WITH NOTES; both mixed terms, no symmetry assumed (lines 145-159)
 NOTE: -
 
 NODE: stepN:p1:cc-num
@@ -2606,9 +2606,9 @@ EDGE: stepN:p1:cc-decomp | blueprint-N/parts/p1-interfaces.tex#stepN:p1:cc-num@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.conic_coercive (KAM/Nekhoroshev/Interfaces/ConicCoercive.lean)
+LEAN_NOTE: audit P1-3a PASS WITH NOTES; numerics (conic_numerics private helper, lines 149-175)
 NOTE: -
 
 NODE: bpN:p1:qc-convert
@@ -2828,9 +2828,9 @@ EDGE: bpN:p0:cdomain#complexDomain | blueprint-N/parts/p1-interfaces.tex#bpN:p1:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.periodLift, tildeH, tildeh, tildef, realHamiltonian_tilde, isSolutionOn_tilde_iff, frequencyMap_tildeh, fderiv_fderiv_realPart_tildeh, tilde_hypotheses, tildef_domain, tildef_periodic, tildef_fourier (KAM/Nekhoroshev/Interfaces/Period.lean)
+LEAN_NOTE: audit P1-4 PASS WITH NOTES; clauses (a)-(e) all covered (e) under convergence input
 NOTE: the statement says the source is sources.md/Pos93 (provenance only); K:bp:p1:summation is cited in (e) and used at stepN:p1:pc-scalar. The \source in the statement is provenance
 
 NODE: stepN:p1:pc-chain
@@ -3055,7 +3055,7 @@ EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only numerical conjuncts proved (const_* in Constants.lean); analytic parts (c)-(g) open; audit P1-5
 NOTE: SOURCE_GAP: clauses (f),(g) and their proof steps use h-frequency and derivative bounds, but the lemma binds h with H1–H5 only inside clause (d). Preserve the raw conditional scope and expose the missing attachment at co-exc/co-time. No frozen anchor is changed.
 
 NODE: stepN:p1:co-pos
@@ -3080,9 +3080,9 @@ EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-po
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.const_pos, const_eps0 (KAM/Nekhoroshev/Interfaces/Constants.lean)
+LEAN_NOTE: audit P1-5 PASS WITH NOTES; clause (a) positivity and C eps0^a <= R/4, eps0 <= eps*/F
 NOTE: -
 
 NODE: stepN:p1:co-size
@@ -3108,9 +3108,9 @@ EDGE: bpN:p1:constants#data | blueprint-N/parts/p1-interfaces.tex#stepN:p1:co-si
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.const_size (KAM/Nekhoroshev/Interfaces/Constants.lean)
+LEAN_NOTE: audit P1-5 PASS WITH NOTES; clause (b) all five inequalities
 NOTE: -
 
 NODE: stepN:p1:co-tubes
@@ -3206,7 +3206,7 @@ EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only numerical conjunct proved (const_perturbation_arith, Constants.lean); Poschel-norm bound of f-tilde not proved; audit P1-5
 NOTE: -
 
 NODE: stepN:p1:co-exc
@@ -3235,7 +3235,7 @@ EXTRACTOR: sonnet-extract-N-p1+sol-review-N-a
 REVIEWER: sol-delta-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only numerical threshold comparisons proved (const_exceptional_arith, Constants.lean); frequency lower bound not; audit P1-5
 NOTE: SOURCE_GAP: the lemma explicitly assumes H1–H5 only in clause (d). This clause needs the corresponding hypotheses on h (H3 for the frequency lower bound; H5 also for the time upper bound). The cited conditional conversions do not supply those premises. No such premise is added to the source contract.
 
 NODE: stepN:p1:co-time
@@ -3268,7 +3268,7 @@ EXTRACTOR: sonnet-extract-N-p1+sol-delta-N-a
 REVIEWER: sol-delta2-N-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only numerical conjunct proved (const_time_arith, Constants.lean); Omega0 bounds not; audit P1-5
 NOTE: SOURCE_GAP: In addition to the already recorded missing h-bound scope, the current partials contract inherits IsAnalyticPerturbation R s ε f from §s-holo. This application does not bind or supply that datum. No source hypothesis is added here. SOURCE_GAP: the lemma explicitly assumes H1–H5 only in clause (d). This clause needs the corresponding hypotheses on h (H3 for the frequency lower bound; H5 also for the time upper bound). The cited conditional conversions do not supply those premises. No such premise is added to the source contract.
 
 NODE: stepN:p1:co-conc
@@ -3405,9 +3405,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-N-a
 REVIEWER: sol-delta-N-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.HeadParams, HeadParams.Pos, HeadParams.expo, q, B, mu, ell, r0, A, s0, sigma, F, epsStar, C, c, T, eps0, centralSet (KAM/Nekhoroshev/Interfaces/Constants.lean)
+LEAN_NOTE: Definition formalized, nothing to prove; audit P1-5 PASS WITH NOTES
 NOTE: Local definition portion split from the lemma package so its proof steps can consume the data without a parent cycle. Downstream users still consume bpN:p1:constants as required by SPEC.
 
 NODE: bpN:p3:ext-pl
@@ -3561,9 +3561,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.IsSolutionIn (KAM/ODE/Basic.lean)
+LEAN_NOTE: definition formalized; audit N3-1 PASS
 NOTE: package for the general layer; the conventions paragraph prose-L15-L26 is recorded in the source fields (E, two-sided derivative); suggested Lean name KAM.ODE.IsSolutionIn (not a frozen declaration)
 
 NODE: bpN:p3:gen-sol#consequences
@@ -3589,9 +3589,9 @@ EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-sol#
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.IsSolutionIn.mono, KAM.ODE.IsSolutionIn.continuousOn, KAM.ODE.isSolutionIn_congr_of_isOpen (KAM/ODE/Basic.lean)
+LEAN_NOTE: (i)-(iii); audit N3-1 PASS
 NOTE: section-data claim for coverage item p3:prose-L95-L99; statement and proof are the same unlabelled paragraph; consumers: short-boot, short-ext, uq-compact, ext-right, max-glue, cont-glue, exit-closed, exit-bdry
 
 NODE: bpN:p3:gen-symmetry
@@ -3617,9 +3617,9 @@ EDGE: stepN:p3:sym | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-symmetr
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_symmetry, KAM.ODE.gen_symmetry_shift, KAM.ODE.gen_symmetry_neg, KAM.ODE.gen_symmetry_neg_contDiffOn, KAM.ODE.gen_symmetry_translate (KAM/ODE/Basic.lean)
+LEAN_NOTE: (a)(b)(c); audit N3-1 PASS
 NOTE: -
 
 NODE: stepN:p3:sym
@@ -3645,9 +3645,9 @@ EDGE: bpN:p3:gen-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:sym@L11
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_symmetry (KAM/ODE/Basic.lean)
+LEAN_NOTE: proved inside parent gen_symmetry (chain rule); audit N3-1 PASS
 NOTE: -
 
 NODE: bpN:p3:gen-lip
@@ -3674,9 +3674,9 @@ EDGE: stepN:p3:lip-explicit | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ge
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_lip (KAM/ODE/Lipschitz.lean)
+LEAN_NOTE: audit N3-1 PASS
 NOTE: 'Alternatively' at L122 makes the Mathlib route and the explanatory proof two alternative routes for the Lipschitz clause; the bound is shared
 
 NODE: stepN:p3:lip-mathlib
@@ -3838,9 +3838,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.UniformData (KAM/ODE/Lipschitz.lean)
+LEAN_NOTE: definition formalized; audit N3-1 PASS
 NOTE: package for continuation results, Part 7 transfer and Part 11c; the parenthetical via ext-mvt (gradient bound gives Lipschitz clause) is an aside, not used
 
 NODE: bpN:p3:gen-uniform-compact
@@ -3867,9 +3867,9 @@ EDGE: stepN:p3:uc-data | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uni
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_uniform_compact, KAM.ODE.closedThickening (KAM/ODE/Lipschitz.lean)
+LEAN_NOTE: audit N3-1 PASS
 NOTE: -
 
 NODE: stepN:p3:uc-delta
@@ -3952,9 +3952,9 @@ EDGE: stepN:p3:up-translate | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ge
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_uniform_periodic (KAM/ODE/UniformPeriodic.lean)
+LEAN_NOTE: audit N3-63 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:up-cell
@@ -4038,9 +4038,9 @@ EDGE: stepN:p3:short-ext | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-s
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_short, KAM.ODE.gen_short_forward (KAM/ODE/Existence.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:short-boot
@@ -4125,9 +4125,9 @@ EDGE: stepN:p3:ue-stay | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-uni
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_uniform_exist (KAM/ODE/Existence.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: parent depends on the package gen-uniform (statement) and gen-sol (conclusion predicate)
 
 NODE: stepN:p3:ue-pl
@@ -4211,9 +4211,9 @@ EDGE: stepN:p3:loc-red | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-loc
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_local (KAM/ODE/Existence.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:loc-red
@@ -4271,9 +4271,9 @@ EDGE: stepN:p3:uq-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-un
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_uniqueness, KAM.ODE.gen_uniqueness_inter (KAM/ODE/Uniqueness.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:uq-compact
@@ -4389,9 +4389,9 @@ EDGE: stepN:p3:ext-left | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-ex
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_extend (KAM/ODE/Maximal.lean)
+LEAN_NOTE: audit N3-63 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:ext-right
@@ -4479,9 +4479,9 @@ EDGE: stepN:p3:max-max | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-max
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_maximal, KAM.ODE.IsMaximalSolution (KAM/ODE/Maximal.lean)
+LEAN_NOTE: audit N3-63 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:max-union
@@ -4599,9 +4599,9 @@ EDGE: stepN:p3:cont-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_continuation (KAM/ODE/Continuation.lean)
+LEAN_NOTE: audit N3-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:cont-setup
@@ -4721,9 +4721,9 @@ EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_continuation_compact (KAM/ODE/Continuation.lean)
+LEAN_NOTE: audit N3-7 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:gen-continuation-periodic
@@ -4751,9 +4751,9 @@ EDGE: bpN:p3:gen-uniform | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-c
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_continuation_periodic (KAM/ODE/Continuation.lean)
+LEAN_NOTE: audit N3-7 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:gen-confinement
@@ -4782,9 +4782,9 @@ EDGE: stepN:p3:conf-concl | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_confinement (KAM/ODE/Continuation.lean)
+LEAN_NOTE: audit N3-7 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:conf-noexit
@@ -4874,9 +4874,9 @@ EDGE: stepN:p3:exit-sup | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:gen-ex
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.gen_exit, KAM.ODE.exitSet (KAM/ODE/Exit.lean)
+LEAN_NOTE: audit N3-45 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:exit-closed
@@ -5017,9 +5017,9 @@ EDGE: stepN:p3:hs-comp | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smo
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_smooth, KAM.ODE.ham_smooth_c1 (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: audit N3-2 PASS WITH NOTES
 NOTE: prose-L372-L375 (phase space P, X_H, partials) is recorded here and in ham-energy, ham-periodic, ham-reduction
 
 NODE: stepN:p3:hs-deriv
@@ -5102,9 +5102,9 @@ EDGE: stepN:p3:en-const | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-en
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_energy (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:en-chain
@@ -5130,9 +5130,9 @@ EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.te
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_energy (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: chain rule inside ham_energy; audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:en-cancel
@@ -5157,9 +5157,9 @@ EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.te
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.clm_ham_zero (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: private helper (with clm_fst_eq, clm_snd_eq); audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p3:en-const
@@ -5186,9 +5186,9 @@ EDGE: bpN:p3:ext-calc | blueprint-N/parts/p3-hamiltonian-ode.tex#stepN:p3:en-con
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_energy (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: segment constancy inside ham_energy; audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:ham-periodic
@@ -5216,9 +5216,9 @@ EDGE: stepN:p3:per-sol | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-per
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_periodic (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: audit N3-2 PASS WITH NOTES; H-identity stated only for t in J (design correction)
 NOTE: -
 
 NODE: stepN:p3:per-field
@@ -5305,9 +5305,9 @@ EDGE: stepN:p3:red-diff | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-re
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.ham_reduction (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: audit N3-2 PASS WITH NOTES; stronger (U need not be open)
 NOTE: kept as one node (SPEC ruling); \frozen tags name IsSolutionOn and IsHamiltonianSolutionOn; the two predicates have the same formula up to naming of the action set
 
 NODE: stepN:p3:red-mem
@@ -5363,9 +5363,9 @@ EDGE: bpN:p0:vf#hamiltonianVectorField | blueprint-N/parts/p3-hamiltonian-ode.te
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-review-N-c
 REVIEWER: sol-delta-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.ODE.diff_of_mem (KAM/ODE/Hamiltonian.lean)
+LEAN_NOTE: private helper; audit N3-2 PASS WITH NOTES
 NOTE: -
 
 NODE: bpN:p3:s-N#data
@@ -5422,9 +5422,9 @@ EDGE: stepN:p3:hi-cite | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:holo-in
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.holo_input (KAM/Nekhoroshev/Interfaces/HoloReal.lean)
+LEAN_NOTE: audit P1-2 PASS WITH NOTES; smoothness, field identity, periodicity
 NOTE: hi-reg and hi-per ('for orientation', repeating the argument of bpN:p1:holo-real) are not nodes; forward pointer: bpN:p1:holo-real(b)-(d) is the proof, cited at hi-cite
 
 NODE: stepN:p3:hi-cite
@@ -5480,9 +5480,9 @@ EDGE: stepN:p3:le-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:local-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b+sol-delta-N-c
 REVIEWER: sol-delta2-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.ODE.local_exist (KAM/Nekhoroshev/ODE/Specialization.lean)
+LEAN_NOTE: audit N3-10b PASS
 NOTE: -
 
 NODE: stepN:p3:le-red
@@ -5572,9 +5572,9 @@ EDGE: stepN:p3:uc-apply | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:unique
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.ODE.uniqueness_closed (KAM/Nekhoroshev/ODE/Specialization.lean)
+LEAN_NOTE: audit N3-10b PASS
 NOTE: -
 
 NODE: stepN:p3:uc-apply
@@ -5631,9 +5631,9 @@ EDGE: stepN:p3:cg-glue | blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:confine
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3b
 REVIEWER: sol-review-N-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.ODE.confinement_glue (KAM/Nekhoroshev/ODE/Specialization.lean)
+LEAN_NOTE: audit N3-10b PASS
 NOTE: constants: ρ = Cε^{1/(2n)} when used in Part 10; the proof does not cite local-exist/continuation (SPEC check)
 
 NODE: stepN:p3:cg-set
@@ -5751,9 +5751,9 @@ EDGE: K:bp:p1:uniform-limits | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:ex
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.uniform_limit_holomorphic (KAM/Weighted/Parametric.lean)
+LEAN_NOTE: Holomorphy and uniform derivative convergence on closed-ball loci; audit W4-2 PASS WITH NOTES
 NOTE: Modelled as a claim, not a pure external, per SPEC ruling: 'Exists in this form modulo that lemma' (L27) and L177 'This also gives ext-weier's derivative statement: apply it to K_j−K_l on the ball of radius η' (coverage item p4:prose-L177 is mapped here); PROOF_SOURCE spans the inline proof at L26–27 and the derivative argument at L177; the intervening results are not additional proof ingredients
 
 NODE: bpN:p4:ext-series
@@ -5806,9 +5806,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.polyNbhd, Dom, polydisc, isOpen_polyNbhd, isOpen_Dom, polyNbhd_mono, Dom_mono, polydisc_subset_Dom, actionNbhd_eq_polyNbhd (KAM/Weighted/Domains.lean)
+LEAN_NOTE: Definitions plus clauses (a),(b); audit W4-1 PASS WITH NOTES
 NOTE: Max norms throughout (Part 4 convention paragraph L10, Normalisation L12-L17: period 1, geometric strip width s); this definition is the package bpN:p4:domains (SPEC)
 
 NODE: stepN:p4:dom-open
@@ -5887,9 +5887,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:norm@L47-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.InClass, coeff, modeWeight, wsum, WSummable, WBound, HasFiniteWNorm, wnorm, wbound_iff (KAM/Weighted/Norm.lean)
+LEAN_NOTE: Definition formalized; norm encoded on finite locus (WBound/HasFiniteWNorm, N1/N2 notes); audit W4-1 PASS WITH NOTES
 NOTE: This definition is the package bpN:p4:norm (SPEC): 𝒪(r,s), û_k(I), ¦u¦_{I,s}, ¦u¦_{r,s}, finite norm; convention paragraph L12-L17 (max norms, geometric width s, weight e^{2π¦k¦₁s}) recorded here
 
 NODE: bpN:p4:norm#monotone
@@ -5915,9 +5915,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:norm#monot
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.modeWeight_mono, WBound.mono, coeff_apply_pi, wbound_pi_apply, wbound_pi_of_components (KAM/Weighted/Norm.lean)
+LEAN_NOTE: Stated in WBound (finite-bound) form; audit W4-1 PASS WITH NOTES
 NOTE: section-data claim created from coverage item p4:prose-L55-L55 (SPEC); consumed by stepN:p4:b4-four, stepN:p4:b4-prod, stepN:p5:vf-deriv, bpN:p4:bracket (proof preamble L152) and later parts
 
 NODE: bpN:p4:n-zero
@@ -6556,9 +6556,9 @@ EDGE: stepN:p4:c1-cauchy | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:genera
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Weighted.general_cauchy (KAM/Weighted/Parametric.lean)
+LEAN_NOTE: Operator-norm bound M/R on open ball; audit W4-2 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p4:c1-line
@@ -6727,9 +6727,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:setting@L2
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Canonical.poissonBracket, adPow, scaledNorm, scaleCLE, norm_scaleCLE, symplFormC, poissonBracket_eq_fderiv_field, poissonBracket_antisymm, differentiableOn_poissonBracket, differentiableOn_adPow, poissonBracket_eq_zero_of_snd, RealOn (KAM/Canonical/Setting.lean)
+LEAN_NOTE: Definition formalized plus bracket identities; audit C5-1 PASS WITH NOTES
 NOTE: Package bpN:p5:setting (SPEC): X_u, {u,v} and its sign, ν_{ρ,σ}, ad^j. Candidate edge to bpN:p5:lie-derivative dropped: the normalisation 'd/dt u(X_φ^t)={u,φ}' is a forward pointer to the result that consumes this definition. The \sourcegap at L25 (printed sign of the bracket not located in Pos93) is a gap in the paper filled by this definition (coverage p5:sourcegap-L25)
 
 NODE: bpN:p5:vf-bound
@@ -6854,7 +6854,7 @@ EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Only parts (a) and (d) proved (KAM.Canonical.flow_a, flow_d in KAM/Canonical/Flow.lean); (b),(c),(e) open; audit C5-2 PASS WITH NOTES
 NOTE: Part 11b re-uses this lemma verbatim for N = 2n+2k (not an edge here)
 
 NODE: stepN:p5:fl-max
@@ -19056,9 +19056,9 @@ EDGE: bpN:p0:freq#frequencyMap | blueprint-N/parts/p0-conventions.tex#bpN:p0:avg
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p12
 REVIEWER: sol-review-N-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.HasAveragingFrequencyRank (KAM/Frozen/Nekhoroshev/Defs/HasAveragingFrequencyRank.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:avg-error#averagingError
@@ -19082,9 +19082,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p12
 REVIEWER: sol-review-N-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Nekhoroshev.averagingError (KAM/Frozen/Nekhoroshev/Defs/AveragingError.lean)
+LEAN_NOTE: sealed frozen definition (manifest SEALED); formalized, nothing to prove
 NOTE: -
 
 NODE: bpN:p0:avg-totality
@@ -19155,7 +19155,7 @@ EXTRACTOR: sonnet-extract-N-p12+sol-review-N-g
 REVIEWER: sol-delta-N-h
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
 NOTE: frozen root; proof is Part 12 (§s-mean, steps stepN:p12:me-*; the proof environment of L277-L289 has no label so PROOF_SOURCE was set to it). The \sourcegap (Nei76 (17), E-NAVG-NEI-17) is bridged by pointwise/transport/stopped (coverage); edge to Remark bpN:p12:errata deleted (provenance).
 
 NODE: bpN:p0:avg-most
@@ -19191,7 +19191,7 @@ EXTRACTOR: sonnet-extract-N-p12+sol-review-N-g
 REVIEWER: sol-delta-N-h
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
 NOTE: frozen root; proof is Part 12 (§s-most). The mechanical edge to bpN:p0:avg-mean ("with the same data and hypotheses as in Theorem avg-mean", L399) is deleted: the hypotheses are spelled out in SOURCE_HYPOTHESES and the proof of avg-most does not use the conclusion of avg-mean (mo-E, mo-z use only Part 12 results).
 
 NODE: bpN:p12:s-setting#data
