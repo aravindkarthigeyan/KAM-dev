@@ -227,6 +227,7 @@ public import KAM.Iso.Linear.Extended
 public import KAM.Iso.Linear.FreqMap
 public import KAM.Iso.Linear.LastRow
 public import KAM.Iso.Linear.NoTwist
+public import KAM.Iso.Linear.Reduced
 public import KAM.Iso.Linear.Tools
 public import KAM.Iso.R3bp.Uniqueness
 public import KAM.Iso.RestrictedHam
