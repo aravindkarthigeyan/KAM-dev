@@ -208,3 +208,6 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   graph P fully extracted (22 slices, P-FIXED included by a SPEC revision), reviews converging. The main orchestrator
   (track K complete) runs the Kepler/Delaunay layer, I Parts 1–3 (I-G1), I Parts 5/8 and N Parts 1/4/5 packages
   and hands audited branches back; the sub-orchestrator merges, regenerates `KAM.lean`, lands and will seal.
+- **04:40. I-G1 (`KAM.Iso.isoenergetic_kam`) sealed and landed** (seal e81fb67, landed 6c4e81e): I Parts 1–3 Lean
+  design by the main orchestrator's designer (Sol-audited), ~22 audited packages run by the main orchestrator, the seal
+  per D26 by the sub-orchestrator (axioms standard, per-module kernel replay exit 0). Next: the I-HEAD provider.
