@@ -183,7 +183,7 @@ Let $y=(I_y,\vartheta_y)$ with $I_y\in D_*\cap D$ and $\vartheta_y\in[0,1)^n$ be
 \proofstep{Measure}\label{stepP:p3:mt-meas}
 Thus the second set is contained in $\Phi_e\bigl((N_{\rho_2}(D_*)\setminus D_*)\times[-\epsilon,1+\epsilon)^n\bigr)$. $\Phi_e$ is $(1+\lambda')$-Lipschitz for $\abs\cdot_*$ on $\R^{2n}$, so by \Kref{bp:p1:lip-image} in scaled coordinates (the scaling constants cancel on both sides) its measure is $\le(1+\lambda')^{2n}(1+2\epsilon)^n\meas(N_{\rho_2}(D_*)\setminus D_*)\le2^n\meas(N_{\rho_2}(D_*)\setminus D_*)$, because $(1.1)^{2n}(1+\hat E_0/2\pi)^n\le(1.21\cdot1.01)^n<2^n$.
 \proofstep{The shell}\label{stepP:p3:mt-shell}
-$D_*\subset N_\eta(D_0)$, so $N_{\rho_2}(D_*)\subset N_{\rho_2+\eta}(D_0)\subset N_r(D)$ ($\rho_2+\eta\le22\hat E_0\hat\rho_0<r$), and $N_{\rho_2}(D_*)\setminus D_*\subset(N_r(D)\setminus D)\cup(D_0\setminus D_*)\cup(D\setminus D_0)$: if $x\in N_{\rho_2}(D_*)\setminus D_*$ then either $x\notin D$ (first set), or $x\in D\setminus D_0$, or $x\in D_0\setminus D_*$. Its measure is $\le b+a+(4/3)^n(a+b)=(1+(4/3)^n)(a+b)$ by Lemma~\ref{bpP:p3:meas-actions}.
+$D_*\subset N_\eta(D_0)$, so $N_{\rho_2}(D_*)\subset N_{\rho_2+\eta}(D_0)\subset N_{\rho_2+\eta}(D)\subset\operatorname{Re}(D_r)$ ($\rho_2+\eta\le22\hat E_0\hat\rho_0<r$), and $N_{\rho_2}(D_*)\setminus D_*\subset(N_{\rho_2+\eta}(D)\setminus D)\cup(D_0\setminus D_*)\cup(D\setminus D_0)$: if $x\in N_{\rho_2}(D_*)\setminus D_*$ then either $x\notin D$ (first set), or $x\in D\setminus D_0$, or $x\in D_0\setminus D_*$. Its measure is $\le b+a+(4/3)^n(a+b)=(1+(4/3)^n)(a+b)$ by Lemma~\ref{bpP:p3:meas-actions}.
 \proofstep{Sum}\label{stepP:p3:mt-sum}
 Total $\le[a+(4/3)^n(a+b)]+2^n(1+(4/3)^n)(a+b)\le[1+(4/3)^n+2^n(1+(4/3)^n)](a+b)$.
 \end{proof}
