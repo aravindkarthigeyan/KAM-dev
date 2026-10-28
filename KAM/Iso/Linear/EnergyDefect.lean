@@ -163,8 +163,11 @@ theorem energy_defect (hS : Setting n τ M σK σB σT D H ω γ) {r : ℝ} (hr 
       ‖fderiv ℂ (fun y => H (K y)) θ‖ ≤ n * (‖etaN H K ω θ‖ + ‖ω‖ * ‖lagrangeMat K θ‖)) ∧
     avg (fun θ => fderiv ℂ H (K θ) ((sumVec n).symm (frameMat K θ *ᵥ Sum.elim (ξL θ) (ξN θ)))) =
       avg (fun θ => energyRow H K θ ⬝ᵥ ξN θ) + avg (fun θ => fderiv ℂ (fun y => H (K y)) θ (ξL θ)) ∧
-    ∀ A X : ℝ, (∀ x : Fin n → ℝ, ‖fderiv ℂ (fun y => H (K y)) (fun i => (x i : ℂ))‖ ≤ A) →
-      (∀ x : Fin n → ℝ, ‖ξL (fun i => (x i : ℂ))‖ ≤ X) →
+    ∀ A X : ℝ,
+      (∀ x ∈ Set.pi Set.univ (fun _ : Fin n => Set.Icc (0 : ℝ) 1),
+        ‖fderiv ℂ (fun y => H (K y)) (fun i => (x i : ℂ))‖ ≤ A) →
+      (∀ x ∈ Set.pi Set.univ (fun _ : Fin n => Set.Icc (0 : ℝ) 1),
+        ‖ξL (fun i => (x i : ℂ))‖ ≤ X) →
       ‖avg (fun θ => fderiv ℂ (fun y => H (K y)) θ (ξL θ))‖ ≤ A * X := by
   -- `hKp`, `hKr` are part of the audited signature (the source setting); the proof does not
   -- need them.
@@ -205,11 +208,12 @@ theorem energy_defect (hS : Setting n τ M σK σB σT D H ω γ) {r : ℝ} (hr 
     exact integral_add (integrableOn_unitCube_of_continuous hF1)
       (integrableOn_unitCube_of_continuous hF2)
   · intro A X hA hX
-    refine norm_torusAverage_le fun x _ => ?_
+    refine norm_torusAverage_le fun x hx => ?_
     show ‖fderiv ℂ (fun y => H (K y)) (fun i => (x i : ℂ)) (ξL fun i => (x i : ℂ))‖ ≤ A * X
     calc _ ≤ ‖fderiv ℂ (fun y => H (K y)) (fun i => (x i : ℂ))‖ * ‖ξL fun i => (x i : ℂ)‖ :=
           ContinuousLinearMap.le_opNorm _ _
-      _ ≤ A * X := mul_le_mul (hA x) (hX x) (norm_nonneg _) ((norm_nonneg _).trans (hA x))
+      _ ≤ A * X :=
+          mul_le_mul (hA x hx) (hX x hx) (norm_nonneg _) ((norm_nonneg _).trans (hA x hx))
 
 end Torus
 
