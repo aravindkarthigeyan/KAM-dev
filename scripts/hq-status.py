@@ -32,8 +32,8 @@ if xp.exists():
     progress['items'] = progress['items'] + [it for it in json.loads(xp.read_text())['items'] if it['id'] not in ids]
 
 
-def graph_resolved(graph, parts):
-    """Resolved fraction (PROVED, BYPASSED or EXTERNAL) of the graph nodes whose statement source names a part."""
+def graph_counts(graph, parts=('',)):
+    """(resolved, total) graph nodes whose statement source names a part; resolved = PROVED, BYPASSED or EXTERNAL."""
     path = root / 'docs/graph' / graph / 'DEPGRAPH.md'
     if not path.exists():
         return None
@@ -44,7 +44,13 @@ def graph_resolved(graph, parts):
         if st and src and any(p in src.group(1) for p in parts):
             total += 1
             done += st.group(1) in ('PROVED', 'BYPASSED', 'EXTERNAL')
-    return done / total if total else None
+    return done, total
+
+
+def graph_resolved(graph, parts):
+    """Resolved fraction of the graph nodes whose statement source names a part."""
+    c = graph_counts(graph, parts)
+    return c[0] / c[1] if c and c[1] else None
 
 
 # Items with an "auto" field take their done fraction from the proof graph, so they never go stale.
@@ -162,24 +168,37 @@ def section_glance(rows):
 
 AREAS = [
     ('Frozen', 'Owner-approved frozen statements and definitions (one per file, manifest-bound)'),
-    ('Fourier', 'Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates'),
-    ('Diophantine', 'Diophantine vectors, cohomological equation, measure of the Diophantine set'),
-    ('Strip', 'Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation'),
-    ('Matrix', 'Matrix-valued functions: Neumann series and inverse bounds'),
-    ('Newton', 'Abstract Newton/KAM convergence on analytic scales'),
-    ('Hamiltonian', 'Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits'),
-    ('APosteriori', 'A-posteriori KAM theorem at fixed frequency and local uniqueness'),
-    ('Measure', 'Lipschitz dependence on the frequency and the measure of the union of tori'),
     ('Provider', 'One provider module per frozen theorem, where its proof is assembled'),
+    ('Analysis', 'Track K Part 1: quadratic iteration and scalar estimates'),
+    ('Fourier', 'Weighted ℓ¹ Fourier norms, used in the cohomological equation (D12)'),
+    ('Diophantine', 'Diophantine vectors, cohomological equation, measure of the Diophantine set'),
+    ('Strip', 'Holomorphic functions on complex strips: Cauchy estimates, Fourier series, cohomological equation'),
+    ('Matrix', 'Matrix-valued functions: Neumann series and inverse bounds'),
+    ('Torus', 'Carriers for tori and embeddings: ℂⁿ × ℂⁿ, predicates, averages'),
+    ('Apost', 'Track K Part 2: a-posteriori KAM at fixed frequency (Newton step, iteration, limit)'),
+    ('Uniq', 'Track K Part 3: local uniqueness of invariant tori for flows'),
+    ('Measure', 'Track K Part 4: lattice counting, Lipschitz dependence, measure of the tori'),
+    ('Head', 'Track K Part 4: assembly of the headline theorem'),
+    ('ODE', 'Flows of ODEs: solutions, symmetries, continuation (tracks N and P)'),
+    ('Iso', 'Track I: isoenergetic KAM, confinement, restricted three-body problem'),
+    ('Kepler', 'Kepler problem and Delaunay coordinates (tracks I and P)'),
+    ('Weighted', 'Track N: weighted domains and norms'),
+    ('Canonical', 'Track N: canonical flows and maps'),
+    ('Nekhoroshev', 'Track N: Nekhoroshev stability'),
+    ('Planetary', 'Track P: planetary KAM'),
 ]
 
 
 def section_areas():
     out = ['| Area | Content | Modules | Lines | Theorems |', '|---|---|---|---|---|']
-    for d, desc in AREAS:
+    known = {d for d, _ in AREAS}
+    extra = sorted(p.name for p in (root / 'KAM').iterdir() if p.is_dir() and p.name not in known)
+    for d, desc in AREAS + [(d, '—') for d in extra]:
         p = root / 'KAM' / d
+        if not p.exists():
+            continue
         n, lines, thms = lean_stats([p])
-        link = f'[`KAM/{d}/`](KAM/{d})' if p.exists() else f'`KAM/{d}/` *(not created yet)*'
+        link = f'[`KAM/{d}/`](KAM/{d})'
         out.append(f'| {link} | {desc} | {n} | {lines:,} | {thms} |')
     return '\n'.join(out)
 
@@ -211,16 +230,56 @@ STATE_ICON = {'active': '🔄 active', 'running': '🔄 running', 'idle': '⏸ i
 def section_workers():
     out = ['| Agent | Kind | Model | Account | State | Assignment | Branch | Unlanded commits |',
            '|---|---|---|---|---|---|---|---|']
+    gone = 0
     for w in campaign['workers']:
         state = pane_state(w.get('session')) or STATE_ICON.get(w.get('state', ''), w.get('state', ''))
+        if state == '⚠️ session missing':
+            gone += 1
+            continue
         branch = w.get('branch')
         ahead = git('rev-list', '--count', '--no-merges', f'main..{branch}') if branch else ''
         sess = f' `{w["session"]}`' if w.get('session') else ''
         out.append(f'| **{w["id"]}**{sess} | {w["kind"]} | {w.get("model", "")} | {w.get("account", "")} | '
                    f'{state} | {w["assignment"]} | {f"`{branch}`" if branch else "—"} | {ahead or "—"} |')
+    # Packages of tracks I, N, P offloaded by the lead: one row per worktree branch inp-<suffix> not yet in inp.
+    for b in worktree_branches():
+        if not b.startswith('inp-') or b.startswith('inp-design'):
+            continue
+        if subprocess.run(['git', 'merge-base', '--is-ancestor', b, 'inp'], cwd=root).returncode == 0:
+            continue
+        subj = git('log', '-1', '--format=%s', b).replace('|', '∣')
+        aud = pane_state(f'inp-maud-{b[4:]}')
+        state = ('🔍 in audit' if aud and aud != '⚠️ session missing' else
+                 '✅ audited, handed back' if 'audit' in subj else '🔄 proving')
+        ahead = git('rev-list', '--count', '--no-merges', f'inp..{b}')
+        out.append(f'| **{b[4:]}** | prover (offload) | Claude Sonnet 5.5 | — | {state} | last commit: {subj[:90]} | '
+                   f'`{b}` | {ahead} (vs `inp`) |')
+    if gone:
+        out += ['', f'*{gone} finished agent sessions not shown.*']
     q = campaign.get('queued', [])
     if q:
         out += ['', '**Queued:** ' + ' · '.join(x['title'] for x in q)]
+    return '\n'.join(out)
+
+
+TRACKS = [
+    ('K', 'kam', 'Positive-measure KAM for nearly-integrable analytic Hamiltonians, complement ≤ C·ε^{1/4}'),
+    ('I', 'iso', 'All-time confinement in two degrees of freedom (isoenergetic KAM); restricted circular planar '
+                 'three-body problem'),
+    ('N', 'nekhoroshev', 'Nekhoroshev stability for quasi-convex Hamiltonians, exponents 1/(2n)'),
+    ('P', 'planetary', 'Properly degenerate KAM; planar two-planet problem; n planets around a fixed Sun'),
+]
+
+
+def section_tracks():
+    out = ['| Track | Headline | Frozen theorems sealed | Proof graph | Stage |', '|---|---|---|---|---|']
+    for t, prefix, head in TRACKS:
+        thm = [a for a in manifest['anchors'] if a['kind'] == 'theorem' and a['id'].split('.')[0] == prefix]
+        sealed = sum(a['state'] == 'SEALED' for a in thm)
+        g = graph_counts(t)
+        gtxt = f'{g[0]} / {g[1]} nodes resolved' if g and g[1] else 'not published yet'
+        stage = campaign.get('tracks', {}).get(t, '')
+        out.append(f'| **{t}** | {head} | {sealed} / {len(thm)} | {gtxt} | {stage} |')
     return '\n'.join(out)
 
 
@@ -266,15 +325,22 @@ def loc(dirs):
     return total, code
 
 
+def worktree_branches():
+    out = git('worktree', 'list', '--porcelain')
+    return sorted({l.split('refs/heads/', 1)[1] for l in out.splitlines() if l.startswith('branch refs/heads/')}
+                  - {'main'})
+
+
 def unlanded_lines():
-    """Lean lines added on the agents' branches and not yet on main."""
-    n = 0
-    for w in campaign['workers']:
-        if not w.get('branch'):
-            continue
-        out = git('diff', '--numstat', f'main...{w["branch"]}', '--', '*.lean')
-        n += sum(int(a) for a, *_ in (l.split('\t') for l in out.splitlines()) if a.isdigit())
-    return n
+    """Lean lines added on the agents' branches (every branch checked out in a worktree) and not yet on main.
+    Stacked branches share files, so each file counts once, with its largest addition."""
+    per = {}
+    for b in worktree_branches():
+        for l in git('diff', '--numstat', f'main...{b}', '--', '*.lean').splitlines():
+            a, _, path = l.split('\t', 2)
+            if a.isdigit() and path != 'KAM.lean':
+                per[path] = max(per.get(path, 0), int(a))
+    return sum(per.values())
 
 
 def size_estimate(rows):
@@ -316,24 +382,31 @@ def lines_24h_ago():
 PLANNED_TOTAL = 40000
 
 
+def lean_item(it):
+    """Lean proof work: track K's analysis, a-posteriori and measure items, and the proof items of tracks I, N, P."""
+    return it['id'].split('.')[0] in ('F', 'K', 'M') or '.PROOF' in it['id']
+
+
 def section_size(rows):
     total, code, unl, wt, done = size_estimate(rows)
     prev = lines_24h_ago()
     growth = f' · **{total - prev[0]:+,}** since {prev[1]}' if prev else ''
-    lean_done = sum(progress['weights'][it['difficulty']] * it['done'] for it in progress['items']
-                    if it['id'][0] in 'FKM')
+    w = progress['weights']
+    lean = [it for it in progress['items'] if lean_item(it)]
+    lean_done = sum(w[it['difficulty']] * it['done'] for it in lean)
     rate_based = lean_done >= 8
-    est = total / lean_done * sum(progress['weights'][it['difficulty']] for it in progress['items']
-                                  if it['id'][0] in 'FKM') if rate_based else PLANNED_TOTAL
-    how = ('scales the lines per completed Lean weight unit to all Lean work items' if rate_based else
-           'is a planning figure (infrastructure ≈ 12k, a-posteriori theorem ≈ 15k, measure layer ≈ 8k, '
-           'interfaces ≈ 5k lines); it switches to a rate-based estimate once 8 weight units of Lean work are done')
+    est = (total + unl) / lean_done * sum(w[it['difficulty']] for it in lean) if rate_based else PLANNED_TOTAL
+    how = ('scales the lines written so far (on `main` plus the agent branches) by the done share of the Lean work '
+           'items, weighted by difficulty: track K\'s analysis, a-posteriori and measure items and the proof items of '
+           'tracks I, N and P. It is as good as those done fractions: track K\'s come from its proof graph, the others '
+           'from the sub-orchestrator\'s assessment' if rate_based else
+           'is a planning figure; it switches to a rate-based estimate once 8 weight units of Lean work are done')
     out = ['### Size of the formalization', '',
            '| | Lines of Lean |', '|---|---|',
            f'| On `main` now | **{total:,}** ({code:,} excluding blank lines and comments){growth} |',
            f'| Written on agent branches, not yet landed | {unl:,} |',
            f'| **Estimated total at completion** | **≈ {round(est, -3):,.0f}** |',
-           f'| Estimated still to write | ≈ {round(max(est - total, 0), -3):,.0f} |', '',
+           f'| Estimated still to write | ≈ {round(max(est - total - unl, 0), -3):,.0f} |', '',
            f'**How the size is estimated.** The estimate {how}. History of all counts: '
            '[`docs/campaign/history.csv`](docs/campaign/history.csv).']
     return '\n'.join(out), est
@@ -360,19 +433,22 @@ def section_progress(rows):
     for name, (wt, dn, n) in groups.items():
         out.append(f'| {name} | {n} | {wt:.0f} | {dn:.1f} | `{bar(100 * dn / wt, 10)}` {100 * dn / wt:.0f} % |')
     out.append(f'| **Total** | {sum(g[2] for g in groups.values())} | {total:.0f} | {done:.1f} | **{pct:.1f} %** |')
-    out += ['', f'**How this is estimated.** The project is divided into {len(progress["items"])} work items: the '
-            'planning deliverables, the campaign infrastructure, and every node of the proof map below. Each item is '
-            'weighted by its difficulty (low 1, moderate 2, high 4, very high 8); each sealed frozen statement adds 1. '
-            'An item counts with the fraction of it that is done: for a Lean item, the fraction proved on `main`; for '
-            f'a planning item, the lead\'s assessment. Item assessment last reviewed: **{progress["reviewed"]}**. The '
-            'percentage is recomputed automatically; it measures done work, so the high-weight proof items dominate '
-            'what is left. File: [`docs/campaign/progress.json`](docs/campaign/progress.json).',
+    out += ['', f'**How this is estimated.** The project is divided into {len(progress["items"])} work items: planning '
+            'deliverables, campaign infrastructure, the four layers of track K\'s proof, and the proof campaigns of '
+            'tracks I, N and P. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8) and '
+            'counts with the fraction of it that is done; each sealed frozen theorem adds 1. Items marked *graph* '
+            'take that fraction from their proof graph (nodes `PROVED`, `BYPASSED` or `EXTERNAL` in '
+            '[`docs/graph/`](docs/graph)), so they update themselves at every refresh; the other items are the '
+            f'orchestrators\' assessment, last reviewed **{progress["reviewed"]}**. Files: '
+            '[`docs/campaign/progress.json`](docs/campaign/progress.json) (track K and infrastructure) and '
+            '[`docs/campaign/progress-INP.json`](docs/campaign/progress-INP.json) (tracks I, N, P).',
             '', '<details><summary>All work items with their weight and status</summary>', '',
             '| ID | Item | Difficulty | Done | Note |', '|---|---|---|---|---|']
     for it in progress['items']:
         mark = '✅' if it['done'] >= 1 else ('🟨' if it['done'] > 0 else '⬜')
         out.append(f'| {it["id"]} | {it["title"].replace("|", "∣")} | {it["difficulty"]} | '
-                   f'{mark} {100 * it["done"]:.0f} % | {it.get("note", "")} |')
+                   f'{mark} {100 * it["done"]:.0f} % | {"*graph " + it["auto"]["graph"] + "* · " if "auto" in it else ""}'
+                   f'{it.get("note", "")} |')
     out += ['', '</details>']
     return '\n'.join(out)
 
@@ -416,6 +492,7 @@ sections = {
     'statements': section_statements(rows),
     'graph': section_graph(),
     'areas': section_areas(),
+    'tracks': section_tracks(),
     'workers': section_workers(),
     'landed': section_landed(),
     'errata': section_errata(),

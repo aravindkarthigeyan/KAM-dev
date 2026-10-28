@@ -1,5 +1,5 @@
 {
- "current_phase": "OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.",
+ "current_phase": "Track K complete: all five frozen theorems sealed (headline, qualitative headline, a-posteriori KAM, local uniqueness, measure of the non-Diophantine set); its proof graph is fully resolved. Tracks I, N, P: proof campaigns running (sub-orchestrator D23 plus packages offloaded to the lead); overnight mode D29.",
  "workers": [
   {
    "id": "orchestrator",
@@ -7,7 +7,7 @@
    "model": "Claude Opus 5.5",
    "account": "claude-1",
    "session": null,
-   "assignment": "Campaign lead: sources, statements, assignments, landings, owner questions, this README",
+   "assignment": "Campaign lead: track K (complete), offloaded packages of tracks I, N, P, sources, owner questions, this README",
    "state": "active"
   },
   {
@@ -18,100 +18,69 @@
    "session": null,
    "assignment": "Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md",
    "state": "active"
-  },
-  {
-   "id": "zohar-shorter-times",
-   "kind": "exploration (Codex)",
-   "model": "GPT-6-Astra xhigh",
-   "account": "codex-1",
-   "session": "kam-zohar2",
-   "assignment": "Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md",
-   "state": "done"
-  },
-  {
-   "id": "bp-consolidate",
-   "kind": "blueprint editor",
-   "model": "Claude Opus 5.5",
-   "account": "claude-1",
-   "session": null,
-   "assignment": "Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes",
-   "state": "running"
-  },
-  {
-   "id": "suborch-INP",
-   "kind": "sub-orchestrator (tracks I, N, P)",
-   "model": "Claude Opus 5.5",
-   "account": "claude-8",
-   "session": "kam-suborch",
-   "assignment": "Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp",
-   "state": "active"
   }
  ],
- "queued": [
-  {
-   "title": "Dependency graph extraction for track K"
-  }
- ],
+ "queued": [],
  "graph": {
   "nodes": [
    [
     "ALG",
-    "Weighted ℓ¹ Fourier–Taylor algebras<br/>products, derivatives, composition",
-    "progress"
+    "Sup norms on complex strips (D12)<br/>weighted ℓ¹ in the cohomological equation",
+    "done"
    ],
    [
     "DIOPH",
     "Diophantine vectors<br/>cohomological equation",
-    "progress"
+    "done"
    ],
    [
     "NEWTON",
-    "Newton convergence<br/>on analytic scales",
-    "todo"
+    "Newton iteration and limit<br/>(KAM/Apost)",
+    "done"
    ],
    [
     "BRIDGE",
-    "Real-analytic functions ↔<br/>coefficient spaces",
-    "todo"
+    "Real-analytic functions ↔<br/>Fourier coefficients",
+    "done"
    ],
    [
     "GEOM",
     "Approximate Lagrangian geometry<br/>frame and torsion",
-    "todo"
+    "done"
    ],
    [
     "APOST",
     "A-posteriori KAM at fixed frequency<br/>[HL19, Thm 3.1]; [GJLV05]",
-    "todo"
+    "done"
    ],
    [
     "UNIQ",
-    "Local uniqueness for flows<br/>(to be proved: adapt GJLV05 Thm 2)",
-    "todo"
+    "Local uniqueness for flows<br/>(proved; adapts GJLV05 Thm 2)",
+    "done"
    ],
    [
     "APPLY",
     "A torus for every Diophantine ω<br/>near (θ, (∇h)⁻¹ω)",
-    "todo"
+    "done"
    ],
    [
     "LIP",
     "Lipschitz in ω: defect O(ε/γ⁴)<br/>[CCdlL13, Cor. 29–30]",
-    "todo"
+    "done"
    ],
    [
     "DMEAS",
     "Measure of the<br/>non-Diophantine frequencies [Pos01 §1d]",
-    "todo"
+    "done"
    ],
    [
     "IMAGE",
     "McShane extension, lipeomorphism<br/>[Pos01, Prop. 1–2, App. B]",
-    "todo"
+    "done"
    ],
    [
     "HEAD",
-    "Headline: positive-measure KAM<br/>complement ≤ C·ε^{1/4}",
+    "Headline: positive-measure KAM<br/>complement ≤ C·ε^{1/4} (sealed)",
     "anchor"
    ]
   ],
@@ -192,5 +161,11 @@
   "kam.aposteriori_kam.v1": "G1",
   "kam.local_uniqueness_flow.v1": "G2",
   "kam.volume_not_diophantine_le.v1": "G3"
+ },
+ "tracks": {
+  "K": "**complete**: blueprint, graph and all five frozen theorems sealed (2026-10-28)",
+  "I": "proof campaign: isoenergetic a-posteriori theorem (I-G1) at its last package (G1 and provider); Part 3 tori and Kepler layer under way",
+  "N": "proof campaign: ODE layer complete; weighted norms, canonical flows and periods under way",
+  "P": "proof campaign: Kepler/Delaunay layer and Newtonian/Poincaré packages under way; graph in final review"
  }
 }
