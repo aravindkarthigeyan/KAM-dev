@@ -220,6 +220,8 @@ public import KAM.Iso.Conversion
 public import KAM.Iso.Kepler
 public import KAM.Iso.KeplerHamiltonian
 public import KAM.Iso.Linear.Defs
+public import KAM.Iso.Linear.Energy
+public import KAM.Iso.Linear.EnergyDefect
 public import KAM.Iso.Linear.Extended
 public import KAM.Iso.Linear.FreqMap
 public import KAM.Iso.Linear.LastRow
@@ -251,6 +253,7 @@ public import KAM.Measure.Lipschitz
 public import KAM.Measure.McShane
 public import KAM.Measure.Slab
 public import KAM.Nekhoroshev.Interfaces.ConicCoercive
+public import KAM.Nekhoroshev.Interfaces.Constants
 public import KAM.Nekhoroshev.Interfaces.Domains
 public import KAM.Nekhoroshev.Interfaces.HoloReal
 public import KAM.Nekhoroshev.Interfaces.Norms
