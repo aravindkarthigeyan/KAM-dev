@@ -417,3 +417,8 @@ P-FIXED revision adds 342 draft nodes and 570 coverage items (122 TODO) in the f
   provenance and comparisons; the earlier "keep e-cov" note is superseded). Restore all three together if a consumer
   is found. `bpP:p7:lattice` and `stepP:p7:la-*` are deferred with P-FIXED (consumed only by Part 11); restored by the P-FIXED
   revision (2026-10-28).
+- 2026-10-28 (writer ruling, after the P-p11 extraction): Part 11's labelled external facts are graph externals:
+  `bpP:p11:e1` is an alias of `K:bp:p1:holomorphic-analytic`, `e2` of `N:bpN:p4:general-cauchy`, `e3` of
+  `bpP:p12:f-unif` (EXCLUDED as aliases); `bpP:p11:e4` (logarithmic asymptotics) and `bpP:p11:e5` (trigonometric
+  integrals) are track-P externals (`KIND: external`, `LEAN_STATUS: EXTERNAL`), to be added by the P-p11 slice review
+  with edges from their consumer steps (af-o2, as-nr, as-b2, pr-b, pr-d, wr-nu, wr-tube; pa-mono, pa-series).

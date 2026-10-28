@@ -1828,24 +1828,31 @@ STATEMENT_SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assemb
 PROOF_SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282
 CONTRACT_ID: bpP:p6:fixkol-assembly
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: TODO
-SOURCE_QUANTIFIERS: TODO
-SOURCE_CONCLUSION: TODO
-CONSTANT_SCOPE: TODO
+SOURCE_HYPOTHESES: G, m0 > 0; m_i > 0; a_i > 0 pairwise distinct; eta > 0; zeta_*, d, D of bpP:p6:tube-constants; eps in R (in place of mu); S in Ph(2n) with (S1) S measurable (Borel) and S in U_zeta_*; (S2) every z in S has w in R^2n, K, theta with K(theta) = z, K(R^2n) in S and IsPhysTorus(H_fix, w, K), H_fix = fixedHamiltonian (the hypotheses of bpP:p6:movkol-assembly with H_fix and eps in place of H_mov and mu)
+SOURCE_QUANTIFIERS: data (G, m0, m, a, eta) and zeta_*, d, D first; then eps and S
+SOURCE_CONCLUSION: FixKol(G, m0, m, a, eps, eta, d, D, S) holds
+CONSTANT_SCOPE: d, D depend on a only (zeta_* on (a, eta)); the dependence on the coupling is confined to (S1)-(S2)
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p6:movkol-assembly, bpP:p6:orbit-transfer, bpP:p6:tube-geometry
+DEPS: stepP:p6:ma-tube, stepP:p6:ma-coll, stepP:p6:ma-pair, bpP:p6:orbit-transfer, bpP:p6:tube-geometry, bpP:p6:tube-constants, bpP:p0:fixkol#FixedKolmogorovSet, bpP:p0:phystorus#IsPhysicalTorus, bpP:p0:fixham#fixedHamiltonian
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p6:movkol-assembly | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | cited at this line (statement; \ref{bpP:p6:movkol-assembly})
-EDGE: bpP:p6:orbit-transfer | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | cited at this line (statement; \ref{bpP:p6:orbit-transfer})
-EDGE: bpP:p6:tube-geometry | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | cited at this line (statement; \ref{bpP:p6:tube-geometry})
+EDGE: stepP:p6:ma-tube | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | the proof is that of Prop movkol-assembly: tube and set (S subset U_zeta_* subset U_eta, measurability)
+EDGE: stepP:p6:ma-coll | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | collision-freeness NoColl by tube-geometry (d), replayed
+EDGE: stepP:p6:ma-pair | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | pair bounds by tube-geometry (e), replayed
+EDGE: bpP:p6:orbit-transfer | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | Cor orbit-transfer (b) replaces (a): IsFixedSol from the physical torus
+EDGE: bpP:p6:tube-geometry | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | the fixed-Sun case of Lemma tube-geometry (e)
+EDGE: bpP:p6:tube-constants | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | zeta_*, d, D of the common hypotheses
+EDGE: bpP:p0:fixkol#FixedKolmogorovSet | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L281-L281 | FixKol in the conclusion
+EDGE: bpP:p0:phystorus#IsPhysicalTorus | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | IsPhysTorus in (S2)
+EDGE: bpP:p0:fixham#fixedHamiltonian | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | H_fix
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: writer-pfixed-revision
+EXTRACTOR: writer-pfixed-revision+sonnet-extract-pfixed
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: restored by the P-FIXED revision (was EXCLUDED as P-FIXED-only); consumers stepP:p13:n2-phys, stepP:p13:ng-phys, Part 11 L240; proof inline (L282); source fields TODO for the extractor
+NOTE: restored by the P-FIXED revision (was EXCLUDED as P-FIXED-only); consumers stepP:p13:n2-phys, stepP:p13:ng-phys, Part 11 L240; proof inline (L282); source fields filled by sonnet-extract-pfixed
+
