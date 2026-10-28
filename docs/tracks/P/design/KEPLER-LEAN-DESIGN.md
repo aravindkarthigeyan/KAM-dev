@@ -2407,3 +2407,12 @@ end D25
 end KAM.Planetary
 
 ```
+
+### Amendment K-A1 (2026-10-28, overnight ruling D29; I-6 audit)
+
+`ComplexDomainData` (L1577–1597) gains the blueprint's quantitative conclusion at the chosen radius
+(blueprint-I `p7-delaunay.tex` L341) as additional fields: `|G²/L² − G'²/L'²| < τ` with `τ = min{e₋²/2, e₋ δ_E}`, and
+radicand-disk membership. Existing fields are unchanged, so the predicate only strengthens and consumers using the old
+fields (I-7, I-8) are unaffected; `complex_domain_spec` returns the strengthened predicate. The 2π-periodicity of
+`delaunayC` is exported as a corollary. (I-6 audit N2: the local real-tube extension needed because KEP-9's
+`orbitMapC_ofReal` requires `|e| ≤ e₁` is sound.)
