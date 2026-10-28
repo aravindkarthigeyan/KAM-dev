@@ -443,7 +443,7 @@ ITEM: bpP:p8:use11
 KIND: claim
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:use11@L208-L210
 DISPOSITION: EXCLUDED
-REASON: consumers summary (Use in Part 11); outside every root closure of this graph version, consumed by P-FIXED (deferred). Checked: no label reference to it from any corpus part
+REASON: consumers summary (Use in Part 11); administrative consumers summary (P-FIXED now in scope; no proof consumes this remark). Checked: no label reference to it from any corpus part
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -

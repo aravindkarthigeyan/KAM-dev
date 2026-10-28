@@ -64,7 +64,7 @@ The lift uses uniqueness on the interval intersection and uniform continuation n
 | stepP:p14:ud-transl | FAIL | p14a-amd-expsafe.tex#stepP:p14:ud-transl@L244-L244; p14a-amd-expsafe.tex#stepP:p14:ud-transl@L244-L244 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
 | bpP:p14:lift | PASS | p14a-amd-expsafe.tex#bpP:p14:lift@L247-L249; p14a-amd-expsafe.tex#bpP:p14:lift@L250-L256 | Source contract, direct dependencies and locators agree. |
 | stepP:p14:li-init | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251; p14a-amd-expsafe.tex#stepP:p14:li-init@L251-L251 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
-| stepP:p14:li-max | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252; p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
+| stepP:p14:li-max | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252; p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
 | stepP:p14:li-proj | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253; p14a-amd-expsafe.tex#stepP:p14:li-proj@L253-L253 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
 | stepP:p14:li-cont | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254; p14a-amd-expsafe.tex#stepP:p14:li-cont@L254-L254 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
 | stepP:p14:li-concl | FAIL | p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255; p14a-amd-expsafe.tex#stepP:p14:li-concl@L255-L255 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
@@ -75,7 +75,7 @@ The lift uses uniqueness on the interval intersection and uniform continuation n
 | stepP:p14:st-thr | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L280; p14a-amd-expsafe.tex#stepP:p14:st-thr@L278-L280 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
 | stepP:p14:st-seg | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281; p14a-amd-expsafe.tex#stepP:p14:st-seg@L281-L281 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
 | stepP:p14:st-sol | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282; p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. |
-| stepP:p14:st-core | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283; p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. L283 uses identities already supplied by st-seg; the repeated lift edge is transitive. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data. |
+| stepP:p14:st-core | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283; p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. L283 uses identities already supplied by st-seg; the repeated lift edge is transitive. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
 | stepP:p14:st-fwd | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284; p14a-amd-expsafe.tex#stepP:p14:st-fwd@L284-L284 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data. Direct use of G,G-prime,D or the enlarged-domain constants. |
 | stepP:p14:st-bwd | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285; p14a-amd-expsafe.tex#stepP:p14:st-bwd@L285-L285 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data. Direct use of G,G-prime,D or the enlarged-domain constants. |
 | stepP:p14:st-phys | FAIL | p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286; p14a-amd-expsafe.tex#stepP:p14:st-phys@L286-L286 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data. |
@@ -87,17 +87,18 @@ The lift uses uniqueness on the interval intersection and uniform continuation n
 | stepP:p14:es-axis | FAIL | p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L309; p14a-amd-expsafe.tex#stepP:p14:es-axis@L308-L309 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data. |
 | stepP:p14:es-assemble | FAIL | p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310; p14a-amd-expsafe.tex#stepP:p14:es-assemble@L310-L310 | Restore the source premises and local branch; derived estimates and constructed witnesses are not extra hypotheses. Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data. |
 | bpP:p14:sec-domain#data | FAIL | p14a-amd-expsafe.tex#bpP:p14:sec-domain#data@L159-L162 | The N theorem is named for its hypotheses, norm or notation; its stability conclusion is not used here. |
-| bpP:p14:sec-domain#chart-facts | FAIL | p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L168; p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L168 | The general-n Ch2 claim uses poincare blockwise at L168; d25 is the special n=2 recollection. Product-chart(c) already supplies the coupling-independent splitting recalled here; same-chart is explanatory provenance. The product definition identifies each physical body pair with its one-planet chart in the Ch2 application. The stated blockwise source argument supplies Ch2; correct the misleading n=2 supplier and pointer-only note. |
+| bpP:p14:sec-domain#chart-facts | FAIL | p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L168; p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L168 | The general-n Ch2 claim uses poincare blockwise at L168; d25 is the special n=2 recollection. Product-chart(c) already supplies the coupling-independent splitting recalled here; same-chart is explanatory provenance. The product definition identifies each physical body pair with its one-planet chart in the Ch2 application. The stated blockwise source argument supplies Ch2; correct the misleading n=2 supplier and pointer-only note. The one-planet definitions and o-facts supply v_i,k_i and their norm identity directly. |
 | bpP:p14:sec-stopped#data | FAIL | p14a-amd-expsafe.tex#bpP:p14:sec-stopped#data@L260-L262 | The N theorem is named for its hypotheses, norm or notation; its stability conclusion is not used here. |
 
 ## Coverage
 
 | Failing item | Verdict | Reason |
 |---|---|---|
+| p14a:prose-L339-L339 | FAIL | The rationale claims a direct same-chart edge that is only explanatory provenance and is removed above; retain EXCLUDED and correct REASON only. |
 
 all other coverage items PASS
 
-No failing coverage items. The constants, index and st-limits remarks restate already mapped choices and obligations; the source/forward-reference lists supply no further theorem application.
+The other 71 coverage items pass. The constants, index and st-limits remarks restate already mapped choices and obligations; the source/forward-reference lists supply no further theorem application.
 
 ## Replacement fragments
 
@@ -1004,7 +1005,7 @@ NOTE: -
 
 ### P-p14a2 — stepP:p14:li-max
 
-Changed fields: DEPS, EDGE, SOURCE_HYPOTHESES.
+Changed fields: SOURCE_HYPOTHESES.
 
 ```text
 NODE: stepP:p14:li-max
@@ -1022,7 +1023,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p14:sec-domain#chart-facts, N:bpN:p3:ham-smooth, stepP:p14:li-init, N:bpN:p3:gen-maximal, bpP:p14:sec-domain#data, bpP:p14:conv#data
+DEPS: bpP:p14:sec-domain#chart-facts, N:bpN:p3:ham-smooth, stepP:p14:li-init, N:bpN:p3:gen-maximal, bpP:p14:sec-domain#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p14:sec-domain#chart-facts | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | (Ch3): H^Psi is C^infty on calW and H^Psi o tau_k = H^Psi
@@ -1030,7 +1031,6 @@ EDGE: N:bpN:p3:ham-smooth | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-
 EDGE: stepP:p14:li-init | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | w_0 in calW
 EDGE: N:bpN:p3:gen-maximal | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | maximal solution through w_0
 EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | tau_k, calW
-EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:li-max@L252-L252 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p14a2
 REVIEWER: -
@@ -1374,7 +1374,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p14:st-seg, N:bpN:p0:partial-core#innerCore, bpP:p14:enlarge, stepP:p14:st-thr, bpP:p14:conv#data, bpP:p14:sec-domain#data, bpP:p14:sec-stopped#data
+DEPS: stepP:p14:st-seg, N:bpN:p0:partial-core#innerCore, bpP:p14:enlarge, stepP:p14:st-thr, bpP:p14:conv#data, bpP:p14:sec-domain#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p14:st-seg | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | y(s) in calV, Lambda(y(0)) = Lambda(z_0) in prod (l_i,u_i), Gamma(y(s)) = A(z(s)) < A_1
@@ -1383,7 +1383,6 @@ EDGE: bpP:p14:enlarge | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core
 EDGE: stepP:p14:st-thr | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | nu^b < min(kappa,epsilon_D) for nu < nu_0
 EDGE: bpP:p14:conv#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | Direct use of box/mass data, physical element notation, inner/outer regions or exponents fixed by conv#data.
 EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | Direct use of chart variables, Gamma, Psi, tau_k, calW or H^Psi from sec-domain#data.
-EDGE: bpP:p14:sec-stopped#data | blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283 | Direct use of the fixed N-Hamiltonians or analytic data from sec-stopped#data.
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p14a2
 REVIEWER: -
@@ -1762,7 +1761,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p14:sec-domain#data, bpP:p7:product-chart, bpP:p7:poincare, bpP:p6:split, bpP:p6:domain, bpP:p1:chart-field, bpP:p0:d25-prograde#ProgradeElliptic, bpP:p0:d25-kepler#keplerAction, bpP:p0:d25-kepler#keplerAxis, bpP:p0:d25-kepler#keplerEnergy, bpP:p0:d25-kepler#keplerEccVector, bpP:p0:d25-cross#planeCross, bpP:p0:d25-amd#physicalAMD, bpP:p7:product-def
+DEPS: bpP:p14:sec-domain#data, bpP:p7:product-chart, bpP:p7:poincare, bpP:p6:split, bpP:p6:domain, bpP:p1:chart-field, bpP:p0:d25-prograde#ProgradeElliptic, bpP:p0:d25-kepler#keplerAction, bpP:p0:d25-kepler#keplerAxis, bpP:p0:d25-kepler#keplerEnergy, bpP:p0:d25-kepler#keplerEccVector, bpP:p0:d25-cross#planeCross, bpP:p0:d25-amd#physicalAMD, bpP:p7:product-def, bpP:p7:poincare-def, bpP:p7:o-facts
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p14:sec-domain#data | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L162-L162 | Psi, O_n, tau_k, H^Psi, f-hat, calW are those of the section data
@@ -1779,13 +1778,15 @@ EDGE: bpP:p0:d25-kepler#keplerEccVector | blueprint-P/parts/p14a-amd-expsafe.tex
 EDGE: bpP:p0:d25-cross#planeCross | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L165 | C_i(z) = Lambda_i - Gamma_i(w)
 EDGE: bpP:p0:d25-amd#physicalAMD | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L165 | A(z) = Gamma(w)
 EDGE: bpP:p7:product-def | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L168-L168 | The product definition identifies each physical body pair with its one-planet chart in the Ch2 application.
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L168-L168 | the v_i,k_i definitions in the one-planet block identity
+EDGE: bpP:p7:o-facts | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:sec-domain#chart-facts@L165-L168 | the block identity norm(v_i)^2=1-(1-Gamma_i/Lambda_i)^2 included in Ch2
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p14a2
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: L168 explicitly prescribes poincare(d),(e) in each product block. Product-def identifies the body pair; poincare(d) gives the action, energy, axis, cross product and eccentricity vector. Finite summation of the action/cross identities gives physicalAMD=Gamma. This is the componentwise source argument, not an application of the n=2 d25 statement at arbitrary n. No new external or source premise is introduced.
+NOTE: L168 explicitly prescribes poincare(d),(e) in each product block. Product-def identifies the body pair; poincare(d) gives the action, energy, axis, cross product and eccentricity vector. The one-planet definitions and o-facts give norm(v_i)^2=1-k_i^2. Finite summation of the action/cross identities gives physicalAMD=Gamma. This is the componentwise source argument, not an application of the n=2 d25 statement at arbitrary n. No new external or source premise is introduced.
 ```
 
 ### P-p14a2 — bpP:p14:sec-stopped#data
@@ -1827,6 +1828,26 @@ LEAN_NOTE: -
 NOTE: created from p14a:prose-L260-L262 (SPEC section data); consumers: hnu, stopped and its steps
 ```
 
+### P-p14a2 — coverage p14a:prose-L339-L339
+
+Changed field: REASON.
+
+```text
+ITEM: p14a:prose-L339-L339
+KIND: proof-region
+SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#prose@L339-L339
+DISPOSITION: EXCLUDED
+REASON: deviations paragraph: administrative. The coupling-independent unscaled splitting is supplied by product-chart(c), product-def and the sec-domain data to chart-facts; same-chart is an explanatory comparison, not an additional theorem application at L166.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p14a2
+REVIEWER: -
+```
+
+
+## for slice P-p7
+
+The existing coverage item bpP:p7:same-chart already says EXCLUDED: no substantive consumer, with the only foreign citation in P14a L339 (Deviations). Its node still exists in the P-p7 node packet. The chart-facts replacement removes its sole packet dependency, agreeing with that existing exclusion; the writer should finish the node pruning already implied by the P-p7 coverage disposition. No replacement to P-p7 coverage is requested, and this observation is separate from the 56 assigned node verdicts.
+
 ## Suspected blueprint defects and limits
 
 No new defect in a pinned paper is asserted. The false sign-invariance of perturbation(ii) is in the packet, not the blueprint: L234 correctly states only P1-P4. No SOURCE_GAP is manufactured for the explicit blockwise Ch2 argument.
@@ -1838,5 +1859,7 @@ L321 describes the N thresholds as independent of B_0 and P. The literal N contr
 Read-only structural check before replacement: P-p14a2: 56 nodes, 296 edges, 72 coverage items, 0 problems, 0 TODO records (not counted: --structural). Read the full assigned source range and every statement/proof/EDGE use, the owning N definitions, partial theorem and ODE statements, P Parts 0,1,6,7 and the preceding Part 14a lemmas. None of the 56 assigned nodes has frozen identity fields; the root anchor belongs to P-p0 and is not rewritten. Only manifest identity context was consulted. No Lean implementation/provider/proof bodies or proof-status fields were inspected. No Lean command or state-changing git command was run.
 
 Input node packet SHA256: b4082dd6d813bac0dd9c1989ded515709be952d4d19877f0a4d0da131827d0a2. Coverage packet SHA256: d8b53a988a29044543bde7d796c1fde0888a2727bbd1befc4c7f58c908c768d6. Raw Part 14a SHA256: a2735bd6fbc36dc765bafccac43af4e3742b101a7e0f2d97725e70ac37ff8452.
+
+Replacement validation: all 56 node verdicts have exactly the required replacement or PASS; 46 node replacements and 1 coverage-rationale replacement preserve unrelated fields and metadata. EDGE/DEPS correspondence, targets, source ranges and input hashes pass. No proposed prerequisite cycle involving this slice was found; all 56 slice nodes remain in a six-root closure.
 
 READY rev-P-o

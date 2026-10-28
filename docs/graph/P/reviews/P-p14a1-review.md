@@ -725,7 +725,7 @@ NOTE: SOURCE_TYPO: blueprint-P/parts/p14a-amd-expsafe.tex L146 prints T_- > -T; 
 ## Validation
 
 - Baseline structural checker: 45 nodes, 225 edges, 55 coverage items, 0 problems.
-- All assigned nodes are reachable from the AMD root through the recorded dependencies. External nodes also serve later Part 14 consumers; this slice introduces no alternative-route conjunction.
+- All assigned nodes are reachable from the six graph roots through the recorded dependencies. External nodes also serve later Part 14 consumers; this slice introduces no alternative-route conjunction.
 - Corpus and import hash pins match. Input packet hashes: nodes `7ac98c6ab7882586a9d1183542957a33dc00f6f787e5684c71e8e83e40b663e4`; coverage `3166c8288c2141d8941090c54c98da3006017986df19a1af59c294979316709e`.
-- Replacement parsing, dependency/EDGE agreement, dependency existence, locator bounds, local acyclicity, report coverage and unchanged-field checks are verified independently before handoff.
+- Review-applier dry run: 17 replaced, 0 added, 0 coverage items, 0 unresolved FAILs, 28 PASS nodes. Independent checks passed for dependency/EDGE agreement, dependency existence, locator bounds, local acyclicity, all 45 verdict rows and preservation of unaffected fields. Packet hashes remain unchanged; report whitespace check passes.
 - No Lean command or state-changing git command was run; only this review file is edited.
