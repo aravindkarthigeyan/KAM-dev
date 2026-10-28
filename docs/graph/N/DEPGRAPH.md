@@ -7,7 +7,7 @@ CONVENTIONS: docs/graph/N/SPEC.md "Conventions to watch": frozen period 1 (chara
 STANDING_ASSUMPTIONS: -
 EXTERNAL_POLICY: track-N external inputs are the labelled items of the parts' external-fact lists (bpN:p1:ext-*, p3:ext-*, p4:ext-*, p6:ext-*, p7:ext-*, p8:ext-*, p9:ext-*, p10:ext-*, p11:ext-*; an item that only restates another external or a proved result is excluded as an alias); every result of another track's blueprint used by a proof (\Kref; frozen definitions of other tracks named by \frozen) is an IMPORTED node K:<node>, I:<node> or P:<node> (KIND external, LEAN_STATUS EXTERNAL, STATEMENT_SOURCE in the owning blueprint, NOTE IMPORTED ...; source fields copied from docs/graph/K/DEPGRAPH.md for K, written by the writer from the owning blueprint for I and P), K's Mathlib-level externals included (K:bp:p1:ext-*); any other unproved fact is a step node with NOTE SOURCE_GAP
 FROZEN_ANCHORS: bpN:p0:actionnbhd#actionNbhd, bpN:p0:freq#frequencyMap, bpN:p0:vf#hamiltonianVectorField, bpN:p0:realH#realHamiltonian, bpN:p0:strip#complexStrip, bpN:p0:ball#actionBall, bpN:p0:cdomain#complexDomain, bpN:p0:rdomain#realActionDomain, bpN:p0:realpart#realPart, bpN:p0:integrable#IsAnalyticIntegrable, bpN:p0:pert#IsAnalyticPerturbation, bpN:p0:bm#HasDerivativeBounds, bpN:p0:qc#IsStrictlyQuasiConvex, bpN:p0:hess#HasComplexHessianBound, bpN:p0:sol#IsSolutionOn, bpN:p0:orbit#integrableOrbit, bpN:p0:partial-sec#Phase, bpN:p0:partial-sec#fast, bpN:p0:partial-sec#slow, bpN:p0:partial-sec#fastShift, bpN:p0:partial-complexify#complexifyPhase, bpN:p0:partial-core#innerCore, bpN:p0:partial-domain#partialComplexDomain, bpN:p0:partial-definite#HasDefiniteFastPart, bpN:p0:partial-pert#IsPartialPerturbation, bpN:p0:partial-exponents#partialTimeExponent, bpN:p0:partial-exponents#partialDriftExponent, bpN:p0:partial-sec#degenerateHamiltonian, bpN:p0:head, bpN:p0:zero, bpN:p0:qcthm, bpN:p0:partial, bpN:p0:avg-rank#HasAveragingFrequencyRank, bpN:p0:avg-error#averagingError, bpN:p0:avg-mean, bpN:p0:avg-most
-FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:a7d55a9a566d7d8408d455b1bfb2cc71bb9229baae5d1c547c96d9147159f8f3
+FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:b9b9fee8fa72332435a780c4b41d8250b2db4577594360bcf3891c85790488d2
 WRITER: claude-suborch-INP
 GLOBAL_REVIEWER: sol-global-N
 GLOBAL_REVIEW_REF: docs/graph/N/reviews/GLOBAL-review-3.md
@@ -5833,9 +5833,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#stepN:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isOpen_polyNbhd, isOpen_Dom, polyNbhd_mono, Dom_mono (KAM/Weighted/Domains.lean)
+LEAN_NOTE: audit W4-1 PASS; rows domains(a)
 NOTE: -
 
 NODE: stepN:p4:dom-poly
@@ -5860,9 +5860,9 @@ EDGE: bpN:p0:strip#complexStrip | blueprint-N/parts/p4-weighted-norms.tex#stepN:
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: polydisc_subset_Dom (KAM/Weighted/Domains.lean)
+LEAN_NOTE: audit W4-1 PASS; row domains(b)
 NOTE: -
 
 NODE: bpN:p4:norm
@@ -5975,9 +5975,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:coefficien
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: coeff_differentiableOn, inClass_fderiv_apply, coefficients_deriv, coefficients_series, coefficients_repr (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; parts (a)-(d)
 NOTE: the one-variable ingredients cited in \source (K:fourier-basic, K:summation) are used by the steps and linked there
 
 NODE: stepN:p4:co-holo
@@ -6005,9 +6005,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-holo@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: coeff_differentiableOn (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; row (a)
 NOTE: -
 
 NODE: stepN:p4:co-deriv
@@ -6037,9 +6037,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-deriv
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: inClass_fderiv_apply, coefficients_deriv (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; row (b)
 NOTE: -
 
 NODE: stepN:p4:co-series
@@ -6070,9 +6070,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
 REVIEWER: sol-delta-N-amend
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: coefficients_series (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; row (c)
 NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, singleton branch, no K result) and n≥1 (K results under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: stepN:p4:co-repr
@@ -6101,9 +6101,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
 REVIEWER: sol-delta-N-amend
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: coefficients_repr (KAM/Weighted/Coefficients.lean)
+LEAN_NOTE: audit W4-3 PASS WITH NOTES; row (d)
 NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, singleton branch, no K result) and n≥1 (K results under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: bpN:p4:sup-weighted
@@ -6131,9 +6131,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:sup-weight
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: sup_le_wbound, wbound_of_sup_bound (KAM/Weighted/SupWeighted.lean)
+LEAN_NOTE: audit W4-4 PASS WITH NOTES; B.1(a),(b)
 NOTE: candidate edges to bpN:p4:dictionary and bpN:p1:norm-convert dropped: 'In Pöschel's form … see Remark' and \source ('this is Lemma norm-convert with the I-dependence made explicit') are provenance/comparison
 
 NODE: stepN:p4:b1-a
@@ -6162,9 +6162,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b+sonnet-amend-N
 REVIEWER: sol-delta-N-amend
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: sup_le_wbound (KAM/Weighted/SupWeighted.lean)
+LEAN_NOTE: audit W4-4 PASS WITH NOTES; row B.1(a)
 NOTE: Explicit n=0 branch via Remark bpN:p4:n-zero; n≥1 as before.
 
 NODE: stepN:p4:b1-b
@@ -6193,9 +6193,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N+sonnet-amend-N
 REVIEWER: sol-delta-N-amend
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: wbound_of_sup_bound (KAM/Weighted/SupWeighted.lean)
+LEAN_NOTE: audit W4-4 PASS WITH NOTES; row B.1(b)
 NOTE: Explicit cases n=0 (Remark bpN:p4:n-zero, singleton branch, no K result) and n≥1 (K results under the standing convention); the earlier SOURCE_GAP about the missing n=0 branch is supplied.
 
 NODE: bpN:p4:algebra
@@ -6342,9 +6342,9 @@ EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:cauchy@L12
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-review-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: cauchy_theta, cauchy_action, cauchy_loss (KAM/Weighted/Cauchy.lean)
+LEAN_NOTE: audit W4-6 PASS WITH NOTES; (a),(b) and loss form
 NOTE: Cycle bpN:p4:cauchy <-> bpN:p4:sharp resolved: the candidate edge cauchy -> sharp is the parenthetical remark at L125 ('with the norm ♯ of Lemma sharp it is bounded'), a forward pointer/comparison, not a use; sharp uses cauchy (it is a variant statement). No edge cauchy -> sharp. The edge to bpN:p4:dictionary (Pöschel comparison in \source) is provenance and dropped
 
 NODE: stepN:p4:b3-a
@@ -6373,9 +6373,9 @@ EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N
 REVIEWER: sol-delta-N-global2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: cauchy_theta (KAM/Weighted/Cauchy.lean)
+LEAN_NOTE: audit W4-6 PASS WITH NOTES; row cauchy (a)
 NOTE: For n=0 the no-angle convention and singleton branch of bpN:p4:n-zero give an empty angular sum, hence zero, and no K exp-sums application is needed. For n≥1 the coefficient computation uses K exp-sums(a) as cited. The native all-n contract is unchanged; the earlier missing-empty-sum SOURCE_GAP is resolved.
 
 NODE: stepN:p4:b3-b
@@ -6404,9 +6404,9 @@ EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-b@L140-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: cauchy_action (KAM/Weighted/Cauchy.lean)
+LEAN_NOTE: audit W4-6 PASS WITH NOTES; row cauchy (b)
 NOTE: -
 
 NODE: bpN:p4:s-b4#data
@@ -6854,7 +6854,7 @@ EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: Only parts (a) and (d) proved (KAM.Canonical.flow_a, flow_d in KAM/Canonical/Flow.lean); (b),(c),(e) open; audit C5-2 PASS WITH NOTES
+LEAN_NOTE: Partial: (a) flow_a and (d) flow_d proved (audit C5-2 PASS WITH NOTES), (b) flow_b proved (audit C5-3 PASS WITH NOTES), all in KAM/Canonical/Flow.lean and FlowRegular.lean; clauses (c) and (e) are not yet in an audited package
 NOTE: Part 11b re-uses this lemma verbatim for N = 2n+2k (not an edge here)
 
 NODE: stepN:p5:fl-max
@@ -6886,9 +6886,9 @@ EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: flow_a (KAM/Canonical/Flow.lean)
+LEAN_NOTE: audit C5-2 PASS WITH NOTES; flow_a gives all four (a) clauses
 NOTE: SOURCE_GAP: L59 prints T₋>−1, whereas existence on [−1,1] requires T₋<−1. Time reversal is named, so this appears to be a sign typo; the graph must not silently certify a corrected printed conclusion. Owner/writer source ruling required.
 
 NODE: stepN:p5:fl-picard
@@ -6915,9 +6915,9 @@ EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p5-canonical-maps.tex#s
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: ParamHyp, ParamHyp.intervalIntegral, ParamHyp.id_add (KAM/Canonical/FlowRegularIntegral.lean); picard, picard_zero, picard_succ, picard_regular, exists_gaugeInterior_gt' (KAM/Canonical/FlowPicard.lean)
+LEAN_NOTE: audit C5-3 PASS WITH NOTES; rows fl-picard
 NOTE: -
 
 NODE: stepN:p5:fl-limit
@@ -6945,9 +6945,9 @@ EDGE: bpN:p4:ext-param | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-lim
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: flow_integral_eq, picard_flow_estimate (KAM/Canonical/FlowPicardConverge.lean); flow_paramHyp_local, flow_paramHyp, flow_b (KAM/Canonical/FlowRegular.lean)
+LEAN_NOTE: audit C5-3 PASS WITH NOTES; rows fl-limit
 NOTE: -
 
 NODE: stepN:p5:fl-inverse
@@ -7008,7 +7008,7 @@ EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Partial: (d) flow_d (KAM/Canonical/Flow.lean, audit C5-2 PASS WITH NOTES) proved; (e) real restriction not yet audited
 NOTE: -
 
 NODE: bpN:p5:symplectic
@@ -7269,9 +7269,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:lie-deriva
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: lie_derivative, hasDerivAt_comp_flow, hasDerivAt_adPow_flow (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES
 NOTE: The phrase “as in Lemma symplectic” imports the displayed field/domain hypotheses only. No symplecticity conclusion is consumed by the scalar chain-rule/induction proof, so it is not a dependency on that theorem.
 
 NODE: stepN:p5:ld-one
@@ -7297,9 +7297,9 @@ EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ld-one@L116
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hasDerivAt_comp_flow (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES; row One flow derivative
 NOTE: -
 
 NODE: stepN:p5:ld-ind
@@ -7326,9 +7326,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ld-ind@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hasDerivAt_adPow_flow, lie_derivative (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES; row Iterated flow derivative
 NOTE: -
 
 NODE: bpN:p5:taylor
@@ -7356,9 +7356,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:taylor@L12
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: taylor_lie, taylor_poschel, taylor_integral_aux, hasDerivAt_taylorWeight (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p5:ta-taylor
@@ -7385,9 +7385,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-taylo
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: taylor_lie, taylor_integral_aux (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES; row taylor_lie
 NOTE: -
 
 NODE: stepN:p5:ta-poschel
@@ -7413,9 +7413,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-posch
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: taylor_poschel (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES; row taylor_poschel
 NOTE: -
 
 NODE: bpN:p5:adjoint

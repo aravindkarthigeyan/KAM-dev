@@ -149,7 +149,7 @@ EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: Only parts (a) and (d) proved (KAM.Canonical.flow_a, flow_d in KAM/Canonical/Flow.lean); (b),(c),(e) open; audit C5-2 PASS WITH NOTES
+LEAN_NOTE: Partial: (a) flow_a and (d) flow_d proved (audit C5-2 PASS WITH NOTES), (b) flow_b proved (audit C5-3 PASS WITH NOTES), all in KAM/Canonical/Flow.lean and FlowRegular.lean; clauses (c) and (e) are not yet in an audited package
 NOTE: Part 11b re-uses this lemma verbatim for N = 2n+2k (not an edge here)
 
 NODE: stepN:p5:fl-max
@@ -181,9 +181,9 @@ EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: flow_a (KAM/Canonical/Flow.lean)
+LEAN_NOTE: audit C5-2 PASS WITH NOTES; flow_a gives all four (a) clauses
 NOTE: SOURCE_GAP: L59 prints T₋>−1, whereas existence on [−1,1] requires T₋<−1. Time reversal is named, so this appears to be a sign typo; the graph must not silently certify a corrected printed conclusion. Owner/writer source ruling required.
 
 NODE: stepN:p5:fl-picard
@@ -210,9 +210,9 @@ EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p5-canonical-maps.tex#s
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: ParamHyp, ParamHyp.intervalIntegral, ParamHyp.id_add (KAM/Canonical/FlowRegularIntegral.lean); picard, picard_zero, picard_succ, picard_regular, exists_gaugeInterior_gt' (KAM/Canonical/FlowPicard.lean)
+LEAN_NOTE: audit C5-3 PASS WITH NOTES; rows fl-picard
 NOTE: -
 
 NODE: stepN:p5:fl-limit
@@ -240,9 +240,9 @@ EDGE: bpN:p4:ext-param | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:fl-lim
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: flow_integral_eq, picard_flow_estimate (KAM/Canonical/FlowPicardConverge.lean); flow_paramHyp_local, flow_paramHyp, flow_b (KAM/Canonical/FlowRegular.lean)
+LEAN_NOTE: audit C5-3 PASS WITH NOTES; rows fl-limit
 NOTE: -
 
 NODE: stepN:p5:fl-inverse
@@ -303,7 +303,7 @@ EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: Partial: (d) flow_d (KAM/Canonical/Flow.lean, audit C5-2 PASS WITH NOTES) proved; (e) real restriction not yet audited
 NOTE: -
 
 NODE: bpN:p5:symplectic
@@ -564,9 +564,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:lie-deriva
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: lie_derivative, hasDerivAt_comp_flow, hasDerivAt_adPow_flow (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES
 NOTE: The phrase “as in Lemma symplectic” imports the displayed field/domain hypotheses only. No symplecticity conclusion is consumed by the scalar chain-rule/induction proof, so it is not a dependency on that theorem.
 
 NODE: stepN:p5:ld-one
@@ -592,9 +592,9 @@ EDGE: bpN:p5:flow | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ld-one@L116
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hasDerivAt_comp_flow (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES; row One flow derivative
 NOTE: -
 
 NODE: stepN:p5:ld-ind
@@ -621,9 +621,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ld-ind@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hasDerivAt_adPow_flow, lie_derivative (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES; row Iterated flow derivative
 NOTE: -
 
 NODE: bpN:p5:taylor
@@ -651,9 +651,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#bpN:p5:taylor@L12
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: taylor_lie, taylor_poschel, taylor_integral_aux, hasDerivAt_taylorWeight (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES
 NOTE: -
 
 NODE: stepN:p5:ta-taylor
@@ -680,9 +680,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-taylo
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-delta-N-b
 REVIEWER: sol-delta2-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: taylor_lie, taylor_integral_aux (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES; row taylor_lie
 NOTE: -
 
 NODE: stepN:p5:ta-poschel
@@ -708,9 +708,9 @@ EDGE: bpN:p5:setting | blueprint-N/parts/p5-canonical-maps.tex#stepN:p5:ta-posch
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p5+sol-review-N-b
 REVIEWER: sol-delta-N-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: taylor_poschel (KAM/Canonical/Lie.lean)
+LEAN_NOTE: audit C5-6 PASS WITH NOTES; row taylor_poschel
 NOTE: -
 
 NODE: bpN:p5:adjoint

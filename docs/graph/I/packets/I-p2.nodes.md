@@ -1208,9 +1208,9 @@ EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:limit@L295
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isoLimit, isoSLimit, limit, isoLimit_eq, isoLimit_of_not_mem, isoLimit_tendsto, isoSLimit_tendsto, isoLimit_eq_iff, isoSLimit_eq_iff (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES (selectors with convergence and uniqueness; I-G1 itself separate)
 NOTE: -
 
 NODE: stepI:p2:lim-conv
@@ -1241,9 +1241,9 @@ EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-co
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isoLimit_eq_of_tendsto, isoSLimit_eq_of_tendsto, isoDSeq_summable_tsum_le, isoDSeq_div_summable, exists_tendsto_of_dist_ray, tendsto_isoSLimit, isoLimit_tendsto, isoSLimit_tendsto (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES; rows lim-conv
 NOTE: -
 
 NODE: stepI:p2:lim-close
@@ -1340,9 +1340,9 @@ EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:lim-inv@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isoEpsSeq_tendsto_zero, lim_invariance_moving (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES; rows lim-inv
 NOTE: -
 
 NODE: bpI:p2:energy-limit
@@ -1371,9 +1371,9 @@ EDGE: stepI:p2:el-int | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:energy-lim
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: sol-review-I-p2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: energy_limit, tendsto_energyAverage_of_uniform (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p2:el-unif
@@ -1402,9 +1402,9 @@ EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-uni
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: tendsto_energyAverage_of_uniform (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES; row el-unif / el-int
 NOTE: -
 
 NODE: stepI:p2:el-int
@@ -1437,9 +1437,9 @@ EDGE: bpI:p2:schedule | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:el-int@L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: tendsto_energyAverage_of_uniform (KAM/Iso/Apost/Limit.lean)
+LEAN_NOTE: audit I2-9 PASS WITH NOTES; row el-unif / el-int
 NOTE: -
 
 NODE: bpI:p2:g1
@@ -1473,9 +1473,9 @@ EDGE: stepI:p2:g1-o3 | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:g1@L353-L35
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2
 REVIEWER: sol-review-I-p2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES (explicit-constant I-G1 body; frozen anchor sealed separately)
 NOTE: -
 
 NODE: stepI:p2:g1-constants
@@ -1501,9 +1501,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-const
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isoC1_pos, isoC2_pos (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p2:g1-standing
@@ -1528,9 +1528,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-stand
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; IsoStanding construction inside g1_explicit (G1:106-124)
 NOTE: -
 
 NODE: stepI:p2:g1-e
@@ -1557,9 +1557,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-e@L34
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: iso_g1_error_small (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p2:g1-dict
@@ -1588,9 +1588,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-dict@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: norm_le_of_rowSum_le_of_nonempty, margin_of_le, g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; dictionary G1:128-146
 NOTE: Preextract candidate edge to bpI:p0:totality dropped (administrative pointer, deleted in I-p0; the remark (T2) is a Lean-totality note, not a consumed fact).
 
 NODE: stepI:p2:g1-apply
@@ -1622,9 +1622,9 @@ EDGE: bpI:p2:admissible | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-app
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; applies Apost.limit, G1:147-149
 NOTE: -
 
 NODE: stepI:p2:g1-o
@@ -1653,9 +1653,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o@L35
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; G1:156-164
 NOTE: -
 
 NODE: stepI:p2:g1-o2
@@ -1682,9 +1682,9 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o2@L3
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; G1:147-149,161
 NOTE: -
 
 NODE: stepI:p2:g1-o3
@@ -1716,7 +1716,7 @@ EDGE: bpI:p2:standing | blueprint-I/parts/p2-iso-iteration.tex#stepI:p2:g1-o3@L3
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p2+sol-review-I-p2
 REVIEWER: sol-delta-I-b
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: g1_explicit (KAM/Iso/Apost/G1.lean)
+LEAN_NOTE: audit I2-10 PASS WITH NOTES; G1:151-155,161
 NOTE: Preextract candidate edge to bpI:p1:o3 dropped (deleted administrative remark; the used fact is carried by bpI:p1:energy-conservation).

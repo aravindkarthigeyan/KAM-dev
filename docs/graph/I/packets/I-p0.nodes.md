@@ -839,9 +839,9 @@ EDGE: bpI:p2:g1 | blueprint-I/parts/p2-iso-iteration.tex#bpI:p2:g1@L335-L335 | f
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0+sol-review-I-p0
 REVIEWER: sol-delta-I-a
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.isoenergetic_kam (KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean)
+LEAN_NOTE: I-G1 anchor SEALED (manifest iso.isoenergetic_kam.v1); provider audit I2-10 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p0:head
@@ -874,9 +874,9 @@ EDGE: stepI:p5:hd-uniq | blueprint-I/parts/p5-confinement.tex#bpI:p0:head@L184-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p0
 REVIEWER: sol-review-I-p0
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: frozen theorem anchor not yet sealed (manifest DRAFT_SORRY)
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.Iso.all_time_confinement (KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean)
+LEAN_NOTE: I-HEAD anchor SEALED (manifest iso.all_time_confinement.v1); provider audit I-HEAD-audit-1 PASS
 NOTE: -
 
 NODE: bpI:p0:kepler

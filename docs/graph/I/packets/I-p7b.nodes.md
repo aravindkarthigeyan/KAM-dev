@@ -25,9 +25,9 @@ EDGE: stepI:p7:nc-image | blueprint-I/parts/p7-delaunay.tex#bpI:p7:near-circular
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: NearCircularWitness, nearCircular_witness_unique, nearCircular_eq, nearCircular_eq_image, isOpen_nearCircular, nearCircular_nonempty_iff (KAM/Iso/NearCircular.lean)
+LEAN_NOTE: audit I-4 PASS WITH NOTES (infrastructure; does not seal I-R3BP)
 NOTE: -
 
 NODE: stepI:p7:nc-sub
@@ -53,9 +53,9 @@ EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-sub@L274-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_eq, NearCircularWitness (KAM/Iso/NearCircular.lean)
+LEAN_NOTE: audit I-4 PASS WITH NOTES; both inclusions of nearCircular_eq
 NOTE: -
 
 NODE: stepI:p7:nc-sup
@@ -81,9 +81,9 @@ EDGE: bpI:p0:nearcircular#NearCircular | blueprint-I/parts/p7-delaunay.tex#stepI
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_eq, NearCircularWitness (KAM/Iso/NearCircular.lean)
+LEAN_NOTE: audit I-4 PASS WITH NOTES; both inclusions of nearCircular_eq
 NOTE: -
 
 NODE: stepI:p7:nc-image
@@ -113,9 +113,9 @@ EDGE: bpI:p7:elements | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nc-image@L278
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_eq_image, isOpen_nearCircular (KAM/Iso/NearCircular.lean)
+LEAN_NOTE: audit I-4 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p7:h0
@@ -145,7 +145,7 @@ EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: audit KEP-5 PASS: delaunay_hamiltonian (KAM/Kepler/Orbit.lean) proves only H^K o Q = -1/(2L^2) - G; the identity H^R3_0 = H^K at collision-free z is not in an audited table
 NOTE: -
 
 NODE: stepI:p7:h0-formula
@@ -175,7 +175,7 @@ EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
-LEAN_NOTE: -
+LEAN_NOTE: audit KEP-5 PASS: delaunay_hamiltonian covers only the H^K o Q formula; the mu = 0 identification is not in an audited table
 NOTE: -
 
 NODE: bpI:p7:complex-domain
@@ -572,9 +572,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:eh-delta@L4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: audit I-7 PASS: Lean proves delta2<=delta1 (exactDelta, exact_radius_spec), weaker than step's delta1/2; parent exact-ham proved
+LEAN_STATUS: PROVED
+LEAN_REF: exactDelta, ExactRadiusData, exact_radius_spec, exact_positions_mem_shiftO (KAM/Iso/ExactHamiltonian.lean)
+LEAN_NOTE: audit I-7 PASS WITH NOTES; rows eh-delta (selection, output predicate, geometric export)
 NOTE: SOURCE_GAP: uniform continuity of the position component of Q on the compact fundamental-domain closure is invoked but not proved or listed as an external. x-topo pays compactness only. The bound concerns position parts, as explicitly specified at L415; it does not assert a momentum bound.
 
 NODE: stepI:p7:eh-hol
@@ -677,9 +677,9 @@ EDGE: stepI:p7:po-exact | blueprint-I/parts/p7-delaunay.tex#bpI:p7:period-one@L4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: tildeF, period_one, delaunay_periodOne_symplectic (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p7:po-dom
@@ -709,9 +709,9 @@ EDGE: bpI:p7:complex-domain | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-dom@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b
 REVIEWER: sol-review-I-p67
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: period_one (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; rows po-dom (Aux lemmas) inside period_one
 NOTE: -
 
 NODE: stepI:p7:po-prop
@@ -743,9 +743,9 @@ EDGE: bpI:p7:x-hol | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-prop@L445-L44
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-g
 REVIEWER: sol-delta-I-h
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: period_one (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; rows po-prop (Aux lemmas) inside period_one
 NOTE: L443 recalls the domain proof argument of Part 6; L441 already supplied Re(I_1/(2 pi))>m_L/2 and nonvanishing on B_{r_0} directly from complex-domain. Together with conversion(b), this proves holomorphy and reality. The source-explicit nondeg edge is retained as reuse of that proof argument, not an application of the full corollary with its infimum-radius premises. For empty B the domain claims are vacuous. No SOURCE_GAP is established here.
 
 NODE: stepI:p7:po-exact
@@ -777,9 +777,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:po-exact@L4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: period_one, delaunay_periodOne_symplectic (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; row po-exact
 NOTE: -
 
 NODE: bpI:p7:transfer
@@ -814,9 +814,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:transfe
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-review-I-p67
 REVIEWER: sol-delta-I-c
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: transfer, transfer_identities (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p7:tr-cf
@@ -880,9 +880,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p7-delaunay.tex#stepI:p7:tr-open@L45
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: hamiltonianVectorField_congr, transfer (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; row tr-open
 NOTE: -
 
 NODE: stepI:p7:tr-chain
@@ -951,9 +951,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#bpI:p7:nondeg@
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nondeg_exact (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES
 NOTE: -
 
 NODE: stepI:p7:nd-dom
@@ -979,9 +979,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-do
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nondeg_exact (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; positive first action on the real tube
 NOTE: -
 
 NODE: stepI:p7:nd-det
@@ -1009,9 +1009,9 @@ EDGE: bpI:p6:kep-ham | blueprint-I/parts/p7-delaunay.tex#stepI:p7:nd-det@L474-L4
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p7b+sol-delta-I-c
 REVIEWER: sol-delta-I-g
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nondeg_exact (KAM/Iso/PeriodOne.lean)
+LEAN_NOTE: audit I-8 PASS WITH NOTES; determinant 3/I_1^4
 NOTE: -
 
 NODE: bpI:p7:sec-complex#data

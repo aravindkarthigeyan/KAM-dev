@@ -99,9 +99,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:e-vs-k@L36-L36 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: kappa, kappa_kappa, eccOf_eq_kappa, eccOf_mem_Ioo_iff, eccOf_mem_Icc_iff (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES (helper infrastructure; does not seal I-R3BP)
 NOTE: The involution identity kappa(kappa(x))=x on [0,1] is the elementary square-root calculation at L44, combined with strict monotonicity; it is not included in the statement of x-cont as a separate external assumption.
 
 NODE: bpI:p8:sec-safe#data
@@ -155,9 +155,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:A@L58-L58 | C_0 o
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: RegionParams, actionRegion, actionRegionCl, actionRegionCl_subset_cone, isOpen_actionRegion, isCompact_actionRegionCl, closure_actionRegion_subset (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES
 NOTE: -
 
 NODE: bpI:p8:topology
@@ -188,9 +188,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#bpI:p8:topology@L65-L65 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: mem_actionRegion_iff, nearCircular_eq_image_region, exists_delaunay_preimage, isOpen_nearCircular_region, nearCircular_nonempty (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; rows topology (a)-(d)
 NOTE: -
 
 NODE: stepI:p8:tp-A
@@ -217,9 +217,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-A@L74-L74 | 
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: actionRegionCl_subset_cone, mem_actionRegion_iff (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; row topology(a)
 NOTE: -
 
 NODE: stepI:p8:tp-chart
@@ -247,9 +247,9 @@ EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-chart@L76-L76 | A and
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_eq_image_region, exists_delaunay_preimage (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; row topology(b)
 NOTE: -
 
 NODE: stepI:p8:tp-open
@@ -276,9 +276,9 @@ EDGE: bpI:p8:x-topo | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-open@L78-L78 | f
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: isOpen_nearCircular_region (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; row topology(c)
 NOTE: -
 
 NODE: stepI:p8:tp-nonempty
@@ -307,9 +307,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:tp-nonempty@L80
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: nearCircular_nonempty (KAM/Iso/R3bp/Region.lean)
+LEAN_NOTE: audit P8-2 PASS WITH NOTES; row topology(d)
 NOTE: -
 
 NODE: bpI:p8:collision-exclusion
@@ -483,9 +483,9 @@ EDGE: bpI:p7:sec-complex#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe@L146-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safeT, safeAminus, safeAplus, safeEminus, safeEplus, safeU, safeK, safeB, safeB' (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES (helper infrastructure; does not seal I-R3BP)
 NOTE: The radius symbols specialize the section-data definitions to K; their nonempty compact carrier and positivity are verified by sr-incl and sr-radii, before head-data applies exact-ham. No exact-ham application occurs in the definition.
 
 NODE: bpI:p8:safe-region
@@ -515,9 +515,9 @@ EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#bpI:p8:safe-region@L1
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8
 REVIEWER: sol-review-I-p5p8
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safeT_pos, safeT_le_eighth, safe_regionParams, safe_inclusions, safe_elements, safe_radii, safe_domain (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; rows safe-region and sr-*
 NOTE: -
 
 NODE: stepI:p8:sr-incl
@@ -546,9 +546,9 @@ EDGE: bpI:p8:sec-safe#data | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-incl@L161
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safe_inclusions (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; row sr-incl
 NOTE: -
 
 NODE: stepI:p8:sr-elements
@@ -576,9 +576,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-elements@L16
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safe_elements (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; row sr-elements
 NOTE: -
 
 NODE: stepI:p8:sr-radii
@@ -608,9 +608,9 @@ EDGE: bpI:p7:orbit-maps | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-radii@L165-L
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-review-I-p5p8
 REVIEWER: sol-delta-I-d
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safeT_mul_le, safe_rho_arith, safe_radii, kRmin_le, le_kRhoMax (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; row sr-radii
 NOTE: -
 
 NODE: stepI:p8:sr-B
@@ -638,9 +638,9 @@ EDGE: bpI:p8:A | blueprint-I/parts/p8-r3bp.tex#stepI:p8:sr-B@L167-L167 | A is op
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-I-p8+sol-delta-I-d
 REVIEWER: sol-delta-I-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
+LEAN_STATUS: PROVED
+LEAN_REF: safe_domain (KAM/Iso/R3bp/Safe.lean)
+LEAN_NOTE: audit P8-3 PASS WITH NOTES; row sr-B
 NOTE: -
 
 NODE: bpI:p8:head-data

@@ -1693,7 +1693,7 @@
     "module": "KAM.Provider.Iso.AllTimeConfinement",
     "export": "KAM.Provider.Iso.all_time_confinement"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "f4b1185146a954f0ac22512ac80d0dcc318890e14c7fa54f0aaf7a054a489093",
    "suffix_sha256": "58564e44d45d3a56e328417645fb48a301bc876fbe465448299d676f30e18145",
    "draft_allowlist": {
