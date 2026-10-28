@@ -782,10 +782,37 @@ EXTRACTOR: sonnet-extract-P-p7
 REVIEWER: sol-delta-P-i
 
 ITEM: stepP:p7:av-mean
-KIND: step
+KIND: proof-region
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:av-mean@L273-L273
 DISPOSITION: EXCLUDED
 REASON: proof step of bpP:p7:average, outside every root closure under the writer ruling. It derives the same excluded mean-value claims from kepler(c) and the circular endpoint. No corpus proof outside that excluded unit consumes this step.
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sol-review-P-i
 REVIEWER: sol-delta-P-i
+
+ITEM: stepP:p7:po-el#circular
+KIND: proof-region
+SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158
+DISPOSITION: NODE stepP:p7:po-el#circular
+REASON: bookkeeping item mirroring the already-reviewed step node of the same name (substantive step exposed by the slice, not a separate source unit)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: new+sol-delta-P-i
+REVIEWER: sol-delta-P-q
+
+ITEM: stepP:p7:po-el#circular-scaled
+KIND: proof-region
+SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158
+DISPOSITION: NODE stepP:p7:po-el#circular-scaled
+REASON: bookkeeping item mirroring the already-reviewed route node of the same name (substantive step exposed by the slice, not a separate source unit)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: new+sol-review-P-i
+REVIEWER: sol-delta-P-i
+
+ITEM: stepP:p7:po-el#circular-direct
+KIND: proof-region
+SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158
+DISPOSITION: NODE stepP:p7:po-el#circular-direct
+REASON: bookkeeping item mirroring the already-reviewed route node of the same name (substantive step exposed by the slice, not a separate source unit)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: new+sol-delta-P-i
+REVIEWER: sol-delta-P-q

@@ -771,3 +771,21 @@ REASON: Label index (administrative)
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: sol-delta-P-j
+
+ITEM: bpP:p8:same-jets#jets
+KIND: proof-region
+SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206
+DISPOSITION: NODE bpP:p8:same-jets#jets
+REASON: bookkeeping item mirroring the already-reviewed step node of the same name (substantive step exposed by the slice, not a separate source unit)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p8+sol-delta-P-j
+REVIEWER: sol-delta2-P-t
+
+ITEM: bpP:p8:same-jets#transfer
+KIND: proof-region
+SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206
+DISPOSITION: NODE bpP:p8:same-jets#transfer
+REASON: bookkeeping item mirroring the already-reviewed step node of the same name (substantive step exposed by the slice, not a separate source unit)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-extract-P-p8+sol-delta-P-j
+REVIEWER: sol-delta2-P-t

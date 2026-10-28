@@ -360,33 +360,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
 
-NODE: bpP:p4:beta-inverse
-KIND: lemma
-TITLE: Uniform inverse of the torsion block
-STATEMENT_SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:beta-inverse@L62-L64
-PROOF_SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:beta-inverse@L65-L67
-CONTRACT_ID: bpP:p4:beta-inverse
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: beta(mu, I) a symmetric b x b matrix with ¦det beta(mu, I)¦ >= B > 0 and entries bounded by M_beta, for mu in (0, mu_0], I in V
-SOURCE_QUANTIFIERS: beta, B, M_beta, mu_0, V given; then for all mu in (0, mu_0], I in V, nu in R^b
-SOURCE_CONCLUSION: ¦nu¦ <= L_beta ¦beta(mu, I)^T nu¦ with L_beta := b! M_beta^{b-1} / B
-CONSTANT_SCOPE: L_beta depends on (b, M_beta, B) only
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:ext-cramer
-ROUTES: -
-ROUTE_FOR: -
-EDGE: K:bp:p1:ext-cramer | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:beta-inverse@L66-L66 | inverse of a nonsingular matrix as adjugate over determinant
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-P-p4
-REVIEWER: sol-review-P-f
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: -
-
 NODE: bpP:p4:freq
 KIND: definition
 TITLE: Frequency map of the averaged system

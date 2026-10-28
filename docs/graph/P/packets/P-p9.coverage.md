@@ -726,3 +726,21 @@ REASON: Label index (administrative)
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: sol-delta-P-k
+
+ITEM: stepP:p9:gs-c#roots-route
+KIND: proof-region
+SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183
+DISPOSITION: NODE stepP:p9:gs-c#roots-route
+REASON: bookkeeping item mirroring the already-reviewed route node of the same name (substantive step exposed by the slice, not a separate source unit)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: new+sol-review-P-k
+REVIEWER: sol-delta-P-k
+
+ITEM: stepP:p9:gs-c#analytic-route
+KIND: proof-region
+SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:gs-c@L183-L183
+DISPOSITION: NODE stepP:p9:gs-c#analytic-route
+REASON: bookkeeping item mirroring the already-reviewed route node of the same name (substantive step exposed by the slice, not a separate source unit)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: new+sol-review-P-k
+REVIEWER: sol-delta-P-k

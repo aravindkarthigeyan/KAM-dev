@@ -908,32 +908,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniqueness; shared Lean provider. There: KIND theorem, contract bpN:p3:gen-uniqueness v1. Cited as \Nref{bpN:p3:gen-uniqueness}. Ownership confirmed against the published track-N graph docs/graph/N/DEPGRAPH.md, node bpN:p3:gen-uniqueness; source topology ownership only.
 
-NODE: N:bpN:p3:ham-periodic
-KIND: external
-TITLE: [N] Periodicity in the angles passes to solutions
-STATEMENT_SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L402-L407
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p3:ham-periodic
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: W ⊂ P open with W + (k,0) = W for k ∈ ℤⁿ; H : P → ℝ with H(θ+k,I) = H(θ,I) on W; (second part) IsSolIn X_H W J z
-SOURCE_QUANTIFIERS: n; W; H; k ∈ ℤⁿ; J; z
-SOURCE_CONCLUSION: X_H(θ+k,I) = X_H(θ,I) on W; hence IsSolIn X_H W J (z+(k,0)) for every k and H∘(z+(k,0)) = H∘z
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:ham-periodic; shared Lean provider. There: KIND lemma, contract bpN:p3:ham-periodic v1. Cited as \Nref{bpN:p3:ham-periodic}. Ownership pending publication of the track-N graph (assembled, global review open): re-check with inp_depgraph_imports.py when docs/graph/N/DEPGRAPH.md is published.
-
 NODE: N:bpN:p3:ham-smooth
 KIND: external
 TITLE: [N] Regularity of $X_H$
@@ -1766,58 +1740,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-pert#IsPartialPerturbation; shared Lean provider. There: KIND definition, contract nekhoroshev.d25.IsPartialPerturbation v1, frozen anchor KAM.Nekhoroshev.IsPartialPerturbation (nekhoroshev.d25.IsPartialPerturbation.v1); not an anchor of this graph.
 
-NODE: N:bpN:p0:partial-sec#degenerateHamiltonian
-KIND: external
-TITLE: [N] prose transcription: KAM.Planetary.degenerateHamiltonian
-STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L324-L324
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p0:partial-sec#degenerateHamiltonian
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data: H₀ : ℝᵃ → ℝ, P : ℝ → Ph_{a+b} → ℝ, μ ∈ ℝ, z ∈ Ph_{a+b})
-SOURCE_QUANTIFIERS: a, b; H₀; P; μ; z
-SOURCE_CONCLUSION: defines degenerateHamiltonian H₀ P μ z = H₀(fast(z_2)) + μ P(μ,z), i.e. H_μ(φ,𝖨) = Re h(fast 𝖨) + μ Re P(cx(φ,𝖨)) for H₀ = h_ℝ
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-sec#degenerateHamiltonian; shared Lean provider. There: KIND definition, contract planetary.degenerateHamiltonian v1, frozen anchor KAM.Planetary.degenerateHamiltonian (planetary.degenerateHamiltonian.v1); not an anchor of this graph.
-
-NODE: N:bpN:p0:partial-sec#fast
-KIND: external
-TITLE: [N] prose transcription: KAM.Planetary.fast
-STATEMENT_SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L265-L266
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p0:partial-sec#fast
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data: v ∈ ℝ^{n+k})
-SOURCE_QUANTIFIERS: n, k; v ∈ ℝ^{n+k}
-SOURCE_CONCLUSION: defines fast(v) = (v_1,…,v_n), the first block of v ∈ ℝ^{n+k}
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p0:partial-sec#fast; shared Lean provider. There: KIND definition, contract planetary.fast v1, frozen anchor KAM.Planetary.fast (planetary.fast.v1); not an anchor of this graph.
-
 NODE: N:bpN:p0:sol#IsSolutionOn
 KIND: external
 TITLE: [N] Solutions on a time set: KAM.Nekhoroshev.IsSolutionOn
@@ -1870,32 +1792,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p3:gen-uniform; shared Lean provider. There: KIND definition, contract bpN:p3:gen-uniform v1.
 
-NODE: K:bp:p0:domains#actionNbhd
-KIND: external
-TITLE: [K] Complex neighbourhoods and the fundamental domain: KAM.actionNbhd
-STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p0:domains#actionNbhd
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: B subset R^n; r > 0
-SOURCE_QUANTIFIERS: B subset R^n, r > 0
-SOURCE_CONCLUSION: defines the complex neighbourhood B_r = {I in C^n : exists J in B, |I-J| < r} (max norm)
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p0:domains#actionNbhd; shared Lean provider. There: KIND definition, contract kam.actionNbhd v1, frozen anchor KAM.actionNbhd (kam.actionNbhd.v1); not an anchor of this graph. Cited as \Kref{bp:p0:domains}.
-
 NODE: K:bp:p0:domains#complexStrip
 KIND: external
 TITLE: [K] Complex neighbourhoods and the fundamental domain: KAM.complexStrip
@@ -1921,32 +1817,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p0:domains#complexStrip; shared Lean provider. There: KIND definition, contract kam.complexStrip v1, frozen anchor KAM.complexStrip (kam.complexStrip.v1); not an anchor of this graph. Cited as \Kref{bp:p0:domains}.
-
-NODE: K:bp:p0:domains#fundamentalDomain
-KIND: external
-TITLE: [K] Complex neighbourhoods and the fundamental domain: KAM.fundamentalDomain
-STATEMENT_SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p0:domains#fundamentalDomain
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: B subset R^n
-SOURCE_QUANTIFIERS: B subset R^n
-SOURCE_CONCLUSION: defines the fundamental domain F_B = [0,1)^n x B of T^n x B, with product Lebesgue measure
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p0:domains#fundamentalDomain; shared Lean provider. There: KIND definition, contract kam.fundamentalDomain v1, frozen anchor KAM.fundamentalDomain (kam.fundamentalDomain.v1); not an anchor of this graph. Cited as \Kref{bp:p0:domains}.
 
 NODE: K:bp:p1:cauchy-strip
 KIND: external
@@ -2078,32 +1948,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p1:fourier-basic; shared Lean provider. There: KIND lemma, contract bp:p1:fourier-basic v1. Cited as \Kref{bp:p1:fourier-basic}.
 
-NODE: K:bp:p1:iteration
-KIND: external
-TITLE: [K] Quadratic iteration on nested strips
-STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1009-L1014
-PROOF_SOURCE: -
-CONTRACT_ID: K:bp:p1:iteration
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Q>0; p>=0; reals y_0,y_1,...>=0 with y_{m+1}<=Q 2^{pm} y_m^2 for all m>=0; Q 2^p y_0<=1/2 (second claim: only q:=Q 2^p y_0<=1)
-SOURCE_QUANTIFIERS: for all Q>0, p>=0, sequences (y_m) satisfying the recursion; then for all m>=0
-SOURCE_CONCLUSION: y_m<=Q^{-1} 2^{-p(m+1)} 2^{-2^m} for all m>=0 (so y_m->0); under q<=1 only: y_m<=q^{2^m-1} 2^{-pm} y_0 for all m>=0
-CONSTANT_SCOPE: none (Q, p, y_0 arbitrary; no constants introduced)
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-K graph, node bp:p1:iteration; shared Lean provider. There: KIND lemma, contract bp:p1:iteration v1. Cited as \Kref{bp:p1:iteration}.
-
 NODE: K:bp:p1:lipeo
 KIND: external
 TITLE: [K] Lipeomorphisms
@@ -2181,32 +2025,6 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-K graph, node bp:p1:uniform-limits; shared Lean provider. There: KIND lemma, contract bp:p1:uniform-limits v1. Cited as \Kref{bp:p1:uniform-limits}.
-
-NODE: N:bpN:p4:bracket
-KIND: external
-TITLE: [N] B.4
-STATEMENT_SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L149-L153
-PROOF_SOURCE: -
-CONTRACT_ID: N:bpN:p4:bracket
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: m = n; u ∈ 𝒪(r_0,s_0), v ∈ 𝒪(r,s) with finite norms; 0<ρ<r, 0<σ<s, r−ρ<r_0, s−σ<s_0; {u,v} the bracket of s-b4#data
-SOURCE_QUANTIFIERS: D, n; r_0, s_0, r, s; u, v; ρ, σ
-SOURCE_CONCLUSION: {u,v} ∈ 𝒪(r−ρ,s−σ) and ¦{u,v}¦_{r−ρ,s−σ} ≤ (1/e)(1/((r_0−r+ρ)σ) + 1/((s_0−s+σ)ρ)) ¦u¦_{r_0,s_0}¦v¦_{r,s}
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: -
-ROUTES: -
-ROUTE_FOR: -
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-LEAN_STATUS: EXTERNAL
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:bracket; shared Lean provider. There: KIND lemma, contract bpN:p4:bracket v1. Cited as \Nref{bpN:p4:bracket}.
 
 NODE: N:bpN:p4:ext-param
 KIND: external

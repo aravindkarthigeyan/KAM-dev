@@ -1167,3 +1167,12 @@ REASON: suspected errata of CP10 (reported in the handoff) and the list of forwa
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
 REVIEWER: sol-delta-P-d
+
+ITEM: stepP:p1:hc-real-derivative
+KIND: proof-region
+SOURCE: blueprint-P/parts/p1-hamiltonian-tools.tex#bpP:p1:hol-chart@L73-L76
+DISPOSITION: NODE stepP:p1:hc-real-derivative
+REASON: bookkeeping item mirroring the already-reviewed step node of the same name (substantive step exposed by the slice, not a separate source unit)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: new+sol-review-P-d
+REVIEWER: sol-delta-P-d

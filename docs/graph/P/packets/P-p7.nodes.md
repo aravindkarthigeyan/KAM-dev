@@ -1186,35 +1186,6 @@ LEAN_REF: -
 LEAN_NOTE: -
 NOTE: -
 
-NODE: bpP:p7:same-chart
-KIND: claim
-TITLE: Why the same chart serves both models
-STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:same-chart@L211-L213
-PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:same-chart@L211-L213
-CONTRACT_ID: bpP:p7:same-chart
-CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Part 6 setting; reduced mass in Fej04r versus planet mass m_i here
-SOURCE_QUANTIFIERS: n, G, m0, m; mu, eps
-SOURCE_CONCLUSION: the Kepler part of H_mov is H_Kep with planet mass m_i and centre mass m0 (not the reduced mass), so the chart is independent of mu and equal to that of the fixed-Sun problem; f_mov-f_fix=l(P)^2/(2m0), P=sum p_i, is a polynomial analytic on all Ph_{2n}
-CONSTANT_SCOPE: none
-FROZEN_FILE: -
-FROZEN_DECL: -
-FROZEN_ANCHOR_ID: -
-FROZEN_ABI_SHA256: -
-DEPS: bpP:p6:kepler-part, bpP:p6:split, bpP:p7:product-chart
-ROUTES: -
-ROUTE_FOR: -
-EDGE: bpP:p6:kepler-part | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:same-chart@L212-L212 | H_Kep with planet mass; term mu l(p_i)^2/(2m0) belongs to mu f_mov
-EDGE: bpP:p6:split | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:same-chart@L212-L212 | f_mov-f_fix=l(P)^2/(2m0)
-EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:same-chart@L212-L212 | the chart Psi^(n) shared by both models
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: -
-NOTE: remark kept: consumed by Part 14a (two citations of bpP:p7:same-chart). The sentence on the lambda-average computed in Part 8 is a forward pointer
-
 NODE: bpP:p7:tube
 KIND: lemma
 TITLE: The tube in chart coordinates

@@ -127,8 +127,8 @@ REVIEWER: sol-review-P-f
 ITEM: bpP:p4:beta-inverse
 KIND: lemma
 SOURCE: blueprint-P/parts/p4-pg-measure.tex#bpP:p4:beta-inverse@L62-L64
-DISPOSITION: NODE bpP:p4:beta-inverse
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: outside every root closure of track P. Its only citations are the label in the standing-data item (N3) of bpP:p4:data (L83, a pointer to where such a constant arises) and Part 5 stepP:p5:fd-beta (L112, "Cramer as in", a comparison for the complex case, whose actual input is K:bp:p1:ext-cramer). No proof consumes the lemma; Part 5 proves its own complex L_beta bound.
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4
 REVIEWER: sol-review-P-f

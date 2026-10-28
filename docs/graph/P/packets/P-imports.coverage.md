@@ -313,15 +313,6 @@ COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: sol-delta-P-bd
 
-ITEM: N:bpN:p3:ham-periodic
-KIND: external
-SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-periodic@L402-L407
-DISPOSITION: EXCLUDED
-REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/N/DEPGRAPH.md node bpN:p3:ham-periodic
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-
 ITEM: N:bpN:p3:ham-smooth
 KIND: external
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:ham-smooth@L377-L381
@@ -610,24 +601,6 @@ COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: sol-review-P-imports
 
-ITEM: N:bpN:p0:partial-sec#degenerateHamiltonian
-KIND: external
-SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L324-L324
-DISPOSITION: EXCLUDED
-REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/N/DEPGRAPH.md node bpN:p0:partial-sec#degenerateHamiltonian
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-
-ITEM: N:bpN:p0:partial-sec#fast
-KIND: external
-SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:partial-sec@L265-L266
-DISPOSITION: EXCLUDED
-REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/N/DEPGRAPH.md node bpN:p0:partial-sec#fast
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-
 ITEM: N:bpN:p0:sol#IsSolutionOn
 KIND: external
 SOURCE: blueprint-N/parts/p0-conventions.tex#bpN:p0:sol@L165-L172
@@ -646,15 +619,6 @@ COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: sol-review-P-imports
 
-ITEM: K:bp:p0:domains#actionNbhd
-KIND: external
-SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
-DISPOSITION: EXCLUDED
-REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/K/DEPGRAPH.md node bp:p0:domains#actionNbhd
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-
 ITEM: K:bp:p0:domains#complexStrip
 KIND: external
 SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:conventions@L19-L20
@@ -663,15 +627,6 @@ REASON: imported node (track K): its statement is proved, or is an external inpu
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: sol-review-P-imports
-
-ITEM: K:bp:p0:domains#fundamentalDomain
-KIND: external
-SOURCE: blueprint/parts/p0-conventions.tex#bp:p0:domains@L40-L45
-DISPOSITION: EXCLUDED
-REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/K/DEPGRAPH.md node bp:p0:domains#fundamentalDomain
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
 
 ITEM: K:bp:p1:cauchy-strip
 KIND: external
@@ -718,15 +673,6 @@ COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: sol-delta-P-bd
 
-ITEM: K:bp:p1:iteration
-KIND: external
-SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:iteration@L1009-L1014
-DISPOSITION: EXCLUDED
-REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/K/DEPGRAPH.md node bp:p1:iteration
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-
 ITEM: K:bp:p1:lipeo
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:lipeo@L1203-L1207
@@ -750,15 +696,6 @@ KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:uniform-limits@L364-L368
 DISPOSITION: NODE K:bp:p1:uniform-limits
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
-COVERAGE_STATUS: REVIEWED
-EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-delta-P-bd
-
-ITEM: N:bpN:p4:bracket
-KIND: external
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L149-L153
-DISPOSITION: EXCLUDED
-REASON: unused import: no DEPS/ROUTES reference in any other track-P packet; outside the current track-P root dependency closure; source remains owned by docs/graph/N/DEPGRAPH.md node bpN:p4:bracket
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: sol-delta-P-bd
