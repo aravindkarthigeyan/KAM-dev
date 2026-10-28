@@ -263,6 +263,7 @@ public import KAM.Iso.Linear.Tools
 public import KAM.Iso.Linear.Trivial
 public import KAM.Iso.NearCircular
 public import KAM.Iso.PeriodOne
+public import KAM.Iso.R3bp.HeadData
 public import KAM.Iso.R3bp.Region
 public import KAM.Iso.R3bp.Safe
 public import KAM.Iso.R3bp.Uniqueness
@@ -363,6 +364,7 @@ public import KAM.Uniq.Phase
 public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
 public import KAM.Weighted.Algebra
+public import KAM.Weighted.Bracket
 public import KAM.Weighted.Cauchy
 public import KAM.Weighted.Coefficients
 public import KAM.Weighted.Domains
