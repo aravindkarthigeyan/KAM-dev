@@ -15,8 +15,8 @@ public import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 Helper module of `KAM.Canonical.FlowRegular` (blueprint-N Part 5, node `bpN:p5:flow` (b),
 design package C5-3). For a family `g : ℝ → E → G` on `[-1, 1] × U` (`U` open in a
 finite-dimensional complex space `E`) that is jointly continuous, holomorphic in the second
-variable, and has jointly continuous derivative, the map `(t, z) ↦ ∫ τ in 0..t, g τ z` is again of this kind, and its
-`z`-derivative is the integral of the `z`-derivatives (differentiation under the integral sign).
+variable, and has jointly continuous derivative, the map `(t, z) ↦ ∫ τ in 0..t, g τ z` is again
+of this kind, and its `z`-derivative is the integral of the `z`-derivatives (differentiation under the integral sign).
 
 The integral over `[0, t]` is reduced to the fixed interval `[0, 1]` by `τ = t σ`.
 
