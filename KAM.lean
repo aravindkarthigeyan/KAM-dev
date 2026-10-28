@@ -81,6 +81,7 @@ public import KAM.Frozen.Iso.Defs.RestrictedVectorField
 public import KAM.Frozen.Iso.Theorems.AllTimeConfinement
 public import KAM.Frozen.Iso.Theorems.IsoenergeticKam
 public import KAM.Frozen.Iso.Theorems.KeplerBorderedDet
+public import KAM.Frozen.Iso.Theorems.RestrictedNearCircular
 public import KAM.Frozen.Nekhoroshev.Defs.ActionBall
 public import KAM.Frozen.Nekhoroshev.Defs.AveragingError
 public import KAM.Frozen.Nekhoroshev.Defs.ComplexDomain
@@ -328,6 +329,7 @@ public import KAM.Provider.AposterioriKam
 public import KAM.Provider.Iso.AllTimeConfinement
 public import KAM.Provider.Iso.IsoenergeticKam
 public import KAM.Provider.Iso.KeplerBorderedDet
+public import KAM.Provider.Iso.RestrictedNearCircular
 public import KAM.Provider.KamPositiveMeasure
 public import KAM.Provider.KamPositiveMeasureQualitative
 public import KAM.Provider.LocalUniquenessFlow

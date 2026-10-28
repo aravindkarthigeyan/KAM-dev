@@ -1807,7 +1807,7 @@
     "module": "KAM.Provider.Iso.RestrictedNearCircular",
     "export": "KAM.Provider.Iso.restricted_near_circular"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "3b42e427b5608dece96852cc29bb1b3d2400acde7c6110bb08674fb21088b4c5",
    "suffix_sha256": "58564e44d45d3a56e328417645fb48a301bc876fbe465448299d676f30e18145",
    "draft_allowlist": {

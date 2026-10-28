@@ -64,7 +64,7 @@ theorem restricted_near_circular
             a < 0 → 0 < b → y 0 = z₀ → IsRestrictedSolutionOn μ (Set.Ioo a b) y →
             ∀ t ∈ Set.Ioo a b, y t = z t :=
   -- FROZEN_ANCHOR_PROOF_BEGIN
-  by sorry
+  by exact KAM.Provider.Iso.restricted_near_circular ha haa he hee heSmall hinner
   -- FROZEN_ANCHOR_PROOF_END
 -- FROZEN_ANCHOR_SUFFIX_BEGIN
 
