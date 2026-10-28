@@ -546,7 +546,8 @@ private theorem sy_hasFDerivAt_T (x : Phase 2) :
   refine ⟨sy_mk4 _ (sy_c2 1) (sy_c2 0) _, sy_hasFDerivAt_mk4 e3 hg e2 e4, fun h => ?_⟩
   rw [sy_mk4_apply]
   simp only [sub_apply, smul_apply, smul_eq_mul, sy_c1_apply, sy_c2_apply]
-  refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i <;> simp <;> ring
+  refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i <;> simp
+  ring
 
 /-- The pull-back computation `d Λ ∧ d(λ - g) + d(Λ - Γ) ∧ d g = d Λ ∧ d λ + d η ∧ d ξ` in polar
 coordinates, as an identity of the frozen form on the two derivative formulas. -/
@@ -631,6 +632,93 @@ private theorem sy_step1 {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {x : Phase 2}
     sy_form_T_eq_P]
 
 end Polar
+
+/-- (c): symplectic with factor one on all of `𝒪` (density argument across `Γ = 0`). -/
+theorem poincare_symplectic {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) :
+    IsSymplecticOn 1 (poincare m κ) poincareDom := by
+  -- the part `Γ > 0`
+  have hA : ∀ w ∈ poincareDom, 0 < poincareGamma w → ∀ u v : Phase 2,
+      symplecticForm (fderiv ℝ (poincare m κ) w u) (fderiv ℝ (poincare m κ) w v) =
+        1 * symplecticForm u v := by
+    intro w hw hΓ u v
+    obtain ⟨g, hg1, hg2⟩ := sy_polar (w.1 1) (w.2 1)
+    have hsum : w.1 1 ^ 2 + w.2 1 ^ 2 = 2 * poincareGamma w := by unfold poincareGamma; ring
+    rw [hsum] at hg1 hg2
+    have hρ : 0 < √(2 * poincareGamma w) := Real.sqrt_pos.2 (by linarith)
+    have hρ2 : √(2 * poincareGamma w) ^ 2 = 2 * poincareGamma w := Real.sq_sqrt (by linarith)
+    have hx : sy_P ((![w.1 0, √(2 * poincareGamma w)], ![w.2 0, g]) : Phase 2) = w := by
+      refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i
+      · simp [sy_P]
+      · simpa [sy_P] using hg1.symm
+      · simp [sy_P]
+      · simpa [sy_P] using hg2.symm
+    have := sy_step1 hm hκ (x := ((![w.1 0, √(2 * poincareGamma w)], ![w.2 0, g]) : Phase 2))
+      (by simpa using hρ) (by simpa using hw.1)
+      (by simp only [Matrix.cons_val_one, Matrix.cons_val_zero]; nlinarith [hw.2]) u v
+    rwa [hx] at this
+  intro w hw u v
+  by_contra hne
+  have hana := analyticOnNhd_poincare hm hκ
+  have hcont : ContinuousOn (fun z => symplecticForm (fderiv ℝ (poincare m κ) z u)
+      (fderiv ℝ (poincare m κ) z v)) poincareDom := by
+    have hc : ContinuousOn (fun z => fderiv ℝ (poincare m κ) z) poincareDom := hana.fderiv.continuousOn
+    have h1 : ContinuousOn (fun z => fderiv ℝ (poincare m κ) z u) poincareDom :=
+      hc.clm_apply continuousOn_const
+    have h2 : ContinuousOn (fun z => fderiv ℝ (poincare m κ) z v) poincareDom :=
+      hc.clm_apply continuousOn_const
+    unfold symplecticForm
+    refine continuousOn_finsetSum _ fun i _ => ?_
+    have a1 : ContinuousOn (fun z => (fderiv ℝ (poincare m κ) z u).1 i) poincareDom :=
+      (continuous_apply i).comp_continuousOn (continuous_fst.comp_continuousOn h1)
+    have a2 : ContinuousOn (fun z => (fderiv ℝ (poincare m κ) z u).2 i) poincareDom :=
+      (continuous_apply i).comp_continuousOn (continuous_snd.comp_continuousOn h1)
+    have b1 : ContinuousOn (fun z => (fderiv ℝ (poincare m κ) z v).1 i) poincareDom :=
+      (continuous_apply i).comp_continuousOn (continuous_fst.comp_continuousOn h2)
+    have b2 : ContinuousOn (fun z => (fderiv ℝ (poincare m κ) z v).2 i) poincareDom :=
+      (continuous_apply i).comp_continuousOn (continuous_snd.comp_continuousOn h2)
+    exact (a2.mul b1).sub (a1.mul b2)
+  rcases (poincare_facts hw).1.eq_or_lt with h0 | hpos
+  swap
+  · exact hne (hA w hw hpos u v)
+  -- the circular locus `ξ = η = 0`: approach it along `ξ = t`
+  have h1 : w.1 1 = 0 := by
+    have : w.1 1 ^ 2 = 0 := by
+      unfold poincareGamma at h0; nlinarith [sq_nonneg (w.1 1), sq_nonneg (w.2 1)]
+    exact pow_eq_zero_iff two_ne_zero |>.1 this
+  have h2 : w.2 1 = 0 := by
+    have : w.2 1 ^ 2 = 0 := by
+      unfold poincareGamma at h0; nlinarith [sq_nonneg (w.1 1), sq_nonneg (w.2 1)]
+    exact pow_eq_zero_iff two_ne_zero |>.1 this
+  set γ : ℝ → Phase 2 := fun t => (![w.1 0, t], w.2) with hγ
+  have hγc : Continuous γ := by
+    refine Continuous.prodMk ?_ continuous_const
+    exact continuous_pi fun i => by fin_cases i <;> simp <;> fun_prop
+  have hγ0 : γ 0 = w := by
+    refine Prod.ext ?_ rfl
+    ext i; fin_cases i <;> simp [hγ, h1]
+  have hF : ContinuousAt (fun z => symplecticForm (fderiv ℝ (poincare m κ) z u)
+      (fderiv ℝ (poincare m κ) z v)) w :=
+    hcont.continuousAt (isOpen_poincareDom.mem_nhds hw)
+  have hne' : symplecticForm (fderiv ℝ (poincare m κ) w u) (fderiv ℝ (poincare m κ) w v) ≠
+      1 * symplecticForm u v := hne
+  have hev : ∀ᶠ z in 𝓝 w, symplecticForm (fderiv ℝ (poincare m κ) z u)
+      (fderiv ℝ (poincare m κ) z v) ≠ 1 * symplecticForm u v ∧ z ∈ poincareDom :=
+    (hF.eventually_ne hne').and (isOpen_poincareDom.mem_nhds hw)
+  have hev' : ∀ᶠ t in 𝓝 (0 : ℝ), symplecticForm (fderiv ℝ (poincare m κ) (γ t) u)
+      (fderiv ℝ (poincare m κ) (γ t) v) ≠ 1 * symplecticForm u v ∧ γ t ∈ poincareDom := by
+    have : Filter.Tendsto γ (𝓝 0) (𝓝 w) := by
+      rw [← hγ0]; exact hγc.tendsto 0
+    exact this.eventually hev
+  obtain ⟨t, ⟨hFt, hdom⟩, ht⟩ :=
+    ((hev'.filter_mono nhdsWithin_le_nhds).and self_mem_nhdsWithin).exists (f := 𝓝[≠] (0 : ℝ))
+  have htne : t ≠ 0 := ht
+  have hΓt : 0 < poincareGamma (γ t) := by
+    have e1 : (γ t).1 1 = t := by simp [hγ]
+    have e2 : (γ t).2 1 = 0 := h2
+    simp only [poincareGamma, e1, e2]
+    have : 0 < t ^ 2 := by positivity
+    nlinarith
+  exact hFt (hA (γ t) hdom hΓt u v)
 
 end PoincareChart
 
