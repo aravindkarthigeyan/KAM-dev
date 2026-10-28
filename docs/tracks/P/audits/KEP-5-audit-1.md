@@ -293,3 +293,8 @@ example (ℓ g L : ℝ) (hL : 0 < L) : planeCross (orbitMapR ℓ g L 0).1 (orbit
 ```
 
 READY audit-kep5
+
+## Orchestrator addendum (2026-10-28)
+
+H01 resolved by a whitespace-only rewrap of the four lines (commit "KEP-5: wrap four lines over 100 characters");
+`KAM.Kepler.Orbit` rebuilt, `scripts/lint_sources.sh` exit 0. With no other finding, the package verdict is **PASS**.
