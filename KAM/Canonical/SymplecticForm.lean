@@ -152,8 +152,9 @@ theorem map_hamiltonianJ_comp (Y : ((Fin n → ℂ) × (Fin n → ℂ)) →L[ℂ
     (hY : ∀ v w, symplFormC (Y v) (Y w) = symplFormC v w)
     (η : ((Fin n → ℂ) × (Fin n → ℂ)) →L[ℂ] ℂ) :
     Y (KAM.hamiltonianJ (η.comp Y)) = KAM.hamiltonianJ η := by
-  have hinj : Function.Injective ((Y : ((Fin n → ℂ) × (Fin n → ℂ)) →L[ℂ] ((Fin n → ℂ) × (Fin n → ℂ))) :
-      ((Fin n → ℂ) × (Fin n → ℂ)) →ₗ[ℂ] ((Fin n → ℂ) × (Fin n → ℂ))) := by
+  have hinj : Function.Injective
+      ((Y : ((Fin n → ℂ) × (Fin n → ℂ)) →L[ℂ] ((Fin n → ℂ) × (Fin n → ℂ))) :
+        ((Fin n → ℂ) × (Fin n → ℂ)) →ₗ[ℂ] ((Fin n → ℂ) × (Fin n → ℂ))) := by
     intro a b hab
     refine symplFormC_eq_of_left fun w => ?_
     rw [← hY a w, ← hY b w]
@@ -204,7 +205,8 @@ theorem symplFormC_fderiv_field {U : Set ((Fin n → ℂ) × (Fin n → ℂ))} (
       HasFDerivAt (fun z => fderiv ℂ φ z a) ((ContinuousLinearMap.apply ℂ ℂ a).comp D') x :=
     fun a => (ContinuousLinearMap.apply ℂ ℂ a).hasFDerivAt.comp x hD.hasFDerivAt
   have hX : HasFDerivAt (KAM.hamiltonianVectorFieldℂ φ)
-      ((ContinuousLinearMap.pi fun i => (ContinuousLinearMap.apply ℂ ℂ (0, Pi.single i 1)).comp D').prod
+      ((ContinuousLinearMap.pi fun i =>
+          (ContinuousLinearMap.apply ℂ ℂ (0, Pi.single i 1)).comp D').prod
         (ContinuousLinearMap.pi fun i =>
           -((ContinuousLinearMap.apply ℂ ℂ (Pi.single i 1, 0)).comp D'))) x := by
     refine HasFDerivAt.prodMk ?_ ?_
