@@ -60,7 +60,7 @@ theorem kam_positive_measure {n : ℕ} (hn : 2 ≤ n) {τ : ℝ} (hτ : (n : ℝ
           ENNReal.ofReal (C * ε ^ ((1 : ℝ) / 4)) :=
   -- FROZEN_ANCHOR_PROOF_BEGIN
   by exact KAM.Provider.kam_positive_measure hn hτ hs₀ hr₀ hB_open hB_bdd hB_layer hh hh_real
-    h_nondeg
+      h_nondeg
   -- FROZEN_ANCHOR_PROOF_END
 -- FROZEN_ANCHOR_SUFFIX_BEGIN
 
