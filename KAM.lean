@@ -319,6 +319,7 @@ public import KAM.Planetary.Newtonian.Barycentric
 public import KAM.Planetary.Newtonian.Models
 public import KAM.Planetary.Newtonian.Reconstruction
 public import KAM.Planetary.Newtonian.Tube
+public import KAM.Planetary.Poincare.Bijective
 public import KAM.Planetary.Poincare.Chart
 public import KAM.Planetary.Poincare.Symplectic
 public import KAM.Provider.AposterioriKam
