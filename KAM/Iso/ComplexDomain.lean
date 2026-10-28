@@ -156,10 +156,12 @@ theorem kGMin_pos (hK : SafeAction K) : 0 < kGMin K := by
 end ComplexDomainAux
 
 theorem SafeAction.ecc_bounds {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) :
-    0 < kEccMin K ∧ kEccMax K < 1 ∧ 0 < kLMin K ∧ 0 < kGMin K ∧ 0 < kRmin K ∧ kRmin K ≤ kRhoMax K := by
+    0 < kEccMin K ∧ kEccMax K < 1 ∧ 0 < kLMin K ∧ 0 < kGMin K ∧ 0 < kRmin K ∧
+      kRmin K ≤ kRhoMax K := by
   refine ⟨ComplexDomainAux.kEccMin_pos hK, ComplexDomainAux.kEccMax_lt_one hK,
     ComplexDomainAux.kLMin_pos hK, ComplexDomainAux.kGMin_pos hK, ?_, ?_⟩
-  · obtain ⟨x, hx, hxe⟩ := (ComplexDomainAux.sInf_spec hK (ComplexDomainAux.continuousOn_rminFn hK)).1
+  · obtain ⟨x, hx, hxe⟩ :=
+      (ComplexDomainAux.sInf_spec hK (ComplexDomainAux.continuousOn_rminFn hK)).1
     have h := hK.sub_cone x hx
     have h0 := ComplexDomainAux.pos_x0 hK hx
     have he := (ComplexDomainAux.eccOf_pos_lt_one h.1 h.2).2
@@ -184,7 +186,8 @@ def UDelta (K : Set (Fin 2 → ℝ)) (δ : ℝ) : Set ((Fin 2 → ℂ) × (Fin 2
 def delaunayC (K : Set (Fin 2 → ℝ)) (w : (Fin 2 → ℂ) × (Fin 2 → ℂ)) : (Fin 2 → ℂ) × (Fin 2 → ℂ) :=
   orbitMapC (kEccMax K) ![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0]
 
-/-- The full output of `bpI:p7:complex-domain` at a given `δ₁` (exact factorization of the earlier statement). -/
+/-- The full output of `bpI:p7:complex-domain` at a given `δ₁` (exact factorization of the earlier
+statement). -/
 def ComplexDomainData (K : Set (Fin 2 → ℝ)) (δ₁ : ℝ) : Prop :=
   0 < δ₁ ∧ δ₁ ≤ min (keplerDeltaK (kEccMax K)) (min (kLMin K) (kGMin K)) / 2 ∧
     (∀ x ∈ actionNbhd K δ₁, x 0 ≠ 0 ∧ kLMin K / 2 < (x 0).re) ∧
@@ -194,13 +197,15 @@ def ComplexDomainData (K : Set (Fin 2 → ℝ)) (δ₁ : ℝ) : Prop :=
       ‖eccC (x 0) (x 1)‖ < keplerE2 (kEccMax K)) ∧
     (∀ y : Fin 2 → ℝ, (fun i => (y i : ℂ)) ∈ actionNbhd K δ₁ → 0 < y 1 ∧ y 1 < y 0 ∧
       eccC (y 0) (y 1) = (eccOf (y 0) (y 1) : ℝ)) ∧
-    (∀ w ∈ UDelta K δ₁, ![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] ∈ orbitDomC (kEccMax K)) ∧
+    (∀ w ∈ UDelta K δ₁,
+      ![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] ∈ orbitDomC (kEccMax K)) ∧
     DifferentiableOn ℂ (delaunayC K) (UDelta K δ₁) ∧
     (∀ w : Phase 2, phaseToC w ∈ UDelta K δ₁ → delaunayC K (phaseToC w) = phaseToC (delaunay w))
 
 open scoped Classical in
 /-- The selected `δ₁` (F3). -/
-def complexDelta (K : Set (Fin 2 → ℝ)) : ℝ := if h : ∃ δ₁ : ℝ, ComplexDomainData K δ₁ then h.choose else 0
+def complexDelta (K : Set (Fin 2 → ℝ)) : ℝ :=
+  if h : ∃ δ₁ : ℝ, ComplexDomainData K δ₁ then h.choose else 0
 
 /-! ### The principal square root near a positive real -/
 
@@ -367,7 +372,8 @@ theorem exists_radius (hK : SafeAction K) : ∃ δ₁, GoodRadius K δ₁ := by
       Metric.mem_cthickening_of_dist_le _ (fun i => (y i : ℂ)) _ _ (mem_image_of_mem _ hy)
         (by rw [dist_eq_norm]; exact hxy'.le)
     have key : dist (x 1 ^ 2 / x 0 ^ 2) ((y 1 : ℂ) ^ 2 / (y 0 : ℂ) ^ 2) < τ :=
-      hδu x hxC (fun i => (y i : ℂ)) hyC (by rw [dist_eq_norm]; exact hxy.trans_le (min_le_right _ _))
+      hδu x hxC (fun i => (y i : ℂ)) hyC
+        (by rw [dist_eq_norm]; exact hxy.trans_le (min_le_right _ _))
     rw [dist_eq_norm] at key
     rw [hτdef] at key
     have e : (1 - x 1 ^ 2 / x 0 ^ 2) - (1 - (y 1 : ℂ) ^ 2 / (y 0 : ℂ) ^ 2) =
@@ -470,7 +476,7 @@ theorem cd_real (hK : SafeAction K) {δ₁ : ℝ} (hr : GoodRadius K δ₁) {v :
   have h12 : (1 / 2 : ℂ) = ((1 / 2 : ℝ) : ℂ) := by push_cast; ring
   rw [h12, ← Complex.ofReal_cpow hre'.le, Real.sqrt_eq_rpow]
 
-/-- The point `(ℓ, e(L, G))` of the tube for `y` within `δ₁` of `K`: `eccC` lies in the thin tube. -/
+/-- The point `(ℓ, e(L, G))` lies in the thin tube when `x` is within `δ₁` of `K`. -/
 theorem tube_mem (hK : SafeAction K) {δ₁ : ℝ} (hr : GoodRadius K δ₁) {x : Fin 2 → ℂ}
     (hx : x ∈ actionNbhd K δ₁) {ℓ : ℂ} (hℓ : |ℓ.im| < δ₁) :
     (ℓ, eccC (x 0) (x 1)) ∈ keplerTube (kEccMax K) := by
@@ -496,7 +502,119 @@ theorem cd_mem_dom (hK : SafeAction K) {δ₁ : ℝ} (hr : GoodRadius K δ₁)
       orbitDomC (kEccMax K) := by
   refine ⟨tube_mem hK hr hw.2 (hw.1 0), (nbhd_facts hK hr hw.2).1⟩
 
+/-- Clause (viii): `delaunayC K` is holomorphic on `𝒰(δ₁)`. -/
+theorem cd_diff_delaunay (hK : SafeAction K) {δ₁ : ℝ} (hr : GoodRadius K δ₁) :
+    DifferentiableOn ℂ (delaunayC K) (UDelta K δ₁) := by
+  have h0 := kEccMax_pos hK
+  have h1 := kEccMax_lt_one hK
+  have hd1 : ∀ i : Fin 2, Differentiable ℂ (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => w.1 i) :=
+    fun i => by fun_prop
+  have hd2 : ∀ i : Fin 2, Differentiable ℂ (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => w.2 i) :=
+    fun i => by fun_prop
+  have hecc : DifferentiableOn ℂ
+      (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => eccC (w.2 0) (w.2 1)) (UDelta K δ₁) :=
+    (cd_diff_ecc hK hr).comp differentiable_snd.differentiableOn (fun w hw => hw.2)
+  have hdiv : DifferentiableOn ℂ
+      (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) => w.2 1 / w.2 0) (UDelta K δ₁) :=
+    OrbitC.differentiableOn_div (hd2 1).differentiableOn (hd2 0).differentiableOn
+      (fun w hw => (nbhd_facts hK hr hw.2).1)
+  have hF : DifferentiableOn ℂ
+      (fun w : (Fin 2 → ℂ) × (Fin 2 → ℂ) =>
+        (![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] : Fin 5 → ℂ))
+      (UDelta K δ₁) := by
+    rw [differentiableOn_pi]
+    intro i
+    fin_cases i
+    · exact (hd1 0).differentiableOn
+    · exact (hd1 1).differentiableOn
+    · exact (hd2 0).differentiableOn
+    · exact hecc
+    · exact hdiv
+  exact (orbitMapC_differentiableOn h0 h1).comp hF (fun w hw => cd_mem_dom hK hr hw)
+
+/-! ### Real points -/
+
+/-- The eccentric anomaly at a real point of the tube is the real one (the real solution lies in the
+strip and solves the equation, so it is the unique one). -/
+theorem eccAnomC_real_tube {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) {ℓ e : ℝ}
+    (hmem : ((ℓ : ℂ), (e : ℂ)) ∈ keplerTube e₁) (he : |e| < 1) :
+    eccAnomC e₁ ((ℓ : ℂ), (e : ℂ)) = (eccAnom ℓ e : ℂ) := by
+  have h2 := eccAnom_eq ℓ he
+  have h3 := congrArg (fun r : ℝ => (r : ℂ)) h2
+  simp only [Complex.ofReal_sub, Complex.ofReal_mul, Complex.ofReal_sin] at h3
+  have hstrip : |((eccAnom ℓ e : ℝ) : ℂ).im| ≤ keplerY0 e₁ := by
+    simpa using (Tube.y0_pos h0 h1).le
+  exact (((keplerEq_tube h0 h1).2.2.1 _ hmem).2.2 _ hstrip h3).symm
+
+/-- At a real point `(ℓ, g, L, e)` of the tube (not only `|e| ≤ e₁`) with `G/L = √(1 - e²)` the
+complex orbit map is the complexified real one. -/
+theorem orbitMapC_real_tube {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) {ℓ g L e : ℝ}
+    (hmem : ((ℓ : ℂ), (e : ℂ)) ∈ keplerTube e₁) (he : |e| < 1) :
+    orbitMapC e₁ ![(ℓ : ℂ), (g : ℂ), (L : ℂ), (e : ℂ), ((√(1 - e ^ 2) : ℝ) : ℂ)] =
+      phaseToC (orbitMapR ℓ g L e) := by
+  have hu := eccAnomC_real_tube h0 h1 hmem he
+  simp only [orbitMapC]
+  refine Prod.ext ?_ ?_ <;> funext i <;> fin_cases i <;>
+    simp [phaseToC, orbitMapR, orbitFrame, rot, hu]
+
+/-- The real point `(ℓ, g, L, G)` with `0 < G < L` in the tube. -/
+theorem delaunayC_real_pt {e₁ : ℝ} (h0 : 0 < e₁) (h1 : e₁ < 1) {ℓ g L G : ℝ} (hG : 0 < G)
+    (hGL : G < L) (hmem : ((ℓ : ℂ), ((eccOf L G : ℝ) : ℂ)) ∈ keplerTube e₁) :
+    orbitMapC e₁ ![(ℓ : ℂ), (g : ℂ), (L : ℂ), ((eccOf L G : ℝ) : ℂ), (G : ℂ) / (L : ℂ)] =
+      phaseToC (orbitMapR ℓ g L (eccOf L G)) := by
+  have hL : 0 < L := hG.trans hGL
+  have hm := eccOf_pos_lt_one hG hGL
+  have hk : √(1 - eccOf L G ^ 2) = G / L := by
+    have : 1 - eccOf L G ^ 2 = (G / L) ^ 2 := by rw [eccOf_sq hG hGL, div_pow]; ring
+    rw [this]
+    exact Real.sqrt_sq (by positivity)
+  have habs : |eccOf L G| < 1 := by rw [abs_of_pos hm.1]; exact hm.2
+  have := orbitMapC_real_tube h0 h1 (g := g) (L := L) hmem habs
+  rw [hk] at this
+  rw [← this]
+  push_cast
+  rfl
+
+/-- Clause (ix): on real points the complex Delaunay map is the complexified real one. -/
+theorem cd_real_eq (hK : SafeAction K) {δ₁ : ℝ} (hr : GoodRadius K δ₁) {w : Phase 2}
+    (hw : phaseToC w ∈ UDelta K δ₁) : delaunayC K (phaseToC w) = phaseToC (delaunay w) := by
+  have h0 := kEccMax_pos hK
+  have h1 := kEccMax_lt_one hK
+  obtain ⟨hG, hGL, hec⟩ := cd_real hK hr (v := w.2) hw.2
+  have hmem := (cd_mem_dom hK hr hw).1
+  have ht : ((w.1 0 : ℂ), eccC (w.2 0 : ℂ) (w.2 1 : ℂ)) ∈ keplerTube (kEccMax K) := hmem
+  rw [hec] at ht
+  show orbitMapC (kEccMax K) ![(w.1 0 : ℂ), (w.1 1 : ℂ), (w.2 0 : ℂ),
+    eccC (w.2 0 : ℂ) (w.2 1 : ℂ), (w.2 1 : ℂ) / (w.2 0 : ℂ)] =
+    phaseToC (orbitMapR (w.1 0) (w.1 1) (w.2 0) (eccOf (w.2 0) (w.2 1)))
+  rw [hec]
+  exact delaunayC_real_pt h0 h1 hG hGL ht
+
+/-- Existence of an admissible `δ₁`: the conclusion of `bpI:p7:complex-domain`. -/
+theorem exists_complexDomainData (hK : SafeAction K) : ∃ δ₁, ComplexDomainData K δ₁ := by
+  obtain ⟨δ₁, hr⟩ := exists_radius hK
+  refine ⟨δ₁, hr.pos, hr.le, fun x hx => ?_, cd_diff_ecc hK hr, ?_, fun y hy => cd_real hK hr hy,
+    fun w hw => cd_mem_dom hK hr hw, cd_diff_delaunay hK hr, fun w hw => cd_real_eq hK hr hw⟩
+  · obtain ⟨hx0, -⟩ := nbhd_facts hK hr hx
+    obtain ⟨y, hy, hxy⟩ := hx
+    exact ⟨hx0, (point_facts hK hr hy hxy).1⟩
+  · intro x hx y hy hxy
+    obtain ⟨-, -, h3, h4⟩ := point_facts hK hr hy hxy
+    exact ⟨h3, h4⟩
+
 end ComplexDomainAux
+
+/-- `bpI:p7:complex-domain` (the quantifier "nearest `(L', G')`" is replaced by "every
+`(L', G') ∈ K` within `δ₁`", see B1): the selected `δ₁` is admissible. -/
+theorem complex_domain_spec {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) :
+    ComplexDomainData K (complexDelta K) := by
+  have h : ∃ δ₁ : ℝ, ComplexDomainData K δ₁ := ComplexDomainAux.exists_complexDomainData hK
+  unfold complexDelta
+  split
+  · rename_i h'
+    exact h'.choose_spec
+  · rename_i h'
+    exact absurd h h'
 
 end Part7Exact
 
