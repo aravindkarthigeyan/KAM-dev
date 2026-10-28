@@ -243,6 +243,7 @@ public import KAM.Strip.Fourier
 public import KAM.Strip.FourierBasic
 public import KAM.Strip.FourierDerivative
 public import KAM.Strip.FourierSeries
+public import KAM.Strip.FourierSeriesVector
 public import KAM.Strip.HigherCauchy
 public import KAM.Strip.Increments
 public import KAM.Strip.Limits
