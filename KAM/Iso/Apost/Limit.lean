@@ -28,9 +28,11 @@ I-D0), exactly as track K landed `kamLimit` with `limit` (`KAM/Apost/Limit.lean`
 
 * `limit` proves, under the hypotheses `IterHyp` of `iteration`, that `K_j → isoLimit` uniformly
   with the derivatives, that `s_j → isoSLimit`, and items (a)–(e) of the blueprint;
-* `isoLimit_tendsto`, `isoSLimit_tendsto` are the pointwise corollaries, and `isoLimit_eq_of_tendsto`,
-  `isoSLimit_eq_of_tendsto` (Hausdorff uniqueness) show that a limit of the sequence is
-  `isoLimit θ`, resp. `isoSLimit`; `isoLimit_of_not_mem` is the value `K` off the strip.
+* `isoLimit_tendsto`, `isoSLimit_tendsto` are the pointwise corollaries, and
+  `isoLimit_eq_of_tendsto`, `isoSLimit_eq_of_tendsto` (Hausdorff uniqueness) show that a limit of
+  the sequence is `isoLimit θ`, resp. `isoSLimit`; `isoLimit_eq_iff`, `isoSLimit_eq_iff` combine
+  both into the characterization `K_∞ θ = z ↔ K_j θ → z`, `s_∞ = l ↔ s_j → l`;
+  `isoLimit_of_not_mem` is the value `K` off the strip.
 
 The proof of `limit` mirrors track K's `KAM/Apost/Limit.lean`, whose abstract steps `lim_k`,
 `lim_dk`, `lim_holo`, `lim_primary`, `lim_close`, `lim_margins` are reused. New here are the
@@ -242,7 +244,8 @@ theorem tendsto_energyAverage_of_uniform {M μ ρinf : ℝ} (hρinf : 0 < ρinf)
   have hmemD : ∀ θ ∈ complexStrip n ρinf, ∀ z, ‖z - K θ‖ < μ → z ∈ D := fun θ hθ z hz =>
     hball θ hθ (by simpa [Metric.mem_ball, dist_eq_norm] using hz)
   have hcont : ∀ F : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ),
-      DifferentiableOn ℂ F (complexStrip n ρinf) → (∀ θ ∈ complexStrip n ρinf, ‖F θ - K θ‖ ≤ μ / 4) →
+      DifferentiableOn ℂ F (complexStrip n ρinf) →
+      (∀ θ ∈ complexStrip n ρinf, ‖F θ - K θ‖ ≤ μ / 4) →
       Continuous (fun x : Fin n → ℝ => H (F fun i => (x i : ℂ))) := by
     intro F hF hFK
     have hHF : DifferentiableOn ℂ (fun θ => H (F θ)) (complexStrip n ρinf) :=
