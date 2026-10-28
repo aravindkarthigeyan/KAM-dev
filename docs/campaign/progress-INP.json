@@ -15,7 +15,13 @@
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
    "done": 0.55,
-   "note": "graph: global review rounds 1-2 handled, Part 1 gaps fixed in the blueprint, final check running; I-KEPLER SEALED; Parts 5/8 Lean design running"
+   "note": "graph: global review rounds 1-2 handled, Part 1 gaps fixed in the blueprint, final check running; I-KEPLER SEALED; Parts 5/8 Lean design running",
+   "auto": {
+    "graph": "I",
+    "parts": [
+     "blueprint-I/parts/"
+    ]
+   }
   },
   {
    "group": "Track N (Nekhoroshev)",
@@ -31,7 +37,23 @@
    "title": "Blueprint, graph and proofs (estimate, refined after Phase 0)",
    "difficulty": "VH",
    "done": 0.55,
-   "note": "graph: all 14 slices reviewed, global review running; N-QC, N-ZERO SEALED; shared ODE layer (blueprint-N Part 3 core, 7 packages, KAM/ODE/*) proved and audited; Parts 1/4/5 Lean design running"
+   "note": "graph: all 14 slices reviewed, global review running; N-QC, N-ZERO SEALED; shared ODE layer (blueprint-N Part 3 core, 7 packages, KAM/ODE/*) proved and audited; Parts 1/4/5 Lean design running",
+   "auto": {
+    "graph": "N",
+    "parts": [
+     "blueprint-N/parts/p0-",
+     "blueprint-N/parts/p1-",
+     "blueprint-N/parts/p2-",
+     "blueprint-N/parts/p3-",
+     "blueprint-N/parts/p4-",
+     "blueprint-N/parts/p5-",
+     "blueprint-N/parts/p6-",
+     "blueprint-N/parts/p7-",
+     "blueprint-N/parts/p8-",
+     "blueprint-N/parts/p9-",
+     "blueprint-N/parts/p10-"
+    ]
+   }
   },
   {
    "group": "Track P (planetary)",
@@ -71,7 +93,14 @@
    "title": "N-PARTIAL-CONVEX and N-AVERAGING: blueprint, graph, proofs",
    "difficulty": "VH",
    "done": 0.3,
-   "note": "blueprints: N-PARTIAL-CONVEX Part 11 and N-AVERAGING Part 12 accepted; both in the N graph (reviewed)"
+   "note": "blueprints: N-PARTIAL-CONVEX Part 11 and N-AVERAGING Part 12 accepted; both in the N graph (reviewed)",
+   "auto": {
+    "graph": "N",
+    "parts": [
+     "blueprint-N/parts/p11",
+     "blueprint-N/parts/p12"
+    ]
+   }
   },
   {
    "group": "Track P (planetary)",
