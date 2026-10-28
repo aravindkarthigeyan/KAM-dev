@@ -7,8 +7,8 @@ a global modelling error.
 ## Read
 - `docs/graph/P/SPEC.md` (binding), the assembled graph `docs/graph/P/DEPGRAPH.md` and the coverage manifest
   `docs/graph/P/DEPGRAPH_COVERAGE.md`.
-- The full corpus: the sixteen files of `blueprint-P/parts/` listed in SPEC §Corpus (Parts 11, 11a-*, 13 are out of
-  scope in this graph version; P-FIXED is deferred).
+- The full corpus: the twenty-three files of `blueprint-P/parts/` listed in the header's CORPUS (the P-FIXED revision of
+  2026-10-28 brought Parts 11, 11a-1..11a-5 and 13 into scope; read SPEC's P-FIXED revision and writer rulings).
 - The statements of the imported nodes at their locators in `blueprint/parts/` (K), `blueprint-I/parts/` and
   `blueprint-N/parts/`; the graphs `docs/graph/{K,I,N}/DEPGRAPH.md` are background for the imports.
 - The manifest `manifest/frozen-anchors.json` (identity fields) and the frozen declaration files named in the anchors'
@@ -17,7 +17,7 @@ a global modelling error.
 - The slice reviews in `docs/graph/P/reviews/` are background only. Do not take their verdicts on trust.
 
 ## Do
-1. **Roots.** For each of the six roots, `bpP:p0:pg`, `bpP:p0:planar`, `bpP:p0:amd`, `bpP:p0:expsafe`,
+1. **Roots.** For each of the seven roots, `bpP:p0:pg`, `bpP:p0:planar`, `bpP:p0:fixed`, `bpP:p0:amd`, `bpP:p0:expsafe`,
    `bpP:p14:sb-safety`, `bpP:p14:sb-cited`:
    - reconstruct the four source fields from the transcription (Part 0; Part 14b for P-SECULAR-BOX) and the frozen file,
      and compare them with the node; check the anchor identity against the manifest; trace the closure backward.
@@ -29,6 +29,10 @@ a global modelling error.
    - **P-AMD-CONFINEMENT / P-EXP-SAFE:** n ≥ 2; the margins of the box; the stopped bound as the only dynamical premise;
      the order (n, ℬ) → (μ_*, c, C) → (μ, z₀); T = exp(cμ^{−α_n}); the drift bound; every premise of
      N-PARTIAL-CONVEX at its application in Part 14a.
+   - **P-FIXED:** Theorem `bpP:p13:fixed` (Part 13): the n = 2 route through the frozen P-G and the general-n route through
+     Part 11's wrapper resting on Parts 11a-1..11a-5 (weak measure, cutoff step, iteration/selection, limit family,
+     quantitative theorem); the fixed-sun Hamiltonian, solution and Kolmogorov data (`bpP:p0:fixham#…`, `fixedsol#…`,
+     `fixkol#…`); numerical vs Hamiltonian premises in 11a; the zero-perturbation branch; the shared constants of 11a-5.
    - **P-SECULAR-BOX:** σ-range, μ > 0 without smallness, Box_σ(w₀); global existence on ℝ, uniqueness among regular
      solutions, the rational bounds of (c) for all t and F; the cited-masses specialisation.
 2. **Global consistency** across slices: statement strength; quantifier order; carriers; SPEC's convention list (max
@@ -50,7 +54,11 @@ a global modelling error.
    import. Compare each import's source fields with its statement in the owning blueprint.
 6. **Coverage and reachability.** Every proof paragraph that contributes a substantive obligation appears in the graph
    or is excluded with a valid reason (including the prose and section-data items). Results excluded as outside every
-   root closure, or as consumed only by the deferred P-FIXED, must really be unused by every root's proof.
+   root closure must really be unused by every root's proof. In particular check the writer's pre-global cleanup
+   (commit 8734f9c): the deleted 11a physical-interface component (11a-5 L116-L135) and its orphans (rank-compact,
+   rc-reduce, chart-scaling, consumers, divisor-wide), `bpP:p7:same-chart`, `bpP:p4:beta-inverse`, seven unused K/N
+   imports; and the ONE new writer edge `bpP:p14:sec-domain#chart-facts` -> `bpP:p7:d25` (p14a L162, "We recall from
+   product-chart and Proposition d25(d)"), which has had no slice review: give it an explicit verdict.
 7. Every root is an author-frozen anchor; every non-anchor (including every imported node) has `FROZEN_*: -`.
 
 ## Output
