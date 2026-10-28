@@ -45,7 +45,8 @@ open KAM KAM.Kepler KAM.Planetary
 
 section Part7Ham
 
-/-- The total (Lean) restricted Hamiltonian, equal to `restrictedHamiltonian` on collision-free points. -/
+/-- The total (Lean) restricted Hamiltonian, equal to `restrictedHamiltonian` on collision-free
+points. -/
 def restrictedHamTotal (μ : ℝ) (z : Phase 2) : ℝ :=
   radiusSq z.2 / 2 + z.1 1 * z.2 0 - z.1 0 * z.2 1 - (1 - μ) / radius (z.1 - primary₁ μ)
     - μ / radius (z.1 - primary₂ μ)
@@ -78,13 +79,17 @@ theorem analyticOnNhd_restrictedHamTotal (μ : ℝ) :
   have g2 : AnalyticAt ℝ (fun z : Phase 2 => radius (z.1 - primary₂ μ)) z :=
     AnalyticAt.comp (g := planeLength) (f := fun z : Phase 2 => z.1 - primary₂ μ)
       (analyticAt_planeLength hv2) (hfst (primary₂ μ))
-  have hp : AnalyticAt ℝ (fun z : Phase 2 => radiusSq z.2 / 2 + z.1 1 * z.2 0 - z.1 0 * z.2 1) z := by
+  have hp : AnalyticAt ℝ
+      (fun z : Phase 2 => radiusSq z.2 / 2 + z.1 1 * z.2 0 - z.1 0 * z.2 1) z := by
     simp only [radiusSq_def]
     have a0 : ∀ k : Fin 2, AnalyticAt ℝ (fun z : Phase 2 => z.1 k) z := fun k =>
-      (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 2 => ℝ) k).analyticAt _ |>.comp analyticAt_fst
+      (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 2 => ℝ) k).analyticAt _
+        |>.comp analyticAt_fst
     have a1 : ∀ k : Fin 2, AnalyticAt ℝ (fun z : Phase 2 => z.2 k) z := fun k =>
-      (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 2 => ℝ) k).analyticAt _ |>.comp analyticAt_snd
-    exact ((((a1 0).pow 2).add ((a1 1).pow 2)).div_const).add ((a0 1).mul (a1 0)) |>.sub ((a0 0).mul (a1 1))
+      (ContinuousLinearMap.proj (R := ℝ) (φ := fun _ : Fin 2 => ℝ) k).analyticAt _
+        |>.comp analyticAt_snd
+    exact ((((a1 0).pow 2).add ((a1 1).pow 2)).div_const).add ((a0 1).mul (a1 0))
+      |>.sub ((a0 0).mul (a1 1))
   exact (hp.sub (analyticAt_const.div g1 h1.ne')).sub (analyticAt_const.div g2 h2.ne')
 
 /-- The derivative of `restrictedHamTotal` at a collision-free point, in the direction `(u, w)`. -/
@@ -144,7 +149,8 @@ theorem restrictedVectorField_eq_hamiltonian {μ : ℝ} {z : Phase 2} (hz : Coll
 
 theorem isRestrictedSolutionOn_iff (μ : ℝ) (J : Set ℝ) (z : ℝ → Phase 2) :
     IsRestrictedSolutionOn μ J z ↔
-      (∀ t ∈ J, CollisionFree μ (z t)) ∧ IsHamiltonianSolutionOn (restrictedHamTotal μ) univ J z := by
+      (∀ t ∈ J, CollisionFree μ (z t)) ∧
+        IsHamiltonianSolutionOn (restrictedHamTotal μ) univ J z := by
   constructor
   · intro h
     refine ⟨fun t ht => (h t ht).choose, fun t ht => ?_⟩
@@ -157,7 +163,8 @@ theorem isRestrictedSolutionOn_iff (μ : ℝ) (J : Set ℝ) (z : ℝ → Phase 2
     exact ⟨hcf t ht, by rw [restrictedVectorField_eq_hamiltonian (hcf t ht)]; exact hd⟩
 
 /-- `bpI:p7:h0`, second clause: `Ham^R3_0 = E - Γ` (Lean totality, no hypothesis). -/
-theorem restrictedHamTotal_zero (z : Phase 2) : restrictedHamTotal 0 z = kE z - planeCross z.1 z.2 := by
+theorem restrictedHamTotal_zero (z : Phase 2) :
+    restrictedHamTotal 0 z = kE z - planeCross z.1 z.2 := by
   have h1 : primary₁ 0 = 0 := by
     ext i; fin_cases i <;> simp [primary₁]
   simp only [restrictedHamTotal, kE, planeCross, h1, sub_zero, zero_div, radius_eq_planeLength,
@@ -190,7 +197,8 @@ private theorem rot_smul' (g c : ℝ) (v : Fin 2 → ℝ) : rot g (c • v) = c 
 /-- `d/ds rot (c s) (y s) = c Q (rot (c s) y) + rot (c s) y'`. -/
 private theorem hasDerivAt_rot_curve {y : ℝ → Fin 2 → ℝ} {y' : Fin 2 → ℝ} {t : ℝ} (c : ℝ)
     (hy : HasDerivAt y y' t) :
-    HasDerivAt (fun s => rot (c * s) (y s)) (c • quarterTurn (rot (c * t) (y t)) + rot (c * t) y') t := by
+    HasDerivAt (fun s => rot (c * s) (y s))
+      (c • quarterTurn (rot (c * t) (y t)) + rot (c * t) y') t := by
   have hl : HasDerivAt (fun s : ℝ => c * s) c t := by
     simpa using (hasDerivAt_id t).const_mul c
   have hc : HasDerivAt (fun s => Real.cos (c * s)) (-Real.sin (c * t) * c) t := by
@@ -219,7 +227,8 @@ private theorem hasDerivAt_rot_pos_curve {y : ℝ → Fin 2 → ℝ} {y' : Fin 2
   have := hasDerivAt_rot_curve 1 hy
   simpa using this
 
-/-- The restricted field at a rotated point, in terms of the inertial position `x` and velocity `v`. -/
+/-- The restricted field at a rotated point, in terms of the inertial position `x` and velocity
+`v`. -/
 private theorem restrictedVectorField_rot {μ t : ℝ} {x v : Fin 2 → ℝ}
     (hcf : CollisionFree μ (rot (-t) x, rot (-t) v)) :
     restrictedVectorField μ ⟨(rot (-t) x, rot (-t) v), hcf⟩ =
@@ -244,7 +253,8 @@ private theorem restrictedVectorField_rot {μ t : ℝ} {x v : Fin 2 → ℝ}
 theorem restricted_newton_iff {μ t : ℝ} {x v : ℝ → Fin 2 → ℝ}
     (hcf : CollisionFree μ (rot (-t) (x t), rot (-t) (v t))) :
     (HasDerivAt x (v t) t ∧
-      HasDerivAt v (-((1 - μ) / planeLength (x t - rot t (primary₁ μ)) ^ 3) • (x t - rot t (primary₁ μ))
+      HasDerivAt v (-((1 - μ) / planeLength (x t - rot t (primary₁ μ)) ^ 3) •
+          (x t - rot t (primary₁ μ))
         - (μ / planeLength (x t - rot t (primary₂ μ)) ^ 3) • (x t - rot t (primary₂ μ))) t) ↔
     HasDerivAt (fun s => (rot (-s) (x s), rot (-s) (v s)))
       (restrictedVectorField μ ⟨(rot (-t) (x t), rot (-t) (v t)), hcf⟩) t := by
