@@ -236,6 +236,7 @@ public import KAM.Measure.Lipeo
 public import KAM.Measure.Lipschitz
 public import KAM.Measure.McShane
 public import KAM.Measure.Slab
+public import KAM.Nekhoroshev.Interfaces.ConicCoercive
 public import KAM.Nekhoroshev.Interfaces.Domains
 public import KAM.Nekhoroshev.Interfaces.Norms
 public import KAM.Nekhoroshev.Interfaces.Setting
@@ -300,6 +301,7 @@ public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
 public import KAM.Weighted.Domains
 public import KAM.Weighted.Norm
+public import KAM.Weighted.Parametric
 
 /-!
 # KAM
