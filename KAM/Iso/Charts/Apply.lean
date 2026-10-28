@@ -186,7 +186,8 @@ theorem apply_local (hd : HeadData B s₀ r₀ h B' η) (hne : B'.Nonempty)
 open ApplyAux in
 /-- `bpI:p3:apply` with `#constants` (audit F1): constants `C_i`, chosen per patch and ray before
 `f, ε, E`, together with the FULL frozen I-G1 body at that tuple (`IG1Body`, the `GValid`
-precedent), then (O1)–(O6) for `K = K⁰(I)`, `I = Ψ(E, m)`, `s = |∇h(I)|/|ω*|`, `e = F₁ε`, `E₀ = E`. -/
+precedent), then (O1)–(O6) for `K = K⁰(I)`, `I = Ψ(E, m)`, `s = |∇h(I)|/|ω*|`, `e = F₁ε`,
+`E₀ = E`. -/
 theorem apply (hd : HeadData B s₀ r₀ h B' η) (hne : B'.Nonempty) (hG1 : IG1Statement)
     {δE δm ρc : ℝ} {c : Fin 2 → ℝ} {W : Set (Fin 2 → ℝ)} {Ψ : ℝ × ℝ → Fin 2 → ℝ}
     (hp : IsPatch h B r₀ B' (eta1 η B B') c W Ψ δE δm ρc) {γ m : ℝ} {ωs : Fin 2 → ℝ}

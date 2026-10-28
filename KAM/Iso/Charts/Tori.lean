@@ -66,8 +66,8 @@ theorem uniform {ι : Type*} (P : Finset ι) (CK0 ε0 : ι → ℝ) (hCK : ∀ i
 
 /-! ### The output of `apply`, packaged -/
 
-/-- (O1)–(O6) of the application of I-G1 at the flat torus `K⁰(I)` of `h + f`, `ω = s ω*`, `e = F₁ε`,
-`E₀ = E`: the last conjunct of `apply` for a given pair `(K_∞, s_∞)`. -/
+/-- (O1)–(O6) of the application of I-G1 at the flat torus `K⁰(I)` of `h + f`, `ω = s ω*`,
+`e = F₁ε`, `E₀ = E`: the last conjunct of `apply` for a given pair `(K_∞, s_∞)`. -/
 def ApplyOut (B : Set (Fin 2 → ℝ)) (s₀ r₀ : ℝ) (h : (Fin 2 → ℂ) → ℂ) (B' : Set (Fin 2 → ℝ))
     (f : (Fin 2 → ℂ) × (Fin 2 → ℂ) → ℂ) (ε E : ℝ) (ωs I : Fin 2 → ℝ) (s γ C₂ C₃ : ℝ)
     (Kinf : (Fin 2 → ℂ) → (Fin 2 → ℂ) × (Fin 2 → ℂ)) (sinf : ℝ) : Prop :=
