@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-28 01:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 44.9 %** · frozen statements proved: 8 / 22 · **42,839 lines of Lean** of an estimated ≈ 299,000
+> **Last updated: 2026-10-28 01:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 44.9 %** · frozen statements proved: 8 / 22 · **42,839 lines of Lean** of an estimated ≈ 299,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-28 01:20 UTC from `main` at `7428a8f` by `scripts/hq-status.py`.*
+*Generated 2026-10-28 01:40 UTC from `main` at `ff2a710` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -279,23 +279,23 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
 | **zohar-shorter-times** `kam-zohar2` | exploration (Codex) | GPT-6-Astra xhigh | codex-1 | ✅ handed off | Collaborator's research question: rounds 1–3 done; answer and proposed milestones in docs/explorations/almost-every-*.md | — | — |
 | **bp-consolidate** | blueprint editor | Claude Opus 5.5 | claude-1 | 🔄 running | Consolidation pass over all blueprint parts: Part 1 canonical, shared geometry, review fixes, stale notes | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29) | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (tracks I, N, P) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P end to end: additions Phase 0, blueprints, graphs, proof campaigns (D23); worktree /root/code/KAM-inp, branch inp | — | — |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | 🔄 working | Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29) | — | — |
 | **design-N145** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design for blueprint-N Parts 1, 4, 5 (interfaces, weighted norms, Lie series, canonical maps) | — | — |
 | **design-I58** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design for blueprint-I Parts 5, 8 (I-HEAD confinement, I-R3BP) | — | — |
 | **design-kep** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Kepler/Delaunay shared layer design: revision after audit 1 (FAIL: F1-F7) | — | — |
-| **glob-n** `inp-glob-n` | graph global review (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Track N graph: global root-closure review | — | — |
-| **bprev-2** `inp-bprev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Track I graph: delta review of the Part 1 amendment | — | — |
+| **glob-n** `inp-glob-n` | graph global review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track N graph: global root-closure review | — | — |
+| **bprev-2** `inp-bprev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: delta review of the Part 1 amendment | — | — |
 | **glob-i** `inp-glob-i` | graph global review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track I graph: global review (round 3 pending) | — | — |
 | **grev-1** `inp-grev-1` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **grev-2** `inp-grev-2` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **grev-3** `inp-grev-3` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **grev-4** `inp-grev-4` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **grev-5** `inp-grev-5` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **rev-n11** `inp-rev-n11` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **rev-p11a** `inp-rev-p11a` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **seal-1** `inp-seal-1` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **dsgn-1** `inp-dsgn-1` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **grev-2** `inp-grev-2` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **grev-3** `inp-grev-3` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **grev-4** `inp-grev-4` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **grev-5** `inp-grev-5` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **rev-n11** `inp-rev-n11` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **rev-p11a** `inp-rev-p11a` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **seal-1** `inp-seal-1` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **dsgn-1** `inp-dsgn-1` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
 | **aud-2** `inp-aud-2` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
 
 **Queued:** Dependency graph extraction for track K
