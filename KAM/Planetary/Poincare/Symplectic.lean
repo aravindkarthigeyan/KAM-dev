@@ -469,6 +469,169 @@ theorem poincare_means {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2} (h
 
 end Means
 
+section Polar
+
+/-- The polar parametrisation `((λ, ρ), (Λ, g)) ↦ ((λ, ρ cos g), (Λ, ρ sin g))` of the chart variables. -/
+private def sy_P (x : Phase 2) : Phase 2 :=
+  (![x.1 0, x.1 1 * Real.cos (x.2 1)], ![x.2 0, x.1 1 * Real.sin (x.2 1)])
+
+/-- The Delaunay variables `((λ - g, g), (Λ, Λ - ρ²/2))` (written `ρ² * 2⁻¹`) in the polar parametrisation. -/
+private def sy_T (x : Phase 2) : Phase 2 :=
+  (![x.1 0 - x.2 1, x.2 1], ![x.2 0, x.2 0 - x.1 1 ^ 2 * 2⁻¹])
+
+/-- Coordinate functionals of `Phase 2`. -/
+private def sy_c1 (i : Fin 2) : Phase 2 →L[ℝ] ℝ :=
+  (ContinuousLinearMap.proj i).comp (ContinuousLinearMap.fst ℝ (Fin 2 → ℝ) (Fin 2 → ℝ))
+
+private def sy_c2 (i : Fin 2) : Phase 2 →L[ℝ] ℝ :=
+  (ContinuousLinearMap.proj i).comp (ContinuousLinearMap.snd ℝ (Fin 2 → ℝ) (Fin 2 → ℝ))
+
+private theorem sy_c1_apply (i : Fin 2) (h : Phase 2) : sy_c1 i h = h.1 i := rfl
+
+private theorem sy_c2_apply (i : Fin 2) (h : Phase 2) : sy_c2 i h = h.2 i := rfl
+
+private def sy_mk4 (l0 l1 l2 l3 : Phase 2 →L[ℝ] ℝ) : Phase 2 →L[ℝ] Phase 2 :=
+  (ContinuousLinearMap.pi ![l0, l1]).prod (ContinuousLinearMap.pi ![l2, l3])
+
+private theorem sy_mk4_apply (l0 l1 l2 l3 : Phase 2 →L[ℝ] ℝ) (h : Phase 2) :
+    sy_mk4 l0 l1 l2 l3 h = (![l0 h, l1 h], ![l2 h, l3 h]) := by
+  refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i <;> rfl
+
+private theorem sy_hasFDerivAt_mk4 {f0 f1 f2 f3 : Phase 2 → ℝ} {l0 l1 l2 l3 : Phase 2 →L[ℝ] ℝ}
+    {x : Phase 2} (h0 : HasFDerivAt f0 l0 x) (h1 : HasFDerivAt f1 l1 x)
+    (h2 : HasFDerivAt f2 l2 x) (h3 : HasFDerivAt f3 l3 x) :
+    HasFDerivAt (fun y => ((![f0 y, f1 y] : Fin 2 → ℝ), (![f2 y, f3 y] : Fin 2 → ℝ)))
+      (sy_mk4 l0 l1 l2 l3) x := by
+  have hA : HasFDerivAt (fun y => (![f0 y, f1 y] : Fin 2 → ℝ)) (ContinuousLinearMap.pi ![l0, l1]) x := by
+    have := (hasFDerivAt_pi (φ := ![f0, f1]) (φ' := ![l0, l1]) (x := x)).2 (by
+      intro i; fin_cases i
+      · exact h0
+      · exact h1)
+    convert this using 2 with y
+    ext i; fin_cases i <;> rfl
+  have hB : HasFDerivAt (fun y => (![f2 y, f3 y] : Fin 2 → ℝ)) (ContinuousLinearMap.pi ![l2, l3]) x := by
+    have := (hasFDerivAt_pi (φ := ![f2, f3]) (φ' := ![l2, l3]) (x := x)).2 (by
+      intro i; fin_cases i
+      · exact h2
+      · exact h3)
+    convert this using 2 with y
+    ext i; fin_cases i <;> rfl
+  exact hA.prodMk hB
+
+private theorem sy_hasFDerivAt_P (x : Phase 2) :
+    ∃ D : Phase 2 →L[ℝ] Phase 2, HasFDerivAt sy_P D x ∧ ∀ h : Phase 2,
+      D h = (![h.1 0, Real.cos (x.2 1) * h.1 1 - x.1 1 * Real.sin (x.2 1) * h.2 1],
+             ![h.2 0, Real.sin (x.2 1) * h.1 1 + x.1 1 * Real.cos (x.2 1) * h.2 1]) := by
+  have e1 : HasFDerivAt (fun y : Phase 2 => y.1 0) (sy_c1 0) x := (sy_c1 0).hasFDerivAt
+  have e2 : HasFDerivAt (fun y : Phase 2 => y.2 0) (sy_c2 0) x := (sy_c2 0).hasFDerivAt
+  have hr : HasFDerivAt (fun y : Phase 2 => y.1 1) (sy_c1 1) x := (sy_c1 1).hasFDerivAt
+  have hg : HasFDerivAt (fun y : Phase 2 => y.2 1) (sy_c2 1) x := (sy_c2 1).hasFDerivAt
+  have e3 := hr.mul hg.cos
+  have e4 := hr.mul hg.sin
+  refine ⟨sy_mk4 (sy_c1 0) _ (sy_c2 0) _, sy_hasFDerivAt_mk4 e1 e3 e2 e4, fun h => ?_⟩
+  rw [sy_mk4_apply]
+  simp only [add_apply, smul_apply, smul_eq_mul,
+    sy_c1_apply, sy_c2_apply]
+  refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i <;> simp <;> ring
+
+private theorem sy_hasFDerivAt_T (x : Phase 2) :
+    ∃ D : Phase 2 →L[ℝ] Phase 2, HasFDerivAt sy_T D x ∧ ∀ h : Phase 2,
+      D h = (![h.1 0 - h.2 1, h.2 1], ![h.2 0, h.2 0 - x.1 1 * h.1 1]) := by
+  have e1 : HasFDerivAt (fun y : Phase 2 => y.1 0) (sy_c1 0) x := (sy_c1 0).hasFDerivAt
+  have e2 : HasFDerivAt (fun y : Phase 2 => y.2 0) (sy_c2 0) x := (sy_c2 0).hasFDerivAt
+  have hr : HasFDerivAt (fun y : Phase 2 => y.1 1) (sy_c1 1) x := (sy_c1 1).hasFDerivAt
+  have hg : HasFDerivAt (fun y : Phase 2 => y.2 1) (sy_c2 1) x := (sy_c2 1).hasFDerivAt
+  have e3 := e1.sub hg
+  have e4 := e2.sub ((hr.pow 2).mul_const 2⁻¹)
+  refine ⟨sy_mk4 _ (sy_c2 1) (sy_c2 0) _, sy_hasFDerivAt_mk4 e3 hg e2 e4, fun h => ?_⟩
+  rw [sy_mk4_apply]
+  simp only [sub_apply, smul_apply, smul_eq_mul, sy_c1_apply, sy_c2_apply]
+  refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i <;> simp <;> ring
+
+/-- The pull-back computation `d Λ ∧ d(λ - g) + d(Λ - Γ) ∧ d g = d Λ ∧ d λ + d η ∧ d ξ` in polar
+coordinates, as an identity of the frozen form on the two derivative formulas. -/
+private theorem sy_form_T_eq_P (ρ g : ℝ) (h k : Phase 2) :
+    symplecticForm ((![h.1 0 - h.2 1, h.2 1], ![h.2 0, h.2 0 - ρ * h.1 1]) : Phase 2)
+        (![k.1 0 - k.2 1, k.2 1], ![k.2 0, k.2 0 - ρ * k.1 1]) =
+      symplecticForm ((![h.1 0, Real.cos g * h.1 1 - ρ * Real.sin g * h.2 1],
+          ![h.2 0, Real.sin g * h.1 1 + ρ * Real.cos g * h.2 1]) : Phase 2)
+        (![k.1 0, Real.cos g * k.1 1 - ρ * Real.sin g * k.2 1],
+          ![k.2 0, Real.sin g * k.1 1 + ρ * Real.cos g * k.2 1]) := by
+  have hsc := Real.sin_sq_add_cos_sq g
+  simp only [symplecticForm, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+  linear_combination (ρ * (h.1 1 * k.2 1 - h.2 1 * k.1 1)) * hsc
+
+private theorem sy_surj (ρ g : ℝ) (hρ : ρ ≠ 0) (u : Phase 2) :
+    ∃ h : Phase 2, ((![h.1 0, Real.cos g * h.1 1 - ρ * Real.sin g * h.2 1],
+          ![h.2 0, Real.sin g * h.1 1 + ρ * Real.cos g * h.2 1]) : Phase 2) = u := by
+  refine ⟨(![u.1 0, Real.cos g * u.1 1 + Real.sin g * u.2 1],
+    ![u.2 0, (-Real.sin g * u.1 1 + Real.cos g * u.2 1) / ρ]), ?_⟩
+  have hsc := Real.sin_sq_add_cos_sq g
+  refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i <;> simp <;> field_simp <;>
+    first | linear_combination (u.1 1) * hsc | linear_combination (u.2 1) * hsc
+
+/-- On `{ρ > 0}` the chart factors through the Delaunay chart: the identity of (b) in the polar
+parameters. -/
+private theorem sy_chart_polar {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {y : Phase 2}
+    (hρ : 0 < y.1 1) (hΓ : y.1 1 ^ 2 * 2⁻¹ < y.2 0) :
+    poincare m κ (sy_P y) = delaunayMK m κ (sy_T y) := by
+  have hΓ0 : 0 < y.1 1 ^ 2 * 2⁻¹ := by positivity
+  have h := poincare_eq_delaunayMK hm hκ (lam := y.1 0) (g := y.2 1) hΓ0 hΓ
+  have e : 2 * (y.1 1 ^ 2 * 2⁻¹) = y.1 1 ^ 2 := by ring
+  rw [e, Real.sqrt_sq hρ.le] at h
+  exact h
+
+private theorem sy_P_mem {x : Phase 2} (hΛ : 0 < x.2 0) (hΓ : x.1 1 ^ 2 * 2⁻¹ < x.2 0) :
+    sy_P x ∈ poincareDom := by
+  refine ⟨by simpa [sy_P] using hΛ, ?_⟩
+  have : poincareGamma (sy_P x) = x.1 1 ^ 2 * 2⁻¹ := by
+    have hsc := Real.sin_sq_add_cos_sq (x.2 1)
+    have h1 : (sy_P x).1 1 = x.1 1 * Real.cos (x.2 1) := by simp [sy_P]
+    have h2 : (sy_P x).2 1 = x.1 1 * Real.sin (x.2 1) := by simp [sy_P]
+    simp only [poincareGamma, h1, h2]
+    linear_combination (x.1 1 ^ 2 * 2⁻¹) * hsc
+  rw [this]; simpa [sy_P] using hΓ
+
+/-- Symplecticity on `{(ξ, η) ≠ 0}`, through the polar parametrisation. -/
+private theorem sy_step1 {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {x : Phase 2}
+    (hρ : 0 < x.1 1) (hΛ : 0 < x.2 0) (hΓ : x.1 1 ^ 2 * 2⁻¹ < x.2 0) (u v : Phase 2) :
+    symplecticForm (fderiv ℝ (poincare m κ) (sy_P x) u) (fderiv ℝ (poincare m κ) (sy_P x) v) =
+      1 * symplecticForm u v := by
+  have hΓ0 : 0 < x.1 1 ^ 2 * 2⁻¹ := by positivity
+  have hmemP := sy_P_mem hΛ hΓ
+  have hmemT : sy_T x ∈ deDom := by
+    refine ⟨?_, ?_⟩ <;> simp only [sy_T, Matrix.cons_val_zero, Matrix.cons_val_one] <;> linarith
+  obtain ⟨DP, hP, hDP⟩ := sy_hasFDerivAt_P x
+  obtain ⟨DT, hT, hDT⟩ := sy_hasFDerivAt_T x
+  have hψ : HasFDerivAt (poincare m κ) (fderiv ℝ (poincare m κ) (sy_P x)) (sy_P x) :=
+    ((analyticOnNhd_poincare hm hκ) _ hmemP).differentiableAt.hasFDerivAt
+  have hQ : HasFDerivAt (delaunayMK m κ) (fderiv ℝ (delaunayMK m κ) (sy_T x)) (sy_T x) :=
+    ((analyticOnNhd_delaunayMK hm hκ) _ hmemT).differentiableAt.hasFDerivAt
+  have h1 := hψ.comp x hP
+  have h2 := hQ.comp x hT
+  have hU : {y : Phase 2 | 0 < y.1 1 ∧ 0 < y.2 0 ∧ y.1 1 ^ 2 * 2⁻¹ < y.2 0} ∈ 𝓝 x := by
+    have c1 : Continuous fun y : Phase 2 => y.1 1 := by fun_prop
+    have c2 : Continuous fun y : Phase 2 => y.2 0 := by fun_prop
+    have c3 : Continuous fun y : Phase 2 => y.1 1 ^ 2 * 2⁻¹ := by fun_prop
+    exact IsOpen.mem_nhds ((isOpen_lt continuous_const c1).inter
+      ((isOpen_lt continuous_const c2).inter (isOpen_lt c3 c2))) ⟨hρ, hΛ, hΓ⟩
+  have heq : (poincare m κ ∘ sy_P) =ᶠ[𝓝 x] (delaunayMK m κ ∘ sy_T) := by
+    filter_upwards [hU] with y hy
+    exact sy_chart_polar hm hκ hy.1 hy.2.2
+  have h3 : HasFDerivAt (poincare m κ ∘ sy_P)
+      ((fderiv ℝ (delaunayMK m κ) (sy_T x)).comp DT) x := h2.congr_of_eventuallyEq heq
+  have hder := h1.unique h3
+  obtain ⟨h, rfl⟩ := sy_surj (x.1 1) (x.2 1) hρ.ne' u
+  obtain ⟨k, rfl⟩ := sy_surj (x.1 1) (x.2 1) hρ.ne' v
+  have e1 : ∀ z : Phase 2, fderiv ℝ (poincare m κ) (sy_P x) (DP z) =
+      fderiv ℝ (delaunayMK m κ) (sy_T x) (DT z) := fun z => by
+    have := congrArg (fun L : Phase 2 →L[ℝ] Phase 2 => L z) hder
+    simpa using this
+  rw [← hDP h, ← hDP k, e1, e1, delaunayMK_symplectic hm hκ _ hmemT, hDT, hDT, hDP, hDP,
+    sy_form_T_eq_P]
+
+end Polar
+
 end PoincareChart
 
 end KAM.Planetary
