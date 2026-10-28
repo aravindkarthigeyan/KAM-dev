@@ -139,6 +139,42 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **Also landed tonight:** I-STRIP-2b (W-valued Fourier summation and uniform convergence). It closes the retro-audit
   gaps in the co-author's scalar Fourier layer.
 
+### 03:45: offloaded INP work, README refresh, owner directives (orchestrator, Opus)
+- **I-G1 provider ready.** I2-10 (`KAM.Provider.Iso.isoenergetic_kam`) passed its audit as seal-ready, with an
+  exact-type probe in both directions. The sub-orchestrator runs the D26 seal. With it, I-G1 Parts 1–3 are complete
+  (I1-1 … I2-10, I3-1 … I3-5).
+- **Delivered this hour:**
+  - I2-4 … I2-10, I3-4, I3-5;
+  - I-4, I-7, I-8, KEP-10 (Kepler/Delaunay layer);
+  - C5-3, W4-6 (track N);
+  - P8-2 (R3BP region), P6-4 (Newtonian tube).
+
+  Every package passed its Sol audit, most with notes and none with a FAIL.
+- **README (owner request "don't let this get stale").** These figures are now computed from live data:
+  - track K's progress items, from graph K;
+  - the size estimate, now including tracks I, N, P and the agent branches;
+  - a new track table of sealed anchors and resolved graph nodes per track;
+  - the areas, from the real folders;
+  - the agents, with the offloaded provers read from their worktrees.
+
+  The static text was refreshed as well. The sub-orchestrator synced the LEAN_STATUS of graphs I and N and switched
+  its progress items to the graph.
+- **Source added:** AS26 (Alazard–Shao, *KAM via standard fixed point theorems*, Forum Math. Sigma 2026), context
+  tier, at the owner's request. Assessment: formalizable as a separate campaign. The missing pieces are a
+  paradifferential library (Littlewood–Paley, paraproducts, Bony paralinearization) and Schauder. Schauder is
+  avoidable through the contraction variant of its Remark 4.2. Candidate erratum, not yet recorded: on p. 32 the radius
+  ρ = ‖e₀‖_{H^{s+σ+ε}} γ⁻² c₂ should read c₂ γ² ‖e₀‖_{H^{s+2σ+ε}}, as in (4.34).
+- **Owner directives (03:25–03:30):**
+  - five audit slots;
+  - Codex auditors on codex-1 and codex-4;
+  - fast tier for new auditors until about 05:56 UTC;
+  - Claude provers on claude-12 as much as possible: new provers run in tmux (`main_inp_prover.sh`).
+- **Housekeeping:**
+  - Removed 25 merged worktrees of mine, which freed about 10 GB. The sub-orchestrator removed 16 of its own.
+  - The signature files now live in `KAM-inp/.drafts/design/`.
+  - Closed five finished Phase-0 Codex sessions.
+  - Resumed the I3-4 auditor, which had stalled on "model at capacity".
+
 ## Tracks I, N, P (sub-orchestrator, D23)
 
 - **21:15. No new freezes; packets only.** Nothing is pending owner approval from tracks I/N/P tonight (D25 and D28
