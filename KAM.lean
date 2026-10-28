@@ -220,7 +220,9 @@ public import KAM.Iso.Conversion
 public import KAM.Iso.Kepler
 public import KAM.Iso.KeplerHamiltonian
 public import KAM.Iso.Linear.Defs
+public import KAM.Iso.Linear.Extended
 public import KAM.Iso.Linear.FreqMap
+public import KAM.Iso.Linear.LastRow
 public import KAM.Iso.Linear.NoTwist
 public import KAM.Iso.Linear.Tools
 public import KAM.Iso.R3bp.Uniqueness
