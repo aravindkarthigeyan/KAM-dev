@@ -1,0 +1,53 @@
+{
+ "replaced": [
+  "stepP:p9:l75",
+  "stepP:p9:l74-red",
+  "stepP:p9:l74-ibp",
+  "stepP:p9:p73-dom",
+  "stepP:p9:p73-had",
+  "stepP:p9:p73-cong",
+  "stepP:p9:la-ev",
+  "stepP:p9:la-adj",
+  "stepP:p9:la-vec",
+  "stepP:p9:la-so",
+  "stepP:p9:lift-bij",
+  "stepP:p9:lift-anti",
+  "stepP:p9:lift-form",
+  "stepP:p9:lift-mc",
+  "stepP:p9:lift-concl",
+  "stepP:p9:d-a",
+  "stepP:p9:d-b",
+  "stepP:p9:d-c",
+  "stepP:p9:d-d",
+  "stepP:p9:gs-a",
+  "stepP:p9:gs-b",
+  "stepP:p9:gs-c",
+  "stepP:p9:n2-mat",
+  "stepP:p9:n2-res",
+  "bpP:p9:e-fts",
+  "bpP:p9:good",
+  "bpP:p9:n2",
+  "bpP:p9:lift",
+  "bpP:p9:diagonalize",
+  "bpP:p9:good-set"
+ ],
+ "added": [
+  "stepP:p9:gs-c#roots-route",
+  "stepP:p9:gs-c#analytic-route"
+ ],
+ "items": [
+  "bpP:p9:dict"
+ ],
+ "unresolved": {},
+ "passes": [
+  "bpP:p9:e-spec",
+  "bpP:p9:e-ift",
+  "bpP:p9:e-id",
+  "bpP:p9:e-ibp",
+  "bpP:p9:conv#data",
+  "bpP:p9:l75",
+  "bpP:p9:l74",
+  "bpP:p9:definite",
+  "bpP:p9:local-analytic"
+ ]
+}

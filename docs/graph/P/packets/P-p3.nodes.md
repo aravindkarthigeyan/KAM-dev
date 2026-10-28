@@ -2053,9 +2053,9 @@ EDGE: bpP:p3:iterative | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-conj@L133-L133 | Direct use of Part 3 action neighbourhoods, Fourier/strip convention, blocks, symplectic form or Diophantine notation.
 EDGE: bpP:p3:tori#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-conj@L133-L133 | Direct use of I_0(omega),I_*(omega) or phi_omega from the tori data.
 EDGE: bpP:p3:limit-actions | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-conj@L134-L134 | Limit-actions(ii) puts I_* in (D_j)_{rho_j/2}, hence (I_*,theta_t) in W_j, where Phi_j and D Phi_j and the conjugation identity are defined.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta2-P-c
-REVIEWER: -
+REVIEWER: sol-delta3-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2157,9 +2157,9 @@ EDGE: bpP:p3:conv#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-
 EDGE: bpP:p3:tori#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-lim@L143-L143 | Direct use of I_0(omega),I_*(omega) or phi_omega from the tori data.
 EDGE: K:bp:p1:ext-mvt | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-lim@L143-L143 | L143 bounds X_H(gamma_j)-X_H(gamma) on the nearby real segment.
 EDGE: bpP:p3:estimates | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-lim@L143-L143 | The location conclusion gives the action of gamma(t) in Re(D_r); with r<=rho/4 this supplies the base point for the nearby-segment inclusion in D_{rho/2}.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta2-P-c
-REVIEWER: -
+REVIEWER: sol-delta3-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

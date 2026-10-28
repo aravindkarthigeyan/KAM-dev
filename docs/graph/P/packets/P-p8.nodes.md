@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -33,7 +33,7 @@ CONTRACT_ID: bpP:p8:e-diff
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: phi is C^k in w' with derivatives jointly continuous on [0,2pi]^n x U; 2pi-periodic continuous functions for the translation clause
 SOURCE_QUANTIFIERS: k, U, phi, multi-index alpha with ¦alpha¦<=k
-SOURCE_CONCLUSION: d^alpha <phi> = <d^alpha phi> for ¦alpha¦<=k; translation invariance of the integral of a 2pi-periodic continuous function
+SOURCE_CONCLUSION: d^alpha <phi> = <d^alpha phi> for ¦alpha¦<=k; translation invariance of the integral of a 2pi-periodic continuous function; Fubini on products of intervals
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -43,7 +43,7 @@ DEPS: -
 ROUTES: -
 ROUTE_FOR: -
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -120,9 +120,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -152,9 +152,9 @@ EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:con
 EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L17-L17 | f_fix, f_mov
 EDGE: bpP:p0:blocks#assemble | blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L19-L19 | assemble(I,phi,p,q)=((phi,q),(I,p)) in the dictionary
 EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p8-secular-form.tex#bpP:p8:conv#data@L19-L19 | dictionary to the frozen secularAverage
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -175,12 +175,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:conv#data
+DEPS: bpP:p8:conv#data, bpP:p7:holomorphic
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:rho@L34-L34 | Lambda_i*, N(rho) and the data n, m, kappa, a*
+EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:rho@L34-L34 | the holomorphic chart domain in which N(rho) is asserted to lie
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -213,9 +214,9 @@ EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbati
 EDGE: bpP:p8:rho | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L40-L40 | rho_0 in the range of rho_*
 EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L40-L40 | q=Psi of Prop holomorphic in the definition of s_ij
 EDGE: bpP:p6:domain | blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L42-L42 | W of Lemma domain
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -241,9 +242,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-circ@L48-L48 | (f): circular values of q
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-circ@L48-L48 | a_i*, Lambda*
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -274,9 +275,9 @@ EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L
 EDGE: bpP:p8:rho | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | rho_0 and the polydisc N(rho_0/2)
 EDGE: bpP:p6:domain | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | NoColl and W (a: Psi in W)
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49 | N(rho), R^n torus domain
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -297,15 +298,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: I:bpI:p7:x-hol, stepP:p8:pa-unif, bpP:p6:split, bpP:p7:holomorphic
+DEPS: I:bpI:p7:x-hol, stepP:p8:pa-unif, bpP:p6:split, bpP:p7:holomorphic, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: I:bpI:p7:x-hol | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | principal s^(-1/2) holomorphic on Re s>0 and composition
 EDGE: stepP:p8:pa-unif | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | Re s_ij>0 on N(rho_*)
 EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | formula equals f_fix o Psi; f_mov-f_fix=¦P¦^2/(2 m0)
 EDGE: bpP:p7:holomorphic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | p^(i) holomorphic, Psi real at real points
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-hol@L50-L50 | hat f_fix, hat f_mov, and N(rho_*)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -336,9 +338,9 @@ EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-
 EDGE: K:bp:p1:cauchy-open | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | Cauchy formula: derivatives jointly continuous, uniformly on the compact torus
 EDGE: K:bp:p1:holomorphic-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | holomorphic implies real analytic on the real part (restriction)
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51 | definition of S as the average
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -368,9 +370,9 @@ EDGE: stepP:p8:sy-3 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L7
 EDGE: stepP:p8:sy-f | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L72-L72 | proof step Kepler functions
 EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L65-L65 | f_fix, f_mov of Lemma split
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L59-L59 | Psi^(n), O_n
-EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L56-L56 | R_theta, sigma and data notation
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:symmetries@L59-L59 | the standing product chart Psi and physical data; R_theta and sigma are local notation from L56
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -397,9 +399,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-1@L69-L69 | (a): uniqueness of the solution F of the regular Kepler equation
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-1@L69-L69 | formulas for q, p, v, k, J, c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -425,9 +427,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-2@L70-L70 | (a): uniqueness of F
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-2@L70-L70 | definition of v, q, p, J_0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -453,9 +455,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-3@L71-L71 | (a): uniqueness of F
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-3@L71-L71 | definition of v, q, p, J_0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -469,8 +471,8 @@ PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-f@L72-L72
 CONTRACT_ID: stepP:p8:sy-f
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: f_fix depends on ¦q_i-q_j¦; f_mov-f_fix=¦sum p_i¦^2/(2 m0)
-SOURCE_QUANTIFIERS: isometries R of R^2, signs
-SOURCE_CONCLUSION: f_fix,f_mov invariant under (q,p)->(±Rq,±' Rp) for any isometry R
+SOURCE_QUANTIFIERS: common orthogonal linear map R in O(2), applied to every planet; independent overall signs on q and p
+SOURCE_CONCLUSION: f_fix,f_mov invariant under (q,p)->(±Rq,±' Rp) for a common R in O(2) applied to all planets
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -481,7 +483,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-f@L72-L72 | f_fix depends on ¦q_i-q_j¦ and f_mov-f_fix=¦P¦^2/(2 m0)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -511,9 +513,9 @@ EDGE: stepP:p8:ev-tay | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L8
 EDGE: stepP:p8:ev-quad | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L84-L84 | proof step Quadratic part
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L76-L76 | rho_*, S real analytic on N_R(rho_*)
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L76-L76 | S_fix, S_mov, N_R(rho), R_theta notation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -540,9 +542,9 @@ ROUTE_FOR: -
 EDGE: bpP:p8:symmetries | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82 | (S1)-(S3) and invariance of f
 EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82 | translation invariance of the average of a periodic function
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82 | definition of S as the lambda-average
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -563,14 +565,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:perturbation-analytic, stepP:p8:ev-inv, bpP:p8:e-taylor
+DEPS: bpP:p8:perturbation-analytic, stepP:p8:ev-inv, bpP:p8:e-taylor, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | (c): S real analytic in (xi,eta)
 EDGE: stepP:p8:ev-inv | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | evenness and invariance
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | Taylor coefficients, expansion
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-tay@L83-L83 | the secular function S and its Taylor expansion in the slow coordinates
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -592,13 +595,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:ev-inv, stepP:p8:ev-tay
+DEPS: stepP:p8:ev-inv, stepP:p8:ev-tay, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p8:ev-inv | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84 | evenness in eta alone and the rotation theta=pi/2
 EDGE: stepP:p8:ev-tay | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84 | degree-two part of the Taylor expansion
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-quad@L84-L84 | the slow coordinates xi, eta of the secular quadratic part
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -630,9 +634,9 @@ EDGE: stepP:p8:l64-d | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L104
 EDGE: stepP:p8:l64-e | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L105-L105 | proof step (e)
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L90-L90 | Psi^(n), O_n, q^(i), p^(i)
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L90-L90 | data n, m, kappa and a_i=Lambda_i^2/(m_i^2 kappa)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -661,9 +665,9 @@ EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-
 EDGE: bpP:p1:chart-field | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | D Psi X_h=X_{H_Kep} o Psi (applied to the chart)
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | q^(i) depends only on block i
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101 | nu_i and data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -689,9 +693,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-b@L102-L102 | (a): q^(i) real analytic and 2pi-periodic in lambda_i
 EDGE: stepP:p8:l64-a | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-b@L102-L102 | p^(i)=m_i nu_i d_{lambda_i} q^(i)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -712,14 +716,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:l64-b, bpP:p7:product-def, bpP:p7:poincare
+DEPS: stepP:p8:l64-b, bpP:p7:product-def, bpP:p7:poincare, bpP:p8:e-diff
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p8:l64-b | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | both single-period averages vanish
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | p^(j) depends only on lambda_j
 EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | (a): continuity
+EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-c@L103-L103 | Fubini on the product angle intervals to reduce or separate the torus average
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -741,14 +746,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:po-del, bpP:p7:kepler, bpP:p8:conv#data
+DEPS: stepP:p7:po-del, bpP:p7:kepler, bpP:p8:conv#data, bpP:p7:product-def, bpP:p8:e-diff
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:po-del | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | p^(i)=Q(ell,g,Lambda,C), ell=lambda-g
 EDGE: bpP:p7:kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | (c): mean of ¦p¦^2 over one period equals m^2 kappa/a; circular case of the same item
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | a_i=Lambda_i^2/(m_i^2 kappa)
+EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | planetwise independence reduces the full torus integral to the single lambda_i integral
+EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-d@L104-L104 | Fubini on the product angle intervals to reduce or separate the torus average
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -775,9 +782,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p8:l64-c | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-e@L105-L105 | cross terms vanish
 EDGE: stepP:p8:l64-d | blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-e@L105-L105 | diagonal terms
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -801,9 +808,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -831,9 +838,9 @@ EDGE: stepP:p8:la-exp | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L12
 EDGE: stepP:p8:la-conv | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L123-L123 | proof step Convergence
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L118-L118 | the coefficients b_s^(k)
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L119-L119 | composition of analytic functions (alpha=a_i/a_j) is real analytic
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -859,9 +866,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-exp@L122-L122 | binomial series and the growth O(p^(s-1))
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-exp@L122-L122 | Fourier coefficient definition of b_s^(k)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -882,13 +889,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:e-poch, stepP:p8:la-exp
+DEPS: bpP:p8:e-poch, stepP:p8:la-exp, bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L123 | (s)_p/p!=O(p^(s-1)), positivity of the Pochhammer symbols
 EDGE: stepP:p8:la-exp | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L123 | the series coefficients
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-conv@L123-L123 | the Laplace coefficients b_s^(k) used in the statement or computation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -910,14 +918,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:id-1, stepP:p8:id-2, bpP:p8:laplace
+DEPS: stepP:p8:id-1, stepP:p8:id-2, bpP:p8:laplace, bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p8:id-1 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L138-L138 | proof step (I1)
 EDGE: stepP:p8:id-2 | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L139-L139 | proof step (I2)
 EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L137-L137 | series of Lemma laplace compared coefficientwise
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identities@L130-L130 | the Laplace coefficients b_s^(k) used in the statement or computation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -939,13 +948,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:laplace, bpP:p8:e-poch
+DEPS: bpP:p8:laplace, bpP:p8:e-poch, bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L138-L138 | series of b_{1/2}^(0) and b_{3/2}^(1)
-EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L137-L137 | (s)_{p+1}=(s)_p(s+p) giving the Pochhammer relations
+EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L138-L138 | the Pochhammer relations used in the coefficient comparison (introduced at L137)
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-1@L138-L138 | the Laplace coefficients b_s^(k) used in the statement or computation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -967,13 +977,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:laplace, bpP:p8:e-poch
+DEPS: bpP:p8:laplace, bpP:p8:e-poch, bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L139-L139 | series of b_{1/2}^(1) and b_{3/2}^(2)
-EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L137-L137 | Pochhammer relations
+EDGE: bpP:p8:e-poch | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L139-L139 | the Pochhammer relations used in the coefficient comparison (introduced at L137)
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-2@L139-L139 | the Laplace coefficients b_s^(k) used in the statement or computation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1001,9 +1012,9 @@ ROUTE_FOR: -
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:coeffs@L146-L146 | b_s^(k) in the definitions
 EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#bpP:p8:coeffs@L149-L149 | real analyticity of the coefficients and positivity
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:coeffs@L145-L145 | data n, G, m, axes and a(Lambda)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1039,9 +1050,9 @@ EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-f
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L154-L154 | C_0, Q_h
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L154-L154 | S_fix, N_R, data
 EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L155-L155 | frozen sense of Omega_j (R_j=Gamma_j)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1062,15 +1073,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:evenness, bpP:p8:e-weyl, bpP:p8:perturbation-analytic, bpP:p8:conv#data
+DEPS: bpP:p8:evenness, bpP:p8:e-weyl, bpP:p8:perturbation-analytic, bpP:p8:conv#data, bpP:p7:product-def, bpP:p8:e-diff
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | evenness corollary applied to the n=2 function S_ij
 EDGE: bpP:p8:e-weyl | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | quadratic O(2)-invariants of two vectors are spanned by the three dot products
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | formula hat f_fix=-G sum m_i m_j s_ij^(-1/2) and analyticity
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | S_fix and averages
+EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | each planet position depends only on its own fast angle and slow block
+EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-pair@L160-L160 | Fubini on the product angle intervals to reduce or separate the torus average
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1097,9 +1110,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-scale@L161-L161 | b_{1/2}^(0)
 EDGE: bpP:p8:laplace | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-scale@L161-L161 | real analyticity of alpha->b_{1/2}^(0)(alpha)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1120,14 +1133,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare, stepP:p8:qf-scale, stepP:p8:qf-pair
+DEPS: bpP:p7:poincare, stepP:p8:qf-scale, stepP:p8:qf-pair, bpP:p8:conv#data, bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | (f): circular orbits at u=0
 EDGE: stepP:p8:qf-scale | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | Phi and b_{1/2}^(0)
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | S_ij=<V_ij>
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | u_i, the axes a_i=a_i(Lambda_i), and the circular value of the secular pair average
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-c0@L162-L162 | the Laplace coefficients b_s^(k) used in the statement or computation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1149,21 +1164,24 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:kepler, bpP:p7:o-facts, I:bpI:p7:orbit-identities, bpP:p7:poincare, stepP:p8:qf-scale, stepP:p8:qf-pair, stepP:p8:id-1, bpP:p8:e-taylor, bpP:p8:coeffs, bpP:p7:poincare-def
+DEPS: bpP:p7:kepler, bpP:p7:o-facts, I:bpI:p7:orbit-identities, bpP:p7:poincare, stepP:p8:qf-scale, stepP:p8:qf-pair, bpP:p8:identities, bpP:p8:e-taylor, bpP:p8:coeffs, bpP:p7:poincare-def, bpP:p8:conv#data, bpP:p8:laplace-def, bpP:p8:e-diff
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | (b): ¦q¦=a(1-e cos u), mean-anomaly relation
 EDGE: bpP:p7:o-facts | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | e^2=¦v¦^2=E in terms of Gamma, Lambda
 EDGE: I:bpI:p7:orbit-identities | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | d lambda=(1-e cos u)du, r=a(1-e cos u)
 EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | (f): circular planet j (u_j=0)
-EDGE: stepP:p8:qf-scale | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L161-L161 | Phi and its homogeneity
+EDGE: stepP:p8:qf-scale | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L164-L164 | Phi(a_i(1-epsilon),a_j) and its radial derivatives in h
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | S_ij=<V_ij>
-EDGE: stepP:p8:id-1 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | by (I1) the second derivative of h
+EDGE: bpP:p8:identities | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | identity (I1) evaluates the radial derivative expression
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | Taylor expansion of h and E=¦u¦^2/Lambda+O(¦u¦^4)
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | identification with fraktur a_ij
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | v=(1-Gamma/(2 Lambda))^(1/2) Lambda^(-1/2) u
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | u_i=(xi_i,eta_i), Gamma_i, a_i(Lambda_i), and the normalized angle averages
+EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L165-L165 | the Laplace coefficients b_s^(k) used in the statement or computation
+EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag@L163-L163 | Fubini on the product angle intervals to reduce or separate the torus average
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1185,18 +1203,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:e-diff, bpP:p7:regular-kepler, bpP:p7:poincare-def, bpP:p8:laplace-def, stepP:p8:id-2, stepP:p8:qf-pair, bpP:p8:coeffs
+DEPS: bpP:p8:e-diff, bpP:p7:regular-kepler, bpP:p7:poincare-def, bpP:p8:laplace-def, bpP:p8:identities, stepP:p8:qf-pair, bpP:p8:coeffs, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:e-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | differentiation under the average
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | (a): d_v F=(sin F,-cos F) at v=0, F=lambda, J=1
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | v in terms of u; position formula q=a(kc-v+(v.c)v/(1+k))
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | Fourier expansion of U in Laplace coefficients B_k
-EDGE: stepP:p8:id-2 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L168-L168 | by (I2)
+EDGE: bpP:p8:identities | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L168-L168 | identity (I2) evaluates the mixed coefficient
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | V_ij, S_ij=<V_ij>
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L168-L168 | identification with fraktur b_ij
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-cross@L166-L166 | u_i, Gamma_i and the normalized averages in the slow chart coordinates
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1218,10 +1237,10 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:qf-c0, stepP:p8:qf-diag, stepP:p8:qf-cross, stepP:p8:qf-pair, bpP:p8:evenness, bpP:p8:e-taylor, bpP:p8:coeffs, bpP:p8:perturbation-analytic
+DEPS: stepP:p8:qf-c0, stepP:p8:qf-diag, stepP:p8:qf-cross, stepP:p8:qf-pair, bpP:p8:evenness, bpP:p8:e-taylor, bpP:p8:coeffs, bpP:p8:perturbation-analytic, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
-EDGE: stepP:p8:qf-c0 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L162-L162 | constant term C_0
+EDGE: stepP:p8:qf-c0 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | the constant C_0 subtracted from S_fix
 EDGE: stepP:p8:qf-diag | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | diagonal coefficients
 EDGE: stepP:p8:qf-cross | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | cross coefficient
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | sum over pairs
@@ -1229,8 +1248,9 @@ EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assemb
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | O(¦(xi,eta)¦^4) from the vanishing jet of an analytic remainder
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | Q_h, C_0 definitions
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | analyticity on N_R(rho_*)
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-assembly@L169-L169 | S_fix, u_i, and N_R(rho_*) with a=a(Lambda)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1252,14 +1272,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:qf-assembly, bpP:p8:coeffs, bpP:p0:hamsymp#symplecticForm
+DEPS: stepP:p8:qf-assembly, bpP:p8:coeffs, bpP:p0:hamsymp#symplecticForm, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p8:qf-assembly | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | quadratic part xi^T Q_h xi+eta^T Q_h eta
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | Q_h
 EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | symplectic for the frozen form
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-diag2@L170-L170 | the slow-coordinate order and Gamma_j=(xi_j^2+eta_j^2)/2
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1290,9 +1311,9 @@ EDGE: stepP:p8:id-int | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identificat
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L187-L187 | N_R(rho_*) where both are analytic
 EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L187-L187 | (c): H_mov^Psi=h+mu f_mov o Psi, H_fix^Psi=h+eps f_fix o Psi
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L183-L183 | data, averages, S_fix, S_mov
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1313,14 +1334,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p6:split, bpP:p7:poincare, bpP:p7:product-def
+DEPS: bpP:p6:split, bpP:p7:poincare, bpP:p7:product-def, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p6:split | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | f_mov-f_fix=¦P¦^2/(2 m0)
 EDGE: bpP:p7:poincare | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | (a): p^(i) real analytic hence continuous
 EDGE: bpP:p7:product-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | p^(i) depends on lambda_i only
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-diff@L191-L191 | hat f_mov=f_mov o Psi and hat f_fix=f_fix o Psi
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1348,9 +1370,9 @@ ROUTE_FOR: -
 EDGE: bpP:p8:lemma64 | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L192 | (e): average of ¦sum p^(i)¦^2
 EDGE: stepP:p8:id-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L192 | difference equals ¦sum p¦^2/(2 m0)
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L192 | kappa=G m0 and a_i
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1371,13 +1393,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:id-diff, bpP:p8:perturbation-analytic
+DEPS: stepP:p8:id-diff, bpP:p8:perturbation-analytic, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p8:id-diff | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193 | continuity of the difference
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193 | (a): hat f continuous on the torus for w' in N_R(rho_*)
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-int@L193-L193 | the Bochner averages S_fix, S_mov and the domain N_R(rho_*)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1405,9 +1428,9 @@ ROUTE_FOR: -
 EDGE: bpP:p8:same-jets#jets | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L206-L206 | proof: derivatives of the difference and (a),(b)
 EDGE: bpP:p8:same-jets#transfer | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L206-L206 | proof: (c) transfer to the frozen Birkhoff form
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L197-L197 | S_fix, S_mov, N_R, dictionary
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1428,15 +1451,17 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:identification, bpP:p8:quadratic-form, bpP:p7:product-chart, bpP:p8:perturbation-analytic
+DEPS: bpP:p8:identification, bpP:p8:quadratic-form, bpP:p7:product-chart, bpP:p8:perturbation-analytic, bpP:p8:conv#data, bpP:p8:coeffs
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:identification | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | S_mov=S_fix+delta(Lambda) with delta independent of (xi,eta)
 EDGE: bpP:p8:quadratic-form | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | (a): the quadratic form Q_h
 EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | (d): Hamilton equations in the chart
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | S_fix, S_mov analytic so derivatives exist
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | S_fix, S_mov, the slow variables and N_R(rho_*)
+EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | C_0 and Q_h in the common quadratic form
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1450,7 +1475,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfe
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206
 CONTRACT_ID: bpP:p8:same-jets#transfer
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: HasBirkhoff for P_mov; P_av^mov-P_av^fix=delta(I) (frozen average of Def secavg, I=Lambda) on the integrability set; chi acts on (xi,eta) only
+SOURCE_HYPOTHESES: data of conv#data; P_mov=hat f_mov and P_fix=hat f_fix with no mu dependence, assembled by (I,p,q)=(Lambda,eta,xi); HasBirkhoff(P_mov,V,r_0,mu_0,P_0,Omega,beta); for every I in V and p,q with p_j^2+q_j^2<r_0^2 for all j, (I,p,q) lies in N_R(rho_*); for the composition clause chi(Lambda;.) is a slow-variable symplectic change acting only on (xi,eta)
 SOURCE_QUANTIFIERS: V, r_0, mu_0, P_0, Omega, beta
 SOURCE_CONCLUSION: HasBirkhoff(P_fix,V,r_0,mu_0,P_0-delta,Omega,beta) and conversely: integrability clause (i) transfers and the expansion clause (ii) with P_0->P_0-delta; Omega, beta unchanged
 CONSTANT_SCOPE: none
@@ -1466,7 +1491,7 @@ EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p8-secular-form
 EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | frozen average, I=Lambda
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | dictionary (I,p,q)=(Lambda,eta,xi)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1482,7 +1507,7 @@ CONTRACT_ID: bpP:p8:quartic
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: n>=2; Lambda with (xi,Lambda,eta) in N_R(rho_*)-range; v the eccentricity vectors of Definition poincare-def
 SOURCE_QUANTIFIERS: n,m,kappa,a*; Lambda; for (a): alpha,v_i,v_j in the domain D
-SOURCE_CONCLUSION: degree-four part of S_fix (and S_mov) is Q_4=sum_{i<j}[c1 ¦u_i¦^4+c2 ¦u_j¦^4+c3 ¦u_i¦^2¦u_j¦^2+c4 (u_i.u_j)^2+c5 ¦u_i¦^2 u_i.u_j+c6 ¦u_j¦^2 u_i.u_j] with c_nu(Lambda_i,Lambda_j) real analytic; (a) S_ij=-G m_i m_j a_j^-1 W(alpha_ij;v_i,v_j) with W real analytic on the separated domain D, independent of m,G,kappa, exact passage u->v; (b) c_1,c_2 = -G m_i m_j (h^(4)(0)/64-h''(0)/16)/Lambda^2 with h(eps)=Phi(a(1-eps),a')(1-eps); (c) c_1=m_i m_j r_1^ex(a_i,a_j)/(2 Lambda_i^2), c_2 analogously, with r_1^ex=-h^(4)(0)/32+h''(0)/8 (G=m0=1); explicit c_3..c_6 are forward obligations of Part 11b
+SOURCE_CONCLUSION: degree-four part of S_fix (and S_mov) is Q_4=sum_{i<j}[c1 ¦u_i¦^4+c2 ¦u_j¦^4+c3 ¦u_i¦^2¦u_j¦^2+c4 (u_i.u_j)^2+c5 ¦u_i¦^2 u_i.u_j+c6 ¦u_j¦^2 u_i.u_j] with c_nu(Lambda_i,Lambda_j) real analytic; (a) S_ij=-G m_i m_j a_j^-1 W(alpha_ij;v_i,v_j) with W real analytic on D={(alpha,v_i,v_j): 0<alpha<1, ¦v_i¦,¦v_j¦<1/4, alpha(1+¦v_i¦)<1-¦v_j¦}, independent of m,G,kappa, exact passage v_i=sqrt(1-¦u_i¦^2/(4 Lambda_i)) u_i/sqrt(Lambda_i); if W_2=A ¦v_i¦^2+A' ¦v_j¦^2+B v_i.v_j, then Q_4^(ij)=(-G m_i m_j/a_j)[W_4(u_i/sqrt(Lambda_i),u_j/sqrt(Lambda_j))-A ¦u_i¦^4/(4 Lambda_i^2)-A' ¦u_j¦^4/(4 Lambda_j^2)-(B/8)(u_i.u_j)/sqrt(Lambda_i Lambda_j)(¦u_i¦^2/Lambda_i+¦u_j¦^2/Lambda_j)]; sufficient subdomain ¦v_i¦,¦v_j¦<min(1/4,(1-alpha)/(1+alpha)); Taylor coefficients of W at v=0 real analytic for every alpha in (0,1), with convergence neighbourhood allowed to shrink as alpha->1; (b) c_1,c_2 = -G m_i m_j (h^(4)(0)/64-h''(0)/16)/Lambda^2 with h(eps)=Phi(a(1-eps),a')(1-eps); (c) c_1=m_i m_j r_1^ex(a_i,a_j)/(2 Lambda_i^2), c_2 analogously, with r_1^ex=-h^(4)(0)/32+h''(0)/8 (G=m0=1); explicit c_3..c_6 are forward obligations of Part 11b
 CONSTANT_SCOPE: c_nu depend only on (Lambda_i,Lambda_j) (and m,G,kappa); W independent of m,G,kappa
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1499,7 +1524,7 @@ EDGE: bpP:p8:same-jets | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L2
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L221-L221 | v of Definition poincare-def
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:quartic@L217-L217 | data, N_R(rho_*), S_fix
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1521,7 +1546,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:evenness, bpP:p8:perturbation-analytic, stepP:p8:qf-pair, bpP:p8:e-weyl, bpP:p8:e-taylor
+DEPS: bpP:p8:evenness, bpP:p8:perturbation-analytic, stepP:p8:qf-pair, bpP:p8:e-weyl, bpP:p8:e-taylor, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:evenness | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | even, O(2)-invariant Taylor parts
@@ -1529,8 +1554,9 @@ EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | pair decomposition
 EDGE: bpP:p8:e-weyl | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | invariants are polynomials in dot products
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | Taylor coefficients of a jointly analytic function
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-str@L231-L231 | S_fix, u_i and N_R(rho_*) for the quartic Taylor part
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1544,15 +1570,15 @@ STATEMENT_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232
 PROOF_SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232
 CONTRACT_ID: stepP:p8:q4-a
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: q^(i)=a_i tilde q(lambda_i,v_i) with tilde q independent of a,m,kappa; domain D (disjoint ellipses)
+SOURCE_HYPOTHESES: q^(i)=a_i tilde q(lambda_i,v_i) with tilde q independent of a,m,kappa; D={(alpha,v_i,v_j): 0<alpha<1, ¦v_i¦,¦v_j¦<1/4, alpha(1+¦v_i¦)<1-¦v_j¦} (disjoint ellipses)
 SOURCE_QUANTIFIERS: alpha in (0,1); v_i,v_j in D
-SOURCE_CONCLUSION: S_ij=-G m_i m_j a_j^-1 W(alpha;v_i,v_j) with W real analytic on D, independent of m,G,kappa; Taylor coefficients at v=0 analytic for all alpha in (0,1); exact passage u->v via the expansion of (1-t)^(1/2)
+SOURCE_CONCLUSION: S_ij=-G m_i m_j a_j^-1 W(alpha;v_i,v_j) with W real analytic on D, independent of m,G,kappa; Taylor coefficients at v=0 analytic for all alpha in (0,1); exact passage v_i=sqrt(1-¦u_i¦^2/(4 Lambda_i)) u_i/sqrt(Lambda_i); if W_2=A ¦v_i¦^2+A' ¦v_j¦^2+B v_i.v_j, then Q_4^(ij)=(-G m_i m_j/a_j)[W_4(u_i/sqrt(Lambda_i),u_j/sqrt(Lambda_j))-A ¦u_i¦^4/(4 Lambda_i^2)-A' ¦u_j¦^4/(4 Lambda_j^2)-(B/8)(u_i.u_j)/sqrt(Lambda_i Lambda_j)(¦u_i¦^2/Lambda_i+¦u_j¦^2/Lambda_j)] via the expansion of (1-t)^(1/2)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare-def, bpP:p8:perturbation-analytic, stepP:p8:pa-circ, bpP:p8:e-taylor, stepP:p8:qf-pair
+DEPS: bpP:p7:poincare-def, bpP:p8:perturbation-analytic, stepP:p8:pa-circ, bpP:p8:e-taylor, stepP:p8:qf-pair, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | q^(i)=a_i tilde q(lambda_i,v_i), v in terms of u
@@ -1560,8 +1586,9 @@ EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#stepP
 EDGE: stepP:p8:pa-circ | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | Taylor coefficients at v=0 are those of the circular case
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | Taylor expansion of (1-t)^(1/2), t=¦u¦^2/(4 Lambda)
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | V_ij, S_ij
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-a@L232-L232 | the secular slow variables u_i=(xi_i,eta_i) and their actions Lambda_i in the conversion
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1583,13 +1610,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p8:qf-diag, bpP:p8:e-taylor
+DEPS: stepP:p8:qf-diag, bpP:p8:e-taylor, bpP:p8:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p8:qf-diag | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233 | S_ij at u_j=0 as sum over E^l h^(2l)(0) binomial moments
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233 | Taylor expansion of h and E in ¦u¦
+EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-b@L233-L233 | u_i=(xi_i,eta_i) and Gamma_i=¦u_i¦^2/2 in the exact expression for E
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p8
+EXTRACTOR: sonnet-extract-P-p8+sol-review-P-j
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1615,9 +1643,9 @@ DEPS: stepP:p8:q4-b
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p8:q4-b | blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-c@L234-L234 | identification of c_1,c_2 with r_1^ex is (b)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

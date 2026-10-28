@@ -3,9 +3,9 @@ KIND: external
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:e-ode@L20-L20
 DISPOSITION: NODE bpP:p11b:e-ode
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:e-id
 KIND: external
@@ -30,108 +30,108 @@ KIND: external
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:e-ca@L23-L23
 DISPOSITION: NODE bpP:p11b:e-ca
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:orbit
 KIND: lemma
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:orbit@L28-L36
 DISPOSITION: NODE bpP:p11b:orbit
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:or-kep
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-kep@L38-L38
 DISPOSITION: NODE stepP:p11b:or-kep
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:or-pos
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-pos@L39-L39
 DISPOSITION: NODE stepP:p11b:or-pos
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:or-an
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-an@L40-L40
 DISPOSITION: NODE stepP:p11b:or-an
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:laplace-red
 KIND: lemma
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:laplace-red@L43-L56
 DISPOSITION: NODE bpP:p11b:laplace-red
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:lr-1
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-1@L58-L58
 DISPOSITION: NODE stepP:p11b:lr-1
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:lr-2
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-2@L59-L59
 DISPOSITION: NODE stepP:p11b:lr-2
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:lr-3
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-3@L60-L60
 DISPOSITION: NODE stepP:p11b:lr-3
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:lr-red
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-red@L61-L61
 DISPOSITION: NODE stepP:p11b:lr-red
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:pair-jet
 KIND: proposition
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:pair-jet@L64-L91
 DISPOSITION: NODE bpP:p11b:pair-jet
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:pj-formal
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-formal@L93-L93
 DISPOSITION: NODE stepP:p11b:pj-formal
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:pj-bin
 KIND: proof-region
@@ -174,36 +174,36 @@ KIND: theorem
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:quartic-explicit@L100-L109
 DISPOSITION: NODE bpP:p11b:quartic-explicit
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:qe-conv
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-conv@L111-L113
 DISPOSITION: NODE stepP:p11b:qe-conv
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:qe-an
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-an@L114-L114
 DISPOSITION: NODE stepP:p11b:qe-an
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:qe-c12
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-c12@L115-L115
 DISPOSITION: NODE stepP:p11b:qe-c12
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:char
 KIND: lemma
@@ -219,18 +219,18 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ch-mon@L130-L130
 DISPOSITION: NODE stepP:p11b:ch-mon
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:ch-bra
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ch-bra@L131-L131
 DISPOSITION: NODE stepP:p11b:ch-bra
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:homological
 KIND: lemma
@@ -246,9 +246,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ho-def@L140-L140
 DISPOSITION: NODE stepP:p11b:ho-def
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:ho-eq
 KIND: proof-region
@@ -264,9 +264,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:flow@L144-L146
 DISPOSITION: NODE bpP:p11b:flow
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:fl-bd
 KIND: proof-region
@@ -282,18 +282,18 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:fl-an@L149-L149
 DISPOSITION: NODE stepP:p11b:fl-an
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:lie
 KIND: proposition
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lie@L152-L159
 DISPOSITION: NODE bpP:p11b:lie
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:li-tay
 KIND: proof-region
@@ -327,18 +327,18 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lift-map@L166-L172
 DISPOSITION: NODE bpP:p11b:lift-map
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:lm-ham
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lm-ham@L174-L174
 DISPOSITION: NODE stepP:p11b:lm-ham
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:lm-prop
 KIND: proof-region
@@ -354,18 +354,18 @@ KIND: definition
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:beta-def@L184-L192
 DISPOSITION: NODE bpP:p11b:beta-def
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:beta-formula
 KIND: proposition
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:beta-formula@L194-L197
 DISPOSITION: NODE bpP:p11b:beta-formula
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:bf-gram
 KIND: proof-region
@@ -381,9 +381,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bf-avg@L202-L202
 DISPOSITION: NODE stepP:p11b:bf-avg
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:birkhoff-form
 KIND: theorem
@@ -399,18 +399,18 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-rot@L217-L217
 DISPOSITION: NODE stepP:p11b:bt-rot, stepP:p11b:bt-rot#lift
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:bt-K
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-K@L218-L218
 DISPOSITION: NODE stepP:p11b:bt-K
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:bt-nf
 KIND: proof-region
@@ -426,63 +426,63 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-avg@L220-L220
 DISPOSITION: NODE stepP:p11b:bt-avg
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:bt-frozen
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-frozen@L221-L221
 DISPOSITION: NODE stepP:p11b:bt-frozen
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:remain
 KIND: claim
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:remain@L224-L226
 DISPOSITION: NODE bpP:p11b:remain
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:asymptotics
 KIND: proposition
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:asymptotics@L230-L238
 DISPOSITION: NODE bpP:p11b:asymptotics
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:as-in
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-in@L240-L242
 DISPOSITION: NODE stepP:p11b:as-in
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:as-pi
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-pi@L243-L243
 DISPOSITION: NODE stepP:p11b:as-pi
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:as-c
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-c@L244-L245
 DISPOSITION: NODE stepP:p11b:as-c
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:as-ent
 KIND: proof-region
@@ -498,45 +498,45 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-det@L247-L247
 DISPOSITION: NODE stepP:p11b:as-det
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:torsion
 KIND: theorem
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:torsion@L250-L253
 DISPOSITION: NODE bpP:p11b:torsion
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:to-an
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:to-an@L255-L255
 DISPOSITION: NODE stepP:p11b:to-an
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:to-pt
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:to-pt@L256-L256
 DISPOSITION: NODE stepP:p11b:to-pt
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: stepP:p11b:to-id
 KIND: proof-region
 SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:to-id@L257-L257
 DISPOSITION: NODE stepP:p11b:to-id
 REASON: labelled unit; kept as node
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 
 ITEM: bpP:p11b:patch
 KIND: corollary

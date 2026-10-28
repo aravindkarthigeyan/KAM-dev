@@ -3,18 +3,18 @@ KIND: external
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:e-spec@L20-L20
 DISPOSITION: NODE bpP:p9:e-spec
 REASON: labelled external item of Part 9 (kept as external; no alias, see NOTE where relevant)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: -
+REVIEWER: sol-review-P-k
 
 ITEM: bpP:p9:e-ift
 KIND: external
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:e-ift@L21-L21
 DISPOSITION: NODE bpP:p9:e-ift
 REASON: labelled external item of Part 9 (kept as external; no alias, see NOTE where relevant)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: -
+REVIEWER: sol-review-P-k
 
 ITEM: bpP:p9:e-fts
 KIND: external
@@ -30,18 +30,18 @@ KIND: external
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:e-id@L23-L23
 DISPOSITION: NODE bpP:p9:e-id
 REASON: labelled external item of Part 9 (kept as external; no alias, see NOTE where relevant)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: -
+REVIEWER: sol-review-P-k
 
 ITEM: bpP:p9:e-ibp
 KIND: external
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:e-ibp@L24-L24
 DISPOSITION: NODE bpP:p9:e-ibp
 REASON: labelled external item of Part 9 (kept as external; no alias, see NOTE where relevant)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: -
+REVIEWER: sol-review-P-k
 
 ITEM: bpP:p9:lemma70
 KIND: lemma
@@ -165,9 +165,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l75@L70-L75
 DISPOSITION: NODE bpP:p9:l75
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: -
+REVIEWER: sol-review-P-k
 
 ITEM: stepP:p9:l75
 KIND: proof-region
@@ -183,9 +183,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:l74@L80-L85
 DISPOSITION: NODE bpP:p9:l74
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: -
+REVIEWER: sol-review-P-k
 
 ITEM: stepP:p9:l74-red
 KIND: proof-region
@@ -210,9 +210,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:definite@L91-L98
 DISPOSITION: NODE bpP:p9:definite
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: -
+REVIEWER: sol-review-P-k
 
 ITEM: stepP:p9:p73-dom
 KIND: proof-region
@@ -246,9 +246,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:local-analytic@L107-L109
 DISPOSITION: NODE bpP:p9:local-analytic
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: -
+REVIEWER: sol-review-P-k
 
 ITEM: stepP:p9:la-ev
 KIND: proof-region
@@ -388,8 +388,8 @@ REVIEWER: -
 ITEM: bpP:p9:dict
 KIND: claim
 SOURCE: blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L155-L160
-DISPOSITION: NODE bpP:p9:dict
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: outside every root closure of track P. Check: no incoming DEPS/ROUTES edge in the current packets; the sole other in-corpus reference is Part 10 L192 in the excluded scaling remark, not a proof use. Part 11 L44 is outside this graph version with P-FIXED deferred. Omega=2 sigma is supplied to actual consumers by diagonalize/n2, not by this restatement.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
@@ -726,4 +726,3 @@ REASON: Label index (administrative)
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p9
 REVIEWER: -
-

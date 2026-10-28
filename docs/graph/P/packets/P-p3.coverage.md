@@ -788,7 +788,7 @@ DISPOSITION: NODE stepP:p3:inv-conj
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta3-P-a
 
 ITEM: stepP:p3:inv-dphi
 KIND: proof-region
@@ -815,7 +815,7 @@ DISPOSITION: NODE stepP:p3:inv-lim
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta3-P-a
 
 ITEM: bpP:p3:cover
 KIND: lemma

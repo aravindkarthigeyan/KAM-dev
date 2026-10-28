@@ -1,19 +1,10 @@
 {
- "replaced": [
-  "stepP:p3:inv-conj",
-  "stepP:p3:inv-lim"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "stepP:p3:sum-radii",
-  "stepP:p3:la-wp",
-  "stepP:p3:pl-lip",
-  "stepP:p3:lp-cauchy",
-  "stepP:p3:lp-per",
-  "stepP:p3:lg-j",
-  "stepP:p3:lg-lim",
-  "stepP:p3:mt-pre"
+  "stepP:p3:inv-conj",
+  "stepP:p3:inv-lim"
  ]
 }

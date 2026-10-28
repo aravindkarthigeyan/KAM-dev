@@ -3,9 +3,9 @@ KIND: external
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:e-param@L26-L26
 DISPOSITION: NODE bpP:p8:e-param
 REASON: labelled external item of Part 8 (kept as external; see node NOTE)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:e-diff
 KIND: external
@@ -21,27 +21,27 @@ KIND: external
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:e-taylor@L28-L28
 DISPOSITION: NODE bpP:p8:e-taylor
 REASON: labelled external item of Part 8 (kept as external; see node NOTE)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:e-weyl
 KIND: external
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:e-weyl@L29-L29
 DISPOSITION: NODE bpP:p8:e-weyl
 REASON: labelled external item of Part 8 (kept as external; see node NOTE)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:e-poch
 KIND: external
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:e-poch@L30-L30
 DISPOSITION: NODE bpP:p8:e-poch
 REASON: labelled external item of Part 8 (kept as external; see node NOTE)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:rho
 KIND: definition
@@ -57,27 +57,27 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:perturbation-analytic@L39-L46
 DISPOSITION: NODE bpP:p8:perturbation-analytic
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:pa-circ
 KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-circ@L48-L48
 DISPOSITION: NODE stepP:p8:pa-circ
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:pa-unif
 KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-unif@L49-L49
 DISPOSITION: NODE stepP:p8:pa-unif
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:pa-hol
 KIND: proof-region
@@ -93,9 +93,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:pa-avg@L51-L51
 DISPOSITION: NODE stepP:p8:pa-avg
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:symmetries
 KIND: proposition
@@ -111,27 +111,27 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-1@L69-L69
 DISPOSITION: NODE stepP:p8:sy-1
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:sy-2
 KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-2@L70-L70
 DISPOSITION: NODE stepP:p8:sy-2
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:sy-3
 KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:sy-3@L71-L71
 DISPOSITION: NODE stepP:p8:sy-3
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:sy-f
 KIND: proof-region
@@ -147,18 +147,18 @@ KIND: corollary
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:evenness@L75-L80
 DISPOSITION: NODE bpP:p8:evenness
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:ev-inv
 KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:ev-inv@L82-L82
 DISPOSITION: NODE stepP:p8:ev-inv
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:ev-tay
 KIND: proof-region
@@ -183,27 +183,27 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:lemma64@L89-L99
 DISPOSITION: NODE bpP:p8:lemma64
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:l64-a
 KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-a@L101-L101
 DISPOSITION: NODE stepP:p8:l64-a
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:l64-b
 KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-b@L102-L102
 DISPOSITION: NODE stepP:p8:l64-b
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:l64-c
 KIND: proof-region
@@ -228,36 +228,36 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:l64-e@L105-L105
 DISPOSITION: NODE stepP:p8:l64-e
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:laplace-def
 KIND: definition
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace-def@L110-L114
 DISPOSITION: NODE bpP:p8:laplace-def
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:laplace
 KIND: lemma
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:laplace@L116-L120
 DISPOSITION: NODE bpP:p8:laplace
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:la-exp
 KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:la-exp@L122-L122
 DISPOSITION: NODE stepP:p8:la-exp
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:la-conv
 KIND: proof-region
@@ -309,18 +309,18 @@ KIND: definition
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:coeffs@L144-L150
 DISPOSITION: NODE bpP:p8:coeffs
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:quadratic-form
 KIND: theorem
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:quadratic-form@L152-L158
 DISPOSITION: NODE bpP:p8:quadratic-form
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:qf-pair
 KIND: proof-region
@@ -336,9 +336,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:qf-scale@L161-L161
 DISPOSITION: NODE stepP:p8:qf-scale
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:qf-c0
 KIND: proof-region
@@ -399,9 +399,9 @@ KIND: theorem
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:identification@L182-L189
 DISPOSITION: NODE bpP:p8:identification
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:id-diff
 KIND: proof-region
@@ -417,9 +417,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:id-avg@L192-L192
 DISPOSITION: NODE stepP:p8:id-avg
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: stepP:p8:id-int
 KIND: proof-region
@@ -435,9 +435,9 @@ KIND: corollary
 SOURCE: blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets@L196-L204
 DISPOSITION: NODE bpP:p8:same-jets
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:use11
 KIND: claim
@@ -489,9 +489,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p8-secular-form.tex#stepP:p8:q4-c@L234-L234
 DISPOSITION: NODE stepP:p8:q4-c
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8
-REVIEWER: -
+REVIEWER: sol-review-P-j
 
 ITEM: bpP:p8:cp11-check
 KIND: claim
@@ -771,4 +771,3 @@ REASON: Label index (administrative)
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p8
 REVIEWER: -
-

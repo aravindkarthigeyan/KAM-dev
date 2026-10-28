@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -78,9 +78,9 @@ EDGE: bpP:p8:laplace-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:se
 EDGE: bpP:p8:laplace | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:sec-set#data@L14-L14 | analyticity and series of the Laplace coefficients
 EDGE: bpP:p8:same-jets | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:sec-set#data@L14-L14 | common jet of S_fix and S_mov; sign convention of X_G (part (b)) at L16
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:sec-set#data@L16-L16 | eccentricity vector v and its complex form zeta of the Poincare chart
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -109,9 +109,9 @@ EDGE: stepP:p11b:or-pos | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:orb
 EDGE: stepP:p11b:or-an | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:orbit@L40-L40 | proof step: analyticity
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:orbit@L29-L29 | the Poincare chart with a=1
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:orbit@L29-L29 | complex notation zeta, X
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -138,9 +138,9 @@ ROUTE_FOR: -
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-kep@L38-L38 | Kepler equation of the regular chart
 EDGE: bpP:p11b:e-ca | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-kep@L38-L38 | the iteration is a finite polynomial computation
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-kep@L38-L38 | zeta, X notation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -168,9 +168,9 @@ EDGE: bpP:p7:poincare-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b
 EDGE: stepP:p11b:or-kep | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-pos@L39-L39 | the series of phi=F-lambda
 EDGE: bpP:p11b:e-ca | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-pos@L39-L39 | expansion and collection is a finite exact computation (the table is of this kind)
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-pos@L39-L39 | zeta, X notation
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -196,9 +196,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-an@L40-L40 | analyticity of F in v
 EDGE: stepP:p11b:or-pos | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:or-an@L40-L40 | the formulas for z_orb
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -228,9 +228,9 @@ EDGE: stepP:p11b:lr-3 | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lapla
 EDGE: stepP:p11b:lr-red | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:laplace-red@L61-L61 | proof step: reduction to beta_0, beta_1
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:laplace-red@L44-L44 | the coefficients b_s^(k)
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:laplace-red@L50-L50 | beta_0, beta_1, Delta
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -255,9 +255,9 @@ DEPS: bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-1@L58-L58 | integral definition of b_s^(k)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -282,9 +282,9 @@ DEPS: bpP:p8:laplace-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-2@L59-L59 | integral definition of b_s^(k)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -310,9 +310,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p11b:lr-1 | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-3@L60-L60 | (R1)
 EDGE: stepP:p11b:lr-2 | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-3@L60-L60 | (R2)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -340,9 +340,9 @@ EDGE: stepP:p11b:lr-3 | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-
 EDGE: stepP:p11b:lr-2 | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-red@L61-L61 | (R2) at s+1
 EDGE: stepP:p11b:lr-1 | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-red@L61-L61 | (R1) at s+1 for k=0,1
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lr-red@L61-L61 | beta_0, beta_1, Delta
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -374,9 +374,9 @@ EDGE: stepP:p11b:pj-cons | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:pa
 EDGE: bpP:p8:quartic | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:pair-jet@L65-L65 | W and S_12 of Proposition quartic(a)
 EDGE: bpP:p8:laplace | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:pair-jet@L81-L81 | convergence of the power series in alpha
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:pair-jet@L65-L65 | zeta_i, v_i, beta_0, beta_1, Delta
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -404,9 +404,9 @@ EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p11b-planar-torsion.tex#s
 EDGE: bpP:p8:e-diff | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-formal@L93-L93 | differentiation under the integral over the torus
 EDGE: bpP:p11b:orbit | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-formal@L93-L93 | formal expansion of z_orb
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-formal@L93-L93 | zeta_i, X_i
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -427,13 +427,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p11b:orbit, stepP:p11b:pj-formal
+DEPS: bpP:p11b:orbit, stepP:p11b:pj-formal, bpP:p11b:sec-set#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:orbit | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-bin@L94-L94 | delta_i are Laurent polynomials in X_i at each degree
 EDGE: stepP:p11b:pj-formal | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-bin@L94-L94 | the formal reduction
+EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-bin@L94-L94 | Uses X_i=e^{i lambda_i} and the complex orbit notation of the section data.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -455,12 +456,13 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p8:laplace-def
+DEPS: bpP:p8:laplace-def, bpP:p11b:sec-set#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p8:laplace-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-avg@L95-L95 | (2pi)^(-1) int e^{ip theta} (1+alpha^2-2 alpha cos theta)^(-s) d theta=b_s^(¦p¦)
+EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-avg@L95-L95 | Uses X_i=e^{i lambda_i} and the angle/complex-variable convention directly.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -482,7 +484,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p11b:pj-bin, stepP:p11b:pj-avg, bpP:p11b:laplace-red, bpP:p8:symmetries, bpP:p11b:e-ca, bpP:p8:laplace
+DEPS: stepP:p11b:pj-bin, stepP:p11b:pj-avg, bpP:p11b:laplace-red, bpP:p8:symmetries, bpP:p11b:e-ca, bpP:p8:laplace, bpP:p11b:sec-set#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p11b:pj-bin | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-red@L96-L96 | the coefficients L_{d,l} to be averaged
@@ -491,8 +493,9 @@ EDGE: bpP:p11b:laplace-red | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11
 EDGE: bpP:p8:symmetries | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-red@L96-L96 | (S1) odd degrees vanish, (S2) rotation invariance, (S3) conjugation invariance
 EDGE: bpP:p11b:e-ca | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-red@L96-L96 | finite exact computation reading off the coefficients
 EDGE: bpP:p8:laplace | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-red@L96-L96 | Laplace series of beta_0, beta_1 giving eq:series
+EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-red@L96-L96 | Uses beta_0, beta_1 and zeta_i of the section data directly.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -506,7 +509,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-cons@L
 PROOF_SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-cons@L97-L97
 CONTRACT_ID: stepP:p11b:pj-cons
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A=(1/4)alpha b_{3/2}^(1), B=-(1/2)alpha b_{3/2}^(2) as the identities asserted in the statement (parenthetical)
+SOURCE_HYPOTHESES: A and B are the displayed rational expressions from pj-red; the Laplace reduction of laplace-red is available
 SOURCE_QUANTIFIERS: alpha in (0,1)
 SOURCE_CONCLUSION: the displayed A and B equal (1/4)alpha b_{3/2}^(1) and -(1/2)alpha b_{3/2}^(2) identically in alpha by the reduction (finite check); comparison with the quadratic part of Theorem quadratic-form and the multipole test are consistency checks
 CONSTANT_SCOPE: none
@@ -521,7 +524,7 @@ EDGE: stepP:p11b:pj-red | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:p
 EDGE: bpP:p11b:laplace-red | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-cons@L97-L97 | reduction of b_{3/2}^(1), b_{3/2}^(2) to beta_0, beta_1
 EDGE: bpP:p11b:e-ca | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:pj-cons@L97-L97 | identities hold identically in alpha by a finite check
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -553,9 +556,9 @@ EDGE: bpP:p11b:pair-jet | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:qua
 EDGE: bpP:p8:quartic | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:quartic-explicit@L108-L108 | c_nu^{12} and the diagonal formula (b)
 EDGE: bpP:p8:same-jets | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:quartic-explicit@L106-L106 | S_mov has the same degree-four part as S_fix
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:quartic-explicit@L101-L101 | A_2, Lambda_i, alpha, pref
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -583,9 +586,9 @@ EDGE: bpP:p11b:pair-jet | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:q
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-conv@L111-L111 | v=sqrt((1-Gamma/(2 Lambda))/Lambda)(xi,eta) of the chart
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-conv@L111-L111 | Gamma_i=¦u_i¦^2/2
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-conv@L111-L111 | pref, A_2, Lambda_i
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -614,9 +617,9 @@ EDGE: bpP:p8:quartic | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-a
 EDGE: bpP:p8:same-jets | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-an@L114-L114 | S_mov and S_fix share the jet
 EDGE: stepP:p8:qf-pair | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-an@L114-L114 | pair decomposition S_fix=sum S_ij
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-an@L114-L114 | A_2, beta_0, beta_1, Delta
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -644,9 +647,9 @@ EDGE: stepP:p8:qf-diag | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe
 EDGE: bpP:p8:quartic | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-c12@L115-L115 | formula (b) for c_1, c_2
 EDGE: bpP:p11b:pair-jet | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-c12@L115-L115 | W(alpha;zeta_1,0)=beta_0+A E+p_1 E^2
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:qe-c12@L115-L115 | pref
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -672,9 +675,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:sec-bnf#data@L124-L124 | R_j, z=(z_1,z_2), the bracket and the frozen sign convention xdot=dG/dy, ydot=-dG/dx
 EDGE: bpP:p9:good | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:sec-bnf#data@L122-L122 | NR_4 notation of Definition good
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -695,14 +698,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p11b:ch-mon, stepP:p11b:ch-bra, bpP:p11b:sec-bnf#data
+DEPS: stepP:p11b:ch-mon, stepP:p11b:ch-bra, bpP:p11b:sec-bnf#data, bpP:p11b:sec-set#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p11b:ch-mon | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:char@L130-L130 | proof step: monomials and orthogonality
 EDGE: stepP:p11b:ch-bra | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:char@L131-L131 | proof step: reality and bracket
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:char@L127-L127 | quartic family, N_0, T_theta
+EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:char@L126-L128 | The bracket in the conclusion uses the frozen slow-variable sign convention.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -728,9 +732,9 @@ DEPS: bpP:p11b:sec-bnf#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ch-mon@L130-L130 | quartic family and the rotation action T_theta
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -757,9 +761,9 @@ ROUTE_FOR: -
 EDGE: stepP:p11b:ch-mon | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ch-bra@L131-L131 | covariance just proved
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ch-bra@L131-L131 | N_0 and its flow T_{t Omega}
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ch-bra@L131-L131 | bracket {F,G}=dF(X_G)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -780,15 +784,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p11b:ho-def, stepP:p11b:ho-eq, bpP:p11b:char, bpP:p11b:sec-bnf#data
+DEPS: stepP:p11b:ho-def, stepP:p11b:ho-eq, bpP:p11b:char, bpP:p11b:sec-bnf#data, bpP:p11b:sec-set#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p11b:ho-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:homological@L140-L140 | proof step: well defined and real
 EDGE: stepP:p11b:ho-eq | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:homological@L141-L141 | proof step: the equation
 EDGE: bpP:p11b:char | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:homological@L136-L136 | F_k and <F>
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:homological@L135-L135 | O, Omega, NR_4 and N_0
+EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:homological@L134-L138 | The two bracket identities use the section bracket and sign convention.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -815,9 +820,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:char | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ho-def@L140-L140 | finite character decomposition and reality F_k-bar=F_{-k}
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ho-def@L140-L140 | NR_4: k.Omega!=0 for 0<¦k¦_1<=4
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -838,13 +843,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p11b:char, stepP:p11b:ho-def
+DEPS: bpP:p11b:char, stepP:p11b:ho-def, bpP:p11b:sec-set#data, bpP:p11b:sec-bnf#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:char | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ho-eq@L141-L141 | {F_k,N_0}=i(k.Omega)F_k
 EDGE: stepP:p11b:ho-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ho-eq@L141-L141 | chi well defined
+EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ho-eq@L141-L141 | Uses the bracket convention in computing the equation and its antisymmetric form.
+EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:ho-eq@L141-L141 | Uses N_0 and Omega in the displayed homological equation.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -872,9 +879,9 @@ ROUTE_FOR: -
 EDGE: stepP:p11b:fl-bd | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:flow@L148-L148 | proof step: bound and existence up to time one
 EDGE: stepP:p11b:fl-an | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:flow@L149-L149 | proof step: analyticity and expansion
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:flow@L145-L145 | quartic family and O
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -902,12 +909,12 @@ EDGE: N:bpN:p3:gen-continuation | blueprint-P/parts/p11b-planar-torsion.tex#step
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:fl-bd@L148-L148 | quartic family chi
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:fl-bd@L148-L148 | X_chi of the frozen sign convention
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L148 invokes N:bpN:p3:gen-continuation, which assumes an existing maximal solution of a C^1 field and a set with uniform data (delta,M,L). The polynomial field is C^1 and the displayed bound confines any existing trajectory, but no edge supplies the initial local/maximal solution or the uniform-data reduction on the confining ball. The differential inequality and its printed radius are retained; existence is not added as a source premise.
 
 NODE: stepP:p11b:fl-an
 KIND: step
@@ -930,9 +937,9 @@ ROUTE_FOR: -
 EDGE: bpP:p11b:e-ode | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:fl-an@L149-L149 | analytic dependence of the flow on time, initial data and parameters
 EDGE: N:bpN:p3:gen-uniqueness | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:fl-an@L149-L149 | inverse of phi^1_chi is phi^1_{-chi}
 EDGE: stepP:p11b:fl-bd | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:fl-an@L149-L149 | existence on [0,1] and the bound ¦phi^t(z)¦^2<=2¦z¦^2 giving O(¦z¦^3)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -964,9 +971,9 @@ EDGE: bpP:p11b:homological | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:
 EDGE: bpP:p11b:flow | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lie@L155-L155 | Y=phi^1_chi exists and is analytic on K x {¦z¦<r_1}
 EDGE: bpP:p11b:char | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lie@L157-L157 | <F> the T^2-average, a polynomial in R_1, R_2
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lie@L153-L153 | O, Omega, N_0, quartic families
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -995,12 +1002,12 @@ EDGE: N:bpN:p5:taylor | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-
 EDGE: bpP:p11b:flow | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-tay@L161-L161 | flow phi^t_chi exists on [0,1] on the domain
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-tay@L161-L161 | bracket {K,chi}=dK(X_chi)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L161 cites N:bpN:p5:lie-derivative and N:bpN:p5:taylor. Those statements inherit a holomorphic Hamiltonian on a complex open domain, a complex norm with field bound epsilon<=1/2 and an initial point in Omega^{1/2}, with the trajectory in the domain of the holomorphic observable. Here K and the Lambda-dependent coefficients are stated real analytic and flow supplies a real time-one map. No complexification, compatible complex domain/norm or small-field verification is supplied. The real chain-rule/integral-Taylor formula is asserted in L161, but its direct real version has no supplying approved input either. The printed real statement is retained without adding those proof obligations as hypotheses.
 
 NODE: stepP:p11b:li-ord
 KIND: step
@@ -1017,14 +1024,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p11b:homological, bpP:p8:e-taylor, bpP:p11b:flow
+DEPS: bpP:p11b:homological, bpP:p8:e-taylor, bpP:p11b:flow, bpP:p11b:sec-set#data, bpP:p11b:sec-bnf#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:homological | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-ord@L162-L162 | {N_0,chi}=-(F-<F>)
 EDGE: bpP:p8:e-taylor | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-ord@L162-L162 | jet and O(¦z¦^k) estimates of analytic functions (alias of e-jet)
 EDGE: bpP:p11b:flow | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-ord@L162-L162 | ¦phi^t_chi z¦^2<=2¦z¦^2 along the flow
+EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-ord@L162-L162 | Computes slow-variable brackets using the section convention.
+EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-ord@L162-L162 | Uses N_0 and the quartic-family degrees in the bracket order calculation.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1046,14 +1055,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p11b:li-tay, stepP:p11b:li-ord, bpP:p11b:char
+DEPS: stepP:p11b:li-tay, stepP:p11b:li-ord, bpP:p11b:char, bpP:p11b:sec-bnf#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p11b:li-tay | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-sum@L163-L163 | the formula for K o Y
 EDGE: stepP:p11b:li-ord | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-sum@L163-L163 | the order bounds
 EDGE: bpP:p11b:char | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-sum@L163-L163 | <F> is the T^2-average, T-invariant
+EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-sum@L163-L163 | Uses T_theta invariance and R_1,R_2 in identifying the averaged polynomial.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1084,9 +1094,9 @@ EDGE: bpP:p11b:flow | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lift-ma
 EDGE: bpP:p9:lift | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lift-map@L169-L169 | the lift Phi_rho and its properties
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lift-map@L167-L167 | quartic family chi, O, Omega
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:lift-map@L167-L167 | chart form dLambda^dlambda+dy^dx, rho, R_j
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1112,9 +1122,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:flow | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lm-ham@L174-L174 | Y=phi^1_chi
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lm-ham@L174-L174 | chart form and sign convention for the Hamilton equations
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1145,12 +1155,12 @@ EDGE: N:bpN:p5:symplectic | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b
 EDGE: N:bpN:p5:canonical | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lm-prop@L175-L175 | canonical transformation property
 EDGE: stepP:p11b:lm-ham | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:lm-prop@L175-L175 | Phi_chi is the time-one map of the Hamiltonian flow
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L175 invokes N:bpN:p5:symplectic and N:bpN:p5:canonical for the full (lambda,Lambda,z) Hamiltonian flow. These imports inherit N:bpN:p5:flow: a holomorphic field on a complex open domain, a chosen complex norm with field bound epsilon<=1/2, and initial points in Omega^{1/2}. The real compact-parameter flow of flow/fl-bd does not state these complex hypotheses; the full field also contains partial_Lambda chi in the angle components. No complexification/domain/smallness bridge or separately approved general real symplectic-flow theorem is supplied here. The asserted symplectic conclusion is retained, with this applicability gap explicit.
 
 NODE: bpP:p11b:sec-beta#data
 KIND: definition
@@ -1172,9 +1182,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:sec-beta#data@L180-L180 | a in A_2 and Q_h(a)
 EDGE: bpP:p9:n2 | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:sec-beta#data@L180-L180 | the eigenvalues sigma_1<sigma_2<0 of Q_h(a)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1202,9 +1212,9 @@ EDGE: bpP:p11b:quartic-explicit | blueprint-P/parts/p11b-planar-torsion.tex#bpP:
 EDGE: bpP:p11b:sec-beta#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:beta-def@L185-L185 | pi_ij, Pi_1
 EDGE: bpP:p9:n2 | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:beta-def@L191-L191 | sigma_1,2=(tr -/+ sqrt(tr^2-4 det))/2 with positive discriminant: analyticity
 EDGE: bpP:p8:same-jets | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:beta-def@L191-L191 | same beta-hat for S_fix and S_mov
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1234,9 +1244,9 @@ EDGE: bpP:p11b:quartic-explicit | blueprint-P/parts/p11b-planar-torsion.tex#bpP:
 EDGE: bpP:p11b:char | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:beta-formula@L195-L195 | the T^2-average <.>
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:beta-formula@L196-L196 | beta-hat_ij and a, b, d
 EDGE: bpP:p11b:sec-beta#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:beta-formula@L195-L195 | Pi_1=e_1 e_1^T for the diagonalising rho
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1257,13 +1267,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p11b:sec-beta#data, bpP:p11b:quartic-explicit
+DEPS: bpP:p11b:sec-beta#data, bpP:p11b:quartic-explicit, bpP:p11b:sec-set#data, bpP:p11b:beta-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:sec-beta#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bf-gram@L199-L199 | pi_11, pi_22, pi_12 and their relations
 EDGE: bpP:p11b:quartic-explicit | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bf-gram@L201-L201 | Q_4 in terms of c_nu
+EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bf-gram@L199-L201 | Uses R_j=(x_j^2+y_j^2)/2 and the slow-variable convention.
+EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bf-gram@L199-L201 | Uses delta_pi := pi_11-pi_22 in B_dot explicitly.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1293,9 +1305,9 @@ EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:b
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bf-avg@L202-L202 | rotation action T_theta
 EDGE: bpP:p11b:sec-beta#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bf-avg@L202-L202 | pi_11 pi_22=pi_12^2, pi_11+pi_22=1
 EDGE: bpP:p11b:e-ca | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bf-avg@L202-L202 | the remaining coefficient bookkeeping is verified symbolically
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1316,7 +1328,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p11b:bt-rot, stepP:p11b:bt-K, stepP:p11b:bt-nf, stepP:p11b:bt-avg, stepP:p11b:bt-frozen, bpP:p11b:homological, bpP:p11b:lift-map, bpP:p11b:flow, bpP:p11b:lie, bpP:p8:perturbation-analytic, bpP:p8:identification, bpP:p11b:beta-def, bpP:p9:good, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p11b:sec-set#data
+DEPS: stepP:p11b:bt-rot, stepP:p11b:bt-K, stepP:p11b:bt-nf, stepP:p11b:bt-avg, stepP:p11b:bt-frozen, bpP:p11b:homological, bpP:p11b:lift-map, bpP:p11b:flow, bpP:p11b:lie, bpP:p8:perturbation-analytic, bpP:p8:identification, bpP:p11b:beta-def, bpP:p9:good, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p11b:sec-set#data, bpP:p11b:sec-bnf#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p11b:bt-rot | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:birkhoff-form@L217-L217 | proof step: rotation
@@ -1334,8 +1346,9 @@ EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:bir
 EDGE: bpP:p9:good | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:birkhoff-form@L206-L206 | Phi_4, the set {Phi_4!=0}
 EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:birkhoff-form@L212-L212 | the frozen HasBirkhoff clauses of (c)
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:birkhoff-form@L206-L206 | A_2, Lambda(.), chart, Q_h, rho, sigma
+EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:birkhoff-form@L205-L215 | Uses the quartic family, N_0 and the homological setting with Omega=2 sigma.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1365,9 +1378,9 @@ EDGE: bpP:p9:diagonalize | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:
 EDGE: bpP:p11b:sec-beta#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-rot@L217-L217 | Pi_1 analytic
 EDGE: bpP:p9:good-set | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-rot@L217-L217 | Phi_4!=0 implies simple spectrum on O_a (part (b))
 EDGE: stepP:p11b:bt-rot#lift | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-rot@L217-L217 | lift of e_1 to an analytic angle on the simply connected O_a
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1393,9 +1406,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p9:local-analytic | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-rot#lift@L217-L217 | local analytic eigenvector data to be lifted
 EDGE: bpP:p11b:sec-beta#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-rot#lift@L217-L217 | Pi_1 analytic, e_1 in its range
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1427,9 +1440,9 @@ EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p11b-planar-torsion.tex#s
 EDGE: stepP:p11b:bt-rot | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-K@L218-L218 | rho
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-K@L218-L218 | N_0 with Omega=2 sigma
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-K@L218-L218 | S_fix, C_0, Q_h
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1450,7 +1463,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p9:good-set, bpP:p11b:lie, bpP:p11b:beta-formula, stepP:p11b:bt-K, bpP:p11b:quartic-explicit, stepP:p11b:bt-rot, bpP:p11b:sec-bnf#data
+DEPS: bpP:p9:good-set, bpP:p11b:lie, bpP:p11b:beta-formula, stepP:p11b:bt-K, bpP:p11b:quartic-explicit, stepP:p11b:bt-rot, bpP:p11b:sec-bnf#data, bpP:p11b:beta-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p9:good-set | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-nf@L219-L219 | Phi_4!=0 iff NR_4(sigma) (part (b))
@@ -1460,8 +1473,9 @@ EDGE: stepP:p11b:bt-K | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-
 EDGE: bpP:p11b:quartic-explicit | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-nf@L219-L219 | coefficients c_nu analytic
 EDGE: stepP:p11b:bt-rot | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-nf@L219-L219 | rho analytic
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-nf@L219-L219 | NR_4(Omega), quartic family
+EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-nf@L219-L219 | Uses beta-hat_ij in the normal-form polynomial explicitly.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1496,9 +1510,9 @@ EDGE: stepP:p11b:bt-K | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-
 EDGE: stepP:p11b:bt-nf | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-avg@L220-L220 | K o Y=C_0+N_0+<Q_4-tilde>+O(¦z¦^6)
 EDGE: stepP:p11b:bt-rot | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-avg@L220-L220 | rho
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-avg@L220-L220 | S_fix, S_mov and the average
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1527,9 +1541,9 @@ EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p11b-planar-torsion.tex#s
 EDGE: stepP:p11b:bt-avg | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-frozen@L221-L221 | P analytic, T-domain, expansion of <P> with ¦Rem¦<=C_*¦z¦^6
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-frozen@L221-L221 | symmetry of beta-hat
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-frozen@L221-L221 | dictionary to the frozen secularAverage (section conv)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1556,9 +1570,9 @@ ROUTE_FOR: -
 EDGE: bpP:p11b:patch | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:remain@L225-L225 | det beta-hat continuous and nonzero on the compact K_a
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:remain@L225-L225 | beta-hat
 EDGE: bpP:p8:same-jets | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:remain@L225-L225 | same P_0, Omega, beta-hat (up to delta) for S_fix and S_mov
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1589,9 +1603,9 @@ EDGE: stepP:p11b:as-ent | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:asy
 EDGE: stepP:p11b:as-det | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:asymptotics@L247-L247 | proof step: determinant
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:asymptotics@L233-L233 | beta-hat entries and det
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:asymptotics@L231-L231 | a_1, a_2, alpha, kappa
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1618,9 +1632,9 @@ ROUTE_FOR: -
 EDGE: bpP:p8:laplace | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-in@L240-L240 | series of b_{3/2}^(1), b_{3/2}^(2) for small alpha
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-in@L240-L240 | a_12, b_12 and Q_ij=q_ij/sqrt(Lambda_i Lambda_j)
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-in@L240-L240 | Lambda_i, pref, alpha
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1646,9 +1660,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p11b:as-in | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-pi@L243-L243 | Q_12=O(alpha^(11/4)) and Delta_Q=Q_11(1+O(alpha^(1/2)))
 EDGE: bpP:p11b:sec-beta#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-pi@L243-L243 | pi_12=Q_12/(sigma_1-sigma_2), pi_22=(sigma_2-Q_22)/R from the definition of Pi_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1676,9 +1690,9 @@ EDGE: bpP:p11b:pair-jet | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:a
 EDGE: bpP:p11b:quartic-explicit | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-c@L244-L244 | definition of c_nu from p_nu, A, B and Lambda powers
 EDGE: stepP:p11b:as-in | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-c@L244-L244 | Lambda_i as functions of alpha
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-c@L244-L244 | pref
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1699,14 +1713,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p11b:beta-def, stepP:p11b:as-pi, stepP:p11b:as-c
+DEPS: bpP:p11b:beta-def, stepP:p11b:as-pi, stepP:p11b:as-c, bpP:p11b:sec-beta#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-ent@L246-L246 | a, d, b and beta-hat in terms of c_nu and pi_ij
 EDGE: stepP:p11b:as-pi | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-ent@L246-L246 | bounds on pi_ij
 EDGE: stepP:p11b:as-c | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-ent@L246-L246 | sizes of c_nu
+EDGE: bpP:p11b:sec-beta#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-ent@L246-L246 | Uses pi_11 pi_22=pi_12^2 and the projection identities directly in the error estimates.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1734,9 +1749,9 @@ ROUTE_FOR: -
 EDGE: stepP:p11b:as-ent | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-det@L247-L247 | the three entries
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-det@L247-L247 | det beta-hat=64 a d-16 b^2
 EDGE: bpP:p11b:quartic-explicit | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:as-det@L247-L247 | c_nu with pref=-G m_1 m_2/a_2 and p_nu depending on alpha only give the scaling
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1766,9 +1781,9 @@ EDGE: stepP:p11b:to-id | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:tors
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:torsion@L251-L251 | det beta-hat
 EDGE: bpP:p9:good | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:torsion@L251-L251 | Phi_4
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:torsion@L251-L251 | A_2
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1793,9 +1808,9 @@ DEPS: bpP:p11b:beta-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:to-an@L255-L255 | entries of beta-hat are real analytic on A_2
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1820,9 +1835,9 @@ DEPS: bpP:p11b:asymptotics
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:asymptotics | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:to-pt@L256-L256 | det beta-hat=-(117/16)g_0^2 alpha^3(1+O(alpha^2))<0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1852,9 +1867,9 @@ EDGE: bpP:p10:generic | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:to-
 EDGE: stepP:p11b:to-an | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:to-id@L257-L257 | det beta-hat analytic
 EDGE: stepP:p11b:to-pt | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:to-id@L257-L257 | det beta-hat not identically zero
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:to-id@L257-L257 | A_2 connected convex
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: -
+REVIEWER: sol-review-P-m
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1867,7 +1882,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L260-
 PROOF_SOURCE: blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L263-L265
 CONTRACT_ID: bpP:p11b:patch
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: n=2; a* in A_2; eta>0; Theorem birkhoff-form
+SOURCE_HYPOTHESES: n=2; a* in A_2; eta>0
 SOURCE_QUANTIFIERS: a* in A_2, eta>0; then a_0, r_0
 SOURCE_CONCLUSION: there are a_0 in A_2 and r_0>0 with closed B_inf(a_0,2 r_0) subset B_inf(a*,eta) cap {Phi_4!=0} cap {det beta-hat!=0}; then B:=min over closed B_inf(a_0,r_0) of ¦det beta-hat¦>0, beta-hat is symmetric and Theorem birkhoff-form applies with K_a=closed B_inf(a_0,r_0), O_a=B_inf(a_0,2 r_0) (a cube: simply connected); moreover Part 10 frequency data (Theorem bpP:p10:interface) can be taken on the same patch
 CONSTANT_SCOPE: a_0, r_0 depend on (G, m0, m, a*, eta)
@@ -1875,7 +1890,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p11b:torsion, bpP:p11b:birkhoff-form, bpP:p11b:beta-def, bpP:p9:good, bpP:p11b:sec-set#data
+DEPS: bpP:p11b:torsion, bpP:p11b:birkhoff-form, bpP:p11b:beta-def, bpP:p9:good, bpP:p11b:sec-set#data, bpP:p10:interface
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:torsion | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L264-L264 | {Phi_4 det beta-hat!=0} open and dense
@@ -1883,10 +1898,11 @@ EDGE: bpP:p11b:birkhoff-form | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L261-L261 | beta-hat symmetric, det beta-hat
 EDGE: bpP:p9:good | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L261-L261 | {Phi_4!=0}
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L260-L260 | A_2
+EDGE: bpP:p10:interface | blueprint-P/parts/p11b-planar-torsion.tex#bpP:p11b:patch@L260-L262 | The last sentence takes the Part 10 frequency data on this same patch, using the extra analytic nonvanishing condition det beta-hat != 0.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p11b
+EXTRACTOR: sonnet-extract-P-p11b+sol-review-P-m
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: the closing sentence (Part 10 interface on the same patch) is a pointer for Parts 11a/12/13 not proved here (the proof L264 does not mention it) and not used by P-PLANAR (Part 12 L205: no Part 10 R-nondegeneracy is used); no edge to bpP:p10:interface (Part 10 interface is outside the root closure), reported as a defect of the statement
+NOTE: The last sentence at L261 is part of the corollary conclusion and directly invokes bpP:p10:interface. Its supplier and prerequisite closure must be restored in slice P-p10; Part 12 not needing these extra data does not remove a clause of this corollary from its recorded contract. The proof at L264 establishes the basic torsion patch; the simultaneous frequency-data choice uses the final sentence of Part 10 interface with the analytic, not-identically-zero determinant supplied by torsion.
