@@ -3327,9 +3327,9 @@ EDGE: bp:p0:domains#complexStrip | blueprint/parts/p1-analysis.tex#bp:p1:summati
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.summation_forward_vec, KAM.summation_converse_vec (FourierSeriesVector; W-valued) + scalar KAM.differentiableOn_fourierSum, torusCoeff_fourierSum, summableWeighted_torusCoeff, eq_fourierSum_torusCoeff (Zohar)
+LEAN_NOTE: scalar layer by Zohar Komargodski (retro audit docs/campaign/audits/I-STRIP-2-audit-1.md); W-valued statements and uniform convergence by package I-STRIP-2b (audit docs/campaign/audits/I-STRIP-2b-audit-1.md PASS WITH NOTES, closes F1/F2); kernel replay passed (2026-10-28)
 NOTE: -
 
 NODE: step:p1:sum-bound
@@ -3353,9 +3353,9 @@ ROUTE_FOR: -
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.norm_fourierSumVec_le, fourierSumVec_add_single, summable_character_smul, tendstoUniformlyOn_fourierSumVec(_cutoff); scalar tendstoUniformlyOn_fourierSum(_cutoff)
+LEAN_NOTE: scalar layer by Zohar Komargodski (retro audit docs/campaign/audits/I-STRIP-2-audit-1.md); W-valued statements and uniform convergence by package I-STRIP-2b (audit docs/campaign/audits/I-STRIP-2b-audit-1.md PASS WITH NOTES, closes F1/F2); kernel replay passed (2026-10-28)
 NOTE: -
 
 NODE: step:p1:sum-holo
@@ -3382,9 +3382,9 @@ EDGE: step:p1:sum-bound | blueprint/parts/p1-analysis.tex#step:p1:sum-holo@L849-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.differentiableOn_fourierSumVec (scalar: KAM.differentiableOn_fourierSum)
+LEAN_NOTE: scalar layer by Zohar Komargodski (retro audit docs/campaign/audits/I-STRIP-2-audit-1.md); W-valued statements and uniform convergence by package I-STRIP-2b (audit docs/campaign/audits/I-STRIP-2b-audit-1.md PASS WITH NOTES, closes F1/F2); kernel replay passed (2026-10-28)
 NOTE: -
 
 NODE: step:p1:sum-coeff
@@ -3410,9 +3410,9 @@ EDGE: step:p1:sum-bound | blueprint/parts/p1-analysis.tex#step:p1:sum-coeff@L854
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.torusCoeffW_fourierSumVec (scalar: KAM.torusCoeff_fourierSum)
+LEAN_NOTE: scalar layer by Zohar Komargodski (retro audit docs/campaign/audits/I-STRIP-2-audit-1.md); W-valued statements and uniform convergence by package I-STRIP-2b (audit docs/campaign/audits/I-STRIP-2b-audit-1.md PASS WITH NOTES, closes F1/F2); kernel replay passed (2026-10-28)
 NOTE: -
 
 NODE: step:p1:sum-converse
@@ -3438,9 +3438,9 @@ EDGE: bp:p1:decay#boundary-radius | blueprint/parts/p1-analysis.tex#step:p1:sum-
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b+sol-review-r2
 REVIEWER: sol-review-r4
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.summableWeighted_torusCoeffW (scalar: KAM.summableWeighted_torusCoeff)
+LEAN_NOTE: scalar layer by Zohar Komargodski (retro audit docs/campaign/audits/I-STRIP-2-audit-1.md); W-valued statements and uniform convergence by package I-STRIP-2b (audit docs/campaign/audits/I-STRIP-2b-audit-1.md PASS WITH NOTES, closes F1/F2); kernel replay passed (2026-10-28)
 NOTE: -
 
 NODE: step:p1:sum-representation
@@ -3469,9 +3469,9 @@ EDGE: bp:p1:fourier-basic | blueprint/parts/p1-analysis.tex#step:p1:sum-represen
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p1b
 REVIEWER: sol-review-r2
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: scalar case proved (KAM/Strip/FourierSeries.lean, FourierBasic.lean; retro audit docs/campaign/audits/I-STRIP-2-audit-1.md PARTIAL): general W-valued statement (F2) and, for sum-bound, uniform convergence (F1) pending in package I-STRIP-2b
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.eq_fourierSumVec_torusCoeffW (scalar: KAM.eq_fourierSum_torusCoeff)
+LEAN_NOTE: scalar layer by Zohar Komargodski (retro audit docs/campaign/audits/I-STRIP-2-audit-1.md); W-valued statements and uniform convergence by package I-STRIP-2b (audit docs/campaign/audits/I-STRIP-2b-audit-1.md PASS WITH NOTES, closes F1/F2); kernel replay passed (2026-10-28)
 NOTE: -
 
 NODE: bp:p1:cohomological

@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-27 23:50 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 42.9 %** · frozen statements proved: 7 / 22 · **37,323 lines of Lean** of an estimated ≈ 260,000
+> **Last updated: 2026-10-28 00:07 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 42.9 %** · frozen statements proved: 7 / 22 · **37,793 lines of Lean** of an estimated ≈ 264,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -125,22 +125,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **37,323** (24,929 excluding blank lines and comments) · **+37,323** since 2026-10-27 13:33 UTC |
+| On `main` now | **37,793** (25,247 excluding blank lines and comments) · **+37,793** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
-| **Estimated total at completion** | **≈ 260,000** |
-| Estimated still to write | ≈ 223,000 |
+| **Estimated total at completion** | **≈ 264,000** |
+| Estimated still to write | ≈ 226,000 |
 
 **How the size is estimated.** The estimate scales the lines per completed Lean weight unit to all Lean work items. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-27 23:50 UTC from `main` at `e4ca720` by `scripts/hq-status.py`.*
+*Generated 2026-10-28 00:07 UTC from `main` at `4a5687a` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
 **Frozen statements proved: 7 / 22** · frozen definitions: 122
 
-**Lean on `main`:** 284 modules · 37,323 lines · 1,541 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 285 modules · 37,793 lines · 1,566 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 15 (KAM/Frozen/Theorems/KamPositiveMeasureQualitative.lean, KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMean.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMost.lean)
@@ -253,10 +253,10 @@ flowchart BT
 <!-- AUTO:areas -->
 | Area | Content | Modules | Lines | Theorems |
 |---|---|---|---|---|
-| [`KAM/Frozen/`](KAM/Frozen) | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 144 | 6,754 | 22 |
+| [`KAM/Frozen/`](KAM/Frozen) | Owner-approved frozen statements and definitions (one per file, manifest-bound) | 144 | 6,755 | 22 |
 | [`KAM/Fourier/`](KAM/Fourier) | Weighted ℓ¹ Fourier and Fourier–Taylor algebras, composition, Cauchy estimates | 4 | 628 | 33 |
 | [`KAM/Diophantine/`](KAM/Diophantine) | Diophantine vectors, cohomological equation, measure of the Diophantine set | 5 | 543 | 35 |
-| [`KAM/Strip/`](KAM/Strip) | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 22 | 5,244 | 253 |
+| [`KAM/Strip/`](KAM/Strip) | Holomorphic functions on strips: Cauchy estimates, Fourier coefficients, cohomological equation | 23 | 5,713 | 278 |
 | [`KAM/Matrix/`](KAM/Matrix) | Matrix-valued functions: Neumann series and inverse bounds | 5 | 1,147 | 83 |
 | `KAM/Newton/` *(not created yet)* | Abstract Newton/KAM convergence on analytic scales | 0 | 0 | 0 |
 | `KAM/Hamiltonian/` *(not created yet)* | Hamiltonian vector fields in coordinates, invariant tori, quasi-periodic orbits | 0 | 0 | 0 |
@@ -286,8 +286,8 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **design-N3** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design with exact signatures for blueprint-N Part 3 (shared Hamiltonian ODE layer) | — | — |
 | **seal-W1** `inp-seal-1` | seal audit (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Seal audit of package W1: I-KEPLER, N-QC, N-ZERO providers | — | — |
 | **grev-1** `inp-grev-1` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: third-pass review of I-imports, I-nown | — | — |
-| **bprev-2** `inp-bprev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track I graph: third-pass review of I-p2, I-p5, I-p8 | — | — |
-| **grev-3** `inp-grev-3` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Track I graph: third-pass review of I-p67a, I-p7b | — | — |
+| **bprev-2** `inp-bprev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | 🔄 working | Track I graph: third-pass review of I-p2, I-p5, I-p8 | — | — |
+| **grev-3** `inp-grev-3` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track I graph: third-pass review of I-p67a, I-p7b | — | — |
 | **grev-2** `inp-grev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track N graph: slice review N-p02, N-p1 | — | — |
 | **grev-4** `inp-grev-4` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track N graph: slice review N-p4, N-p5 | — | — |
 | **rev-n11** `inp-rev-n11` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | 🔄 working | Track N graph: slice review N-p3a, N-p3b (earlier: N Part 12 review, REVISE) | — | — |
@@ -302,18 +302,18 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-28 00:07 | `4a5687a` | I-STRIP-2b landed (W-valued summation, uniform convergence); summation nodes PROVED |
+| 2026-10-28 00:06 | `8314d45` | Land k/strip2b into main |
+| 2026-10-28 00:06 | `0a81771` | HEAD seal: fix the continuation indent of the wrapped body (f8cdca0 broke the build); same term, hashes unchanged |
+| 2026-10-28 00:00 | `f8cdca0` | HEAD seal: wrap the sealed body onto two lines (line-length lint); same term, hashes unchanged |
+| 2026-10-27 23:51 | `12455e2` | OVERNIGHT: HEAD sealed |
+| 2026-10-27 23:50 | `e578b94` | Brief for P4-S2 (HEAD-Q provider) |
 | 2026-10-27 23:50 | `e4ca720` | Seal HEAD: KAM.kam_positive_measure is proved (fourth sealed frozen theorem) |
 | 2026-10-27 23:47 | `b5b61f2` | Land k/p4-s1 into main |
 | 2026-10-27 23:46 | `2928185` | Land k/p4-12 into main |
 | 2026-10-27 23:41 | `d132497` | Retro audit of Zohar's Fourier layer (I-STRIP-2): fourier-basic and its steps PROVED; summation scalar-only (PARTIAL), brief I-STRIP-2b for the W-valued version and uniform convergence |
 | 2026-10-27 23:40 | `8ff0b59` | Graph K: 44 reviewed AMEND records make the Part 1 standing convention (n >= 1, positive widths) explicit; S1 source tension logged for the owner |
 | 2026-10-27 23:39 | `b0d0341` | P4-11 (good actions, map Lipschitz, main measure) landed; audit PASS |
-| 2026-10-27 23:39 | `17a4dff` | Land k/p4-11 into main |
-| 2026-10-27 23:37 | `7e09224` | Graph K bookkeeping: record steps and frozen definitions of landed packages (map in docs/campaign/audits/K-graph-bookkeeping-2026-10-27.json); Zohar's Fourier/summation nodes held for a dedicated audit |
-| 2026-10-27 23:35 | `1040ca2` | Brief for P4-12 |
-| 2026-10-27 23:33 | `82aeee3` | P4-10 (LIP) landed; audit PASS |
-| 2026-10-27 23:33 | `69e274c` | Land k/p4-10 into main |
-| 2026-10-27 23:29 | `3aedb7f` | P4-9 (real tori) landed; audit 1 F1 fixed (rt_small_full), audit 2 PASS |
 <!-- /AUTO:landed -->
 
 ## Decisions
