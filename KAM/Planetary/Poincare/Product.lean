@@ -100,7 +100,8 @@ theorem ofPlanets_bodyVector (z : Phase (n * 2)) :
   unfold ofPlanets
   rw [ofBodies_bodyVector, ofBodies_bodyVector]
 
-theorem planetBlock_unblock (P : Fin n → Phase 2) (i : Fin n) : planetBlock (unblock P) i = P i := by
+theorem planetBlock_unblock (P : Fin n → Phase 2) (i : Fin n) :
+    planetBlock (unblock P) i = P i := by
   refine Prod.ext (funext fun k => ?_) (funext fun k => ?_) <;> fin_cases k <;>
     simp [planetBlock, unblock, fast, slow]
 
@@ -220,7 +221,8 @@ theorem poincareProd_block (m : Fin n → ℝ) (κ : ℝ) (w : Phase (n + n)) (i
 
 theorem planetBlock_shift (w : Phase (n + n)) (k : Fin n → ℤ) (i : Fin n) :
     planetBlock (w + fastShift (a := n) (b := n) k) i =
-      (![(planetBlock w i).1 0 + 2 * π * (k i : ℝ), (planetBlock w i).1 1], (planetBlock w i).2) := by
+      (![(planetBlock w i).1 0 + 2 * π * (k i : ℝ), (planetBlock w i).1 1],
+        (planetBlock w i).2) := by
   refine Prod.ext (funext fun j => ?_) (funext fun j => ?_) <;> fin_cases j <;>
     simp [planetBlock, fast, slow, fastShift, Fin.append_left]
 
@@ -294,6 +296,176 @@ theorem poincareProd_image {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) 
       funext i
       rw [planetBlock_unblock]; exact hpz i
     rw [this, ofPlanets_bodyVector]
+
+theorem isOpen_poincareProd_preimage {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) :
+    IsOpen (poincareProdDom n ∩ poincareProd m κ ⁻¹' collisionFreeDomain n) :=
+  (analyticOnNhd_poincareProd hm hκ).continuousOn.isOpen_inter_preimage (isOpen_poincareProdDom n)
+    (isOpen_collisionFreeDomain n)
+
+theorem analyticOnNhd_fMov_poincareProd {m : Fin n → ℝ} {G m0 : ℝ} (hm : ∀ i, 0 < m i)
+    (hκ : 0 < G * m0) :
+    AnalyticOnNhd ℝ (fun w => fMov G m0 m (poincareProd m (G * m0) w))
+      (poincareProdDom n ∩ poincareProd m (G * m0) ⁻¹' collisionFreeDomain n) :=
+  (analyticOnNhd_fMov G m0 m).comp ((analyticOnNhd_poincareProd hm hκ).mono inter_subset_left)
+    fun _ hw => hw.2
+
+theorem analyticOnNhd_fFix_poincareProd {m : Fin n → ℝ} {G m0 : ℝ} (hm : ∀ i, 0 < m i)
+    (hκ : 0 < G * m0) :
+    AnalyticOnNhd ℝ (fun w => fFix G m (poincareProd m (G * m0) w))
+      (poincareProdDom n ∩ poincareProd m (G * m0) ⁻¹' collisionFreeDomain n) :=
+  (analyticOnNhd_fFix G m).comp ((analyticOnNhd_poincareProd hm hκ).mono inter_subset_left)
+    fun _ hw => hw.2
+
+/-- (b): decoupling; `ν_i = κ² m_i³/Λ_i³`, `∂²h/∂Λ_i² = -3κ²m_i³/Λ_i⁴ ≠ 0`. -/
+theorem keplerPart_poincareProd {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ)
+    {w : Phase (n + n)} (hw : w ∈ poincareProdDom n) :
+    keplerPart κ m (poincareProd m κ w) = hProd κ m w := by
+  rw [keplerPart_eq_sum]
+  unfold hProd
+  rw [← Finset.sum_neg_distrib]
+  refine Finset.sum_congr rfl fun i _ => ?_
+  rw [poincareProd_block, (poincare_elements (hm i) hκ (hw i)).2.1]
+  simp only [planetBlock]
+  rw [neg_div]
+  simp
+
+theorem hasDerivAt_nu {m κ x : ℝ} (hx : x ≠ 0) :
+    HasDerivAt (fun y => κ ^ 2 * m ^ 3 / y ^ 3) (-3 * κ ^ 2 * m ^ 3 / x ^ 4) x := by
+  have h : HasDerivAt (fun y => κ ^ 2 * m ^ 3 / y ^ 3)
+      ((0 * x ^ 3 - κ ^ 2 * m ^ 3 * ((3 : ℕ) * x ^ (3 - 1))) / (x ^ 3) ^ 2) x :=
+    (hasDerivAt_const x (κ ^ 2 * m ^ 3)).div (hasDerivAt_pow 3 x) (pow_ne_zero 3 hx)
+  refine h.congr_deriv ?_
+  field_simp
+  norm_num
+  ring
+
+/-- (c): the two models share the chart. -/
+theorem movingHamiltonian_poincareProd {m : Fin n → ℝ} {G m0 μ : ℝ} (hm : ∀ i, 0 < m i)
+    (hκ : 0 < G * m0) {w : Phase (n + n)} (hw : w ∈ poincareProdDom n) :
+    movingHamiltonian G m0 m μ (poincareProd m (G * m0) w) =
+      hProd (G * m0) m w + μ * fMov G m0 m (poincareProd m (G * m0) w) := by
+  rw [movingHamiltonian_split, keplerPart_poincareProd hm hκ hw]
+
+theorem fixedHamiltonian_poincareProd {m : Fin n → ℝ} {G m0 ε : ℝ} (hm : ∀ i, 0 < m i)
+    (hκ : 0 < G * m0) {w : Phase (n + n)} (hw : w ∈ poincareProdDom n) :
+    fixedHamiltonian G m0 m ε (poincareProd m (G * m0) w) =
+      hProd (G * m0) m w + ε * fFix G m (poincareProd m (G * m0) w) := by
+  rw [fixedHamiltonian_split, keplerPart_poincareProd hm hκ hw]
+
+theorem regionProd_one_iff {m : Fin n → ℝ} (hm : ∀ i, 0 < m i) (z : Phase (n * 2)) :
+    z ∈ regionProd m 1 ↔ ProgradeElliptic m z := by
+  constructor
+  · intro h i
+    obtain ⟨h1, h2, h3⟩ := h i
+    refine ⟨hm i, h1, ?_, h3⟩
+    simpa [energyMK, keplerEnergy] using h2
+  · intro h i
+    obtain ⟨-, h1, h2, h3⟩ := h i
+    refine ⟨h1, ?_, h3⟩
+    simpa [energyMK, keplerEnergy] using h2
+
+/-! ### Local diffeomorphism -/
+
+theorem poincareProd_fderiv_equiv {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ)
+    {w : Phase (n + n)} (hw : w ∈ poincareProdDom n) :
+    ∃ A : Phase (n + n) ≃L[ℝ] Phase (n * 2),
+      (A : Phase (n + n) →L[ℝ] Phase (n * 2)) = fderiv ℝ (poincareProd m κ) w := by
+  have hs := poincareProd_symplectic hm hκ w hw
+  set A := fderiv ℝ (poincareProd m κ) w with hA
+  have hker : LinearMap.ker (A : Phase (n + n) →ₗ[ℝ] Phase (n * 2)) = ⊥ := by
+    rw [LinearMap.ker_eq_bot']
+    intro u hu
+    refine eq_zero_of_symplecticForm fun v => ?_
+    have := hs u v
+    rw [one_mul] at this
+    rw [← this]
+    have hu' : A u = 0 := hu
+    rw [hu']
+    simp [symplecticForm]
+  have hinj : Function.Injective (A : Phase (n + n) →ₗ[ℝ] Phase (n * 2)) :=
+    LinearMap.ker_eq_bot.1 hker
+  have hdim : Module.finrank ℝ (Phase (n + n)) = Module.finrank ℝ (Phase (n * 2)) := by
+    simp only [Module.finrank_prod, Module.finrank_fin_fun]
+    omega
+  have hsurj : Function.Surjective (A : Phase (n + n) →ₗ[ℝ] Phase (n * 2)) :=
+    (LinearMap.injective_iff_surjective_of_finrank_eq_finrank hdim).1 hinj
+  refine ⟨ContinuousLinearEquiv.ofBijective A hker ?_, ?_⟩
+  · exact LinearMap.range_eq_top.2 hsurj
+  · exact ContinuousLinearMap.ext fun z => rfl
+
+theorem poincareProd_localDiffeo {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ)
+    {w : Phase (n + n)} (hw : w ∈ poincareProdDom n) :
+    ∃ φ : OpenPartialHomeomorph (Phase (n + n)) (Phase (n * 2)), w ∈ φ.source ∧
+      (φ : Phase (n + n) → Phase (n * 2)) = poincareProd m κ ∧
+        AnalyticOnNhd ℝ φ.symm φ.target := by
+  have hana := analyticOnNhd_poincareProd hm hκ
+  obtain ⟨A, hA⟩ := poincareProd_fderiv_equiv hm hκ hw
+  have hc : ContDiffAt ℝ ω (poincareProd m κ) w := (hana w hw).contDiffAt
+  have hf' : HasFDerivAt (poincareProd m κ) (A : Phase (n + n) →L[ℝ] Phase (n * 2)) w := by
+    rw [hA]; exact (hana w hw).differentiableAt.hasFDerivAt
+  have hn : (ω : WithTop ℕ∞) ≠ 0 := by simp
+  let φ0 := hc.toOpenPartialHomeomorph (poincareProd m κ) hf' hn
+  let φ := φ0.restrOpen (poincareProdDom n) (isOpen_poincareProdDom n)
+  have hcoe : (φ : Phase (n + n) → Phase (n * 2)) = poincareProd m κ := rfl
+  refine ⟨φ, ⟨hc.mem_toOpenPartialHomeomorph_source hf' hn, hw⟩, hcoe, ?_⟩
+  intro y hy
+  have hxs : φ.symm y ∈ φ.source := φ.map_target hy
+  have hx : φ.symm y ∈ poincareProdDom n := hxs.2
+  obtain ⟨B, hB⟩ := poincareProd_fderiv_equiv hm hκ hx
+  have hB' : HasFDerivAt φ (B : Phase (n + n) →L[ℝ] Phase (n * 2)) (φ.symm y) := by
+    rw [hcoe, hB]
+    exact (hana _ hx).differentiableAt.hasFDerivAt
+  have hcd : ContDiffAt ℝ ω φ (φ.symm y) := by
+    rw [hcoe]; exact (hana _ hx).contDiffAt
+  exact (φ.contDiffAt_symm hy hB' hcd).analyticAt
+
+/-! ### The equal-dimension chart -/
+
+/-- F6: the equal-dimension chart `Phase (n*2) → Phase (n*2)` that Part 1's `IsChart` consumes
+(`poincareProd` composed with the canonical reindexing; the body permutation stays inside
+`poincareProd`). -/
+def poincareProdCast (m : Fin n → ℝ) (κ : ℝ) : Phase (n * 2) → Phase (n * 2) :=
+  poincareProd m κ ∘ phaseCast (Nat.mul_two n)
+
+def poincareProdCastDom (n : ℕ) : Set (Phase (n * 2)) :=
+  phaseCast (Nat.mul_two n) ⁻¹' poincareProdDom n
+
+theorem poincareProdCast_symplectic {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) :
+    IsSymplecticOn 1 (poincareProdCast m κ) (poincareProdCastDom n) := by
+  have h1 : IsSymplecticOn 1 (phaseCast (Nat.mul_two n)) (poincareProdCastDom n) :=
+    fun z _ => phaseCast_symplectic (Nat.mul_two n) z (mem_univ _)
+  have h := IsSymplecticOn.comp h1 (poincareProd_symplectic hm hκ)
+    (fun z _ => (phaseCast (Nat.mul_two n)).differentiableAt)
+    (fun z hz => ((analyticOnNhd_poincareProd hm hκ) z hz).differentiableAt)
+    (fun z hz => hz)
+  rw [mul_one] at h
+  exact h
+
+theorem analyticOnNhd_poincareProdCast {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ) :
+    AnalyticOnNhd ℝ (poincareProdCast m κ) (poincareProdCastDom n) :=
+  (analyticOnNhd_poincareProd hm hκ).comp
+    ((phaseCast_analytic (Nat.mul_two n)).mono (subset_univ _)) fun _ hz => hz
+
+theorem isOpen_poincareProdCastDom (n : ℕ) : IsOpen (poincareProdCastDom n) :=
+  (isOpen_poincareProdDom n).preimage (phaseCast (Nat.mul_two n)).continuous
+
+theorem poincareProdCast_eq_iff {m : Fin n → ℝ} {κ : ℝ} (hm : ∀ i, 0 < m i) (hκ : 0 < κ)
+    {z z' : Phase (n * 2)} (hz : z ∈ poincareProdCastDom n) (hz' : z' ∈ poincareProdCastDom n) :
+    poincareProdCast m κ z = poincareProdCast m κ z' ↔
+      ∃ k : Fin n → ℤ, z' = z + (phaseCast (Nat.mul_two n)).symm
+        (fastShift (a := n) (b := n) k) := by
+  unfold poincareProdCast
+  simp only [Function.comp_apply]
+  rw [poincareProd_eq_iff hm hκ hz hz']
+  refine exists_congr fun k => ?_
+  constructor
+  · intro h
+    apply (phaseCast (Nat.mul_two n)).injective
+    rw [ContinuousLinearEquiv.map_add, ContinuousLinearEquiv.apply_symm_apply]
+    exact h
+  · intro h
+    have := congrArg (phaseCast (Nat.mul_two n)) h
+    rwa [ContinuousLinearEquiv.map_add, ContinuousLinearEquiv.apply_symm_apply] at this
 
 end ProductChart
 
