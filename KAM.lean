@@ -200,8 +200,10 @@ public import KAM.Head.TorsionRegular
 public import KAM.Head.TorsionRegularGeneral
 public import KAM.Head.Unperturbed
 public import KAM.Head.UnperturbedFrame
+public import KAM.Iso.Confinement.PatchConst
 public import KAM.Iso.Confinement.RealHam
 public import KAM.Iso.Confinement.Setting
+public import KAM.Iso.Conversion
 public import KAM.Iso.Kepler
 public import KAM.Iso.KeplerHamiltonian
 public import KAM.Iso.RestrictedHam
