@@ -180,6 +180,71 @@ theorem periodOne_real (hK : SafeAction K) (hρ : kRhoMax K < 1)
     congr 1
     field_simp
 
+/-! ### Holomorphy, bound and periodicity of `f̃_μ` -/
+
+theorem differentiable_periodOneMapC :
+    Differentiable ℂ (periodOneMapC (n := 2)) := by
+  have h1 : Differentiable ℂ (fun z : (Fin 2 → ℂ) × (Fin 2 → ℂ) => z.1) := differentiable_fst
+  have h2 : Differentiable ℂ (fun z : (Fin 2 → ℂ) × (Fin 2 → ℂ) => z.2) := differentiable_snd
+  exact (h1.const_smul ((2 * π : ℝ) : ℂ)).prodMk (h2.const_smul (((2 * π)⁻¹ : ℝ) : ℂ))
+
+theorem norm_ofReal_lt {μ : ℝ} (hμ : |μ| < exactMu2 K) : ‖(μ : ℂ)‖ < exactMu2 K := by
+  rwa [Complex.norm_real, Real.norm_eq_abs]
+
+theorem tildeF_differentiableOn (hK : SafeAction K) (hρ : kRhoMax K < 1)
+    (hB : ∀ I ∈ B, (fun i => I i / (2 * π)) ∈ K) {μ : ℝ} (hμ : |μ| < exactMu2 K) :
+    DifferentiableOn ℂ (tildeF K μ)
+      (complexStrip 2 (exactDelta K / (2 * π)) ×ˢ actionNbhd B (2 * π * exactDelta K)) := by
+  have hspec := exact_radius_spec hK hρ
+  have hF := hspec.2.2.1.1
+  have hg : DifferentiableOn ℂ (fun z => (periodOneMapC z, (μ : ℂ)))
+      (complexStrip 2 (exactDelta K / (2 * π)) ×ˢ actionNbhd B (2 * π * exactDelta K)) :=
+    (differentiable_periodOneMapC.prodMk (differentiable_const _)).differentiableOn
+  have hmaps : MapsTo (fun z => (periodOneMapC z, (μ : ℂ)))
+      (complexStrip 2 (exactDelta K / (2 * π)) ×ˢ actionNbhd B (2 * π * exactDelta K))
+      (UDelta K (exactDelta K) ×ˢ ball (0 : ℂ) (exactMu2 K)) := fun z hz =>
+    ⟨periodOneMapC_mem_UDelta hspec.1 hB hz, mem_ball_zero_iff.2 (norm_ofReal_lt hμ)⟩
+  have h2 := hF.comp hg hmaps
+  have h3 : DifferentiableOn ℂ (fun z => (μ : ℂ) * exactF K (periodOneMapC z) (μ : ℂ))
+      (complexStrip 2 (exactDelta K / (2 * π)) ×ˢ actionNbhd B (2 * π * exactDelta K)) :=
+    (differentiableOn_const _).mul h2
+  exact h3
+
+/-- `delaunayC` is invariant under all integer shifts of the angles `(ℓ, g)` by `2π`. -/
+theorem delaunayC_add_int (hK : SafeAction K) {δ : ℝ} (hδ : δ ≤ complexDelta K)
+    {w : (Fin 2 → ℂ) × (Fin 2 → ℂ)} (hw : w ∈ UDelta K δ) (k : Fin 2 → ℤ) :
+    delaunayC K (w.1 + fun i => 2 * π * (k i : ℂ), w.2) = delaunayC K w := by
+  have hw' : w ∈ UDelta K (complexDelta K) := ExactAux.UDelta_mono hδ hw
+  have hw₁ : (Function.update w.1 0 (w.1 0 + 2 * π * (k 0 : ℂ)), w.2) ∈
+      UDelta K (complexDelta K) :=
+    ExactAux.update_mem_UDelta hw' 0 _ (ExactAux.im_shift (w.1 0) (k 0))
+  have e : w.1 + (fun i => 2 * π * (k i : ℂ)) =
+      Function.update (Function.update w.1 0 (w.1 0 + 2 * π * (k 0 : ℂ))) 1
+        (w.1 1 + 2 * π * (k 1 : ℂ)) := by
+    funext i
+    fin_cases i <;> simp
+  have h1 := ExactAux.periodic_int hK hw₁ 1 (k 1)
+  have h0 := ExactAux.periodic_int hK hw' 0 (k 0)
+  simp only [Function.update_of_ne (show (1 : Fin 2) ≠ 0 by decide)] at h1
+  rw [e]
+  exact h1.trans h0
+
+theorem tildeF_periodic (hK : SafeAction K) (hρ : kRhoMax K < 1)
+    (hB : ∀ I ∈ B, (fun i => I i / (2 * π)) ∈ K) (μ : ℝ)
+    {z : (Fin 2 → ℂ) × (Fin 2 → ℂ)}
+    (hz : z ∈ complexStrip 2 (exactDelta K / (2 * π)) ×ˢ actionNbhd B (2 * π * exactDelta K))
+    (k : Fin 2 → ℤ) : tildeF K μ (z.1 + fun i => (k i : ℂ), z.2) = tildeF K μ z := by
+  have hspec := exact_radius_spec hK hρ
+  have hU := periodOneMapC_mem_UDelta hspec.1 hB hz
+  have e : periodOneMapC (z.1 + fun i => (k i : ℂ), z.2) =
+      ((periodOneMapC z).1 + fun i => 2 * π * (k i : ℂ), (periodOneMapC z).2) := by
+    refine Prod.ext (funext fun i => ?_) rfl
+    simp only [periodOneMapC, Pi.add_apply, Pi.smul_apply, smul_eq_mul]
+    push_cast
+    ring
+  unfold tildeF exactF
+  rw [e, delaunayC_add_int hK hspec.2.1 hU k]
+
 end PeriodOneAux
 
 open PeriodOneAux
@@ -202,6 +267,170 @@ theorem delaunay_periodOne_symplectic :
   exact h3
 
 /-! ### Period one -/
+
+/-- `bpI:p7:period-one`: `s₀ = δ₂/(2π)`, `r₀ = 2πδ₂`, `B ⊆ 2π𝒦`; the data of I-HEAD. -/
+theorem period_one {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
+    {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * π)) ∈ K) :
+    let s₀ := exactDelta K / (2 * π)
+    let r₀ := 2 * π * exactDelta K
+    0 < s₀ ∧ 0 < r₀ ∧
+    (∀ z ∈ complexStrip 2 s₀ ×ˢ actionNbhd B r₀, periodOneMapC z ∈ UDelta K (exactDelta K)) ∧
+    (DifferentiableOn ℂ (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) (actionNbhd B r₀) ∧
+      ∀ I ∈ actionNbhd B r₀, π * kLMin K < (I 0).re) ∧
+    (∀ μ : ℝ, |μ| < exactMu2 K →
+      DifferentiableOn ℂ (tildeF K μ) (complexStrip 2 s₀ ×ˢ actionNbhd B r₀) ∧
+      (∀ z ∈ complexStrip 2 s₀ ×ˢ actionNbhd B r₀, ‖tildeF K μ z‖ ≤ |μ| * exactCF K) ∧
+      (∀ z ∈ complexStrip 2 s₀ ×ˢ actionNbhd B r₀, ∀ k : Fin 2 → ℤ,
+        tildeF K μ (z.1 + fun i => (k i : ℂ), z.2) = tildeF K μ z)) ∧
+    (∀ μ : ℝ, |μ| < exactMu2 K → ∀ z : Phase 2,
+      (fun i => (z.1 i : ℂ), fun i => (z.2 i : ℂ)) ∈ complexStrip 2 s₀ ×ˢ actionNbhd B r₀ →
+      (tildeF K μ (phaseToC z)).im = 0 ∧
+      ∃ hcf : CollisionFree μ (delaunay (periodOneMap z)),
+        restrictedHamiltonian μ ⟨delaunay (periodOneMap z), hcf⟩ =
+          realHamiltonian (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) (tildeF K μ) z) := by
+  intro s₀ r₀
+  have hδ := exactDelta_pos hK hρ
+  have hs : 0 < s₀ := by
+    show 0 < exactDelta K / (2 * π)
+    positivity
+  have hr : 0 < r₀ := by
+    show 0 < 2 * π * exactDelta K
+    positivity
+  have hnd := nondeg_period_one B hr fun J hJ =>
+    ⟨(action_bounds hK hρ hB J hJ).1, (action_bounds hK hρ hB J hJ).2.1⟩
+  refine ⟨hs, hr, fun z hz => periodOneMapC_mem_UDelta hδ hB hz, ⟨hnd.1, ?_⟩,
+    fun μ hμ => ⟨tildeF_differentiableOn hK hρ hB hμ, ?_, ?_⟩, ?_⟩
+  · rintro I ⟨J, hJ, hIJ⟩
+    have h1 : |(I 0 - (J 0 : ℂ)).re| ≤ ‖I - fun i => (J i : ℂ)‖ :=
+      (Complex.abs_re_le_norm _).trans (norm_le_pi_norm (I - fun i => (J i : ℂ)) 0)
+    have h2 := (abs_lt.mp (h1.trans_lt hIJ)).1
+    have h3 := (action_bounds hK hρ hB J hJ).2.2
+    have h4 := exactDelta_le_half hK hρ
+    simp only [Complex.sub_re, Complex.ofReal_re] at h2
+    show π * kLMin K < (I 0).re
+    nlinarith [Real.pi_pos]
+  · intro z hz
+    have hU := periodOneMapC_mem_UDelta hδ hB hz
+    have hb := (exact_radius_spec hK hρ).2.2.1.2.1 _ hU μ (norm_ofReal_lt hμ)
+    rw [tildeF, norm_mul, Complex.norm_real, Real.norm_eq_abs]
+    exact mul_le_mul_of_nonneg_left hb (abs_nonneg μ)
+  · intro z hz k
+    exact tildeF_periodic hK hρ hB μ hz k
+  · intro μ hμ z hz
+    obtain ⟨-, him, hex⟩ := periodOne_real hK hρ hB hμ hz
+    exact ⟨him, hex⟩
+
+/-! ### Transfer -/
+
+theorem hamiltonianVectorField_congr {n : ℕ} {H₁ H₂ : (Fin n → ℝ) × (Fin n → ℝ) → ℝ}
+    {z : (Fin n → ℝ) × (Fin n → ℝ)} (h : fderiv ℝ H₁ z = fderiv ℝ H₂ z) :
+    hamiltonianVectorField H₁ z = hamiltonianVectorField H₂ z := by
+  simp only [hamiltonianVectorField, h]
+
+/-- `bpI:p7:transfer`: transfer of Delaunay solutions to the restricted problem and the radius
+interval (the exact radius, elements and energy identities are `transfer_identities` below). -/
+theorem transfer {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
+    {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * π)) ∈ K) {μ : ℝ}
+    (hμ : |μ| < exactMu2 K)
+    {J : Set ℝ} {zt : ℝ → Phase 2}
+    (hz : IsHamiltonianSolutionOn
+      (realHamiltonian (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) (tildeF K μ)) B J zt) :
+    IsRestrictedSolutionOn μ J (fun t => delaunay (periodOneMap (zt t))) ∧
+    ∀ t ∈ J, planeLength (delaunay (periodOneMap (zt t))).1 ∈
+      Icc ((zt t).2 0 ^ 2 / (2 * π) ^ 2 *
+          (1 - eccOf ((zt t).2 0 / (2 * π)) ((zt t).2 1 / (2 * π))))
+        ((zt t).2 0 ^ 2 / (2 * π) ^ 2 *
+          (1 + eccOf ((zt t).2 0 / (2 * π)) ((zt t).2 1 / (2 * π)))) := by
+  have hδ := exactDelta_pos hK hρ
+  have hs : 0 < exactDelta K / (2 * π) := by positivity
+  have hr : 0 < 2 * π * exactDelta K := by positivity
+  have hOopen : IsOpen {z : Phase 2 | phaseToC z ∈
+      complexStrip 2 (exactDelta K / (2 * π)) ×ˢ actionNbhd B (2 * π * exactDelta K)} :=
+    ((isOpen_complexStrip 2 _).prod (isOpen_actionNbhd B _)).preimage continuous_phaseToC
+  refine ⟨fun t ht => ?_, fun t ht => ?_⟩
+  · obtain ⟨hBt, -, hder⟩ := hz t ht
+    have hmem := phaseToC_mem hs hr hBt
+    obtain ⟨hdom, -, hcf, -⟩ := periodOne_real hK hρ hB hμ hmem
+    refine ⟨hcf, ?_⟩
+    have hev : realHamiltonian (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) (tildeF K μ)
+        =ᶠ[nhds (zt t)] fun z => restrictedHamTotal μ (delaunay (periodOneMap z)) := by
+      filter_upwards [hOopen.mem_nhds hmem] with z hzO
+      obtain ⟨-, -, hcf', heq⟩ := periodOne_real hK hρ hB hμ hzO
+      exact heq.symm
+    have hRd : DifferentiableAt ℝ (restrictedHamTotal μ) (delaunay (periodOneMap (zt t))) :=
+      ((analyticOnNhd_restrictedHamTotal μ) _ hcf).differentiableAt
+    have hQd : DifferentiableAt ℝ delaunay (periodOneMap (zt t)) :=
+      (analyticOnNhd_delaunay _ hdom).differentiableAt
+    have hder' : HasDerivAt zt
+        (hamiltonianVectorField ((restrictedHamTotal μ ∘ delaunay) ∘ periodOneMap) (zt t)) t := by
+      rw [hamiltonianVectorField_congr (z := zt t) hev.fderiv_eq] at hder
+      exact hder
+    have hS := (periodOneMap_hasDerivAt_iff (hRd.comp _ hQd)).1 hder'
+    have hQ := hQd.hasFDerivAt.comp_hasDerivAt t hS
+    rw [restrictedVectorField_eq_hamiltonian hcf, ← delaunay_hamiltonianVectorField hdom hRd]
+    exact hQ
+  · obtain ⟨hBt, -, -⟩ := hz t ht
+    obtain ⟨⟨hG, hGL⟩, -, -⟩ := periodOne_real hK hρ hB hμ (phaseToC_mem hs hr hBt)
+    have hL : 0 < (periodOneMap (zt t)).2 0 := hG.trans hGL
+    obtain ⟨he0, he1⟩ := ComplexDomainAux.eccOf_pos_lt_one hG hGL
+    have key : planeLength (delaunay (periodOneMap (zt t))).1 ∈
+        Icc ((periodOneMap (zt t)).2 0 ^ 2 *
+            (1 - eccOf ((periodOneMap (zt t)).2 0) ((periodOneMap (zt t)).2 1)))
+          ((periodOneMap (zt t)).2 0 ^ 2 *
+            (1 + eccOf ((periodOneMap (zt t)).2 0) ((periodOneMap (zt t)).2 1))) :=
+      orbitMapR_radius_bounds hL he0.le he1
+    have e0 : (periodOneMap (zt t)).2 0 = (zt t).2 0 / (2 * π) := by
+      simp [periodOneMap, div_eq_inv_mul]
+    have e1 : (periodOneMap (zt t)).2 1 = (zt t).2 1 / (2 * π) := by
+      simp [periodOneMap, div_eq_inv_mul]
+    rw [e0, e1, div_pow] at key
+    exact key
+
+/-- F4: the remaining outputs of `bpI:p7:transfer`: exact radius, recovery of the elements, and the
+physical energy equal to `realHamiltonian` along the orbit. -/
+theorem transfer_identities {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
+    {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * π)) ∈ K) {μ : ℝ}
+    (hμ : |μ| < exactMu2 K)
+    {J : Set ℝ} {zt : ℝ → Phase 2}
+    (hz : IsHamiltonianSolutionOn
+      (realHamiltonian (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) (tildeF K μ)) B J zt) :
+    ∀ t ∈ J,
+      let w := periodOneMap (zt t)
+      let z := delaunay w
+      planeLength z.1 =
+          w.2 0 ^ 2 * (1 - eccOf (w.2 0) (w.2 1) * Real.cos (eccAnom (w.1 0) (eccOf (w.2 0) (w.2 1)))) ∧
+        elemL z = w.2 0 ∧ planeCross z.1 z.2 = w.2 1 ∧ elemA z = w.2 0 ^ 2 ∧
+        elemEcc z = eccOf (w.2 0) (w.2 1) ∧
+      ∃ hcf : CollisionFree μ z, restrictedHamiltonian μ ⟨z, hcf⟩ =
+        realHamiltonian (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) (tildeF K μ) (zt t) := by
+  intro t ht w z
+  have hδ := exactDelta_pos hK hρ
+  have hs : 0 < exactDelta K / (2 * π) := by positivity
+  have hr : 0 < 2 * π * exactDelta K := by positivity
+  obtain ⟨hBt, -, -⟩ := hz t ht
+  obtain ⟨hdom, -, hcf, heq⟩ := periodOne_real hK hρ hB hμ (phaseToC_mem hs hr hBt)
+  obtain ⟨hG, hGL⟩ := hdom
+  have hL : 0 < w.2 0 := hG.trans hGL
+  obtain ⟨he0, he1⟩ := ComplexDomainAux.eccOf_pos_lt_one hG hGL
+  have hel := delaunay_elements ⟨hG, hGL⟩
+  exact ⟨orbitMapR_radius hL he0.le he1, hel.1, hel.2.1, hel.2.2.1, hel.2.2.2, hcf, heq⟩
+
+/-- `bpI:p7:nondeg`. -/
+theorem nondeg_exact {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1)
+    {B : Set (Fin 2 → ℝ)} (hB : ∀ I ∈ B, (fun i => I i / (2 * π)) ∈ K) :
+    ∀ I : Fin 2 → ℝ, (fun i => (I i : ℂ)) ∈ actionNbhd B (2 * π * exactDelta K) →
+      0 < I 0 ∧ (borderedHessian (keplerRotH ((2 * π) ^ 2) (1 / (2 * π))) I).det =
+        3 / I 0 ^ 4 := by
+  intro I hI
+  have hδ := exactDelta_pos hK hρ
+  have hr : 0 < 2 * π * exactDelta K := by positivity
+  have hnd := nondeg_period_one B hr fun J hJ =>
+    ⟨(action_bounds hK hρ hB J hJ).1, (action_bounds hK hρ hB J hJ).2.1⟩
+  have hI0 : 0 < I 0 := (hnd.2.2 I hI).1
+  refine ⟨hI0, ?_⟩
+  rw [det_borderedHessian_keplerRotH _ _ hI0]
+  have h : (2 * π : ℝ) ≠ 0 := by positivity
+  field_simp
 
 end Part7PeriodOne
 
