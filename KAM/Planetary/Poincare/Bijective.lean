@@ -332,6 +332,106 @@ theorem poincare_image {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) :
 
 end Surjective
 
+section Inverse
+
+/-- The explicit inverse: `Λ = m√(κ a)`, `Γ = Λ - cr`, `v` = rescaled LRL vector, `(ξ, η) = v/s`,
+`c = (k Id + vvᵀ/(1+k))⁻¹ (q/a + v) = k⁻¹ (u - (v·u)/(1+k) v)` with `u = q/a + v`, `F = arg c`,
+`λ = Φ(F, v)`. -/
+def poincareInv (m κ : ℝ) (z : Phase 2) : Phase 2 :=
+  let Λ := actionMK m κ z
+  let Γ := Λ - planeCross z.1 z.2
+  let v := κ⁻¹ • ((planeSq z.2 / m ^ 2 - κ / planeLength z.1) • z.1 -
+    (planeDot z.1 z.2 / m ^ 2) • z.2)
+  let s := √((1 - Γ / (2 * Λ)) / Λ)
+  let k := 1 - Γ / Λ
+  let u := ((m ^ 2 * κ) / Λ ^ 2) • z.1 + v
+  let c := k⁻¹ • (u - (planeDot v u / (1 + k)) • v)
+  let F := Complex.arg ⟨c 0, c 1⟩
+  (![keplerPhi v F, s⁻¹ * v 0], ![Λ, s⁻¹ * v 1])
+
+private theorem bj_phi_int (v : Fin 2 → ℝ) (F : ℝ) (k : ℤ) :
+    keplerPhi v (F + 2 * π * k) = keplerPhi v F + 2 * π * k := by
+  simp only [keplerPhi, bj_cos, bj_sin]; ring
+
+/-- The algebra of `c`: `c = e` for `u = (K e - v + δ v) + v`, `δ = v·e/(1 + K)`,
+`|v|² = 1 - K²`. -/
+private theorem bj_c_eq (e v : Fin 2 → ℝ) {K : ℝ} (hK : 0 < K) (hv : planeSq v = 1 - K ^ 2) :
+    K⁻¹ • (((K • e - v + (planeDot v e / (1 + K)) • v) + v) -
+      (planeDot v ((K • e - v + (planeDot v e / (1 + K)) • v) + v) / (1 + K)) • v) = e := by
+  have hv' : v 0 ^ 2 + v 1 ^ 2 = 1 - K ^ 2 := by rw [← bj_planeSq]; exact hv
+  have h1K : (1 + K) ≠ 0 := by positivity
+  ext i
+  simp only [planeDot, Fin.sum_univ_two] at *
+  fin_cases i
+  · simp only [Fin.zero_eta, Pi.smul_apply, Pi.add_apply, Pi.sub_apply, smul_eq_mul]
+    field_simp
+    linear_combination (-(v 0 * (e 0 * v 0 + e 1 * v 1))) * hv'
+  · simp only [Fin.mk_one, Pi.smul_apply, Pi.add_apply, Pi.sub_apply, smul_eq_mul]
+    field_simp
+    linear_combination (-(v 1 * (e 0 * v 0 + e 1 * v 1))) * hv'
+
+theorem poincareInv_poincare {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2}
+    (hw : w ∈ poincareDom) :
+    ∃ k : ℤ, poincareInv m κ (poincare m κ w) = (![w.1 0 + 2 * π * k, w.1 1], w.2) := by
+  obtain ⟨-, -, -, hA, hC, hv⟩ := poincare_elements hm hκ hw
+  obtain ⟨-, hK, -, hrad, hsq, hlen, -⟩ := poincare_facts hw
+  have hΛ : 0 < w.2 0 := hw.1
+  have hΓ2 : w.2 0 - (w.2 0 - poincareGamma w) = poincareGamma w := by ring
+  have hu : (m ^ 2 * κ / w.2 0 ^ 2) • (poincare m κ w).1 + poincareV w =
+      (poincareK w • orbitalUnit (poincareF w) - poincareV w
+        + (planeDot (poincareV w) (orbitalUnit (poincareF w)) / (1 + poincareK w)) •
+          poincareV w) + poincareV w := by
+    show (m ^ 2 * κ / w.2 0 ^ 2) • ((w.2 0 ^ 2 / (m ^ 2 * κ)) • _) + _ = _
+    have hone : (m ^ 2 * κ / w.2 0 ^ 2) * (w.2 0 ^ 2 / (m ^ 2 * κ)) = 1 := by
+      have : m ^ 2 * κ ≠ 0 := by positivity
+      field_simp
+    rw [smul_smul, hone, one_smul]
+  have hc := bj_c_eq (orbitalUnit (poincareF w)) (poincareV w) hK hsq
+  have hKd : 1 - poincareGamma w / w.2 0 = poincareK w := rfl
+  simp only [poincareInv]
+  rw [hA, hC, hv, hΓ2, hKd, hu, hc]
+  have hs : 0 < √((1 - poincareGamma w / (2 * w.2 0)) / w.2 0) := Real.sqrt_pos.2 hrad
+  set F := poincareF w with hFdef
+  have hn : ‖(⟨orbitalUnit F 0, orbitalUnit F 1⟩ : ℂ)‖ = 1 := by
+    rw [Complex.norm_def, Complex.normSq_mk]
+    simp only [orbitalUnit, Matrix.cons_val_zero, Matrix.cons_val_one]
+    rw [show Real.cos F * Real.cos F + Real.sin F * Real.sin F = 1 by
+      nlinarith [Real.cos_sq_add_sin_sq F]]
+    simp
+  have hne : (⟨orbitalUnit F 0, orbitalUnit F 1⟩ : ℂ) ≠ 0 := by
+    intro h; rw [h] at hn; simp at hn
+  have hcos := Complex.cos_arg hne
+  have hsin := Complex.sin_arg (⟨orbitalUnit F 0, orbitalUnit F 1⟩ : ℂ)
+  rw [hn] at hcos hsin
+  simp only [orbitalUnit, Matrix.cons_val_zero, Matrix.cons_val_one, div_one] at hcos hsin
+  obtain ⟨j, hj⟩ := bj_exists_int (x := F) (y := Complex.arg ⟨orbitalUnit F 0, orbitalUnit F 1⟩)
+    hcos.symm hsin.symm
+  refine ⟨j, ?_⟩
+  refine Prod.ext ?_ ?_ <;> ext i <;> fin_cases i
+  · show keplerPhi (poincareV w) (Complex.arg ⟨orbitalUnit F 0, orbitalUnit F 1⟩) =
+      w.1 0 + 2 * π * j
+    rw [hj, bj_phi_int, hFdef, poincareF, keplerPhi_keplerLong hlen]
+  · show _ * poincareV w 0 = w.1 1
+    simp only [poincareV, Pi.smul_apply, smul_eq_mul, Matrix.cons_val_zero]
+    exact inv_mul_cancel_left₀ hs.ne' _
+  · rfl
+  · show _ * poincareV w 1 = w.2 1
+    simp only [poincareV, Pi.smul_apply, smul_eq_mul, Matrix.cons_val_one]
+    exact inv_mul_cancel_left₀ hs.ne' _
+
+theorem poincare_poincareInv {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {z : Phase 2}
+    (hz : z ∈ regionMK m κ) :
+    poincareInv m κ z ∈ poincareDom ∧ poincare m κ (poincareInv m κ z) = z := by
+  obtain ⟨w, hw, rfl⟩ := bj_surj hm hκ hz
+  obtain ⟨k, hk⟩ := poincareInv_poincare hm hκ hw
+  rw [hk]
+  have hmem : ((![w.1 0 + 2 * π * k, w.1 1] : Fin 2 → ℝ), w.2) ∈ poincareDom := by
+    refine ⟨hw.1, ?_⟩
+    simpa [poincareGamma] using hw.2
+  exact ⟨hmem, poincare_periodic hm hκ hw k⟩
+
+end Inverse
+
 end PoincareBijective
 
 end KAM.Planetary
