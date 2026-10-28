@@ -161,6 +161,126 @@ theorem partials {M : ℝ} {h : (Fin n → ℂ) → ℂ} {U : Set (Fin n → ℝ
   · exact iteratedFDeriv_perm_of_contDiffAt_three (hC.contDiffAt (hU.mem_nhds hI)) hk1 hk3 σ
       (fun j => Pi.single (idx j) 1)
 
+/-! ### `bpN:p1:hessian-convert` -/
+
+section HessianConvert
+
+private theorem norm_single_one {𝕜 : Type*} [RCLike 𝕜] (i : Fin n) :
+    ‖(Pi.single i 1 : Fin n → 𝕜)‖ = 1 := by
+  rw [Pi.norm_single, norm_one]
+
+/-- The Hessian entry is the second derivative applied to two basis vectors. -/
+private theorem complexHessian_eq {h : (Fin n → ℂ) → ℂ} {I : Fin n → ℂ}
+    (hh : ContDiffAt ℂ 2 h I) (i j : Fin n) :
+    complexHessian h I i j = fderiv ℂ (fderiv ℂ h) I (Pi.single i 1) (Pi.single j 1) := by
+  have hd : DifferentiableAt ℂ (fderiv ℂ h) I :=
+    (hh.fderiv_right (m := 1) (by norm_num)).differentiableAt one_ne_zero
+  unfold complexHessian
+  rw [fderiv_clm_apply hd (differentiableAt_const _)]
+  simp
+
+/-- The complex entries are bounded by the operator norm of `D²h`. -/
+private theorem norm_complexHessian_le {R s Mc : ℝ} {h : (Fin n → ℂ) → ℂ}
+    (hH : HasComplexHessianBound R s h Mc) {I : Fin n → ℂ}
+    (hI : I ∈ KAM.actionNbhd (actionBall n R) s) (i j : Fin n) :
+    ‖complexHessian h I i j‖ ≤ Mc := by
+  have hca : ContDiffAt ℂ 2 h I :=
+    hH.2.1.contDiffAt ((isOpen_actionNbhd_ball R s).mem_nhds hI)
+  rw [complexHessian_eq hca]
+  calc ‖fderiv ℂ (fderiv ℂ h) I (Pi.single i 1) (Pi.single j 1)‖
+      ≤ ‖fderiv ℂ (fderiv ℂ h) I‖ * ‖(Pi.single i 1 : Fin n → ℂ)‖ *
+        ‖(Pi.single j 1 : Fin n → ℂ)‖ := ContinuousLinearMap.le_opNorm₂ _ _ _
+    _ ≤ Mc := by
+      rw [norm_single_one, norm_single_one, mul_one, mul_one]
+      exact hH.2.2 I hI
+
+/-- The operator bound from the bilinear bound, by testing against `z̄`. -/
+private theorem euclid_matrix_mul_le {Mc : ℝ} (hMc : 0 ≤ Mc) (H : Fin n → Fin n → ℂ)
+    (hbil : ∀ x y : Fin n → ℂ, ‖∑ i, ∑ j, x i * H i j * y j‖ ≤ n * Mc * euclid x * euclid y)
+    (w : Fin n → ℂ) : euclid (fun i => ∑ j, H i j * w j) ≤ n * Mc * euclid w := by
+  set z : Fin n → ℂ := fun i => ∑ j, H i j * w j with hz
+  have hconj : euclid (fun i => (starRingEnd ℂ) (z i)) = euclid z := by
+    simp [euclid]
+  have hsum : ∑ i, ∑ j, (starRingEnd ℂ) (z i) * H i j * w j = ((euclid z ^ 2 : ℝ) : ℂ) := by
+    have : ∀ i, ∑ j, (starRingEnd ℂ) (z i) * H i j * w j = (((‖z i‖ ^ 2 : ℝ)) : ℂ) := fun i => by
+      calc ∑ j, (starRingEnd ℂ) (z i) * H i j * w j
+          = (starRingEnd ℂ) (z i) * z i := by
+            rw [hz]; simp only [Finset.mul_sum, mul_assoc]
+        _ = _ := by rw [Complex.conj_mul']; push_cast; ring
+    simp only [this]
+    rw [← Complex.ofReal_sum]
+    congr 1
+    unfold euclid
+    rw [Real.sq_sqrt (Finset.sum_nonneg fun _ _ => sq_nonneg _)]
+  have h1 := hbil (fun i => (starRingEnd ℂ) (z i)) w
+  rw [hsum, Complex.norm_real, hconj, Real.norm_of_nonneg (sq_nonneg _)] at h1
+  have hE : 0 ≤ euclid z := Real.sqrt_nonneg _
+  rcases hE.eq_or_lt with h0 | hpos
+  · rw [← h0]
+    exact mul_nonneg (mul_nonneg (Nat.cast_nonneg n) hMc) (Real.sqrt_nonneg _)
+  · refine le_of_mul_le_mul_left ?_ hpos
+    calc euclid z * euclid z = euclid z ^ 2 := (sq _).symm
+      _ ≤ n * Mc * euclid z * euclid w := h1
+      _ = euclid z * (n * Mc * euclid w) := by ring
+
+/-- A real bilinear form is the sum of its values on basis vectors. -/
+private theorem bilinear_expand (B : (Fin n → ℝ) →L[ℝ] (Fin n → ℝ) →L[ℝ] ℝ) (x y : Fin n → ℝ) :
+    B x y = ∑ i, ∑ j, x i * B (Pi.single i 1) (Pi.single j 1) * y j := by
+  have hs : ∀ (i j : Fin n) (a b : ℝ), B (Pi.single i a) (Pi.single j b) =
+      a * B (Pi.single i 1) (Pi.single j 1) * b := by
+    intro i j a b
+    have e : ∀ (k : Fin n) (c : ℝ), (Pi.single k c : Fin n → ℝ) = c • Pi.single k 1 := by
+      intro k c
+      ext l
+      simp [Pi.single_apply]
+    rw [e i a, e j b]
+    simp only [map_smul, smul_apply, smul_eq_mul]
+    ring
+  conv_lhs => rw [← Finset.univ_sum_single x, ← Finset.univ_sum_single y]
+  simp only [map_sum, sum_apply]
+  rw [Finset.sum_comm]
+  exact Finset.sum_congr rfl fun i _ => Finset.sum_congr rfl fun j _ => hs i j _ _
+
+private theorem euclid_ofReal (x : Fin n → ℝ) : euclid (fun i => (x i : ℂ)) = euclid x := by
+  simp [euclid]
+
+/-- `bpN:p1:hessian-convert`: entries `≤ M_ℂ`, Euclidean bilinear and operator bounds `n M_ℂ`, and the
+real Hessian of `h_ℝ` on `ℬ_s(R)`. -/
+theorem hessian_convert {R s Mc : ℝ} {h : (Fin n → ℂ) → ℂ} (hR : 0 < R) (hs : 0 < s)
+    (hh : IsAnalyticIntegrable R s h) (hH : HasComplexHessianBound R s h Mc) :
+    (∀ I ∈ KAM.actionNbhd (actionBall n R) s, (∀ i j, ‖complexHessian h I i j‖ ≤ Mc) ∧
+      (∀ x y : Fin n → ℂ, ‖∑ i, ∑ j, x i * complexHessian h I i j * y j‖ ≤
+        n * Mc * euclid x * euclid y) ∧
+      ∀ x : Fin n → ℂ, euclid (fun i => ∑ j, complexHessian h I i j * x j) ≤ n * Mc * euclid x) ∧
+    ∀ I ∈ realActionDomain n R s, ∀ x y : Fin n → ℝ,
+      |fderiv ℝ (fderiv ℝ (realPart h)) I x y| ≤ n * Mc * euclid x * euclid y := by
+  have hMc : 0 ≤ Mc := hH.1.le
+  refine ⟨fun I hI => ?_, fun I hI x y => ?_⟩
+  · have hent := norm_complexHessian_le hH hI
+    have hbil := fun x y => bilinear_euclid_bound (complexHessian h I) hent x y
+    exact ⟨hent, hbil, euclid_matrix_mul_le hMc _ hbil⟩
+  · have hd : Data n R s 0 h (fun _ => 0) :=
+      ⟨hR, hs, hh, le_rfl, differentiableOn_const _, continuousOn_const, fun _ _ _ => rfl,
+        fun _ _ _ => by simp, fun _ _ => by simp⟩
+    have hI' : KAM.realInclusion n I ∈ KAM.actionNbhd (actionBall n R) s := hI
+    have hent := norm_complexHessian_le hH hI'
+    have hbil := bilinear_euclid_bound (complexHessian h (KAM.realInclusion n I)) hent
+      (fun i => (x i : ℂ)) (fun j => (y j : ℂ))
+    rw [euclid_ofReal, euclid_ofReal] at hbil
+    have hexp := bilinear_expand (fderiv ℝ (fderiv ℝ (realPart h)) I) x y
+    have hcast : ((fderiv ℝ (fderiv ℝ (realPart h)) I x y : ℝ) : ℂ) =
+        ∑ i, ∑ j, (x i : ℂ) * complexHessian h (KAM.realInclusion n I) i j * (y j : ℂ) := by
+      rw [hexp]
+      push_cast
+      refine Finset.sum_congr rfl fun i _ => Finset.sum_congr rfl fun j _ => ?_
+      rw [← ((holo_real_c hd).2.2 I hI i j).1]
+    have := congrArg norm hcast
+    rw [Complex.norm_real, Real.norm_eq_abs] at this
+    rw [this]
+    exact hbil
+
+end HessianConvert
+
 end KAM.Nekhoroshev
 
 end
