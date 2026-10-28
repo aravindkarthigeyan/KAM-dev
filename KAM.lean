@@ -76,6 +76,7 @@ public import KAM.Frozen.Iso.Defs.Radius
 public import KAM.Frozen.Iso.Defs.RadiusSq
 public import KAM.Frozen.Iso.Defs.RestrictedHamiltonian
 public import KAM.Frozen.Iso.Defs.RestrictedVectorField
+public import KAM.Frozen.Iso.Theorems.AllTimeConfinement
 public import KAM.Frozen.Iso.Theorems.IsoenergeticKam
 public import KAM.Frozen.Iso.Theorems.KeplerBorderedDet
 public import KAM.Frozen.Nekhoroshev.Defs.ActionBall
@@ -318,6 +319,7 @@ public import KAM.Planetary.Newtonian.Reconstruction
 public import KAM.Planetary.Newtonian.Tube
 public import KAM.Planetary.Poincare.Chart
 public import KAM.Provider.AposterioriKam
+public import KAM.Provider.Iso.AllTimeConfinement
 public import KAM.Provider.Iso.IsoenergeticKam
 public import KAM.Provider.Iso.KeplerBorderedDet
 public import KAM.Provider.KamPositiveMeasure

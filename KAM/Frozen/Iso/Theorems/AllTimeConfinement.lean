@@ -71,7 +71,8 @@ theorem all_time_confinement
             IsHamiltonianSolutionOn (realHamiltonian h f) B (Set.Ioo a b) y →
             ∀ t ∈ Set.Ioo a b, y t = z t :=
   -- FROZEN_ANCHOR_PROOF_BEGIN
-  by sorry
+  by exact KAM.Provider.Iso.all_time_confinement B hB hBb hBne hs hr h hh hhreal hiso B' hB'
+        hcompact hinside hη
   -- FROZEN_ANCHOR_PROOF_END
 -- FROZEN_ANCHOR_SUFFIX_BEGIN
 
