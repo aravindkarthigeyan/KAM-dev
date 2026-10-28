@@ -235,6 +235,77 @@ theorem real_pos_data (hK : SafeAction K) {z : Phase 2} (hz : z.2 ∈ K) :
       (ComplexDomainAux.sSup_spec hK (ComplexDomainAux.continuousOn_rmaxFn hK)).2 z.2 hz
     exact ⟨h1.trans hb.1, hb.2.trans h2⟩
 
+/-! ### Positions of the complex Delaunay map in the shift neighbourhood -/
+
+/-- Step `stepI:p7:eh-delta`: for small `δ`, `q(w) = (delaunayC K w).1` lies in `𝒪` on `𝒰(δ)`. -/
+theorem exists_positions (hK : SafeAction K) (hρ : kRhoMax K < 1) :
+    ∃ δ : ℝ, 0 < δ ∧ δ ≤ complexDelta K ∧
+      ∀ w ∈ UDelta K δ, (delaunayC K w).1 ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K) := by
+  obtain ⟨-, -, -, -, hrmin, hrle⟩ := hK.ecc_bounds
+  have hSC : ShiftConst (kRmin K) (kRhoMax K) (exactEps K) := shiftConst_shiftEps hrmin hrle hρ
+  have hε : 0 < exactEps K := hSC.eps_pos
+  have hcd := complex_domain_spec hK
+  have hδ₁ : 0 < complexDelta K := hcd.1
+  have hdiff : DifferentiableOn ℂ (delaunayC K) (UDelta K (complexDelta K)) := hcd.2.2.2.2.2.2.2.1
+  set P : Set (Phase 2) := (Set.pi univ fun _ : Fin 2 => Icc (0 : ℝ) (2 * π)) ×ˢ K with hP
+  have hPc : IsCompact P := (isCompact_univ_pi fun _ => isCompact_Icc).prod hK.isCompact
+  have hphi : Continuous (phaseToC : Phase 2 → (Fin 2 → ℂ) × (Fin 2 → ℂ)) := by
+    unfold phaseToC
+    exact Continuous.prodMk
+      (continuous_pi fun i => Complex.continuous_ofReal.comp ((continuous_apply i).comp continuous_fst))
+      (continuous_pi fun i => Complex.continuous_ofReal.comp ((continuous_apply i).comp continuous_snd))
+  set S : Set ((Fin 2 → ℂ) × (Fin 2 → ℂ)) := phaseToC '' P with hS
+  have hSc : IsCompact S := hPc.image hphi
+  have hSU : S ⊆ UDelta K (complexDelta K) := by
+    rintro _ ⟨z, hz, rfl⟩
+    exact real_mem_UDelta hδ₁ hz.2
+  obtain ⟨η, hη, hηU⟩ := hSc.exists_cthickening_subset_open (isOpen_UDelta K _) hSU
+  have hTc : IsCompact (cthickening η S) := hSc.cthickening
+  have hcont : ContinuousOn (delaunayC K) (cthickening η S) := hdiff.continuousOn.mono hηU
+  have huc := hTc.uniformContinuousOn_of_continuous hcont
+  rw [Metric.uniformContinuousOn_iff] at huc
+  obtain ⟨ρ, hρ0, hρ'⟩ := huc (exactEps K / 4) (by positivity)
+  refine ⟨min (complexDelta K) (min η ρ), lt_min hδ₁ (lt_min hη hρ0), min_le_left _ _, ?_⟩
+  intro w hw
+  have hδη : min (complexDelta K) (min η ρ) ≤ η :=
+    (min_le_right _ _).trans (min_le_left _ _)
+  have hδρ : min (complexDelta K) (min η ρ) ≤ ρ :=
+    (min_le_right _ _).trans (min_le_right _ _)
+  have hwδ₁ : w ∈ UDelta K (complexDelta K) := UDelta_mono (min_le_left _ _) hw
+  obtain ⟨w', hw'U, hw'F, hw'2, hw'im, hw're⟩ := reduce hK hwδ₁
+  obtain ⟨y, hyK, hy⟩ := hw.2
+  rw [← hw'2] at hy
+  set z : Phase 2 := (fun i => (w'.1 i).re, y) with hz
+  have hzP : z ∈ P := ⟨fun i _ => ⟨(hw're i).1, (hw're i).2.le⟩, hyK⟩
+  have hzS : phaseToC z ∈ S := ⟨z, hzP, rfl⟩
+  have hδpos : 0 < min (complexDelta K) (min η ρ) := lt_min hδ₁ (lt_min hη hρ0)
+  have hdist : dist w' (phaseToC z) < min (complexDelta K) (min η ρ) := by
+    rw [Prod.dist_eq]
+    refine max_lt ?_ ?_
+    · rw [dist_pi_lt_iff hδpos]
+      intro i
+      rw [Complex.dist_eq]
+      show ‖w'.1 i - (((w'.1 i).re : ℝ) : ℂ)‖ < _
+      rw [norm_sub_re, hw'im i]
+      exact hw.1 i
+    · rw [dist_eq_norm]
+      exact hy
+  have hw'T : w' ∈ cthickening η S :=
+    Metric.mem_cthickening_of_dist_le w' (phaseToC z) η S hzS (hdist.le.trans hδη)
+  have hzT : phaseToC z ∈ cthickening η S := self_subset_cthickening _ hzS
+  have hF := hρ' w' hw'T (phaseToC z) hzT (hdist.trans_le hδρ)
+  obtain ⟨hq, hlo, hhi⟩ := real_pos_data hK (z := z) hyK
+  refine ⟨(delaunay z).1, hlo, hhi, ?_⟩
+  have e : (delaunayC K w).1 - (fun i => (((delaunay z).1 i : ℝ) : ℂ)) =
+      (delaunayC K w').1 - (delaunayC K (phaseToC z)).1 := by
+    rw [hq, hw'F]
+  rw [e]
+  apply clen_lt_of_norm_lt
+  rw [Prod.dist_eq] at hF
+  have := (le_max_left _ _).trans_lt hF
+  rw [dist_eq_norm] at this
+  linarith
+
 end ExactAux
 
 end Part7Exact
