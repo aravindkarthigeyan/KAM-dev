@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-28 03:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 44.9 %** · frozen statements proved: 8 / 22 · **57,790 lines of Lean** of an estimated ≈ 403,000
+> **Last updated: 2026-10-28 03:01 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 44.9 %** · frozen statements proved: 8 / 22 · **57,790 lines of Lean** of an estimated ≈ 403,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -134,7 +134,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-28 03:00 UTC from `main` at `6dbf1a6` by `scripts/hq-status.py`.*
+*Generated 2026-10-28 03:01 UTC from `main` at `9cf480b` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
@@ -306,6 +306,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-28 03:01 | `9cf480b` | Sources: register AS26 (Alazard-Shao, KAM via standard fixed point theorems), context tier |
 | 2026-10-28 02:50 | `6dbf1a6` | Land inp into main |
 | 2026-10-28 00:49 | `6bf586c` | Land inp into main |
 | 2026-10-28 00:13 | `5f6b154` | Seal HEAD-Q: KAM.kam_positive_measure_qualitative is proved; all five track-K frozen theorems are sealed |
@@ -317,7 +318,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 23:51 | `12455e2` | OVERNIGHT: HEAD sealed |
 | 2026-10-27 23:50 | `e578b94` | Brief for P4-S2 (HEAD-Q provider) |
 | 2026-10-27 23:50 | `e4ca720` | Seal HEAD: KAM.kam_positive_measure is proved (fourth sealed frozen theorem) |
-| 2026-10-27 23:47 | `b5b61f2` | Land k/p4-s1 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
@@ -631,6 +631,7 @@ API or exact Crossref title matches. Registry: [`docs/sources.json`](docs/source
 | Nek79II | N. N. Nekhoroshev, An exponential estimate of the time of stability of nearly-integrable Hamiltonian systems. II, Trudy Seminara imeni I. G. Petrovskogo 5 (1979), 5–50 (Russian). English translation: Topics in Modern Mathematics, Petrovskii Seminar No. 5, ed. O. A. Oleinik, Consultants Bureau, New York, 1985, 1–58. | — | — | UNPINNED source-acquisition gap for proofs announced in Nek77 §10. Russian bibliographic record verified against MathNet references; translation bibliography checked. No DOI verified; no claim that Part II proves the new blueprint strengthening. |
 | Pos93scan | J. Pöschel, *Nekhoroshev estimates for quasi-convex Hamiltonian systems*, Math. Z. 213 (1993) 187–216 | — | [10.1007/BF03025718](https://doi.org/10.1007/BF03025718) | Pinned-copy alias for Pos93; the pre-existing record is preserved append-only. GDZ scan: PDF page = printed page − 185; formulas require image inspection. |
 | CP10pin | L. Chierchia, G. Pinzari, *Properly-degenerate KAM theory (following V. I. Arnold)*, Discrete Contin. Dyn. Syst. Ser. S 3 (2010) 545–578 | — | [10.3934/dcdss.2010.3.545](https://doi.org/10.3934/dcdss.2010.3.545) | Pinned-copy alias for CP10; the pre-existing record is preserved append-only. Pinned author text; PDF page = printed page − 544. |
+| AS26 | T. Alazard, C. Shao, *KAM via standard fixed point theorems*, Forum Math. Sigma (2026) | [2312.13971v3](https://arxiv.org/abs/2312.13971v3) | [10.1017/fms.2026.10207](https://doi.org/10.1017/fms.2026.10207) | Context: finite-regularity (Sobolev) Kolmogorov and translated-torus theorems (Thms 1.1-1.2) by para-linearization and the Schauder fixed point theorem, with no KAM iteration; alternative route to G1-type a posteriori results, not consumed by any frozen statement |
 <!-- /AUTO:papers -->
 
 ## Prior and related formal work
