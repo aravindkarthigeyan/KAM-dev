@@ -31,35 +31,44 @@ section Reduction
 
 /-! ### The Hamiltonian and the heliocentric map -/
 
-/-- `bpP:p6:nbody`: the `(N)`-body Hamiltonian `F_μ` for the mass array `M` (`N = n + 1`, `M = actualMasses`). -/
+/-- `bpP:p6:nbody`: the `(N)`-body Hamiltonian `F_μ` for the mass array `M`
+(`N = n + 1`, `M = actualMasses`). -/
 def nbodyHamiltonian {N : ℕ} (G : ℝ) (M : Fin N → ℝ) (z : Phase (N * 2)) : ℝ :=
   (∑ k, planeSq (bodyVector z.2 k) / (2 * M k)) -
     G * ∑ k, ∑ l ∈ Finset.univ.filter (fun l => k < l),
       M k * M l / planeLength (bodyVector z.1 k - bodyVector z.1 l)
 
-/-- `Θ(X, Y) = (Q₀, q, P₀, P)`: `Q₀ = X₀`, `q_i = X_i - X₀`, `P₀ = Σ Y_k`, `P_i = Y_i` (body `0` is the Sun). -/
+/-- `Θ(X, Y) = (Q₀, q, P₀, P)`: `Q₀ = X₀`, `q_i = X_i - X₀`, `P₀ = Σ Y_k`, `P_i = Y_i`
+(body `0` is the Sun). -/
 def helioMap {n : ℕ} (z : Phase ((n + 1) * 2)) : Phase ((n + 1) * 2) :=
-  (ofBodies (Fin.cons (bodyVector z.1 0) (fun (i : Fin n) => bodyVector z.1 i.succ - bodyVector z.1 0)),
+  (ofBodies (Fin.cons (bodyVector z.1 0)
+      (fun (i : Fin n) => bodyVector z.1 i.succ - bodyVector z.1 0)),
    ofBodies (Fin.cons (∑ k, bodyVector z.2 k) (fun (i : Fin n) => bodyVector z.2 i.succ)))
 def helioInv {n : ℕ} (w : Phase ((n + 1) * 2)) : Phase ((n + 1) * 2) :=
-  (ofBodies (Fin.cons (bodyVector w.1 0) (fun (i : Fin n) => bodyVector w.1 i.succ + bodyVector w.1 0)),
-   ofBodies (Fin.cons (bodyVector w.2 0 - ∑ i : Fin n, bodyVector w.2 i.succ) (fun (i : Fin n) => bodyVector w.2 i.succ)))
+  (ofBodies (Fin.cons (bodyVector w.1 0)
+      (fun (i : Fin n) => bodyVector w.1 i.succ + bodyVector w.1 0)),
+   ofBodies (Fin.cons (bodyVector w.2 0 - ∑ i : Fin n, bodyVector w.2 i.succ)
+      (fun (i : Fin n) => bodyVector w.2 i.succ)))
 
 /-! ### Plane-vector algebra and body-wise calculus -/
 
-theorem planeDot_add_left (a b c : Fin 2 → ℝ) : planeDot (a + b) c = planeDot a c + planeDot b c := by
+theorem planeDot_add_left (a b c : Fin 2 → ℝ) :
+    planeDot (a + b) c = planeDot a c + planeDot b c := by
   simp only [planeDot, Pi.add_apply, add_mul, Finset.sum_add_distrib]
 
-theorem planeDot_sub_left (a b c : Fin 2 → ℝ) : planeDot (a - b) c = planeDot a c - planeDot b c := by
+theorem planeDot_sub_left (a b c : Fin 2 → ℝ) :
+    planeDot (a - b) c = planeDot a c - planeDot b c := by
   simp only [planeDot, Pi.sub_apply, sub_mul, Finset.sum_sub_distrib]
 
 theorem planeDot_comm (a b : Fin 2 → ℝ) : planeDot a b = planeDot b a := by
   simp only [planeDot, mul_comm]
 
-theorem planeDot_add_right (a b c : Fin 2 → ℝ) : planeDot a (b + c) = planeDot a b + planeDot a c := by
+theorem planeDot_add_right (a b c : Fin 2 → ℝ) :
+    planeDot a (b + c) = planeDot a b + planeDot a c := by
   rw [planeDot_comm, planeDot_add_left, planeDot_comm b a, planeDot_comm c a]
 
-theorem planeDot_sub_right (a b c : Fin 2 → ℝ) : planeDot a (b - c) = planeDot a b - planeDot a c := by
+theorem planeDot_sub_right (a b c : Fin 2 → ℝ) :
+    planeDot a (b - c) = planeDot a b - planeDot a c := by
   rw [planeDot_comm, planeDot_sub_left, planeDot_comm b a, planeDot_comm c a]
 
 theorem planeDot_sum_left {ι : Type*} (s : Finset ι) (f : ι → Fin 2 → ℝ) (w : Fin 2 → ℝ) :
@@ -204,7 +213,8 @@ private def helioLin (n : ℕ) : Phase ((n + 1) * 2) →ₗ[ℝ] Phase ((n + 1) 
 theorem helioMap_pairing {n : ℕ} (z : Phase ((n + 1) * 2)) :
     ∑ k, planeDot (bodyVector z.1 k) (bodyVector z.2 k) =
       planeDot (bodyVector (helioMap z).1 0) (bodyVector (helioMap z).2 0) +
-        ∑ i : Fin n, planeDot (bodyVector (helioMap z).1 i.succ) (bodyVector (helioMap z).2 i.succ) := by
+        ∑ i : Fin n,
+          planeDot (bodyVector (helioMap z).1 i.succ) (bodyVector (helioMap z).2 i.succ) := by
   rw [Fin.sum_univ_succ, helioMap_pos_zero, helioMap_mom_zero, Fin.sum_univ_succ]
   simp only [helioMap_pos_succ, helioMap_mom_succ, planeDot_add_right, planeDot_sub_left,
     Finset.sum_sub_distrib, planeDot_sum_right]
@@ -228,13 +238,16 @@ theorem helioMap_symplectic (n : ℕ) : IsSymplecticOn 1 (helioMap (n := n)) Set
 /-! ### The Hamiltonian in heliocentric coordinates -/
 
 /-- (b): `F_μ` in the heliocentric coordinates; independent of `Q₀`. -/
-theorem nbodyHamiltonian_helio {n : ℕ} (G m0 : ℝ) (m : Fin n → ℝ) (μ : ℝ) (z : Phase ((n + 1) * 2)) :
+theorem nbodyHamiltonian_helio {n : ℕ} (G m0 : ℝ) (m : Fin n → ℝ) (μ : ℝ)
+    (z : Phase ((n + 1) * 2)) :
     nbodyHamiltonian G (actualMasses m0 m μ) z =
-      planeSq (bodyVector (helioMap z).2 0 - ∑ i : Fin n, bodyVector (helioMap z).2 i.succ) / (2 * m0)
+      planeSq (bodyVector (helioMap z).2 0 - ∑ i : Fin n, bodyVector (helioMap z).2 i.succ) /
+          (2 * m0)
         + ∑ i, planeSq (bodyVector (helioMap z).2 i.succ) / (2 * (μ * m i))
         - G * μ * ∑ i, m0 * m i / planeLength (bodyVector (helioMap z).1 i.succ)
         - G * μ ^ 2 * ∑ i, ∑ j ∈ Finset.univ.filter (fun j => i < j),
-            m i * m j / planeLength (bodyVector (helioMap z).1 i.succ - bodyVector (helioMap z).1 j.succ) := by
+            m i * m j / planeLength
+              (bodyVector (helioMap z).1 i.succ - bodyVector (helioMap z).1 j.succ) := by
   unfold nbodyHamiltonian
   rw [sum_pairs_succ, Fin.sum_univ_succ, helioMap_mom_zero, Fin.sum_univ_succ]
   simp only [helioMap_mom_succ, helioMap_pos_succ, actualMasses, Fin.cons_zero, Fin.cons_succ,
@@ -284,6 +297,102 @@ theorem nbodyHamiltonian_helio_zero_momentum {n : ℕ} (G m0 : ℝ) (m : Fin n �
   rw [e1, e2, e3]
   simp only [mul_sub, Finset.sum_sub_distrib, ← Finset.mul_sum]
   ring
+
+/-! ### Newton solutions with zero total momentum -/
+
+private theorem sum_filter_ne_succ {n : ℕ} {E : Type*} [AddCommMonoid E] (F : Fin (n + 1) → E)
+    (i : Fin n) :
+    ∑ l ∈ Finset.univ.filter (fun l => l ≠ i.succ), F l =
+      F 0 + ∑ j ∈ Finset.univ.filter (fun j => j ≠ i), F j.succ := by
+  have h0 : (0 : Fin (n + 1)) ≠ i.succ := (Fin.succ_ne_zero i).symm
+  rw [Finset.sum_filter, Finset.sum_filter, Fin.sum_univ_succ]
+  simp [h0, Fin.succ_inj]
+
+/-- The momentum derivative `m_i V_i'` in the form of the moving-Hamiltonian field. -/
+private theorem accel_identity {n : ℕ} (G m0 μ : ℝ) (m : Fin n → ℝ) (Q : Fin (n + 1) → Fin 2 → ℝ)
+    (i : Fin n) :
+    m i • ∑ l ∈ Finset.univ.filter (fun l => l ≠ i.succ),
+        (G * actualMasses m0 m μ l / planeLength (Q l - Q i.succ) ^ 3) • (Q l - Q i.succ) =
+      -(G * m0 * m i) • gKernel (fun j => Q j.succ - Q 0) i +
+        (μ * G * m i) • fKernel m (fun j => Q j.succ - Q 0) i := by
+  rw [sum_filter_ne_succ]
+  have e0 : planeLength (Q 0 - Q i.succ) = planeLength (Q i.succ - Q 0) :=
+    planeLength_sub_comm _ _
+  simp only [gKernel, fKernel, actualMasses, Fin.cons_zero, Fin.cons_succ, smul_add,
+    Finset.smul_sum, smul_smul, e0, sub_sub_sub_cancel_right]
+  congr 1
+  · rw [← neg_sub (Q i.succ) (Q 0), smul_neg, ← neg_smul]
+    congr 1
+    ring
+  · refine Finset.sum_congr rfl fun j _ => ?_
+    congr 1
+    ring
+
+/-- Assembling a curve of phase vectors from curves of body vectors. -/
+private theorem hasDerivAt_ofBodies {N : ℕ} {F : ℝ → Fin N → Fin 2 → ℝ} {d : Fin N → Fin 2 → ℝ}
+    {t : ℝ} (h : ∀ i, HasDerivAt (fun s => F s i) (d i) t) :
+    HasDerivAt (fun s => ofBodies (F s)) (ofBodies d) t := by
+  rw [hasDerivAt_pi]
+  intro k
+  exact (hasDerivAt_pi.1 (h (finProdFinEquiv.symm k).1)) (finProdFinEquiv.symm k).2
+
+/-- (c): Newton solutions with zero total momentum are `H_mov`-solutions (`p_i = m_i V_i`).
+For `G = m₀ = 1` the conclusion is `IsMovingSolutionOn m μ J z`. -/
+theorem newton_to_moving {n : ℕ} {G m0 μ : ℝ} {m : Fin n → ℝ} (hG : 0 < G) (hm0 : 0 < m0)
+    (hm : ∀ i, 0 < m i)
+    (hμ : 0 < μ) {J : Set ℝ} {Q V : ℝ → Fin (n + 1) → Fin 2 → ℝ}
+    (hN : IsNewtonSolutionOn (fun k => G * actualMasses m0 m μ k) J Q V)
+    (hP : ∀ t ∈ J, ∑ k, actualMasses m0 m μ k • V t k = 0) :
+    let z : ℝ → Phase (n * 2) := fun t =>
+      (ofBodies (fun (i : Fin n) => Q t i.succ - Q t 0),
+        ofBodies (fun (i : Fin n) => m i • V t i.succ))
+    KAM.Iso.IsHamiltonianSolutionOn (movingHamiltonian G m0 m μ) Set.univ J z ∧
+      ∀ t ∈ J, NoCollision (z t).1 := by
+  intro z
+  have _ := hG
+  have _ := hμ
+  have hnc : ∀ t ∈ J, NoCollision (z t).1 := by
+    intro t ht
+    refine ⟨fun i => ?_, fun i j hij => ?_⟩
+    · show 0 < planeLength (bodyVector (ofBodies fun i : Fin n => Q t i.succ - Q t 0) i)
+      rw [bodyVector_ofBodies]
+      exact hN.1 t ht 0 i.succ (Fin.succ_ne_zero i).symm
+    · show 0 < planeLength (bodyVector (ofBodies fun i : Fin n => Q t i.succ - Q t 0) i -
+        bodyVector (ofBodies fun i : Fin n => Q t i.succ - Q t 0) j)
+      rw [bodyVector_ofBodies, bodyVector_ofBodies, sub_sub_sub_cancel_right]
+      exact hN.1 t ht j.succ i.succ (fun h => hij (Fin.succ_injective _ h).symm)
+  refine ⟨fun t ht => ⟨Set.mem_univ _, ?_, ?_⟩, hnc⟩
+  · exact (analyticOnNhd_movingHamiltonian G m0 m μ (z t) (hnc t ht)).differentiableAt
+  · have hsum : ∀ c, m0 * V t 0 c + μ * ∑ j, m j * V t j.succ c = 0 := by
+      intro c
+      have h := congrFun (hP t ht) c
+      rw [Fin.sum_univ_succ] at h
+      simpa [actualMasses, Finset.sum_apply, Finset.mul_sum, mul_assoc] using h
+    have hpos : ∀ i : Fin n, HasDerivAt (fun s => Q s i.succ - Q s 0) (V t i.succ - V t 0) t :=
+      fun i => (hN.2.1 t ht i.succ).sub (hN.2.1 t ht 0)
+    have hmom : ∀ i : Fin n, HasDerivAt (fun s => m i • V s i.succ)
+        (m i • ∑ l ∈ Finset.univ.filter (fun l => l ≠ i.succ),
+          (G * actualMasses m0 m μ l / planeLength (Q t l - Q t i.succ) ^ 3) •
+            (Q t l - Q t i.succ)) t :=
+      fun i => (hN.2.2 t ht i.succ).const_smul (m i)
+    refine ((hasDerivAt_ofBodies hpos).prodMk (hasDerivAt_ofBodies hmom)).congr_deriv ?_
+    refine Prod.ext (funext fun k => ?_) (funext fun k => ?_) <;>
+      obtain ⟨⟨i, c⟩, rfl⟩ := finProdFinEquiv.surjective k
+    · rw [(hamiltonianVectorField_moving G m0 m μ (hnc t ht) i c).1]
+      have hV0 : V t 0 c = -(μ / m0) * ∑ j, m j * V t j.succ c := by
+        have := hsum c
+        field_simp
+        linarith
+      have hmi := (hm i).ne'
+      simp only [z, ofBodies, Equiv.symm_apply_apply, Pi.sub_apply, bodyVector, Pi.smul_apply,
+        smul_eq_mul, hV0]
+      field_simp
+      ring
+    · rw [(hamiltonianVectorField_moving G m0 m μ (hnc t ht) i c).2]
+      have := congrFun (accel_identity G m0 μ m (Q t) i) c
+      simp only [z, ofBodies, Equiv.symm_apply_apply]
+      simp only [bodyVector_ofBodies]
+      exact this
 
 end Reduction
 
