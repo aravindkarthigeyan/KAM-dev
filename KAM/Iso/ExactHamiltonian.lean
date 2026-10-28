@@ -306,7 +306,137 @@ theorem exists_positions (hK : SafeAction K) (hρ : kRhoMax K < 1) :
   rw [dist_eq_norm] at this
   linarith
 
+/-! ### The clauses (i)-(iv) at an admissible radius -/
+
+/-- At a real point of `𝒰(δ)` the complex Delaunay position is the real one, and it lies in `𝒪`. -/
+theorem real_positions (hK : SafeAction K) {δ : ℝ} (hδ1 : δ ≤ complexDelta K)
+    (hpos : ∀ w ∈ UDelta K δ, (delaunayC K w).1 ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K))
+    {w : Phase 2} (hw : phaseToC w ∈ UDelta K δ) :
+    (delaunayC K (phaseToC w)).1 = (fun i => (((delaunay w).1 i : ℝ) : ℂ)) ∧
+      (fun i => (((delaunay w).1 i : ℝ) : ℂ)) ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K) := by
+  obtain ⟨-, -, -, -, -, -, -, -, hreal, -⟩ := complex_domain_spec hK
+  have he : (delaunayC K (phaseToC w)).1 = (fun i => (((delaunay w).1 i : ℝ) : ℂ)) := by
+    rw [hreal w (UDelta_mono hδ1 hw)]; rfl
+  exact ⟨he, he ▸ hpos _ hw⟩
+
+/-- The exact identity of clause (iv): `Ham_μ ∘ 𝖰 = -1/(2L²) - G + μ Re F_μ` at real points. -/
+theorem exact_identity (hK : SafeAction K) (hρ : kRhoMax K < 1) {w : Phase 2} {μ : ℝ}
+    (hSC : ShiftConst (kRmin K) (kRhoMax K) (exactEps K))
+    (hq : (fun i => (((delaunay w).1 i : ℝ) : ℂ)) ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K))
+    (hμ : |μ| < exactEps K / 2) (hw : w ∈ deDom) :
+    ∃ hcf : CollisionFree μ (delaunay w),
+      restrictedHamiltonian μ ⟨delaunay w, hcf⟩ =
+        -1 / (2 * w.2 0 ^ 2) - w.2 1 + μ * (shiftF (fun i => (((delaunay w).1 i : ℝ) : ℂ)) μ).re := by
+  have _ := hK
+  have _ := hρ
+  obtain ⟨hcf, hW, hP, -⟩ := shift_real hSC hq hμ (delaunay w).2
+  refine ⟨hcf, ?_⟩
+  have hμ' : ‖(μ : ℂ)‖ < exactEps K / 2 := by
+    rw [Complex.norm_real, Real.norm_eq_abs]; exact hμ
+  have hmul := shift_mul_eq hSC hq hμ'
+  rw [hP, hW] at hmul
+  have hre := congrArg Complex.re hmul
+  rw [Complex.re_ofReal_mul, Complex.sub_re, Complex.ofReal_re, Complex.ofReal_re] at hre
+  have h1 : primary₁ 0 = 0 := by
+    ext i; fin_cases i <;> simp [primary₁]
+  have hz0 := restrictedHamTotal_zero (delaunay w)
+  have hH := delaunay_hamiltonian hw
+  have e0 : restrictedHamTotal 0 (delaunay w) =
+      radiusSq (delaunay w).2 / 2 + (delaunay w).1 1 * (delaunay w).2 0 -
+        (delaunay w).1 0 * (delaunay w).2 1 - 1 / planeLength (delaunay w).1 := by
+    unfold restrictedHamTotal
+    rw [h1]
+    simp [radius_eq_planeLength]
+  have eμ : restrictedHamTotal μ (delaunay w) =
+      radiusSq (delaunay w).2 / 2 + (delaunay w).1 1 * (delaunay w).2 0 -
+        (delaunay w).1 0 * (delaunay w).2 1 -
+        ((1 - μ) / radius ((delaunay w).1 - primary₁ μ) +
+          μ / radius ((delaunay w).1 - primary₂ μ)) := by
+    unfold restrictedHamTotal; ring
+  show restrictedHamTotal μ (delaunay w) = _
+  linarith
+
+/-- The clauses (i)-(iv) hold at every radius `0 < δ ≤ complexDelta K` on which the complex
+Delaunay positions lie in `𝒪`. -/
+theorem exactRadiusData_of_positions (hK : SafeAction K) (hρ : kRhoMax K < 1) {δ : ℝ}
+    (hδ : 0 < δ) (hδ1 : δ ≤ complexDelta K)
+    (hpos : ∀ w ∈ UDelta K δ, (delaunayC K w).1 ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K)) :
+    ExactRadiusData K δ := by
+  obtain ⟨-, -, -, -, hrmin, hrle⟩ := hK.ecc_bounds
+  have hSC : ShiftConst (kRmin K) (kRhoMax K) (exactEps K) := shiftConst_shiftEps hrmin hrle hρ
+  have hcd := complex_domain_spec hK
+  have hdiff : DifferentiableOn ℂ (delaunayC K) (UDelta K (complexDelta K)) := hcd.2.2.2.2.2.2.2.1
+  have hcone : ∀ y : Fin 2 → ℝ, (fun i => (y i : ℂ)) ∈ actionNbhd K (complexDelta K) →
+      0 < y 1 ∧ y 1 < y 0 ∧ eccC (y 0) (y 1) = (eccOf (y 0) (y 1) : ℝ) := hcd.2.2.2.2.2.1
+  have hsub : UDelta K δ ⊆ UDelta K (complexDelta K) := UDelta_mono hδ1
+  refine ⟨hδ, hδ1, ⟨?_, ?_, ?_, ?_, ?_, ?_⟩, hpos⟩
+  · have hd : DifferentiableOn ℂ (delaunayC K) (UDelta K δ) := hdiff.mono hsub
+    have hf : DifferentiableOn ℂ
+        (fun x : ((Fin 2 → ℂ) × (Fin 2 → ℂ)) × ℂ => ((delaunayC K x.1).1, x.2))
+        (UDelta K δ ×ˢ ball (0 : ℂ) (exactMu2 K)) := by
+      refine DifferentiableOn.prodMk ?_ differentiableOn_snd
+      exact differentiable_fst.comp_differentiableOn
+        (hd.comp differentiableOn_fst (fun x hx => hx.1))
+    have hmaps : MapsTo (fun x : ((Fin 2 → ℂ) × (Fin 2 → ℂ)) × ℂ => ((delaunayC K x.1).1, x.2))
+        (UDelta K δ ×ˢ ball (0 : ℂ) (exactMu2 K))
+        (shiftO (kRmin K) (kRhoMax K) (exactEps K) ×ˢ ball (0 : ℂ) (exactEps K / 2)) :=
+      fun x hx => ⟨hpos x.1 hx.1, hx.2⟩
+    have hc := (shift_holomorphic hSC).comp hf hmaps
+    refine hc.congr (fun x _ => ?_)
+    simp only [exactF, Function.comp_apply]
+  · intro w hw μ hμ
+    exact shift_bound hSC (hpos w hw) hμ
+  · intro w hw μ
+    have hw' := hsub hw
+    refine ⟨?_, ?_⟩
+    · simp only [exactF]
+      rw [(delaunayC_periodic hK hw').1]
+    · simp only [exactF]
+      rw [(delaunayC_periodic hK hw').2]
+  · intro w hw μ hμ
+    obtain ⟨he, hqS⟩ := real_positions hK hδ1 hpos hw
+    have := (shift_real hSC hqS hμ (delaunay w).2).2.2.2
+    simp only [exactF]
+    rw [he]
+    exact this
+  · intro w hw μ hμ
+    obtain ⟨he, hqS⟩ := real_positions hK hδ1 hpos hw
+    obtain ⟨hG, hGL, -⟩ := hcone (w.2) (hsub hw).2
+    have hdD : w ∈ deDom := ⟨hG, hGL⟩
+    obtain ⟨hcf, hid⟩ := exact_identity hK hρ hSC hqS hμ hdD
+    refine ⟨hG, hGL, hcf, ?_⟩
+    simp only [exactF]
+    rw [he]
+    exact hid
+  · intro w hw
+    exact real_mem_UDelta hδ hw
+
 end ExactAux
+
+/-- Existence (the source construction `stepI:p7:eh-delta`, by uniform continuity on a compact period) gives the
+full specification of the SELECTED radius. -/
+theorem exact_radius_spec {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
+    ExactRadiusData K (exactDelta K) := by
+  obtain ⟨δ, hδ, hδ1, hpos⟩ := ExactAux.exists_positions hK hρ
+  have h : ∃ δ : ℝ, ExactRadiusData K δ :=
+    ⟨δ, ExactAux.exactRadiusData_of_positions hK hρ hδ hδ1 hpos⟩
+  unfold exactDelta
+  split
+  · rename_i h'
+    exact h'.choose_spec
+  · rename_i h'
+    exact absurd h h'
+
+/-- `bpI:p7:exact-ham`, assuming `ρ_max < 1` (the frozen `aPlus(1 + ePlus) < 1`): a projection of `exact_radius_spec`. -/
+theorem exact_ham {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
+    0 < exactDelta K ∧ exactDelta K ≤ complexDelta K ∧ ExactHamData K (exactDelta K) := by
+  obtain ⟨h1, h2, h3, -⟩ := exact_radius_spec hK hρ
+  exact ⟨h1, h2, h3⟩
+
+/-- F3: a projection of `exact_radius_spec`; justified because the property is part of the choice predicate. -/
+theorem exact_positions_mem_shiftO {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ : kRhoMax K < 1) :
+    ∀ w ∈ UDelta K (exactDelta K), (delaunayC K w).1 ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K) :=
+  (exact_radius_spec hK hρ).2.2.2
 
 end Part7Exact
 
