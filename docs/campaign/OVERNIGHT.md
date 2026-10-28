@@ -202,3 +202,9 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   I-3, I-5, P6-1, P6-2, the I Part 5/8 wave-1 packages P5-0, P8-1, and a Lean design for I Parts 1–3 (I-G1). They come
   back as audited branches; the sub-orchestrator merges them into `inp`, regenerates `KAM.lean` and lands, so the
   generated root file has one writer. Reversal: none needed.
+- **03:00. The whole shared ODE layer of blueprint-N Part 3 is proved** (N3-1 … N3-10b, incl. the Newton,
+  fixed-Sun and restricted reductions, uniform data and continuation, and the track-N specialisations; N3-10a was
+  absorbed into the N Parts 1/4/5 package P1-2). Graph N published (728 nodes) and graph I published (450 nodes);
+  graph P fully extracted (22 slices, P-FIXED included by a SPEC revision), reviews converging. The main orchestrator
+  (track K complete) runs the Kepler/Delaunay layer, I Parts 1–3 (I-G1), I Parts 5/8 and N Parts 1/4/5 packages
+  and hands audited branches back; the sub-orchestrator merges, regenerates `KAM.lean`, lands and will seal.
