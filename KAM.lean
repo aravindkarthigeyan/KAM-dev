@@ -209,6 +209,8 @@ public import KAM.Iso.Apost.Defs
 public import KAM.Iso.Apost.NewtonError
 public import KAM.Iso.Apost.Schedule
 public import KAM.Iso.Apost.Standing
+public import KAM.Iso.Apost.Torsion
+public import KAM.Iso.Apost.TorsionDiff
 public import KAM.Iso.Charts.Chart
 public import KAM.Iso.Charts.Constants
 public import KAM.Iso.Charts.Coordinates
