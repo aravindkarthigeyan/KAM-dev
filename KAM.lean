@@ -220,6 +220,7 @@ public import KAM.Iso.Apost.Standing
 public import KAM.Iso.Apost.Step
 public import KAM.Iso.Apost.Torsion
 public import KAM.Iso.Apost.TorsionDiff
+public import KAM.Iso.Charts.Apply
 public import KAM.Iso.Charts.Chart
 public import KAM.Iso.Charts.Constants
 public import KAM.Iso.Charts.Coordinates
@@ -227,6 +228,8 @@ public import KAM.Iso.Charts.Defs
 public import KAM.Iso.Charts.Inputs
 public import KAM.Iso.Charts.Points
 public import KAM.Iso.Charts.Rays
+public import KAM.Iso.Charts.Tori
+public import KAM.Iso.Charts.Torus
 public import KAM.Iso.Collision
 public import KAM.Iso.ComplexDomain
 public import KAM.Iso.Confinement.Confinement
@@ -256,6 +259,7 @@ public import KAM.Iso.Linear.Reduced
 public import KAM.Iso.Linear.Tools
 public import KAM.Iso.Linear.Trivial
 public import KAM.Iso.NearCircular
+public import KAM.Iso.PeriodOne
 public import KAM.Iso.R3bp.Uniqueness
 public import KAM.Iso.RestrictedHam
 public import KAM.Iso.ShiftPotential
@@ -350,6 +354,8 @@ public import KAM.Uniq.G2
 public import KAM.Uniq.Phase
 public import KAM.Uniq.Quadratic
 public import KAM.Uniq.Standing
+public import KAM.Weighted.Cauchy
+public import KAM.Weighted.Coefficients
 public import KAM.Weighted.Domains
 public import KAM.Weighted.Norm
 public import KAM.Weighted.Parametric
