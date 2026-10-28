@@ -188,7 +188,8 @@ private theorem continuous_fderiv_real {D : Set (Fin m → ℂ)} {r s : ℝ}
     {u : (Fin n → ℂ) × (Fin m → ℂ) → W} (hs : 0 < s) (hu : DifferentiableOn ℂ u (Dom n D r s))
     {I : Fin m → ℂ} (hI : I ∈ polyNbhd D r) :
     Continuous fun x : Fin n → ℝ => fderiv ℂ u (fun j => (x j : ℂ), I) :=
-  (KAM.holomorphic_regularity_of_finiteDimensional (isOpen_Dom (n := n) D r s) hu).1.continuousOn.comp_continuous
+  (KAM.holomorphic_regularity_of_finiteDimensional (isOpen_Dom (n := n) D r s)
+    hu).1.continuousOn.comp_continuous
     (continuous_realPt.prodMk continuous_const) fun x => realPt_mem_Dom hs x hI
 
 /-- The real derivative of `x ↦ φ (u (x, I))` is `φ` of the complex derivative. -/
@@ -341,7 +342,8 @@ theorem coefficients_series {D : Set (Fin m → ℂ)} {r s S : ℝ} {a : (Fin n 
     (hs : 0 < s) (ha : ∀ k, DifferentiableOn ℂ (a k) (polyNbhd D r))
     (hS : ∀ I ∈ polyNbhd D r, Summable (fun k => ‖a k I‖ * modeWeight s k) ∧
       ∑' k, ‖a k I‖ * modeWeight s k ≤ S) :
-    (∀ s' < s, TendstoUniformlyOn (fun (Λ : Finset (Fin n → ℤ)) z => ∑ k ∈ Λ, a k z.2 * KAM.character k z.1)
+    (∀ s' < s, TendstoUniformlyOn
+      (fun (Λ : Finset (Fin n → ℤ)) z => ∑ k ∈ Λ, a k z.2 * KAM.character k z.1)
       (fourierSeries a) Filter.atTop (Dom n D r s')) ∧
     InClass D r s (fourierSeries a) ∧
     (∀ I ∈ polyNbhd D r, ∀ k, coeff (fourierSeries a) I k = a k I) ∧
