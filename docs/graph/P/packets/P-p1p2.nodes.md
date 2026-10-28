@@ -1598,9 +1598,9 @@ EDGE: stepP:p2:nfb-first | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L10
 EDGE: bpP:p2:direct | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L107 | displacement bound of Lemma direct for N=0
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L107 | the weighted norm, widths, kappa and alpha-bar
 EDGE: bpP:p2:split | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-N@L107-L107 | two-scale displacement bound (b) with sigma_0=s/6 for both action blocks in the N=0 Case-A branch, including alpha_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2+sol-delta-P-d
-REVIEWER: -
+REVIEWER: sol-delta2-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1665,9 +1665,9 @@ EDGE: stepP:p2:nfb-N | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L12
 EDGE: N:bpN:p6:ext-numerics | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L121-L121 | sum 4^{1-i}=4/3
 EDGE: bpP:p2:conv#data | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L119-L119 | the weighted norm, widths, kappa and alpha-bar
 EDGE: stepP:p2:nfb-first | blueprint-P/parts/p2-averaging.tex#stepP:p2:nfb-concl@L121-L121 | (2.1) gives eps_1<=3 eps/(4 kappa), hence (4/3) eps_1<=eps/kappa in the final average correction
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2+sol-delta-P-d
-REVIEWER: -
+REVIEWER: sol-delta2-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

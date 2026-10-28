@@ -1,0 +1,67 @@
+{
+ "replaced": [
+  "stepP:p7:rg-scale",
+  "stepP:p7:rg-lagrange",
+  "stepP:p7:ke-chart",
+  "stepP:p7:ke-form",
+  "stepP:p7:ke-b",
+  "stepP:p7:ke-c",
+  "stepP:p7:ke-d",
+  "bpP:p7:regular-kepler",
+  "stepP:p7:rk-mono",
+  "stepP:p7:rk-an",
+  "stepP:p7:rk-hol",
+  "stepP:p7:rk-rel",
+  "bpP:p7:o-facts",
+  "bpP:p7:poincare",
+  "stepP:p7:po-an",
+  "stepP:p7:po-del",
+  "stepP:p7:po-symp",
+  "stepP:p7:po-dense",
+  "stepP:p7:po-el",
+  "stepP:p7:po-bij",
+  "stepP:p7:po-circ",
+  "stepP:p7:ho-hol",
+  "bpP:p7:product-chart",
+  "stepP:p7:pc-prod",
+  "stepP:p7:pc-dec",
+  "stepP:p7:pc-share",
+  "stepP:p7:pc-eq",
+  "bpP:p7:tube",
+  "stepP:p7:tu-circ",
+  "stepP:p7:tu-cont",
+  "stepP:p7:d25-ab",
+  "stepP:p7:d25-c",
+  "stepP:p7:d25-d",
+  "stepP:p7:d25-e",
+  "bpP:p7:conv#data"
+ ],
+ "added": [
+  "stepP:p7:po-el#circular",
+  "stepP:p7:po-el#circular-scaled",
+  "stepP:p7:po-el#circular-direct"
+ ],
+ "items": [
+  "bpP:p7:same-chart",
+  "stepP:p7:av-cov",
+  "stepP:p7:av-mean"
+ ],
+ "unresolved": {
+  "stepP:p14:rd-ecc": "P14a L162-L168, L195 | Missing d25(d) input supplying the invoked Ch2 identities. |"
+ },
+ "passes": [
+  "bpP:p7:e-ift",
+  "bpP:p7:e-dense",
+  "bpP:p7:e-comp",
+  "bpP:p7:kepler-data",
+  "bpP:p7:range",
+  "bpP:p7:kepler",
+  "stepP:p7:rk-contr",
+  "bpP:p7:poincare-def",
+  "bpP:p7:holomorphic",
+  "stepP:p7:ho-size",
+  "bpP:p7:product-def",
+  "bpP:p7:d25",
+  "bpP:p7:sec-product#data"
+ ]
+}

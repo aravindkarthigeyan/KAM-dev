@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: -
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
@@ -96,9 +96,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler-data@L49-L49 | m, kappa, l, cr
 EDGE: I:bpI:p7:orbit-maps | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler-data@L54-L54 | Q^I in the definition of Q_{m,kappa}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -126,9 +126,9 @@ EDGE: stepP:p7:rg-scale | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:range@
 EDGE: stepP:p7:rg-lagrange | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:range@L65-L65 | proof step Lagrange identity
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:range@L61-L61 | K, C, Lambda
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:range@L61-L61 | m, kappa
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -149,13 +149,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: I:bpI:p7:scaling, bpP:p7:kepler-data
+DEPS: I:bpI:p7:scaling, bpP:p7:kepler-data, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: I:bpI:p7:scaling | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-scale@L64-L64 | dictionary E_kappa o S_kappa=kappa^2 E_1 and E_{m,kappa}=m E_kappa(q,p/m)
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-scale@L64-L64 | E_{m,kappa}, S_{m,kappa}, Lambda
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-scale@L64-L64 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -169,7 +170,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-lagrange@
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-lagrange@L65-L66
 CONTRACT_ID: stepP:p7:rg-lagrange
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (Q,P) with E_1<0; Lagrange identity l(Q)^2 l(P)^2=(Q.P)^2+cr^2; step Scaling
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:range; (q,p) in K_{m,kappa}; Q,P,L are scaled variables. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: (q,p) in K_{m,kappa}
 SOURCE_CONCLUSION: cr(Q,P)^2<=L^2 with equality iff Q.P=0 and l(Q)=L^2, hence C<=Lambda with equality iff circular
 CONSTANT_SCOPE: none
@@ -183,7 +184,7 @@ ROUTE_FOR: -
 EDGE: stepP:p7:rg-scale | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-lagrange@L65-L65 | 1/2 l(P)^2=E_1+1/r and L=sqrt(-1/(2E_1))
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-lagrange@L65-L65 | cr and l
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -218,9 +219,9 @@ EDGE: I:bpI:p7:kepler-eq | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:keple
 EDGE: I:bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L76-L76 | extension to the circular case C=Lambda
 EDGE: I:bpI:p7:orbit-maps | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L83-L83 | (L,G) in C_0 of the Delaunay orbit map
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L70-L70 | m, kappa
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -233,23 +234,24 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-chart@L85
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-chart@L85-L85
 CONTRACT_ID: stepP:p7:ke-chart
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: S_{m,kappa} linear invertible; Delaunay chart of track I on C_0
-SOURCE_QUANTIFIERS: (q,p) in R^2xR^2
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:kepler. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
+SOURCE_QUANTIFIERS: fixed positive m,kappa; the entire chart on D^m, modulo 2pi in ell and g
 SOURCE_CONCLUSION: Q_{m,kappa} is a real-analytic diffeomorphism of (R/2piZ)^2 x {Lambda>C>0} onto K*_{m,kappa}
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:rg-scale, I:bpI:p7:chart, I:bpI:p7:elements, bpP:p7:kepler-data
+DEPS: stepP:p7:rg-scale, I:bpI:p7:chart, I:bpI:p7:elements, bpP:p7:kepler-data, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:rg-scale | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-chart@L85-L85 | E_{m,kappa}=m kappa^2 E_1, cr(q,p)=m cr(Q,P), Lambda=m L
 EDGE: I:bpI:p7:chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-chart@L85-L85 | Q^I induces a real-analytic diffeomorphism onto C
 EDGE: I:bpI:p7:elements | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-chart@L85-L85 | the region C={E_1<0,cr>0,cr<L} and its elements
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-chart@L85-L85 | K*_{m,kappa}, S_{m,kappa}, Q_{m,kappa}
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-chart@L85-L85 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -263,7 +265,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-form@L86-
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-form@L86-L86
 CONTRACT_ID: stepP:p7:ke-form
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: sum dp^dq=-m sum dQ^dP; Q^I symplectic
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:kepler. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: (ell,g,Lambda,C) in D^m
 SOURCE_CONCLUSION: Q_{m,kappa}^*(sum dp^dq)=dLambda^dell+dC^dg
 CONSTANT_SCOPE: none
@@ -271,13 +273,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: I:bpI:p7:symplectic, bpP:p7:kepler-data
+DEPS: I:bpI:p7:symplectic, bpP:p7:kepler-data, bpP:p7:conv#data, I:bpI:p7:x-forms
 ROUTES: -
 ROUTE_FOR: -
 EDGE: I:bpI:p7:symplectic | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-form@L86-L86 | (Q^I)^*(sum dq^dp)=dell^dL+dg^dG
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-form@L86-L86 | S_{m,kappa}
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-form@L86-L86 | uses the positive mass/strength, physical-length or rotation conventions of the package
+EDGE: I:bpI:p7:x-forms | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-form@L86-L86 | pull-back, composition and exterior-form calculus used in this calculation
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -299,15 +303,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: I:bpI:p7:orbit-identities, I:bpI:p7:orbit-maps, stepP:p7:rg-scale, bpP:p7:kepler-data
+DEPS: I:bpI:p7:orbit-identities, I:bpI:p7:orbit-maps, stepP:p7:rg-scale, bpP:p7:kepler-data, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: I:bpI:p7:orbit-identities | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-b@L87-L87 | l(Q)=L^2(1-e cos u), E_1=-1/(2L^2), cr(Q,P)=G
 EDGE: I:bpI:p7:orbit-maps | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-b@L87-L87 | Q=R(g)(X,Y)
 EDGE: stepP:p7:rg-scale | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-b@L87-L87 | E_{m,kappa}=m kappa^2 E_1, scaling
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-b@L87-L87 | a, E, S_{m,kappa}
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-b@L87-L87 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -321,7 +326,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88
 CONTRACT_ID: stepP:p7:ke-c
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: means of track I for strength one: <1/l(Q)>=1/L^2, <l(P)^2>=1/L^2, <l(Q)>=L^2(1+e^2/2) (also at C=Lambda); scaling q=Q/kappa, p=m kappa P
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:kepler; clause (c): Lambda>0, 0<C<=Lambda, g in R. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: Lambda>0, 0<C<=Lambda, g
 SOURCE_CONCLUSION: mean values 1/a, m^2 kappa/a, a(1+e^2/2) of 1/l(q), l(p)^2, l(q)
 CONSTANT_SCOPE: none
@@ -329,14 +334,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: I:bpI:p7:means, I:bpI:p7:circular, stepP:p7:ke-b
+DEPS: I:bpI:p7:means, I:bpI:p7:circular, stepP:p7:ke-b, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: I:bpI:p7:means | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | mean values for strength one
 EDGE: I:bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | circular case C=Lambda
 EDGE: stepP:p7:ke-b | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | a=L^2/kappa and the scaling of step (b)
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -350,7 +356,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89
 CONTRACT_ID: stepP:p7:ke-d
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: (b); chart symplectic with factor one in (ell,g;Lambda,C) by (a); Lemma bpP:p1:chart-field
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:kepler. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: (ell,g,Lambda,C) in D^m
 SOURCE_CONCLUSION: E o Q=h_m(Lambda); h_m'=kappa^2m^3/Lambda^3=sqrt(kappa)a^{-3/2}; Hamilton equations of h_m in (ell,g;Lambda,C) are ell'=h_m', g'=Lambda'=C'=0 and transport to the Kepler flow
 CONSTANT_SCOPE: none
@@ -358,15 +364,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:ke-b, stepP:p7:ke-form, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p1:chart-field
+DEPS: stepP:p7:ke-b, stepP:p7:ke-form, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p1:chart-field, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:ke-b | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89 | value of E o Q
 EDGE: stepP:p7:ke-form | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89 | symplectic with factor one in (ell,g;Lambda,C)
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89 | Hamilton equations X_H=(d_pH,-d_qH)
 EDGE: bpP:p1:chart-field | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89 | transport of the equations by the chart
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -381,14 +388,14 @@ PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:regular-kepler@L10
 CONTRACT_ID: bpP:p7:regular-kepler
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: v in R^2, F in R; Phi(F,v)=F-v_0 sin F+v_1 cos F; J(F,v)=d_F Phi=1-v.(cos F,sin F); (b) N_0={(lambda,v) in CxC^2: ¦Im lambda¦<1/4, ¦v_0¦+¦v_1¦<1/4}, S={F in C: ¦Im F¦<=1}
-SOURCE_QUANTIFIERS: v in R^2 with l(v)<1 for (a),(c); (lambda,v) in R x {l(v)<1}; (b) (lambda,v) in N_0
-SOURCE_CONCLUSION: (a) for l(v)<1: J>=1-l(v)>0, F -> Phi(F,v) a real-analytic increasing bijection of R with Phi(F+2pi)=Phi+2pi; unique real F(lambda,v) with Phi=lambda, real analytic, F(lambda+2pi,v)=F+2pi, F(lambda,0)=lambda, d_lambda F=1/J, d_{v_0}F=sin F/J, d_{v_1}F=-cos F/J; (b) unique holomorphic F:N_0->S with Phi(F(lambda,v),v)=lambda, ¦J¦>3/5, same formulas, F real at real points and equal to (a); (c) for v=e e_g, e in (0,1): F(lambda,v)=g+u_R(lambda-g,e)
+SOURCE_QUANTIFIERS: (a) all real v with l(v)<1 and real lambda; (b) all complex (lambda,v) in N_0; (c) all real lambda,g and e in (0,1), v=e e_g
+SOURCE_CONCLUSION: (a) for l(v)<1: J>=1-l(v)>0, F -> Phi(F,v) a real-analytic increasing bijection of R with Phi(F+2pi)=Phi+2pi; unique real F(lambda,v) with Phi=lambda, real analytic, F(lambda+2pi,v)=F+2pi, F(lambda,0)=lambda, d_lambda F=1/J, d_{v_0}F=sin F/J, d_{v_1}F=-cos F/J; (b) unique holomorphic F:N_0->S with Phi(F(lambda,v),v)=lambda, ¦J¦>=1-(1/4)cosh(1)>3/5, same formulas, F real at real points and equal to (a); (c) for v=e e_g, e in (0,1): F(lambda,v)=g+u_R(lambda-g,e)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:rk-mono, stepP:p7:rk-an, stepP:p7:rk-contr, stepP:p7:rk-hol, stepP:p7:rk-rel, I:bpI:p7:kepler-eq
+DEPS: stepP:p7:rk-mono, stepP:p7:rk-an, stepP:p7:rk-contr, stepP:p7:rk-hol, stepP:p7:rk-rel, I:bpI:p7:kepler-eq, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:rk-mono | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:regular-kepler@L110-L110 | proof step (a) Monotonicity
@@ -397,8 +404,9 @@ EDGE: stepP:p7:rk-contr | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:regula
 EDGE: stepP:p7:rk-hol | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:regular-kepler@L113-L113 | proof step (b) Holomorphy
 EDGE: stepP:p7:rk-rel | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:regular-kepler@L114-L114 | proof step (c) Relation
 EDGE: I:bpI:p7:kepler-eq | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:regular-kepler@L105-L105 | u_R of Kepler equation in (c)
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:regular-kepler@L100-L100 | uses the physical length or rotation notation fixed by this package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -412,7 +420,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-mono@L110
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-mono@L110-L110
 CONTRACT_ID: stepP:p7:rk-mono
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: l(v)<1; Cauchy-Schwarz ¦v.(cos F,sin F)¦<=l(v)
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:regular-kepler; real v with l(v)<1. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: v with l(v)<1; F in R
 SOURCE_CONCLUSION: J>=1-l(v)>0; Phi(.,v) strictly increasing bijection of R; Phi(F+2pi,v)=Phi+2pi; Phi(F,0)=F
 CONSTANT_SCOPE: none
@@ -420,11 +428,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: -
+DEPS: bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-mono@L110-L110 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -438,7 +447,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-an@L111-L
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-an@L111-L111
 CONTRACT_ID: stepP:p7:rk-an
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Phi real analytic on RxR^2 with d_F Phi=J!=0 on {l(v)<1}
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:regular-kepler; real (lambda,v) with l(v)<1. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: (lambda_0,v_0) with l(v_0)<1
 SOURCE_CONCLUSION: F is real analytic; J d_lambda F=1, J d_{v_0}F=sin F, J d_{v_1}F=-cos F
 CONSTANT_SCOPE: none
@@ -446,13 +455,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:e-ift, stepP:p7:rk-mono
+DEPS: bpP:p7:e-ift, stepP:p7:rk-mono, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:e-ift | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-an@L111-L111 | real-analytic implicit function theorem
 EDGE: stepP:p7:rk-mono | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-an@L111-L111 | J>0 and uniqueness of the global solution
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-an@L111-L111 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -480,9 +490,9 @@ ROUTE_FOR: -
 EDGE: K:bp:p1:ext-banach | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-contr@L112-L112 | Banach fixed point theorem
 EDGE: K:bp:p1:ext-mvt | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-contr@L112-L112 | mean value inequality on the convex set S
 EDGE: I:stepI:p7:ke-trig | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-contr@L112-L112 | ¦sin F¦,¦cos F¦<=cosh Im F
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -495,7 +505,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-hol@L113-
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-hol@L113-L113
 CONTRACT_ID: stepP:p7:rk-hol
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: iterates F_0=lambda, F_{j+1}=beta(F_j) holomorphic with values in S, geometric convergence
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:regular-kepler; complex (lambda,v) in N_0. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: (lambda,v) in N_0
 SOURCE_CONCLUSION: F is holomorphic on N_0; real at real points and equal to the real solution; ¦J¦>3/5; derivative formulas hold
 CONSTANT_SCOPE: none
@@ -513,7 +523,7 @@ EDGE: I:bpI:p7:x-weier | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-ho
 EDGE: stepP:p7:rk-mono | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-hol@L113-L113 | uniqueness of the real solution of (a)
 EDGE: stepP:p7:rk-an | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-hol@L113-L113 | same implicit differentiation as in (a)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -535,13 +545,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: I:bpI:p7:kepler-eq, stepP:p7:rk-mono
+DEPS: I:bpI:p7:kepler-eq, stepP:p7:rk-mono, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: I:bpI:p7:kepler-eq | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-rel@L114-L114 | u_R solves u-e sin u=ell
 EDGE: stepP:p7:rk-mono | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-rel@L114-L114 | uniqueness of the solution in (a)
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-rel@L114-L114 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -568,9 +579,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:poincare-def@L122-L122 | F=F(lambda,v) of Prop regular-kepler(a)
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:poincare-def@L120-L120 | m, kappa, Gamma, J_0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -591,13 +602,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare-def, bpP:p7:regular-kepler
+DEPS: bpP:p7:poincare-def, bpP:p7:regular-kepler, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:o-facts@L131-L131 | O, k, v, F, J
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:o-facts@L132-L132 | F defined and real analytic; J>=1-l(v); v.c
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:o-facts@L132-L132 | uses the physical length or rotation notation fixed by this package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -613,7 +625,7 @@ CONTRACT_ID: bpP:p7:poincare
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: Psi=Psi_{m,kappa}:O->R^2xR^2 as in Definition poincare-def
 SOURCE_QUANTIFIERS: m, kappa; then points of O
-SOURCE_CONCLUSION: (a) Psi real analytic on O including xi=eta=0, 2pi-periodic in lambda; (b) for (xi,eta)=rho e_g, rho>0: Psi=Q_{m,kappa}(lambda-g,g,Lambda,Lambda-Gamma), F=g+u; (c) Omega(D Psi u,D Psi w)=Omega(u,w) on all of O, Psi^*Omega_cart=dLambda^dlambda+deta^dxi, Psi a 1-chart on O, D Psi invertible; (d) Psi(O) subset K_{m,kappa}; E=-kappa^2m^3/(2Lambda^2), a=Lambda^2/(m^2 kappa), action Lambda, cr=Lambda-Gamma=Lambda k, LRL vector = v; (e) Psi:O->K_{m,kappa} onto, Psi(w')=Psi(w) iff (xi,Lambda,eta) equal and lambda'-lambda in 2piZ; induced map O/(2piZ x {0})->K_{m,kappa} a real-analytic diffeomorphism with the stated inverse; (f) at xi=eta=0: v=0, k=1, F=lambda, q=a(cos lambda,sin lambda), p=m sqrt(kappa/a)(-sin lambda,cos lambda), the circular point for Lambda=m sqrt(kappa a)
+SOURCE_CONCLUSION: (a) Psi real analytic on O including xi=eta=0, 2pi-periodic in lambda; (b) for (xi,eta)=rho e_g, rho>0: Psi=Q_{m,kappa}(lambda-g,g,Lambda,Lambda-Gamma), F=g+u; (c) Omega(D Psi u,D Psi w)=Omega(u,w) on all of O, Psi^*Omega_cart=dLambda^dlambda+deta^dxi, Psi a 1-chart on O, D Psi invertible; (d) Psi(O) subset K_{m,kappa}; E=-kappa^2m^3/(2Lambda^2), a=Lambda^2/(m^2 kappa), action Lambda, cr=Lambda-Gamma=Lambda k, kappa^{-1}[(l(p)^2/m^2-kappa/l(q))q-(q.p/m^2)p] = v; (e) Psi:O->K_{m,kappa} onto, Psi(w')=Psi(w) iff (xi,Lambda,eta) equal and lambda'-lambda in 2piZ; induced map O/(2piZ x {0})->K_{m,kappa} a real-analytic diffeomorphism with inverse Lambda=m sqrt(kappa a), Gamma=Lambda-cr(q,p), v the rescaled LRL expression, (xi,eta)=v/s with s=sqrt((1-Gamma/(2Lambda))/Lambda), c=(k Id+vv^T/(1+k))^{-1}(q/a+v), F=arg c and lambda=Phi(F,v) modulo 2pi; (f) at xi=eta=0: v=0, k=1, F=lambda, q=a(cos lambda,sin lambda), p=m sqrt(kappa/a)(-sin lambda,cos lambda), the circular point for Lambda=m sqrt(kappa a)
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -635,7 +647,7 @@ EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:poinc
 EDGE: bpP:p0:circular#circularPoint | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:poincare@L146-L146 | (f): the circular point
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:poincare@L143-L143 | Omega_cart, Omega_chart
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -649,7 +661,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-an@L150-L
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-an@L150-L150
 CONTRACT_ID: stepP:p7:po-an
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: k, v (positive radicand), J real analytic on O; F real analytic by Prop regular-kepler(a)
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:poincare. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: points of O
 SOURCE_CONCLUSION: Psi real analytic on O including xi=eta=0 and 2pi-periodic in lambda
 CONSTANT_SCOPE: none
@@ -664,7 +676,7 @@ EDGE: bpP:p7:o-facts | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-an@L
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-an@L150-L150 | F real analytic and F(lambda+2pi,v)=F+2pi
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-an@L150-L150 | q,p as rational expressions
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -686,7 +698,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:o-facts, bpP:p7:regular-kepler, bpP:p7:kepler, I:bpI:p7:orbit-maps, bpP:p7:poincare-def, bpP:p7:kepler-data
+DEPS: bpP:p7:o-facts, bpP:p7:regular-kepler, bpP:p7:kepler, I:bpI:p7:orbit-maps, bpP:p7:poincare-def, bpP:p7:kepler-data, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:o-facts | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-del@L151-L151 | v=e e_g, e=sqrt(1-k^2)
@@ -695,8 +707,9 @@ EDGE: bpP:p7:kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-del@L
 EDGE: I:bpI:p7:orbit-maps | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-del@L155-L155 | P=R(g)(-sin u,k cos u)/(L J)
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-del@L151-L151 | q, p formulas
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-del@L155-L155 | S_{m,kappa}, Q_{m,kappa}
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-del@L151-L151 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -710,7 +723,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-symp@L156
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-symp@L156-L156
 CONTRACT_ID: stepP:p7:po-symp
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A={(xi,eta)!=0} open; local analytic branch g=arg(xi+i eta); Psi=Q_{m,kappa} o T on A
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:poincare; w in O with Gamma>0; a local argument branch is constructed. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: points of A
 SOURCE_CONCLUSION: Psi^*Omega_cart=dLambda^dlambda+deta^dxi on A
 CONSTANT_SCOPE: none
@@ -718,14 +731,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:po-del, bpP:p7:kepler, bpP:p7:conv#data
+DEPS: stepP:p7:po-del, bpP:p7:kepler, bpP:p7:conv#data, I:bpI:p7:x-forms, bpP:p7:poincare-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:po-del | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-symp@L156-L156 | Psi=Q_{m,kappa} o T on A
 EDGE: bpP:p7:kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-symp@L156-L156 | (a): Q^*(sum dp^dq)=dLambda^dell+dC^dg
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-symp@L156-L156 | Omega_cart, d eta^d xi
+EDGE: I:bpI:p7:x-forms | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-symp@L156-L156 | pull-back, composition and exterior-form calculus used in this calculation
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-symp@L156-L156 | uses the domain O and Gamma=(xi^2+eta^2)/2
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -739,7 +754,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L15
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L157-L157
 CONTRACT_ID: stepP:p7:po-dense
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: A dense in O; Psi C^1 on O by (a); identity D Psi^T M_0 D Psi=M_0 on A
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:poincare. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: points of O
 SOURCE_CONCLUSION: D Psi^T M_0 D Psi=M_0 on all of O, i.e. Psi is a 1-chart on O and D Psi is invertible
 CONSTANT_SCOPE: none
@@ -747,7 +762,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:po-symp, stepP:p7:po-an, I:bpI:p7:x-forms, bpP:p1:omega-algebra, bpP:p7:e-dense, bpP:p1:chart, bpP:p7:conv#data
+DEPS: stepP:p7:po-symp, stepP:p7:po-an, I:bpI:p7:x-forms, bpP:p1:omega-algebra, bpP:p7:e-dense, bpP:p1:chart, bpP:p7:conv#data, bpP:p7:poincare-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:po-symp | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L157-L157 | identity on the dense set A
@@ -757,8 +772,9 @@ EDGE: bpP:p1:omega-algebra | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:p
 EDGE: bpP:p7:e-dense | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L157-L157 | continuous identity on a dense subset
 EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L157-L157 | chart property with c=1
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L157-L157 | frozen order (lambda,xi;Lambda,eta)
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L157-L157 | uses the domain O and Gamma=(xi^2+eta^2)/2
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -772,7 +788,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L159
 CONTRACT_ID: stepP:p7:po-el
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: on A by (b) and Prop kepler(b); at xi=eta=0 by track I and (f)
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:poincare. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: points of O
 SOURCE_CONCLUSION: Psi(O) subset K_{m,kappa}; E=-kappa^2m^3/(2Lambda^2); a=Lambda^2/(m^2 kappa); action Lambda; cr=Lambda k; LRL vector=v
 CONSTANT_SCOPE: none
@@ -780,18 +796,19 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:po-del, bpP:p7:kepler, stepP:p7:ke-b, I:bpI:p7:circular, I:bpI:p7:orbit-identities, stepP:p7:po-circ, bpP:p7:kepler-data
+DEPS: stepP:p7:po-del, bpP:p7:kepler, stepP:p7:ke-b, stepP:p7:po-el#circular, I:bpI:p7:orbit-identities, stepP:p7:po-circ, bpP:p7:kepler-data, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:po-del | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | Psi=Q_{m,kappa} o (...) on A
 EDGE: bpP:p7:kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | (b): l(q)=a(1-e cos u), E, cr
 EDGE: stepP:p7:ke-b | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | scaling S_{m,kappa} used at the circular points
-EDGE: I:bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | circular endpoint e=0,k=1,u=F=lambda
+EDGE: stepP:p7:po-el#circular | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | scalar circular identities from either explicitly offered derivation
 EDGE: I:bpI:p7:orbit-identities | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | orbit identities for P^2, 1/l(Q), Q.P in the orbit frame
 EDGE: stepP:p7:po-circ | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L159-L159 | values at xi=eta=0
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | K_{m,kappa}, a, action
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -805,7 +822,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L160-
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L160-L162
 CONTRACT_ID: stepP:p7:po-bij
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: injectivity modulo 2pi, surjectivity, diffeomorphism and inverse formulas of (e)
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:poincare; w,wprime in O for injectivity; target (q,p) in K for surjectivity. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: w,w' in O; (q,p) in K_{m,kappa}
 SOURCE_CONCLUSION: Psi:O->K_{m,kappa} onto; Psi(w')=Psi(w) iff (xi,Lambda,eta) equal and lambda'-lambda in 2piZ; quotient diffeomorphism with the inverse formulas
 CONSTANT_SCOPE: none
@@ -813,7 +830,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:po-el, stepP:p7:po-circ, stepP:p7:po-del, bpP:p7:kepler, I:bpI:p7:chart, bpP:p7:range, stepP:p7:rg-scale, stepP:p7:rg-lagrange, stepP:p7:po-dense, stepP:p7:po-an, bpP:p7:e-ift, bpP:p7:o-facts, bpP:p7:regular-kepler, bpP:p7:kepler-data
+DEPS: stepP:p7:po-el, stepP:p7:po-circ, stepP:p7:po-del, bpP:p7:kepler, I:bpI:p7:chart, bpP:p7:range, stepP:p7:rg-scale, stepP:p7:rg-lagrange, stepP:p7:po-dense, stepP:p7:po-an, bpP:p7:e-ift, bpP:p7:o-facts, bpP:p7:regular-kepler, bpP:p7:kepler-data, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:po-el | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L160-L160 | Lambda, Gamma are functions of (q,p) via (d)
@@ -830,8 +847,9 @@ EDGE: bpP:p7:e-ift | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L1
 EDGE: bpP:p7:o-facts | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L160-L160 | (xi,eta)=rho e_g, Gamma=Lambda-C
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L162-L162 | lambda=Phi(F,v) in the inverse
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L161-L161 | K_{m,kappa}
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L160-L160 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -853,14 +871,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:regular-kepler, bpP:p0:circular#circularPoint, bpP:p7:poincare-def
+DEPS: bpP:p7:regular-kepler, bpP:p0:circular#circularPoint, bpP:p7:poincare-def, bpP:p7:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-circ@L163-L163 | F(lambda,0)=lambda
 EDGE: bpP:p0:circular#circularPoint | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-circ@L163-L163 | compare with the circular point
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-circ@L163-L163 | q, p formulas
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-circ@L163-L163 | uses the positive mass/strength, physical-length or rotation conventions of the package
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -889,9 +908,9 @@ EDGE: stepP:p7:ho-size | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:holomor
 EDGE: stepP:p7:ho-hol | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:holomorphic@L173-L173 | proof step Holomorphy
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:holomorphic@L169-L169 | formulas of Psi
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:holomorphic@L169-L169 | F of (b)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -918,9 +937,9 @@ ROUTE_FOR: -
 EDGE: I:bpI:p7:x-hol | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-size@L172-L172 | holomorphic calculus and principal square root on Re>0
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-size@L172-L172 | (b): F holomorphic on N_0 with ¦J¦>3/5
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-size@L172-L172 | k, v, Gamma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -933,7 +952,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-hol@L173-
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-hol@L173-L173
 CONTRACT_ID: stepP:p7:ho-hol
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: q,p rational in (Lambda,k,v,cos F,sin F,1/J,1/(1+k)), all holomorphic with nonvanishing denominators
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:holomorphic; Lambda^o>0, points in N(Lambda^o). Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: points of N(Lambda^o)
 SOURCE_CONCLUSION: Psi holomorphic, 2pi-periodic in lambda, real at real points with real points in O; D Psi^T M_0 D Psi=M_0 at real points
 CONSTANT_SCOPE: none
@@ -950,12 +969,12 @@ EDGE: stepP:p7:po-an | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-hol@
 EDGE: bpP:p7:poincare | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-hol@L173-L173 | (c): the real matrix identity
 EDGE: K:bp:p1:real-restriction | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-hol@L173-L173 | complex derivative restricts to the real one
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L173 applies real derivative restriction on N(Lambda^o), while K:bp:p1:real-restriction is stated for a function on a full torus strip T_rho. N is bounded in Lambda,xi,eta, so that hypothesis is not supplied. The needed local open-domain restriction fact is true but is not the literal cited theorem: supply its local version or a valid localization, without adding it as an assumed premise. The other holomorphy/reality/periodicity and real symplectic-identity dependencies remain as recorded.
 
 NODE: bpP:p7:product-def
 KIND: definition
@@ -979,9 +998,9 @@ EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:prod
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:product-def@L191-L191 | K_{m_i,kappa}
 EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:product-def@L190-L190 | data and coordinates of the section
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:product-def@L191-L191 | q^(i), p^(i) are body blocks
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -996,7 +1015,7 @@ CONTRACT_ID: bpP:p7:product-chart
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: sec-product#data; Definition product-def
 SOURCE_QUANTIFIERS: n, G, m0, m; then w in O_n (mu, eps arbitrary in (c))
-SOURCE_CONCLUSION: (a) Psi^(n) is a real-analytic 1-chart on O_n (c=1), O_n and Psi^(n) invariant under ((2pi k,0),0), Psi^(n)(w')=Psi^(n)(w) iff w'=w+((2pi k,0),0), onto K^(n), real-analytic diffeomorphism O_n/{(2pi k,0,0,0)}->K^(n); (b) H_Kep o Psi^(n)=h(Lambda), h independent of lambda,xi,eta and of any coupling, d h/d Lambda_i=nu_i=kappa^2m_i^3/Lambda_i^3, d^2h/d Lambda_i^2=-3kappa^2m_i^3/Lambda_i^4!=0, h analytic on {Lambda_i>0}; (c) H_mov^Psi=h+mu f_mov o Psi, H_fix^Psi=h+eps f_fix o Psi on O_n, hat f real analytic on Psi^{-1}(W) and independent of mu, eps, D Psi X_{H^Psi}=X_H o Psi, orbits transfer; (d) Hamilton equations in the chart
+SOURCE_CONCLUSION: (a) Psi^(n) is a real-analytic 1-chart on O_n (c=1), O_n and Psi^(n) invariant under ((2pi k,0),0), Psi^(n)(w')=Psi^(n)(w) iff w'=w+((2pi k,0),0), onto K^(n), real-analytic diffeomorphism O_n/{(2pi k,0,0,0)}->K^(n); (b) H_Kep o Psi^(n)=h(Lambda), h independent of lambda,xi,eta and of any coupling, d h/d Lambda_i=nu_i=kappa^2m_i^3/Lambda_i^3, d^2h/d Lambda_i^2=-3kappa^2m_i^3/Lambda_i^4!=0, h analytic on {Lambda_i>0}; (c) H_mov^Psi=h+mu f_mov o Psi, H_fix^Psi=h+eps f_fix o Psi on O_n, hat f real analytic on Psi^{-1}(W) and independent of mu, eps, D Psi X_{H^Psi}=X_H o Psi, orbits transfer; (d) on Psi^{-1}(W): dot lambda_i=nu_i+mu partial_{Lambda_i}hat f_mov, dot Lambda_i=-mu partial_{lambda_i}hat f_mov, dot xi_i=mu partial_{eta_i}hat f_mov, dot eta_i=-mu partial_{xi_i}hat f_mov; replace mu hat f_mov by eps hat f_fix for the fixed model
 CONSTANT_SCOPE: none (hat f does not depend on mu, eps)
 FROZEN_FILE: -
 FROZEN_DECL: -
@@ -1019,7 +1038,7 @@ EDGE: bpP:p1:chart-orbit | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:produ
 EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:product-chart@L200-L200 | H_mov
 EDGE: bpP:p0:fixham#fixedHamiltonian | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:product-chart@L200-L200 | H_fix
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1033,7 +1052,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-prod@L205
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-prod@L205-L205
 CONTRACT_ID: stepP:p7:pc-prod
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: i-th pair depends only on the i-th chart block; Omega=sum Omega_i; Theorem poincare (a),(c),(e) blockwise
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:product-chart. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: w in O_n
 SOURCE_CONCLUSION: D Psi^(n) block diagonal and symplectic; analyticity, lattice invariance, bijectivity, diffeomorphism and openness of O_n blockwise
 CONSTANT_SCOPE: none
@@ -1050,7 +1069,7 @@ EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p7-kepler-poincare.tex#s
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-prod@L205-L205 | finProdFinEquiv index bookkeeping
 EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-prod@L205-L205 | positions lambda_i,xi_i
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1064,7 +1083,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-dec@L206-
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-dec@L206-L206
 CONTRACT_ID: stepP:p7:pc-dec
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: H_Kep(q,p)=sum_i E_{m_i,kappa}(q_i,p_i); Theorem poincare(d)
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:product-chart. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: w in O_n
 SOURCE_CONCLUSION: H_Kep o Psi^(n)=h(Lambda) and the derivatives of h
 CONSTANT_SCOPE: none
@@ -1072,15 +1091,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p6:kepler-part, bpP:p6:split, bpP:p7:poincare, bpP:p7:product-def
+DEPS: bpP:p6:kepler-part, bpP:p6:split, bpP:p7:poincare, bpP:p7:product-def, bpP:p7:sec-product#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p6:kepler-part | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-dec@L206-L206 | each summand of H_Kep is E_{m_i,kappa}
 EDGE: bpP:p6:split | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-dec@L206-L206 | H_Kep of Lemma split
 EDGE: bpP:p7:poincare | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-dec@L206-L206 | (d): E_{m_i,kappa} o Psi=-kappa^2m_i^3/(2Lambda_i^2)
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-dec@L206-L206 | h
+EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-dec@L206-L206 | uses the fixed product data and coordinate/body dictionary
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1094,7 +1114,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L20
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207
 CONTRACT_ID: stepP:p7:pc-share
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: H_mov=H_Kep+mu f_mov, H_fix=H_Kep+eps f_fix on Ph_{2n}; f analytic on W
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:product-chart; mu,eps arbitrary; on O_n for splitting, Psi^{-1}(W) for analytic/field claims. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: w in O_n; mu, eps
 SOURCE_CONCLUSION: H^Psi_mov=h+mu f_mov o Psi, H^Psi_fix=h+eps f_fix o Psi; hat f analytic on the open set Psi^{-1}(W) and independent of mu, eps; field statements
 CONSTANT_SCOPE: none
@@ -1102,24 +1122,27 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p6:split, bpP:p6:domain, bpP:p1:ext-comp, stepP:p7:pc-prod, bpP:p1:chart-field, bpP:p1:chart-orbit, bpP:p0:movham#movingHamiltonian, bpP:p0:fixham#fixedHamiltonian
+DEPS: bpP:p6:split, bpP:p6:domain, bpP:p1:ext-comp, stepP:p7:pc-prod, bpP:p1:chart-field, bpP:p1:chart-orbit, bpP:p0:movham#movingHamiltonian, bpP:p0:fixham#fixedHamiltonian, bpP:p7:sec-product#data, bpP:p7:product-def, stepP:p7:pc-dec
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p6:split | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | H=H_Kep+mu f
-EDGE: bpP:p6:domain | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | W open; f real analytic on W
+EDGE: bpP:p6:domain | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | W open and reduced Hamiltonians smooth on W; the analytic bridge is exposed in NOTE
 EDGE: bpP:p1:ext-comp | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | composition of analytic maps is analytic
 EDGE: stepP:p7:pc-prod | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | Psi^(n) analytic, continuous
 EDGE: bpP:p1:chart-field | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | field statement
 EDGE: bpP:p1:chart-orbit | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | orbit statement
 EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | H_mov
 EDGE: bpP:p0:fixham#fixedHamiltonian | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | H_fix
+EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | uses the fixed product data and coordinate/body dictionary
+EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | uses Psi^(n), O_n and h
+EDGE: stepP:p7:pc-dec | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | substitutes H_Kep composed with Psi^(n)=h into the splitting
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: -
+NOTE: SOURCE_GAP: L207 asserts that the proof of bpP:p6:domain also gives real analyticity of f_mov,f_fix on W. Its statement/proof L54-L60 supply C-infinity using smooth square-root/reciprocal facts. A real-analytic positive-root/reciprocal argument for the explicit perturbations is needed before analytic composition; do not assume that missing regularity as a hypothesis. The splitting, openness and smooth field transport remain sourced as recorded.
 
 NODE: stepP:p7:pc-eq
 KIND: step
@@ -1128,8 +1151,8 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-eq@L208-L
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-eq@L208-L208
 CONTRACT_ID: stepP:p7:pc-eq
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: X_G=(d_{z_2}G,-d_{z_1}G) with z_1=(lambda,xi), z_2=(Lambda,eta)
-SOURCE_QUANTIFIERS: G on O_n
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:product-chart; the model Hamiltonian H_mov^Psi or H_fix^Psi, on Psi^{-1}(W). Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
+SOURCE_QUANTIFIERS: fixed section data, arbitrary mu,eps, w in Psi^{-1}(W), i<n; G is H_mov^Psi=h+mu hat f_mov or H_fix^Psi=h+eps hat f_fix
 SOURCE_CONCLUSION: Hamilton equations in the chart: lambda_i'=nu_i+d_{Lambda_i}(mu f), Lambda_i'=-mu d_{lambda_i}f, xi_i'=mu d_{eta_i}f, eta_i'=-mu d_{xi_i}f
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
@@ -1144,7 +1167,7 @@ EDGE: stepP:p7:pc-dec | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-eq@
 EDGE: stepP:p7:pc-share | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-eq@L208-L208 | H^Psi=h+mu hat f
 EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-eq@L208-L208 | z_1=(lambda,xi), z_2=(Lambda,eta)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1187,15 +1210,15 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:tube@L215-L217
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:tube@L218-L221
 CONTRACT_ID: bpP:p7:tube
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: a_i>0; Lambda_i^*=m_i sqrt(kappa a_i); delta>0; eta in (0,eta_delta]; U_eta circular tube (Definition bpP:p0:circular)
-SOURCE_QUANTIFIERS: a, m, kappa; then delta>0; then eta_delta; then eta in (0,eta_delta]; w in O_n
+SOURCE_HYPOTHESES: fixed product data n>=1, G,m0>0, positive m_i, kappa=Gm0; a_i>0 and Lambda_i^*=m_i sqrt(kappa a_i); U_eta denotes the circular tube
+SOURCE_QUANTIFIERS: fixed n,G,m0,m,a; for every delta>0 there exists eta_delta>0; for every eta in (0,eta_delta] the inclusion and all preimage bounds hold; the circular identity holds for every phi in R^n
 SOURCE_CONCLUSION: U_eta subset K^(n); every w in O_n with Psi^(n)(w) in U_eta satisfies ¦Lambda_i-Lambda_i^*¦<delta and (xi_i^2+eta_i^2)/2<delta for all i; circ(phi)=Psi^(n)((2pi phi,0),(Lambda^*,0))
 CONSTANT_SCOPE: eta_delta depends on delta (and on a, m, kappa)
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:tu-circ, stepP:p7:tu-cont, bpP:p0:circular#circularPoint, bpP:p0:circular#circularTube, bpP:p7:product-def
+DEPS: stepP:p7:tu-circ, stepP:p7:tu-cont, bpP:p0:circular#circularPoint, bpP:p0:circular#circularTube, bpP:p7:product-def, bpP:p7:sec-product#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:tu-circ | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:tube@L219-L219 | proof step Circular points
@@ -1203,8 +1226,9 @@ EDGE: stepP:p7:tu-cont | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:tube@L2
 EDGE: bpP:p0:circular#circularPoint | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:tube@L216-L216 | circ(phi)
 EDGE: bpP:p0:circular#circularTube | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:tube@L216-L216 | U_eta
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:tube@L216-L216 | O_n, Psi^(n), K^(n)
+EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:tube@L216-L216 | uses the product data n,G,m0,m and kappa=Gm0
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1218,7 +1242,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-circ@L219
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-circ@L219-L219
 CONTRACT_ID: stepP:p7:tu-circ
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Theorem poincare(f) blockwise; Lambda_i=Lambda_i^*, xi=eta=0, lambda_i=2pi phi_i
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:tube; a_i>0, Lambda_i^*=m_i sqrt(kappa a_i), phi in R^n. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: phi in R^n
 SOURCE_CONCLUSION: Psi^(n)((2pi phi,0),(Lambda^*,0))=circ(phi)
 CONSTANT_SCOPE: none
@@ -1226,14 +1250,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare, bpP:p0:circular#circularPoint, bpP:p7:product-def
+DEPS: bpP:p7:poincare, bpP:p0:circular#circularPoint, bpP:p7:product-def, bpP:p7:sec-product#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:poincare | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-circ@L219-L219 | (f) circular points
 EDGE: bpP:p0:circular#circularPoint | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-circ@L219-L219 | circ(phi)
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-circ@L219-L219 | Psi^(n)
+EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-circ@L219-L219 | uses the fixed product data and coordinate/body dictionary
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1247,7 +1272,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-cont@L220
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-cont@L220-L220
 CONTRACT_ID: stepP:p7:tu-cont
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: K^(n) open; V_delta open and contains the compact torus T={circ(phi)}
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:tube; a_i>0, delta>0. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: delta>0
 SOURCE_CONCLUSION: there is eta_delta>0 with U_eta subset V_delta subset K^(n) for eta<=eta_delta; preimages have ¦Lambda_i-Lambda_i^*¦<delta and Gamma_i<delta
 CONSTANT_SCOPE: none
@@ -1255,7 +1280,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare, stepP:p7:tu-circ, bpP:p7:e-comp, bpP:p0:circular#circularTube, bpP:p0:circular#circularPoint, bpP:p7:product-def, bpP:p7:kepler-data
+DEPS: bpP:p7:poincare, stepP:p7:tu-circ, bpP:p7:e-comp, bpP:p0:circular#circularTube, bpP:p0:circular#circularPoint, bpP:p7:product-def, bpP:p7:kepler-data, bpP:p7:sec-product#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:poincare | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-cont@L220-L220 | (d): elements of a preimage equal Lambda_i(z), Gamma_i(z)
@@ -1265,8 +1290,9 @@ EDGE: bpP:p0:circular#circularTube | blueprint-P/parts/p7-kepler-poincare.tex#st
 EDGE: bpP:p0:circular#circularPoint | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-cont@L220-L220 | torus T of circular points
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-cont@L220-L220 | K^(n)
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-cont@L220-L220 | E_{m_i,kappa}, cr, Lambda_i(z), Gamma_i(z)
+EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:tu-cont@L220-L220 | uses the fixed product data and coordinate/body dictionary
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1315,9 +1341,9 @@ EDGE: bpP:p0:d25-kepler#keplerAxis | blueprint-P/parts/p7-kepler-poincare.tex#bp
 EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:d25@L255-L255 | keplerAction
 EDGE: bpP:p0:d25-cross#planeCross | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:d25@L255-L255 | planeCross
 EDGE: bpP:p0:d25-kepler#keplerEccVector | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:d25@L255-L255 | keplerEccVector
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1330,7 +1356,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-ab@L260-
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-ab@L260-L260
 CONTRACT_ID: stepP:p7:d25-ab
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Lean definitions of secularGamma, secularRoot, secularEccVector, keplerMeanLongitude, longitudeJacobian, secularAxis (planeDot, orbitalUnit)
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:d25. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: w in O_2; i<2
 SOURCE_CONCLUSION: the Lean definitions are Gamma=R(eta,xi), k=1-Gamma/Lambda, v=sqrt((1-Gamma/(2Lambda))/Lambda)(xi,eta), Phi(F,v), J=1-v.(cos F,sin F), a=(Lambda/m)^2; hence (a),(b)
 CONSTANT_SCOPE: none
@@ -1338,7 +1364,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:o-facts, bpP:p7:regular-kepler, bpP:p7:poincare-def, bpP:p14:sb-conv#secularGamma, bpP:p14:sb-conv#secularRoot, bpP:p14:sb-conv#secularEccVector, bpP:p14:sb-conv#secularAxis, bpP:p14:sb-defs#longitudeJacobian, bpP:p0:plane#planeDot, bpP:p14:sb-conv#orbitalUnit
+DEPS: bpP:p7:o-facts, bpP:p7:regular-kepler, bpP:p7:poincare-def, bpP:p14:sb-conv#secularGamma, bpP:p14:sb-conv#secularRoot, bpP:p14:sb-conv#secularEccVector, bpP:p14:sb-conv#secularAxis, bpP:p14:sb-defs#longitudeJacobian, bpP:p0:plane#planeDot, bpP:p14:sb-conv#orbitalUnit, bpP:p7:product-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:o-facts | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-ab@L260-L260 | k in (0,1], l(v)^2=1-k^2
@@ -1351,8 +1377,9 @@ EDGE: bpP:p14:sb-conv#secularAxis | blueprint-P/parts/p7-kepler-poincare.tex#ste
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-ab@L260-L260 | longitudeJacobian
 EDGE: bpP:p0:plane#planeDot | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-ab@L260-L260 | planeDot
 EDGE: bpP:p14:sb-conv#orbitalUnit | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-ab@L260-L260 | orbitalUnit
+EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-ab@L260-L260 | uses the O_2 domain and product-chart notation in the statement
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1374,7 +1401,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare-def, stepP:p7:d25-ab, bpP:p7:regular-kepler, bpP:p14:sb-defs#ellipsePosition, bpP:p14:sb-defs#ellipseMomentum, bpP:p14:sb-defs#longitudeJacobian, bpP:p14:sb-conv#orbitalUnit
+DEPS: bpP:p7:poincare-def, stepP:p7:d25-ab, bpP:p7:regular-kepler, bpP:p14:sb-defs#ellipsePosition, bpP:p14:sb-defs#ellipseMomentum, bpP:p14:sb-defs#longitudeJacobian, bpP:p14:sb-conv#orbitalUnit, bpP:p7:product-def, bpP:p14:sb-defs#ellipsePhase
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-c@L261-L261 | q, p formulas
@@ -1384,8 +1411,10 @@ EDGE: bpP:p14:sb-defs#ellipsePosition | blueprint-P/parts/p7-kepler-poincare.tex
 EDGE: bpP:p14:sb-defs#ellipseMomentum | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-c@L261-L261 | ellipseMomentum
 EDGE: bpP:p14:sb-defs#longitudeJacobian | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-c@L261-L261 | longitudeJacobian
 EDGE: bpP:p14:sb-conv#orbitalUnit | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-c@L261-L261 | orbitalUnit
+EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-c@L261-L261 | uses the O_2 domain and product-chart notation in the statement
+EDGE: bpP:p14:sb-defs#ellipsePhase | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-c@L261-L261 | assembles the component identities into the ellipsePhase identity of clause (c)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1399,7 +1428,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L262
 CONTRACT_ID: stepP:p7:d25-d
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Theorem poincare(d) blockwise; Theorem product-chart(a) for the converse
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:d25; z=Psi^(2)(w) for the forward assertions; ProgradeElliptic(m,z) for the converse. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: w in O_2; i<2; z=Psi^(2)(w)
 SOURCE_CONCLUSION: ProgradeElliptic m z with the stated values of keplerEnergy, keplerAxis, keplerAction, planeCross, keplerEccVector; converse and uniqueness modulo lambda->lambda+2pi k
 CONSTANT_SCOPE: none
@@ -1407,7 +1436,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:poincare, bpP:p7:product-chart, stepP:p7:d25-ab, bpP:p0:d25-prograde#ProgradeElliptic, bpP:p0:d25-kepler#keplerEnergy, bpP:p0:d25-kepler#keplerAxis, bpP:p0:d25-kepler#keplerAction, bpP:p0:d25-kepler#keplerEccVector, bpP:p0:plane#planeLength, bpP:p7:product-def
+DEPS: bpP:p7:poincare, bpP:p7:product-chart, stepP:p7:d25-ab, bpP:p0:d25-prograde#ProgradeElliptic, bpP:p0:d25-kepler#keplerEnergy, bpP:p0:d25-kepler#keplerAxis, bpP:p0:d25-kepler#keplerAction, bpP:p0:d25-kepler#keplerEccVector, bpP:p0:plane#planeLength, bpP:p7:product-def, bpP:p0:d25-cross#planeCross
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:poincare | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L262 | (d): Psi(w) in K_{m_i,1}, E, a, action, LRL=v
@@ -1420,8 +1449,9 @@ EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p7-kepler-poincare.tex#
 EDGE: bpP:p0:d25-kepler#keplerEccVector | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L262 | keplerEccVector
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L262 | planeLength>0
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L262 | Psi^(2), K^(2)
+EDGE: bpP:p0:d25-cross#planeCross | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L262 | the physical angular-momentum identity uses the planar cross product
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1435,7 +1465,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-e@L263-L
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-e@L263-L263
 CONTRACT_ID: stepP:p7:d25-e
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Step po-del and Prop regular-kepler(c)
+SOURCE_HYPOTHESES: the fixed data and source premises of bpP:p7:d25; Gamma_i>0. Earlier proof facts and cited results are supplied through DEPS, not extra hypotheses.
 SOURCE_QUANTIFIERS: w in O_2 with Gamma_i>0
 SOURCE_CONCLUSION: (xi_i,eta_i)=rho_i e_{g_i}, F_i=g_i+u_i, lambda_i=ell_i+g_i
 CONSTANT_SCOPE: none
@@ -1443,13 +1473,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p7:po-del, bpP:p7:regular-kepler
+DEPS: stepP:p7:po-del, bpP:p7:regular-kepler, bpP:p7:product-def
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p7:po-del | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-e@L263-L263 | Delaunay correspondence on Gamma>0
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-e@L263-L263 | (c): F=g+u_R
+EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-e@L263-L263 | uses the O_2 domain and product-chart notation in the statement
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1471,7 +1502,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p0:plane#planeLength, bpP:p0:hamsymp#symplecticForm, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p0:d25-cross#planeCross, I:bpI:p7:orbit-maps, I:bpI:p7:symplectic
+DEPS: bpP:p0:plane#planeLength, bpP:p0:hamsymp#symplecticForm, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p0:d25-cross#planeCross, I:bpI:p7:orbit-maps, I:bpI:p7:symplectic, bpP:p0:oscaction#oscillatorAction, bpP:p14:sb-conv#quarterTurn
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L27-L27 | l is planeLength
@@ -1480,8 +1511,10 @@ EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p7-kepler-poinca
 EDGE: bpP:p0:d25-cross#planeCross | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L32-L32 | cr is planeCross
 EDGE: I:bpI:p7:orbit-maps | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L33-L33 | Delaunay map Q^I
 EDGE: I:bpI:p7:symplectic | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L33-L33 | (Q^I)^*(sum dq^dp)=dell^dL+dg^dG
+EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L29-L29 | Gamma=R(eta,xi) explicitly identifies the oscillator action
+EDGE: bpP:p14:sb-conv#quarterTurn | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L32-L32 | J_0 v=(-v_1,v_0) explicitly identifies quarterTurn
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7
+EXTRACTOR: sonnet-extract-P-p7+sol-review-P-i
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1509,10 +1542,98 @@ ROUTE_FOR: -
 EDGE: bpP:p0:blocks#assemble | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:sec-product#data@L188-L188 | fast block first: the order of assemble
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:sec-product#data@L188-L188 | w and (q,p) are points of Ph_{2n}
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:sec-product#data@L188-L188 | q^(i)=body(q,i)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: created from p7:prose-L188-L188 (SPEC section data); consumers: product-def, product-chart and its steps
+
+NODE: stepP:p7:po-el#circular
+KIND: step
+TITLE: Scalar circular endpoint identities
+STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158
+PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158
+CONTRACT_ID: stepP:p7:po-el#circular
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: m,kappa>0; w=(lambda,0,Lambda,0) in O; q,p=Psi_{m,kappa}(w)
+SOURCE_QUANTIFIERS: fixed m,kappa>0; every real lambda and Lambda>0
+SOURCE_CONCLUSION: q!=0, E_{m,kappa}(q,p)=-kappa^2 m^3/(2Lambda^2), cr(q,p)=Lambda>0, a(q,p)=Lambda^2/(m^2 kappa), and the physical action is Lambda
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: stepP:p7:po-el#circular-scaled, stepP:p7:po-el#circular-direct
+ROUTE_FOR: -
+EDGE: stepP:p7:po-el#circular-scaled | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | alternative scalar circular derivation explicitly offered at this line
+EDGE: stepP:p7:po-el#circular-direct | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | alternative scalar circular derivation explicitly offered at this line
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-P-i
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: covers only the scalar circular identities; the parent separately treats the LRL identity at L158-L159
+
+NODE: stepP:p7:po-el#circular-scaled
+KIND: route
+TITLE: Circular scalars from the scaled track-I endpoint
+STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158
+PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158
+CONTRACT_ID: stepP:p7:po-el#circular-scaled
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: m,kappa>0; w=(lambda,0,Lambda,0) in O; q,p=Psi_{m,kappa}(w)
+SOURCE_QUANTIFIERS: fixed m,kappa>0; every real lambda and Lambda>0
+SOURCE_CONCLUSION: q!=0, E_{m,kappa}(q,p)=-kappa^2 m^3/(2Lambda^2), cr(q,p)=Lambda>0, a(q,p)=Lambda^2/(m^2 kappa), and the physical action is Lambda
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: I:bpI:p7:circular, bpP:p7:kepler-data, bpP:p7:poincare-def, bpP:p7:regular-kepler, bpP:p7:conv#data
+ROUTES: -
+ROUTE_FOR: stepP:p7:po-el#circular
+EDGE: I:bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | e=0 scalar endpoint identities
+EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | the defining scale S_m,kappa and E,C,a,action formulas transport the circular endpoint by direct algebra
+EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | chart formulas at the circular point
+EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | F(lambda,0)=lambda
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | positive mass/strength and physical element conventions
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-P-i
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: covers only the scalar circular identities; the parent separately treats the LRL identity at L158-L159
+
+NODE: stepP:p7:po-el#circular-direct
+KIND: route
+TITLE: Circular scalars checked directly from clause (f)
+STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158
+PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158
+CONTRACT_ID: stepP:p7:po-el#circular-direct
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: m,kappa>0; w=(lambda,0,Lambda,0) in O; q,p=Psi_{m,kappa}(w)
+SOURCE_QUANTIFIERS: fixed m,kappa>0; every real lambda and Lambda>0
+SOURCE_CONCLUSION: q!=0, E_{m,kappa}(q,p)=-kappa^2 m^3/(2Lambda^2), cr(q,p)=Lambda>0, a(q,p)=Lambda^2/(m^2 kappa), and the physical action is Lambda
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: stepP:p7:po-circ, bpP:p7:kepler-data, bpP:p7:conv#data
+ROUTES: -
+ROUTE_FOR: stepP:p7:po-el#circular
+EDGE: stepP:p7:po-circ | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | explicit circular q,p formulas
+EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | definitions of E,C,a and action
+EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | positive mass/strength and physical element conventions
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-review-P-i
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: covers only the scalar circular identities; the parent separately treats the LRL identity at L158-L159

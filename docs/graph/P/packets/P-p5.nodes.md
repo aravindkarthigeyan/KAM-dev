@@ -1385,9 +1385,9 @@ EDGE: bpP:p5:phi-chart | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-L206 | 2r <= r_1 from r_* <= r_1/2
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-L206 | uses the parameter definitions (widths, scales, domain or shell) directly
 EDGE: bpP:p5:kam-hyp#C1 | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-L206 | C_R := 2^5 C_Q + 2 Lambda_P and the defining maximum give C_R coth(sigma_av/4)^n/(2 pi) <= C_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-delta-P-g
-REVIEWER: -
+REVIEWER: sol-delta2-P-b
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

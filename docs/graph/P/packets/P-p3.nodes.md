@@ -1165,9 +1165,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p3:constants | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:sum-radii@L15-L15 | rhohat_k<=rho_k from the definition of rhohat
 EDGE: bpP:p3:seq | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:sum-radii@L15-L15 | rho_k=rhohat_{k-1}/16 and s_k=s_{k-1}/12
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
-REVIEWER: -
+REVIEWER: sol-delta2-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1228,9 +1228,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p3:iterative | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:la-wp@L32-L32 | (i): ihat_j:D_{j-1}->D_j with omega_j o ihat_j=omega_{j-1}
 EDGE: bpP:p3:seq | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:la-wp@L32-L32 | Direct use of the numerical sequences or their initialization (D_0,rho_j,s_j,M_j,L_j,E_j).
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
-REVIEWER: -
+REVIEWER: sol-delta2-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1458,9 +1458,9 @@ EDGE: bpP:p3b#kam-bounds | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:pl
 EDGE: bpP:p3:constants | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:pl-lip@L58-L58 | Direct use of the constants package (L,K,rhohat,Ehat,chat or their indexed/initial values).
 EDGE: bpP:p3:seq | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:pl-lip@L58-L58 | Direct use of the numerical sequences or their initialization (D_0,rho_j,s_j,M_j,L_j,E_j).
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:pl-lip@L58-L58 | Direct use of Part 3 action neighbourhoods, Fourier/strip convention, blocks, symplectic form or Diophantine notation.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
-REVIEWER: -
+REVIEWER: sol-delta2-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1703,9 +1703,9 @@ EDGE: bpP:p3:limit-actions | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:
 EDGE: bpP:p3:limitmap#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lp-cauchy@L90-L90 | Phicheck, L_*
 EDGE: bpP:p3:constants | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lp-cauchy@L90-L90 | Direct use of the constants package (L,K,rhohat,Ehat,chat or their indexed/initial values).
 EDGE: bpP:p3:seq | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lp-cauchy@L90-L90 | Direct use of the numerical sequences or their initialization (D_0,rho_j,s_j,M_j,L_j,E_j).
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
-REVIEWER: -
+REVIEWER: sol-delta2-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1733,9 +1733,9 @@ EDGE: bpP:p3:iterative | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lp-p
 EDGE: stepP:p3:lp-cauchy | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lp-per@L92-L92 | (ii) the Lipschitz bound of Phicheck-id
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lp-per@L92-L92 | Direct use of Part 3 action neighbourhoods, Fourier/strip convention, blocks, symplectic form or Diophantine notation.
 EDGE: bpP:p3:limitmap#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lp-per@L92-L92 | Direct use of S, checked maps or the rescaled norm.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
-REVIEWER: -
+REVIEWER: sol-delta2-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1959,9 +1959,9 @@ EDGE: bpP:p3:iterative | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lg-j
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lg-j@L121-L121 | Direct use of Part 3 action neighbourhoods, Fourier/strip convention, blocks, symplectic form or Diophantine notation.
 EDGE: bpP:p3:tori#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lg-j@L121-L121 | Direct use of I_0(omega),I_*(omega) or phi_omega from the tori data.
 EDGE: bpP:p3:limit-actions | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lg-j@L121-L121 | I_* in D_* lies in (D_j)_{rho_j/2} by (ii), so the symplectic map Phi_j can be evaluated at (I_*,theta).
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
-REVIEWER: -
+REVIEWER: sol-delta2-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1991,9 +1991,9 @@ EDGE: bpP:p3:fourier-compact | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p
 EDGE: stepP:p3:lg-j | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lg-lim@L123-L123 | Omega_j=0 for each j
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lg-lim@L123-L123 | Direct use of Part 3 action neighbourhoods, Fourier/strip convention, blocks, symplectic form or Diophantine notation.
 EDGE: bpP:p3:tori#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:lg-lim@L123-L123 | Direct use of I_0(omega),I_*(omega) or phi_omega from the tori data.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
-REVIEWER: -
+REVIEWER: sol-delta2-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2046,14 +2046,15 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p3:iterative, bpP:p3:conv#data, bpP:p3:tori#data
+DEPS: bpP:p3:iterative, bpP:p3:conv#data, bpP:p3:tori#data, bpP:p3:limit-actions
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p3:iterative | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-conj@L133-L133 | Phi_j symplectic with H_j=H o Phi_j=h_j+f_j
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-conj@L133-L133 | Direct use of Part 3 action neighbourhoods, Fourier/strip convention, blocks, symplectic form or Diophantine notation.
 EDGE: bpP:p3:tori#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-conj@L133-L133 | Direct use of I_0(omega),I_*(omega) or phi_omega from the tori data.
+EDGE: bpP:p3:limit-actions | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-conj@L134-L134 | Limit-actions(ii) puts I_* in (D_j)_{rho_j/2}, hence (I_*,theta_t) in W_j, where Phi_j and D Phi_j and the conjugation identity are defined.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
+EXTRACTOR: sonnet-extract-P-p3+sol-delta2-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2142,7 +2143,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p3:limit-phi, stepP:p3:inv-err, K:bp:p1:cauchy-open, bpP:p3:limitmap#data, bpP:p3b#kam-bounds, bpP:p3:constants, bpP:p3:seq, bpP:p3:conv#data, bpP:p3:tori#data, K:bp:p1:ext-mvt
+DEPS: bpP:p3:limit-phi, stepP:p3:inv-err, K:bp:p1:cauchy-open, bpP:p3:limitmap#data, bpP:p3b#kam-bounds, bpP:p3:constants, bpP:p3:seq, bpP:p3:conv#data, bpP:p3:tori#data, K:bp:p1:ext-mvt, bpP:p3:estimates
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p3:limit-phi | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-lim@L143-L143 | Phi_j->Phi uniformly (delta_j->0)
@@ -2155,8 +2156,9 @@ EDGE: bpP:p3:seq | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-lim@L1
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-lim@L143-L143 | Direct use of Part 3 action neighbourhoods, Fourier/strip convention, blocks, symplectic form or Diophantine notation.
 EDGE: bpP:p3:tori#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-lim@L143-L143 | Direct use of I_0(omega),I_*(omega) or phi_omega from the tori data.
 EDGE: K:bp:p1:ext-mvt | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-lim@L143-L143 | L143 bounds X_H(gamma_j)-X_H(gamma) on the nearby real segment.
+EDGE: bpP:p3:estimates | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:inv-lim@L143-L143 | The location conclusion gives the action of gamma(t) in Re(D_r); with r<=rho/4 this supplies the base point for the nearby-segment inclusion in D_{rho/2}.
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
+EXTRACTOR: sonnet-extract-P-p3+sol-delta2-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -2486,9 +2488,9 @@ EDGE: bpP:p3:constants | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:mt-p
 EDGE: bpP:p3:seq | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:mt-pre@L182-L182 | Direct use of the numerical sequences or their initialization (D_0,rho_j,s_j,M_j,L_j,E_j).
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:mt-pre@L182-L182 | Direct use of Part 3 action neighbourhoods, Fourier/strip convention, blocks, symplectic form or Diophantine notation.
 EDGE: bpP:p3:limitmap#data | blueprint-P/parts/p3b-two-scale-limit.tex#stepP:p3:mt-pre@L182-L182 | The definition S(I,theta)=(I/rhohat_0,2 pi theta/s_0) converts the scaled inverse-displacement estimate to the action and angle bounds.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3+sol-delta-P-e
-REVIEWER: -
+REVIEWER: sol-delta2-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

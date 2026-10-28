@@ -410,7 +410,7 @@ DISPOSITION: NODE stepP:p5:kh-f
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5
-REVIEWER: sol-delta-P-g
+REVIEWER: sol-delta2-P-b
 
 ITEM: stepP:p5:kh-norm
 KIND: proof-region

@@ -536,7 +536,7 @@ DISPOSITION: NODE stepP:p3:sum-radii
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta2-P-c
 
 ITEM: bpP:p3:limit-actions
 KIND: lemma
@@ -554,7 +554,7 @@ DISPOSITION: NODE stepP:p3:la-wp
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta2-P-c
 
 ITEM: stepP:p3:la-tele
 KIND: proof-region
@@ -617,7 +617,7 @@ DISPOSITION: NODE stepP:p3:pl-lip
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta2-P-c
 
 ITEM: stepP:p3:pl-sum
 KIND: proof-region
@@ -689,7 +689,7 @@ DISPOSITION: NODE stepP:p3:lp-cauchy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta2-P-c
 
 ITEM: stepP:p3:lp-per
 KIND: proof-region
@@ -698,7 +698,7 @@ DISPOSITION: NODE stepP:p3:lp-per
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta2-P-c
 
 ITEM: stepP:p3:lp-an
 KIND: proof-region
@@ -761,7 +761,7 @@ DISPOSITION: NODE stepP:p3:lg-j
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta2-P-c
 
 ITEM: stepP:p3:lg-lim
 KIND: proof-region
@@ -770,7 +770,7 @@ DISPOSITION: NODE stepP:p3:lg-lim
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta2-P-c
 
 ITEM: bpP:p3:invariance
 KIND: lemma
@@ -914,7 +914,7 @@ DISPOSITION: NODE stepP:p3:mt-pre
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p3
-REVIEWER: sol-delta-P-e
+REVIEWER: sol-delta2-P-c
 
 ITEM: stepP:p3:mt-meas
 KIND: proof-region

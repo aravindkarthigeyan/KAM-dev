@@ -3,9 +3,9 @@ KIND: external
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:e-ift@L37-L38
 DISPOSITION: NODE bpP:p7:e-ift
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: bpP:p7:e-hol
 KIND: external
@@ -39,9 +39,9 @@ KIND: external
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:e-dense@L42-L42
 DISPOSITION: NODE bpP:p7:e-dense
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: bpP:p7:e-cov
 KIND: external
@@ -57,27 +57,27 @@ KIND: external
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:e-comp@L44-L44
 DISPOSITION: NODE bpP:p7:e-comp
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: bpP:p7:kepler-data
 KIND: definition
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler-data@L49-L58
 DISPOSITION: NODE bpP:p7:kepler-data
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: bpP:p7:range
 KIND: lemma
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:range@L60-L62
 DISPOSITION: NODE bpP:p7:range
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: stepP:p7:rg-scale
 KIND: proof-region
@@ -102,9 +102,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:kepler@L69-L81
 DISPOSITION: NODE bpP:p7:kepler
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: stepP:p7:ke-chart
 KIND: proof-region
@@ -183,9 +183,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rk-contr@L112-L112
 DISPOSITION: NODE stepP:p7:rk-contr
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: stepP:p7:rk-hol
 KIND: proof-region
@@ -210,9 +210,9 @@ KIND: definition
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:poincare-def@L119-L129
 DISPOSITION: NODE bpP:p7:poincare-def
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: bpP:p7:o-facts
 KIND: lemma
@@ -300,18 +300,18 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:holomorphic@L166-L170
 DISPOSITION: NODE bpP:p7:holomorphic
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: stepP:p7:ho-size
 KIND: proof-region
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-size@L172-L172
 DISPOSITION: NODE stepP:p7:ho-size
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: stepP:p7:ho-hol
 KIND: proof-region
@@ -345,9 +345,9 @@ KIND: definition
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:product-def@L190-L192
 DISPOSITION: NODE bpP:p7:product-def
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: bpP:p7:product-chart
 KIND: theorem
@@ -397,8 +397,8 @@ REVIEWER: -
 ITEM: bpP:p7:same-chart
 KIND: claim
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:same-chart@L211-L213
-DISPOSITION: NODE bpP:p7:same-chart
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: outside every root closure of track P. Check: no packet DEPS consumes this remark; its only citation from another corpus part is P14a L339 in Deviations. Other occurrences are self/provenance/forward-reference prose. The mathematical splitting/shared-chart facts are carried by Part 6 and product-chart.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p7
 REVIEWER: -
@@ -480,9 +480,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:d25@L247-L258
 DISPOSITION: NODE bpP:p7:d25
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: -
+REVIEWER: sol-review-P-i
 
 ITEM: stepP:p7:d25-ab
 KIND: proof-region
@@ -533,7 +533,7 @@ ITEM: stepP:p7:av-cov
 KIND: proof-region
 SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:av-cov@L273-L273
 DISPOSITION: EXCLUDED
-REASON: proof step of bpP:p7:average (excluded: outside every root closure of track P); the unlabelled proofstep Means at L273 (Means) is part of the same excluded proof
+REASON: proof step of bpP:p7:average, excluded as outside every root closure under the writer ruling. The separately labelled stepP:p7:av-mean at L273 is also inventoried and excluded with this corollary.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p7
 REVIEWER: -
@@ -779,4 +779,13 @@ DISPOSITION: EXCLUDED
 REASON: label index: administrative
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p7
+REVIEWER: -
+
+ITEM: stepP:p7:av-mean
+KIND: step
+SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:av-mean@L273-L273
+DISPOSITION: EXCLUDED
+REASON: proof step of bpP:p7:average, outside every root closure under the writer ruling. It derives the same excluded mean-value claims from kepler(c) and the circular endpoint. No corpus proof outside that excluded unit consumes this step.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-P-i
 REVIEWER: -

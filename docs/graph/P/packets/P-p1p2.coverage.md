@@ -725,7 +725,7 @@ DISPOSITION: NODE stepP:p2:nfb-N
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: sol-delta-P-d
+REVIEWER: sol-delta2-P-b
 
 ITEM: stepP:p2:nfb-ind
 KIND: proof-region
@@ -743,7 +743,7 @@ DISPOSITION: NODE stepP:p2:nfb-concl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p1p2
-REVIEWER: sol-delta-P-d
+REVIEWER: sol-delta2-P-b
 
 ITEM: stepP:p2:nfb-disp
 KIND: proof-region

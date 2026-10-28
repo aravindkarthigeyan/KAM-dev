@@ -3,81 +3,81 @@ KIND: external
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-chain@L28-L28
 DISPOSITION: NODE bpP:p6:ext-chain
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: bpP:p6:ext-sqrt
 KIND: external
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-sqrt@L29-L29
 DISPOSITION: NODE bpP:p6:ext-sqrt
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: bpP:p6:ext-top
 KIND: external
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-top@L30-L30
 DISPOSITION: NODE bpP:p6:ext-top
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: bpP:p6:ext-sum
 KIND: external
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-sum@L31-L31
 DISPOSITION: NODE bpP:p6:ext-sum
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: bpP:p6:ext-tri
 KIND: external
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-tri@L32-L32
 DISPOSITION: NODE bpP:p6:ext-tri
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: bpP:p6:ext-meas
 KIND: external
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:ext-meas@L33-L33
 DISPOSITION: NODE bpP:p6:ext-meas
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: bpP:p6:plane
 KIND: lemma
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:plane@L38-L45
 DISPOSITION: NODE bpP:p6:plane
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: stepP:p6:pl-a
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:pl-a@L47-L47
 DISPOSITION: NODE stepP:p6:pl-a
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: stepP:p6:pl-b
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:pl-b@L48-L48
 DISPOSITION: NODE stepP:p6:pl-b
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: stepP:p6:pl-c
 KIND: proof-region
@@ -93,9 +93,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:domain@L54-L56
 DISPOSITION: NODE bpP:p6:domain
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: stepP:p6:dom-open
 KIND: proof-region
@@ -120,9 +120,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:split@L62-L67
 DISPOSITION: NODE bpP:p6:split
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: stepP:p6:sp-alg
 KIND: proof-region
@@ -147,18 +147,18 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:action-reaction@L75-L77
 DISPOSITION: NODE bpP:p6:action-reaction
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: bpP:p6:hamilton-eqs
 KIND: proposition
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:hamilton-eqs@L82-L92
 DISPOSITION: NODE bpP:p6:hamilton-eqs
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: stepP:p6:he-dir
 KIND: proof-region
@@ -246,9 +246,9 @@ KIND: lemma
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:bary-algebra@L138-L146
 DISPOSITION: NODE bpP:p6:bary-algebra
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: stepP:p6:ba-ab
 KIND: proof-region
@@ -282,9 +282,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:reconstruction@L153-L168
 DISPOSITION: NODE bpP:p6:reconstruction
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: stepP:p6:rc-coords
 KIND: proof-region
@@ -480,9 +480,9 @@ KIND: corollary
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:newton-in-tube@L240-L242
 DISPOSITION: NODE bpP:p6:newton-in-tube
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: bpP:p6:measure-positive
 KIND: lemma
@@ -515,7 +515,7 @@ ITEM: bpP:p6:mp-use
 KIND: claim
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:mp-use@L260-L262
 DISPOSITION: EXCLUDED
-REASON: "Use" remark (pointer to Part 11 and the chart-level torus union); administrative; no proof cites bpP:p6:mp-use (grep). Its edge to bpP:p1:measure-use (excluded as administrative by P-p1p2) is dropped; the consumed facts bpP:p1:torus-union and bpP:p1:liouville-lattice are linked from bpP:p6:measure-positive
+REASON: administrative Use remark, a downstream pointer; no proof consumes a fact beyond measure-positive and its suppliers. No torus-union edge is asserted for measure-positive merely because this remark mentions it
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
@@ -525,9 +525,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:movkol-assembly@L266-L273
 DISPOSITION: NODE bpP:p6:movkol-assembly
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p6
-REVIEWER: -
+REVIEWER: sol-review-P-h
 
 ITEM: stepP:p6:ma-tube
 KIND: proof-region
@@ -713,7 +713,7 @@ ITEM: p6:prose-L20-L24
 KIND: proof-region
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#prose@L20-L24
 DISPOSITION: NODE bpP:p6:conv#data
-REASON: conventions of Part 6 (n, G, m0, m_i, mu, eps, l, W, g_i, f_i, indexing): created as definition node bpP:p6:conv#data; consumers are linked
+REASON: conventions and section data map to bpP:p6:conv#data; the missing consumer edges are supplied by the R1 replacement node blocks in this review
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
@@ -790,3 +790,29 @@ COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p6
 REVIEWER: -
 
+ITEM: stepP:p6:re-b
+KIND: proof-region
+SOURCE: blueprint-P/parts/p6-newtonian-models.tex#stepP:p6:re-b@L125-L127
+DISPOSITION: EXCLUDED
+REASON: proof step (b) of bpP:p6:reduction, outside every root closure of track P; same exclusion as re-a and re-c. This labelled step starts on the same physical line as re-a and is inventoried separately.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p6
+REVIEWER: -
+
+ITEM: p6:a-max-L212
+KIND: proof-region
+SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:tube-constants#a-max@L212-L212
+DISPOSITION: NODE bpP:p6:tube-constants#a-max
+REASON: R5: inventory the reused maximum subdefinition separately from distinct-axis geometry
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p6
+REVIEWER: -
+
+ITEM: p6:real-eps-bridge-L191
+KIND: proof-region
+SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:reconstruction-fixed#real-eps@L191-L191
+DISPOSITION: NODE bpP:p6:reconstruction-fixed#real-eps
+REASON: R4: inventory the unmet arbitrary-real-eps application premise
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sonnet-extract-P-p6
+REVIEWER: -
