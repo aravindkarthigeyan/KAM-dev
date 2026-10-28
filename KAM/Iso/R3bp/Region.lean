@@ -75,7 +75,7 @@ def actionRegionCl (aMinus aPlus eMinus ePlus : ℝ) : Set (Fin 2 → ℝ) :=
 
 theorem kappa_nonneg (e : ℝ) : 0 ≤ kappa e := Real.sqrt_nonneg _
 
-theorem kappa_mem_Icc {e : ℝ} (he : e ∈ Icc (0 : ℝ) 1) : kappa e ∈ Icc (0 : ℝ) 1 := by
+theorem kappa_mem_Icc (e : ℝ) : kappa e ∈ Icc (0 : ℝ) 1 := by
   refine ⟨kappa_nonneg e, ?_⟩
   unfold kappa
   rw [Real.sqrt_le_one]
@@ -121,14 +121,14 @@ theorem eccOf_mem_Ioo_iff {L G e' e'' : ℝ} (hL : 0 < L) (hG : 0 < G) (hGL : G 
     (he' : 0 ≤ e') (hee : e' < e'') (he'' : e'' < 1) :
     (e' < eccOf L G ∧ eccOf L G < e'') ↔ kappa e'' * L < G ∧ G < kappa e' * L := by
   have hx := div_mem_Icc hL hG hGL
-  have hk := kappa_mem_Icc hx
+  have hk := kappa_mem_Icc (G / L)
   have h1 : e' ∈ Icc (0 : ℝ) 1 := ⟨he', by linarith⟩
   have h2 : e'' ∈ Icc (0 : ℝ) 1 := ⟨he'.trans hee.le, he''.le⟩
   rw [eccOf_eq_kappa, ← lt_div_iff₀ hL, ← div_lt_iff₀ hL]
   have hA : e' < kappa (G / L) ↔ G / L < kappa e' := by
-    rw [← kappa_strictAntiOn.lt_iff_lt hk h1, kappa_kappa hx]
+    rw [← kappa_strictAntiOn.lt_iff_gt hk h1, kappa_kappa hx]
   have hB : kappa (G / L) < e'' ↔ kappa e'' < G / L := by
-    rw [← kappa_strictAntiOn.lt_iff_lt h2 hk, kappa_kappa hx]
+    rw [← kappa_strictAntiOn.lt_iff_gt h2 hk, kappa_kappa hx]
   rw [hA, hB, and_comm]
 
 /-- `bpI:p8:e-vs-k`, closed form. -/
@@ -136,7 +136,7 @@ theorem eccOf_mem_Icc_iff {L G e' e'' : ℝ} (hL : 0 < L) (hG : 0 < G) (hGL : G 
     (he' : 0 ≤ e') (hee : e' < e'') (he'' : e'' < 1) :
     (e' ≤ eccOf L G ∧ eccOf L G ≤ e'') ↔ kappa e'' * L ≤ G ∧ G ≤ kappa e' * L := by
   have hx := div_mem_Icc hL hG hGL
-  have hk := kappa_mem_Icc hx
+  have hk := kappa_mem_Icc (G / L)
   have h1 : e' ∈ Icc (0 : ℝ) 1 := ⟨he', by linarith⟩
   have h2 : e'' ∈ Icc (0 : ℝ) 1 := ⟨he'.trans hee.le, he''.le⟩
   rw [eccOf_eq_kappa, ← le_div_iff₀ hL, ← div_le_iff₀ hL]
@@ -190,7 +190,7 @@ theorem isCompact_actionRegionCl (am ap em ep : ℝ) : IsCompact (actionRegionCl
 
 theorem closure_actionRegion_subset (am ap em ep : ℝ) :
     closure (actionRegion am ap em ep) ⊆ actionRegionCl am ap em ep :=
-  closure_minimal (fun x hx => ⟨hx.1.le, hx.2.1.le, hx.2.2.1.le, hx.2.2.2.le⟩)
+  closure_minimal (fun _ hx => ⟨hx.1.le, hx.2.1.le, hx.2.2.1.le, hx.2.2.2.le⟩)
     (isClosed_actionRegionCl am ap em ep)
 
 /-! ### The near-circular set -/
@@ -255,12 +255,13 @@ theorem nearCircular_nonempty {am ap em ep : ℝ} (hp : RegionParams am ap em ep
   have hk1 : kappa ep < kappa e := kappa_strictAntiOn heIcc hepIcc (by rw [hedef]; linarith)
   have hk2 : kappa e < kappa em := kappa_strictAntiOn hemIcc heIcc (by rw [hedef]; linarith)
   have hmem : (![L, L * kappa e] : Fin 2 → ℝ) ∈ actionRegion am ap em ep := by
-    refine ⟨?_, ?_, ?_, ?_⟩
-    · simpa using Real.sqrt_lt_sqrt ham.le (by linarith : am < (am + ap) / 2)
-    · simpa using Real.sqrt_lt_sqrt (by linarith : 0 ≤ (am + ap) / 2)
-        (by linarith : (am + ap) / 2 < ap)
-    · simpa [mul_comm] using mul_lt_mul_of_pos_left hk1 hL
-    · simpa [mul_comm] using mul_lt_mul_of_pos_left hk2 hL
+    have hLlo : Real.sqrt am < L := Real.sqrt_lt_sqrt ham.le (by linarith)
+    have hLhi : L < Real.sqrt ap := Real.sqrt_lt_sqrt (by linarith) (by linarith)
+    have h3 : kappa ep * L < L * kappa e := by
+      rw [mul_comm]; exact mul_lt_mul_of_pos_left hk1 hL
+    have h4 : L * kappa e < kappa em * L := by
+      rw [mul_comm (kappa em) L]; exact mul_lt_mul_of_pos_left hk2 hL
+    exact ⟨hLlo, hLhi, h3, h4⟩
   rw [nearCircular_eq_image_region hp]
   exact ⟨_, (0, ![L, L * kappa e]), hmem, rfl⟩
 
