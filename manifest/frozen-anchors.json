@@ -931,7 +931,7 @@
     "module": "KAM.Provider.KamPositiveMeasureQualitative",
     "export": "KAM.Provider.kam_positive_measure_qualitative"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "07c696d5fb6426eae7d3434d764cf37fe529691cfaaf6c69a6ad687426cc6dce",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {

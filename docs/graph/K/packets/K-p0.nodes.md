@@ -602,9 +602,9 @@ EDGE: bp:p0:nearlyintegrable#frequencyMap | blueprint/parts/p0-conventions.tex#b
 TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-K-p0+sol-review-r1
 REVIEWER: sol-review-r3
-LEAN_STATUS: NOT_STARTED
-LEAN_REF: -
-LEAN_NOTE: conditional assembly KAM.Head.headq_of_head (HEAD conclusion → HEAD-Q conclusion) proved and audited (docs/campaign/audits/P4-Q-audit-1.md, PASS); the anchor stays open until HEAD is proved and the provider sealed
+LEAN_STATUS: PROVED
+LEAN_REF: KAM.kam_positive_measure_qualitative (SEALED: by exact KAM.Provider.kam_positive_measure_qualitative …; provider = KAM.Head.headq_of_head applied to the sealed HEAD)
+LEAN_NOTE: SEALED 2026-10-28 (D26): provider package P4-S2 (audit docs/campaign/audits/P4-S2-audit-1.md PASS, exact-type probe) on P4-Q (audit P4-Q-audit-1.md PASS); axioms propext/Classical.choice/Quot.sound; leanchecker replay of the frozen module, provider and KAM.Head.HeadQ exit 0
 NOTE: -
 
 NODE: bp:p0:g1

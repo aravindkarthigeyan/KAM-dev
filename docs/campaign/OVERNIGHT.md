@@ -122,6 +122,23 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
 - **Next:** P4-S2, the HEAD-Q provider, is running. After its audit, HEAD-Q is sealed, and every frozen theorem of
   track K is then proved.
 
+### 00:15: HEAD-Q sealed; track K complete (orchestrator, Opus)
+- **HEAD-Q sealed.** `KAM.kam_positive_measure_qualitative` has the body `by exact
+  KAM.Provider.kam_positive_measure_qualitative …`.
+  - Audit: P4-S2 PASS, including the exact-type probe.
+  - Checks: axioms are standard only; leanchecker exits 0.
+- **All five track-K frozen theorems are now SEALED:**
+  - G3 (`volume_not_diophantine_le`);
+  - G2 (`local_uniqueness_flow`);
+  - G1 (`aposteriori_kam`);
+  - HEAD (`kam_positive_measure`);
+  - HEAD-Q (`kam_positive_measure_qualitative`).
+- **Graph K:** 430 PROVED, 12 BYPASSED (route substitutions, each with its reason), 11 EXTERNAL, 0 open.
+- **Incident:** main did not build for about 6 min (f8cdca0 to 0a81771). My line wrap of the sealed HEAD body had a
+  continuation indent below the tactic column. It is fixed; the term and hashes are unchanged.
+- **Also landed tonight:** I-STRIP-2b (W-valued Fourier summation and uniform convergence). It closes the retro-audit
+  gaps in the co-author's scalar Fourier layer.
+
 ## Tracks I, N, P (sub-orchestrator, D23)
 
 - **21:15. No new freezes; packets only.** Nothing is pending owner approval from tracks I/N/P tonight (D25 and D28
