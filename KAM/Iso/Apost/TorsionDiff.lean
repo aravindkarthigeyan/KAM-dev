@@ -300,6 +300,44 @@ theorem torsion_diff_arith (hP : Params n τ M σK σB σT) {δ d : ℝ} (hδ : 
   · nlinarith [mul_le_mul_of_nonneg_left h1 h8, mul_nonneg hCY hq]
   · nlinarith [mul_le_mul_of_nonneg_left h1 hCY, mul_nonneg hDT hq, mul_nonneg h8 hq]
 
+/-- The energy-row estimate of step `to-row`: `2𝔪² (M d) + (C_ΔN d/δ) M ≤ C_Y d/δ`
+(`M ≤ 𝔪`, `n ≥ 1`, `δ ≤ 1`). -/
+theorem energy_row_arith (hP : Params n τ M σK σB σT) {δ d : ℝ} (hδ : 0 < δ) (hδ1 : δ ≤ 1)
+    (hd : 0 ≤ d) :
+    2 * mSize M σK σB σT ^ 2 * (M * d) + C_DN n M σK σB σT * d / δ * M ≤
+      CY n M σK σB σT * d / δ := by
+  have hM : M ≤ mSize M σK σB σT := M_le_mSize
+  have hM0 : 0 ≤ M := hP.M_pos.le
+  have hm : 1 ≤ mSize M σK σB σT := one_le_mSize
+  have hn := hP.one_le_cast
+  have hDN : 0 ≤ C_DN n M σK σB σT := zero_le_one.trans (one_le_C_DN hP)
+  have hp : 0 ≤ d / δ := div_nonneg hd hδ.le
+  have h1 : d ≤ d / δ := by
+    rw [le_div_iff₀ hδ]
+    nlinarith
+  have e1 : C_DN n M σK σB σT * d / δ * M = C_DN n M σK σB σT * M * (d / δ) := by ring
+  have e2 : CY n M σK σB σT * d / δ =
+      n * mSize M σK σB σT * (2 * mSize M σK σB σT ^ 2 + C_DN n M σK σB σT) * (d / δ) := by
+    unfold CY
+    ring
+  rw [e1, e2]
+  have hm0 : 0 ≤ mSize M σK σB σT := zero_le_one.trans hm
+  have h2 : 2 * mSize M σK σB σT ^ 2 * (M * d) ≤ 2 * mSize M σK σB σT ^ 2 * M * (d / δ) := by
+    have := mul_le_mul_of_nonneg_left h1 (by positivity : 0 ≤ 2 * mSize M σK σB σT ^ 2 * M)
+    nlinarith
+  have h3 : 2 * mSize M σK σB σT ^ 2 * M * (d / δ) + C_DN n M σK σB σT * M * (d / δ) ≤
+      n * mSize M σK σB σT * (2 * mSize M σK σB σT ^ 2 + C_DN n M σK σB σT) * (d / δ) := by
+    have hnm : mSize M σK σB σT ≤ n * mSize M σK σB σT := by nlinarith
+    have hc : 0 ≤ 2 * mSize M σK σB σT ^ 2 + C_DN n M σK σB σT := by positivity
+    calc 2 * mSize M σK σB σT ^ 2 * M * (d / δ) + C_DN n M σK σB σT * M * (d / δ)
+        = (2 * mSize M σK σB σT ^ 2 + C_DN n M σK σB σT) * M * (d / δ) := by ring
+      _ ≤ (2 * mSize M σK σB σT ^ 2 + C_DN n M σK σB σT) * mSize M σK σB σT * (d / δ) := by
+          gcongr
+      _ ≤ (2 * mSize M σK σB σT ^ 2 + C_DN n M σK σB σT) * (n * mSize M σK σB σT) * (d / δ) := by
+          gcongr
+      _ = _ := by ring
+  linarith
+
 end Arith
 
 end TorsionDiff
