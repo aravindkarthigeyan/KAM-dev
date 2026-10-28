@@ -342,7 +342,8 @@ private theorem sy_delaunayMK_eq {m κ : ℝ} (hm : 0 < m) {ℓ g Λ Γ : ℝ} (
 private theorem sy_planeSq_smul (c : ℝ) (v : Fin 2 → ℝ) : planeSq (c • v) = c ^ 2 * planeSq v := by
   simp only [sy_planeSq, Pi.smul_apply, smul_eq_mul]; ring
 
-private theorem sy_planeLength_unit (x : ℝ) : planeLength (![Real.cos x, Real.sin x] : Fin 2 → ℝ) = 1 := by
+private theorem sy_planeLength_unit (x : ℝ) :
+    planeLength (![Real.cos x, Real.sin x] : Fin 2 → ℝ) = 1 := by
   simp [planeLength, sy_planeSq, Real.cos_sq_add_sin_sq]
 
 private theorem sy_planeSq_unit (x : ℝ) : planeSq (![-Real.sin x, Real.cos x] : Fin 2 → ℝ) = 1 := by
@@ -367,10 +368,12 @@ theorem poincare_means {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2} (h
   rcases hΓ0.eq_or_lt with hΓ | hΓ
   · -- the circular torus
     have h1 : w.1 1 = 0 := by
-      have : w.1 1 ^ 2 = 0 := by unfold poincareGamma at hΓ; nlinarith [sq_nonneg (w.1 1), sq_nonneg (w.2 1)]
+      have : w.1 1 ^ 2 = 0 := by
+        unfold poincareGamma at hΓ; nlinarith [sq_nonneg (w.1 1), sq_nonneg (w.2 1)]
       exact pow_eq_zero_iff two_ne_zero |>.1 this
     have h2 : w.2 1 = 0 := by
-      have : w.2 1 ^ 2 = 0 := by unfold poincareGamma at hΓ; nlinarith [sq_nonneg (w.1 1), sq_nonneg (w.2 1)]
+      have : w.2 1 ^ 2 = 0 := by
+        unfold poincareGamma at hΓ; nlinarith [sq_nonneg (w.1 1), sq_nonneg (w.2 1)]
       exact pow_eq_zero_iff two_ne_zero |>.1 this
     have hK : poincareK w = 1 := by unfold poincareK; rw [← hΓ]; simp
     have hpt : ∀ lam, pt lam = (a • (![Real.cos lam, Real.sin lam] : Fin 2 → ℝ),
@@ -413,7 +416,8 @@ theorem poincare_means {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {w : Phase 2} (h
     have hpt : ∀ lam, pt lam = scaleMK m κ
         (orbitMapR (lam - g) g (w.2 0 / m) (√(1 - (1 - Γ / w.2 0) ^ 2))) := by
       intro lam
-      have : pt lam = poincare m κ (![lam, √(2 * Γ) * Real.cos g], ![w.2 0, √(2 * Γ) * Real.sin g]) := by
+      have : pt lam = poincare m κ (![lam, √(2 * Γ) * Real.cos g],
+          ![w.2 0, √(2 * Γ) * Real.sin g]) := by
         show poincare m κ (![lam, w.1 1], w.2) = _
         congr 1
         refine Prod.ext (by rw [← hg1]) ?_
@@ -471,11 +475,13 @@ end Means
 
 section Polar
 
-/-- The polar parametrisation `((λ, ρ), (Λ, g)) ↦ ((λ, ρ cos g), (Λ, ρ sin g))` of the chart variables. -/
+/-- The polar parametrisation `((λ, ρ), (Λ, g)) ↦ ((λ, ρ cos g), (Λ, ρ sin g))` of the chart
+variables. -/
 private def sy_P (x : Phase 2) : Phase 2 :=
   (![x.1 0, x.1 1 * Real.cos (x.2 1)], ![x.2 0, x.1 1 * Real.sin (x.2 1)])
 
-/-- The Delaunay variables `((λ - g, g), (Λ, Λ - ρ²/2))` (written `ρ² * 2⁻¹`) in the polar parametrisation. -/
+/-- The Delaunay variables `((λ - g, g), (Λ, Λ - ρ²/2))` (written `ρ² * 2⁻¹`) in the polar
+parametrisation. -/
 private def sy_T (x : Phase 2) : Phase 2 :=
   (![x.1 0 - x.2 1, x.2 1], ![x.2 0, x.2 0 - x.1 1 ^ 2 * 2⁻¹])
 
@@ -502,14 +508,16 @@ private theorem sy_hasFDerivAt_mk4 {f0 f1 f2 f3 : Phase 2 → ℝ} {l0 l1 l2 l3 
     (h2 : HasFDerivAt f2 l2 x) (h3 : HasFDerivAt f3 l3 x) :
     HasFDerivAt (fun y => ((![f0 y, f1 y] : Fin 2 → ℝ), (![f2 y, f3 y] : Fin 2 → ℝ)))
       (sy_mk4 l0 l1 l2 l3) x := by
-  have hA : HasFDerivAt (fun y => (![f0 y, f1 y] : Fin 2 → ℝ)) (ContinuousLinearMap.pi ![l0, l1]) x := by
+  have hA : HasFDerivAt (fun y => (![f0 y, f1 y] : Fin 2 → ℝ))
+      (ContinuousLinearMap.pi ![l0, l1]) x := by
     have := (hasFDerivAt_pi (φ := ![f0, f1]) (φ' := ![l0, l1]) (x := x)).2 (by
       intro i; fin_cases i
       · exact h0
       · exact h1)
     convert this using 2 with y
     ext i; fin_cases i <;> rfl
-  have hB : HasFDerivAt (fun y => (![f2 y, f3 y] : Fin 2 → ℝ)) (ContinuousLinearMap.pi ![l2, l3]) x := by
+  have hB : HasFDerivAt (fun y => (![f2 y, f3 y] : Fin 2 → ℝ))
+      (ContinuousLinearMap.pi ![l2, l3]) x := by
     have := (hasFDerivAt_pi (φ := ![f2, f3]) (φ' := ![l2, l3]) (x := x)).2 (by
       intro i; fin_cases i
       · exact h2
@@ -661,7 +669,8 @@ theorem poincare_symplectic {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) :
   have hana := analyticOnNhd_poincare hm hκ
   have hcont : ContinuousOn (fun z => symplecticForm (fderiv ℝ (poincare m κ) z u)
       (fderiv ℝ (poincare m κ) z v)) poincareDom := by
-    have hc : ContinuousOn (fun z => fderiv ℝ (poincare m κ) z) poincareDom := hana.fderiv.continuousOn
+    have hc : ContinuousOn (fun z => fderiv ℝ (poincare m κ) z) poincareDom :=
+      hana.fderiv.continuousOn
     have h1 : ContinuousOn (fun z => fderiv ℝ (poincare m κ) z u) poincareDom :=
       hc.clm_apply continuousOn_const
     have h2 : ContinuousOn (fun z => fderiv ℝ (poincare m κ) z v) poincareDom :=
