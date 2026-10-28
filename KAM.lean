@@ -30,6 +30,7 @@ public import KAM.Canonical.FlowPicard
 public import KAM.Canonical.FlowPicardConverge
 public import KAM.Canonical.FlowRegular
 public import KAM.Canonical.FlowRegularIntegral
+public import KAM.Canonical.Lie
 public import KAM.Canonical.Setting
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
