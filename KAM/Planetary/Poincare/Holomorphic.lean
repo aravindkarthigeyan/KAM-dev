@@ -299,7 +299,94 @@ private theorem poincareC_periodic (m κ : ℝ) (hΛ : 0 < Λo) (hw : w ∈ poin
     unfold poincareC
     simp only [hV, hG, hF, Complex.cos_add_two_pi, Complex.sin_add_two_pi]
 
+private theorem real_dom (hΛ : 0 < Λo) {z : Phase 2} (hw : phaseToC z ∈ poincareNbhd Λo) :
+    z ∈ poincareDom := by
+  have hre := nbhd_re hw
+  have hg := nbhd_gamma hΛ hw
+  have e : poincareGammaC (phaseToC z) = ((poincareGamma z : ℝ) : ℂ) := by
+    simp [poincareGammaC, poincareGamma, phaseToC]
+  rw [e, Complex.norm_real, Real.norm_eq_abs] at hg
+  have hre' : Λo / 2 < z.2 0 := by simpa [phaseToC] using hre
+  exact ⟨by linarith, by linarith [le_abs_self (poincareGamma z)]⟩
+
+private theorem real_vc (hΛ : 0 < Λo) {z : Phase 2} (hw : phaseToC z ∈ poincareNbhd Λo) :
+    poincareVC (phaseToC z) = fun i => ((poincareV z i : ℝ) : ℂ) := by
+  have hd := real_dom hΛ hw
+  have hR := (poincare_facts hd).2.2.2.1
+  have e : (1 - poincareGammaC (phaseToC z) / (2 * (phaseToC z).2 0)) / (phaseToC z).2 0 =
+      (((1 - poincareGamma z / (2 * z.2 0)) / z.2 0 : ℝ) : ℂ) := by
+    simp [poincareGammaC, poincareGamma, phaseToC]
+  have e2 : (((1 - poincareGamma z / (2 * z.2 0)) / z.2 0 : ℝ) : ℂ) ^ (1 / 2 : ℂ) =
+      ((√((1 - poincareGamma z / (2 * z.2 0)) / z.2 0) : ℝ) : ℂ) := by
+    rw [Real.sqrt_eq_rpow]
+    have := Complex.ofReal_cpow hR.le (1 / 2)
+    have c : (((1 / 2 : ℝ)) : ℂ) = (1 / 2 : ℂ) := by push_cast; rfl
+    rw [c] at this
+    exact this.symm
+  have e3 : poincareVC (phaseToC z) =
+      ((√((1 - poincareGamma z / (2 * z.2 0)) / z.2 0) : ℝ) : ℂ) • ![(z.1 1 : ℂ), (z.2 1 : ℂ)] := by
+    unfold poincareVC
+    rw [e, e2]; rfl
+  rw [e3]
+  funext i
+  fin_cases i
+  · simp [poincareV]
+  · simp [poincareV]
+
+private theorem real_extends (m κ : ℝ) (hΛ : 0 < Λo) {z : Phase 2}
+    (hw : phaseToC z ∈ poincareNbhd Λo) :
+    poincareC m κ (phaseToC z) = phaseToC (poincare m κ z) := by
+  have hd := real_dom hΛ hw
+  have hv := real_vc hΛ hw
+  have ht := nbhd_mem_tube hΛ hw
+  have hl : planeLength (poincareV z) < 1 := (poincare_facts hd).2.2.2.2.2.1
+  have hF : keplerLongC ((phaseToC z).1 0, fun i => ((poincareV z i : ℝ) : ℂ)) =
+      ((poincareF z : ℝ) : ℂ) := by
+    refine keplerLongC_ofReal ?_ ?_
+    · simp
+    · have := ht.2
+      rw [hv] at this
+      simpa [Complex.norm_real] using this
+  have hne : z.2 0 ≠ 0 := hd.1.ne'
+  have hJ : keplerJac (poincareV z) (poincareF z) ≠ 0 := (keplerJac_pos hl _).ne'
+  have hk : 1 + poincareK z ≠ 0 := by
+    have := (poincare_facts hd).2.1; linarith
+  have hk' : (1 : ℂ) + (1 - (poincareGamma z : ℂ) / z.2 0) ≠ 0 := by
+    have := Complex.ofReal_ne_zero.2 hk
+    simpa [poincareK] using this
+  unfold poincareC
+  simp only [hv, hF]
+  have hG : poincareGammaC (phaseToC z) = ((poincareGamma z : ℝ) : ℂ) := by
+    simp [poincareGammaC, poincareGamma, phaseToC]
+  have hP : (phaseToC z).2 0 = ((z.2 0 : ℝ) : ℂ) := rfl
+  rw [hG, hP]
+  have hKc : (1 : ℂ) - (poincareGamma z : ℂ) / (z.2 0 : ℂ) = ((poincareK z : ℝ) : ℂ) := by
+    simp [poincareK]
+  rw [hKc]
+  refine Prod.ext (funext fun i => ?_) (funext fun i => ?_) <;> fin_cases i <;>
+    simp [phaseToC, poincare, planeDot, orbitalUnit, quarterTurn, keplerJac, Fin.sum_univ_two,
+      Matrix.vecHead, Matrix.vecTail]
+
 end Bounds
+
+/-- `bpP:p7:holomorphic` (the positivity hypotheses `hm`, `hκ` are part of the designed signature;
+the proof does not use them). -/
+theorem poincare_holomorphic {m κ Λo : ℝ} (hm : 0 < m) (hκ : 0 < κ) (hΛ : 0 < Λo) :
+    IsOpen (poincareNbhd Λo) ∧
+    (∀ w ∈ poincareNbhd Λo, (w.1 0, poincareVC w) ∈ regularTube ∧ w.2 0 ≠ 0 ∧
+      1 + (1 - poincareGammaC w / w.2 0) ≠ 0 ∧
+      1 - (poincareVC w 0 * Complex.cos (keplerLongC (w.1 0, poincareVC w)) +
+        poincareVC w 1 * Complex.sin (keplerLongC (w.1 0, poincareVC w))) ≠ 0) ∧
+    DifferentiableOn ℂ (poincareC m κ) (poincareNbhd Λo) ∧
+    (∀ w ∈ poincareNbhd Λo, (Function.update w.1 0 (w.1 0 + 2 * π), w.2) ∈ poincareNbhd Λo ∧
+      poincareC m κ (Function.update w.1 0 (w.1 0 + 2 * π), w.2) = poincareC m κ w) ∧
+    (∀ w : Phase 2, phaseToC w ∈ poincareNbhd Λo →
+      w ∈ poincareDom ∧ poincareC m κ (phaseToC w) = phaseToC (poincare m κ w)) :=
+  ⟨isOpen_poincareNbhd Λo,
+    fun _ hw => ⟨nbhd_mem_tube hΛ hw, nbhd_ne hΛ hw, nbhd_k_ne hΛ hw, nbhd_jac_ne hΛ hw⟩,
+    fun _ hw => (differentiableAt_poincareC m κ hΛ hw).differentiableWithinAt,
+    fun _ hw => poincareC_periodic m κ hΛ hw,
+    fun _ hw => ⟨real_dom hΛ hw, real_extends m κ hΛ hw⟩⟩
 
 end PoincareChart
 
