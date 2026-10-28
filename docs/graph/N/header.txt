@@ -7,5 +7,5 @@ EXTERNAL_POLICY: track-N external inputs are the labelled items of the parts' ex
 FROZEN_ANCHORS: bpN:p0:actionnbhd#actionNbhd, bpN:p0:freq#frequencyMap, bpN:p0:vf#hamiltonianVectorField, bpN:p0:realH#realHamiltonian, bpN:p0:strip#complexStrip, bpN:p0:ball#actionBall, bpN:p0:cdomain#complexDomain, bpN:p0:rdomain#realActionDomain, bpN:p0:realpart#realPart, bpN:p0:integrable#IsAnalyticIntegrable, bpN:p0:pert#IsAnalyticPerturbation, bpN:p0:bm#HasDerivativeBounds, bpN:p0:qc#IsStrictlyQuasiConvex, bpN:p0:hess#HasComplexHessianBound, bpN:p0:sol#IsSolutionOn, bpN:p0:orbit#integrableOrbit, bpN:p0:partial-sec#Phase, bpN:p0:partial-sec#fast, bpN:p0:partial-sec#slow, bpN:p0:partial-sec#fastShift, bpN:p0:partial-complexify#complexifyPhase, bpN:p0:partial-core#innerCore, bpN:p0:partial-domain#partialComplexDomain, bpN:p0:partial-definite#HasDefiniteFastPart, bpN:p0:partial-pert#IsPartialPerturbation, bpN:p0:partial-exponents#partialTimeExponent, bpN:p0:partial-exponents#partialDriftExponent, bpN:p0:partial-sec#degenerateHamiltonian, bpN:p0:head, bpN:p0:zero, bpN:p0:qcthm, bpN:p0:partial, bpN:p0:avg-rank#HasAveragingFrequencyRank, bpN:p0:avg-error#averagingError, bpN:p0:avg-mean, bpN:p0:avg-most
 FROZEN_MANIFEST: manifest/frozen-anchors.json | sha256:auto
 WRITER: claude-suborch-INP
-GLOBAL_REVIEWER: -
-GLOBAL_REVIEW_REF: -
+GLOBAL_REVIEWER: sol-global-N
+GLOBAL_REVIEW_REF: docs/graph/N/reviews/GLOBAL-review-3.md
