@@ -354,9 +354,9 @@ KIND: theorem
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L379-L388
 DISPOSITION: NODE bpP:p0:fixed
 REASON: root anchor P-FIXED (KAM.Planetary.fixedSunPlanetaryKAM), restored by the P-FIXED revision (2026-10-28): Parts 11, 11a-1..11a-5 and 13 are now in the corpus
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: -
+REVIEWER: sol-review-P-w
 
 ITEM: bpP:p0:scope
 KIND: claim
@@ -651,9 +651,9 @@ KIND: proof-region
 SOURCE: blueprint-P/parts/p0-conventions.tex#sourcegap@L386-L386
 DISPOSITION: NODE bpP:p13:fixed-hamiltonian-form, bpP:p8:identification, bpP:p10:good-point, bpP:p10:F-nonzero
 REASON: sourcegap of P-FIXED (P-FIXED revision 2026-10-28): the fixed-Sun secular identification is supplied by bpP:p13:fixed-hamiltonian-form (with Theorem bpP:p8:identification); the general-n induction of Fej04r Prop. 77 is Part 10's peeling induction, Theorems bpP:p10:good-point and bpP:p10:F-nonzero (Remark bpP:p13:consumed). Extractor/reviewer to confirm
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: -
+REVIEWER: sol-review-P-w
 
 ITEM: p0:source-L49
 KIND: citation

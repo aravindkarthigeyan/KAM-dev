@@ -2259,3 +2259,29 @@ LEAN_STATUS: EXTERNAL
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: IMPORTED: proved in the track-N graph, node bpN:p4:general-cauchy; shared Lean provider. There: KIND lemma, contract bpN:p4:general-cauchy v1. Cited as \Nref{bpN:p4:general-cauchy}.
+
+NODE: K:bp:p1:ext-integral
+KIND: external
+TITLE: [K] Integrals
+STATEMENT_SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L82-L86
+PROOF_SOURCE: -
+CONTRACT_ID: K:bp:p1:ext-integral
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: continuous function on a compact box; phi in C^1([a,b]); F W-valued with any norm on W; uniformly convergent series of continuous functions on a box; dominated convergence setting
+SOURCE_QUANTIFIERS: the objects named in each clause
+SOURCE_CONCLUSION: continuous function on a compact box is integrable and Fubini applies; int_a^b phi'=phi(b)-phi(a); |int F|<=int|F|; term-by-term integration of a uniformly convergent series of continuous functions on a box; dominated convergence theorem holds
+CONSTANT_SCOPE: none
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: -
+ROUTES: -
+ROUTE_FOR: -
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -
+LEAN_STATUS: EXTERNAL
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: IMPORTED: external input of the track-K graph, node bp:p1:ext-integral (Mathlib-level; not re-proved there either); shared Lean provider. There: KIND external, contract bp:p1:ext-integral v1.

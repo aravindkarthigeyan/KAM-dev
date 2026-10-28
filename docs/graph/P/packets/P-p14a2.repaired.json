@@ -1,5 +1,18 @@
 {
  "replaced": [
+  "stepP:p14:pt-rho",
+  "stepP:p14:pt-p3",
+  "stepP:p14:pt-neg",
+  "stepP:p14:st-sol",
+  "stepP:p14:es-axis",
+  "stepP:p14:es-assemble",
+  "bpP:p14:sec-domain#chart-facts",
+  "bpP:p14:sec-stopped#data"
+ ],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
   "stepP:p14:en-lim",
   "stepP:p14:en-choice",
   "stepP:p14:rd-o",
@@ -16,12 +29,9 @@
   "stepP:p14:tb-glue",
   "stepP:p14:tb-per",
   "stepP:p14:pt-input",
-  "stepP:p14:pt-rho",
   "stepP:p14:pt-def",
   "stepP:p14:pt-p12",
-  "stepP:p14:pt-p3",
   "stepP:p14:pt-p4",
-  "stepP:p14:pt-neg",
   "stepP:p14:ud-cell",
   "stepP:p14:ud-transl",
   "stepP:p14:li-init",
@@ -33,7 +43,6 @@
   "stepP:p14:hn-field",
   "stepP:p14:st-thr",
   "stepP:p14:st-seg",
-  "stepP:p14:st-sol",
   "stepP:p14:st-core",
   "stepP:p14:st-fwd",
   "stepP:p14:st-bwd",
@@ -41,27 +50,6 @@
   "stepP:p14:es-par",
   "stepP:p14:es-stop",
   "stepP:p14:es-amd",
-  "stepP:p14:es-axis",
-  "stepP:p14:es-assemble",
-  "bpP:p14:sec-domain#data",
-  "bpP:p14:sec-domain#chart-facts",
-  "bpP:p14:sec-stopped#data"
- ],
- "added": [],
- "items": [
-  "p14a:prose-L339-L339"
- ],
- "unresolved": {},
- "passes": [
-  "bpP:p14:enlarge",
-  "bpP:p14:real-domain",
-  "bpP:p14:tube",
-  "bpP:p14:perturbation",
-  "bpP:p14:uniform-data",
-  "bpP:p14:lift",
-  "bpP:p14:hnu",
-  "bpP:p14:stopped",
-  "bpP:p14:expsafe",
-  "stepP:p14:es-const"
+  "bpP:p14:sec-domain#data"
  ]
 }

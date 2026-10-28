@@ -1460,9 +1460,9 @@ EDGE: bpP:p7:product-chart | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-j
 EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | S_fix, S_mov analytic so derivatives exist
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | S_fix, S_mov, the slow variables and N_R(rho_*)
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#jets@L206-L206 | C_0 and Q_h in the common quadratic form
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-delta-P-j
-REVIEWER: -
+REVIEWER: sol-delta2-P-t
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1490,9 +1490,9 @@ EDGE: bpP:p8:identification | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-
 EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | definition of HasBirkhoff, clauses (i), (ii)
 EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | frozen average, I=Lambda
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p8-secular-form.tex#bpP:p8:same-jets#transfer@L206-L206 | dictionary (I,p,q)=(Lambda,eta,xi)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p8+sol-delta-P-j
-REVIEWER: -
+REVIEWER: sol-delta2-P-t
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

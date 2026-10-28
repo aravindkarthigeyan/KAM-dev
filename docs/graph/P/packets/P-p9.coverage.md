@@ -329,7 +329,7 @@ DISPOSITION: NODE stepP:p9:lift-mc
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: sol-delta-P-k
+REVIEWER: sol-delta2-P-t
 
 ITEM: stepP:p9:lift-concl
 KIND: proof-region
@@ -347,7 +347,7 @@ DISPOSITION: NODE bpP:p9:diagonalize
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: sol-delta-P-k
+REVIEWER: sol-delta2-P-t
 
 ITEM: stepP:p9:d-a
 KIND: proof-region
@@ -365,7 +365,7 @@ DISPOSITION: NODE stepP:p9:d-b
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: sol-delta-P-k
+REVIEWER: sol-delta2-P-t
 
 ITEM: stepP:p9:d-c
 KIND: proof-region
@@ -374,7 +374,7 @@ DISPOSITION: NODE stepP:p9:d-c
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9
-REVIEWER: sol-delta-P-k
+REVIEWER: sol-delta2-P-t
 
 ITEM: stepP:p9:d-d
 KIND: proof-region
@@ -392,7 +392,7 @@ DISPOSITION: NODE bpP:p9:dict
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Consumers: Part 11 L44 (Omega_j = 2 sigma_j in the data of section bpP:p11:sec-A; the P-p11 extractor links it) and bpP:p10:scaling (L192, restored). The node block was already in the packet.
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-delta-P-k
+REVIEWER: sol-delta2-P-t
 
 ITEM: bpP:p9:good
 KIND: definition

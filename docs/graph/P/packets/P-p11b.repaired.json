@@ -1,41 +1,10 @@
 {
- "replaced": [
-  "stepP:p11b:li-sum",
-  "stepP:p11b:bt-nf"
- ],
+ "replaced": [],
  "added": [],
  "items": [],
  "unresolved": {},
  "passes": [
-  "stepP:p11b:pj-bin",
-  "stepP:p11b:pj-avg",
-  "stepP:p11b:pj-red",
-  "stepP:p11b:pj-cons",
-  "bpP:p11b:char",
-  "bpP:p11b:homological",
-  "stepP:p11b:ho-eq",
-  "stepP:p11b:fl-bd",
-  "stepP:p11b:li-tay",
-  "stepP:p11b:li-ord",
-  "stepP:p11b:lm-prop",
-  "stepP:p11b:bf-gram",
-  "bpP:p11b:birkhoff-form",
-  "stepP:p11b:as-ent",
-  "bpP:p11b:patch",
-  "stepP:p11b:pj-bin",
-  "stepP:p11b:pj-avg",
-  "stepP:p11b:pj-red",
-  "stepP:p11b:pj-cons",
-  "bpP:p11b:char",
-  "bpP:p11b:homological",
-  "stepP:p11b:ho-eq",
-  "stepP:p11b:fl-bd",
-  "stepP:p11b:li-tay",
-  "stepP:p11b:li-ord",
-  "stepP:p11b:lm-prop",
-  "stepP:p11b:bf-gram",
-  "bpP:p11b:birkhoff-form",
-  "stepP:p11b:as-ent",
-  "bpP:p11b:patch"
+  "stepP:p11b:li-sum",
+  "stepP:p11b:bt-nf"
  ]
 }

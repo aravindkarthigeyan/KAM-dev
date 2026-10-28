@@ -95,7 +95,7 @@ DISPOSITION: NODE stepP:p7:rg-lagrange
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: bpP:p7:kepler
 KIND: proposition
@@ -140,7 +140,7 @@ DISPOSITION: NODE stepP:p7:ke-c
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: stepP:p7:ke-d
 KIND: proof-region
@@ -149,7 +149,7 @@ DISPOSITION: NODE stepP:p7:ke-d
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: bpP:p7:regular-kepler
 KIND: proposition
@@ -239,7 +239,7 @@ DISPOSITION: NODE stepP:p7:po-an
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: stepP:p7:po-del
 KIND: proof-region
@@ -248,7 +248,7 @@ DISPOSITION: NODE stepP:p7:po-del
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: stepP:p7:po-symp
 KIND: proof-region
@@ -266,7 +266,7 @@ DISPOSITION: NODE stepP:p7:po-dense
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: stepP:p7:po-el
 KIND: proof-region
@@ -275,7 +275,7 @@ DISPOSITION: NODE stepP:p7:po-el
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: stepP:p7:po-bij
 KIND: proof-region
@@ -284,7 +284,7 @@ DISPOSITION: NODE stepP:p7:po-bij
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: stepP:p7:po-circ
 KIND: proof-region
@@ -320,7 +320,7 @@ DISPOSITION: NODE stepP:p7:ho-hol
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: bpP:p7:ho-rem
 KIND: claim
@@ -383,7 +383,7 @@ DISPOSITION: NODE stepP:p7:pc-share
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: stepP:p7:pc-eq
 KIND: proof-region
@@ -392,7 +392,7 @@ DISPOSITION: NODE stepP:p7:pc-eq
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: bpP:p7:same-chart
 KIND: claim
@@ -437,7 +437,7 @@ DISPOSITION: NODE bpP:p7:lattice
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Consumer: stepP:p11:tc-polar (Part 11 L90, Lemma bpP:p7:lattice (a),(b),(c)).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-review-P-w
 
 ITEM: stepP:p7:la-polar
 KIND: proof-region
@@ -446,7 +446,7 @@ DISPOSITION: NODE stepP:p7:la-polar
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-review-P-w
 
 ITEM: stepP:p7:la-inv
 KIND: proof-region
@@ -455,7 +455,7 @@ DISPOSITION: NODE stepP:p7:la-inv
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-review-P-w
 
 ITEM: stepP:p7:la-per
 KIND: proof-region
@@ -464,7 +464,7 @@ DISPOSITION: NODE stepP:p7:la-per
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-review-P-w
 
 ITEM: stepP:p7:la-ham
 KIND: proof-region
@@ -473,7 +473,7 @@ DISPOSITION: NODE stepP:p7:la-ham
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Proof step of bpP:p7:lattice (restored with it).
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-review-P-w
 
 ITEM: bpP:p7:d25
 KIND: proposition
@@ -509,7 +509,7 @@ DISPOSITION: NODE stepP:p7:d25-d
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: stepP:p7:d25-e
 KIND: proof-region
@@ -518,7 +518,7 @@ DISPOSITION: NODE stepP:p7:d25-e
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7
-REVIEWER: sol-delta-P-i
+REVIEWER: sol-delta-P-q
 
 ITEM: bpP:p7:average
 KIND: corollary

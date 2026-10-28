@@ -1848,11 +1848,10 @@ EDGE: bpP:p6:tube-constants | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:f
 EDGE: bpP:p0:fixkol#FixedKolmogorovSet | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L281-L281 | FixKol in the conclusion
 EDGE: bpP:p0:phystorus#IsPhysicalTorus | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | IsPhysTorus in (S2)
 EDGE: bpP:p0:fixham#fixedHamiltonian | blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L282-L282 | H_fix
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision+sonnet-extract-pfixed
-REVIEWER: -
+REVIEWER: sol-review-P-w
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: restored by the P-FIXED revision (was EXCLUDED as P-FIXED-only); consumers stepP:p13:n2-phys, stepP:p13:ng-phys, Part 11 L240; proof inline (L282); source fields filled by sonnet-extract-pfixed
-

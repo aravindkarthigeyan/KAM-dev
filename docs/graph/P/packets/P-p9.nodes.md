@@ -703,9 +703,9 @@ ROUTE_FOR: -
 EDGE: stepP:p9:lift-anti | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L130-L130 | d_m varrho^T=-Omega_m varrho^T
 EDGE: stepP:p9:lift-form | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L130-L130 | the remaining sum to be killed
 EDGE: stepP:p9:lift-bij | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:lift-mc@L130-L130 | The differentiation of Omega_l uses its defining formula Omega_l=varrho^T partial_l varrho, introduced at L124
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
-REVIEWER: -
+REVIEWER: sol-delta2-P-t
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -775,9 +775,9 @@ EDGE: bpP:p1:torus-transport | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:
 EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | conventions of Part 9
 EDGE: bpP:p8:rho | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L141-L141 | The named secular polydisc constants and rho_* enter the asserted domain.
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:diagonalize@L135-L135 | Q_h(a) and its real analytic dependence are the secular coefficients defined here.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
-REVIEWER: -
+REVIEWER: sol-delta2-P-t
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -842,9 +842,9 @@ EDGE: bpP:p9:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@
 EDGE: bpP:p8:rho | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | The named secular polydisc constants and rho_* enter the asserted domain.
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | The normalized secular average, chart order and dictionary (I,p,q)=(Lambda,eta,xi) are used here.
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-b@L150-L150 | The displayed expansion uses C_0, defined by the secular coefficient package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
-REVIEWER: -
+REVIEWER: sol-delta2-P-t
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -876,9 +876,9 @@ EDGE: bpP:p8:perturbation-analytic | blueprint-P/parts/p9-secular-spectrum.tex#s
 EDGE: bpP:p8:rho | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | The named secular polydisc constants and rho_* enter the asserted domain.
 EDGE: bpP:p8:conv#data | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | The normalized secular average, chart order and dictionary (I,p,q)=(Lambda,eta,xi) are used here.
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#stepP:p9:d-c@L151-L151 | The frozen dictionary identifies P_0=C_0(+delta), using C_0 from the secular coefficient package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
-REVIEWER: -
+REVIEWER: sol-delta2-P-t
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -936,9 +936,9 @@ EDGE: bpP:p9:diagonalize | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict
 EDGE: bpP:p9:definite | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | all eigenvalues negative
 EDGE: bpP:p8:coeffs | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | the halved Q_h of Definition coeffs
 EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p9-secular-spectrum.tex#bpP:p9:dict@L156-L156 | frozen Omega_j, R_j
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p9+sol-delta-P-k
-REVIEWER: -
+REVIEWER: sol-delta2-P-t
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

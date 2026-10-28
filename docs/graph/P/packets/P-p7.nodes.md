@@ -184,9 +184,9 @@ ROUTE_FOR: -
 EDGE: stepP:p7:rg-scale | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-lagrange@L65-L65 | 1/2 l(P)^2=E_1+1/r and L=sqrt(-1/(2E_1))
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-lagrange@L65-L65 | cr and l
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:rg-lagrange@L66-L66 | C, Lambda and the region K_{m,kappa} of the conclusion use the Kepler data
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -343,9 +343,9 @@ EDGE: bpI:p7:circular | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L
 EDGE: stepP:p7:ke-b | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | a=L^2/kappa and the scaling of step (b)
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | uses the positive mass/strength, physical-length or rotation conventions of the package
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-c@L88-L88 | the scaled elements a and Lambda and their mass/strength dictionary
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -376,9 +376,9 @@ EDGE: bpP:p1:chart-field | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89 | uses the positive mass/strength, physical-length or rotation conventions of the package
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89 | Q_{m,kappa}, its domain D^m and E_{m,kappa}
 EDGE: stepP:p7:ke-chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ke-d@L89-L89 | analytic regularity of Q_{m,kappa} from clause (a), needed with ke-form to apply chart-field
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -680,9 +680,9 @@ EDGE: bpP:p7:o-facts | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-an@L
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-an@L150-L150 | F real analytic and F(lambda+2pi,v)=F+2pi
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-an@L150-L150 | q,p as rational expressions
 EDGE: bpP:p1:ext-comp | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-an@L150-L150 | real-analytic composition F(lambda,v(xi,eta,Lambda)), and sums/products of analytic ingredients
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -713,9 +713,9 @@ EDGE: I:bpI:p7:orbit-maps | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-del@L151-L151 | q, p formulas
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-del@L155-L155 | S_{m,kappa}, Q_{m,kappa}
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-del@L151-L151 | uses the positive mass/strength, physical-length or rotation conventions of the package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -779,9 +779,9 @@ EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L157-L157 | frozen order (lambda,xi;Lambda,eta)
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L157-L157 | uses the domain O and Gamma=(xi^2+eta^2)/2
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-dense@L157-L157 | the named matrix M_0 is defined in Part 1 conventions, not in the Part 7 conventions
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -813,9 +813,9 @@ EDGE: stepP:p7:po-circ | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | K_{m,kappa}, a, action
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | uses the positive mass/strength, physical-length or rotation conventions of the package
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | O, Psi, k and v used in the element identities
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -855,9 +855,9 @@ EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L161-L161 | K_{m,kappa}
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L160-L160 | uses the positive mass/strength, physical-length or rotation conventions of the package
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-bij@L160-L160 | the chart domain O, Psi, Gamma and the inverse radicand
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -977,9 +977,9 @@ EDGE: bpP:p7:poincare | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-hol
 EDGE: K:bp:p1:real-restriction | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-hol@L173-L173 | complex derivative restricts to the real one
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-hol@L173-L173 | the explicit q,p formulas and real domain O
 EDGE: bpP:p1:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:ho-hol@L173-L173 | M_0 in the real-point matrix identity
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1146,9 +1146,9 @@ EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | uses Psi^(n), O_n and h
 EDGE: stepP:p7:pc-dec | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | substitutes H_Kep composed with Psi^(n)=h into the splitting
 EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-share@L207-L207 | H^Psi=c^{-1}(H composed with Psi), specialized to c=1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1178,9 +1178,9 @@ EDGE: stepP:p7:pc-share | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-e
 EDGE: bpP:p7:sec-product#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-eq@L208-L208 | z_1=(lambda,xi), z_2=(Lambda,eta)
 EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-eq@L208-L208 | the pulled-back Hamiltonian H^Psi used in the model equations
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:pc-eq@L208-L208 | Psi^(n), O_n and the h(Lambda) in the model Hamiltonians
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1318,7 +1318,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L223-L
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L234-L239
 CONTRACT_ID: bpP:p7:lattice
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the product chart Psi^(n) and O_n of bpP:p7:product-chart; the oscillator polar chart Theta_n((phi, psi),(I, R)) = ((phi, sqrt(2R) sin psi), (I, sqrt(2R) cos psi)) on O_0 = {I_i > 0, 0 < R_i < I_i}, Phi_n = Psi^(n) o Theta_n; Lemma bpP:p1:period-convert (S_2pi)
+SOURCE_HYPOTHESES: the physical product-chart data of Part 7 (n>=1, G,m0>0, positive m, kappa=G m0); Psi^(n) and O_n of product-def; Theta_n((phi,psi),(I,R))=((phi,sqrt(2R) sin psi),(I,sqrt(2R) cos psi)) on O_0={I_i>0,0<R_i<I_i}, Phi_n:=Psi^(n) o Theta_n; S_2pi denotes the linear position-scaling map used in (c)
 SOURCE_QUANTIFIERS: n >= 1; (a)-(d) for z, z prime in O_0, k in Z^2n
 SOURCE_CONCLUSION: (a) Theta_n and Phi_n are 1-charts on O_0 and O_0 + iota prime_k = O_0 for iota prime_k = ((2 pi k, 0), 0); (b) Phi_n(z + iota prime_k) = Phi_n(z) and Phi_n(z prime) = Phi_n(z) implies z prime = z + iota prime_k: (Q1) with sigma_k = 0 and (Q2) of bpP:p1:torus-transport in the radian convention; (c) Phi_n^(1) = Phi_n o S_2pi is a 2 pi-chart on S_2pi^{-1}(O_0) with (Q1), (Q2) for iota_k = (k, 0), so Corollary phys-pipeline applies to Phi_n and torus-transport (b) to Phi_n^(1); (d) H^{Phi_n} = H o Psi^(n) o Theta_n = h(I) + mu f^ o Theta_n, the unperturbed part independent of psi, R
 CONSTANT_SCOPE: none
@@ -1340,9 +1340,9 @@ EDGE: bpP:p1:torus-transport | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:l
 EDGE: bpP:p1:period-convert | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L230-L230 | S_2pi and the period-one convention
 EDGE: bpP:p1:phys-pipeline | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L230-L230 | Corollary phys-pipeline applies to Phi_n
 EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:lattice@L232-L232 | the pulled-back Hamiltonian H^Phi
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: writer-pfixed-revision+sonnet-extract-pfixed
-REVIEWER: sol-delta-P-i
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision+sol-review-P-w
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1363,15 +1363,16 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:typical, bpP:p1:chart, bpP:p7:product-def
+DEPS: bpP:p1:typical, bpP:p1:chart, bpP:p7:product-def, bpP:p7:product-chart
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:typical | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235 | Remark typical (1),(3): composition of 1-charts and the polar chart
 EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235 | definition of a 1-chart
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235 | O_n = {Gamma < Lambda}
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: writer-pfixed-revision+sonnet-extract-pfixed
-REVIEWER: sol-delta-P-i
+EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-polar@L235-L235 | Product-chart(a) supplies that Psi^(n) is a 1-chart on O_n, needed in the composition with Theta_n.
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision+sol-review-P-w
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1384,7 +1385,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236
 CONTRACT_ID: stepP:p7:la-inv
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Theta_n is 2 pi-periodic in psi; Psi^(n) invariant under ((2 pi k_phi, 0), 0)
+SOURCE_HYPOTHESES: the original lattice setting: the physical product-chart data, Psi^(n), O_n, Theta_n and O_0 as explicitly defined in L223-L226; take z in O_0 and k=(k_phi,k_psi) in Z^2n; for the injectivity implication take z prime in O_0 with Phi_n(z prime)=Phi_n(z); periodicity and the product-chart invariance/injectivity conclusions are supplied by the computation and DEPS
 SOURCE_QUANTIFIERS: z, z prime in O_0, k = (k_phi, k_psi) in Z^2n
 SOURCE_CONCLUSION: Theta_n(z + iota prime_k) = Theta_n(z) + ((2 pi k_phi, 0), 0); if Phi_n(z prime) = Phi_n(z) then Theta_n(z prime) = Theta_n(z) + ((2 pi k_phi, 0), 0), so phi prime = phi + 2 pi k_phi, I prime = I and, as R, R prime > 0, R prime = R and psi prime - psi in 2 pi Z^n
 CONSTANT_SCOPE: none
@@ -1396,9 +1397,9 @@ DEPS: bpP:p7:product-chart
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-inv@L236-L236 | invariance of Psi^(n) under 2 pi Z^n-shifts of lambda and injectivity modulo them (a)
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: writer-pfixed-revision+sonnet-extract-pfixed
-REVIEWER: sol-delta-P-i
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision+sol-review-P-w
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1411,7 +1412,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237
 CONTRACT_ID: stepP:p7:la-per
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Lemma bpP:p1:period-convert (a): S_2pi is a 2 pi-chart with S_2pi(z + iota_k) = S_2pi(z) + (2 pi k, 0); steps (a),(b)
+SOURCE_HYPOTHESES: the original lattice setting: the physical product-chart data, Theta_n, Phi_n and O_0 of L223-L226; define S_2pi(z_1,z_2)=(2 pi z_1,z_2); chart factors and lattice identities from period-convert and steps (a),(b) are supplied through DEPS, not additional premises
 SOURCE_QUANTIFIERS: k in Z^2n
 SOURCE_CONCLUSION: Phi_n o S_2pi is a 2 pi-chart (composition), S_2pi^{-1}(O_0) + iota_k = S_2pi^{-1}(O_0 + iota prime_k) = S_2pi^{-1}(O_0), and (Q2) for Phi_n o S_2pi is that of (b) read through S_2pi
 CONSTANT_SCOPE: none
@@ -1426,9 +1427,9 @@ EDGE: bpP:p1:period-convert | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:
 EDGE: bpP:p1:typical | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237 | Remark typical (3): composition of charts
 EDGE: stepP:p7:la-polar | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237 | Phi_n is a 1-chart (a)
 EDGE: stepP:p7:la-inv | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-per@L237-L237 | invariance and injectivity modulo shifts (b)
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: writer-pfixed-revision+sonnet-extract-pfixed
-REVIEWER: sol-delta-P-i
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision+sol-review-P-w
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1441,7 +1442,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-
 PROOF_SOURCE: blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238
 CONTRACT_ID: stepP:p7:la-ham
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: Theorem bpP:p7:product-chart (b),(c) (H_Kep o Psi^(n) = h(Lambda), H = H_Kep + mu f); c = 1
+SOURCE_HYPOTHESES: the original lattice setting: the physical product-chart data, Psi^(n), Theta_n, Phi_n and O_0; H is one of the two physical Hamiltonians of product-chart, with its coupling (written mu in L232); the pull-back uses c=1; the decoupling and perturbation identities are supplied by product-chart, not assumed as additional premises
 SOURCE_QUANTIFIERS: z in O_0
 SOURCE_CONCLUSION: H^{Phi_n} = H o Psi^(n) o Theta_n = h(I) + mu f^ o Theta_n with I = Lambda; unperturbed part independent of psi, R
 CONSTANT_SCOPE: none
@@ -1454,9 +1455,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:product-chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238 | (b),(c): H o Psi^(n) = h(Lambda) + mu f^
 EDGE: bpP:p1:chart | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:la-ham@L238-L238 | 1-chart (c = 1): the pulled-back Hamiltonian is H o Phi_n
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: writer-pfixed-revision+sonnet-extract-pfixed
-REVIEWER: sol-delta-P-i
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: writer-pfixed-revision+sol-review-P-w
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1613,9 +1614,9 @@ EDGE: bpP:p0:d25-kepler#keplerEccVector | blueprint-P/parts/p7-kepler-poincare.t
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L262 | planeLength>0
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L262 | Psi^(2), K^(2)
 EDGE: bpP:p0:d25-cross#planeCross | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-d@L262-L262 | the physical angular-momentum identity uses the planar cross product
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1643,9 +1644,9 @@ EDGE: stepP:p7:po-del | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-e@
 EDGE: bpP:p7:regular-kepler | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-e@L263-L263 | (c): F=g+u_R
 EDGE: bpP:p7:product-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-e@L263-L263 | uses the O_2 domain and product-chart notation in the statement
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:d25-e@L263-L263 | e_g and the perihelion/mean-longitude rotation convention
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1674,10 +1675,10 @@ EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p7-kepler-poincare.tex#b
 EDGE: bpP:p0:d25-cross#planeCross | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L32-L32 | cr is planeCross
 EDGE: I:bpI:p7:orbit-maps | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L33-L33 | Delaunay map Q^I
 EDGE: I:bpI:p7:symplectic | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L33-L33 | (Q^I)^*(sum dq^dp)=dell^dL+dg^dG
-EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L29-L29 | Gamma=R(eta,xi) explicitly identifies the oscillator action
+EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L30-L30 | Gamma=R(eta,xi) explicitly identifies the oscillator action
 EDGE: bpP:p14:sb-conv#quarterTurn | blueprint-P/parts/p7-kepler-poincare.tex#bpP:p7:conv#data@L32-L32 | J_0 v=(-v_1,v_0) explicitly identifies quarterTurn
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-i
+EXTRACTOR: sonnet-extract-P-p7+sol-delta-P-q
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1736,9 +1737,9 @@ EDGE: stepP:p7:po-el#circular-direct | blueprint-P/parts/p7-kepler-poincare.tex#
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | E, a and the physical action in the common scalar endpoint contract
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | the common hypothesis w in O and q,p=Psi(w)
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | the common positive mass/strength and planar length/cross-product conventions
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1797,11 +1798,10 @@ EDGE: stepP:p7:po-circ | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el
 EDGE: bpP:p7:kepler-data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | definitions of E,C,a and action
 EDGE: bpP:p7:conv#data | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | positive mass/strength and physical element conventions
 EDGE: bpP:p7:poincare-def | blueprint-P/parts/p7-kepler-poincare.tex#stepP:p7:po-el@L158-L158 | the source domain O and the equality q,p=Psi(w) in the route hypotheses
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-delta-P-i
-REVIEWER: -
+REVIEWER: sol-delta-P-q
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
 NOTE: covers only the scalar circular identities; the parent separately treats the LRL identity at L158-L159
-

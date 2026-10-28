@@ -1133,9 +1133,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L381-L381 | S subset Ph_{n.2}
 EDGE: bpP:p0:fixkol#FixedKolmogorovSet | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L382-L382 | FixKol(G,m_0,m,a,eps,eta,d,D,S)
 EDGE: bpP:p13:fixed | blueprint-P/parts/p13-fixed-assembly.tex#bpP:p13:fixed@L153-L153 | this result carries \frozen{KAM.Planetary.fixedSunPlanetaryKAM}: it proves the anchor
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: -
+REVIEWER: sol-review-P-w
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

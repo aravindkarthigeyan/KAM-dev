@@ -570,9 +570,9 @@ KIND: proposition
 SOURCE: blueprint-P/parts/p6-newtonian-models.tex#bpP:p6:fixkol-assembly@L281-L283
 DISPOSITION: NODE bpP:p6:fixkol-assembly
 REASON: P-FIXED revision (2026-10-28): restored; consumed by the P-FIXED proof (Parts 11, 13), now in the corpus. Consumers: Part 13 (stepP:p13:n2-phys, stepP:p13:ng-phys) and Part 11 L240.
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-pfixed-revision
-REVIEWER: -
+REVIEWER: sol-review-P-w
 
 ITEM: heading:bpP:p6
 KIND: heading

@@ -780,3 +780,12 @@ REASON: imported node (track N): its statement is proved, or is an external inpu
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: claude-suborch-INP
 REVIEWER: -
+
+ITEM: K:bp:p1:ext-integral
+KIND: external
+SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:ext-integral@L82-L86
+DISPOSITION: NODE K:bp:p1:ext-integral
+REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: claude-suborch-INP
+REVIEWER: -

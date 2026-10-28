@@ -1063,9 +1063,9 @@ EDGE: stepP:p11b:li-ord | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:l
 EDGE: bpP:p11b:char | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-sum@L163-L163 | <F> is the T^2-average, T-invariant
 EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-sum@L163-L163 | Uses T_theta invariance and R_1,R_2 in identifying the averaged polynomial.
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:li-sum@L163-L163 | R_j=(x_j^2+y_j^2)/2 is defined in the section setting; L163 identifies the averaged quartic as a degree-two polynomial in R_1,R_2.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b+sol-delta-P-m
-REVIEWER: -
+REVIEWER: sol-delta2-P-t
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1477,9 +1477,9 @@ EDGE: bpP:p11b:sec-bnf#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p1
 EDGE: bpP:p11b:beta-def | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-nf@L219-L219 | Uses beta-hat_ij in the normal-form polynomial explicitly.
 EDGE: bpP:p11b:sec-set#data | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-nf@L219-L219 | The physical Phi_4, ordered secular eigenvalues sigma, and frequency convention Omega=2 sigma are the fixed section data used in this application.
 EDGE: bpP:p9:good | blueprint-P/parts/p11b-planar-torsion.tex#stepP:p11b:bt-nf@L219-L219 | Definition good supplies Phi_4 and explicitly states NR_4(sigma) iff NR_4(2 sigma), used to verify the homological/normal-form premise.
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b+sol-delta-P-m
-REVIEWER: -
+REVIEWER: sol-delta2-P-t
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

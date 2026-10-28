@@ -320,7 +320,7 @@ DISPOSITION: NODE stepP:p11b:li-sum
 REASON: labelled unit; kept as node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: sol-delta-P-m
+REVIEWER: sol-delta2-P-t
 
 ITEM: bpP:p11b:lift-map
 KIND: proposition
@@ -419,7 +419,7 @@ DISPOSITION: NODE stepP:p11b:bt-nf
 REASON: labelled unit; kept as node
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p11b
-REVIEWER: sol-delta-P-m
+REVIEWER: sol-delta2-P-t
 
 ITEM: stepP:p11b:bt-avg
 KIND: proof-region

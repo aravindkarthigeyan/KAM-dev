@@ -1,0 +1,52 @@
+{
+ "replaced": [
+  "bpP:p13:fixed-hamiltonian-form",
+  "stepP:p13:fh-chart",
+  "stepP:p13:fh-id",
+  "stepP:p13:fh-bnf",
+  "bpP:p13:data",
+  "bpP:p13:chart",
+  "stepP:p13:ch-same",
+  "stepP:p13:ch-ham",
+  "stepP:p13:pg-h2",
+  "stepP:p13:pg-h56",
+  "bpP:p13:transport",
+  "stepP:p13:tr-torus",
+  "stepP:p13:tr-meas",
+  "stepP:p13:n2-const",
+  "stepP:p13:n2-mu",
+  "stepP:p13:n2-S",
+  "stepP:p13:n2-tori",
+  "stepP:p13:n2-phys",
+  "bpP:p13:n-general",
+  "stepP:p13:ng-const",
+  "stepP:p13:ng-wrap",
+  "stepP:p13:ng-phys",
+  "bpP:p13:fixed",
+  "stepP:p13:fx-2",
+  "stepP:p13:fx-n",
+  "bpP:p13:quantifiers"
+ ],
+ "added": [
+  "bpP:p13:data#choices"
+ ],
+ "items": [
+  "bpP:p13:data",
+  "p13:prose-L70-L70",
+  "bpP:p13:quantifiers"
+ ],
+ "unresolved": {
+  "p13:choices-L84-L85": "L84-L85 | R2: inventory the split delivered-constant/choice node |",
+  "p13:quantifiers-general-L165-L166": "L165-L166 | R3: inventory the excluded general-n audit after projecting the n=2 claim |"
+ },
+ "passes": [
+  "bpP:p13:pg-hypotheses",
+  "stepP:p13:pg-sets",
+  "stepP:p13:pg-h1",
+  "stepP:p13:pg-h3",
+  "stepP:p13:pg-h4",
+  "bpP:p13:n2",
+  "stepP:p13:n2-pg",
+  "stepP:p13:fx-split"
+ ]
+}
