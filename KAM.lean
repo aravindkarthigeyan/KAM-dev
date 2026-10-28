@@ -214,6 +214,7 @@ public import KAM.Iso.Charts.Coordinates
 public import KAM.Iso.Charts.Defs
 public import KAM.Iso.Charts.Inputs
 public import KAM.Iso.Collision
+public import KAM.Iso.ComplexDomain
 public import KAM.Iso.Confinement.Confinement
 public import KAM.Iso.Confinement.EnergyCoordinate
 public import KAM.Iso.Confinement.Graph
