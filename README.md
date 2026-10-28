@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-28 03:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 74.5 %** · frozen statements proved: 8 / 22 · **57,790 lines of Lean** of an estimated ≈ 92,000
+> **Last updated: 2026-10-28 03:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 71.7 %** · frozen statements proved: 8 / 22 · **61,304 lines of Lean** of an estimated ≈ 102,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -54,9 +54,9 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 ## At a glance
 
 <!-- AUTO:progress -->
-### Estimated completion: **74.5 %**
+### Estimated completion: **71.7 %**
 
-`███████████████████░░░░░░` 74.5 %
+`██████████████████░░░░░░░` 71.7 %
 
 | Part of the project | Items | Weight | Done | Completion |
 |---|---|---|---|---|
@@ -65,11 +65,11 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | Analytic infrastructure | 8 | 24 | 24.0 | `██████████` 100 % |
 | A-posteriori KAM at fixed frequency | 4 | 24 | 24.0 | `██████████` 100 % |
 | Measure of the invariant tori | 5 | 12 | 12.0 | `██████████` 100 % |
-| Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 8.4 | `███████░░░` 70 % |
-| Track N (Nekhoroshev) | 4 | 22 | 12.8 | `██████░░░░` 58 % |
+| Track I (isoenergetic, confinement, R3BP) | 2 | 12 | 8.3 | `███████░░░` 69 % |
+| Track N (Nekhoroshev) | 4 | 22 | 8.0 | `████░░░░░░` 36 % |
 | Track P (planetary) | 5 | 30 | 13.8 | `█████░░░░░` 46 % |
 | Sealing of the frozen statements | 22 | 22 | 8.0 | `████░░░░░░` 36 % |
-| **Total** | 62 | 177 | 131.8 | **74.5 %** |
+| **Total** | 62 | 177 | 126.9 | **71.7 %** |
 
 **How this is estimated.** The project is divided into 40 work items: planning deliverables, campaign infrastructure, the four layers of track K's proof, and the proof campaigns of tracks I, N and P. Each item is weighted by its difficulty (low 1, moderate 2, high 4, very high 8) and counts with the fraction of it that is done; each sealed frozen theorem adds 1. Items marked *graph* take that fraction from their proof graph (nodes `PROVED`, `BYPASSED` or `EXTERNAL` in [`docs/graph/`](docs/graph)), so they update themselves at every refresh; the other items are the orchestrators' assessment, last reviewed **2026-10-28 03:25 UTC**. Files: [`docs/campaign/progress.json`](docs/campaign/progress.json) (track K and infrastructure) and [`docs/campaign/progress-INP.json`](docs/campaign/progress-INP.json) (tracks I, N, P).
 
@@ -107,14 +107,14 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | M.IMAGE | McShane extension of F̂ − id and the lipeomorphism: the complement is the image of the complement | M | ✅ 100 % | *graph K* · graph K Part 4: 127 PROVED, 1 BYPASSED, 0 open; HEAD SEALED (e4ca720) |
 | M.ASSEMBLY | Assembly of the headline theorem | M | ✅ 100 % | *graph K* · HEAD KAM.kam_positive_measure (e4ca720) and HEAD-Q (5f6b154) SEALED |
 | I.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
-| I.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 55 % | graph: global review rounds 1-2 handled, Part 1 gaps fixed in the blueprint, final check running; I-KEPLER SEALED; Parts 5/8 Lean design running |
+| I.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 53 % | *graph I* · graph: global review rounds 1-2 handled, Part 1 gaps fixed in the blueprint, final check running; I-KEPLER SEALED; Parts 5/8 Lean design running |
 | N.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
-| N.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 55 % | graph: all 14 slices reviewed, global review running; N-QC, N-ZERO SEALED; shared ODE layer (blueprint-N Part 3 core, 7 packages, KAM/ODE/*) proved and audited; Parts 1/4/5 Lean design running |
+| N.PROOF | Blueprint, graph and proofs (estimate, refined after Phase 0) | VH | 🟨 22 % | *graph N* · graph: all 14 slices reviewed, global review running; N-QC, N-ZERO SEALED; shared ODE layer (blueprint-N Part 3 core, 7 packages, KAM/ODE/*) proved and audited; Parts 1/4/5 Lean design running |
 | P.PHASE0 | Sources, statements, owner approval, freeze | H | ✅ 100 % | approved and frozen (D20) |
 | P.PROOF.PDKAM | Properly degenerate KAM: blueprint, graph, proofs | VH | 🟨 40 % | blueprint: P-G proved (Parts 1-5, reviewed) |
 | P.PROOF.PLANAR | Planar two-planet and fixed-Sun applications: coordinates, secular normal form, nondegeneracy | VH | 🟨 38 % | blueprint: P-PLANAR proved (Parts 6-12); P-FIXED general n: Parts 11, 11a-1..3 written and in revision, 11a-4/5 and 13 to write; Kepler Lean design in revision |
 | N.ADD.PHASE0 | N-PARTIAL-CONVEX and N-AVERAGING: statements, audit, approval, freeze | M | ✅ 100 % | N-PARTIAL-CONVEX frozen (D25), N-AVERAGING frozen (D28) |
-| N.ADD.PROOF | N-PARTIAL-CONVEX and N-AVERAGING: blueprint, graph, proofs | VH | 🟨 30 % | blueprints: N-PARTIAL-CONVEX Part 11 and N-AVERAGING Part 12 accepted; both in the N graph (reviewed) |
+| N.ADD.PROOF | N-PARTIAL-CONVEX and N-AVERAGING: blueprint, graph, proofs | VH | 🟨 3 % | *graph N* · blueprints: N-PARTIAL-CONVEX Part 11 and N-AVERAGING Part 12 accepted; both in the N graph (reviewed) |
 | P.ADD.PHASE0 | P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: statements, audit, approval, freeze | M | ✅ 100 % | approved and frozen (D25): 38 anchors |
 | P.ADD.PROOF | P-EXP-SAFE, P-AMD-CONFINEMENT, P-SECULAR-BOX: blueprint, graph, proofs | VH | 🟨 20 % | blueprint: P-AMD-CONFINEMENT and P-EXP-SAFE proved (Part 14a); P-SECULAR-BOX pending |
 
@@ -126,22 +126,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **57,790** (40,385 excluding blank lines and comments) · **+57,790** since 2026-10-27 13:33 UTC |
-| Written on agent branches, not yet landed | 9,708 |
-| **Estimated total at completion** | **≈ 92,000** |
-| Estimated still to write | ≈ 25,000 |
+| On `main` now | **61,304** (43,156 excluding blank lines and comments) · **+61,304** since 2026-10-27 13:33 UTC |
+| Written on agent branches, not yet landed | 8,939 |
+| **Estimated total at completion** | **≈ 102,000** |
+| Estimated still to write | ≈ 32,000 |
 
 **How the size is estimated.** The estimate scales the lines written so far (on `main` plus the agent branches) by the done share of the Lean work items, weighted by difficulty: track K's analysis, a-posteriori and measure items and the proof items of tracks I, N and P. It is as good as those done fractions: track K's come from its proof graph, the others from the sub-orchestrator's assessment. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-28 03:20 UTC from `main` at `052f39f` by `scripts/hq-status.py`.*
+*Generated 2026-10-28 03:40 UTC from `main` at `7ddb10c` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K complete: all five frozen theorems sealed (headline, qualitative headline, a-posteriori KAM, local uniqueness, measure of the non-Diophantine set); its proof graph is fully resolved. Tracks I, N, P: proof campaigns running (sub-orchestrator D23 plus packages offloaded to the lead); overnight mode D29.
 
 **Frozen statements proved: 8 / 22** · frozen definitions: 122
 
-**Lean on `main`:** 360 modules · 57,790 lines · 2,667 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 368 modules · 61,304 lines · 2,802 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 14 (KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMean.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMost.lean)
@@ -159,8 +159,8 @@ Four parallel tracks (decision D14; details in [`docs/TRACKS.md`](docs/TRACKS.md
 | Track | Headline | Frozen theorems sealed | Proof graph | Stage |
 |---|---|---|---|---|
 | **K** | Positive-measure KAM for nearly-integrable analytic Hamiltonians, complement ≤ C·ε^{1/4} | 5 / 5 | 453 / 453 nodes resolved | **complete**: blueprint, graph and all five frozen theorems sealed (2026-10-28) |
-| **I** | All-time confinement in two degrees of freedom (isoenergetic KAM); restricted circular planar three-body problem | 1 / 4 | 72 / 450 nodes resolved | proof campaign: isoenergetic a-posteriori theorem (I-G1) at its last package (G1 and provider); Part 3 tori and Kepler layer under way |
-| **N** | Nekhoroshev stability for quasi-convex Hamiltonians, exponents 1/(2n) | 2 / 6 | 48 / 728 nodes resolved | proof campaign: ODE layer complete; weighted norms, canonical flows and periods under way |
+| **I** | All-time confinement in two degrees of freedom (isoenergetic KAM); restricted circular planar three-body problem | 1 / 4 | 262 / 450 nodes resolved | proof campaign: isoenergetic a-posteriori theorem (I-G1) at its last package (G1 and provider); Part 3 tori and Kepler layer under way |
+| **N** | Nekhoroshev stability for quasi-convex Hamiltonians, exponents 1/(2n) | 2 / 6 | 132 / 728 nodes resolved | proof campaign: ODE layer complete; weighted norms, canonical flows and periods under way |
 | **P** | Properly degenerate KAM; planar two-planet problem; n planets around a fixed Sun | 0 / 7 | not published yet | proof campaign: Kepler/Delaunay layer and Newtonian/Poincaré packages under way; graph in final review |
 <!-- /AUTO:tracks -->
 
@@ -269,8 +269,8 @@ flowchart BT
 | [`KAM/Measure/`](KAM/Measure) | Track K Part 4: lattice counting, Lipschitz dependence, measure of the tori | 5 | 965 | 44 |
 | [`KAM/Head/`](KAM/Head) | Track K Part 4: assembly of the headline theorem | 36 | 8,664 | 408 |
 | [`KAM/ODE/`](KAM/ODE) | Flows of ODEs: solutions, symmetries, continuation (tracks N and P) | 13 | 2,372 | 98 |
-| [`KAM/Iso/`](KAM/Iso) | Track I: isoenergetic KAM, confinement, restricted three-body problem | 43 | 10,830 | 498 |
-| [`KAM/Kepler/`](KAM/Kepler) | Kepler problem and Delaunay coordinates (tracks I and P) | 12 | 4,207 | 310 |
+| [`KAM/Iso/`](KAM/Iso) | Track I: isoenergetic KAM, confinement, restricted three-body problem | 50 | 13,691 | 588 |
+| [`KAM/Kepler/`](KAM/Kepler) | Kepler problem and Delaunay coordinates (tracks I and P) | 13 | 4,860 | 355 |
 | [`KAM/Weighted/`](KAM/Weighted) | Track N: weighted domains and norms | 3 | 448 | 15 |
 | [`KAM/Canonical/`](KAM/Canonical) | Track N: canonical flows and maps | 2 | 459 | 18 |
 | [`KAM/Nekhoroshev/`](KAM/Nekhoroshev) | Track N: Nekhoroshev stability | 10 | 2,113 | 134 |
@@ -290,24 +290,23 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 |---|---|---|---|---|---|---|---|
 | **orchestrator** | lead | Claude Opus 5.5 | claude-1 | 🔄 active | Campaign lead: track K (complete), offloaded packages of tracks I, N, P, sources, owner questions, this README | — | — |
 | **zohar** | collaborator | — | GitHub zkomargo | 🔄 active | Co-author. Fourier and Diophantine infrastructure (KAM/Fourier, KAM/Diophantine); packages on docs/campaign/PACKAGES.md | — | — |
-| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-8 | ⏸ idle | Tracks I, N, P: blueprints, dependency graphs, proof campaigns (overnight mode, D29) | — | — |
-| **design-N145** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design for blueprint-N Parts 1, 4, 5 (interfaces, weighted norms, Lie series, canonical maps) | — | — |
-| **design-I58** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design for blueprint-I Parts 5, 8 (I-HEAD confinement, I-R3BP) | — | — |
-| **design-kep** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Kepler/Delaunay shared layer design: revision after audit 1 (FAIL: F1-F7) | — | — |
-| **glob-i** `inp-glob-i` | graph global review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track I graph: global review (round 3 pending) | — | — |
-| **grev-2** `inp-grev-2` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **grev-3** `inp-grev-3` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **grev-4** `inp-grev-4` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **aud-2** `inp-aud-2` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **c53** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: C5-3: wrap long docstring line | `inp-c53` | 7 (vs `inp`) |
-| **i210** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: I2-10: provider KAM.Provider.Iso.isoenergetic_kam (exact frozen type); G1 line-length fix | `inp-i210` | 2 (vs `inp`) |
-| **i34** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: I3-4: Charts/Torus: hypothesis_d and torus complete | `inp-i34` | 2 (vs `inp`) |
-| **i35** | prover (offload) | Claude Sonnet 5.5 | — | ✅ audited, handed back | last commit: I3-5: handoff and independent audit (PASS WITH NOTES) | `inp-i35` | 7 (vs `inp`) |
-| **i4** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: I-4: near-circular region (NearCircularWitness, nearCircular_eq/_eq_image, isOpen, nonempt | `inp-i4` | 1 (vs `inp`) |
-| **i8** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: I-8: wrap long lines for lint | `inp-i8` | 3 (vs `inp`) |
+| **suborch-INP** `kam-suborch` | sub-orchestrator (D23) | Claude Opus 5.5 | claude-7 | ⏸ idle | Tracks I, N, P: graphs (I, N published; P in final review), ODE layer (done), merging/landing/sealing of all I/N/P packages incl. those run by the main orchestrator | — | — |
+| **lean-status-sync** | graph bookkeeping (subagent) | Claude Sonnet 5.5 | claude-7 | 🔄 running | Bring LEAN_STATUS of graphs I and N up to date from the package audits | — | — |
+| **grev-2** `inp-grev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P graph: final delta (P-p10, P-p11a12) | — | — |
+| **grev-3** `inp-grev-3` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track P graph: final delta (P-p11a3, P-p11a45) | — | — |
+| **grev-4** `inp-grev-4` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track P graph: final delta (P-p11, P-p13, P-p7) | — | — |
+| **aud-2** `inp-aud-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | Track P graph: imports delta | — | — |
+| **glob-i** `inp-glob-i` | graph review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | idle (track I global reviewer; P imports review done) | — | — |
+| **i34** | prover (offload) | Claude Sonnet 5.5 | — | ✅ audited, handed back | last commit: I3-4: handoff and independent audit (PASS WITH NOTES) | `inp-i34` | 3 (vs `inp`) |
+| **i35** | prover (offload) | Claude Sonnet 5.5 | — | ✅ audited, handed back | last commit: Merge inp-i34 (I3-4 audit) | `inp-i35` | 8 (vs `inp`) |
+| **i8** | prover (offload) | Claude Sonnet 5.5 | — | ✅ audited, handed back | last commit: I-8: handoff and independent audit (PASS WITH NOTES) | `inp-i8` | 4 (vs `inp`) |
+| **p64** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: P6-4: wrap long lines in Tube | `inp-p64` | 2 (vs `inp`) |
+| **p72** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: P7-2: poincare_means | `inp-p72` | 4 (vs `inp`) |
+| **p82** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: P8-2: R3bp/Region proved (action region, e-vs-k, topology of NearCircular) | `inp-p82` | 2 (vs `inp`) |
+| **p83** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: Merge inp-p82 (P8-2) | `inp-p83` | 2 (vs `inp`) |
 | **w43** | prover (offload) | Claude Sonnet 5.5 | — | ✅ audited, handed back | last commit: W4-3: handoff and independent audit (PASS WITH NOTES) | `inp-w43` | 3 (vs `inp`) |
-
-*8 finished agent sessions not shown.*
+| **w44** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: W4-4: Weighted/SupWeighted (sup_le_wbound, wbound_of_sup_bound) | `inp-w44` | 4 (vs `inp`) |
+| **w46** | prover (offload) | Claude Sonnet 5.5 | — | ✅ audited, handed back | last commit: W4-6: handoff and independent audit (PASS WITH NOTES) | `inp-w46` | 6 (vs `inp`) |
 <!-- /AUTO:workers -->
 
 ### Recent changes on `main`
@@ -315,6 +314,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-28 03:20 | `7ddb10c` | Land inp into main |
 | 2026-10-28 03:16 | `f0bf6e3` | HQ: refresh the README; live track table, size estimate, areas and agents |
 | 2026-10-28 03:10 | `66974f6` | HQ: track K progress items computed from the proof graph; refresh item assessment |
 | 2026-10-28 03:01 | `9cf480b` | Sources: register AS26 (Alazard-Shao, KAM via standard fixed point theorems), context tier |
@@ -326,7 +326,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-28 00:06 | `8314d45` | Land k/strip2b into main |
 | 2026-10-28 00:06 | `0a81771` | HEAD seal: fix the continuation indent of the wrapped body (f8cdca0 broke the build); same term, hashes unchanged |
 | 2026-10-28 00:00 | `f8cdca0` | HEAD seal: wrap the sealed body onto two lines (line-length lint); same term, hashes unchanged |
-| 2026-10-27 23:51 | `12455e2` | OVERNIGHT: HEAD sealed |
 <!-- /AUTO:landed -->
 
 ## Decisions
