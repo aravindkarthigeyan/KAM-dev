@@ -1622,23 +1622,24 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:summation
+DEPS: K:bp:p1:summation, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: bpN:p1:norm-convert
 EDGE: K:bp:p1:summation | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | the explicitly offered direct alternative; all bounded holomorphic periodic premises and 0<δ<ρ are supplied
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: new+sol-delta-N-a
-REVIEWER: sol-delta2-N-a
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | the explicit n=0 singleton branch precedes the positive-dimension K summation alternative
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: K Part 1 L37–39 imposes n≥1 wherever a strip occurs. This node has no n≥1 source restriction and applies a K strip theorem at N Part 1 L206. The n=0 case is not attached by the cited theorem or by a separate branch in this record. Preserve the source’s unrestricted n and expose this application obligation; do not add n≥1 to the source statement.
+NOTE: For n=0 use the explicit singleton case at p1 L206 and bpN:p4:n-zero; for n≥1 use the imported K summation converse. The source supplies both cases, so the earlier missing-dimension SOURCE_GAP is resolved.
 
 NODE: bpN:p1:norm-convert#converse
 KIND: step
 TITLE: Converse comparison from Fourier reconstruction
 STATEMENT_SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L202
-PROOF_SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L202
+PROOF_SOURCE: blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L206
 CONTRACT_ID: bpN:p1:norm-convert#converse
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: u : T_ρ → ℂ holomorphic, bounded and 1-periodic; ¦u¦_ρ = sup_{T_ρ}¦u¦; 0 < δ < ρ; for I-dependent u(θ,I), fixed I
@@ -1649,17 +1650,18 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: K:bp:p1:summation
+DEPS: K:bp:p1:summation, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p1:summation | blueprint-N/parts/p1-interfaces.tex#bpN:p1:norm-convert@L202-L203 | Fourier reconstruction and the forward sup bound when the full weighted sum is finite; otherwise the extended upper bound is immediate
-TOPOLOGY_STATUS: REVIEWED
-EXTRACTOR: new+sol-delta-N-a
-REVIEWER: sol-delta2-N-a
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206 | the n=0 branch explicitly proves the converse as the identity abs(u)<=abs(u)
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: new+sol-global-N
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: K Part 1 L37–39 imposes n≥1 wherever a strip occurs. This node has no n≥1 source restriction and applies a K strip theorem at N Part 1 L202. The n=0 case is not attached by the cited theorem or by a separate branch in this record. Preserve the source’s unrestricted n and expose this application obligation; do not add n≥1 to the source statement. The source states this converse at L202; imported summation supplies Fourier reconstruction for the bounded holomorphic periodic u. This is common to both forward routes.
+NOTE: For n=0 the proof at p1 L206 explicitly reduces the converse to abs(u)<=abs(u), using the singleton Fourier coefficient. For n≥1 use K summation/Fourier reconstruction, with the infinite full weighted-sum case immediate. This is common to both forward routes; the earlier missing-dimension SOURCE_GAP is resolved.
 
 NODE: bpN:p1:constants#data
 KIND: definition

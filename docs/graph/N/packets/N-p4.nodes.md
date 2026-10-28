@@ -658,20 +658,21 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpN:p4:coefficients, K:bp:p1:exp-sums, bpN:p4:norm, bpN:p4:domains
+DEPS: bpN:p4:coefficients, K:bp:p1:exp-sums, bpN:p4:norm, bpN:p4:domains, bpN:p4:n-zero
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpN:p4:coefficients | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135-L135 | (b): (∂_{θ_j}u)^_k = 2πik_jû_k
 EDGE: K:bp:p1:exp-sums | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L136-L136 | (a) with τ = 1, a = 2π(s_0−s): x e^{−ax} ≤ 1/(ea)
 EDGE: bpN:p4:norm | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135-L136 | ¦·¦_{I,s}, ¦·¦_{r_0,s_0}
 EDGE: bpN:p4:domains | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135-L135 | Uses the action neighbourhood or the domain of the function class directly
-TOPOLOGY_STATUS: REVIEWED
+EDGE: bpN:p4:n-zero | blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135-L136 | the no-angle branch has an empty angular sum, equal to zero; no n>=1 K estimate is used in this branch
+TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-N-p4+sol-global-N
-REVIEWER: sol-delta-N-global
+REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
-NOTE: SOURCE_GAP: The angular-sum contract permits n=0, while the cited K exp-sums(a) is stated for n≥1. An actual angular coordinate implies n≥1, but the unrestricted sum also needs the n=0 empty-sum branch. Preserve the source contract and record this branch rather than adding a dimension hypothesis.
+NOTE: For n=0 the no-angle convention and singleton branch of bpN:p4:n-zero give an empty angular sum, hence zero, and no K exp-sums application is needed. For n≥1 the coefficient computation uses K exp-sums(a) as cited. The native all-n contract is unchanged; the earlier missing-empty-sum SOURCE_GAP is resolved.
 
 NODE: stepN:p4:b3-b
 KIND: step
