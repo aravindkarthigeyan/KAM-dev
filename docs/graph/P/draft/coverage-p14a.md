@@ -774,7 +774,7 @@ REVIEWER: -
 
 ITEM: stepP:p14:st-sol
 KIND: proof-region
-SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L282
+SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-sol@L282-L283
 DISPOSITION: NODE stepP:p14:st-sol
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -783,7 +783,7 @@ REVIEWER: -
 
 ITEM: stepP:p14:st-core
 KIND: proof-region
-SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L283-L283
+SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#stepP:p14:st-core@L282-L283
 DISPOSITION: NODE stepP:p14:st-core
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED

@@ -1,7 +1,7 @@
 NODE: bpP:p0:fixed
 KIND: theorem
 TITLE: P-FIXED: $n$ planar planets around a fixed Sun
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L380-L389
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L379-L388
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.fixedSunPlanetaryKAM
 CONTRACT_VERSION: 1

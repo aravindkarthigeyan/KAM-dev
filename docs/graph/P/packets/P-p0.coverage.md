@@ -342,7 +342,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:planar
 KIND: theorem
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:planar@L367-L378
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:planar@L367-L377
 DISPOSITION: NODE bpP:p0:planar
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -351,7 +351,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:fixed
 KIND: theorem
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L380-L389
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixed@L379-L388
 DISPOSITION: EXCLUDED
 REASON: P-FIXED (fixedSunPlanetaryKAM) is not a root of this graph version: its general-n proof needs Parts 11a-4/11a-5 (being written); a later SPEC revision adds the root, Parts 11, 11a-*, 13 and restores the parked block draft/deferred-p0-fixed.md
 COVERAGE_STATUS: PROPOSED
@@ -360,7 +360,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:scope
 KIND: claim
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:scope@L391-L394
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:scope@L390-L393
 DISPOSITION: NODE bpP:p0:scope
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -369,7 +369,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-cross#planeCross
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-cross@L405-L409
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-cross@L404-L408
 DISPOSITION: NODE bpP:p0:d25-cross#planeCross
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -378,7 +378,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-kepler#keplerEnergy
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L423
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 DISPOSITION: NODE bpP:p0:d25-kepler#keplerEnergy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -387,7 +387,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-kepler#keplerAxis
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L423
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 DISPOSITION: NODE bpP:p0:d25-kepler#keplerAxis
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -396,7 +396,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-kepler#keplerAction
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L423
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 DISPOSITION: NODE bpP:p0:d25-kepler#keplerAction
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -405,7 +405,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-kepler#keplerEccVector
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L423
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 DISPOSITION: NODE bpP:p0:d25-kepler#keplerEccVector
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -414,7 +414,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-amd#totalMomentum
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L429
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L424-L428
 DISPOSITION: NODE bpP:p0:d25-amd#totalMomentum
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -423,7 +423,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-amd#physicalAMD
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L429
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L424-L428
 DISPOSITION: NODE bpP:p0:d25-amd#physicalAMD
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -432,7 +432,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-prograde#ProgradeElliptic
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-prograde@L431-L435
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-prograde@L430-L434
 DISPOSITION: NODE bpP:p0:d25-prograde#ProgradeElliptic
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -441,7 +441,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-lowamd#LowAMDRegion
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-lowamd@L437-L442
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-lowamd@L436-L441
 DISPOSITION: NODE bpP:p0:d25-lowamd#LowAMDRegion
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -450,7 +450,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-box#AMDBox
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L444-L456
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L443-L455
 DISPOSITION: NODE bpP:p0:d25-box#AMDBox
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -459,7 +459,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-box#Admissible
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L444-L456
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L443-L455
 DISPOSITION: NODE bpP:p0:d25-box#Admissible
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -468,7 +468,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-movsol#IsMovingSolutionOn
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L458-L463
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L457-L462
 DISPOSITION: NODE bpP:p0:d25-movsol#IsMovingSolutionOn
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -477,7 +477,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-movsol#IsHamiltonianSolutionOn
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L458-L463
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L457-L462
 DISPOSITION: NODE bpP:p0:d25-movsol#IsHamiltonianSolutionOn
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -486,7 +486,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-newton#IsNewtonSolutionOn
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-newton@L465-L470
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-newton@L464-L469
 DISPOSITION: NODE bpP:p0:d25-newton#IsNewtonSolutionOn
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -495,7 +495,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-unique#MovingUniqueOn
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-unique@L472-L476
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-unique@L471-L475
 DISPOSITION: NODE bpP:p0:d25-unique#MovingUniqueOn
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -504,7 +504,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-stopped#StoppedActionBound
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-stopped@L478-L485
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-stopped@L477-L484
 DISPOSITION: NODE bpP:p0:d25-stopped#StoppedActionBound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -513,7 +513,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-exponents#planetaryTimeExponent
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L487-L491
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L486-L490
 DISPOSITION: NODE bpP:p0:d25-exponents#planetaryTimeExponent
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -522,7 +522,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-exponents#planetaryDriftExponent
 KIND: definition
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L487-L491
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L486-L490
 DISPOSITION: NODE bpP:p0:d25-exponents#planetaryDriftExponent
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -531,7 +531,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:d25-totality
 KIND: claim
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-totality@L493-L498
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-totality@L492-L497
 DISPOSITION: NODE bpP:p0:d25-totality
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -540,7 +540,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:amd
 KIND: theorem
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L500-L512
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L499-L511
 DISPOSITION: NODE bpP:p0:amd
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -549,7 +549,7 @@ REVIEWER: -
 
 ITEM: bpP:p0:expsafe
 KIND: theorem
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L514-L523
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L513-L522
 DISPOSITION: NODE bpP:p0:expsafe
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
@@ -621,7 +621,7 @@ REVIEWER: -
 
 ITEM: heading:bpP:p0:d25-sec
 KIND: heading
-SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-sec@L396-L396
+SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-sec@L395-L395
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
@@ -648,7 +648,7 @@ REVIEWER: -
 
 ITEM: p0:sourcegap-L387
 KIND: proof-region
-SOURCE: blueprint-P/parts/p0-conventions.tex#sourcegap@L387-L387
+SOURCE: blueprint-P/parts/p0-conventions.tex#sourcegap@L386-L386
 DISPOSITION: EXCLUDED
 REASON: \sourcegap of Theorem bpP:p0:fixed (P-FIXED), deferred with that theorem (not a root of this graph version; see bpP:p0:fixed)
 COVERAGE_STATUS: PROPOSED
@@ -882,7 +882,7 @@ REVIEWER: -
 
 ITEM: p0:source-L386
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L386-L386
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L385-L385
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -891,7 +891,7 @@ REVIEWER: -
 
 ITEM: p0:source-L408
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L408-L408
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L407-L407
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -900,7 +900,7 @@ REVIEWER: -
 
 ITEM: p0:source-L422
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L422-L422
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L421-L421
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -909,7 +909,7 @@ REVIEWER: -
 
 ITEM: p0:source-L428
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L428-L428
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L427-L427
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -918,7 +918,7 @@ REVIEWER: -
 
 ITEM: p0:source-L441
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L441-L441
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L440-L440
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -927,7 +927,7 @@ REVIEWER: -
 
 ITEM: p0:source-L455
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L455-L455
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L454-L454
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -936,7 +936,7 @@ REVIEWER: -
 
 ITEM: p0:source-L462
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L462-L462
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L461-L461
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -945,7 +945,7 @@ REVIEWER: -
 
 ITEM: p0:source-L469
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L469-L469
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L468-L468
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -954,7 +954,7 @@ REVIEWER: -
 
 ITEM: p0:source-L484
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L484-L484
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L483-L483
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -963,7 +963,7 @@ REVIEWER: -
 
 ITEM: p0:source-L490
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L490-L490
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L489-L489
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -972,7 +972,7 @@ REVIEWER: -
 
 ITEM: p0:source-L511
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L511-L511
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L510-L510
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -981,7 +981,7 @@ REVIEWER: -
 
 ITEM: p0:source-L522
 KIND: citation
-SOURCE: blueprint-P/parts/p0-conventions.tex#source@L522-L522
+SOURCE: blueprint-P/parts/p0-conventions.tex#source@L521-L521
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
@@ -1026,7 +1026,7 @@ REVIEWER: -
 
 ITEM: p0:prose-L398-L403
 KIND: proof-region
-SOURCE: blueprint-P/parts/p0-conventions.tex#prose@L398-L403
+SOURCE: blueprint-P/parts/p0-conventions.tex#prose@L397-L402
 DISPOSITION: TODO
 REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
 COVERAGE_STATUS: PROPOSED

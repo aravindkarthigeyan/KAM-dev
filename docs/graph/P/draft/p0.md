@@ -1001,7 +1001,7 @@ NOTE: -
 NODE: bpP:p0:planar
 KIND: theorem
 TITLE: P-PLANAR: two planar planets with a moving Sun
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:planar@L367-L378
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:planar@L367-L377
 PROOF_SOURCE: blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:planar@L159-L163
 CONTRACT_ID: planetary.planarTwoPlanetKAM
 CONTRACT_VERSION: 1
@@ -1028,8 +1028,8 @@ NOTE: -
 NODE: bpP:p0:scope
 KIND: claim
 TITLE: Scope of this part
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:scope@L391-L394
-PROOF_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:scope@L391-L394
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:scope@L390-L393
+PROOF_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:scope@L390-L393
 CONTRACT_ID: bpP:p0:scope
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: TODO
@@ -1054,7 +1054,7 @@ NOTE: remark: its justification is inline (confirm, or exclude if not a mathemat
 NODE: bpP:p0:d25-cross#planeCross
 KIND: definition
 TITLE: Planar cross product: KAM.Planetary.planeCross
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-cross@L405-L409
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-cross@L404-L408
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.planeCross
 CONTRACT_VERSION: 1
@@ -1080,7 +1080,7 @@ NOTE: -
 NODE: bpP:p0:d25-kepler#keplerEnergy
 KIND: definition
 TITLE: Osculating Kepler quantities: KAM.Planetary.keplerEnergy
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L423
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.keplerEnergy
 CONTRACT_VERSION: 1
@@ -1095,8 +1095,8 @@ FROZEN_ABI_SHA256: 16c4abfa143974cfab2700e7d6d8677f17282610a4442788226f49d67dc35
 DEPS: bpP:p0:d25-prograde#ProgradeElliptic, bpP:p0:d25-totality
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L420-L420 | cited at this line (statement; \ref{bpP:p0:d25-prograde})
-EDGE: bpP:p0:d25-totality | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L420-L420 | cited at this line (statement; \ref{bpP:p0:d25-totality})
+EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L419-L419 | cited at this line (statement; \ref{bpP:p0:d25-prograde})
+EDGE: bpP:p0:d25-totality | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L419-L419 | cited at this line (statement; \ref{bpP:p0:d25-totality})
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: mechanical-preextract
 REVIEWER: -
@@ -1108,7 +1108,7 @@ NOTE: -
 NODE: bpP:p0:d25-kepler#keplerAxis
 KIND: definition
 TITLE: Osculating Kepler quantities: KAM.Planetary.keplerAxis
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L423
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.keplerAxis
 CONTRACT_VERSION: 1
@@ -1123,8 +1123,8 @@ FROZEN_ABI_SHA256: 8b55c0149ea62631a5254e243408a8d995b7e8f4808a16a0a580ed961a249
 DEPS: bpP:p0:d25-prograde#ProgradeElliptic, bpP:p0:d25-totality
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L420-L420 | cited at this line (statement; \ref{bpP:p0:d25-prograde})
-EDGE: bpP:p0:d25-totality | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L420-L420 | cited at this line (statement; \ref{bpP:p0:d25-totality})
+EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L419-L419 | cited at this line (statement; \ref{bpP:p0:d25-prograde})
+EDGE: bpP:p0:d25-totality | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L419-L419 | cited at this line (statement; \ref{bpP:p0:d25-totality})
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: mechanical-preextract
 REVIEWER: -
@@ -1136,7 +1136,7 @@ NOTE: -
 NODE: bpP:p0:d25-kepler#keplerAction
 KIND: definition
 TITLE: Osculating Kepler quantities: KAM.Planetary.keplerAction
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L423
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.keplerAction
 CONTRACT_VERSION: 1
@@ -1151,8 +1151,8 @@ FROZEN_ABI_SHA256: bb4ff50c2f5da52bcb864343bc951d280ef83bd68edbe387811453a1e42f1
 DEPS: bpP:p0:d25-prograde#ProgradeElliptic, bpP:p0:d25-totality
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L420-L420 | cited at this line (statement; \ref{bpP:p0:d25-prograde})
-EDGE: bpP:p0:d25-totality | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L420-L420 | cited at this line (statement; \ref{bpP:p0:d25-totality})
+EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L419-L419 | cited at this line (statement; \ref{bpP:p0:d25-prograde})
+EDGE: bpP:p0:d25-totality | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L419-L419 | cited at this line (statement; \ref{bpP:p0:d25-totality})
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: mechanical-preextract
 REVIEWER: -
@@ -1164,7 +1164,7 @@ NOTE: -
 NODE: bpP:p0:d25-kepler#keplerEccVector
 KIND: definition
 TITLE: Osculating Kepler quantities: KAM.Planetary.keplerEccVector
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L423
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.keplerEccVector
 CONTRACT_VERSION: 1
@@ -1179,8 +1179,8 @@ FROZEN_ABI_SHA256: 754654458593f4c80d7e127afc0bd14f866161831a7400aeec7e374efcb4d
 DEPS: bpP:p0:d25-prograde#ProgradeElliptic, bpP:p0:d25-totality
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L420-L420 | cited at this line (statement; \ref{bpP:p0:d25-prograde})
-EDGE: bpP:p0:d25-totality | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L420-L420 | cited at this line (statement; \ref{bpP:p0:d25-totality})
+EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L419-L419 | cited at this line (statement; \ref{bpP:p0:d25-prograde})
+EDGE: bpP:p0:d25-totality | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L419-L419 | cited at this line (statement; \ref{bpP:p0:d25-totality})
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: mechanical-preextract
 REVIEWER: -
@@ -1192,7 +1192,7 @@ NOTE: -
 NODE: bpP:p0:d25-amd#totalMomentum
 KIND: definition
 TITLE: Total momentum and AMD: KAM.Planetary.totalMomentum
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L429
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L424-L428
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.totalMomentum
 CONTRACT_VERSION: 1
@@ -1218,7 +1218,7 @@ NOTE: -
 NODE: bpP:p0:d25-amd#physicalAMD
 KIND: definition
 TITLE: Total momentum and AMD: KAM.Planetary.physicalAMD
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L429
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L424-L428
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.physicalAMD
 CONTRACT_VERSION: 1
@@ -1244,7 +1244,7 @@ NOTE: -
 NODE: bpP:p0:d25-prograde#ProgradeElliptic
 KIND: definition
 TITLE: Prograde elliptic points: KAM.Planetary.ProgradeElliptic
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-prograde@L431-L435
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-prograde@L430-L434
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.ProgradeElliptic
 CONTRACT_VERSION: 1
@@ -1270,7 +1270,7 @@ NOTE: -
 NODE: bpP:p0:d25-lowamd#LowAMDRegion
 KIND: definition
 TITLE: Low-AMD region: KAM.Planetary.LowAMDRegion
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-lowamd@L437-L442
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-lowamd@L436-L441
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.LowAMDRegion
 CONTRACT_VERSION: 1
@@ -1296,7 +1296,7 @@ NOTE: -
 NODE: bpP:p0:d25-box#AMDBox
 KIND: definition
 TITLE: Geometric data $\mathcal B$ and admissibility: KAM.Planetary.AMDBox
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L444-L456
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L443-L455
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.AMDBox
 CONTRACT_VERSION: 1
@@ -1322,7 +1322,7 @@ NOTE: -
 NODE: bpP:p0:d25-box#Admissible
 KIND: definition
 TITLE: Geometric data $\mathcal B$ and admissibility: KAM.Planetary.AMDBox.Admissible
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L444-L456
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L443-L455
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.AMDBox.Admissible
 CONTRACT_VERSION: 1
@@ -1348,7 +1348,7 @@ NOTE: -
 NODE: bpP:p0:d25-movsol#IsMovingSolutionOn
 KIND: definition
 TITLE: Moving-Sun solutions on a time set: KAM.Planetary.IsMovingSolutionOn
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L458-L463
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L457-L462
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.IsMovingSolutionOn
 CONTRACT_VERSION: 1
@@ -1374,7 +1374,7 @@ NOTE: -
 NODE: bpP:p0:d25-movsol#IsHamiltonianSolutionOn
 KIND: definition
 TITLE: Moving-Sun solutions on a time set: KAM.Iso.IsHamiltonianSolutionOn
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L458-L463
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L457-L462
 PROOF_SOURCE: -
 CONTRACT_ID: iso.IsHamiltonianSolutionOn
 CONTRACT_VERSION: 1
@@ -1400,7 +1400,7 @@ NOTE: -
 NODE: bpP:p0:d25-newton#IsNewtonSolutionOn
 KIND: definition
 TITLE: Newton solutions on a time set: KAM.Planetary.IsNewtonSolutionOn
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-newton@L465-L470
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-newton@L464-L469
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.IsNewtonSolutionOn
 CONTRACT_VERSION: 1
@@ -1415,7 +1415,7 @@ FROZEN_ABI_SHA256: a03730db1e938d4da88e154ebbb322ec514de0aa287e030a2de6e8a1625e3
 DEPS: bpP:p0:newton#IsNewtonSolution
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:newton#IsNewtonSolution | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-newton@L467-L467 | cited at this line (statement; \ref{bpP:p0:newton})
+EDGE: bpP:p0:newton#IsNewtonSolution | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-newton@L466-L466 | cited at this line (statement; \ref{bpP:p0:newton})
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: mechanical-preextract
 REVIEWER: -
@@ -1427,7 +1427,7 @@ NOTE: -
 NODE: bpP:p0:d25-unique#MovingUniqueOn
 KIND: definition
 TITLE: Uniqueness among local solutions: KAM.Planetary.MovingUniqueOn
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-unique@L472-L476
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-unique@L471-L475
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.MovingUniqueOn
 CONTRACT_VERSION: 1
@@ -1453,7 +1453,7 @@ NOTE: -
 NODE: bpP:p0:d25-stopped#StoppedActionBound
 KIND: definition
 TITLE: Stopped action bound: KAM.Planetary.StoppedActionBound
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-stopped@L478-L485
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-stopped@L477-L484
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.StoppedActionBound
 CONTRACT_VERSION: 1
@@ -1479,7 +1479,7 @@ NOTE: -
 NODE: bpP:p0:d25-exponents#planetaryTimeExponent
 KIND: definition
 TITLE: Exponents: KAM.Planetary.planetaryTimeExponent
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L487-L491
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L486-L490
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.planetaryTimeExponent
 CONTRACT_VERSION: 1
@@ -1505,7 +1505,7 @@ NOTE: -
 NODE: bpP:p0:d25-exponents#planetaryDriftExponent
 KIND: definition
 TITLE: Exponents: KAM.Planetary.planetaryDriftExponent
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L487-L491
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L486-L490
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.d25.planetaryDriftExponent
 CONTRACT_VERSION: 1
@@ -1531,8 +1531,8 @@ NOTE: -
 NODE: bpP:p0:d25-totality
 KIND: claim
 TITLE: Lean totality for the D25 objects
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-totality@L493-L498
-PROOF_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-totality@L493-L498
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-totality@L492-L497
+PROOF_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-totality@L492-L497
 CONTRACT_ID: bpP:p0:d25-totality
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: TODO
@@ -1557,7 +1557,7 @@ NOTE: remark: its justification is inline (confirm, or exclude if not a mathemat
 NODE: bpP:p0:amd
 KIND: theorem
 TITLE: P-AMD-CONFINEMENT: deterministic stopped-input helper
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L500-L512
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L499-L511
 PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:amd@L129-L133
 CONTRACT_ID: planetary.d25.amdConfinement
 CONTRACT_VERSION: 1
@@ -1572,9 +1572,9 @@ FROZEN_ABI_SHA256: a06de42f8f9b1500dacb7d6458a771df2ac692e555eb951cd1b7f779ec077
 DEPS: bpP:p0:barycentric#actualMasses, bpP:p0:barycentric#barycentricPositions, bpP:p0:barycentric#barycentricVelocities, bpP:p14:amd
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:barycentric#actualMasses | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L505-L505 | cited at this line (statement; \ref{bpP:p0:barycentric})
-EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L505-L505 | cited at this line (statement; \ref{bpP:p0:barycentric})
-EDGE: bpP:p0:barycentric#barycentricVelocities | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L505-L505 | cited at this line (statement; \ref{bpP:p0:barycentric})
+EDGE: bpP:p0:barycentric#actualMasses | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L504-L504 | cited at this line (statement; \ref{bpP:p0:barycentric})
+EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L504-L504 | cited at this line (statement; \ref{bpP:p0:barycentric})
+EDGE: bpP:p0:barycentric#barycentricVelocities | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L504-L504 | cited at this line (statement; \ref{bpP:p0:barycentric})
 EDGE: bpP:p14:amd | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p0:amd@L129-L129 | this result carries \frozen{KAM.Planetary.amdConfinement}: it proves the anchor
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: mechanical-preextract
@@ -1587,7 +1587,7 @@ NOTE: -
 NODE: bpP:p0:expsafe
 KIND: theorem
 TITLE: P-EXP-SAFE: planar moving-Sun exponential safety for every low-AMD datum
-STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L514-L523
+STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L513-L522
 PROOF_SOURCE: blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:expsafe@L295-L299
 CONTRACT_ID: planetary.d25.planetaryExponentialSafety
 CONTRACT_VERSION: 1
@@ -1602,9 +1602,9 @@ FROZEN_ABI_SHA256: 2e161e3b644712a64211734b4208c2425542c31bf0a43de3857c3cceb1a2a
 DEPS: bpP:p0:amd, bpP:p0:d25-exponents#planetaryTimeExponent, bpP:p0:d25-exponents#planetaryDriftExponent, bpP:p14:expsafe
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:amd | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L517-L517 | cited at this line (statement; \ref{bpP:p0:amd})
-EDGE: bpP:p0:d25-exponents#planetaryTimeExponent | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L520-L520 | cited at this line (statement; \ref{bpP:p0:d25-exponents})
-EDGE: bpP:p0:d25-exponents#planetaryDriftExponent | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L520-L520 | cited at this line (statement; \ref{bpP:p0:d25-exponents})
+EDGE: bpP:p0:amd | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | cited at this line (statement; \ref{bpP:p0:amd})
+EDGE: bpP:p0:d25-exponents#planetaryTimeExponent | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L519-L519 | cited at this line (statement; \ref{bpP:p0:d25-exponents})
+EDGE: bpP:p0:d25-exponents#planetaryDriftExponent | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L519-L519 | cited at this line (statement; \ref{bpP:p0:d25-exponents})
 EDGE: bpP:p14:expsafe | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p0:expsafe@L295-L295 | this result carries \frozen{KAM.Planetary.planetaryExponentialSafety}: it proves the anchor
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: mechanical-preextract
