@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-28 03:16 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 74.5 %** · frozen statements proved: 8 / 22 · **57,790 lines of Lean** of an estimated ≈ 92,000
+> **Last updated: 2026-10-28 03:20 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 74.5 %** · frozen statements proved: 8 / 22 · **57,790 lines of Lean** of an estimated ≈ 92,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -127,7 +127,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 | | Lines of Lean |
 |---|---|
 | On `main` now | **57,790** (40,385 excluding blank lines and comments) · **+57,790** since 2026-10-27 13:33 UTC |
-| Written on agent branches, not yet landed | 9,403 |
+| Written on agent branches, not yet landed | 9,708 |
 | **Estimated total at completion** | **≈ 92,000** |
 | Estimated still to write | ≈ 25,000 |
 
@@ -135,7 +135,7 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-28 03:16 UTC from `main` at `f0bf6e3` by `scripts/hq-status.py`.*
+*Generated 2026-10-28 03:20 UTC from `main` at `052f39f` by `scripts/hq-status.py`.*
 
 **Current phase:** Track K complete: all five frozen theorems sealed (headline, qualitative headline, a-posteriori KAM, local uniqueness, measure of the non-Diophantine set); its proof graph is fully resolved. Tracks I, N, P: proof campaigns running (sub-orchestrator D23 plus packages offloaded to the lead); overnight mode D29.
 
@@ -299,13 +299,12 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **grev-3** `inp-grev-3` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
 | **grev-4** `inp-grev-4` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
 | **aud-2** `inp-aud-2` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **c53** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: C5-3: Canonical/FlowRegular (flow_b) proved | `inp-c53` | 4 (vs `inp`) |
-| **i210** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: I2-10: Apost/G1 (g1_explicit, constants positivity, row-sum norm helper) | `inp-i210` | 4 (vs `inp`) |
-| **i29** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: I2-9: Apost/Limit lint fixes (line length) | `inp-i29` | 3 (vs `inp`) |
+| **c53** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: C5-3: wrap long docstring line | `inp-c53` | 7 (vs `inp`) |
+| **i210** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: I2-10: provider KAM.Provider.Iso.isoenergetic_kam (exact frozen type); G1 line-length fix | `inp-i210` | 2 (vs `inp`) |
 | **i34** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: I3-4: Charts/Torus: hypothesis_d and torus complete | `inp-i34` | 2 (vs `inp`) |
 | **i35** | prover (offload) | Claude Sonnet 5.5 | — | ✅ audited, handed back | last commit: I3-5: handoff and independent audit (PASS WITH NOTES) | `inp-i35` | 7 (vs `inp`) |
-| **i4** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: I-4: near-circular region (NearCircularWitness, nearCircular_eq/_eq_image, isOpen, nonempt | `inp-i4` | 1 (vs `inp`) |
-| **i8** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: I-8: PeriodOne scaffolding (tildeF, periodOne_real, delaunay_periodOne_symplectic) | `inp-i8` | 1 (vs `inp`) |
+| **i4** | prover (offload) | Claude Sonnet 5.5 | — | 🔍 in audit | last commit: I-4: near-circular region (NearCircularWitness, nearCircular_eq/_eq_image, isOpen, nonempt | `inp-i4` | 1 (vs `inp`) |
+| **i8** | prover (offload) | Claude Sonnet 5.5 | — | 🔄 proving | last commit: I-8: wrap long lines for lint | `inp-i8` | 3 (vs `inp`) |
 | **w43** | prover (offload) | Claude Sonnet 5.5 | — | ✅ audited, handed back | last commit: W4-3: handoff and independent audit (PASS WITH NOTES) | `inp-w43` | 3 (vs `inp`) |
 
 *8 finished agent sessions not shown.*
