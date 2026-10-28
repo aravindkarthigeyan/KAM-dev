@@ -401,14 +401,14 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p0:fastfreq#fastFrequency, bpP:p3:period-dictionary, bpP:p1:dio-basic, bpP:p1:two-scale, bpP:p3:two-scale-kam
+DEPS: bpP:p0:fastfreq#fastFrequency, bpP:p3:period-dictionary, bpP:p1:dio-basic, bpP:p1:two-scale, bpP:p3:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L74-L74 | omega_{H_0} in the frequency map
 EDGE: bpP:p3:period-dictionary | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L75-L75 | h = (H_0 + mu N_mu)/2pi and omega_0 = omega_mu/2pi
 EDGE: bpP:p1:dio-basic | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L75-L75 | cone property (c) of the two-scale Diophantine condition
 EDGE: bpP:p1:two-scale | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L75-L75 | the set D_{alpha_1,alpha_2,tau}
-EDGE: bpP:p3:two-scale-kam | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L75-L75 | D^dio and the data h, omega_0 of Proposition two-scale-kam
+EDGE: bpP:p3:conv#data | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:freq@L75-L75 | D^dio := omega_0^{-1}(D_{gamma_1,gamma_2,tau}) intersect D and the conventions of Part 3
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p4
 REVIEWER: -
@@ -787,11 +787,12 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p4:collar, bpP:p4:conv#shell
+DEPS: bpP:p4:collar, bpP:p4:conv#shell, bpP:p3:conv#data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p4:collar | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L162-L162 | N_{r_K}(D_t) subset V, Lemma collar (c)
 EDGE: bpP:p4:conv#shell | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L161-L161 | D = D_t x A_sh
+EDGE: bpP:p3:conv#data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L161-L161 | Re(D_r) is the real neighbourhood of Part 3 conventions
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p4
 REVIEWER: -

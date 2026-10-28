@@ -4,7 +4,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:order@L13-L23
 DISPOSITION: NODE bpP:p5:order
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:ext
@@ -13,7 +13,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:ext@L29-L31
 DISPOSITION: NODE bpP:p5:ext
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ext-loc
@@ -22,7 +22,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ext-loc@L33-L33
 DISPOSITION: NODE stepP:p5:ext-loc
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ext-glue
@@ -31,7 +31,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ext-glue@L34-L34
 DISPOSITION: NODE stepP:p5:ext-glue
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ext-per
@@ -40,7 +40,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ext-per@L35-L35
 DISPOSITION: NODE stepP:p5:ext-per
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ext-H0
@@ -49,7 +49,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ext-H0@L36-L36
 DISPOSITION: NODE stepP:p5:ext-H0
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:consts
@@ -58,7 +58,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:consts@L39-L44
 DISPOSITION: NODE bpP:p5:consts
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:birkhoff-ext
@@ -67,7 +67,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:birkhoff-ext@L49-L56
 DISPOSITION: NODE bpP:p5:birkhoff-ext
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:be-coef
@@ -76,7 +76,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-coef@L58-L58
 DISPOSITION: NODE stepP:p5:be-coef
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:be-an
@@ -85,7 +85,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-an@L59-L59
 DISPOSITION: NODE stepP:p5:be-an
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:be-jet
@@ -94,7 +94,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-jet@L60-L60
 DISPOSITION: NODE stepP:p5:be-jet
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:be-det
@@ -103,7 +103,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-det@L61-L61
 DISPOSITION: NODE stepP:p5:be-det
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:uniform-remainder
@@ -112,7 +112,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:uniform-remainder@L64-L70
 DISPOSITION: NODE bpP:p5:uniform-remainder
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ur-bound
@@ -121,7 +121,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ur-bound@L72-L72
 DISPOSITION: NODE stepP:p5:ur-bound
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ur-schwarz
@@ -130,7 +130,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ur-schwarz@L73-L73
 DISPOSITION: NODE stepP:p5:ur-schwarz
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:lip-complex
@@ -139,7 +139,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lip-complex@L80-L82
 DISPOSITION: NODE bpP:p5:lip-complex
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:bilip
@@ -148,7 +148,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:bilip@L88-L90
 DISPOSITION: NODE bpP:p5:bilip
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:bl-real
@@ -157,7 +157,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bl-real@L92-L92
 DISPOSITION: NODE stepP:p5:bl-real
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:bl-comp
@@ -166,7 +166,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bl-comp@L93-L93
 DISPOSITION: NODE stepP:p5:bl-comp
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:dio-one
@@ -175,7 +175,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:dio-one@L96-L98
 DISPOSITION: NODE bpP:p5:dio-one
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:freq-data
@@ -184,7 +184,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:freq-data@L104-L108
 DISPOSITION: NODE bpP:p5:freq-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:fd-bd
@@ -193,7 +193,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-bd@L110-L110
 DISPOSITION: NODE stepP:p5:fd-bd
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:fd-lip
@@ -202,7 +202,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-lip@L111-L111
 DISPOSITION: NODE stepP:p5:fd-lip
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:fd-beta
@@ -211,7 +211,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-beta@L112-L112
 DISPOSITION: NODE stepP:p5:fd-beta
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:freq-inj
@@ -220,7 +220,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:freq-inj@L115-L125
 DISPOSITION: NODE bpP:p5:freq-inj
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:fi-inj
@@ -229,7 +229,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-inj@L127-L127
 DISPOSITION: NODE stepP:p5:fi-inj
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:fi-blk
@@ -238,7 +238,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-blk@L128-L128
 DISPOSITION: NODE stepP:p5:fi-blk
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:fi-inv
@@ -247,16 +247,16 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-inv@L129-L129
 DISPOSITION: NODE stepP:p5:fi-inv
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:freq-inj-rem
 KIND: claim
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:freq-inj-rem@L131-L133
-DISPOSITION: NODE bpP:p5:freq-inj-rem
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: remark restating that freq-inj (a) supplies the injectivity that bpP:p3:interface lists and that the 2 pi factors are absorbed in C_1; consumed by no proof (searched Parts 0-14b for bpP:p5:freq-inj-rem: only its own label), the facts it states are proved in bpP:p5:freq-inj and bpP:p5:kam-hyp
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:params
@@ -265,7 +265,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:params@L137-L145
 DISPOSITION: NODE bpP:p5:params
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:rstar
@@ -274,7 +274,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rstar@L147-L156
 DISPOSITION: NODE bpP:p5:rstar
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:param-facts
@@ -283,7 +283,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:param-facts@L158-L163
 DISPOSITION: NODE bpP:p5:param-facts
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:avg
@@ -292,7 +292,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:avg@L170-L174
 DISPOSITION: NODE bpP:p5:avg
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:av-dict
@@ -301,7 +301,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-dict@L176-L176
 DISPOSITION: NODE stepP:p5:av-dict
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:av-R1
@@ -310,7 +310,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-R1@L177-L177
 DISPOSITION: NODE stepP:p5:av-R1
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:av-R2
@@ -319,7 +319,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-R2@L178-L178
 DISPOSITION: NODE stepP:p5:av-R2
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:av-id
@@ -328,7 +328,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-id@L179-L179
 DISPOSITION: NODE stepP:p5:av-id
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:phi
@@ -337,7 +337,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:phi@L184-L186
 DISPOSITION: NODE bpP:p5:phi
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:phi-chart
@@ -346,7 +346,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:phi-chart@L188-L191
 DISPOSITION: NODE bpP:p5:phi-chart
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:pc-img
@@ -355,7 +355,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:pc-img@L193-L193
 DISPOSITION: NODE stepP:p5:pc-img
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:pc-lat
@@ -364,7 +364,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:pc-lat@L194-L194
 DISPOSITION: NODE stepP:p5:pc-lat
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:pc-ham
@@ -373,7 +373,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:pc-ham@L195-L195
 DISPOSITION: NODE stepP:p5:pc-ham
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:kam-hyp
@@ -382,7 +382,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-hyp@L198-L202
 DISPOSITION: NODE bpP:p5:kam-hyp
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:kh-dom
@@ -391,7 +391,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-dom@L204-L204
 DISPOSITION: NODE stepP:p5:kh-dom
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:kh-h
@@ -400,7 +400,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-h@L205-L205
 DISPOSITION: NODE stepP:p5:kh-h
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:kh-f
@@ -409,7 +409,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-L206
 DISPOSITION: NODE stepP:p5:kh-f
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:kh-norm
@@ -418,7 +418,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-norm@L207-L207
 DISPOSITION: NODE stepP:p5:kh-norm
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:kam-cond
@@ -427,7 +427,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L212-L222
 DISPOSITION: NODE bpP:p5:kam-cond
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:kc-eval
@@ -436,7 +436,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kc-eval@L224-L224
 DISPOSITION: NODE stepP:p5:kc-eval
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:kc-small
@@ -445,7 +445,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kc-small@L225-L225
 DISPOSITION: NODE stepP:p5:kc-small
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:rK
@@ -454,7 +454,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rK@L228-L231
 DISPOSITION: NODE bpP:p5:rK
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:rk-dir
@@ -463,16 +463,16 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:rk-dir@L233-L233
 DISPOSITION: NODE stepP:p5:rk-dir
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:use5-fix
 KIND: claim
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:use5-fix@L235-L237
-DISPOSITION: NODE bpP:p5:use5-fix
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: administrative interface remark (replaces Part 4 bpP:p4:use5; SPEC lists bpP:p5:use5-fix among the examples); searched the corpus for bpP:p5:use5-fix: no reference outside Part 5; the facts it states are proved in bpP:p5:budget, bpP:p5:rK and bpP:p5:param-facts
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:location
@@ -481,7 +481,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:location@L241-L243
 DISPOSITION: NODE bpP:p5:location
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:lo-range
@@ -490,7 +490,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-range@L245-L245
 DISPOSITION: NODE stepP:p5:lo-range
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:lo-act
@@ -499,7 +499,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-act@L246-L246
 DISPOSITION: NODE stepP:p5:lo-act
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:lo-disc
@@ -508,7 +508,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-disc@L247-L247
 DISPOSITION: NODE stepP:p5:lo-disc
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:kset
@@ -517,7 +517,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kset@L250-L254
 DISPOSITION: NODE bpP:p5:kset
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:torus-conv
@@ -526,7 +526,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:torus-conv@L256-L258
 DISPOSITION: NODE bpP:p5:torus-conv
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:tc-chart
@@ -535,7 +535,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-chart@L260-L260
 DISPOSITION: NODE stepP:p5:tc-chart
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:tc-LT
@@ -544,7 +544,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-LT@L261-L261
 DISPOSITION: NODE stepP:p5:tc-LT
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:tc-pipe
@@ -553,7 +553,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-pipe@L262-L262
 DISPOSITION: NODE stepP:p5:tc-pipe
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:tc-freq
@@ -562,7 +562,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-freq@L263-L263
 DISPOSITION: NODE stepP:p5:tc-freq
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:cell-transfer
@@ -571,7 +571,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:cell-transfer@L266-L268
 DISPOSITION: NODE bpP:p5:cell-transfer
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ct-cell
@@ -580,7 +580,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-cell@L270-L270
 DISPOSITION: NODE stepP:p5:ct-cell
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ct-dec
@@ -589,7 +589,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-dec@L271-L271
 DISPOSITION: NODE stepP:p5:ct-dec
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ct-disj
@@ -598,7 +598,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-disj@L272-L272
 DISPOSITION: NODE stepP:p5:ct-disj
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ct-count
@@ -607,7 +607,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-count@L273-L273
 DISPOSITION: NODE stepP:p5:ct-count
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:ct-liou
@@ -616,7 +616,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-liou@L274-L274
 DISPOSITION: NODE stepP:p5:ct-liou
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:budget
@@ -625,7 +625,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:budget@L280-L283
 DISPOSITION: NODE bpP:p5:budget
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:bu-read
@@ -634,7 +634,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-read@L285-L285
 DISPOSITION: NODE stepP:p5:bu-read
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:bu-dio
@@ -643,7 +643,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-dio@L286-L286
 DISPOSITION: NODE stepP:p5:bu-dio
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:bu-collar
@@ -652,7 +652,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-collar@L287-L287
 DISPOSITION: NODE stepP:p5:bu-collar
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:lower
@@ -661,7 +661,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L290-L293
 DISPOSITION: NODE bpP:p5:lower
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:lo-setup
@@ -670,7 +670,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-setup@L295-L295
 DISPOSITION: NODE stepP:p5:lo-setup
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:lo-bad
@@ -679,7 +679,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-bad@L296-L296
 DISPOSITION: NODE stepP:p5:lo-bad
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:lo-lost
@@ -688,7 +688,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-lost@L297-L297
 DISPOSITION: NODE stepP:p5:lo-lost
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:strictness
@@ -697,7 +697,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:strictness@L302-L307
 DISPOSITION: NODE bpP:p5:strictness
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:st-add
@@ -706,7 +706,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-add@L309-L309
 DISPOSITION: NODE stepP:p5:st-add
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:st-null
@@ -715,7 +715,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-null@L310-L310
 DISPOSITION: NODE stepP:p5:st-null
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:st-ivt
@@ -724,7 +724,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-ivt@L311-L311
 DISPOSITION: NODE stepP:p5:st-ivt
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:st-conc
@@ -733,7 +733,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-conc@L312-L312
 DISPOSITION: NODE stepP:p5:st-conc
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:main
@@ -742,7 +742,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:main@L317-L320
 DISPOSITION: NODE bpP:p5:main
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:mn-const
@@ -751,7 +751,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:mn-const@L322-L322
 DISPOSITION: NODE stepP:p5:mn-const
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:mn-given
@@ -760,7 +760,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:mn-given@L323-L323
 DISPOSITION: NODE stepP:p5:mn-given
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:mn-set
@@ -769,7 +769,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:mn-set@L324-L324
 DISPOSITION: NODE stepP:p5:mn-set
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: stepP:p5:mn-meas
@@ -778,16 +778,16 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:mn-meas@L325-L325
 DISPOSITION: NODE stepP:p5:mn-meas
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: bpP:p5:quant
 KIND: claim
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:quant@L328-L330
-DISPOSITION: NODE bpP:p5:quant
-REASON: mechanical inventory of a labelled unit
+DISPOSITION: EXCLUDED
+REASON: quantifier audit that restates the proof of bpP:p5:main and bpP:p5:order (SPEC lists bpP:p5:quant); searched the corpus for bpP:p5:quant: no reference
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5
@@ -796,7 +796,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5@L1-L1
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:conv
@@ -805,7 +805,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:conv@L9-L9
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:unif
@@ -814,7 +814,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:unif@L25-L25
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:domain-reduction
@@ -823,7 +823,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:domain-reduction@L76-L76
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:parameters
@@ -832,7 +832,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:parameters@L135-L135
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:kam-application
@@ -841,7 +841,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-application@L168-L168
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:kam-ham
@@ -850,7 +850,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-ham@L182-L182
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:scales
@@ -859,7 +859,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:scales@L210-L210
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:tori
@@ -868,7 +868,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:tori@L239-L239
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:measure
@@ -877,7 +877,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:measure@L278-L278
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:strict
@@ -886,7 +886,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:strict@L300-L300
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:proof
@@ -895,7 +895,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:proof@L315-L315
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: heading:bpP:p5:notes
@@ -904,25 +904,25 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:notes@L332-L332
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:sourcegap-L69
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#sourcegap@L69-L69
-DISPOSITION: TODO
-REASON: a \sourcegap note: model as a node with SOURCE_GAP: in NOTE, map it to the node(s) that supply the bridge, or exclude with reason
+DISPOSITION: NODE bpP:p5:uniform-remainder, stepP:p5:ur-bound, stepP:p5:ur-schwarz
+REASON: the gap in CP10 (60) is supplied by the proposition and its two steps (Cauchy bound and Schwarz lemma)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:sourcegap-L306
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#sourcegap@L306-L306
-DISPOSITION: TODO
-REASON: a \sourcegap note: model as a node with SOURCE_GAP: in NOTE, map it to the node(s) that supply the bridge, or exclude with reason
+DISPOSITION: NODE bpP:p5:strictness, stepP:p5:st-add, stepP:p5:st-null, stepP:p5:st-ivt, stepP:p5:st-conc
+REASON: the strict inequality is supplied by the proposition and its four steps
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:source-L68
@@ -931,7 +931,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#source@L68-L68
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:source-L85
@@ -940,7 +940,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#source@L85-L85
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:source-L101
@@ -949,7 +949,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#source@L101-L101
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:source-L292
@@ -958,7 +958,7 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#source@L292-L292
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:source-L305
@@ -967,59 +967,59 @@ SOURCE: blueprint-P/parts/p5-pg-assembly.tex#source@L305-L305
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:prose-L5-L5
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#prose@L5-L5
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: introduction: statement of the route and pointers to Parts 1 to 4; no fact consumed beyond the cited nodes, which carry the edges
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:prose-L7-L7
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#prose@L7-L7
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: comparison with CP10 (what is different) and pointers to the replaced Part 4 budgets; provenance and outline, the replacements are proved in bpP:p5:budget and bpP:p5:lower
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:prose-L11-L11
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#prose@L11-L11
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: NODE bpP:p5:consts, bpP:p5:avg, bpP:p5:kam-hyp, bpP:p5:bilip
+REASON: conventions (CP coordinates, period 2 pi, omega-bar_0 = omega_{H_0}, max norms, the weighted norm of N:bpN:p4:norm with coefficient radius, the dictionary gamma_i = alpha_i/2 pi of bpP:p4:freq): notation relied on by these nodes, which carry the edges to N:bpN:p4:norm and bpP:p4:freq
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:prose-L27-L27
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#prose@L27-L27
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: warning (review P5-01) explaining why the complex oscillator radius is chosen after delta_c; the choice itself is in bpP:p5:consts, nothing consumed
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:prose-L78-L78
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#prose@L78-L78
-DISPOSITION: TODO
-REASON: unlabelled prose without cross-references outside every node (--all-prose): map it to the node(s) that rely on a fact or datum it states (or make it a node), or exclude with a reason (motivation, outline, notation only)
+DISPOSITION: NODE bpP:p5:lip-complex
+REASON: notation X_rho for complex neighbourhoods, used by bpP:p5:lip-complex and bpP:p5:bilip (stated in their hypotheses)
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
 
 ITEM: p5:prose-L334-L339
 KIND: proof-region
 SOURCE: blueprint-P/parts/p5-pg-assembly.tex#prose@L334-L339
-DISPOSITION: TODO
-REASON: unlabelled prose with cross-references outside every node: map it to the node(s) whose statement or proof relies on it (with EDGEs located here), or exclude with a reason (motivation, pointer, provenance)
+DISPOSITION: EXCLUDED
+REASON: errata, deviations, external-facts list, forward references and label index (administrative). Check made: every item of the external-facts list (identity theorem, Cauchy, compactness, Cramer, Schur/Neumann, Schwarz lemma, monotone continuity of measure, Lebesgue number) was linked where a step uses it (Cauchy: K:bp:p1:cauchy-open, Cramer: K:bp:p1:ext-cramer); the others are classical facts without a track-P external node, flagged in the NOTE of the steps ext-loc, ext-glue, be-jet, ur-schwarz, fi-blk, st-ivt
 COVERAGE_STATUS: PROPOSED
-EXTRACTOR: mechanical-preextract
+EXTRACTOR: sonnet-extract-P-p5
 REVIEWER: -
