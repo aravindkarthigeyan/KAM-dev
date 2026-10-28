@@ -176,6 +176,7 @@ public import KAM.Iso.Kepler
 public import KAM.Kepler.Basic
 public import KAM.Kepler.Energy
 public import KAM.Kepler.Equation
+public import KAM.Kepler.Orbit
 public import KAM.Kepler.Plane
 public import KAM.Matrix.Bridges
 public import KAM.Matrix.Calculus
