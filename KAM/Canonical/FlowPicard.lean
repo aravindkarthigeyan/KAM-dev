@@ -222,6 +222,18 @@ theorem picard_regular {W : E ≃L[ℂ] E} {Ω : Set E} {F : E → E} {ε : ℝ}
     rw [picard_succ, add_sub_cancel_left]
     simpa [mul_comm] using this
 
+/-- The integrand `τ ↦ F (y_k(τ, z))` of the Picard step is interval integrable on `[0, t]`. -/
+theorem intervalIntegrable_picard_field {W : E ≃L[ℂ] E} {Ω : Set E} {F : E → E} {ε : ℝ}
+    (h : SmallField W Ω F ε) (k : ℕ) {z : E} (hz : z ∈ gaugeInterior W Ω (1 / 2)) {t : ℝ}
+    (ht : t ∈ Icc (-1 : ℝ) 1) : IntervalIntegrable (fun τ => F (picard F k τ z)) volume 0 t := by
+  have hU := isOpen_gaugeInterior h.isOpen W (1 / 2)
+  obtain ⟨hy, hd⟩ := picard_regular h k
+  have hmap : ∀ t ∈ Icc (-1 : ℝ) 1, ∀ z ∈ gaugeInterior W Ω (1 / 2), picard F k t z ∈ Ω :=
+    fun t ht z hz => mem_of_displacement h hz ht (by simpa using hd t ht z hz)
+  obtain ⟨hg, -⟩ := ParamHyp.comp_field h hU hy hmap
+  have h0 : (0 : ℝ) ∈ Icc (-1 : ℝ) 1 := ⟨by norm_num, by norm_num⟩
+  exact ((hg.continuousOn_time hz).mono (uIcc_subset_Icc h0 ht)).intervalIntegrable
+
 end Picard
 
 end KAM.Canonical
