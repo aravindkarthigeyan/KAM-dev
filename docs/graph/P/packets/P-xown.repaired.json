@@ -1,0 +1,13 @@
+{
+ "replaced": [],
+ "added": [],
+ "items": [],
+ "unresolved": {
+  "stepP:p2:nfb-N": "p2 L107–111; p2 L107 | Missing direct split dependency: the N=0 branch at L107 uses 6*eps/(e*alpha-bar_j*s), including j=1. The scalar direct lemma with alpha_2 cannot supply that alpha_1 bound; nfb-f",
+  "stepP:p2:nfb-concl": "p2 L119–121; p2 L119; p2 L121; p2 L120 | Missing direct nfb-first dependency: L121 explicitly invokes (2.1) to obtain (4/3)*eps_1 <= eps/kappa. The contraction and the schedule alone do not supply tha"
+ },
+ "passes": [
+  "bpN:p6:iterative-special",
+  "bpN:p6:iterative-special"
+ ]
+}

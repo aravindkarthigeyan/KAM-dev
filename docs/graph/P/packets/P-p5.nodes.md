@@ -74,9 +74,9 @@ DEPS: bpP:p0:cylinder#cylinder
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ext-loc@L33-L33 | X_0 subset [0,mu_0] x closure of the cylinder C(V,r_0) where (H1) holds
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -101,9 +101,9 @@ DEPS: stepP:p5:ext-loc
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p5:ext-loc | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ext-glue@L34-L34 | the local extensions P_x and delta_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -254,9 +254,9 @@ EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p5-pg-assembly.
 EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-coef@L58-L58 | P_av and its analyticity
 EDGE: bpP:p5:ext | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-coef@L58-L58 | P_av analytic by the holomorphic extension
 EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-coef@L58-L58 | R_j = (p_j^2+q_j^2)/2 in the Taylor coefficients
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -282,9 +282,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p5:ext | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-an@L59-L59 | holomorphy and uniform bounds of P~
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-an@L59-L59 | P~_av and D_c
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -311,9 +311,9 @@ ROUTE_FOR: -
 EDGE: stepP:p5:be-coef | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-jet@L60-L60 | vanishing jet and equality N~ = N on V
 EDGE: stepP:p5:be-an | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-jet@L60-L60 | holomorphy of the derivatives on D_c
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:be-jet@L60-L60 | uses the complex strip, oscillator radius or averaged function of this package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -428,9 +428,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p5:birkhoff-ext | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ur-schwarz@L73-L73 | vanishing jet of Q to order 4
 EDGE: stepP:p5:ur-bound | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ur-schwarz@L73-L73 | bound ¦g¦ <= M_1
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -514,9 +514,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:fastdiffeo#HasFastDiffeomorphism | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bl-real@L92-L92 | clause (iii): g o omega_{H_0} = id on W, g C^1
 EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bl-real@L92-L92 | omega-bar_0 = omega_{H_0} = dH_0
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -542,9 +542,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p5:bl-real | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bl-comp@L93-L93 | injectivity of omega-bar_0 on closure V and invertibility of d omega-bar_0
 EDGE: bpP:p5:ext | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bl-comp@L93-L93 | omega~_0 = dH~_0, its continuity and the bound M_0 for M0bar
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -639,9 +639,9 @@ EDGE: bpP:p5:ext | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-bd@L110-L110
 EDGE: K:bp:p1:cauchy-open | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-bd@L110-L110 | Cauchy estimates for derivatives in J_1
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-bd@L110-L110 | uses the complex strip, oscillator radius or averaged function of this package
 EDGE: bpP:p5:bilip | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-bd@L110-L110 | uses rho_c, delta_c or M0bar in the domain or bound directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -696,9 +696,9 @@ ROUTE_FOR: -
 EDGE: bpP:p5:birkhoff-ext | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-beta@L112-L112 | (c): ¦det beta~¦ >= B on closure V; beta~ symmetric
 EDGE: K:bp:p1:ext-cramer | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-beta@L112-L112 | Cramer inverse for complex matrices
 EDGE: bpP:p5:bilip | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fd-beta@L112-L112 | rho_c decreased
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -787,9 +787,9 @@ ROUTE_FOR: -
 EDGE: bpP:p5:bilip | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-blk@L128-L128 | ¦(d omega~_0)^{-1}¦ <= c_0^{-1}
 EDGE: bpP:p5:freq-data | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-blk@L128-L128 | A_N bounds on N~ derivatives and ¦beta~^{-1}¦ <= L_beta
 EDGE: bpP:p3:ext-neumann | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-blk@L128-L128 | Neumann inversion of A and of the normalized Schur complement
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -816,9 +816,9 @@ ROUTE_FOR: -
 EDGE: stepP:p5:fi-blk | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-inv@L129-L129 | A^{-1} and S^{-1} bounds
 EDGE: bpP:p5:bilip | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-inv@L129-L129 | c_0 in the block norms and M0bar in C_U
 EDGE: bpP:p5:freq-data | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:fi-inv@L129-L129 | A_N, L_beta in the block norms and C_U
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -851,9 +851,9 @@ EDGE: bpP:p5:dio-one | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:params@L144-L
 EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:params@L144-L144 | omega-bar_0 = omega_{H_0}
 EDGE: bpP:p5:kam-hyp#C1 | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:params@L138-L138 | uses the numerical constant choice separately from the later estimate
 EDGE: bpP:p5:kam-cond#scales | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:params@L138-L138 | uses the numerical constant choice separately from the later estimate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -890,9 +890,9 @@ EDGE: bpP:p4:conv#data | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rstar@L151-
 EDGE: bpP:p5:lower#constant | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rstar@L148-L148 | uses the numerical constant choice separately from the later estimate
 EDGE: bpP:p5:kam-cond#scales | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rstar@L150-L150 | uses the numerical constant choice separately from the later estimate
 EDGE: bpP:p5:rstar#Cgamma | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rstar@L152-L152 | uses the numerical constant choice separately from the later estimate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -923,9 +923,9 @@ EDGE: bpP:p5:dio-one | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:param-facts@L
 EDGE: bpP:p5:bilip | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:param-facts@L165-L165 | M0bar in rhobar <= rho_c
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:param-facts@L165-L165 | D_t, A, meas V
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:param-facts@L158-L163 | uses the complex strip, oscillator radius or averaged function of this package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1057,9 +1057,9 @@ EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-R2@L178-L
 EDGE: bpP:p5:bilip | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-R2@L178-L178 | uses rho_c, delta_c or M0bar in the domain or bound directly
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-R2@L178-L178 | uses the threshold or C_gamma and its smallness conditions directly
 EDGE: bpP:p5:kam-cond#scales | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-R2@L178-L178 | uses the numerical constant choice separately from the later estimate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1090,9 +1090,9 @@ EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-id@L179-L
 EDGE: stepP:p5:av-dict | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-id@L179-L179 | the matched setting
 EDGE: stepP:p5:av-R2 | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-id@L179-L179 | remainder bound of the N-norm
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:av-id@L179-L179 | uses the complex strip, oscillator radius or averaged function of this package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1156,9 +1156,9 @@ EDGE: stepP:p5:pc-lat | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:phi-chart@L1
 EDGE: stepP:p5:pc-ham | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:phi-chart@L195-L195 | proof step
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:phi-chart@L188-L191 | uses the parameter definitions (widths, scales, domain or shell) directly
 EDGE: bpP:p5:birkhoff-ext | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:phi-chart@L188-L191 | uses N-tilde and Q in the displayed Hamiltonian directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1189,9 +1189,9 @@ EDGE: bpP:p5:phi | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:pc-img@L193-L19
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:pc-img@L193-L193 | r_* <= eps_an/4 gives 2r < eps_an/2
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:pc-img@L193-L193 | lambda_2 = r^2/2
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:pc-img@L193-L193 | uses the complex strip, oscillator radius or averaged function of this package
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1287,9 +1287,9 @@ EDGE: stepP:p5:kh-h | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-hyp@L205-L
 EDGE: stepP:p5:kh-f | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-hyp@L206-L206 | proof step
 EDGE: stepP:p5:kh-norm | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-hyp@L207-L207 | proof step
 EDGE: bpP:p5:kam-hyp#C1 | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-hyp@L201-L201 | uses the numerical constant choice separately from the later estimate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1321,9 +1321,9 @@ EDGE: bpP:p5:phi | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-dom@L204-L20
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-dom@L204-L204 | sigma_av, eps_an
 EDGE: bpP:p5:phi-chart | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-dom@L204-L204 | f_mu = (mu Q + P~_rem) o Pol
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-dom@L204-L204 | uses the threshold or C_gamma and its smallness conditions directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1373,7 +1373,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p5:uniform-remainder, bpP:p5:avg, bpP:p5:consts, N:bpN:p4:sup-weighted, stepP:p5:kh-dom, bpP:p5:phi-chart, bpP:p5:rstar, bpP:p5:params
+DEPS: bpP:p5:uniform-remainder, bpP:p5:avg, bpP:p5:consts, N:bpN:p4:sup-weighted, stepP:p5:kh-dom, bpP:p5:phi-chart, bpP:p5:rstar, bpP:p5:params, bpP:p5:kam-hyp#C1
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p5:uniform-remainder | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-L206 | ¦Q¦ <= C_Q ¦x¦^5
@@ -1384,8 +1384,9 @@ EDGE: stepP:p5:kh-dom | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-
 EDGE: bpP:p5:phi-chart | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-L206 | f_mu = (mu Q + P~_rem) o Pol
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-L206 | 2r <= r_1 from r_* <= r_1/2
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-L206 | uses the parameter definitions (widths, scales, domain or shell) directly
+EDGE: bpP:p5:kam-hyp#C1 | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-f@L206-L206 | C_R := 2^5 C_Q + 2 Lambda_P and the defining maximum give C_R coth(sigma_av/4)^n/(2 pi) <= C_1
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
+EXTRACTOR: sonnet-extract-P-p5+sol-delta-P-g
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1414,9 +1415,9 @@ EDGE: bpP:p3:rem-norm | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-norm@L2
 EDGE: stepP:p5:kh-h | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-norm@L207-L207 | values M, hat M, bar M
 EDGE: bpP:p3:two-scale-kam | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-norm@L207-L207 | the normalisation required by its data
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kh-norm@L207-L207 | uses the threshold or C_gamma and its smallness conditions directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1448,9 +1449,9 @@ EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L217-
 EDGE: stepP:p5:kc-eval | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L224-L224 | proof step
 EDGE: stepP:p5:kc-small | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L225-L225 | proof step
 EDGE: bpP:p5:kam-cond#scales | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L215-L215 | uses the numerical constant choice separately from the later estimate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1507,9 +1508,9 @@ EDGE: stepP:p5:kc-eval | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kc-small@
 EDGE: bpP:p3:constants | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kc-small@L225-L225 | hat c and the KAM condition hat c E-hat < 1
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kc-small@L225-L225 | uses the parameter definitions (widths, scales, domain or shell) directly
 EDGE: bpP:p5:kam-cond#scales | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:kc-small@L225-L225 | uses the numerical constant choice separately from the later estimate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1538,9 +1539,9 @@ EDGE: bpP:p3:two-scale-kam | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rK@L229
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rK@L230-L230 | t, lambda_1, l, rhobar
 EDGE: stepP:p5:rk-dir | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rK@L233-L233 | proof step
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rK@L228-L231 | uses the threshold or C_gamma and its smallness conditions directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1604,9 +1605,9 @@ EDGE: stepP:p5:lo-range | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:location@L
 EDGE: stepP:p5:lo-act | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:location@L246-L246 | proof step
 EDGE: stepP:p5:lo-disc | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:location@L247-L247 | proof step
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:location@L241-L243 | uses the parameter definitions (widths, scales, domain or shell) directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1665,9 +1666,9 @@ EDGE: bpP:p5:rK | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-act@L246-L246
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-act@L246-L246 | t = sqrt r and Delta_I < t via the bound r^{11/2}/G
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-act@L246-L246 | N_s and D_t
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-act@L246-L246 | uses the threshold or C_gamma and its smallness conditions directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1767,9 +1768,9 @@ EDGE: stepP:p5:tc-pipe | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:torus-conv@
 EDGE: stepP:p5:tc-freq | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:torus-conv@L263-L263 | proof step
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:torus-conv@L256-L258 | uses the parameter definitions (widths, scales, domain or shell) directly
 EDGE: bpP:p5:freq-data | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:torus-conv@L256-L258 | uses A_N in the displayed C_w directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1798,9 +1799,9 @@ EDGE: bpP:p1:cyl-pipeline | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-cha
 EDGE: bpP:p5:kam-hyp | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-chart@L260-L260 | H_3 = (h_mu + f_mu)(.,2 pi theta)/2 pi
 EDGE: bpP:p5:phi | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-chart@L260-L260 | uses Phi, Pol or O_0 directly
 EDGE: bpP:p1:period-convert | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-chart@L260-L260 | uses S_{2pi} directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1839,9 +1840,9 @@ EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-LT@L261-L
 EDGE: bpP:p5:phi | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-LT@L261-L261 | uses Phi, Pol or O_0 directly
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-LT@L261-L261 | uses D_0, K_omega, S_B or the action-angle torus union directly
 EDGE: bpP:p1:period-convert | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-LT@L261-L261 | uses S_{2pi} directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1905,9 +1906,9 @@ EDGE: bpP:p1:dio-sources | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-freq
 EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-freq@L263-L263 | IsDiophantine
 EDGE: bpP:p5:kam-hyp | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-freq@L263-L263 | omega_0 = F_mu/2 pi
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:tc-freq@L263-L263 | uses the parameter definitions (widths, scales, domain or shell) directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1940,9 +1941,9 @@ EDGE: stepP:p5:ct-disj | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:cell-transf
 EDGE: stepP:p5:ct-count | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:cell-transfer@L273-L273 | proof step
 EDGE: stepP:p5:ct-liou | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:cell-transfer@L274-L274 | proof step
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:cell-transfer@L266-L268 | uses the threshold or C_gamma and its smallness conditions directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2004,9 +2005,9 @@ EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5
 EDGE: stepP:p5:ct-cell | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-dec@L271-L271 | sigma-compactness of A_B
 EDGE: bpP:p1:period-convert | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-dec@L271-L271 | uses S_{2pi} directly
 EDGE: bpP:p1:order | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-dec@L271-L271 | uses the coordinate permutation pi directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2036,9 +2037,9 @@ EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5
 EDGE: stepP:p5:ct-dec | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-disj@L272-L272 | T and Q''
 EDGE: bpP:p5:phi | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-disj@L272-L272 | uses Phi, Pol or O_0 directly
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-disj@L272-L272 | uses D_0, K_omega, S_B or the action-angle torus union directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2068,9 +2069,9 @@ EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p5-pg-assembly.tex#stepP:
 EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-count@L273-L273 | S_B subset C(V,r)
 EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-count@L273-L273 | shift(k)
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-count@L273-L273 | uses D_0, K_omega, S_B or the action-angle torus union directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2102,9 +2103,9 @@ EDGE: stepP:p5:ct-dec | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-liou@L2
 EDGE: bpP:p5:phi | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-liou@L274-L274 | uses Phi, Pol or O_0 directly
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-liou@L274-L274 | uses D_0, K_omega, S_B or the action-angle torus union directly
 EDGE: bpP:p1:order | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:ct-liou@L274-L274 | uses the coordinate permutation pi directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2137,9 +2138,9 @@ EDGE: stepP:p5:bu-read | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:budget@L285
 EDGE: stepP:p5:bu-dio | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:budget@L286-L286 | proof step
 EDGE: stepP:p5:bu-collar | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:budget@L287-L287 | proof step
 EDGE: bpP:p5:budget#constant | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:budget@L281-L281 | uses the numerical constant choice separately from the later estimate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2203,9 +2204,9 @@ EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-dio@L286-L
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-dio@L286-L286 | alpha_i, A_sh, lambda_2', gamma_i
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-dio@L286-L286 | D_0
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-dio@L286-L286 | uses the inner core D_t and the volume of V directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2238,9 +2239,9 @@ EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-collar@L2
 EDGE: K:bp:p1:ext-lebesgue | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-collar@L287-L287 | monotonicity and subadditivity of meas
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-collar@L287-L287 | A, N_s, D_t
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-collar@L287-L287 | uses the threshold or C_gamma and its smallness conditions directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2276,9 +2277,9 @@ EDGE: stepP:p5:lo-bad | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L296-L
 EDGE: stepP:p5:lo-lost | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L297-L297 | proof step
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L290-L293 | uses the parameter definitions (widths, scales, domain or shell) directly
 EDGE: bpP:p5:lower#constant | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L291-L291 | uses the numerical constant choice separately from the later estimate
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2308,9 +2309,9 @@ EDGE: bpP:p4:disc-measure | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-set
 EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-setup@L295-L295 | F(V,r)
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-setup@L295-L295 | K = K_{D_0}, S
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-setup@L295-L295 | uses the parameter definitions (widths, scales, domain or shell) directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2371,9 +2372,9 @@ EDGE: stepP:p5:lo-setup | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-lost@
 EDGE: stepP:p5:lo-bad | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-lost@L297-L297 | the bad-action part
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-lost@L297-L297 | K is Z^n-invariant in vartheta
 EDGE: bpP:p5:params | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:lo-lost@L297-L297 | uses the parameter definitions (widths, scales, domain or shell) directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2404,9 +2405,9 @@ EDGE: stepP:p5:st-add | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:strictness@L
 EDGE: stepP:p5:st-null | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:strictness@L310-L310 | proof step
 EDGE: stepP:p5:st-ivt | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:strictness@L311-L311 | proof step
 EDGE: stepP:p5:st-conc | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:strictness@L312-L312 | proof step
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2434,9 +2435,9 @@ EDGE: bpP:p5:cell-transfer | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-ad
 EDGE: bpP:p3:two-scale-kam | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-add@L309-L309 | injectivity modulo translations: disjoint tori
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-add@L309-L309 | K_B, A_B, Omega_B
 EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-add@L309-L309 | the source statement directly uses this frozen predicate or cell definition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2497,9 +2498,9 @@ EDGE: stepP:p5:st-add | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-ivt@L31
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-ivt@L311-L311 | (r5): (C_* + 1/2) sqrt r <= 1/2 so the lower bound is positive
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-ivt@L311-L311 | D_0 sigma-compact
 EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-ivt@L311-L311 | the source statement directly uses this frozen predicate or cell definition
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2528,9 +2529,9 @@ EDGE: bpP:p5:lower | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-conc@L312-
 EDGE: bpP:p5:rstar | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-conc@L312-L312 | (r5)
 EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-conc@L312-L312 | F(V,r), meas F > 0
 EDGE: bpP:p5:kset | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:st-conc@L312-L312 | uses D_0, K_omega, S_B or the action-angle torus union directly
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2566,9 +2567,9 @@ EDGE: bpP:p0:cylkol#IsCylinderKolmogorovSet | blueprint-P/parts/p5-pg-assembly.t
 EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:main@L317-L320 | the source statement directly uses this frozen predicate or cell definition
 EDGE: bpP:p5:lower#constant | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:main@L319-L319 | C_* in the specified witness C
 EDGE: bpP:p5:torus-conv | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:main@L319-L319 | C_w in the specified witness C
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p5+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2735,9 +2736,9 @@ ROUTE_FOR: -
 EDGE: bpP:p5:freq-inj | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-hyp@L200-L201 | numerical data used in this constant choice
 EDGE: bpP:p5:uniform-remainder | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-hyp@L200-L201 | numerical data used in this constant choice
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-hyp@L200-L201 | numerical data used in this constant choice
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2765,9 +2766,9 @@ EDGE: bpP:p5:kam-hyp#C1 | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L213-L217 | numerical data used in this constant choice
 EDGE: bpP:p5:bilip | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L213-L217 | numerical data used in this constant choice
 EDGE: bpP:p3:constants | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:kam-cond@L213-L217 | numerical data used in this constant choice
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2793,9 +2794,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p5:consts | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rstar@L152-L152 | numerical data used in this constant choice
 EDGE: bpP:p5:kam-cond#scales | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:rstar@L152-L152 | numerical data used in this constant choice
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2826,9 +2827,9 @@ EDGE: bpP:p5:dio-one | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-dio@L286
 EDGE: bpP:p5:rstar#Cgamma | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-dio@L286-L287 | numerical data used in this constant choice
 EDGE: bpP:p5:kam-cond#scales | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-dio@L286-L287 | numerical data used in this constant choice
 EDGE: bpP:p4:data | blueprint-P/parts/p5-pg-assembly.tex#stepP:p5:bu-dio@L286-L287 | standing numerical constants in the Part 4 measure coefficient
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -2858,9 +2859,9 @@ EDGE: bpP:p5:rstar#Cgamma | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L2
 EDGE: bpP:p5:kam-cond#scales | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L291-L291 | numerical data used in this constant choice
 EDGE: bpP:p5:budget#constant | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L291-L291 | numerical data used in this constant choice
 EDGE: bpP:p3:two-scale-kam | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:lower@L291-L291 | numerical data used in this constant choice
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-g
-REVIEWER: -
+REVIEWER: sol-delta-P-g
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

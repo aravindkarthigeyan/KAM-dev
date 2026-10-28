@@ -20,9 +20,9 @@ EDGE: N:bpN:p6:iterative | blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative
 EDGE: N:bpN:p6:setting | blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative-special@L140-L144 | original N hypotheses, alpha-bar and ¦g¦_*
 EDGE: N:bpN:p4:projections | blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative-special@L140-L144 | P_Lambda T_K f=f^_0 for Lambda={0}
 EDGE: N:bpN:p4:norm | blueprint-N/parts/p6-normal-form.tex#bpN:p6:iterative-special@L140-L144 | weighted remainder norm and Fourier coefficients
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: new+sol-review-P-d
-REVIEWER: -
+REVIEWER: sol-delta-P-d
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

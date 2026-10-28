@@ -725,7 +725,7 @@ DISPOSITION: NODE stepP:p14:sb-th-10
 REASON: labelled unit of the part, one node (frozen anchor or step)
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b
-REVIEWER: sol-delta-P-a
+REVIEWER: sol-delta2-P-a
 
 ITEM: stepP:p14:sb-th-11
 KIND: proof-region

@@ -2486,9 +2486,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p14:sb-th-9 | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-10@L302-L302 | the same radial bounds with the box axis ranges
 EDGE: bpP:p14:sb-numerics | blueprint-P/parts/p14b-secular-box.tex#stepP:p14:sb-th-10@L302-L302 | N7b
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p14b+sol-delta-P-a
-REVIEWER: -
+REVIEWER: sol-delta2-P-a
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

@@ -263,9 +263,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p4:lc-contra | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lc-local@L48-L48 | sequences and limit point (theta*, x*) produced by the contradiction step
 EDGE: K:bp:p1:ext-mvt | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lc-local@L48-L48 | mean value inequality on a convex ball (replaces the alias item bpP:p4:ext-mvt)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -323,9 +323,9 @@ EDGE: bpP:p4:ext-deriv | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-cont@L5
 EDGE: bpP:p0:fastdiffeo#HasFastDiffeomorphism | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-cont@L57-L57 | clauses (i) and (ii)
 EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-cont@L57-L57 | omega_{H_0} is the derivative of H_0
 EDGE: bpP:p1:ext-borel | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:li-cont@L57-L57 | the continuous image Y_0 of the compact closure of V is compact
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -494,9 +494,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p4:lt-a | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lattice-tail@L100-L100 | proof step (a)
 EDGE: stepP:p4:lt-b | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:lattice-tail@L101-L101 | proof step (b)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -521,9 +521,9 @@ DEPS: K:bp:p4:lattice-sum
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p4:lattice-sum | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lt-a@L100-L100 | Z^n sum with exponent tau-1 and Z^b sum with exponent tau
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -548,9 +548,9 @@ DEPS: K:bp:p4:lattice-count
 ROUTES: -
 ROUTE_FOR: -
 EDGE: K:bp:p4:lattice-count | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:lt-b@L101-L101 | number of lattice points with ¦k¦_1 = l is at most 2 3^{n-1} l^{n-1}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -585,9 +585,9 @@ EDGE: stepP:p4:dm-Bstruct | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale
 EDGE: stepP:p4:dm-B | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale-diophantine-measure@L133-L133 | proof step: case K_B
 EDGE: stepP:p4:dm-sum | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale-diophantine-measure@L139-L139 | proof step: sum
 EDGE: bpP:p4:lattice-tail | blueprint-P/parts/p4-pg-measure.tex#bpP:p4:two-scale-diophantine-measure@L109-L109 | S_1, S_2 and C_T in the displayed definitions of c_1 and c_2
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -677,9 +677,9 @@ EDGE: stepP:p4:dm-y | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L126-L12
 EDGE: bpP:p4:ext-tonelli | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L127-L127 | short sections plus projection in [-R_y,R_y]^{a-1} x [-lambda,lambda]^b
 EDGE: bpP:p4:lattice-tail | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L127-L127 | sum of ¦k¦_1^{-tau} bounded by S_1
 EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-A@L126-L127 | Lambda_N, Lambda_g in the definition of K_A
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -767,9 +767,9 @@ EDGE: stepP:p4:dm-A | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L140-L
 EDGE: stepP:p4:dm-B | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L140-L140 | bound for R^{(B)}
 EDGE: K:bp:p1:ext-lebesgue | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L140-L140 | subadditivity of meas over the union
 EDGE: bpP:p4:data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-sum@L140-L140 | standing D and Lambda_g in the scalar assembly and normalization by meas D
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -797,9 +797,9 @@ EDGE: bpP:p4:collar | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L162-
 EDGE: bpP:p4:conv#shell | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L162-L162 | D = D_t x A_sh
 EDGE: bpP:p3:conv#data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L162-L162 | Re(D_r) is the real neighbourhood of Part 3 conventions
 EDGE: bpP:p4:conv#data | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dc-prod@L162-L162 | the definitions of N_s and D_t used in the specialized inclusion
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -859,9 +859,9 @@ EDGE: bpP:p4:s-disc#chart | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-jac@
 EDGE: bpP:p1:typical | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-jac@L181-L181 | dp ^ dq = d xi ^ d psi, Remark typical (1)
 EDGE: bpP:p1:liouville | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-jac@L181-L181 | charts scale Lebesgue measure on injectivity sets
 EDGE: bpP:p1:ext-area | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-jac@L181-L181 | area formula
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -890,9 +890,9 @@ EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p4-pg-measure.tex#stepP:p
 EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L183-L183 | the discs (p_j^2 + q_j^2)/2 < r^2/2 of the cylinder
 EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L183-L183 | xi_j = R_j = (p_j^2 + q_j^2)/2
 EDGE: bpP:p4:s-disc#chart | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-cell@L183-L183 | z = E(I,xi,theta)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -919,9 +919,9 @@ ROUTE_FOR: -
 EDGE: bpP:p4:s-disc#chart | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-shell@L185-L185 | chart E
 EDGE: stepP:p4:dm-cell | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-shell@L185-L185 | meas F(V,r) of part (b)
 EDGE: stepP:p4:dm-jac | blueprint-P/parts/p4-pg-measure.tex#stepP:p4:dm-shell@L185-L185 | the chart measure multiplier (2pi)^n converts the action-shell volume to physical measure
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p4+sol-review-P-f
-REVIEWER: -
+REVIEWER: sol-delta-P-f
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
