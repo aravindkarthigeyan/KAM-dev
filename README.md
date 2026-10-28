@@ -8,7 +8,7 @@ Diophantine frequencies, as soon as f is small enough.
 **Authors:** Scott Armstrong and Zohar Komargodski. Public development repository.
 
 <!-- AUTO:updated -->
-> **Last updated: 2026-10-28 02:40 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 44.9 %** · frozen statements proved: 8 / 22 · **42,839 lines of Lean** of an estimated ≈ 299,000
+> **Last updated: 2026-10-28 03:00 UTC** (automatic: every 20 minutes and after every commit) · **estimated completion 44.9 %** · frozen statements proved: 8 / 22 · **57,790 lines of Lean** of an estimated ≈ 403,000
 <!-- /AUTO:updated -->
 
 ## Overview
@@ -125,22 +125,22 @@ replay, build) run again. A result counts as formalized only when its frozen sta
 
 | | Lines of Lean |
 |---|---|
-| On `main` now | **42,839** (29,147 excluding blank lines and comments) · **+42,839** since 2026-10-27 13:33 UTC |
+| On `main` now | **57,790** (40,385 excluding blank lines and comments) · **+57,790** since 2026-10-27 13:33 UTC |
 | Written on agent branches, not yet landed | 0 |
-| **Estimated total at completion** | **≈ 299,000** |
-| Estimated still to write | ≈ 256,000 |
+| **Estimated total at completion** | **≈ 403,000** |
+| Estimated still to write | ≈ 345,000 |
 
 **How the size is estimated.** The estimate scales the lines per completed Lean weight unit to all Lean work items. History of all counts: [`docs/campaign/history.csv`](docs/campaign/history.csv).
 <!-- /AUTO:size -->
 
 <!-- AUTO:glance -->
-*Generated 2026-10-28 02:40 UTC from `main` at `e77d941` by `scripts/hq-status.py`.*
+*Generated 2026-10-28 03:00 UTC from `main` at `6dbf1a6` by `scripts/hq-status.py`.*
 
 **Current phase:** OVERNIGHT MODE (D29). Track K: G3 sealed; G1/G2 design waves 1-2 landed (P2-1a, P2-1b, P2-2, P2-3 partial, P2-11); P2-4 running; I-STRIP-3 (critical path) and I-P4B running; Part 4 design running. Tracks I, N, P: Opus sub-orchestrator.
 
 **Frozen statements proved: 8 / 22** · frozen definitions: 122
 
-**Lean on `main`:** 301 modules · 42,839 lines · 1,929 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
+**Lean on `main`:** 360 modules · 57,790 lines · 2,667 theorems · `sorry` outside frozen anchors: 0 files · `axiom` declarations: 0
 
 ```text
 DRAFT_ANCHORS: 14 (KAM/Frozen/Iso/Theorems/IsoenergeticKam.lean, KAM/Frozen/Iso/Theorems/AllTimeConfinement.lean, KAM/Frozen/Iso/Theorems/RestrictedNearCircular.lean, KAM/Frozen/Nekhoroshev/Theorems/QuasiConvexNekhoroshevComplexBound.lean, KAM/Frozen/Planetary/Theorems/ProperlyDegenerateKAM.lean, KAM/Frozen/Planetary/Theorems/PlanarTwoPlanetKAM.lean, KAM/Frozen/Planetary/Theorems/FixedSunPlanetaryKAM.lean, KAM/Frozen/Planetary/Theorems/AmdConfinement.lean, KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxSafety.lean, KAM/Frozen/Planetary/Theorems/SecularBoxAtCitedMasses.lean, KAM/Frozen/Nekhoroshev/Theorems/PartialConvexNekhoroshev.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMean.lean, KAM/Frozen/Nekhoroshev/Theorems/AveragingMost.lean)
@@ -284,18 +284,18 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | **design-N145** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design for blueprint-N Parts 1, 4, 5 (interfaces, weighted norms, Lie series, canonical maps) | — | — |
 | **design-I58** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Lean design for blueprint-I Parts 5, 8 (I-HEAD confinement, I-R3BP) | — | — |
 | **design-kep** | Lean design writer (subagent) | Claude Sonnet 5.5 | claude-8 | 🔄 running | Kepler/Delaunay shared layer design: revision after audit 1 (FAIL: F1-F7) | — | — |
-| **glob-n** `inp-glob-n` | graph global review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track N graph: global root-closure review | — | — |
+| **glob-n** `inp-glob-n` | graph global review (Codex) | GPT-6.1-Sol medium | codex-4 | ⚠️ session missing | Track N graph: global root-closure review | — | — |
 | **bprev-2** `inp-bprev-2` | graph review (Codex) | GPT-6.1-Sol medium | codex-1 | ⚠️ session missing | Track I graph: delta review of the Part 1 amendment | — | — |
 | **glob-i** `inp-glob-i` | graph global review (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | Track I graph: global review (round 3 pending) | — | — |
 | **grev-1** `inp-grev-1` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ⚠️ session missing | graph/blueprint reviews and package audits; idle between tasks | — | — |
 | **grev-2** `inp-grev-2` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
 | **grev-3** `inp-grev-3` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
 | **grev-4** `inp-grev-4` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **grev-5** `inp-grev-5` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **rev-n11** `inp-rev-n11` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **grev-5** `inp-grev-5` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ⚠️ session missing | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **rev-n11** `inp-rev-n11` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ⚠️ session missing | graph/blueprint reviews and package audits; idle between tasks | — | — |
 | **rev-p11a** `inp-rev-p11a` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-4 | ⚠️ session missing | graph/blueprint reviews and package audits; idle between tasks | — | — |
 | **seal-1** `inp-seal-1` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ⚠️ session missing | graph/blueprint reviews and package audits; idle between tasks | — | — |
-| **dsgn-1** `inp-dsgn-1` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
+| **dsgn-1** `inp-dsgn-1` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ⚠️ session missing | graph/blueprint reviews and package audits; idle between tasks | — | — |
 | **aud-2** `inp-aud-2` | reviewer/auditor (Codex) | GPT-6.1-Sol medium | codex-1 | ✅ handed off | graph/blueprint reviews and package audits; idle between tasks | — | — |
 
 **Queued:** Dependency graph extraction for track K
@@ -306,6 +306,7 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 <!-- AUTO:landed -->
 | When (UTC) | Commit | Change |
 |---|---|---|
+| 2026-10-28 02:50 | `6dbf1a6` | Land inp into main |
 | 2026-10-28 00:49 | `6bf586c` | Land inp into main |
 | 2026-10-28 00:13 | `5f6b154` | Seal HEAD-Q: KAM.kam_positive_measure_qualitative is proved; all five track-K frozen theorems are sealed |
 | 2026-10-28 00:10 | `255f407` | Land k/p4-s2 into main |
@@ -317,7 +318,6 @@ branches. Rules for agents: [`AGENTS.md`](AGENTS.md). Builds:
 | 2026-10-27 23:50 | `e578b94` | Brief for P4-S2 (HEAD-Q provider) |
 | 2026-10-27 23:50 | `e4ca720` | Seal HEAD: KAM.kam_positive_measure is proved (fourth sealed frozen theorem) |
 | 2026-10-27 23:47 | `b5b61f2` | Land k/p4-s1 into main |
-| 2026-10-27 23:46 | `2928185` | Land k/p4-12 into main |
 <!-- /AUTO:landed -->
 
 ## Decisions
