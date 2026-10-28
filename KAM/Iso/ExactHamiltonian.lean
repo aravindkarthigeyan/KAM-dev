@@ -325,7 +325,7 @@ theorem real_positions (hK : SafeAction K) {δ : ℝ} (hδ1 : δ ≤ complexDelt
   exact ⟨he, he ▸ hpos _ hw⟩
 
 /-- The exact identity of clause (iv): `Ham_μ ∘ 𝖰 = -1/(2L²) - G + μ Re F_μ` at real points. -/
-theorem exact_identity (hK : SafeAction K) (hρ : kRhoMax K < 1) {w : Phase 2} {μ : ℝ}
+theorem exact_identity {w : Phase 2} {μ : ℝ}
     (hSC : ShiftConst (kRmin K) (kRhoMax K) (exactEps K))
     (hq : (fun i => (((delaunay w).1 i : ℝ) : ℂ)) ∈ shiftO (kRmin K) (kRhoMax K) (exactEps K))
     (hμ : |μ| < exactEps K / 2) (hw : w ∈ deDom) :
@@ -333,8 +333,6 @@ theorem exact_identity (hK : SafeAction K) (hρ : kRhoMax K < 1) {w : Phase 2} {
       restrictedHamiltonian μ ⟨delaunay w, hcf⟩ =
         -1 / (2 * w.2 0 ^ 2) - w.2 1 +
           μ * (shiftF (fun i => (((delaunay w).1 i : ℝ) : ℂ)) μ).re := by
-  have _ := hK
-  have _ := hρ
   obtain ⟨hcf, hW, hP, -⟩ := shift_real hSC hq hμ (delaunay w).2
   refine ⟨hcf, ?_⟩
   have hμ' : ‖(μ : ℂ)‖ < exactEps K / 2 := by
@@ -409,7 +407,7 @@ theorem exactRadiusData_of_positions (hK : SafeAction K) (hρ : kRhoMax K < 1) {
     obtain ⟨he, hqS⟩ := real_positions hK hδ1 hpos hw
     obtain ⟨hG, hGL, -⟩ := hcone (w.2) (hsub hw).2
     have hdD : w ∈ deDom := ⟨hG, hGL⟩
-    obtain ⟨hcf, hid⟩ := exact_identity hK hρ hSC hqS hμ hdD
+    obtain ⟨hcf, hid⟩ := exact_identity hSC hqS hμ hdD
     refine ⟨hG, hGL, hcf, ?_⟩
     simp only [exactF]
     rw [he]
