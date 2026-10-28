@@ -269,6 +269,75 @@ theorem extended_regular {ω₀ : Fin n → ℝ} (hS : KAM.Apost.Standing n τ M
     exact differentiableOn_bordMat _ hTd hY
   exact ⟨hY, hE, continuous_real_restrict hr hE⟩
 
+/-- `bpI:p1:extended-basic`. (a) regularity, periodicity, realness, the block form of `⟨𝖳_H⟩`;
+(b) `|Y| ≤ Mσ'_Kσ'_B` (row sums) and `|𝖳_H| ≤ max {C_T + |ω|, Mσ'_Kσ'_B}`. -/
+theorem extended_basic (hS : Setting n τ M σK σB σT D H ω γ) {r : ℝ} (hr : 0 < r)
+    {K : (Fin n → ℂ) → (Fin n → ℂ) × (Fin n → ℂ)} (hK : DifferentiableOn ℂ K (complexStrip n r))
+    (hKp : IsPrimaryOnStrip K r) (hKr : IsRealOnReals K) (hKD : ∀ θ ∈ complexStrip n r, K θ ∈ D)
+    (hG : ∀ θ ∈ complexStrip n r, IsUnit (gramMatrix K θ).det) :
+    (DifferentiableOn ℂ (energyRow H K) (complexStrip n r) ∧ IsPeriodicOn (energyRow H K) r ∧
+      IsRealVec (energyRow H K) ∧
+      DifferentiableOn ℂ (KAM.Iso.extendedTorsion H K ω) (complexStrip n r) ∧
+      IsPeriodicOn (KAM.Iso.extendedTorsion H K ω) r ∧ IsRealMat (KAM.Iso.extendedTorsion H K ω) ∧
+      Continuous (fun x : Fin n → ℝ => KAM.Iso.extendedTorsion H K ω (fun i => (x i : ℂ))) ∧
+      KAM.Iso.extendedTorsionAverage H K ω =
+        bordMat (torsionAverage H K ω) (fun a => (ω a : ℂ)) (avg (energyRow H K)) ∧
+      ∀ i j, (KAM.Iso.extendedTorsionAverage H K ω i j).im = 0) ∧
+    ∀ σK' σB' : ℝ,
+      (∀ θ ∈ complexStrip n r, ‖fderiv ℂ K θ‖ ≤ σK' ∧ ‖(gramMatrix K θ)⁻¹‖ ≤ σB') →
+      ∀ θ ∈ complexStrip n r, ∑ b, ‖energyRow H K θ b‖ ≤ M * σK' * σB' ∧
+        ∀ CT : ℝ, ‖torsion H K ω θ‖ ≤ CT →
+          ‖KAM.Iso.extendedTorsion H K ω θ‖ ≤ max (CT + ‖ω‖) (M * σK' * σB') := by
+  have hSt := hS.toStanding
+  obtain ⟨hYd, hEd, hEc⟩ := extended_regular hSt hr hK hKD hG ω
+  have hYr := isRealVec_energyRow hSt hr hK hKD hKr hG
+  have hTr : ∀ x : Fin n → ℝ, HasRealEntries (torsion H K ω fun i => (x i : ℂ)) :=
+    fun x => hasRealEntries_torsion hSt hr hK hKD hKr hG x
+  have hYc := continuous_real_restrict hr hYd
+  have havg := extendedTorsionAverage_eq_bordMat (ω := ω) hYc
+  refine ⟨⟨hYd, isPeriodicOn_energyRow hSt hKD hKp, hYr, hEd, ?_, ?_, hEc, havg, ?_⟩, ?_⟩
+  · intro i z hz
+    rw [extendedTorsion_eq_fun]
+    show bordMat (torsion H K ω (z + Pi.single i 1)) _ (energyRow H K (z + Pi.single i 1)) =
+      bordMat (torsion H K ω z) _ (energyRow H K z)
+    rw [periodic_torsion hSt hKD hKp hK hG i z hz, isPeriodicOn_energyRow hSt hKD hKp i z hz]
+  · intro x i j
+    rw [extendedTorsion_eq_bordMat]
+    rcases i with a | u <;> rcases j with b | v
+    · exact hTr x a b
+    · simp [bordMat_inl_inr]
+    · exact hYr x b
+    · simp [bordMat_inr_inr]
+  · intro i j
+    rw [havg]
+    rcases i with a | u <;> rcases j with b | v
+    · exact im_torsionAverage hTr a b
+    · simp [bordMat_inl_inr]
+    · show (avg (energyRow H K) b).im = 0
+      rw [show avg (energyRow H K) b = ∫ x in Set.pi Set.univ (fun _ : Fin n => Set.Icc (0 : ℝ) 1),
+        energyRow H K (fun i => (x i : ℂ)) b from Tools.torusAverage_vector_apply hYc b]
+      exact Tools.im_integral_eq_zero fun x => hYr x b
+    · simp [bordMat_inr_inr]
+  · intro σK' σB' hbd θ hθ
+    obtain ⟨hL, hB⟩ := hbd θ hθ
+    have hY := sum_norm_energyRow_le hS (hKD θ hθ) hL hB
+    refine ⟨hY, fun CT hCT => ?_⟩
+    have hMσ : 0 ≤ M * σK' * σB' := (Finset.sum_nonneg fun _ _ => norm_nonneg _).trans hY
+    rw [extendedTorsion_eq_bordMat]
+    refine (norm_le_iff_forall_rowSum (le_max_of_le_right hMσ)).2 ?_
+    rintro (a | u)
+    · rw [Fintype.sum_sum_type]
+      simp only [bordMat_inl_inl, bordMat_inl_inr, Finset.univ_unique, Finset.sum_singleton]
+      have h1 : ∑ b, ‖torsion H K ω θ a b‖ ≤ ‖torsion H K ω θ‖ := rowSum_le_norm _ a
+      have h2 : ‖(ω a : ℂ)‖ ≤ ‖ω‖ := by
+        rw [Complex.norm_real]
+        exact norm_le_pi_norm ω a
+      exact (add_le_add (h1.trans hCT) h2).trans (le_max_left _ _)
+    · rw [Fintype.sum_sum_type]
+      simp only [bordMat_inr_inl, bordMat_inr_inr, Finset.univ_unique, Finset.sum_singleton,
+        norm_zero, add_zero]
+      exact hY.trans (le_max_right _ _)
+
 end Torus
 
 end KAM.Iso.Linear
