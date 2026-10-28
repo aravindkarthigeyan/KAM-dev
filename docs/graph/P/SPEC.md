@@ -422,3 +422,7 @@ P-FIXED revision adds 342 draft nodes and 570 coverage items (122 TODO) in the f
   `bpP:p12:f-unif` (EXCLUDED as aliases); `bpP:p11:e4` (logarithmic asymptotics) and `bpP:p11:e5` (trigonometric
   integrals) are track-P externals (`KIND: external`, `LEAN_STATUS: EXTERNAL`), to be added by the P-p11 slice review
   with edges from their consumer steps (af-o2, as-nr, as-b2, pr-b, pr-d, wr-nu, wr-tube; pa-mono, pa-series).
+- 2026-10-28 (writer ruling, after the P-p11a3/P-p11a45 extraction): the labelled external items (Y1)–(Y4) of 11a-3 and
+  (Z1)–(Z3) of 11a-4 are track-P externals `bpP:p11a:y-{log,conv,down,geom}`, `bpP:p11a:z-{chain,compact,uniform}`
+  (the pre-extraction pattern missed their prefixes). `stepP:p11a:pi-c-uniq` stays a SOURCE_GAP step (Picard-Lindelöf
+  uniqueness cited by name; nearest imported supplier `N:bpN:p3:gen-uniqueness`).
