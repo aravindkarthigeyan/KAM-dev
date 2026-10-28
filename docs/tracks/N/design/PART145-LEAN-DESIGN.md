@@ -1670,3 +1670,10 @@ theorem const_conclusion (hn : 1 ≤ n) (p : HeadParams n) (hp : p.Pos) {ε : �
 
 end KAM.Nekhoroshev
 ```
+
+### Audit 2 notes (orchestrator, 2026-10-28)
+
+R2-01: the n = 0 branches of blueprint-N Parts 1/4 (`bpN:p4:n-zero`, co-series/co-repr/b1-a/b1-b, nc-decay/nc-sum) are
+in blueprint commit dbcf767 on `inp`, an external prerequisite of this design; merging this design into `inp` puts both
+in one tree. R2-02 and the other low consumer-wording items of `PART145-design-audit-2.md` are binding instructions for
+the provers of the affected packages (they read that audit with this design).
