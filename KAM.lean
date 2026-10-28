@@ -27,12 +27,15 @@ public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
 public import KAM.Canonical.Adjoint
 public import KAM.Canonical.Flow
+public import KAM.Canonical.FlowInverse
 public import KAM.Canonical.FlowPicard
 public import KAM.Canonical.FlowPicardConverge
 public import KAM.Canonical.FlowRegular
 public import KAM.Canonical.FlowRegularIntegral
 public import KAM.Canonical.Lie
 public import KAM.Canonical.Setting
+public import KAM.Canonical.Symplectic
+public import KAM.Canonical.SymplecticForm
 public import KAM.Canonical.VectorField
 public import KAM.Diophantine.Basic
 public import KAM.Diophantine.Cohomological
