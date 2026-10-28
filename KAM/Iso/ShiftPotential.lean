@@ -19,12 +19,12 @@ public import KAM.Frozen.Iso.Defs.CollisionFree
 
 For the restricted three-body problem with the mass parameter `μ` removed from the Kepler baseline:
 `ϑ(z) = z₀² + z₁²` on `ℂ²`, `w(q) = ϑ(q)^{-1/2}`, the potential
-`Ψ(q, μ) = (1-μ) ϑ(q + μ𝐞)^{-1/2} + μ ϑ(q - (1-μ)𝐞)^{-1/2}` and the factor-removed difference quotient
-`f(q, μ) = -dslope (Ψ q) 0 μ` (so that `μ f = w - Ψ`).  The domain `𝒪 × D̄(0, ε₀/2)` lies in the
-set `Ξ` where the three radicands have positive real part; there `f` is jointly holomorphic (an
-explicit rationalised formula for the difference quotient avoids a multivariable removable singularity
-theorem), bounded by `C_sh = 6 / (ε₀ √c_*)` (Schwarz lemma), has the explicit value at `μ = 0`, and is real at real
-points.
+`Ψ(q, μ) = (1-μ) ϑ(q + μ𝐞)^{-1/2} + μ ϑ(q - (1-μ)𝐞)^{-1/2}` and the factor-removed
+difference quotient `f(q, μ) = -dslope (Ψ q) 0 μ` (so that `μ f = w - Ψ`).  The domain
+`𝒪 × D̄(0, ε₀/2)` lies in the set `Ξ` where the three radicands have positive real part; there `f`
+is jointly holomorphic (an explicit rationalised formula for the difference quotient avoids a
+multivariable removable singularity theorem), bounded by `C_sh = 6 / (ε₀ √c_*)` (Schwarz lemma),
+has the explicit value at `μ = 0`, and is real at real points.
 
 All branch arguments of `cpow` have positive real part, so they stay inside the slit plane.
 -/
@@ -55,9 +55,11 @@ def shiftPsi (q : Fin 2 → ℂ) (μ : ℂ) : ℂ :=
 def shiftF (q : Fin 2 → ℂ) (μ : ℂ) : ℂ := -dslope (shiftPsi q) 0 μ
 /-- The domain `Ξ`. -/
 def shiftXi : Set ((Fin 2 → ℂ) × ℂ) :=
-  {x | 0 < (vtheta x.1).re ∧ 0 < (vtheta (x.1 + x.2 • e0)).re ∧ 0 < (vtheta (x.1 - (1 - x.2) • e0)).re}
+  {x | 0 < (vtheta x.1).re ∧ 0 < (vtheta (x.1 + x.2 • e0)).re ∧
+    0 < (vtheta (x.1 - (1 - x.2) • e0)).re}
 
-/-- Typing data of `bpI:p7:shift`: `0 < r_min ≤ ρ_max < 1` and `ε₀` with the two smallness inequalities. -/
+/-- Typing data of `bpI:p7:shift`: `0 < r_min ≤ ρ_max < 1` and `ε₀` with the two smallness
+inequalities. -/
 structure ShiftConst (rmin ρmax ε₀ : ℝ) : Prop where
   rmin_pos : 0 < rmin
   rmin_le : rmin ≤ ρmax
@@ -67,11 +69,13 @@ structure ShiftConst (rmin ρmax ε₀ : ℝ) : Prop where
   h₂ : ε₀ * (ε₀ + 4) < (1 - ρmax) ^ 2
 /-- An explicit admissible `ε₀` (no choice). -/
 def shiftEps (rmin ρmax : ℝ) : ℝ := min (rmin ^ 2) ((1 - ρmax) ^ 2) / 16
-def shiftCstar (rmin ρmax ε₀ : ℝ) : ℝ := min (rmin ^ 2 - ε₀ * (ε₀ + 2 * ρmax)) ((1 - ρmax) ^ 2 - ε₀ * (ε₀ + 4))
+def shiftCstar (rmin ρmax ε₀ : ℝ) : ℝ :=
+  min (rmin ^ 2 - ε₀ * (ε₀ + 2 * ρmax)) ((1 - ρmax) ^ 2 - ε₀ * (ε₀ + 4))
 def shiftCsh (rmin ρmax ε₀ : ℝ) : ℝ := 6 / (ε₀ * √(shiftCstar rmin ρmax ε₀))
 /-- `𝒪`: complex points within `ε₀/2` of the real shell `r_min ≤ |q'| ≤ ρ_max`. -/
 def shiftO (rmin ρmax ε₀ : ℝ) : Set (Fin 2 → ℂ) :=
-  {q | ∃ q' : Fin 2 → ℝ, rmin ≤ planeLength q' ∧ planeLength q' ≤ ρmax ∧ clen (q - fun i => (q' i : ℂ)) < ε₀ / 2}
+  {q | ∃ q' : Fin 2 → ℝ, rmin ≤ planeLength q' ∧ planeLength q' ≤ ρmax ∧
+    clen (q - fun i => (q' i : ℂ)) < ε₀ / 2}
 
 /-! ### The Euclidean length on `ℂ²` -/
 
@@ -257,7 +261,8 @@ theorem shiftConst_shiftEps {rmin ρmax : ℝ} (h0 : 0 < rmin) (h1 : rmin ≤ ρ
     nlinarith
   · nlinarith
 
-/-- `bpI:p7:shift`: the numerators, `𝒪 × D̄(0, ε₀/2) ⊆ Ξ`, `Re ϑ ≥ c_*`, `|ϑ^{-1/2}| ≤ c_*^{-1/2}`. -/
+/-- `bpI:p7:shift`: the numerators, `𝒪 × D̄(0, ε₀/2) ⊆ Ξ`, `Re ϑ ≥ c_*`,
+`|ϑ^{-1/2}| ≤ c_*^{-1/2}`. -/
 theorem shift_domain {rmin ρmax ε₀ : ℝ} (h : ShiftConst rmin ρmax ε₀) {q : Fin 2 → ℂ}
     (hq : q ∈ shiftO rmin ρmax ε₀) {μ : ℂ} (hμ : ‖μ‖ ≤ ε₀ / 2) :
     (q, μ) ∈ shiftXi ∧ shiftCstar rmin ρmax ε₀ ≤ (vtheta q).re ∧
@@ -442,7 +447,8 @@ private theorem differentiableAt_shiftFt {x : (Fin 2 → ℂ) × ℂ} (hx : x �
     differentiable_vtheta.comp (by fun_prop)
   have dT : Differentiable ℂ fun y : (Fin 2 → ℂ) × ℂ => vtheta (y.1 - (1 - y.2) • e0) :=
     differentiable_vtheta.comp (by fun_prop)
-  have sU : DifferentiableAt ℂ (fun y : (Fin 2 → ℂ) × ℂ => vtheta (y.1 + y.2 • e0) ^ (1 / 2 : ℂ)) x :=
+  have sU : DifferentiableAt ℂ
+      (fun y : (Fin 2 → ℂ) × ℂ => vtheta (y.1 + y.2 • e0) ^ (1 / 2 : ℂ)) x :=
     (dU x).cpow_const (slit_of_re_pos h2)
   have sV : DifferentiableAt ℂ (fun y : (Fin 2 → ℂ) × ℂ => vtheta y.1 ^ (1 / 2 : ℂ)) x :=
     (dV x).cpow_const (slit_of_re_pos h1)
@@ -576,7 +582,8 @@ theorem shift_bound {rmin ρmax ε₀ : ℝ} (h : ShiftConst rmin ρmax ε₀) {
   have hdc : DiffContOnCl ℂ (dslope (shiftPsi q) 0) (ball 0 (ε₀ / 2)) := by
     apply DifferentiableOn.diffContOnCl
     rwa [closure_ball _ hR.ne']
-  have hfr : ∀ ζ ∈ frontier (ball (0 : ℂ) (ε₀ / 2)), ‖dslope (shiftPsi q) 0 ζ‖ ≤ 3 * s / (ε₀ / 2) := by
+  have hfr : ∀ ζ ∈ frontier (ball (0 : ℂ) (ε₀ / 2)),
+      ‖dslope (shiftPsi q) 0 ζ‖ ≤ 3 * s / (ε₀ / 2) := by
     intro ζ hζ
     rw [frontier_ball _ hR.ne', mem_sphere_zero_iff_norm] at hζ
     have hζ0 : ζ ≠ 0 := by
