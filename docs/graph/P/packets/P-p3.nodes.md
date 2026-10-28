@@ -2781,7 +2781,7 @@ NODE: bpP:p3b#kam-bounds
 KIND: claim
 TITLE: Constants c, q and the consequences (3.4) of the KAM condition
 STATEMENT_SOURCE: blueprint-P/parts/p3b-two-scale-limit.tex#bpP:p3b#kam-bounds@L3-L4
-PROOF_SOURCE: -
+PROOF_SOURCE: blueprint-P/parts/p3b-two-scale-limit.tex#bpP:p3b#kam-bounds@L3-L4
 CONTRACT_ID: bpP:p3b#kam-bounds
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: the constants of Definition constants with chat>=2^13 n and chat>=24^{tau+1}/3; the KAM condition chat Ehat_0<1 of the proposition (hypothesis, no edge)
