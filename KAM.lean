@@ -202,6 +202,8 @@ public import KAM.Head.TorsionRegular
 public import KAM.Head.TorsionRegularGeneral
 public import KAM.Head.Unperturbed
 public import KAM.Head.UnperturbedFrame
+public import KAM.Iso.Apost.Constants
+public import KAM.Iso.Apost.ConstantsArith
 public import KAM.Iso.Apost.Defs
 public import KAM.Iso.Apost.Standing
 public import KAM.Iso.Charts.Defs
