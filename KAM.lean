@@ -261,6 +261,7 @@ public import KAM.Iso.Linear.Trivial
 public import KAM.Iso.NearCircular
 public import KAM.Iso.PeriodOne
 public import KAM.Iso.R3bp.Region
+public import KAM.Iso.R3bp.Safe
 public import KAM.Iso.R3bp.Uniqueness
 public import KAM.Iso.RestrictedHam
 public import KAM.Iso.ShiftPotential
