@@ -171,6 +171,7 @@ public import KAM.Head.Shift
 public import KAM.Head.Standing
 public import KAM.Head.TorsionRegular
 public import KAM.Head.TorsionRegularGeneral
+public import KAM.Iso.Confinement.Setting
 public import KAM.Iso.Kepler
 public import KAM.Kepler.Basic
 public import KAM.Kepler.Energy
