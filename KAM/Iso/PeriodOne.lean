@@ -252,11 +252,13 @@ open PeriodOneAux
 /-! ### Symplecticity -/
 
 theorem delaunay_periodOne_symplectic :
-    IsSymplecticOn 1 (fun z : Phase 2 => delaunay (periodOneMap z)) {z | periodOneMap z ∈ deDom} := by
+    IsSymplecticOn 1 (fun z : Phase 2 => delaunay (periodOneMap z))
+      {z | periodOneMap z ∈ deDom} := by
   have h1 : IsSymplecticOn 1 (periodOneMap (n := 2)) {z | periodOneMap z ∈ deDom} :=
     fun z _ => periodOneMap_symplectic 2 z (mem_univ z)
   have h2 : IsSymplecticOn 1 delaunay deDom := delaunay_symplectic
-  have hU : ∀ z ∈ {z : Phase 2 | periodOneMap z ∈ deDom}, DifferentiableAt ℝ (periodOneMap (n := 2)) z :=
+  have hU : ∀ z ∈ {z : Phase 2 | periodOneMap z ∈ deDom},
+      DifferentiableAt ℝ (periodOneMap (n := 2)) z :=
     fun z _ => by
       rw [periodOneMap_eq_clm]
       exact (periodOneCLM 2).differentiableAt
@@ -398,7 +400,8 @@ theorem transfer_identities {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) (hρ :
       let w := periodOneMap (zt t)
       let z := delaunay w
       planeLength z.1 =
-          w.2 0 ^ 2 * (1 - eccOf (w.2 0) (w.2 1) * Real.cos (eccAnom (w.1 0) (eccOf (w.2 0) (w.2 1)))) ∧
+          w.2 0 ^ 2 * (1 - eccOf (w.2 0) (w.2 1) *
+            Real.cos (eccAnom (w.1 0) (eccOf (w.2 0) (w.2 1)))) ∧
         elemL z = w.2 0 ∧ planeCross z.1 z.2 = w.2 1 ∧ elemA z = w.2 0 ^ 2 ∧
         elemEcc z = eccOf (w.2 0) (w.2 1) ∧
       ∃ hcf : CollisionFree μ z, restrictedHamiltonian μ ⟨z, hcf⟩ =
