@@ -329,6 +329,7 @@ public import KAM.Planetary.Newtonian.Reconstruction
 public import KAM.Planetary.Newtonian.Tube
 public import KAM.Planetary.Poincare.Bijective
 public import KAM.Planetary.Poincare.Chart
+public import KAM.Planetary.Poincare.Product
 public import KAM.Planetary.Poincare.Symplectic
 public import KAM.Provider.AposterioriKam
 public import KAM.Provider.Iso.AllTimeConfinement
