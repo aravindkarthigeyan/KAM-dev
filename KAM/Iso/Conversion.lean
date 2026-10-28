@@ -124,8 +124,8 @@ theorem periodOneMap_hasDerivAt_iff {n : ℕ} {H : Phase n → ℝ} {w : ℝ →
     have := (periodOneInvCLM n).hasFDerivAt.comp_hasDerivAt t hw
     simpa [Function.comp_def, periodOneInvCLM_periodOneMap] using this
 
-/-- `bpI:p6:conversion` (b): holds for every `I` by Lean totality (both sides vanish together at
-`I₀ = 0`). -/
+/-- `bpI:p6:conversion` (b): holds for every `I` by Lean totality (at `I₀ = 0` the inverse-square
+terms vanish and both sides equal `-(Ω/(2π)) * I₁`). -/
 theorem keplerRotH_comp_div (κ Ω : ℝ) (I : Fin 2 → ℂ) :
     keplerRotH κ Ω (fun i => I i / ((2 * π : ℝ) : ℂ)) =
       keplerRotH (κ * (2 * π) ^ 2) (Ω / (2 * π)) I := by
