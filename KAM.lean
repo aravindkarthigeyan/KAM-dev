@@ -26,6 +26,12 @@ public import KAM.Apost.Step
 public import KAM.Apost.Tools
 public import KAM.Apost.Triangular
 public import KAM.Canonical.Adjoint
+public import KAM.Canonical.Composition
+public import KAM.Canonical.CompositionCoeff
+public import KAM.Canonical.CompositionDomain
+public import KAM.Canonical.CompositionIntegral
+public import KAM.Canonical.CompositionIntegralClass
+public import KAM.Canonical.CompositionSeries
 public import KAM.Canonical.Flow
 public import KAM.Canonical.FlowInverse
 public import KAM.Canonical.FlowPicard
