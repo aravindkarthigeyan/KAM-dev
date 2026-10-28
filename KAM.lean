@@ -223,6 +223,8 @@ public import KAM.Iso.Confinement.Setting
 public import KAM.Iso.Conversion
 public import KAM.Iso.Kepler
 public import KAM.Iso.KeplerHamiltonian
+public import KAM.Iso.Linear.BorderSolve
+public import KAM.Iso.Linear.BorderUnique
 public import KAM.Iso.Linear.Defs
 public import KAM.Iso.Linear.Energy
 public import KAM.Iso.Linear.EnergyDefect
