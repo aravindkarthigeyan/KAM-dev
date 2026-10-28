@@ -254,7 +254,7 @@ private theorem actionMK_sq {m κ : ℝ} (hm : 0 < m) (hκ : 0 < κ) {z : Phase 
   rw [mul_pow, Real.sq_sqrt hax', hax]
   field_simp
 
-private theorem actionMK_nonneg {m κ : ℝ} (hm : 0 < m) : 0 ≤ actionMK m κ z := by
+private theorem actionMK_nonneg {m κ : ℝ} {z : Phase 2} (hm : 0 < m) : 0 ≤ actionMK m κ z := by
   unfold actionMK; positivity
 
 /-- `bpP:p7:range`: on `𝒦_{m,κ}`, `C ≤ Λ`. -/
@@ -587,9 +587,11 @@ theorem scaleMK_hamiltonianVectorField {κ : ℝ} (hκ : 0 < κ) {H : Phase 2 �
     have e : scaleMK 1 κ = scaleL 1 κ := rfl
     rw [e] at hH ⊢
     rw [fderiv_comp z hH (scaleL 1 κ).differentiableAt, (scaleL 1 κ).fderiv]
-  have h1 : ∀ i : Fin 2, scaleMK 1 κ (0, Pi.single i 1) = κ • ((0 : Fin 2 → ℝ), Pi.single i 1) := by
+  have h1 : ∀ i : Fin 2,
+      scaleMK 1 κ (0, Pi.single i 1) = κ • ((0 : Fin 2 → ℝ), Pi.single i 1) := by
     intro i; ext j <;> simp [scaleMK]
-  have h2 : ∀ i : Fin 2, scaleMK 1 κ (Pi.single i 1, 0) = κ⁻¹ • (Pi.single i 1, (0 : Fin 2 → ℝ)) := by
+  have h2 : ∀ i : Fin 2,
+      scaleMK 1 κ (Pi.single i 1, 0) = κ⁻¹ • (Pi.single i 1, (0 : Fin 2 → ℝ)) := by
     intro i; ext j <;> simp [scaleMK]
   refine Prod.ext (funext fun i => ?_) (funext fun i => ?_)
   · simp only [hamiltonianVectorField, hcomp, ContinuousLinearMap.comp_apply, scaleL_apply]
