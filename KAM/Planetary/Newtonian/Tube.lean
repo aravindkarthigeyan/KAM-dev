@@ -19,12 +19,12 @@ public import KAM.Frozen.Planetary.Defs.PairBounds
 Blueprint P, Part 6 (`bpP:p6:tube-constants`, `bpP:p6:tube-geometry` (a)-(e),
 `bpP:p6:newton-in-tube`): the typing data `AxisData` (a lower bound `γ` of the axes and their gaps,
 an upper bound `A` of the axes), the canonical choices `axisGap`, `axisMax`, the tube constants
-`ζ_* = min {η, γ/6}`, `d = γ/2`, `D = 2A + γ`; the geometry of the frozen `circularTube` (monotone in
-the radius, Euclidean closeness with the factor `√2`, distances, the pair bounds `d ≤ ℓ ≤ D` and
-hence no collision, and their `μ`-independent form for the barycentric and the fixed-Sun
-configurations); and the two consequences for orbits staying in the tube: a moving-Sun orbit gives
-a Newton solution (`newton_in_tube`) and a fixed-Sun orbit gives the fixed-Sun equations
-(`fixed_in_tube`), each with the pair bounds along the orbit.
+`ζ_* = min {η, γ/6}`, `d = γ/2`, `D = 2A + γ`; the geometry of the frozen `circularTube`
+(monotone in the radius, Euclidean closeness with the factor `√2`, distances, the pair bounds
+`d ≤ ℓ ≤ D` and hence no collision, and their `μ`-independent form for the barycentric and the
+fixed-Sun configurations); and the two consequences for orbits staying in the tube: a moving-Sun
+orbit gives a Newton solution (`newton_in_tube`) and a fixed-Sun orbit gives the fixed-Sun
+equations (`fixed_in_tube`), each with the pair bounds along the orbit.
 -/
 
 @[expose] public noncomputable section
@@ -39,8 +39,8 @@ section Tube
 
 variable {n : ℕ}
 
-/-- Typing data of `bpP:p6:tube-constants`: `γ` is a lower bound of the axes and their gaps, `A` an upper
-bound of the axes. Hypotheses, not conclusions; `axisData_canonical` supplies them. -/
+/-- Typing data of `bpP:p6:tube-constants`: `γ` is a lower bound of the axes and their gaps, `A` an
+upper bound of the axes. Hypotheses, not conclusions; `axisData_canonical` supplies them. -/
 structure AxisData (a : Fin n → ℝ) (γ A : ℝ) : Prop where
   gap_pos : 0 < γ
   le_axis : ∀ i, γ ≤ a i
@@ -139,8 +139,8 @@ theorem circularTube_euclidean {G m0 : ℝ} {m a : Fin n → ℝ} {ζ : ℝ} {z 
   obtain ⟨φ, hφ⟩ := hz
   refine ⟨φ, fun i => ?_⟩
   have h1 : ‖bodyVector z.1 i - bodyVector (circularPoint G m0 m a φ).1 i‖ < ζ :=
-    lt_of_le_of_lt ((norm_bodyVector_sub_le _ _ i).trans (norm_fst_le (z - circularPoint G m0 m a φ)))
-      hφ
+    lt_of_le_of_lt ((norm_bodyVector_sub_le _ _ i).trans
+      (norm_fst_le (z - circularPoint G m0 m a φ))) hφ
   rw [bodyVector_circularPoint_fst] at h1
   calc planeLength _ ≤ √2 * ‖bodyVector z.1 i -
         a i • (![Real.cos (2 * π * φ i), Real.sin (2 * π * φ i)] : Fin 2 → ℝ)‖ :=
@@ -189,7 +189,8 @@ theorem circularTube_distances {G m0 : ℝ} {m a : Fin n → ℝ} {ζ : ℝ} {z 
 /-- (d): `d ≤ ℓ ≤ D`, hence no collision. -/
 theorem circularTube_pair_bounds {G m0 : ℝ} {m a : Fin n → ℝ} {γ A ζ : ℝ} (h : AxisData a γ A)
     (hζ : 0 < ζ) (hζ' : ζ ≤ γ / 6) {z : Phase (n * 2)} (hz : z ∈ circularTube G m0 m a ζ) :
-    (∀ i, tubeD γ ≤ planeLength (bodyVector z.1 i) ∧ planeLength (bodyVector z.1 i) ≤ tubeBigD γ A) ∧
+    (∀ i, tubeD γ ≤ planeLength (bodyVector z.1 i) ∧
+      planeLength (bodyVector z.1 i) ≤ tubeBigD γ A) ∧
     (∀ i j, i ≠ j → tubeD γ ≤ planeLength (bodyVector z.1 j - bodyVector z.1 i) ∧
       planeLength (bodyVector z.1 j - bodyVector z.1 i) ≤ tubeBigD γ A) ∧ NoCollision z.1 := by
   have hγ := h.gap_pos
@@ -239,7 +240,8 @@ private theorem pairBounds_of_succ {d D : ℝ} {Q : Fin (n + 1) → Fin 2 → �
       exact h0 i'
     · exact hs i' j' fun h => hij (congrArg Fin.succ h)
 
-/-- (e): exact `μ`-independence of the pair bounds for the barycentric and the fixed-Sun configurations. -/
+/-- (e): exact `μ`-independence of the pair bounds for the barycentric and the fixed-Sun
+configurations. -/
 theorem circularTube_pairBounds_barycentric {G m0 μ : ℝ} {m a : Fin n → ℝ} {γ A ζ : ℝ}
     (h : AxisData a γ A)
     (hζ : 0 < ζ) (hζ' : ζ ≤ γ / 6) (hm0 : 0 < m0) (hm : ∀ i, 0 < m i) (hμ : 0 ≤ μ)
