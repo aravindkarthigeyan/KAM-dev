@@ -122,6 +122,22 @@ private theorem exists_pos_lower_bound {X J : Type*} [TopologicalSpace X] [Finit
     · obtain ⟨j₀, hj₀⟩ := Finite.exists_min δ
       exact ⟨δ j₀, hδ j₀, fun q hq j => (hj₀ j).trans (hle j q hq)⟩
 
+/-- Attained version of `exists_pos_lower_bound`: for a nonempty compact `S` and a finite
+nonempty family of continuous functions, each positive on `S`, the minimum over `j` of the
+minimum over `S` is attained at some `(q₀, j₀)` and is positive. -/
+private theorem exists_attained_lower_bound {X J : Type*} [TopologicalSpace X] [Finite J]
+    [Nonempty J] {S : Set X} (hS : IsCompact S) (hne : S.Nonempty) (f : J → X → ℝ)
+    (hf : ∀ j, Continuous (f j)) (hpos : ∀ j, ∀ q ∈ S, 0 < f j q) :
+    ∃ (δ : ℝ) (q₀ : X) (j₀ : J), 0 < δ ∧ q₀ ∈ S ∧ δ = f j₀ q₀ ∧ ∀ q ∈ S, ∀ j, δ ≤ f j q := by
+  have key : ∀ j, ∃ q₀ ∈ S, ∀ q ∈ S, f j q₀ ≤ f j q := by
+    intro j
+    obtain ⟨q₀, hq₀, hmin⟩ := hS.exists_isMinOn hne (hf j).continuousOn
+    exact ⟨q₀, hq₀, fun q hq => hmin hq⟩
+  choose q₀ hq₀ hle using key
+  obtain ⟨j₀, hj₀⟩ := Finite.exists_min fun j => f j (q₀ j)
+  exact ⟨f j₀ (q₀ j₀), q₀ j₀, j₀, hpos j₀ _ (hq₀ j₀), hq₀ j₀, rfl,
+    fun q hq j => (hj₀ j).trans (hle j q hq)⟩
+
 /-- (b), compact sets: `x_j ∉ S`, `S` compact, `ℓ` continuous and definite: there is `δ_S > 0`
 (any `δ_S = 1` if `S = ∅` or `m = 0`) with `ℓ(q - x_j) ≥ δ_S` and the conclusion of (a). -/
 theorem collision_exclusion_compact {X : Type*} [AddCommGroup X] [TopologicalSpace X]
@@ -141,6 +157,30 @@ theorem collision_exclusion_compact {X : Type*} [AddCommGroup X] [TopologicalSpa
   obtain ⟨δ, hδ, hle⟩ := exists_pos_lower_bound hS (fun j q => ℓ (q - x j))
     (fun j => hcont.comp (continuous_id.sub continuous_const)) hpos
   exact ⟨δ, hδ, hle, collision_exclusion_quant ℓ htri hneg x hc hμ₁ y hy hδ hle⟩
+
+/-- `bpI:p8:collision-exclusion` (b), source form for `S ≠ ∅` and `m ≥ 1`: the distance
+`δ_S = min_j min_{q ∈ S} ℓ(q - x_j)` is attained (at `q₀ ∈ S`, index `j₀`), it is positive, it
+bounds every value from below, and (a) applies with `δ = δ_S`. -/
+theorem collision_exclusion_compact_attained {X : Type*} [AddCommGroup X] [TopologicalSpace X]
+    [IsTopologicalAddGroup X] (ℓ : X → ℝ) (htri : ∀ u v, ℓ (u + v) ≤ ℓ u + ℓ v)
+    (hneg : ∀ u, ℓ (-u) = ℓ u) (hcont : Continuous ℓ) (hnonneg : ∀ u, 0 ≤ ℓ u)
+    (hzero : ∀ u, ℓ u = 0 → u = 0)
+    {m : ℕ} (hm : 0 < m) (x : Fin m → X) {c μ₁ : ℝ} (hc : 0 ≤ c) (hμ₁ : 0 < μ₁)
+    (y : Fin m → ℝ → X) (hy : ∀ j μ, |μ| ≤ μ₁ → ℓ (y j μ - x j) ≤ c * |μ|) {S : Set X}
+    (hS : IsCompact S) (hne : S.Nonempty) (hxS : ∀ j, x j ∉ S) :
+    ∃ δ : ℝ, 0 < δ ∧ (∃ q₀ ∈ S, ∃ j₀ : Fin m, δ = ℓ (q₀ - x j₀)) ∧
+      (∀ q ∈ S, ∀ j, δ ≤ ℓ (q - x j)) ∧
+      ∀ μ : ℝ, |μ| ≤ exclusionMu c μ₁ δ → ∀ q ∈ S, ∀ j, δ / 2 ≤ ℓ (q - y j μ) := by
+  have : Nonempty (Fin m) := ⟨⟨0, hm⟩⟩
+  have hpos : ∀ j, ∀ q ∈ S, 0 < (fun j q => ℓ (q - x j)) j q := by
+    intro j q hq
+    refine lt_of_le_of_ne (hnonneg _) fun h => hxS j ?_
+    have h0 : q - x j = 0 := hzero _ h.symm
+    rwa [sub_eq_zero.mp h0] at hq
+  obtain ⟨δ, q₀, j₀, hδ, hq₀, hatt, hle⟩ := exists_attained_lower_bound hS hne
+    (fun j q => ℓ (q - x j)) (fun j => hcont.comp (continuous_id.sub continuous_const)) hpos
+  exact ⟨δ, hδ, ⟨q₀, hq₀, j₀, hatt⟩, hle,
+    collision_exclusion_quant ℓ htri hneg x hc hμ₁ y hy hδ hle⟩
 
 /-- `bpI:p8:shell-exclusion`: for `r_min ≤ rad q ≤ ρ_max < 1` and `|μ| ≤ ν₀/2`,
 `ν₀ = min {r_min, 1 - ρ_max}`: `rad(q - a_j(μ)) ≥ ν₀/2`, `j = 1, 2`; hence collision free. -/
@@ -218,5 +258,29 @@ theorem min_distance {ι X : Type*} [Finite ι] [AddCommGroup X] [TopologicalSpa
     hcont.comp ((continuous_apply p.1.1).sub (continuous_apply p.1.2))
   obtain ⟨δ, hδ, hle⟩ := exists_pos_lower_bound hS f hf hpos
   exact ⟨δ, hδ, fun q hq i j hij => hle q hq ⟨(i, j), hij⟩⟩
+
+/-- `bpI:p8:min-distance`, source form (`N ≥ 2`, `S ≠ ∅`): the separation
+`δ_S = min_{q ∈ S} min_{i ≠ j} ℓ(q_i - q_j)` is attained at some `q₀ ∈ S` and pair `i₀ ≠ j₀`,
+it is positive, and it bounds every pairwise value from below. -/
+theorem min_distance_attained {ι X : Type*} [Finite ι] [Nontrivial ι] [AddCommGroup X]
+    [TopologicalSpace X] [IsTopologicalAddGroup X] (ℓ : X → ℝ) (hcont : Continuous ℓ)
+    (hnonneg : ∀ u, 0 ≤ ℓ u) (hzero : ∀ u, ℓ u = 0 → u = 0)
+    {S : Set (ι → X)} (hS : IsCompact S) (hne : S.Nonempty)
+    (hsep : ∀ q ∈ S, ∀ i j, i ≠ j → q i ≠ q j) :
+    ∃ (δ : ℝ) (q₀ : ι → X) (i₀ j₀ : ι), 0 < δ ∧ q₀ ∈ S ∧ i₀ ≠ j₀ ∧
+      δ = ℓ (q₀ i₀ - q₀ j₀) ∧ ∀ q ∈ S, ∀ i j, i ≠ j → δ ≤ ℓ (q i - q j) := by
+  let f : {p : ι × ι // p.1 ≠ p.2} → (ι → X) → ℝ := fun p q => ℓ (q p.1.1 - q p.1.2)
+  have : Nonempty {p : ι × ι // p.1 ≠ p.2} := by
+    obtain ⟨a, b, hab⟩ := exists_pair_ne ι
+    exact ⟨⟨(a, b), hab⟩⟩
+  have hpos : ∀ p, ∀ q ∈ S, 0 < f p q := by
+    intro p q hq
+    refine lt_of_le_of_ne (hnonneg _) fun h => hsep q hq p.1.1 p.1.2 p.2 ?_
+    exact sub_eq_zero.mp (hzero _ h.symm)
+  have hf : ∀ p, Continuous (f p) := fun p =>
+    hcont.comp ((continuous_apply p.1.1).sub (continuous_apply p.1.2))
+  obtain ⟨δ, q₀, p₀, hδ, hq₀, hatt, hle⟩ := exists_attained_lower_bound hS hne f hf hpos
+  exact ⟨δ, q₀, p₀.1.1, p₀.1.2, hδ, hq₀, p₀.2, hatt,
+    fun q hq i j hij => hle q hq ⟨(i, j), hij⟩⟩
 
 end KAM.Iso.Collision
