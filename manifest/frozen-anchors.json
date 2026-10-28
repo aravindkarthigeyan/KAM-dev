@@ -773,7 +773,7 @@
     "module": "KAM.Provider.AposterioriKam",
     "export": "KAM.Provider.aposteriori_kam"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "a9f69097bd77eb62431b08692dc3a4da40d06d6fc45befed0369f0d394494811",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {
@@ -852,7 +852,7 @@
     "module": "KAM.Provider.KamPositiveMeasure",
     "export": "KAM.Provider.kam_positive_measure"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "ab7f79977075464917571d65d92fa597f467b0fd28d5934e71d335fc6dd07ffb",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {
@@ -931,7 +931,7 @@
     "module": "KAM.Provider.KamPositiveMeasureQualitative",
     "export": "KAM.Provider.kam_positive_measure_qualitative"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "07c696d5fb6426eae7d3434d764cf37fe529691cfaaf6c69a6ad687426cc6dce",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {
@@ -1018,7 +1018,7 @@
     "module": "KAM.Provider.LocalUniquenessFlow",
     "export": "KAM.Provider.local_uniqueness_flow"
    },
-   "state": "DRAFT_SORRY",
+   "state": "SEALED",
    "prefix_sha256": "29c64527d6bc0dddfa02e7c33170a261fb301f7b3653d09f0d93797b3b6760d3",
    "suffix_sha256": "17e29ee27df23b1b271f19efc86d9dfcace8466b1e076b8a208a0c6479b21fb6",
    "draft_allowlist": {

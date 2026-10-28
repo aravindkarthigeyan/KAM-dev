@@ -39,6 +39,106 @@ Each entry: the time, the decision, the alternatives, the reason, and how to rev
   - Alternative: allow ordinary modules to import SEALED frozen theorems, and wait for the seals.
   - Reversal: switch to that rule after the seals. The `GValid` lemmas then specialize trivially.
 
+### 22:45: track K decisions since 22:10 (orchestrator, Opus)
+- **P3-1 `lagrangian` route substitution.** Ω_K = 0 is derived from the operator a-priori bound (item (b) of
+  `KAM.Apost.cohomological`, with H = 0), not from "uniqueness with g = 0". The audit (D1) confirms it is valid.
+  Graph step `step:p3:lagrangian-unique` is marked BYPASSED (D27).
+- **`diffMap` placement.** The Appendix A def `KAM.Uniq.diffMap` lives in `Uniq/Phase.lean` (P3-2), because `phase`
+  is stated with it. The design listed it under `Uniq/Difference`. `Difference` now imports `Phase`; there is no
+  duplicate.
+- **`coh_unique_zero` placement.** It lives in `Head/CohUnique.lean` (P4-0), not in `Head/Lagrangian.lean`. P4-8
+  imports it.
+- **Part 4 adapters (P4-0).**
+  - The design's expected forms of the landed I-P4B lemmas are proved under new names: `derivative_bounds_design`,
+    `torsion_regular_design`, `shift_design` and `mixed_difference_design`. Constant identities link
+    `Hconst`/`Fconst`/`Mconst` to `derivConstH/F/M`.
+  - No landed name was changed.
+  - The four `bp:p4:*` nodes keep the I-P4B references plus the adapters.
+- **Recommended follow-up (not done).** Generalize `KAM.holomorphic_inverse` from `Fin p` to any `Fintype` index.
+  P3-3 hit a unification timeout on `Fin n ⊕ Fin n` and added a local helper,
+  `KAM.Uniq.DiffAux.differentiableOn_inv_of_isUnit_det`.
+- **Overlapping packages.** These started from branches still in audit, with landing order kept strict:
+  - P3-2 and P3-3 from P3-1;
+  - P3-4 from P3-3;
+  - P3-5 from P3-4;
+  - P2-9 from P2-8b;
+  - P2-12 from P2-9;
+  - P4-1, P4-3 and P4-Q from P4-0;
+  - P4-2 from P4-1.
+
+### 23:00: P4-8 step mapping (orchestrator, Opus)
+- The P4-8 audit failed the graph step `step:p4:lag-regular` only. The step claims boundedness of Λ on T_ρ and of
+  u, v, Du on T_{ρ/2}, and the wrapper `KAM.Head.lagrangeMat_regular` exports only holomorphy and periodicity.
+- The main theorem `KAM.Head.lagrangian` passed. Its route applies `coh_unique_zero` directly on T_ρ, which needs
+  none of those bounds.
+- **Ruling:** the step is marked BYPASSED (D27, route substitution), and the package landed. The Appendix A
+  signature is unchanged.
+- **Alternative for the owner:** a separately named full-regularity theorem could be added later if the bound
+  clauses are wanted for their own sake.
+
+### 23:30: G2 and G1 sealed (orchestrator, Opus)
+- **G2 sealed (c9dec45).** `KAM.local_uniqueness_flow` has the body
+  `by exact KAM.Provider.local_uniqueness_flow hn hτ hρ hM hσK hσB hσT hμ`.
+  - Provider package: P3-5. Its audit passed, including the exact-type probe.
+  - Checks: axioms are standard only; leanchecker exits 0.
+- **G1 sealed (f4cdc0d).** `KAM.aposteriori_kam` has the body
+  `by exact KAM.Provider.aposteriori_kam … hγbar`.
+  - Provider package: P2-14. Its audit passed with notes, including the exact-type probe.
+  - Checks: axioms are standard only; leanchecker exits 0.
+- **All three G theorems are now sealed.** Only HEAD and HEAD-Q remain open.
+  - P4-S1 (`exists_gValid` plus the HEAD provider) has started.
+  - It is the only place where the `GValid` premise is discharged from the sealed anchors, as the Part 4 design
+    intended.
+- **P4-9 audit F1 (major, step mapping only).** `step:p4:rt-small` needed the full derivative bound exported.
+  - This was fixed rather than bypassed: the prover added `rt_small_full` and `rt_small_normDisp`.
+  - A delta audit is running.
+
+### 23:50: graph K amendments and a source tension (orchestrator, Opus)
+- **44 append-only AMEND records** (`docs/graph/K/AMENDMENTS.md`) now state the Part 1 standing convention in
+  SOURCE_HYPOTHESES (p1-analysis.tex L37–39: positive widths; n ≥ 1 wherever a strip occurs).
+  - Trigger: track N's global review (finding G1).
+  - The first 5 were drafted by me and approved by an independent Sol reviewer.
+  - The other 39 were found by that reviewer's full scan. I checked them mechanically: each new field is the
+    standing prefix plus the old field verbatim.
+  - No mathematical change.
+- **For the owner (not amended): source tension S1.**
+  - The convention says every strip in a statement has positive width.
+  - But `bp:p1:periodic-bounded` (L518) quantifies "for every ρ' < ρ", and `step:p1:pb-compact` (L523) treats
+    ρ' ≤ 0 (an empty strip).
+  - Both nodes are left unamended until you rule. Options: keep the ρ' ≤ 0 branch as an explicit exception to the
+    convention, or restrict to 0 < ρ' < ρ.
+  - Details: `docs/graph/K/reviews/AMEND-n-ge-1-review.md`, section S1.
+- **Retro audit (running) of Zohar's Fourier and summation layer.** `KAM/Strip/FourierBasic.lean` and
+  `FourierSeries.lean` never had a dedicated package audit, so their 9 graph nodes stay unmarked until it passes.
+  The bookkeeping pass flagged `step:p1:sum-bound` as partial: uniform convergence of the partial sums is not stated.
+
+### 23:55: HEAD sealed (orchestrator, Opus)
+- **HEAD sealed (e4ca720).** `KAM.kam_positive_measure` has the body
+  `by exact KAM.Provider.kam_positive_measure hn hτ hs₀ hr₀ hB_open hB_bdd hB_layer hh hh_real h_nondeg`.
+  - The provider discharges the Part 4 `GValid` premise from the sealed G1, G2 and G3 anchors
+    (`KAM.Provider.exists_gValid`), then applies `KAM.Head.head_of_gValid`.
+  - Audits: P4-12 PASS; P4-S1 PASS, including the exact-type probe.
+  - Checks: axioms are standard only; leanchecker exits 0.
+- **Next:** P4-S2, the HEAD-Q provider, is running. After its audit, HEAD-Q is sealed, and every frozen theorem of
+  track K is then proved.
+
+### 00:15: HEAD-Q sealed; track K complete (orchestrator, Opus)
+- **HEAD-Q sealed.** `KAM.kam_positive_measure_qualitative` has the body `by exact
+  KAM.Provider.kam_positive_measure_qualitative …`.
+  - Audit: P4-S2 PASS, including the exact-type probe.
+  - Checks: axioms are standard only; leanchecker exits 0.
+- **All five track-K frozen theorems are now SEALED:**
+  - G3 (`volume_not_diophantine_le`);
+  - G2 (`local_uniqueness_flow`);
+  - G1 (`aposteriori_kam`);
+  - HEAD (`kam_positive_measure`);
+  - HEAD-Q (`kam_positive_measure_qualitative`).
+- **Graph K:** 430 PROVED, 12 BYPASSED (route substitutions, each with its reason), 11 EXTERNAL, 0 open.
+- **Incident:** main did not build for about 6 min (f8cdca0 to 0a81771). My line wrap of the sealed HEAD body had a
+  continuation indent below the tactic column. It is fixed; the term and hashes are unchanged.
+- **Also landed tonight:** I-STRIP-2b (W-valued Fourier summation and uniform convergence). It closes the retro-audit
+  gaps in the co-author's scalar Fourier layer.
+
 ## Tracks I, N, P (sub-orchestrator, D23)
 
 - **21:15. No new freezes; packets only.** Nothing is pending owner approval from tracks I/N/P tonight (D25 and D28

@@ -53,7 +53,8 @@ theorem kam_positive_measure_qualitative {n : ℕ} (hn : 2 ≤ n) {τ : ℝ} (h�
         volume (fundamentalDomain B \ kamCover h f B r₀ τ κ) ≤
           ENNReal.ofReal κ * volume (fundamentalDomain B) :=
   -- FROZEN_ANCHOR_PROOF_BEGIN
-  by sorry
+  by exact KAM.Provider.kam_positive_measure_qualitative hn hτ hs₀ hr₀ hB_open hB_bdd hh hh_real
+      h_nondeg
   -- FROZEN_ANCHOR_PROOF_END
 -- FROZEN_ANCHOR_SUFFIX_BEGIN
 
