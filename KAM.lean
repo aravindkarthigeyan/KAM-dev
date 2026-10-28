@@ -327,6 +327,7 @@ public import KAM.ODE.Uniqueness
 public import KAM.Planetary.Newtonian.Barycentric
 public import KAM.Planetary.Newtonian.Models
 public import KAM.Planetary.Newtonian.Reconstruction
+public import KAM.Planetary.Newtonian.Reduction
 public import KAM.Planetary.Newtonian.Tube
 public import KAM.Planetary.Poincare.Bijective
 public import KAM.Planetary.Poincare.Chart
