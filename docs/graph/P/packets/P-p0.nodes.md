@@ -16,9 +16,9 @@ FROZEN_ABI_SHA256: 24a486c6ccc5648791465ec3577c2e37fd464ecaec8f0dab9c74a5588535e
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -42,9 +42,9 @@ FROZEN_ABI_SHA256: 427a145572df4c3e14079cf88feb16d60e1cd92fcd1770faddd36ad706562
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -68,9 +68,9 @@ FROZEN_ABI_SHA256: 542b8d8eb08283f5c961a969dd96003cbb23fc447da8ea444498cb92a48f6
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -94,9 +94,9 @@ FROZEN_ABI_SHA256: 0b8db62a1a83c34b9c3562bd1bb6043b1db7174c9222df403355844422056
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -120,9 +120,9 @@ FROZEN_ABI_SHA256: b0de2d3150c6c723a7af40b0f9ef8d6849b211bf81ab6685ebd870b7aa618
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -147,9 +147,9 @@ DEPS: bpP:p0:plane#planeSq
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:plane#planeSq | blueprint-P/parts/p0-conventions.tex#bpP:p0:plane@L73-L73 | ¦v¦ = sqrt(sq(v))
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -173,9 +173,9 @@ FROZEN_ABI_SHA256: 8cf08c43a712bf1c8d3e6fd5426b13d34d07a93597447a35b7b671e1126ae
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -199,9 +199,9 @@ FROZEN_ABI_SHA256: 09f09ead30448301bb78763192f9a9c6ca3edcf4d3d2a771d616c54834766
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -225,9 +225,9 @@ FROZEN_ABI_SHA256: 592a25e5b4ec439e42bd78bc02e0dfd989b1d261387db6319bca10c6d17c1
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -251,9 +251,9 @@ FROZEN_ABI_SHA256: ae34da51fbaf5eb81f8a1436fe5e53cd0413d280bf280221ca79639b92661
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -278,9 +278,9 @@ DEPS: bpP:p0:phase#Phase
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:blocks@L86-L86 | the value lies in Ph_{a+b}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -304,9 +304,9 @@ FROZEN_ABI_SHA256: b37f7928355c64fc3555d65704a95ecdb67fe55bdd7bb2471ac609553f2a9
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -331,9 +331,9 @@ DEPS: bpP:p0:phase#Phase
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:fastshift@L98-L98 | shift(k) lies in Ph_{a+b}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -357,9 +357,9 @@ FROZEN_ABI_SHA256: d0081126e210d1039ca9367456c22dba50e4760d8c9196e28ca66bc83aa11
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -386,9 +386,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:cylinder@L114-L114 | C(V,r) is a subset of Ph_{a+b}
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p0-conventions.tex#bpP:p0:cylinder@L114-L114 | z_2^f in V
 EDGE: bpP:p0:blocks#slow | blueprint-P/parts/p0-conventions.tex#bpP:p0:cylinder@L114-L114 | (z_2^s)_j and (z_1^s)_j
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -415,9 +415,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p0-conventions.tex#bpP:p0:cylinder@L117-L117 | F(V,r) is cut out of C(V,r)
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:cylinder@L117-L117 | F(V,r) subset Ph_{a+b}
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p0-conventions.tex#bpP:p0:cylinder@L117-L117 | z^f_{1,i}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -443,9 +443,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:degham@L124-L124 | P is defined on R x Ph_{a+b}
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p0-conventions.tex#bpP:p0:degham@L124-L124 | H_0 is evaluated at z_2^f
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -471,9 +471,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:blocks#assemble | blueprint-P/parts/p0-conventions.tex#bpP:p0:secavg@L131-L131 | the integrand evaluates P at assemble(I,phi,p,q)
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:secavg@L131-L131 | P is defined on R x Ph_{a+b}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -497,9 +497,9 @@ FROZEN_ABI_SHA256: 91718a20f82c0046ed31c76db7aeaf5bc53257ab286e32d58ae1b57f54833
 DEPS: bpP:p0:fastfreq#fastFrequency
 ROUTES: -
 ROUTE_FOR: -
-EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p0-conventions.tex#bpP:p0:fastdiffeo@L138-L138 | omega_{H_0} is the fast frequency map in (ii) and (iii)
+EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p0-conventions.tex#bpP:p0:fastdiffeo@L139-L140 | omega_{H_0} is the fast frequency map in (ii) and (iii)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -528,9 +528,9 @@ EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:birkhoff@
 EDGE: bpP:p0:blocks#assemble | blueprint-P/parts/p0-conventions.tex#bpP:p0:birkhoff@L151-L151 | integrability of phi -> P(mu,assemble(I,phi,p,q))
 EDGE: bpP:p0:secavg#secularAverage | blueprint-P/parts/p0-conventions.tex#bpP:p0:birkhoff@L154-L154 | P_av in (ii)
 EDGE: bpP:p0:oscaction#oscillatorAction | blueprint-P/parts/p0-conventions.tex#bpP:p0:birkhoff@L156-L156 | R_j = R_j(p,q)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -558,9 +558,9 @@ EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:cyltorus@
 EDGE: bpP:p0:fastshift#fastShift | blueprint-P/parts/p0-conventions.tex#bpP:p0:cyltorus@L170-L170 | (iii) and (iv) use shift
 EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p0-conventions.tex#bpP:p0:cyltorus@L173-L173 | Omega in (vi)
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p0-conventions.tex#bpP:p0:cyltorus@L174-L174 | X_H in (vii)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -590,9 +590,9 @@ EDGE: bpP:p0:cyltorus#IsCylinderTorus | blueprint-P/parts/p0-conventions.tex#bpP
 EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p0-conventions.tex#bpP:p0:cylkol@L185-L185 | w is (gamma,tau)-Diophantine
 EDGE: bpP:p0:blocks#fast | blueprint-P/parts/p0-conventions.tex#bpP:p0:cylkol@L186-L186 | ¦w^f¦_inf <= C
 EDGE: bpP:p0:blocks#slow | blueprint-P/parts/p0-conventions.tex#bpP:p0:cylkol@L186-L186 | ¦w^s¦_inf <= C mu
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -617,9 +617,9 @@ DEPS: bpP:p0:phase#Phase
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:circular@L197-L197 | circ(phi) lies in Ph_{2n}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -645,9 +645,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:circular#circularPoint | blueprint-P/parts/p0-conventions.tex#bpP:p0:circular@L200-L200 | U_eta is the eta-neighbourhood of the circular points circ(phi)
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:circular@L200-L200 | U_eta subset Ph_{2n}
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -673,9 +673,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:nocoll@L206-L206 | ¦.¦ is the physical length
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:nocoll@L206-L206 | q^(i) = body(q,i)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -700,9 +700,9 @@ DEPS: bpP:p0:plane#planeLength
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:nocoll@L208-L208 | ¦.¦ is the physical length
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -726,9 +726,9 @@ FROZEN_ABI_SHA256: 37d0c6b0a92ae0e0c839d24e591536f697c601419b11cc5c864150814a680
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -741,10 +741,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:barycentric@L213-L
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.barycentricPositions
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data): m_0, m_i, mu with positive denominators (m_0 + mu sum m_i > 0 for m_i > 0, mu > 0); heliocentric q in R^{2n}
+SOURCE_HYPOTHESES: none (typing data): n in N; m_0, mu in R; m in R^n; q in R^{2n}
 SOURCE_QUANTIFIERS: n implicit; m_0, m, mu, q
 SOURCE_CONCLUSION: defines x_0(q) = -mu/(m_0 + mu sum_i m_i) sum_i m_i q^(i) and x_i(q) = x_0(q) + q^(i) (Sun at index 0, planet i at index i, order of Fin.cons)
-CONSTANT_SCOPE: none
+CONSTANT_SCOPE: none; the definition is total for arbitrary real data. In the physical applications, m_0 > 0, m_i > 0 and mu > 0 guard divisions as described at P0 L193, L220-L221, L319-L320.
 FROZEN_FILE: KAM/Frozen/Planetary/Defs/BarycentricPositions.lean
 FROZEN_DECL: KAM.Planetary.barycentricPositions
 FROZEN_ANCHOR_ID: planetary.barycentricPositions.v1
@@ -754,7 +754,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:barycentric@L217-L217 | q^(i) = body(q,i)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -768,10 +768,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:barycentric@L213-L
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.barycentricVelocities
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data): m_0, m_i, mu with positive denominators; scaled momenta p in R^{2n}
+SOURCE_HYPOTHESES: none (typing data): n in N; m_0, mu in R; m in R^n; p in R^{2n}
 SOURCE_QUANTIFIERS: n implicit; m_0, m, mu, p
 SOURCE_CONCLUSION: defines v_0(p) = -(mu/m_0) sum_i p^(i) and v_i(p) = p^(i)/m_i (1 <= i <= n; Sun at index 0)
-CONSTANT_SCOPE: none
+CONSTANT_SCOPE: none; the definition is total for arbitrary real data. In the physical applications, m_0 > 0, m_i > 0 and mu > 0 guard divisions as described at P0 L193, L220-L221, L319-L320.
 FROZEN_FILE: KAM/Frozen/Planetary/Defs/BarycentricVelocities.lean
 FROZEN_DECL: KAM.Planetary.barycentricVelocities
 FROZEN_ANCHOR_ID: planetary.barycentricVelocities.v1
@@ -781,7 +781,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:barycentric@L218-L218 | p^(i) = body(p,i)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -797,7 +797,7 @@ CONTRACT_ID: planetary.IsNewtonSolution
 CONTRACT_VERSION: 1
 SOURCE_HYPOTHESES: none (typing data): N in N, G in R, M in R^N, Q, V: R -> (R^2)^N
 SOURCE_QUANTIFIERS: N implicit; G, M, Q, V
-SOURCE_CONCLUSION: defines IsNewton(G,M,Q,V): for all t in R and i != j < N: (i) ¦Q_j(t) - Q_i(t)¦ > 0; (ii) Q_i has derivative V_i(t) at t; (iii) V_i has derivative sum_{j != i} G M_j/¦Q_j(t) - Q_i(t)¦^3 (Q_j(t) - Q_i(t)) at t (all-time Newton equations)
+SOURCE_CONCLUSION: defines IsNewton(G,M,Q,V) as the conjunction: (i) for every t in R and i,j < N with i != j, ¦Q_j(t)-Q_i(t)¦ > 0; (ii) for every t in R and i < N, Q_i has derivative V_i(t) at t; (iii) for every t in R and i < N, V_i has derivative sum_{j != i} G M_j/¦Q_j(t)-Q_i(t)¦^3 (Q_j(t)-Q_i(t)) at t (all-time Newton equations)
 CONSTANT_SCOPE: none
 FROZEN_FILE: KAM/Frozen/Planetary/Defs/IsNewtonSolution.lean
 FROZEN_DECL: KAM.Planetary.IsNewtonSolution
@@ -808,7 +808,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:newton@L228-L228 | ¦.¦ is the physical length in (i) and (iii)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -822,9 +822,9 @@ STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixedsol@L235-L242
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.IsFixedSolution
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data): n, G, m_0, m in R^n, eps in R, Q, V: R -> (R^2)^n
+SOURCE_HYPOTHESES: none (typing data): n in N; G, m_0, eps in R; m in R^n; Q, V: R -> (R^2)^n
 SOURCE_QUANTIFIERS: n implicit; G, m_0, m, eps, Q, V
-SOURCE_CONCLUSION: defines IsFixedSol(G,m_0,m,eps,Q,V): for all t and i != j: ¦Q_i(t)¦ > 0, ¦Q_j(t) - Q_i(t)¦ > 0, Q_i has derivative V_i(t), V_i has derivative -G m_0/¦Q_i(t)¦^3 Q_i(t) + eps sum_{j != i} G m_j/¦Q_j(t) - Q_i(t)¦^3 (Q_j(t) - Q_i(t)) (the Sun is the constant origin)
+SOURCE_CONCLUSION: defines IsFixedSol(G,m_0,m,eps,Q,V) as the conjunction: for every t and i < n, ¦Q_i(t)¦ > 0; for every t and i,j < n with i != j, ¦Q_j(t)-Q_i(t)¦ > 0; for every t and i < n, Q_i has derivative V_i(t) at t; for every t and i < n, V_i has derivative -G m_0/¦Q_i(t)¦^3 Q_i(t) + eps sum_{j != i} G m_j/¦Q_j(t)-Q_i(t)¦^3 (Q_j(t)-Q_i(t)) at t. The Sun is the constant origin.
 CONSTANT_SCOPE: none
 FROZEN_FILE: KAM/Frozen/Planetary/Defs/IsFixedSolution.lean
 FROZEN_DECL: KAM.Planetary.IsFixedSolution
@@ -835,7 +835,7 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixedsol@L237-L237 | ¦.¦ is the physical length
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -849,7 +849,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:movham@L244-L255
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.movingHamiltonian
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data): G, m_0, m in R^n, mu in R, z = (q,p) in Ph_{2n}
+SOURCE_HYPOTHESES: none (typing data): n in N; G, m_0, mu in R; m in R^n; z = (q,p) in Ph_{2n}
 SOURCE_QUANTIFIERS: n implicit; G, m_0, m, mu, z
 SOURCE_CONCLUSION: defines H_mov(z) = sum_i [(1/m_i + mu/m_0) ¦p^(i)¦^2/2 - G m_0 m_i/¦q^(i)¦] + mu sum_{i<j} [p^(i).p^(j)/m_0 - G m_i m_j/¦q^(i) - q^(j)¦] (every term kept: the Sun moves)
 CONSTANT_SCOPE: none
@@ -866,7 +866,7 @@ EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:mov
 EDGE: bpP:p0:plane#planeDot | blueprint-P/parts/p0-conventions.tex#bpP:p0:movham@L248-L248 | p^(i).p^(j)
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:movham@L247-L247 | q^(i), p^(i)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -880,7 +880,7 @@ STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixham@L257-L263
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.fixedHamiltonian
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: none (typing data): G, m_0, m in R^n, eps in R, z = (q,p) in Ph_{2n}
+SOURCE_HYPOTHESES: none (typing data): n in N; G, m_0, eps in R; m in R^n; z = (q,p) in Ph_{2n}
 SOURCE_QUANTIFIERS: n implicit; G, m_0, m, eps, z
 SOURCE_CONCLUSION: defines H_fix(z) = sum_i [¦p^(i)¦^2/(2 m_i) - G m_0 m_i/¦q^(i)¦] - eps sum_{i<j} G m_i m_j/¦q^(i) - q^(j)¦ (Sun at the origin; only the planet-planet interaction, with coefficient eps)
 CONSTANT_SCOPE: none
@@ -896,7 +896,7 @@ EDGE: bpP:p0:plane#planeSq | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixham@
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixham@L259-L259 | ¦q^(i)¦
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixham@L259-L259 | q^(i), p^(i)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -925,9 +925,9 @@ EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:phystorus
 EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p0-conventions.tex#bpP:p0:phystorus@L273-L273 | Omega in (vi)
 EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p0-conventions.tex#bpP:p0:phystorus@L274-L274 | w is (gamma,tau)-Diophantine in (vii)
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p0-conventions.tex#bpP:p0:phystorus@L275-L275 | X_H in (viii)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -940,10 +940,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:movkol@L283-L295
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.MovingKolmogorovSet
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: G, m_0 > 0 (the section convention of §physdefs); m, a in R^n; mu, eta, d, D in R; S subset Ph_{2n}
+SOURCE_HYPOTHESES: none (typing data): n in N; G, m_0, mu, eta, d, D in R; m, a in R^n; S subset Ph_{2n}
 SOURCE_QUANTIFIERS: n implicit; G, m_0, m, a, mu, eta, d, D, S
 SOURCE_CONCLUSION: defines MovKol(G,m_0,m,a,mu,eta,d,D,S): S measurable, S subset U_eta, and every z in S has w, K, theta with K(theta) = z, K(R^{2n}) subset S, IsPhysTorus(H_mov,w,K), and for every phi in R^{2n}: (a) NoColl(K(phi)_1); (b) IsNewton(G,mass_mu, t -> x(K(phi+t w)_1), t -> v(K(phi+t w)_2)); (c) PairBounds(d,D; x(K(phi)_1))
-CONSTANT_SCOPE: w, K, theta depend on z; d, D are fixed arguments
+CONSTANT_SCOPE: w, K, theta depend on z; d, D are fixed arguments. The source uses this total predicate under the physical convention G, m_0 > 0 and m_i > 0 (P0 L193); these are not additional arguments or conjuncts of the definition.
 FROZEN_FILE: KAM/Frozen/Planetary/Defs/MovingKolmogorovSet.lean
 FROZEN_DECL: KAM.Planetary.MovingKolmogorovSet
 FROZEN_ANCHOR_ID: planetary.MovingKolmogorovSet.v1
@@ -962,7 +962,7 @@ EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p0-conventions
 EDGE: bpP:p0:barycentric#barycentricVelocities | blueprint-P/parts/p0-conventions.tex#bpP:p0:movkol@L290-L290 | v in (b)
 EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p0-conventions.tex#bpP:p0:movkol@L291-L291 | clause (c)
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -976,10 +976,10 @@ STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fixkol@L297-L304
 PROOF_SOURCE: -
 CONTRACT_ID: planetary.FixedKolmogorovSet
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: G, m_0 > 0 (the section convention of §physdefs); m, a in R^n; eps, eta, d, D in R; S subset Ph_{2n}
+SOURCE_HYPOTHESES: none (typing data): n in N; G, m_0, eps, eta, d, D in R; m, a in R^n; S subset Ph_{2n}
 SOURCE_QUANTIFIERS: n implicit; G, m_0, m, a, eps, eta, d, D, S
 SOURCE_CONCLUSION: defines FixKol(G,m_0,m,a,eps,eta,d,D,S): S measurable, S subset U_eta, and every z in S has w, K, theta with K(theta) = z, K(R^{2n}) subset S, IsPhysTorus(H_fix,w,K), and for every phi: NoColl(K(phi)_1); IsFixedSol(G,m_0,m,eps, t -> (K(phi+t w)_1^(i))_i, t -> (K(phi+t w)_2^(i)/m_i)_i); PairBounds(d,D; (0,K(phi)_1^(1),...,K(phi)_1^(n)))
-CONSTANT_SCOPE: w, K, theta depend on z; d, D fixed arguments
+CONSTANT_SCOPE: w, K, theta depend on z; d, D are fixed arguments. The source uses this total predicate under the physical convention G, m_0 > 0 and m_i > 0 (P0 L193); these are not additional arguments or conjuncts of the definition.
 FROZEN_FILE: KAM/Frozen/Planetary/Defs/FixedKolmogorovSet.lean
 FROZEN_DECL: KAM.Planetary.FixedKolmogorovSet
 FROZEN_ANCHOR_ID: planetary.FixedKolmogorovSet.v1
@@ -996,7 +996,7 @@ EDGE: bpP:p0:fixedsol#IsFixedSolution | blueprint-P/parts/p0-conventions.tex#bpP
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixkol@L300-L300 | K(..)_1^(i) are body vectors
 EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p0-conventions.tex#bpP:p0:fixkol@L301-L301 | PairBounds clause
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1010,15 +1010,15 @@ STATEMENT_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L306-L329
 PROOF_SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L306-L329
 CONTRACT_ID: bpP:p0:totality
 CONTRACT_VERSION: 1
-SOURCE_HYPOTHESES: the frozen definitions of Part 0 (Lean total functions) and the frozen statements that use them; 0 < r < r_* < 1; m_i > 0, mu > 0, G, m_0, a_i > 0 as in the definitions
+SOURCE_HYPOTHESES: the relevant guards of the Part 0 statements, clause by clause (not new standing assumptions): analyticity/differentiability on the stated domains; HasFastDiffeomorphism on W containing closure(V); integrability in HasSecularBirkhoffForm and 0 < delta <= r_0; collision-free clauses; G, m_0, m_i, a_i, mu > 0 where the corresponding divisions are used; 0 < r < r_* < 1; k != 0; V open and bounded and S measurable for the measure clause
 SOURCE_QUANTIFIERS: none (a list of guarded facts attached to the definitions of Part 0)
-SOURCE_CONCLUSION: the facts the frozen statements guarantee for each total function, to be established by proofs before the defining formulas are used: Frechet derivatives (omega_{H_0}, X_H, DK) are guarded by analyticity/differentiability clauses; Bochner integrals P_av by integrability in HasBirkhoff (i) and delta <= r_0 in (ii); square roots and divisions by the collision-free clauses and positivity of masses; log(1/r)>0 for 0<r<r_*<1; ¦k¦_1 >= 1 for k != 0; ofReal truncation; meas F(V,r) < infinity since V is bounded and meas is Lebesgue outer measure
+SOURCE_CONCLUSION: guard summary: fderiv is zero at non-differentiability, whereas the torus derivatives are genuine by the differentiability of H and analyticity of K; H_mu is analytic on C(V,r) under the P-G data and r < r_0, mu in [0,mu_0]; the Bochner integral P_av is zero for a non-integrable integrand and HasBirkhoff (i) supplies integrability for every point of (ii); physical lengths have nonnegative square-root radicands and collision and positivity clauses guard the stated reciprocals; log(1/r) > 0 and sqrt r has r > 0; ¦k¦_1 >= 1 for nonzero integer k; ofReal(1-C sqrt r) equals the real lower factor if positive and zero otherwise, so in the latter case the strict lower measure inequality follows from 0 < meas(S cap F); F(V,r) is Borel, S is measurable, and meas F(V,r) < infinity for bounded V
 CONSTANT_SCOPE: none
 FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p0:fastfreq#fastFrequency, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p0:fastdiffeo#HasFastDiffeomorphism, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p0:secavg#secularAverage, bpP:p0:plane#planeLength, bpP:p0:nocoll#NoCollision, bpP:p0:newton#IsNewtonSolution, bpP:p0:fixedsol#IsFixedSolution, bpP:p0:circular#circularPoint, bpP:p0:barycentric#barycentricPositions, bpP:p0:barycentric#barycentricVelocities, bpP:p0:diophantine#IsDiophantine, bpP:p0:cylinder#cylinderCell
+DEPS: bpP:p0:fastfreq#fastFrequency, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p0:fastdiffeo#HasFastDiffeomorphism, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p0:secavg#secularAverage, bpP:p0:plane#planeLength, bpP:p0:nocoll#NoCollision, bpP:p0:newton#IsNewtonSolution, bpP:p0:fixedsol#IsFixedSolution, bpP:p0:circular#circularPoint, bpP:p0:barycentric#barycentricPositions, bpP:p0:barycentric#barycentricVelocities, bpP:p0:diophantine#IsDiophantine, bpP:p0:cylinder#cylinderCell, bpP:p0:cyltorus#IsCylinderTorus, bpP:p0:phystorus#IsPhysicalTorus, bpP:p0:cylinder#cylinder, bpP:p0:degham#degenerateHamiltonian, bpP:p0:hamsymp#symplecticForm
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:fastfreq#fastFrequency | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L310-L310 | omega_{H_0} totality (Frechet derivative 0 at non-differentiability)
@@ -1035,8 +1035,13 @@ EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p0-conventions
 EDGE: bpP:p0:barycentric#barycentricVelocities | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L319-L319 | denominators m_0 and m_i in v_0, v_i
 EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L322-L322 | ¦k¦_1^tau with ¦k¦_1 >= 1 for k != 0
 EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L327-L327 | meas F(V,r) < infinity
+EDGE: bpP:p0:cyltorus#IsCylinderTorus | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L311-L314 | the cylinder torus predicate supplies differentiability of H and analyticity of K
+EDGE: bpP:p0:phystorus#IsPhysicalTorus | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L311-L314 | the physical torus predicate supplies the corresponding genuine derivative guards
+EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L312-L313 | the smaller cylinder C(V,r) is the analytic domain being used
+EDGE: bpP:p0:degham#degenerateHamiltonian | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L313-L313 | H_mu is the family whose analyticity guards the vector field
+EDGE: bpP:p0:hamsymp#symplecticForm | blueprint-P/parts/p0-conventions.tex#bpP:p0:totality@L314-L314 | the Lagrangian assertion Omega(DK .,DK .)=0 uses the genuine derivatives
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1069,9 +1074,9 @@ EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p0-conventions.
 EDGE: bpP:p0:degham#degenerateHamiltonian | blueprint-P/parts/p0-conventions.tex#bpP:p0:pg@L351-L351 | H_mu = H_0 + mu P(mu,.)
 EDGE: bpP:p0:cylkol#IsCylinderKolmogorovSet | blueprint-P/parts/p0-conventions.tex#bpP:p0:pg@L351-L351 | IsCylKol(H_mu,V,r,mu,C,S)
 EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p0-conventions.tex#bpP:p0:pg@L353-L353 | F(V,r) in the measure conclusions
-EDGE: bpP:p5:main | blueprint-P/parts/p5-pg-assembly.tex#bpP:p0:pg@L317-L317 | this result carries \frozen{KAM.Planetary.properlyDegenerateKAM}: it proves the anchor
+EDGE: bpP:p5:main | blueprint-P/parts/p5-pg-assembly.tex#bpP:p5:main@L317-L317 | this result carries \frozen{KAM.Planetary.properlyDegenerateKAM}: it proves the anchor
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1098,9 +1103,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:planar@L370-L370 | S subset Ph_{2.2}
 EDGE: bpP:p0:movkol#MovingKolmogorovSet | blueprint-P/parts/p0-conventions.tex#bpP:p0:planar@L371-L371 | MovKol(G,m_0,m,a,mu,eta,d,D,S) with n = 2
-EDGE: bpP:p12:planar | blueprint-P/parts/p12-planar-assembly.tex#bpP:p0:planar@L159-L159 | this result carries \frozen{KAM.Planetary.planarTwoPlanetKAM}: it proves the anchor
+EDGE: bpP:p12:planar | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:planar@L159-L159 | this result carries \frozen{KAM.Planetary.planarTwoPlanetKAM}: it proves the anchor
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1125,9 +1130,9 @@ FROZEN_ABI_SHA256: 27b7e3e428e60b15c01126bb9108975bef6f4c08bdd2bcd42149bf2229dab
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1155,9 +1160,9 @@ EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-keple
 EDGE: bpP:p0:plane#planeSq | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L413-L413 | ¦p_i¦^2
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L413-L413 | ¦q_i¦
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L413-L413 | q_i = body(q,i), p_i = body(p,i) (section convention L400)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1178,12 +1183,13 @@ FROZEN_FILE: KAM/Frozen/Planetary/Defs/KeplerAxis.lean
 FROZEN_DECL: KAM.Planetary.keplerAxis
 FROZEN_ANCHOR_ID: planetary.d25.keplerAxis.v1
 FROZEN_ABI_SHA256: 8b55c0149ea62631a5254e243408a8d995b7e8f4808a16a0a580ed961a24913f
-DEPS: bpP:p0:d25-kepler#keplerEnergy
+DEPS: bpP:p0:d25-kepler#keplerEnergy, bpP:p0:phase#Phase
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:d25-kepler#keplerEnergy | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L414-L414 | a_i is defined through E_i
+EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L411 | z is a point of Ph_{2n}, explicitly the domain of this definition
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1205,12 +1211,13 @@ FROZEN_FILE: KAM/Frozen/Planetary/Defs/KeplerAction.lean
 FROZEN_DECL: KAM.Planetary.keplerAction
 FROZEN_ANCHOR_ID: planetary.d25.keplerAction.v1
 FROZEN_ABI_SHA256: bb4ff50c2f5da52bcb864343bc951d280ef83bd68edbe387811453a1e42f10da
-DEPS: bpP:p0:d25-kepler#keplerAxis
+DEPS: bpP:p0:d25-kepler#keplerAxis, bpP:p0:phase#Phase
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:d25-kepler#keplerAxis | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L415-L415 | Lambda_i is defined through a_i
+EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L411-L411 | z is a point of Ph_{2n}, explicitly the domain of this definition
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1240,9 +1247,9 @@ EDGE: bpP:p0:plane#planeSq | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kep
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L416-L416 | ¦q_i¦
 EDGE: bpP:p0:plane#planeDot | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L416-L416 | q_i.p_i
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L416-L416 | q_i, p_i (section convention L400)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1269,9 +1276,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:d25-cross#planeCross | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L425 | J sums the planar cross products
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L425 | q_i, p_i (section convention L400)
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L425 | z in Ph_{2n} (section convention L400)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1298,9 +1305,9 @@ ROUTE_FOR: -
 EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L425 | A sums the actions Lambda_i
 EDGE: bpP:p0:d25-amd#totalMomentum | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L425 | A subtracts J(z)
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L425-L425 | z in Ph_{2n} (section convention L400)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1329,9 +1336,9 @@ EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25
 EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-prograde@L432-L432 | q_i, p_i
 EDGE: bpP:p0:d25-kepler#keplerEnergy | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-prograde@L432-L432 | E_i(z) < 0
 EDGE: bpP:p0:d25-cross#planeCross | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-prograde@L432-L432 | 0 < cr(q_i,p_i)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1359,9 +1366,9 @@ EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-lowam
 EDGE: bpP:p0:d25-prograde#ProgradeElliptic | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-lowamd@L438-L438 | ProgradeElliptic(m,z)
 EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-lowamd@L438-L438 | l_i < Lambda_i(z) < u_i
 EDGE: bpP:p0:d25-amd#physicalAMD | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-lowamd@L438-L438 | A(z) < A
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1385,9 +1392,9 @@ FROZEN_ABI_SHA256: 0bff76a43af54d835cd965e8c6c403f8e6761ccb9f0780910c240cdb1f3d1
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1412,9 +1419,9 @@ DEPS: bpP:p0:d25-box#AMDBox
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:d25-box#AMDBox | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L445-L445 | the predicate is on the fields of the box B
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1443,9 +1450,9 @@ EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p0-conventions.tex#bpP
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L459-L459 | X_{H_mov}
 EDGE: bpP:p0:nocoll#NoCollision | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L459-L459 | NoColl(z(t)_1)
 EDGE: bpP:p0:d25-movsol#IsHamiltonianSolutionOn | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L460-L460 | IsHamiltonianSolutionOn with momentum-domain slot Set.univ
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1470,9 +1477,9 @@ DEPS: bpP:p0:hamsymp#hamiltonianVectorField
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:hamsymp#hamiltonianVectorField | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L459-L459 | z has derivative X_H(z(t))
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1497,9 +1504,9 @@ DEPS: bpP:p0:plane#planeLength
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-newton@L465-L465 | ¦.¦ is the physical length
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1525,9 +1532,9 @@ ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-unique@L472-L472 | z, w: R -> Ph_{2n}
 EDGE: bpP:p0:d25-movsol#IsMovingSolutionOn | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-unique@L473-L473 | IsMovSolOn(m,mu,U,w)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1556,9 +1563,9 @@ EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-stopp
 EDGE: bpP:p0:d25-movsol#IsMovingSolutionOn | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-stopped@L479-L479 | IsMovSolOn(m,mu,[l,r],z)
 EDGE: bpP:p0:d25-lowamd#LowAMDRegion | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-stopped@L479-L479 | z(t) in LowAMD(m,l,u,A_1)
 EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-stopped@L480-L480 | Lambda_i(z(t)) - Lambda_i(z_0)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1582,9 +1589,9 @@ FROZEN_ABI_SHA256: d50f6181d0c0f28b50322ce65b1a9831d2ecd43ad5c2c9e3941105da2d0eb
 DEPS: -
 ROUTES: -
 ROUTE_FOR: -
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1609,9 +1616,9 @@ DEPS: bpP:p0:d25-exponents#planetaryTimeExponent
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:d25-exponents#planetaryTimeExponent | blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L487-L487 | beta_n = (3/2) alpha_n
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1653,9 +1660,9 @@ EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L
 EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L505-L505 | PairBounds in (c)
 EDGE: bpP:p0:d25-amd#physicalAMD | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L506-L506 | A(z(t)) in (d)
 EDGE: bpP:p0:d25-kepler#keplerAction | blueprint-P/parts/p0-conventions.tex#bpP:p0:amd@L506-L506 | Lambda_i in (d)
-EDGE: bpP:p14:amd | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p0:amd@L129-L129 | this result carries \frozen{KAM.Planetary.amdConfinement}: it proves the anchor
+EDGE: bpP:p14:amd | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:amd@L129-L129 | this result carries \frozen{KAM.Planetary.amdConfinement}: it proves the anchor
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
@@ -1677,7 +1684,7 @@ FROZEN_FILE: KAM/Frozen/Planetary/Theorems/PlanetaryExponentialSafety.lean
 FROZEN_DECL: KAM.Planetary.planetaryExponentialSafety
 FROZEN_ANCHOR_ID: planetary.d25.planetaryExponentialSafety.v1
 FROZEN_ABI_SHA256: 2e161e3b644712a64211734b4208c2425542c31bf0a43de3857c3cceb1a2a14a
-DEPS: bpP:p0:phase#Phase, bpP:p0:d25-box#AMDBox, bpP:p0:d25-box#Admissible, bpP:p0:d25-lowamd#LowAMDRegion, bpP:p0:d25-exponents#planetaryTimeExponent, bpP:p0:amd, bpP:p0:d25-kepler#keplerAxis, bpP:p0:d25-exponents#planetaryDriftExponent, bpP:p14:expsafe
+DEPS: bpP:p0:phase#Phase, bpP:p0:d25-box#AMDBox, bpP:p0:d25-box#Admissible, bpP:p0:d25-lowamd#LowAMDRegion, bpP:p0:d25-exponents#planetaryTimeExponent, bpP:p0:amd, bpP:p0:d25-kepler#keplerAxis, bpP:p0:d25-exponents#planetaryDriftExponent, bpP:p14:expsafe, bpP:p0:d25-movsol#IsMovingSolutionOn, bpP:p0:d25-unique#MovingUniqueOn, bpP:p0:d25-newton#IsNewtonSolutionOn, bpP:p0:barycentric#actualMasses, bpP:p0:barycentric#barycentricPositions, bpP:p0:barycentric#barycentricVelocities, bpP:p0:d25-amd#totalMomentum, bpP:p0:d25-kepler#keplerEccVector, bpP:p0:plane#planeLength, bpP:p0:body#bodyVector, bpP:p0:nocoll#PairBounds
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p0:phase#Phase | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L514-L514 | z: R -> Ph_{2n}
@@ -1688,9 +1695,20 @@ EDGE: bpP:p0:d25-exponents#planetaryTimeExponent | blueprint-P/parts/p0-conventi
 EDGE: bpP:p0:amd | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clauses (a), (b), (c) of P-AMD-CONFINEMENT are part of this statement; its proof reaches them through the helper bpP:p14:amd (step es-amd)
 EDGE: bpP:p0:d25-kepler#keplerAxis | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L517-L517 | a_i(z(t)) in (b)
 EDGE: bpP:p0:d25-exponents#planetaryDriftExponent | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L517-L517 | C mu^{beta_n}
-EDGE: bpP:p14:expsafe | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p0:expsafe@L295-L295 | this result carries \frozen{KAM.Planetary.planetaryExponentialSafety}: it proves the anchor
+EDGE: bpP:p14:expsafe | blueprint-P/parts/p14a-amd-expsafe.tex#bpP:p14:expsafe@L295-L295 | this result carries \frozen{KAM.Planetary.planetaryExponentialSafety}: it proves the anchor
+EDGE: bpP:p0:d25-movsol#IsMovingSolutionOn | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use IsMovingSolutionOn; the frozen conclusion expands that use
+EDGE: bpP:p0:d25-unique#MovingUniqueOn | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use MovingUniqueOn; the frozen conclusion expands that use
+EDGE: bpP:p0:d25-newton#IsNewtonSolutionOn | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use IsNewtonSolutionOn; the frozen conclusion expands that use
+EDGE: bpP:p0:barycentric#actualMasses | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use actualMasses; the frozen conclusion expands that use
+EDGE: bpP:p0:barycentric#barycentricPositions | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use barycentricPositions; the frozen conclusion expands that use
+EDGE: bpP:p0:barycentric#barycentricVelocities | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use barycentricVelocities; the frozen conclusion expands that use
+EDGE: bpP:p0:d25-amd#totalMomentum | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use totalMomentum; the frozen conclusion expands that use
+EDGE: bpP:p0:d25-kepler#keplerEccVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use keplerEccVector; the frozen conclusion expands that use
+EDGE: bpP:p0:plane#planeLength | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use planeLength; the frozen conclusion expands that use
+EDGE: bpP:p0:body#bodyVector | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use bodyVector; the frozen conclusion expands that use
+EDGE: bpP:p0:nocoll#PairBounds | blueprint-P/parts/p0-conventions.tex#bpP:p0:expsafe@L516-L516 | clause (a) incorporates AMD clauses (a)-(c), which explicitly use PairBounds; the frozen conclusion expands that use
 TOPOLOGY_STATUS: PROPOSED
-EXTRACTOR: sonnet-extract-P-p0
+EXTRACTOR: sonnet-extract-P-p0+sol-review-P-c
 REVIEWER: -
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -

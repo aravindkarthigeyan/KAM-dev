@@ -3,162 +3,162 @@ KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:diophantine@L44-L50
 DISPOSITION: NODE bpP:p0:diophantine#IsDiophantine
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:hamsymp#hamiltonianVectorField
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:hamsymp@L52-L63
 DISPOSITION: NODE bpP:p0:hamsymp#hamiltonianVectorField
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:hamsymp#symplecticForm
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:hamsymp@L52-L63
 DISPOSITION: NODE bpP:p0:hamsymp#symplecticForm
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:phase#Phase
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:phase@L67-L70
 DISPOSITION: NODE bpP:p0:phase#Phase
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:plane#planeSq
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:plane@L72-L76
 DISPOSITION: NODE bpP:p0:plane#planeSq
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:plane#planeLength
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:plane@L72-L76
 DISPOSITION: NODE bpP:p0:plane#planeLength
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:plane#planeDot
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:plane@L72-L76
 DISPOSITION: NODE bpP:p0:plane#planeDot
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:body#bodyVector
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:body@L78-L81
 DISPOSITION: NODE bpP:p0:body#bodyVector
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:blocks#fast
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:blocks@L83-L89
 DISPOSITION: NODE bpP:p0:blocks#fast
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:blocks#slow
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:blocks@L83-L89
 DISPOSITION: NODE bpP:p0:blocks#slow
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:blocks#assemble
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:blocks@L83-L89
 DISPOSITION: NODE bpP:p0:blocks#assemble
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:oscaction#oscillatorAction
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:oscaction@L91-L95
 DISPOSITION: NODE bpP:p0:oscaction#oscillatorAction
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:fastshift#fastShift
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fastshift@L97-L101
 DISPOSITION: NODE bpP:p0:fastshift#fastShift
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:fastfreq#fastFrequency
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:fastfreq@L103-L108
 DISPOSITION: NODE bpP:p0:fastfreq#fastFrequency
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:cylinder#cylinder
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:cylinder@L112-L121
 DISPOSITION: NODE bpP:p0:cylinder#cylinder
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:cylinder#cylinderCell
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:cylinder@L112-L121
 DISPOSITION: NODE bpP:p0:cylinder#cylinderCell
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:degham#degenerateHamiltonian
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:degham@L123-L127
 DISPOSITION: NODE bpP:p0:degham#degenerateHamiltonian
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:secavg#secularAverage
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:secavg@L129-L135
 DISPOSITION: NODE bpP:p0:secavg#secularAverage
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:fastdiffeo#HasFastDiffeomorphism
 KIND: definition
@@ -174,72 +174,72 @@ KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:birkhoff@L146-L162
 DISPOSITION: NODE bpP:p0:birkhoff#HasSecularBirkhoffForm
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:cyltorus#IsCylinderTorus
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:cyltorus@L164-L179
 DISPOSITION: NODE bpP:p0:cyltorus#IsCylinderTorus
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:cylkol#IsCylinderKolmogorovSet
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:cylkol@L181-L189
 DISPOSITION: NODE bpP:p0:cylkol#IsCylinderKolmogorovSet
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:circular#circularPoint
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:circular@L195-L203
 DISPOSITION: NODE bpP:p0:circular#circularPoint
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:circular#circularTube
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:circular@L195-L203
 DISPOSITION: NODE bpP:p0:circular#circularTube
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:nocoll#NoCollision
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:nocoll@L205-L211
 DISPOSITION: NODE bpP:p0:nocoll#NoCollision
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:nocoll#PairBounds
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:nocoll@L205-L211
 DISPOSITION: NODE bpP:p0:nocoll#PairBounds
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:barycentric#actualMasses
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:barycentric@L213-L224
 DISPOSITION: NODE bpP:p0:barycentric#actualMasses
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:barycentric#barycentricPositions
 KIND: definition
@@ -300,9 +300,9 @@ KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:phystorus@L265-L281
 DISPOSITION: NODE bpP:p0:phystorus#IsPhysicalTorus
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:movkol#MovingKolmogorovSet
 KIND: definition
@@ -372,18 +372,18 @@ KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-cross@L404-L408
 DISPOSITION: NODE bpP:p0:d25-cross#planeCross
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-kepler#keplerEnergy
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 DISPOSITION: NODE bpP:p0:d25-kepler#keplerEnergy
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-kepler#keplerAxis
 KIND: definition
@@ -408,126 +408,126 @@ KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-kepler@L410-L422
 DISPOSITION: NODE bpP:p0:d25-kepler#keplerEccVector
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-amd#totalMomentum
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L424-L428
 DISPOSITION: NODE bpP:p0:d25-amd#totalMomentum
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-amd#physicalAMD
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-amd@L424-L428
 DISPOSITION: NODE bpP:p0:d25-amd#physicalAMD
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-prograde#ProgradeElliptic
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-prograde@L430-L434
 DISPOSITION: NODE bpP:p0:d25-prograde#ProgradeElliptic
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-lowamd#LowAMDRegion
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-lowamd@L436-L441
 DISPOSITION: NODE bpP:p0:d25-lowamd#LowAMDRegion
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-box#AMDBox
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L443-L455
 DISPOSITION: NODE bpP:p0:d25-box#AMDBox
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-box#Admissible
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-box@L443-L455
 DISPOSITION: NODE bpP:p0:d25-box#Admissible
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-movsol#IsMovingSolutionOn
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L457-L462
 DISPOSITION: NODE bpP:p0:d25-movsol#IsMovingSolutionOn
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-movsol#IsHamiltonianSolutionOn
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-movsol@L457-L462
 DISPOSITION: NODE bpP:p0:d25-movsol#IsHamiltonianSolutionOn
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-newton#IsNewtonSolutionOn
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-newton@L464-L469
 DISPOSITION: NODE bpP:p0:d25-newton#IsNewtonSolutionOn
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-unique#MovingUniqueOn
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-unique@L471-L475
 DISPOSITION: NODE bpP:p0:d25-unique#MovingUniqueOn
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-stopped#StoppedActionBound
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-stopped@L477-L484
 DISPOSITION: NODE bpP:p0:d25-stopped#StoppedActionBound
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-exponents#planetaryTimeExponent
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L486-L490
 DISPOSITION: NODE bpP:p0:d25-exponents#planetaryTimeExponent
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-exponents#planetaryDriftExponent
 KIND: definition
 SOURCE: blueprint-P/parts/p0-conventions.tex#bpP:p0:d25-exponents@L486-L490
 DISPOSITION: NODE bpP:p0:d25-exponents#planetaryDriftExponent
 REASON: mechanical inventory of a labelled unit
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-P-p0
-REVIEWER: -
+REVIEWER: sol-review-P-c
 
 ITEM: bpP:p0:d25-totality
 KIND: claim
@@ -640,8 +640,8 @@ REVIEWER: -
 ITEM: p0:sourcegap-L376
 KIND: proof-region
 SOURCE: blueprint-P/parts/p0-conventions.tex#sourcegap@L376-L376
-DISPOSITION: NODE bpP:p12:planar, bpP:p10:rnd, bpP:p10:sorted-analytic, bpP:p10:noncont, bpP:p12:forward-tube, bpP:p11b:torsion
-REASON: sourcegap of P-PLANAR: the route is now proved in Part 12 from the frozen gate (the stale sentence was fixed in Part 0); the recorded source-level issues are closed by the analytic weak-nondegeneracy gate bpP:p10:rnd, the eigenvalue-branch repair bpP:p10:sorted-analytic and bpP:p10:noncont (no continuation), the closeness of the tori to the circular torus bpP:p12:forward-tube, the torsion bpP:p11b:torsion, assembled in bpP:p12:planar
+DISPOSITION: NODE bpP:p12:planar, bpP:p12:pg-hypotheses, bpP:p11b:birkhoff-form, bpP:p11b:torsion, bpP:p12:forward-tube
+REASON: the current sourcegap explicitly names the Part 12 proof through P-G: pg-hypotheses verifies that gate using the planar Birkhoff form and torsion; birkhoff-form supplies the local analytic diagonalization via the simple planar spectrum and Part 9 local-analytic/diagonalize, without continuing eigenvalue branches; forward-tube supplies the circular-tube closeness. The old R-nondegeneracy gate is bypassed, and p10:noncont is commentary, not a prerequisite of this proof.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p0
 REVIEWER: -
@@ -1010,7 +1010,7 @@ ITEM: p0:prose-L42-L42
 KIND: proof-region
 SOURCE: blueprint-P/parts/p0-conventions.tex#prose@L42-L42
 DISPOSITION: EXCLUDED
-REASON: pointer sentence introducing the three track-K definitions; the statement that no track-I or N definition is used is a scope remark (stale for D25: IsHamiltonianSolutionOn of track I is transcribed at L460 as an own anchor); no fact consumed
+REASON: pointer introducing the three track-K definitions; the current sentence also says track I IsHamiltonianSolutionOn is transcribed in D25 and compares exponents with N. It introduces no additional mathematical assertion; the named transcriptions are covered by their own definition anchors.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p0
 REVIEWER: -
@@ -1019,7 +1019,7 @@ ITEM: p0:prose-L193-L193
 KIND: proof-region
 SOURCE: blueprint-P/parts/p0-conventions.tex#prose@L193-L193
 DISPOSITION: NODE bpP:p0:circular#circularPoint, bpP:p0:circular#circularTube, bpP:p0:nocoll#NoCollision, bpP:p0:barycentric#actualMasses, bpP:p0:barycentric#barycentricPositions, bpP:p0:barycentric#barycentricVelocities, bpP:p0:newton#IsNewtonSolution, bpP:p0:fixedsol#IsFixedSolution, bpP:p0:movham#movingHamiltonian, bpP:p0:fixham#fixedHamiltonian, bpP:p0:movkol#MovingKolmogorovSet, bpP:p0:fixkol#FixedKolmogorovSet
-REASON: section convention G, m_0 > 0 and m_i > 0 throughout §physdefs: positivity guards of the physical definitions, recorded in their SOURCE_HYPOTHESES/typing data (circular points and tube, barycentric reconstruction, Newton and fixed-Sun predicates, both Hamiltonians, both Kolmogorov sets); notation, no separate node
+REASON: section convention G, m_0 > 0 and m_i > 0 throughout physdefs: source use guards and physical interpretation for the mapped total definitions, not restrictions on their Lean domains or extra predicate conjuncts. Positivity is supplied by the physical theorem data at applications; notation/context, no separate standing-assumption node.
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p0
 REVIEWER: -

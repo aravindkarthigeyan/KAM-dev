@@ -230,7 +230,7 @@ DISPOSITION: NODE stepN:p11:ef-en
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sonnet-amend-N
-REVIEWER: sol-delta-N-amend
+REVIEWER: sol-delta2-N-amend
 
 ITEM: stepN:p11:ef-en-energy
 KIND: proof-region
@@ -248,7 +248,7 @@ DISPOSITION: NODE stepN:p11:ef-en-taylor
 REASON: labelled substep of ef-en (G3)
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N
-REVIEWER: sol-delta-N-amend
+REVIEWER: sol-delta2-N-amend
 
 ITEM: stepN:p11:ef-en-split
 KIND: proof-region
@@ -257,7 +257,7 @@ DISPOSITION: NODE stepN:p11:ef-en-split
 REASON: labelled substep of ef-en (G3)
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N
-REVIEWER: sol-delta-N-amend
+REVIEWER: sol-delta2-N-amend
 
 ITEM: stepN:p11:ef-id
 KIND: proof-region

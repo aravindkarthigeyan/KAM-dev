@@ -1009,8 +1009,8 @@ REVIEWER: -
 ITEM: p14b:prose-L25-L32
 KIND: proof-region
 SOURCE: blueprint-P/parts/p14b-secular-box.tex#prose@L25-L32
-DISPOSITION: NODE bpP:p14:sb-conv#secularGamma, bpP:p14:sb-conv#secularAMD, bpP:p14:sb-conv#secularRoot, bpP:p14:sb-conv#secularEccVector, bpP:p14:sb-conv#secularAxis, bpP:p14:sb-conv#orbitalUnit, bpP:p14:sb-conv#quarterTurn
-REASON: coordinates and the seven transcribed frozen objects (prose anchors); the remaining notation (u_i, e_i, x_i, R_theta, Delta) is defined inline where used, and the Hamiltonian-field coordinates are read off hamiltonianVectorField in stepP:p14:sb-fd-1
+DISPOSITION: NODE bpP:p14:sb-conv#secularGamma, bpP:p14:sb-conv#secularAMD, bpP:p14:sb-conv#secularRoot, bpP:p14:sb-conv#secularEccVector, bpP:p14:sb-conv#secularAxis, bpP:p14:sb-conv#orbitalUnit, bpP:p14:sb-conv#quarterTurn, bpP:p14:sb-defs#ellipsePosition, bpP:p14:sb-defs#ellipseMomentum, bpP:p14:sb-defs#longitudeJacobian, stepP:p14:sb-fd-1
+REASON: maps the seven prose anchors and also the formulas for q_i, p_i and J_i at L28-L29 to their frozen definition anchors; the displayed Hamiltonian-field convention at L31-L32 maps to stepP:p14:sb-fd-1; u_i,e_i,x_i,R_theta,Delta are notation recorded in their consumers
 COVERAGE_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p14b
 REVIEWER: -

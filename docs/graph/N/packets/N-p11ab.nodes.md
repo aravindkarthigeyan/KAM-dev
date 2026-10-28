@@ -977,9 +977,9 @@ ROUTE_FOR: -
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83 | holomorphic v is real-differentiable with derivative Dv (chain rule along the C^1 curve)
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83 | {v,phi}_c=Dv·X^c_phi (Definition wfield)
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83 | holomorphic v and phi have continuous holomorphic first derivatives, so Dv(gamma) times X^c_phi(gamma) is continuous
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
-REVIEWER: -
+REVIEWER: sol-delta2-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -1035,9 +1035,9 @@ ROUTE_FOR: -
 EDGE: stepN:p11:et-ind | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85 | g^(j)=(ad^j_phi u)∘gamma and smoothness
 EDGE: K:bp:p1:ext-integral | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85 | integration by parts / integral form of the remainder, one integration by parts per order
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85 | ad^2_phi h={{h,phi}_c,phi}_c and the weighted bracket in the second Taylor display
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
-REVIEWER: -
+REVIEWER: sol-delta2-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -

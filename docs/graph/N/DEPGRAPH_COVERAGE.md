@@ -1351,8 +1351,8 @@ SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-decay@L206-L206
 DISPOSITION: NODE stepN:p1:nc-decay
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta2-N-a
+EXTRACTOR: sonnet-extract-N-p1+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: stepN:p1:nc-sum
 KIND: proof-region
@@ -1360,8 +1360,8 @@ SOURCE: blueprint-N/parts/p1-interfaces.tex#stepN:p1:nc-sum@L208-L208
 DISPOSITION: NODE stepN:p1:nc-sum
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p1
-REVIEWER: sol-delta-N-a
+EXTRACTOR: sonnet-extract-N-p1+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: bpN:p1:constants
 KIND: lemma
@@ -1719,9 +1719,9 @@ KIND: claim
 SOURCE: blueprint-N/parts/p3-hamiltonian-ode.tex#bpN:p3:totality@L78-L84
 DISPOSITION: EXCLUDED
 REASON: writer: administrative Lean-totality convention; its only consumer edge (bpN:p5:flow, L56 zero extension) was removed by sol-delta-N-b as a pointer, not a proved prerequisite (N-p5-delta.md), so no root proof consumes it
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p3a+writer-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta4-N-a
 
 ITEM: bpN:p3:gen-sol
 KIND: definition
@@ -3003,7 +3003,7 @@ REVIEWER: sol-review-N-b
 
 ITEM: bpN:p4:coefficients
 KIND: lemma
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:coefficients@L57-L67
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:coefficients@L60-L70
 DISPOSITION: NODE bpN:p4:coefficients
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3012,7 +3012,7 @@ REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:co-holo
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-holo@L69-L70
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-holo@L72-L73
 DISPOSITION: NODE stepN:p4:co-holo
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3021,7 +3021,7 @@ REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:co-deriv
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-deriv@L72-L73
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-deriv@L75-L76
 DISPOSITION: NODE stepN:p4:co-deriv
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3030,25 +3030,25 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:co-series
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L75-L77
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-series@L78-L80
 DISPOSITION: NODE stepN:p4:co-series
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-review-N-b
+EXTRACTOR: sonnet-extract-N-p4+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: stepN:p4:co-repr
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L79-L80
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:co-repr@L82-L83
 DISPOSITION: NODE stepN:p4:co-repr
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-delta-N-b
+EXTRACTOR: sonnet-extract-N-p4+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: bpN:p4:sup-weighted
 KIND: lemma
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:sup-weighted@L85-L93
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:sup-weighted@L88-L96
 DISPOSITION: NODE bpN:p4:sup-weighted
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3057,25 +3057,25 @@ REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:b1-a
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L95-L96
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-a@L98-L99
 DISPOSITION: NODE stepN:p4:b1-a
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-delta-N-b
+EXTRACTOR: sonnet-extract-N-p4+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: stepN:p4:b1-b
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L98-L100
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b1-b@L101-L103
 DISPOSITION: NODE stepN:p4:b1-b
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-review-N-b
+EXTRACTOR: sonnet-extract-N-p4+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: bpN:p4:algebra
 KIND: lemma
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:algebra@L105-L109
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:algebra@L108-L112
 DISPOSITION: NODE bpN:p4:algebra
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3084,7 +3084,7 @@ REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:b2-class
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-class@L111-L111
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-class@L114-L114
 DISPOSITION: NODE stepN:p4:b2-class
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3093,7 +3093,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:b2-coeff
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-coeff@L113-L114
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-coeff@L116-L117
 DISPOSITION: NODE stepN:p4:b2-coeff
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3102,7 +3102,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:b2-norm
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-norm@L116-L117
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b2-norm@L119-L120
 DISPOSITION: NODE stepN:p4:b2-norm
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3111,7 +3111,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: bpN:p4:cauchy
 KIND: lemma
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:cauchy@L122-L130
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:cauchy@L125-L133
 DISPOSITION: NODE bpN:p4:cauchy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3120,16 +3120,16 @@ REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:b3-a
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L132-L133
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-a@L135-L136
 DISPOSITION: NODE stepN:p4:b3-a
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
-REVIEWER: sol-delta-N-b
+REVIEWER: sol-delta-N-global
 
 ITEM: stepN:p4:b3-b
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-b@L135-L139
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b3-b@L138-L142
 DISPOSITION: NODE stepN:p4:b3-b
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3138,7 +3138,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: bpN:p4:bracket
 KIND: lemma
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L146-L150
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:bracket@L149-L153
 DISPOSITION: NODE bpN:p4:bracket
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3147,7 +3147,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:b4-four
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-four@L154-L157
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-four@L157-L160
 DISPOSITION: NODE stepN:p4:b4-four
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3156,7 +3156,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:b4-prod
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L159-L163
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:b4-prod@L162-L166
 DISPOSITION: NODE stepN:p4:b4-prod
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3165,7 +3165,7 @@ REVIEWER: sol-delta2-N-b
 
 ITEM: bpN:p4:general-cauchy
 KIND: lemma
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:general-cauchy@L168-L171
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:general-cauchy@L171-L174
 DISPOSITION: NODE bpN:p4:general-cauchy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3174,7 +3174,7 @@ REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:c1-line
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:c1-line@L173-L173
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:c1-line@L176-L176
 DISPOSITION: NODE stepN:p4:c1-line
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3183,7 +3183,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:c1-cauchy
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:c1-cauchy@L175-L175
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:c1-cauchy@L178-L178
 DISPOSITION: NODE stepN:p4:c1-cauchy
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3192,7 +3192,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: bpN:p4:projections
 KIND: lemma
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:projections@L181-L187
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:projections@L184-L190
 DISPOSITION: NODE bpN:p4:projections
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3201,7 +3201,7 @@ REVIEWER: sol-review-N-b
 
 ITEM: stepN:p4:pr-class
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-class@L189-L189
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-class@L192-L192
 DISPOSITION: NODE stepN:p4:pr-class
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3210,7 +3210,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:pr-tail
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-tail@L191-L191
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:pr-tail@L194-L194
 DISPOSITION: NODE stepN:p4:pr-tail
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -3219,7 +3219,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: bpN:p4:sharp
 KIND: lemma
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:sharp@L201-L205
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:sharp@L204-L208
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; owned by the importing graph (track P): the ♯-norm variants are used only by track P's averaging (and by bpN:p5:sharp-composition, also excluded); checked by grep of blueprint-N/parts/p6..p11 for bpN:p4:sharp, \sharp, sharp-composition: no match, so no proof in Parts 6-11 consumes any ♯ result
 COVERAGE_STATUS: REVIEWED
@@ -3228,7 +3228,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:sh-b1
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-b1@L208-L208
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-b1@L211-L211
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; owned by the importing graph (track P): the ♯-norm variants are used only by track P's averaging (and by bpN:p5:sharp-composition, also excluded); checked by grep of blueprint-N/parts/p6..p11 for bpN:p4:sharp, \sharp, sharp-composition: no match, so no proof in Parts 6-11 consumes any ♯ result
 COVERAGE_STATUS: REVIEWED
@@ -3237,7 +3237,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:sh-b2
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-b2@L209-L209
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-b2@L212-L212
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; owned by the importing graph (track P): the ♯-norm variants are used only by track P's averaging (and by bpN:p5:sharp-composition, also excluded); checked by grep of blueprint-N/parts/p6..p11 for bpN:p4:sharp, \sharp, sharp-composition: no match, so no proof in Parts 6-11 consumes any ♯ result
 COVERAGE_STATUS: REVIEWED
@@ -3246,7 +3246,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:sh-b3
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-b3@L210-L210
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-b3@L213-L213
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; owned by the importing graph (track P): the ♯-norm variants are used only by track P's averaging (and by bpN:p5:sharp-composition, also excluded); checked by grep of blueprint-N/parts/p6..p11 for bpN:p4:sharp, \sharp, sharp-composition: no match, so no proof in Parts 6-11 consumes any ♯ result
 COVERAGE_STATUS: REVIEWED
@@ -3255,7 +3255,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:sh-b4
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-b4@L211-L211
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-b4@L214-L214
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; owned by the importing graph (track P): the ♯-norm variants are used only by track P's averaging (and by bpN:p5:sharp-composition, also excluded); checked by grep of blueprint-N/parts/p6..p11 for bpN:p4:sharp, \sharp, sharp-composition: no match, so no proof in Parts 6-11 consumes any ♯ result
 COVERAGE_STATUS: REVIEWED
@@ -3264,7 +3264,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: stepN:p4:sh-pr
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-pr@L212-L212
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#stepN:p4:sh-pr@L215-L215
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; owned by the importing graph (track P): the ♯-norm variants are used only by track P's averaging (and by bpN:p5:sharp-composition, also excluded); checked by grep of blueprint-N/parts/p6..p11 for bpN:p4:sharp, \sharp, sharp-composition: no match, so no proof in Parts 6-11 consumes any ♯ result
 COVERAGE_STATUS: REVIEWED
@@ -3273,7 +3273,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: bpN:p4:dictionary
 KIND: claim
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:dictionary@L215-L223
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:dictionary@L218-L226
 DISPOSITION: EXCLUDED
 REASON: administrative remark (comparison with Pöschel's normalisation; track P/I cite it): no track-N proof consumes it as a result; cited only in \source/'see Remark' pointers (sup-weighted L91, cauchy L129) and in Part 6 L13 / Part 7 Remark p7:dictionary L277 notation/dictionary paragraphs whose arithmetic is stated 'redone in our variables, not dependent on either dictionary'; checked by grep of blueprint-N/parts for p4:dictionary; owned by the importing graph
 COVERAGE_STATUS: REVIEWED
@@ -3309,7 +3309,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: heading:bpN:p4:s-b1
 KIND: heading
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-b1@L83-L83
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-b1@L86-L86
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -3318,7 +3318,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: heading:bpN:p4:s-b2
 KIND: heading
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-b2@L103-L103
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-b2@L106-L106
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -3327,7 +3327,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: heading:bpN:p4:s-b3
 KIND: heading
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-b3@L120-L120
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-b3@L123-L123
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -3336,7 +3336,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: heading:bpN:p4:s-b4
 KIND: heading
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-b4@L142-L142
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-b4@L145-L145
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -3345,7 +3345,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: heading:bpN:p4:s-c1
 KIND: heading
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-c1@L166-L166
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-c1@L169-L169
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -3354,7 +3354,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: heading:bpN:p4:s-proj
 KIND: heading
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-proj@L179-L179
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-proj@L182-L182
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -3363,7 +3363,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: heading:bpN:p4:s-sharp
 KIND: heading
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-sharp@L194-L194
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:s-sharp@L197-L197
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -3390,7 +3390,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:source-L66
 KIND: citation
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L66-L66
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L69-L69
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -3399,7 +3399,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:source-L92
 KIND: citation
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L92-L92
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L95-L95
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -3408,7 +3408,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:source-L108
 KIND: citation
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L108-L108
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L111-L111
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -3417,7 +3417,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:source-L129
 KIND: citation
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L129-L129
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L132-L132
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -3426,7 +3426,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:source-L149
 KIND: citation
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L149-L149
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L152-L152
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -3435,7 +3435,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:source-L170
 KIND: citation
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L170-L170
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L173-L173
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -3444,7 +3444,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:source-L186
 KIND: citation
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L186-L186
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L189-L189
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -3453,7 +3453,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:source-L204
 KIND: citation
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L204-L204
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#source@L207-L207
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -3487,9 +3487,18 @@ COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p4
 REVIEWER: sol-delta-N-b
 
+ITEM: bpN:p4:n-zero
+KIND: claim
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#bpN:p4:n-zero@L55-L57
+DISPOSITION: NODE bpN:p4:n-zero
+REASON: labelled remark supplying the n=0 singleton branch consumed by Part 4 co-series, co-repr, b1-a, b1-b and Part 1 nc-decay, nc-sum
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta-N-amend
+
 ITEM: p4:prose-L55-L55
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#prose@L55-L55
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#prose@L58-L58
 DISPOSITION: NODE bpN:p4:norm#monotone
 REASON: monotonicity of ¦u¦_{r,s} in (r,s) and vector-vs-component norms: stated fact consumed by later proofs; made a claim node (SPEC)
 COVERAGE_STATUS: REVIEWED
@@ -3498,7 +3507,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:prose-L144-L144
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#prose@L144-L144
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#prose@L147-L147
 DISPOSITION: NODE bpN:p4:s-b4#data
 REASON: the bracket for m = n (SPEC option): section-data definition node, consumed by bpN:p4:bracket and stepN:p4:b4-four
 COVERAGE_STATUS: REVIEWED
@@ -3507,7 +3516,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:prose-L177-L177
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#prose@L177-L177
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#prose@L180-L180
 DISPOSITION: NODE bpN:p4:ext-weier
 REASON: derivative part of (E2) ext-weier from Lemma general-cauchy: modelled in the ext-weier claim node (edge ext-weier -> general-cauchy)
 COVERAGE_STATUS: REVIEWED
@@ -3516,7 +3525,7 @@ REVIEWER: sol-delta-N-b
 
 ITEM: p4:prose-L196-L199
 KIND: proof-region
-SOURCE: blueprint-N/parts/p4-weighted-norms.tex#prose@L196-L199
+SOURCE: blueprint-N/parts/p4-weighted-norms.tex#prose@L199-L202
 DISPOSITION: EXCLUDED
 REASON: outside every root closure; owned by the importing graph (track P): definition of the ♯ norm and the width conversion for track P's averaging; only bpN:p4:sharp (excluded) uses it; checked by grep of Parts 6-11 for sharp, \sharp: no consumer
 COVERAGE_STATUS: REVIEWED
@@ -7660,12 +7669,12 @@ SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:ad-prod@L72-L72
 DISPOSITION: NODE stepN:p11:ad-prod
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta-N-f
+EXTRACTOR: sonnet-extract-N-p11ab+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: bpN:p11:composition
 KIND: theorem
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:composition@L75-L80
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:composition@L88-L93
 DISPOSITION: NODE bpN:p11:composition
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7674,7 +7683,7 @@ REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:co-field
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-field@L82-L82
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-field@L95-L95
 DISPOSITION: NODE stepN:p11:co-field
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7683,25 +7692,70 @@ REVIEWER: sol-delta-N-f
 
 ITEM: stepN:p11:co-series
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L83-L83
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-series@L96-L96
 DISPOSITION: NODE stepN:p11:co-series
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta2-N-f
+EXTRACTOR: sonnet-extract-N-p11ab+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: stepN:p11:co-remainder
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L84-L84
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:co-remainder@L97-L97
 DISPOSITION: NODE stepN:p11:co-remainder
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta2-N-f
+EXTRACTOR: sonnet-extract-N-p11ab+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
+
+ITEM: bpN:p11:ext-taylor
+KIND: lemma
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-taylor@L75-L81
+DISPOSITION: NODE bpN:p11:ext-taylor
+REASON: labelled lemma added by the G4 fix
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta-N-amend
+
+ITEM: stepN:p11:et-one
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-one@L83-L83
+DISPOSITION: NODE stepN:p11:et-one
+REASON: labelled proof step of ext-taylor
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta2-N-amend
+
+ITEM: stepN:p11:et-ind
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-ind@L84-L84
+DISPOSITION: NODE stepN:p11:et-ind
+REASON: labelled proof step of ext-taylor
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta-N-amend
+
+ITEM: stepN:p11:et-taylor
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:et-taylor@L85-L85
+DISPOSITION: NODE stepN:p11:et-taylor
+REASON: labelled proof step of ext-taylor
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta2-N-amend
+
+ITEM: bpN:p11:ext-e-upper
+KIND: external
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:ext-e-upper@L96-L96
+DISPOSITION: NODE bpN:p11:ext-e-upper
+REASON: inline Mathlib citation e<2.72 (Real.exp_one_lt_d9) in co-series and co-remainder, modelled as an external
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: bpN:p11:transform
 KIND: proposition
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L87-L89
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:transform@L100-L102
 DISPOSITION: NODE bpN:p11:transform
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7710,16 +7764,16 @@ REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:tr-taylor
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L91-L91
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-taylor@L104-L104
 DISPOSITION: NODE stepN:p11:tr-taylor
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11ab
-REVIEWER: sol-delta2-N-f
+EXTRACTOR: sonnet-extract-N-p11ab+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: stepN:p11:tr-int
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L92-L92
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:tr-int@L105-L105
 DISPOSITION: NODE stepN:p11:tr-int
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7728,7 +7782,7 @@ REVIEWER: sol-delta2-N-f
 
 ITEM: bpN:p11:canonical-map
 KIND: proposition
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@L95-L97
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:canonical-map@L108-L110
 DISPOSITION: NODE bpN:p11:canonical-map
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7737,7 +7791,7 @@ REVIEWER: sol-delta2-N-f
 
 ITEM: bpN:p11:hom
 KIND: proposition
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L106-L108
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:hom@L119-L121
 DISPOSITION: NODE bpN:p11:hom
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7746,7 +7800,7 @@ REVIEWER: sol-delta2-N-f
 
 ITEM: bpN:p11:iterative
 KIND: theorem
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L113-L120
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:iterative@L126-L133
 DISPOSITION: NODE bpN:p11:iterative
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7755,7 +7809,7 @@ REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:it-gen
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-gen@L122-L122
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-gen@L135-L135
 DISPOSITION: NODE stepN:p11:it-gen
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7764,7 +7818,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: stepN:p11:it-map
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-map@L123-L123
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-map@L136-L136
 DISPOSITION: NODE stepN:p11:it-map
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7773,7 +7827,7 @@ REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:it-taylor
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L124-L124
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-taylor@L137-L137
 DISPOSITION: NODE stepN:p11:it-taylor
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7782,7 +7836,7 @@ REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:it-est
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L125-L125
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:it-est@L138-L138
 DISPOSITION: NODE stepN:p11:it-est
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7791,7 +7845,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: bpN:p11:nf
 KIND: theorem
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:nf@L128-L134
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:nf@L141-L147
 DISPOSITION: NODE bpN:p11:nf
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7800,7 +7854,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: stepN:p11:nf-sl
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-sl@L137-L137
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-sl@L150-L150
 DISPOSITION: NODE stepN:p11:nf-sl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7809,7 +7863,7 @@ REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:nf-first
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-first@L138-L138
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-first@L151-L151
 DISPOSITION: NODE stepN:p11:nf-first
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7818,7 +7872,7 @@ REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:nf-case
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L139-L141
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-case@L152-L154
 DISPOSITION: NODE stepN:p11:nf-case
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7827,7 +7881,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: stepN:p11:nf-N
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-N@L142-L142
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-N@L155-L155
 DISPOSITION: NODE stepN:p11:nf-N
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7836,7 +7890,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: stepN:p11:nf-induct
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L143-L143
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-induct@L156-L156
 DISPOSITION: NODE stepN:p11:nf-induct
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7845,7 +7899,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: stepN:p11:nf-concl
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L144-L144
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-concl@L157-L157
 DISPOSITION: NODE stepN:p11:nf-concl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7854,7 +7908,7 @@ REVIEWER: sol-delta2-N-f
 
 ITEM: stepN:p11:nf-disp
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-disp@L145-L145
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-disp@L158-L158
 DISPOSITION: NODE stepN:p11:nf-disp
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7863,7 +7917,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: stepN:p11:nf-real
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-real@L146-L146
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#stepN:p11:nf-real@L159-L159
 DISPOSITION: NODE stepN:p11:nf-real
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -7890,7 +7944,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: heading:bpN:p11:s-nf
 KIND: heading
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:s-nf@L102-L102
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#bpN:p11:s-nf@L115-L115
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -7908,7 +7962,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: p11b:source-L133
 KIND: citation
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#source@L133-L133
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#source@L146-L146
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -7926,7 +7980,7 @@ REVIEWER: sol-delta-N-f
 
 ITEM: p11b:prose-L104-L104
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11b-partial-nf.tex#prose@L104-L104
+SOURCE: blueprint-N/parts/p11b-partial-nf.tex#prose@L117-L117
 DISPOSITION: NODE bpN:p11:s-nf#data
 REASON: Part 6 -> Part 11 notation dictionary: section-data node consumed by hom, iterative and nf
 COVERAGE_STATUS: REVIEWED
@@ -8160,16 +8214,43 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-en
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L100
 DISPOSITION: NODE stepN:p11:ef-en
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p11c
-REVIEWER: sol-delta-N-g
+EXTRACTOR: sonnet-extract-N-p11c+sonnet-amend-N
+REVIEWER: sol-delta2-N-amend
+
+ITEM: stepN:p11:ef-en-energy
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-energy@L91-L93
+DISPOSITION: NODE stepN:p11:ef-en-energy
+REASON: labelled substep of ef-en (G3)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta-N-amend
+
+ITEM: stepN:p11:ef-en-taylor
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95
+DISPOSITION: NODE stepN:p11:ef-en-taylor
+REASON: labelled substep of ef-en (G3)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta2-N-amend
+
+ITEM: stepN:p11:ef-en-split
+KIND: proof-region
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100
+DISPOSITION: NODE stepN:p11:ef-en-split
+REASON: labelled substep of ef-en (G3)
+COVERAGE_STATUS: REVIEWED
+EXTRACTOR: sonnet-amend-N
+REVIEWER: sol-delta2-N-amend
 
 ITEM: stepN:p11:ef-id
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L90-L91
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-id@L101-L102
 DISPOSITION: NODE stepN:p11:ef-id
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8178,7 +8259,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-C
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L92-L96
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-C@L103-L107
 DISPOSITION: NODE stepN:p11:ef-C
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8187,7 +8268,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:ef-contra
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L97-L97
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-contra@L108-L108
 DISPOSITION: NODE stepN:p11:ef-contra
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8196,7 +8277,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:resonant
 KIND: proposition
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L100-L103
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:resonant@L111-L114
 DISPOSITION: NODE bpN:p11:resonant
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8205,7 +8286,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:rs-red
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L105-L105
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-red@L116-L116
 DISPOSITION: NODE stepN:p11:rs-red
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8214,7 +8295,7 @@ REVIEWER: sol-delta3-N-c
 
 ITEM: stepN:p11:rs-nf
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L106-L106
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-nf@L117-L117
 DISPOSITION: NODE stepN:p11:rs-nf
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8223,7 +8304,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:rs-t12
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L107-L107
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t12@L118-L118
 DISPOSITION: NODE stepN:p11:rs-t12
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8232,7 +8313,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:rs-t3
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L108-L108
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-t3@L119-L119
 DISPOSITION: NODE stepN:p11:rs-t3
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8241,7 +8322,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:rs-concl
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L109-L109
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:rs-concl@L120-L120
 DISPOSITION: NODE stepN:p11:rs-concl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8250,7 +8331,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:hessian
 KIND: lemma
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L114-L116
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L125-L127
 DISPOSITION: NODE bpN:p11:hessian
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8259,7 +8340,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:hs-op
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L118-L118
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:hs-op@L129-L129
 DISPOSITION: NODE stepN:p11:hs-op
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8268,7 +8349,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: bpN:p11:block-setting
 KIND: definition
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L121-L123
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-setting@L132-L134
 DISPOSITION: NODE bpN:p11:block-setting
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8277,7 +8358,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: bpN:p11:domain
 KIND: lemma
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L125-L127
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:domain@L136-L138
 DISPOSITION: NODE bpN:p11:domain
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8286,7 +8367,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:dm-pts
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L129-L129
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-pts@L140-L140
 DISPOSITION: NODE stepN:p11:dm-pts
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8295,7 +8376,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:dm-norm
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L130-L130
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-norm@L141-L141
 DISPOSITION: NODE stepN:p11:dm-norm
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8304,7 +8385,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:dm-field
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L131-L131
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:dm-field@L142-L142
 DISPOSITION: NODE stepN:p11:dm-field
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8313,7 +8394,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:block-data
 KIND: lemma
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L134-L137
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block-data@L145-L148
 DISPOSITION: NODE bpN:p11:block-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8322,7 +8403,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bd-cover
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L139-L139
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-cover@L150-L150
 DISPOSITION: NODE stepN:p11:bd-cover
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8331,7 +8412,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bd-24
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L140-L140
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-24@L151-L151
 DISPOSITION: NODE stepN:p11:bd-24
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8340,7 +8421,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bd-5
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L141-L141
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bd-5@L152-L152
 DISPOSITION: NODE stepN:p11:bd-5
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8349,7 +8430,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:block
 KIND: theorem
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L144-L147
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:block@L155-L158
 DISPOSITION: NODE bpN:p11:block
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8358,7 +8439,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bl-block
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L150-L150
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-block@L161-L161
 DISPOSITION: NODE stepN:p11:bl-block
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8367,7 +8448,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:bl-sl
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L151-L151
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-sl@L162-L162
 DISPOSITION: NODE stepN:p11:bl-sl
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8376,7 +8457,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:bl-ext
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L152-L152
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-ext@L163-L163
 DISPOSITION: NODE stepN:p11:bl-ext
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8385,7 +8466,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:bl-theta
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L153-L153
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-theta@L164-L164
 DISPOSITION: NODE stepN:p11:bl-theta
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8394,7 +8475,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:bl-res
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L154-L154
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:bl-res@L165-L165
 DISPOSITION: NODE stepN:p11:bl-res
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8403,7 +8484,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-empty
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L160-L160
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-empty@L171-L171
 DISPOSITION: NODE stepN:p11:final-empty
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8412,7 +8493,7 @@ REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:final-data
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L161-L161
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-data@L172-L172
 DISPOSITION: NODE stepN:p11:final-data
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8421,7 +8502,7 @@ REVIEWER: sol-review-N-f
 
 ITEM: stepN:p11:final-mu
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L162-L162
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-mu@L173-L173
 DISPOSITION: NODE stepN:p11:final-mu
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8430,7 +8511,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:final-time
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L163-L163
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-time@L174-L174
 DISPOSITION: NODE stepN:p11:final-time
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8439,7 +8520,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-given
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L164-L164
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-given@L175-L175
 DISPOSITION: NODE stepN:p11:final-given
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8448,7 +8529,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-orbit
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L165-L165
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-orbit@L176-L176
 DISPOSITION: NODE stepN:p11:final-orbit
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8457,7 +8538,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-sign
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L166-L166
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-sign@L177-L177
 DISPOSITION: NODE stepN:p11:final-sign
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8466,7 +8547,7 @@ REVIEWER: sol-delta2-N-g
 
 ITEM: stepN:p11:final-drift
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L167-L167
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-drift@L178-L178
 DISPOSITION: NODE stepN:p11:final-drift
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8475,7 +8556,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: stepN:p11:final-order
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L168-L168
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:final-order@L179-L179
 DISPOSITION: NODE stepN:p11:final-order
 REASON: mechanical inventory of a labelled unit
 COVERAGE_STATUS: REVIEWED
@@ -8484,7 +8565,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:b-change
 KIND: claim
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:b-change@L173-L175
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:b-change@L184-L186
 DISPOSITION: EXCLUDED
 REASON: remark on the change of the covering parameter b=1/8 to b_c=1/32: explanation/deviation (administrative per SPEC, candidate for exclusion); checked: the values p, q, b_c are fixed in bpN:p11:constants, Lemma block-data re-derives the block hypotheses and no proof relies on the remark's text (\ref only in the constants definition, block theorem \source and deviations)
 COVERAGE_STATUS: REVIEWED
@@ -8493,7 +8574,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:deviations
 KIND: claim
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:deviations@L177-L182
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:deviations@L188-L193
 DISPOSITION: EXCLUDED
 REASON: remark listing what is proved, the exponents by-product and deviations: administrative summary; checked: no proof references it; the facts it lists are the content of Steps final-time, final-drift, nf-case, nf-induct, which are nodes
 COVERAGE_STATUS: REVIEWED
@@ -8502,7 +8583,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:errata
 KIND: claim
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:errata@L184-L186
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:errata@L195-L197
 DISPOSITION: EXCLUDED
 REASON: remark on suspected defects in the pinned sources and doubts: errata ledger; no proof consumes it
 COVERAGE_STATUS: REVIEWED
@@ -8511,7 +8592,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:status
 KIND: claim
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:status@L188-L190
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:status@L199-L201
 DISPOSITION: EXCLUDED
 REASON: status and remaining-obligations remark (audit status, Lean obligations): administrative; no proof consumes it
 COVERAGE_STATUS: REVIEWED
@@ -8547,7 +8628,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: heading:bpN:p11:s-block
 KIND: heading
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-block@L112-L112
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-block@L123-L123
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -8556,7 +8637,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: heading:bpN:p11:s-final
 KIND: heading
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-final@L157-L157
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-final@L168-L168
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -8565,7 +8646,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: heading:bpN:p11:s-dev
 KIND: heading
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-dev@L171-L171
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:s-dev@L182-L182
 DISPOSITION: EXCLUDED
 REASON: section heading; its results are inventoried separately
 COVERAGE_STATUS: REVIEWED
@@ -8601,7 +8682,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: p11c:source-L102
 KIND: citation
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#source@L102-L102
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#source@L113-L113
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -8610,7 +8691,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: p11c:source-L146
 KIND: citation
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#source@L146-L146
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#source@L157-L157
 DISPOSITION: EXCLUDED
 REASON: provenance note for a result proved in the blueprint (confirm; an unproved cited input must instead become an external node)
 COVERAGE_STATUS: REVIEWED
@@ -8628,7 +8709,7 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:eq:lie
 KIND: display
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:eq:lie@L91-L91
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:eq:lie@L102-L102
 DISPOSITION: NODE stepN:p11:ef-id
 REASON: the labelled Lie identity is the conclusion of step ef-id, already represented by that node; no separate mathematical claim is added
 COVERAGE_STATUS: REVIEWED
@@ -8637,12 +8718,12 @@ REVIEWER: sol-delta-N-g
 
 ITEM: bpN:p11:hessian#real-hessian
 KIND: proof-region
-SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L115-L115
+SOURCE: blueprint-N/parts/p11c-partial-stability.tex#bpN:p11:hessian@L126-L126
 DISPOSITION: NODE bpN:p11:hessian#real-hessian
 REASON: writer: coverage item for the step node added by the slice review sol-review-N-f (real and complex Hessians on the partial-theorem tube)
-COVERAGE_STATUS: PROPOSED
+COVERAGE_STATUS: REVIEWED
 EXTRACTOR: writer-suborch-INP
-REVIEWER: -
+REVIEWER: sol-delta4-N-a
 
 ITEM: bpN:p0:avg-rank#HasAveragingFrequencyRank
 KIND: definition
@@ -8794,8 +8875,8 @@ SOURCE: blueprint-N/parts/p12-averaging.tex#stepN:p12:fb-real@L30-L30
 DISPOSITION: NODE stepN:p12:fb-real
 REASON: second/third \proofstep of the same paragraph as fb-poly, labelled in the source but missing from the mechanical inventory; added as a node
 COVERAGE_STATUS: REVIEWED
-EXTRACTOR: sonnet-extract-N-p12
-REVIEWER: sol-delta-N-h
+EXTRACTOR: sonnet-extract-N-p12+sonnet-amend-N
+REVIEWER: sol-delta-N-amend
 
 ITEM: bpN:p12:ext-cov
 KIND: external
@@ -9758,7 +9839,7 @@ DISPOSITION: NODE K:bp:p1:decay
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: sol-delta-N-global
 
 ITEM: K:bp:p1:exp-sums
 KIND: external
@@ -9812,7 +9893,7 @@ DISPOSITION: NODE K:bp:p1:fourier-basic
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: sol-delta-N-global
 
 ITEM: K:bp:p1:hamiltonian-real
 KIND: external
@@ -9835,11 +9916,11 @@ REVIEWER: sol-review-N-f
 ITEM: K:bp:p1:real-restriction
 KIND: external
 SOURCE: blueprint/parts/p1-analysis.tex#bp:p1:real-restriction@L1047-L1051
-DISPOSITION: NODE K:bp:p1:real-restriction
-REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
+DISPOSITION: EXCLUDED
+REASON: outside every root closure of track N after the G2 fb-real repair; checked DEPS and ROUTES in every packet and reachability from all six frozen roots: no remaining consumer. The owning K statement is retained in its own graph; its source citation at fb-real has an incompatible entire-strip carrier.
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: sol-delta-N-amend
 
 ITEM: K:bp:p1:summation
 KIND: external
@@ -9848,7 +9929,7 @@ DISPOSITION: NODE K:bp:p1:summation
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: sol-delta-N-global
 
 ITEM: K:bp:p1:uniform-limits
 KIND: external
@@ -9866,7 +9947,7 @@ DISPOSITION: NODE K:bp:p1:averages
 REASON: imported node (track K): its statement is proved, or is an external input, in the track-K graph; not extracted here
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: claude-suborch-INP
-REVIEWER: sol-review-N-f
+REVIEWER: sol-delta-N-global
 
 ITEM: K:bp:p1:cauchy-open
 KIND: external

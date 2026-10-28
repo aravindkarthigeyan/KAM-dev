@@ -410,7 +410,7 @@ DISPOSITION: NODE stepN:p11:et-one
 REASON: labelled proof step of ext-taylor
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N
-REVIEWER: sol-delta-N-amend
+REVIEWER: sol-delta2-N-amend
 
 ITEM: stepN:p11:et-ind
 KIND: proof-region
@@ -428,7 +428,7 @@ DISPOSITION: NODE stepN:p11:et-taylor
 REASON: labelled proof step of ext-taylor
 COVERAGE_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N
-REVIEWER: sol-delta-N-amend
+REVIEWER: sol-delta2-N-amend
 
 ITEM: bpN:p11:ext-e-upper
 KIND: external

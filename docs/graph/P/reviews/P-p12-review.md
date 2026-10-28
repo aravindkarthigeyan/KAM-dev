@@ -33,21 +33,21 @@ Transport L135 assumes only r<=r_0, whereas the cited complete chart(e) statemen
 | stepP:p12:ch-dom | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-dom@L102-L102 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-dom@L102-L102 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p7:product-def edge |
 | stepP:p12:ch-chart | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-chart@L103-L103 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-chart@L103-L103 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:sec-set#data edge; missing direct bpP:p12:data edge; missing direct bpP:p7:product-def edge; missing direct bpP:p1:chart edge |
 | stepP:p12:ch-lat | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-lat@L104-L104 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-lat@L104-L104 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:sec-set#data edge; missing direct bpP:p12:data edge; missing direct bpP:p7:product-def edge |
-| stepP:p12:ch-ham | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-ham@L105-L105 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-ham@L105-L105 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:sec-set#data edge; missing direct bpP:p12:data edge; missing direct bpP:p7:product-def edge |
+| stepP:p12:ch-ham | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-ham@L105-L105 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-ham@L105-L105 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:sec-set#data edge; missing direct bpP:p12:data edge; missing direct bpP:p7:product-def edge; missing direct bpP:p0:degham#degenerateHamiltonian edge |
 | stepP:p12:ch-tube | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-tube@L106-L106 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-tube@L106-L106 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:chart#cylinder-domain edge |
 | bpP:p12:pg-hypotheses | FAIL | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:pg-hypotheses@L111-L122 ; blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:pg-hypotheses@L123-L130 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion |
 | stepP:p12:pg-sets | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-sets@L124-L124 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-sets@L124-L124 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs |
 | stepP:p12:pg-h1 | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h1@L125-L125 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h1@L125-L125 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:chart#cylinder-domain edge |
 | stepP:p12:pg-h2 | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h2@L126-L126 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h2@L126-L126 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:chart#cylinder-domain edge; missing direct bpP:p12:data#pg-data edge |
 | stepP:p12:pg-h3 | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h3@L127-L127 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h3@L127-L127 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion |
-| stepP:p12:pg-h4 | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h4@L128-L128 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h4@L128-L128 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs |
+| stepP:p12:pg-h4 | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h4@L128-L128 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h4@L128-L128 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:chart#cylinder-domain edge |
 | stepP:p12:pg-h56 | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h56@L129-L129 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h56@L129-L129 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs |
-| bpP:p12:transport | FAIL | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:transport@L134-L136 ; blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:transport@L137-L145 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; missing direct bpP:p12:chart#cylinder-domain edge |
-| stepP:p12:tr-an | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L139-L139 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L139-L139 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:data edge; missing direct bpP:p1:chart edge; missing direct bpP:p12:chart#cylinder-domain edge; missing direct bpP:p12:data#pg-data edge |
+| bpP:p12:transport | FAIL | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:transport@L134-L136 ; blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:transport@L137-L145 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; missing direct bpP:p12:chart#cylinder-domain edge; missing direct bpP:p12:data edge |
+| stepP:p12:tr-an | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L139-L139 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L139-L139 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:data edge; missing direct bpP:p1:chart edge; missing direct bpP:p12:chart#cylinder-domain edge; missing direct bpP:p12:data#pg-data edge; missing direct bpP:p0:movham#movingHamiltonian edge |
 | stepP:p12:tr-per | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-per@L140-L140 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-per@L140-L140 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; missing direct bpP:p12:data edge; missing direct bpP:p12:perturbation edge |
 | stepP:p12:tr-inj | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-inj@L141-L141 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-inj@L141-L141 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; missing direct bpP:p12:data edge; missing direct bpP:p12:perturbation edge |
 | stepP:p12:tr-lag | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-lag@L142-L142 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-lag@L142-L142 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:data edge; missing direct bpP:p12:perturbation edge; missing direct bpP:p1:ext-comp edge |
-| stepP:p12:tr-flow | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-flow@L143-L143 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-flow@L143-L143 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; theta was incorrectly quantified as a real scalar; missing direct bpP:p12:data edge; missing direct bpP:p12:perturbation edge; missing direct bpP:p1:chart edge |
+| stepP:p12:tr-flow | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-flow@L143-L143 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-flow@L143-L143 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; theta was incorrectly quantified as a real scalar; missing direct bpP:p12:data edge; missing direct bpP:p12:perturbation edge; missing direct bpP:p1:chart edge; missing direct bpP:p0:movham#movingHamiltonian edge |
 | stepP:p12:tr-dio | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-dio@L144-L144 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-dio@L144-L144 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; optional lowering pointer is not a direct use; missing direct bpP:p12:data edge; missing direct bpP:p12:perturbation edge |
 | bpP:p12:measure | FAIL | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:measure@L147-L149 ; blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:measure@L150-L155 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion |
 | stepP:p12:me-inv | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:me-inv@L151-L151 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:me-inv@L151-L151 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:data edge; missing direct bpP:p12:perturbation edge; missing direct bpP:p12:chart#cylinder-domain edge |
@@ -57,7 +57,7 @@ Transport L135 assumes only r<=r_0, whereas the cited complete chart(e) statemen
 | bpP:p12:planar | FAIL | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:planar@L159-L163 ; blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:planar@L164-L171 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion |
 | stepP:p12:pl-const | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-const@L165-L165 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-const@L165-L165 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:data#choices edge |
 | stepP:p12:pl-pg | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-pg@L166-L166 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-pg@L166-L166 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs |
-| stepP:p12:pl-mu | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-mu@L167-L167 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-mu@L167-L167 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:data edge; missing direct bpP:p12:data#choices edge |
+| stepP:p12:pl-mu | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-mu@L167-L167 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-mu@L167-L167 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:data edge; missing direct bpP:p12:data#choices edge; missing direct bpP:p0:degham#degenerateHamiltonian edge |
 | stepP:p12:pl-S | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-S@L168-L168 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-S@L168-L168 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:data#choices edge |
 | stepP:p12:pl-tori | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-tori@L169-L169 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-tori@L169-L169 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs; missing direct bpP:p12:data edge; remove the movkol-assembly consumer pointer: S2 is being supplied, not applied |
 | stepP:p12:pl-phys | FAIL | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-phys@L170-L170 ; blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-phys@L170-L170 | SOURCE_CONCLUSION contains scope/none while CONSTANT_SCOPE contains the actual definiens or mathematical conclusion; source hypotheses are incomplete or contain derived proof ingredients; restore the enclosing premises and local implication inputs |
@@ -85,11 +85,11 @@ The physical torus has period-one parameters while the chart fast angles shift b
 ## Suspected source defects
 
 - Part 12 L138 cites chart(e) for C(V,r) subset T although transport assumes only r<=r_0. The full chart(e) clause at L98 also has 2r^2<=delta. This is a citation-scope mismatch, not a counterexample: L106 already proves the domain inclusion independently of that extra condition. The proposed intermediate exposes exactly that existing argument.
-- Part 0 L376-L378 contains the stale source-gap sentence “The route is not signed off as proved ...”, which predates Part 11b/12. SPEC explicitly flags it. This report does not edit the pinned blueprint; source-topology mapping to the supplied Part 12 assembly must not be treated as Lean proof closure.
+- SPEC still asks reviewers to flag an old Part-0 source-gap sentence. Re-reading current Part 0 L376 shows that it has already been replaced: “Part 12 proves this theorem from the frozen gate P-G ...”. The alleged stale sentence is absent from the current pinned source, so no Part-0 defect is reported.
 
 ## For slice P-p0
 
-The stale Part-0 source-gap prose above should be reconciled by the writer with this review. No P-p0 replacement is supplied here and no P-p0 record is re-certified; the P-p12 replacements below belong exclusively to P-p12.
+The current Part-0 source-gap text already points to the Part 12 proof. The SPEC reminder about its old wording is stale; no P-p0 record correction is established by this review. No P-p0 replacement is supplied and no P-p0 record is re-certified; the replacements below belong exclusively to P-p12.
 
 ## Minimal complete replacements
 
@@ -807,7 +807,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p7:product-chart, bpP:p11b:lift-map, stepP:p12:ch-dom, bpP:p12:perturbation, bpP:p0:movham#movingHamiltonian, bpP:p12:sec-set#data, bpP:p12:data, bpP:p7:product-def
+DEPS: bpP:p7:product-chart, bpP:p11b:lift-map, stepP:p12:ch-dom, bpP:p12:perturbation, bpP:p0:movham#movingHamiltonian, bpP:p12:sec-set#data, bpP:p12:data, bpP:p7:product-def, bpP:p0:degham#degenerateHamiltonian
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p7:product-chart | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-ham@L105-L105 | H_mov(Psi^(2)(v))=h(Lambda(v))+mu hat f_mov(v), part (c)
@@ -818,6 +818,7 @@ EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p12-planar-assembly.te
 EDGE: bpP:p12:sec-set#data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-ham@L105-L105 | fixed masses, kappa, reference actions or the chart-coordinate dictionary
 EDGE: bpP:p12:data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-ham@L105-L105 | the chosen boxes, Birkhoff map/domain or physical tube constants
 EDGE: bpP:p7:product-def | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-ham@L105-L105 | the product-chart domain O_2 / Psi^(2) / h used explicitly
+EDGE: bpP:p0:degham#degenerateHamiltonian | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-ham@L105-L105 | the H_0+mu P identity is precisely the frozen H_mu definition
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p12
 REVIEWER: -
@@ -1060,7 +1061,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p11b:birkhoff-form, bpP:p12:sec-set#data, bpP:p12:data#pg-data, bpP:p12:perturbation, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p12:data, bpP:p0:blocks#assemble, bpP:p0:cylinder#cylinder
+DEPS: bpP:p11b:birkhoff-form, bpP:p12:sec-set#data, bpP:p12:data#pg-data, bpP:p12:perturbation, bpP:p0:birkhoff#HasSecularBirkhoffForm, bpP:p12:data, bpP:p0:blocks#assemble, bpP:p0:cylinder#cylinder, bpP:p12:chart#cylinder-domain
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p11b:birkhoff-form | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h4@L128-L128 | Theorem birkhoff-form(c)
@@ -1071,6 +1072,7 @@ EDGE: bpP:p0:birkhoff#HasSecularBirkhoffForm | blueprint-P/parts/p12-planar-asse
 EDGE: bpP:p12:data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h4@L128-L128 | C(V,r_0) inside 𝒯
 EDGE: bpP:p0:blocks#assemble | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h4@L128-L128 | points assemble(I,phi,p,q)
 EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h4@L128-L128 | C(V,r_0)
+EDGE: bpP:p12:chart#cylinder-domain | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pg-h4@L128-L128 | the oscillator-disc guards put assemble(I,phi,p,q) inside T, so the zero extension is invisible
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p12
 REVIEWER: -
@@ -1128,7 +1130,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: stepP:p12:tr-an, stepP:p12:tr-per, stepP:p12:tr-inj, stepP:p12:tr-lag, stepP:p12:tr-flow, stepP:p12:tr-dio, bpP:p12:chart, bpP:p12:data#pg-data, bpP:p12:perturbation, bpP:p12:sec-set#data, bpP:p0:cyltorus#IsCylinderTorus, bpP:p0:phystorus#IsPhysicalTorus, bpP:p0:cylinder#cylinder, bpP:p0:diophantine#IsDiophantine, bpP:p0:degham#degenerateHamiltonian, bpP:p0:movham#movingHamiltonian, bpP:p12:chart#cylinder-domain
+DEPS: stepP:p12:tr-an, stepP:p12:tr-per, stepP:p12:tr-inj, stepP:p12:tr-lag, stepP:p12:tr-flow, stepP:p12:tr-dio, bpP:p12:chart, bpP:p12:data#pg-data, bpP:p12:perturbation, bpP:p12:sec-set#data, bpP:p0:cyltorus#IsCylinderTorus, bpP:p0:phystorus#IsPhysicalTorus, bpP:p0:cylinder#cylinder, bpP:p0:diophantine#IsDiophantine, bpP:p0:degham#degenerateHamiltonian, bpP:p0:movham#movingHamiltonian, bpP:p12:chart#cylinder-domain, bpP:p12:data
 ROUTES: -
 ROUTE_FOR: -
 EDGE: stepP:p12:tr-an | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:transport@L139-L139 | (i)
@@ -1148,6 +1150,7 @@ EDGE: bpP:p0:diophantine#IsDiophantine | blueprint-P/parts/p12-planar-assembly.t
 EDGE: bpP:p0:degham#degenerateHamiltonian | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:transport@L135-L135 | H_mu
 EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:transport@L135-L135 | H_mov
 EDGE: bpP:p12:chart#cylinder-domain | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:transport@L137-L145 | the inclusion used at L138 requires only r<=r_0, not the additional tube-smallness premise of chart(e)
+EDGE: bpP:p12:data | blueprint-P/parts/p12-planar-assembly.tex#bpP:p12:transport@L137-L145 | the chosen V and T used in the source contract
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p12
 REVIEWER: -
@@ -1173,7 +1176,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p12:chart, bpP:p1:ext-comp, bpP:p1:chart-field, bpP:p0:cyltorus#IsCylinderTorus, bpP:p0:degham#degenerateHamiltonian, bpP:p12:perturbation, bpP:p12:data, bpP:p1:chart, bpP:p12:chart#cylinder-domain, bpP:p12:data#pg-data
+DEPS: bpP:p12:chart, bpP:p1:ext-comp, bpP:p1:chart-field, bpP:p0:cyltorus#IsCylinderTorus, bpP:p0:degham#degenerateHamiltonian, bpP:p12:perturbation, bpP:p12:data, bpP:p1:chart, bpP:p12:chart#cylinder-domain, bpP:p12:data#pg-data, bpP:p0:movham#movingHamiltonian
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p12:chart | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L139-L139 | Psi_tot analytic on 𝒯 (b) and H_mov o Psi_tot=H_mu (d)
@@ -1186,6 +1189,7 @@ EDGE: bpP:p12:data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L
 EDGE: bpP:p1:chart | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L139-L139 | the c=1 chart and pulled-back-Hamiltonian dictionary
 EDGE: bpP:p12:chart#cylinder-domain | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L139-L139 | the unconditional-in-delta inclusion C(V,r) subset T for 0<r<=r_0
 EDGE: bpP:p12:data#pg-data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L139-L139 | r_0 is fixed in the D6 P-G input package
+EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-an@L139-L139 | the physical Hamiltonian whose differentiability is established
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p12
 REVIEWER: -
@@ -1310,7 +1314,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p1:chart-orbit, bpP:p12:chart, bpP:p0:cyltorus#IsCylinderTorus, stepP:p12:tr-an, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p0:degham#degenerateHamiltonian, bpP:p12:data, bpP:p12:perturbation, bpP:p1:chart
+DEPS: bpP:p1:chart-orbit, bpP:p12:chart, bpP:p0:cyltorus#IsCylinderTorus, stepP:p12:tr-an, bpP:p0:hamsymp#hamiltonianVectorField, bpP:p0:degham#degenerateHamiltonian, bpP:p12:data, bpP:p12:perturbation, bpP:p1:chart, bpP:p0:movham#movingHamiltonian
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p1:chart-orbit | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-flow@L143-L143 | Corollary chart-orbit
@@ -1322,6 +1326,7 @@ EDGE: bpP:p0:degham#degenerateHamiltonian | blueprint-P/parts/p12-planar-assembl
 EDGE: bpP:p12:data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-flow@L143-L143 | the chosen boxes, Birkhoff map/domain or physical tube constants
 EDGE: bpP:p12:perturbation | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-flow@L143-L143 | the defined Psi_tot / pulled-back Hamiltonian used in this step
 EDGE: bpP:p1:chart | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-flow@L143-L143 | the c=1 chart and pulled-back-Hamiltonian dictionary
+EDGE: bpP:p0:movham#movingHamiltonian | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:tr-flow@L143-L143 | the physical Hamiltonian in the transported flow
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p12
 REVIEWER: -
@@ -1658,7 +1663,7 @@ FROZEN_FILE: -
 FROZEN_DECL: -
 FROZEN_ANCHOR_ID: -
 FROZEN_ABI_SHA256: -
-DEPS: bpP:p12:data#pg-data, stepP:p12:pl-pg, bpP:p0:pg, bpP:p0:cylkol#IsCylinderKolmogorovSet, bpP:p0:cylinder#cylinderCell, bpP:p12:data, bpP:p12:data#choices
+DEPS: bpP:p12:data#pg-data, stepP:p12:pl-pg, bpP:p0:pg, bpP:p0:cylkol#IsCylinderKolmogorovSet, bpP:p0:cylinder#cylinderCell, bpP:p12:data, bpP:p12:data#choices, bpP:p0:degham#degenerateHamiltonian
 ROUTES: -
 ROUTE_FOR: -
 EDGE: bpP:p12:data#pg-data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-mu@L167-L167 | D6 input data including r_0 and mu_0^G=1; delivered constants and choices are in data#choices
@@ -1668,6 +1673,7 @@ EDGE: bpP:p0:cylkol#IsCylinderKolmogorovSet | blueprint-P/parts/p12-planar-assem
 EDGE: bpP:p0:cylinder#cylinderCell | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-mu@L167-L167 | F(V,r)
 EDGE: bpP:p12:data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-mu@L167-L167 | the chosen boxes, Birkhoff map/domain or physical tube constants
 EDGE: bpP:p12:data#choices | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-mu@L167-L167 | D7-D9: the supplied P-G constants followed by the chosen r and mu_0
+EDGE: bpP:p0:degham#degenerateHamiltonian | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:pl-mu@L167-L167 | the cylinder Kolmogorov conclusion is for the specific H_mu
 TOPOLOGY_STATUS: PROPOSED
 EXTRACTOR: sonnet-extract-P-p12
 REVIEWER: -
@@ -1987,3 +1993,55 @@ Original slice checker: `P-p12: 52 nodes, 275 edges, 72 coverage items, 0 proble
 | docs/graph/P/packets/P-p12.nodes.md | `3988bde5a287b70b1382587865a2875743f1b4fb7f2ccfc6283e5af4a19e8de1` |
 | docs/graph/P/packets/P-p12.coverage.md | `c7fab101ccdfe7deef9b07f05a14145dfd85f9c8679b59ef85eb3ab3b3878fa9` |
 | blueprint-P/parts/p12-planar-assembly.tex | `83eee5fc9d881bf115be39e811ffc58cc206d45355d7956599115c9c7e0965db` |
+
+Final independent checks: review-applier dry run reports `52 replaced, 2 added, 2 coverage items, 0 unresolved FAILs`; all 52 node verdicts have complete fragments. The 54 proposed records have matching edge targets and valid locator bounds. Minimal-field/original-EDGE preservation passes, with only the documented split and pointer changes. No cyclic component of the combined in-memory overlay meets P-p12; existing upstream draft components remain outside this review. The original node/coverage/source snapshots above remain unchanged.
+
+
+## Follow-up rev-P-a2: standalone cylinder-domain fragment
+
+The complete node and coverage replacement are repeated below for reapplication. The node is unconditional with respect to the physical tube margin: it requires only the fixed D1-D6 inputs and 0<r<=r_0, not 2r^2<=delta. Both statement and proof are the first two sentences of Part 12 L106.
+
+No additional change to bpP:p12:chart is required beyond its replacement already supplied above. Its clause (e) retains the source condition 2r^2<=delta for the full physical-tube conclusion. Its existing dependency on stepP:p12:ch-tube includes the domain inclusion through that step; adding a merely transitive direct edge to chart#cylinder-domain is unnecessary. The extracted intermediate does not depend on bpP:p12:chart or stepP:p12:ch-tube, so this introduces no reverse edge or cycle.
+
+```text
+NODE: bpP:p12:chart#cylinder-domain
+KIND: step
+TITLE: Cylinder lies in the Birkhoff domain before imposing the physical tube margin
+STATEMENT_SOURCE: blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-tube@L106-L106
+PROOF_SOURCE: blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-tube@L106-L106
+CONTRACT_ID: bpP:p12:chart#cylinder-domain
+CONTRACT_VERSION: 1
+SOURCE_HYPOTHESES: D1-D6 data; 0<r<=r_0; no hypothesis 2r^2<=delta
+SOURCE_QUANTIFIERS: for every 0<r<=r_0 and every w in C(V,r)
+SOURCE_CONCLUSION: C(V,r) subset T: Lambda in V subset K subset O-prime and |z|_2<sqrt(2)r<=sqrt(2)r_0<r_*
+CONSTANT_SCOPE: r_0=r_*/2 from D6; no new constants
+FROZEN_FILE: -
+FROZEN_DECL: -
+FROZEN_ANCHOR_ID: -
+FROZEN_ABI_SHA256: -
+DEPS: bpP:p12:data, bpP:p12:data#pg-data, bpP:p12:sec-set#data, bpP:p0:cylinder#cylinder
+ROUTES: -
+ROUTE_FOR: -
+EDGE: bpP:p12:data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-tube@L106-L106 | K subset O-prime and the definition of T
+EDGE: bpP:p12:data#pg-data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-tube@L106-L106 | r_0=r_*/2
+EDGE: bpP:p12:sec-set#data | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-tube@L106-L106 | Euclidean oscillator norm bound from the cylinder discs
+EDGE: bpP:p0:cylinder#cylinder | blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-tube@L106-L106 | the source domain C(V,r)
+TOPOLOGY_STATUS: PROPOSED
+EXTRACTOR: sol-review-P-a
+REVIEWER: -
+LEAN_STATUS: NOT_STARTED
+LEAN_REF: -
+LEAN_NOTE: -
+NOTE: Unmarked reused intermediate proved by the first two sentences of L106. Unlike the full chart(e) tube conclusion, this domain inclusion requires no delta-smallness condition; transport L138 and pg-h2 use precisely this inclusion.
+```
+
+```text
+ITEM: stepP:p12:ch-tube
+KIND: proof-region
+SOURCE: blueprint-P/parts/p12-planar-assembly.tex#stepP:p12:ch-tube@L106-L106
+DISPOSITION: NODE stepP:p12:ch-tube, bpP:p12:chart#cylinder-domain
+REASON: The full tube step retains 2r^2<=delta; its first two sentences independently prove C(V,r) subset T for every 0<r<=r_0, a reused intermediate needed by transport without the tube-smallness premise.
+COVERAGE_STATUS: PROPOSED
+EXTRACTOR: sol-review-P-a
+REVIEWER: -
+```

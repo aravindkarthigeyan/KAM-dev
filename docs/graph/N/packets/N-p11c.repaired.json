@@ -1,17 +1,11 @@
 {
- "replaced": [
+ "replaced": [],
+ "added": [],
+ "items": [],
+ "unresolved": {},
+ "passes": [
   "stepN:p11:ef-en",
   "stepN:p11:ef-en-taylor",
   "stepN:p11:ef-en-split"
- ],
- "added": [],
- "items": [],
- "unresolved": {
-  "stepN:p11:et-one": "p11b L83–83 | L83 also asserts continuity of the derivative. ext-restrict only preserves differentiability/C^k once supplied; it does not prove continuity of derivatives from holomorphy. Add the exist",
-  "stepN:p11:et-taylor": "p11b L85–85 | SOURCE_HYPOTHESES assumes the smoothness and derivative identity proved by et-ind; retain only the enclosing source assumptions and obtain them through the existing dependency. The final"
- },
- "passes": [
-  "stepN:p11:ef-en-energy",
-  "stepN:p11:ef-en-energy"
  ]
 }

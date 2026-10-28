@@ -850,9 +850,9 @@ EDGE: bpN:p11:ext-class | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11
 EDGE: bpN:p11:s-real#data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | extended real Hamiltonian H-tilde^R and orbit carrier
 EDGE: bpN:p11:wfield | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | X^c_{H-tilde^R}, the orbit of the extended field
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en@L89-L89 | the repeated local argument uses smoothness of holomorphic h on the arbitrary open action tube before restriction of scalars; fb-real(i),(ii) is the proof template, not an applicable centred-ball statement
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-extract-N-p11c+sol-delta-N-amend
-REVIEWER: -
+REVIEWER: sol-delta2-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -913,9 +913,9 @@ EDGE: bpN:p7:ext-taylor | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11
 EDGE: bpN:p1:ext-restrict | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | phi is C^2 as h_R is C^infty on U
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | Q>=m on U (hypothesis on U)
 EDGE: K:bp:p1:holomorphic-regularity | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-taylor@L95-L95 | holomorphic h on the open fast-action tube is C^infty; restriction of scalars then supplies the C^2 real function along I_sigma
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
-REVIEWER: -
+REVIEWER: sol-delta2-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
@@ -944,9 +944,9 @@ EDGE: stepN:p11:ef-adm | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:
 EDGE: bpN:p7:ext-linalg | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L97 | self-adjointness of Pi and Pi^perp=1-Pi split the linear term
 EDGE: bpN:p1:ext-norms | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L100-L100 | Euclidean Cauchy-Schwarz ¦<Pi omega_0,Delta I>¦<=¦Pi omega_0¦_2 Delta
 EDGE: bpN:p7:resonance-data | blueprint-N/parts/p11c-partial-stability.tex#stepN:p11:ef-en-split@L97-L100 | Pi, delta, m of the resonance data (delta<=m r-tilde/16)
-TOPOLOGY_STATUS: PROPOSED
+TOPOLOGY_STATUS: REVIEWED
 EXTRACTOR: sonnet-amend-N+sol-delta-N-amend
-REVIEWER: -
+REVIEWER: sol-delta2-N-amend
 LEAN_STATUS: NOT_STARTED
 LEAN_REF: -
 LEAN_NOTE: -
