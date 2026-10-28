@@ -46,7 +46,8 @@ def poincare (m κ : ℝ) (w : Phase 2) : Phase 2 :=
         + (planeDot (poincareV w) (orbitalUnit (poincareF w)) / (1 + poincareK w)) • poincareV w),
    (m ^ 2 * κ / (w.2 0 * keplerJac (poincareV w) (poincareF w))) •
       (quarterTurn (orbitalUnit (poincareF w))
-        - (planeDot (poincareV w) (orbitalUnit (poincareF w)) / (1 + poincareK w)) • quarterTurn (poincareV w)))
+        - (planeDot (poincareV w) (orbitalUnit (poincareF w)) / (1 + poincareK w)) •
+            quarterTurn (poincareV w)))
 
 /-- The Poincaré domain `𝒪 = {Λ > 0, Γ < Λ}`. -/
 def poincareDom : Set (Phase 2) := {w | 0 < w.2 0 ∧ poincareGamma w < w.2 0}
@@ -119,7 +120,8 @@ private theorem planeLength_ex_eq_one (g : ℝ) : planeLength (ex g) = 1 := by
 theorem poincare_facts_polar {w : Phase 2} (hw : w ∈ poincareDom) {ρ g : ℝ} (hρ : 0 < ρ)
     (hξ : w.1 1 = ρ * Real.cos g) (hη : w.2 1 = ρ * Real.sin g) :
     poincareGamma w = ρ ^ 2 / 2 ∧ poincareV w = √(1 - poincareK w ^ 2) • ex g ∧
-      (∀ F, planeDot (poincareV w) (orbitalUnit F) = √(1 - poincareK w ^ 2) * Real.cos (F - g)) := by
+      (∀ F, planeDot (poincareV w) (orbitalUnit F) =
+        √(1 - poincareK w ^ 2) * Real.cos (F - g)) := by
   have hΓ : poincareGamma w = ρ ^ 2 / 2 := by
     unfold poincareGamma
     rw [hξ, hη]
