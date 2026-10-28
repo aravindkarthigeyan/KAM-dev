@@ -164,6 +164,111 @@ theorem restrictedHamTotal_zero (z : Phase 2) : restrictedHamTotal 0 z = kE z - 
     radiusSq_eq_planeSq]
   ring
 
+section Newton
+
+private theorem rot_zero' (v : Fin 2 → ℝ) : rot 0 v = v := by
+  ext i; fin_cases i <;> simp [rot]
+
+private theorem rot_neg_rot (t : ℝ) (v : Fin 2 → ℝ) : rot (-t) (rot t v) = v := by
+  rw [rot_rot, neg_add_cancel, rot_zero']
+
+private theorem rot_rot_neg (t : ℝ) (v : Fin 2 → ℝ) : rot t (rot (-t) v) = v := by
+  rw [rot_rot, add_neg_cancel, rot_zero']
+
+private theorem rot_add' (g : ℝ) (v w : Fin 2 → ℝ) : rot g (v + w) = rot g v + rot g w := by
+  ext i; fin_cases i <;> simp [rot] <;> ring
+
+private theorem rot_sub' (g : ℝ) (v w : Fin 2 → ℝ) : rot g (v - w) = rot g v - rot g w := by
+  ext i; fin_cases i <;> simp [rot] <;> ring
+
+private theorem rot_neg' (g : ℝ) (v : Fin 2 → ℝ) : rot g (-v) = -rot g v := by
+  ext i; fin_cases i <;> simp [rot] <;> ring
+
+private theorem rot_smul' (g c : ℝ) (v : Fin 2 → ℝ) : rot g (c • v) = c • rot g v := by
+  ext i; fin_cases i <;> simp [rot] <;> ring
+
+/-- `d/ds rot (c s) (y s) = c Q (rot (c s) y) + rot (c s) y'`. -/
+private theorem hasDerivAt_rot_curve {y : ℝ → Fin 2 → ℝ} {y' : Fin 2 → ℝ} {t : ℝ} (c : ℝ)
+    (hy : HasDerivAt y y' t) :
+    HasDerivAt (fun s => rot (c * s) (y s)) (c • quarterTurn (rot (c * t) (y t)) + rot (c * t) y') t := by
+  have hl : HasDerivAt (fun s : ℝ => c * s) c t := by
+    simpa using (hasDerivAt_id t).const_mul c
+  have hc : HasDerivAt (fun s => Real.cos (c * s)) (-Real.sin (c * t) * c) t := by
+    exact (Real.hasDerivAt_cos (c * t)).comp t hl
+  have hs : HasDerivAt (fun s => Real.sin (c * s)) (Real.cos (c * t) * c) t := by
+    exact (Real.hasDerivAt_sin (c * t)).comp t hl
+  have y0 : HasDerivAt (fun s => y s 0) (y' 0) t := (hasDerivAt_pi.1 hy) 0
+  have y1 : HasDerivAt (fun s => y s 1) (y' 1) t := (hasDerivAt_pi.1 hy) 1
+  refine hasDerivAt_pi.2 (Fin.forall_fin_two.2 ⟨?_, ?_⟩)
+  · refine ((hc.mul y0).sub (hs.mul y1)).congr_deriv ?_
+    simp [rot, quarterTurn]
+    ring
+  · refine ((hs.mul y0).add (hc.mul y1)).congr_deriv ?_
+    simp [rot, quarterTurn]
+    ring
+
+private theorem hasDerivAt_rot_neg_curve {y : ℝ → Fin 2 → ℝ} {y' : Fin 2 → ℝ} {t : ℝ}
+    (hy : HasDerivAt y y' t) :
+    HasDerivAt (fun s => rot (-s) (y s)) (-quarterTurn (rot (-t) (y t)) + rot (-t) y') t := by
+  have := hasDerivAt_rot_curve (-1) hy
+  simpa using this
+
+private theorem hasDerivAt_rot_pos_curve {y : ℝ → Fin 2 → ℝ} {y' : Fin 2 → ℝ} {t : ℝ}
+    (hy : HasDerivAt y y' t) :
+    HasDerivAt (fun s => rot s (y s)) (quarterTurn (rot t (y t)) + rot t y') t := by
+  have := hasDerivAt_rot_curve 1 hy
+  simpa using this
+
+/-- The restricted field at a rotated point, in terms of the inertial position `x` and velocity `v`. -/
+private theorem restrictedVectorField_rot {μ t : ℝ} {x v : Fin 2 → ℝ}
+    (hcf : CollisionFree μ (rot (-t) x, rot (-t) v)) :
+    restrictedVectorField μ ⟨(rot (-t) x, rot (-t) v), hcf⟩ =
+      (-quarterTurn (rot (-t) x) + rot (-t) v,
+        -quarterTurn (rot (-t) v) + rot (-t)
+          (-((1 - μ) / planeLength (x - rot t (primary₁ μ)) ^ 3) • (x - rot t (primary₁ μ))
+            - (μ / planeLength (x - rot t (primary₂ μ)) ^ 3) • (x - rot t (primary₂ μ)))) := by
+  have E : ∀ p : Fin 2 → ℝ, rot (-t) x - p = rot (-t) (x - rot t p) := fun p => by
+    rw [rot_sub', rot_neg_rot]
+  have R : ∀ p : Fin 2 → ℝ, radius (rot (-t) x - p) = planeLength (x - rot t p) := fun p => by
+    rw [E, radius_eq_planeLength, planeLength_rot]
+  refine Prod.ext ?_ ?_
+  · ext i
+    fin_cases i <;> simp [restrictedVectorField, quarterTurn] <;> ring
+  · simp only [restrictedVectorField, R, rot_sub', rot_smul', rot_neg', rot_neg_rot, neg_smul]
+    ext i
+    fin_cases i <;>
+      simp only [Fin.zero_eta, Fin.mk_one, Pi.add_apply, Pi.sub_apply, Pi.neg_apply, Pi.smul_apply,
+        smul_eq_mul, quarterTurn, Matrix.cons_val_zero, Matrix.cons_val_one] <;> ring
+
+/-- `bpI:p7:newton` (pointwise in time; not used by the frozen statements, lowest priority). -/
+theorem restricted_newton_iff {μ t : ℝ} {x v : ℝ → Fin 2 → ℝ}
+    (hcf : CollisionFree μ (rot (-t) (x t), rot (-t) (v t))) :
+    (HasDerivAt x (v t) t ∧
+      HasDerivAt v (-((1 - μ) / planeLength (x t - rot t (primary₁ μ)) ^ 3) • (x t - rot t (primary₁ μ))
+        - (μ / planeLength (x t - rot t (primary₂ μ)) ^ 3) • (x t - rot t (primary₂ μ))) t) ↔
+    HasDerivAt (fun s => (rot (-s) (x s), rot (-s) (v s)))
+      (restrictedVectorField μ ⟨(rot (-t) (x t), rot (-t) (v t)), hcf⟩) t := by
+  rw [restrictedVectorField_rot]
+  constructor
+  · rintro ⟨hx, hv⟩
+    exact (hasDerivAt_rot_neg_curve hx).prodMk (hasDerivAt_rot_neg_curve hv)
+  · intro hD
+    have hX := hD.fst
+    have hV := hD.snd
+    refine ⟨?_, ?_⟩
+    · have h := (hasDerivAt_rot_pos_curve hX).congr_of_eventuallyEq
+        (f₁ := x) (Filter.Eventually.of_forall fun s => (rot_rot_neg s (x s)).symm)
+      refine h.congr_deriv ?_
+      simp only [rot_add', rot_neg', rot_quarterTurn, rot_rot_neg]
+      abel
+    · have h := (hasDerivAt_rot_pos_curve hV).congr_of_eventuallyEq
+        (f₁ := v) (Filter.Eventually.of_forall fun s => (rot_rot_neg s (v s)).symm)
+      refine h.congr_deriv ?_
+      simp only [rot_add', rot_neg', rot_sub', rot_smul', rot_quarterTurn, rot_rot_neg]
+      abel
+
+end Newton
+
 end Part7Ham
 
 end KAM.Iso
