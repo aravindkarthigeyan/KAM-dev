@@ -186,8 +186,14 @@ def UDelta (K : Set (Fin 2 → ℝ)) (δ : ℝ) : Set ((Fin 2 → ℂ) × (Fin 2
 def delaunayC (K : Set (Fin 2 → ℝ)) (w : (Fin 2 → ℂ) × (Fin 2 → ℂ)) : (Fin 2 → ℂ) × (Fin 2 → ℂ) :=
   orbitMapC (kEccMax K) ![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0]
 
+/-- The tolerance `τ = min {e₋²/2, e₋ δ_E}` of `bpI:p7:complex-domain`. -/
+def complexTau (K : Set (Fin 2 → ℝ)) : ℝ :=
+  min (kEccMin K ^ 2 / 2) (kEccMin K * keplerDeltaE (kEccMax K))
+
 /-- The full output of `bpI:p7:complex-domain` at a given `δ₁` (exact factorization of the earlier
-statement). -/
+statement). Amendment (audit I-6, F1): the last three conjuncts add the quantitative conclusions of
+the blueprint lemma, namely the ratio bound `|G²/L² - G'²/L'²| < τ`, the radicand-disk membership
+`1 - G²/L² ∈ D(e(L', G')², e₋²/2) ⊂ {Re z > 0}` and `e² = 1 - G²/L²`. -/
 def ComplexDomainData (K : Set (Fin 2 → ℝ)) (δ₁ : ℝ) : Prop :=
   0 < δ₁ ∧ δ₁ ≤ min (keplerDeltaK (kEccMax K)) (min (kLMin K) (kGMin K)) / 2 ∧
     (∀ x ∈ actionNbhd K δ₁, x 0 ≠ 0 ∧ kLMin K / 2 < (x 0).re) ∧
@@ -200,7 +206,13 @@ def ComplexDomainData (K : Set (Fin 2 → ℝ)) (δ₁ : ℝ) : Prop :=
     (∀ w ∈ UDelta K δ₁,
       ![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] ∈ orbitDomC (kEccMax K)) ∧
     DifferentiableOn ℂ (delaunayC K) (UDelta K δ₁) ∧
-    (∀ w : Phase 2, phaseToC w ∈ UDelta K δ₁ → delaunayC K (phaseToC w) = phaseToC (delaunay w))
+    (∀ w : Phase 2, phaseToC w ∈ UDelta K δ₁ → delaunayC K (phaseToC w) = phaseToC (delaunay w)) ∧
+    (∀ x ∈ actionNbhd K δ₁, ∀ y ∈ K, ‖x - fun i => (y i : ℂ)‖ < δ₁ →
+      ‖x 1 ^ 2 / x 0 ^ 2 - (y 1 : ℂ) ^ 2 / (y 0 : ℂ) ^ 2‖ < complexTau K) ∧
+    (∀ x ∈ actionNbhd K δ₁, ∀ y ∈ K, ‖x - fun i => (y i : ℂ)‖ < δ₁ →
+      ‖(1 - x 1 ^ 2 / x 0 ^ 2) - ((eccOf (y 0) (y 1) : ℝ) : ℂ) ^ 2‖ < kEccMin K ^ 2 / 2 ∧
+        kEccMin K ^ 2 / 2 < (1 - x 1 ^ 2 / x 0 ^ 2).re) ∧
+    (∀ x ∈ actionNbhd K δ₁, eccC (x 0) (x 1) ^ 2 = 1 - x 1 ^ 2 / x 0 ^ 2)
 
 open scoped Classical in
 /-- The selected `δ₁` (F3). -/
@@ -423,6 +435,41 @@ theorem point_facts (hK : SafeAction K) {δ₁ : ℝ} (hr : GoodRadius K δ₁) 
   have h4 := Tube.deltaE_le_left (kEccMax K)
   linarith
 
+/-- The ratio bound and the radicand-disk membership of `bpI:p7:complex-domain`: for `x` within
+`δ₁` of `y ∈ 𝒦`, `|G²/L² - G'²/L'²| < τ` and `1 - G²/L² ∈ D(e(y)², e₋²/2)` with
+`Re (1 - G²/L²) > e₋²/2`. -/
+theorem ratio_disk_facts (hK : SafeAction K) {δ₁ : ℝ} (hr : GoodRadius K δ₁) {x : Fin 2 → ℂ}
+    {y : Fin 2 → ℝ} (hy : y ∈ K) (hxy : ‖x - fun i => (y i : ℂ)‖ < δ₁) :
+    ‖x 1 ^ 2 / x 0 ^ 2 - (y 1 : ℂ) ^ 2 / (y 0 : ℂ) ^ 2‖ < complexTau K ∧
+      ‖(1 - x 1 ^ 2 / x 0 ^ 2) - ((eccOf (y 0) (y 1) : ℝ) : ℂ) ^ 2‖ < kEccMin K ^ 2 / 2 ∧
+        kEccMin K ^ 2 / 2 < (1 - x 1 ^ 2 / x 0 ^ 2).re := by
+  have hy' := hK.sub_cone y hy
+  have hae' : kEccMin K ≤ eccOf (y 0) (y 1) := (kEccMin_spec hK).2 y hy
+  have ha0 : 0 < kEccMin K := kEccMin_pos hK
+  have he'sq : ((eccOf (y 0) (y 1) : ℝ) : ℂ) ^ 2 = 1 - (y 1 : ℂ) ^ 2 / (y 0 : ℂ) ^ 2 := by
+    rw [cast_one_sub, ← Complex.ofReal_pow, eccOf_sq hy'.1 hy'.2]
+  have hτ := hr.unif x y hy hxy
+  have hτ' : ‖x 1 ^ 2 / x 0 ^ 2 - (y 1 : ℂ) ^ 2 / (y 0 : ℂ) ^ 2‖ < complexTau K := by
+    have e : (1 - x 1 ^ 2 / x 0 ^ 2) - (1 - (y 1 : ℂ) ^ 2 / (y 0 : ℂ) ^ 2) =
+        -(x 1 ^ 2 / x 0 ^ 2 - (y 1 : ℂ) ^ 2 / (y 0 : ℂ) ^ 2) := by ring
+    rw [e, norm_neg] at hτ
+    exact hτ
+  refine ⟨hτ', ?_⟩
+  have hdisk : ‖(1 - x 1 ^ 2 / x 0 ^ 2) - ((eccOf (y 0) (y 1) : ℝ) : ℂ) ^ 2‖ <
+      kEccMin K ^ 2 / 2 := by
+    rw [he'sq]
+    exact hτ.trans_le (min_le_left _ _)
+  refine ⟨hdisk, ?_⟩
+  have h1 : |((1 - x 1 ^ 2 / x 0 ^ 2) - ((eccOf (y 0) (y 1) : ℝ) : ℂ) ^ 2).re| ≤
+      ‖(1 - x 1 ^ 2 / x 0 ^ 2) - ((eccOf (y 0) (y 1) : ℝ) : ℂ) ^ 2‖ := Complex.abs_re_le_norm _
+  have h2 : ((1 - x 1 ^ 2 / x 0 ^ 2) - ((eccOf (y 0) (y 1) : ℝ) : ℂ) ^ 2).re =
+      (1 - x 1 ^ 2 / x 0 ^ 2).re - eccOf (y 0) (y 1) ^ 2 := by
+    rw [Complex.sub_re, ← Complex.ofReal_pow, Complex.ofReal_re]
+  have h3 : kEccMin K ^ 2 ≤ eccOf (y 0) (y 1) ^ 2 := pow_le_pow_left₀ ha0.le hae' 2
+  have h4 := (abs_lt.1 (h1.trans_lt hdisk)).1
+  rw [h2] at h4
+  linarith
+
 /-- `x₀ ≠ 0` and `Re (1 - x₁²/x₀²) > 0` on `𝒦_{δ₁}`. -/
 theorem nbhd_facts (hK : SafeAction K) {δ₁ : ℝ} (hr : GoodRadius K δ₁) {x : Fin 2 → ℂ}
     (hx : x ∈ actionNbhd K δ₁) : x 0 ≠ 0 ∧ 0 < (1 - x 1 ^ 2 / x 0 ^ 2).re := by
@@ -594,13 +641,20 @@ theorem cd_real_eq (hK : SafeAction K) {δ₁ : ℝ} (hr : GoodRadius K δ₁) {
 theorem exists_complexDomainData (hK : SafeAction K) : ∃ δ₁, ComplexDomainData K δ₁ := by
   obtain ⟨δ₁, hr⟩ := exists_radius hK
   refine ⟨δ₁, hr.pos, hr.le, fun x hx => ?_, cd_diff_ecc hK hr, ?_, fun y hy => cd_real hK hr hy,
-    fun w hw => cd_mem_dom hK hr hw, cd_diff_delaunay hK hr, fun w hw => cd_real_eq hK hr hw⟩
+    fun w hw => cd_mem_dom hK hr hw, cd_diff_delaunay hK hr, fun w hw => cd_real_eq hK hr hw,
+    ?_, ?_, ?_⟩
   · obtain ⟨hx0, -⟩ := nbhd_facts hK hr hx
     obtain ⟨y, hy, hxy⟩ := hx
     exact ⟨hx0, (point_facts hK hr hy hxy).1⟩
   · intro x hx y hy hxy
     obtain ⟨-, -, h3, h4⟩ := point_facts hK hr hy hxy
     exact ⟨h3, h4⟩
+  · intro x _ y hy hxy
+    exact (ratio_disk_facts hK hr hy hxy).1
+  · intro x _ y hy hxy
+    exact (ratio_disk_facts hK hr hy hxy).2
+  · intro x _
+    exact sqrt_sq_eq _
 
 end ComplexDomainAux
 
@@ -615,6 +669,62 @@ theorem complex_domain_spec {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) :
     exact h'.choose_spec
   · rename_i h'
     exact absurd h h'
+
+/-- Audit I-6, F1: the ratio bound `|G²/L² - G'²/L'²| < τ` of `bpI:p7:complex-domain` holds at the
+selected radius `complexDelta K`. -/
+theorem complexDelta_ratio_bound {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) :
+    ∀ x ∈ actionNbhd K (complexDelta K), ∀ y ∈ K, ‖x - fun i => (y i : ℂ)‖ < complexDelta K →
+      ‖x 1 ^ 2 / x 0 ^ 2 - (y 1 : ℂ) ^ 2 / (y 0 : ℂ) ^ 2‖ < complexTau K := by
+  obtain ⟨-, -, -, -, -, -, -, -, -, h, -⟩ := complex_domain_spec hK
+  exact h
+
+/-- Audit I-6, F1: the radicand `1 - G²/L²` lies in `D(e(L', G')², e₋²/2)`, where its real part
+exceeds `e₋²/2 > 0`, at the selected radius. -/
+theorem complexDelta_radicand_disk {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) :
+    ∀ x ∈ actionNbhd K (complexDelta K), ∀ y ∈ K, ‖x - fun i => (y i : ℂ)‖ < complexDelta K →
+      ‖(1 - x 1 ^ 2 / x 0 ^ 2) - ((eccOf (y 0) (y 1) : ℝ) : ℂ) ^ 2‖ < kEccMin K ^ 2 / 2 ∧
+        kEccMin K ^ 2 / 2 < (1 - x 1 ^ 2 / x 0 ^ 2).re := by
+  obtain ⟨-, -, -, -, -, -, -, -, -, -, h, -⟩ := complex_domain_spec hK
+  exact h
+
+/-- `e(L, G)² = 1 - G²/L²` on `𝒦_{δ₁}` at the selected radius. -/
+theorem complexDelta_ecc_sq {K : Set (Fin 2 → ℝ)} (hK : SafeAction K) :
+    ∀ x ∈ actionNbhd K (complexDelta K), eccC (x 0) (x 1) ^ 2 = 1 - x 1 ^ 2 / x 0 ^ 2 := by
+  obtain ⟨-, -, -, -, -, -, -, -, -, -, -, h⟩ := complex_domain_spec hK
+  exact h
+
+/-- Audit I-6, N1: `delaunayC K` is `2π`-periodic in `ℓ` and in `g` on `𝒰(complexDelta K)`
+(`bpI:p7:complex-domain`). -/
+theorem delaunayC_periodic {K : Set (Fin 2 → ℝ)} (hK : SafeAction K)
+    {w : (Fin 2 → ℂ) × (Fin 2 → ℂ)} (hw : w ∈ UDelta K (complexDelta K)) :
+    delaunayC K (Function.update w.1 0 (w.1 0 + 2 * π), w.2) = delaunayC K w ∧
+      delaunayC K (Function.update w.1 1 (w.1 1 + 2 * π), w.2) = delaunayC K w := by
+  obtain ⟨-, -, -, -, -, -, hdom, -⟩ := complex_domain_spec hK
+  have h0 := ComplexDomainAux.kEccMax_pos hK
+  have h1 := ComplexDomainAux.kEccMax_lt_one hK
+  have hx := hdom w hw
+  have hper := orbitMapC_periodic h0 h1 hx
+  constructor
+  · have e : (![(Function.update w.1 0 (w.1 0 + 2 * π)) 0,
+        (Function.update w.1 0 (w.1 0 + 2 * π)) 1,
+        w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] : Fin 5 → ℂ) =
+        Function.update (![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] : Fin 5 → ℂ)
+          0 (w.1 0 + 2 * π) := by
+      funext j
+      fin_cases j <;> simp
+    show orbitMapC (kEccMax K) _ = orbitMapC (kEccMax K) _
+    rw [e]
+    exact hper.1
+  · have e : (![(Function.update w.1 1 (w.1 1 + 2 * π)) 0,
+        (Function.update w.1 1 (w.1 1 + 2 * π)) 1,
+        w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] : Fin 5 → ℂ) =
+        Function.update (![w.1 0, w.1 1, w.2 0, eccC (w.2 0) (w.2 1), w.2 1 / w.2 0] : Fin 5 → ℂ)
+          1 (w.1 1 + 2 * π) := by
+      funext j
+      fin_cases j <;> simp
+    show orbitMapC (kEccMax K) _ = orbitMapC (kEccMax K) _
+    rw [e]
+    exact hper.2
 
 end Part7Exact
 
